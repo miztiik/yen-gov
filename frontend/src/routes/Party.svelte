@@ -3,6 +3,7 @@
     fetchResultSummary, fetchParties,
     type ResultSummary, type PartyEntry, type PartyTotals,
   } from "../lib/data";
+  import { states } from "../lib/states.svelte";
 
   interface Props { params: { state: string; party_eci_code: string } }
   let { params }: Props = $props();
@@ -32,7 +33,7 @@
 
 <main class="max-w-3xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {params.state} overview</a></p>
+    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {states.name(params.state)} overview</a></p>
     <h1 class="text-2xl font-bold">
       {#if party_meta}{party_meta.full_name}{:else}Party {params.party_eci_code}{/if}
     </h1>
@@ -53,7 +54,7 @@
     <div class="text-slate-500">Loading…</div>
   {:else if !totals}
     <div class="p-4 bg-amber-50 border border-amber-200 rounded text-amber-900">
-      Party <code>{params.party_eci_code}</code> not found in {params.state} totals.
+      Party <code>{params.party_eci_code}</code> not found in {states.name(params.state)} totals.
     </div>
   {:else}
     <section class="bg-white rounded-lg shadow-sm p-5 grid sm:grid-cols-3 gap-4 text-sm">

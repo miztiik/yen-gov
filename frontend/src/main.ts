@@ -9,6 +9,7 @@ import Party from "./routes/Party.svelte";
 import Explore from "./routes/Explore.svelte";
 import Settings from "./routes/Settings.svelte";
 import Psephlab from "./routes/Psephlab.svelte";
+import Compare from "./routes/Compare.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -37,6 +38,7 @@ startRouter({
     { pattern: "/s/:state/party/:party_eci_code", component: Party },
     { pattern: "/s/:state/explore", component: Explore },
     { pattern: "/lab/:state/:event", component: Psephlab },
+    { pattern: "/compare/:state/:event", component: Compare },
     { pattern: "/settings", component: Settings },
   ],
   notFound: { pattern: "*", component: NotFound },

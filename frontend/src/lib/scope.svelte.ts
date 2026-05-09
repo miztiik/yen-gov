@@ -38,8 +38,8 @@ export const scope = {
   },
   /** ECI state code from the URL, or null on country-level routes. */
   get state(): string | null {
-    // URL shapes: /s/:state, /s/:state/..., /lab/:state/...
-    const m = /^\/(?:s|lab)\/([A-Z0-9]+)/.exec(route.path);
+    // URL shapes: /s/:state, /s/:state/..., /lab/:state/..., /compare/:state/...
+    const m = /^\/(?:s|lab|compare)\/([A-Z0-9]+)/.exec(route.path);
     return m ? m[1] : null;
   },
   get election(): string {
