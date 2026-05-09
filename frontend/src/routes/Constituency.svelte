@@ -1,6 +1,7 @@
 <script lang="ts">
   import { fetchConstituencyResult, type ConstituencyResult } from "../lib/data";
   import AcStackedBar from "../lib/AcStackedBar.svelte";
+  import { states } from "../lib/states.svelte";
 
   interface Props { params: { state: string; eci_no: number } }
   let { params }: Props = $props();
@@ -25,12 +26,12 @@
 
 <main class="max-w-4xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {params.state} overview</a></p>
+    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {states.name(params.state)} overview</a></p>
     <h1 class="text-2xl font-bold">
       {#if result}{result.constituency_name ?? `AC ${result.eci_no}`}{:else}AC {params.eci_no}{/if}
     </h1>
     <p class="text-sm text-slate-500">
-      {params.state} · constituency #{params.eci_no}
+      {states.name(params.state)} · constituency #{params.eci_no}
     </p>
   </header>
 
@@ -42,7 +43,7 @@
     <div class="p-5 bg-amber-50 border border-amber-200 rounded space-y-2">
       <h2 class="text-sm font-semibold uppercase text-amber-900">No result published</h2>
       <p class="text-sm text-amber-900">
-        The Election Commission has not published a result for AC #{params.eci_no} in {params.state}.
+        The Election Commission has not published a result for AC #{params.eci_no} in {states.name(params.state)}.
         This typically means the constituency was <strong>countermanded</strong> or <strong>postponed</strong>
         — for example, if a contesting candidate died before polling, or polling was deferred.
       </p>

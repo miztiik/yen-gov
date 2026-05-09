@@ -1,8 +1,8 @@
 # Admin app — overview
 
-**Last Updated**: 2026-05-09 (status: design only — Phase 4, not implemented)
+**Last Updated**: 2026-05-09 (status: walking skeleton + Inventory panel shipped — Phase 4 v0)
 
-> **Status note.** Nothing under `admin/` or `backend/yen_gov/admin/` has been created yet. This page captures the agreed shape so that whoever picks up Phase 4 doesn't need to re-derive the decisions. Promote subsections into sibling docs (e.g. `admin/patches.md`) once code lands.
+> **Status note.** Phase 4 v0 has landed: `admin/` Svelte app, `backend/yen_gov/admin/` FastAPI module, and the **Inventory** panel are live. **Schemas, Pipeline, and Patches panels are still design-only.** When those land, promote their subsections in this doc into sibling files (`admin/patches.md`, etc.).
 
 The admin app is a **separate, dev-only Svelte application** that lives alongside the public frontend but ships in its own bundle, talks to a local **FastAPI** wrapper around the existing pipeline, and is **never deployed to GitHub Pages**. It is the operator's cockpit: dataset inventory, schema health, pipeline status, and a patch-file editor for data corrections.
 
@@ -78,30 +78,37 @@ The public `frontend/` is untouched. CLAUDE.md §3's "create folders only when r
 
 ## Running locally
 
-```bash
-# terminal 1
-uvicorn yen_gov.admin:app --reload --port 8000
+```powershell
+# terminal 1 — FastAPI (admin extras: pip install -e backend[admin])
+python -m uvicorn yen_gov.admin:app --port 8000 --app-dir backend
 
-# terminal 2
-cd admin && bun run dev    # http://localhost:5174 (5173 is the public app)
+# terminal 2 — Svelte dev server (proxies /api → 127.0.0.1:8000)
+cd admin; bun install; bunx vite
+# http://localhost:5174
 ```
 
-A convenience script `npm run admin` (in repo root) starts both with `concurrently`. The admin Vite config proxies `/api/*` to `127.0.0.1:8000` so the bundle has no hardcoded host.
+A convenience `npm run admin` script that runs both with `concurrently` is **not yet wired** (single-line ask deferred until a second panel makes it worth the dependency). For now, two terminals.
+
+The admin Vite config proxies `/api/*` to `127.0.0.1:8000` so the bundle has no hardcoded host.
 
 ## Panels (v1)
 
-### Inventory
+### Inventory ✅ shipped (2026-05-09)
 
-Lists every state × election × AC that has a dataset, with:
-- File path (POSIX-relative per CLAUDE.md §2).
-- `$schema_version` and whether it matches the schema's current `x-version`.
-- `sources[]` provenance (URL, `fetched_at`).
-- File mtime ("freshness").
-- Validation status (✓ valid / ✗ with error summary).
+Implemented in [`backend/yen_gov/admin/inventory.py`](../../../backend/yen_gov/admin/inventory.py) (endpoint `GET /api/inventory`) and [`admin/src/routes/Inventory.svelte`](../../../admin/src/routes/Inventory.svelte) (UI).
 
-Drives a coverage table: rows are states, columns are elections, cells are colored by completeness.
+The backend walks `datasets/elections/<event>/<state>/`, and for every cell reports:
+- `summary.schema_version`, `summary.sources[]` (provenance), `summary.path`, `summary.mtime` from `result.summary.json`.
+- `ac_results.found` (count of files in `results/*.json`) vs `ac_results.expected` (length of the matching `datasets/reference/in/states/<state>/constituencies.json`); `missing` if any.
+- Whether `parties.json` and `results.sqlite` exist alongside.
 
-### Schemas
+UI is a single dark-themed table sorted by event, then state, with completeness coloured (emerald 100% / amber partial / rose 0%). State codes are joined to display names from `datasets/reference/in/states.json` so the table reads "S22 Tamil Nadu", not just "S22" — same fix as the public app.
+
+A real bug was caught during the first browser walkthrough: WB renders `293 / 294 ACs` but `Math.round` was rounding to 100%; the UI now uses `Math.floor` so any missing AC drops below 100. Lesson: completeness UIs must round *down*, never up.
+
+Drives a coverage table: rows are (event, state) pairs; aggregating into a state × election matrix is deferred until a second event lands (today only one event exists; a 1-column matrix would just be the list).
+
+### Schemas (planned)
 
 Runs the two-tier validator from CLAUDE.md §11:
 - **Tier A** — every `*.schema.json` validates against JSON Schema 2020-12 meta-schema; `$ref`s resolve; `x-version`/`x-changelog` invariants hold.
@@ -109,13 +116,13 @@ Runs the two-tier validator from CLAUDE.md §11:
 
 Failures link to the offending file with the validator's error path highlighted. This is a UI for what CI already does on PR; the value is the *interactive* diff during data wrangling.
 
-### Pipeline
+### Pipeline (planned)
 
 - **Last runs** — table of recent `.runtime/logs/<run-id>/` directories, with status, duration, source, and log links.
 - **Trigger** — buttons to run sources (e.g. `yen-gov pipeline run --source eci --election AcGenMay2026 --state S22`). Streams the run's stdout/stderr to the page via Server-Sent Events from the FastAPI handler.
 - Read-only panel by default; the trigger buttons are gated by a `ADMIN_ALLOW_RUN=1` env var on the uvicorn process to avoid accidental scrapes during exploration.
 
-### Patches
+### Patches (planned)
 
 Editor for the patch-file model (below). Loads a dataset, lets the operator edit specific fields, emits a structured patch under `datasets/patches/`, shows the diff, and offers a "stage in git" button.
 

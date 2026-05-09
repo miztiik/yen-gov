@@ -1,6 +1,6 @@
 # Frontend Overview
 
-**Last Updated**: 2026-05-09 (revision: post-Phase-2 sync)
+**Last Updated**: 2026-05-09 (revision: post-Phase-3 sync)
 
 The frontend is a static Svelte 5 + Vite + Tailwind + d3 bundle that renders election artifacts from [`datasets/`](../../../datasets/). It has no production backend (CLAUDE.md Holy Law #1) and never commits data files (§4). Built with `bun`. Routed with a tiny custom hash router.
 
@@ -75,8 +75,8 @@ All views reuse a small set of components from `src/lib/`. The catalog is fixed;
 | `maplibre/StateAcMap.svelte` | StateOverview, Constituency | MapLibre GL state-level AC polygons with district overlay; selection state binds to the `?ac=...` URL param. |
 | `PartyBar.svelte` | StateOverview, Party, Psephlab | Animated horizontal bar of seat tally. |
 | `SeatDonut.svelte` | StateOverview, Party | Donut of vote share, total in centre. |
-| `ParliamentArc.svelte` | Psephlab (Compare planned) | Auto-rowed seat-dot semicircle, majority midline + legend. |
-| `SwingSankey.svelte` | Psephlab (Compare planned) | Approximate party-to-party vote flow between actuals and scenario. Loser-drop ÷ gainer-share apportionment, labelled as approximate in the chart caption. |
+| `ParliamentArc.svelte` | Psephlab, Compare | Auto-rowed seat-dot semicircle, majority midline + legend. |
+| `SwingSankey.svelte` | Psephlab | Approximate party-to-party vote flow between actuals and scenario. Loser-drop ÷ gainer-share apportionment, labelled as approximate in the chart caption. |
 | `MarginHistogram.svelte` | StateOverview | Margin-of-victory distribution per election. |
 | `AcStackedBar.svelte` | Constituency | Top-5 + NOTA + collapsed Others, per AC. |
 
@@ -94,7 +94,7 @@ The rail and scope picker landed as three modules under `frontend/src/lib/`:
 
 - `scope.svelte.ts` — module-scoped rune store for the `(country, state, election)` tuple. `country` is hard-coded (`IN`); `election` lives in `localStorage` (`yen-gov:scope:election`); `state` is **derived from the URL path** (regex match on `/s/:state` or `/lab/:state/...`) rather than stored, so deep links and back/forward keep the picker in sync without any subscription plumbing.
 - `ScopePicker.svelte` — three native `<select>`s, each labelled. Country and Election render disabled today (one option each); the selects are still present so the picker UI stays uniform when more options arrive. Changing State navigates the router (`location.hash = "#/s/<code>"` or `"#/"` for All India). Selecting "With data" / "Other states" optgroups makes the difference visible to the user without dropping the long tail.
-- `LeftRail.svelte` — desktop layout is a 240 px sticky sidebar with brand → ScopePicker → tools → footer; mobile collapses to a top header + slide-in drawer (Tailwind `md:` breakpoint). Tools that require a state (`SQL`) or that aren't built yet (`Psephlab` Phase 2, `Compare` Phase 3) render as disabled non-links with a `title=` tooltip explaining why, instead of disappearing — the user learns the rule.
+- `LeftRail.svelte` — desktop layout is a 240 px sticky sidebar with brand → ScopePicker → tools → footer; mobile collapses to a top header + slide-in drawer (Tailwind `md:` breakpoint). Tools that require a state (`SQL`, `Compare`) render as disabled non-links with a `title=` tooltip explaining why, instead of disappearing — the user learns the rule.
 
 `main.ts` mounts the rail once into `#rail` and lets the router replace `#route` on every navigation, identical to the previous TopNav setup. The interim TopNav.svelte from Phase 1a was removed in the same commit.
 
@@ -106,8 +106,8 @@ Build order, smallest shippable slice first:
 | --- | --- | --- | --- |
 | 1 | ✅ shipped | **Explore** for TN + AS + KL + WB (May 2026) — India choropleth landing, state map (district + AC), per-AC top-N, party color overrides | `IndiaMap`, `StateAcMap`, `MarginHistogram`, `AcStackedBar`, `LeftRail`, `ScopePicker` |
 | 2 | ✅ shipped | **Psephlab** v1 — per-AC manual swing, statewide swing, threshold drop, ad-hoc party-bag, FPTP counting, scenario-as-URL | [psephlab.md](psephlab.md); `ParliamentArc`, `SwingSankey`; `lib/psephlab/` engine |
-| 3 | next | **Compare** — split-screen Actual vs Scenario A (with deltas); election-vs-election where prior data exists | `Compare.svelte`, `lib/diff.ts` |
-| 4 | not started | **Admin app** — separate `admin/` Svelte app + FastAPI; inventory, schema health, pipeline triggers, patch-file editor | See [admin overview](../admin/overview.md) |
+| 3 | ✅ shipped | **Compare** — split-screen scenario-vs-scenario (paste two Psephlab share URLs into A and B; middle column shows per-party seat Δ); election-vs-election empty-states until prior-event datasets land | [compare.md](compare.md); `Compare.svelte` route only — no extra `lib/diff.ts`, the per-party union is computed inline |
+| 4 | ⏳ in progress | **Admin app** — separate `admin/` Svelte app + FastAPI; v0 ships Inventory panel; Schemas / Pipeline / Patches follow | See [admin overview](../admin/overview.md) |
 | 5 | deferred | Additional **counting-rule plugins** (IRV, STV, D'Hondt, Sainte-Laguë), socio-economic map overlays | Documented in [psephlab](psephlab.md) and [map](map.md) but not implemented in v1 |
 
 Each phase is independently shippable and reviewable.
@@ -219,7 +219,7 @@ URLs look like:
 - `#/lab/:state/:event`                 — Psephlab for a chosen scope
 - `#/lab/:state/:event?s=<scenario>`    — Psephlab with a scenario loaded from URL fragment query
 - `#/settings`                          — color overrides, layout preferences (localStorage-backed)
-- `#/compare/...` *(planned, Phase 3)*  — split-screen actual vs scenario, or election-vs-election
+- `#/compare/:state/:event?mode=scn|elec&a=<scenario>&b=<scenario>&eventb=<event>` — [Compare.svelte](../../../frontend/src/routes/Compare.svelte). `mode=scn` (default): two Psephlab scenarios on the same actuals; `mode=elec`: same state across two events.
 
 [`frontend/src/lib/router.svelte.ts`](../../../frontend/src/lib/router.svelte.ts) exposes a `route` rune (`$state`-based store) parsed from `window.location.hash` and updated on `hashchange`. Components read `route.params` directly. Navigation is via standard `<a href="#/...">` — no link component required.
 

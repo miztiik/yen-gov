@@ -28,6 +28,7 @@
   import { colors } from "../lib/colors/store.svelte";
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import SwingSankey from "../lib/SwingSankey.svelte";
+  import { states } from "../lib/states.svelte";
 
   interface Props { params: { state: string; event: string } }
   let { params }: Props = $props();
@@ -156,9 +157,9 @@
 
 <div class="max-w-6xl mx-auto p-4 md:p-6 space-y-4">
   <header class="space-y-1">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${state_code}`}>← {state_code} overview</a></p>
+    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${state_code}`}>← {states.name(state_code)} overview</a></p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
-      <h1 class="text-2xl font-bold">Psephlab — {state_code}</h1>
+      <h1 class="text-2xl font-bold">Psephlab — {states.name(state_code)}</h1>
       <p class="text-xs text-slate-500">
         Counting rule: <code class="font-mono">{scenario.rule}</code> · {scenario.mutations.length} mutation(s)
       </p>

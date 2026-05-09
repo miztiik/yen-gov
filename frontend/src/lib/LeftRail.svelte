@@ -46,9 +46,9 @@
     {
       label: "Compare",
       icon: "⇄",
-      href: () => `#/compare`,
-      match: p => p.startsWith("/compare"),
-      disabled_reason: () => "Coming in phase 3",
+      href: () => (scope.state ? `#/compare/${scope.state}/${scope.election}` : "#/"),
+      match: p => p.startsWith("/compare/"),
+      disabled_reason: () => (scope.state ? null : "Pick a state first"),
     },
     {
       label: "Settings",

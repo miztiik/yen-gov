@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The admin's dark theme is intentional — visual cue that you've left
+ * the public app. Tailwind defaults handle the rest; component classes
+ * use `bg-slate-900`/`bg-slate-800` panels on a slate-950 body. */

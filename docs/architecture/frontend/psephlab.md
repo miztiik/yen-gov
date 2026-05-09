@@ -144,7 +144,7 @@ The decoded JSON (live shape, v1):
   "rule": "fptp",
   "mutations": [
     { "id": "statewideSwing",
-      "from_party_eci_code": "582",
+      "from_party_eci_codes": ["582"],
       "to_party_eci_code": "3679",
       "pct": 3.0
     },
@@ -158,7 +158,7 @@ The decoded JSON (live shape, v1):
 
 - `v` — scenario format version. Bumping `v` is a breaking change to the URL; loaders refuse unknown versions and fall back to the empty scenario with a `console.warn`.
 - `rule` — counting rule id from the registry. Unknown ids fall back to `fptp` (engine never throws on stale URLs).
-- `mutations` — ordered list. Each entry is a discriminated `MutationConfig` typed by `id`. Field names use the ECI-suffix vocabulary (`from_party_eci_code`, `to_party_eci_code`) consistent with the rest of the schemas — not the bare `from`/`to` shown in earlier drafts.
+- `mutations` — ordered list. Each entry is a discriminated `MutationConfig` typed by `id`. Field names use the ECI-suffix vocabulary consistent with the rest of the schemas — not the bare `from`/`to` shown in earlier drafts. Both `perAcSwing` and `statewideSwing` accept `from_party_eci_codes: string[]` (an array, possibly with one element) so a single destination party can pool votes from many sources. Legacy URLs that stored a singular `from_party_eci_code: string` are still decoded — the loaders treat them as `[<that code>]`.
 - `colors` — *(planned)* user's party color overrides. Not currently embedded in the URL; persisted only in `localStorage` under `yen-gov:party-colors`.
 
 Empty/default fields are stripped during encoding so a fresh scenario produces the shortest possible URL (`?s=eyJ2IjoxLCJydWxlIjoiZnB0cCJ9`).
@@ -203,7 +203,7 @@ Single-AC mode (entered from `#/s/:state/ac/:eci_no` → "Open in Psephlab") —
 
 - [Frontend overview](overview.md) — personas, IA, viz catalog, phasing.
 - [Map](map.md) — choropleth layer used by Psephlab.
-- [Compare](overview.md#phasing) — Phase 3 split-screen view that diffs two scenarios.
+- [Compare](compare.md) — Phase 3 split-screen view that diffs two scenarios (or two events) side by side.
 - CLAUDE.md §1 (static-first), §6 (correction levels — Psephlab is Level 5).
 
 ## v1 implementation status (2026-05-09)
@@ -213,8 +213,10 @@ Shipped:
 - Engine, mutations (perAcSwing, statewideSwing, thresholdDrop, partyBag), FPTP rule, scenario URL codec at `frontend/src/lib/psephlab/`.
 - Route `#/lab/:state/:event` ([Psephlab.svelte](../../../frontend/src/routes/Psephlab.svelte)) with sticky mutation editor, before/after PartyBar comparison, party-deltas table, copy-share-URL.
 - Router strips fragment query (`?s=...`) before pattern match — see [router.svelte.ts](../../../frontend/src/lib/router.svelte.ts).
-- Mutation field name `from`/`to` in this doc landed in code as `from_party_eci_code`/`to_party_eci_code` (explicit suffix matches the rest of the schema vocabulary).
+- Mutation field name `from`/`to` in this doc landed in code as `from_party_eci_codes` (array) and `to_party_eci_code` (single string) — explicit suffixes match the rest of the schema vocabulary; pluralising the source side keeps many-to-one swings first-class.
 - [`ParliamentArc.svelte`](../../../frontend/src/lib/ParliamentArc.svelte) — pure-SVG seat-dot semicircle. Row count auto-picked from `sqrt(total/6)` (4–12 rows); dots packed proportional to row arc length, then ordered left→right with the largest party on the left. Rounding drift is reconciled across the last rows so the dot total is always exact. Majority midline + per-party legend.
 - [`SwingSankey.svelte`](../../../frontend/src/lib/SwingSankey.svelte) — pure-SVG approximate vote-flow diagram. We don't have the true bipartite flow matrix (per-AC mutations may overlap), so each loser's drop is redistributed across gainers in proportion to each gainer's share of total gain. Documented in the chart caption so users don't read it as ground truth.
 
 Deferred to next pass: per-mutation labels in URL (currently only IDs); persisted custom party colors in the scenario object.
+
+Update (2026-05-09, post-Compare): both `perAcSwing` and `statewideSwing` accept `from_party_eci_codes: string[]` to model many-to-one swings (e.g. "AIADMK + BJP supporters defecting to DMK"). The legacy singular `from_party_eci_code` lives only as a URL back-compat shim in each mutation's `apply()` — no other code path knows about it. Editor for `from` is a checkbox cluster (party rows scoped to the AC for `perAcSwing`, to all parties in scope for `statewideSwing`). Pool-pull algorithm: `target = min(votes, pool)`, sources contribute proportional to share, rounding drift absorbed by the largest source, per-source clamp prevents negatives.

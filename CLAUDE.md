@@ -37,9 +37,9 @@ In-memory `Path` objects for local I/O may stay platform-native. The rule applie
 | `CLAUDE.md`     | created    | This file                                            |
 | `datasets/`     | created    | Schemas, reference data, generated election outputs. Owned by neither runtime; written by `backend/`, read by `frontend/` at build time. |
 | `config/`       | created    | Human-edited tunable knobs only (e.g. fetch concurrency, top-N cutoff). Schemas live in `datasets/schemas/`, not here. |
-| `backend/`      | created    | Local Python pipeline (fetch / parse / validate / emit). FastAPI admin wrapper deferred to Phase 4. |
+| `backend/`      | created    | Local Python pipeline (fetch / parse / validate / emit). FastAPI admin wrapper at `backend/yen_gov/admin/` (Phase 4 v0 — Inventory only). |
 | `frontend/`     | created    | Static GitHub Pages app (Svelte 5 + Vite 6 + Tailwind + d3 + maplibre-gl). UI code only — never commits data files. |
-| `admin/`        | not yet    | Separate dev-only Svelte app + FastAPI (Phase 4). Never deployed publicly. |
+| `admin/`        | created    | Separate dev-only Svelte app (Vite, port 5174) for the operator console. Never deployed publicly. v0 ships the Inventory panel; Schemas / Pipeline / Patches panels follow. |
 | `tools/`        | created    | Standalone dev/ops tooling (`tools/eci_recon/`, `tools/boundaries/`). No `backend/` imports. |
 | `.runtime/`     | gitignored | Ephemeral run state. `.runtime/raw/<source>/...` holds intermediate downloaded HTML for debugging (ADR-0003); `.runtime/logs/<run-id>/` holds structured logs. Never a contract surface. |
 | `TODO/` `notes/`| optional   | Working scratchpads — non-authoritative              |

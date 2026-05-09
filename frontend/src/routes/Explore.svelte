@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Database, QueryExecResult } from "sql.js";
   import { getDb } from "../lib/sql";
+  import { states } from "../lib/states.svelte";
 
   interface Props { params: { state: string } }
   let { params }: Props = $props();
@@ -57,8 +58,8 @@
 
 <main class="max-w-6xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {params.state} overview</a></p>
-    <h1 class="text-2xl font-bold">Explore — {params.state}</h1>
+    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {states.name(params.state)} overview</a></p>
+    <h1 class="text-2xl font-bold">Explore — {states.name(params.state)}</h1>
     <p class="text-sm text-slate-500">
       Ad-hoc SQL against <code class="font-mono">results.sqlite</code> for event <code>{event}</code>. Runs in your browser via sql.js.
     </p>

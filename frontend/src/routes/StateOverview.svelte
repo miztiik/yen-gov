@@ -8,6 +8,7 @@
   import MarginHistogram from "../lib/MarginHistogram.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
+  import { states } from "../lib/states.svelte";
 
   interface Props { params: { state: string } }
   let { params }: Props = $props();
@@ -70,7 +71,7 @@
 <main class="max-w-5xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
     <p class="text-xs"><a class="text-slate-500 hover:underline" href="#/">← All states</a></p>
-    <h1 class="text-2xl font-bold">{state_code} — Legislative Assembly, May 2026</h1>
+    <h1 class="text-2xl font-bold">{states.name(state_code)} — Legislative Assembly, May 2026</h1>
     <p class="text-sm text-slate-500">
       Event <code class="font-mono">{event}</code> · State <code class="font-mono">{state_code}</code>
       · <a class="text-blue-600 hover:underline" href={`#/s/${state_code}/explore`}>SQL explorer →</a>
