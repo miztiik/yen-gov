@@ -1,8 +1,8 @@
 # Admin app — overview
 
-**Last Updated**: 2026-05-09 (status: walking skeleton + Inventory + Schemas panels shipped — Phase 4 v0)
+**Last Updated**: 2026-05-09 (status: walking skeleton + Inventory + Schemas + Pipeline panels shipped — Phase 4 v0)
 
-> **Status note.** Phase 4 v0 has landed: `admin/` Svelte app, `backend/yen_gov/admin/` FastAPI module, and the **Inventory** + **Schemas** panels are live. **Pipeline and Patches panels are still design-only.** When those land, promote their subsections in this doc into sibling files (`admin/patches.md`, etc.).
+> **Status note.** Phase 4 v0 has landed: `admin/` Svelte app, `backend/yen_gov/admin/` FastAPI module, and the **Inventory**, **Schemas**, and **Pipeline** panels are live. **Patches panel is still design-only.** When it lands, promote its subsection in this doc into a sibling file (`admin/patches.md`).
 
 The admin app is a **separate, dev-only Svelte application** that lives alongside the public frontend but ships in its own bundle, talks to a local **FastAPI** wrapper around the existing pipeline, and is **never deployed to GitHub Pages**. It is the operator's cockpit: dataset inventory, schema health, pipeline status, and a patch-file editor for data corrections.
 
@@ -132,7 +132,21 @@ Failures whose file's `$schema` is missing, unknown, or version-mismatched can't
 
 Status pill is tri-state: `OK` (green), `data fails` (amber — meta clean, some data files violate the schema), `meta fails` (red — the schema itself is malformed). Three colours so the operator can triage at a glance: red blocks releases, amber demands a backfill, green is fine.
 
-### Pipeline (planned)
+### Pipeline ✅ shipped (2026-05-09)
+
+Implemented in [`backend/yen_gov/admin/pipeline.py`](../../../backend/yen_gov/admin/pipeline.py) (endpoints `GET /api/pipeline/runs`, `GET /api/pipeline/runs/{run_id}`, `POST /api/pipeline/runs`) and [`admin/src/routes/Pipeline.svelte`](../../../admin/src/routes/Pipeline.svelte).
+
+Lists every run under `.runtime/logs/<run_id>/` with status, command, args, and exit code; the detail view tails `console.log` (raw stdout+stderr) and parses `yen-gov.log` (structured JSON-lines from `core/logging.py`). The UI auto-polls every 2s while a run is `running` so the operator sees a live tail without manual refresh.
+
+The **Trigger** form spawns `python -m yen_gov <command> <args...>` as a subprocess via `subprocess.Popen`, with `cwd=REPO_ROOT` and `PYTHONUNBUFFERED=1`. Three safety rails:
+
+1. **Allow-list of commands** — only `validate`, `run`, `reference` (CLAUDE.md §6 levels 1–3). `pydantic.Literal` rejects anything else with HTTP 422 before the handler runs.
+2. **Mandatory `confirm: true`** — the UI also gates the Trigger button behind a checkbox. Speed-bump against double-click misclicks since `run` and `reference` write into `datasets/`.
+3. **Single-flight lock** — only one run in flight at a time; conflict returns HTTP 409. Single-user-developer surface; queueing would be over-engineering.
+
+Uvicorn restart edge case: if uvicorn dies while a subprocess is alive, the watcher thread dies with it and `meta.json` would otherwise stay `running` forever. On startup, `_sweep_orphans()` scans every meta and demotes any `running` entries to `abandoned` (the live subprocess is unrecoverable across server restarts — Popen is process-scoped).
+
+### Patches (planned)
 
 - **Last runs** — table of recent `.runtime/logs/<run-id>/` directories, with status, duration, source, and log links.
 - **Trigger** — buttons to run sources (e.g. `yen-gov pipeline run --source eci --election AcGenMay2026 --state S22`). Streams the run's stdout/stderr to the page via Server-Sent Events from the FastAPI handler.

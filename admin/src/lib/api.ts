@@ -74,10 +74,55 @@ export interface SchemasReport {
   };
 }
 
+export interface PipelineRunSummary {
+  run_id: string;
+  started_at: string;
+  has_console_log: boolean;
+  has_structured_log: boolean;
+  command: string | null;
+  exit_code: number | null;
+  status: "ok" | "failed" | "running" | "unknown";
+}
+
+export interface PipelineRunsResponse {
+  runs: PipelineRunSummary[];
+  total: number;
+  active: Record<string, unknown> | null;
+  allowed_commands: Record<string, string>;
+}
+
+export interface PipelineRunDetail {
+  run_id: string;
+  status: "ok" | "failed" | "running" | "unknown";
+  meta: Record<string, unknown>;
+  console_tail: string[];
+  structured_tail: Record<string, unknown>[];
+}
+
+export interface TriggerRequest {
+  command: "validate" | "run" | "reference";
+  args: string[];
+  confirm: true;
+}
+
 async function getJson<T>(path: string): Promise<T> {
   const res = await fetch(path);
   if (!res.ok) {
     throw new Error(`GET ${path} failed: ${res.status} ${res.statusText}`);
+  }
+  return (await res.json()) as T;
+}
+
+async function postJson<T>(path: string, body: unknown): Promise<T> {
+  const res = await fetch(path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    let detail = "";
+    try { detail = (await res.json()).detail ?? ""; } catch { /* */ }
+    throw new Error(`POST ${path} → ${res.status} ${res.statusText}${detail ? `: ${detail}` : ""}`);
   }
   return (await res.json()) as T;
 }
@@ -87,4 +132,9 @@ export const api = {
     getJson("/api/health"),
   inventory: (): Promise<Inventory> => getJson("/api/inventory"),
   schemas: (): Promise<SchemasReport> => getJson("/api/schemas"),
+  pipelineRuns: (): Promise<PipelineRunsResponse> => getJson("/api/pipeline/runs"),
+  pipelineRun: (run_id: string): Promise<PipelineRunDetail> =>
+    getJson(`/api/pipeline/runs/${encodeURIComponent(run_id)}`),
+  triggerPipeline: (req: TriggerRequest): Promise<{ run_id: string; meta: Record<string, unknown> }> =>
+    postJson("/api/pipeline/runs", req),
 };

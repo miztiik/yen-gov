@@ -17,6 +17,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .. import __version__
 from .inventory import router as inventory_router
+from .pipeline import router as pipeline_router
 from .schemas import router as schemas_router
 
 app = FastAPI(
@@ -37,7 +38,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5174", "http://127.0.0.1:5174"],
     allow_credentials=False,
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
@@ -50,3 +51,4 @@ def health() -> dict[str, str]:
 
 app.include_router(inventory_router, prefix="/api", tags=["inventory"])
 app.include_router(schemas_router, prefix="/api", tags=["schemas"])
+app.include_router(pipeline_router, prefix="/api", tags=["pipeline"])

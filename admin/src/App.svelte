@@ -6,9 +6,10 @@
   import { onMount } from "svelte";
   import Inventory from "./routes/Inventory.svelte";
   import Schemas from "./routes/Schemas.svelte";
+  import Pipeline from "./routes/Pipeline.svelte";
   import { api } from "./lib/api";
 
-  type PanelId = "inventory" | "schemas";
+  type PanelId = "inventory" | "schemas" | "pipeline";
   let active: PanelId = $state("inventory");
   let api_version = $state<string | null>(null);
   let api_error = $state<string | null>(null);
@@ -39,7 +40,11 @@
         class:bg-slate-800={active === 'schemas'}
         onclick={() => (active = 'schemas')}
       >🩺 Schemas</button>
-      <span class="block px-2 py-1 text-slate-600 text-xs italic" title="Coming next">⚙ Pipeline</span>
+      <button
+        class="block w-full text-left px-2 py-1 rounded"
+        class:bg-slate-800={active === 'pipeline'}
+        onclick={() => (active = 'pipeline')}
+      >⚙ Pipeline</button>
       <span class="block px-2 py-1 text-slate-600 text-xs italic" title="Coming next">📝 Patches</span>
     </nav>
 
@@ -59,6 +64,8 @@
       <Inventory />
     {:else if active === 'schemas'}
       <Schemas />
+    {:else if active === 'pipeline'}
+      <Pipeline />
     {/if}
   </main>
 </div>
