@@ -118,12 +118,14 @@ interface BoundaryManifest {
   files: ManifestFile[];
 }
 
+import { DATA_BASE } from "../paths";
+
 let manifest_cache: Promise<BoundaryManifest | null> | null = null;
 
 /** Fetch and cache the boundary manifest. Resolves to null when absent. */
 export function fetchBoundaryManifest(): Promise<BoundaryManifest | null> {
   if (!manifest_cache) {
-    manifest_cache = fetch("/data/boundaries/in/manifest.json")
+    manifest_cache = fetch(`${DATA_BASE}/boundaries/in/manifest.json`)
       .then(async r => (r.ok ? ((await r.json()) as BoundaryManifest) : null))
       .catch(() => null);
   }
@@ -144,7 +146,7 @@ export async function resolveSource(entry: BoundaryEntry): Promise<ResolvedSourc
     if (match) {
       return {
         kind: "pmtiles",
-        url: `pmtiles:///data/${match.path.replace(/^datasets\//, "")}`,
+        url: `pmtiles://${DATA_BASE}/${match.path.replace(/^datasets\//, "")}`,
         source_layer: entry.id,
       };
     }

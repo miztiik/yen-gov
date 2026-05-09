@@ -29,6 +29,11 @@ jobs:
 
       - name: build frontend
         working-directory: frontend
+        # BASE_URL must match the Pages publish path. For project sites this
+        # is `/<repo>/`; for user/org sites or custom domains, drop the
+        # variable (default `/`). See docs/architecture/deployment.md.
+        env:
+          BASE_URL: /yen-gov/
         run: |
           bun install --frozen-lockfile
           bun run build

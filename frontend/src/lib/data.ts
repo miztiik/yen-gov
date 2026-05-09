@@ -140,7 +140,7 @@ export interface StatesCollection {
   states: StateEntry[];
 }
 
-const DATA_BASE = "/data";
+import { DATA_BASE } from "./paths";
 
 async function fetchJson<T>(path: string): Promise<T> {
   const res = await fetch(`${DATA_BASE}${path}`);

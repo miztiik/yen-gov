@@ -58,7 +58,16 @@ function serveDatasets() {
   };
 }
 
+// Deployed base path. Defaults to "/" for `bun run dev` / `bun run preview`
+// and any root-served prod environment (custom domain, user/org Pages,
+// CDN). The deploy workflow sets BASE_URL=/yen-gov/ so emitted asset URLs
+// and runtime data URLs (frontend/src/lib/paths.ts) resolve under the
+// project Pages subpath. Keep this an env var, not a hardcode — repo name
+// is a deployment concern, not a source-code one (CLAUDE.md §6).
+const BASE_URL = process.env.BASE_URL ?? "/";
+
 export default defineConfig({
+  base: BASE_URL,
   plugins: [svelte(), serveDatasets()],
   // Vite 6's default condition list doesn't always include "browser" for
   // SSR-aware packages (svelte 5's exports map falls back to its server

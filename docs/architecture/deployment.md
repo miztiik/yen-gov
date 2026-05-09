@@ -32,12 +32,15 @@ _site/
 
 ## Pages URL base
 
-If the repo is deployed at a *project* Pages URL (`https://<user>.github.io/<repo>/`), absolute fetches like `/data/...` resolve to the wrong origin path. Two options:
+The bundle is served under a project Pages subpath (`https://miztiik.github.io/yen-gov/`), so both emitted asset URLs (`/yen-gov/assets/...`) and runtime data URLs (`/yen-gov/data/...`) must carry the prefix. The mechanism:
 
-- Use a **user/org Pages site** or a **custom domain** so the bundle is at the root.
-- Set Vite `base` to the subpath and prefix fetches with `import.meta.env.BASE_URL` in `data.ts`.
+1. The deploy workflow exports `BASE_URL=/yen-gov/` to the `bun run build` step.
+2. [`frontend/vite.config.ts`](../../frontend/vite.config.ts) reads `process.env.BASE_URL` (default `/`) and passes it as Vite's [`base`](https://vitejs.dev/config/shared-options.html#base). Vite then rewrites `<script>`/`<link>` URLs in `index.html` and exposes the value to client code as `import.meta.env.BASE_URL` (always trailing-slashed).
+3. [`frontend/src/lib/paths.ts`](../../frontend/src/lib/paths.ts) defines `DATA_BASE = ` `${import.meta.env.BASE_URL}data` — the single constant every fetch under `datasets/` must use ([`data.ts`](../../frontend/src/lib/data.ts), [`sql.ts`](../../frontend/src/lib/sql.ts), [`maplibre/sources.ts`](../../frontend/src/lib/maplibre/sources.ts)).
 
-Today the bundle assumes root. Switching adds one line of Vite config and one substitution in `data.ts`; revisit if the choice is forced.
+To move the bundle (custom domain, user/org Pages, CDN, S3 origin) change **only** the `BASE_URL` env var in the workflow — the value flows through Vite to every URL builder. Local `bun run dev` / `bun run preview` keep their root mount because `BASE_URL` is unset.
+
+Hardcoding the repo name in source is forbidden (CLAUDE.md §6); the env var is the structural seam.
 
 ## What is NOT deployed
 

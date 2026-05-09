@@ -12,6 +12,7 @@
 
 import initSqlJs, { type Database } from "sql.js";
 import wasmUrl from "sql.js/dist/sql-wasm.wasm?url";
+import { DATA_BASE } from "./paths";
 
 let sqlInit: ReturnType<typeof initSqlJs> | null = null;
 const dbs = new Map<string, Promise<Database>>();
@@ -28,7 +29,7 @@ export function getDb(event: string, state: string): Promise<Database> {
   if (!sqlInit) sqlInit = initSqlJs({ locateFile: () => wasmUrl });
   const p = (async () => {
     const SQL = await sqlInit!;
-    const res = await fetch(`/data/elections/${event}/${state}/results.sqlite`);
+    const res = await fetch(`${DATA_BASE}/elections/${event}/${state}/results.sqlite`);
     if (!res.ok) throw new Error(`fetch results.sqlite for ${state}: ${res.status}`);
     const buf = new Uint8Array(await res.arrayBuffer());
     return new SQL.Database(buf);
