@@ -40,6 +40,40 @@ export interface Inventory {
   cells: InventoryCell[];
 }
 
+export interface SchemaIssue {
+  file: string;
+  message: string;
+}
+
+export interface SchemaChangelogEntry {
+  version: string;
+  date: string;
+  description: string;
+}
+
+export interface SchemaInfo {
+  id: string;
+  title: string | null;
+  x_version: string | null;
+  last_changelog: SchemaChangelogEntry | null;
+  meta_ok: boolean;
+  meta_errors: SchemaIssue[];
+  data_files: number;
+  data_failing_files: number;
+  data_failures: SchemaIssue[];
+}
+
+export interface SchemasReport {
+  schemas: SchemaInfo[];
+  orphan_failures: SchemaIssue[];
+  summary: {
+    total_schemas: number;
+    meta_failing: number;
+    data_failing_files: number;
+    orphan_files: number;
+  };
+}
+
 async function getJson<T>(path: string): Promise<T> {
   const res = await fetch(path);
   if (!res.ok) {
@@ -52,4 +86,5 @@ export const api = {
   health: (): Promise<{ status: string; version: string }> =>
     getJson("/api/health"),
   inventory: (): Promise<Inventory> => getJson("/api/inventory"),
+  schemas: (): Promise<SchemasReport> => getJson("/api/schemas"),
 };

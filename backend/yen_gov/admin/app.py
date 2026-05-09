@@ -17,6 +17,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .. import __version__
 from .inventory import router as inventory_router
+from .schemas import router as schemas_router
 
 app = FastAPI(
     title="yen-gov admin",
@@ -48,3 +49,4 @@ def health() -> dict[str, str]:
 
 
 app.include_router(inventory_router, prefix="/api", tags=["inventory"])
+app.include_router(schemas_router, prefix="/api", tags=["schemas"])

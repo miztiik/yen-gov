@@ -1,8 +1,8 @@
 # Admin app — overview
 
-**Last Updated**: 2026-05-09 (status: walking skeleton + Inventory panel shipped — Phase 4 v0)
+**Last Updated**: 2026-05-09 (status: walking skeleton + Inventory + Schemas panels shipped — Phase 4 v0)
 
-> **Status note.** Phase 4 v0 has landed: `admin/` Svelte app, `backend/yen_gov/admin/` FastAPI module, and the **Inventory** panel are live. **Schemas, Pipeline, and Patches panels are still design-only.** When those land, promote their subsections in this doc into sibling files (`admin/patches.md`, etc.).
+> **Status note.** Phase 4 v0 has landed: `admin/` Svelte app, `backend/yen_gov/admin/` FastAPI module, and the **Inventory** + **Schemas** panels are live. **Pipeline and Patches panels are still design-only.** When those land, promote their subsections in this doc into sibling files (`admin/patches.md`, etc.).
 
 The admin app is a **separate, dev-only Svelte application** that lives alongside the public frontend but ships in its own bundle, talks to a local **FastAPI** wrapper around the existing pipeline, and is **never deployed to GitHub Pages**. It is the operator's cockpit: dataset inventory, schema health, pipeline status, and a patch-file editor for data corrections.
 
@@ -115,6 +115,22 @@ Runs the two-tier validator from CLAUDE.md §11:
 - **Tier B** — every `*.json` under `datasets/` validates against its declared `$schema`.
 
 Failures link to the offending file with the validator's error path highlighted. This is a UI for what CI already does on PR; the value is the *interactive* diff during data wrangling.
+
+### Schemas ✅ shipped (2026-05-09)
+
+Implemented in [`backend/yen_gov/admin/schemas.py`](../../../backend/yen_gov/admin/schemas.py) (endpoint `GET /api/schemas`) and [`admin/src/routes/Schemas.svelte`](../../../admin/src/routes/Schemas.svelte).
+
+Reuses `yen_gov.validate.{load_schemas, tier_a, tier_b}` directly so the panel can never disagree with CI — the validator that gates `main` is the same code surfaced here.
+
+For every `*.schema.json` under `datasets/schemas/`:
+- `x_version` and the last `x-changelog` entry (date + description).
+- `meta_ok` flag (Tier A: meta-schema + version invariants).
+- Count of `*.json` files declaring this `$schema` (denominator), and the count of those that fail Tier B.
+- Up to 5 example failures per schema for drill-in.
+
+Failures whose file's `$schema` is missing, unknown, or version-mismatched can't be attributed to a specific schema; they bubble up as **orphan failures** in a banner above the table. The summary strip exposes total schemas, meta failing, data files failing, and orphan file count at a glance.
+
+Status pill is tri-state: `OK` (green), `data fails` (amber — meta clean, some data files violate the schema), `meta fails` (red — the schema itself is malformed). Three colours so the operator can triage at a glance: red blocks releases, amber demands a backfill, green is fine.
 
 ### Pipeline (planned)
 
