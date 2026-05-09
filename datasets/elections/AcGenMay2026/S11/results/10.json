@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "AZHIKODE",
+  "totals": {
+    "electors": 188507,
+    "votes_polled": 148412,
+    "turnout_pct": 78.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K. V. Sumesh",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 64951,
+      "vote_share_pct": 43.76,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adv. Kareem Cheleri",
+      "party_eci_code": "772",
+      "party_short": "IUML",
+      "votes": 64602,
+      "vote_share_pct": 43.53
+    },
+    {
+      "rank": 3,
+      "name": "K. K. Vinodkumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 17476,
+      "vote_share_pct": 11.78
+    },
+    {
+      "rank": 4,
+      "name": "Abdul Kareem. V. V",
+      "party_short": "IND",
+      "votes": 235,
+      "vote_share_pct": 0.16
+    },
+    {
+      "rank": 5,
+      "name": "Reshmi Ravi",
+      "party_short": "SUCI",
+      "votes": 227,
+      "vote_share_pct": 0.15
+    }
+  ],
+  "nota": {
+    "votes": 576,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 345,
+    "vote_share_pct": 0.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K. V. Sumesh",
+    "party_eci_code": "547",
+    "party_short": "CPI(M)",
+    "votes": 64951,
+    "margin_votes": 349,
+    "margin_pct": 0.24
+  }
+}

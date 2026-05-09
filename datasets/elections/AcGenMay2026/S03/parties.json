@@ -1,0 +1,48 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/party.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "parties": [
+    {
+      "eci_code": "369",
+      "short_name": "BJP",
+      "full_name": "Bharatiya Janata Party"
+    },
+    {
+      "eci_code": "742",
+      "short_name": "INC",
+      "full_name": "Indian National Congress"
+    },
+    {
+      "eci_code": "436",
+      "short_name": "BOPF",
+      "full_name": "Bodoland Peoples Front"
+    },
+    {
+      "eci_code": "83",
+      "short_name": "AGP",
+      "full_name": "Asom Gana Parishad"
+    },
+    {
+      "eci_code": "145",
+      "short_name": "AIUDF",
+      "full_name": "All India United Democratic Front"
+    },
+    {
+      "eci_code": "3289",
+      "short_name": "RJRD",
+      "full_name": "Raijor Dal"
+    },
+    {
+      "eci_code": "140",
+      "short_name": "AITC",
+      "full_name": "All India Trinamool Congress"
+    }
+  ]
+}

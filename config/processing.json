@@ -1,0 +1,16 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/processing.schema.json",
+  "$schema_version": "3.0",
+  "sources": [],
+  "fetch": {
+    "concurrency": 4,
+    "retry_attempts": 3,
+    "retry_backoff_seconds": 1.5,
+    "timeout_seconds": 30,
+    "user_agent": "yen-gov/0.1"
+  },
+  "results": {
+    "top_n_candidates": 5,
+    "collapse_others": true
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "KOZHIKODE NORTH",
+  "totals": {
+    "electors": 173473,
+    "votes_polled": 141535,
+    "turnout_pct": 81.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv.k Jayanth",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 50636,
+      "vote_share_pct": 35.78,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Thottathil Ravindran",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 49153,
+      "vote_share_pct": 34.73
+    },
+    {
+      "rank": 3,
+      "name": "Navya Haridas",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 39899,
+      "vote_share_pct": 28.19
+    },
+    {
+      "rank": 4,
+      "name": "Dr. Alphonsa Mathew Teacher",
+      "party_short": "AAAP",
+      "votes": 542,
+      "vote_share_pct": 0.38
+    },
+    {
+      "rank": 5,
+      "name": "Jayanth S S/o Sadanandan",
+      "party_short": "IND",
+      "votes": 174,
+      "vote_share_pct": 0.12
+    }
+  ],
+  "nota": {
+    "votes": 667,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 464,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv.k Jayanth",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 50636,
+    "margin_votes": 1483,
+    "margin_pct": 1.05
+  }
+}

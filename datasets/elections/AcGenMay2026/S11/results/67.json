@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "THRISSUR",
+  "totals": {
+    "electors": 161303,
+    "votes_polled": 124182,
+    "turnout_pct": 76.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajan. J. Pallan",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 60290,
+      "vote_share_pct": 48.55,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Alankode Leelakrishnan",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 33487,
+      "vote_share_pct": 26.97
+    },
+    {
+      "rank": 3,
+      "name": "Padmaja Venugopal",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 28662,
+      "vote_share_pct": 23.08
+    },
+    {
+      "rank": 4,
+      "name": "Rani Anto",
+      "party_short": "AAAP",
+      "votes": 299,
+      "vote_share_pct": 0.24
+    },
+    {
+      "rank": 5,
+      "name": "Rajan. M",
+      "party_short": "IND",
+      "votes": 153,
+      "vote_share_pct": 0.12
+    }
+  ],
+  "nota": {
+    "votes": 1043,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 248,
+    "vote_share_pct": 0.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajan. J. Pallan",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 60290,
+    "margin_votes": 26803,
+    "margin_pct": 21.58
+  }
+}

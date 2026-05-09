@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 78,
+  "constituency_name": "RISHIVANDIYAM",
+  "totals": {
+    "electors": 273641,
+    "votes_polled": 244795,
+    "turnout_pct": 89.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Karthikeyan K",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 89711,
+      "vote_share_pct": 36.65,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ashok Kumar G",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 84849,
+      "vote_share_pct": 34.66
+    },
+    {
+      "rank": 3,
+      "name": "Chezhiyan P",
+      "party_eci_code": "1272",
+      "party_short": "PMK",
+      "votes": 56488,
+      "vote_share_pct": 23.08
+    },
+    {
+      "rank": 4,
+      "name": "Radhika P",
+      "party_short": "NTK",
+      "votes": 7247,
+      "vote_share_pct": 2.96
+    },
+    {
+      "rank": 5,
+      "name": "Senthikumar V N",
+      "party_short": "IND",
+      "votes": 1071,
+      "vote_share_pct": 0.44
+    }
+  ],
+  "nota": {
+    "votes": 534,
+    "vote_share_pct": 0.22
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 4895,
+    "vote_share_pct": 2.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Karthikeyan K",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 89711,
+    "margin_votes": 4862,
+    "margin_pct": 1.99
+  }
+}

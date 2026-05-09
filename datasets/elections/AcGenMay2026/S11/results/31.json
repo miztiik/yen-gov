@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "KODUVALLY",
+  "totals": {
+    "electors": 201824,
+    "votes_polled": 165988,
+    "turnout_pct": 82.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P K Firos",
+      "party_eci_code": "772",
+      "party_short": "IUML",
+      "votes": 95164,
+      "vote_share_pct": 57.33,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Saleem Madavoor",
+      "party_short": "IND",
+      "votes": 58482,
+      "vote_share_pct": 35.23
+    },
+    {
+      "rank": 3,
+      "name": "Giri Pampanal",
+      "party_short": "BDJS",
+      "votes": 9832,
+      "vote_share_pct": 5.92
+    },
+    {
+      "rank": 4,
+      "name": "Sunil Mannath",
+      "party_short": "RPPRINAT",
+      "votes": 397,
+      "vote_share_pct": 0.24
+    },
+    {
+      "rank": 5,
+      "name": "Firose K C S/o Moitheenkutty",
+      "party_short": "IND",
+      "votes": 298,
+      "vote_share_pct": 0.18
+    }
+  ],
+  "nota": {
+    "votes": 490,
+    "vote_share_pct": 0.3
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1325,
+    "vote_share_pct": 0.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P K Firos",
+    "party_eci_code": "772",
+    "party_short": "IUML",
+    "votes": 95164,
+    "margin_votes": 36682,
+    "margin_pct": 22.1
+  }
+}

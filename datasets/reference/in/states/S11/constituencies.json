@@ -1,0 +1,855 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_constituencies_of_the_Kerala_Legislative_Assembly",
+      "fetched_at": "2026-05-09T07:07:33Z"
+    }
+  ],
+  "state": "S11",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Manjeshwaram",
+      "district_id": "KAS",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Kasaragod",
+      "district_id": "KAS",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Udma",
+      "district_id": "KAS",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Kanhangad",
+      "district_id": "KAS",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Thrikaripur",
+      "district_id": "KAS",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Payyanur",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Kalliasseri",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Taliparamba",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Irikkur",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Azhikode",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Kannur",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Dharmadom",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Thalassery",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Kuthuparamba",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Mattanur",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Peravoor",
+      "district_id": "KAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Mananthavady",
+      "district_id": "WAY",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 18,
+      "name": "Sulthan Bathery",
+      "district_id": "WAY",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 19,
+      "name": "Kalpetta",
+      "district_id": "WAY",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Vatakara",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Kuttiady",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Nadapuram",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Koyilandy",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Perambra",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Balussery",
+      "district_id": "KOZ",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 26,
+      "name": "Elathur",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Kozhikode North",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Kozhikode South",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Beypore",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Kunnamangalam",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Koduvally",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Thiruvambady",
+      "district_id": "KOZ",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Kondotty",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Eranad",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Nilambur",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Wandoor",
+      "district_id": "MAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 37,
+      "name": "Manjeri",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Perinthalmanna",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Mankada",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Malappuram",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Vengara",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "Vallikkunnu",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Tirurangadi",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Tanur",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Tirur",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Kottakkal",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Thavanur",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Ponnani",
+      "district_id": "MAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Thrithala",
+      "district_id": "PAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Pattambi",
+      "district_id": "PAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Shornur",
+      "district_id": "PAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Ottapalam",
+      "district_id": "PAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Kongad",
+      "district_id": "PAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 54,
+      "name": "Mannarkkad",
+      "district_id": "PAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Malampuzha",
+      "district_id": "PAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Palakkad",
+      "district_id": "PAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Tarur",
+      "district_id": "PAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 58,
+      "name": "Chittur",
+      "district_id": "PAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Nenmara",
+      "district_id": "PAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Alathur",
+      "district_id": "PAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Chelakkara",
+      "district_id": "THR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 62,
+      "name": "Kunnamkulam",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 63,
+      "name": "Guruvayur",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 64,
+      "name": "Manalur",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Wadakkanchery",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 66,
+      "name": "Ollur",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 67,
+      "name": "Thrissur",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 68,
+      "name": "Nattika",
+      "district_id": "THR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 69,
+      "name": "Kaipamangalam",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 70,
+      "name": "Irinjalakuda",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 71,
+      "name": "Puthukkad",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 72,
+      "name": "Chalakudy",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 73,
+      "name": "Kodungallur",
+      "district_id": "THR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 74,
+      "name": "Perumbavoor",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 75,
+      "name": "Angamaly",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 76,
+      "name": "Aluva",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 77,
+      "name": "Kalamassery",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 78,
+      "name": "Paravur",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 79,
+      "name": "Vypin",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 80,
+      "name": "Kochi",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 81,
+      "name": "Thrippunithura",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 82,
+      "name": "Ernakulam",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 83,
+      "name": "Thrikkakara",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 84,
+      "name": "Kunnathunad",
+      "district_id": "ERN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 85,
+      "name": "Piravom",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 86,
+      "name": "Muvattupuzha",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 87,
+      "name": "Kothamangalam",
+      "district_id": "ERN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 88,
+      "name": "Devikulam",
+      "district_id": "IDU",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 89,
+      "name": "Udumbanchola",
+      "district_id": "IDU",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 90,
+      "name": "Thodupuzha",
+      "district_id": "IDU",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 91,
+      "name": "Idukki",
+      "district_id": "IDU",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 92,
+      "name": "Peerumade",
+      "district_id": "IDU",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 93,
+      "name": "Pala",
+      "district_id": "KOT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 94,
+      "name": "Kaduthuruthy",
+      "district_id": "KOT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 95,
+      "name": "Vaikom",
+      "district_id": "KOT",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 96,
+      "name": "Ettumanoor",
+      "district_id": "KOT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 97,
+      "name": "Kottayam",
+      "district_id": "KOT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 98,
+      "name": "Puthuppally",
+      "district_id": "KOT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 99,
+      "name": "Changanassery",
+      "district_id": "KOT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 100,
+      "name": "Kanjirappally",
+      "district_id": "KOT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 101,
+      "name": "Poonjar",
+      "district_id": "KOT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 102,
+      "name": "Aroor",
+      "district_id": "ALA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 103,
+      "name": "Cherthala",
+      "district_id": "ALA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 104,
+      "name": "Alappuzha",
+      "district_id": "ALA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 105,
+      "name": "Ambalappuzha",
+      "district_id": "ALA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 106,
+      "name": "Kuttanad",
+      "district_id": "ALA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 107,
+      "name": "Haripad",
+      "district_id": "ALA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 108,
+      "name": "Kayamkulam",
+      "district_id": "ALA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 109,
+      "name": "Mavelikara",
+      "district_id": "ALA",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 110,
+      "name": "Chengannur",
+      "district_id": "ALA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 111,
+      "name": "Thiruvalla",
+      "district_id": "PAT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 112,
+      "name": "Ranni",
+      "district_id": "PAT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 113,
+      "name": "Aranmula",
+      "district_id": "PAT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 114,
+      "name": "Konni",
+      "district_id": "PAT",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 115,
+      "name": "Adoor",
+      "district_id": "PAT",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 116,
+      "name": "Karunagapally",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 117,
+      "name": "Chavara",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 118,
+      "name": "Kunnathur",
+      "district_id": "KOL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 119,
+      "name": "Kottarakkara",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 120,
+      "name": "Pathanapuram",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 121,
+      "name": "Punalur",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 122,
+      "name": "Chadayamangalam",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 123,
+      "name": "Kundara",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 124,
+      "name": "Kollam",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 125,
+      "name": "Eravipuram",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 126,
+      "name": "Chathannoor",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 127,
+      "name": "Varkala",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 128,
+      "name": "Attingal",
+      "district_id": "THI",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 129,
+      "name": "Chirayinkeezhu",
+      "district_id": "THI",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 130,
+      "name": "Nedumangad",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 131,
+      "name": "Vamanapuram",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 132,
+      "name": "Kazhakkoottam",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 133,
+      "name": "Vattiyoorkavu",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 134,
+      "name": "Thiruvananthapuram",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 135,
+      "name": "Nemom",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 136,
+      "name": "Aruvikkara",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 137,
+      "name": "Parassala",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 138,
+      "name": "Kattakkada",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 139,
+      "name": "Kovalam",
+      "district_id": "THI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 140,
+      "name": "Neyyattinkara",
+      "district_id": "THI",
+      "reservation": "GEN"
+    }
+  ]
+}

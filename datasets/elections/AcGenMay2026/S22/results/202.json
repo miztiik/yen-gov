@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 202,
+  "constituency_name": "RAJAPALAYAM",
+  "totals": {
+    "electors": 214646,
+    "votes_polled": 183020,
+    "turnout_pct": 85.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jegadeshwari. K",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 65548,
+      "vote_share_pct": 35.81,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Thangapandian. S",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 54943,
+      "vote_share_pct": 30.02
+    },
+    {
+      "rank": 3,
+      "name": "Priscilla Pandian. J",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 36318,
+      "vote_share_pct": 19.84
+    },
+    {
+      "rank": 4,
+      "name": "Dr. Karthikeyan. T.e.",
+      "party_short": "NTK",
+      "votes": 16972,
+      "vote_share_pct": 9.27
+    },
+    {
+      "rank": 5,
+      "name": "Ramadevi. T",
+      "party_short": "PT",
+      "votes": 2544,
+      "vote_share_pct": 1.39
+    }
+  ],
+  "nota": {
+    "votes": 753,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 5942,
+    "vote_share_pct": 3.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jegadeshwari. K",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 65548,
+    "margin_votes": 10605,
+    "margin_pct": 5.79
+  }
+}

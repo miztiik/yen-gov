@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 130,
+  "constituency_name": "NILAKKOTTAI (SC)",
+  "totals": {
+    "electors": 221565,
+    "votes_polled": 197593,
+    "turnout_pct": 89.18
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ayyanar.r",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 68580,
+      "vote_share_pct": 34.71,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Nagajothi.s",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 65655,
+      "vote_share_pct": 33.23
+    },
+    {
+      "rank": 3,
+      "name": "Thenmozhi.s",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 49924,
+      "vote_share_pct": 25.27
+    },
+    {
+      "rank": 4,
+      "name": "Dr.kailai Rajan.d",
+      "party_short": "NTK",
+      "votes": 8615,
+      "vote_share_pct": 4.36
+    },
+    {
+      "rank": 5,
+      "name": "Selvam.p B.a. B.l.",
+      "party_short": "RPI(A)",
+      "votes": 763,
+      "vote_share_pct": 0.39
+    }
+  ],
+  "nota": {
+    "votes": 642,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3414,
+    "vote_share_pct": 1.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ayyanar.r",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 68580,
+    "margin_votes": 2925,
+    "margin_pct": 1.48
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 47,
+  "constituency_name": "VANIYAMBADI",
+  "totals": {
+    "electors": 243320,
+    "votes_polled": 212534,
+    "turnout_pct": 87.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Syed Farooq Basha Ssb",
+      "party_eci_code": "772",
+      "party_short": "IUML",
+      "votes": 73181,
+      "vote_share_pct": 34.43,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Syed Bhurhanudeen",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 70199,
+      "vote_share_pct": 33.03
+    },
+    {
+      "rank": 3,
+      "name": "Sendhil Kumar.g",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 61055,
+      "vote_share_pct": 28.73
+    },
+    {
+      "rank": 4,
+      "name": "Murugesan.g",
+      "party_short": "NTK",
+      "votes": 4849,
+      "vote_share_pct": 2.28
+    },
+    {
+      "rank": 5,
+      "name": "Subramani.p",
+      "party_short": "BSP",
+      "votes": 609,
+      "vote_share_pct": 0.29
+    }
+  ],
+  "nota": {
+    "votes": 624,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2017,
+    "vote_share_pct": 0.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Syed Farooq Basha Ssb",
+    "party_eci_code": "772",
+    "party_short": "IUML",
+    "votes": 73181,
+    "margin_votes": 2982,
+    "margin_pct": 1.4
+  }
+}

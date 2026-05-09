@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 150,
+  "constituency_name": "JADAVPUR",
+  "totals": {
+    "electors": 260915,
+    "votes_polled": 231075,
+    "turnout_pct": 88.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sarbori Mukherjee",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 106199,
+      "vote_share_pct": 45.96,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Debabrata Majumdar (malay)",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 78483,
+      "vote_share_pct": 33.96
+    },
+    {
+      "rank": 3,
+      "name": "Bikashranjan Bhattacharya",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 41148,
+      "vote_share_pct": 17.81
+    },
+    {
+      "rank": 4,
+      "name": "Shyamali Mondal",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 1502,
+      "vote_share_pct": 0.65
+    },
+    {
+      "rank": 5,
+      "name": "Debabrata Bera",
+      "party_short": "SUCI",
+      "votes": 470,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 1976,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1297,
+    "vote_share_pct": 0.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sarbori Mukherjee",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 106199,
+    "margin_votes": 27716,
+    "margin_pct": 11.99
+  }
+}

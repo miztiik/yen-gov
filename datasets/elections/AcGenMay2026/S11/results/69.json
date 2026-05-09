@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 69,
+  "constituency_name": "KAIPAMANGALAM",
+  "totals": {
+    "electors": 182765,
+    "votes_polled": 142854,
+    "turnout_pct": 78.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.k. Valsaraj",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 65448,
+      "vote_share_pct": 45.81,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "T.m. Nazar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 55504,
+      "vote_share_pct": 38.85
+    },
+    {
+      "rank": 3,
+      "name": "Athulliaghosh Vettiyattil",
+      "party_short": "BDJS",
+      "votes": 19688,
+      "vote_share_pct": 13.78
+    },
+    {
+      "rank": 4,
+      "name": "Jayan Eratt",
+      "party_short": "AAAP",
+      "votes": 653,
+      "vote_share_pct": 0.46
+    },
+    {
+      "rank": 5,
+      "name": "A.m. Muhammed Riyas",
+      "party_short": "SDPI",
+      "votes": 536,
+      "vote_share_pct": 0.38
+    }
+  ],
+  "nota": {
+    "votes": 690,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 335,
+    "vote_share_pct": 0.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.k. Valsaraj",
+    "party_eci_code": "544",
+    "party_short": "CPI",
+    "votes": 65448,
+    "margin_votes": 9944,
+    "margin_pct": 6.96
+  }
+}

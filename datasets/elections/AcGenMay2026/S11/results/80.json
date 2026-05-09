@@ -1,0 +1,78 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 80,
+  "constituency_name": "KOCHI",
+  "totals": {
+    "electors": 165748,
+    "votes_polled": 134349,
+    "turnout_pct": 81.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mohammed Shiyas",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 64318,
+      "vote_share_pct": 47.87,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "K.j. Maxy",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 56130,
+      "vote_share_pct": 41.78
+    },
+    {
+      "rank": 3,
+      "name": "Adv. Xavier Julappan",
+      "party_short": "TTPty",
+      "votes": 11854,
+      "vote_share_pct": 8.82
+    },
+    {
+      "rank": 4,
+      "name": "Aneesh Mattancherry",
+      "party_short": "SDPI",
+      "votes": 803,
+      "vote_share_pct": 0.6
+    },
+    {
+      "rank": 5,
+      "name": "Ajeesh P.e",
+      "party_short": "IND",
+      "votes": 318,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 926,
+    "vote_share_pct": 0.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mohammed Shiyas",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 64318,
+    "margin_votes": 8188,
+    "margin_pct": 6.09
+  },
+  "others": null
+}

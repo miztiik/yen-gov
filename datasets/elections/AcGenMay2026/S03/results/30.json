@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "HAJO-SUALKUCHI (SC)",
+  "totals": {
+    "electors": 194744,
+    "votes_polled": 170786,
+    "turnout_pct": 87.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Prakash Chandra Das",
+      "party_eci_code": "83",
+      "party_short": "AGP",
+      "votes": 81699,
+      "vote_share_pct": 47.84,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Nandita Das",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 80975,
+      "vote_share_pct": 47.41
+    },
+    {
+      "rank": 3,
+      "name": "Rojy Ahmed",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 2768,
+      "vote_share_pct": 1.62
+    },
+    {
+      "rank": 4,
+      "name": "Raju Patowary",
+      "party_short": "IND",
+      "votes": 2025,
+      "vote_share_pct": 1.19
+    },
+    {
+      "rank": 5,
+      "name": "Siddhartha Das",
+      "party_short": "IND",
+      "votes": 929,
+      "vote_share_pct": 0.54
+    }
+  ],
+  "nota": {
+    "votes": 2390,
+    "vote_share_pct": 1.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Prakash Chandra Das",
+    "party_eci_code": "83",
+    "party_short": "AGP",
+    "votes": 81699,
+    "margin_votes": 724,
+    "margin_pct": 0.42
+  },
+  "others": null
+}

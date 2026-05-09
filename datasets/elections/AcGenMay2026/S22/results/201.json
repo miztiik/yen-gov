@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 201,
+  "constituency_name": "CUMBUM",
+  "totals": {
+    "electors": 257323,
+    "votes_polled": 210574,
+    "turnout_pct": 81.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jeganathmishra Pla",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 85394,
+      "vote_share_pct": 40.55,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Eramakrishnan N",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 84643,
+      "vote_share_pct": 40.2
+    },
+    {
+      "rank": 3,
+      "name": "Jakkaiyan S.t.k.",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 27307,
+      "vote_share_pct": 12.97
+    },
+    {
+      "rank": 4,
+      "name": "Anbuselvi A",
+      "party_short": "NTK",
+      "votes": 9599,
+      "vote_share_pct": 4.56
+    },
+    {
+      "rank": 5,
+      "name": "Muthu Bagavathi M.",
+      "party_short": "tavk",
+      "votes": 431,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 667,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 2533,
+    "vote_share_pct": 1.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jeganathmishra Pla",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 85394,
+    "margin_votes": 751,
+    "margin_pct": 0.36
+  }
+}

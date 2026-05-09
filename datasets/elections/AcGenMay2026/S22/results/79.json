@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 79,
+  "constituency_name": "SANKARAPURAM",
+  "totals": {
+    "electors": 266003,
+    "votes_polled": 235528,
+    "turnout_pct": 88.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rakesh R",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 80250,
+      "vote_share_pct": 34.07,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Udhayasuriyan T",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 76810,
+      "vote_share_pct": 32.61
+    },
+    {
+      "rank": 3,
+      "name": "Jagadesan A",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 67624,
+      "vote_share_pct": 28.71
+    },
+    {
+      "rank": 4,
+      "name": "Ramesh K",
+      "party_short": "NTK",
+      "votes": 5567,
+      "vote_share_pct": 2.36
+    },
+    {
+      "rank": 5,
+      "name": "Ramachandiran M",
+      "party_short": "tavk",
+      "votes": 677,
+      "vote_share_pct": 0.29
+    }
+  ],
+  "nota": {
+    "votes": 383,
+    "vote_share_pct": 0.16
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 4217,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rakesh R",
+    "party_eci_code": "75",
+    "party_short": "ADMK",
+    "votes": 80250,
+    "margin_votes": 3440,
+    "margin_pct": 1.46
+  }
+}

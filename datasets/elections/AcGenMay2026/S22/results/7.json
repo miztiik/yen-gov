@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 7,
+  "constituency_name": "MADURAVOYAL",
+  "totals": {
+    "electors": 373321,
+    "votes_polled": 293692,
+    "turnout_pct": 78.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rhevanth Charan",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 141725,
+      "vote_share_pct": 48.26,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ganapathy. K",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 80216,
+      "vote_share_pct": 27.31
+    },
+    {
+      "rank": 3,
+      "name": "P. Benjamin",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 54705,
+      "vote_share_pct": 18.63
+    },
+    {
+      "rank": 4,
+      "name": "Revathi L",
+      "party_short": "NTK",
+      "votes": 13024,
+      "vote_share_pct": 4.43
+    },
+    {
+      "rank": 5,
+      "name": "R. Siva",
+      "party_short": "IND",
+      "votes": 322,
+      "vote_share_pct": 0.11
+    }
+  ],
+  "nota": {
+    "votes": 1462,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 2238,
+    "vote_share_pct": 0.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rhevanth Charan",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 141725,
+    "margin_votes": 61509,
+    "margin_pct": 20.94
+  }
+}

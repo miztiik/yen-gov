@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 158,
+  "constituency_name": "CHIDAMBARAM",
+  "totals": {
+    "electors": 231325,
+    "votes_polled": 196586,
+    "turnout_pct": 84.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Thamimun Ansari. M",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 69739,
+      "vote_share_pct": 35.48,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Pandian. K.a",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 63992,
+      "vote_share_pct": 32.55
+    },
+    {
+      "rank": 3,
+      "name": "Nedunchezhiyan",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 54584,
+      "vote_share_pct": 27.77
+    },
+    {
+      "rank": 4,
+      "name": "Thamizh",
+      "party_short": "NTK",
+      "votes": 6169,
+      "vote_share_pct": 3.14
+    },
+    {
+      "rank": 5,
+      "name": "Dhanasekaran. M",
+      "party_short": "AIPTMMK",
+      "votes": 339,
+      "vote_share_pct": 0.17
+    }
+  ],
+  "nota": {
+    "votes": 816,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 947,
+    "vote_share_pct": 0.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Thamimun Ansari. M",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 69739,
+    "margin_votes": 5747,
+    "margin_pct": 2.92
+  }
+}

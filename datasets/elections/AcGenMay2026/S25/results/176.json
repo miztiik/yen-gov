@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 176,
+  "constituency_name": "ULUBERIA PURBA",
+  "totals": {
+    "electors": 218601,
+    "votes_polled": 208025,
+    "turnout_pct": 95.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ritabrata Banerjee",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 95633,
+      "vote_share_pct": 45.97,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rudra Prosad Banerjee",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 83795,
+      "vote_share_pct": 40.28
+    },
+    {
+      "rank": 3,
+      "name": "Nasir Khan",
+      "party_eci_code": "3075",
+      "party_short": "AISF",
+      "votes": 21909,
+      "vote_share_pct": 10.53
+    },
+    {
+      "rank": 4,
+      "name": "Alam Deiyan Sekh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 1926,
+      "vote_share_pct": 0.93
+    },
+    {
+      "rank": 5,
+      "name": "Sk Farhan Aktab",
+      "party_short": "IND",
+      "votes": 1142,
+      "vote_share_pct": 0.55
+    }
+  ],
+  "nota": {
+    "votes": 1251,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2369,
+    "vote_share_pct": 1.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ritabrata Banerjee",
+    "party_eci_code": "140",
+    "party_short": "AITC",
+    "votes": 95633,
+    "margin_votes": 11838,
+    "margin_pct": 5.69
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "THIRUVAMBADI",
+  "totals": {
+    "electors": 192188,
+    "votes_polled": 156680,
+    "turnout_pct": 81.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C K Kasim",
+      "party_eci_code": "772",
+      "party_short": "IUML",
+      "votes": 77140,
+      "vote_share_pct": 49.23,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Linto Joseph",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 70399,
+      "vote_share_pct": 44.93
+    },
+    {
+      "rank": 3,
+      "name": "Sunny Thomas",
+      "party_short": "TTPty",
+      "votes": 7380,
+      "vote_share_pct": 4.71
+    },
+    {
+      "rank": 4,
+      "name": "Sunny V Joseph",
+      "party_short": "AAAP",
+      "votes": 812,
+      "vote_share_pct": 0.52
+    },
+    {
+      "rank": 5,
+      "name": "Muhammed Kasim",
+      "party_short": "IND",
+      "votes": 186,
+      "vote_share_pct": 0.12
+    }
+  ],
+  "nota": {
+    "votes": 458,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 305,
+    "vote_share_pct": 0.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C K Kasim",
+    "party_eci_code": "772",
+    "party_short": "IUML",
+    "votes": 77140,
+    "margin_votes": 6741,
+    "margin_pct": 4.3
+  }
+}

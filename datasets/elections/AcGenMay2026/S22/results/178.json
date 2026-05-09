@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 178,
+  "constituency_name": "GANDHARVAKOTTAI (SC)",
+  "totals": {
+    "electors": 196104,
+    "votes_polled": 167618,
+    "turnout_pct": 85.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "N. Subramanian",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 58795,
+      "vote_share_pct": 35.08,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "C. Uthayakumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 47756,
+      "vote_share_pct": 28.49
+    },
+    {
+      "rank": 3,
+      "name": "M. Chinnadurai",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 46734,
+      "vote_share_pct": 27.88
+    },
+    {
+      "rank": 4,
+      "name": "Nathiya",
+      "party_short": "NTK",
+      "votes": 10189,
+      "vote_share_pct": 6.08
+    },
+    {
+      "rank": 5,
+      "name": "Arunkumar . S",
+      "party_short": "IND",
+      "votes": 653,
+      "vote_share_pct": 0.39
+    }
+  ],
+  "nota": {
+    "votes": 1127,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2364,
+    "vote_share_pct": 1.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "N. Subramanian",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 58795,
+    "margin_votes": 11039,
+    "margin_pct": 6.59
+  }
+}

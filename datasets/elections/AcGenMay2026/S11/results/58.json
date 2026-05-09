@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "CHITTUR",
+  "totals": {
+    "electors": 172365,
+    "votes_polled": 147788,
+    "turnout_pct": 85.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. Sumesh Achuthan",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 65325,
+      "vote_share_pct": 44.2,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adv. V. Murugadas",
+      "party_short": "ISJD",
+      "votes": 58815,
+      "vote_share_pct": 39.8
+    },
+    {
+      "rank": 3,
+      "name": "Pranesh Rajendran",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 14697,
+      "vote_share_pct": 9.94
+    },
+    {
+      "rank": 4,
+      "name": "Murugadas. P. S/o Pazhaniappa Mudaliyaar",
+      "party_short": "IND",
+      "votes": 6984,
+      "vote_share_pct": 4.73
+    },
+    {
+      "rank": 5,
+      "name": "N S K Puram Sasikumar",
+      "party_short": "IND",
+      "votes": 408,
+      "vote_share_pct": 0.28
+    }
+  ],
+  "nota": {
+    "votes": 1298,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 261,
+    "vote_share_pct": 0.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. Sumesh Achuthan",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 65325,
+    "margin_votes": 6510,
+    "margin_pct": 4.4
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 266,
+  "constituency_name": "BARDHAMAN UTTAR (SC)",
+  "totals": {
+    "electors": 260510,
+    "votes_polled": 247932,
+    "turnout_pct": 95.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nisith Kumar Malik",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 112688,
+      "vote_share_pct": 45.45,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sanjoy Das",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 106228,
+      "vote_share_pct": 42.85
+    },
+    {
+      "rank": 3,
+      "name": "Mamoni Mondal (roy)",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 19465,
+      "vote_share_pct": 7.85
+    },
+    {
+      "rank": 4,
+      "name": "Sudip Das",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 1914,
+      "vote_share_pct": 0.77
+    },
+    {
+      "rank": 5,
+      "name": "Priyanka Das",
+      "party_short": "IND",
+      "votes": 1028,
+      "vote_share_pct": 0.41
+    }
+  ],
+  "nota": {
+    "votes": 3771,
+    "vote_share_pct": 1.52
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2838,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nisith Kumar Malik",
+    "party_eci_code": "140",
+    "party_short": "AITC",
+    "votes": 112688,
+    "margin_votes": 6460,
+    "margin_pct": 2.61
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "SAMAGURI",
+  "totals": {
+    "electors": 227138,
+    "votes_polled": 213275,
+    "turnout_pct": 93.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Tanzil Hussain",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 145212,
+      "vote_share_pct": 68.09,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Anil Saikia",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 36902,
+      "vote_share_pct": 17.3
+    },
+    {
+      "rank": 3,
+      "name": "Abdul Aziz",
+      "party_eci_code": "145",
+      "party_short": "AIUDF",
+      "votes": 27904,
+      "vote_share_pct": 13.08
+    },
+    {
+      "rank": 4,
+      "name": "Ayub Khan",
+      "party_short": "IND",
+      "votes": 1063,
+      "vote_share_pct": 0.5
+    },
+    {
+      "rank": 5,
+      "name": "Sabina Eachamin",
+      "party_short": "IND",
+      "votes": 472,
+      "vote_share_pct": 0.22
+    }
+  ],
+  "nota": {
+    "votes": 995,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 727,
+    "vote_share_pct": 0.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Tanzil Hussain",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 145212,
+    "margin_votes": 108310,
+    "margin_pct": 50.78
+  }
+}

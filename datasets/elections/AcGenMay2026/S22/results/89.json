@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 89,
+  "constituency_name": "SALEM (NORTH)",
+  "totals": {
+    "electors": 238685,
+    "votes_polled": 210712,
+    "turnout_pct": 88.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sivakumar. K",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 85710,
+      "vote_share_pct": 40.68,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rajendran. R",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 71676,
+      "vote_share_pct": 34.02
+    },
+    {
+      "rank": 3,
+      "name": "Sadhasivam. S",
+      "party_eci_code": "1272",
+      "party_short": "PMK",
+      "votes": 44238,
+      "vote_share_pct": 20.99
+    },
+    {
+      "rank": 4,
+      "name": "Gunaseela. M",
+      "party_short": "NTK",
+      "votes": 6450,
+      "vote_share_pct": 3.06
+    },
+    {
+      "rank": 5,
+      "name": "Mohanraj. S",
+      "party_short": "tavk",
+      "votes": 338,
+      "vote_share_pct": 0.16
+    }
+  ],
+  "nota": {
+    "votes": 1205,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1095,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sivakumar. K",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 85710,
+    "margin_votes": 14034,
+    "margin_pct": 6.66
+  }
+}

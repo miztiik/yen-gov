@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "VELLORE",
+  "totals": {
+    "electors": 214946,
+    "votes_polled": 190527,
+    "turnout_pct": 88.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M.m.vinoth Kannan",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 73032,
+      "vote_share_pct": 38.33,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "P.karthikeyan",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 66255,
+      "vote_share_pct": 34.77
+    },
+    {
+      "rank": 3,
+      "name": "S R K Appu",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 45458,
+      "vote_share_pct": 23.86
+    },
+    {
+      "rank": 4,
+      "name": "A.soniya",
+      "party_short": "NTK",
+      "votes": 3793,
+      "vote_share_pct": 1.99
+    },
+    {
+      "rank": 5,
+      "name": "K.vimala",
+      "party_short": "NIDP",
+      "votes": 195,
+      "vote_share_pct": 0.1
+    }
+  ],
+  "nota": {
+    "votes": 757,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1037,
+    "vote_share_pct": 0.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M.m.vinoth Kannan",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 73032,
+    "margin_votes": 6777,
+    "margin_pct": 3.56
+  }
+}

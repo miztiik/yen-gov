@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 130,
+  "constituency_name": "NEDUMANGAD",
+  "totals": {
+    "electors": 198906,
+    "votes_polled": 158894,
+    "turnout_pct": 79.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G R Anil",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 69206,
+      "vote_share_pct": 43.55,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Meenankal Kumar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 47623,
+      "vote_share_pct": 29.97
+    },
+    {
+      "rank": 3,
+      "name": "Yuvraj Gokul",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 38999,
+      "vote_share_pct": 24.54
+    },
+    {
+      "rank": 4,
+      "name": "Batherutheen A (ziad Kandala)",
+      "party_short": "SDPI",
+      "votes": 1191,
+      "vote_share_pct": 0.75
+    },
+    {
+      "rank": 5,
+      "name": "Sujilal B G",
+      "party_short": "BSP",
+      "votes": 408,
+      "vote_share_pct": 0.26
+    }
+  ],
+  "nota": {
+    "votes": 979,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 488,
+    "vote_share_pct": 0.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G R Anil",
+    "party_eci_code": "544",
+    "party_short": "CPI",
+    "votes": 69206,
+    "margin_votes": 21583,
+    "margin_pct": 13.58
+  }
+}

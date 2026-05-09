@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "PERAMBUR",
+  "totals": {
+    "electors": 226345,
+    "votes_polled": 204384,
+    "turnout_pct": 90.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C. Joseph Vijay",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 120365,
+      "vote_share_pct": 58.89,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "R.d. Shekar",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 66650,
+      "vote_share_pct": 32.61
+    },
+    {
+      "rank": 3,
+      "name": "M. Thilagabama",
+      "party_eci_code": "1272",
+      "party_short": "PMK",
+      "votes": 8561,
+      "vote_share_pct": 4.19
+    },
+    {
+      "rank": 4,
+      "name": "S. Vetri Thamizhan",
+      "party_short": "NTK",
+      "votes": 5114,
+      "vote_share_pct": 2.5
+    },
+    {
+      "rank": 5,
+      "name": "A. Rajaram",
+      "party_short": "RPPRINAT",
+      "votes": 256,
+      "vote_share_pct": 0.13
+    }
+  ],
+  "nota": {
+    "votes": 601,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 42,
+    "votes": 2837,
+    "vote_share_pct": 1.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C. Joseph Vijay",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 120365,
+    "margin_votes": 53715,
+    "margin_pct": 26.28
+  }
+}

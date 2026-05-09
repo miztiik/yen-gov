@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "PONNANI",
+  "totals": {
+    "electors": 216585,
+    "votes_polled": 161973,
+    "turnout_pct": 74.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.p Noushad Ali",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 80674,
+      "vote_share_pct": 49.81,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adv.m.k Sakkeer",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 67407,
+      "vote_share_pct": 41.62
+    },
+    {
+      "rank": 3,
+      "name": "Maneesh Janakeeyam",
+      "party_short": "BDJS",
+      "votes": 10210,
+      "vote_share_pct": 6.3
+    },
+    {
+      "rank": 4,
+      "name": "Anwar Pazhanji",
+      "party_short": "SDPI",
+      "votes": 1971,
+      "vote_share_pct": 1.22
+    },
+    {
+      "rank": 5,
+      "name": "Noushadali",
+      "party_short": "IND",
+      "votes": 324,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 762,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 625,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.p Noushad Ali",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 80674,
+    "margin_votes": 13267,
+    "margin_pct": 8.19
+  }
+}

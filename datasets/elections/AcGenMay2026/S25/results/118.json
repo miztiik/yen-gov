@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 118,
+  "constituency_name": "MADHYAMGRAM",
+  "totals": {
+    "electors": 244690,
+    "votes_polled": 232916,
+    "turnout_pct": 95.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rathin Ghosh",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 95995,
+      "vote_share_pct": 41.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Anindya Banerjee",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 93596,
+      "vote_share_pct": 40.18
+    },
+    {
+      "rank": 3,
+      "name": "Priyanka Barman",
+      "party_eci_code": "3075",
+      "party_short": "AISF",
+      "votes": 35501,
+      "vote_share_pct": 15.24
+    },
+    {
+      "rank": 4,
+      "name": "Nitai Chandra Pal",
+      "party_short": "AIFB",
+      "votes": 2209,
+      "vote_share_pct": 0.95
+    },
+    {
+      "rank": 5,
+      "name": "Ananta Ray",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 1587,
+      "vote_share_pct": 0.68
+    }
+  ],
+  "nota": {
+    "votes": 1474,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2554,
+    "vote_share_pct": 1.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rathin Ghosh",
+    "party_eci_code": "140",
+    "party_short": "AITC",
+    "votes": 95995,
+    "margin_votes": 2399,
+    "margin_pct": 1.03
+  }
+}

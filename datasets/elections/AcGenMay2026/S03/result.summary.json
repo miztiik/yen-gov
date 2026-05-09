@@ -1,0 +1,235 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.summary.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "total_seats": 126,
+  "totals": {
+    "electors": 25117886,
+    "votes_polled": 21664898,
+    "turnout_pct": 86.25
+  },
+  "party_totals": [
+    {
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "seats_contested": 90,
+      "seats_won": 82,
+      "votes": 8192498,
+      "vote_share_pct": 37.81
+    },
+    {
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "seats_contested": 99,
+      "seats_won": 19,
+      "votes": 6464016,
+      "vote_share_pct": 29.84
+    },
+    {
+      "party_eci_code": "83",
+      "party_short": "AGP",
+      "seats_contested": 26,
+      "seats_won": 10,
+      "votes": 1402832,
+      "vote_share_pct": 6.48
+    },
+    {
+      "party_eci_code": "436",
+      "party_short": "BOPF",
+      "seats_contested": 11,
+      "seats_won": 10,
+      "votes": 807546,
+      "vote_share_pct": 3.73
+    },
+    {
+      "party_eci_code": "145",
+      "party_short": "AIUDF",
+      "seats_contested": 30,
+      "seats_won": 2,
+      "votes": 1182913,
+      "vote_share_pct": 5.46
+    },
+    {
+      "party_eci_code": "3289",
+      "party_short": "RJRD",
+      "seats_contested": 13,
+      "seats_won": 2,
+      "votes": 581574,
+      "vote_share_pct": 2.68
+    },
+    {
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "seats_contested": 22,
+      "seats_won": 1,
+      "votes": 193365,
+      "vote_share_pct": 0.89
+    },
+    {
+      "party_short": "IND",
+      "seats_contested": 91,
+      "seats_won": 0,
+      "votes": 947803,
+      "vote_share_pct": 4.37
+    },
+    {
+      "party_short": "ASMJTYP",
+      "seats_contested": 10,
+      "seats_won": 0,
+      "votes": 545601,
+      "vote_share_pct": 2.52
+    },
+    {
+      "party_short": "UPPL",
+      "seats_contested": 18,
+      "seats_won": 0,
+      "votes": 496304,
+      "vote_share_pct": 2.29
+    },
+    {
+      "party_short": "JMM",
+      "seats_contested": 16,
+      "seats_won": 0,
+      "votes": 251350,
+      "vote_share_pct": 1.16
+    },
+    {
+      "party_short": "CPI(M)",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 102190,
+      "vote_share_pct": 0.47
+    },
+    {
+      "party_short": "NPEP",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 35460,
+      "vote_share_pct": 0.16
+    },
+    {
+      "party_short": "SUCI",
+      "seats_contested": 41,
+      "seats_won": 0,
+      "votes": 31950,
+      "vote_share_pct": 0.15
+    },
+    {
+      "party_short": "AAAP",
+      "seats_contested": 18,
+      "seats_won": 0,
+      "votes": 29473,
+      "vote_share_pct": 0.14
+    },
+    {
+      "party_short": "CPI(ML)(L)",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 29162,
+      "vote_share_pct": 0.13
+    },
+    {
+      "party_short": "VPI",
+      "seats_contested": 17,
+      "seats_won": 0,
+      "votes": 27975,
+      "vote_share_pct": 0.13
+    },
+    {
+      "party_short": "GNASURKP",
+      "seats_contested": 10,
+      "seats_won": 0,
+      "votes": 20187,
+      "vote_share_pct": 0.09
+    },
+    {
+      "party_short": "VINPA",
+      "seats_contested": 5,
+      "seats_won": 0,
+      "votes": 14276,
+      "vote_share_pct": 0.07
+    },
+    {
+      "party_short": "GGP",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 10362,
+      "vote_share_pct": 0.05
+    },
+    {
+      "party_short": "CPI",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 7618,
+      "vote_share_pct": 0.04
+    },
+    {
+      "party_short": "RUC",
+      "seats_contested": 10,
+      "seats_won": 0,
+      "votes": 6308,
+      "vote_share_pct": 0.03
+    },
+    {
+      "party_short": "RPPRINAT",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 5803,
+      "vote_share_pct": 0.03
+    },
+    {
+      "party_short": "BGanP",
+      "seats_contested": 4,
+      "seats_won": 0,
+      "votes": 3611,
+      "vote_share_pct": 0.02
+    },
+    {
+      "party_short": "RCPI(R)",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 3088,
+      "vote_share_pct": 0.01
+    },
+    {
+      "party_short": "TNRMPI",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 2219,
+      "vote_share_pct": 0.01
+    },
+    {
+      "party_short": "RPI(A)",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 1191,
+      "vote_share_pct": 0.01
+    },
+    {
+      "party_short": "APNJNTP",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 635,
+      "vote_share_pct": 0.0
+    },
+    {
+      "party_short": "AIFB",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 626,
+      "vote_share_pct": 0.0
+    }
+  ]
+}

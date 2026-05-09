@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 215,
+  "constituency_name": "TIRUCHENDUR",
+  "totals": {
+    "electors": 233061,
+    "votes_polled": 186050,
+    "turnout_pct": 79.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anitha R. Radhakrishnan",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 72723,
+      "vote_share_pct": 39.09,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "J. Murugan",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 66851,
+      "vote_share_pct": 35.93
+    },
+    {
+      "rank": 3,
+      "name": "K R M Radhakrishnan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 34159,
+      "vote_share_pct": 18.36
+    },
+    {
+      "rank": 4,
+      "name": "Ophiliya",
+      "party_short": "NTK",
+      "votes": 9794,
+      "vote_share_pct": 5.26
+    },
+    {
+      "rank": 5,
+      "name": "Gopalakrishnan",
+      "party_short": "AIPTMMK",
+      "votes": 442,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 722,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1359,
+    "vote_share_pct": 0.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anitha R. Radhakrishnan",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 72723,
+    "margin_votes": 5872,
+    "margin_pct": 3.16
+  }
+}

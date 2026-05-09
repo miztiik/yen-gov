@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 135,
+  "constituency_name": "KARUR",
+  "totals": {
+    "electors": 230068,
+    "votes_polled": 216829,
+    "turnout_pct": 94.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M.r. Vijayabhaskar",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 71542,
+      "vote_share_pct": 32.99,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mathiyalagan V.p",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 69721,
+      "vote_share_pct": 32.15
+    },
+    {
+      "rank": 3,
+      "name": "Aasee.m. Thiagarajan",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 67256,
+      "vote_share_pct": 31.02
+    },
+    {
+      "rank": 4,
+      "name": "Karuppaiya. R",
+      "party_short": "NTK",
+      "votes": 5465,
+      "vote_share_pct": 2.52
+    },
+    {
+      "rank": 5,
+      "name": "Jayagopal. P",
+      "party_short": "BSP",
+      "votes": 302,
+      "vote_share_pct": 0.14
+    }
+  ],
+  "nota": {
+    "votes": 539,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 74,
+    "votes": 2004,
+    "vote_share_pct": 0.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M.r. Vijayabhaskar",
+    "party_eci_code": "75",
+    "party_short": "ADMK",
+    "votes": 71542,
+    "margin_votes": 1821,
+    "margin_pct": 0.84
+  }
+}

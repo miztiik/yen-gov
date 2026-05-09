@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 162,
+  "constituency_name": "POOMPUHAR",
+  "totals": {
+    "electors": 259332,
+    "votes_polled": 219324,
+    "turnout_pct": 84.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nivedha M Murugan",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 81096,
+      "vote_share_pct": 36.98,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Pavunraj. S",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 72836,
+      "vote_share_pct": 33.21
+    },
+    {
+      "rank": 3,
+      "name": "Vijayalaiyan. J",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 55902,
+      "vote_share_pct": 25.49
+    },
+    {
+      "rank": 4,
+      "name": "Ilayanagulan. K",
+      "party_short": "NTK",
+      "votes": 6353,
+      "vote_share_pct": 2.9
+    },
+    {
+      "rank": 5,
+      "name": "Maya Venkatesan. M",
+      "party_short": "IND",
+      "votes": 730,
+      "vote_share_pct": 0.33
+    }
+  ],
+  "nota": {
+    "votes": 586,
+    "vote_share_pct": 0.27
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1821,
+    "vote_share_pct": 0.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nivedha M Murugan",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 81096,
+    "margin_votes": 8260,
+    "margin_pct": 3.77
+  }
+}

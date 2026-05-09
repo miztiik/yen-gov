@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 85,
+  "constituency_name": "METTUR",
+  "totals": {
+    "electors": 255869,
+    "votes_polled": 231105,
+    "turnout_pct": 90.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Venkatachalam. G",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 86498,
+      "vote_share_pct": 37.43,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Midhun Chakravarthy. M",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 67393,
+      "vote_share_pct": 29.16
+    },
+    {
+      "rank": 3,
+      "name": "Selvam. K",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 65260,
+      "vote_share_pct": 28.24
+    },
+    {
+      "rank": 4,
+      "name": "Vidhya Veerappan",
+      "party_short": "NTK",
+      "votes": 7109,
+      "vote_share_pct": 3.08
+    },
+    {
+      "rank": 5,
+      "name": "Ramkumar. D.m",
+      "party_short": "IND",
+      "votes": 706,
+      "vote_share_pct": 0.31
+    }
+  ],
+  "nota": {
+    "votes": 794,
+    "vote_share_pct": 0.34
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 3345,
+    "vote_share_pct": 1.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Venkatachalam. G",
+    "party_eci_code": "75",
+    "party_short": "ADMK",
+    "votes": 86498,
+    "margin_votes": 19105,
+    "margin_pct": 8.27
+  }
+}

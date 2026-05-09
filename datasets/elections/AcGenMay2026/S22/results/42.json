@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "ARCOT",
+  "totals": {
+    "electors": 246786,
+    "votes_polled": 225786,
+    "turnout_pct": 91.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "S.m.sukumar",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 105608,
+      "vote_share_pct": 46.77,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "G.vijay Mohan",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 62888,
+      "vote_share_pct": 27.85
+    },
+    {
+      "rank": 3,
+      "name": "J.l.eswarappan",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 48840,
+      "vote_share_pct": 21.63
+    },
+    {
+      "rank": 4,
+      "name": "Archana Narasimman",
+      "party_short": "NTK",
+      "votes": 5518,
+      "vote_share_pct": 2.44
+    },
+    {
+      "rank": 5,
+      "name": "M.vasanthakumar",
+      "party_short": "BSP",
+      "votes": 468,
+      "vote_share_pct": 0.21
+    }
+  ],
+  "nota": {
+    "votes": 656,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1808,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "S.m.sukumar",
+    "party_eci_code": "75",
+    "party_short": "ADMK",
+    "votes": 105608,
+    "margin_votes": 42720,
+    "margin_pct": 18.92
+  }
+}

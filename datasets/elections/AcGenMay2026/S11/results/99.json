@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 99,
+  "constituency_name": "CHANGANASSERY",
+  "totals": {
+    "electors": 163119,
+    "votes_polled": 121150,
+    "turnout_pct": 74.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vinu Job Kuzhimannil",
+      "party_eci_code": "911",
+      "party_short": "KEC",
+      "votes": 55991,
+      "vote_share_pct": 46.22,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adv. Job Maichil",
+      "party_short": "KEC(M)",
+      "votes": 47623,
+      "vote_share_pct": 39.31
+    },
+    {
+      "rank": 3,
+      "name": "B Radhakrishna Menon",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 14803,
+      "vote_share_pct": 12.22
+    },
+    {
+      "rank": 4,
+      "name": "Usha Johnson",
+      "party_short": "BSP",
+      "votes": 883,
+      "vote_share_pct": 0.73
+    },
+    {
+      "rank": 5,
+      "name": "Althaf Hassan",
+      "party_short": "SDPI",
+      "votes": 564,
+      "vote_share_pct": 0.47
+    }
+  ],
+  "nota": {
+    "votes": 532,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 754,
+    "vote_share_pct": 0.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vinu Job Kuzhimannil",
+    "party_eci_code": "911",
+    "party_short": "KEC",
+    "votes": 55991,
+    "margin_votes": 8368,
+    "margin_pct": 6.91
+  }
+}

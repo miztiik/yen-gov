@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 126,
+  "constituency_name": "CHATHANNOOR",
+  "totals": {
+    "electors": 177538,
+    "votes_polled": 136507,
+    "turnout_pct": 76.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B.b.gopakumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 51923,
+      "vote_share_pct": 38.04,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adv.r.rajendran",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 47525,
+      "vote_share_pct": 34.82
+    },
+    {
+      "rank": 3,
+      "name": "Sooraj Ravi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 35276,
+      "vote_share_pct": 25.84
+    },
+    {
+      "rank": 4,
+      "name": "Arun Chathannoor",
+      "party_short": "AAAP",
+      "votes": 627,
+      "vote_share_pct": 0.46
+    },
+    {
+      "rank": 5,
+      "name": "Sindhu Puthenkulam",
+      "party_short": "DHRMP",
+      "votes": 428,
+      "vote_share_pct": 0.31
+    }
+  ],
+  "nota": {
+    "votes": 728,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B.b.gopakumar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 51923,
+    "margin_votes": 4398,
+    "margin_pct": 3.22
+  },
+  "others": null
+}

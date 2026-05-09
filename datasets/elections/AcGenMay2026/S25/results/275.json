@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 275,
+  "constituency_name": "PANDABESWAR",
+  "totals": {
+    "electors": 188499,
+    "votes_polled": 174712,
+    "turnout_pct": 92.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jitendra Kumar Tewari",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 80501,
+      "vote_share_pct": 46.08,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Narendranath Chakraborty",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 79103,
+      "vote_share_pct": 45.28
+    },
+    {
+      "rank": 3,
+      "name": "Prabir Kumar Mondal",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 8048,
+      "vote_share_pct": 4.61
+    },
+    {
+      "rank": 4,
+      "name": "Sawana Khatun",
+      "party_short": "IND",
+      "votes": 1897,
+      "vote_share_pct": 1.09
+    },
+    {
+      "rank": 5,
+      "name": "Uttam Kumar Roy",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 1273,
+      "vote_share_pct": 0.73
+    }
+  ],
+  "nota": {
+    "votes": 1289,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2601,
+    "vote_share_pct": 1.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jitendra Kumar Tewari",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 80501,
+    "margin_votes": 1398,
+    "margin_pct": 0.8
+  }
+}

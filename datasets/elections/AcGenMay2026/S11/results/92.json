@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 92,
+  "constituency_name": "PEERUMADE",
+  "totals": {
+    "electors": 156681,
+    "votes_polled": 122652,
+    "turnout_pct": 78.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv.cyriac Thomas",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 69672,
+      "vote_share_pct": 56.8,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "K Salimkumar",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 42038,
+      "vote_share_pct": 34.27
+    },
+    {
+      "rank": 3,
+      "name": "Ratheesh Varakumala",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 9218,
+      "vote_share_pct": 7.52
+    },
+    {
+      "rank": 4,
+      "name": "Joseph Jacob",
+      "party_short": "AAAP",
+      "votes": 508,
+      "vote_share_pct": 0.41
+    },
+    {
+      "rank": 5,
+      "name": "K Murali",
+      "party_short": "BSP",
+      "votes": 425,
+      "vote_share_pct": 0.35
+    }
+  ],
+  "nota": {
+    "votes": 791,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv.cyriac Thomas",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 69672,
+    "margin_votes": 27634,
+    "margin_pct": 22.53
+  },
+  "others": null
+}

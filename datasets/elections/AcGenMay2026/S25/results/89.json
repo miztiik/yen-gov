@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 89,
+  "constituency_name": "RANAGHAT UTTAR PURBA (SC)",
+  "totals": {
+    "electors": 233552,
+    "votes_polled": 211396,
+    "turnout_pct": 90.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ashim Biswas",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 126235,
+      "vote_share_pct": 59.71,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Barnali Dey Roy",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 74492,
+      "vote_share_pct": 35.24
+    },
+    {
+      "rank": 3,
+      "name": "Mrinal Biswas (mini)",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 4713,
+      "vote_share_pct": 2.23
+    },
+    {
+      "rank": 4,
+      "name": "Barnali Biswas",
+      "party_short": "IND",
+      "votes": 1167,
+      "vote_share_pct": 0.55
+    },
+    {
+      "rank": 5,
+      "name": "Bindu Biswas",
+      "party_short": "BSP",
+      "votes": 976,
+      "vote_share_pct": 0.46
+    }
+  ],
+  "nota": {
+    "votes": 1779,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2034,
+    "vote_share_pct": 0.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ashim Biswas",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 126235,
+    "margin_votes": 51743,
+    "margin_pct": 24.48
+  }
+}

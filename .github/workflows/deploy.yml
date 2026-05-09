@@ -1,0 +1,75 @@
+name: deploy
+
+# Builds the frontend and stages datasets/ next to it (per ADR-0013), then
+# publishes to GitHub Pages. Triggered on push to main and manually.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: build frontend
+        working-directory: frontend
+        run: |
+          bun install --frozen-lockfile
+          bun run build
+
+      - name: stage Pages artifact (ADR-0013)
+        run: |
+          mkdir -p _site
+          cp -r frontend/dist/. _site/
+          cp -r datasets _site/data
+          # Sanity: the dev-time middleware contract must hold at deploy.
+          test -f _site/data/elections/AcGenMay2026/S22/result.summary.json
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  smoke:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: fetch deployed result.summary.json
+        run: |
+          base="${{ needs.deploy.outputs.page_url }}"
+          url="${base}data/elections/AcGenMay2026/S22/result.summary.json"
+          for i in 1 2 3; do
+            if curl -fsSL "$url" -o /tmp/summary.json; then break; fi
+            sleep 10
+          done
+          test -s /tmp/summary.json
+          python3 -c "import json; d=json.load(open('/tmp/summary.json')); assert d['state']=='S22', d"

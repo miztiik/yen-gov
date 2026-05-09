@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 232,
+  "constituency_name": "PADMANABHAPURAM",
+  "totals": {
+    "electors": 237160,
+    "votes_polled": 180555,
+    "turnout_pct": 76.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chellaswamy. R",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 68938,
+      "vote_share_pct": 38.18,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Krishna Kumar. S",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 53369,
+      "vote_share_pct": 29.56
+    },
+    {
+      "rank": 3,
+      "name": "Ramesh. P",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 44293,
+      "vote_share_pct": 24.53
+    },
+    {
+      "rank": 4,
+      "name": "Seelan",
+      "party_short": "NTK",
+      "votes": 11288,
+      "vote_share_pct": 6.25
+    },
+    {
+      "rank": 5,
+      "name": "Vasanthi. R",
+      "party_short": "IND",
+      "votes": 453,
+      "vote_share_pct": 0.25
+    }
+  ],
+  "nota": {
+    "votes": 615,
+    "vote_share_pct": 0.34
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1599,
+    "vote_share_pct": 0.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chellaswamy. R",
+    "party_eci_code": "547",
+    "party_short": "CPI(M)",
+    "votes": 68938,
+    "margin_votes": 15569,
+    "margin_pct": 8.62
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "UDHAGAMANDALAM",
+  "totals": {
+    "electors": 188968,
+    "votes_polled": 148704,
+    "turnout_pct": 78.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhojarajan.m",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 48488,
+      "vote_share_pct": 32.61,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ibrahim.r",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 47512,
+      "vote_share_pct": 31.95
+    },
+    {
+      "rank": 3,
+      "name": "Ramachandran.b",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 45658,
+      "vote_share_pct": 30.7
+    },
+    {
+      "rank": 4,
+      "name": "Ragupathy.b",
+      "party_short": "NTK",
+      "votes": 4641,
+      "vote_share_pct": 3.12
+    },
+    {
+      "rank": 5,
+      "name": "Manian.r",
+      "party_short": "IND",
+      "votes": 462,
+      "vote_share_pct": 0.31
+    }
+  ],
+  "nota": {
+    "votes": 1525,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 418,
+    "vote_share_pct": 0.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhojarajan.m",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 48488,
+    "margin_votes": 976,
+    "margin_pct": 0.66
+  }
+}

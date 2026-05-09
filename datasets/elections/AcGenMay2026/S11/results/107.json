@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "HARIPAD",
+  "totals": {
+    "electors": 186282,
+    "votes_polled": 144837,
+    "turnout_pct": 77.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ramesh Chennithala",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 68184,
+      "vote_share_pct": 47.08,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "T.t.jismon",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 44807,
+      "vote_share_pct": 30.94
+    },
+    {
+      "rank": 3,
+      "name": "Sandheep Vaachaspathi",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 31022,
+      "vote_share_pct": 21.42
+    },
+    {
+      "rank": 4,
+      "name": "Vidhya V.p",
+      "party_short": "SUCI",
+      "votes": 231,
+      "vote_share_pct": 0.16
+    },
+    {
+      "rank": 5,
+      "name": "Soumya V.sasidharan",
+      "party_short": "IND",
+      "votes": 69,
+      "vote_share_pct": 0.05
+    }
+  ],
+  "nota": {
+    "votes": 465,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 59,
+    "vote_share_pct": 0.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ramesh Chennithala",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 68184,
+    "margin_votes": 23377,
+    "margin_pct": 16.14
+  }
+}

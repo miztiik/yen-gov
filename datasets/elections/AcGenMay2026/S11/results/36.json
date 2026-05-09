@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 36,
+  "constituency_name": "WANDOOR (SC)",
+  "totals": {
+    "electors": 247455,
+    "votes_polled": 203168,
+    "turnout_pct": 82.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A.p Anilkumar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 121074,
+      "vote_share_pct": 59.59,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dr.k.k Damodaran",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 73135,
+      "vote_share_pct": 36.0
+    },
+    {
+      "rank": 3,
+      "name": "Kumaradas",
+      "party_short": "IND",
+      "votes": 6018,
+      "vote_share_pct": 2.96
+    },
+    {
+      "rank": 4,
+      "name": "Anilkumar S/o Kuttan",
+      "party_short": "IND",
+      "votes": 1267,
+      "vote_share_pct": 0.62
+    }
+  ],
+  "nota": {
+    "votes": 1674,
+    "vote_share_pct": 0.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A.p Anilkumar",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 121074,
+    "margin_votes": 47939,
+    "margin_pct": 23.6
+  },
+  "others": null
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "TANUR",
+  "totals": {
+    "electors": 214141,
+    "votes_polled": 172324,
+    "turnout_pct": 80.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P K Navas",
+      "party_eci_code": "772",
+      "party_short": "IUML",
+      "votes": 91992,
+      "vote_share_pct": 53.38,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mohamed Sameer T Thiruthiyil House",
+      "party_short": "IND",
+      "votes": 64861,
+      "vote_share_pct": 37.64
+    },
+    {
+      "rank": 3,
+      "name": "Deepa Puzhakkal",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 13642,
+      "vote_share_pct": 7.92
+    },
+    {
+      "rank": 4,
+      "name": "P P Navas S/o Kunhimuhamed",
+      "party_short": "IND",
+      "votes": 502,
+      "vote_share_pct": 0.29
+    },
+    {
+      "rank": 5,
+      "name": "Sameer T",
+      "party_short": "IND",
+      "votes": 373,
+      "vote_share_pct": 0.22
+    }
+  ],
+  "nota": {
+    "votes": 589,
+    "vote_share_pct": 0.34
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 365,
+    "vote_share_pct": 0.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P K Navas",
+    "party_eci_code": "772",
+    "party_short": "IUML",
+    "votes": 91992,
+    "margin_votes": 27131,
+    "margin_pct": 15.74
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "KURSEONG",
+  "totals": {
+    "electors": 218103,
+    "votes_polled": 181833,
+    "turnout_pct": 83.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sonam Lama",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 74878,
+      "vote_share_pct": 41.18,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Amar Lama",
+      "party_short": "BGPM",
+      "votes": 57871,
+      "vote_share_pct": 31.83
+    },
+    {
+      "rank": 3,
+      "name": "Bandana Rai",
+      "party_short": "IND",
+      "votes": 41088,
+      "vote_share_pct": 22.6
+    },
+    {
+      "rank": 4,
+      "name": "Uttam Brahman",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 1690,
+      "vote_share_pct": 0.93
+    },
+    {
+      "rank": 5,
+      "name": "Saroj Kumar Khattri",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 1651,
+      "vote_share_pct": 0.91
+    }
+  ],
+  "nota": {
+    "votes": 1768,
+    "vote_share_pct": 0.97
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2887,
+    "vote_share_pct": 1.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sonam Lama",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 74878,
+    "margin_votes": 17007,
+    "margin_pct": 9.35
+  }
+}

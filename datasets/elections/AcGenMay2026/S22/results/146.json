@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 146,
+  "constituency_name": "THURAIYUR (SC)",
+  "totals": {
+    "electors": 210753,
+    "votes_polled": 184426,
+    "turnout_pct": 87.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ravisankar.m",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 66263,
+      "vote_share_pct": 35.93,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "E.saroja",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 56649,
+      "vote_share_pct": 30.72
+    },
+    {
+      "rank": 3,
+      "name": "M.lenin Prasath",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 49222,
+      "vote_share_pct": 26.69
+    },
+    {
+      "rank": 4,
+      "name": "S Kowsalya",
+      "party_short": "NTK",
+      "votes": 8436,
+      "vote_share_pct": 4.57
+    },
+    {
+      "rank": 5,
+      "name": "P.srinivasan",
+      "party_short": "BSP",
+      "votes": 588,
+      "vote_share_pct": 0.32
+    }
+  ],
+  "nota": {
+    "votes": 697,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2571,
+    "vote_share_pct": 1.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ravisankar.m",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 66263,
+    "margin_votes": 9614,
+    "margin_pct": 5.21
+  }
+}

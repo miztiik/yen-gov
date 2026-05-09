@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 150,
+  "constituency_name": "JAYANKONDAM",
+  "totals": {
+    "electors": 263862,
+    "votes_polled": 228548,
+    "turnout_pct": 86.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vaithilingam G.",
+      "party_eci_code": "1272",
+      "party_short": "PMK",
+      "votes": 88992,
+      "vote_share_pct": 38.94,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kannan Ka.so.ka.",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 70502,
+      "vote_share_pct": 30.85
+    },
+    {
+      "rank": 3,
+      "name": "Kavitha Rajendran G.",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 55538,
+      "vote_share_pct": 24.3
+    },
+    {
+      "rank": 4,
+      "name": "Revathi K.",
+      "party_short": "NTK",
+      "votes": 6192,
+      "vote_share_pct": 2.71
+    },
+    {
+      "rank": 5,
+      "name": "Ravisankar N.",
+      "party_short": "AJPK",
+      "votes": 1203,
+      "vote_share_pct": 0.53
+    }
+  ],
+  "nota": {
+    "votes": 416,
+    "vote_share_pct": 0.18
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 5705,
+    "vote_share_pct": 2.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vaithilingam G.",
+    "party_eci_code": "1272",
+    "party_short": "PMK",
+    "votes": 88992,
+    "margin_votes": 18490,
+    "margin_pct": 8.09
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 40,
+  "constituency_name": "MALAPPURAM",
+  "totals": {
+    "electors": 238172,
+    "votes_polled": 196885,
+    "turnout_pct": 82.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.k Kunhalikutty",
+      "party_eci_code": "772",
+      "party_short": "IUML",
+      "votes": 131632,
+      "vote_share_pct": 66.86,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "K.t. Mujeeb Rahman",
+      "party_short": "NCPSP",
+      "votes": 46305,
+      "vote_share_pct": 23.52
+    },
+    {
+      "rank": 3,
+      "name": "Aswathi Gupthakumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 9127,
+      "vote_share_pct": 4.64
+    },
+    {
+      "rank": 4,
+      "name": "Adv.sadik Naduthodi",
+      "party_short": "SDPI",
+      "votes": 5124,
+      "vote_share_pct": 2.6
+    },
+    {
+      "rank": 5,
+      "name": "Aboobacker Backer Kundupuzhakkal",
+      "party_short": "AAAP",
+      "votes": 2060,
+      "vote_share_pct": 1.05
+    }
+  ],
+  "nota": {
+    "votes": 1379,
+    "vote_share_pct": 0.7
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1258,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.k Kunhalikutty",
+    "party_eci_code": "772",
+    "party_short": "IUML",
+    "votes": 131632,
+    "margin_votes": 85327,
+    "margin_pct": 43.34
+  }
+}

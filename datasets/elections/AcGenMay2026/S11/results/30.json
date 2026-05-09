@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "KUNNAMANGALAM",
+  "totals": {
+    "electors": 242379,
+    "votes_polled": 208949,
+    "turnout_pct": 86.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M.a. Razak Master",
+      "party_eci_code": "772",
+      "party_short": "IUML",
+      "votes": 91598,
+      "vote_share_pct": 43.84,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adv. P T A Rahim",
+      "party_short": "IND",
+      "votes": 78285,
+      "vote_share_pct": 37.47
+    },
+    {
+      "rank": 3,
+      "name": "Adv.v. K. Sajeevan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 34435,
+      "vote_share_pct": 16.48
+    },
+    {
+      "rank": 4,
+      "name": "Rahim S/o Muhammed Koya",
+      "party_short": "IND",
+      "votes": 2110,
+      "vote_share_pct": 1.01
+    },
+    {
+      "rank": 5,
+      "name": "Abdu Rasak S/o Muhammed",
+      "party_short": "IND",
+      "votes": 567,
+      "vote_share_pct": 0.27
+    }
+  ],
+  "nota": {
+    "votes": 1044,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 910,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M.a. Razak Master",
+    "party_eci_code": "772",
+    "party_short": "IUML",
+    "votes": 91598,
+    "margin_votes": 13313,
+    "margin_pct": 6.37
+  }
+}

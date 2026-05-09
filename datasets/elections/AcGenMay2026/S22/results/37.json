@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "KANCHEEPURAM",
+  "totals": {
+    "electors": 278841,
+    "votes_polled": 246317,
+    "turnout_pct": 88.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "R.v. Ranjithkumar",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 91350,
+      "vote_share_pct": 37.09,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "V. Somasundaram",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 75862,
+      "vote_share_pct": 30.8
+    },
+    {
+      "rank": 3,
+      "name": "Nithya Sugumar",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 69344,
+      "vote_share_pct": 28.15
+    },
+    {
+      "rank": 4,
+      "name": "Vetriselvi",
+      "party_short": "NTK",
+      "votes": 6950,
+      "vote_share_pct": 2.82
+    },
+    {
+      "rank": 5,
+      "name": "G. Babu",
+      "party_short": "IND",
+      "votes": 364,
+      "vote_share_pct": 0.15
+    }
+  ],
+  "nota": {
+    "votes": 1078,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1369,
+    "vote_share_pct": 0.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "R.v. Ranjithkumar",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 91350,
+    "margin_votes": 15488,
+    "margin_pct": 6.29
+  }
+}

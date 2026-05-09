@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 77,
+  "constituency_name": "KALAMASSERY",
+  "totals": {
+    "electors": 197775,
+    "votes_polled": 163345,
+    "turnout_pct": 82.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. V E Abdul Gafoor",
+      "party_eci_code": "772",
+      "party_short": "IUML",
+      "votes": 80606,
+      "vote_share_pct": 49.35,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "P Rajeeve",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 64294,
+      "vote_share_pct": 39.36
+    },
+    {
+      "rank": 3,
+      "name": "Binu",
+      "party_short": "BDJS",
+      "votes": 14130,
+      "vote_share_pct": 8.65
+    },
+    {
+      "rank": 4,
+      "name": "Ajmal K Mujeeb",
+      "party_short": "SDPI",
+      "votes": 1578,
+      "vote_share_pct": 0.97
+    },
+    {
+      "rank": 5,
+      "name": "Shamsu T K",
+      "party_short": "AAAP",
+      "votes": 553,
+      "vote_share_pct": 0.34
+    }
+  ],
+  "nota": {
+    "votes": 1319,
+    "vote_share_pct": 0.81
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 865,
+    "vote_share_pct": 0.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. V E Abdul Gafoor",
+    "party_eci_code": "772",
+    "party_short": "IUML",
+    "votes": 80606,
+    "margin_votes": 16312,
+    "margin_pct": 9.99
+  }
+}

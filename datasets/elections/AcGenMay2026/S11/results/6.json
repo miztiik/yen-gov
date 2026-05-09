@@ -1,0 +1,70 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "PAYYANNUR",
+  "totals": {
+    "electors": 189889,
+    "votes_polled": 155970,
+    "turnout_pct": 82.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V. Kunhikrishnan",
+      "party_short": "IND",
+      "votes": 76640,
+      "vote_share_pct": 49.14,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "T. I. Madhusoodanan",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 69153,
+      "vote_share_pct": 44.34
+    },
+    {
+      "rank": 3,
+      "name": "A. P. Gangadharan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 8432,
+      "vote_share_pct": 5.41
+    },
+    {
+      "rank": 4,
+      "name": "Sandeep V. K.",
+      "party_short": "IND",
+      "votes": 552,
+      "vote_share_pct": 0.35
+    }
+  ],
+  "nota": {
+    "votes": 1193,
+    "vote_share_pct": 0.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V. Kunhikrishnan",
+    "party_short": "IND",
+    "votes": 76640,
+    "margin_votes": 7487,
+    "margin_pct": 4.8
+  },
+  "others": null
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/state.schema.json",
+  "title": "States collection",
+  "description": "All first-level administrative divisions (states + union territories) of a country, keyed by ECI state code. ECI codes are the canonical identifiers; ISO 3166-2 codes are carried for cross-referencing.",
+  "x-version": "3.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-08",
+      "description": "Initial schema. Country, list of states with ECI code, ISO 3166-2 code, name, type, capital, notes."
+    },
+    {
+      "version": "2.0",
+      "date": "2026-05-08",
+      "description": "Replaced optional source_url with required source field per provenance contract (CLAUDE.md §12)."
+    },
+    {
+      "version": "3.0",
+      "date": "2026-05-08",
+      "description": "Replaced single source string with sources array of {url, fetched_at} per ADR-0002. Empty array means hand-authored. Item-level source overrides removed."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "country", "states"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. An empty array signals hand-authored content.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "ISO 3166-1 alpha-2 country code (e.g. IN)."
+    },
+    "states": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["eci_code", "iso_3166_2", "name", "kind"],
+        "additionalProperties": false,
+        "properties": {
+          "eci_code": {
+            "type": "string",
+            "pattern": "^[SU]\\d{2}$",
+            "description": "Election Commission of India state code (e.g. S22 for Tamil Nadu, U07 for Delhi)."
+          },
+          "iso_3166_2": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}-[A-Z0-9]{2,3}$",
+            "description": "ISO 3166-2 subdivision code (e.g. IN-TN)."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Official English name."
+          },
+          "kind": {
+            "enum": ["state", "union_territory"]
+          },
+          "capital": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

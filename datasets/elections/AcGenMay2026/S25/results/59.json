@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "RAGHUNATHGANJ",
+  "totals": {
+    "electors": 200586,
+    "votes_polled": 194765,
+    "turnout_pct": 97.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Akhruzzaman",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 88909,
+      "vote_share_pct": 45.65,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Nasir Saikh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 48354,
+      "vote_share_pct": 24.83
+    },
+    {
+      "rank": 3,
+      "name": "Surojit Poddar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 35184,
+      "vote_share_pct": 18.06
+    },
+    {
+      "rank": 4,
+      "name": "Abul Hasnat",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 12985,
+      "vote_share_pct": 6.67
+    },
+    {
+      "rank": 5,
+      "name": "Md Imran Solanki",
+      "party_short": "AIMIM",
+      "votes": 5885,
+      "vote_share_pct": 3.02
+    }
+  ],
+  "nota": {
+    "votes": 1953,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1495,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Akhruzzaman",
+    "party_eci_code": "140",
+    "party_short": "AITC",
+    "votes": 88909,
+    "margin_votes": 40555,
+    "margin_pct": 20.82
+  }
+}

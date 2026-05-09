@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 61,
+  "constituency_name": "HARUR (SC)",
+  "totals": {
+    "electors": 245971,
+    "votes_polled": 220042,
+    "turnout_pct": 89.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sampathkumar. V",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 75523,
+      "vote_share_pct": 34.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Shanmugam. A",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 72194,
+      "vote_share_pct": 32.81
+    },
+    {
+      "rank": 3,
+      "name": "Rakesh. K",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 62756,
+      "vote_share_pct": 28.52
+    },
+    {
+      "rank": 4,
+      "name": "Anitha. A",
+      "party_short": "NTK",
+      "votes": 5245,
+      "vote_share_pct": 2.38
+    },
+    {
+      "rank": 5,
+      "name": "Nehru. G",
+      "party_short": "BSP",
+      "votes": 696,
+      "vote_share_pct": 0.32
+    }
+  ],
+  "nota": {
+    "votes": 782,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2846,
+    "vote_share_pct": 1.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sampathkumar. V",
+    "party_eci_code": "75",
+    "party_short": "ADMK",
+    "votes": 75523,
+    "margin_votes": 3329,
+    "margin_pct": 1.51
+  }
+}

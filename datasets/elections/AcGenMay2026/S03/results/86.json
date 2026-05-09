@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 86,
+  "constituency_name": "TINSUKIA",
+  "totals": {
+    "electors": 173347,
+    "votes_polled": 135818,
+    "turnout_pct": 78.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pulok Gohain",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 85184,
+      "vote_share_pct": 62.72,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Devid Phukan",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 36687,
+      "vote_share_pct": 27.01
+    },
+    {
+      "rank": 3,
+      "name": "Jhony Kiron Nayak",
+      "party_short": "IND",
+      "votes": 5120,
+      "vote_share_pct": 3.77
+    },
+    {
+      "rank": 4,
+      "name": "Lalan Sahani",
+      "party_short": "IND",
+      "votes": 2313,
+      "vote_share_pct": 1.7
+    },
+    {
+      "rank": 5,
+      "name": "Gobinda Joishy",
+      "party_short": "IND",
+      "votes": 1336,
+      "vote_share_pct": 0.98
+    }
+  ],
+  "nota": {
+    "votes": 2407,
+    "vote_share_pct": 1.77
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2771,
+    "vote_share_pct": 2.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pulok Gohain",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 85184,
+    "margin_votes": 48497,
+    "margin_pct": 35.71
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 144,
+  "constituency_name": "MANACHANALLUR",
+  "totals": {
+    "electors": 236632,
+    "votes_polled": 209780,
+    "turnout_pct": 88.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kathiravan. S",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 81447,
+      "vote_share_pct": 38.82,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "V.saravanan",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 69083,
+      "vote_share_pct": 32.93
+    },
+    {
+      "rank": 3,
+      "name": "R.v. Bharathan",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 46066,
+      "vote_share_pct": 21.96
+    },
+    {
+      "rank": 4,
+      "name": "Thenmozhi. R",
+      "party_short": "NTK",
+      "votes": 9289,
+      "vote_share_pct": 4.43
+    },
+    {
+      "rank": 5,
+      "name": "Ramesh Kumar. G",
+      "party_short": "IND",
+      "votes": 498,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 599,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 2798,
+    "vote_share_pct": 1.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kathiravan. S",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 81447,
+    "margin_votes": 12364,
+    "margin_pct": 5.89
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$comment": "Pipeline config for tools/boundaries/build.py. Each entry under 'inputs' describes one upstream GeoJSON we want to ingest, simplify, and pack into a PMTiles file under datasets/boundaries/in/. Edit this file to add states or change sources; build.py reads it verbatim.",
+  "outputs_dir": "datasets/boundaries/in",
+  "raw_dir": ".runtime/raw/boundaries",
+  "inputs": [
+    {
+      "kind": "states",
+      "country": "IN",
+      "out": "india-states.pmtiles",
+      "url": "https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson",
+      "license": "CC-BY 4.0 (GADM v2 derivative)",
+      "license_url": "https://gadm.org/license.html",
+      "name_property": "NAME_1",
+      "id_property": null,
+      "id_property_note": "geohacker repackages GADM v2; no ECI state code embedded. The frontend joins on NAME_1 via a name-to-eci_code map (datasets/reference/in/states.json).",
+      "tippecanoe": {
+        "minzoom": 0,
+        "maxzoom": 6,
+        "layer": "states",
+        "drop_densest_as_needed": true
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S22",
+      "out": "ac/S22-ac.pmtiles",
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/tamilnadu/assembly/tamilnadu_AC.json",
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S11",
+      "out": "ac/S11-ac.pmtiles",
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/kerala/assembly/kerala_AC.json",
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S25",
+      "out": "ac/S25-ac.pmtiles",
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/westbengal/assembly/westbengal_AC.json",
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S03",
+      "out": "ac/S03-ac.pmtiles",
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/assam/assembly/assam_AC.json",
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "datameet/shapefile sources for Assam may not match the post-2008 delimitation used by ECI for AcGenMay2026. Verify AC_NO 1..126 against datasets/reference/in/states/S03/constituencies.json before publishing.",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    }
+  ],
+  "simplify": {
+    "_comment": "mapshaper -simplify percent (visvalingam, weighted). 5% retains shapes well enough for choropleth use at z<=10.",
+    "percent": 0.05,
+    "method": "visvalingam weighted"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "SHOLINGUR",
+  "totals": {
+    "electors": 258076,
+    "votes_polled": 233684,
+    "turnout_pct": 90.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G.kapil",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 84506,
+      "vote_share_pct": 36.16,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "K.saravanan",
+      "party_eci_code": "1272",
+      "party_short": "PMK",
+      "votes": 78820,
+      "vote_share_pct": 33.73
+    },
+    {
+      "rank": 3,
+      "name": "A.m.munirathinam",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 57997,
+      "vote_share_pct": 24.82
+    },
+    {
+      "rank": 4,
+      "name": "A.ashok Kumar",
+      "party_short": "NTK",
+      "votes": 6468,
+      "vote_share_pct": 2.77
+    },
+    {
+      "rank": 5,
+      "name": "M.vijayan",
+      "party_short": "IND",
+      "votes": 548,
+      "vote_share_pct": 0.23
+    }
+  ],
+  "nota": {
+    "votes": 572,
+    "vote_share_pct": 0.24
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 4773,
+    "vote_share_pct": 2.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G.kapil",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 84506,
+    "margin_votes": 5686,
+    "margin_pct": 2.43
+  }
+}

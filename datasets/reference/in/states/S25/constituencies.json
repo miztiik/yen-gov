@@ -1,0 +1,1779 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_constituencies_of_the_West_Bengal_Legislative_Assembly",
+      "fetched_at": "2026-05-09T09:30:00Z"
+    }
+  ],
+  "state": "S25",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Mekliganj",
+      "district_id": "COB",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 2,
+      "name": "Mathabhanga",
+      "district_id": "COB",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 3,
+      "name": "Cooch Behar Uttar",
+      "district_id": "COB",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 4,
+      "name": "Cooch Behar Dakshin",
+      "district_id": "COB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Sitalkuchi",
+      "district_id": "COB",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 6,
+      "name": "Sitai",
+      "district_id": "COB",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 7,
+      "name": "Dinhata",
+      "district_id": "COB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Natabari",
+      "district_id": "COB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Tufanganj",
+      "district_id": "COB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Kumargram",
+      "district_id": "ALI",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 11,
+      "name": "Kalchini",
+      "district_id": "ALI",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 12,
+      "name": "Alipurduars",
+      "district_id": "ALI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Falakata",
+      "district_id": "ALI",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 14,
+      "name": "Madarihat",
+      "district_id": "ALI",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 15,
+      "name": "Dhupguri",
+      "district_id": "JAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 16,
+      "name": "Maynaguri",
+      "district_id": "JAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 17,
+      "name": "Jalpaiguri",
+      "district_id": "JAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 18,
+      "name": "Rajganj",
+      "district_id": "JAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 19,
+      "name": "Dabgram-Phulbari",
+      "district_id": "JAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Mal",
+      "district_id": "JAL",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 21,
+      "name": "Nagrakata",
+      "district_id": "JAL",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 22,
+      "name": "Kalimpong",
+      "district_id": "KAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Darjeeling",
+      "district_id": "DAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Kurseong",
+      "district_id": "DAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Matigara-Naxalbari",
+      "district_id": "DAR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 26,
+      "name": "Siliguri",
+      "district_id": "DAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Phansidewa",
+      "district_id": "DAR",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 28,
+      "name": "Chopra",
+      "district_id": "UDP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Islampur",
+      "district_id": "UDP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Goalpokhar",
+      "district_id": "UDP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Chakulia",
+      "district_id": "UDP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Karandighi",
+      "district_id": "UDP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Hemtabad",
+      "district_id": "UDP",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 34,
+      "name": "Kaliaganj",
+      "district_id": "UDP",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 35,
+      "name": "Raiganj",
+      "district_id": "UDP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Itahar",
+      "district_id": "UDP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Kushmandi",
+      "district_id": "DDP",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 38,
+      "name": "Kumarganj",
+      "district_id": "DDP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Balurghat",
+      "district_id": "DDP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Tapan",
+      "district_id": "DDP",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 41,
+      "name": "Gangarampur",
+      "district_id": "DDP",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 42,
+      "name": "Harirampur",
+      "district_id": "DDP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Habibpur",
+      "district_id": "MLD",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 44,
+      "name": "Gazole",
+      "district_id": "MLD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 45,
+      "name": "Chanchal",
+      "district_id": "MLD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Harishchandrapur",
+      "district_id": "MLD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Malatipur",
+      "district_id": "MLD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Ratua",
+      "district_id": "MLD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Manikchak",
+      "district_id": "MLD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Maldaha",
+      "district_id": "MLD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 51,
+      "name": "English Bazar",
+      "district_id": "MLD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Mothabari",
+      "district_id": "MLD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Sujapur",
+      "district_id": "MLD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "Baisnabnagar",
+      "district_id": "MLD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Farakka",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Samserganj",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Suti",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Jangipur",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Raghunathganj",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Sagardighi",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Lalgola",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 62,
+      "name": "Bhagabangola",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 63,
+      "name": "Raninagar",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 64,
+      "name": "Murshidabad",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Nabagram",
+      "district_id": "MUR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 66,
+      "name": "Khargram",
+      "district_id": "MUR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 67,
+      "name": "Burwan",
+      "district_id": "MUR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 68,
+      "name": "Kandi",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 69,
+      "name": "Bharatpur",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 70,
+      "name": "Rejinagar",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 71,
+      "name": "Beldanga",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 72,
+      "name": "Baharampur",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 73,
+      "name": "Hariharpara",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 74,
+      "name": "Naoda",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 75,
+      "name": "Domkal",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 76,
+      "name": "Jalangi",
+      "district_id": "MUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 77,
+      "name": "Karimpur",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 78,
+      "name": "Tehatta",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 79,
+      "name": "Palashipara",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 80,
+      "name": "Kaliganj",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 81,
+      "name": "Nakashipara",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 82,
+      "name": "Chapra",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 83,
+      "name": "Krishnanagar Uttar",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 84,
+      "name": "Nabadwip",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 85,
+      "name": "Krishnanagar Dakshin",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 86,
+      "name": "Santipur",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 87,
+      "name": "Ranaghat Uttar Paschim",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 88,
+      "name": "Krishnaganj",
+      "district_id": "NAD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 89,
+      "name": "Ranaghat Uttar Purba",
+      "district_id": "NAD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 90,
+      "name": "Ranaghat Dakshin",
+      "district_id": "NAD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 91,
+      "name": "Chakdaha",
+      "district_id": "NAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 92,
+      "name": "Kalyani",
+      "district_id": "NAD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 93,
+      "name": "Haringhata",
+      "district_id": "NAD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 94,
+      "name": "Bagda",
+      "district_id": "N24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 95,
+      "name": "Bangaon Uttar",
+      "district_id": "N24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 96,
+      "name": "Bangaon Dakshin",
+      "district_id": "N24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 97,
+      "name": "Gaighata",
+      "district_id": "N24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 98,
+      "name": "Swarupnagar",
+      "district_id": "N24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 99,
+      "name": "Baduria",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 100,
+      "name": "Habra",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 101,
+      "name": "Ashoknagar",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 102,
+      "name": "Amdanga",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 103,
+      "name": "Bijpur",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 104,
+      "name": "Naihati",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 105,
+      "name": "Bhatpara",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 106,
+      "name": "Jagatdal",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 107,
+      "name": "Noapara",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 108,
+      "name": "Barrackpur",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 109,
+      "name": "Khardaha",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 110,
+      "name": "Dum Dum Uttar",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 111,
+      "name": "Panihati",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 112,
+      "name": "Kamarhati",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 113,
+      "name": "Baranagar",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 114,
+      "name": "Dum Dum",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 115,
+      "name": "Rajarhat New Town",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 116,
+      "name": "Bidhannagar",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 117,
+      "name": "Rajarhat Gopalpur",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 118,
+      "name": "Madhyamgram",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 119,
+      "name": "Barasat",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 120,
+      "name": "Deganga",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 121,
+      "name": "Haroa",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 122,
+      "name": "Minakhan",
+      "district_id": "N24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 123,
+      "name": "Sandeshkhali",
+      "district_id": "N24",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 124,
+      "name": "Basirhat Dakshin",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 125,
+      "name": "Basirhat Uttar",
+      "district_id": "N24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 126,
+      "name": "Hingalganj",
+      "district_id": "N24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 127,
+      "name": "Gosaba",
+      "district_id": "S24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 128,
+      "name": "Basanti",
+      "district_id": "S24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 129,
+      "name": "Kultali",
+      "district_id": "S24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 130,
+      "name": "Patharpratima",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 131,
+      "name": "Kakdwip",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 132,
+      "name": "Sagar",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 133,
+      "name": "Kulpi",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 134,
+      "name": "Raidighi",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 135,
+      "name": "Mandirbazar",
+      "district_id": "S24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 136,
+      "name": "Jaynagar",
+      "district_id": "S24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 137,
+      "name": "Baruipur Purba",
+      "district_id": "S24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 138,
+      "name": "Canning Paschim",
+      "district_id": "S24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 139,
+      "name": "Canning Purba",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 140,
+      "name": "Baruipur Paschim",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 141,
+      "name": "Magrahat Purba",
+      "district_id": "S24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 142,
+      "name": "Magrahat Paschim",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 143,
+      "name": "Diamond Harbour",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 144,
+      "name": "Falta",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 145,
+      "name": "Satgachhia",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 146,
+      "name": "Bishnupur, South 24 Parganas",
+      "district_id": "S24",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 147,
+      "name": "Sonarpur Dakshin",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 148,
+      "name": "Bhangar",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 149,
+      "name": "Kasba",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 150,
+      "name": "Jadavpur",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 151,
+      "name": "Sonarpur Uttar",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 152,
+      "name": "Tollyganj",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 153,
+      "name": "Behala Purba",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 154,
+      "name": "Behala Paschim",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 155,
+      "name": "Maheshtala",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 156,
+      "name": "Budge Budge",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 157,
+      "name": "Metiaburuz",
+      "district_id": "S24",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 158,
+      "name": "Kolkata Port",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 159,
+      "name": "Bhabanipur",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 160,
+      "name": "Rashbehari",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 161,
+      "name": "Ballygunge",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 162,
+      "name": "Chowranghee",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 163,
+      "name": "Entally",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 164,
+      "name": "Beleghata",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 165,
+      "name": "Jorasanko",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 166,
+      "name": "Shyampukur",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 167,
+      "name": "Maniktola",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 168,
+      "name": "Kashipur Belgachhia",
+      "district_id": "KOL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 169,
+      "name": "Bally",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 170,
+      "name": "Howrah Uttar",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 171,
+      "name": "Howrah Madhya",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 172,
+      "name": "Shibpur",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 173,
+      "name": "Howrah Dakshin",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 174,
+      "name": "Sankrail",
+      "district_id": "HOW",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 175,
+      "name": "Panchla",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 176,
+      "name": "Uluberia Purba",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 177,
+      "name": "Uluberia Uttar",
+      "district_id": "HOW",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 178,
+      "name": "Uluberia Dakshin",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 179,
+      "name": "Shyampur",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 180,
+      "name": "Bagnan",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 181,
+      "name": "Amta",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 182,
+      "name": "Udaynarayanpur",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 183,
+      "name": "Jagatballavpur",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 184,
+      "name": "Domjur",
+      "district_id": "HOW",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 185,
+      "name": "Uttarpara",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 186,
+      "name": "Sreerampur",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 187,
+      "name": "Champdani",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 188,
+      "name": "Singur",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 189,
+      "name": "Chandannagar",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 190,
+      "name": "Chunchura",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 191,
+      "name": "Balagarh",
+      "district_id": "HOG",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 192,
+      "name": "Pandua",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 193,
+      "name": "Saptagram",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 194,
+      "name": "Chanditala",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 195,
+      "name": "Jangipara",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 196,
+      "name": "Haripal",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 197,
+      "name": "Dhanekhali",
+      "district_id": "HOG",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 198,
+      "name": "Tarakeswar",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 199,
+      "name": "Pursurah",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 200,
+      "name": "Arambag",
+      "district_id": "HOG",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 201,
+      "name": "Goghat",
+      "district_id": "HOG",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 202,
+      "name": "Khanakul",
+      "district_id": "HOG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 203,
+      "name": "Tamluk",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 204,
+      "name": "Panskura Purba",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 205,
+      "name": "Panskura Paschim",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 206,
+      "name": "Moyna",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 207,
+      "name": "Nandakumar",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 208,
+      "name": "Mahisadal",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 209,
+      "name": "Haldia",
+      "district_id": "PME",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 210,
+      "name": "Nandigram",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 211,
+      "name": "Chandipur",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 212,
+      "name": "Patashpur",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 213,
+      "name": "Kanthi Uttar",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 214,
+      "name": "Bhagabanpur",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 215,
+      "name": "Khejuri",
+      "district_id": "PME",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 216,
+      "name": "Kanthi Dakshin",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 217,
+      "name": "Ramnagar, Purba Medinipur",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 218,
+      "name": "Egra",
+      "district_id": "PME",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 219,
+      "name": "Dantan",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 220,
+      "name": "Nayagram",
+      "district_id": "JHA",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 221,
+      "name": "Gopiballavpur",
+      "district_id": "JHA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 222,
+      "name": "Jhargram",
+      "district_id": "JHA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 223,
+      "name": "Keshiary",
+      "district_id": "PSM",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 224,
+      "name": "Kharagpur Sadar",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 225,
+      "name": "Narayangarh",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 226,
+      "name": "Sabang",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 227,
+      "name": "Pingla",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 228,
+      "name": "Kharagpur",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 229,
+      "name": "Debra",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 230,
+      "name": "Daspur",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 231,
+      "name": "Ghatal",
+      "district_id": "PSM",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 232,
+      "name": "Chandrakona",
+      "district_id": "PSM",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 233,
+      "name": "Garbeta",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 234,
+      "name": "Salboni",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 235,
+      "name": "Keshpur",
+      "district_id": "PSM",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 236,
+      "name": "Medinipur",
+      "district_id": "PSM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 237,
+      "name": "Binpur",
+      "district_id": "JHA",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 238,
+      "name": "Bandwan",
+      "district_id": "PUR",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 239,
+      "name": "Balarampur, Purulia",
+      "district_id": "PUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 240,
+      "name": "Baghmundi",
+      "district_id": "PUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 241,
+      "name": "Joypur, Purulia",
+      "district_id": "PUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 242,
+      "name": "Purulia",
+      "district_id": "PUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 243,
+      "name": "Manbazar",
+      "district_id": "PUR",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 244,
+      "name": "Kashipur",
+      "district_id": "PUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 245,
+      "name": "Para",
+      "district_id": "PUR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 246,
+      "name": "Raghunathpur, Purulia",
+      "district_id": "PUR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 247,
+      "name": "Saltora",
+      "district_id": "BAN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 248,
+      "name": "Chhatna",
+      "district_id": "BAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 249,
+      "name": "Ranibandh",
+      "district_id": "BAN",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 250,
+      "name": "Raipur, Bankura",
+      "district_id": "BAN",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 251,
+      "name": "Taldangra",
+      "district_id": "BAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 252,
+      "name": "Bankura",
+      "district_id": "BAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 253,
+      "name": "Barjora",
+      "district_id": "BAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 254,
+      "name": "Onda",
+      "district_id": "BAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 255,
+      "name": "Bishnupur, Bankura",
+      "district_id": "BAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 256,
+      "name": "Katulpur",
+      "district_id": "BAN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 257,
+      "name": "Indas",
+      "district_id": "BAN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 258,
+      "name": "Sonamukhi",
+      "district_id": "BAN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 259,
+      "name": "Khandaghosh",
+      "district_id": "PBD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 260,
+      "name": "Burdwan Dakshin",
+      "district_id": "PBD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 261,
+      "name": "Raina",
+      "district_id": "PBD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 262,
+      "name": "Jamalpur",
+      "district_id": "PBD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 263,
+      "name": "Manteswar",
+      "district_id": "PBD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 264,
+      "name": "Kalna",
+      "district_id": "PBD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 265,
+      "name": "Memari",
+      "district_id": "PBD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 266,
+      "name": "Burdwan Uttar",
+      "district_id": "PBD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 267,
+      "name": "Bhatar",
+      "district_id": "PBD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 268,
+      "name": "Purbasthali Dakshin",
+      "district_id": "PBD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 269,
+      "name": "Purbasthali Uttar",
+      "district_id": "PBD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 270,
+      "name": "Katwa",
+      "district_id": "PBD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 271,
+      "name": "Ketugram",
+      "district_id": "PBD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 272,
+      "name": "Mangalkot",
+      "district_id": "PBD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 273,
+      "name": "Ausgram",
+      "district_id": "PBD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 274,
+      "name": "Galsi",
+      "district_id": "PBD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 275,
+      "name": "Pandaveswar",
+      "district_id": "PSB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 276,
+      "name": "Durgapur Purba",
+      "district_id": "PSB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 277,
+      "name": "Durgapur Paschim",
+      "district_id": "PSB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 278,
+      "name": "Raniganj",
+      "district_id": "PSB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 279,
+      "name": "Jamuria",
+      "district_id": "PSB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 280,
+      "name": "Asansol Dakshin",
+      "district_id": "PSB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 281,
+      "name": "Asansol Uttar",
+      "district_id": "PSB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 282,
+      "name": "Kulti",
+      "district_id": "PSB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 283,
+      "name": "Barabani",
+      "district_id": "PSB",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 284,
+      "name": "Dubrajpur",
+      "district_id": "BIR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 285,
+      "name": "Suri",
+      "district_id": "BIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 286,
+      "name": "Bolpur",
+      "district_id": "BIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 287,
+      "name": "Nanoor",
+      "district_id": "BIR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 288,
+      "name": "Labhpur",
+      "district_id": "BIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 289,
+      "name": "Sainthia",
+      "district_id": "BIR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 290,
+      "name": "Mayureswar",
+      "district_id": "BIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 291,
+      "name": "Rampurhat",
+      "district_id": "BIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 292,
+      "name": "Hansan",
+      "district_id": "BIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 293,
+      "name": "Nalhati",
+      "district_id": "BIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 294,
+      "name": "Murarai",
+      "district_id": "BIR",
+      "reservation": "GEN"
+    }
+  ]
+}

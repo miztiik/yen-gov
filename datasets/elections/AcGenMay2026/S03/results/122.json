@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 122,
+  "constituency_name": "ALGAPUR-KATLICHERRA",
+  "totals": {
+    "electors": 278596,
+    "votes_polled": 227043,
+    "turnout_pct": 81.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Zubair Anam Mazumder",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 145661,
+      "vote_share_pct": 64.16,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Zakir Hussain Laskar",
+      "party_eci_code": "83",
+      "party_short": "AGP",
+      "votes": 40213,
+      "vote_share_pct": 17.71
+    },
+    {
+      "rank": 3,
+      "name": "Suzam Uddin Laskar S/o Lt. Tazamul Ali Laskar",
+      "party_short": "IND",
+      "votes": 29230,
+      "vote_share_pct": 12.87
+    },
+    {
+      "rank": 4,
+      "name": "Nijam Uddin Choudhury",
+      "party_short": "IND",
+      "votes": 3391,
+      "vote_share_pct": 1.49
+    },
+    {
+      "rank": 5,
+      "name": "Haydar Hussain Laskar",
+      "party_short": "IND",
+      "votes": 1954,
+      "vote_share_pct": 0.86
+    }
+  ],
+  "nota": {
+    "votes": 1542,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5052,
+    "vote_share_pct": 2.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Zubair Anam Mazumder",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 145661,
+    "margin_votes": 105448,
+    "margin_pct": 46.44
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "THIRUPORUR",
+  "totals": {
+    "electors": 294452,
+    "votes_polled": 262409,
+    "turnout_pct": 89.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B.vijayaraj",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 110095,
+      "vote_share_pct": 41.96,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "R. Panneerdoss",
+      "party_eci_code": "1847",
+      "party_short": "VCK",
+      "votes": 70744,
+      "vote_share_pct": 26.96
+    },
+    {
+      "rank": 3,
+      "name": "K. Balu",
+      "party_eci_code": "1272",
+      "party_short": "PMK",
+      "votes": 67392,
+      "vote_share_pct": 25.68
+    },
+    {
+      "rank": 4,
+      "name": "Ambeth Rajan",
+      "party_short": "NTK",
+      "votes": 9616,
+      "vote_share_pct": 3.66
+    },
+    {
+      "rank": 5,
+      "name": "D. Panneerselvam",
+      "party_short": "IND",
+      "votes": 784,
+      "vote_share_pct": 0.3
+    }
+  ],
+  "nota": {
+    "votes": 1248,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2530,
+    "vote_share_pct": 0.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B.vijayaraj",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 110095,
+    "margin_votes": 39351,
+    "margin_pct": 15.0
+  }
+}

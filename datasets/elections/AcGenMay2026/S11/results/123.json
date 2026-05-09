@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 123,
+  "constituency_name": "KUNDARA",
+  "totals": {
+    "electors": 207203,
+    "votes_polled": 164414,
+    "turnout_pct": 79.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P. C. Vishnunadh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 87862,
+      "vote_share_pct": 53.44,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "S. L. Sajikumar",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 55298,
+      "vote_share_pct": 33.63
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Robin Radhakrishnan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 18996,
+      "vote_share_pct": 11.55
+    },
+    {
+      "rank": 4,
+      "name": "Riyas Kannanalloor",
+      "party_short": "IND",
+      "votes": 722,
+      "vote_share_pct": 0.44
+    },
+    {
+      "rank": 5,
+      "name": "Lathika Balakrishnan",
+      "party_short": "BSP",
+      "votes": 572,
+      "vote_share_pct": 0.35
+    }
+  ],
+  "nota": {
+    "votes": 695,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 269,
+    "vote_share_pct": 0.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P. C. Vishnunadh",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 87862,
+    "margin_votes": 32564,
+    "margin_pct": 19.81
+  }
+}

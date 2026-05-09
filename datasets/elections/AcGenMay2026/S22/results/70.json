@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 70,
+  "constituency_name": "GINGEE",
+  "totals": {
+    "electors": 242992,
+    "votes_polled": 216652,
+    "turnout_pct": 89.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ganeshkumar A",
+      "party_eci_code": "1272",
+      "party_short": "PMK",
+      "votes": 78201,
+      "vote_share_pct": 36.1,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Gingee Masthan K S",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 65556,
+      "vote_share_pct": 30.26
+    },
+    {
+      "rank": 3,
+      "name": "Chandrasekaran B",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 61609,
+      "vote_share_pct": 28.44
+    },
+    {
+      "rank": 4,
+      "name": "Advocate Krishnan E",
+      "party_short": "NTK",
+      "votes": 6371,
+      "vote_share_pct": 2.94
+    },
+    {
+      "rank": 5,
+      "name": "Ramesh R",
+      "party_short": "IND",
+      "votes": 483,
+      "vote_share_pct": 0.22
+    }
+  ],
+  "nota": {
+    "votes": 508,
+    "vote_share_pct": 0.23
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 3924,
+    "vote_share_pct": 1.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ganeshkumar A",
+    "party_eci_code": "1272",
+    "party_short": "PMK",
+    "votes": 78201,
+    "margin_votes": 12645,
+    "margin_pct": 5.84
+  }
+}

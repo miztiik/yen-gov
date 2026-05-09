@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 214,
+  "constituency_name": "THOOTHUKKUDI",
+  "totals": {
+    "electors": 250803,
+    "votes_polled": 204712,
+    "turnout_pct": 81.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Srinath",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 100536,
+      "vote_share_pct": 49.11,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "P. Geetha Jeevan",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 62805,
+      "vote_share_pct": 30.68
+    },
+    {
+      "rank": 3,
+      "name": "Chellapandian S.t.",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 26213,
+      "vote_share_pct": 12.8
+    },
+    {
+      "rank": 4,
+      "name": "Jacob Devadoss Abisheak R.",
+      "party_short": "NTK",
+      "votes": 11752,
+      "vote_share_pct": 5.74
+    },
+    {
+      "rank": 5,
+      "name": "Yesadurai S.",
+      "party_short": "AIPTMMK",
+      "votes": 689,
+      "vote_share_pct": 0.34
+    }
+  ],
+  "nota": {
+    "votes": 853,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1864,
+    "vote_share_pct": 0.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Srinath",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 100536,
+    "margin_votes": 37731,
+    "margin_pct": 18.43
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "TRIKARIPUR",
+  "totals": {
+    "electors": 210941,
+    "votes_polled": 170904,
+    "turnout_pct": 81.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sandeep Varier",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 83109,
+      "vote_share_pct": 48.63,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dr. V P P Mustafa",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 78678,
+      "vote_share_pct": 46.04
+    },
+    {
+      "rank": 3,
+      "name": "Ravi Kulangara",
+      "party_short": "TTPty",
+      "votes": 7837,
+      "vote_share_pct": 4.59
+    },
+    {
+      "rank": 4,
+      "name": "Sandeep Elatt",
+      "party_short": "IND",
+      "votes": 258,
+      "vote_share_pct": 0.15
+    },
+    {
+      "rank": 5,
+      "name": "Musthafa P P S/o Nafeesa P P",
+      "party_short": "IND",
+      "votes": 169,
+      "vote_share_pct": 0.1
+    }
+  ],
+  "nota": {
+    "votes": 710,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 143,
+    "vote_share_pct": 0.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sandeep Varier",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 83109,
+    "margin_votes": 4431,
+    "margin_pct": 2.59
+  }
+}

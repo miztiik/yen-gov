@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/processing.schema.json",
+  "title": "Pipeline processing knobs",
+  "description": "Tunable runtime configuration for fetch and result aggregation. The only file in config/. Lives outside datasets/ because these values are policy, not data — but the schema lives in datasets/schemas/ so a single validator can cover everything (CLAUDE.md \u00a73, \u00a711).",
+  "x-version": "3.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-08",
+      "description": "Initial schema. Fetch knobs (concurrency, retry, cache TTL, timeout, user agent) and result aggregation knobs (top_n, others collapsing, NOTA placement)."
+    },
+    {
+      "version": "2.0",
+      "date": "2026-05-08",
+      "description": "Added required source field per provenance contract (CLAUDE.md §12). For config files this is typically 'hand-authored'."
+    },
+    {
+      "version": "3.0",
+      "date": "2026-05-08",
+      "description": "Replaced single source string with sources array per ADR-0002 (config files always carry empty array = hand-authored). Removed cache_ttl_seconds: no HTTP cache layer per ADR-0003."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "fetch", "results"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. Config files always carry an empty array (hand-authored).",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "fetch": {
+      "type": "object",
+      "required": ["concurrency", "retry_attempts", "timeout_seconds", "user_agent"],
+      "additionalProperties": false,
+      "properties": {
+        "concurrency": { "type": "integer", "minimum": 1, "maximum": 32 },
+        "retry_attempts": { "type": "integer", "minimum": 0, "maximum": 10 },
+        "retry_backoff_seconds": { "type": "number", "minimum": 0 },
+        "timeout_seconds": { "type": "number", "exclusiveMinimum": 0 },
+        "user_agent": { "type": "string", "minLength": 1 }
+      }
+    },
+    "results": {
+      "type": "object",
+      "required": ["top_n_candidates", "collapse_others"],
+      "additionalProperties": false,
+      "properties": {
+        "top_n_candidates": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of candidates retained per constituency before the others bucket. NOTA is always broken out separately and does not count toward this N."
+        },
+        "collapse_others": {
+          "type": "boolean",
+          "description": "If true, candidates beyond top_n are summed into a single 'others' bucket. If false, all candidates are kept (no others bucket emitted)."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 170,
+  "constituency_name": "THIRUVIDAIMARUDUR (SC)",
+  "totals": {
+    "electors": 257014,
+    "votes_polled": 208944,
+    "turnout_pct": 81.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Govi.chezhiaan",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 79951,
+      "vote_share_pct": 38.26,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "S.prabakaran",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 65835,
+      "vote_share_pct": 31.51
+    },
+    {
+      "rank": 3,
+      "name": "Elamathi Subramanian",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 52922,
+      "vote_share_pct": 25.33
+    },
+    {
+      "rank": 4,
+      "name": "M.divya Bharathi",
+      "party_short": "NTK",
+      "votes": 6363,
+      "vote_share_pct": 3.05
+    },
+    {
+      "rank": 5,
+      "name": "T.m.puratchi Mani",
+      "party_short": "BSP",
+      "votes": 1043,
+      "vote_share_pct": 0.5
+    }
+  ],
+  "nota": {
+    "votes": 747,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2083,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Govi.chezhiaan",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 79951,
+    "margin_votes": 14116,
+    "margin_pct": 6.76
+  }
+}

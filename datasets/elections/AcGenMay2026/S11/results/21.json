@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "KUTTIADI",
+  "totals": {
+    "electors": 216244,
+    "votes_polled": 178106,
+    "turnout_pct": 82.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Parakkal Abdulla",
+      "party_eci_code": "772",
+      "party_short": "IUML",
+      "votes": 88197,
+      "vote_share_pct": 49.52,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "K. P. Kunhammedkutty Master",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 77275,
+      "vote_share_pct": 43.39
+    },
+    {
+      "rank": 3,
+      "name": "Ramadas Manaleri",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 12035,
+      "vote_share_pct": 6.76
+    },
+    {
+      "rank": 4,
+      "name": "Kunhammadkutty",
+      "party_short": "IND",
+      "votes": 114,
+      "vote_share_pct": 0.06
+    },
+    {
+      "rank": 5,
+      "name": "Abdulla",
+      "party_short": "IND",
+      "votes": 95,
+      "vote_share_pct": 0.05
+    }
+  ],
+  "nota": {
+    "votes": 390,
+    "vote_share_pct": 0.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Parakkal Abdulla",
+    "party_eci_code": "772",
+    "party_short": "IUML",
+    "votes": 88197,
+    "margin_votes": 10922,
+    "margin_pct": 6.13
+  },
+  "others": null
+}

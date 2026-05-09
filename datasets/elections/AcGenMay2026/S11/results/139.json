@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 139,
+  "constituency_name": "KOVALAM",
+  "totals": {
+    "electors": 201824,
+    "votes_polled": 155237,
+    "turnout_pct": 76.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. M.vincent",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 79661,
+      "vote_share_pct": 51.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bhagath Rufus",
+      "party_short": "IND",
+      "votes": 46952,
+      "vote_share_pct": 30.25
+    },
+    {
+      "rank": 3,
+      "name": "Kovalam.t.n.suresh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 25380,
+      "vote_share_pct": 16.35
+    },
+    {
+      "rank": 4,
+      "name": "Manoj.s.p",
+      "party_short": "AAAP",
+      "votes": 677,
+      "vote_share_pct": 0.44
+    },
+    {
+      "rank": 5,
+      "name": "Kattachalkuzhi.m.sugathan",
+      "party_short": "SRP",
+      "votes": 469,
+      "vote_share_pct": 0.3
+    }
+  ],
+  "nota": {
+    "votes": 976,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1122,
+    "vote_share_pct": 0.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. M.vincent",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 79661,
+    "margin_votes": 32709,
+    "margin_pct": 21.07
+  }
+}

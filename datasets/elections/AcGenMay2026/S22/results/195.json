@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 195,
+  "constituency_name": "THIRUPARANKUNDRAM",
+  "totals": {
+    "electors": 311705,
+    "votes_polled": 255466,
+    "turnout_pct": 81.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nirmalkumar. R.",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 114316,
+      "vote_share_pct": 44.75,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kiruthiga Thangapandi",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 72763,
+      "vote_share_pct": 28.48
+    },
+    {
+      "rank": 3,
+      "name": "Rajanchellappa. V.v.",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 49865,
+      "vote_share_pct": 19.52
+    },
+    {
+      "rank": 4,
+      "name": "Sathyadevi. T.",
+      "party_short": "NTK",
+      "votes": 14350,
+      "vote_share_pct": 5.62
+    },
+    {
+      "rank": 5,
+      "name": "Thanapandian. T.",
+      "party_short": "AIPTMMK",
+      "votes": 1088,
+      "vote_share_pct": 0.43
+    }
+  ],
+  "nota": {
+    "votes": 1148,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1936,
+    "vote_share_pct": 0.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nirmalkumar. R.",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 114316,
+    "margin_votes": 41553,
+    "margin_pct": 16.27
+  }
+}

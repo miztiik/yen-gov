@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 216,
+  "constituency_name": "SRIVAIKUNTAM",
+  "totals": {
+    "electors": 214630,
+    "votes_polled": 176421,
+    "turnout_pct": 82.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Saravanan. G",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 58814,
+      "vote_share_pct": 33.34,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Shanmuganathan. S. P",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 57628,
+      "vote_share_pct": 32.67
+    },
+    {
+      "rank": 3,
+      "name": "Oorvasi Amirtharaj. S",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 41277,
+      "vote_share_pct": 23.4
+    },
+    {
+      "rank": 4,
+      "name": "Shunmugasundaram. S",
+      "party_short": "NTK",
+      "votes": 13153,
+      "vote_share_pct": 7.46
+    },
+    {
+      "rank": 5,
+      "name": "Muthuramalingam. S",
+      "party_short": "AIFB",
+      "votes": 2347,
+      "vote_share_pct": 1.33
+    }
+  ],
+  "nota": {
+    "votes": 579,
+    "vote_share_pct": 0.33
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2623,
+    "vote_share_pct": 1.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Saravanan. G",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 58814,
+    "margin_votes": 1186,
+    "margin_pct": 0.67
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 182,
+  "constituency_name": "ALANGUDI",
+  "totals": {
+    "electors": 212139,
+    "votes_polled": 180483,
+    "turnout_pct": 85.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Siva.v.meyyanathan",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 64929,
+      "vote_share_pct": 35.98,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kandasamy",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 51952,
+      "vote_share_pct": 28.78
+    },
+    {
+      "rank": 3,
+      "name": "Dhana Vimal",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 50063,
+      "vote_share_pct": 27.74
+    },
+    {
+      "rank": 4,
+      "name": "R.rajaram",
+      "party_short": "NTK",
+      "votes": 10652,
+      "vote_share_pct": 5.9
+    },
+    {
+      "rank": 5,
+      "name": "D.pushparaj",
+      "party_short": "AIPTMMK",
+      "votes": 618,
+      "vote_share_pct": 0.34
+    }
+  ],
+  "nota": {
+    "votes": 673,
+    "vote_share_pct": 0.37
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1596,
+    "vote_share_pct": 0.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Siva.v.meyyanathan",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 64929,
+    "margin_votes": 12977,
+    "margin_pct": 7.19
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 84,
+  "constituency_name": "OMALUR",
+  "totals": {
+    "electors": 294863,
+    "votes_polled": 271119,
+    "turnout_pct": 91.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mani. R",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 112246,
+      "vote_share_pct": 41.4,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adhiyamaan. R.v",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 97707,
+      "vote_share_pct": 36.04
+    },
+    {
+      "rank": 3,
+      "name": "Elangovan. A.r",
+      "party_eci_code": "581",
+      "party_short": "DMDK",
+      "votes": 46917,
+      "vote_share_pct": 17.3
+    },
+    {
+      "rank": 4,
+      "name": "Sivasakthi. M",
+      "party_short": "NTK",
+      "votes": 8370,
+      "vote_share_pct": 3.09
+    },
+    {
+      "rank": 5,
+      "name": "Gobinathan. R",
+      "party_short": "IND",
+      "votes": 1544,
+      "vote_share_pct": 0.57
+    }
+  ],
+  "nota": {
+    "votes": 1433,
+    "vote_share_pct": 0.53
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2902,
+    "vote_share_pct": 1.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mani. R",
+    "party_eci_code": "75",
+    "party_short": "ADMK",
+    "votes": 112246,
+    "margin_votes": 14539,
+    "margin_pct": 5.36
+  }
+}

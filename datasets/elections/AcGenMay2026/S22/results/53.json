@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "KRISHNAGIRI",
+  "totals": {
+    "electors": 269394,
+    "votes_polled": 230181,
+    "turnout_pct": 85.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mukundhan.p",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 89374,
+      "vote_share_pct": 38.83,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ashokkumar.k",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 70530,
+      "vote_share_pct": 30.64
+    },
+    {
+      "rank": 3,
+      "name": "Chellakumar.a",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 59597,
+      "vote_share_pct": 25.89
+    },
+    {
+      "rank": 4,
+      "name": "Suganthi",
+      "party_short": "NTK",
+      "votes": 6398,
+      "vote_share_pct": 2.78
+    },
+    {
+      "rank": 5,
+      "name": "Sivakumar.s",
+      "party_short": "BSP",
+      "votes": 608,
+      "vote_share_pct": 0.26
+    }
+  ],
+  "nota": {
+    "votes": 1136,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2538,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mukundhan.p",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 89374,
+    "margin_votes": 18844,
+    "margin_pct": 8.19
+  }
+}

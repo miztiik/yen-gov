@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 290,
+  "constituency_name": "MAYURESWAR",
+  "totals": {
+    "electors": 226302,
+    "votes_polled": 213473,
+    "turnout_pct": 94.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dudh Kumar Mondal",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 107056,
+      "vote_share_pct": 50.15,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Abhijit Roy",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 86054,
+      "vote_share_pct": 40.31
+    },
+    {
+      "rank": 3,
+      "name": "Jayanta Bhalla",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 9571,
+      "vote_share_pct": 4.48
+    },
+    {
+      "rank": 4,
+      "name": "Professor Sk Kalimuddin",
+      "party_eci_code": "3735",
+      "party_short": "AJUP",
+      "votes": 3014,
+      "vote_share_pct": 1.41
+    },
+    {
+      "rank": 5,
+      "name": "Kasafoddoza Syed (chandan)",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 2271,
+      "vote_share_pct": 1.06
+    }
+  ],
+  "nota": {
+    "votes": 2456,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3051,
+    "vote_share_pct": 1.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dudh Kumar Mondal",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 107056,
+    "margin_votes": 21002,
+    "margin_pct": 9.84
+  }
+}

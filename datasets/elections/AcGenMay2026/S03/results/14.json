@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "GOALPARA EAST",
+  "totals": {
+    "electors": 228682,
+    "votes_polled": 217511,
+    "turnout_pct": 95.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Abul Kalam Rasheed Alam",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 102205,
+      "vote_share_pct": 46.99,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Abdur Rahim Zibran",
+      "party_eci_code": "83",
+      "party_short": "AGP",
+      "votes": 50944,
+      "vote_share_pct": 23.42
+    },
+    {
+      "rank": 3,
+      "name": "Abdur Rashid Mandal",
+      "party_eci_code": "3289",
+      "party_short": "RJRD",
+      "votes": 37520,
+      "vote_share_pct": 17.25
+    },
+    {
+      "rank": 4,
+      "name": "Abul Kalam Hussain",
+      "party_short": "IND",
+      "votes": 10196,
+      "vote_share_pct": 4.69
+    },
+    {
+      "rank": 5,
+      "name": "Hafiz Bashir Ahmed",
+      "party_eci_code": "145",
+      "party_short": "AIUDF",
+      "votes": 7838,
+      "vote_share_pct": 3.6
+    }
+  ],
+  "nota": {
+    "votes": 1578,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 7230,
+    "vote_share_pct": 3.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Abul Kalam Rasheed Alam",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 102205,
+    "margin_votes": 51261,
+    "margin_pct": 23.57
+  }
+}

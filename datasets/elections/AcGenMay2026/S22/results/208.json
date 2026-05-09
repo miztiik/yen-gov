@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 208,
+  "constituency_name": "TIRUCHULI",
+  "totals": {
+    "electors": 205681,
+    "votes_polled": 181250,
+    "turnout_pct": 88.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Thangam Thenarasu",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 75085,
+      "vote_share_pct": 41.43,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Samayan.s",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 61600,
+      "vote_share_pct": 33.99
+    },
+    {
+      "rank": 3,
+      "name": "Rajavarman.m.s.r",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 25581,
+      "vote_share_pct": 14.11
+    },
+    {
+      "rank": 4,
+      "name": "Avarangadu Karthik Raja",
+      "party_short": "NTK",
+      "votes": 12763,
+      "vote_share_pct": 7.04
+    },
+    {
+      "rank": 5,
+      "name": "Gunasekaran.g",
+      "party_short": "PT",
+      "votes": 1248,
+      "vote_share_pct": 0.69
+    }
+  ],
+  "nota": {
+    "votes": 425,
+    "vote_share_pct": 0.23
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 4548,
+    "vote_share_pct": 2.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Thangam Thenarasu",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 75085,
+    "margin_votes": 13485,
+    "margin_pct": 7.44
+  }
+}

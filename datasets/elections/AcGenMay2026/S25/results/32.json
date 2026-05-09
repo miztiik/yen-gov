@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "KARANDIGHI",
+  "totals": {
+    "electors": 231680,
+    "votes_polled": 219973,
+    "turnout_pct": 94.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Biraj Biswas",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 96260,
+      "vote_share_pct": 43.76,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Goutam Paul",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 76391,
+      "vote_share_pct": 34.73
+    },
+    {
+      "rank": 3,
+      "name": "Md. Sahabuddin",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 39414,
+      "vote_share_pct": 17.92
+    },
+    {
+      "rank": 4,
+      "name": "Mursid Alam",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 1599,
+      "vote_share_pct": 0.73
+    },
+    {
+      "rank": 5,
+      "name": "Sk. Mohammad Alam",
+      "party_short": "IND",
+      "votes": 1042,
+      "vote_share_pct": 0.47
+    }
+  ],
+  "nota": {
+    "votes": 1647,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3620,
+    "vote_share_pct": 1.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Biraj Biswas",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 96260,
+    "margin_votes": 19869,
+    "margin_pct": 9.03
+  }
+}

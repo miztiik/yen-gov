@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 179,
+  "constituency_name": "VIRALIMALAI",
+  "totals": {
+    "electors": 225159,
+    "votes_polled": 203921,
+    "turnout_pct": 90.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vijayabaskar. C",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 105773,
+      "vote_share_pct": 51.87,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Murugesan. P",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 43700,
+      "vote_share_pct": 21.43
+    },
+    {
+      "rank": 3,
+      "name": "Chellapandiyan. K.k",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 40397,
+      "vote_share_pct": 19.81
+    },
+    {
+      "rank": 4,
+      "name": "Sathyalakshmi. K",
+      "party_short": "NTK",
+      "votes": 9467,
+      "vote_share_pct": 4.64
+    },
+    {
+      "rank": 5,
+      "name": "Karthika Prakash",
+      "party_short": "AIPTMMK",
+      "votes": 834,
+      "vote_share_pct": 0.41
+    }
+  ],
+  "nota": {
+    "votes": 375,
+    "vote_share_pct": 0.18
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 3375,
+    "vote_share_pct": 1.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vijayabaskar. C",
+    "party_eci_code": "75",
+    "party_short": "ADMK",
+    "votes": 105773,
+    "margin_votes": 62073,
+    "margin_pct": 30.44
+  }
+}

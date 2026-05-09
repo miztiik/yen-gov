@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "AMBATTUR",
+  "totals": {
+    "electors": 337081,
+    "votes_polled": 259986,
+    "turnout_pct": 77.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Balamurugan.g",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 133339,
+      "vote_share_pct": 51.29,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dr A.p. Poornima",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 74558,
+      "vote_share_pct": 28.68
+    },
+    {
+      "rank": 3,
+      "name": "K.n. Sekar",
+      "party_eci_code": "1272",
+      "party_short": "PMK",
+      "votes": 35997,
+      "vote_share_pct": 13.85
+    },
+    {
+      "rank": 4,
+      "name": "Silambarasan",
+      "party_short": "NTK",
+      "votes": 11088,
+      "vote_share_pct": 4.26
+    },
+    {
+      "rank": 5,
+      "name": "A.kalyanasundaram",
+      "party_short": "NJANP",
+      "votes": 588,
+      "vote_share_pct": 0.23
+    }
+  ],
+  "nota": {
+    "votes": 1490,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 2926,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Balamurugan.g",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 133339,
+    "margin_votes": 58781,
+    "margin_pct": 22.61
+  }
+}

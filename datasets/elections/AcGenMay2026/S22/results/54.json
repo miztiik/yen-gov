@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "VEPPANAHALLI",
+  "totals": {
+    "electors": 246739,
+    "votes_polled": 222608,
+    "turnout_pct": 90.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Srinivasan.p.s",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 74691,
+      "vote_share_pct": 33.55,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Munusamy.k.p",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 74553,
+      "vote_share_pct": 33.49
+    },
+    {
+      "rank": 3,
+      "name": "Sampangi.s.r",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 63907,
+      "vote_share_pct": 28.71
+    },
+    {
+      "rank": 4,
+      "name": "Nagaraj.r",
+      "party_short": "NTK",
+      "votes": 4519,
+      "vote_share_pct": 2.03
+    },
+    {
+      "rank": 5,
+      "name": "Iyappan.l",
+      "party_short": "tavk",
+      "votes": 871,
+      "vote_share_pct": 0.39
+    }
+  ],
+  "nota": {
+    "votes": 1570,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2497,
+    "vote_share_pct": 1.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Srinivasan.p.s",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 74691,
+    "margin_votes": 138,
+    "margin_pct": 0.06
+  }
+}

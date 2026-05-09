@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 125,
+  "constituency_name": "UDUMALAIPETTAI",
+  "totals": {
+    "electors": 231009,
+    "votes_polled": 203575,
+    "turnout_pct": 88.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jayakumar M.",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 68549,
+      "vote_share_pct": 33.67,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Radhakrishnan K.",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 65667,
+      "vote_share_pct": 32.26
+    },
+    {
+      "rank": 3,
+      "name": "Sankar K.",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 59831,
+      "vote_share_pct": 29.39
+    },
+    {
+      "rank": 4,
+      "name": "Ram Kumar M.",
+      "party_short": "NTK",
+      "votes": 6702,
+      "vote_share_pct": 3.29
+    },
+    {
+      "rank": 5,
+      "name": "Padmendraprakash A.",
+      "party_short": "IND",
+      "votes": 470,
+      "vote_share_pct": 0.23
+    }
+  ],
+  "nota": {
+    "votes": 1149,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1207,
+    "vote_share_pct": 0.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jayakumar M.",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 68549,
+    "margin_votes": 2882,
+    "margin_pct": 1.42
+  }
+}

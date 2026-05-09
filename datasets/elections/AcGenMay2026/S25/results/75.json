@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 75,
+  "constituency_name": "DOMKAL",
+  "totals": {
+    "electors": 267693,
+    "votes_polled": 257790,
+    "turnout_pct": 96.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Md. Mostafijur Rahaman",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 107882,
+      "vote_share_pct": 41.85,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Humayun Kabir",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 91586,
+      "vote_share_pct": 35.53
+    },
+    {
+      "rank": 3,
+      "name": "Begam Sahanaj",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 30453,
+      "vote_share_pct": 11.81
+    },
+    {
+      "rank": 4,
+      "name": "Nandadulal Pal",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 13180,
+      "vote_share_pct": 5.11
+    },
+    {
+      "rank": 5,
+      "name": "Md. Mosharaf Hossain",
+      "party_eci_code": "3735",
+      "party_short": "AJUP",
+      "votes": 7392,
+      "vote_share_pct": 2.87
+    }
+  ],
+  "nota": {
+    "votes": 1207,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6090,
+    "vote_share_pct": 2.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Md. Mostafijur Rahaman",
+    "party_eci_code": "547",
+    "party_short": "CPI(M)",
+    "votes": 107882,
+    "margin_votes": 16296,
+    "margin_pct": 6.32
+  }
+}

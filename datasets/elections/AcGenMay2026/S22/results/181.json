@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 181,
+  "constituency_name": "THIRUMAYAM",
+  "totals": {
+    "electors": 220622,
+    "votes_polled": 182612,
+    "turnout_pct": 82.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Regupathy.s",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 58201,
+      "vote_share_pct": 31.87,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Chinthamani.c",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 56709,
+      "vote_share_pct": 31.05
+    },
+    {
+      "rank": 3,
+      "name": "Vairamuthu.pk",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 55464,
+      "vote_share_pct": 30.37
+    },
+    {
+      "rank": 4,
+      "name": "Lakshmi Srinivasan",
+      "party_short": "NTK",
+      "votes": 9102,
+      "vote_share_pct": 4.98
+    },
+    {
+      "rank": 5,
+      "name": "Subbiah.a",
+      "party_short": "PT",
+      "votes": 359,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 945,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1832,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Regupathy.s",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 58201,
+    "margin_votes": 1492,
+    "margin_pct": 0.82
+  }
+}

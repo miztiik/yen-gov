@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 90,
+  "constituency_name": "SALEM (SOUTH)",
+  "totals": {
+    "electors": 226880,
+    "votes_polled": 207902,
+    "turnout_pct": 91.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vijay Tamilan Parthiban. A",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 91371,
+      "vote_share_pct": 43.95,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Loganathan. M",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 58002,
+      "vote_share_pct": 27.9
+    },
+    {
+      "rank": 3,
+      "name": "Vinoth. J",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 50216,
+      "vote_share_pct": 24.15
+    },
+    {
+      "rank": 4,
+      "name": "Sofia. S",
+      "party_short": "NTK",
+      "votes": 5819,
+      "vote_share_pct": 2.8
+    },
+    {
+      "rank": 5,
+      "name": "Bas Madheswaran",
+      "party_short": "tavk",
+      "votes": 407,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 745,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 1342,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vijay Tamilan Parthiban. A",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 91371,
+    "margin_votes": 33369,
+    "margin_pct": 16.05
+  }
+}

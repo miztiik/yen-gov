@@ -1,0 +1,222 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_districts_of_Assam",
+      "fetched_at": "2026-05-09T09:30:00Z"
+    }
+  ],
+  "state": "S03",
+  "districts": [
+    {
+      "id": "KOK",
+      "id_source": "wikipedia",
+      "name": "Kokrajhar",
+      "headquarters": "Kokrajhar"
+    },
+    {
+      "id": "DHU",
+      "id_source": "wikipedia",
+      "name": "Dhubri",
+      "headquarters": "Dhubri"
+    },
+    {
+      "id": "SSM",
+      "id_source": "wikipedia",
+      "name": "South Salmara-Mankachar",
+      "headquarters": "Hatsingimari"
+    },
+    {
+      "id": "GLP",
+      "id_source": "wikipedia",
+      "name": "Goalpara",
+      "headquarters": "Goalpara"
+    },
+    {
+      "id": "BNG",
+      "id_source": "wikipedia",
+      "name": "Bongaigaon",
+      "headquarters": "Bongaigaon"
+    },
+    {
+      "id": "CHR",
+      "id_source": "wikipedia",
+      "name": "Chirang",
+      "headquarters": "Kajalgaon"
+    },
+    {
+      "id": "BJL",
+      "id_source": "wikipedia",
+      "name": "Bajali",
+      "headquarters": "Pathsala"
+    },
+    {
+      "id": "BPT",
+      "id_source": "wikipedia",
+      "name": "Barpeta",
+      "headquarters": "Barpeta"
+    },
+    {
+      "id": "KAM",
+      "id_source": "wikipedia",
+      "name": "Kamrup",
+      "headquarters": "Amingaon"
+    },
+    {
+      "id": "KMM",
+      "id_source": "wikipedia",
+      "name": "Kamrup Metropolitan",
+      "headquarters": "Guwahati"
+    },
+    {
+      "id": "NAL",
+      "id_source": "wikipedia",
+      "name": "Nalbari",
+      "headquarters": "Nalbari"
+    },
+    {
+      "id": "BAK",
+      "id_source": "wikipedia",
+      "name": "Baksa",
+      "headquarters": "Mushalpur"
+    },
+    {
+      "id": "TAM",
+      "id_source": "wikipedia",
+      "name": "Tamulpur",
+      "headquarters": "Tamulpur"
+    },
+    {
+      "id": "UDA",
+      "id_source": "wikipedia",
+      "name": "Udalguri",
+      "headquarters": "Udalguri"
+    },
+    {
+      "id": "DAR",
+      "id_source": "wikipedia",
+      "name": "Darrang",
+      "headquarters": "Mangaldai"
+    },
+    {
+      "id": "MOR",
+      "id_source": "wikipedia",
+      "name": "Morigaon",
+      "headquarters": "Morigaon"
+    },
+    {
+      "id": "NGN",
+      "id_source": "wikipedia",
+      "name": "Nagaon",
+      "headquarters": "Nagaon"
+    },
+    {
+      "id": "HOJ",
+      "id_source": "wikipedia",
+      "name": "Hojai",
+      "headquarters": "Sankardev Nagar"
+    },
+    {
+      "id": "SON",
+      "id_source": "wikipedia",
+      "name": "Sonitpur",
+      "headquarters": "Tezpur"
+    },
+    {
+      "id": "BSW",
+      "id_source": "wikipedia",
+      "name": "Biswanath",
+      "headquarters": "Biswanath Chariali"
+    },
+    {
+      "id": "LAK",
+      "id_source": "wikipedia",
+      "name": "Lakhimpur",
+      "headquarters": "North Lakhimpur"
+    },
+    {
+      "id": "DHE",
+      "id_source": "wikipedia",
+      "name": "Dhemaji",
+      "headquarters": "Dhemaji"
+    },
+    {
+      "id": "TIN",
+      "id_source": "wikipedia",
+      "name": "Tinsukia",
+      "headquarters": "Tinsukia"
+    },
+    {
+      "id": "DBR",
+      "id_source": "wikipedia",
+      "name": "Dibrugarh",
+      "headquarters": "Dibrugarh"
+    },
+    {
+      "id": "CHA",
+      "id_source": "wikipedia",
+      "name": "Charaideo",
+      "headquarters": "Sonari"
+    },
+    {
+      "id": "SIV",
+      "id_source": "wikipedia",
+      "name": "Sibsagar"
+    },
+    {
+      "id": "MAJ",
+      "id_source": "wikipedia",
+      "name": "Majuli",
+      "headquarters": "Garamur"
+    },
+    {
+      "id": "JOR",
+      "id_source": "wikipedia",
+      "name": "Jorhat",
+      "headquarters": "Jorhat"
+    },
+    {
+      "id": "GOL",
+      "id_source": "wikipedia",
+      "name": "Golaghat",
+      "headquarters": "Golaghat"
+    },
+    {
+      "id": "KAR",
+      "id_source": "wikipedia",
+      "name": "Karbi Anglong",
+      "headquarters": "Diphu"
+    },
+    {
+      "id": "WKA",
+      "id_source": "wikipedia",
+      "name": "West Karbi Anglong",
+      "headquarters": "Hamren"
+    },
+    {
+      "id": "DHA",
+      "id_source": "wikipedia",
+      "name": "Dima Hasao",
+      "headquarters": "Haflong"
+    },
+    {
+      "id": "CAC",
+      "id_source": "wikipedia",
+      "name": "Cachar",
+      "headquarters": "Silchar"
+    },
+    {
+      "id": "HAI",
+      "id_source": "wikipedia",
+      "name": "Hailakandi",
+      "headquarters": "Hailakandi"
+    },
+    {
+      "id": "SRI",
+      "id_source": "wikipedia",
+      "name": "Sribhumi",
+      "headquarters": "Karimganj"
+    }
+  ]
+}

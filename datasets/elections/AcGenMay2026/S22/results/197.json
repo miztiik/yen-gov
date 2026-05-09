@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 197,
+  "constituency_name": "USILAMPATTI",
+  "totals": {
+    "electors": 267969,
+    "votes_polled": 224048,
+    "turnout_pct": 83.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vijay. M",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 65743,
+      "vote_share_pct": 29.34,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mahendran. I",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 63938,
+      "vote_share_pct": 28.54
+    },
+    {
+      "rank": 3,
+      "name": "Saravanakumar. T",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 59465,
+      "vote_share_pct": 26.54
+    },
+    {
+      "rank": 4,
+      "name": "Ayyappan. P",
+      "party_short": "AIPTMMK",
+      "votes": 16620,
+      "vote_share_pct": 7.42
+    },
+    {
+      "rank": 5,
+      "name": "Abirami. D",
+      "party_short": "NTK",
+      "votes": 15185,
+      "vote_share_pct": 6.78
+    }
+  ],
+  "nota": {
+    "votes": 692,
+    "vote_share_pct": 0.31
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2405,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vijay. M",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 65743,
+    "margin_votes": 1805,
+    "margin_pct": 0.81
+  }
+}

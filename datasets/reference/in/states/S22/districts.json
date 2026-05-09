@@ -1,0 +1,343 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_districts_of_Tamil_Nadu",
+      "fetched_at": "2026-05-09T07:07:31Z"
+    }
+  ],
+  "state": "S22",
+  "districts": [
+    {
+      "id": "ARI",
+      "id_source": "wikipedia",
+      "name": "Ariyalur",
+      "headquarters": "Ariyalur",
+      "created_on": "2007-11-23",
+      "split_from": [
+        "PER"
+      ]
+    },
+    {
+      "id": "CHG",
+      "id_source": "wikipedia",
+      "name": "Chengalpattu",
+      "headquarters": "Chengalpattu",
+      "created_on": "2019-11-29",
+      "notes": "split_from predecessors not in current district list: Kanchipuram"
+    },
+    {
+      "id": "CHN",
+      "id_source": "wikipedia",
+      "name": "Chennai (formerly Madras)",
+      "headquarters": "Chennai",
+      "created_on": "1956-11-01"
+    },
+    {
+      "id": "COI",
+      "id_source": "wikipedia",
+      "name": "Coimbatore",
+      "headquarters": "Coimbatore",
+      "created_on": "1956-11-01"
+    },
+    {
+      "id": "CUD",
+      "id_source": "wikipedia",
+      "name": "Cuddalore",
+      "headquarters": "Cuddalore",
+      "created_on": "1993-09-30",
+      "notes": "split_from predecessors not in current district list: South Arcot District"
+    },
+    {
+      "id": "DHA",
+      "id_source": "wikipedia",
+      "name": "Dharmapuri",
+      "headquarters": "Dharmapuri",
+      "created_on": "1965-10-02",
+      "split_from": [
+        "SAL"
+      ]
+    },
+    {
+      "id": "DIN",
+      "id_source": "wikipedia",
+      "name": "Dindigul",
+      "headquarters": "Dindigul",
+      "created_on": "1985-09-15",
+      "split_from": [
+        "MAD"
+      ]
+    },
+    {
+      "id": "ERO",
+      "id_source": "wikipedia",
+      "name": "Erode",
+      "headquarters": "Erode",
+      "created_on": "1979-08-31",
+      "split_from": [
+        "COI"
+      ]
+    },
+    {
+      "id": "KAL",
+      "id_source": "wikipedia",
+      "name": "Kallakurichi",
+      "headquarters": "Kallakurichi",
+      "created_on": "2019-11-26",
+      "split_from": [
+        "VIL"
+      ]
+    },
+    {
+      "id": "KAC",
+      "id_source": "wikipedia",
+      "name": "Kancheepuram",
+      "headquarters": "Kancheepuram",
+      "created_on": "1997-07-01",
+      "notes": "split_from predecessors not in current district list: Chingleput"
+    },
+    {
+      "id": "KAY",
+      "id_source": "wikipedia",
+      "name": "Kanyakumari",
+      "headquarters": "Nagercoil",
+      "created_on": "1956-11-01"
+    },
+    {
+      "id": "KAR",
+      "id_source": "wikipedia",
+      "name": "Karur",
+      "headquarters": "Karur",
+      "created_on": "1995-09-30",
+      "split_from": [
+        "TIC"
+      ]
+    },
+    {
+      "id": "KRI",
+      "id_source": "wikipedia",
+      "name": "Krishnagiri",
+      "headquarters": "Krishnagiri",
+      "created_on": "2004-02-09",
+      "split_from": [
+        "DHA"
+      ]
+    },
+    {
+      "id": "MAD",
+      "id_source": "wikipedia",
+      "name": "Madurai",
+      "headquarters": "Madurai",
+      "created_on": "1956-11-01"
+    },
+    {
+      "id": "MAY",
+      "id_source": "wikipedia",
+      "name": "Mayiladuthurai",
+      "headquarters": "Mayiladuthurai",
+      "created_on": "2020-12-28",
+      "split_from": [
+        "NAG"
+      ]
+    },
+    {
+      "id": "NAG",
+      "id_source": "wikipedia",
+      "name": "Nagapattinam",
+      "headquarters": "Nagapattinam",
+      "created_on": "1991-10-18",
+      "split_from": [
+        "THA"
+      ]
+    },
+    {
+      "id": "NAM",
+      "id_source": "wikipedia",
+      "name": "Namakkal",
+      "headquarters": "Namakkal",
+      "created_on": "1997-01-01",
+      "split_from": [
+        "SAL"
+      ]
+    },
+    {
+      "id": "NIL",
+      "id_source": "wikipedia",
+      "name": "Nilgiris",
+      "headquarters": "Ooty",
+      "created_on": "1956-11-01"
+    },
+    {
+      "id": "PER",
+      "id_source": "wikipedia",
+      "name": "Perambalur",
+      "headquarters": "Perambalur",
+      "created_on": "1995-09-30",
+      "split_from": [
+        "TIC"
+      ]
+    },
+    {
+      "id": "PUD",
+      "id_source": "wikipedia",
+      "name": "Pudukkottai",
+      "headquarters": "Pudukkottai",
+      "created_on": "1974-01-14",
+      "notes": "split_from predecessors not in current district list: Thanjavur and Tiruchirappalli"
+    },
+    {
+      "id": "RAM",
+      "id_source": "wikipedia",
+      "name": "Ramanathapuram",
+      "headquarters": "Ramanathapuram",
+      "created_on": "1956-11-01"
+    },
+    {
+      "id": "RAN",
+      "id_source": "wikipedia",
+      "name": "Ranipet",
+      "headquarters": "Ranipet",
+      "created_on": "2019-11-28",
+      "split_from": [
+        "VEL"
+      ]
+    },
+    {
+      "id": "SAL",
+      "id_source": "wikipedia",
+      "name": "Salem",
+      "headquarters": "Salem",
+      "created_on": "1956-11-01"
+    },
+    {
+      "id": "SIV",
+      "id_source": "wikipedia",
+      "name": "Sivaganga",
+      "headquarters": "Sivaganga",
+      "created_on": "1985-03-15",
+      "split_from": [
+        "RAM"
+      ]
+    },
+    {
+      "id": "TEN",
+      "id_source": "wikipedia",
+      "name": "Tenkasi",
+      "headquarters": "Tenkasi",
+      "created_on": "2019-11-22",
+      "split_from": [
+        "TIN"
+      ]
+    },
+    {
+      "id": "THA",
+      "id_source": "wikipedia",
+      "name": "Thanjavur",
+      "headquarters": "Thanjavur",
+      "created_on": "1956-11-01"
+    },
+    {
+      "id": "THE",
+      "id_source": "wikipedia",
+      "name": "Theni",
+      "headquarters": "Theni",
+      "created_on": "1996-07-25",
+      "split_from": [
+        "MAD"
+      ]
+    },
+    {
+      "id": "THO",
+      "id_source": "wikipedia",
+      "name": "Thoothukudi",
+      "headquarters": "Thoothukudi",
+      "created_on": "1986-10-20",
+      "split_from": [
+        "TIN"
+      ]
+    },
+    {
+      "id": "TIC",
+      "id_source": "wikipedia",
+      "name": "Tiruchirappalli",
+      "headquarters": "Tiruchirappalli",
+      "created_on": "1956-11-01"
+    },
+    {
+      "id": "TIN",
+      "id_source": "wikipedia",
+      "name": "Tirunelveli",
+      "headquarters": "Tirunelveli",
+      "created_on": "1956-11-01"
+    },
+    {
+      "id": "TIA",
+      "id_source": "wikipedia",
+      "name": "Tirupathur",
+      "headquarters": "Tirupattur",
+      "created_on": "2019-11-28",
+      "split_from": [
+        "VEL"
+      ]
+    },
+    {
+      "id": "TIP",
+      "id_source": "wikipedia",
+      "name": "Tiruppur",
+      "headquarters": "Tiruppur",
+      "created_on": "2009-02-22",
+      "notes": "split_from predecessors not in current district list: Coimbatore and Erode"
+    },
+    {
+      "id": "TAL",
+      "id_source": "wikipedia",
+      "name": "Tiruvallur",
+      "headquarters": "Tiruvallur",
+      "created_on": "1997-07-01",
+      "notes": "split_from predecessors not in current district list: Chingleput"
+    },
+    {
+      "id": "TAN",
+      "id_source": "wikipedia",
+      "name": "Tiruvannamalai",
+      "headquarters": "Tiruvannamalai",
+      "created_on": "1989-09-30",
+      "notes": "split_from predecessors not in current district list: North Arcot"
+    },
+    {
+      "id": "TAR",
+      "id_source": "wikipedia",
+      "name": "Tiruvarur",
+      "headquarters": "Thiruvarur",
+      "created_on": "1997-01-01",
+      "notes": "split_from predecessors not in current district list: Nagapattinam and Thanjavur"
+    },
+    {
+      "id": "VEL",
+      "id_source": "wikipedia",
+      "name": "Vellore",
+      "headquarters": "Vellore",
+      "created_on": "1989-09-30",
+      "notes": "split_from predecessors not in current district list: North Arcot"
+    },
+    {
+      "id": "VIL",
+      "id_source": "wikipedia",
+      "name": "Viluppuram",
+      "headquarters": "Viluppuram",
+      "created_on": "1993-09-30",
+      "notes": "split_from predecessors not in current district list: South Arcot"
+    },
+    {
+      "id": "VIR",
+      "id_source": "wikipedia",
+      "name": "Virudhunagar",
+      "headquarters": "Virudhunagar",
+      "created_on": "1985-03-15",
+      "split_from": [
+        "RAM"
+      ]
+    }
+  ]
+}

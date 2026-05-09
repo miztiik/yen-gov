@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "NAGAPATTINAM",
+  "totals": {
+    "electors": 174736,
+    "votes_polled": 151326,
+    "turnout_pct": 86.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M.h.jawahirullah",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 56305,
+      "vote_share_pct": 37.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "M.sugumar",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 46524,
+      "vote_share_pct": 30.74
+    },
+    {
+      "rank": 3,
+      "name": "Thanka.kathiravan",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 41586,
+      "vote_share_pct": 27.48
+    },
+    {
+      "rank": 4,
+      "name": "Fathima Farhana.s",
+      "party_short": "NTK",
+      "votes": 5348,
+      "vote_share_pct": 3.53
+    },
+    {
+      "rank": 5,
+      "name": "J.v.durai",
+      "party_short": "AIYDPMP",
+      "votes": 207,
+      "vote_share_pct": 0.14
+    }
+  ],
+  "nota": {
+    "votes": 479,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 877,
+    "vote_share_pct": 0.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M.h.jawahirullah",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 56305,
+    "margin_votes": 9781,
+    "margin_pct": 6.46
+  }
+}

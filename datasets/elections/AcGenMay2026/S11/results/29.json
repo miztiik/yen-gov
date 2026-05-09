@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "BEYPORE",
+  "totals": {
+    "electors": 218705,
+    "votes_polled": 185150,
+    "turnout_pct": 84.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.a Mohamed Riyas",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 81849,
+      "vote_share_pct": 44.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "P V Anvar S/o Shoukathali",
+      "party_short": "IND",
+      "votes": 74362,
+      "vote_share_pct": 40.16
+    },
+    {
+      "rank": 3,
+      "name": "Adv. Prakashbabu",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 26543,
+      "vote_share_pct": 14.34
+    },
+    {
+      "rank": 4,
+      "name": "Anver S/o Moideenkoya",
+      "party_short": "IND",
+      "votes": 538,
+      "vote_share_pct": 0.29
+    },
+    {
+      "rank": 5,
+      "name": "Anver S/o Enunny",
+      "party_short": "IND",
+      "votes": 448,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 583,
+    "vote_share_pct": 0.31
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 827,
+    "vote_share_pct": 0.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.a Mohamed Riyas",
+    "party_eci_code": "547",
+    "party_short": "CPI(M)",
+    "votes": 81849,
+    "margin_votes": 7487,
+    "margin_pct": 4.04
+  }
+}

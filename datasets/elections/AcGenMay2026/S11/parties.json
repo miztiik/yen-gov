@@ -1,0 +1,73 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/party.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "parties": [
+    {
+      "eci_code": "742",
+      "short_name": "INC",
+      "full_name": "Indian National Congress"
+    },
+    {
+      "eci_code": "547",
+      "short_name": "CPI(M)",
+      "full_name": "Communist Party of India (Marxist)"
+    },
+    {
+      "eci_code": "772",
+      "short_name": "IUML",
+      "full_name": "Indian Union Muslim League"
+    },
+    {
+      "eci_code": "544",
+      "short_name": "CPI",
+      "full_name": "Communist Party of India"
+    },
+    {
+      "eci_code": "911",
+      "short_name": "KEC",
+      "full_name": "Kerala Congress"
+    },
+    {
+      "eci_code": "1534",
+      "short_name": "RSP",
+      "full_name": "Revolutionary Socialist Party"
+    },
+    {
+      "eci_code": "369",
+      "short_name": "BJP",
+      "full_name": "Bharatiya Janata Party"
+    },
+    {
+      "eci_code": "1420",
+      "short_name": "RJD",
+      "full_name": "Rashtriya Janata Dal"
+    },
+    {
+      "eci_code": "2162",
+      "short_name": "RMPOI",
+      "full_name": "Revolutionary Marxist Party of India"
+    },
+    {
+      "eci_code": "913",
+      "short_name": "KEC(J)",
+      "full_name": "Kerala Congress (Jacob)"
+    },
+    {
+      "eci_code": "540",
+      "short_name": "CMPKSC",
+      "full_name": "Communist Marxist Party Kerala State Committee"
+    },
+    {
+      "eci_code": "743",
+      "short_name": "IND",
+      "full_name": "Independent"
+    }
+  ]
+}

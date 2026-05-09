@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 86,
+  "constituency_name": "EDAPPADI",
+  "totals": {
+    "electors": 276472,
+    "votes_polled": 258263,
+    "turnout_pct": 93.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Edappadi Palaniswami. K",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 148933,
+      "vote_share_pct": 57.67,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Premkumar. K",
+      "party_short": "IND",
+      "votes": 50823,
+      "vote_share_pct": 19.68
+    },
+    {
+      "rank": 3,
+      "name": "Kasi. C",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 44011,
+      "vote_share_pct": 17.04
+    },
+    {
+      "rank": 4,
+      "name": "Priyadharshini. A",
+      "party_short": "NTK",
+      "votes": 8450,
+      "vote_share_pct": 3.27
+    },
+    {
+      "rank": 5,
+      "name": "Govindaraj.v",
+      "party_short": "tavk",
+      "votes": 1662,
+      "vote_share_pct": 0.64
+    }
+  ],
+  "nota": {
+    "votes": 1341,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3043,
+    "vote_share_pct": 1.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Edappadi Palaniswami. K",
+    "party_eci_code": "75",
+    "party_short": "ADMK",
+    "votes": 148933,
+    "margin_votes": 98110,
+    "margin_pct": 37.99
+  }
+}

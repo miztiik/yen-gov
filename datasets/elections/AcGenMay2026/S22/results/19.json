@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "CHEPAUK-THIRUVALLIKENI",
+  "totals": {
+    "electors": 166050,
+    "votes_polled": 140741,
+    "turnout_pct": 84.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Udhayanidhi Stalin",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 62992,
+      "vote_share_pct": 44.76,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Selvam. D",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 55852,
+      "vote_share_pct": 39.68
+    },
+    {
+      "rank": 3,
+      "name": "Aadirajaram",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 16507,
+      "vote_share_pct": 11.73
+    },
+    {
+      "rank": 4,
+      "name": "Aysha",
+      "party_short": "NTK",
+      "votes": 2971,
+      "vote_share_pct": 2.11
+    },
+    {
+      "rank": 5,
+      "name": "Mohammed Yasser",
+      "party_short": "BSP",
+      "votes": 244,
+      "vote_share_pct": 0.17
+    }
+  ],
+  "nota": {
+    "votes": 643,
+    "vote_share_pct": 0.46
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 1532,
+    "vote_share_pct": 1.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Udhayanidhi Stalin",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 62992,
+    "margin_votes": 7140,
+    "margin_pct": 5.07
+  }
+}

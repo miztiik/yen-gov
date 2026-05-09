@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 113,
+  "constituency_name": "TIRUPPUR (NORTH)",
+  "totals": {
+    "electors": 315863,
+    "votes_polled": 263457,
+    "turnout_pct": 83.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V.sathyabama",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 131401,
+      "vote_share_pct": 49.88,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "M.s.m.anandan",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 61409,
+      "vote_share_pct": 23.31
+    },
+    {
+      "rank": 3,
+      "name": "M.ravi Alias M.subramanian",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 53964,
+      "vote_share_pct": 20.48
+    },
+    {
+      "rank": 4,
+      "name": "R.abinaya",
+      "party_short": "NTK",
+      "votes": 13157,
+      "vote_share_pct": 4.99
+    },
+    {
+      "rank": 5,
+      "name": "L.james Reynold",
+      "party_short": "BSP",
+      "votes": 380,
+      "vote_share_pct": 0.14
+    }
+  ],
+  "nota": {
+    "votes": 1078,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2068,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V.sathyabama",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 131401,
+    "margin_votes": 69992,
+    "margin_pct": 26.57
+  }
+}

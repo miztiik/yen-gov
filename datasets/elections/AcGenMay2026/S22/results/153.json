@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 153,
+  "constituency_name": "NEYVELI",
+  "totals": {
+    "electors": 191337,
+    "votes_polled": 168780,
+    "turnout_pct": 88.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajendran.r",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 63731,
+      "vote_share_pct": 37.76,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Saba.rajendran",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 52769,
+      "vote_share_pct": 31.26
+    },
+    {
+      "rank": 3,
+      "name": "Anand.k",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 34291,
+      "vote_share_pct": 20.32
+    },
+    {
+      "rank": 4,
+      "name": "Thirumalvalavan.t",
+      "party_short": "tavk",
+      "votes": 11381,
+      "vote_share_pct": 6.74
+    },
+    {
+      "rank": 5,
+      "name": "Veeramani.b",
+      "party_short": "NTK",
+      "votes": 4444,
+      "vote_share_pct": 2.63
+    }
+  ],
+  "nota": {
+    "votes": 768,
+    "vote_share_pct": 0.46
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1396,
+    "vote_share_pct": 0.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajendran.r",
+    "party_eci_code": "75",
+    "party_short": "ADMK",
+    "votes": 63731,
+    "margin_votes": 10962,
+    "margin_pct": 6.49
+  }
+}

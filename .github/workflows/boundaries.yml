@@ -1,0 +1,87 @@
+name: boundaries
+
+# Rebuilds datasets/boundaries/in/*.pmtiles + manifest.json from upstream
+# admin-boundary GeoJSON (datameet, HindustanTimesLabs). Manual trigger only —
+# boundaries change once per delimitation cycle, not per push.
+#
+# Outputs land in a feature branch and a PR; the human reviewer checks the
+# manifest diff (sizes, feature_counts, AC_NO ranges) before merging.
+
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: Optional note to include in the PR body
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: boundaries
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: install mapshaper
+        run: npm install -g mapshaper@0.6.99
+
+      - name: install tippecanoe (felt fork)
+        # Pinned to a known-good tag. Bump and PR if a newer release is needed.
+        run: |
+          set -eux
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            build-essential libsqlite3-dev zlib1g-dev
+          git clone --depth 1 --branch 2.45.0 https://github.com/felt/tippecanoe /tmp/tippecanoe
+          (cd /tmp/tippecanoe && make -j"$(nproc)" && sudo make install)
+          tippecanoe --version
+
+      - name: build boundaries
+        run: python tools/boundaries/build.py
+
+      - name: report output sizes
+        run: |
+          echo "::group::datasets/boundaries/in"
+          find datasets/boundaries/in -type f -printf "%s %p\n" | sort -n
+          echo "::endgroup::"
+          echo "::group::manifest.json"
+          cat datasets/boundaries/in/manifest.json
+          echo "::endgroup::"
+
+      - name: open PR with regenerated boundaries
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: boundaries/refresh-${{ github.run_id }}
+          title: "data: refresh boundary PMTiles"
+          body: |
+            Automated boundary rebuild via `boundaries.yml`.
+
+            ${{ inputs.note }}
+
+            ### Review checklist
+
+            - [ ] `manifest.json` diff: `sources[].url` and `fetched_at` look right.
+            - [ ] PMTiles `size_bytes` deltas are explainable (new state, source switch, simplification tweak).
+            - [ ] For each `kind: "ac"` entry, `feature_count` matches the
+              expected AC count for that state
+              (`datasets/reference/in/states/<S>/constituencies.json`).
+            - [ ] **Assam:** delimitation caveat in `tools/boundaries/README.md`
+              still flagged or resolved.
+          commit-message: "data: refresh boundary PMTiles"
+          add-paths: |
+            datasets/boundaries/**

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 129,
+  "constituency_name": "KULTALI (SC)",
+  "totals": {
+    "electors": 261761,
+    "votes_polled": 253551,
+    "turnout_pct": 96.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ganesh Chandra Mondal",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 146435,
+      "vote_share_pct": 57.75,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Madhabi Mahalder",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 87159,
+      "vote_share_pct": 34.38
+    },
+    {
+      "rank": 3,
+      "name": "Ramsankar Halder",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 13361,
+      "vote_share_pct": 5.27
+    },
+    {
+      "rank": 4,
+      "name": "Shankar Naskar",
+      "party_short": "SUCI",
+      "votes": 3253,
+      "vote_share_pct": 1.28
+    },
+    {
+      "rank": 5,
+      "name": "Sankar Naskar",
+      "party_short": "IND",
+      "votes": 682,
+      "vote_share_pct": 0.27
+    }
+  ],
+  "nota": {
+    "votes": 1470,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1191,
+    "vote_share_pct": 0.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ganesh Chandra Mondal",
+    "party_eci_code": "140",
+    "party_short": "AITC",
+    "votes": 146435,
+    "margin_votes": 59276,
+    "margin_pct": 23.38
+  }
+}

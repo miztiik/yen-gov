@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 196,
+  "constituency_name": "THIRUMANGALAM",
+  "totals": {
+    "electors": 262948,
+    "votes_polled": 230980,
+    "turnout_pct": 87.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manimaran.m",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 88291,
+      "vote_share_pct": 38.22,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Udhayakumar.r.b",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 64484,
+      "vote_share_pct": 27.92
+    },
+    {
+      "rank": 3,
+      "name": "Sathishkumar.n",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 60826,
+      "vote_share_pct": 26.33
+    },
+    {
+      "rank": 4,
+      "name": "Munish.n",
+      "party_short": "NTK",
+      "votes": 11139,
+      "vote_share_pct": 4.82
+    },
+    {
+      "rank": 5,
+      "name": "Jeevitha Nachiyar.b",
+      "party_short": "AIPTMMK",
+      "votes": 2851,
+      "vote_share_pct": 1.23
+    }
+  ],
+  "nota": {
+    "votes": 933,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2456,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manimaran.m",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 88291,
+    "margin_votes": 23807,
+    "margin_pct": 10.31
+  }
+}

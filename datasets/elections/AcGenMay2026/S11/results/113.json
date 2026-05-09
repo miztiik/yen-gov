@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 113,
+  "constituency_name": "ARANMULA",
+  "totals": {
+    "electors": 215771,
+    "votes_polled": 157450,
+    "turnout_pct": 72.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Abin Varkey Kodiyattu",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 70083,
+      "vote_share_pct": 44.51,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Veena George",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 51098,
+      "vote_share_pct": 32.45
+    },
+    {
+      "rank": 3,
+      "name": "Kummanam Rajasekharan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 34983,
+      "vote_share_pct": 22.22
+    },
+    {
+      "rank": 4,
+      "name": "Prabhakaran V. R",
+      "party_short": "BSP",
+      "votes": 347,
+      "vote_share_pct": 0.22
+    },
+    {
+      "rank": 5,
+      "name": "Radhamani",
+      "party_short": "SUCI",
+      "votes": 229,
+      "vote_share_pct": 0.15
+    }
+  ],
+  "nota": {
+    "votes": 615,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 95,
+    "vote_share_pct": 0.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Abin Varkey Kodiyattu",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 70083,
+    "margin_votes": 18985,
+    "margin_pct": 12.06
+  }
+}

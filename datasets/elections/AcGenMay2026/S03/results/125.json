@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 125,
+  "constituency_name": "PATHARKANDI",
+  "totals": {
+    "electors": 179026,
+    "votes_polled": 152455,
+    "turnout_pct": 85.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Krishnendu Paul",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 98101,
+      "vote_share_pct": 64.35,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kartik Sena Sinha",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 51337,
+      "vote_share_pct": 33.67
+    },
+    {
+      "rank": 3,
+      "name": "Md. Fazal Ahmed",
+      "party_short": "IND",
+      "votes": 666,
+      "vote_share_pct": 0.44
+    },
+    {
+      "rank": 4,
+      "name": "Saynul Haque",
+      "party_short": "AAAP",
+      "votes": 543,
+      "vote_share_pct": 0.36
+    },
+    {
+      "rank": 5,
+      "name": "Nurul Hassan Talukdar",
+      "party_short": "IND",
+      "votes": 259,
+      "vote_share_pct": 0.17
+    }
+  ],
+  "nota": {
+    "votes": 1005,
+    "vote_share_pct": 0.66
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 544,
+    "vote_share_pct": 0.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Krishnendu Paul",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 98101,
+    "margin_votes": 46764,
+    "margin_pct": 30.67
+  }
+}

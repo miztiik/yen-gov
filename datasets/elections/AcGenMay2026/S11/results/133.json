@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 133,
+  "constituency_name": "VATTIYOORKAVU",
+  "totals": {
+    "electors": 165641,
+    "votes_polled": 129765,
+    "turnout_pct": 78.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K. Muraleedharan",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 48338,
+      "vote_share_pct": 37.25,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adv. V.k Prasanth",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 42913,
+      "vote_share_pct": 33.07
+    },
+    {
+      "rank": 3,
+      "name": "R. Sreelekha",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 37213,
+      "vote_share_pct": 28.68
+    },
+    {
+      "rank": 4,
+      "name": "N. Murali",
+      "party_short": "BSP",
+      "votes": 299,
+      "vote_share_pct": 0.23
+    },
+    {
+      "rank": 5,
+      "name": "Prasanth. K S/o. Karunakaran.c",
+      "party_short": "IND",
+      "votes": 143,
+      "vote_share_pct": 0.11
+    }
+  ],
+  "nota": {
+    "votes": 600,
+    "vote_share_pct": 0.46
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 259,
+    "vote_share_pct": 0.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K. Muraleedharan",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 48338,
+    "margin_votes": 5425,
+    "margin_pct": 4.18
+  }
+}

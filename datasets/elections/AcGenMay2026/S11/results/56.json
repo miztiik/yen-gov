@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "PALAKKAD",
+  "totals": {
+    "electors": 176545,
+    "votes_polled": 147192,
+    "turnout_pct": 83.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ramesh Pisharody",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 62199,
+      "vote_share_pct": 42.26,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sobha Surendran",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 49052,
+      "vote_share_pct": 33.33
+    },
+    {
+      "rank": 3,
+      "name": "N.m.r. Razack",
+      "party_short": "IND",
+      "votes": 33931,
+      "vote_share_pct": 23.05
+    },
+    {
+      "rank": 4,
+      "name": "Udayan Sukumaran",
+      "party_short": "AAAP",
+      "votes": 437,
+      "vote_share_pct": 0.3
+    },
+    {
+      "rank": 5,
+      "name": "Krishnankutty K",
+      "party_short": "BSP",
+      "votes": 348,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 841,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 384,
+    "vote_share_pct": 0.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ramesh Pisharody",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 62199,
+    "margin_votes": 13147,
+    "margin_pct": 8.93
+  }
+}

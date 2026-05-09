@@ -1,0 +1,43 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/party.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "parties": [
+    {
+      "eci_code": "369",
+      "short_name": "BJP",
+      "full_name": "Bharatiya Janata Party"
+    },
+    {
+      "eci_code": "140",
+      "short_name": "AITC",
+      "full_name": "All India Trinamool Congress"
+    },
+    {
+      "eci_code": "742",
+      "short_name": "INC",
+      "full_name": "Indian National Congress"
+    },
+    {
+      "eci_code": "3735",
+      "short_name": "AJUP",
+      "full_name": "Aam Janata Unnayan party"
+    },
+    {
+      "eci_code": "547",
+      "short_name": "CPI(M)",
+      "full_name": "Communist Party of India (Marxist)"
+    },
+    {
+      "eci_code": "3075",
+      "short_name": "AISF",
+      "full_name": "All India Secular Front"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "CHAMARIA",
+  "totals": {
+    "electors": 247660,
+    "votes_polled": 234572,
+    "turnout_pct": 94.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rekibuddin Ahmed",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 149720,
+      "vote_share_pct": 63.83,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Imdad Hussain",
+      "party_eci_code": "145",
+      "party_short": "AIUDF",
+      "votes": 71024,
+      "vote_share_pct": 30.28
+    },
+    {
+      "rank": 3,
+      "name": "Md. Nurul Islam",
+      "party_eci_code": "83",
+      "party_short": "AGP",
+      "votes": 9570,
+      "vote_share_pct": 4.08
+    },
+    {
+      "rank": 4,
+      "name": "Delowara Hussain",
+      "party_short": "SUCI",
+      "votes": 1331,
+      "vote_share_pct": 0.57
+    },
+    {
+      "rank": 5,
+      "name": "Mohammad Sumair Laskar",
+      "party_short": "IND",
+      "votes": 973,
+      "vote_share_pct": 0.41
+    }
+  ],
+  "nota": {
+    "votes": 1336,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 618,
+    "vote_share_pct": 0.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rekibuddin Ahmed",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 149720,
+    "margin_votes": 78696,
+    "margin_pct": 33.55
+  }
+}

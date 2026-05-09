@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 117,
+  "constituency_name": "KAVUNDAMPALAYAM",
+  "totals": {
+    "electors": 422240,
+    "votes_polled": 363991,
+    "turnout_pct": 86.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kanimozhi Santhosh",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 146466,
+      "vote_share_pct": 40.24,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Arunkumar Prg",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 104326,
+      "vote_share_pct": 28.66
+    },
+    {
+      "rank": 3,
+      "name": "Surya Prakash K.p",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 90726,
+      "vote_share_pct": 24.93
+    },
+    {
+      "rank": 4,
+      "name": "Kalamani Jaganathan",
+      "party_short": "NTK",
+      "votes": 16834,
+      "vote_share_pct": 4.62
+    },
+    {
+      "rank": 5,
+      "name": "Kanimozhi.k",
+      "party_short": "IND",
+      "votes": 567,
+      "vote_share_pct": 0.16
+    }
+  ],
+  "nota": {
+    "votes": 2116,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2956,
+    "vote_share_pct": 0.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kanimozhi Santhosh",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 146466,
+    "margin_votes": 42140,
+    "margin_pct": 11.58
+  }
+}

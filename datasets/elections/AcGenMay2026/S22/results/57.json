@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "PALACODU",
+  "totals": {
+    "electors": 240861,
+    "votes_polled": 225257,
+    "turnout_pct": 93.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anbalagan. K.p.",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 102807,
+      "vote_share_pct": 45.64,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Gopi. R.",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 63765,
+      "vote_share_pct": 28.31
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Dnv Senthilkumar. S.",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 50043,
+      "vote_share_pct": 22.22
+    },
+    {
+      "rank": 4,
+      "name": "Boopathi. R.",
+      "party_short": "NTK",
+      "votes": 5598,
+      "vote_share_pct": 2.49
+    },
+    {
+      "rank": 5,
+      "name": "Raman. M.",
+      "party_short": "IND",
+      "votes": 358,
+      "vote_share_pct": 0.16
+    }
+  ],
+  "nota": {
+    "votes": 1292,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1394,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anbalagan. K.p.",
+    "party_eci_code": "75",
+    "party_short": "ADMK",
+    "votes": 102807,
+    "margin_votes": 39042,
+    "margin_pct": 17.33
+  }
+}

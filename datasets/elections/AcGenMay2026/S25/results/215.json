@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 215,
+  "constituency_name": "KHEJURI (SC)",
+  "totals": {
+    "electors": 248386,
+    "votes_polled": 236328,
+    "turnout_pct": 95.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Subrata Paik",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 129875,
+      "vote_share_pct": 54.96,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rabin Chandra Mandal",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 97185,
+      "vote_share_pct": 41.12
+    },
+    {
+      "rank": 3,
+      "name": "Himangshu Das",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 5365,
+      "vote_share_pct": 2.27
+    },
+    {
+      "rank": 4,
+      "name": "Asit Pramanik",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 832,
+      "vote_share_pct": 0.35
+    },
+    {
+      "rank": 5,
+      "name": "Rabin Mandal",
+      "party_short": "IND",
+      "votes": 609,
+      "vote_share_pct": 0.26
+    }
+  ],
+  "nota": {
+    "votes": 601,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1861,
+    "vote_share_pct": 0.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Subrata Paik",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 129875,
+    "margin_votes": 32690,
+    "margin_pct": 13.83
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "KAYAMKULAM",
+  "totals": {
+    "electors": 202857,
+    "votes_polled": 155399,
+    "turnout_pct": 76.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv.m.liju",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 76651,
+      "vote_share_pct": 49.33,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adv.u.prathibha",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 61079,
+      "vote_share_pct": 39.3
+    },
+    {
+      "rank": 3,
+      "name": "Thampi Mettuthara",
+      "party_short": "BDJS",
+      "votes": 16973,
+      "vote_share_pct": 10.92
+    }
+  ],
+  "nota": {
+    "votes": 696,
+    "vote_share_pct": 0.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv.m.liju",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 76651,
+    "margin_votes": 15572,
+    "margin_pct": 10.02
+  },
+  "others": null
+}

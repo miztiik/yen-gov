@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "GUDIYATTAM (SC)",
+  "totals": {
+    "electors": 252064,
+    "votes_polled": 229076,
+    "turnout_pct": 90.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.sindu",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 82858,
+      "vote_share_pct": 36.17,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "K.b.pradap",
+      "party_eci_code": "581",
+      "party_short": "DMDK",
+      "votes": 72761,
+      "vote_share_pct": 31.76
+    },
+    {
+      "rank": 3,
+      "name": "Paritha Purushothaman.g",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 64122,
+      "vote_share_pct": 27.99
+    },
+    {
+      "rank": 4,
+      "name": "J.emalan",
+      "party_short": "NTK",
+      "votes": 5802,
+      "vote_share_pct": 2.53
+    },
+    {
+      "rank": 5,
+      "name": "T.poovarasan",
+      "party_short": "BSP",
+      "votes": 697,
+      "vote_share_pct": 0.3
+    }
+  ],
+  "nota": {
+    "votes": 799,
+    "vote_share_pct": 0.35
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2037,
+    "vote_share_pct": 0.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.sindu",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 82858,
+    "margin_votes": 10097,
+    "margin_pct": 4.41
+  }
+}

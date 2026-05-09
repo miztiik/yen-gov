@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 205,
+  "constituency_name": "SIVAKASI",
+  "totals": {
+    "electors": 228465,
+    "votes_polled": 193517,
+    "turnout_pct": 84.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Keerthana S",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 68709,
+      "vote_share_pct": 35.51,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ashokan G",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 57039,
+      "vote_share_pct": 29.47
+    },
+    {
+      "rank": 3,
+      "name": "Rajenthrabhalaji K T",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 51078,
+      "vote_share_pct": 26.39
+    },
+    {
+      "rank": 4,
+      "name": "Esther Mary Diana A",
+      "party_short": "NTK",
+      "votes": 10191,
+      "vote_share_pct": 5.27
+    },
+    {
+      "rank": 5,
+      "name": "Kanipandi M",
+      "party_short": "PT",
+      "votes": 2513,
+      "vote_share_pct": 1.3
+    }
+  ],
+  "nota": {
+    "votes": 948,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3039,
+    "vote_share_pct": 1.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Keerthana S",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 68709,
+    "margin_votes": 11670,
+    "margin_pct": 6.03
+  }
+}

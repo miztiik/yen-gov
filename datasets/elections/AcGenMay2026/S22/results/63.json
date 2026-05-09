@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 63,
+  "constituency_name": "TIRUVANNAMALAI",
+  "totals": {
+    "electors": 250026,
+    "votes_polled": 220066,
+    "turnout_pct": 88.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Velu. E.v",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 88273,
+      "vote_share_pct": 40.11,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Arul Arumugam",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 85818,
+      "vote_share_pct": 39.0
+    },
+    {
+      "rank": 3,
+      "name": "Elumalai. C",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 34280,
+      "vote_share_pct": 15.58
+    },
+    {
+      "rank": 4,
+      "name": "Vignesh. S",
+      "party_short": "NTK",
+      "votes": 6011,
+      "vote_share_pct": 2.73
+    },
+    {
+      "rank": 5,
+      "name": "Benny Rajan. C.j",
+      "party_short": "RPPRINAT",
+      "votes": 627,
+      "vote_share_pct": 0.28
+    }
+  ],
+  "nota": {
+    "votes": 785,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 25,
+    "votes": 4272,
+    "vote_share_pct": 1.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Velu. E.v",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 88273,
+    "margin_votes": 2455,
+    "margin_pct": 1.12
+  }
+}

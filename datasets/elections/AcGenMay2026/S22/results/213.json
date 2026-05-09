@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 213,
+  "constituency_name": "VILATHIKULAM",
+  "totals": {
+    "electors": 205465,
+    "votes_polled": 174814,
+    "turnout_pct": 85.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Markandayan G V",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 58395,
+      "vote_share_pct": 33.4,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "P. Kasiram",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 50167,
+      "vote_share_pct": 28.7
+    },
+    {
+      "rank": 3,
+      "name": "R. Sathya",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 48879,
+      "vote_share_pct": 27.96
+    },
+    {
+      "rank": 4,
+      "name": "Balaji Ramachandran",
+      "party_short": "NTK",
+      "votes": 11780,
+      "vote_share_pct": 6.74
+    },
+    {
+      "rank": 5,
+      "name": "P.madasamy",
+      "party_short": "PT",
+      "votes": 2057,
+      "vote_share_pct": 1.18
+    }
+  ],
+  "nota": {
+    "votes": 642,
+    "vote_share_pct": 0.37
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2894,
+    "vote_share_pct": 1.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Markandayan G V",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 58395,
+    "margin_votes": 8228,
+    "margin_pct": 4.71
+  }
+}

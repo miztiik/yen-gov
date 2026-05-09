@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "THALLI",
+  "totals": {
+    "electors": 237961,
+    "votes_polled": 205878,
+    "turnout_pct": 86.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ramachandran. T",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 78283,
+      "vote_share_pct": 38.02,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dr.nagesh Kumar. C",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 73043,
+      "vote_share_pct": 35.48
+    },
+    {
+      "rank": 3,
+      "name": "Suresh. G",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 45245,
+      "vote_share_pct": 21.98
+    },
+    {
+      "rank": 4,
+      "name": "Narasimma Reddy Alias Narasimman. R",
+      "party_short": "NTK",
+      "votes": 4107,
+      "vote_share_pct": 1.99
+    },
+    {
+      "rank": 5,
+      "name": "Ajith. G",
+      "party_short": "tavk",
+      "votes": 1017,
+      "vote_share_pct": 0.49
+    }
+  ],
+  "nota": {
+    "votes": 1550,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2633,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ramachandran. T",
+    "party_eci_code": "544",
+    "party_short": "CPI",
+    "votes": 78283,
+    "margin_votes": 5240,
+    "margin_pct": 2.55
+  }
+}

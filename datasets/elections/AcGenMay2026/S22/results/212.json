@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 212,
+  "constituency_name": "MUDHUKULATHUR",
+  "totals": {
+    "electors": 299702,
+    "votes_polled": 231373,
+    "turnout_pct": 77.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "R.s.rajakannappan",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 68003,
+      "vote_share_pct": 29.39,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Malarvizhi. B",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 51405,
+      "vote_share_pct": 22.22
+    },
+    {
+      "rank": 3,
+      "name": "S.pandi",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 47501,
+      "vote_share_pct": 20.53
+    },
+    {
+      "rank": 4,
+      "name": "Dr.r.ramkumar",
+      "party_short": "AIPTMMK",
+      "votes": 40422,
+      "vote_share_pct": 17.47
+    },
+    {
+      "rank": 5,
+      "name": "Chandra Prabha Jeyapal",
+      "party_short": "NTK",
+      "votes": 15112,
+      "vote_share_pct": 6.53
+    }
+  ],
+  "nota": {
+    "votes": 429,
+    "vote_share_pct": 0.19
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 8501,
+    "vote_share_pct": 3.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "R.s.rajakannappan",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 68003,
+    "margin_votes": 16598,
+    "margin_pct": 7.17
+  }
+}

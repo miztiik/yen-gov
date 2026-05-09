@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 128,
+  "constituency_name": "ATTINGAL (SC)",
+  "totals": {
+    "electors": 198361,
+    "votes_polled": 149916,
+    "turnout_pct": 75.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "O.s Ambika",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 59163,
+      "vote_share_pct": 39.46,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adv. P Sudheer",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 45788,
+      "vote_share_pct": 30.54
+    },
+    {
+      "rank": 3,
+      "name": "Santhosh Bhadran",
+      "party_eci_code": "1534",
+      "party_short": "RSP",
+      "votes": 41372,
+      "vote_share_pct": 27.6
+    },
+    {
+      "rank": 4,
+      "name": "Jayarajan M",
+      "party_short": "SDPI",
+      "votes": 1019,
+      "vote_share_pct": 0.68
+    },
+    {
+      "rank": 5,
+      "name": "S. Sujithra",
+      "party_short": "BSP",
+      "votes": 905,
+      "vote_share_pct": 0.6
+    }
+  ],
+  "nota": {
+    "votes": 1272,
+    "vote_share_pct": 0.85
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 397,
+    "vote_share_pct": 0.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "O.s Ambika",
+    "party_eci_code": "547",
+    "party_short": "CPI(M)",
+    "votes": 59163,
+    "margin_votes": 13375,
+    "margin_pct": 8.92
+  }
+}

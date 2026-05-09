@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 124,
+  "constituency_name": "KOLLAM",
+  "totals": {
+    "electors": 165073,
+    "votes_polled": 129690,
+    "turnout_pct": 78.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. Bindhu Krishna",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 63416,
+      "vote_share_pct": 48.9,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "S. Jayamohan",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 46586,
+      "vote_share_pct": 35.92
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Prathap Kumar N",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 18537,
+      "vote_share_pct": 14.29
+    },
+    {
+      "rank": 4,
+      "name": "Adv. Sinu.l.r",
+      "party_short": "AAAP",
+      "votes": 290,
+      "vote_share_pct": 0.22
+    },
+    {
+      "rank": 5,
+      "name": "Mylode Sudhan",
+      "party_short": "BSP",
+      "votes": 146,
+      "vote_share_pct": 0.11
+    }
+  ],
+  "nota": {
+    "votes": 715,
+    "vote_share_pct": 0.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. Bindhu Krishna",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 63416,
+    "margin_votes": 16830,
+    "margin_pct": 12.98
+  },
+  "others": null
+}

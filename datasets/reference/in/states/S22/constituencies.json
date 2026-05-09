@@ -1,0 +1,1423 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_constituencies_of_the_Tamil_Nadu_Legislative_Assembly",
+      "fetched_at": "2026-05-09T07:07:31Z"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Tindivanam_Assembly_constituency",
+      "fetched_at": "2026-05-09T14:19:09Z"
+    }
+  ],
+  "state": "S22",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Gummidipoondi",
+      "district_id": "TAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Ponneri",
+      "district_id": "TAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 3,
+      "name": "Tiruttani",
+      "district_id": "TAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Thiruvallur",
+      "district_id": "TAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Poonamallee",
+      "district_id": "TAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 6,
+      "name": "Avadi",
+      "district_id": "TAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Maduravoyal",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Ambattur",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Madavaram",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Thiruvottiyur",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Dr. Radhakrishnan Nagar",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Perambur",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Kolathur",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Villivakkam",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Thiru-Vi-Ka-Nagar",
+      "district_id": "CHN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 16,
+      "name": "Egmore",
+      "district_id": "CHN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 17,
+      "name": "Royapuram",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Harbour",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Chepauk-Thiruvallikeni",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Thousand Lights",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Anna Nagar",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Virugampakkam",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Saidapet",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Thiyagarayanagar",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Mylapore",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Velachery",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Sholinganallur",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Alandur",
+      "district_id": "CHN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Sriperumbudur",
+      "district_id": "KAC",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 30,
+      "name": "Pallavaram",
+      "district_id": "CHG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Tambaram",
+      "district_id": "CHG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Chengalpattu",
+      "district_id": "CHG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Thiruporur",
+      "district_id": "CHG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Cheyyur",
+      "district_id": "CHG",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 35,
+      "name": "Madurantakam",
+      "district_id": "CHG",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 36,
+      "name": "Uthiramerur",
+      "district_id": "KAC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Kancheepuram",
+      "district_id": "KAC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Arakkonam",
+      "district_id": "RAN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 39,
+      "name": "Sholingur",
+      "district_id": "RAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Katpadi",
+      "district_id": "VEL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Ranipet",
+      "district_id": "RAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "Arcot",
+      "district_id": "RAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Vellore",
+      "district_id": "VEL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Anaikattu",
+      "district_id": "VEL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Kilvaithinankuppam",
+      "district_id": "VEL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 46,
+      "name": "Gudiyatham",
+      "district_id": "VEL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 47,
+      "name": "Vaniyambadi",
+      "district_id": "TIA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Ambur",
+      "district_id": "TIA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Jolarpet",
+      "district_id": "TIA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Tiruppattur",
+      "district_id": "TIA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Uthangarai",
+      "district_id": "KRI",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 52,
+      "name": "Bargur",
+      "district_id": "KRI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Krishnagiri",
+      "district_id": "KRI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "Veppanahalli",
+      "district_id": "KRI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Hosur",
+      "district_id": "KRI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Thalli",
+      "district_id": "KRI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Palacode",
+      "district_id": "DHA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Pennagaram",
+      "district_id": "DHA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Dharmapuri",
+      "district_id": "DHA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Pappireddippatti",
+      "district_id": "DHA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Harur",
+      "district_id": "DHA",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 62,
+      "name": "Chengam",
+      "district_id": "TAN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 63,
+      "name": "Tiruvannamalai",
+      "district_id": "TAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 64,
+      "name": "Kilpennathur",
+      "district_id": "TAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Kalasapakkam",
+      "district_id": "TAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 66,
+      "name": "Polur",
+      "district_id": "TAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 67,
+      "name": "Arani",
+      "district_id": "TAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 68,
+      "name": "Cheyyar",
+      "district_id": "TAN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 69,
+      "name": "Vandavasi",
+      "district_id": "TAN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 70,
+      "name": "Gingee",
+      "district_id": "VIL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 71,
+      "name": "Mailam",
+      "district_id": "VIL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 72,
+      "name": "Tindivanam",
+      "district_id": "VIL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 73,
+      "name": "Vanur",
+      "district_id": "VIL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 74,
+      "name": "Villupuram",
+      "district_id": "VIL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 75,
+      "name": "Vikravandi",
+      "district_id": "VIL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 76,
+      "name": "Tirukkoyilur",
+      "district_id": "KAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 77,
+      "name": "Ulundurpettai",
+      "district_id": "KAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 78,
+      "name": "Rishivandiyam",
+      "district_id": "KAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 79,
+      "name": "Sankarapuram",
+      "district_id": "KAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 80,
+      "name": "Kallakurichi",
+      "district_id": "KAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 81,
+      "name": "Gangavalli",
+      "district_id": "SAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 82,
+      "name": "Attur",
+      "district_id": "SAL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 83,
+      "name": "Yercaud",
+      "district_id": "SAL",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 84,
+      "name": "Omalur",
+      "district_id": "SAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 85,
+      "name": "Mettur",
+      "district_id": "SAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 86,
+      "name": "Edappadi",
+      "district_id": "SAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 87,
+      "name": "Sankari",
+      "district_id": "SAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 88,
+      "name": "Salem (West)",
+      "district_id": "SAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 89,
+      "name": "Salem (North)",
+      "district_id": "SAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 90,
+      "name": "Salem (South)",
+      "district_id": "SAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 91,
+      "name": "Veerapandi",
+      "district_id": "SAL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 92,
+      "name": "Rasipuram",
+      "district_id": "NAM",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 93,
+      "name": "Senthamangalam",
+      "district_id": "NAM",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 94,
+      "name": "Namakkal",
+      "district_id": "NAM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 95,
+      "name": "Paramathi Velur",
+      "district_id": "NAM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 96,
+      "name": "Tiruchengodu",
+      "district_id": "NAM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 97,
+      "name": "Kumarapalayam",
+      "district_id": "NAM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 98,
+      "name": "Erode (East)",
+      "district_id": "ERO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 99,
+      "name": "Erode (West)",
+      "district_id": "ERO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 100,
+      "name": "Modakkurichi",
+      "district_id": "ERO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 101,
+      "name": "Dharapuram",
+      "district_id": "TIP",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 102,
+      "name": "Kangayam",
+      "district_id": "TIP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 103,
+      "name": "Perundurai",
+      "district_id": "ERO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 104,
+      "name": "Bhavani",
+      "district_id": "ERO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 105,
+      "name": "Anthiyur",
+      "district_id": "ERO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 106,
+      "name": "Gobichettipalayam",
+      "district_id": "ERO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 107,
+      "name": "Bhavanisagar",
+      "district_id": "ERO",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 108,
+      "name": "Udhagamandalam",
+      "district_id": "NIL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 109,
+      "name": "Gudalur",
+      "district_id": "NIL",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 110,
+      "name": "Coonoor",
+      "district_id": "NIL",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 111,
+      "name": "Mettupalayam",
+      "district_id": "COI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 112,
+      "name": "Avanashi",
+      "district_id": "TIP",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 113,
+      "name": "Tiruppur (North)",
+      "district_id": "TIP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 114,
+      "name": "Tiruppur (South)",
+      "district_id": "TIP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 115,
+      "name": "Palladam",
+      "district_id": "TIP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 116,
+      "name": "Sulur",
+      "district_id": "COI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 117,
+      "name": "Kavundampalayam",
+      "district_id": "COI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 118,
+      "name": "Coimbatore (North)",
+      "district_id": "COI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 119,
+      "name": "Thondamuthur",
+      "district_id": "COI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 120,
+      "name": "Coimbatore (South)",
+      "district_id": "COI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 121,
+      "name": "Singanallur",
+      "district_id": "COI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 122,
+      "name": "Kinathukadavu",
+      "district_id": "COI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 123,
+      "name": "Pollachi",
+      "district_id": "COI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 124,
+      "name": "Valparai",
+      "district_id": "COI",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 125,
+      "name": "Udumalaipettai",
+      "district_id": "TIP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 126,
+      "name": "Madathukulam",
+      "district_id": "TIP",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 127,
+      "name": "Palani",
+      "district_id": "DIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 128,
+      "name": "Oddanchatram",
+      "district_id": "DIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 129,
+      "name": "Athoor",
+      "district_id": "DIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 130,
+      "name": "Nilakottai",
+      "district_id": "DIN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 131,
+      "name": "Natham",
+      "district_id": "DIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 132,
+      "name": "Dindigul",
+      "district_id": "DIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 133,
+      "name": "Vedasandur",
+      "district_id": "DIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 134,
+      "name": "Aravakurichi",
+      "district_id": "KAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 135,
+      "name": "Karur",
+      "district_id": "KAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 136,
+      "name": "Krishnarayapuram",
+      "district_id": "KAR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 137,
+      "name": "Kulithalai",
+      "district_id": "KAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 138,
+      "name": "Manapaarai",
+      "district_id": "TIC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 139,
+      "name": "Srirangam",
+      "district_id": "TIC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 140,
+      "name": "Tiruchirappalli (West)",
+      "district_id": "TIC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 141,
+      "name": "Tiruchirappalli (East)",
+      "district_id": "TIC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 142,
+      "name": "Thiruverumbur",
+      "district_id": "TIC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 143,
+      "name": "Lalgudi",
+      "district_id": "TIC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 144,
+      "name": "Manachanallur",
+      "district_id": "TIC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 145,
+      "name": "Musiri",
+      "district_id": "TIC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 146,
+      "name": "Thuraiyur",
+      "district_id": "TIC",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 147,
+      "name": "Perambalur",
+      "district_id": "PER",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 148,
+      "name": "Kunnam",
+      "district_id": "PER",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 149,
+      "name": "Ariyalur",
+      "district_id": "ARI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 150,
+      "name": "Jayankondam",
+      "district_id": "ARI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 151,
+      "name": "Tittakudi",
+      "district_id": "CUD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 152,
+      "name": "Virudhachalam",
+      "district_id": "CUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 153,
+      "name": "Neyveli",
+      "district_id": "CUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 154,
+      "name": "Panruti",
+      "district_id": "CUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 155,
+      "name": "Cuddalore",
+      "district_id": "CUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 156,
+      "name": "Kurinjipadi",
+      "district_id": "CUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 157,
+      "name": "Bhuvanagiri",
+      "district_id": "CUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 158,
+      "name": "Chidambaram",
+      "district_id": "CUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 159,
+      "name": "Kattumannarkoil",
+      "district_id": "CUD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 160,
+      "name": "Sirkazhi",
+      "district_id": "MAY",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 161,
+      "name": "Mayiladuthurai",
+      "district_id": "MAY",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 162,
+      "name": "Poompuhar",
+      "district_id": "MAY",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 163,
+      "name": "Nagapattinam",
+      "district_id": "NAG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 164,
+      "name": "Kilvelur",
+      "district_id": "NAG",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 165,
+      "name": "Vedaranyam",
+      "district_id": "NAG",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 166,
+      "name": "Thiruthuraipoondi",
+      "district_id": "TAR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 167,
+      "name": "Mannargudi",
+      "district_id": "TAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 168,
+      "name": "Thiruvarur",
+      "district_id": "TAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 169,
+      "name": "Nannilam",
+      "district_id": "TAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 170,
+      "name": "Thiruvidaimarudur",
+      "district_id": "THA",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 171,
+      "name": "Kumbakonam",
+      "district_id": "THA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 172,
+      "name": "Papanasam",
+      "district_id": "THA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 173,
+      "name": "Thiruvaiyaru",
+      "district_id": "THA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 174,
+      "name": "Thanjavur",
+      "district_id": "THA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 175,
+      "name": "Orathanadu",
+      "district_id": "THA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 176,
+      "name": "Pattukkottai",
+      "district_id": "THA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 177,
+      "name": "Peravurani",
+      "district_id": "THA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 178,
+      "name": "Gandarvakottai",
+      "district_id": "PUD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 179,
+      "name": "Viralimalai",
+      "district_id": "PUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 180,
+      "name": "Pudukkottai",
+      "district_id": "PUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 181,
+      "name": "Thirumayam",
+      "district_id": "PUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 182,
+      "name": "Alangudi",
+      "district_id": "PUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 183,
+      "name": "Aranthangi",
+      "district_id": "PUD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 184,
+      "name": "Karaikudi",
+      "district_id": "SIV",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 185,
+      "name": "Tiruppattur",
+      "district_id": "SIV",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 186,
+      "name": "Sivaganga",
+      "district_id": "SIV",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 187,
+      "name": "Manamadurai",
+      "district_id": "SIV",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 188,
+      "name": "Melur",
+      "district_id": "MAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 189,
+      "name": "Madurai East",
+      "district_id": "MAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 190,
+      "name": "Sholavandan",
+      "district_id": "MAD",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 191,
+      "name": "Madurai North",
+      "district_id": "MAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 192,
+      "name": "Madurai South",
+      "district_id": "MAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 193,
+      "name": "Madurai Central",
+      "district_id": "MAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 194,
+      "name": "Madurai West",
+      "district_id": "MAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 195,
+      "name": "Thiruparankundram",
+      "district_id": "MAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 196,
+      "name": "Thirumangalam",
+      "district_id": "MAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 197,
+      "name": "Usilampatti",
+      "district_id": "MAD",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 198,
+      "name": "Andipatti",
+      "district_id": "THE",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 199,
+      "name": "Periyakulam",
+      "district_id": "THE",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 200,
+      "name": "Bodinayakanur",
+      "district_id": "THE",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 201,
+      "name": "Cumbum",
+      "district_id": "THE",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 202,
+      "name": "Rajapalayam",
+      "district_id": "VIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 203,
+      "name": "Srivilliputhur",
+      "district_id": "VIR",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 204,
+      "name": "Sattur",
+      "district_id": "VIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 205,
+      "name": "Sivakasi",
+      "district_id": "VIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 206,
+      "name": "Virudhunagar",
+      "district_id": "VIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 207,
+      "name": "Aruppukkottai",
+      "district_id": "VIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 208,
+      "name": "Tiruchuli",
+      "district_id": "VIR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 209,
+      "name": "Paramakudi",
+      "district_id": "RAM",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 210,
+      "name": "Tiruvadanai",
+      "district_id": "RAM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 211,
+      "name": "Ramanathapuram",
+      "district_id": "RAM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 212,
+      "name": "Mudhukulathur",
+      "district_id": "RAM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 213,
+      "name": "Vilathikulam",
+      "district_id": "THO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 214,
+      "name": "Thoothukkudi",
+      "district_id": "THO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 215,
+      "name": "Tiruchendur",
+      "district_id": "THO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 216,
+      "name": "Srivaikuntam",
+      "district_id": "THO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 217,
+      "name": "Ottapidaram",
+      "district_id": "THO",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 218,
+      "name": "Kovilpatti",
+      "district_id": "THO",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 219,
+      "name": "Sankarankovil",
+      "district_id": "TEN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 220,
+      "name": "Vasudevanallur",
+      "district_id": "TEN",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 221,
+      "name": "Kadayanallur",
+      "district_id": "TEN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 222,
+      "name": "Tenkasi",
+      "district_id": "TEN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 223,
+      "name": "Alangulam",
+      "district_id": "TEN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 224,
+      "name": "Tirunelveli",
+      "district_id": "TIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 225,
+      "name": "Ambasamudram",
+      "district_id": "TIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 226,
+      "name": "Palayamkottai",
+      "district_id": "TIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 227,
+      "name": "Nanguneri",
+      "district_id": "TIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 228,
+      "name": "Radhapuram",
+      "district_id": "TIN",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 229,
+      "name": "Kanniyakumari",
+      "district_id": "KAY",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 230,
+      "name": "Nagercoil",
+      "district_id": "KAY",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 231,
+      "name": "Colachal",
+      "district_id": "KAY",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 232,
+      "name": "Padmanabhapuram",
+      "district_id": "KAY",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 233,
+      "name": "Vilavancode",
+      "district_id": "KAY",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 234,
+      "name": "Killiyoor",
+      "district_id": "KAY",
+      "reservation": "GEN"
+    }
+  ]
+}

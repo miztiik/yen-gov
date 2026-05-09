@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 128,
+  "constituency_name": "BASANTI (SC)",
+  "totals": {
+    "electors": 240362,
+    "votes_polled": 231860,
+    "turnout_pct": 96.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nilima Mistry Bishal",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 127495,
+      "vote_share_pct": 54.99,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bikash Sardar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 71314,
+      "vote_share_pct": 30.76
+    },
+    {
+      "rank": 3,
+      "name": "Asit Roy",
+      "party_eci_code": "3075",
+      "party_short": "AISF",
+      "votes": 25924,
+      "vote_share_pct": 11.18
+    },
+    {
+      "rank": 4,
+      "name": "Samar Biswas",
+      "party_short": "RSP",
+      "votes": 2099,
+      "vote_share_pct": 0.91
+    },
+    {
+      "rank": 5,
+      "name": "Gouri Naskar",
+      "party_short": "IND",
+      "votes": 1277,
+      "vote_share_pct": 0.55
+    }
+  ],
+  "nota": {
+    "votes": 1402,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2349,
+    "vote_share_pct": 1.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nilima Mistry Bishal",
+    "party_eci_code": "140",
+    "party_short": "AITC",
+    "votes": 127495,
+    "margin_votes": 56181,
+    "margin_pct": 24.23
+  }
+}

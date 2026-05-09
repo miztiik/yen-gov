@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 226,
+  "constituency_name": "PALAYAMKOTTAI",
+  "totals": {
+    "electors": 257498,
+    "votes_polled": 180620,
+    "turnout_pct": 70.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M.abdul Wahab",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 79744,
+      "vote_share_pct": 44.15,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Maria John",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 65939,
+      "vote_share_pct": 36.51
+    },
+    {
+      "rank": 3,
+      "name": "Syed Sulthan Samsudeen",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 19732,
+      "vote_share_pct": 10.92
+    },
+    {
+      "rank": 4,
+      "name": "Sankara Narayanan Alias Saran",
+      "party_short": "NTK",
+      "votes": 10465,
+      "vote_share_pct": 5.79
+    },
+    {
+      "rank": 5,
+      "name": "Paulraj.v",
+      "party_short": "IND",
+      "votes": 717,
+      "vote_share_pct": 0.4
+    }
+  ],
+  "nota": {
+    "votes": 851,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 3172,
+    "vote_share_pct": 1.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M.abdul Wahab",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 79744,
+    "margin_votes": 13805,
+    "margin_pct": 7.64
+  }
+}

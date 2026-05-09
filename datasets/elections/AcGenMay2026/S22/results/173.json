@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "THIRUVAIYARU",
+  "totals": {
+    "electors": 258597,
+    "votes_polled": 222111,
+    "turnout_pct": 85.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Durai. Chandrasekaran",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 80425,
+      "vote_share_pct": 36.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mathi. Manikandan",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 71870,
+      "vote_share_pct": 32.36
+    },
+    {
+      "rank": 3,
+      "name": "Velu. Karthikeyan",
+      "party_eci_code": "2866",
+      "party_short": "AMMKMNKZ",
+      "votes": 55121,
+      "vote_share_pct": 24.82
+    },
+    {
+      "rank": 4,
+      "name": "Durai. Senthilnathan",
+      "party_short": "NTK",
+      "votes": 10681,
+      "vote_share_pct": 4.81
+    },
+    {
+      "rank": 5,
+      "name": "Vijaya Babu",
+      "party_short": "tavk",
+      "votes": 1130,
+      "vote_share_pct": 0.51
+    }
+  ],
+  "nota": {
+    "votes": 948,
+    "vote_share_pct": 0.43
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1936,
+    "vote_share_pct": 0.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Durai. Chandrasekaran",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 80425,
+    "margin_votes": 8555,
+    "margin_pct": 3.85
+  }
+}

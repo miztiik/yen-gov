@@ -1,0 +1,151 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_districts_of_West_Bengal",
+      "fetched_at": "2026-05-09T09:30:00Z"
+    }
+  ],
+  "state": "S25",
+  "districts": [
+    {
+      "id": "COB",
+      "id_source": "wikipedia",
+      "name": "Cooch Behar",
+      "headquarters": "Cooch Behar"
+    },
+    {
+      "id": "ALI",
+      "id_source": "wikipedia",
+      "name": "Alipurduar",
+      "headquarters": "Alipurduar"
+    },
+    {
+      "id": "JAL",
+      "id_source": "wikipedia",
+      "name": "Jalpaiguri",
+      "headquarters": "Jalpaiguri"
+    },
+    {
+      "id": "KAL",
+      "id_source": "wikipedia",
+      "name": "Kalimpong",
+      "headquarters": "Kalimpong"
+    },
+    {
+      "id": "DAR",
+      "id_source": "wikipedia",
+      "name": "Darjeeling",
+      "headquarters": "Darjeeling"
+    },
+    {
+      "id": "UDP",
+      "id_source": "wikipedia",
+      "name": "Uttar Dinajpur",
+      "headquarters": "Raiganj"
+    },
+    {
+      "id": "DDP",
+      "id_source": "wikipedia",
+      "name": "Dakshin Dinajpur",
+      "headquarters": "Balurghat"
+    },
+    {
+      "id": "MLD",
+      "id_source": "wikipedia",
+      "name": "Maldah",
+      "headquarters": "English Bazar"
+    },
+    {
+      "id": "MUR",
+      "id_source": "wikipedia",
+      "name": "Murshidabad",
+      "headquarters": "Baharampur"
+    },
+    {
+      "id": "NAD",
+      "id_source": "wikipedia",
+      "name": "Nadia",
+      "headquarters": "Krishnanagar"
+    },
+    {
+      "id": "N24",
+      "id_source": "wikipedia",
+      "name": "North 24 Parganas",
+      "headquarters": "Barasat"
+    },
+    {
+      "id": "S24",
+      "id_source": "wikipedia",
+      "name": "South 24 Parganas",
+      "headquarters": "Alipore"
+    },
+    {
+      "id": "KOL",
+      "id_source": "wikipedia",
+      "name": "Kolkata",
+      "headquarters": "Kolkata"
+    },
+    {
+      "id": "HOW",
+      "id_source": "wikipedia",
+      "name": "Howrah",
+      "headquarters": "Howrah"
+    },
+    {
+      "id": "HOG",
+      "id_source": "wikipedia",
+      "name": "Hooghly",
+      "headquarters": "Chinsura"
+    },
+    {
+      "id": "PME",
+      "id_source": "wikipedia",
+      "name": "Purba Medinipur",
+      "headquarters": "Tamluk"
+    },
+    {
+      "id": "PSM",
+      "id_source": "wikipedia",
+      "name": "Paschim Medinipur",
+      "headquarters": "Medinipur"
+    },
+    {
+      "id": "JHA",
+      "id_source": "wikipedia",
+      "name": "Jhargram",
+      "headquarters": "Jhargram"
+    },
+    {
+      "id": "PUR",
+      "id_source": "wikipedia",
+      "name": "Purulia",
+      "headquarters": "Purulia"
+    },
+    {
+      "id": "BAN",
+      "id_source": "wikipedia",
+      "name": "Bankura",
+      "headquarters": "Bankura"
+    },
+    {
+      "id": "PBD",
+      "id_source": "wikipedia",
+      "name": "Purba Bardhaman",
+      "headquarters": "Bardhaman"
+    },
+    {
+      "id": "PSB",
+      "id_source": "wikipedia",
+      "name": "Paschim Bardhaman",
+      "headquarters": "Asansol"
+    },
+    {
+      "id": "BIR",
+      "id_source": "wikipedia",
+      "name": "Birbhum",
+      "headquarters": "Suri"
+    }
+  ]
+}

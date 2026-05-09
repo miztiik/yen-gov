@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 123,
+  "constituency_name": "KARIMGANJ NORTH",
+  "totals": {
+    "electors": 260607,
+    "votes_polled": 225887,
+    "turnout_pct": 86.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jakaria Ahmed",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 122356,
+      "vote_share_pct": 54.17,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Subrata Bhattacharjee",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 96353,
+      "vote_share_pct": 42.66
+    },
+    {
+      "rank": 3,
+      "name": "Choudhury Hibbur Rasul Usama Mabrur",
+      "party_eci_code": "145",
+      "party_short": "AIUDF",
+      "votes": 2038,
+      "vote_share_pct": 0.9
+    },
+    {
+      "rank": 4,
+      "name": "Samraj Banik",
+      "party_short": "IND",
+      "votes": 856,
+      "vote_share_pct": 0.38
+    },
+    {
+      "rank": 5,
+      "name": "Sayed Sahab Uddin",
+      "party_short": "IND",
+      "votes": 773,
+      "vote_share_pct": 0.34
+    }
+  ],
+  "nota": {
+    "votes": 1292,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2219,
+    "vote_share_pct": 0.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jakaria Ahmed",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 122356,
+    "margin_votes": 26003,
+    "margin_pct": 11.51
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "MADARIHAT (ST)",
+  "totals": {
+    "electors": 194663,
+    "votes_polled": 176753,
+    "turnout_pct": 90.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Laxuman Limbu",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 102488,
+      "vote_share_pct": 57.98,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Jayprakash Toppo",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 61578,
+      "vote_share_pct": 34.84
+    },
+    {
+      "rank": 3,
+      "name": "Subhash Lohar",
+      "party_short": "RSP",
+      "votes": 3129,
+      "vote_share_pct": 1.77
+    },
+    {
+      "rank": 4,
+      "name": "Joy Prafful Lakra",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 3029,
+      "vote_share_pct": 1.71
+    },
+    {
+      "rank": 5,
+      "name": "Ishak Rabha",
+      "party_short": "BSP",
+      "votes": 1406,
+      "vote_share_pct": 0.8
+    }
+  ],
+  "nota": {
+    "votes": 1880,
+    "vote_share_pct": 1.06
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3243,
+    "vote_share_pct": 1.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Laxuman Limbu",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 102488,
+    "margin_votes": 40910,
+    "margin_pct": 23.15
+  }
+}

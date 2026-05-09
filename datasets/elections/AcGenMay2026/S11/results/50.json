@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "PATTAMBI",
+  "totals": {
+    "electors": 210926,
+    "votes_polled": 169436,
+    "turnout_pct": 80.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Muhammed Muhassin",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 80062,
+      "vote_share_pct": 47.25,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "T. P. Shaji",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 70620,
+      "vote_share_pct": 41.68
+    },
+    {
+      "rank": 3,
+      "name": "Adv. P. Manoj",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 15282,
+      "vote_share_pct": 9.02
+    },
+    {
+      "rank": 4,
+      "name": "S. P. Ameer Ali",
+      "party_short": "SDPI",
+      "votes": 2582,
+      "vote_share_pct": 1.52
+    },
+    {
+      "rank": 5,
+      "name": "Muhammed Muhsin. M. K Manjerikunnath",
+      "party_short": "IND",
+      "votes": 152,
+      "vote_share_pct": 0.09
+    }
+  ],
+  "nota": {
+    "votes": 548,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 190,
+    "vote_share_pct": 0.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Muhammed Muhassin",
+    "party_eci_code": "544",
+    "party_short": "CPI",
+    "votes": 80062,
+    "margin_votes": 9442,
+    "margin_pct": 5.57
+  }
+}

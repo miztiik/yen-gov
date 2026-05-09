@@ -1,0 +1,98 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_districts_of_Kerala",
+      "fetched_at": "2026-05-09T07:07:33Z"
+    }
+  ],
+  "state": "S11",
+  "districts": [
+    {
+      "id": "ALA",
+      "id_source": "wikipedia",
+      "name": "Alappuzha",
+      "headquarters": "Alappuzha"
+    },
+    {
+      "id": "ERN",
+      "id_source": "wikipedia",
+      "name": "Ernakulam",
+      "headquarters": "Kakkanad"
+    },
+    {
+      "id": "IDU",
+      "id_source": "wikipedia",
+      "name": "Idukki",
+      "headquarters": "Painavu"
+    },
+    {
+      "id": "KAN",
+      "id_source": "wikipedia",
+      "name": "Kannur",
+      "headquarters": "Kannur"
+    },
+    {
+      "id": "KAS",
+      "id_source": "wikipedia",
+      "name": "Kasaragod",
+      "headquarters": "Kasaragod",
+      "created_on": "1984-05-24"
+    },
+    {
+      "id": "KOL",
+      "id_source": "wikipedia",
+      "name": "Kollam",
+      "headquarters": "Kollam"
+    },
+    {
+      "id": "KOT",
+      "id_source": "wikipedia",
+      "name": "Kottayam",
+      "headquarters": "Kottayam"
+    },
+    {
+      "id": "KOZ",
+      "id_source": "wikipedia",
+      "name": "Kozhikode",
+      "headquarters": "Kozhikode"
+    },
+    {
+      "id": "MAL",
+      "id_source": "wikipedia",
+      "name": "Malappuram",
+      "headquarters": "Malappuram"
+    },
+    {
+      "id": "PAL",
+      "id_source": "wikipedia",
+      "name": "Palakkad",
+      "headquarters": "Palakkad"
+    },
+    {
+      "id": "PAT",
+      "id_source": "wikipedia",
+      "name": "Pathanamthitta",
+      "headquarters": "Pathanamthitta"
+    },
+    {
+      "id": "THI",
+      "id_source": "wikipedia",
+      "name": "Thiruvananthapuram",
+      "headquarters": "Thiruvananthapuram"
+    },
+    {
+      "id": "THR",
+      "id_source": "wikipedia",
+      "name": "Thrissur",
+      "headquarters": "Thrissur"
+    },
+    {
+      "id": "WAY",
+      "id_source": "wikipedia",
+      "name": "Wayanad",
+      "headquarters": "Kalpetta"
+    }
+  ]
+}

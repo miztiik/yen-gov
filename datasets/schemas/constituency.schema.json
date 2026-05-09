@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "title": "Constituencies collection (per state, per body)",
+  "description": "Electoral constituencies within a single state for a single legislative body (Assembly or Parliament). Keyed by ECI's numeric constituency number, which is stable within (state, body).",
+  "x-version": "4.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-08",
+      "description": "Initial schema. Per-(state, body) constituency list with ECI number, name, district reference, reservation."
+    },
+    {
+      "version": "2.0",
+      "date": "2026-05-08",
+      "description": "Replaced optional source_url with required source field (top-level) and optional source override on items per provenance contract (CLAUDE.md §12)."
+    },
+    {
+      "version": "3.0",
+      "date": "2026-05-08",
+      "description": "Replaced single source string with sources array of {url, fetched_at} per ADR-0002. Empty array means hand-authored. Item-level source overrides removed."
+    },
+    {
+      "version": "4.0",
+      "date": "2026-05-09",
+      "description": "Added hierarchy fields per ADR-0015: district_id and pc_id are mandatory on AC items (file is conditionally required to declare them when status=complete). Added optional electors and established_year. Added file-level status enum (provisional|complete) gating completeness rules. pc_id is forbidden on PC items."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "state", "body", "status", "constituencies"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. An empty array signals hand-authored content.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[SU]\\d{2}$"
+    },
+    "body": {
+      "enum": ["AC", "PC"],
+      "description": "AC = Legislative Assembly Constituency. PC = Parliamentary Constituency (Lok Sabha)."
+    },
+    "status": {
+      "enum": ["provisional", "complete"],
+      "description": "Lifecycle state (see docs/architecture/data-model.md#constituency-hierarchy-and-status-lifecycle). 'provisional' = bootstrapped from a single (typically Wikipedia) source; hierarchy fields may be absent. 'complete' = cross-checked against an authoritative ECI source (Delimitation Order or results portal); for body=AC, district_id and pc_id MUST be present on every item."
+    },
+    "constituencies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["eci_no", "name", "reservation"],
+        "additionalProperties": false,
+        "properties": {
+          "eci_no": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "ECI's constituency number within (state, body). Stable across elections unless redrawn."
+          },
+          "name": { "type": "string", "minLength": 1 },
+          "district_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Stable district id (LGD code or Wikipedia slug) from the same state's districts file. Hierarchical: every AC sits in exactly one district. PCs span multiple districts and SHOULD omit this field."
+          },
+          "pc_id": {
+            "type": "string",
+            "pattern": "^[SU]\\d{2}-PC-\\d+$",
+            "description": "Composite id of the Lok Sabha (Parliamentary) constituency this AC falls within, of the form '<state>-PC-<eci_no>' (e.g. 'S22-PC-2'). Hierarchical: every AC belongs to exactly one PC per the Delimitation Order. Forbidden on PC items (a PC does not nest inside another PC)."
+          },
+          "electors": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Snapshot count of registered electors from the most recent electoral roll known when this file was emitted. Optional; turnout/result-time electors live in the result schemas."
+          },
+          "established_year": {
+            "type": "integer",
+            "minimum": 1947,
+            "maximum": 2100,
+            "description": "Year of the Delimitation Order that defined the current boundary (e.g. 2008 for the 2008 Delimitation Commission Order). Optional."
+          },
+          "reservation": {
+            "enum": ["GEN", "SC", "ST"],
+            "description": "GEN = unreserved. SC = Scheduled Caste. ST = Scheduled Tribe."
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "body": { "const": "AC" }, "status": { "const": "complete" } },
+        "required": ["body", "status"]
+      },
+      "then": {
+        "properties": {
+          "constituencies": {
+            "items": { "required": ["eci_no", "name", "reservation", "district_id", "pc_id"] }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "body": { "const": "PC" } },
+        "required": ["body"]
+      },
+      "then": {
+        "properties": {
+          "constituencies": {
+            "items": { "not": { "required": ["pc_id"] } }
+          }
+        }
+      }
+    }
+  ]
+}

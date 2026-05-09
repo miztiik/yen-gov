@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "THOUSAND LIGHTS",
+  "totals": {
+    "electors": 157551,
+    "votes_polled": 131824,
+    "turnout_pct": 83.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Prabhakar.j.c.d",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 58965,
+      "vote_share_pct": 44.73,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ezhilan Naganathan",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 43824,
+      "vote_share_pct": 33.24
+    },
+    {
+      "rank": 3,
+      "name": "Valarmathi.b",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 23320,
+      "vote_share_pct": 17.69
+    },
+    {
+      "rank": 4,
+      "name": "Kalanchiyam.mu",
+      "party_short": "NTK",
+      "votes": 3717,
+      "vote_share_pct": 2.82
+    },
+    {
+      "rank": 5,
+      "name": "Valarmathi.e",
+      "party_short": "IND",
+      "votes": 245,
+      "vote_share_pct": 0.19
+    }
+  ],
+  "nota": {
+    "votes": 815,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 938,
+    "vote_share_pct": 0.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Prabhakar.j.c.d",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 58965,
+    "margin_votes": 15141,
+    "margin_pct": 11.49
+  }
+}

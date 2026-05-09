@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 98,
+  "constituency_name": "PUTHUPPALLY",
+  "totals": {
+    "electors": 170381,
+    "votes_polled": 128180,
+    "turnout_pct": 75.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. Chandy Oommen",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 84031,
+      "vote_share_pct": 65.56,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "K. M. Radhakrishnan",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 31124,
+      "vote_share_pct": 24.28
+    },
+    {
+      "rank": 3,
+      "name": "Raveendranath Vakathanam",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 11544,
+      "vote_share_pct": 9.01
+    },
+    {
+      "rank": 4,
+      "name": "Paul P Chacko (shaji Kadayil)",
+      "party_short": "BSP",
+      "votes": 663,
+      "vote_share_pct": 0.52
+    },
+    {
+      "rank": 5,
+      "name": "Sabu Mylakkadan",
+      "party_short": "JNMRP",
+      "votes": 122,
+      "vote_share_pct": 0.1
+    }
+  ],
+  "nota": {
+    "votes": 613,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 83,
+    "vote_share_pct": 0.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. Chandy Oommen",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 84031,
+    "margin_votes": 52907,
+    "margin_pct": 41.28
+  }
+}

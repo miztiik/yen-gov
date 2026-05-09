@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx",
+      "fetched_at": "2026-05-09T11:59:36Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-09T11:59:37Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S25",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "BARRACKPUR",
+  "totals": {
+    "electors": 171212,
+    "votes_polled": 154918,
+    "turnout_pct": 90.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kaustuv Bagchi",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 78466,
+      "vote_share_pct": 50.65,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Raj Chakraborty (raju)",
+      "party_eci_code": "140",
+      "party_short": "AITC",
+      "votes": 62644,
+      "vote_share_pct": 40.44
+    },
+    {
+      "rank": 3,
+      "name": "Suman Ranjan Bandyopadhyay",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 10197,
+      "vote_share_pct": 6.58
+    },
+    {
+      "rank": 4,
+      "name": "Sambhu Das",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 1202,
+      "vote_share_pct": 0.78
+    },
+    {
+      "rank": 5,
+      "name": "Saroj Sharma",
+      "party_short": "IND",
+      "votes": 572,
+      "vote_share_pct": 0.37
+    }
+  ],
+  "nota": {
+    "votes": 1197,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 640,
+    "vote_share_pct": 0.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kaustuv Bagchi",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 78466,
+    "margin_votes": 15822,
+    "margin_pct": 10.21
+  }
+}

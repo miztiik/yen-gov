@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "BHERGAON",
+  "totals": {
+    "electors": 161211,
+    "votes_polled": 133609,
+    "turnout_pct": 82.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Maheswar Baro",
+      "party_eci_code": "436",
+      "party_short": "BOPF",
+      "votes": 67105,
+      "vote_share_pct": 50.22,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Nerswn Boro",
+      "party_short": "UPPL",
+      "votes": 29308,
+      "vote_share_pct": 21.94
+    },
+    {
+      "rank": 3,
+      "name": "Prabhat Das Panika",
+      "party_short": "JMM",
+      "votes": 21997,
+      "vote_share_pct": 16.46
+    },
+    {
+      "rank": 4,
+      "name": "Anchula Gwra Daimary",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 8267,
+      "vote_share_pct": 6.19
+    },
+    {
+      "rank": 5,
+      "name": "Dipak Rajbongshi",
+      "party_short": "GNASURKP",
+      "votes": 1476,
+      "vote_share_pct": 1.1
+    }
+  ],
+  "nota": {
+    "votes": 1921,
+    "vote_share_pct": 1.44
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3535,
+    "vote_share_pct": 2.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Maheswar Baro",
+    "party_eci_code": "436",
+    "party_short": "BOPF",
+    "votes": 67105,
+    "margin_votes": 37797,
+    "margin_pct": 28.29
+  }
+}

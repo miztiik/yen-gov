@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-09T11:59:17Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 100,
+  "constituency_name": "JORHAT",
+  "totals": {
+    "electors": 149239,
+    "votes_polled": 118297,
+    "turnout_pct": 79.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Hitendra Nath Goswami",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 69439,
+      "vote_share_pct": 58.7,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Gaurav Gogoi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 46257,
+      "vote_share_pct": 39.1
+    },
+    {
+      "rank": 3,
+      "name": "Pranab Priyankush Dutta",
+      "party_short": "AAAP",
+      "votes": 701,
+      "vote_share_pct": 0.59
+    },
+    {
+      "rank": 4,
+      "name": "Hemanta Kumar Pegu",
+      "party_short": "SUCI",
+      "votes": 581,
+      "vote_share_pct": 0.49
+    }
+  ],
+  "nota": {
+    "votes": 1319,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Hitendra Nath Goswami",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 69439,
+    "margin_votes": 23182,
+    "margin_pct": 19.6
+  },
+  "others": null
+}

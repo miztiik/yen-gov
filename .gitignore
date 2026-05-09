@@ -1,0 +1,37 @@
+# Ephemeral runtime state (per CLAUDE.md Section 3)
+.runtime/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Python (if/when backend lands)
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node (if/when frontend lands)
+node_modules/
+dist/
+build/
+.next/
+.cache/
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+
+# Coverage
+coverage/
+.coverage
+htmlcov/

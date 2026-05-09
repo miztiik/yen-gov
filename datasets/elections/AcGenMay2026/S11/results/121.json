@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 121,
+  "constituency_name": "PUNALUR",
+  "totals": {
+    "electors": 197948,
+    "votes_polled": 142556,
+    "turnout_pct": 72.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C. Ajayaprasad",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 71944,
+      "vote_share_pct": 50.47,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Noushad Younus",
+      "party_eci_code": "772",
+      "party_short": "IUML",
+      "votes": 50415,
+      "vote_share_pct": 35.37
+    },
+    {
+      "rank": 3,
+      "name": "Adv. Reghunadh Kamukumchery",
+      "party_short": "TTPty",
+      "votes": 15393,
+      "vote_share_pct": 10.8
+    },
+    {
+      "rank": 4,
+      "name": "Nedumoncavu Gopalakrishnan",
+      "party_short": "EPI",
+      "votes": 1538,
+      "vote_share_pct": 1.08
+    },
+    {
+      "rank": 5,
+      "name": "Jose Saranath",
+      "party_short": "BSP",
+      "votes": 1425,
+      "vote_share_pct": 1.0
+    }
+  ],
+  "nota": {
+    "votes": 1281,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 560,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C. Ajayaprasad",
+    "party_eci_code": "544",
+    "party_short": "CPI",
+    "votes": 71944,
+    "margin_votes": 21529,
+    "margin_pct": 15.1
+  }
+}

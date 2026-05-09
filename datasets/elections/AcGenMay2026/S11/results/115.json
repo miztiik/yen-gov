@@ -1,0 +1,72 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "ADOOR (SC)",
+  "totals": {
+    "electors": 202370,
+    "votes_polled": 149670,
+    "turnout_pct": 73.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Advocate C V Santhakumar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 66153,
+      "vote_share_pct": 44.2,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Priji Kannan",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 55821,
+      "vote_share_pct": 37.3
+    },
+    {
+      "rank": 3,
+      "name": "Adv. Pandalam Prathapan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 26337,
+      "vote_share_pct": 17.6
+    },
+    {
+      "rank": 4,
+      "name": "Sivakumar C S",
+      "party_short": "BSP",
+      "votes": 576,
+      "vote_share_pct": 0.38
+    }
+  ],
+  "nota": {
+    "votes": 783,
+    "vote_share_pct": 0.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Advocate C V Santhakumar",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 66153,
+    "margin_votes": 10332,
+    "margin_pct": 6.9
+  },
+  "others": null
+}

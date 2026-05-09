@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Tamil_Nadu_2026_2026/10-Detailed_Results_1778165153.xlsx",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-09T11:59:28Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 207,
+  "constituency_name": "ARUPPUKKOTTAI",
+  "totals": {
+    "electors": 208168,
+    "votes_polled": 178413,
+    "turnout_pct": 85.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ramachandran. K.k.s.s.r",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 65104,
+      "vote_share_pct": 36.49,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Karthik Kumar. K",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 60161,
+      "vote_share_pct": 33.72
+    },
+    {
+      "rank": 3,
+      "name": "Sethupathy. S",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 37190,
+      "vote_share_pct": 20.84
+    },
+    {
+      "rank": 4,
+      "name": "Manimaran. G",
+      "party_short": "NTK",
+      "votes": 8499,
+      "vote_share_pct": 4.76
+    },
+    {
+      "rank": 5,
+      "name": "Ragupathi. K",
+      "party_short": "PT",
+      "votes": 2179,
+      "vote_share_pct": 1.22
+    }
+  ],
+  "nota": {
+    "votes": 692,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 4588,
+    "vote_share_pct": 2.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ramachandran. K.k.s.s.r",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 65104,
+    "margin_votes": 4943,
+    "margin_pct": 2.77
+  }
+}

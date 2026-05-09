@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx",
+      "fetched_at": "2026-05-09T11:59:22Z"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-09T11:59:24Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "MALAMPUZHA",
+  "totals": {
+    "electors": 195977,
+    "votes_polled": 162305,
+    "turnout_pct": 82.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A Prabhakaran",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 68629,
+      "vote_share_pct": 42.28,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "C Krishnakumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 48908,
+      "vote_share_pct": 30.13
+    },
+    {
+      "rank": 3,
+      "name": "A Suresh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 42262,
+      "vote_share_pct": 26.04
+    },
+    {
+      "rank": 4,
+      "name": "Ramnath C",
+      "party_short": "BSP",
+      "votes": 448,
+      "vote_share_pct": 0.28
+    },
+    {
+      "rank": 5,
+      "name": "K Prasad",
+      "party_short": "SUCI",
+      "votes": 355,
+      "vote_share_pct": 0.22
+    }
+  ],
+  "nota": {
+    "votes": 1506,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 197,
+    "vote_share_pct": 0.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A Prabhakaran",
+    "party_eci_code": "547",
+    "party_short": "CPI(M)",
+    "votes": 68629,
+    "margin_votes": 19721,
+    "margin_pct": 12.15
+  }
+}
