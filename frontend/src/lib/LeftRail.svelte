@@ -163,7 +163,6 @@
          transition-transform lg:transition-none"
   class:translate-x-0={mobile_open}
   class:-translate-x-full={!mobile_open}
-  style="transform: var(--rail-transform)"
 >
   <!-- Brand (lg+ only — cramped widths use the header above). -->
   <a href="#/" class="brand-wordmark hidden lg:flex items-center px-4 h-12 border-b border-slate-200 hover:bg-slate-50" aria-label="Yen Gov home">
@@ -280,7 +279,7 @@
    * it again. */
   .brand-wordmark:hover .brand-chakra,
   .brand-wordmark:focus-visible .brand-chakra {
-    animation: chakra-spin 0.9s ease-in-out 1;
+    animation: chakra-spin 3s cubic-bezier(0.4, 0, 0.2, 1) 1;
   }
   @keyframes chakra-spin {
     from { transform: rotate(0deg); }
