@@ -25,7 +25,7 @@ from yen_gov.pipeline.compose import (
     compose_result_summary,
     party_lookup_from_partywise,
 )
-from yen_gov.pipeline.run import _parties_snapshot_from_partywise
+from yen_gov.pipeline.run import parties_snapshot_from_partywise
 from yen_gov.sources.eci.constituencywise import (
     parse_constituencywise,
     to_constituency_result,
@@ -103,7 +103,7 @@ def test_pipeline_one_ac_slice(tmp_path: Path):
     assert summary.totals.votes_polled == cr.totals.votes_polled
 
     # 4. parties snapshot
-    parties = _parties_snapshot_from_partywise(
+    parties = parties_snapshot_from_partywise(
         snapshot, election=_EVENT, sources=[snapshot_src],
     )
     assert len(parties.parties) >= 1
