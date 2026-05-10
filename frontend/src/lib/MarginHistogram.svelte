@@ -108,7 +108,7 @@
   {:else if total_acs === 0}
     <p class="text-sm text-slate-500">No margin data available.</p>
   {:else}
-    <svg viewBox="0 0 {W} {H}" class="w-full h-auto" role="img" aria-label="Margin of victory histogram">
+    <svg viewBox="0 0 {W} {H}" class="w-full h-auto" role="img" aria-label="Margin of victory histogram" aria-describedby="margin-histogram-caption">
       <!-- y-axis grid + ticks (0, 25%, 50%, 75%, 100% of max) -->
       {#each [0, 0.25, 0.5, 0.75, 1.0] as f}
         {@const y = PAD_T + inner_h - f * inner_h}
@@ -163,8 +163,11 @@
       </text>
     </svg>
 
-    <p class="text-xs text-slate-500">
-      {total_acs} constituencies · stacked by winning party
+    <p id="margin-histogram-caption" class="text-xs text-slate-500 leading-relaxed">
+      Each bar counts constituencies whose winner beat the runner-up by that share
+      of votes polled. Tall bars on the left = many close races; tall bars on the
+      right = many landslides.
+      <span class="text-slate-400">{total_acs} constituencies, stacked by winning party.</span>
     </p>
   {/if}
 </div>

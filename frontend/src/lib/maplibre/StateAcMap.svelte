@@ -17,8 +17,17 @@
   interface Props {
     event: string;
     state: string;
+    /**
+     * When set, the map dims every other AC to a low opacity so this one
+     * stands out. Used by the per-AC drill-down page to render a state map
+     * with the focused constituency emphasised.
+     */
+    highlight_eci_no?: number;
+    /** Override map height. Defaults to a tall canvas suitable for the state
+     * overview; the per-AC page can pass a shorter value. */
+    height?: string;
   }
-  let { event, state: state_code }: Props = $props();
+  let { event, state: state_code, highlight_eci_no, height = "520px" }: Props = $props();
 
   interface Row {
     eci_no: number;
@@ -74,11 +83,21 @@
 
   // Map margin% → opacity in [0.35, 0.95]. Anything ≥30% margin saturates.
   // Below 1% (knife-edge) drops to the floor so it visually screams "close".
+  // When `highlight_eci_no` is set, every AC except the highlighted one is
+  // multiplied by ~0.18 so the focused seat reads first; the highlighted
+  // seat is forced to full opacity so it never washes out.
   const opacities = $derived.by(() => {
     const out: Record<number, number> = {};
     for (const r of rows ?? []) {
       const m = Math.max(0, Math.min(30, r.margin_pct ?? 0));
-      out[r.eci_no] = 0.35 + (m / 30) * 0.6;
+      const base = 0.35 + (m / 30) * 0.6;
+      if (highlight_eci_no === undefined) {
+        out[r.eci_no] = base;
+      } else if (r.eci_no === highlight_eci_no) {
+        out[r.eci_no] = 1;
+      } else {
+        out[r.eci_no] = base * 0.18;
+      }
     }
     return out;
   });
@@ -124,7 +143,8 @@
     {fills}
     {opacities}
     {tooltips}
-    height="520px"
+    {height}
+    highlight_key={highlight_eci_no}
     onSelect={on_select}
   />
 {/if}

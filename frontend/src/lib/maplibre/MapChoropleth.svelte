@@ -37,6 +37,12 @@
     default_fill?: string;
     /** CSS height; width fills the parent. */
     height?: string;
+    /**
+     * When set, the feature whose join-property value equals this key is
+     * outlined with a thick contrasting stroke. Used to emphasise a single
+     * focused feature (e.g. the current AC on the constituency drilldown).
+     */
+    highlight_key?: string | number;
     onSelect?: (sel: FeatureSelection) => void;
     onHover?: (sel: FeatureSelection | null) => void;
   }
@@ -48,6 +54,7 @@
     tooltips = {},
     default_fill = "#e2e8f0", // slate-200 — visible but unobtrusive
     height = "420px",
+    highlight_key,
     onSelect,
     onHover,
   }: Props = $props();
@@ -65,19 +72,37 @@
 
   const FILL_LAYER_ID = "yen-fill";
   const LINE_LAYER_ID = "yen-line";
+  const HIGHLIGHT_LAYER_ID = "yen-highlight";
   const SOURCE_ID = "yen-src";
 
   // Build a maplibre `match` expression from the fills map. Numeric keys
   // (AC_NO) and string keys (state names) both work because `match` does
   // strict equality. Empty fills → no expression, paint stays at default.
+  //
+  // Property-type wrinkle: the upstream HTL shapefiles vary in whether
+  // AC_NO is exported as a number or a string ("2" vs 2). `["match"]` does
+  // strict equality, so a numeric key never matches a string property
+  // (causing every polygon to fall through to default_fill — looks blank).
+  // When the caller's keys all parse as integers we coerce the property
+  // with `["to-number"]` so both shapes resolve. NAME_1 (state name) is
+  // genuinely a string, so the coercion is gated on the key kind.
+  function keys_are_numeric(keys: string[]): boolean {
+    return keys.length > 0 && keys.every(k => /^-?\d+$/.test(k));
+  }
+
+  function get_join_value(numeric: boolean): unknown {
+    return numeric
+      ? ["to-number", ["get", entry.join_property]]
+      : ["get", entry.join_property];
+  }
+
   function fill_expression(): unknown {
     const keys = Object.keys(fills);
     if (keys.length === 0) return default_fill;
-    const expr: unknown[] = ["match", ["get", entry.join_property]];
+    const numeric = keys_are_numeric(keys);
+    const expr: unknown[] = ["match", get_join_value(numeric)];
     for (const k of keys) {
-      // Coerce numeric-looking keys back to numbers so the match against
-      // ["get", "AC_NO"] (which yields a number) hits correctly.
-      const join_key: string | number = /^-?\d+$/.test(k) ? Number(k) : k;
+      const join_key: string | number = numeric ? Number(k) : k;
       expr.push(join_key, fills[k]);
     }
     expr.push(default_fill);
@@ -87,19 +112,35 @@
   function opacity_expression(): unknown {
     const keys = Object.keys(opacities);
     if (keys.length === 0) return 0.85;
-    const expr: unknown[] = ["match", ["get", entry.join_property]];
+    const numeric = keys_are_numeric(keys);
+    const expr: unknown[] = ["match", get_join_value(numeric)];
     for (const k of keys) {
-      const join_key: string | number = /^-?\d+$/.test(k) ? Number(k) : k;
+      const join_key: string | number = numeric ? Number(k) : k;
       expr.push(join_key, opacities[k]);
     }
     expr.push(0.5); // default for unmatched
     return expr;
   }
 
+  function highlight_filter(): unknown[] {
+    // Filter expression that matches only the focused feature, or nothing
+    // when no highlight is set. Same numeric/string wrinkle as above.
+    if (highlight_key === undefined || highlight_key === null) {
+      return ["==", ["literal", 1], ["literal", 0]]; // always-false
+    }
+    const k_str = String(highlight_key);
+    const numeric = /^-?\d+$/.test(k_str);
+    const join_key: string | number = numeric ? Number(k_str) : k_str;
+    return ["==", get_join_value(numeric), join_key];
+  }
+
   function repaint(): void {
     if (!map || !map.getLayer(FILL_LAYER_ID)) return;
     map.setPaintProperty(FILL_LAYER_ID, "fill-color", fill_expression());
     map.setPaintProperty(FILL_LAYER_ID, "fill-opacity", opacity_expression());
+    if (map.getLayer(HIGHLIGHT_LAYER_ID)) {
+      map.setFilter(HIGHLIGHT_LAYER_ID, highlight_filter());
+    }
   }
 
   // Recompute paint expressions on any prop change. Cheap — just a few
@@ -107,6 +148,7 @@
   $effect(() => {
     void fills;
     void opacities;
+    void highlight_key;
     repaint();
   });
 
@@ -173,6 +215,21 @@
               paint: {
                 "line-color": "#475569", // slate-600
                 "line-width": 0.4,
+              },
+            },
+            // Highlight layer drawn on top so the focused feature reads first.
+            // Filter is rebuilt on highlight_key change via repaint().
+            {
+              id: HIGHLIGHT_LAYER_ID,
+              type: "line",
+              source: SOURCE_ID,
+              ...(resolved.kind === "pmtiles"
+                ? { "source-layer": resolved.source_layer! }
+                : {}),
+              filter: highlight_filter(),
+              paint: {
+                "line-color": "#0f172a", // slate-900
+                "line-width": 2.5,
               },
             },
           ],

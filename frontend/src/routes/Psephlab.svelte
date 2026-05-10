@@ -97,6 +97,28 @@
   const total_seats = $derived(actuals?.acs.length ?? 0);
   const majority = $derived(Math.ceil(total_seats / 2));
 
+  // ----- Hide-party state (Phase 2 deselect) -----
+  //
+  // Scenarios are about *what-ifs*: muting a party while a scenario is
+  // being authored confuses "did I hide them?" with "did the mutation
+  // erase them?". Per spec we therefore RESET the mute set the moment a
+  // scenario gains its first mutation. Adding more mutations after the
+  // first does NOT reset (the user has already opted into the experiment).
+  let hidden_parties = $state<Set<string>>(new Set());
+  let prev_mutation_count = 0;
+  $effect(() => {
+    const n = scenario.mutations.length;
+    if (prev_mutation_count === 0 && n > 0 && hidden_parties.size > 0) {
+      hidden_parties = new Set();
+    }
+    prev_mutation_count = n;
+  });
+  function togglePartyHidden(code: string): void {
+    const next = new Set(hidden_parties);
+    if (next.has(code)) next.delete(code); else next.add(code);
+    hidden_parties = next;
+  }
+
   // ----- Mutation stack management -----
 
   function addMutation(id: string): void {
@@ -425,8 +447,23 @@
 
         <!-- Parliament arc -->
         <div class="bg-white rounded-lg shadow-sm p-4">
-          <h3 class="text-sm font-semibold uppercase text-slate-500 mb-2">Scenario seats</h3>
-          <ParliamentArc parties={result.allocation.by_party} total_seats={total_seats} />
+          <div class="flex items-baseline justify-between mb-2 gap-2">
+            <h3 class="text-sm font-semibold uppercase text-slate-500">Scenario seats</h3>
+            {#if hidden_parties.size > 0}
+              <button
+                class="text-xs text-blue-600 hover:underline"
+                onclick={() => (hidden_parties = new Set())}
+              >Show all ({hidden_parties.size} muted)</button>
+            {:else}
+              <span class="text-xs text-slate-400">Click a legend chip to mute · resets on first mutation</span>
+            {/if}
+          </div>
+          <ParliamentArc
+            parties={result.allocation.by_party}
+            total_seats={total_seats}
+            {hidden_parties}
+            onToggleHidden={togglePartyHidden}
+          />
         </div>
 
         <!-- Vote-flow Sankey -->

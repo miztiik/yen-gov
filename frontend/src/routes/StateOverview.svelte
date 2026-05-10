@@ -1,7 +1,7 @@
 <script lang="ts">
   import {
     fetchResultSummary, fetchConstituencies, fetchDistricts,
-    type ResultSummary, type ConstituencyEntry, type PartyTotals, type DistrictEntry,
+    type ResultSummary, type ConstituencyEntry, type DistrictEntry,
   } from "../lib/data";
   import PartyBar from "../lib/PartyBar.svelte";
   import SeatDonut from "../lib/SeatDonut.svelte";
@@ -36,20 +36,73 @@
       .catch(e => (error = String(e)));
   });
 
-  const top_parties = $derived(
+  // Show every party from the actuals — no threshold. Earlier the bar
+  // dropped parties with no seats AND <1% vote share, which silently
+  // erased fringe-but-noisy parties (e.g. TVK in TN). The deselect
+  // mechanism (Phase 2) lets users mute parties they don't care about.
+  const ranked_parties = $derived(
     summary
-      ? summary.party_totals.filter((p: PartyTotals) => p.seats_won > 0 || p.vote_share_pct >= 1.0)
+      ? [...summary.party_totals].sort(
+          (a, b) =>
+            b.seats_won - a.seats_won ||
+            b.vote_share_pct - a.vote_share_pct ||
+            a.party_short.localeCompare(b.party_short),
+        )
       : []
   );
 
+  // ----- Phase 2: search + deselect -----
+  //
+  // `hidden_parties` keys are `party_eci_code ?? party_short` — same
+  // convention used by PartyBar / SeatDonut / ParliamentArc props. Hiding
+  // is purely visual; per spec we DON'T recompute seats or vote share.
+  let hidden_parties = $state<Set<string>>(new Set());
+
+  function toggleHidden(key: string): void {
+    const next = new Set(hidden_parties);
+    if (next.has(key)) next.delete(key); else next.add(key);
+    hidden_parties = next;
+  }
+
+  // Reset the mute set whenever the loaded state changes — otherwise muting
+  // "TVK" in TN would still mute "TVK" after navigating to Kerala (where
+  // the party may not even be on the ballot).
+  $effect(() => {
+    void state_code;
+    hidden_parties = new Set();
+  });
+
+  let party_query = $state("");
+  let ac_query = $state("");
+
+  const filtered_parties = $derived.by(() => {
+    const q = party_query.trim().toLowerCase();
+    if (!summary) return [];
+    if (!q) return summary.party_totals;
+    return summary.party_totals.filter(p =>
+      p.party_short.toLowerCase().includes(q) ||
+      (p.party_full ?? "").toLowerCase().includes(q) ||
+      (p.party_eci_code ?? "").toLowerCase().includes(q),
+    );
+  });
+
   // Group ACs by district_id, then sort districts by AC count (descending).
   // ACs without a district_id fall under a synthetic '—' bucket so the count
-  // surface is honest rather than silently dropping rows.
+  // surface is honest rather than silently dropping rows. When `ac_query`
+  // is set, ACs are filtered by case-insensitive match on name OR by exact
+  // eci_no string match; districts with zero matches are dropped from the
+  // listing entirely.
   const by_district = $derived.by(() => {
     if (!acs || !districts) return [];
+    const q = ac_query.trim().toLowerCase();
+    const filter = q
+      ? (ac: ConstituencyEntry) =>
+          ac.name.toLowerCase().includes(q) || String(ac.eci_no) === q
+      : () => true;
     const name_by_id = new Map(districts.map(d => [d.id, d.name]));
     const groups = new Map<string, ConstituencyEntry[]>();
     for (const ac of acs) {
+      if (!filter(ac)) continue;
       const k = ac.district_id ?? "";
       const arr = groups.get(k) ?? [];
       arr.push(ac);
@@ -66,9 +119,13 @@
     out.sort((a, b) => b.acs.length - a.acs.length || a.name.localeCompare(b.name));
     return out;
   });
+
+  const total_filtered_acs = $derived(
+    by_district.reduce((s, g) => s + g.acs.length, 0),
+  );
 </script>
 
-<main class="max-w-5xl mx-auto p-6 space-y-6">
+<main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
     <p class="text-xs"><a class="text-slate-500 hover:underline" href="#/">← All states</a></p>
     <h1 class="text-2xl font-bold">{states.name(state_code)} — Legislative Assembly, May 2026</h1>
@@ -86,33 +143,72 @@
   {:else if !summary || !acs || !districts}
     <div class="text-slate-500">Loading…</div>
   {:else}
-    {#if STATE_AC[state_code]}
-      <section class="bg-white rounded-lg shadow-sm p-4">
-        <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Constituency map</h2>
-        <StateAcMap {event} state={state_code} />
-        <p class="text-xs text-slate-400 mt-2">
-          Hover for winner & margin · click an AC to drill in. Opacity ∝ margin of victory.
-        </p>
-      </section>
-    {/if}
+    <!-- Top row: map (3fr) + donut + key totals (2fr).
+         At <lg the donut wraps below the map (single column). -->
+    <section class="grid lg:grid-cols-[3fr_2fr] gap-6 items-start">
+      {#if STATE_AC[state_code]}
+        <div class="bg-white rounded-lg shadow-sm p-4 min-w-0">
+          <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Constituency map</h2>
+          <StateAcMap {event} state={state_code} />
+          <p class="text-xs text-slate-400 mt-2">
+            Hover for winner & margin · click an AC to drill in. Opacity ∝ margin of victory.
+          </p>
+        </div>
+      {:else}
+        <div></div>
+      {/if}
 
-    <section class="grid md:grid-cols-[1fr_minmax(240px,auto)] gap-6 items-start">
-      <div class="bg-white rounded-lg shadow-sm p-5">
-        <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Seats by party</h2>
-        <PartyBar parties={top_parties} total_seats={summary.total_seats} />
-      </div>
-      <div class="bg-white rounded-lg shadow-sm p-5">
-        <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3 text-center">Seat share</h2>
-        <SeatDonut parties={summary.party_totals} total_seats={summary.total_seats} />
+      <div class="space-y-4 min-w-0">
+        <div class="bg-white rounded-lg shadow-sm p-5">
+          <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3 text-center">Seat share</h2>
+          <SeatDonut
+            parties={summary.party_totals}
+            total_seats={summary.total_seats}
+            {hidden_parties}
+            onToggleHidden={toggleHidden}
+          />
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-4 grid grid-cols-2 gap-3 text-sm">
+          <div>
+            <div class="text-[10px] uppercase tracking-wide text-slate-500">Total seats</div>
+            <div class="text-lg font-semibold">{summary.total_seats}</div>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase tracking-wide text-slate-500">Votes polled</div>
+            <div class="text-lg font-semibold">{summary.totals?.votes_polled?.toLocaleString() ?? "—"}</div>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase tracking-wide text-slate-500">Sources</div>
+            <div class="text-lg font-semibold">{summary.sources.length}</div>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase tracking-wide text-slate-500">Schema</div>
+            <div class="text-lg font-semibold font-mono">{summary.$schema_version}</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="bg-white rounded-lg shadow-sm p-5 text-sm text-slate-600">
-      <div class="flex justify-between gap-4 flex-wrap">
-        <div>Total votes polled: <span class="font-semibold text-slate-900">{summary.totals?.votes_polled?.toLocaleString() ?? "—"}</span></div>
-        <div>Sources: <span class="font-mono text-xs">{summary.sources.length}</span></div>
-        <div class="text-xs text-slate-400">Schema {summary.$schema_version}</div>
+    <!-- Full-width seats-by-party bar (below the map row so wide bars
+         have room to breathe and 0-seat parties remain readable). -->
+    <section class="bg-white rounded-lg shadow-sm p-5">
+      <div class="flex items-baseline justify-between mb-3 gap-2">
+        <h2 class="text-sm font-semibold uppercase text-slate-500">Seats by party</h2>
+        {#if hidden_parties.size > 0}
+          <button
+            class="text-xs text-blue-600 hover:underline"
+            onclick={() => (hidden_parties = new Set())}
+          >Show all ({hidden_parties.size} muted)</button>
+        {:else}
+          <span class="text-xs text-slate-400">Click a party row to mute</span>
+        {/if}
       </div>
+      <PartyBar
+        parties={ranked_parties}
+        total_seats={summary.total_seats}
+        {hidden_parties}
+        onToggleHidden={toggleHidden}
+      />
     </section>
 
     <section class="bg-white rounded-lg shadow-sm p-5">
@@ -121,57 +217,87 @@
     </section>
 
     <section class="bg-white rounded-lg shadow-sm p-5">
-      <div class="flex justify-between items-baseline mb-3">
+      <div class="flex justify-between items-baseline mb-3 gap-3 flex-wrap">
         <h2 class="text-sm font-semibold uppercase text-slate-500">Parties</h2>
-        <span class="text-xs text-slate-400">{summary.party_totals.length} total</span>
+        <div class="flex items-center gap-3">
+          <input
+            type="search"
+            placeholder="Search parties…"
+            bind:value={party_query}
+            class="text-xs rounded border-slate-300 py-1 px-2 w-48"
+            aria-label="Search parties by name or ECI code"
+          />
+          <span class="text-xs text-slate-400">
+            {filtered_parties.length} / {summary.party_totals.length}
+          </span>
+        </div>
       </div>
-      <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1 text-sm">
-        {#each summary.party_totals as p}
-          {#if p.party_eci_code}
-            <li>
-              <a class="hover:underline" href={`#/s/${state_code}/party/${p.party_eci_code}`}>
-                <span class="font-medium">{p.party_short}</span>
+      {#if filtered_parties.length === 0}
+        <p class="text-sm text-slate-500 italic">No parties match <code>{party_query}</code>.</p>
+      {:else}
+        <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1 text-sm">
+          {#each filtered_parties as p}
+            {#if p.party_eci_code}
+              <li>
+                <a class="hover:underline" href={`#/s/${state_code}/party/${p.party_eci_code}`}>
+                  <span class="font-medium">{p.party_short}</span>
+                  <span class="text-slate-400 text-xs"> · {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
+                </a>
+              </li>
+            {:else}
+              <li class="text-slate-500">
+                {p.party_short}
                 <span class="text-slate-400 text-xs"> · {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
-              </a>
-            </li>
-          {:else}
-            <li class="text-slate-500">
-              {p.party_short}
-              <span class="text-slate-400 text-xs"> · {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
-            </li>
-          {/if}
-        {/each}
-      </ul>
+              </li>
+            {/if}
+          {/each}
+        </ul>
+      {/if}
     </section>
 
     <section class="bg-white rounded-lg shadow-sm p-5">
-      <div class="flex justify-between items-baseline mb-3">
+      <div class="flex justify-between items-baseline mb-3 gap-3 flex-wrap">
         <h2 class="text-sm font-semibold uppercase text-slate-500">Constituencies by district</h2>
-        <span class="text-xs text-slate-400">{by_district.length} districts · {acs.length} ACs</span>
+        <div class="flex items-center gap-3">
+          <input
+            type="search"
+            placeholder="Search ACs (name or no.)…"
+            bind:value={ac_query}
+            class="text-xs rounded border-slate-300 py-1 px-2 w-56"
+            aria-label="Search constituencies by name or AC number"
+          />
+          <span class="text-xs text-slate-400">
+            {by_district.length} district{by_district.length === 1 ? "" : "s"} · {total_filtered_acs} / {acs.length} ACs
+          </span>
+        </div>
       </div>
-      <div class="space-y-4">
-        {#each by_district as g}
-          <div>
-            <div class="flex items-baseline justify-between border-b border-slate-200 pb-1 mb-2">
-              <h3 class="text-sm font-semibold">{g.name}</h3>
-              <span class="text-xs text-slate-400 font-mono">{g.id || "—"} · {g.acs.length}</span>
+      {#if by_district.length === 0}
+        <p class="text-sm text-slate-500 italic">No constituencies match <code>{ac_query}</code>.</p>
+      {:else}
+        <div class="space-y-4">
+          {#each by_district as g}
+            <div>
+              <div class="flex items-baseline justify-between border-b border-slate-200 pb-1 mb-2">
+                <h3 class="text-sm font-semibold">{g.name}</h3>
+                <span class="text-xs text-slate-400 font-mono">{g.id || "—"} · {g.acs.length}</span>
+              </div>
+              <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1 text-sm font-mono">
+                {#each g.acs as ac}
+                  <li>
+                    <a class="hover:underline" href={`#/s/${state_code}/ac/${ac.eci_no}`}>
+                      <span class="text-slate-400 inline-block w-8 text-right pr-2">{ac.eci_no}</span>
+                      <span>{ac.name}</span>
+                      {#if ac.reservation !== "GEN"}
+                        <span class="text-xs text-rose-600 ml-1">[{ac.reservation}]</span>
+                      {/if}
+                    </a>
+                  </li>
+                {/each}
+              </ul>
             </div>
-            <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1 text-sm font-mono">
-              {#each g.acs as ac}
-                <li>
-                  <a class="hover:underline" href={`#/s/${state_code}/ac/${ac.eci_no}`}>
-                    <span class="text-slate-400 inline-block w-8 text-right pr-2">{ac.eci_no}</span>
-                    <span>{ac.name}</span>
-                    {#if ac.reservation !== "GEN"}
-                      <span class="text-xs text-rose-600 ml-1">[{ac.reservation}]</span>
-                    {/if}
-                  </a>
-                </li>
-              {/each}
-            </ul>
-          </div>
-        {/each}
-      </div>
+          {/each}
+        </div>
+      {/if}
     </section>
   {/if}
 </main>

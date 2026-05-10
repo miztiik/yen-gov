@@ -1,6 +1,6 @@
 # Frontend Overview
 
-**Last Updated**: 2026-05-09 (revision: post-Phase-3 sync)
+**Last Updated**: 2026-05-10 (revision: post-Phase-3 sync; UX audit P1–P3)
 
 The frontend is a static Svelte 5 + Vite + Tailwind + d3 bundle that renders election artifacts from [`datasets/`](../../../datasets/). It has no production backend (CLAUDE.md Holy Law #1) and never commits data files (§4). Built with `bun`. Routed with a tiny custom hash router.
 
@@ -245,6 +245,48 @@ Acknowledged costs:
 - **`svelte-routing` / `svelte-spa-router`.** Viable, but adds a dependency and an opinion (slot-based routing, named params with `:slug` syntax, etc.) for a 4-route app. Rejected on YAGNI.
 - **SvelteKit with adapter-static.** Gives us file-system routing and SSG. Rejected because (a) Holy Law #1 forbids assuming any backend, and adapter-static is a heavy migration path; (b) we already have a working Vite + plain-Svelte setup; (c) routing is the only thing SvelteKit would buy us right now.
 - **History-mode custom router + 404.html shim.** Pretty URLs, but every deep-link load goes through a redirect. Rejected on the brittleness: it intercepts as a 404 then JS-redirects, leaking a brief 404 in network panels and breaking link previews.
+
+## Discoverability & deselect (UX audit, May 2026)
+
+These rules apply to every chart that lists parties (`PartyBar`, `SeatDonut`, `ParliamentArc`).
+
+### Always show every party — no client-side threshold
+
+Earlier the State Overview's "Seats by party" bar dropped parties with `seats_won == 0 && vote_share_pct < 1.0`. That silently erased fringe-but-noisy parties (e.g. TVK in TN, ~30 % vote share but 0 seats), which is exactly the kind of "interesting null" a results product must surface, not hide.
+
+The rule now: the route owns the sort, the chart shows whatever it's given. Filtering is opt-in via search inputs, not implicit.
+
+### Click-to-mute parties
+
+Clicking a party row (`PartyBar`), donut slice (`SeatDonut`), or legend chip (`ParliamentArc`) toggles that party in a `hidden_parties: Set<string>`. Hidden parties render at low opacity — they are NOT removed, and the underlying seats / vote share / paint scaling do NOT recompute. This is by design: we are visualising one ground-truth allocation; muting is a viewing aid, not a re-tally. The donut centre swaps to "X of Y seats" so the user always sees how much of the chamber they've muted.
+
+The mute set lives on the parent route, not the child component, so all three charts on State Overview stay in sync. The set resets when:
+
+- the loaded `state_code` changes (TVK in TN ≠ TVK in KL — keys are reused),
+- the user clicks "Show all".
+
+In **Psephlab** there's an additional rule: the mute set resets the moment a scenario gains its first mutation (`scenario.mutations.length` 0 → ≥1). Rationale: scenarios are about what-ifs, and "did I hide them or did the mutation erase them?" is a lousy mental model. Once mutations exist the user has opted into the experiment; further mutations don't reset (they're refinements).
+
+The mute key is `party_eci_code ?? party_short` — the ECI code where present, falling back to the display short name for parties whose ECI code is null in our dataset. This matches what the chart components already use as their list keys.
+
+### Search inputs (State Overview)
+
+Two `<input type="search">` fields on State Overview — one above the Parties grid, one above the district list. Both are pure local `$state`, case-insensitive substring match.
+
+- **Party search** filters on `party_short`, `party_full`, and `party_eci_code` so users can find a party by short name, long name, or ECI code.
+- **AC search** filters by name substring OR exact `eci_no` string match (so "167" jumps to AC 167). Districts with zero matches collapse out of the listing entirely.
+
+Search and mute are intentionally orthogonal: search hides whole rows from the Parties grid; mute only dims the chart slices. They have separate UIs because they answer different questions ("does this party exist?" vs "I don't care about this party right now").
+
+### MarginHistogram caption
+
+The histogram caption was a single line ("234 constituencies · stacked by winning party"). Two complaints with that: (a) "margin of victory" needs explaining for non-experts; (b) screen readers had no way to associate the SVG with the explanation. The current caption is two sentences with `aria-describedby` pointing the SVG at it.
+
+### Layout & motif
+
+State Overview uses a `lg:grid-cols-[3fr_2fr]` top row (map left, donut + KPI cards stacked right). The "Seats by party" bar moved below that row to its own full-width section so wide bars and 0-seat parties have room. Routes use `max-w-screen-2xl` (was `max-w-5xl`/`6xl`) to use modern viewport widths; Psephlab keeps `max-w-6xl` because its sticky 360 px sidebar is laid out against that ceiling.
+
+A subtle background motif (✓ ✗ ballot-box glyphs at opacity 0.035) lives in `body::before` via an inline-SVG `data:` URL. No party symbols (legal/perception risk on a results product) — just neutral electoral marks. Cards are opaque so the pattern only shows in the gutter regions and never reduces text contrast.
 
 ## See also
 

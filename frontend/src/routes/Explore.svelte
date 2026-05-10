@@ -56,7 +56,7 @@
   });
 </script>
 
-<main class="max-w-6xl mx-auto p-6 space-y-6">
+<main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
     <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {states.name(params.state)} overview</a></p>
     <h1 class="text-2xl font-bold">Explore — {states.name(params.state)}</h1>

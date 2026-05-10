@@ -1,15 +1,19 @@
 // Boundary source resolution for the map components.
 //
-// Two-tier strategy:
-//   1. Try datasets/boundaries/in/manifest.json (produced by tools/boundaries/
-//      in CI — see docs/architecture/frontend/map.md). When present, use the
-//      packed PMTiles via the pmtiles:// protocol.
-//   2. Fall back to fetching the raw upstream GeoJSON directly. This keeps
-//      the map functional during development (Windows can't run tippecanoe)
-//      and before the boundaries workflow has run for the first time.
+// Three-tier strategy (highest priority first):
+//   1. datasets/boundaries/in/manifest.json (produced by tools/boundaries/
+//      build.py in CI — see docs/architecture/frontend/map.md). When present,
+//      use the packed PMTiles via the pmtiles:// protocol.
+//   2. Local GeoJSON snapshot under datasets/boundaries/in/geojson/ (produced
+//      by tools/boundaries/snapshot.py and committed to the repo). Loads in
+//      a single same-origin request, no public network hop required.
+//   3. Direct upstream GeoJSON URL on raw.githubusercontent.com. Last-resort
+//      fallback for layers that are too large to commit (e.g. the 22 MB
+//      india-states GADM file) and for development before snapshot.py has
+//      been run.
 //
-// When the manifest arrives, only the resolution function changes; the map
-// components don't care which tier is in play.
+// When PMTiles arrive, only `resolveSource()` changes; the map components
+// don't care which tier wins.
 //
 // State-name → ECI code map: GADM-derived india_state.geojson tags features
 // with NAME_1. We need the ECI state code (S22, S25, ...) to look up
@@ -21,7 +25,14 @@ export interface BoundaryEntry {
   id: string;
   /** Human-readable label for tooltips & errors. */
   label: string;
-  /** Direct GeoJSON URL (fallback path). */
+  /**
+   * Optional same-origin GeoJSON snapshot path under DATA_BASE (e.g.
+   * "boundaries/in/geojson/S22-ac.geojson"). Preferred over the upstream
+   * URL when present — it's an order of magnitude faster and works
+   * offline. Populated by tools/boundaries/snapshot.py.
+   */
+  geojson_local_path?: string;
+  /** Direct upstream GeoJSON URL (last-resort fallback). */
   geojson_url: string;
   /** Property name on each feature carrying the join key. */
   join_property: string;
@@ -30,6 +41,8 @@ export interface BoundaryEntry {
 }
 
 // India-wide states layer. Property NAME_1 = English state name (GADM).
+// No local snapshot — unsimplified india_state.geojson is ~22 MB, over the
+// snapshot byte budget. Stays on the live-fetch path until PMTiles ships.
 export const INDIA_STATES: BoundaryEntry = {
   id: "india-states",
   label: "India — states",
@@ -46,6 +59,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S22: {
     id: "S22-ac",
     label: "Tamil Nadu — Assembly constituencies",
+    geojson_local_path: "boundaries/in/geojson/S22-ac.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/tamilnadu/assembly/tamilnadu_AC.json",
     join_property: "AC_NO",
@@ -55,6 +69,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S11: {
     id: "S11-ac",
     label: "Kerala — Assembly constituencies",
+    geojson_local_path: "boundaries/in/geojson/S11-ac.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/kerala/assembly/kerala_AC.json",
     join_property: "AC_NO",
@@ -64,6 +79,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S25: {
     id: "S25-ac",
     label: "West Bengal — Assembly constituencies",
+    geojson_local_path: "boundaries/in/geojson/S25-ac.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/westbengal/assembly/westbengal_AC.json",
     join_property: "AC_NO",
@@ -73,6 +89,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S03: {
     id: "S03-ac",
     label: "Assam — Assembly constituencies (pre-2026 delimitation)",
+    geojson_local_path: "boundaries/in/geojson/S03-ac.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/assam/assembly/assam_AC.json",
     join_property: "AC_NO",
@@ -133,8 +150,9 @@ export function fetchBoundaryManifest(): Promise<BoundaryManifest | null> {
 }
 
 /**
- * Resolve a boundary entry to a concrete URL, preferring PMTiles from the
- * manifest when available. Returns the GeoJSON fallback otherwise.
+ * Resolve a boundary entry to a concrete URL. Resolution order matches the
+ * three-tier strategy at the top of this file: PMTiles (manifest) → local
+ * GeoJSON snapshot → upstream GeoJSON URL.
  */
 export async function resolveSource(entry: BoundaryEntry): Promise<ResolvedSource> {
   const m = await fetchBoundaryManifest();
@@ -150,6 +168,15 @@ export async function resolveSource(entry: BoundaryEntry): Promise<ResolvedSourc
         source_layer: entry.id,
       };
     }
+  }
+  if (entry.geojson_local_path) {
+    // We trust the path was wired up alongside a real snapshot in
+    // datasets/boundaries/in/geojson/. The dev server middleware (and the
+    // production Pages deploy) both serve datasets/ at /data/. If the file
+    // is missing, the map will surface a load error rather than silently
+    // fall through to the upstream URL — surfaceable bugs are better than
+    // hidden ones (CLAUDE.md §10 anti-patterns).
+    return { kind: "geojson", url: `${DATA_BASE}/${entry.geojson_local_path}` };
   }
   return { kind: "geojson", url: entry.geojson_url };
 }

@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * Background motif: a tiled pattern of neutral electoral marks (✓, ✗, and
+ * a ballot-box outline) drawn in slate-400. Lives behind every page via a
+ * fixed body::before pseudo-element so the pattern doesn't scroll.
+ *
+ * Why no party symbols: per Phase 3 plan, party motifs carry legal /
+ * perception risk on a results product. Generic ballot glyphs read as
+ * "elections" without picking sides.
+ *
+ * Opacity is held at 0.035 — visible at 100 % zoom on a white card-free
+ * area but well below the WCAG-AA contrast floor for the slate-700 body
+ * text we render on top of `bg-white` cards (cards are opaque, so the
+ * pattern only shows in the gutter regions).
+ *
+ * The SVG is inlined as a data URL — no extra HTTP round trip. Tile is
+ * 240×240; glyphs roughly 28 px so the pattern reads at any zoom level.
+ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'><g fill='none' stroke='%23475569' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><polyline points='32,52 44,66 70,38'/><line x1='150' y1='30' x2='184' y2='64'/><line x1='184' y1='30' x2='150' y2='64'/><rect x='28' y='150' width='52' height='40' rx='3'/><line x1='42' y1='150' x2='42' y2='140'/><line x1='66' y1='150' x2='66' y2='140'/><line x1='42' y1='140' x2='66' y2='140'/><polyline points='162,166 174,180 198,154'/></g></svg>");
+  background-repeat: repeat;
+  background-size: 240px 240px;
+}

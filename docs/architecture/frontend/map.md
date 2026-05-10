@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-09 (revision: post-Phase-1d sync)
+**Last Updated**: 2026-05-10 (revision: post-Phase-1d sync; UX audit P1)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -103,11 +103,33 @@ The first cut of the map components landed under `frontend/src/lib/maplibre/`:
 - `MapChoropleth.svelte` — generic, library-agnostic to its parents. Takes a `BoundaryEntry`, a `fills` map keyed by the join-property value, optional `opacities` and `tooltips`, and `onSelect`/`onHover` callbacks. Owns map lifecycle and rebuilds `fill-color` / `fill-opacity` paint expressions whenever its props change (Svelte 5 `$effect`).
 - `IndiaMap.svelte` and `StateAcMap.svelte` — thin domain wrappers. `IndiaMap` fetches `result.summary.json` for every state in `STATE_NAME_TO_ECI` and colors each by leading party (most seats won, votes as tiebreak). `StateAcMap` queries `results.sqlite` via the cached `getDb` for `(eci_no → winner_party_eci_code, party_short, margin_pct)` and colors AC fills by winning party with opacity proportional to margin (clamped to 30 % to keep the legend readable; ties drop to the floor so razor-thin wins visually scream "close").
 
-### Source resolution: manifest → upstream fallback
+### Source resolution: manifest → local snapshot → upstream fallback
 
-`resolveSource(entry)` first probes `/data/boundaries/in/manifest.json`. When the boundary CI workflow has run and committed PMTiles, the resolver returns `{ kind: "pmtiles", url: "pmtiles:///data/boundaries/in/<id>.pmtiles" }` and registers the `pmtiles` protocol shim once per page. When the manifest is absent (the dev-time default until the first PR from `boundaries.yml` lands), it returns `{ kind: "geojson", url: <upstream raw.githubusercontent.com URL> }`. Map components don't branch on the tier — only the source spec the resolver returns differs.
+`resolveSource(entry)` is **three-tier**, tried in order, first hit wins:
 
-This dual-tier scheme means the map renders end-to-end on a developer machine without needing to run the boundary pipeline locally (which requires tippecanoe, Linux/macOS-only). It also means `boundaries.yml` failures degrade to "still works, just bigger payload", not "page broken".
+1. **PMTiles via manifest** — when the boundary CI workflow has run and committed PMTiles, the resolver returns `{ kind: "pmtiles", url: "pmtiles:///data/boundaries/in/<id>.pmtiles" }` and registers the `pmtiles` protocol shim once per page.
+2. **Local GeoJSON snapshot** — the second tier (added in the May 2026 UX audit). When `BoundaryEntry.geojson_local_path` is set, the resolver returns `{ kind: "geojson", url: "/data/<path>" }` pointing at a snapshotted file under `datasets/boundaries/in/geojson/`. Snapshots are produced by `tools/boundaries/snapshot.py` (see below).
+3. **Upstream raw GeoJSON** — last-resort live fetch of the original `geojson_url` declared on the entry. Slow (TN AC ~1 MB, India states ~22 MB) and depends on raw.githubusercontent.com being reachable; only kicks in when no snapshot exists for that layer.
+
+Why the middle tier exists. Before the snapshot tier, the manifest probe missing → straight to a 1–22 MB fetch from GitHub on every cold load, and TN often appeared "blank" because the polygons hadn't streamed in yet. The snapshot tier is local, instant, and version-pinned. PMTiles is still the long-term winner (smaller payload, range requests, zoom-aware precision); the snapshot tier is the gap-filler until `boundaries.yml` ships.
+
+### `tools/boundaries/snapshot.py`
+
+Standalone, dependency-free Python script (urllib only, per `tools/` self-contained rule). Reads `tools/boundaries/pipeline.json`, downloads each entry, writes the GeoJSON to `datasets/boundaries/in/geojson/<name>.geojson` and a sidecar `<name>.geojson.sources.json` carrying the CLAUDE.md §12 `sources: [{url, fetched_at}]` array.
+
+The sidecar exists because GeoJSON's `FeatureCollection` schema doesn't accept arbitrary top-level keys cleanly; an out-of-band sidecar is the lowest-friction way to carry provenance without bending the spec.
+
+A 4 MB per-file budget skips `india_state.geojson` (22 MB) — that layer stays on the upstream tier until it migrates to PMTiles. Smaller AC layers (Tamil Nadu, Kerala, West Bengal, Assam) all fit and are committed.
+
+### `AC_NO` type-coercion
+
+The HTL shapefiles (the upstream for state-level AC choropleths) export `AC_NO` as a **string** (`"2"`), while the parent results data keys ACs by integer `eci_no`. MapLibre's `["match"]` paint expression does strict equality, so a numeric key never matches a string property — leaving every polygon at the layer's default fill (the long-standing "TN constituency map renders blank slate-50" bug).
+
+`MapChoropleth.svelte`'s `fill_expression()` / `opacity_expression()` / `highlight_filter()` now wrap the property accessor in `["to-number", ["get", entry.join_property]]` whenever the lookup keys are all integer-shaped. State-name layers (`NAME_1`) keep the plain `["get", …]` form. The numeric-vs-string detection is a per-call regex check on the keys — cheap and correct without introducing a per-entry "key type" config field.
+
+### Constituency drilldown — highlighted-AC mini-map
+
+`StateAcMap.svelte` accepts an optional `highlight_eci_no?: number`. When set, the matched AC paints at full opacity and every other AC drops to `base × 0.18`, and a third line layer (slate-900, 2.5 px) outlines just the focused feature. This drives the per-AC drilldown page's "Location in {state}" section, giving users a "you are here" sense without a separate map component. The highlight filter goes through the same numeric-coercion path as fills/opacities.
 
 ### Bundle: static import + manualChunks code-split
 

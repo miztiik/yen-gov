@@ -1,6 +1,8 @@
 <script lang="ts">
   import { fetchConstituencyResult, type ConstituencyResult } from "../lib/data";
   import AcStackedBar from "../lib/AcStackedBar.svelte";
+  import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
+  import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
 
   interface Props { params: { state: string; eci_no: number } }
@@ -73,6 +75,16 @@
         <div class="text-slate-500">{result.totals.votes_polled.toLocaleString()} polled</div>
       </div>
     </section>
+
+    {#if STATE_AC[params.state]}
+      <section class="bg-white rounded-lg shadow-sm p-4">
+        <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Location in {states.name(params.state)}</h2>
+        <StateAcMap {event} state={params.state} highlight_eci_no={params.eci_no} height="360px" />
+        <p class="text-xs text-slate-400 mt-2">
+          Highlighted: AC #{params.eci_no}. Other constituencies are dimmed for context. Click any to drill in.
+        </p>
+      </section>
+    {/if}
 
     <section class="bg-white rounded-lg shadow-sm p-5">
       <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Vote share</h2>
