@@ -94,7 +94,10 @@
   const total_acs = $derived((rows ?? []).length);
 
   // Layout
-  const W = 640, H = 220, PAD_L = 32, PAD_R = 8, PAD_T = 8, PAD_B = 36;
+  // PAD_T = 20 (not 8) so the count label that sits 4px above the tallest
+  // bar still has clearance from the SVG top edge. Earlier value clipped
+  // labels for any bucket that happened to equal max_count.
+  const W = 640, H = 232, PAD_L = 32, PAD_R = 8, PAD_T = 20, PAD_B = 36;
   const inner_w = W - PAD_L - PAD_R;
   const inner_h = H - PAD_T - PAD_B;
   const bar_w = inner_w / BUCKETS;
