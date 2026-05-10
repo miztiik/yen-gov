@@ -352,7 +352,14 @@
 </script>
 
 <div class="relative w-full overflow-hidden rounded-lg border border-slate-200 bg-slate-50" style:height>
-  <div bind:this={container} class="absolute inset-0"></div>
+  <!--
+    Container is absolute-positioned to fill the wrapper. We set height/width
+    inline rather than relying on Tailwind's `absolute inset-0`, because
+    maplibre-gl.css declares `.maplibregl-map { position: relative }` which
+    overrides Tailwind's `absolute` once maplibre adds its class on init,
+    collapsing the box to 0 height.
+  -->
+  <div bind:this={container} style="position:absolute;inset:0;width:100%;height:100%;"></div>
   {#if loading}
     <div class="absolute inset-0 flex items-center justify-center text-xs text-slate-500 pointer-events-none">
       Loading map…

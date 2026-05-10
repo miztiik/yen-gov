@@ -36,6 +36,23 @@ export const DEFAULT_PARTY_COLORS: Record<string, PartyColor> = {
   "581":  { fill: "#0ea5e9" },                  // DMDK
   "2866": { fill: "#a855f7" },                  // AMMK
 
+  // Assam (S03, AcGenMay2026) — colors picked from each party's flag/symbol
+  // where available. INC/BJP are shared with TN above.
+  "83":   { fill: "#f97316" },                  // AGP — Asom Gana Parishad, saffron flag
+  "436":  { fill: "#84cc16" },                  // BOPF — Bodoland People's Front, lime
+  "145":  { fill: "#166534" },                  // AIUDF — All India United Democratic Front, dark green crescent
+  "3289": { fill: "#ca8a04", text: "#1f2937" }, // RJRD — Raijor Dal, ochre
+  "140":  { fill: "#15803d" },                  // AITC — Trinamool Congress green (also S25 second party; see below)
+
+  // Kerala (S11, AcGenMay2026) — INC/CPI(M)/IUML/CPI/BJP shared above.
+  "911":  { fill: "#9d174d" },                  // KEC — Kerala Congress, magenta
+  "913":  { fill: "#be185d" },                  // KEC(J) — Kerala Congress (Jacob), pink
+  "1534": { fill: "#7f1d1d", text: "#fafaf9" }, // RSP — Revolutionary Socialist Party (red, distinct from CPI/CPI(M))
+  "1420": { fill: "#65a30d" },                  // RJD — Rashtriya Janata Dal, green lantern
+
+  // West Bengal (S25, AcGenMay2026) — BJP/INC/CPI(M)/AITC shared above.
+  // AJUP and AISF have weak iconic colors → fallback palette stays in play.
+
   // Generic / cross-state
   "NOTA": { fill: "#64748b" },                  // slate-500 (canonical NOTA stand-in)
   "IND":  { fill: "#94a3b8" },                  // independents
