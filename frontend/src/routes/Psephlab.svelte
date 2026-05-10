@@ -95,7 +95,11 @@
   });
 
   const total_seats = $derived(actuals?.acs.length ?? 0);
-  const majority = $derived(Math.ceil(total_seats / 2));
+  // Indian legislature majority convention: a winning coalition needs *more*
+  // than half the seats, i.e. floor(N/2) + 1. For TN's 234-seat assembly
+  // the magic number is 118, not 117 (which is merely "half"). Same rule
+  // governs Lok Sabha (543 → 272) and every state assembly.
+  const majority = $derived(total_seats > 0 ? Math.floor(total_seats / 2) + 1 : 0);
 
   // ----- Hide-party state (Phase 2 deselect) -----
   //
@@ -326,7 +330,6 @@
                             updateMutation(i, { from_party_eci_codes: next });
                           }}
                         />
-                        <span class="font-mono text-[10px] text-slate-400 w-10">{p.code}</span>
                         <span>{p.short}</span>
                       </label>
                     {/each}
@@ -389,7 +392,6 @@
                           updateMutation(i, { members });
                         }}
                       />
-                      <span class="font-mono text-[10px] text-slate-400 w-10">{p.code}</span>
                       <span>{p.short}</span>
                     </label>
                   {/each}

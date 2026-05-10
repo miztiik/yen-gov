@@ -14,11 +14,13 @@ import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
 // #route on every navigation; the rail at #rail stays mounted. Layout is
-// a flex row on md+ (rail | content); on mobile the rail floats over the
+// a flex row on lg+ (rail | content); below lg the rail floats over the
 // content as a slide-in drawer (LeftRail handles the responsive switch).
+// The breakpoint is lg (1024px) — not md — so mid-width tablets and small
+// laptops aren't squeezed by a 240px static rail.
 const app = document.getElementById("app")!;
 app.innerHTML = `
-  <div class="md:flex md:items-stretch md:min-h-screen">
+  <div class="lg:flex lg:items-stretch lg:min-h-screen">
     <div id="rail"></div>
     <main id="route" class="flex-1 min-w-0"></main>
   </div>

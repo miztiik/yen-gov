@@ -30,7 +30,7 @@
       match: p => p === "/" || (p.startsWith("/s/") && !p.endsWith("/explore")),
     },
     {
-      label: "SQL",
+      label: "Analyze Trends",
       icon: "⌘",
       href: () => (scope.state ? `#/s/${scope.state}/explore` : "#/"),
       match: p => p.endsWith("/explore"),
@@ -66,11 +66,77 @@
     void current_path;
     mobile_open = false;
   });
+
+  // Ashoka Chakra (Dharmachakra) — 24 navy-blue spokes inscribed in a
+  // ring, per the Indian national flag specification. See
+  // https://en.wikipedia.org/wiki/Ashoka_Chakra (File:Ashoka_Chakra.svg)
+  // for the canonical reference image.
+  //
+  // Inlined as SVG so it scales with the wordmark and inherits its color
+  // via `currentColor`.
+  //
+  // Geometry on a 48-unit canvas:
+  //  - Outer ring at r=22 (stroke 2.2).
+  //  - 24 spindle-shaped spokes (NOT plain lines) from r=4.5 (just outside
+  //    the hub) to r=20 (just inside the ring). Each spoke is a four-point
+  //    diamond: pointed at hub and rim, half-width 0.55 at its midpoint.
+  //    The pointed tips are what give the wheel its characteristic
+  //    sun-burst look — the previous "stroke a line" implementation read
+  //    as a generic radial pattern, not the chakra.
+  //  - 24 small rim "bumps" (filled circles, r=0.55) on the inner edge of
+  //    the ring at r=20.5, offset by half a spoke (7.5°) so they sit
+  //    *between* the spokes — same arrangement as the reference image.
+  //  - Solid hub disc at r=3.5 with a contrasting tiny center.
+  const chakraSvg = (() => {
+    const cx = 24, cy = 24;
+    const r_outer = 22;
+    const r_hub = 3.5;
+    const r_spoke_in = 4.5;
+    const r_spoke_out = 20;
+    const half_w = 0.55;       // spindle half-width at the midpoint
+    const r_bump = 20.5;
+    const bump_r = 0.55;
+
+    const parts: string[] = [];
+    parts.push(`<circle cx="${cx}" cy="${cy}" r="${r_outer}" fill="none" stroke="currentColor" stroke-width="2.2"/>`);
+
+    for (let k = 0; k < 24; k++) {
+      const a = (k * Math.PI) / 12;
+      const ux = Math.cos(a), uy = Math.sin(a);   // along-spoke unit vec
+      const px = -uy, py = ux;                    // perpendicular unit vec
+      // Inner tip, outer tip
+      const ix = cx + r_spoke_in * ux,  iy = cy + r_spoke_in * uy;
+      const ox = cx + r_spoke_out * ux, oy = cy + r_spoke_out * uy;
+      // Two side points at the midpoint of the spoke
+      const mx = cx + ((r_spoke_in + r_spoke_out) / 2) * ux;
+      const my = cy + ((r_spoke_in + r_spoke_out) / 2) * uy;
+      const sx1 = mx + half_w * px, sy1 = my + half_w * py;
+      const sx2 = mx - half_w * px, sy2 = my - half_w * py;
+      parts.push(
+        `<polygon points="${ix.toFixed(2)},${iy.toFixed(2)} ${sx1.toFixed(2)},${sy1.toFixed(2)} ${ox.toFixed(2)},${oy.toFixed(2)} ${sx2.toFixed(2)},${sy2.toFixed(2)}" fill="currentColor"/>`,
+      );
+
+      // Rim bump centered between this spoke and the next.
+      const ab = a + Math.PI / 24;
+      const bx = cx + r_bump * Math.cos(ab);
+      const by = cy + r_bump * Math.sin(ab);
+      parts.push(`<circle cx="${bx.toFixed(2)}" cy="${by.toFixed(2)}" r="${bump_r}" fill="currentColor"/>`);
+    }
+
+    parts.push(`<circle cx="${cx}" cy="${cy}" r="${r_hub}" fill="currentColor"/>`);
+
+    return `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">${parts.join("")}</svg>`;
+  })();
 </script>
 
-<!-- Mobile header: brand + hamburger. Hidden on md+. -->
-<header class="md:hidden bg-white border-b border-slate-200 sticky top-0 z-30 flex items-center justify-between px-4 h-12">
-  <a href="#/" class="font-bold tracking-tight">yen<span class="text-slate-400">-gov</span></a>
+<!-- Mobile / cramped-desktop header: brand + hamburger. Hidden when the
+     viewport is wide enough for the static rail (>= lg / 1024px). The
+     breakpoint was raised from md→lg so mid-width screens (768–1023px)
+     use the drawer instead of stealing 240px from the page content. -->
+<header class="lg:hidden bg-white border-b border-slate-200 sticky top-0 z-30 flex items-center justify-between px-4 h-12">
+  <a href="#/" class="brand-wordmark" aria-label="Yen Gov home">
+    <span class="brand-yen">Yen</span><span class="brand-chakra" aria-hidden="true">{@html chakraSvg}</span><span class="brand-gov">Gov</span>
+  </a>
   <button
     class="p-2 -mr-2 text-slate-600 hover:text-slate-900"
     aria-label="Toggle navigation"
@@ -83,25 +149,25 @@
 <!-- Backdrop for mobile drawer -->
 {#if mobile_open}
   <div
-    class="md:hidden fixed inset-0 bg-slate-900/30 z-20"
+    class="lg:hidden fixed inset-0 bg-slate-900/30 z-20"
     onclick={() => (mobile_open = false)}
     role="presentation"
   ></div>
 {/if}
 
-<!-- Rail. On md+ it's a fixed left column; on mobile it's a slide-in drawer. -->
+<!-- Rail. On lg+ it's a fixed left column; below lg it's a slide-in drawer. -->
 <aside
   class="bg-white border-r border-slate-200 flex flex-col
-         md:w-60 md:h-screen md:sticky md:top-0
-         fixed md:static top-12 bottom-0 left-0 w-64 z-30
-         transition-transform md:transition-none"
+         lg:w-60 lg:h-screen lg:sticky lg:top-0
+         fixed lg:static top-12 bottom-0 left-0 w-64 z-30
+         transition-transform lg:transition-none"
   class:translate-x-0={mobile_open}
   class:-translate-x-full={!mobile_open}
   style="transform: var(--rail-transform)"
 >
-  <!-- Brand (desktop only — mobile uses the header above). -->
-  <a href="#/" class="hidden md:flex items-center px-4 h-12 border-b border-slate-200 font-bold tracking-tight hover:bg-slate-50">
-    yen<span class="text-slate-400">-gov</span>
+  <!-- Brand (lg+ only — cramped widths use the header above). -->
+  <a href="#/" class="brand-wordmark hidden lg:flex items-center px-4 h-12 border-b border-slate-200 hover:bg-slate-50" aria-label="Yen Gov home">
+    <span class="brand-yen">Yen</span><span class="brand-chakra" aria-hidden="true">{@html chakraSvg}</span><span class="brand-gov">Gov</span>
   </a>
 
   <ScopePicker />
@@ -143,19 +209,55 @@
 
   <footer class="px-4 py-2 text-[10px] text-slate-400 border-t border-slate-200">
     <a href="https://github.com/yen-gov" target="_blank" rel="noreferrer" class="hover:text-slate-600">
-      yen-gov · Indian election data
+      Yen Gov · For an informed India
     </a>
   </footer>
 </aside>
 
 <style>
-  /* Reset the inline style fallback on md+ so the slide transform doesn't
+  /* Reset the inline style fallback on lg+ so the slide transform doesn't
      leak into the static layout. The class:translate-* directives drive
-     the mobile slide; on desktop the aside is static-positioned and the
+     the drawer slide; on lg+ the aside is static-positioned and the
      transform should be identity. */
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     aside {
       transform: none !important;
     }
   }
+
+  /* Brand wordmark.
+   *
+   * Typography: Outfit (Google Fonts, loaded in index.html) at light
+   * weight 300 for a slim, sleek silhouette that contrasts with the
+   * default UI sans. Letter-spacing tightened slightly so the chakra
+   * sits visually between the two words rather than floating.
+   *
+   * Separator: the Ashoka Chakra (Dharmachakra) replaces the prior
+   * '-' hyphen. 24 navy-blue (#000080) spokes per the Indian flag
+   * specification (see https://en.wikipedia.org/wiki/Ashoka_Chakra).
+   * Sized to match the cap-height of the wordmark.
+   *
+   * Colors: 'Yen' uses the saffron stripe of the flag (#FF9933) and
+   * 'Gov' uses the dark green stripe (#138808), with the navy chakra
+   * between them — a quiet tricolor nod without being literal.
+   */
+  .brand-wordmark {
+    font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    line-height: 1;
+  }
+  .brand-yen { color: #c2410c; }     /* darkened saffron for AA contrast */
+  .brand-gov { color: #166534; }     /* darkened flag-green for AA contrast */
+  .brand-chakra {
+    display: inline-flex;
+    width: 1.05em;
+    height: 1.05em;
+    color: #000080;                  /* navy blue per flag spec */
+  }
+  .brand-chakra :global(svg) { width: 100%; height: 100%; }
 </style>

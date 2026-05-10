@@ -181,7 +181,7 @@ CLAUDE.md Holy Law #1 forbids a production backend. URL-as-state means scenarios
 │ ┌──────────────────┐ │  total seats · majority · mutated votes│
 │ │ + Add mutation ▾ │ │                                        │
 │ └──────────────────┘ │  PARLIAMENT ARC                        │
-│ ▣ Statewide swing    │  ◯◯◯◯◯◉◉◉◉◉◉  majority 117             │
+│ ▣ Statewide swing    │  ◯◯◯◯◯◉◉◉◉◉◉  majority 118             │
 │   TVK → DMK 10 %     │  + per-party legend below              │
 │ ▣ Party bag "INDIA"  │                                        │
 │   DMK + INC + VCK    │  SWING SANKEY (actuals → scenario)     │
@@ -218,5 +218,15 @@ Shipped:
 - [`SwingSankey.svelte`](../../../frontend/src/lib/SwingSankey.svelte) — pure-SVG approximate vote-flow diagram. We don't have the true bipartite flow matrix (per-AC mutations may overlap), so each loser's drop is redistributed across gainers in proportion to each gainer's share of total gain. Documented in the chart caption so users don't read it as ground truth.
 
 Deferred to next pass: per-mutation labels in URL (currently only IDs); persisted custom party colors in the scenario object.
+
+### Majority-mark convention (2026-05-10)
+
+The summary strip's "Majority mark" is computed as `Math.floor(total_seats / 2) + 1` — the Indian legislature convention that a winning side needs *more than half* the seats, not merely half. For a 234-seat assembly (Tamil Nadu) the magic number is **118**, not 117. The same rule governs the Lok Sabha (543 → 272) and every state legislative assembly.
+
+An earlier version used `Math.ceil(total_seats / 2)`, which gives the right answer for odd-N houses but is off by one for even-N houses (the common case for Indian assemblies). Fixed in this commit. The `ParliamentArc` midline already reads `majority` from the same prop, so the visual midline now matches the published convention without a separate change.
+
+### Mutation editor: ECI-code column hidden (2026-05-10)
+
+The `statewideSwing` and `partyBag` party-picker checkbox lists previously rendered each row as `<eci_code>  <party_short>` (e.g. `3679  DMK`). The numeric prefix is the ECI's internal party code — useful when authoring URLs by hand or debugging, but mystery-meat to a Citizen who doesn't know the registry. The column was dropped; rows now show party short-name only. The codes are still the canonical identifier inside scenario URLs and the engine, but the editor surface is name-only. (`perAcSwing` was unaffected — its picker shows party + vote count, not codes.)
 
 Update (2026-05-09, post-Compare): both `perAcSwing` and `statewideSwing` accept `from_party_eci_codes: string[]` to model many-to-one swings (e.g. "AIADMK + BJP supporters defecting to DMK"). The legacy singular `from_party_eci_code` lives only as a URL back-compat shim in each mutation's `apply()` — no other code path knows about it. Editor for `from` is a checkbox cluster (party rows scoped to the AC for `perAcSwing`, to all parties in scope for `statewideSwing`). Pool-pull algorithm: `target = min(votes, pool)`, sources contribute proportional to share, rounding drift absorbed by the largest source, per-source clamp prevents negatives.
