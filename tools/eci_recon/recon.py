@@ -82,7 +82,7 @@ STATE_DISPLAY = {"S22": "Tamil Nadu", "S11": "Kerala", "S25": "West Bengal"}
 # probe /api/election-result and confirm it returns the file inventory.
 NEW_PORTAL_CATEGORIES = [("Tamil Nadu", 2026, 26)]
 
-UA = "Mozilla/5.0 (compatible; yen-gov-recon/0.1; +https://github.com/yen-gov)"
+UA = "Mozilla/5.0 (compatible; yen-gov-recon/0.1; +https://github.com/miztiik/yen-gov)"
 
 
 def jl(value: str | int) -> str:

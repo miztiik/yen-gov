@@ -22,8 +22,9 @@
   <header class="space-y-1">
     <h1 class="text-2xl font-bold">yen-gov</h1>
     <p class="text-sm text-slate-500">
-      Indian election data — event <code class="font-mono">{EVENT}</code>.
-      Click a state to drill in.
+      Indian civic data — starting with electoral results and growing into
+      socio-economic indicators. Currently showing event
+      <code class="font-mono">{EVENT}</code>. Click a state to drill in.
       <a href="#/about" class="text-sky-700 hover:underline">What is this?</a>
     </p>
   </header>

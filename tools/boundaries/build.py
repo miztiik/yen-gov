@@ -7,8 +7,8 @@ Reads `tools/boundaries/pipeline.json`, fetches each upstream URL into
 Emits a single manifest at `datasets/boundaries/in/manifest.json` declaring
 provenance for every output file (CLAUDE.md §12).
 
-External tools required (provided by the CI image; documented in
-.github/workflows/boundaries.yml):
+External tools required (install on a Linux/macOS shell or WSL2; this tool is
+local-only by design — see tools/boundaries/README.md):
 
 - mapshaper      (npm install -g mapshaper)
 - tippecanoe     (built from felt/tippecanoe)

@@ -4,7 +4,7 @@
 
 Builds vector-tile boundary files (`datasets/boundaries/in/*.pmtiles`) consumed by the frontend [map](../../docs/architecture/frontend/map.md). The pipeline downloads upstream GeoJSON, simplifies with [mapshaper](https://github.com/mbloch/mapshaper), and packs to [PMTiles](https://github.com/protomaps/PMTiles) with [tippecanoe](https://github.com/felt/tippecanoe).
 
-This tool is **CI-only** by design (see [Why CI-only](#why-ci-only)). On Windows you do not need to install tippecanoe locally — trigger the [`boundaries` workflow](../../.github/workflows/boundaries.yml) and merge the resulting PR.
+This tool is **local-only** by design (see [Why local-only](#why-local-only)). Run it from a Linux/macOS shell (or WSL2 on Windows) when boundaries need refreshing — typically once per delimitation cycle — then commit the regenerated `datasets/boundaries/in/` through a normal PR.
 
 ## Layout
 
@@ -12,7 +12,6 @@ This tool is **CI-only** by design (see [Why CI-only](#why-ci-only)). On Windows
 | --- | --- |
 | [pipeline.json](pipeline.json) | Declarative list of upstream URLs, output paths, simplification + tippecanoe options per file. Edit this to add states or change sources. |
 | [build.py](build.py) | Orchestrator. Self-contained (stdlib only). Reads `pipeline.json`, downloads, simplifies, packs, writes manifest. |
-| `../../.github/workflows/boundaries.yml` | CI runner. Installs tools, executes `build.py`, opens a PR with the regenerated `datasets/boundaries/in/`. |
 
 ## Outputs
 
@@ -63,13 +62,13 @@ cd <repo-root>
 python tools/boundaries/build.py
 ```
 
-Native Windows is not supported (tippecanoe has no maintained Windows build). Use WSL2 or just trigger the workflow.
+Native Windows is not supported (tippecanoe has no maintained Windows build). Use WSL2.
 
-## Why CI-only
+## Why local-only
 
-- **Tippecanoe needs Linux/macOS.** Forcing every contributor on every OS to install build-essential + sqlite-dev + node + mapshaper for an artifact that changes once per delimitation cycle is bad ergonomics.
-- **Reproducibility is improved by a fixed CI image.** Different mapshaper versions can produce subtly different simplifications; pinning the workflow's tool versions makes the manifest's `size_bytes` deterministic enough to spot regressions in PR diffs.
+- **Tippecanoe needs Linux/macOS.** Asking every contributor to install build-essential + sqlite-dev + node + mapshaper would be bad ergonomics, but boundaries change once per delimitation cycle — the maintainer who's actually refreshing them sets up the toolchain once and commits the output. CI dispatch for a years-cadence operation is unnecessary overhead.
 - **The output is small enough to commit.** A few hundred kB per file × handful of files ≈ <2 MB total. No LFS, no submodule.
+- **Reproducibility comes from pinning, not the runner.** `pipeline.json` pins mapshaper / tippecanoe options; `manifest.json` records `size_bytes` so PR diffs surface unintended drift.
 
 ## See also
 

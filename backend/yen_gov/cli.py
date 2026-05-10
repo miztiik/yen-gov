@@ -140,7 +140,7 @@ def reference(
         help="Output dir. Defaults to <root>/datasets/reference/in/states/<state>/.",
     ),
     user_agent: str = typer.Option(
-        "yen-gov/0.1 (https://github.com/yen-gov/yen-gov; election data pipeline) httpx",
+        "yen-gov/0.1 (https://github.com/miztiik/yen-gov; election data pipeline) httpx",
         "--user-agent",
         help="HTTP User-Agent. Wikipedia requires a descriptive UA (docs/architecture/backend/sources-wikipedia.md).",
     ),

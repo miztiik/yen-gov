@@ -23,9 +23,9 @@ Open questions to settle before writing code:
 
 3. **Commit the `.sqlite`.** Reasons:
    - Symmetric to the JSON: both ship together, both are byte-for-byte reproducible from upstream.
-   - The deploy step (ADR-0013) already does `cp -r datasets _site/data`. Adding a regeneration step in `deploy.yml` would couple deploy to a Python install, defeating the simplicity of pure file staging.
+   - The deploy step (ADR-0013) already does `cp -r datasets _site/data`. Adding a regeneration step in `deploy-site.yml` would couple deploy to a Python install, defeating the simplicity of pure file staging.
    - A 234-row state DB is ~200 kB; even the full 36-state corpus would be a few MB, well within git's comfort zone.
-   - Reviewers see the data diff in PRs from `pipeline.yml`; the `.sqlite` diff is opaque but the JSON diff next to it is not. Combined, the PR is auditable.
+   - Reviewers see the data diff in the maintainer's data-refresh PR; the `.sqlite` diff is opaque but the JSON diff next to it is not. Combined, the PR is auditable.
 
 4. **New subpackage `backend/yen_gov/emit/`.** Reads validated JSON from `datasets/elections/<event>/<state>/`, writes the `.sqlite` next to it. Does NOT import from `pipeline/` — the emitter is a *projection* of the canonical JSON, not a step in the fetch/parse/validate chain. This keeps the dependency direction one-way (`pipeline` → `core`; `emit` → `core`; `emit` reads what `pipeline` wrote, via the filesystem contract). A failure in the emitter must not block JSON emission.
 
@@ -33,8 +33,10 @@ Open questions to settle before writing code:
 
 ## Layout (informative; canonical doc is `docs/reference/sqlite-schema.md`)
 
+> **Update 2026-05-10:** Column names were renamed to follow [ADR-0019](0019-dataset-topology-and-column-discipline.md): the per-state ECI Assembly Constituency number is now `ac_eci_no` in both tables (was `eci_no` / `constituency_eci_no`). `PRAGMA user_version` is now `2`. The DDL below reflects v2.
+
 ```sql
-PRAGMA user_version = 1;
+PRAGMA user_version = 2;
 
 CREATE TABLE parties (
   eci_code   TEXT PRIMARY KEY,        -- nullable parties (independents) live in candidates only
@@ -43,22 +45,22 @@ CREATE TABLE parties (
 );
 
 CREATE TABLE constituencies (
-  eci_no            INTEGER PRIMARY KEY,   -- per-state AC number
-  name              TEXT NOT NULL,
-  votes_polled      INTEGER
+  ac_eci_no    INTEGER PRIMARY KEY,   -- per-state AC number; canonical name (ADR-0019)
+  name         TEXT NOT NULL,
+  votes_polled INTEGER
 );
 
 CREATE TABLE candidates (
-  constituency_eci_no INTEGER NOT NULL REFERENCES constituencies(eci_no),
-  rank                INTEGER NOT NULL,
-  name                TEXT NOT NULL,
-  party_eci_code      TEXT REFERENCES parties(eci_code),  -- NULL for independents / NOTA
-  party_short         TEXT NOT NULL,
-  votes               INTEGER NOT NULL,
-  vote_share_pct      REAL    NOT NULL,
-  is_winner           INTEGER NOT NULL DEFAULT 0,         -- 1 only on the winning row per AC
-  is_nota             INTEGER NOT NULL DEFAULT 0,
-  PRIMARY KEY (constituency_eci_no, rank)
+  ac_eci_no      INTEGER NOT NULL REFERENCES constituencies(ac_eci_no),
+  rank           INTEGER NOT NULL,
+  name           TEXT NOT NULL,
+  party_eci_code TEXT REFERENCES parties(eci_code),  -- NULL for independents / NOTA
+  party_short    TEXT NOT NULL,
+  votes          INTEGER NOT NULL,
+  vote_share_pct REAL    NOT NULL,
+  is_winner      INTEGER NOT NULL DEFAULT 0,         -- 1 only on the winning row per AC
+  is_nota        INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (ac_eci_no, rank)
 );
 
 CREATE INDEX idx_candidates_party       ON candidates(party_short);
@@ -88,7 +90,7 @@ The `election` and `state` codes are NOT stored as columns: the file path encode
 
 - **Single `all.sqlite` covering every event/state**: rejected. Forces all consumers to download the full corpus to query one state, contradicts the per-state lazy-load story for `/explore`. Cross-state aggregation can `ATTACH` multiple DBs.
 - **Treat SQLite as a contract surface (JSON Schema + `x-version`)**: rejected. JSON Schema doesn't describe SQL — the natural versioning surface is `PRAGMA user_version`. A duplicate "schema-of-the-schema" adds maintenance with no consumer benefit.
-- **Regenerate `.sqlite` in `deploy.yml` from committed JSON**: rejected. Couples deploy to a Python install, makes the deploy artifact non-reproducible from a checkout, and slows the deploy. Marginal disk savings (a few MB) don't justify it.
+- **Regenerate `.sqlite` in `deploy-site.yml` from committed JSON**: rejected. Couples deploy to a Python install, makes the deploy artifact non-reproducible from a checkout, and slows the deploy. Marginal disk savings (a few MB) don't justify it.
 - **Emitter as a step in `pipeline/run.py`**: rejected. The emitter is a projection of validated JSON, not part of the fetch/parse/compose chain. Keeping it in a sibling `emit/` subpackage means a parser regression doesn't break the SQLite path and vice versa.
 
 ## See also

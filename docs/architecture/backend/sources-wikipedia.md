@@ -31,7 +31,7 @@ This dict is *adapter-local routing data*, not user-facing taxonomy (CLAUDE.md Â
 `en.wikipedia.org` returns 403 to default httpx User-Agents. The Wikipedia API etiquette page asks for a descriptive UA identifying the project and a contact URL. Tests and the pipeline both send:
 
 ```
-yen-gov/<version> (https://github.com/yen-gov/yen-gov; election data pipeline) httpx
+yen-gov/<version> (https://github.com/miztiik/yen-gov; election data pipeline) httpx
 ```
 
 Test code carries the same string; bot-mitigation is per-UA, not per-IP.

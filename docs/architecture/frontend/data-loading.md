@@ -41,7 +41,7 @@ The deploy artifact MUST physically include `datasets/` at the right place, or t
 
 GitHub Pages serves a static origin, so for `fetch('/data/elections/...')` to resolve in the deployed bundle, the bytes must physically exist at that path on the origin.
 
-The deploy workflow (`deploy.yml`) is responsible for placing `datasets/` next to `dist/` in the Pages artifact. The shape:
+The deploy workflow (`deploy-site.yml`) is responsible for placing `datasets/` next to `dist/` in the Pages artifact. The shape:
 
 ```
 <pages artifact root>/
@@ -67,7 +67,7 @@ Vite config stays UI-only. The dev middleware (`serveDatasets()`) and the deploy
 - `bun run build` output is **pure UI bytes**. A developer running it locally cannot accidentally produce a "deployable" tree that bakes in a stale `datasets/`.
 - The contract is documented in two places (Vite plugin + workflow). A regression in either silently breaks one environment. CI's smoke step fetches `/data/elections/AcGenMay2026/S22/result.summary.json` from the deployed Pages URL and asserts a 200 + valid JSON.
 - Deploy artifact size is `dist/` (~90 kB) + the entirety of `datasets/`. Acceptable today (single state, ~250 small JSONs). If `datasets/` ever crosses ~50 MB we revisit (lazy-loading subsets, per-state subdomains, etc.).
-- `pipeline.yml` commits regenerated `datasets/` back to a branch; the Pages deploy then runs from main and picks them up. The two workflows are decoupled.
+- Scraping is local-only (CLAUDE.md §1, §13): a maintainer runs `python -m yen_gov run ...`, commits the regenerated `datasets/` through a normal PR, and the Pages deploy picks them up on merge to main. Scraping and deploying are decoupled.
 
 ### Production-placement — alternatives considered
 

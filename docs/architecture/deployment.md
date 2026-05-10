@@ -4,15 +4,14 @@
 
 yen-gov deploys as a single static bundle to GitHub Pages. There is no production backend (CLAUDE.md Holy Law #1). This page is the operator-level overview; the design rationale lives in [frontend/data-loading > production placement](frontend/data-loading.md#production-placement).
 
-## Three workflows
+## Two workflows
 
 | Workflow | Trigger | What it does |
 | -------- | ------- | ------------ |
-| [`validate.yml`](../../.github/workflows/validate.yml) | every PR + push to main | pytest, schema/data validation, frontend build. Live tests skipped via `YEN_GOV_NO_NET=1`. |
-| [`pipeline.yml`](../../.github/workflows/pipeline.yml) | manual dispatch | scrapes ECI (and optionally Wikipedia reference) into `datasets/`, runs the validator, opens a PR with the diff. |
-| [`deploy.yml`](../../.github/workflows/deploy.yml)     | push to main + manual | builds `frontend/dist/`, stages `datasets/` next to it as `data/`, uploads to Pages, smoke-tests the live URL. |
+| [`ci-checks.yml`](../../.github/workflows/ci-checks.yml) | every PR + push to main | pytest, schema/data validation, frontend build. Live tests skipped via `YEN_GOV_NO_NET=1`. Gate only — nothing publishes. |
+| [`deploy-site.yml`](../../.github/workflows/deploy-site.yml) | push to main + manual | builds `frontend/dist/`, stages `datasets/` next to it as `data/`, uploads to Pages, smoke-tests the live URL. |
 
-The flows are deliberately decoupled: scraping never deploys, deploying never scrapes. The contract between them is the `datasets/` directory committed to main.
+Scraping ECI/Wikipedia and rebuilding boundary PMTiles are **local-only** operations (CLAUDE.md §1, §13): run `python -m yen_gov run <event> <state>` and `python tools/boundaries/build.py` on a maintainer machine, commit the regenerated `datasets/` through a normal PR. Both artifacts change rarely (results don't change post-declaration; boundaries change once per delimitation cycle), so a CI dispatch is unnecessary overhead. The contract between scraping and deploying is the `datasets/` directory committed to main.
 
 ## Pages artifact shape
 
@@ -28,7 +27,7 @@ _site/
     └── schemas/...
 ```
 
-`fetch('/data/<rel>')` resolves the same way in dev (Vite middleware) and prod (this static layout) — see [frontend/data-loading](frontend/data-loading.md). The smoke step in `deploy.yml` enforces that contract by fetching `data/elections/AcGenMay2026/S22/result.summary.json` from the deployed origin and asserting `state == "S22"`.
+`fetch('/data/<rel>')` resolves the same way in dev (Vite middleware) and prod (this static layout) — see [frontend/data-loading](frontend/data-loading.md). The smoke step in `deploy-site.yml` enforces that contract by fetching `data/elections/AcGenMay2026/S22/result.summary.json` from the deployed origin and asserting `state == "S22"`.
 
 ## Pages URL base
 
