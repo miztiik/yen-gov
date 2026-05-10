@@ -233,8 +233,11 @@
       {/if}
 
       <div class="space-y-4 min-w-0">
-        <div class="bg-white rounded-lg shadow-sm p-5">
-          <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3 text-center">Seat share</h2>
+        <!-- Donut card: subtle radial-tinted background so the chart has
+             "presence" against the surrounding white cards instead of
+             floating in a flat panel. -->
+        <div class="rounded-xl shadow-sm p-5 ring-1 ring-slate-200/70 bg-[radial-gradient(ellipse_at_top,_rgba(248,250,252,1)_0%,_rgba(255,255,255,1)_60%)]">
+          <h2 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3 text-center">Seat share</h2>
           <SeatDonut
             parties={summary.party_totals}
             total_seats={summary.total_seats}
@@ -242,22 +245,21 @@
             onToggleHidden={toggleHidden}
           />
         </div>
-        <div class="bg-white rounded-lg shadow-sm p-4 space-y-3">
-          <!-- Three tiles instead of four. The previous fourth tile ("Schema 3.0")
-               leaked an internal version into a user-facing KPI grid; provenance
-               + schema now live in the on-demand <SourceList/> footer below. -->
-          <div class="grid grid-cols-3 gap-3 text-sm">
-            <div>
+        <!-- KPI strip: three tiles, each with a thin top accent and large
+             tabular-nums value. Reads as a dashboard rather than a list. -->
+        <div class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200/70 p-4 space-y-3">
+          <div class="grid grid-cols-3 gap-3">
+            <div class="rounded-lg border-t-2 border-slate-300 bg-slate-50/70 px-3 py-2">
               <div class="text-[10px] uppercase tracking-wide text-slate-500">Total seats</div>
-              <div class="text-lg font-semibold">{summary.total_seats}</div>
+              <div class="text-xl font-bold tabular-nums text-slate-800">{summary.total_seats}</div>
             </div>
-            <div>
-              <div class="text-[10px] uppercase tracking-wide text-slate-500">Votes polled</div>
-              <div class="text-lg font-semibold">{summary.totals?.votes_polled?.toLocaleString() ?? "—"}</div>
+            <div class="rounded-lg border-t-2 border-emerald-400 bg-emerald-50/60 px-3 py-2">
+              <div class="text-[10px] uppercase tracking-wide text-emerald-700/80">Votes polled</div>
+              <div class="text-xl font-bold tabular-nums text-slate-800">{summary.totals?.votes_polled?.toLocaleString() ?? "—"}</div>
             </div>
-            <div>
-              <div class="text-[10px] uppercase tracking-wide text-slate-500">Turnout</div>
-              <div class="text-lg font-semibold">
+            <div class="rounded-lg border-t-2 border-sky-400 bg-sky-50/60 px-3 py-2">
+              <div class="text-[10px] uppercase tracking-wide text-sky-700/80">Turnout</div>
+              <div class="text-xl font-bold tabular-nums text-slate-800">
                 {summary.totals?.turnout_pct != null
                   ? `${summary.totals.turnout_pct.toFixed(1)}%`
                   : "—"}
@@ -271,9 +273,9 @@
 
     <!-- Full-width seats-by-party bar (below the map row so wide bars
          have room to breathe and 0-seat parties remain readable). -->
-    <section class="bg-white rounded-lg shadow-sm p-5">
+    <section class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200/70 p-5">
       <div class="flex items-baseline justify-between mb-1 gap-2">
-        <h2 class="text-sm font-semibold uppercase text-slate-500">Seats by party</h2>
+        <h2 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Seats by party</h2>
         {#if hidden_parties.size > 0}
           <button
             class="text-xs text-blue-600 hover:underline"
