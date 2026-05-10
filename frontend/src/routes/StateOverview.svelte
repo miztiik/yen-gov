@@ -276,14 +276,24 @@
     <!-- Full-width seats-by-party bar (below the map row so wide bars
          have room to breathe and 0-seat parties remain readable). -->
     <section class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200/70 p-5">
-      <div class="flex items-baseline justify-between mb-1 gap-2">
+      <div class="flex items-baseline justify-between mb-1 gap-2 flex-wrap">
         <h2 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Seats by party</h2>
-        {#if hidden_parties.size > 0}
-          <button
-            class="text-xs text-blue-600 hover:underline"
-            onclick={() => (hidden_parties = new Set())}
-          >Show all ({hidden_parties.size} muted)</button>
-        {/if}
+        <div class="flex items-center gap-3 flex-wrap">
+          {#if zero_seat_count > 0}
+            <button
+              class="text-xs text-blue-600 hover:underline"
+              onclick={() => (show_zero_seat = !show_zero_seat)}
+            >{show_zero_seat
+                ? `Hide ${zero_seat_count} zero-seat parties`
+                : `Show ${zero_seat_count} parties with no seats`}</button>
+          {/if}
+          {#if hidden_parties.size > 0}
+            <button
+              class="text-xs text-blue-600 hover:underline"
+              onclick={() => (hidden_parties = new Set())}
+            >Show all ({hidden_parties.size} muted)</button>
+          {/if}
+        </div>
       </div>
       <p class="text-xs text-slate-500 mb-3">
         Bar length = seats won. Number in parentheses = vote share. Sorted by seats.
@@ -294,16 +304,6 @@
         {hidden_parties}
         onToggleHidden={toggleHidden}
       />
-      {#if zero_seat_count > 0}
-        <div class="pt-3">
-          <button
-            class="text-xs text-blue-600 hover:underline"
-            onclick={() => (show_zero_seat = !show_zero_seat)}
-          >{show_zero_seat
-              ? `Hide ${zero_seat_count} zero-seat parties`
-              : `Show ${zero_seat_count} parties with no seats`}</button>
-        </div>
-      {/if}
     </section>
 
     <section class="bg-white rounded-lg shadow-sm p-5">
