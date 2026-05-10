@@ -31,7 +31,7 @@ Indian administrative boundaries are not packaged as one clean source. The pipel
 ```
 datameet/maps-* (CC0)        ← upstream
    │
-   ▼ (one-time per release, runs in GitHub Actions — see .github/workflows/boundaries.yml)
+   ▼ (one-time per delimitation cycle, run locally on Linux/macOS/WSL2 — see tools/boundaries/README.md)
 tools/boundaries/build.py    ← download → mapshaper simplify → tippecanoe → PMTiles
    │
    ▼
@@ -101,7 +101,7 @@ The first cut of the map components landed under `frontend/src/lib/maplibre/`:
 
 - `sources.ts` — declarative table of boundary sources (one per India-states + per-state AC layers), each with the upstream URL, the property name to join on (`NAME_1` for GADM states, `AC_NO` for HTL AC files), and license attribution. The hand-maintained `STATE_NAME_TO_ECI` map bridges GADM English state names to ECI state codes (`Tamil Nadu` → `S22`, …) so the India choropleth can look up `result.summary.json` per state.
 - `MapChoropleth.svelte` — generic, library-agnostic to its parents. Takes a `BoundaryEntry`, a `fills` map keyed by the join-property value, optional `opacities` and `tooltips`, and `onSelect`/`onHover` callbacks. Owns map lifecycle and rebuilds `fill-color` / `fill-opacity` paint expressions whenever its props change (Svelte 5 `$effect`).
-- `IndiaMap.svelte` and `StateAcMap.svelte` — thin domain wrappers. `IndiaMap` fetches `result.summary.json` for every state in `STATE_NAME_TO_ECI` and colors each by leading party (most seats won, votes as tiebreak). `StateAcMap` queries `results.sqlite` via the cached `getDb` for `(eci_no → winner_party_eci_code, party_short, margin_pct)` and colors AC fills by winning party with opacity proportional to margin (clamped to 30 % to keep the legend readable; ties drop to the floor so razor-thin wins visually scream "close").
+- `IndiaMap.svelte` and `StateAcMap.svelte` — thin domain wrappers. `IndiaMap` fetches `result.summary.json` for every state in `STATE_NAME_TO_ECI` and colors each by leading party (most seats won, votes as tiebreak). `StateAcMap` queries `results.sqlite` via the cached `getDb` for `(ac_eci_no → winner_party_eci_code, party_short, margin_pct)` and colors AC fills by winning party with opacity proportional to margin (clamped to 30 % to keep the legend readable; ties drop to the floor so razor-thin wins visually scream "close").
 
 ### Source resolution: manifest → local snapshot → upstream fallback
 
@@ -111,7 +111,7 @@ The first cut of the map components landed under `frontend/src/lib/maplibre/`:
 2. **Local GeoJSON snapshot** — the second tier (added in the May 2026 UX audit). When `BoundaryEntry.geojson_local_path` is set, the resolver returns `{ kind: "geojson", url: "/data/<path>" }` pointing at a snapshotted file under `datasets/boundaries/in/geojson/`. Snapshots are produced by `tools/boundaries/snapshot.py` (see below).
 3. **Upstream raw GeoJSON** — last-resort live fetch of the original `geojson_url` declared on the entry. Slow (TN AC ~1 MB, India states ~22 MB) and depends on raw.githubusercontent.com being reachable; only kicks in when no snapshot exists for that layer.
 
-Why the middle tier exists. Before the snapshot tier, the manifest probe missing → straight to a 1–22 MB fetch from GitHub on every cold load, and TN often appeared "blank" because the polygons hadn't streamed in yet. The snapshot tier is local, instant, and version-pinned. PMTiles is still the long-term winner (smaller payload, range requests, zoom-aware precision); the snapshot tier is the gap-filler until `boundaries.yml` ships.
+Why the middle tier exists. Before the snapshot tier, the manifest probe missing → straight to a 1–22 MB fetch from GitHub on every cold load, and TN often appeared "blank" because the polygons hadn't streamed in yet. The snapshot tier is local, instant, and version-pinned. PMTiles is still the long-term winner (smaller payload, range requests, zoom-aware precision); the snapshot tier is the gap-filler until `tools/boundaries/build.py` is run and its PMTiles output committed.
 
 ### `tools/boundaries/snapshot.py`
 

@@ -185,7 +185,7 @@
             >
               <span class="w-5 text-center">{t.icon}</span>
               <span>{t.label}</span>
-              <span class="ml-auto text-[10px] uppercase tracking-wide">soon</span>
+              <span class="ml-auto text-[10px] uppercase tracking-wide truncate max-w-[7rem]">{reason}</span>
             </span>
           {:else}
             <a
@@ -254,13 +254,42 @@
     gap: 0.35rem;
     line-height: 1;
   }
-  .brand-yen { color: #c2410c; }     /* darkened saffron for AA contrast */
-  .brand-gov { color: #166534; }     /* darkened flag-green for AA contrast */
+  /* Flag-palette tones, darkened just enough to clear WCAG AA on white at
+   * 1.25rem / weight 300. The pure flag colors (#FF9933 saffron, #138808
+   * green) fail AA on white — these are the closest accessible cousins. */
+  .brand-yen { color: #d97706; }     /* saffron-leaning amber-600 */
+  .brand-gov { color: #15803d; }     /* flag-green-leaning emerald-700 */
   .brand-chakra {
     display: inline-flex;
     width: 1.05em;
     height: 1.05em;
     color: #000080;                  /* navy blue per flag spec */
+    transform-origin: 50% 50%;
+    will-change: transform;
   }
-  .brand-chakra :global(svg) { width: 100%; height: 100%; }
+  .brand-chakra :global(svg) {
+    width: 100%;
+    height: 100%;
+    display: block;                  /* eliminate inline-baseline gap so
+                                        rotation pivots on the true center */
+  }
+
+  /* Spin once on hover/focus of the whole wordmark. The chakra is a true
+   * circle (cx=cy=24, r=22) so rotation around its center is wobble-free.
+   * The animation runs to completion and then resets — re-hovering plays
+   * it again. */
+  .brand-wordmark:hover .brand-chakra,
+  .brand-wordmark:focus-visible .brand-chakra {
+    animation: chakra-spin 0.9s ease-in-out 1;
+  }
+  @keyframes chakra-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .brand-wordmark:hover .brand-chakra,
+    .brand-wordmark:focus-visible .brand-chakra {
+      animation: none;
+    }
+  }
 </style>

@@ -52,7 +52,7 @@ The frontend's `vite.config.ts` registers a small `serveDatasets()` middleware t
 | `datasets/reference/`  | yes (Phase 0.5+)| yes (joins)    | yes (taxonomy lookups) |
 | `datasets/events/`     | yes             | yes            | yes (event metadata) |
 | `datasets/elections/`  | yes             | yes            | yes (results, summaries, party snapshots, sqlite) |
-| `datasets/boundaries/` | no (CI workflow `boundaries.yml` writes; see [map](frontend/map.md)) | no | yes (PMTiles via MapLibre; falls back to upstream GeoJSON when absent) |
+| `datasets/boundaries/` | no (`tools/boundaries/build.py` writes locally; see [map](frontend/map.md)) | no | yes (PMTiles via MapLibre; falls back to upstream GeoJSON when absent) |
 | `datasets/patches/`    | reads at apply step (planned, Phase 4) | reads | no |
 | `config/processing.json` | no            | yes            | no              |
 | `.runtime/raw/`        | yes (debug only, ADR-0003) | yes | no |

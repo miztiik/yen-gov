@@ -1,7 +1,8 @@
-name: validate
+name: ci checks
 
 # Schema sanity (Tier A) + data conformance (Tier B) + backend pytest +
 # frontend type-check / build. Live network tests skipped via YEN_GOV_NO_NET=1.
+# Gate only -- nothing publishes from this workflow.
 
 on:
   pull_request:

@@ -118,9 +118,9 @@ The orchestrator + CLI shipped in Phase 0.5E is per-AC capable; the live test in
 
 ## Phase 4 — Deployment & CI (DONE, 2026-05-09)
 
-- [x] `validate.yml` — pytest + schema/data validation + frontend build on every PR.
-- [x] `pipeline.yml` — manual dispatch; scrape + open PR with data diff.
-- [x] `deploy.yml` — build + stage data per ADR-0013 + publish to Pages + smoke.
+- [x] `ci-checks.yml` — pytest + schema/data validation + frontend build on every PR.
+- [x] `deploy-site.yml` — build + stage data per ADR-0013 + publish to Pages + smoke.
+- [x] Scraping (`pipeline.yml`) and boundary rebuilds (`boundaries.yml`) removed 2026-05-10 — both are local-only operations (CLAUDE.md §1, §13).
 - [x] ADR-0013 (production data placement: CI-side staging).
 - [x] `docs/architecture/deployment.md` + `docs/how-to/release.md`.
 - [ ] Verify Pages bundle has zero cross-origin fetches — covered by smoke job; live verification pending first actual deploy.

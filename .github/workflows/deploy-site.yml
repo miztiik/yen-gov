@@ -1,4 +1,4 @@
-name: Publish Site Bundle To GitHub Pages
+name: deploy site
 
 # Builds the frontend and stages datasets/ next to it (per ADR-0013), then
 # publishes to GitHub Pages. Triggered on push to main and manually.
