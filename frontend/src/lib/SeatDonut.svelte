@@ -5,6 +5,8 @@
   import { cubicOut } from "svelte/easing";
   import type { PartyTotals } from "./data";
   import { colors } from "./colors/store.svelte";
+  import { hasMajority } from "./electoral";
+  import ChartTooltip, { type TooltipState } from "./ChartTooltip.svelte";
 
   interface Props {
     parties: PartyTotals[];
@@ -28,6 +30,16 @@
   const inner = radius * 0.62;
   const outer = radius - 8;
 
+  // Visual minimum-angle for tiny slices.
+  // The honest geometry: 1 seat out of 234 = 1.54° = 0.027 rad. Below ~2°
+  // a slice is essentially invisible to the human eye even before any
+  // gradient/shadow blurring eats more pixels off the edges. We give every
+  // visible slice a *visual* minimum of 1.4° (0.024 rad), then redistribute
+  // the donated angle from the largest slice. The numeric tally + tooltip
+  // both still report the true seat counts, so the chart stays honest while
+  // becoming readable for fringe parties (TVK in 2021, BJP/DMDK in 2026).
+  const MIN_VISUAL_ANGLE = 0.024;
+
   function key_for(p: PartyTotals): string {
     return p.party_eci_code ?? p.party_short;
   }
@@ -38,9 +50,10 @@
   onMount(() => { progress.set(1); });
 
   // Hover pop-out. Tracking the hovered slice key lets the SVG path swap to
-  // a slightly larger arc generator (outerRadius +8) for the lift effect,
+  // a slightly larger arc generator (outerRadius +6) for the lift effect,
   // with a CSS transition giving the motion.
   let hover_key = $state<string | null>(null);
+  let tooltip = $state<TooltipState | null>(null);
 
   const ranked = $derived.by(() =>
     parties
@@ -53,28 +66,58 @@
       })),
   );
 
-  // Build arcs by hand (instead of d3.pie) so we can scale the cumulative
-  // sweep against `progress`. padAngle + cornerRadius give the modern
-  // segmented-ring look; padAngle stays small so 1-seat slivers survive.
-  const arcs = $derived.by(() => {
+  // Visual angles per slice — see MIN_VISUAL_ANGLE comment. We compute the
+  // honest fractions, lift any below the floor up to it, and then subtract
+  // the borrowed budget from the largest slice (which can spare it without
+  // becoming visually wrong — donating 6° from a 130° wedge is invisible).
+  const visual_angles = $derived.by<{ key: string; angle: number }[]>(() => {
     const data = ranked;
     const total = data.reduce((s, p) => s + p.seats_won, 0) || 1;
+    const TWO_PI = 2 * Math.PI;
+    const honest = data.map(p => ({ key: p.key, angle: (p.seats_won / total) * TWO_PI }));
+    let borrowed = 0;
+    const adjusted = honest.map(a => {
+      if (a.angle < MIN_VISUAL_ANGLE) {
+        borrowed += MIN_VISUAL_ANGLE - a.angle;
+        return { ...a, angle: MIN_VISUAL_ANGLE };
+      }
+      return a;
+    });
+    if (borrowed > 0) {
+      // Subtract from the largest slice — by construction it's at least
+      // ~30° in any plausible election, so a few degrees off won't read.
+      let maxIdx = 0;
+      for (let i = 1; i < adjusted.length; i++) if (adjusted[i].angle > adjusted[maxIdx].angle) maxIdx = i;
+      adjusted[maxIdx] = { ...adjusted[maxIdx], angle: Math.max(0, adjusted[maxIdx].angle - borrowed) };
+    }
+    return adjusted;
+  });
+
+  // Build arcs by hand (instead of d3.pie) so we can scale the cumulative
+  // sweep against `progress`. padAngle gives the modern segmented-ring look;
+  // cornerRadius rounds the slice ends. We removed the white inter-slice
+  // stroke that the previous iteration used — combined with padAngle it was
+  // double-spacing every wedge and erasing the 1-seat slivers entirely.
+  const arcs = $derived.by(() => {
+    const data = ranked;
     const sweep = 2 * Math.PI * $progress;
     const arcGen = d3.arc<{ startAngle: number; endAngle: number }>()
       .innerRadius(inner)
       .outerRadius(outer)
-      .padAngle(0.012)
+      .padAngle(0.018)
       .cornerRadius(4);
     const popGen = d3.arc<{ startAngle: number; endAngle: number }>()
       .innerRadius(inner)
-      .outerRadius(outer + 8)
-      .padAngle(0.012)
+      .outerRadius(outer + 6)
+      .padAngle(0.018)
       .cornerRadius(4);
     let cum = 0;
+    const angleByKey = new Map(visual_angles.map(v => [v.key, v.angle]));
     return data.map(p => {
-      const start = (cum / total) * 2 * Math.PI;
-      cum += p.seats_won;
-      const end = (cum / total) * 2 * Math.PI;
+      const a = angleByKey.get(p.key) ?? 0;
+      const start = cum;
+      const end = cum + a;
+      cum = end;
       const cappedStart = Math.min(start, sweep);
       const cappedEnd = Math.min(end, sweep);
       const arcDatum = { startAngle: cappedStart, endAngle: cappedEnd };
@@ -86,7 +129,9 @@
         color_dark: d3.color(p.color)?.darker(0.45)?.formatHex() ?? p.color,
         color_light: d3.color(p.color)?.brighter(0.55)?.formatHex() ?? p.color,
         label: p.party_short,
+        full_name: p.party_full ?? p.party_short,
         seats: p.seats_won,
+        vote_share: p.vote_share_pct,
         key: p.key,
         mid_angle: mid,
       };
@@ -101,12 +146,13 @@
   });
   const visible_seats = $derived(total_seats - hidden_seats);
 
-  // Headline pill: the leading party + a "majority" flag when they cross
-  // half the chamber. Adds the chart's "story" beat without the user
-  // needing to scan a legend.
-  const leader = $derived(ranked[0] ?? null);
+  // The donut still uses the *leader has majority* signal to draw a gold
+  // halo, but the textual leader pill below the donut is gone — per UX
+  // review, the bar chart + tooltip already carry that information and the
+  // pill was a static repeat.
+  const leader = $derived(arcs[0] ?? null);
   const leader_has_majority = $derived(
-    leader != null && leader.seats_won * 2 > total_seats,
+    leader != null && hasMajority(leader.seats, total_seats),
   );
 
   // Animated centre tally. We tween the integer to the *currently visible*
@@ -116,16 +162,36 @@
     void $progress;
     tally.set(hidden_seats > 0 ? visible_seats : total_seats);
   });
+
+  function showTip(e: MouseEvent, a: typeof arcs[number]): void {
+    const muted = !!hidden_parties?.has(a.key);
+    tooltip = {
+      x: e.clientX,
+      y: e.clientY,
+      color: a.color,
+      title: a.label,
+      subtitle: a.full_name !== a.label ? a.full_name : undefined,
+      lines: [
+        { label: "Seats", value: String(a.seats), suffix: `of ${total_seats}` },
+        { label: "Vote share", value: `${a.vote_share.toFixed(1)}%` },
+      ],
+      hint: onToggleHidden ? (muted ? "Click to show this party" : "Click to mute this party") : undefined,
+    };
+  }
+  function moveTip(e: MouseEvent): void {
+    if (tooltip) tooltip = { ...tooltip, x: e.clientX, y: e.clientY };
+  }
+  function hideTip(): void { tooltip = null; }
 </script>
 
-<div class="flex flex-col items-center gap-3">
+<div class="flex flex-col items-center">
   <svg
     width={size}
     height={size}
     viewBox="-{radius} -{radius} {size} {size}"
     class="overflow-visible"
     role="img"
-    aria-label="Seat share donut chart"
+    aria-label="House composition donut chart"
   >
     <defs>
       <!-- Soft drop shadow used by every slice. Kept very subtle (≤ 4px)
@@ -191,28 +257,22 @@
         fill="url(#slice-grad-{a.key})"
         opacity={muted ? 0.18 : 1}
         filter="url(#seat-donut-shadow)"
-        stroke="white"
-        stroke-width="1"
         class:cursor-pointer={clickable}
         style="transition: d 180ms ease-out;"
         onclick={() => onToggleHidden?.(a.key)}
-        onmouseenter={() => (hover_key = a.key)}
-        onmouseleave={() => (hover_key = null)}
-        onfocus={() => (hover_key = a.key)}
-        onblur={() => (hover_key = null)}
+        onmouseenter={(e) => { hover_key = a.key; showTip(e, a); }}
+        onmousemove={moveTip}
+        onmouseleave={() => { hover_key = null; hideTip(); }}
+        onfocus={(e) => { hover_key = a.key; showTip(e as unknown as MouseEvent, a); }}
+        onblur={() => { hover_key = null; hideTip(); }}
         role={clickable ? "button" : undefined}
         tabindex={clickable ? 0 : undefined}
         aria-label="{a.label}: {a.seats} seats{muted ? ' (muted)' : ''}"
-      >
-        <title>{a.label}: {a.seats} seats{muted ? " (muted)" : ""}</title>
-      </path>
+      ></path>
     {/each}
 
     <!-- Centre tally. Two-line layout: big animated number + small label;
-         the optional "of N" line appears only when something is muted.
-         text-anchor + x=0 are explicitly repeated on every tspan so SVG
-         doesn't drift the cursor between lines (we saw a left-shift on
-         Chrome when the second tspan inherited only the parent anchor). -->
+         the optional "of N" line appears only when something is muted. -->
     <text text-anchor="middle" dominant-baseline="central" class="fill-slate-800">
       {#if hidden_seats > 0}
         <tspan x="0" y="-6" text-anchor="middle" style="font-size:30px;font-weight:700;font-variant-numeric:tabular-nums;">{Math.round($tally)}</tspan>
@@ -223,23 +283,6 @@
       {/if}
     </text>
   </svg>
-
-  <!-- Leader pill: anchors the story under the donut. Color dot uses the
-       same fill as the leader's slice so the eye links them instantly. -->
-  {#if leader}
-    <div class="flex items-center gap-2 text-xs">
-      <span
-        class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-medium"
-        style:background-color="{leader.color}1a"
-      >
-        <span class="inline-block w-2 h-2 rounded-full" style:background-color={leader.color}></span>
-        <span class="text-slate-700">{leader.party_short}</span>
-        <span class="text-slate-400">·</span>
-        <span class="text-slate-700 tabular-nums">{leader.seats_won} seats</span>
-        {#if leader_has_majority}
-          <span class="text-amber-600 font-semibold">· Majority</span>
-        {/if}
-      </span>
-    </div>
-  {/if}
 </div>
+
+<ChartTooltip tip={tooltip} />

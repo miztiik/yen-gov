@@ -10,6 +10,7 @@
 
   import type { PartyResult } from "./psephlab/types";
   import { colors } from "./colors/store.svelte";
+  import { majorityFor } from "./electoral";
 
   interface Props {
     parties: PartyResult[];           // pre-allocated; seats_won >= 0
@@ -110,7 +111,7 @@
 
   const layout = $derived(geometry.dots);
   const dot_radius = $derived(geometry.dot_radius);
-  const majority = $derived(Math.ceil(total_seats / 2));
+  const majority = $derived(majorityFor(total_seats));
 
   // Hover tooltip.
   let hover = $state<{ x: number; y: number; label: string } | null>(null);

@@ -31,6 +31,7 @@
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
   import { docsUrl } from "../lib/repo";
+  import { majorityFor } from "../lib/electoral";
 
   interface Props { params: { state: string; event: string } }
   let { params }: Props = $props();
@@ -95,11 +96,11 @@
   });
 
   const total_seats = $derived(actuals?.acs.length ?? 0);
-  // Indian legislature majority convention: a winning coalition needs *more*
-  // than half the seats, i.e. floor(N/2) + 1. For TN's 234-seat assembly
-  // the magic number is 118, not 117 (which is merely "half"). Same rule
-  // governs Lok Sabha (543 → 272) and every state assembly.
-  const majority = $derived(total_seats > 0 ? Math.floor(total_seats / 2) + 1 : 0);
+  // Majority threshold = strictly more than half the seats (FPTP convention).
+  // Shared helper from `lib/electoral` so Donut, Bar, ParliamentArc and
+  // every Psephlab readout agree on the same number. For TN 234 it's 118;
+  // for Lok Sabha 543 it's 272.
+  const majority = $derived(majorityFor(total_seats));
 
   // ----- Hide-party state (Phase 2 deselect) -----
   //

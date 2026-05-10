@@ -1,6 +1,6 @@
 # Frontend Overview
 
-**Last Updated**: 2026-05-10 (revision: chart visual polish — donut + bar gradients, sweep-in, majority marker)
+**Last Updated**: 2026-05-10 (revision 2: shared `electoral.ts`, `ChartTooltip`, donut min-visual-angle, ColorBrewer map legend, MarginHistogram polish)
 
 The frontend is a static Svelte 5 + Vite + Tailwind + d3 bundle that renders election artifacts from [`datasets/`](../../../datasets/). It has no production backend (CLAUDE.md Holy Law #1) and never commits data files (§4). Built with `bun`. Routed with a tiny custom hash router.
 
@@ -320,9 +320,22 @@ The hero charts on State Overview (`SeatDonut` + `PartyBar`) carry a deliberate 
 - **Soft drop shadow** (SVG `<filter>`, `feGaussianBlur` stdDev 1.6, alpha slope 0.28) and a 1-px white inter-slice stroke give the donut depth on white.
 - **Leader pill** below the donut and a small dot beside the leader's bar row anchor the headline without a separate legend.
 - **Majority signalling.** The donut shows a thin gold dashed outer ring (`#fbbf24`) only when the leading party has cleared half the chamber. The bar chart always shows a vertical dashed `Majority · N` line — the bar scale is `max(majority * 1.05, …seats_won)` so the marker is guaranteed inside the chart, and the visible *gap* between the top bar and the marker is the actual story in fragmented results (TN 2026: TVK at 108 vs majority at 117). The label flips from centred to right-anchored past 75% to avoid clipping the card edge.
-- **KPI tiles** use a thin colored top accent + tinted background (slate / emerald / sky) and `tabular-nums` so numbers align across rows.
+- **KPI tiles** are centered (`text-center`, `text-2xl font-bold tabular-nums`), with thin grey baseline rules instead of colored top accents — the colour budget is reserved for the charts themselves so the tiles read as a calm reference strip.
 
 These treatments are presentation-only. Data inputs, accessibility roles, hidden-party semantics, and tooltip text are unchanged from the earlier flat versions.
+
+### Iteration 2 — readability, honesty, shared primitives (2026-05-10)
+
+A second pass addressed concrete UA / psephology feedback. The changes below intentionally trade some visual polish for either honesty (no slice goes invisible, the majority number is correct), consistency (one tooltip, one majority formula across the whole app), or accessibility (CB-safe map legend).
+
+- **Single source of truth for the majority threshold.** `frontend/src/lib/electoral.ts` exports `majorityFor(total: number)` returning `Math.floor(total/2) + 1` — the FPTP rule "strictly more than half". `SeatDonut`, `PartyBar`, `ParliamentArc`, and `Psephlab` all import from it. Previous code paths used `Math.ceil(N/2)`, which is off-by-one for even-seat houses (TN 234 → 117 not 118). Houses with odd N (Lok Sabha 543 → 272) are unaffected, so we never noticed in mixed testing.
+- **Donut minimum visible slice.** `MIN_VISUAL_ANGLE = 0.024 rad` (~1.4°). Slices below the floor are lifted to the minimum and the borrowed angle is subtracted from the largest slice (`visual_angles` derived). This is *purely* a paint correction: the centre tally and tooltip still report true seat counts. Combined with the removal of the white inter-slice stroke (which was eating sub-2° wedges) and a wider `padAngle` of 0.018, every party that won at least one seat is now visible on the donut.
+- **House composition rename.** The donut card heading is "House composition" (was "Seat share"). Vote share and seat share are different things; the donut shows seats, so naming follows.
+- **Custom `ChartTooltip`** (`frontend/src/lib/ChartTooltip.svelte`). Native browser `<title>` tooltips are always-black, OS-styled, can't carry a party color, and can't be styled. The replacement is a fixed-positioned card with a 4-px party-colored top stripe, key/value rows in a CSS grid, optional subtitle and hint footer, and edge-detection (`$effect` reads `getBoundingClientRect` and flips left/up if the cursor is near the viewport edge). Drives are imperative (`onmouseenter` sets a `$state` object, `onmouseleave` clears). Used by `SeatDonut`, `PartyBar`, and `MarginHistogram`. **Naming gotcha**: the prop is `tip` (not `state`). Svelte 5's compiler treats a prop literally named `state` as a Svelte store accessor, which then shadows the `$state` rune (compiles to `$state()(undefined)` and crashes at runtime).
+- **MarginHistogram polish.** Added per-segment vertical gradients (party color → `d3.color(...).darker(0.45)`), drop-shadow filter (matches the donut), `~700ms` sweep-up entrance via `tweened` + `cubicOut`, custom tooltip handlers replacing native `<title>`, and filled-badge insight icons (gold trophy, rose scales, violet bolt, sky target) instead of thin stroke icons. Bars get rounded corners (`rx="2"`).
+- **Colour-blind safe map legend** (and per-row AC margin chips). The State Overview margin band uses ColorBrewer **RdYlBu** — `#d7191c` (nail-biter < 5 pp), `#fdae61` (contestable < 10 pp), `#2c7bb6` (comfortable ≥ 10 pp). This is verified safe across deuteranopia, protanopia, and tritanopia (the previous rose / amber / slate-700 trio confused colour-blind viewers because rose and slate were too close in luminance).
+- **"Opacity ∝" was misread as ∞.** The map caption now says "Darker fill = larger winning margin." in plain English. We still encode margin as alpha; we just no longer typeset it as a math glyph.
+
 
 ## See also
 

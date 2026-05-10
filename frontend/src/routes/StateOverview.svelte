@@ -225,7 +225,7 @@
           <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Constituency map</h2>
           <StateAcMap {event} state={state_code} />
           <p class="text-xs text-slate-400 mt-2">
-            Hover for winner & margin · click an AC to drill in. Opacity ∝ margin of victory.
+            Hover for winner & margin · click an AC to drill in. Darker fill = larger winning margin.
           </p>
         </div>
       {:else}
@@ -237,7 +237,7 @@
              "presence" against the surrounding white cards instead of
              floating in a flat panel. -->
         <div class="rounded-xl shadow-sm p-5 ring-1 ring-slate-200/70 bg-[radial-gradient(ellipse_at_top,_rgba(248,250,252,1)_0%,_rgba(255,255,255,1)_60%)]">
-          <h2 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3 text-center">Seat share</h2>
+          <h2 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3 text-center">House composition</h2>
           <SeatDonut
             parties={summary.party_totals}
             total_seats={summary.total_seats}
@@ -245,21 +245,23 @@
             onToggleHidden={toggleHidden}
           />
         </div>
-        <!-- KPI strip: three tiles, each with a thin top accent and large
-             tabular-nums value. Reads as a dashboard rather than a list. -->
+        <!-- KPI strip: three tiles. Numbers centered, single thin bottom
+             border in slate. The previous coloured top accents (emerald /
+             sky) added visual cost without conveying meaning — the values
+             are doing the talking now. -->
         <div class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200/70 p-4 space-y-3">
           <div class="grid grid-cols-3 gap-3">
-            <div class="rounded-lg border-t-2 border-slate-300 bg-slate-50/70 px-3 py-2">
-              <div class="text-[10px] uppercase tracking-wide text-slate-500">Total seats</div>
-              <div class="text-xl font-bold tabular-nums text-slate-800">{summary.total_seats}</div>
+            <div class="text-center px-3 py-2 border-b border-slate-200">
+              <div class="text-[10px] uppercase tracking-[0.12em] text-slate-500">Total seats</div>
+              <div class="text-2xl font-bold tabular-nums text-slate-800 mt-0.5">{summary.total_seats}</div>
             </div>
-            <div class="rounded-lg border-t-2 border-emerald-400 bg-emerald-50/60 px-3 py-2">
-              <div class="text-[10px] uppercase tracking-wide text-emerald-700/80">Votes polled</div>
-              <div class="text-xl font-bold tabular-nums text-slate-800">{summary.totals?.votes_polled?.toLocaleString() ?? "—"}</div>
+            <div class="text-center px-3 py-2 border-b border-slate-200">
+              <div class="text-[10px] uppercase tracking-[0.12em] text-slate-500">Votes polled</div>
+              <div class="text-2xl font-bold tabular-nums text-slate-800 mt-0.5">{summary.totals?.votes_polled?.toLocaleString() ?? "—"}</div>
             </div>
-            <div class="rounded-lg border-t-2 border-sky-400 bg-sky-50/60 px-3 py-2">
-              <div class="text-[10px] uppercase tracking-wide text-sky-700/80">Turnout</div>
-              <div class="text-xl font-bold tabular-nums text-slate-800">
+            <div class="text-center px-3 py-2 border-b border-slate-200">
+              <div class="text-[10px] uppercase tracking-[0.12em] text-slate-500">Turnout</div>
+              <div class="text-2xl font-bold tabular-nums text-slate-800 mt-0.5">
                 {summary.totals?.turnout_pct != null
                   ? `${summary.totals.turnout_pct.toFixed(1)}%`
                   : "—"}
@@ -386,10 +388,15 @@
           <span class="font-mono tabular-nums">12.3</span>
           right number = winner's lead in percentage points
         </span>
+        <!-- Margin-of-victory bands. Colors picked from ColorBrewer's
+             RdYlBu sequential scheme (CB-safe across protanopia /
+             deuteranopia / tritanopia). The previous rose/amber pair was
+             too close in lightness for protanopic viewers. Larger 8-px
+             swatches replace the tiny dots. -->
         <span class="inline-flex items-center gap-1.5">
-          <span class="text-rose-600 font-mono">•</span>&lt; 5
-          <span class="text-amber-600 font-mono ml-2">•</span>&lt; 10
-          <span class="text-slate-400 font-mono ml-2">•</span>≥ 10
+          <span class="inline-block w-2.5 h-2.5 rounded-sm" style:background-color="#d7191c"></span>nail-biter (&lt; 5)
+          <span class="inline-block w-2.5 h-2.5 rounded-sm ml-2" style:background-color="#fdae61"></span>contestable (&lt; 10)
+          <span class="inline-block w-2.5 h-2.5 rounded-sm ml-2" style:background-color="#2c7bb6"></span>comfortable (≥ 10)
         </span>
       </div>
       {#if by_district.length === 0}
@@ -422,11 +429,14 @@
                         <span class="text-xs text-rose-600">[{ac.reservation}]</span>
                       {/if}
                       {#if w}
+                        <!-- Margin colour follows the same RdYlBu band as
+                             the legend above (red < 5, orange < 10, blue
+                             ≥ 10). Inline hex so the per-row swatch and
+                             the legend chip can never drift apart. -->
+                        {@const mc = w.margin_pct < 5 ? "#d7191c" : w.margin_pct < 10 ? "#fdae61" : "#2c7bb6"}
                         <span
-                          class="ml-auto text-[10px] tabular-nums"
-                          class:text-rose-600={w.margin_pct < 5}
-                          class:text-amber-600={w.margin_pct >= 5 && w.margin_pct < 10}
-                          class:text-slate-400={w.margin_pct >= 10}
+                          class="ml-auto text-[10px] tabular-nums font-semibold"
+                          style:color={mc}
                           title="Winner's margin (% of votes polled)"
                         >{w.margin_pct.toFixed(1)}</span>
                       {/if}
