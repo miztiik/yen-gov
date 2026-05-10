@@ -160,6 +160,7 @@
     median_margin: number;
     close_calls: number; // seats won by < 5 points
     landslides: number;  // seats won by >= 25 points
+    avg_margin: number;
   }
   const party_stats = $derived.by<PartyStats[]>(() => {
     const by: Record<string, Row[]> = {};
@@ -168,42 +169,59 @@
       short,
       seats: rs.length,
       median_margin: median(rs.map(r => r.margin_pct)),
+      avg_margin: rs.reduce((s, r) => s + r.margin_pct, 0) / rs.length,
       close_calls: rs.filter(r => r.margin_pct < 5).length,
       landslides: rs.filter(r => r.margin_pct >= 25).length,
     })).sort((a, b) => b.seats - a.seats);
   });
 
-  const insight = $derived.by<string | null>(() => {
+  // Tightest race in the dataset — surfaces a concrete "X by Y points" hook
+  // alongside the per-party aggregates so the panel always has a story.
+  const tightest = $derived.by<Row | null>(() => {
+    const rs = rows ?? [];
+    if (rs.length === 0) return null;
+    return rs.slice().sort((a, b) => (a.margin_pct ?? 0) - (b.margin_pct ?? 0))[0];
+  });
+
+  type IconName = "trophy" | "scales" | "bolt" | "target";
+  interface Insight { icon: IconName; text: string; }
+
+  const insights = $derived.by<Insight[]>(() => {
     const ps = party_stats;
-    if (ps.length === 0) return null;
-    // Top winner sentence + closest-book finder.
+    if (ps.length === 0) return [];
+    const out: Insight[] = [];
     const top = ps[0];
+    out.push({
+      icon: "trophy",
+      text: `${top.short} won ${top.seats} seat${top.seats === 1 ? "" : "s"}, ` +
+            `with a median winning margin of ${top.median_margin.toFixed(1)} points.`,
+    });
     const closest = [...ps].filter(p => p.seats >= 3)
       .sort((a, b) => (b.close_calls / b.seats) - (a.close_calls / a.seats))[0];
+    if (closest && closest.close_calls > 0) {
+      out.push({
+        icon: "scales",
+        text: `${closest.short} ran the closest book: ${closest.close_calls} of its ` +
+              `${closest.seats} wins came by under 5 points.`,
+      });
+    }
     const landslider = [...ps].filter(p => p.seats >= 3)
       .sort((a, b) => (b.landslides / b.seats) - (a.landslides / a.seats))[0];
-    const parts: string[] = [];
-    parts.push(
-      `${top.short} won ${top.seats} seat${top.seats === 1 ? "" : "s"} ` +
-      `(median margin ${top.median_margin.toFixed(1)} pts).`
-    );
-    if (closest && closest.short !== top.short && closest.close_calls > 0) {
-      parts.push(
-        `${closest.short} ran the closest book — ${closest.close_calls} of its ` +
-        `${closest.seats} wins came by under 5 points.`
-      );
-    } else if (top.close_calls > 0) {
-      parts.push(
-        `${top.close_calls} of ${top.short}'s wins came by under 5 points.`
-      );
-    }
     if (landslider && landslider.landslides > 0 && landslider.short !== closest?.short) {
-      parts.push(
-        `${landslider.short} had the most landslides — ` +
-        `${landslider.landslides} win${landslider.landslides === 1 ? "" : "s"} by 25+ points.`
-      );
+      out.push({
+        icon: "bolt",
+        text: `${landslider.short} had the most landslides: ` +
+              `${landslider.landslides} win${landslider.landslides === 1 ? "" : "s"} by 25+ points.`,
+      });
     }
-    return parts.join(" ");
+    if (tightest && Number.isFinite(tightest.margin_pct)) {
+      out.push({
+        icon: "target",
+        text: `Tightest race: ${tightest.name} (#${tightest.eci_no}) — ` +
+              `${tightest.winner_party_short} held on by just ${tightest.margin_pct.toFixed(2)} points.`,
+      });
+    }
+    return out;
   });
 
   // Layout
@@ -232,7 +250,6 @@
           type="button"
           class="inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs transition-opacity"
           class:opacity-40={muted}
-          class:line-through={muted}
           style:border-color={chip.color}
           title={muted ? `Click to show ${chip.short}` : `Click to hide ${chip.short}`}
           onclick={() => toggle_mute(chip.key)}
@@ -316,11 +333,44 @@
       </span>
     </p>
 
-    {#if insight}
-      <p class="text-xs text-slate-700 bg-slate-50 border border-slate-200 rounded px-3 py-2 leading-relaxed">
-        <span class="font-semibold text-slate-500 uppercase text-[10px] tracking-wide mr-1">Read</span>
-        {insight}
-      </p>
+    {#if insights.length > 0}
+      <div class="text-xs bg-slate-50 border border-slate-200 rounded px-3 py-2.5 leading-relaxed">
+        <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wide text-slate-500 font-semibold mb-2">
+          <svg viewBox="0 0 16 16" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M8 1.5a3.5 3.5 0 0 0-2 6.36V10h4V7.86A3.5 3.5 0 0 0 8 1.5Z" />
+            <path d="M6 11.5h4M6.5 13.5h3" stroke-linecap="round" />
+          </svg>
+          Insights
+        </div>
+        <ul class="space-y-1.5">
+          {#each insights as ins}
+            <li class="flex items-start gap-2 text-slate-700">
+              <svg viewBox="0 0 16 16" class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                {#if ins.icon === "trophy"}
+                  <path d="M4.5 2.5h7v3a3.5 3.5 0 0 1-7 0v-3Z" />
+                  <path d="M4.5 3.5H2.5v1a2 2 0 0 0 2 2M11.5 3.5h2v1a2 2 0 0 1-2 2" />
+                  <path d="M6.5 13.5h3M5.5 13.5h5M8 9v4.5" />
+                {:else if ins.icon === "scales"}
+                  <path d="M8 2v12M3.5 14h9" />
+                  <path d="M3 5h10M3 5l-2 4a2 2 0 0 0 4 0L3 5ZM13 5l-2 4a2 2 0 0 0 4 0L13 5Z" />
+                {:else if ins.icon === "bolt"}
+                  <path d="M9 1.5 3.5 9h3.5l-1 5.5L13 7H9.5l1-5.5Z" />
+                {:else if ins.icon === "target"}
+                  <circle cx="8" cy="8" r="6" />
+                  <circle cx="8" cy="8" r="3" />
+                  <circle cx="8" cy="8" r="0.7" fill="currentColor" stroke="none" />
+                {/if}
+              </svg>
+              <span>{ins.text}</span>
+            </li>
+          {/each}
+        </ul>
+        <p class="mt-2 pt-2 border-t border-slate-200 text-[10px] text-slate-500">
+          A <strong>percentage point</strong> is the absolute gap in vote share —
+          e.g. 25 points means the winner polled 25% more of all votes cast than
+          the runner-up. Use it instead of “% bigger”, which compares ratios.
+        </p>
+      </div>
     {/if}
   {/if}
 </div>

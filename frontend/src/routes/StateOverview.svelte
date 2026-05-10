@@ -12,12 +12,15 @@
   import { states } from "../lib/states.svelte";
   import { getDb } from "../lib/sql";
   import { colors } from "../lib/colors/store.svelte";
+  import { url } from "../lib/url";
 
   interface Props { params: { state: string } }
   let { params }: Props = $props();
 
   const event = "AcGenMay2026";
-  const state_code = $derived(params.state);
+  // params.state is a SLUG (or, for backwards compatibility, an ECI code).
+  // Resolve via the reactive states store; null while loading or unknown.
+  const state_code = $derived(states.codeFromSlug(params.state));
 
   let summary = $state<ResultSummary | null>(null);
   let acs = $state<ConstituencyEntry[] | null>(null);
@@ -42,6 +45,7 @@
     winners = new Map();
     error = null;
     const sc = state_code;
+    if (!sc) return; // wait for slug → code resolution
     Promise.all([
       fetchResultSummary(event, sc),
       fetchConstituencies(sc),
@@ -54,6 +58,7 @@
     // empty rather than blocking everything else.
     (async () => {
       try {
+        if (!sc) return;
         const db = await getDb(event, sc);
         const sql = `
           SELECT c.ac_eci_no AS ac, w.party_eci_code, w.party_short,
@@ -129,18 +134,29 @@
   });
 
   let party_query = $state("");
+  // Mirror seats-by-party: hide zero-seat parties by default. The directory
+  // is the canonical place to see *all* parties that contested, but in
+  // practice 60-70% of them won zero seats and never even appeared on a
+  // chart, so the default view is winners-only with an explicit toggle.
+  let show_zero_seat_directory = $state(false);
   let ac_query = $state("");
 
   const filtered_parties = $derived.by(() => {
     const q = party_query.trim().toLowerCase();
     if (!summary) return [];
-    if (!q) return summary.party_totals;
-    return summary.party_totals.filter(p =>
+    const base = show_zero_seat_directory
+      ? summary.party_totals
+      : summary.party_totals.filter(p => p.seats_won > 0);
+    if (!q) return base;
+    return base.filter(p =>
       p.party_short.toLowerCase().includes(q) ||
       (p.party_full ?? "").toLowerCase().includes(q) ||
       (p.party_eci_code ?? "").toLowerCase().includes(q),
     );
   });
+  const directory_zero_seat_count = $derived(
+    summary ? summary.party_totals.filter(p => p.seats_won === 0).length : 0,
+  );
 
   // Group ACs by district_id, then sort districts by AC count (descending).
   // ACs without a district_id fall under a synthetic '—' bucket so the count
@@ -183,16 +199,18 @@
 
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href="#/">← All states</a></p>
+    <p class="text-xs"><a class="text-slate-500 hover:underline" href={url.home()}>← All states</a></p>
     <h1 class="text-2xl font-bold">{states.name(state_code)} — Legislative Assembly, May 2026</h1>
     <p class="text-sm text-slate-500">
-      Event <code class="font-mono">{event}</code> · State <code class="font-mono">{state_code}</code>
-      · <a class="text-blue-600 hover:underline" href={`#/s/${state_code}/explore`}>SQL explorer →</a>
-      · <a class="text-blue-600 hover:underline" href={`#/lab/${state_code}/${event}`}>Psephlab →</a>
+      Event <code class="font-mono">{event}</code> · State <code class="font-mono">{state_code ?? "…"}</code>
+      · <a class="text-blue-600 hover:underline" href={state_code ? url.explore(state_code) : url.home()}>Data explorer →</a>
+      · <a class="text-blue-600 hover:underline" href={state_code ? url.lab(state_code, event) : url.home()}>Psephlab →</a>
     </p>
   </header>
 
-  {#if error}
+  {#if !state_code}
+    <div class="text-slate-500">Resolving state …</div>
+  {:else if error}
     <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900">
       Failed to load: <code>{error}</code>
     </div>
@@ -261,8 +279,6 @@
             class="text-xs text-blue-600 hover:underline"
             onclick={() => (hidden_parties = new Set())}
           >Show all ({hidden_parties.size} muted)</button>
-        {:else}
-          <span class="text-xs text-slate-400">Click a party row to mute</span>
         {/if}
       </div>
       <p class="text-xs text-slate-500 mb-3">
@@ -308,7 +324,7 @@
         </div>
       </div>
       <p class="text-xs text-slate-500 mb-3">
-        Every party that contested, including those that won zero seats. Click a name to open its party page.
+        Every party that contested. Click a name to open its party page.
       </p>
       {#if filtered_parties.length === 0}
         <p class="text-sm text-slate-500 italic">No parties match <code>{party_query}</code>.</p>
@@ -317,7 +333,7 @@
           {#each filtered_parties as p}
             {#if p.party_eci_code}
               <li>
-                <a class="hover:underline" href={`#/s/${state_code}/party/${p.party_eci_code}`}>
+                <a class="hover:underline" href={url.party(state_code, p.party_eci_code, p.party_short)}>
                   <span class="font-medium">{p.party_short}</span>
                   <span class="text-slate-400 text-xs"> · {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
                 </a>
@@ -330,6 +346,16 @@
             {/if}
           {/each}
         </ul>
+      {/if}
+      {#if directory_zero_seat_count > 0}
+        <div class="pt-3">
+          <button
+            class="text-xs text-blue-600 hover:underline"
+            onclick={() => (show_zero_seat_directory = !show_zero_seat_directory)}
+          >{show_zero_seat_directory
+              ? `Hide ${directory_zero_seat_count} zero-seat parties`
+              : `Show ${directory_zero_seat_count} parties with no seats`}</button>
+        </div>
       {/if}
     </section>
 
@@ -349,12 +375,21 @@
           </span>
         </div>
       </div>
-      <p class="text-xs text-slate-500 mb-3">
-        Coloured square = winner's party. Number on the right = winner's margin (pts).
-        <span class="text-rose-600">red</span> &lt; 5,
-        <span class="text-amber-600">amber</span> &lt; 10,
-        <span class="text-slate-400">grey</span> ≥ 10.
-      </p>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500 mb-3">
+        <span class="inline-flex items-center gap-1.5">
+          <span class="inline-block w-2.5 h-2.5 rounded-sm bg-slate-400"></span>
+          coloured square = winning party
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+          <span class="font-mono tabular-nums">12.3</span>
+          right number = winner's lead in percentage points
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+          <span class="text-rose-600 font-mono">•</span>&lt; 5
+          <span class="text-amber-600 font-mono ml-2">•</span>&lt; 10
+          <span class="text-slate-400 font-mono ml-2">•</span>≥ 10
+        </span>
+      </div>
       {#if by_district.length === 0}
         <p class="text-sm text-slate-500 italic">No constituencies match <code>{ac_query}</code>.</p>
       {:else}
@@ -369,7 +404,7 @@
                 {#each g.acs as ac}
                   {@const w = winners.get(ac.eci_no)}
                   <li>
-                    <a class="hover:underline flex items-center gap-1.5" href={`#/s/${state_code}/ac/${ac.eci_no}`}>
+                    <a class="hover:underline flex items-center gap-1.5" href={url.ac(state_code, ac.eci_no, ac.name)}>
                       <span class="text-slate-400 inline-block w-8 text-right pr-1">{ac.eci_no}</span>
                       {#if w}
                         <span

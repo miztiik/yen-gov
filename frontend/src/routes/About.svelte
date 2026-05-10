@@ -6,20 +6,16 @@
   // doc changes, this page should be updated in the same commit so the two
   // stay in sync (CLAUDE.md Holy Law #4 — docs and code ship together).
   //
-  // Section anchors are addressable via a `?section=` query in the route
-  // hash (e.g. `#/about?section=maps`). The router (router.svelte.ts)
-  // already strips the query before pattern matching, so we read it
-  // directly from window.location.hash and scroll the matching <section>
-  // into view on mount and on hashchange. We avoid a second `#anchor`
-  // fragment because the router already owns the `#` slot.
+  // Section anchors are addressable via a `?section=` query parameter on
+  // the route URL (e.g. `/about?section=maps`). We read it from
+  // `location.search` and scroll the matching <section> into view on mount
+  // and on popstate.
 
   import { onMount } from "svelte";
+  import { REPO_URL } from "../lib/repo";
 
   function focus_section(): void {
-    const h = window.location.hash;
-    const q = h.indexOf("?");
-    if (q < 0) return;
-    const params = new URLSearchParams(h.slice(q + 1));
+    const params = new URLSearchParams(window.location.search);
     const id = params.get("section");
     if (!id) return;
     const el = document.getElementById(id);
@@ -28,8 +24,8 @@
 
   onMount(() => {
     focus_section();
-    window.addEventListener("hashchange", focus_section);
-    return () => window.removeEventListener("hashchange", focus_section);
+    window.addEventListener("popstate", focus_section);
+    return () => window.removeEventListener("popstate", focus_section);
   });
 </script>
 
@@ -42,18 +38,43 @@
   </header>
 
   <section class="space-y-3">
+    <div class="rounded-md border-l-4 border-sky-500 bg-sky-50/60 p-3 text-sm">
+      <strong>yen-gov is not just an elections site.</strong> Elections are
+      our first slice because the data is well-published and well-loved,
+      but the project is a broader civic-data hub. Future slices will cover
+      <strong>census &amp; demographics</strong>, <strong>NSO / MoSPI
+      socio-economic series</strong>, <strong>welfare-scheme reporting</strong>,
+      <strong>state-budget breakdowns</strong>, and other public datasets
+      that are scattered across portals today.
+    </div>
     <p>
       <strong>yen-gov</strong> is an open-source project that brings together
-      publicly available Indian civic data — starting with electoral results
-      and broadening over time to socio-economic, demographic, and welfare
-      indicators (census releases, NSO/MoSPI tables, scheme-level reporting,
-      and more). It pulls from official portals (Election Commission of
-      India, state Chief Electoral Officer offices, ministry statistical
-      releases) and well-known community sources (Wikipedia, MyNeta, open
-      boundary repositories), validates everything against schemas, and
-      presents it in one place — for free, with the source code and the
-      source data both open.
+      publicly available Indian civic data into one place — fully open
+      source, with the source code and the source data both visible.
     </p>
+    <p>
+      Today the site reads from these upstream sources:
+    </p>
+    <ul class="list-disc pl-5 space-y-1.5 text-sm">
+      <li>
+        <strong>Election Commission of India</strong> —
+        <a class="text-sky-700 hover:underline" href="https://results.eci.gov.in" target="_blank" rel="noreferrer">results.eci.gov.in</a>
+        for state-wise and constituency-wise results.
+      </li>
+      <li>
+        <strong>Wikipedia</strong> — reference data for state lists,
+        district lists, and constituency rosters where ECI does not
+        publish a stable machine-readable form.
+      </li>
+      <li>
+        <strong><a class="text-sky-700 hover:underline" href="https://github.com/HindustanTimesLabs/shapefiles" target="_blank" rel="noreferrer">HindustanTimesLabs/shapefiles</a></strong>
+        — assembly-constituency boundaries (MIT licensed).
+      </li>
+      <li>
+        <strong><a class="text-sky-700 hover:underline" href="https://github.com/datameet/maps" target="_blank" rel="noreferrer">datameet/maps</a></strong>
+        — state-level India boundaries (CC BY 4.0).
+      </li>
+    </ul>
     <p>
       Every dataset that ships in this site carries a <code>sources</code>
       list that names the exact URL each row was pulled from and when it
@@ -91,7 +112,7 @@
       <li>
         Found a mistake?
         <a class="text-sky-700 hover:underline"
-           href="https://github.com/miztiik/yen-gov" target="_blank" rel="noreferrer">
+           href={REPO_URL} target="_blank" rel="noreferrer">
           Open an issue or a pull request on GitHub</a>.
         Patches that come with a citation get merged fastest.
       </li>
@@ -162,7 +183,7 @@
     <p>
       Source code, data files, and contribution guidelines:
       <a class="text-sky-700 hover:underline"
-         href="https://github.com/miztiik/yen-gov" target="_blank" rel="noreferrer">github.com/miztiik/yen-gov</a>.
+         href={REPO_URL} target="_blank" rel="noreferrer">{REPO_URL.replace(/^https?:\/\//, "")}</a>.
     </p>
   </section>
 

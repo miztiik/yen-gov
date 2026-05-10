@@ -4,18 +4,25 @@
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
+  import { url } from "../lib/url";
 
-  interface Props { params: { state: string; eci_no: number } }
+  // params.state is a slug; params.eci_no is the parsed AC number from
+  // the AC slug (e.g. `167-mylapore` → 167). When the prefix is missing
+  // or unparseable, eci_no is -1 and we render the not-published path.
+  interface Props { params: { state: string; eci_no: number; ac_slug: string } }
   let { params }: Props = $props();
 
   const event = "AcGenMay2026";
+  const state_code = $derived(states.codeFromSlug(params.state));
   let result = $state<ConstituencyResult | null>(null);
   let not_published = $state(false);
   let error = $state<string | null>(null);
 
   $effect(() => {
     result = null; error = null; not_published = false;
-    fetchConstituencyResult(event, params.state, params.eci_no)
+    const sc = state_code;
+    if (!sc || params.eci_no <= 0) return;
+    fetchConstituencyResult(event, sc, params.eci_no)
       .then(r => {
         if (r === null) not_published = true;
         else result = r;
@@ -28,12 +35,12 @@
 
 <main class="max-w-4xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {states.name(params.state)} overview</a></p>
+    <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a></p>
     <h1 class="text-2xl font-bold">
       {#if result}{result.constituency_name ?? `AC ${result.eci_no}`}{:else}AC {params.eci_no}{/if}
     </h1>
     <p class="text-sm text-slate-500">
-      {states.name(params.state)} · constituency #{params.eci_no}
+      {states.name(state_code)} · constituency #{params.eci_no}
     </p>
   </header>
 
@@ -45,7 +52,7 @@
     <div class="p-5 bg-amber-50 border border-amber-200 rounded space-y-2">
       <h2 class="text-sm font-semibold uppercase text-amber-900">No result published</h2>
       <p class="text-sm text-amber-900">
-        The Election Commission has not published a result for AC #{params.eci_no} in {states.name(params.state)}.
+        The Election Commission has not published a result for AC #{params.eci_no} in {states.name(state_code)}.
         This typically means the constituency was <strong>countermanded</strong> or <strong>postponed</strong>
         — for example, if a contesting candidate died before polling, or polling was deferred.
       </p>
@@ -76,10 +83,10 @@
       </div>
     </section>
 
-    {#if STATE_AC[params.state]}
+    {#if state_code && STATE_AC[state_code]}
       <section class="bg-white rounded-lg shadow-sm p-4">
-        <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Location in {states.name(params.state)}</h2>
-        <StateAcMap {event} state={params.state} highlight_eci_no={params.eci_no} height="360px" />
+        <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Location in {states.name(state_code)}</h2>
+        <StateAcMap {event} state={state_code} highlight_eci_no={params.eci_no} height="360px" />
         <p class="text-xs text-slate-400 mt-2">
           Highlighted: AC #{params.eci_no}. Other constituencies are dimmed for context. Click any to drill in.
         </p>
@@ -103,8 +110,8 @@
               <td class="py-2 text-slate-400">{c.rank}</td>
               <td class="font-medium">{c.name}</td>
               <td>
-                {#if c.party_eci_code}
-                  <a class="hover:underline" href={`#/s/${params.state}/party/${c.party_eci_code}`}>{c.party_short}</a>
+                {#if c.party_eci_code && state_code}
+                  <a class="hover:underline" href={url.party(state_code, c.party_eci_code, c.party_short)}>{c.party_short}</a>
                 {:else}{c.party_short}{/if}
               </td>
               <td class="text-right tabular-nums">{c.votes.toLocaleString()}</td>

@@ -26,6 +26,8 @@ function source_codes(cfg: StatewideSwingConfig): string[] {
 export const statewideSwing: MutationPlugin<StatewideSwingConfig> = {
   id: "statewideSwing",
   label: "Statewide swing",
+  summary: "Per AC, move K% of each source party's votes to a single destination party. Single-target — other parties are untouched. No-op in ACs where the destination didn't contest.",
+  docs_anchor: "how-statewide-swing-works",
 
   apply(tallies: Tallies, cfg: StatewideSwingConfig): Tallies {
     if (cfg.pct <= 0) return tallies;

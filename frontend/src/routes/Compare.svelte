@@ -27,6 +27,7 @@
   import { colors } from "../lib/colors/store.svelte";
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import { states } from "../lib/states.svelte";
+  import { url } from "../lib/url";
 
   interface Props { params: { state: string; event: string } }
   let { params }: Props = $props();
@@ -34,10 +35,10 @@
   type Mode = "scn" | "elec";
 
   function fragmentParams(): URLSearchParams {
-    const h = window.location.hash;
-    const i = h.indexOf("?");
-    return new URLSearchParams(i < 0 ? "" : h.slice(i + 1));
+    return new URLSearchParams(window.location.search);
   }
+
+  const state_code = $derived(states.codeFromSlug(params.state));
 
   let mode = $state<Mode>(fragmentParams().get("mode") === "elec" ? "elec" : "scn");
   let scenario_a = $state<Scenario>(decodeScenario(fragmentParams().get("a")));
@@ -61,9 +62,8 @@
     if (b !== encodeScenario(EMPTY_SCENARIO)) p.set("b", b);
     if (mode === "elec" && event_b !== params.event) p.set("eventb", event_b);
     const q = p.toString();
-    const path = `/compare/${params.state}/${params.event}`;
-    const next = q ? `#${path}?${q}` : `#${path}`;
-    if (window.location.hash !== next) {
+    const next = window.location.pathname + (q ? "?" + q : "");
+    if (window.location.pathname + window.location.search !== next) {
       history.replaceState(null, "", next);
     }
   });
@@ -74,13 +74,17 @@
 
   $effect(() => {
     actuals_left = null;
-    void loadActuals(params.event, params.state).then(t => (actuals_left = t)).catch(() => {});
+    const sc = state_code;
+    if (!sc) return;
+    void loadActuals(params.event, sc).then(t => (actuals_left = t)).catch(() => {});
   });
   $effect(() => {
     actuals_right = null;
     load_error_right = null;
+    const sc = state_code;
+    if (!sc) return;
     const ev = mode === "elec" ? event_b : params.event;
-    void loadActuals(ev, params.state)
+    void loadActuals(ev, sc)
       .then(t => (actuals_right = t))
       .catch(e => (load_error_right = String(e)));
   });
@@ -163,10 +167,10 @@
 <div class="max-w-screen-2xl mx-auto p-4 md:p-6 space-y-4">
   <header class="space-y-1">
     <p class="text-xs">
-      <a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {states.name(params.state)} overview</a>
+      <a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a>
     </p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
-      <h1 class="text-2xl font-bold">Compare — {states.name(params.state)}</h1>
+      <h1 class="text-2xl font-bold">Compare — {states.name(state_code)}</h1>
       <div class="flex items-center gap-2 text-xs">
         <div class="inline-flex rounded border border-slate-300 overflow-hidden">
           <button
@@ -190,8 +194,8 @@
 
   {#if mode === 'scn'}
     <p class="text-xs text-slate-500">
-      Both columns work on actuals for <code class="font-mono">{params.event}</code> in {states.name(params.state)}.
-      Build each scenario in <a class="text-blue-600 hover:underline" href={`#/lab/${params.state}/${params.event}`}>Psephlab</a>, copy its share URL, then paste it into the box below for column A or B.
+      Both columns work on actuals for <code class="font-mono">{params.event}</code> in {states.name(state_code)}.
+      Build each scenario in <a class="text-blue-600 hover:underline" href={state_code ? url.lab(state_code, params.event) : url.home()}>Psephlab</a>, copy its share URL, then paste it into the box below for column A or B.
     </p>
 
     <div class="grid lg:grid-cols-[1fr_minmax(180px,auto)_1fr] gap-3 items-start">
@@ -282,7 +286,7 @@
 
   {:else}
     <p class="text-xs text-slate-500">
-      Compare actuals across two events for {states.name(params.state)}. Until additional events land under
+      Compare actuals across two events for {states.name(state_code)}. Until additional events land under
       <code class="font-mono">datasets/elections/</code>, only <code class="font-mono">{params.event}</code> is loaded.
     </p>
 
@@ -298,7 +302,7 @@
 
     {#if load_error_right}
       <div class="p-4 bg-amber-50 border border-amber-200 rounded text-amber-900 text-sm">
-        No dataset for <code class="font-mono">{event_b}</code> in {states.name(params.state)}. The election-vs-election view will activate as soon as the pipeline emits prior-election artifacts under <code class="font-mono">datasets/elections/{event_b}/{params.state}/</code>.
+        No dataset for <code class="font-mono">{event_b}</code> in {states.name(state_code)}. The election-vs-election view will activate as soon as the pipeline emits prior-election artifacts under <code class="font-mono">datasets/elections/{event_b}/{state_code}/</code>.
         <div class="text-xs text-amber-800 mt-1 font-mono break-all">{load_error_right}</div>
       </div>
     {/if}

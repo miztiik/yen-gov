@@ -169,7 +169,6 @@
       <li
         class="flex items-center gap-1.5 transition-opacity"
         class:opacity-40={muted}
-        class:line-through={muted}
         class:cursor-pointer={clickable}
         role={clickable ? "button" : undefined}
         tabindex={clickable ? 0 : undefined}

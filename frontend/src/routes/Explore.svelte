@@ -2,11 +2,13 @@
   import type { Database, QueryExecResult } from "sql.js";
   import { getDb } from "../lib/sql";
   import { states } from "../lib/states.svelte";
+  import { url } from "../lib/url";
 
   interface Props { params: { state: string } }
   let { params }: Props = $props();
 
   const event = "AcGenMay2026";
+  const state_code = $derived(states.codeFromSlug(params.state));
 
   const PRESETS: { label: string; sql: string }[] = [
     { label: "Party totals (winners)", sql: "SELECT party_short, seats_won, votes FROM party_totals ORDER BY seats_won DESC, votes DESC;" },
@@ -27,7 +29,8 @@
     loading = true;
     error = null;
     db = null;
-    const sc = params.state;
+    const sc = state_code;
+    if (!sc) return;
     getDb(event, sc)
       .then(d => { db = d; })
       .catch(e => { error = String(e); })
@@ -58,8 +61,8 @@
 
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {states.name(params.state)} overview</a></p>
-    <h1 class="text-2xl font-bold">Explore — {states.name(params.state)}</h1>
+    <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a></p>
+    <h1 class="text-2xl font-bold">Data explorer — {states.name(state_code)}</h1>
     <p class="text-sm text-slate-500">
       Ad-hoc SQL against <code class="font-mono">results.sqlite</code> for event <code>{event}</code>. Runs in your browser via sql.js.
     </p>

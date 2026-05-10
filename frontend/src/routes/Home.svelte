@@ -2,6 +2,7 @@
   import { fetchStates, type StateEntry } from "../lib/data";
   import IndiaMap from "../lib/maplibre/IndiaMap.svelte";
   import { STATE_NAME_TO_ECI } from "../lib/maplibre/sources";
+  import { url } from "../lib/url";
 
   const EVENT = "AcGenMay2026";
   // States we have data for (drives the "Available" bucket below).
@@ -25,7 +26,7 @@
       Indian civic data — starting with electoral results and growing into
       socio-economic indicators. Currently showing event
       <code class="font-mono">{EVENT}</code>. Click a state to drill in.
-      <a href="#/about" class="text-sky-700 hover:underline">What is this?</a>
+      <a href={url.about()} class="text-sky-700 hover:underline">What is this?</a>
     </p>
   </header>
 
@@ -47,7 +48,7 @@
         {#each available as st}
           <li>
             <a class="flex justify-between items-center px-2 py-3 hover:bg-slate-50 rounded"
-               href={`#/s/${st.eci_code}`}>
+               href={url.state(st.eci_code)}>
               <span class="font-medium">{st.name}</span>
               <span class="text-xs font-mono text-slate-500">{st.eci_code} · {st.iso_3166_2}</span>
             </a>
