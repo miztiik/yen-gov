@@ -29,7 +29,7 @@ The frontend uses **[MapLibre GL JS](https://maplibre.org/)** (open-source fork 
 Indian administrative boundaries are not packaged as one clean source. The pipeline:
 
 ```
-datameet/maps-* (CC0)        ← upstream
+datameet/maps + HTL/shapefiles  ← upstream (CC-BY 4.0 / MIT)
    │
    ▼ (one-time per delimitation cycle, run locally on Linux/macOS/WSL2 — see tools/boundaries/README.md)
 tools/boundaries/build.py    ← download → mapshaper simplify → tippecanoe → PMTiles
@@ -37,15 +37,20 @@ tools/boundaries/build.py    ← download → mapshaper simplify → tippecanoe 
    ▼
 datasets/boundaries/in/      ← committed PMTiles + manifest.json (populated only after CI run; absent on a fresh clone)
    ├── india-states.pmtiles
-   ├── india-districts.pmtiles
    └── ac/
        ├── S22-ac.pmtiles    (Tamil Nadu 234 ACs)
        ├── S25-ac.pmtiles    (West Bengal 294 ACs)
-       └── S11-ac.pmtiles    (Kerala 140 ACs)
-   └── manifest.json         (populated by CI; resolver falls back to upstream when missing)
+       ├── S11-ac.pmtiles    (Kerala 140 ACs)
+       └── S03-ac.pmtiles    (Assam 126 ACs — see delimitation_warning in pipeline.json)
+   └── manifest.json         (populated by CI; resolver falls back to GeoJSON snapshot or upstream when missing)
 ```
 
-Source: [datameet/maps-india](https://github.com/datameet/maps), CC0-licensed, the de-facto open boundary set. Each PMTiles file is ~200–500 KB (simplified to ~10 m precision for choropleths — election maps don't need 1 m).
+Sources:
+
+- **States outline:** [datameet/maps](https://github.com/datameet/maps) `States/Admin2.shp` (CC-BY 4.0). Includes the post-2014 Telangana split, the post-2019 Ladakh split (PR #73), and the merged Dadra-and-Nagar-Haveli-and-Daman-and-Diu UT. Replaces the geohacker/india GADM v2 (~2012) layer that pre-dated all three reorganizations.
+- **AC outlines:** [HindustanTimesLabs/shapefiles](https://github.com/HindustanTimesLabs/shapefiles) `state_ut/<state>/assembly/*.json` (MIT). One file per state, joined on `AC_NO`.
+
+Each PMTiles file is ~200–500 KB (simplified to ~10 m precision for choropleths — election maps don't need 1 m).
 
 The pipeline is **build-time only**, not runtime. Boundaries change infrequently (delimitation cycles); fetching them at user load is wasted bandwidth. They live under `datasets/boundaries/in/` once the workflow has produced them; until then, the resolver below transparently fetches GeoJSON from upstream so the map still renders. Per CLAUDE.md §12 every PMTiles file is paired with a `manifest.json` entry recording `{ url, fetched_at }` for the upstream commit.
 
@@ -99,7 +104,7 @@ Each lives under `datasets/overlays/in/<topic>.pmtiles` with the same provenance
 
 The first cut of the map components landed under `frontend/src/lib/maplibre/`:
 
-- `sources.ts` — declarative table of boundary sources (one per India-states + per-state AC layers), each with the upstream URL, the property name to join on (`NAME_1` for GADM states, `AC_NO` for HTL AC files), and license attribution. The hand-maintained `STATE_NAME_TO_ECI` map bridges GADM English state names to ECI state codes (`Tamil Nadu` → `S22`, …) so the India choropleth can look up `result.summary.json` per state.
+- `sources.ts` — declarative table of boundary sources (one per India-states + per-state AC layers), each with the upstream URL, the property name to join on (`ST_NM` for datameet states, `AC_NO` for HTL AC files), and license attribution. The hand-maintained `STATE_NAME_TO_ECI` map bridges English state names to ECI state codes (`Tamil Nadu` → `S22`, …) so the India choropleth can look up `result.summary.json` per state.
 - `MapChoropleth.svelte` — generic, library-agnostic to its parents. Takes a `BoundaryEntry`, a `fills` map keyed by the join-property value, optional `opacities` and `tooltips`, and `onSelect`/`onHover` callbacks. Owns map lifecycle and rebuilds `fill-color` / `fill-opacity` paint expressions whenever its props change (Svelte 5 `$effect`).
 - `IndiaMap.svelte` and `StateAcMap.svelte` — thin domain wrappers. `IndiaMap` fetches `result.summary.json` for every state in `STATE_NAME_TO_ECI` and colors each by leading party (most seats won, votes as tiebreak). `StateAcMap` queries `results.sqlite` via the cached `getDb` for `(ac_eci_no → winner_party_eci_code, party_short, margin_pct)` and colors AC fills by winning party with opacity proportional to margin (clamped to 30 % to keep the legend readable; ties drop to the floor so razor-thin wins visually scream "close").
 
@@ -119,13 +124,13 @@ Standalone, dependency-free Python script (urllib only, per `tools/` self-contai
 
 The sidecar exists because GeoJSON's `FeatureCollection` schema doesn't accept arbitrary top-level keys cleanly; an out-of-band sidecar is the lowest-friction way to carry provenance without bending the spec.
 
-A 4 MB per-file budget skips `india_state.geojson` (22 MB) — that layer stays on the upstream tier until it migrates to PMTiles. Smaller AC layers (Tamil Nadu, Kerala, West Bengal, Assam) all fit and are committed.
+A 12 MB per-file budget covers all current layers, including the converted datameet states layer (~11 MB at coord_precision=3, gzips to ~3 MB). Per-state AC layers (Tamil Nadu, Kerala, West Bengal, Assam) all fit comfortably and are committed.
 
 ### `AC_NO` type-coercion
 
 The HTL shapefiles (the upstream for state-level AC choropleths) export `AC_NO` as a **string** (`"2"`), while the parent results data keys ACs by integer `eci_no`. MapLibre's `["match"]` paint expression does strict equality, so a numeric key never matches a string property — leaving every polygon at the layer's default fill (the long-standing "TN constituency map renders blank slate-50" bug).
 
-`MapChoropleth.svelte`'s `fill_expression()` / `opacity_expression()` / `highlight_filter()` now wrap the property accessor in `["to-number", ["get", entry.join_property]]` whenever the lookup keys are all integer-shaped. State-name layers (`NAME_1`) keep the plain `["get", …]` form. The numeric-vs-string detection is a per-call regex check on the keys — cheap and correct without introducing a per-entry "key type" config field.
+`MapChoropleth.svelte`'s `fill_expression()` / `opacity_expression()` / `highlight_filter()` now wrap the property accessor in `["to-number", ["get", entry.join_property]]` whenever the lookup keys are all integer-shaped. State-name layers (`ST_NM`) keep the plain `["get", …]` form. The numeric-vs-string detection is a per-call regex check on the keys — cheap and correct without introducing a per-entry "key type" config field.
 
 ### Constituency drilldown — highlighted-AC mini-map
 

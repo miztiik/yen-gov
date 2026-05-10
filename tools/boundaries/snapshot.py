@@ -1,35 +1,64 @@
-"""Boundary snapshot — download raw GeoJSONs into datasets/ for in-repo serving.
+"""Boundary snapshot — fetch upstream sources and publish GeoJSON for the frontend.
 
 Why this exists alongside build.py
 ==================================
 
-build.py produces PMTiles (CC-licensed vector tiles) but requires `mapshaper`
+build.py produces PMTiles (small, range-requestable) but requires `mapshaper`
 and `tippecanoe` on PATH. Those aren't available on Windows out of the box,
 and the frontend currently runs entirely off the GeoJSON fallback path
 (see frontend/src/lib/maplibre/sources.ts > resolveSource).
 
-When that fallback fetches across the public internet from
-raw.githubusercontent.com on every page load, the maps appear blank for
-several seconds (or fail behind restrictive networks). That's a UX
-regression for what is supposed to be a static site.
-
-This script snapshots the same upstreams listed in pipeline.json into
+This script snapshots the upstreams listed in pipeline.json into
 `datasets/boundaries/in/geojson/` with a `<file>.sources.json` sidecar
 declaring CLAUDE.md §12 provenance. The frontend prefers these local copies
 and only falls back to the upstream URL when the local copy is missing.
 
+Source format dispatch
+======================
+
+Each pipeline.json entry carries a `source` block::
+
+    "source": {
+      "format": "geojson" | "shp_bundle",
+      "urls":   [str, ...]              # 1 entry for geojson; the full sibling
+                                        # bundle (.shp/.dbf/.shx/.prj/.cpg) for
+                                        # shp_bundle
+    }
+
+`format: geojson`
+    URL[0] is streamed verbatim into datasets/boundaries/in/geojson/<id>.geojson.
+    No conversion. Sidecar carries the single URL.
+
+`format: shp_bundle`
+    All URLs are downloaded into .runtime/raw/boundaries/snapshot/<id>/
+    (per ADR-0003 — intermediate artifacts never live in datasets/). pyshp
+    reads the .shp + .dbf and we hand-emit GeoJSON to
+    datasets/boundaries/in/geojson/<id>.geojson. Sidecar carries every
+    URL with a per-URL fetched_at.
+
+Adding a new format (zip+geojson, geopackage, geoparquet) is a new branch in
+`fetch_and_convert()` and a new value in pipeline.json — neither the sidecar
+schema nor the frontend resolver changes.
+
 Why a sidecar instead of a top-level `sources` field on the GeoJSON itself
-========================================================================
+==========================================================================
 
 The GeoJSON spec (RFC 7946 §7.1) reserves all top-level members and
-recommends consumers ignore unknown ones. Tooling (maplibre, mapshaper,
-tippecanoe) all tolerate extra keys, but stuffing provenance into the
-artifact muddles the format. A sibling `*.sources.json` keeps each file
-type to its native shape and still satisfies the §12 contract — every data
-file under datasets/ ships with its provenance.
+recommends consumers ignore unknown ones. Tooling tolerates extras, but
+stuffing provenance into the artifact muddles the format. A sibling
+`*.sources.json` keeps each file type to its native shape and still
+satisfies the §12 contract.
 
-Re-running the script
-=====================
+Dependencies
+============
+
+stdlib + `pyshp` (only when `format: shp_bundle` is encountered). Install
+with::
+
+    pip install pyshp
+
+Re-running
+==========
 
     python tools/boundaries/snapshot.py
 
@@ -50,72 +79,226 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+# -----------------------------------------------------------------------------
+# Constants
+# -----------------------------------------------------------------------------
+
+# Size-budget guard. Per-state AC GeoJSONs are 400KB–1MB each. The converted
+# datameet states layer at coord_precision=3 (~110 m) is ~11 MB unsimplified-
+# topology. We tolerate that as a one-time per-session fetch (gzips to ~3 MB).
+# Real geometric simplification lives in tools/boundaries/build.py via mapshaper
+# → PMTiles, which compresses this 10× further; this script is the
+# native-Python gap-filler that doesn't require Node.
+SNAPSHOT_BYTE_BUDGET = 12 * 1024 * 1024  # 12 MB per file
+
+USER_AGENT = "yen-gov-boundaries/1.0"
+
+
+# -----------------------------------------------------------------------------
+# Helpers
+# -----------------------------------------------------------------------------
+
 
 def utc_now() -> str:
     """RFC 3339 UTC timestamp; matches CLAUDE.md §12 fetched_at convention."""
     return dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-# Size-budget guard. The unsimplified India states GeoJSON from GADM is
-# ~22 MB (one of the largest single artifacts we'd commit). PMTiles compresses
-# this >10x, but until tools/boundaries/build.py runs, the country layer
-# stays on the existing live-fetch fallback (which works fine — it's only
-# the home page India map). Per-state AC GeoJSONs are 400KB–1MB each: well
-# under the threshold and worth committing for instant load.
-SNAPSHOT_BYTE_BUDGET = 4 * 1024 * 1024  # 4 MB per file
+def stream_to_disk(url: str, dest: Path) -> None:
+    """Download a URL to `dest` atomically via .part-rename."""
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    tmp = dest.with_suffix(dest.suffix + ".part")
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req) as r, tmp.open("wb") as fh:  # noqa: S310 — public CC0/MIT data
+        shutil.copyfileobj(r, fh)
+    tmp.replace(dest)
 
 
-def snapshot_one(entry: dict[str, Any], out_root: Path) -> dict[str, Any] | None:
-    """Snapshot one pipeline.json entry. Returns the manifest record, or None
-    if the entry is intentionally skipped (e.g. exceeds the size budget)."""
-    url: str = entry["url"]
-    kind: str = entry["kind"]
-    state: str | None = entry.get("state")
-
-    # Output naming mirrors the BoundaryEntry.id convention used in
-    # frontend/src/lib/maplibre/sources.ts: "india-states" or "<state>-ac".
+def derive_output_basename(entry: dict[str, Any]) -> str:
+    """Output naming mirrors the BoundaryEntry.id convention used in
+    frontend/src/lib/maplibre/sources.ts: 'india-states' or '<state>-ac'."""
+    kind = entry["kind"]
+    state = entry.get("state")
     if kind == "states":
-        basename = "india-states.geojson"
-    elif kind == "ac" and state:
-        basename = f"{state}-ac.geojson"
-    else:  # pragma: no cover — guard against pipeline.json edits
-        msg = f"unknown entry shape: kind={kind} state={state}"
+        return "india-states.geojson"
+    if kind == "ac" and state:
+        return f"{state}-ac.geojson"
+    msg = f"unknown entry shape: kind={kind} state={state}"
+    raise ValueError(msg)
+
+
+# -----------------------------------------------------------------------------
+# Per-format converters
+# -----------------------------------------------------------------------------
+
+
+def fetch_geojson(urls: list[str], out_path: Path) -> list[dict[str, str]]:
+    """Single-URL passthrough. Returns the [{url, fetched_at}] sources list."""
+    if len(urls) != 1:
+        msg = f"format=geojson expects exactly 1 url, got {len(urls)}"
+        raise ValueError(msg)
+    fetched_at = utc_now()
+    stream_to_disk(urls[0], out_path)
+    return [{"url": urls[0], "fetched_at": fetched_at}]
+
+
+def fetch_shp_bundle(
+    urls: list[str],
+    out_path: Path,
+    raw_dir: Path,
+    coord_precision: int | None = None,
+) -> list[dict[str, str]]:
+    """Download every sibling shapefile component into raw_dir, then convert
+    the .shp + .dbf to GeoJSON via pyshp.
+
+    `coord_precision` (decimal places) is a cheap geometry simplifier: rounds
+    every coordinate, which collapses the gratuitous 12-digit precision common
+    in shapefiles. 4 decimals ≈ 11 m at the equator — well below choropleth
+    rendering precision and typically shrinks output 5-10×. None = no rounding.
+
+    Returns the per-URL [{url, fetched_at}] sources list.
+    """
+    try:
+        import shapefile  # type: ignore[import-not-found]
+    except ImportError as e:  # pragma: no cover — explicit failure mode
+        msg = (
+            "format=shp_bundle requires the `pyshp` package "
+            "(`pip install pyshp`); see tools/boundaries/README.md"
+        )
+        raise RuntimeError(msg) from e
+
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    sources: list[dict[str, str]] = []
+    shp_path: Path | None = None
+    for url in urls:
+        basename = url.rsplit("/", 1)[-1]
+        dest = raw_dir / basename
+        fetched_at = utc_now()
+        stream_to_disk(url, dest)
+        sources.append({"url": url, "fetched_at": fetched_at})
+        if dest.suffix.lower() == ".shp":
+            shp_path = dest
+    if shp_path is None:
+        msg = f"shp_bundle missing a .shp URL among: {urls}"
         raise ValueError(msg)
 
+    # pyshp reads the .shp and .dbf side-by-side (same basename, same dir).
+    # Hand-emit a FeatureCollection: preserves field types and avoids any
+    # extra dependency. Polygon/MultiPolygon coverage is sufficient for
+    # admin boundaries; if a future source ships Points or Lines we widen
+    # the type map below.
+    reader = shapefile.Reader(str(shp_path.with_suffix("")))
+
+    def _round_coords(geom: Any) -> Any:
+        """Recursively round coordinate tuples and drop consecutive duplicates
+        in any ring/line. Pure-python, dependency-free; good enough to take a
+        rounded India-states layer from ~20 MB to ~3 MB without distorting
+        choropleth-scale rendering. Not topology-aware (won't merge shared
+        borders) — for that, run tools/boundaries/build.py with mapshaper."""
+        if coord_precision is None:
+            return geom
+        p = coord_precision
+
+        def _is_pair(node: Any) -> bool:
+            return (
+                isinstance(node, (list, tuple))
+                and len(node) >= 2
+                and all(isinstance(c, (int, float)) for c in node)
+            )
+
+        def _round_pair(node: Any) -> list[float]:
+            return [round(float(c), p) for c in node]
+
+        def _walk(node: Any) -> Any:
+            if _is_pair(node):
+                return _round_pair(node)
+            if isinstance(node, (list, tuple)):
+                # Ring of coordinate pairs: dedup consecutive identical points.
+                if node and all(_is_pair(c) for c in node):
+                    out: list[list[float]] = []
+                    for c in node:
+                        rc = _round_pair(c)
+                        if not out or out[-1] != rc:
+                            out.append(rc)
+                    return out
+                return [_walk(c) for c in node]
+            return node
+
+        return {**geom, "coordinates": _walk(geom.get("coordinates"))}
+
+    geojson = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": dict(zip([f[0] for f in reader.fields[1:]], rec.record, strict=False)),
+                "geometry": _round_coords(rec.shape.__geo_interface__),
+            }
+            for rec in reader.iterShapeRecords()
+        ],
+    }
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w", encoding="utf-8", newline="\n") as fh:
+        json.dump(geojson, fh, ensure_ascii=False)
+        fh.write("\n")
+    reader.close()
+    return sources
+
+
+# -----------------------------------------------------------------------------
+# Per-entry orchestration
+# -----------------------------------------------------------------------------
+
+
+def snapshot_one(
+    entry: dict[str, Any],
+    out_root: Path,
+    raw_root: Path,
+) -> dict[str, Any] | None:
+    """Snapshot one pipeline.json entry. Returns the manifest record, or None
+    if the entry is intentionally skipped (e.g. exceeds the size budget)."""
+    source = entry["source"]
+    fmt: str = source["format"]
+    urls: list[str] = source["urls"]
+
+    basename = derive_output_basename(entry)
     out_path = out_root / basename
     sidecar_path = out_path.with_suffix(out_path.suffix + ".sources.json")
-    label = f"{kind}:{state}" if state else kind
+    label = f"{entry['kind']}:{entry.get('state', '-')}"
 
-    print(f"[{label}] {url}", flush=True)
-    fetched_at = utc_now()
+    print(f"[{label}] format={fmt} ({len(urls)} url{'s' if len(urls) != 1 else ''})", flush=True)
+    for u in urls:
+        print(f"  {u}", flush=True)
 
-    # Probe size before committing the download to disk. urllib.request gives
-    # us Content-Length on a streamed GET; we honour it and bail before
-    # writing when the budget is exceeded.
-    req = urllib.request.Request(url, headers={"User-Agent": "yen-gov-boundaries/1.0"})
-    with urllib.request.urlopen(req) as r:  # noqa: S310 — public CC0/MIT data
-        cl_header = r.headers.get("Content-Length")
-        size = int(cl_header) if cl_header and cl_header.isdigit() else None
-        if size is not None and size > SNAPSHOT_BYTE_BUDGET:
-            print(
-                f"  SKIP — {size / 1024 / 1024:.1f} MB exceeds "
-                f"{SNAPSHOT_BYTE_BUDGET / 1024 / 1024:.0f} MB budget; "
-                "frontend will use the live-fetch fallback for this layer.",
-                flush=True,
-            )
-            return None
-        # Within budget — stream to disk via .part-rename so partial
-        # downloads don't masquerade as complete artifacts on retry.
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        tmp = out_path.with_suffix(out_path.suffix + ".part")
-        with tmp.open("wb") as fh:
-            shutil.copyfileobj(r, fh)
-        tmp.replace(out_path)
+    if fmt == "geojson":
+        sources = fetch_geojson(urls, out_path)
+    elif fmt == "shp_bundle":
+        bundle_dir = raw_root / "snapshot" / basename.removesuffix(".geojson")
+        sources = fetch_shp_bundle(
+            urls,
+            out_path,
+            bundle_dir,
+            coord_precision=source.get("coord_precision"),
+        )
+    else:  # pragma: no cover — caught at config-parse time in practice
+        msg = f"unknown source.format: {fmt!r}"
+        raise ValueError(msg)
 
-    # Sidecar: minimal CLAUDE.md §12 envelope. We deliberately don't echo
-    # the license here — that lives in pipeline.json and the boundary
-    # manifest. Sidecar is provenance only. Validated against
-    # datasets/schemas/boundary.sources.schema.json by the Tier-B validator.
+    # Enforce budget *after* materializing — we don't know the converted
+    # GeoJSON size until pyshp has emitted it. If we overshoot, delete the
+    # output (and skip writing the sidecar) so the frontend transparently
+    # falls back to the upstream URL.
+    size = out_path.stat().st_size
+    if size > SNAPSHOT_BYTE_BUDGET:
+        out_path.unlink()
+        print(
+            f"  SKIP — converted output {size / 1024 / 1024:.1f} MB exceeds "
+            f"{SNAPSHOT_BYTE_BUDGET / 1024 / 1024:.0f} MB budget; "
+            "frontend will use the live-fetch fallback for this layer.",
+            flush=True,
+        )
+        return None
+
     sidecar = {
         "$schema": "https://yen-gov.github.io/schemas/boundary.sources.schema.json",
         "$schema_version": "1.0",
@@ -125,7 +308,7 @@ def snapshot_one(entry: dict[str, Any], out_root: Path) -> dict[str, Any] | None
             "required `sources` array on its behalf."
         ),
         "for": basename,
-        "sources": [{"url": url, "fetched_at": fetched_at}],
+        "sources": sources,
     }
     with sidecar_path.open("w", encoding="utf-8", newline="\n") as fh:
         json.dump(sidecar, fh, indent=2, ensure_ascii=False)
@@ -134,13 +317,18 @@ def snapshot_one(entry: dict[str, Any], out_root: Path) -> dict[str, Any] | None
     record: dict[str, Any] = {
         "id": basename.removesuffix(".geojson"),
         "path": f"boundaries/in/geojson/{basename}",
-        "kind": kind,
-        "size_bytes": out_path.stat().st_size,
-        "fetched_at": fetched_at,
+        "kind": entry["kind"],
+        "size_bytes": size,
+        "fetched_at": sources[-1]["fetched_at"],
     }
-    if state:
-        record["state"] = state
+    if "state" in entry:
+        record["state"] = entry["state"]
     return record
+
+
+# -----------------------------------------------------------------------------
+# CLI
+# -----------------------------------------------------------------------------
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -167,9 +355,12 @@ def main(argv: list[str] | None = None) -> int:
         cfg = json.load(fh)
 
     out_root = root / "datasets" / "boundaries" / "in" / "geojson"
+    raw_root = root / cfg.get("raw_dir", ".runtime/raw/boundaries")
     out_root.mkdir(parents=True, exist_ok=True)
 
-    records = [r for r in (snapshot_one(e, out_root) for e in cfg["inputs"]) if r is not None]
+    records = [
+        r for r in (snapshot_one(e, out_root, raw_root) for e in cfg["inputs"]) if r is not None
+    ]
 
     print(f"\nsnapshotted {len(records)} files into {out_root.relative_to(root)}/")
     for r in records:

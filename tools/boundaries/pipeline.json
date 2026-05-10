@@ -1,5 +1,5 @@
 {
-  "$comment": "Pipeline config for tools/boundaries/build.py. Each entry under 'inputs' describes one upstream GeoJSON we want to ingest, simplify, and pack into a PMTiles file under datasets/boundaries/in/. Edit this file to add states or change sources; build.py reads it verbatim.",
+  "$comment": "Pipeline config for tools/boundaries/{snapshot,build}.py. Each entry under 'inputs' is one logical boundary layer. The `source` block separates *where the bytes come from* (urls, format) from *what we publish* (a GeoJSON at datasets/boundaries/in/geojson/<id>.geojson plus a sidecar). Adding a new upstream format (shapefile zip, GeoPackage, GeoParquet) is now an additive change to source.format, not a rewrite of the scripts. See tools/boundaries/README.md for the rationale.",
   "outputs_dir": "datasets/boundaries/in",
   "raw_dir": ".runtime/raw/boundaries",
   "inputs": [
@@ -7,12 +7,22 @@
       "kind": "states",
       "country": "IN",
       "out": "india-states.pmtiles",
-      "url": "https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson",
-      "license": "CC-BY 4.0 (GADM v2 derivative)",
-      "license_url": "https://gadm.org/license.html",
-      "name_property": "NAME_1",
+      "source": {
+        "format": "shp_bundle",
+        "urls": [
+          "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.shp",
+          "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.dbf",
+          "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.shx",
+          "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.prj",
+          "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.cpg"
+        ],
+        "coord_precision": 3
+      },
+      "license": "CC-BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "name_property": "ST_NM",
       "id_property": null,
-      "id_property_note": "geohacker repackages GADM v2; no ECI state code embedded. The frontend joins on NAME_1 via a name-to-eci_code map (datasets/reference/in/states.json).",
+      "id_property_note": "datameet/maps Admin2 carries no ECI state code. The frontend joins on ST_NM via STATE_NAME_TO_ECI in frontend/src/lib/maplibre/sources.ts. datameet incorporates the post-2014 Telangana split, the post-2019 Ladakh split (PR datameet/maps#73), and the merged Dadra-and-Nagar-Haveli-and-Daman-and-Diu UT. Replaces the geohacker/india GADM v2 (~2012) layer that pre-dated all three reorganizations.",
       "tippecanoe": {
         "minzoom": 0,
         "maxzoom": 6,
@@ -25,7 +35,12 @@
       "country": "IN",
       "state": "S22",
       "out": "ac/S22-ac.pmtiles",
-      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/tamilnadu/assembly/tamilnadu_AC.json",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/tamilnadu/assembly/tamilnadu_AC.json"
+        ]
+      },
       "license": "MIT",
       "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
       "ac_no_property": "AC_NO",
@@ -41,7 +56,12 @@
       "country": "IN",
       "state": "S11",
       "out": "ac/S11-ac.pmtiles",
-      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/kerala/assembly/kerala_AC.json",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/kerala/assembly/kerala_AC.json"
+        ]
+      },
       "license": "MIT",
       "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
       "ac_no_property": "AC_NO",
@@ -57,7 +77,12 @@
       "country": "IN",
       "state": "S25",
       "out": "ac/S25-ac.pmtiles",
-      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/westbengal/assembly/westbengal_AC.json",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/westbengal/assembly/westbengal_AC.json"
+        ]
+      },
       "license": "MIT",
       "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
       "ac_no_property": "AC_NO",
@@ -73,7 +98,12 @@
       "country": "IN",
       "state": "S03",
       "out": "ac/S03-ac.pmtiles",
-      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/assam/assembly/assam_AC.json",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/assam/assembly/assam_AC.json"
+        ]
+      },
       "license": "MIT",
       "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
       "ac_no_property": "AC_NO",

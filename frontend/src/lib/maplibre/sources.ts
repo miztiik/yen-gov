@@ -7,18 +7,18 @@
 //   2. Local GeoJSON snapshot under datasets/boundaries/in/geojson/ (produced
 //      by tools/boundaries/snapshot.py and committed to the repo). Loads in
 //      a single same-origin request, no public network hop required.
-//   3. Direct upstream GeoJSON URL on raw.githubusercontent.com. Last-resort
-//      fallback for layers that are too large to commit (e.g. the 22 MB
-//      india-states GADM file) and for development before snapshot.py has
-//      been run.
+//   3. Direct upstream GeoJSON URL (raw.githubusercontent.com or similar).
+//      Last-resort fallback when no snapshot exists — used only during
+//      development before snapshot.py has been run for a new layer.
 //
 // When PMTiles arrive, only `resolveSource()` changes; the map components
 // don't care which tier wins.
 //
-// State-name → ECI code map: GADM-derived india_state.geojson tags features
-// with NAME_1. We need the ECI state code (S22, S25, ...) to look up
-// per-state result summaries. Hand-maintained because GADM names are stable
-// English forms and we control which state codes ship in datasets/.
+// State-name → ECI code map: datameet/maps Admin2 tags features with ST_NM
+// (post-2014 Telangana split, post-2019 Ladakh split, merged DNH-DD UT — all
+// included). We need the ECI state code (S22, S25, ...) to look up per-state
+// result summaries. Hand-maintained because state names are stable English
+// forms and we control which state codes ship in datasets/.
 
 export interface BoundaryEntry {
   /** Stable id used in URL paths and join keys. */
@@ -40,17 +40,19 @@ export interface BoundaryEntry {
   attribution: string;
 }
 
-// India-wide states layer. Property NAME_1 = English state name (GADM).
-// No local snapshot — unsimplified india_state.geojson is ~22 MB, over the
-// snapshot byte budget. Stays on the live-fetch path until PMTiles ships.
+// India-wide states layer. Property ST_NM = English state name (datameet).
+// Snapshotted locally; the upstream URL points at the .shp (the snapshot
+// script converts datameet's shapefile bundle into GeoJSON — the URL is
+// kept for the manifest/sidecar and as a documentation pointer).
 export const INDIA_STATES: BoundaryEntry = {
   id: "india-states",
   label: "India — states",
+  geojson_local_path: "boundaries/in/geojson/india-states.geojson",
   geojson_url:
-    "https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson",
-  join_property: "NAME_1",
+    "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.shp",
+  join_property: "ST_NM",
   attribution:
-    '<a href="https://gadm.org/" target="_blank" rel="noreferrer">GADM</a> via geohacker/india (CC BY 4.0)',
+    '<a href="https://github.com/datameet/maps" target="_blank" rel="noreferrer">DataMeet India Maps</a> (CC BY 4.0)',
 };
 
 // Per-state AC layers. Property AC_NO = 1-based per-state constituency number,

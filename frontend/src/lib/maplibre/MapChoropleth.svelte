@@ -84,7 +84,7 @@
   // strict equality, so a numeric key never matches a string property
   // (causing every polygon to fall through to default_fill — looks blank).
   // When the caller's keys all parse as integers we coerce the property
-  // with `["to-number"]` so both shapes resolve. NAME_1 (state name) is
+  // with `["to-number"]` so both shapes resolve. ST_NM (state name) is
   // genuinely a string, so the coercion is gated on the key kind.
   function keys_are_numeric(keys: string[]): boolean {
     return keys.length > 0 && keys.every(k => /^-?\d+$/.test(k));
