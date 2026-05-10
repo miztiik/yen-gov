@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/boundary.sources.schema.json",
+  "title": "Boundary GeoJSON provenance sidecar",
+  "description": "CLAUDE.md §12 provenance sidecar for a sibling boundary GeoJSON file. GeoJSON (RFC 7946 §7.1) reserves all top-level members; rather than muddle the artifact with non-spec metadata, a sibling `<file>.sources.json` carries the required `sources` array on its behalf. Emitted by tools/boundaries/snapshot.py.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-10",
+      "description": "Initial schema. Locks the sidecar shape (for, sources) so the two-tier validator (CLAUDE.md §11) accepts these files instead of flagging them as orphans."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "for", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+    "for": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\.geojson$",
+      "description": "Basename of the sibling GeoJSON this sidecar describes (e.g. \"S22-ac.geojson\")."
+    },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. An empty array signals hand-authored content.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  }
+}
