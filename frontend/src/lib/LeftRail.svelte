@@ -245,7 +245,14 @@
    * 'Gov' uses the dark green stripe (#138808), with the navy chakra
    * between them — a quiet tricolor nod without being literal.
    */
-  .brand-wordmark {
+  /* Use :where() to drop the selector specificity to (0,0,0) so Tailwind's
+   * `hidden` utility (display:none) wins on viewports where we explicitly
+   * mark the brand as hidden. Without this, `.brand-wordmark { display:
+   * inline-flex }` had higher specificity than `.hidden`, so the drawer
+   * brand (which carries `hidden lg:flex`) stayed visible at every width
+   * — mobile users saw the wordmark twice (once in the lg:hidden top
+   * header, once inside the slide-in drawer). */
+  :where(.brand-wordmark) {
     font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
     font-weight: 300;
     font-size: 1.25rem;
