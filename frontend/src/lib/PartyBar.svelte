@@ -107,13 +107,26 @@
 <div class="relative pt-5">
   <!-- Track-area overlay: matches the bar layout (label gutter w-20 + gap-3
        + flex-1 track) so the dashed marker lines up with the actual bar
-       pixels rather than the card padding. -->
-  <div class="pointer-events-none absolute inset-0 flex items-stretch gap-3 z-0" aria-hidden="true">
+       pixels rather than the card padding. The overlay sits ABOVE the
+       bars (z-20 vs the bar wrapper's z-10) so the marker visibly cuts
+       *through* every bar — NYT / FT style. The line is solid amber
+       with a thin white halo so it stays readable against red, green,
+       and blue party fills alike. -->
+  <div class="pointer-events-none absolute inset-0 flex items-stretch gap-3 z-20" aria-hidden="true">
     <div class="w-20 shrink-0"></div>
     <div class="relative flex-1">
       {#if majority_pct < 100}
+        <!-- White halo (drawn first, slightly wider) so the gold line
+             always has contrast against any party color underneath. -->
         <div
-          class="absolute top-5 bottom-10 border-l-2 border-dashed border-amber-400/80"
+          class="absolute top-5 bottom-0 border-l-[3px] border-white/80"
+          style:left="calc({majority_pct}% - 0.5px)"
+        ></div>
+        <!-- The gold guide itself. Solid (not dashed) so it reads as a
+             continuous threshold, like the 270 line in NYT US-election
+             coverage. -->
+        <div
+          class="absolute top-5 bottom-0 border-l-2 border-amber-500"
           style:left="{majority_pct}%"
         ></div>
         <!-- Label flips to right-anchored when the marker sits past 75 %
@@ -122,14 +135,14 @@
              the label has its own real estate and never overlaps a bar. -->
         {#if majority_pct > 75}
           <div
-            class="absolute top-0 text-[10px] font-medium text-amber-600 whitespace-nowrap"
+            class="absolute top-0 text-[11px] font-semibold text-amber-700 whitespace-nowrap bg-white/90 px-1.5 rounded"
             style:right="calc({100 - majority_pct}% + 4px)"
           >
             Majority · {majority}
           </div>
         {:else}
           <div
-            class="absolute top-0 text-[10px] font-medium text-amber-600 -translate-x-1/2 whitespace-nowrap"
+            class="absolute top-0 text-[11px] font-semibold text-amber-700 -translate-x-1/2 whitespace-nowrap bg-white/90 px-1.5 rounded"
             style:left="{majority_pct}%"
           >
             Majority · {majority}
@@ -222,16 +235,11 @@
     {/each}
   </div>
 
-  <div class="text-xs text-slate-500 pt-3 flex items-center gap-2 flex-wrap">
-    <span class="inline-flex items-center gap-1.5">
-      <span class="inline-block w-3 border-t-2 border-dashed border-amber-400/80 align-middle"></span>
-      <span>Majority threshold ({majority} of {total_seats})</span>
-    </span>
-    {#if hidden_parties && hidden_parties.size > 0}
-      <span class="text-slate-300">·</span>
-      <span class="text-slate-400">{hidden_parties.size} party muted</span>
-    {/if}
-  </div>
+  {#if hidden_parties && hidden_parties.size > 0}
+    <div class="text-xs text-slate-400 pt-3">
+      {hidden_parties.size} party muted
+    </div>
+  {/if}
 </div>
 
 <ChartTooltip tip={tooltip} />
