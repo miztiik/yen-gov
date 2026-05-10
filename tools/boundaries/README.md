@@ -38,6 +38,8 @@ datasets/boundaries/in/
 | AS (S03) | same repo, `state_ut/assam/assembly/assam_AC.json` | MIT | ⚠️ may not match post-2008 delimitation; verify (see below) |
 | India states | [datameet/maps](https://github.com/datameet/maps) `States/Admin2.{shp,dbf,shx,prj,cpg}` | CC-BY 4.0 | 36 features; joins on `ST_NM`. Includes the post-2014 Telangana split, post-2019 Ladakh split (PR #73), and merged DNH-DD UT. Replaces the GADM v2 layer that pre-dated all three reorganizations. |
 
+For the full catalogue — including alternatives evaluated (yashveeeeeeer/india-geodata, datta07/INDIAN-SHAPEFILES, datameet's national `India_AC.shp`), what "LGD release" means, and the bar a new boundary source has to clear before being added — see [`docs/reference/boundary-data-sources.md`](../../docs/reference/boundary-data-sources.md).
+
 ### ⚠️ Assam delimitation caveat
 
 The Assam AC shapefile may predate the 2008 Delimitation Order's revisions. Before the boundaries workflow PR is merged, cross-check that every `AC_NO` 1..126 in the simplified GeoJSON matches a constituency under [`datasets/reference/in/states/S03/constituencies.json`](../../datasets/reference/in/states/S03/constituencies.json) (compare names too, not just counts — a renumbering would pass a count check but produce a wrong-color map). If they don't match, hold the merge and source a 2026-current shapefile.
