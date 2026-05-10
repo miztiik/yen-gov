@@ -6,6 +6,7 @@
   import PartyBar from "../lib/PartyBar.svelte";
   import SeatDonut from "../lib/SeatDonut.svelte";
   import MarginHistogram from "../lib/MarginHistogram.svelte";
+  import SourceList from "../lib/SourceList.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
@@ -168,23 +169,29 @@
             onToggleHidden={toggleHidden}
           />
         </div>
-        <div class="bg-white rounded-lg shadow-sm p-4 grid grid-cols-2 gap-3 text-sm">
-          <div>
-            <div class="text-[10px] uppercase tracking-wide text-slate-500">Total seats</div>
-            <div class="text-lg font-semibold">{summary.total_seats}</div>
+        <div class="bg-white rounded-lg shadow-sm p-4 space-y-3">
+          <!-- Three tiles instead of four. The previous fourth tile ("Schema 3.0")
+               leaked an internal version into a user-facing KPI grid; provenance
+               + schema now live in the on-demand <SourceList/> footer below. -->
+          <div class="grid grid-cols-3 gap-3 text-sm">
+            <div>
+              <div class="text-[10px] uppercase tracking-wide text-slate-500">Total seats</div>
+              <div class="text-lg font-semibold">{summary.total_seats}</div>
+            </div>
+            <div>
+              <div class="text-[10px] uppercase tracking-wide text-slate-500">Votes polled</div>
+              <div class="text-lg font-semibold">{summary.totals?.votes_polled?.toLocaleString() ?? "—"}</div>
+            </div>
+            <div>
+              <div class="text-[10px] uppercase tracking-wide text-slate-500">Turnout</div>
+              <div class="text-lg font-semibold">
+                {summary.totals?.turnout_pct != null
+                  ? `${summary.totals.turnout_pct.toFixed(1)}%`
+                  : "—"}
+              </div>
+            </div>
           </div>
-          <div>
-            <div class="text-[10px] uppercase tracking-wide text-slate-500">Votes polled</div>
-            <div class="text-lg font-semibold">{summary.totals?.votes_polled?.toLocaleString() ?? "—"}</div>
-          </div>
-          <div>
-            <div class="text-[10px] uppercase tracking-wide text-slate-500">Sources</div>
-            <div class="text-lg font-semibold">{summary.sources.length}</div>
-          </div>
-          <div>
-            <div class="text-[10px] uppercase tracking-wide text-slate-500">Schema</div>
-            <div class="text-lg font-semibold font-mono">{summary.$schema_version}</div>
-          </div>
+          <SourceList sources={summary.sources} schema_version={summary.$schema_version} />
         </div>
       </div>
     </section>
