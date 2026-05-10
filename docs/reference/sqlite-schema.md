@@ -1,8 +1,8 @@
 # SQLite layout: `results.sqlite`
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-10
 
-This page is the canonical layout for the per-state `.sqlite` artifact emitted by `yen-gov run`. The design rationale (one DB per state, derived not contract, etc.) lives in [backend/emit-sqlite.md](../architecture/backend/emit-sqlite.md).
+This page is the canonical layout for the per-state `.sqlite` artifact emitted by `yen-gov run`. The design rationale (one DB per state, derived not contract, etc.) lives in [backend/emit-sqlite.md](../architecture/backend/emit-sqlite.md). Column-name discipline (`ac_eci_no` for the per-state ECI Assembly Constituency number, etc.) follows [ADR-0019](../architecture/decisions/0019-dataset-topology-and-column-discipline.md) and is documented in [identifiers.md](identifiers.md#canonical-column-names-sqlite-emitters).
 
 ## File location
 
@@ -14,7 +14,7 @@ One file per `(event, state)` pair, written by `backend/yen_gov/emit/sqlite.py` 
 
 ## Versioning
 
-The layout is versioned via SQLite's standard `PRAGMA user_version`. The current value is **`1`**. Any change to a table, column, index, or view bumps it monotonically. The Python emitter sets the version; consumers read it on load and refuse incompatible versions.
+The layout is versioned via SQLite's standard `PRAGMA user_version`. The current value is **`2`** (v2 renamed the AC-number column to `ac_eci_no` per [ADR-0019](../architecture/decisions/0019-dataset-topology-and-column-discipline.md); v1 used `eci_no` / `constituency_eci_no`). Any change to a table, column, index, or view bumps it monotonically. The Python emitter sets the version; consumers read it on load and refuse incompatible versions.
 
 There is **no** JSON Schema for `.sqlite` — JSON Schema doesn't describe SQL. The version → layout mapping is this document.
 
@@ -34,7 +34,7 @@ One row per AC.
 
 | Column         | Type     | Notes                                  |
 | -------------- | -------- | -------------------------------------- |
-| `eci_no`       | INT PK   | 1-based, per-state.                    |
+| `ac_eci_no`    | INT PK   | Per-state ECI Assembly Constituency number, 1-based. Canonical name per [ADR-0019](../architecture/decisions/0019-dataset-topology-and-column-discipline.md). |
 | `name`         | TEXT NN  | As reported by ECI; empty string if absent. |
 | `votes_polled` | INTEGER  | From the per-AC totals.                |
 
@@ -43,7 +43,7 @@ One row per candidate per AC, plus one row per AC for NOTA (`is_nota = 1`, `part
 
 | Column                | Type     | Notes                                                              |
 | --------------------- | -------- | ------------------------------------------------------------------ |
-| `constituency_eci_no` | INT NN FK → `constituencies.eci_no` |                                          |
+| `ac_eci_no`           | INT NN FK → `constituencies.ac_eci_no` | Same canonical name as the parent table.        |
 | `rank`                | INT NN   | From the JSON. NOTA gets `rank = max(candidate ranks) + 1` so the PK is unique. |
 | `name`                | TEXT NN  | `"NOTA"` for NOTA rows.                                            |
 | `party_eci_code`      | TEXT FK → `parties.eci_code` (nullable) | NULL for independents and NOTA.            |
@@ -52,7 +52,7 @@ One row per candidate per AC, plus one row per AC for NOTA (`is_nota = 1`, `part
 | `vote_share_pct`      | REAL NN  | 0–100.                                                             |
 | `is_winner`           | INT NN   | 1 only on the winning row per AC; 0 otherwise.                     |
 | `is_nota`             | INT NN   | 1 on NOTA rows; 0 otherwise.                                       |
-| **PK**                | (`constituency_eci_no`, `rank`)         |                                                |
+| **PK**                | (`ac_eci_no`, `rank`)                   |                                                |
 
 ### Indexes
 

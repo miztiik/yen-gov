@@ -27,11 +27,11 @@ export function loadActuals(event: string, state: string): Promise<Tallies> {
     // Pull constituencies and candidates in two queries — cheaper than one
     // join with redundant constituency rows multiplied by candidate count.
     const cs = db.exec(
-      `SELECT eci_no, name, votes_polled FROM constituencies ORDER BY eci_no;`,
+      `SELECT ac_eci_no, name, votes_polled FROM constituencies ORDER BY ac_eci_no;`,
     );
     const cands = db.exec(
-      `SELECT constituency_eci_no, name, party_eci_code, party_short, votes, is_nota
-       FROM candidates ORDER BY constituency_eci_no, rank;`,
+      `SELECT ac_eci_no, name, party_eci_code, party_short, votes, is_nota
+       FROM candidates ORDER BY ac_eci_no, rank;`,
     );
 
     const acs: AcTally[] = [];

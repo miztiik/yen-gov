@@ -4,10 +4,11 @@
   // Hover shows the AC name + winner + margin; click navigates to the AC
   // detail page.
   //
-  // Joins AC_NO from the boundary GeoJSON to constituency_eci_no in
-  // results.sqlite. The HTL shapefiles use 1-based AC_NO matching ECI's
-  // numbering, except for Assam where boundaries predate the 2023
-  // delimitation (caveat surfaced in sources.ts attribution).
+  // Joins AC_NO from the boundary GeoJSON to the canonical `ac_eci_no`
+  // column in results.sqlite (ADR-0019). The HTL shapefiles use 1-based
+  // AC_NO matching ECI's numbering, except for Assam where boundaries
+  // predate the 2023 delimitation (caveat surfaced in sources.ts
+  // attribution).
 
   import MapChoropleth from "./MapChoropleth.svelte";
   import { STATE_AC } from "./sources";
@@ -48,13 +49,13 @@
       try {
         const db = await getDb(ev, st);
         const sql = `
-          SELECT c.eci_no, c.name,
+          SELECT c.ac_eci_no AS eci_no, c.name,
                  w.party_eci_code AS winner_party_eci_code,
                  w.party_short    AS winner_party_short,
                  100.0 * (w.votes - r2.votes) / NULLIF(c.votes_polled, 0) AS margin_pct
           FROM constituencies c
-          JOIN candidates w  ON w.constituency_eci_no  = c.eci_no AND w.is_winner = 1
-          LEFT JOIN candidates r2 ON r2.constituency_eci_no = c.eci_no AND r2.rank = 2 AND r2.is_nota = 0;
+          JOIN candidates w  ON w.ac_eci_no  = c.ac_eci_no AND w.is_winner = 1
+          LEFT JOIN candidates r2 ON r2.ac_eci_no = c.ac_eci_no AND r2.rank = 2 AND r2.is_nota = 0;
         `;
         const res = db.exec(sql);
         if (!res[0]) { rows = []; return; }
