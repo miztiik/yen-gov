@@ -1,0 +1,238 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Tamil_Nadu",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "List of chief ministers of Tamil Nadu",
+      "authority": "Wikipedia (CC BY-SA 4.0; verified against ECI Statistical Reports per term)"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+      "fetched_at": "2026-05-10T22:32:24Z",
+      "name": "Tamil Nadu Legislative Assembly Election 2026 partywise result",
+      "authority": "Election Commission of India"
+    },
+    {
+      "url": "https://old.eci.gov.in/files/file/13680-tamil-nadu-general-legislative-election-2021/",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "Tamil Nadu General Legislative Election 2021 Statistical Report",
+      "authority": "Election Commission of India"
+    },
+    {
+      "url": "https://old.eci.gov.in/files/file/3473-tamil-nadu-general-legislative-election-2016/",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "Tamil Nadu General Legislative Election 2016 Statistical Report",
+      "authority": "Election Commission of India"
+    },
+    {
+      "url": "https://old.eci.gov.in/files/file/3340-tamil-nadu-2011/",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "Tamil Nadu General Legislative Election 2011 Statistical Report",
+      "authority": "Election Commission of India"
+    },
+    {
+      "url": "https://old.eci.gov.in/files/file/3339-tamil-nadu-2006/",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "Tamil Nadu General Legislative Election 2006 Statistical Report",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S22",
+  "terms": [
+    {
+      "start": "1989-01-27",
+      "end": "1991-01-30",
+      "regime": "elected",
+      "party_code": "582",
+      "alliance": null,
+      "cm_name": "M. Karunanidhi",
+      "notes": "Second non-consecutive term. State government dismissed on 30 January 1991 by the Union government invoking Article 356 (largely on law-and-order grounds following LTTE-related concerns); replaced by President's Rule until the June 1991 election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/M._Karunanidhi", "note": "Term dates and dismissal background." }
+      ]
+    },
+    {
+      "start": "1991-01-30",
+      "end": "1991-06-24",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Imposed by the Chandra Shekhar government; lifted on swearing-in of the Jayalalithaa ministry after the June 1991 assembly election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/President%27s_rule#Tamil_Nadu", "note": "List of President's Rule impositions in Tamil Nadu." }
+      ]
+    },
+    {
+      "start": "1991-06-24",
+      "end": "1996-05-12",
+      "regime": "elected",
+      "party_code": "75",
+      "alliance": "AIADMK+INC",
+      "cm_name": "J. Jayalalithaa",
+      "notes": "First term. Won the 1991 assembly election in pre-poll alliance with the Indian National Congress; AIADMK secured 164/234 seats, INC 60.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3335-tamil-nadu-1991/", "note": "1991 Tamil Nadu Statistical Report." }
+      ]
+    },
+    {
+      "start": "1996-05-13",
+      "end": "2001-05-12",
+      "regime": "elected",
+      "party_code": "582",
+      "alliance": "DMK+TMC",
+      "cm_name": "M. Karunanidhi",
+      "notes": "Third term. Won the 1996 assembly election in pre-poll alliance with Tamil Maanila Congress (TMC). DMK formally joined the NDA at the national level in 1999 and remained until 2003; the state-level alliance with TMC continued through most of the term.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3336-tamil-nadu-1996/", "note": "1996 Tamil Nadu Statistical Report." }
+      ]
+    },
+    {
+      "start": "2001-05-14",
+      "end": "2001-09-21",
+      "regime": "elected",
+      "party_code": "75",
+      "alliance": "AIADMK+INC",
+      "cm_name": "J. Jayalalithaa",
+      "notes": "Second term. Won the 2001 election with INC as junior alliance partner. Disqualified by the Supreme Court on 21 September 2001 for conviction in the TANSI case; succeeded by O. Panneerselvam pending acquittal.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3338-tamil-nadu-2001/", "note": "2001 Tamil Nadu Statistical Report." }
+      ]
+    },
+    {
+      "start": "2001-09-21",
+      "end": "2002-03-01",
+      "regime": "elected",
+      "party_code": "75",
+      "alliance": "AIADMK+INC",
+      "cm_name": "O. Panneerselvam",
+      "notes": "First stint as CM. Acting head of government keeping the seat for Jayalalithaa; no fresh election. Vacated when Jayalalithaa was acquitted and re-sworn-in.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/O._Panneerselvam", "note": "Three stints as caretaker CM under AIADMK." }
+      ]
+    },
+    {
+      "start": "2002-03-02",
+      "end": "2006-05-12",
+      "regime": "elected",
+      "party_code": "75",
+      "alliance": null,
+      "cm_name": "J. Jayalalithaa",
+      "notes": "Third term (resumed). AIADMK-INC alliance fragmented over the term; AIADMK formally aligned with NDA at the centre in 2004 (lost all 39 Lok Sabha seats in TN that year).",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/J._Jayalalithaa", "note": "Term continuation." }
+      ]
+    },
+    {
+      "start": "2006-05-13",
+      "end": "2011-05-15",
+      "regime": "elected",
+      "party_code": "582",
+      "alliance": "UPA",
+      "cm_name": "M. Karunanidhi",
+      "notes": "Fourth term. DMK won the 2006 assembly election in pre-poll alliance with INC; the same DMK+INC bloc formed part of UPA-II at the centre after the 2009 LS election.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3339-tamil-nadu-2006/", "note": "2006 Tamil Nadu Statistical Report." }
+      ]
+    },
+    {
+      "start": "2011-05-16",
+      "end": "2014-09-27",
+      "regime": "elected",
+      "party_code": "75",
+      "alliance": null,
+      "cm_name": "J. Jayalalithaa",
+      "notes": "Fourth term. AIADMK-led front swept 2011 (203/234 seats). No formal pre-poll alliance with INC or BJP. Convicted in disproportionate-assets case on 27 September 2014; disqualified.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3340-tamil-nadu-2011/", "note": "2011 Tamil Nadu Statistical Report." }
+      ]
+    },
+    {
+      "start": "2014-09-29",
+      "end": "2015-05-22",
+      "regime": "elected",
+      "party_code": "75",
+      "alliance": null,
+      "cm_name": "O. Panneerselvam",
+      "notes": "Second stint as CM, again as Jayalalithaa's caretaker. Vacated when she was acquitted by the Karnataka High Court and sworn in for a fifth term.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/O._Panneerselvam", "note": "Caretaker stints." }
+      ]
+    },
+    {
+      "start": "2015-05-23",
+      "end": "2016-05-22",
+      "regime": "elected",
+      "party_code": "75",
+      "alliance": null,
+      "cm_name": "J. Jayalalithaa",
+      "notes": "Fifth term (continuation of the 2011 mandate after acquittal). Term ended with the swearing-in of the new ministry post the May 2016 election; Jayalalithaa returned to power.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/J._Jayalalithaa", "note": "Acquittal and return." }
+      ]
+    },
+    {
+      "start": "2016-05-23",
+      "end": "2016-12-05",
+      "regime": "elected",
+      "party_code": "75",
+      "alliance": null,
+      "cm_name": "J. Jayalalithaa",
+      "notes": "Sixth and final term. AIADMK won the 2016 election with 134/234 seats, the first incumbent return since 1989. Died in office on 5 December 2016 after extended hospitalisation.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3473-tamil-nadu-general-legislative-election-2016/", "note": "2016 Tamil Nadu Statistical Report." }
+      ]
+    },
+    {
+      "start": "2016-12-06",
+      "end": "2017-02-15",
+      "regime": "elected",
+      "party_code": "75",
+      "alliance": null,
+      "cm_name": "O. Panneerselvam",
+      "notes": "Third stint as CM, following Jayalalithaa's death. Resigned amid the AIADMK leadership succession crisis pitting him against V. K. Sasikala and the Palaniswami faction.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/O._Panneerselvam", "note": "Post-Jayalalithaa AIADMK split." }
+      ]
+    },
+    {
+      "start": "2017-02-16",
+      "end": "2021-05-06",
+      "regime": "elected",
+      "party_code": "75",
+      "alliance": "NDA",
+      "cm_name": "Edappadi K. Palaniswami",
+      "notes": "Single term. AIADMK formally entered the National Democratic Alliance with BJP for the 2019 Lok Sabha election (TN allotted 39 LS seats; AIADMK contested 20). Continued in the state-level NDA bloc through the 2021 assembly poll.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/Edappadi_K._Palaniswami", "note": "Tenure and NDA alignment." }
+      ]
+    },
+    {
+      "start": "2021-05-07",
+      "end": "2026-05-12",
+      "regime": "elected",
+      "party_code": "582",
+      "alliance": "Secular Progressive Alliance (later INDIA bloc)",
+      "cm_name": "M. K. Stalin",
+      "notes": "First term. DMK won 133/234 seats in the 2021 election in pre-poll alliance with INC, VCK, CPI, CPI(M), MDMK and IUML (state-level brand: Secular Progressive Alliance). At the national level the DMK joined the INDIA bloc when it formed in July 2023. Term ended with the swearing-in of the post-May-2026 ministry.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/13680-tamil-nadu-general-legislative-election-2021/", "note": "2021 Tamil Nadu Statistical Report." },
+        { "url": "https://en.wikipedia.org/wiki/2021_Tamil_Nadu_Legislative_Assembly_election", "note": "Alliance composition and seat shares." }
+      ]
+    },
+    {
+      "start": "2026-05-13",
+      "end": null,
+      "regime": "interim",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Placeholder for the post-May-2026 government. The May 2026 results are ingested in this repository (datasets/elections/AcGenMay2026/S22/) but the formal swearing-in and final cabinet composition will be backfilled in a subsequent commit once the new ministry is sworn in. Downstream UI MUST treat null cm_name + null party_code as 'transition state' and render the neutral 'pending' colour, not a party colour.",
+      "references": [
+        { "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm", "note": "2026 partywise result; ministry not yet sworn in at file creation time." }
+      ]
+    }
+  ]
+}
