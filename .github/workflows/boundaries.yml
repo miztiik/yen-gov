@@ -1,4 +1,4 @@
-name: boundaries
+name: Rebuild And Propose Boundary PMTiles Refresh
 
 # Rebuilds datasets/boundaries/in/*.pmtiles + manifest.json from upstream
 # admin-boundary GeoJSON (datameet, HindustanTimesLabs). Manual trigger only —

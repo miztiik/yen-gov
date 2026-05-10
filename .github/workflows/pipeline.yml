@@ -1,4 +1,4 @@
-name: pipeline
+name: Regenerate Election Datasets From Sources
 
 # Manual scrape of upstream sources (ECI + Wikipedia) into datasets/.
 # Opens a PR rather than committing to main directly so the diff is reviewed.
