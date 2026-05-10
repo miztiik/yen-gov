@@ -36,9 +36,20 @@ export function stripBase(pathname: string): string {
   return pathname || "/";
 }
 
-/** Programmatic navigation — pushes a new entry; triggers the router. */
+/**
+ * Programmatic navigation — pushes a new entry; triggers the router.
+ *
+ * Accepts a URL produced by one of the `url.X()` builders above (i.e. already
+ * base-prefixed). We deliberately do NOT call `withBase()` here: every call
+ * site uses a builder, and double-prefixing produced `/yen-gov/yen-gov/...`
+ * URLs on project Pages deploys. As a safety net, an unprefixed path that
+ * starts with `/` is auto-prefixed so legacy/raw paths still work.
+ */
 export function navigate(path: string, opts: { replace?: boolean } = {}): void {
-  const target = withBase(path);
+  const baseNoSlash = BASE.replace(/\/$/, "");
+  const alreadyPrefixed =
+    !!baseNoSlash && (path === baseNoSlash || path.startsWith(baseNoSlash + "/"));
+  const target = alreadyPrefixed ? path : withBase(path);
   if (opts.replace) history.replaceState(null, "", target);
   else history.pushState(null, "", target);
   window.dispatchEvent(new PopStateEvent("popstate"));
