@@ -251,8 +251,8 @@
     </section>
 
     <section class="bg-white rounded-lg shadow-sm p-5">
-      <div class="flex justify-between items-baseline mb-3 gap-3 flex-wrap">
-        <h2 class="text-sm font-semibold uppercase text-slate-500">Parties</h2>
+      <div class="flex justify-between items-baseline mb-1 gap-3 flex-wrap">
+        <h2 class="text-sm font-semibold uppercase text-slate-500">All parties · directory</h2>
         <div class="flex items-center gap-3">
           <input
             type="search"
@@ -266,6 +266,9 @@
           </span>
         </div>
       </div>
+      <p class="text-xs text-slate-500 mb-3">
+        Every party that contested, including those that won zero seats. Click a name to open its party page.
+      </p>
       {#if filtered_parties.length === 0}
         <p class="text-sm text-slate-500 italic">No parties match <code>{party_query}</code>.</p>
       {:else}
