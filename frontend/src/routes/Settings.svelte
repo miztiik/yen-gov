@@ -5,7 +5,7 @@
   // override any party they encounter while browsing. This page lets them
   // manage existing overrides and tweak colors for the canonical TN palette.
   import { colors } from "../lib/colors/store.svelte";
-  import { DEFAULT_PARTY_COLORS } from "../lib/colors/parties.default";
+  import { ANCHORS } from "../lib/colors/anchors";
   import { fetchParties, type PartyEntry } from "../lib/data";
 
   // Load TN parties as the seed list for the editor — every party that has
@@ -113,10 +113,13 @@
 
   <section class="text-xs text-slate-500">
     <p>
-      Defaults derive from {Object.keys(DEFAULT_PARTY_COLORS).length} canonical entries
-      (party flag/symbol colors where unambiguous). Parties not in the canonical map use
-      a deterministic fallback palette so the same party gets the same color across
-      sessions.
+      Iconic colours come from {Object.keys(ANCHORS).length} curated anchors
+      (national parties + strongly-recognised regional brands like DMK red,
+      ADMK green, AITC green). Every other party is assigned a colour
+      algorithmically from an OkLCh palette, with same-chart de-duplication
+      so no two visible parties ever share a swatch. Pick any colour above to
+      override the default per your preference; the override persists in this
+      browser.
     </p>
   </section>
 </main>
