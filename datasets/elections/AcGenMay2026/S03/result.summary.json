@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.summary.schema.json",
-  "$schema_version": "3.0",
+  "$schema_version": "3.1",
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Assam_2026_2026/10-Detailed_Results_1778163955.xlsx",

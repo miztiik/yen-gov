@@ -97,10 +97,10 @@ class _Artifact(_Strict):
 # --- election ---------------------------------------------------------------
 
 class Election(_Artifact):
-    """Mirrors datasets/schemas/election.schema.json (x-version 3.0)."""
+    """Mirrors datasets/schemas/election.schema.json (x-version 3.1)."""
 
     _schema_id = "https://yen-gov.github.io/schemas/election.schema.json"
-    _schema_version = "3.0"
+    _schema_version = "3.1"
 
     eci_event_id: str = Field(min_length=1)
     scope: Literal["general", "state", "by_election"]
@@ -127,10 +127,10 @@ class StateEntry(_Strict):
 
 
 class StatesCollection(_Artifact):
-    """Mirrors datasets/schemas/state.schema.json (x-version 3.1)."""
+    """Mirrors datasets/schemas/state.schema.json (x-version 3.2)."""
 
     _schema_id = "https://yen-gov.github.io/schemas/state.schema.json"
-    _schema_version = "3.1"
+    _schema_version = "3.2"
 
     country: Annotated[str, Field(pattern=r"^[A-Z]{2}$")]
     states: list[StateEntry] = Field(min_length=1)
@@ -149,10 +149,10 @@ class DistrictEntry(_Strict):
 
 
 class DistrictsCollection(_Artifact):
-    """Mirrors datasets/schemas/district.schema.json (x-version 3.0)."""
+    """Mirrors datasets/schemas/district.schema.json (x-version 3.1)."""
 
     _schema_id = "https://yen-gov.github.io/schemas/district.schema.json"
-    _schema_version = "3.0"
+    _schema_version = "3.1"
 
     state: ECIStateCode
     districts: list[DistrictEntry] = Field(min_length=1)
@@ -175,10 +175,10 @@ ConstituencyStatus = Literal["provisional", "complete"]
 
 
 class ConstituenciesCollection(_Artifact):
-    """Mirrors datasets/schemas/constituency.schema.json (x-version 4.0)."""
+    """Mirrors datasets/schemas/constituency.schema.json (x-version 4.1)."""
 
     _schema_id = "https://yen-gov.github.io/schemas/constituency.schema.json"
-    _schema_version = "4.0"
+    _schema_version = "4.1"
 
     state: ECIStateCode
     body: Body
@@ -198,10 +198,10 @@ class PartyEntry(_Strict):
 
 
 class PartiesSnapshot(_Artifact):
-    """Mirrors datasets/schemas/party.schema.json (x-version 3.0)."""
+    """Mirrors datasets/schemas/party.schema.json (x-version 3.1)."""
 
     _schema_id = "https://yen-gov.github.io/schemas/party.schema.json"
-    _schema_version = "3.0"
+    _schema_version = "3.1"
 
     election: str = Field(min_length=1)
     parties: list[PartyEntry] = Field(min_length=1)
@@ -246,10 +246,10 @@ class WinnerInfo(_Strict):
 
 
 class ConstituencyResult(_Artifact):
-    """Mirrors datasets/schemas/result.constituency.schema.json (x-version 3.0)."""
+    """Mirrors datasets/schemas/result.constituency.schema.json (x-version 3.1)."""
 
     _schema_id = "https://yen-gov.github.io/schemas/result.constituency.schema.json"
-    _schema_version = "3.0"
+    _schema_version = "3.1"
 
     election: str = Field(min_length=1)
     state: ECIStateCode
@@ -296,10 +296,10 @@ class SummaryTotals(_Strict):
 
 
 class ResultSummary(_Artifact):
-    """Mirrors datasets/schemas/result.summary.schema.json (x-version 3.0)."""
+    """Mirrors datasets/schemas/result.summary.schema.json (x-version 3.1)."""
 
     _schema_id = "https://yen-gov.github.io/schemas/result.summary.schema.json"
-    _schema_version = "3.0"
+    _schema_version = "3.1"
 
     election: str = Field(min_length=1)
     state: ECIStateCode
@@ -326,10 +326,10 @@ class ResultsKnobs(_Strict):
 
 
 class ProcessingConfig(_Artifact):
-    """Mirrors datasets/schemas/processing.schema.json (x-version 3.0)."""
+    """Mirrors datasets/schemas/processing.schema.json (x-version 3.1)."""
 
     _schema_id = "https://yen-gov.github.io/schemas/processing.schema.json"
-    _schema_version = "3.0"
+    _schema_version = "3.1"
 
     fetch: FetchKnobs
     results: ResultsKnobs

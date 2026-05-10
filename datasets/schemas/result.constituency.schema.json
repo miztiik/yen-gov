@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
   "title": "Per-constituency result",
   "description": "Result for a single constituency in a single election event. Includes top-N candidates plus NOTA, with remaining candidates collapsed into an 'others' bucket per processing config.",
-  "x-version": "3.0",
+  "x-version": "3.1",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,43 +19,117 @@
       "version": "3.0",
       "date": "2026-05-08",
       "description": "Replaced single source string with sources array of {url, fetched_at} per ADR-0002. Removed top-level fetched_at (now lives inside each sources entry)."
+    },
+    {
+      "version": "3.1",
+      "date": "2026-05-11",
+      "description": "Additive: optional name (human-readable upstream name) and authority (issuing body) fields on each sources[] entry. Aligns with Phase A schemas (feature_collection.metadata, indicator) so attribution can be uniform across electoral and socio-economic data. Per TODO/SOCIO-ECONOMIC-EXPANSION.md §6 D3."
     }
   ],
   "type": "object",
   "required": [
-    "$schema", "$schema_version", "sources", "election", "state", "body", "eci_no",
-    "candidates", "nota", "totals", "winner", "top_n_cutoff"
+    "$schema",
+    "$schema_version",
+    "sources",
+    "election",
+    "state",
+    "body",
+    "eci_no",
+    "candidates",
+    "nota",
+    "totals",
+    "winner",
+    "top_n_cutoff"
   ],
   "additionalProperties": false,
   "properties": {
-    "$schema": { "type": "string", "format": "uri" },
-    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
     "sources": {
       "type": "array",
       "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. An empty array signals hand-authored content.",
       "items": {
         "type": "object",
-        "required": ["url", "fetched_at"],
+        "required": [
+          "url",
+          "fetched_at"
+        ],
         "additionalProperties": false,
         "properties": {
-          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
-          "fetched_at": { "type": "string", "format": "date-time" }
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "fetched_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "description": "Optional human-readable name of the upstream (e.g. \"Statistical Report on General Election to Legislative Assembly of Tamil Nadu, 2021\")."
+          },
+          "authority": {
+            "type": "string",
+            "description": "Optional issuing authority (e.g. \"Election Commission of India\")."
+          }
         }
       }
     },
-    "election": { "type": "string", "minLength": 1 },
-    "state": { "type": "string", "pattern": "^[SU]\\d{2}$" },
-    "body": { "enum": ["AC", "PC"] },
-    "eci_no": { "type": "integer", "minimum": 1 },
-    "constituency_name": { "type": "string", "minLength": 1 },
+    "election": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[SU]\\d{2}$"
+    },
+    "body": {
+      "enum": [
+        "AC",
+        "PC"
+      ]
+    },
+    "eci_no": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "constituency_name": {
+      "type": "string",
+      "minLength": 1
+    },
     "totals": {
       "type": "object",
-      "required": ["votes_polled"],
+      "required": [
+        "votes_polled"
+      ],
       "additionalProperties": false,
       "properties": {
-        "electors": { "type": ["integer", "null"], "minimum": 0 },
-        "votes_polled": { "type": "integer", "minimum": 0 },
-        "turnout_pct": { "type": ["number", "null"], "minimum": 0, "maximum": 100 }
+        "electors": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "votes_polled": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "turnout_pct": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        }
       }
     },
     "candidates": {
@@ -64,41 +138,94 @@
       "description": "Top-N candidates by vote count, in descending rank order. Excludes NOTA (broken out separately) and excludes candidates collapsed into 'others'.",
       "items": {
         "type": "object",
-        "required": ["rank", "name", "votes", "vote_share_pct"],
+        "required": [
+          "rank",
+          "name",
+          "votes",
+          "vote_share_pct"
+        ],
         "additionalProperties": false,
         "properties": {
-          "rank": { "type": "integer", "minimum": 1 },
-          "name": { "type": "string", "minLength": 1 },
+          "rank": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
           "party_eci_code": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "pattern": "^\\d+$",
             "description": "Null for independents."
           },
-          "party_short": { "type": "string", "minLength": 1 },
-          "votes": { "type": "integer", "minimum": 0 },
-          "vote_share_pct": { "type": "number", "minimum": 0, "maximum": 100 },
-          "is_winner": { "type": "boolean" }
+          "party_short": {
+            "type": "string",
+            "minLength": 1
+          },
+          "votes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "vote_share_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "is_winner": {
+            "type": "boolean"
+          }
         }
       }
     },
     "nota": {
       "type": "object",
-      "required": ["votes", "vote_share_pct"],
+      "required": [
+        "votes",
+        "vote_share_pct"
+      ],
       "additionalProperties": false,
       "properties": {
-        "votes": { "type": "integer", "minimum": 0 },
-        "vote_share_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+        "votes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "vote_share_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
       }
     },
     "others": {
-      "type": ["object", "null"],
+      "type": [
+        "object",
+        "null"
+      ],
       "description": "Collapsed bucket of candidates ranked below top_n_cutoff. Null if no collapsing occurred.",
-      "required": ["candidate_count", "votes", "vote_share_pct"],
+      "required": [
+        "candidate_count",
+        "votes",
+        "vote_share_pct"
+      ],
       "additionalProperties": false,
       "properties": {
-        "candidate_count": { "type": "integer", "minimum": 1 },
-        "votes": { "type": "integer", "minimum": 0 },
-        "vote_share_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+        "candidate_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "votes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "vote_share_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
       }
     },
     "top_n_cutoff": {
@@ -108,13 +235,33 @@
     },
     "winner": {
       "type": "object",
-      "required": ["name", "votes", "margin_votes", "margin_pct"],
+      "required": [
+        "name",
+        "votes",
+        "margin_votes",
+        "margin_pct"
+      ],
       "additionalProperties": false,
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
-        "party_eci_code": { "type": ["string", "null"], "pattern": "^\\d+$" },
-        "party_short": { "type": "string", "minLength": 1 },
-        "votes": { "type": "integer", "minimum": 0 },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "party_eci_code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^\\d+$"
+        },
+        "party_short": {
+          "type": "string",
+          "minLength": 1
+        },
+        "votes": {
+          "type": "integer",
+          "minimum": 0
+        },
         "margin_votes": {
           "type": "integer",
           "minimum": 0,

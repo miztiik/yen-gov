@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/district.schema.json",
   "title": "Districts collection (per state)",
   "description": "All districts within a single state, keyed by LGD (Local Government Directory) code where available, falling back to a Wikipedia-derived slug. Each file covers exactly one state.",
-  "x-version": "3.0",
+  "x-version": "3.1",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,24 +19,59 @@
       "version": "3.0",
       "date": "2026-05-08",
       "description": "Replaced single source string with sources array of {url, fetched_at} per ADR-0002. Empty array means hand-authored. Item-level source overrides removed."
+    },
+    {
+      "version": "3.1",
+      "date": "2026-05-11",
+      "description": "Additive: optional name (human-readable upstream name) and authority (issuing body) fields on each sources[] entry. Aligns with Phase A schemas (feature_collection.metadata, indicator) so attribution can be uniform across electoral and socio-economic data. Per TODO/SOCIO-ECONOMIC-EXPANSION.md §6 D3."
     }
   ],
   "type": "object",
-  "required": ["$schema", "$schema_version", "sources", "state", "districts"],
+  "required": [
+    "$schema",
+    "$schema_version",
+    "sources",
+    "state",
+    "districts"
+  ],
   "additionalProperties": false,
   "properties": {
-    "$schema": { "type": "string", "format": "uri" },
-    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
     "sources": {
       "type": "array",
       "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. An empty array signals hand-authored content.",
       "items": {
         "type": "object",
-        "required": ["url", "fetched_at"],
+        "required": [
+          "url",
+          "fetched_at"
+        ],
         "additionalProperties": false,
         "properties": {
-          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
-          "fetched_at": { "type": "string", "format": "date-time" }
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "fetched_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "description": "Optional human-readable name of the upstream (e.g. \"Statistical Report on General Election to Legislative Assembly of Tamil Nadu, 2021\")."
+          },
+          "authority": {
+            "type": "string",
+            "description": "Optional issuing authority (e.g. \"Election Commission of India\")."
+          }
         }
       }
     },
@@ -50,7 +85,11 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "id_source", "name"],
+        "required": [
+          "id",
+          "id_source",
+          "name"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": {
@@ -59,22 +98,37 @@
             "description": "Stable identifier. LGD numeric code (preferred) or Wikipedia URL slug (fallback)."
           },
           "id_source": {
-            "enum": ["lgd", "wikipedia"],
+            "enum": [
+              "lgd",
+              "wikipedia"
+            ],
             "description": "Which authority issued the id."
           },
-          "name": { "type": "string", "minLength": 1 },
-          "headquarters": { "type": "string" },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "headquarters": {
+            "type": "string"
+          },
           "created_on": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date",
             "description": "Date the district was constituted, when known."
           },
           "split_from": {
             "type": "array",
-            "items": { "type": "string" },
+            "items": {
+              "type": "string"
+            },
             "description": "Parent district ids (same id_source) if this district was carved out."
           },
-          "notes": { "type": "string" }
+          "notes": {
+            "type": "string"
+          }
         }
       }
     }

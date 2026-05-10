@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
-  "$schema_version": "4.0",
+  "$schema_version": "4.1",
   "sources": [
     {
       "url": "https://en.wikipedia.org/wiki/List_of_constituencies_of_the_West_Bengal_Legislative_Assembly",

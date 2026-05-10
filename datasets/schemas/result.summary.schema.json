@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/result.summary.schema.json",
   "title": "Per-event-per-state result summary",
   "description": "State-level rollup for one election event: party vote/seat totals and overall turnout. Derived from the per-constituency results plus ECI's partywise summary page.",
-  "x-version": "3.0",
+  "x-version": "3.1",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,41 +19,109 @@
       "version": "3.0",
       "date": "2026-05-08",
       "description": "Replaced single source string with sources array of {url, fetched_at} per ADR-0002. State summaries naturally combine the ECI partywise page plus contributing constituency-level URLs."
+    },
+    {
+      "version": "3.1",
+      "date": "2026-05-11",
+      "description": "Additive: optional name (human-readable upstream name) and authority (issuing body) fields on each sources[] entry. Aligns with Phase A schemas (feature_collection.metadata, indicator) so attribution can be uniform across electoral and socio-economic data. Per TODO/SOCIO-ECONOMIC-EXPANSION.md §6 D3."
     }
   ],
   "type": "object",
   "required": [
-    "$schema", "$schema_version", "sources", "election", "state", "body",
-    "total_seats", "party_totals"
+    "$schema",
+    "$schema_version",
+    "sources",
+    "election",
+    "state",
+    "body",
+    "total_seats",
+    "party_totals"
   ],
   "additionalProperties": false,
   "properties": {
-    "$schema": { "type": "string", "format": "uri" },
-    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
     "sources": {
       "type": "array",
       "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. An empty array signals hand-authored content.",
       "items": {
         "type": "object",
-        "required": ["url", "fetched_at"],
+        "required": [
+          "url",
+          "fetched_at"
+        ],
         "additionalProperties": false,
         "properties": {
-          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
-          "fetched_at": { "type": "string", "format": "date-time" }
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "fetched_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "description": "Optional human-readable name of the upstream (e.g. \"Statistical Report on General Election to Legislative Assembly of Tamil Nadu, 2021\")."
+          },
+          "authority": {
+            "type": "string",
+            "description": "Optional issuing authority (e.g. \"Election Commission of India\")."
+          }
         }
       }
     },
-    "election": { "type": "string", "minLength": 1 },
-    "state": { "type": "string", "pattern": "^[SU]\\d{2}$" },
-    "body": { "enum": ["AC", "PC"] },
-    "total_seats": { "type": "integer", "minimum": 1 },
+    "election": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[SU]\\d{2}$"
+    },
+    "body": {
+      "enum": [
+        "AC",
+        "PC"
+      ]
+    },
+    "total_seats": {
+      "type": "integer",
+      "minimum": 1
+    },
     "totals": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "electors": { "type": ["integer", "null"], "minimum": 0 },
-        "votes_polled": { "type": ["integer", "null"], "minimum": 0 },
-        "turnout_pct": { "type": ["number", "null"], "minimum": 0, "maximum": 100 }
+        "electors": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "votes_polled": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "turnout_pct": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        }
       }
     },
     "party_totals": {
@@ -61,34 +129,82 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["party_short", "seats_won", "votes", "vote_share_pct"],
+        "required": [
+          "party_short",
+          "seats_won",
+          "votes",
+          "vote_share_pct"
+        ],
         "additionalProperties": false,
         "properties": {
           "party_eci_code": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "pattern": "^\\d+$",
             "description": "Null for the aggregated 'Independents' row."
           },
-          "party_short": { "type": "string", "minLength": 1 },
-          "party_full": { "type": "string" },
-          "seats_contested": { "type": ["integer", "null"], "minimum": 0 },
-          "seats_won": { "type": "integer", "minimum": 0 },
-          "votes": { "type": "integer", "minimum": 0 },
-          "vote_share_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+          "party_short": {
+            "type": "string",
+            "minLength": 1
+          },
+          "party_full": {
+            "type": "string"
+          },
+          "seats_contested": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "seats_won": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "votes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "vote_share_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          }
         }
       }
     },
     "alliance_distribution": {
-      "type": ["array", "null"],
+      "type": [
+        "array",
+        "null"
+      ],
       "description": "Optional alliance-level seat aggregation, when alliance memberships are known.",
       "items": {
         "type": "object",
-        "required": ["alliance", "seats_won"],
+        "required": [
+          "alliance",
+          "seats_won"
+        ],
         "additionalProperties": false,
         "properties": {
-          "alliance": { "type": "string", "minLength": 1 },
-          "seats_won": { "type": "integer", "minimum": 0 },
-          "vote_share_pct": { "type": ["number", "null"], "minimum": 0, "maximum": 100 }
+          "alliance": {
+            "type": "string",
+            "minLength": 1
+          },
+          "seats_won": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "vote_share_pct": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100
+          }
         }
       }
     }

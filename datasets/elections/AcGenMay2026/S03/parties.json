@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/party.schema.json",
-  "$schema_version": "3.0",
+  "$schema_version": "3.1",
   "sources": [
     {
       "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",

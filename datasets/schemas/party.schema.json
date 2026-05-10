@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/party.schema.json",
   "title": "Parties snapshot (per election event)",
   "description": "Catalog of political parties as they appeared in a single ECI election event. Parties evolve (mergers, splits, alliances), so this snapshot is event-scoped, not global.",
-  "x-version": "3.0",
+  "x-version": "3.1",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,24 +19,59 @@
       "version": "3.0",
       "date": "2026-05-08",
       "description": "Replaced single source string with sources array of {url, fetched_at} per ADR-0002. Empty array means hand-authored. Item-level source overrides removed."
+    },
+    {
+      "version": "3.1",
+      "date": "2026-05-11",
+      "description": "Additive: optional name (human-readable upstream name) and authority (issuing body) fields on each sources[] entry. Aligns with Phase A schemas (feature_collection.metadata, indicator) so attribution can be uniform across electoral and socio-economic data. Per TODO/SOCIO-ECONOMIC-EXPANSION.md §6 D3."
     }
   ],
   "type": "object",
-  "required": ["$schema", "$schema_version", "sources", "election", "parties"],
+  "required": [
+    "$schema",
+    "$schema_version",
+    "sources",
+    "election",
+    "parties"
+  ],
   "additionalProperties": false,
   "properties": {
-    "$schema": { "type": "string", "format": "uri" },
-    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
     "sources": {
       "type": "array",
       "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. An empty array signals hand-authored content.",
       "items": {
         "type": "object",
-        "required": ["url", "fetched_at"],
+        "required": [
+          "url",
+          "fetched_at"
+        ],
         "additionalProperties": false,
         "properties": {
-          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
-          "fetched_at": { "type": "string", "format": "date-time" }
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "fetched_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "description": "Optional human-readable name of the upstream (e.g. \"Statistical Report on General Election to Legislative Assembly of Tamil Nadu, 2021\")."
+          },
+          "authority": {
+            "type": "string",
+            "description": "Optional issuing authority (e.g. \"Election Commission of India\")."
+          }
         }
       }
     },
@@ -50,7 +85,11 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["eci_code", "short_name", "full_name"],
+        "required": [
+          "eci_code",
+          "short_name",
+          "full_name"
+        ],
         "additionalProperties": false,
         "properties": {
           "eci_code": {
@@ -63,14 +102,26 @@
             "minLength": 1,
             "description": "Common abbreviation (e.g. DMK, AIADMK, BJP)."
           },
-          "full_name": { "type": "string", "minLength": 1 },
-          "symbol": { "type": "string" },
+          "full_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "symbol": {
+            "type": "string"
+          },
           "recognition": {
-            "enum": ["national", "state", "registered_unrecognised"],
+            "enum": [
+              "national",
+              "state",
+              "registered_unrecognised"
+            ],
             "description": "ECI recognition status as of this event."
           },
           "alliance": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Pre-poll alliance name as of this event, if any (e.g. SPA, NDA). Null for non-aligned parties."
           }
         }

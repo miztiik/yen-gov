@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/state.schema.json",
   "title": "States collection",
   "description": "All first-level administrative divisions (states + union territories) of a country, keyed by ECI state code. ECI codes are the canonical identifiers; ISO 3166-2 codes are carried for cross-referencing.",
-  "x-version": "3.1",
+  "x-version": "3.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -24,24 +24,59 @@
       "version": "3.1",
       "date": "2026-05-11",
       "description": "Additive: optional verification_status enum on each state entry. Records whether the (eci_code, name) pair was confirmed by a live URL probe, by a cited published authority only, or remains unverified. Downstream fetchers must gate per-state work on live_url_probe_ok per Gregor architecture review 2026-05-11."
+    },
+    {
+      "version": "3.2",
+      "date": "2026-05-11",
+      "description": "Additive: optional name (human-readable upstream name) and authority (issuing body) fields on each sources[] entry. Aligns with Phase A schemas (feature_collection.metadata, indicator) so attribution can be uniform across electoral and socio-economic data. Per TODO/SOCIO-ECONOMIC-EXPANSION.md §6 D3."
     }
   ],
   "type": "object",
-  "required": ["$schema", "$schema_version", "sources", "country", "states"],
+  "required": [
+    "$schema",
+    "$schema_version",
+    "sources",
+    "country",
+    "states"
+  ],
   "additionalProperties": false,
   "properties": {
-    "$schema": { "type": "string", "format": "uri" },
-    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
     "sources": {
       "type": "array",
       "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. An empty array signals hand-authored content.",
       "items": {
         "type": "object",
-        "required": ["url", "fetched_at"],
+        "required": [
+          "url",
+          "fetched_at"
+        ],
         "additionalProperties": false,
         "properties": {
-          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
-          "fetched_at": { "type": "string", "format": "date-time" }
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "fetched_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "description": "Optional human-readable name of the upstream (e.g. \"Statistical Report on General Election to Legislative Assembly of Tamil Nadu, 2021\")."
+          },
+          "authority": {
+            "type": "string",
+            "description": "Optional issuing authority (e.g. \"Election Commission of India\")."
+          }
         }
       }
     },
@@ -55,7 +90,12 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["eci_code", "iso_3166_2", "name", "kind"],
+        "required": [
+          "eci_code",
+          "iso_3166_2",
+          "name",
+          "kind"
+        ],
         "additionalProperties": false,
         "properties": {
           "eci_code": {
@@ -74,14 +114,25 @@
             "description": "Official English name."
           },
           "kind": {
-            "enum": ["state", "union_territory"]
+            "enum": [
+              "state",
+              "union_territory"
+            ]
           },
-          "capital": { "type": "string" },
+          "capital": {
+            "type": "string"
+          },
           "verification_status": {
-            "enum": ["live_url_probe_ok", "published_authority_only", "unverified"],
+            "enum": [
+              "live_url_probe_ok",
+              "published_authority_only",
+              "unverified"
+            ],
             "description": "How the (eci_code, name) pairing was confirmed for this row. 'live_url_probe_ok' means a results.eci.gov.in URL bearing this code resolved with HTTP 200 and a matching state name. 'published_authority_only' means the code appears in a cited ECI Statistical Report or equivalent published authority but no live endpoint has been probed yet. 'unverified' means the pairing is provisional. Per Gregor architecture review 2026-05-11: per-state fetchers MUST refuse to compose URLs for rows whose status is not live_url_probe_ok."
           },
-          "notes": { "type": "string" }
+          "notes": {
+            "type": "string"
+          }
         }
       }
     }

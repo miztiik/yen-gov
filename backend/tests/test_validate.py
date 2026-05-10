@@ -78,7 +78,7 @@ def test_tier_b_rejects_missing_required_field(tmp_path: Path):
     cfg.mkdir()
     (cfg / "processing.json").write_text(json.dumps({
         "$schema": "https://yen-gov.github.io/schemas/processing.schema.json",
-        "$schema_version": "3.0",
+        "$schema_version": "3.1",
         "sources": [],
         "fetch": {
             "concurrency": 1, "retry_attempts": 0,
