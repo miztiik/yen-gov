@@ -67,6 +67,10 @@
   // into every consumer.
   let map: any = null;
   let popup: any = null;
+  // Cached bbox of the loaded data so the resize observer can re-fit
+  // without re-fetching the GeoJSON.
+  let data_bbox: [[number, number], [number, number]] | null = null;
+  let resize_obs: ResizeObserver | null = null;
   // Module-level guard so we only register the pmtiles protocol once per page.
   let pmtiles_registered = false;
 
@@ -253,6 +257,15 @@
           zoom: 3,
           dragRotate: false,
           pitchWithRotate: false,
+          // Suppress horizontal world wrap. Without this, at low zoom (the
+          // brief moment between map.create() and fitBounds(), and any time
+          // the user shrinks the viewport so the data fits in less than a
+          // world width) Mercator paints multiple copies of every polygon
+          // marching across the canvas — users read this as "the map is
+          // rotating" or "there are tiny duplicate states". Subnational
+          // choropleths never need world wrap, so we turn it off globally
+          // for this component.
+          renderWorldCopies: false,
         });
         map.touchZoomRotate.disableRotation();
 
@@ -276,7 +289,35 @@
               .then(r => r.json())
               .then(gj => {
                 const b = bbox(gj);
-                if (b) map.fitBounds(b as any, { padding: 16, animate: false });
+                if (b) {
+                  data_bbox = b;
+                  map.fitBounds(b as any, { padding: 16, animate: false });
+                  // Refit whenever the canvas resizes (browser zoom,
+                  // sidebar toggle, window resize). Without this, the
+                  // initial fit is correct but a subsequent resize leaves
+                  // TN as a tiny shape stranded in a now-larger canvas.
+                  // We debounce via rAF so we don't refit mid-layout
+                  // (the page reflows multiple times during initial load
+                  // and each intermediate size triggered a stale fit
+                  // that then "stuck" once the canvas settled). We also
+                  // skip zero-sized callbacks since maplibre's first
+                  // observed size is often 0×0 before mount.
+                  if (typeof ResizeObserver !== "undefined" && container) {
+                    let rAF = 0;
+                    resize_obs = new ResizeObserver((entries) => {
+                      const cr = entries[0]?.contentRect;
+                      if (!cr || cr.width < 4 || cr.height < 4) return;
+                      if (rAF) cancelAnimationFrame(rAF);
+                      rAF = requestAnimationFrame(() => {
+                        if (map && data_bbox) {
+                          map.resize();
+                          map.fitBounds(data_bbox as any, { padding: 16, animate: false });
+                        }
+                      });
+                    });
+                    resize_obs.observe(container);
+                  }
+                }
               })
               .catch(() => {
                 // Bounds are nice-to-have; rendering still works at the
@@ -332,6 +373,7 @@
   });
 
   onDestroy(() => {
+    if (resize_obs) resize_obs.disconnect();
     if (popup) popup.remove();
     if (map) map.remove();
   });

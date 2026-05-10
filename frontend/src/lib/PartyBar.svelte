@@ -113,7 +113,7 @@
        with a thin white halo so it stays readable against red, green,
        and blue party fills alike. -->
   <div class="pointer-events-none absolute inset-0 flex items-stretch gap-3 z-20" aria-hidden="true">
-    <div class="w-20 shrink-0"></div>
+    <div class="w-24 shrink-0"></div>
     <div class="relative flex-1">
       {#if majority_pct < 100}
         <!-- White halo (drawn first, slightly wider) so the gold line
@@ -176,17 +176,8 @@
         onfocus={(e) => showTip(e as unknown as MouseEvent, p)}
         onblur={hideTip}
       >
-        <div class="w-20 text-right text-sm font-medium text-slate-700 truncate flex items-center justify-end gap-1.5" title={p.party_full ?? p.party_short}>
-          {#if is_leader && p.seats_won > 0}
-            <!-- Discreet "leading" indicator: a small filled dot in the
-                 party color. No emoji crown — keeps the chart serious. -->
-            <span
-              class="inline-block w-1.5 h-1.5 rounded-full"
-              style:background-color={fill}
-              title="Leading party"
-            ></span>
-          {/if}
-          <span>{p.party_short}</span>
+        <div class="w-24 text-right text-sm font-medium text-slate-700 truncate" title={p.party_full ?? p.party_short}>
+          {p.party_short}
         </div>
         <div class="relative flex-1 h-8 bg-slate-100 rounded-full overflow-hidden ring-1 ring-slate-200/70">
           <!-- Gradient fill. The horizontal gradient (party color → ~70%
