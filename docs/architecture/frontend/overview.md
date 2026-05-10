@@ -1,6 +1,6 @@
 # Frontend Overview
 
-**Last Updated**: 2026-05-10 (revision: history routing with slug URLs; map UX & MarginHistogram polish)
+**Last Updated**: 2026-05-10 (revision: chart visual polish — donut + bar gradients, sweep-in, majority marker)
 
 The frontend is a static Svelte 5 + Vite + Tailwind + d3 bundle that renders election artifacts from [`datasets/`](../../../datasets/). It has no production backend (CLAUDE.md Holy Law #1) and never commits data files (§4). Built with `bun`. Routed with a tiny custom hash router.
 
@@ -309,6 +309,20 @@ The histogram caption was a single line ("234 constituencies · stacked by winni
 State Overview uses a `lg:grid-cols-[3fr_2fr]` top row (map left, donut + KPI cards stacked right). The "Seats by party" bar moved below that row to its own full-width section so wide bars and 0-seat parties have room. Routes use `max-w-screen-2xl` (was `max-w-5xl`/`6xl`) to use modern viewport widths; Psephlab keeps `max-w-6xl` because its sticky 360 px sidebar is laid out against that ceiling.
 
 A subtle background motif (✓ ✗ ballot-box glyphs at opacity 0.035) lives in `body::before` via an inline-SVG `data:` URL. No party symbols (legal/perception risk on a results product) — just neutral electoral marks. Cards are opaque so the pattern only shows in the gutter regions and never reduces text contrast.
+
+### Chart visual language (2026 polish)
+
+The hero charts on State Overview (`SeatDonut` + `PartyBar`) carry a deliberate visual treatment so the page reads as a contemporary results dashboard, not a flat 2010-era listing:
+
+- **Per-slice / per-bar gradients** (party color → ~55% brighter shade). Direction on the donut is rotated to each slice's mid-angle so the highlight sits on the outward face. The base hue stays dominant, so party identification doesn't suffer.
+- **Padding + corner radius** on donut slices (`d3.arc().padAngle(0.012).cornerRadius(4)`) plus rounded-full pill bars for the bar chart. We hand-roll the cumulative-angle math (no `d3.pie`) because the chart sweep-in animates `endAngle` against a `tweened` `progress` 0→1.
+- **Sweep-in entrance**: donut arcs grow on mount over ~950ms (cubicOut); the centre tally counts up via a separate ~600ms tween. Bars stagger their width transition by `min(i*35, 350)`ms so the bar list ripples in rather than slamming.
+- **Soft drop shadow** (SVG `<filter>`, `feGaussianBlur` stdDev 1.6, alpha slope 0.28) and a 1-px white inter-slice stroke give the donut depth on white.
+- **Leader pill** below the donut and a small dot beside the leader's bar row anchor the headline without a separate legend.
+- **Majority signalling.** The donut shows a thin gold dashed outer ring (`#fbbf24`) only when the leading party has cleared half the chamber. The bar chart always shows a vertical dashed `Majority · N` line — the bar scale is `max(majority * 1.05, …seats_won)` so the marker is guaranteed inside the chart, and the visible *gap* between the top bar and the marker is the actual story in fragmented results (TN 2026: TVK at 108 vs majority at 117). The label flips from centred to right-anchored past 75% to avoid clipping the card edge.
+- **KPI tiles** use a thin colored top accent + tinted background (slate / emerald / sky) and `tabular-nums` so numbers align across rows.
+
+These treatments are presentation-only. Data inputs, accessibility roles, hidden-party semantics, and tooltip text are unchanged from the earlier flat versions.
 
 ## See also
 
