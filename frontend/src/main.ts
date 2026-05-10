@@ -10,6 +10,7 @@ import Explore from "./routes/Explore.svelte";
 import Settings from "./routes/Settings.svelte";
 import Psephlab from "./routes/Psephlab.svelte";
 import Compare from "./routes/Compare.svelte";
+import About from "./routes/About.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -42,6 +43,7 @@ startRouter({
     { pattern: "/lab/:state/:event", component: Psephlab },
     { pattern: "/compare/:state/:event", component: Compare },
     { pattern: "/settings", component: Settings },
+    { pattern: "/about", component: About },
   ],
   notFound: { pattern: "*", component: NotFound },
 });

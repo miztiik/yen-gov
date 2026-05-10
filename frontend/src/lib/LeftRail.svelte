@@ -207,8 +207,11 @@
     </ul>
   </nav>
 
-  <footer class="px-4 py-2 text-[10px] text-slate-400 border-t border-slate-200">
-    <a href="https://github.com/yen-gov" target="_blank" rel="noreferrer" class="hover:text-slate-600">
+  <footer class="px-4 py-2 text-[10px] text-slate-400 border-t border-slate-200 space-y-1">
+    <a href="#/about" class="block hover:text-slate-600">
+      About &amp; disclaimer
+    </a>
+    <a href="https://github.com/yen-gov" target="_blank" rel="noreferrer" class="block hover:text-slate-600">
       Yen Gov · For an informed India
     </a>
   </footer>

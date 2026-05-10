@@ -24,6 +24,7 @@
     <p class="text-sm text-slate-500">
       Indian election data — event <code class="font-mono">{EVENT}</code>.
       Click a state to drill in.
+      <a href="#/about" class="text-sky-700 hover:underline">What is this?</a>
     </p>
   </header>
 

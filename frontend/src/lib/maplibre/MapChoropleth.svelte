@@ -360,6 +360,21 @@
     collapsing the box to 0 height.
   -->
   <div bind:this={container} style="position:absolute;inset:0;width:100%;height:100%;"></div>
+  <!--
+    About / disclaimer badge. One place → every map on the site shows it.
+    Boundaries are community-contributed (HindustanTimesLabs / datameet),
+    not Survey of India; the badge sends readers to the canonical wording
+    in routes/About.svelte (see docs/concepts/disclaimer.md).
+    z-index sits above the maplibre canvas (which uses z-index: 0..2 internally).
+  -->
+  <a
+    href="#/about?section=maps"
+    class="absolute top-2 right-2 z-10 inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/90 text-slate-600 hover:text-slate-900 hover:bg-white shadow-sm border border-slate-200 text-xs font-semibold no-underline"
+    title="About these maps — boundaries are community-contributed and illustrative only. Click for details."
+    aria-label="About these maps"
+  >
+    i
+  </a>
   {#if loading}
     <div class="absolute inset-0 flex items-center justify-center text-xs text-slate-500 pointer-events-none">
       Loading map…
