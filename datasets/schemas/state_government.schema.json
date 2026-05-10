@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "title": "State government history (CM terms)",
+  "description": "Per-state timeline of Chief Minister terms, with party affiliation and pre-poll alliance, used to render the colour-by-government overlay (TODO/SOCIO-ECONOMIC-EXPANSION.md, RP decision 2026-05-10). One file per state, joined at view time to a date selected on the time slider.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-10",
+      "description": "Initial schema. CM terms with start/end dates, party_code (matching parties.schema.json eci_code), alliance, and a regime field for President's Rule etc."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "state", "terms"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. For hand-authored timelines (Wikipedia + ECI cross-check), each term carries its own per-source citation in the optional `references` field; the file-level `sources` lists the URLs the maintainer consulted to compile the timeline.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+
+    "state": {
+      "type": "string",
+      "pattern": "^[SU]\\d{2}$",
+      "description": "ECI state code (e.g. S22 for Tamil Nadu)."
+    },
+
+    "terms": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Chronological list of CM terms. Each term covers a contiguous period under one CM and one party. A new term begins on a CM change, party change, or regime change (e.g. into/out of President's Rule).",
+      "items": {
+        "type": "object",
+        "required": ["start", "regime"],
+        "additionalProperties": false,
+        "properties": {
+          "start": {
+            "type": "string",
+            "format": "date",
+            "description": "First date of this term (YYYY-MM-DD). Inclusive."
+          },
+          "end": {
+            "type": ["string", "null"],
+            "format": "date",
+            "description": "Last date of this term (YYYY-MM-DD). Inclusive. Null for the current ongoing term."
+          },
+          "regime": {
+            "enum": ["elected", "presidents_rule", "governors_rule", "interim"],
+            "description": "Kind of government in power. `elected` is the normal case; `presidents_rule` / `governors_rule` capture central interventions; `interim` covers caretaker / acting arrangements between elections."
+          },
+          "party_code": {
+            "type": ["string", "null"],
+            "pattern": "^\\d+$",
+            "description": "ECI party code matching parties.schema.json. Null for non-elected regimes."
+          },
+          "alliance": {
+            "type": ["string", "null"],
+            "description": "Pre-poll or post-poll alliance the CM's party belonged to during this term (e.g. \"NDA\", \"UPA\", \"INDIA bloc\", \"Third Front\"). Null if non-aligned or not applicable."
+          },
+          "cm_name": {
+            "type": ["string", "null"],
+            "description": "Chief Minister's name in office during this term. Null for non-elected regimes (governor administers under those)."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Optional context (e.g. \"resigned over coalition collapse\", \"died in office, succeeded by deputy\")."
+          },
+          "references": {
+            "type": "array",
+            "description": "Per-term citations. Each is a URL the maintainer used to verify this specific term. Distinct from the file-level `sources` (which lists every URL consulted for the whole timeline).",
+            "items": {
+              "type": "object",
+              "required": ["url"],
+              "additionalProperties": false,
+              "properties": {
+                "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+                "note": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

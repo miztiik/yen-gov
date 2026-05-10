@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/feature_collection.metadata.schema.json",
+  "title": "Feature collection metadata sidecar",
+  "description": "CLAUDE.md §12 provenance + license/coverage sidecar for a sibling non-electoral GeoJSON FeatureCollection (e.g. power plants, healthcare facilities). GeoJSON (RFC 7946 §7.1) reserves all top-level members; rather than muddle the artifact, a sibling `<file>.metadata.json` carries the required `sources`, `license`, `coverage`, and `coordinate_system` on its behalf. Mirrors boundary.sources.schema.json but extends it with license/coverage/CRS for non-electoral feature data.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-10",
+      "description": "Initial schema. Sidecar shape (for, sources, license, coverage, coordinate_system). Created for the energy/power-plants ingest (TODO/SOCIO-ECONOMIC-EXPANSION.md Phase B). Adopts the india-geodata metadata vocabulary (D3) without breaking existing boundary sidecars."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "for", "sources", "license", "coverage"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+    "for": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\.geojson$",
+      "description": "Basename of the sibling GeoJSON this sidecar describes (e.g. \"power-plants.geojson\")."
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title for the dataset (e.g. \"Power Plants of India, 2019\")."
+    },
+    "description": {
+      "type": "string",
+      "description": "One-paragraph human description, suitable for surfacing in the UI."
+    },
+    "category": {
+      "type": "string",
+      "description": "Top-level category (e.g. \"energy\", \"healthcare\", \"education\"). Used by the frontend layer rail."
+    },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002, extended additively per D3 (TODO/SOCIO-ECONOMIC-EXPANSION.md) with optional name + authority for human attribution.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": {
+            "type": "string",
+            "description": "Optional human-readable name of the upstream (e.g. \"Installed Capacity Report 2019\")."
+          },
+          "authority": {
+            "type": "string",
+            "description": "Optional issuing authority (e.g. \"Central Electricity Authority, Ministry of Power\")."
+          }
+        }
+      }
+    },
+    "license": {
+      "type": "object",
+      "description": "License the dataset is published under. `Unspecified` is a valid label per D9 — surface it; do not hide.",
+      "required": ["id", "name", "redistributable"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Canonical short id. Prefer SPDX (`CC0-1.0`, `CC-BY-4.0`, `ODbL-1.0`). Use `IndiaOGL` for India OGL (no SPDX entry). Use `Unspecified` when the upstream did not state a license."
+        },
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": ["string", "null"], "format": "uri" },
+        "redistributable": {
+          "type": ["boolean", "null"],
+          "description": "true: bytes may be bundled. false: must link out (NC, etc.). null: license unknown — bundling allowed but flagged in the UI."
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": ["spatial", "temporal"],
+      "additionalProperties": false,
+      "properties": {
+        "spatial": {
+          "type": "string",
+          "description": "Plain-language scope (e.g. \"India (national)\", \"Tamil Nadu\")."
+        },
+        "temporal": {
+          "type": "string",
+          "description": "Plain-language time scope (e.g. \"2019\", \"as of 2024-Q4\", \"snapshot 2026-03-15\")."
+        },
+        "admin_level": {
+          "type": ["string", "null"],
+          "description": "Lowest administrative level the data is meaningful at (`country`, `state`, `district`, `subdistrict`, `point`, or null when not applicable)."
+        }
+      }
+    },
+    "coordinate_system": {
+      "type": "string",
+      "description": "EPSG identifier of the coordinate reference system. Default and overwhelmingly common: EPSG:4326. Declare even if default — explicit beats implicit.",
+      "default": "EPSG:4326"
+    }
+  }
+}
