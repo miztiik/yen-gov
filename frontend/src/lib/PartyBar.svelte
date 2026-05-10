@@ -83,14 +83,14 @@
              trick which washed out 0-width bars. -->
         {#if inside}
           <div class="absolute inset-y-0 left-0 flex items-center px-2 text-xs font-semibold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)]">
-            {p.seats_won}<span class="ml-2 font-normal opacity-90">({p.vote_share_pct.toFixed(2)}%)</span>
+            {p.seats_won}<span class="ml-2 font-normal opacity-90">({p.vote_share_pct.toFixed(1)}%)</span>
           </div>
         {:else}
           <div
             class="absolute inset-y-0 flex items-center text-xs font-semibold text-slate-700"
             style:left="calc({w * 100}% + 0.5rem)"
           >
-            {p.seats_won}<span class="ml-2 font-normal text-slate-500">({p.vote_share_pct.toFixed(2)}%)</span>
+            {p.seats_won}<span class="ml-2 font-normal text-slate-500">({p.vote_share_pct.toFixed(1)}%)</span>
           </div>
         {/if}
       </div>
