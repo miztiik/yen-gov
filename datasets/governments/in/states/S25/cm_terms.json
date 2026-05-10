@@ -1,0 +1,141 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_West_Bengal",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "List of chief ministers of West Bengal",
+      "authority": "Wikipedia (CC BY-SA 4.0; verified against ECI Statistical Reports per term)"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+      "fetched_at": "2026-05-10T22:32:24Z",
+      "name": "West Bengal Legislative Assembly Election 2026 partywise result",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S25",
+  "terms": [
+    {
+      "start": "1987-03-30",
+      "end": "1991-04-17",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "Left Front",
+      "cm_name": "Jyoti Basu",
+      "notes": "Third term as CM in the continuous Left Front rule that began in 1977. Left Front (CPI(M)-led, with CPI, RSP, AIFB and others) won the 1987 election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/Jyoti_Basu", "note": "Five-term CM (1977-2000)." }
+      ]
+    },
+    {
+      "start": "1991-04-19",
+      "end": "1996-05-15",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "Left Front",
+      "cm_name": "Jyoti Basu",
+      "notes": "Fourth term. Left Front won the 1991 election.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3191-west-bengal-1991/", "note": "1991 West Bengal Statistical Report." }
+      ]
+    },
+    {
+      "start": "1996-05-16",
+      "end": "2000-11-05",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "Left Front",
+      "cm_name": "Jyoti Basu",
+      "notes": "Fifth and final term. Left Front won the 1996 election. Basu stepped down on 5 November 2000 citing age and health, handing over to Buddhadeb Bhattacharjee mid-term without a fresh election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/Jyoti_Basu", "note": "Voluntary retirement, handed over to Bhattacharjee." }
+      ]
+    },
+    {
+      "start": "2000-11-06",
+      "end": "2001-05-15",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "Left Front",
+      "cm_name": "Buddhadeb Bhattacharjee",
+      "notes": "First stint, completing Basu's fifth term. Continued into a fresh term after the 2001 election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/Buddhadeb_Bhattacharjee", "note": "Two-term CM in his own right (2001-06, 2006-11) plus the partial 2000-01 hand-over." }
+      ]
+    },
+    {
+      "start": "2001-05-16",
+      "end": "2006-05-17",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "Left Front",
+      "cm_name": "Buddhadeb Bhattacharjee",
+      "notes": "Full first elected term. Left Front won the 2001 election.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3193-west-bengal-2001/", "note": "2001 West Bengal Statistical Report." }
+      ]
+    },
+    {
+      "start": "2006-05-18",
+      "end": "2011-05-13",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "Left Front",
+      "cm_name": "Buddhadeb Bhattacharjee",
+      "notes": "Second elected term. Left Front won the 2006 election by a large margin (235/294 seats) but the term saw the Singur and Nandigram crises that ultimately cost the LF its three-decade hold on power.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3194-west-bengal-2006/", "note": "2006 West Bengal Statistical Report." }
+      ]
+    },
+    {
+      "start": "2011-05-20",
+      "end": "2016-05-26",
+      "regime": "elected",
+      "party_code": "140",
+      "alliance": "AITC+INC",
+      "cm_name": "Mamata Banerjee",
+      "notes": "First term and end of 34 years of continuous Left Front rule. All India Trinamool Congress (AITC) won the 2011 election in pre-poll alliance with INC, securing 184/294 seats (INC 42).",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3195-west-bengal-2011/", "note": "2011 West Bengal Statistical Report." }
+      ]
+    },
+    {
+      "start": "2016-05-27",
+      "end": "2021-05-04",
+      "regime": "elected",
+      "party_code": "140",
+      "alliance": null,
+      "cm_name": "Mamata Banerjee",
+      "notes": "Second term. AITC contested 2016 solo and won 211/294 seats. No formal pre-poll alliance.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3469-west-bengal-general-legislative-election-2016/", "note": "2016 West Bengal Statistical Report." }
+      ]
+    },
+    {
+      "start": "2021-05-05",
+      "end": "2026-05-12",
+      "regime": "elected",
+      "party_code": "140",
+      "alliance": "INDIA bloc (from July 2023)",
+      "cm_name": "Mamata Banerjee",
+      "notes": "Third term. AITC won the 2021 election with 213/294 seats against a high-spend BJP challenge (BJP secured 77). AITC joined the INDIA bloc at its formation in July 2023 but remained an independent regional pole at the state level.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/2021_West_Bengal_Legislative_Assembly_election", "note": "Seat shares; AITC vs BJP." }
+      ]
+    },
+    {
+      "start": "2026-05-13",
+      "end": null,
+      "regime": "interim",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Placeholder for the post-May-2026 government. Results ingested in datasets/elections/AcGenMay2026/S25/. Backfill once the new ministry is sworn in.",
+      "references": [
+        { "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm", "note": "2026 West Bengal partywise result." }
+      ]
+    }
+  ]
+}

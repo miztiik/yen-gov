@@ -1,0 +1,178 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Kerala",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "List of chief ministers of Kerala",
+      "authority": "Wikipedia (CC BY-SA 4.0; verified against ECI Statistical Reports per term)"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+      "fetched_at": "2026-05-10T22:32:24Z",
+      "name": "Kerala Legislative Assembly Election 2026 partywise result",
+      "authority": "Election Commission of India"
+    },
+    {
+      "url": "https://old.eci.gov.in/files/file/13827-kerala-general-legislative-election-2021/",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "Kerala General Legislative Election 2021 Statistical Report",
+      "authority": "Election Commission of India"
+    },
+    {
+      "url": "https://old.eci.gov.in/files/file/3767-kerala-general-legislative-election-2016/",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "Kerala General Legislative Election 2016 Statistical Report",
+      "authority": "Election Commission of India"
+    },
+    {
+      "url": "https://old.eci.gov.in/files/file/3763-kerala-2011/",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "Kerala General Legislative Election 2011 Statistical Report",
+      "authority": "Election Commission of India"
+    },
+    {
+      "url": "https://old.eci.gov.in/files/file/3762-kerala-2006/",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "Kerala General Legislative Election 2006 Statistical Report",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S11",
+  "terms": [
+    {
+      "start": "1987-03-26",
+      "end": "1991-06-17",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "LDF",
+      "cm_name": "E. K. Nayanar",
+      "notes": "Third stint as CM. Left Democratic Front (CPI(M)-led) won the 1987 election. Term ended with the LDF defeat in the May 1991 assembly election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/E._K._Nayanar", "note": "Three-term CM (1980-81, 1987-91, 1996-2001)." }
+      ]
+    },
+    {
+      "start": "1991-06-24",
+      "end": "1995-03-22",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UDF",
+      "cm_name": "K. Karunakaran",
+      "notes": "Fourth and final term as CM. United Democratic Front (INC-led) won the 1991 election. Resigned on 22 March 1995 amid factional pressure within INC over the ISRO espionage allegations and was succeeded by A. K. Antony without a fresh election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/K._Karunakaran", "note": "Four-term CM; resignation context." }
+      ]
+    },
+    {
+      "start": "1995-03-22",
+      "end": "1996-05-09",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UDF",
+      "cm_name": "A. K. Antony",
+      "notes": "First term. Took over mid-term after Karunakaran's resignation. Term ended with the UDF defeat in the 1996 election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/A._K._Antony", "note": "Three-term CM (1977-78, 1995-96, 2001-04)." }
+      ]
+    },
+    {
+      "start": "1996-05-20",
+      "end": "2001-05-13",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "LDF",
+      "cm_name": "E. K. Nayanar",
+      "notes": "Fourth and final term. LDF won the 1996 election. Full five-year term.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3759-kerala-1996/", "note": "1996 Kerala Statistical Report." }
+      ]
+    },
+    {
+      "start": "2001-05-17",
+      "end": "2004-08-29",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UDF",
+      "cm_name": "A. K. Antony",
+      "notes": "Second consecutive term in this stint, third overall. UDF won the 2001 election. Resigned on 29 August 2004 taking moral responsibility for UDF's near-wipeout in the 2004 Lok Sabha election (Kerala UDF won only 1/20 LS seats).",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3760-kerala-2001/", "note": "2001 Kerala Statistical Report." }
+      ]
+    },
+    {
+      "start": "2004-08-31",
+      "end": "2006-05-12",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UDF",
+      "cm_name": "Oommen Chandy",
+      "notes": "First term. Took over mid-term from Antony without fresh election. Term ended with UDF defeat in the 2006 election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/Oommen_Chandy", "note": "Two-term CM (2004-06, 2011-16)." }
+      ]
+    },
+    {
+      "start": "2006-05-18",
+      "end": "2011-05-14",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "LDF",
+      "cm_name": "V. S. Achuthanandan",
+      "notes": "Only term as CM (at age 82 at swearing-in). LDF won the 2006 election with 98/140 seats. Full five-year term.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3762-kerala-2006/", "note": "2006 Kerala Statistical Report." }
+      ]
+    },
+    {
+      "start": "2011-05-18",
+      "end": "2016-05-20",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UDF",
+      "cm_name": "Oommen Chandy",
+      "notes": "Second term. UDF won the 2011 election by a razor-thin 72/140 seats. Full five-year term despite serial defections threatening the majority.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3763-kerala-2011/", "note": "2011 Kerala Statistical Report." }
+      ]
+    },
+    {
+      "start": "2016-05-25",
+      "end": "2021-05-19",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "LDF",
+      "cm_name": "Pinarayi Vijayan",
+      "notes": "First term. LDF won the 2016 election with 91/140 seats. Full five-year term.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3767-kerala-general-legislative-election-2016/", "note": "2016 Kerala Statistical Report." }
+      ]
+    },
+    {
+      "start": "2021-05-20",
+      "end": "2026-05-12",
+      "regime": "elected",
+      "party_code": "547",
+      "alliance": "LDF",
+      "cm_name": "Pinarayi Vijayan",
+      "notes": "Second consecutive term -- the first incumbent return in Kerala's history (the LDF/UDF alternation had held since 1980). LDF won 2021 with 99/140 seats. At the national level the CPI(M) and CPI are part of the INDIA bloc from July 2023, but at the state level the LDF and the INC-led UDF are direct opponents -- this is recorded as LDF (state alliance) rather than INDIA bloc.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/13827-kerala-general-legislative-election-2021/", "note": "2021 Kerala Statistical Report." },
+        { "url": "https://en.wikipedia.org/wiki/2021_Kerala_Legislative_Assembly_election", "note": "Seat shares; first incumbent return." }
+      ]
+    },
+    {
+      "start": "2026-05-13",
+      "end": null,
+      "regime": "interim",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Placeholder for the post-May-2026 government. Results ingested in datasets/elections/AcGenMay2026/S11/. Backfill once the new ministry is sworn in. Downstream UI MUST treat null cm_name + null party_code as 'transition state' and render the neutral 'pending' colour.",
+      "references": [
+        { "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm", "note": "2026 Kerala partywise result." }
+      ]
+    }
+  ]
+}

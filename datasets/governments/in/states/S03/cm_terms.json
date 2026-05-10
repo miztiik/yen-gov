@@ -1,0 +1,154 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Assam",
+      "fetched_at": "2026-05-11T00:00:00Z",
+      "name": "List of chief ministers of Assam",
+      "authority": "Wikipedia (CC BY-SA 4.0; verified against ECI Statistical Reports per term)"
+    },
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+      "fetched_at": "2026-05-10T22:32:24Z",
+      "name": "Assam Legislative Assembly Election 2026 partywise result",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S03",
+  "terms": [
+    {
+      "start": "1985-12-24",
+      "end": "1990-11-28",
+      "regime": "elected",
+      "party_code": "83",
+      "alliance": null,
+      "cm_name": "Prafulla Kumar Mahanta",
+      "notes": "First term. Asom Gana Parishad's debut government, formed after the Assam Accord (1985) and the AGP sweep of the December 1985 election. State government dismissed on 28 November 1990 after the Centre invoked Article 356 citing the law-and-order situation amid the ULFA insurgency.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/Prafulla_Kumar_Mahanta", "note": "Two-term CM (1985-90, 1996-2001)." }
+      ]
+    },
+    {
+      "start": "1990-11-28",
+      "end": "1991-06-30",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Imposed during Operation Bajrang against ULFA. Lifted on swearing-in of the Saikia ministry after the June 1991 assembly election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/President%27s_rule#Assam", "note": "President's Rule episodes in Assam." }
+      ]
+    },
+    {
+      "start": "1991-06-30",
+      "end": "1996-04-22",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Hiteswar Saikia",
+      "notes": "Second term as CM (first was 1983-85, an unrecognised period during the Assam Movement). INC won the 1991 election on its own. Died in office on 22 April 1996 of cardiac arrest.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/Hiteswar_Saikia", "note": "Died in office." }
+      ]
+    },
+    {
+      "start": "1996-04-22",
+      "end": "1996-05-14",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Bhumidhar Barman",
+      "notes": "Caretaker stint after Saikia's death; took office until the new ministry was sworn in following the May 1996 assembly election.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/Bhumidhar_Barman", "note": "Two short caretaker stints (1996, 2010-11)." }
+      ]
+    },
+    {
+      "start": "1996-05-15",
+      "end": "2001-05-17",
+      "regime": "elected",
+      "party_code": "83",
+      "alliance": null,
+      "cm_name": "Prafulla Kumar Mahanta",
+      "notes": "Second term. AGP-led front won the 1996 election. AGP briefly aligned with the BJP at the central level (NDA, 1998-99) but the Assam state government was not a formal alliance government.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/Prafulla_Kumar_Mahanta", "note": "Second term ended in 2001 defeat." }
+      ]
+    },
+    {
+      "start": "2001-05-17",
+      "end": "2006-05-13",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Tarun Gogoi",
+      "notes": "First term. INC won the 2001 election on its own. Full five-year term.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/Tarun_Gogoi", "note": "Three-term CM (2001-06, 2006-11, 2011-16)." }
+      ]
+    },
+    {
+      "start": "2006-05-14",
+      "end": "2011-05-17",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Tarun Gogoi",
+      "notes": "Second term. INC won the 2006 election; aligned with UPA at the centre under UPA-I/UPA-II.",
+      "references": [
+        { "url": "https://old.eci.gov.in/files/file/3196-assam-2006/", "note": "2006 Assam Statistical Report (URL pattern; legacy host may not be reachable from all build hosts)." }
+      ]
+    },
+    {
+      "start": "2011-05-18",
+      "end": "2016-05-23",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Tarun Gogoi",
+      "notes": "Third and final term. INC won the 2011 election with 78/126 seats. Full five-year term; INC lost the 2016 election to a BJP-led coalition.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/2011_Assam_Legislative_Assembly_election", "note": "INC majority government." }
+      ]
+    },
+    {
+      "start": "2016-05-24",
+      "end": "2021-05-09",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Sarbananda Sonowal",
+      "notes": "First BJP-led government in Assam's history. BJP won the 2016 election in pre-poll alliance with AGP and Bodoland People's Front (state-level brand: NDA). BJP secured 60/126 seats, AGP 14, BPF 12.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/2016_Assam_Legislative_Assembly_election", "note": "First BJP government." }
+      ]
+    },
+    {
+      "start": "2021-05-10",
+      "end": "2026-05-12",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Himanta Biswa Sarma",
+      "notes": "First term. BJP-led NDA won the 2021 election; BJP secured 60/126 seats, AGP 9, UPPL 6. Himanta Biswa Sarma (who had crossed over from INC to BJP in 2015) replaced Sonowal as CM-designate at the post-election leadership selection.",
+      "references": [
+        { "url": "https://en.wikipedia.org/wiki/2021_Assam_Legislative_Assembly_election", "note": "Seat shares and CM selection." },
+        { "url": "https://en.wikipedia.org/wiki/Himanta_Biswa_Sarma", "note": "Career and 2021 elevation." }
+      ]
+    },
+    {
+      "start": "2026-05-13",
+      "end": null,
+      "regime": "interim",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Placeholder for the post-May-2026 government. Results ingested in datasets/elections/AcGenMay2026/S03/. Backfill once the new ministry is sworn in.",
+      "references": [
+        { "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm", "note": "2026 Assam partywise result." }
+      ]
+    }
+  ]
+}
