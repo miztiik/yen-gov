@@ -52,6 +52,20 @@
       : []
   );
 
+  // Seats-by-party defaults to "winners only". A typical state has 7-10
+  // seat-winning parties and 20+ that contested without winning anything;
+  // showing all 30 floods the chart with zero-length bars and pushes the
+  // signal off the screen. Zero-seat parties remain reachable via the
+  // dedicated "All parties" directory below, and via this toggle.
+  let show_zero_seat = $state(false);
+  const winners_count = $derived(
+    ranked_parties.filter(p => p.seats_won > 0).length,
+  );
+  const zero_seat_count = $derived(ranked_parties.length - winners_count);
+  const visible_parties = $derived(
+    show_zero_seat ? ranked_parties : ranked_parties.filter(p => p.seats_won > 0),
+  );
+
   // ----- Phase 2: search + deselect -----
   //
   // `hidden_parties` keys are `party_eci_code ?? party_short` — same
@@ -199,7 +213,7 @@
     <!-- Full-width seats-by-party bar (below the map row so wide bars
          have room to breathe and 0-seat parties remain readable). -->
     <section class="bg-white rounded-lg shadow-sm p-5">
-      <div class="flex items-baseline justify-between mb-3 gap-2">
+      <div class="flex items-baseline justify-between mb-1 gap-2">
         <h2 class="text-sm font-semibold uppercase text-slate-500">Seats by party</h2>
         {#if hidden_parties.size > 0}
           <button
@@ -210,12 +224,25 @@
           <span class="text-xs text-slate-400">Click a party row to mute</span>
         {/if}
       </div>
+      <p class="text-xs text-slate-500 mb-3">
+        Bar length = seats won. Number in parentheses = vote share. Sorted by seats.
+      </p>
       <PartyBar
-        parties={ranked_parties}
+        parties={visible_parties}
         total_seats={summary.total_seats}
         {hidden_parties}
         onToggleHidden={toggleHidden}
       />
+      {#if zero_seat_count > 0}
+        <div class="pt-3">
+          <button
+            class="text-xs text-blue-600 hover:underline"
+            onclick={() => (show_zero_seat = !show_zero_seat)}
+          >{show_zero_seat
+              ? `Hide ${zero_seat_count} zero-seat parties`
+              : `Show ${zero_seat_count} parties with no seats`}</button>
+        </div>
+      {/if}
     </section>
 
     <section class="bg-white rounded-lg shadow-sm p-5">
