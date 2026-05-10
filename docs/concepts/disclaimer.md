@@ -38,12 +38,15 @@ The text below is what the About page renders. Treat it as the contract.
 
 ### About yen-gov
 
-**yen-gov** is an open-source project that collects publicly available
-Indian election data from official portals (Election Commission of India,
-state Chief Electoral Officer offices) and well-known community sources
-(Wikipedia, MyNeta, open boundary repositories), validates it against
-schemas, and presents it in one place — for free, with the source code and
-the source data both open.
+**yen-gov** is an open-source project that brings together publicly
+available Indian civic data — starting with electoral results and
+broadening over time to socio-economic, demographic, and welfare
+indicators (census releases, NSO/MoSPI tables, scheme-level reporting,
+and more). It pulls from official portals (Election Commission of India,
+state Chief Electoral Officer offices, ministry statistical releases) and
+well-known community sources (Wikipedia, MyNeta, open boundary
+repositories), validates everything against schemas, and presents it in
+one place — for free, with the source code and the source data both open.
 
 Every dataset that ships in this site carries a `sources` list that names
 the exact URL each row was pulled from and when it was fetched. Nothing on
@@ -58,15 +61,16 @@ origin.
 - We make a **best effort** to be accurate and to stay close to the
   official record. Where official sources publish numbers, we use those
   numbers. Where they don't, we say so.
-- Election data is messy. Names get spelled multiple ways, party
+- Civic data is messy. Names get spelled multiple ways, party
   affiliations change between filing and result, postal-vote breakdowns
-  arrive late, and ECI itself sometimes revises numbers post-declaration.
+  arrive late, ECI itself sometimes revises numbers post-declaration,
+  and socio-economic series get re-based or revised between releases.
   We try to track these, but **errors and lag are possible.**
 - Treat anything you see here as a starting point, not the final word.
   For anything that matters — legal, journalistic, academic, or
   operational — verify against the original source we link to.
 - Found a mistake?
-  [Open an issue or a pull request on GitHub](https://github.com/yen-gov).
+  [Open an issue or a pull request on GitHub](https://github.com/miztiik/yen-gov).
   Patches that come with a citation get merged fastest.
 
 ### About the maps
@@ -106,7 +110,7 @@ collected from you. The whole site is a static bundle served from GitHub
 Pages — what you download in your browser is everything there is.
 
 Source code, data files, and contribution guidelines:
-[github.com/yen-gov](https://github.com/yen-gov).
+[github.com/miztiik/yen-gov](https://github.com/miztiik/yen-gov).
 
 ### "As-is", in plain language
 

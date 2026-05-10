@@ -211,7 +211,7 @@
     <a href="#/about" class="block hover:text-slate-600">
       About &amp; disclaimer
     </a>
-    <a href="https://github.com/yen-gov" target="_blank" rel="noreferrer" class="block hover:text-slate-600">
+    <a href="https://github.com/miztiik/yen-gov" target="_blank" rel="noreferrer" class="block hover:text-slate-600">
       Yen Gov · For an informed India
     </a>
   </footer>

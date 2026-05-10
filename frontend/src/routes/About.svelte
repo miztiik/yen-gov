@@ -43,12 +43,16 @@
 
   <section class="space-y-3">
     <p>
-      <strong>yen-gov</strong> is an open-source project that collects publicly
-      available Indian election data from official portals (Election
-      Commission of India, state Chief Electoral Officer offices) and
-      well-known community sources (Wikipedia, MyNeta, open boundary
-      repositories), validates it against schemas, and presents it in one
-      place — for free, with the source code and the source data both open.
+      <strong>yen-gov</strong> is an open-source project that brings together
+      publicly available Indian civic data — starting with electoral results
+      and broadening over time to socio-economic, demographic, and welfare
+      indicators (census releases, NSO/MoSPI tables, scheme-level reporting,
+      and more). It pulls from official portals (Election Commission of
+      India, state Chief Electoral Officer offices, ministry statistical
+      releases) and well-known community sources (Wikipedia, MyNeta, open
+      boundary repositories), validates everything against schemas, and
+      presents it in one place — for free, with the source code and the
+      source data both open.
     </p>
     <p>
       Every dataset that ships in this site carries a <code>sources</code>
@@ -72,10 +76,11 @@
         use those numbers. Where they don't, we say so.
       </li>
       <li>
-        Election data is messy. Names get spelled multiple ways, party
+        Civic data is messy. Names get spelled multiple ways, party
         affiliations change between filing and result, postal-vote
-        breakdowns arrive late, and ECI itself sometimes revises numbers
-        post-declaration. We try to track these, but
+        breakdowns arrive late, ECI itself sometimes revises numbers
+        post-declaration, and socio-economic series get re-based or revised
+        between releases. We try to track these, but
         <strong>errors and lag are possible.</strong>
       </li>
       <li>
@@ -86,7 +91,7 @@
       <li>
         Found a mistake?
         <a class="text-sky-700 hover:underline"
-           href="https://github.com/yen-gov" target="_blank" rel="noreferrer">
+           href="https://github.com/miztiik/yen-gov" target="_blank" rel="noreferrer">
           Open an issue or a pull request on GitHub</a>.
         Patches that come with a citation get merged fastest.
       </li>
@@ -157,7 +162,7 @@
     <p>
       Source code, data files, and contribution guidelines:
       <a class="text-sky-700 hover:underline"
-         href="https://github.com/yen-gov" target="_blank" rel="noreferrer">github.com/yen-gov</a>.
+         href="https://github.com/miztiik/yen-gov" target="_blank" rel="noreferrer">github.com/miztiik/yen-gov</a>.
     </p>
   </section>
 

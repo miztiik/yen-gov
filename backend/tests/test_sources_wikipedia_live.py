@@ -27,7 +27,7 @@ from pathlib import Path
 
 
 _WIKI_UA = (
-    "yen-gov-tests/0.0 (https://github.com/yen-gov/yen-gov; "
+    "yen-gov-tests/0.0 (https://github.com/miztiik/yen-gov; "
     "election data pipeline) httpx"
 )
 _TN = "S22"
