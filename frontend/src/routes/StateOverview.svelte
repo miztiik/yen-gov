@@ -10,6 +10,8 @@
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
+  import { getDb } from "../lib/sql";
+  import { colors } from "../lib/colors/store.svelte";
 
   interface Props { params: { state: string } }
   let { params }: Props = $props();
@@ -22,10 +24,22 @@
   let districts = $state<DistrictEntry[] | null>(null);
   let error = $state<string | null>(null);
 
+  // Per-AC winner & margin lookup. Loaded from results.sqlite (same DB the
+  // map and histogram use; the lib/sql cache means this is a single fetch
+  // shared across components on this page). Indexed by ac_eci_no so the
+  // constituency list can render a coloured dot + margin badge inline.
+  interface AcWinner {
+    party_eci_code: string | null;
+    party_short: string;
+    margin_pct: number;
+  }
+  let winners = $state<Map<number, AcWinner>>(new Map());
+
   $effect(() => {
     summary = null;
     acs = null;
     districts = null;
+    winners = new Map();
     error = null;
     const sc = state_code;
     Promise.all([
@@ -35,6 +49,33 @@
     ])
       .then(([s, c, d]) => { summary = s; acs = c.constituencies; districts = d.districts; })
       .catch(e => (error = String(e)));
+    // Winners load is independent of the JSON fetches so the page renders
+    // even if the SQLite is briefly unavailable -- the badges just stay
+    // empty rather than blocking everything else.
+    (async () => {
+      try {
+        const db = await getDb(event, sc);
+        const sql = `
+          SELECT c.ac_eci_no AS ac, w.party_eci_code, w.party_short,
+                 100.0 * (w.votes - r2.votes) / NULLIF(c.votes_polled, 0) AS margin_pct
+          FROM constituencies c
+          JOIN candidates w  ON w.ac_eci_no = c.ac_eci_no AND w.is_winner = 1
+          JOIN candidates r2 ON r2.ac_eci_no = c.ac_eci_no AND r2.rank = 2 AND r2.is_nota = 0;
+        `;
+        const res = db.exec(sql);
+        const m = new Map<number, AcWinner>();
+        if (res[0]) for (const v of res[0].values) {
+          m.set(v[0] as number, {
+            party_eci_code: v[1] as string | null,
+            party_short: v[2] as string,
+            margin_pct: v[3] as number,
+          });
+        }
+        if (state_code === sc) winners = m;
+      } catch {
+        // Non-fatal: list still renders without badges.
+      }
+    })();
   });
 
   // Show every party from the actuals — no threshold. Earlier the bar
@@ -293,7 +334,7 @@
     </section>
 
     <section class="bg-white rounded-lg shadow-sm p-5">
-      <div class="flex justify-between items-baseline mb-3 gap-3 flex-wrap">
+      <div class="flex justify-between items-baseline mb-1 gap-3 flex-wrap">
         <h2 class="text-sm font-semibold uppercase text-slate-500">Constituencies by district</h2>
         <div class="flex items-center gap-3">
           <input
@@ -308,6 +349,12 @@
           </span>
         </div>
       </div>
+      <p class="text-xs text-slate-500 mb-3">
+        Coloured square = winner's party. Number on the right = winner's margin (pts).
+        <span class="text-rose-600">red</span> &lt; 5,
+        <span class="text-amber-600">amber</span> &lt; 10,
+        <span class="text-slate-400">grey</span> ≥ 10.
+      </p>
       {#if by_district.length === 0}
         <p class="text-sm text-slate-500 italic">No constituencies match <code>{ac_query}</code>.</p>
       {:else}
@@ -320,12 +367,31 @@
               </div>
               <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1 text-sm font-mono">
                 {#each g.acs as ac}
+                  {@const w = winners.get(ac.eci_no)}
                   <li>
-                    <a class="hover:underline" href={`#/s/${state_code}/ac/${ac.eci_no}`}>
-                      <span class="text-slate-400 inline-block w-8 text-right pr-2">{ac.eci_no}</span>
-                      <span>{ac.name}</span>
+                    <a class="hover:underline flex items-center gap-1.5" href={`#/s/${state_code}/ac/${ac.eci_no}`}>
+                      <span class="text-slate-400 inline-block w-8 text-right pr-1">{ac.eci_no}</span>
+                      {#if w}
+                        <span
+                          class="inline-block w-2 h-2 rounded-sm flex-shrink-0"
+                          style:background-color={colors.fill(w.party_eci_code, w.party_short)}
+                          title={`${w.party_short} · ${w.margin_pct.toFixed(1)} pt margin`}
+                        ></span>
+                      {:else}
+                        <span class="inline-block w-2 h-2 flex-shrink-0"></span>
+                      {/if}
+                      <span class="truncate">{ac.name}</span>
                       {#if ac.reservation !== "GEN"}
-                        <span class="text-xs text-rose-600 ml-1">[{ac.reservation}]</span>
+                        <span class="text-xs text-rose-600">[{ac.reservation}]</span>
+                      {/if}
+                      {#if w}
+                        <span
+                          class="ml-auto text-[10px] tabular-nums"
+                          class:text-rose-600={w.margin_pct < 5}
+                          class:text-amber-600={w.margin_pct >= 5 && w.margin_pct < 10}
+                          class:text-slate-400={w.margin_pct >= 10}
+                          title="Winner's margin (% of votes polled)"
+                        >{w.margin_pct.toFixed(1)}</span>
                       {/if}
                     </a>
                   </li>
