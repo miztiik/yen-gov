@@ -36,3 +36,5 @@ build/
 coverage/
 .coverage
 htmlcov/
+*.tmp_commit_msg*
+

@@ -9,6 +9,7 @@
   import RacesBoard from "../lib/RacesBoard.svelte";
   import SourceList from "../lib/SourceList.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
+  import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { getDb } from "../lib/sql";
@@ -323,6 +324,19 @@
     <section class="bg-white rounded-lg shadow-sm p-5">
       <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Races by competitiveness</h2>
       <RacesBoard {event} state={state_code} />
+    </section>
+
+    <!-- National context: indicator choropleths. Each indicator is rendered
+         by IndicatorChoropleth driven entirely by the artifact's metadata
+         (value_kind, direction, scale_hint, unit) — no per-indicator UI
+         code. The current state is outlined so the citizen can read
+         "where do I stand?" relative to other states. -->
+    <section class="space-y-3">
+      <h2 class="text-sm font-semibold uppercase text-slate-500">National context</h2>
+      <IndicatorChoropleth
+        indicator_path="/indicators/in/energy/installed_mw_by_state.json"
+        highlight_state={state_code}
+      />
     </section>
 
     <section class="bg-white rounded-lg shadow-sm p-5">
