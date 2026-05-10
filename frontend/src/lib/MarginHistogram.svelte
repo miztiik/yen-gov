@@ -11,6 +11,11 @@
   // would call the winner's margin).
   import { getDb } from "./sql";
   import { colors } from "./colors/store.svelte";
+  import * as d3 from "d3";
+  import { onMount } from "svelte";
+  import { tweened } from "svelte/motion";
+  import { cubicOut } from "svelte/easing";
+  import ChartTooltip, { type TooltipState } from "./ChartTooltip.svelte";
 
   interface Row {
     eci_no: number;
@@ -63,16 +68,22 @@
     return i === BUCKETS - 1 ? "50%+" : `${i * 5}–${(i + 1) * 5}%`;
   }
 
-  // Stack segments per bucket, party-colored.
-  function segments(b: { acs: Row[]; by_party: Map<string, number> }): { color: string; n: number; party: string }[] {
+  // Stack segments per bucket, party-colored. We compute a darker shade
+  // here too — the bar stack uses a vertical gradient (light at the top of
+  // each segment, base at the bottom) so the histogram matches the visual
+  // language of SeatDonut + PartyBar.
+  function segments(b: { acs: Row[]; by_party: Map<string, number> }): { color: string; color_dark: string; n: number; party: string; eci_code: string | null }[] {
     const entries = [...b.by_party.entries()].sort((a, b) => b[1] - a[1]);
     return entries.map(([k, n]) => {
       // k is either an ECI code or a short name; colors.fill handles both.
       const sample = b.acs.find(a => (a.winner_party_eci_code ?? a.winner_party_short) === k);
+      const fill = colors.fill(sample?.winner_party_eci_code ?? null, sample?.winner_party_short);
       return {
         n,
         party: sample?.winner_party_short ?? k,
-        color: colors.fill(sample?.winner_party_eci_code ?? null, sample?.winner_party_short),
+        eci_code: sample?.winner_party_eci_code ?? null,
+        color: fill,
+        color_dark: d3.color(fill)?.darker(0.45)?.formatHex() ?? fill,
       };
     });
   }
@@ -232,6 +243,39 @@
   const inner_w = W - PAD_L - PAD_R;
   const inner_h = H - PAD_T - PAD_B;
   const bar_w = inner_w / BUCKETS;
+
+  // Sweep-up entrance — bars grow from the baseline. Mirrors the SeatDonut
+  // motion language so all three hero charts on State Overview animate
+  // alike. ~700 ms keeps the chart from feeling sluggish on slow loads.
+  const grow = tweened(0, { duration: 700, easing: cubicOut });
+  onMount(() => { grow.set(1); });
+
+  // Custom tooltip (replaces the native <title>). Hovering a stacked
+  // segment pops a styled card with the party + bucket + count + share of
+  // bucket; the card is party-colored to mirror the segment.
+  let tooltip = $state<TooltipState | null>(null);
+  function showSegTip(
+    e: MouseEvent,
+    bucket_i: number,
+    seg: { color: string; party: string; n: number; eci_code: string | null },
+    bucket_total: number,
+  ): void {
+    tooltip = {
+      x: e.clientX,
+      y: e.clientY,
+      color: seg.color,
+      title: seg.party,
+      subtitle: `Margin ${bucket_label(bucket_i)}`,
+      lines: [
+        { label: "Seats in band", value: String(seg.n) },
+        { label: "Share of band", value: `${((seg.n / bucket_total) * 100).toFixed(0)}%` },
+      ],
+    };
+  }
+  function moveTip(e: MouseEvent): void {
+    if (tooltip) tooltip = { ...tooltip, x: e.clientX, y: e.clientY };
+  }
+  function hideTip(): void { tooltip = null; }
 </script>
 
 <div class="space-y-3">
@@ -269,6 +313,29 @@
     </div>
 
     <svg viewBox="0 0 {W} {H}" class="w-full h-auto" role="img" aria-label="Margin of victory histogram" aria-describedby="margin-histogram-caption">
+      <defs>
+        <!-- Soft drop shadow used by every segment. Same params as the
+             donut so the visual language matches across charts. -->
+        <filter id="margin-hist-shadow" x="-10%" y="-10%" width="120%" height="120%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="0.9" />
+          <feOffset dx="0" dy="0.8" result="offsetblur" />
+          <feComponentTransfer><feFuncA type="linear" slope="0.22" /></feComponentTransfer>
+          <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+        <!-- Per-segment vertical gradient: darker at the bottom of the
+             segment, base color at the top. Done once per (bucket, party)
+             via id; ~13 buckets × ~6 winning parties = ~78 gradients max,
+             cheap. -->
+        {#each visible_buckets as b, i}
+          {#each segments(b) as seg, si}
+            <linearGradient id="mh-grad-{i}-{si}" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color={seg.color} />
+              <stop offset="100%" stop-color={seg.color_dark} />
+            </linearGradient>
+          {/each}
+        {/each}
+      </defs>
+
       <!-- y-axis grid + ticks (0, 25%, 50%, 75%, 100% of visible_max) -->
       {#each [0, 0.25, 0.5, 0.75, 1.0] as f}
         {@const y = PAD_T + inner_h - f * inner_h}
@@ -277,12 +344,16 @@
         <text x={PAD_L - 4} y={y + 3} text-anchor="end" class="fill-slate-400" style="font-size:10px">{v}</text>
       {/each}
 
-      <!-- bars: stacked by party within each bucket -->
+      <!-- bars: stacked by party within each bucket. We multiply heights
+           by `$grow` so the entire stack rises from the baseline; we keep
+           the y origin at the *baseline* and shrink upward, otherwise the
+           segments would float during the entrance. -->
       {#each visible_buckets as b, i}
         {@const x = PAD_L + i * bar_w}
         {@const segs = segments(b)}
         {#if b.acs.length > 0}
-          {@const total_h = (b.acs.length / visible_max) * inner_h}
+          {@const total_h_full = (b.acs.length / visible_max) * inner_h}
+          {@const total_h = total_h_full * $grow}
           {#each segs as seg, si}
             {@const prev = segs.slice(0, si).reduce((a, s) => a + s.n, 0)}
             {@const seg_h = (seg.n / b.acs.length) * total_h}
@@ -292,18 +363,21 @@
               y={y}
               width={bar_w - 3}
               height={seg_h}
-              fill={seg.color}
-              opacity="0.9"
-            >
-              <title>{bucket_label(i)} · {seg.party} · {seg.n} AC{seg.n === 1 ? "" : "s"}</title>
-            </rect>
+              rx="2"
+              fill="url(#mh-grad-{i}-{si})"
+              filter="url(#margin-hist-shadow)"
+              class="cursor-default"
+              onmouseenter={(e) => showSegTip(e, i, seg, b.acs.length)}
+              onmousemove={moveTip}
+              onmouseleave={hideTip}
+            ></rect>
           {/each}
           <!-- count label above bar -->
           <text
             x={x + bar_w / 2}
             y={PAD_T + inner_h - total_h - 4}
             text-anchor="middle"
-            class="fill-slate-600"
+            class="fill-slate-700 font-semibold"
             style="font-size:10px"
           >{b.acs.length}</text>
         {/if}
@@ -334,38 +408,53 @@
     </p>
 
     {#if insights.length > 0}
-      <div class="text-xs bg-slate-50 border border-slate-200 rounded px-3 py-2.5 leading-relaxed">
-        <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wide text-slate-500 font-semibold mb-2">
-          <svg viewBox="0 0 16 16" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <path d="M8 1.5a3.5 3.5 0 0 0-2 6.36V10h4V7.86A3.5 3.5 0 0 0 8 1.5Z" />
-            <path d="M6 11.5h4M6.5 13.5h3" stroke-linecap="round" />
+      <div class="text-xs bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-lg px-3 py-3 leading-relaxed shadow-sm">
+        <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.12em] text-slate-500 font-semibold mb-2.5">
+          <svg viewBox="0 0 16 16" class="w-3.5 h-3.5 text-amber-500" fill="currentColor" aria-hidden="true">
+            <path d="M8 1a3.5 3.5 0 0 0-2 6.36V10h4V7.86A3.5 3.5 0 0 0 8 1Z" />
+            <path d="M6 11h4v1H6zM6.5 13h3v1h-3z" />
           </svg>
           Insights
         </div>
-        <ul class="space-y-1.5">
+        <ul class="space-y-2">
           {#each insights as ins}
-            <li class="flex items-start gap-2 text-slate-700">
-              <svg viewBox="0 0 16 16" class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                {#if ins.icon === "trophy"}
-                  <path d="M4.5 2.5h7v3a3.5 3.5 0 0 1-7 0v-3Z" />
-                  <path d="M4.5 3.5H2.5v1a2 2 0 0 0 2 2M11.5 3.5h2v1a2 2 0 0 1-2 2" />
-                  <path d="M6.5 13.5h3M5.5 13.5h5M8 9v4.5" />
-                {:else if ins.icon === "scales"}
-                  <path d="M8 2v12M3.5 14h9" />
-                  <path d="M3 5h10M3 5l-2 4a2 2 0 0 0 4 0L3 5ZM13 5l-2 4a2 2 0 0 0 4 0L13 5Z" />
-                {:else if ins.icon === "bolt"}
-                  <path d="M9 1.5 3.5 9h3.5l-1 5.5L13 7H9.5l1-5.5Z" />
-                {:else if ins.icon === "target"}
-                  <circle cx="8" cy="8" r="6" />
-                  <circle cx="8" cy="8" r="3" />
-                  <circle cx="8" cy="8" r="0.7" fill="currentColor" stroke="none" />
-                {/if}
-              </svg>
+            {@const tone = ins.icon === "trophy" ? { bg: "bg-amber-100", text: "text-amber-700" }
+                         : ins.icon === "scales" ? { bg: "bg-rose-100", text: "text-rose-700" }
+                         : ins.icon === "bolt"   ? { bg: "bg-violet-100", text: "text-violet-700" }
+                         :                         { bg: "bg-sky-100", text: "text-sky-700" }}
+            <li class="flex items-start gap-2.5 text-slate-700">
+              <!-- Filled badge icon. Coloured background + white inner glyph
+                   reads as a chip rather than a thin line drawing. Tone
+                   is keyed off the insight type so each row has its own
+                   visual identity (gold trophy, rose scales for close
+                   races, violet bolt for landslides, sky target for the
+                   tightest race). -->
+              <span class="inline-flex items-center justify-center w-5 h-5 rounded-md flex-shrink-0 {tone.bg} {tone.text}">
+                <svg viewBox="0 0 16 16" class="w-3 h-3" fill="currentColor" aria-hidden="true">
+                  {#if ins.icon === "trophy"}
+                    <path d="M5 2h6v3a3 3 0 0 1-6 0V2Z" />
+                    <path d="M5 3H3v1a2 2 0 0 0 2 2M11 3h2v1a2 2 0 0 1-2 2" stroke="currentColor" stroke-width="1" fill="none" />
+                    <rect x="6" y="11" width="4" height="1" />
+                    <rect x="5.5" y="13" width="5" height="1" rx="0.5" />
+                    <rect x="7.5" y="9" width="1" height="3" />
+                  {:else if ins.icon === "scales"}
+                    <rect x="7.5" y="2" width="1" height="12" />
+                    <rect x="3.5" y="13.5" width="9" height="1" rx="0.5" />
+                    <path d="M3 5h10l-2 4a2 2 0 0 1-4 0Zm0 0-2 4a2 2 0 0 0 4 0Zm10 0 2 4a2 2 0 0 1-4 0Z" stroke="currentColor" stroke-width="0.8" fill="currentColor" fill-opacity="0.85" />
+                  {:else if ins.icon === "bolt"}
+                    <path d="M9 1 3 9h3.5L5 15l7-8H8.5L9 1Z" />
+                  {:else if ins.icon === "target"}
+                    <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="8" cy="8" r="1.2" />
+                  {/if}
+                </svg>
+              </span>
               <span>{ins.text}</span>
             </li>
           {/each}
         </ul>
-        <p class="mt-2 pt-2 border-t border-slate-200 text-[10px] text-slate-500">
+        <p class="mt-2.5 pt-2 border-t border-slate-200 text-[10px] text-slate-500">
           A <strong>percentage point</strong> is the absolute gap in vote share —
           e.g. 25 points means the winner polled 25% more of all votes cast than
           the runner-up. Use it instead of “% bigger”, which compares ratios.
@@ -374,3 +463,5 @@
     {/if}
   {/if}
 </div>
+
+<ChartTooltip tip={tooltip} />

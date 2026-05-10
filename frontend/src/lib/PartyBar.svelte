@@ -2,6 +2,8 @@
   import * as d3 from "d3";
   import type { PartyTotals } from "./data";
   import { colors } from "./colors/store.svelte";
+  import { majorityFor } from "./electoral";
+  import ChartTooltip, { type TooltipState } from "./ChartTooltip.svelte";
 
   interface Props {
     parties: PartyTotals[];
@@ -41,7 +43,10 @@
   // *inside* the chart, even when the leading party hasn't crossed it
   // (the visible *gap* between the top bar and the marker IS the story
   // in fragmented results).
-  const majority = $derived(Math.ceil(total_seats / 2));
+  //
+  // `majorityFor` is the shared helper: floor(N/2)+1, the FPTP "strictly
+  // more than half" threshold. Same value Psephlab + ParliamentArc use.
+  const majority = $derived(majorityFor(total_seats));
   const max_seats = $derived(
     Math.max(1, Math.ceil(majority * 1.05), ...ranked.map(p => p.seats_won)),
   );
@@ -66,6 +71,32 @@
   // Leader = first row (post-sort). Used to add a soft ambient glow on the
   // top bar so the headline party is unmissable at a glance.
   const leader_key = $derived(ranked[0] ? key_for(ranked[0]) : null);
+
+  // Custom tooltip (replaces native browser <title>). Driven by row-level
+  // mouse events. We thread x/y from the event so the card follows the
+  // cursor; ChartTooltip handles edge-flipping.
+  const clickable_global = $derived(!!onToggleHidden);
+  let tooltip = $state<TooltipState | null>(null);
+  function showTip(e: MouseEvent, p: PartyTotals): void {
+    const k = key_for(p);
+    const muted = !!hidden_parties?.has(k);
+    tooltip = {
+      x: e.clientX,
+      y: e.clientY,
+      color: colors.fill(p.party_eci_code, p.party_short),
+      title: p.party_short,
+      subtitle: p.party_full && p.party_full !== p.party_short ? p.party_full : undefined,
+      lines: [
+        { label: "Seats", value: String(p.seats_won), suffix: `of ${total_seats}` },
+        { label: "Vote share", value: `${p.vote_share_pct.toFixed(1)}%` },
+      ],
+      hint: clickable_global ? (muted ? "Click to show this party" : "Click to mute this party") : undefined,
+    };
+  }
+  function moveTip(e: MouseEvent): void {
+    if (tooltip) tooltip = { ...tooltip, x: e.clientX, y: e.clientY };
+  }
+  function hideTip(): void { tooltip = null; }
 </script>
 
 <!-- Outer wrapper hosts the absolutely-positioned majority marker overlay
@@ -124,9 +155,13 @@
         class:cursor-pointer={clickable}
         role={clickable ? "button" : undefined}
         tabindex={clickable ? 0 : undefined}
-        title={clickable ? (hidden ? `Click to show ${p.party_short}` : `Click to mute ${p.party_short}`) : undefined}
         onclick={() => onToggleHidden?.(k)}
         onkeydown={(e) => { if (clickable && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); onToggleHidden?.(k); } }}
+        onmouseenter={(e) => showTip(e, p)}
+        onmousemove={moveTip}
+        onmouseleave={hideTip}
+        onfocus={(e) => showTip(e as unknown as MouseEvent, p)}
+        onblur={hideTip}
       >
         <div class="w-20 text-right text-sm font-medium text-slate-700 truncate flex items-center justify-end gap-1.5" title={p.party_full ?? p.party_short}>
           {#if is_leader && p.seats_won > 0}
@@ -198,3 +233,5 @@
     {/if}
   </div>
 </div>
+
+<ChartTooltip tip={tooltip} />
