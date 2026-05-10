@@ -151,7 +151,18 @@
     }
     return out;
   });
+  // visible_max_padded reserves ~10 % headroom on top of the tallest
+  // bucket so the bar's count label (drawn 4 px above the bar) never
+  // sits against the chart's top edge — the tallest bar gets at least
+  // one tick of empty space above it. We round up so we don't end up
+  // with awkward fractional ticks (e.g. 18 → 20, not 18 → 19.8).
   const visible_max = $derived(Math.max(1, ...visible_buckets.map(b => b.acs.length)));
+  const visible_max_padded = $derived.by(() => {
+    const m = visible_max;
+    if (m <= 4) return m + 1;          // small N: +1 is enough headroom
+    if (m <= 10) return Math.ceil((m + 1) / 2) * 2;  // round to even
+    return Math.ceil((m * 1.1) / 5) * 5;             // round to multiple of 5
+  });
 
   // ---- insight strip ----
   // For each winning party, compute median margin and # seats won by < 5
@@ -336,10 +347,10 @@
         {/each}
       </defs>
 
-      <!-- y-axis grid + ticks (0, 25%, 50%, 75%, 100% of visible_max) -->
+      <!-- y-axis grid + ticks (0, 25%, 50%, 75%, 100% of visible_max_padded) -->
       {#each [0, 0.25, 0.5, 0.75, 1.0] as f}
         {@const y = PAD_T + inner_h - f * inner_h}
-        {@const v = Math.round(f * visible_max)}
+        {@const v = Math.round(f * visible_max_padded)}
         <line x1={PAD_L} x2={W - PAD_R} y1={y} y2={y} stroke="#e2e8f0" stroke-width="1" />
         <text x={PAD_L - 4} y={y + 3} text-anchor="end" class="fill-slate-400" style="font-size:10px">{v}</text>
       {/each}
@@ -352,7 +363,7 @@
         {@const x = PAD_L + i * bar_w}
         {@const segs = segments(b)}
         {#if b.acs.length > 0}
-          {@const total_h_full = (b.acs.length / visible_max) * inner_h}
+          {@const total_h_full = (b.acs.length / visible_max_padded) * inner_h}
           {@const total_h = total_h_full * $grow}
           {#each segs as seg, si}
             {@const prev = segs.slice(0, si).reduce((a, s) => a + s.n, 0)}
@@ -408,48 +419,40 @@
     </p>
 
     {#if insights.length > 0}
-      <div class="text-xs bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-lg px-3 py-3 leading-relaxed shadow-sm">
+      <div class="text-xs bg-slate-50 border border-slate-200 rounded-lg px-3 py-3 leading-relaxed">
         <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.12em] text-slate-500 font-semibold mb-2.5">
-          <svg viewBox="0 0 16 16" class="w-3.5 h-3.5 text-amber-500" fill="currentColor" aria-hidden="true">
-            <path d="M8 1a3.5 3.5 0 0 0-2 6.36V10h4V7.86A3.5 3.5 0 0 0 8 1Z" />
-            <path d="M6 11h4v1H6zM6.5 13h3v1h-3z" />
+          <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.7.6 1 1.4 1 2.3v1h6v-1c0-.9.3-1.7 1-2.3A7 7 0 0 0 12 2Z" />
           </svg>
           Insights
         </div>
         <ul class="space-y-2">
           {#each insights as ins}
-            {@const tone = ins.icon === "trophy" ? { bg: "bg-amber-100", text: "text-amber-700" }
-                         : ins.icon === "scales" ? { bg: "bg-rose-100", text: "text-rose-700" }
-                         : ins.icon === "bolt"   ? { bg: "bg-violet-100", text: "text-violet-700" }
-                         :                         { bg: "bg-sky-100", text: "text-sky-700" }}
-            <li class="flex items-start gap-2.5 text-slate-700">
-              <!-- Filled badge icon. Coloured background + white inner glyph
-                   reads as a chip rather than a thin line drawing. Tone
-                   is keyed off the insight type so each row has its own
-                   visual identity (gold trophy, rose scales for close
-                   races, violet bolt for landslides, sky target for the
-                   tightest race). -->
-              <span class="inline-flex items-center justify-center w-5 h-5 rounded-md flex-shrink-0 {tone.bg} {tone.text}">
-                <svg viewBox="0 0 16 16" class="w-3 h-3" fill="currentColor" aria-hidden="true">
-                  {#if ins.icon === "trophy"}
-                    <path d="M5 2h6v3a3 3 0 0 1-6 0V2Z" />
-                    <path d="M5 3H3v1a2 2 0 0 0 2 2M11 3h2v1a2 2 0 0 1-2 2" stroke="currentColor" stroke-width="1" fill="none" />
-                    <rect x="6" y="11" width="4" height="1" />
-                    <rect x="5.5" y="13" width="5" height="1" rx="0.5" />
-                    <rect x="7.5" y="9" width="1" height="3" />
-                  {:else if ins.icon === "scales"}
-                    <rect x="7.5" y="2" width="1" height="12" />
-                    <rect x="3.5" y="13.5" width="9" height="1" rx="0.5" />
-                    <path d="M3 5h10l-2 4a2 2 0 0 1-4 0Zm0 0-2 4a2 2 0 0 0 4 0Zm10 0 2 4a2 2 0 0 1-4 0Z" stroke="currentColor" stroke-width="0.8" fill="currentColor" fill-opacity="0.85" />
-                  {:else if ins.icon === "bolt"}
-                    <path d="M9 1 3 9h3.5L5 15l7-8H8.5L9 1Z" />
-                  {:else if ins.icon === "target"}
-                    <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5" />
-                    <circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5" />
-                    <circle cx="8" cy="8" r="1.2" />
-                  {/if}
-                </svg>
-              </span>
+            {@const tone = ins.icon === "trophy" ? "text-amber-600"
+                         : ins.icon === "scales" ? "text-rose-600"
+                         : ins.icon === "bolt"   ? "text-violet-600"
+                         :                         "text-sky-600"}
+            <li class="flex items-start gap-2 text-slate-700">
+              <!-- Flat lucide-style stroke icons in a 24x24 viewBox.
+                   Drew the badge backgrounds from earlier iterations —
+                   the tinted boxes read as a control rather than a hint
+                   glyph, and the inner glyphs were imprecise filled
+                   shapes that looked rough next to the rest of the
+                   page. Single-color stroke icons are calmer, scale
+                   crisply, and let the text carry the message. -->
+              <svg viewBox="0 0 24 24" class="w-4 h-4 mt-0.5 flex-shrink-0 {tone}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                {#if ins.icon === "trophy"}
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                {:else if ins.icon === "scales"}
+                  <path d="M16 16.5c0 1.66 1.79 3 4 3s4-1.34 4-3l-4-9-4 9ZM0 16.5c0 1.66 1.79 3 4 3s4-1.34 4-3L4 7.5l-4 9ZM12 3v18M3 7.5h18M9 21h6" transform="translate(0 0.5)" />
+                {:else if ins.icon === "bolt"}
+                  <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" />
+                {:else if ins.icon === "target"}
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
+                {/if}
+              </svg>
               <span>{ins.text}</span>
             </li>
           {/each}
