@@ -3,12 +3,17 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-10",
       "description": "Initial schema. Long-form indicator with declared time_grain, value_kind, direction, unit. Created for the socio-economic expansion (TODO/SOCIO-ECONOMIC-EXPANSION.md, decisions D1/D4/Q3, locked 2026-05-10)."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-11",
+      "description": "Additive: optional governance/honesty metadata on indicator block. Added attribution_geography, comparability, funding_split, implementing_authority, methodology_vintage, series_breaks, icon. Driven by Governance Strategist review 2026-05-11 \u2014 the v1.0 schema let an analyst publish a ranked-choropleth indicator without declaring whether the values are even comparable across states. The new fields force honest framing without breaking any existing artifact (all optional)."
     }
   ],
   "type": "object",
@@ -118,6 +123,52 @@
         "notes": {
           "type": "string",
           "description": "Caveats the citizen should know (base year, methodology change, sample frame). Surfaced in the chart's source card."
+        },
+        "icon": {
+          "type": "string",
+          "description": "Optional icon hint (lucide-svelte name or path under frontend/src/lib/icons/indicators/). The chart shows it next to the title to make the indicator scannable in lists. When absent, a generic dot is used. Examples: \"zap\" (energy), \"factory\" (manufacturing), \"heart-pulse\" (health), \"book-open\" (education)."
+        },
+        "attribution_geography": {
+          "enum": ["where_produced", "where_consumed", "where_billed", "where_resident", "where_administered"],
+          "description": "What the entity_id geographically represents. `where_produced`: asset is sited in this state but may serve a region (e.g. installed power capacity). `where_consumed`: end-use happens in this state (e.g. per-capita electricity consumption). `where_billed`: financial/billing residence (e.g. GST collection). `where_resident`: persons resident in the state (e.g. population, NFHS). `where_administered`: administrative jurisdiction regardless of where the activity happens (e.g. cases filed in state HC). When this is `where_produced` or `where_billed`, the chart MUST surface a citizen-facing banner clarifying that the map shows siting/billing, not service. Per Governance review 2026-05-11."
+        },
+        "comparability": {
+          "enum": ["comparable_across_states", "comparable_with_normalisation", "not_comparable_across_states"],
+          "description": "Honest declaration of whether ranking states by this indicator's raw value is meaningful. `comparable_with_normalisation` should pair with a populated `denominator` (per-capita, per-area, share-of-total). `not_comparable_across_states` triggers a banner suppressing rank-table views and labels the choropleth as 'illustrative, not a ranking'. Per Governance review 2026-05-11 \u2014 the canonical example is the v1.0 'installed MW by state' artifact, which is a siting statistic, not a service statistic."
+        },
+        "funding_split": {
+          "type": "object",
+          "description": "Who funds the activity this indicator measures. Critical for centre-vs-state attribution: a citizen reading 'state X is doing well on X' must know whether the state government, the Centre, or a centrally-sponsored scheme drove the outcome. Per Governance review 2026-05-11.",
+          "additionalProperties": false,
+          "required": ["centre_pct", "state_pct", "source"],
+          "properties": {
+            "centre_pct":  { "type": "number", "minimum": 0, "maximum": 100 },
+            "state_pct":   { "type": "number", "minimum": 0, "maximum": 100 },
+            "other_pct":   { "type": "number", "minimum": 0, "maximum": 100 },
+            "source":      { "type": "string", "minLength": 1 }
+          }
+        },
+        "implementing_authority": {
+          "enum": ["state", "centre", "joint", "local_body", "parastatal"],
+          "description": "Who actually executes (vs funds) the activity this indicator measures. Many CSS schemes are centre-funded but state-implemented (`joint`); judiciary is `centre`; municipal sanitation is `local_body`. Per Governance review 2026-05-11."
+        },
+        "methodology_vintage": {
+          "type": "string",
+          "description": "Free-form short string naming the methodology revision the values were computed under. Examples: 'GSDP base 2011-12', 'Census 2011 + UIDAI 2024 projection', 'NFHS-5 (2019-21) sampling frame', 'UDISE+ post-2018-19 schema'. Distinct from `time` (which is the observation year) \u2014 a 2024 NFHS-6 figure has the same time as a 2024 NFHS-5 backcast but a different vintage. Per Governance review 2026-05-11."
+        },
+        "series_breaks": {
+          "type": "array",
+          "description": "Time-points where the series methodology changed in a way that breaks comparability across the boundary. Charts must draw a vertical marker at each break and refuse to compute growth rates that cross one. Per Governance review 2026-05-11.",
+          "items": {
+            "type": "object",
+            "required": ["at_time", "kind", "note"],
+            "additionalProperties": false,
+            "properties": {
+              "at_time": { "type": "string", "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$" },
+              "kind":    { "enum": ["rebase", "definition_change", "frame_change", "coverage_change"] },
+              "note":    { "type": "string", "minLength": 1 }
+            }
+          }
         }
       }
     },

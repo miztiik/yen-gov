@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/state.schema.json",
   "title": "States collection",
   "description": "All first-level administrative divisions (states + union territories) of a country, keyed by ECI state code. ECI codes are the canonical identifiers; ISO 3166-2 codes are carried for cross-referencing.",
-  "x-version": "3.2",
+  "x-version": "3.3",
   "x-changelog": [
     {
       "version": "1.0",
@@ -28,8 +28,11 @@
     {
       "version": "3.2",
       "date": "2026-05-11",
-      "description": "Additive: optional name (human-readable upstream name) and authority (issuing body) fields on each sources[] entry. Aligns with Phase A schemas (feature_collection.metadata, indicator) so attribution can be uniform across electoral and socio-economic data. Per TODO/SOCIO-ECONOMIC-EXPANSION.md §6 D3."
-    }
+      "description": "Additive: optional name (human-readable upstream name) and authority (issuing body) fields on each sources[] entry. Aligns with Phase A schemas (feature_collection.metadata, indicator) so attribution can be uniform across electoral and socio-economic data. Per TODO/SOCIO-ECONOMIC-EXPANSION.md §6 D3."    },
+    {
+      "version": "3.3",
+      "date": "2026-05-11",
+      "description": "Additive: optional `tier` enum on each state entry. Distinguishes general-category states from special-category (NEH/hill), UTs with/without legislatures, and NCT Delhi. Used by cross-state comparison views to default-filter ranked tables to general-category states (since special-category states have different CSS funding ratios and Article 371 carve-outs that make them not comparable in the same ranked view). Per Governance Strategist review 2026-05-11."    }
   ],
   "type": "object",
   "required": [
@@ -129,6 +132,17 @@
               "unverified"
             ],
             "description": "How the (eci_code, name) pairing was confirmed for this row. 'live_url_probe_ok' means a results.eci.gov.in URL bearing this code resolved with HTTP 200 and a matching state name. 'published_authority_only' means the code appears in a cited ECI Statistical Report or equivalent published authority but no live endpoint has been probed yet. 'unverified' means the pairing is provisional. Per Gregor architecture review 2026-05-11: per-state fetchers MUST refuse to compose URLs for rows whose status is not live_url_probe_ok."
+          },
+          "tier": {
+            "enum": [
+              "general_category",
+              "special_category_neh",
+              "special_category_hill",
+              "ut_with_legislature",
+              "ut_without_legislature",
+              "nct_delhi"
+            ],
+            "description": "Fiscal/administrative tier. The Centre formally retired the 'special category' designation after the 14th Finance Commission, but the operational distinction survives in CSS funding ratios (90:10 vs 60:40), Article 371 carve-outs, NEC/DoNER allocations, and (for UTs) whether a Council of Ministers exists. Default cross-state ranked tables filter to `general_category`. Per Governance Strategist review 2026-05-11."
           },
           "notes": {
             "type": "string"

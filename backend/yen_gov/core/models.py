@@ -123,14 +123,22 @@ class StateEntry(_Strict):
     verification_status: Literal[
         "live_url_probe_ok", "published_authority_only", "unverified"
     ] | None = None
+    tier: Literal[
+        "general_category",
+        "special_category_neh",
+        "special_category_hill",
+        "ut_with_legislature",
+        "ut_without_legislature",
+        "nct_delhi",
+    ] | None = None
     notes: str | None = None
 
 
 class StatesCollection(_Artifact):
-    """Mirrors datasets/schemas/state.schema.json (x-version 3.2)."""
+    """Mirrors datasets/schemas/state.schema.json (x-version 3.3)."""
 
     _schema_id = "https://yen-gov.github.io/schemas/state.schema.json"
-    _schema_version = "3.2"
+    _schema_version = "3.3"
 
     country: Annotated[str, Field(pattern=r"^[A-Z]{2}$")]
     states: list[StateEntry] = Field(min_length=1)

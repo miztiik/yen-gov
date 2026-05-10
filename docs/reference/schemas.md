@@ -1,6 +1,6 @@
 # Schemas
 
-**Last Updated**: 2026-05-10
+**Last Updated**: 2026-05-11
 
 All schemas live in [`datasets/schemas/`](../../datasets/schemas/). Each is a JSON Schema 2020-12 document carrying its own version and changelog (CLAUDE.md §11).
 
@@ -10,7 +10,7 @@ All schemas live in [`datasets/schemas/`](../../datasets/schemas/). Each is a JS
 
 | File                                  | Title                              | x-version | Describes                                                                |
 | ------------------------------------- | ---------------------------------- | :-------: | ------------------------------------------------------------------------ |
-| `state.schema.json`                   | States collection                  | 3.0       | Top-level division list for one country.                                 |
+| `state.schema.json`                   | States collection                  | 3.3       | Top-level division list for one country. v3.3 (2026-05-11) adds optional `tier` enum (general_category / special_category_neh / special_category_hill / ut_with_legislature / ut_without_legislature / nct_delhi) so cross-state ranked tables can default-filter to comparable entities. |
 | `district.schema.json`                | Districts collection (per state)   | 3.0       | District list for one state.                                             |
 | `constituency.schema.json`            | Constituencies collection          | 3.0       | AC or PC list for one (state, body) pair.                                |
 | `party.schema.json`                   | Parties snapshot (per election)    | 3.0       | Party catalog scoped to one election event.                              |
@@ -27,7 +27,7 @@ Introduced by [`TODO/SOCIO-ECONOMIC-EXPANSION.md`](../../TODO/SOCIO-ECONOMIC-EXP
 | File                                              | Title                                 | x-version | Describes                                                                                                              |
 | ------------------------------------------------- | ------------------------------------- | :-------: | ---------------------------------------------------------------------------------------------------------------------- |
 | `feature_collection.metadata.schema.json`         | Feature collection metadata sidecar   | 1.0       | `<file>.metadata.json` for non-electoral GeoJSON FeatureCollections (power plants, hospitals, etc.). Carries `sources`, `license`, `coverage`, `coordinate_system`. |
-| `indicator.schema.json`                           | Indicator (long-form fact table)      | 1.0       | One indicator (e.g. installed MW per state per year) as long-form `(entity_id, time, value)` rows with semantic hints (`value_kind`, `direction`, `unit`) so the frontend renders it without per-indicator code. |
+| `indicator.schema.json`                           | Indicator (long-form fact table)      | 1.1       | One indicator (e.g. installed MW per state per year) as long-form `(entity_id, time, value)` rows with semantic hints (`value_kind`, `direction`, `unit`). v1.1 (2026-05-11) adds optional honesty fields: `attribution_geography`, `comparability`, `funding_split`, `implementing_authority`, `methodology_vintage`, `series_breaks[]`, `icon`. See [ADR-0020](../architecture/decisions/0020-indicator-artifact-as-data-contract.md). |
 | `state_government.schema.json`                    | State government history (CM terms)   | 1.0       | Per-state CM term timeline (start/end dates, party_code, alliance, regime). Drives the colour-by-government overlay. |
 
 To regenerate this table after a schema bump, run `python -m yen_gov validate` and update the row by hand. (Auto-generation is a Phase 4 nice-to-have, not a blocker.)

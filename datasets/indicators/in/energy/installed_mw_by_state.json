@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "1.1",
   "sources": [
     {
       "url": "https://raw.githubusercontent.com/yashveeeeeeer/india-geodata/main/data/energy/power-plants/INDIA_ENERGY_PLANTS.geojson",
@@ -12,24 +12,26 @@
     },
     {
       "url": "https://cea.nic.in/",
-      "fetched_at": "2026-05-10T21:37:10Z"
+      "fetched_at": "2026-05-10T21:37:10Z",
+      "name": "Central Electricity Authority",
+      "authority": "Ministry of Power, Government of India"
     }
   ],
   "license": {
     "id": "Unspecified",
-    "name": "Unspecified",
+    "name": "Source license unverified — community-curated GeoJSON",
     "url": null,
     "redistributable": null
   },
   "coverage": {
-    "spatial": "Subset of India (states with ECI codes resolved at emit time)",
+    "spatial": "4 of 35 states/UTs (TN, KL, AS, WB) — see notes",
     "temporal": "2019",
     "admin_level": "state"
   },
   "indicator": {
     "id": "energy/installed_mw_by_state",
-    "title": "Installed power capacity by state",
-    "description": "Total installed electricity-generation capacity in megawatts, rolled up by state and faceted by fuel type. Source data is a snapshot — see `coverage.temporal`.",
+    "title": "Installed power-generation capacity (siting basis)",
+    "description": "Nameplate capacity of power plants physically located within each state. NOT a measure of how much electricity each state consumes — much of the capacity feeds the regional grid and serves multiple states under CEA allocations. Read this map as 'where the plants stand', not 'who uses the power'.",
     "entity_kind": "state",
     "time_grain": "year",
     "value_kind": "raw",
@@ -37,7 +39,12 @@
     "scale_hint": "linear",
     "unit": "MW",
     "denominator": null,
-    "notes": "v1: rollup is restricted to states present in datasets/reference/in/states.json (currently TN, KL, AS, WB). Upstream covers all India; 57 distinct upstream state labels were not mapped to ECI codes in this run and their plants are excluded from this indicator. See docs/research/energy-power-plants.md for v2 plans (CEA direct + expanded states.json)."
+    "icon": "zap",
+    "attribution_geography": "where_produced",
+    "comparability": "not_comparable_across_states",
+    "implementing_authority": "joint",
+    "methodology_vintage": "OpenStreetMap-derived plant inventory snapshot, community-curated; cross-referenced against CEA broad-strokes only",
+    "notes": "v1 limitation: rollup is restricted to states already in datasets/reference/in/states.json with reference data (currently TN, KL, AS, WB). Of 35 states/UTs, only 4 render on this map; the other 31 appear grey because we lack data, not because they have zero capacity. v2 plan (see docs/research/energy-power-plants.md): switch upstream to CEA's monthly Installed Capacity report (PDF tabular extract), which gives state-wise totals for ALL states with proper methodology. Until then, treat this map as illustrative of what the schema can do, not as a credible state-comparison."
   },
   "rows": [
     {

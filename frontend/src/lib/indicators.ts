@@ -56,6 +56,28 @@ export interface IndicatorMeta {
   unit: string;
   denominator?: string | null;
   notes?: string;
+  // v1.1 (2026-05-11) — governance/honesty metadata. All optional.
+  icon?: string;
+  attribution_geography?:
+    | "where_produced" | "where_consumed" | "where_billed"
+    | "where_resident" | "where_administered";
+  comparability?:
+    | "comparable_across_states"
+    | "comparable_with_normalisation"
+    | "not_comparable_across_states";
+  funding_split?: {
+    centre_pct: number;
+    state_pct: number;
+    other_pct?: number;
+    source: string;
+  };
+  implementing_authority?: "state" | "centre" | "joint" | "local_body" | "parastatal";
+  methodology_vintage?: string;
+  series_breaks?: Array<{
+    at_time: string;
+    kind: "rebase" | "definition_change" | "frame_change" | "coverage_change";
+    note: string;
+  }>;
 }
 
 export interface IndicatorRow {

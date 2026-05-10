@@ -162,6 +162,65 @@
       label: formatValue(domain.min + t * (domain.max - domain.min), a.indicator),
     }));
   });
+
+  // CSS gradient string for the new continuous legend bar (UX P0-1).
+  const legend_gradient = $derived.by(() => {
+    if (!artifact) return "";
+    const stops = legend_stops.map(s => `${s.hex} ${(s.t * 100).toFixed(0)}%`).join(", ");
+    return `linear-gradient(to right, ${stops})`;
+  });
+
+  // Coverage caption (Citizen P0 + UX P0-2): make "4 of 35 states" first-class
+  // info above the map, not a footnote.
+  const coverage_summary = $derived.by(() => {
+    if (!artifact) return null;
+    const total = Object.keys(STATE_NAME_TO_ECI).length;
+    const covered = values.size;
+    if (covered === total) return null;
+    return { covered, total };
+  });
+
+  // Stale-data chip (UX P0-2): if the only year is more than ~2 years stale,
+  // surface that prominently rather than burying it in slate-500 11px.
+  const STALE_THRESHOLD_YEARS = 2;
+  const TODAY_YEAR = new Date().getFullYear();
+  const stale_chip = $derived.by(() => {
+    if (!artifact || !selected_time || times.length > 1) return null;
+    const yr = parseInt(selected_time.slice(0, 4), 10);
+    if (!Number.isFinite(yr)) return null;
+    const age = TODAY_YEAR - yr;
+    if (age <= STALE_THRESHOLD_YEARS) return null;
+    return { year: yr, age };
+  });
+
+  // Comparability banner (Governance §1 + Citizen): if the indicator declares
+  // not_comparable_across_states OR attribution_geography is where_produced,
+  // tell the citizen the choropleth is illustrative, not a ranking.
+  const comparability_banner = $derived.by(() => {
+    if (!artifact) return null;
+    const ind = artifact.indicator;
+    if (ind.comparability === "not_comparable_across_states") {
+      return {
+        kind: "amber" as const,
+        text: ind.attribution_geography === "where_produced"
+          ? "This map shows where the asset is sited, not who uses it. Ranking states by this number is misleading."
+          : "Values are not directly comparable across states without normalisation. Treat the colour ramp as illustrative.",
+      };
+    }
+    if (ind.attribution_geography === "where_produced") {
+      return {
+        kind: "slate" as const,
+        text: "Values reflect siting (where the asset is located), not service (who consumes/benefits).",
+      };
+    }
+    if (ind.comparability === "comparable_with_normalisation" && !ind.denominator) {
+      return {
+        kind: "slate" as const,
+        text: "Per-capita / per-area normalisation is recommended for cross-state comparison.",
+      };
+    }
+    return null;
+  });
 </script>
 
 <section class="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -172,38 +231,88 @@
   {:else if !artifact}
     <div class="p-4 text-sm text-slate-500">Loading indicator…</div>
   {:else}
-    <header class="px-4 pt-4 pb-3 border-b border-slate-100">
+    <header class="px-4 pt-4 pb-3 border-b border-slate-100 space-y-2">
       <div class="flex justify-between items-baseline gap-3 flex-wrap">
-        <div>
-          <h3 class="text-base font-semibold">{artifact.indicator.title}</h3>
+        <div class="min-w-0">
+          <h3 class="text-base font-semibold flex items-baseline gap-2">
+            <span>{artifact.indicator.title}</span>
+            {#if artifact.indicator.implementing_authority && artifact.indicator.implementing_authority !== "state"}
+              <span
+                class="text-[10px] font-normal px-1.5 py-0.5 rounded bg-slate-100 text-slate-600"
+                title={artifact.indicator.funding_split
+                  ? `Centre ${artifact.indicator.funding_split.centre_pct}% / state ${artifact.indicator.funding_split.state_pct}%`
+                  : "Centre involvement in funding or implementation"}
+              >
+                {artifact.indicator.implementing_authority === "joint" ? "Centre + state" :
+                 artifact.indicator.implementing_authority === "centre" ? "Central" :
+                 artifact.indicator.implementing_authority === "local_body" ? "Local body" : "Parastatal"}
+              </span>
+            {/if}
+          </h3>
           {#if artifact.indicator.description}
-            <p class="text-xs text-slate-500 mt-0.5">{artifact.indicator.description}</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">{artifact.indicator.description}</p>
           {/if}
-        </div>
-        <div class="text-[10px] text-slate-500 tabular-nums">
-          {artifact.coverage.spatial} · {artifact.coverage.temporal}
         </div>
       </div>
 
+      <!-- Comparability / attribution banner: surfaces honesty metadata above
+           the map so a citizen reads the caveat BEFORE forming a verdict. -->
+      {#if comparability_banner}
+        <div
+          class="text-[11px] px-2.5 py-1.5 rounded leading-snug"
+          class:bg-amber-50={comparability_banner.kind === "amber"}
+          class:text-amber-900={comparability_banner.kind === "amber"}
+          class:border={comparability_banner.kind === "amber"}
+          class:border-amber-200={comparability_banner.kind === "amber"}
+          class:bg-slate-50={comparability_banner.kind === "slate"}
+          class:text-slate-700={comparability_banner.kind === "slate"}
+        >
+          <strong class="font-semibold">Read this carefully · </strong>{comparability_banner.text}
+        </div>
+      {/if}
+
+      <!-- Coverage + temporal: first-class info, not a footnote. -->
+      <div class="flex justify-between items-center gap-3 flex-wrap text-[11px]">
+        {#if coverage_summary}
+          <span class="text-amber-800">
+            <strong class="font-semibold tabular-nums">{coverage_summary.covered} of {coverage_summary.total}</strong>
+            states/UTs have data on this map. The rest are grey because data is missing, not because they have zero.
+          </span>
+        {:else}
+          <span class="text-slate-500">{artifact.coverage.spatial}</span>
+        {/if}
+        {#if stale_chip}
+          <span
+            class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 font-medium"
+            title="The election you came for is much more recent than this data."
+          >Snapshot · {stale_chip.year} ({stale_chip.age} years old)</span>
+        {/if}
+      </div>
+
       {#if times.length > 1 && selected_time}
-        <div class="mt-3 flex items-center gap-3">
-          <label class="text-xs text-slate-500 font-medium">Year</label>
+        <div class="flex items-center gap-3 pt-1">
+          <label class="text-xs text-slate-500 font-medium" for="indicator-year-slider">Year</label>
           <input
+            id="indicator-year-slider"
             type="range"
             min="0"
             max={times.length - 1}
             step="1"
             value={times.indexOf(selected_time)}
+            list={`indicator-year-ticks-${artifact.indicator.id.replace(/[^a-z0-9]/gi, "_")}`}
             oninput={(e) => {
               const idx = Number((e.target as HTMLInputElement).value);
               selected_time = times[idx] ?? null;
             }}
             class="flex-1 max-w-xs"
           />
+          <datalist id={`indicator-year-ticks-${artifact.indicator.id.replace(/[^a-z0-9]/gi, "_")}`}>
+            {#each times as t, i}
+              <option value={i}>{t}</option>
+            {/each}
+          </datalist>
           <span class="text-sm font-mono tabular-nums">{selected_time}</span>
         </div>
-      {:else if selected_time}
-        <div class="mt-2 text-xs text-slate-500">Snapshot: <span class="font-mono">{selected_time}</span></div>
       {/if}
     </header>
 
@@ -218,24 +327,42 @@
     </div>
 
     <div class="px-4 py-3 border-t border-slate-100 space-y-3">
-      <!-- Legend -->
+      <!-- Legend: continuous gradient bar + single 3-tick numeric axis,
+           replacing 5 separate swatches with 5 separately-formatted unit
+           labels (UX P0-1). One eye-stop, one numeric reading. -->
       <div>
-        <div class="text-[10px] text-slate-500 uppercase tracking-wide mb-1">
-          Legend · {artifact.indicator.unit}
+        <div class="text-[10px] text-slate-500 uppercase tracking-wide mb-1 flex items-center gap-2">
+          <span>Legend</span>
+          <span class="text-slate-400 normal-case font-normal">{artifact.indicator.unit}</span>
         </div>
-        <div class="flex gap-0 items-center">
-          {#each legend_stops as stop}
-            <div class="flex-1 flex flex-col items-start">
-              <div class="h-3 w-full" style:background-color={stop.hex}></div>
-              <div class="text-[10px] text-slate-600 tabular-nums mt-1">{stop.label}</div>
-            </div>
-          {/each}
+        <div class="h-3 w-full rounded-sm" style:background={legend_gradient}></div>
+        <div class="flex justify-between text-[10px] text-slate-600 tabular-nums mt-1">
+          <span>{legend_stops[0]?.label ?? ""}</span>
+          <span>{legend_stops[2]?.label ?? ""}</span>
+          <span>{legend_stops[4]?.label ?? ""}</span>
         </div>
       </div>
 
-      <!-- License badge -->
-      <div class="flex items-center gap-2 text-[11px]">
-        <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 font-mono">
+      <!-- Notes promoted to high priority: it shapes interpretation. -->
+      {#if artifact.indicator.notes}
+        <p class="text-[12px] text-slate-700 leading-relaxed">{artifact.indicator.notes}</p>
+      {/if}
+
+      <!-- Methodology vintage + series breaks (governance honesty). -->
+      {#if artifact.indicator.methodology_vintage || (artifact.indicator.series_breaks?.length ?? 0) > 0}
+        <div class="text-[11px] text-slate-500 space-y-0.5">
+          {#if artifact.indicator.methodology_vintage}
+            <div><span class="text-slate-400">Methodology · </span>{artifact.indicator.methodology_vintage}</div>
+          {/if}
+          {#each artifact.indicator.series_breaks ?? [] as br}
+            <div><span class="text-amber-700">Series break · </span>{br.at_time} ({br.kind}): {br.note}</div>
+          {/each}
+        </div>
+      {/if}
+
+      <!-- License + provenance: legally significant; demoted only by being last. -->
+      <div class="flex items-center gap-2 text-[11px] flex-wrap">
+        <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700">
           {artifact.license.name}
         </span>
         {#if artifact.license.url}
@@ -244,15 +371,10 @@
           </a>
         {/if}
         {#if artifact.license.redistributable === false}
-          <span class="text-amber-700">non-redistributable — links only</span>
+          <span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 font-medium">non-redistributable — links only</span>
         {/if}
       </div>
 
-      {#if artifact.indicator.notes}
-        <p class="text-[11px] text-slate-500 leading-relaxed">{artifact.indicator.notes}</p>
-      {/if}
-
-      <!-- Sources -->
       <SourceList sources={artifact.sources} schema_version={artifact.$schema_version} />
     </div>
   {/if}
