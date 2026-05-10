@@ -14,6 +14,7 @@
   import { STATE_AC } from "./sources";
   import { getDb } from "../sql";
   import { colors } from "../colors/store.svelte";
+  import { navigate, url } from "../url";
 
   interface Props {
     event: string;
@@ -126,7 +127,7 @@
 
   function on_select(sel: { key: string | number }): void {
     const eci_no = Number(sel.key);
-    if (Number.isFinite(eci_no)) location.hash = `#/s/${state_code}/ac/${eci_no}`;
+    if (Number.isFinite(eci_no)) navigate(url.acByNo(state_code, eci_no));
   }
 </script>
 

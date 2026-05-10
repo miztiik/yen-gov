@@ -29,12 +29,14 @@
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import SwingSankey from "../lib/SwingSankey.svelte";
   import { states } from "../lib/states.svelte";
+  import { url } from "../lib/url";
+  import { docsUrl } from "../lib/repo";
 
   interface Props { params: { state: string; event: string } }
   let { params }: Props = $props();
 
   const event = $derived(params.event);
-  const state_code = $derived(params.state);
+  const state_code = $derived(states.codeFromSlug(params.state));
 
   let actuals = $state<Tallies | null>(null);
   let actuals_error = $state<string | null>(null);
@@ -43,16 +45,14 @@
   let scenario = $state<Scenario>(initialScenario());
 
   function initialScenario(): Scenario {
-    const h = window.location.hash;
-    const i = h.indexOf("?");
-    if (i < 0) return EMPTY_SCENARIO;
-    return decodeScenario(new URLSearchParams(h.slice(i + 1)).get("s"));
+    return decodeScenario(new URLSearchParams(window.location.search).get("s"));
   }
 
   $effect(() => {
     actuals = null;
     actuals_error = null;
     const ev = event, st = state_code;
+    if (!st) return;
     loadActuals(ev, st)
       .then(t => (actuals = t))
       .catch(e => (actuals_error = String(e)));
@@ -179,11 +179,19 @@
   function partyLabel(code: string): string {
     return party_choices.find(p => p.code === code)?.short ?? code;
   }
+
+  // The info icon next to each mutation row jumps to the matching
+  // subsection of the Psephlab architecture doc on GitHub (which renders
+  // the embedded mermaid diagrams natively). Per CLAUDE.md §1 there's no
+  // docs server we own; the canonical Markdown source on the repo's
+  // configured branch is the single source of truth. The repo URL itself
+  // is centralised in lib/repo.ts so a fork or rename is a one-line swap.
+  const PSEPHLAB_DOC = "docs/architecture/frontend/psephlab.md";
 </script>
 
 <div class="max-w-6xl mx-auto p-4 md:p-6 space-y-4">
   <header class="space-y-1">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${state_code}`}>← {states.name(state_code)} overview</a></p>
+    <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a></p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
       <h1 class="text-2xl font-bold">Psephlab — {states.name(state_code)}</h1>
       <p class="text-xs text-slate-500">
@@ -227,10 +235,26 @@
 
         <ul class="space-y-3">
           {#each scenario.mutations as cfg, i (i + ':' + cfg.id)}
+            {@const plug = mutationById(cfg.id)}
             <li class="border border-slate-200 rounded p-2 space-y-2 bg-slate-50/50">
               <div class="flex items-center justify-between gap-1 text-xs">
-                <span class="font-medium text-slate-700">
-                  {i + 1}. {mutationById(cfg.id)?.label ?? cfg.id}
+                <span class="flex items-center gap-1 font-medium text-slate-700">
+                  <span>{i + 1}. {plug?.label ?? cfg.id}</span>
+                  {#if plug?.docs_anchor}
+                    <a
+                      class="text-slate-400 hover:text-sky-700 inline-flex items-center"
+                      href={docsUrl(PSEPHLAB_DOC, plug.docs_anchor)}
+                      target="_blank"
+                      rel="noreferrer"
+                      title={`${plug.summary}\n\nClick to open the full explanation (with diagrams) on GitHub.`}
+                      aria-label={`How ${plug.label} works — open documentation`}
+                    >
+                      <!-- Heroicons: information-circle (mini) -->
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z" clip-rule="evenodd" />
+                      </svg>
+                    </a>
+                  {/if}
                 </span>
                 <span class="flex items-center gap-1">
                   <button
@@ -347,7 +371,7 @@
                 <label class="block text-xs">
                   Swing <span class="font-mono">{c.pct.toFixed(1)}%</span> of {c.from_party_eci_codes.map(partyLabel).join(' + ') || '\u2026'} → {partyLabel(c.to_party_eci_code)}
                   <input
-                    type="range" class="w-full" min="0" max="50" step="0.5"
+                    type="range" class="w-full" min="0" max="100" step="0.5"
                     value={c.pct}
                     oninput={(e) => updateMutation(i, { pct: Number((e.target as HTMLInputElement).value) })}
                   />

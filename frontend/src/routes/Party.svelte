@@ -4,11 +4,18 @@
     type ResultSummary, type PartyEntry, type PartyTotals,
   } from "../lib/data";
   import { states } from "../lib/states.svelte";
+  import { url } from "../lib/url";
+  import { slugify } from "../lib/slug";
 
-  interface Props { params: { state: string; party_eci_code: string } }
+  // params.party_slug is `<short>-<eci_code_lower>`. The ECI code is the
+  // disambiguator on the tail; everything before the final dash is the
+  // (cosmetic) short-name slug. We split on the LAST dash so multi-word
+  // shorts ("all-india-trinamool-congress-aitc") parse correctly.
+  interface Props { params: { state: string; party_slug: string } }
   let { params }: Props = $props();
 
   const event = "AcGenMay2026";
+  const state_code = $derived(states.codeFromSlug(params.state));
 
   let summary = $state<ResultSummary | null>(null);
   let parties = $state<PartyEntry[] | null>(null);
@@ -16,26 +23,54 @@
 
   $effect(() => {
     summary = null; parties = null; error = null;
-    Promise.all([fetchResultSummary(event, params.state), fetchParties(event, params.state)])
+    const sc = state_code;
+    if (!sc) return;
+    Promise.all([fetchResultSummary(event, sc), fetchParties(event, sc)])
       .then(([s, p]) => { summary = s; parties = p.parties; })
       .catch(e => (error = String(e)));
   });
 
+  /**
+   * Resolve the party from the slug. We try (1) match by ECI code in the
+   * trailing token after the final `-`, then (2) match by slugified short
+   * name across the loaded parties — covers older URLs that don't carry
+   * the ECI suffix. Returns the canonical eci_code or null.
+   */
+  const party_eci_code = $derived.by<string | null>(() => {
+    if (!parties && !summary) return null;
+    const slug = params.party_slug;
+    const dash = slug.lastIndexOf("-");
+    const tail = dash >= 0 ? slug.slice(dash + 1) : slug;
+    // (1) match by ECI code (case-insensitive) against parties or party_totals.
+    const fromParties = parties?.find(p => p.eci_code.toLowerCase() === tail.toLowerCase())?.eci_code;
+    if (fromParties) return fromParties;
+    const fromTotals = summary?.party_totals.find(p => (p.party_eci_code ?? "").toLowerCase() === tail.toLowerCase())?.party_eci_code ?? null;
+    if (fromTotals) return fromTotals;
+    // (2) match by slugified short name.
+    const head = dash >= 0 ? slug.slice(0, dash) : slug;
+    const byName = parties?.find(p => slugify(p.short_name) === head)?.eci_code;
+    if (byName) return byName;
+    const byTotalShort = summary?.party_totals.find(p => slugify(p.party_short) === head)?.party_eci_code ?? null;
+    return byTotalShort;
+  });
+
   const party_meta = $derived(
-    parties ? (parties.find((p: PartyEntry) => p.eci_code === params.party_eci_code) ?? null) : null
+    parties && party_eci_code
+      ? (parties.find((p: PartyEntry) => p.eci_code === party_eci_code) ?? null)
+      : null
   );
   const totals = $derived(
-    summary
-      ? (summary.party_totals.find((p: PartyTotals) => p.party_eci_code === params.party_eci_code) ?? null)
+    summary && party_eci_code
+      ? (summary.party_totals.find((p: PartyTotals) => p.party_eci_code === party_eci_code) ?? null)
       : null
   );
 </script>
 
 <main class="max-w-3xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href={`#/s/${params.state}`}>← {states.name(params.state)} overview</a></p>
+    <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a></p>
     <h1 class="text-2xl font-bold">
-      {#if party_meta}{party_meta.full_name}{:else}Party {params.party_eci_code}{/if}
+      {#if party_meta}{party_meta.full_name}{:else}Party {party_eci_code ?? params.party_slug}{/if}
     </h1>
     {#if party_meta}
       <p class="text-sm text-slate-500">
@@ -54,7 +89,7 @@
     <div class="text-slate-500">Loading…</div>
   {:else if !totals}
     <div class="p-4 bg-amber-50 border border-amber-200 rounded text-amber-900">
-      Party <code>{params.party_eci_code}</code> not found in {states.name(params.state)} totals.
+      Party <code>{party_eci_code ?? params.party_slug}</code> not found in {states.name(state_code)} totals.
     </div>
   {:else}
     <section class="bg-white rounded-lg shadow-sm p-5 grid sm:grid-cols-3 gap-4 text-sm">

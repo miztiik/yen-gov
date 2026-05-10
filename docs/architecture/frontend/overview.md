@@ -1,6 +1,6 @@
 # Frontend Overview
 
-**Last Updated**: 2026-05-10 (revision: post-Phase-3 sync; UX audit P1–P3)
+**Last Updated**: 2026-05-10 (revision: history routing with slug URLs; map UX & MarginHistogram polish)
 
 The frontend is a static Svelte 5 + Vite + Tailwind + d3 bundle that renders election artifacts from [`datasets/`](../../../datasets/). It has no production backend (CLAUDE.md Holy Law #1) and never commits data files (§4). Built with `bun`. Routed with a tiny custom hash router.
 
@@ -160,13 +160,13 @@ frontend/
     │   ├── MarginHistogram.svelte
     │   └── AcStackedBar.svelte
     └── routes/
-        ├── Home.svelte         #/        — country choropleth landing
-        ├── StateOverview.svelte #/s/:state
-        ├── Constituency.svelte  #/s/:state/ac/:eci_no
-        ├── Party.svelte         #/s/:state/party/:party_eci_code
-        ├── Explore.svelte       #/s/:state/explore  (sql.js)
-        ├── Psephlab.svelte      #/lab/:state/:event
-        ├── Settings.svelte      #/settings
+        ├── Home.svelte         /        — country choropleth landing
+        ├── StateOverview.svelte /s/:state-slug
+        ├── Constituency.svelte  /s/:state-slug/ac/:ac-slug   (e.g. 167-mylapore)
+        ├── Party.svelte         /s/:state-slug/party/:party-slug   (e.g. dmk-d34)
+        ├── Explore.svelte       /s/:state-slug/explore  (sql.js)
+        ├── Psephlab.svelte      /lab/:state-slug/:event
+        ├── Settings.svelte      /settings
         └── NotFound.svelte
 ```
 
@@ -213,44 +213,60 @@ Specifics worth knowing:
 - **Echarts / Chart.js.** Rejected for the first slice. They bundle their own SVG/canvas renderer and theme system; d3 lets us compose minimal SVG that matches Tailwind classes directly.
 - **npm or pnpm.** Viable. bun chosen for install speed and a single-binary toolchain; switching is a lockfile regen if it ever becomes a constraint.
 
-## Hash-based routing (custom, no router lib)
+## History routing with slug URLs (custom, no router lib)
 
-URLs look like:
+URLs use the standard History API (clean paths, no `#`). They look like:
 
-- `#/`                                  — country index (India choropleth landing)
-- `#/s/:state`                          — state Explore view (map + party totals)
-- `#/s/:state/ac/:eci_no`               — per-constituency result
-- `#/s/:state/party/:party_eci_code`    — per-party detail across the state
-- `#/s/:state/explore`                  — ad-hoc SQL surface (sql.js, see [data loading](data-loading.md))
-- `#/lab/:state/:event`                 — Psephlab for a chosen scope
-- `#/lab/:state/:event?s=<scenario>`    — Psephlab with a scenario loaded from URL fragment query
-- `#/settings`                          — color overrides, layout preferences (localStorage-backed)
-- `#/compare/:state/:event?mode=scn|elec&a=<scenario>&b=<scenario>&eventb=<event>` — [Compare.svelte](../../../frontend/src/routes/Compare.svelte). `mode=scn` (default): two Psephlab scenarios on the same actuals; `mode=elec`: same state across two events.
+- `/`                                                — country index (India choropleth landing)
+- `/s/:state-slug`                                   — state Explore view (map + party totals)
+- `/s/:state-slug/ac/:ac-slug`                       — per-constituency result (e.g. `/s/tamil-nadu/ac/167-mylapore`)
+- `/s/:state-slug/party/:party-slug`                 — per-party detail (e.g. `/s/tamil-nadu/party/dmk-d34`)
+- `/s/:state-slug/explore`                           — ad-hoc SQL surface (sql.js, see [data loading](data-loading.md))
+- `/lab/:state-slug/:event`                          — Psephlab for a chosen scope
+- `/lab/:state-slug/:event?s=<scenario>`             — Psephlab with a scenario loaded from the query string
+- `/settings`                                        — color overrides, layout preferences (localStorage-backed)
+- `/about?section=<id>`                              — About page, optionally scrolled to a section
+- `/compare/:state-slug/:event?mode=scn|elec&a=<scenario>&b=<scenario>&eventb=<event>` — [Compare.svelte](../../../frontend/src/routes/Compare.svelte). `mode=scn` (default): two Psephlab scenarios on the same actuals; `mode=elec`: same state across two events.
 
-[`frontend/src/lib/router.svelte.ts`](../../../frontend/src/lib/router.svelte.ts) exposes a `route` rune (`$state`-based store) parsed from `window.location.hash` and updated on `hashchange`. Components read `route.params` directly. Navigation is via standard `<a href="#/...">` — no link component required.
+On project Pages the deploy base is `/yen-gov/`, so all paths above are prefixed accordingly at runtime via `import.meta.env.BASE_URL` — see [`frontend/src/lib/url.ts`](../../../frontend/src/lib/url.ts).
 
-`currentPath()` strips any fragment query string (`?s=...`) before pattern matching, so Psephlab's serialised scenario survives navigation without breaking the route regex.
+### Slugs
 
-No router library is added. The current need (~7 routes, no nesting, no guards, no transitions) does not justify a dependency.
+Path identifiers are human-readable slugs, not raw codes. Helpers in [`frontend/src/lib/slug.ts`](../../../frontend/src/lib/slug.ts) build:
+
+- **State slug** — lowercased state name (e.g. `tamil-nadu`). Resolved back to the ECI code via [`states.codeFromSlug()`](../../../frontend/src/lib/states.svelte.ts), which accepts both the slug AND the raw ECI code (`S22`) for backwards compatibility with old bookmarks.
+- **AC slug** — `<eci_no>-<name-slug>` (e.g. `167-mylapore`). Parsed via `parseAcSlug()`; only the leading number is authoritative — the name is cosmetic and a wrong/stale name still resolves the right AC.
+- **Party slug** — `<short-name-slug>-<eci_code>` (e.g. `dmk-d34`). Parsed by splitting on the LAST `-`; the trailing token is the ECI code. Falls back to short-name match if the suffix is missing or unknown.
+
+All URL construction goes through [`frontend/src/lib/url.ts`](../../../frontend/src/lib/url.ts) (`url.home()`, `url.state(code)`, `url.ac(code, eci_no, name)`, `url.party(code, party_eci, short)`, etc.). Programmatic navigation uses the same module's `navigate(path)` which calls `history.pushState` and dispatches `popstate` for the router to pick up.
+
+[`frontend/src/lib/router.svelte.ts`](../../../frontend/src/lib/router.svelte.ts) exposes a `route` rune (`$state`-based store) parsed from `window.location.pathname` (after stripping the deploy base) and updated on `popstate`. A document-level `click` handler intercepts plain in-app `<a>` clicks and routes them through `navigate()`; external/blank-target/modifier-key clicks pass through.
+
+`currentPath()` ignores `location.search` for pattern matching, so Psephlab and Compare can attach `?s=...` / `?a=&b=` query state without affecting routing.
+
+### GitHub Pages 404.html SPA shim
+
+GitHub Pages is a static host with no SPA awareness, so a fresh request to `/yen-gov/s/tamil-nadu/ac/167-mylapore` would 404. Pages does serve [`frontend/public/404.html`](../../../frontend/public/404.html) for any unknown path under the base — our shim captures the requested path into `sessionStorage["yg:redirect"]`, then bounces to the deploy base. The boot script at the top of [`frontend/index.html`](../../../frontend/index.html) reads it back and calls `history.replaceState` BEFORE the SPA initialises, so the router sees the real path on first render. The base path is templated into 404.html at build time by `template404Plugin` in [`frontend/vite.config.ts`](../../../frontend/vite.config.ts).
+
+No router library is added. The current need (~9 routes, no nesting, no guards, no transitions) does not justify a dependency.
 
 ### Routing rationale
 
-- **Zero deploy-time configuration.** Works identically under `vite dev` and on GitHub Pages.
-- **No 404.html shim.** Direct deep links survive page reload because the path the server sees is always `index.html` (the hash never reaches the server).
-- ~50 lines of code, fully readable. No hidden behaviour, no version churn from an external lib.
-- Deep links are shareable and bookmark-able.
+- **Clean, shareable URLs.** Slug paths read like a URL; ECI codes (`S22`, `D34`) live only as URL-resolution detail.
+- **Backwards-compatible.** `states.codeFromSlug()` accepts old code-only URLs (`/s/S22`); the AC parser is tolerant of name drift.
+- **Single source of truth.** `lib/url.ts` builds every in-app URL. There is no string concatenation of route paths anywhere else.
+- ~80 lines of routing code, fully readable. No hidden behaviour, no version churn from an external lib.
 
 Acknowledged costs:
 
-- URLs include `#/`. Less aesthetic than history-mode paths. The alternative is the 404.html footgun.
-- Search engines index hash routes inconsistently. We are not optimising for SEO on this app (the data is the product, not the URL surface).
-- Custom code = our problem to maintain. Mitigated by the trivial scope (parse → match → render).
+- The 404.html shim is a one-frame redirect on first deep-link load. Network panels show the 404 momentarily; link previews on platforms that don't run JS will see the redirect HTML rather than the destination's metadata.
+- Custom code = our problem to maintain. Mitigated by the trivial scope (parse → match → render, plus a 30-line shim).
 
 ### Routing — alternatives considered
 
-- **`svelte-routing` / `svelte-spa-router`.** Viable, but adds a dependency and an opinion (slot-based routing, named params with `:slug` syntax, etc.) for a 4-route app. Rejected on YAGNI.
+- **`svelte-routing` / `svelte-spa-router`.** Viable, but adds a dependency and an opinion (slot-based routing, named params, etc.) for a small route table. Rejected on YAGNI.
 - **SvelteKit with adapter-static.** Gives us file-system routing and SSG. Rejected because (a) Holy Law #1 forbids assuming any backend, and adapter-static is a heavy migration path; (b) we already have a working Vite + plain-Svelte setup; (c) routing is the only thing SvelteKit would buy us right now.
-- **History-mode custom router + 404.html shim.** Pretty URLs, but every deep-link load goes through a redirect. Rejected on the brittleness: it intercepts as a 404 then JS-redirects, leaking a brief 404 in network panels and breaking link previews.
+- **Hash routing (previous design).** What we shipped first. Replaced because users expected shareable clean URLs, the `#/` was confusing in screenshots, and the 404.html shim is well-understood (used by Create-React-App, rafgraph/spa-github-pages, etc.).
 
 ## Discoverability & deselect (UX audit, May 2026)
 

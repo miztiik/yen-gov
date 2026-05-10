@@ -13,6 +13,7 @@
   } from "./sources";
   import { fetchResultSummary, type ResultSummary } from "../data";
   import { colors } from "../colors/store.svelte";
+  import { navigate, url } from "../url";
 
   interface Props {
     event: string;
@@ -92,7 +93,7 @@
 
   function on_select(sel: { key: string | number }): void {
     const code = STATE_NAME_TO_ECI[String(sel.key)];
-    if (code) location.hash = `#/s/${code}`;
+    if (code) navigate(url.state(code));
   }
 </script>
 

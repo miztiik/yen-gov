@@ -22,6 +22,8 @@ export function bagCode(name: string): string {
 export const partyBag: MutationPlugin<PartyBagConfig> = {
   id: "partyBag",
   label: "Ad-hoc party bag",
+  summary: "Per AC, merge several parties' candidates into one synthetic alliance candidate. Useful for modelling pre-poll alliances.",
+  docs_anchor: "how-party-bag-works",
 
   apply(tallies: Tallies, cfg: PartyBagConfig): Tallies {
     if (!cfg.name || cfg.members.length === 0) return tallies;

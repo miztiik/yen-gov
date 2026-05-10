@@ -81,20 +81,21 @@ export function decodeScenario(raw: string | null | undefined): Scenario {
   };
 }
 
-/** Pull the scenario from `window.location.hash` (`#/lab/...?s=<...>`). */
+/** Pull the scenario from `window.location.search` (`?s=<...>`). */
 export function readScenarioFromHash(): Scenario {
-  const h = window.location.hash;
-  const i = h.indexOf("?");
-  if (i < 0) return EMPTY_SCENARIO;
-  const params = new URLSearchParams(h.slice(i + 1));
+  const params = new URLSearchParams(window.location.search);
   return decodeScenario(params.get("s"));
 }
 
 /** Replace the scenario portion of the URL without triggering the router. */
-export function writeScenarioToHash(path_prefix: string, scenario: Scenario): void {
+export function writeScenarioToHash(_path_prefix: string, scenario: Scenario): void {
   const encoded = encodeScenario(scenario);
+  const params = new URLSearchParams(window.location.search);
+  params.set("s", encoded);
   // history.replaceState avoids piling up entries on every slider tick.
-  const next = `#${path_prefix}?s=${encoded}`;
-  if (window.location.hash === next) return;
+  // We replace ONLY the search portion; the path is owned by the router.
+  const next =
+    window.location.pathname + "?" + params.toString() + window.location.hash;
+  if (window.location.pathname + window.location.search + window.location.hash === next) return;
   history.replaceState(null, "", next);
 }

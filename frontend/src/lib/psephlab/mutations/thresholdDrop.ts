@@ -14,6 +14,8 @@ import type { MutationPlugin, ThresholdDropConfig, Tallies } from "../types";
 export const thresholdDrop: MutationPlugin<ThresholdDropConfig> = {
   id: "thresholdDrop",
   label: "Threshold drop",
+  summary: "Per AC, eliminate every candidate below N% and split their votes proportionally among survivors. NOTA is exempt from both dropping and receiving.",
+  docs_anchor: "how-threshold-drop-works",
 
   apply(tallies: Tallies, cfg: ThresholdDropConfig): Tallies {
     if (cfg.threshold_pct <= 0) return tallies;

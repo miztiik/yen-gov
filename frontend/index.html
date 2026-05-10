@@ -4,11 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yen Gov — For an informed India</title>
+    <!--
+      Deploy base. Vite rewrites the `content` to the configured `base`
+      (e.g. `/yen-gov/`) at build time. The 404.html SPA shim reads this
+      to know where to bounce unknown paths back to.
+    -->
+    <meta name="yg-base" content="%BASE_URL%" />
     <!-- Outfit: slim, modern geometric sans used for the brand wordmark.
          Body / UI text continue to use Tailwind's default system stack. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+    <!--
+      SPA boot shim. The 404.html stashes the requested path in
+      sessionStorage and bounces to `/`. Here we pop it back and rewrite
+      the URL via history.replaceState BEFORE the SPA initialises, so the
+      router sees the real path on first render.
+    -->
+    <script>
+      (function () {
+        try {
+          var saved = sessionStorage.getItem("yg:redirect");
+          if (!saved) return;
+          sessionStorage.removeItem("yg:redirect");
+          var meta = document.querySelector('meta[name="yg-base"]');
+          var base = meta ? meta.getAttribute("content") : "/";
+          if (!base.endsWith("/")) base += "/";
+          // saved starts with "/" (path relative to host root within the
+          // deploy base). Compose with base, collapsing duplicate slashes.
+          var target = base.replace(/\/$/, "") + saved;
+          if (target !== location.pathname + location.search + location.hash) {
+            history.replaceState(null, "", target);
+          }
+        } catch (_e) {
+          // Non-fatal — the SPA will land on `/` and the user can renavigate.
+        }
+      })();
+    </script>
   </head>
   <body class="bg-slate-50 text-slate-900">
     <div id="app"></div>

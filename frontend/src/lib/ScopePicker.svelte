@@ -11,20 +11,21 @@
   import { fetchStates, type StateEntry } from "../lib/data";
   import { scope, COUNTRIES, ELECTIONS } from "./scope.svelte";
   import { STATE_NAME_TO_ECI } from "./maplibre/sources";
+  import { navigate, url } from "./url";
 
   // Codes we have election data for; surface them at the top of the
   // dropdown so the picker is useful before the long tail is filled in.
   const HAS_DATA = new Set(Object.values(STATE_NAME_TO_ECI));
 
-  let states = $state<StateEntry[] | null>(null);
+  let states_list = $state<StateEntry[] | null>(null);
   fetchStates()
-    .then(s => (states = s.states))
-    .catch(() => (states = []));
+    .then(s => (states_list = s.states))
+    .catch(() => (states_list = []));
 
   const sorted_states = $derived.by(() => {
     const a: StateEntry[] = [];
     const b: StateEntry[] = [];
-    for (const s of states ?? []) (HAS_DATA.has(s.eci_code) ? a : b).push(s);
+    for (const s of states_list ?? []) (HAS_DATA.has(s.eci_code) ? a : b).push(s);
     a.sort((x, y) => x.name.localeCompare(y.name));
     b.sort((x, y) => x.name.localeCompare(y.name));
     return { with_data: a, without_data: b };
@@ -32,7 +33,7 @@
 
   function on_state_change(e: Event): void {
     const v = (e.target as HTMLSelectElement).value;
-    location.hash = v === "" ? "#/" : `#/s/${v}`;
+    navigate(v === "" ? url.home() : url.state(v));
   }
 
   function on_election_change(e: Event): void {

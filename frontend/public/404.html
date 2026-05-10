@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yen Gov — redirecting…</title>
+    <!--
+      GitHub Pages SPA shim.
+
+      GitHub Pages is a static host: it has no concept of SPA history routes,
+      so a request to /s/tamil-nadu/ac/167-mylapore would normally 404. Pages
+      *does* serve this 404.html for any unknown path, so we use it to
+      capture the requested path, store it in sessionStorage, and bounce to
+      `/`. The matching boot script in index.html pops it back off and
+      replaces the URL before the SPA router runs.
+
+      Inspired by rafgraph/spa-github-pages, but simpler: we don't try to
+      preserve query/hash by encoding-as-query — we just hand the original
+      URL to sessionStorage and trust the SPA to take over.
+    -->
+    <script>
+      (function () {
+        try {
+          // Vite's template404Plugin substitutes %BASE_URL% at build time
+          // (e.g. "/yen-gov/" on project Pages, "/" on root deploys). At
+          // dev time this file is never served (vite middleware handles
+          // missing routes), so the unsubstituted placeholder is harmless.
+          var base = "%BASE_URL%";
+          if (!base || base.charAt(0) === "%") base = "/";
+          if (!base.endsWith("/")) base += "/";
+          var path = location.pathname;
+          var rel = path;
+          if (path.indexOf(base) === 0) rel = path.slice(base.length - 1);
+          sessionStorage.setItem("yg:redirect", rel + location.search + location.hash);
+          location.replace(base);
+        } catch (e) {
+          location.replace("/");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to the app…</p>
+  </body>
+</html>

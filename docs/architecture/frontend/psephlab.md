@@ -1,6 +1,6 @@
 # Psephlab — the what-if simulator
 
-**Last Updated**: 2026-05-09 (v1 shipped)
+**Last Updated**: 2026-05-10 (v1 shipped; per-mutation deep-dive + UI info icons)
 
 Psephlab is the strategist-facing surface that lets a user mutate election inputs and re-count the result under a chosen counting rule. It is a pure, deterministic, in-browser computation: actuals come from `datasets/`, the user's mutations + rule choice define a *scenario*, and the rendered output is a function of `(actuals, scenario)` only.
 
@@ -86,7 +86,7 @@ type Tallies = {
 | Mutation | v1? | Knob | Conserves total votes? | Notes |
 | --- | :---: | --- | :---: | --- |
 | **Per-AC manual swing** | ✅ | drag votes from candidate X to Y in one AC | yes | The "what if 2,000 BJP voters had voted DMK in AC #167" case |
-| **Statewide swing** | ✅ | "shift K% from Party A to Party B across all ACs" | yes | Applied per-AC proportionally to A's per-AC votes; no-op in ACs missing either party |
+| **Statewide swing** | ✅ | "shift K% from Party A to Party B across all ACs" | yes | Single-target: only B benefits, other parties untouched. Per-AC, proportional to A's per-AC votes. No-op in ACs where B didn't contest. See [How statewide swing works](#how-statewide-swing-works). |
 | **Threshold drop** | ✅ | "eliminate candidates below N%, redistribute proportionally to non-NOTA survivors" | yes | NOTA exempt from drop and from redistribution receipt; rounding drift goes to the largest survivor |
 | **Ad-hoc party bag** | ✅ | "treat {DMK, INC, VCK} as one bloc" | yes | Members are pooled per-AC into one synthetic candidate (`party_eci_code = bag:<name>`). Bags are scenario-local (CLAUDE.md decision: no `datasets/reference/alliances/`) |
 | **Turnout uplift** | planned | per-AC: `uplift_pct` (0–100) + per-AC split rule (defaults to current top-2 ratio, override allowed) | **no** — adds new votes up to `min(electorate, current + uplift_pct × non_voters)` | Caps so even at 100% the user can model realistic loss (e.g. uplift to 90%) |
@@ -97,6 +97,120 @@ Mutations compose in the order the user adds them. Order matters (a threshold dr
 ### Why mutations are scenario-local, not contract-level
 
 Alliances especially: party blocs change between elections, mid-cycle, and even between two strategists comparing notes. Baking an `alliances.json` into `datasets/reference/` would create a contract surface that needs version-bumps for every news event. Keeping the bag inside the scenario URL means each shared link self-describes its blocs.
+
+## How each mutation works
+
+Each Psephlab mutation row in the UI carries an `ⓘ` icon that deep-links into one of the subsections below. Diagrams use Mermaid (rendered natively by GitHub) so the algorithm — not just the prose — is reviewable.
+
+The four primitives answer four different counterfactuals. They are deliberately separate; combining them in a stack is how you express richer scenarios.
+
+### How per-AC swing works
+
+```mermaid
+flowchart LR
+  subgraph Before["AC #167 — before"]
+    A1["Party A: 50,000"]
+    B1["Party B: 30,000"]
+    C1["Party C: 20,000"]
+  end
+  subgraph After["AC #167 — after (move 5,000 votes A → B)"]
+    A2["Party A: 45,000"]
+    B2["Party B: 35,000"]
+    C2["Party C: 20,000"]
+  end
+  A1 -- "−5,000" --> A2
+  B1 -- "+5,000" --> B2
+  C1 --> C2
+```
+
+- Acts on **one AC only** — the `eci_no` you select.
+- `from_party_eci_codes` may list one or many sources; the engine pulls the requested `votes` proportionally from each source's per-AC pile, clamped so no candidate ever goes negative.
+- `to_party_eci_code` is a single party. If the destination has no candidate in the AC, you can name a write-in candidate.
+- Total votes in the AC are conserved; other parties (here, C) are untouched.
+- Composes well after a `partyBag` (swing votes into the bag) or after a `thresholdDrop` (swing inside the surviving pool).
+
+### How statewide swing works
+
+```mermaid
+flowchart TB
+  CFG["Config: from = [A], to = B, pct = K%"]
+  CFG --> Loop["For every AC, independently"]
+  Loop --> Q{"Does B have<br/>a candidate in this AC?"}
+  Q -- "No" --> NOOP["No-op for this AC<br/>(A unchanged, no synthetic B created)"]
+  Q -- "Yes" --> MOVE["move = round(A.votes_in_AC × K/100)<br/>A.votes -= move<br/>B.votes += move<br/>every other party untouched"]
+```
+
+Worked example, `from = [C], to = B, pct = 100%`:
+
+| AC  | A before | B before | C before | move out of C | A after | B after | C after |
+| --- | -------: | -------: | -------: | ------------: | ------: | ------: | ------: |
+| 1   |   50,000 |   40,000 |   10,000 |        10,000 |  50,000 |  50,000 |       0 |
+| 2   |   35,000 |   45,000 |   20,000 |        20,000 |  35,000 |  65,000 |       0 |
+| 3   |   30,000 |  *(absent)* |   70,000 |     no-op |  30,000 |     —   |  70,000 |
+
+Key properties:
+
+- **Single-target.** All moved votes land on `to_party_eci_code`. **A** does not benefit from a `C → B` swing — even at `K = 100%`. If you want C's votes split proportionally between A and B, that is **threshold drop**, not statewide swing.
+- **Per-AC.** No vote ever crosses an AC boundary; AC turnout is conserved.
+- **Source-proportional.** A `K%` swing means *"K% of party A's voters in each AC defected"*, which matches Indian psephology's colloquial usage ("a 3% anti-incumbency swing").
+- **Many-to-one supported.** `from = [C, D], to = B, pct = 50%` pools 50% of C's and 50% of D's votes into B per AC.
+- **Slider range:** `0–100%`. Nudging to 100% in a `from = [C], to = B` config wipes C entirely from every AC where B contested and dumps the lot into B.
+- **Default:** `from = top-1 party (statewide), to = top-2 party, pct = 0` — a safe identity. The 0% start is intentional; the user picks the direction that interests them.
+
+### How threshold drop works
+
+```mermaid
+flowchart LR
+  subgraph Before["AC — before (threshold = 5%)"]
+    A1["A: 40%"]
+    B1["B: 35%"]
+    C1["C: 20%"]
+    D1["D: 5%"]
+    E1["E: 4% (below threshold)"]
+  end
+  subgraph After["AC — after E is dropped"]
+    A2["A: 41.7%"]
+    B2["B: 36.5%"]
+    C2["C: 20.8%"]
+    D2["D: 5.2%"]
+  end
+  A1 --> A2
+  B1 --> B2
+  C1 --> C2
+  D1 --> D2
+  E1 -- "4 pts redistributed<br/>40 : 35 : 20 : 5" --> A2
+```
+
+- Per AC: drop every candidate whose vote share is below `threshold_pct`.
+- Their freed votes split among **survivors** in proportion to each survivor's pre-drop share.
+- **NOTA is exempt** from being dropped *and* from receiving redistributed votes (NOTA represents abstention, not a candidate preference).
+- Rounding drift (always ≤ 1 vote per AC) goes to the largest survivor.
+- This is the right primitive for *"if Party X hadn't contested, voters would have gone to whoever they were already leaning toward"*. Rank order between survivors is preserved by construction, so the AC winner only ever changes when the dropped party was ahead of one of the survivors.
+
+### How party bag works
+
+```mermaid
+flowchart LR
+  subgraph Before["AC — actual candidates"]
+    DMK["DMK: 60,000"]
+    INC["INC: 15,000"]
+    VCK["VCK: 8,000"]
+    AIA["AIADMK: 50,000"]
+  end
+  subgraph After["AC — with bag 'INDIA-TN' = {DMK, INC, VCK}"]
+    BAG["INDIA-TN: 83,000<br/>(synthetic, party_eci_code = 'bag:INDIA-TN')"]
+    AIA2["AIADMK: 50,000"]
+  end
+  DMK --> BAG
+  INC --> BAG
+  VCK --> BAG
+  AIA --> AIA2
+```
+
+- For every AC, all member-party candidates are removed and replaced by one synthetic candidate whose votes equal the sum of theirs.
+- Synthetic `party_eci_code = "bag:<name>"`, so it cannot collide with a real ECI code; the counting rule treats it as just another party.
+- Bags compose **before** swings/drops in the user's stack are typically what you want (alliance first, then ask "what swing flips it?"); the UI lets you reorder.
+- Bags are **scenario-local** — membership rides in the share URL, never in `datasets/`. Rationale above in *Why mutations are scenario-local*.
 
 ## Counting rules
 

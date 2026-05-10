@@ -32,6 +32,8 @@ function source_codes(cfg: PerAcSwingConfig): string[] {
 export const perAcSwing: MutationPlugin<PerAcSwingConfig> = {
   id: "perAcSwing",
   label: "Per-AC vote swing",
+  summary: "Move a fixed number of votes from one or more source parties to a single destination, inside one AC. Total AC votes conserved.",
+  docs_anchor: "how-per-ac-swing-works",
 
   apply(tallies: Tallies, cfg: PerAcSwingConfig): Tallies {
     if (cfg.votes <= 0) return tallies;

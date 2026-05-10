@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { fileURLToPath } from "node:url";
 import { resolve, extname, sep } from "node:path";
-import { readFileSync, statSync } from "node:fs";
+import { readFileSync, statSync, existsSync, writeFileSync } from "node:fs";
 
 // Repo root = parent of frontend/. Used by both the dev middleware (which
 // serves datasets/ in place — per CLAUDE.md §4 the frontend MUST NOT commit
@@ -66,9 +66,27 @@ function serveDatasets() {
 // is a deployment concern, not a source-code one (CLAUDE.md §6).
 const BASE_URL = process.env.BASE_URL ?? "/";
 
+// Templating for the SPA 404.html shim. Vite copies public/* verbatim, so
+// %BASE_URL% in 404.html would otherwise survive into the dist output and
+// break the redirect on project Pages (where base is e.g. /yen-gov/). This
+// plugin substitutes the placeholder during the build's writeBundle phase.
+function template404Plugin() {
+  return {
+    name: "yen-gov-template-404",
+    apply: "build" as const,
+    writeBundle() {
+      const target = resolve(repoRoot, "frontend", "dist", "404.html");
+      if (!existsSync(target)) return;
+      const html = readFileSync(target, "utf8");
+      const replaced = html.replace(/%BASE_URL%/g, BASE_URL);
+      writeFileSync(target, replaced, "utf8");
+    },
+  };
+}
+
 export default defineConfig({
   base: BASE_URL,
-  plugins: [svelte(), serveDatasets()],
+  plugins: [svelte(), serveDatasets(), template404Plugin()],
   // Vite 6's default condition list doesn't always include "browser" for
   // SSR-aware packages (svelte 5's exports map falls back to its server
   // entry without it, which throws lifecycle_function_unavailable on

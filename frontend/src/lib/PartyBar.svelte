@@ -61,7 +61,6 @@
     <div
       class="flex items-center gap-3 transition-opacity"
       class:opacity-40={hidden}
-      class:line-through={hidden}
       class:cursor-pointer={clickable}
       role={clickable ? "button" : undefined}
       tabindex={clickable ? 0 : undefined}

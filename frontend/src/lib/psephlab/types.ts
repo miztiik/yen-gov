@@ -105,6 +105,13 @@ export interface MutationPlugin<C extends MutationConfig = MutationConfig> {
   id: C["id"];
   /** Human-readable label for the UI. */
   label: string;
+  /** One-sentence tooltip shown on hover of the info icon in the UI. */
+  summary: string;
+  /**
+   * Anchor (without leading `#`) inside `docs/architecture/frontend/psephlab.md`
+   * that the info icon deep-links to. The UI prefixes the repo blob URL.
+   */
+  docs_anchor: string;
   /** Apply the mutation. Pure. */
   apply(tallies: Tallies, config: C): Tallies;
   /** Default config when the user adds this mutation from the UI. */

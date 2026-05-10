@@ -8,6 +8,7 @@
 // and so adding a second event later is one diff, not a refactor.
 
 import { route } from "./router.svelte";
+import { states } from "./states.svelte";
 
 const ELECTION_KEY = "yen-gov:scope:election";
 
@@ -36,11 +37,21 @@ export const scope = {
   get country(): string {
     return COUNTRIES[0].code;
   },
-  /** ECI state code from the URL, or null on country-level routes. */
+  /**
+   * ECI state code from the URL, or null on country-level routes.
+   *
+   * URL shapes (history routing, slug-based):
+   *   /s/<state-slug>, /s/<state-slug>/..., /lab/<state-slug>/...,
+   *   /compare/<state-slug>/...
+   *
+   * The slug captured here is resolved to the ECI code via `states`. While
+   * the states reference is loading, the resolver returns null — callers
+   * already handle that case (the picker just shows "All India").
+   */
   get state(): string | null {
-    // URL shapes: /s/:state, /s/:state/..., /lab/:state/..., /compare/:state/...
-    const m = /^\/(?:s|lab|compare)\/([A-Z0-9]+)/.exec(route.path);
-    return m ? m[1] : null;
+    const m = /^\/(?:s|lab|compare)\/([^/]+)/.exec(route.path);
+    if (!m) return null;
+    return states.codeFromSlug(m[1]);
   },
   get election(): string {
     return chosen_election;

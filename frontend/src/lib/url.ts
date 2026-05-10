@@ -1,0 +1,86 @@
+// Single source of truth for in-app URL construction and navigation.
+//
+// Every internal `<a href>` and programmatic navigation goes through here.
+// That gives us:
+//
+//   * One place to honour `import.meta.env.BASE_URL` so the app works at
+//     both `/` (custom domain) and `/yen-gov/` (project Pages subpath).
+//   * One place that owns the hash-vs-history decision. Today the router
+//     is history-based (clean paths); a switch back to hash routing would
+//     be a one-line change here, not a 50-file diff.
+//   * One place that knows how to turn a state's ECI code + an AC's eci_no
+//     into the slugified URL form, so callers don't reinvent the format.
+
+import { acSlug, partySlug } from "./slug";
+import { states } from "./states.svelte";
+
+const BASE = import.meta.env.BASE_URL; // always ends in '/'
+
+/**
+ * Prefix a path with the deploy base URL. Inputs MUST start with `/`;
+ * we collapse the duplicate slash that would otherwise appear when BASE
+ * is `/yen-gov/`.
+ */
+export function withBase(path: string): string {
+  if (!path.startsWith("/")) path = "/" + path;
+  return BASE.replace(/\/$/, "") + path;
+}
+
+/** Strip the deploy base from `location.pathname` to get the route path. */
+export function stripBase(pathname: string): string {
+  const baseNoSlash = BASE.replace(/\/$/, "");
+  if (baseNoSlash && pathname.startsWith(baseNoSlash)) {
+    const tail = pathname.slice(baseNoSlash.length);
+    return tail === "" ? "/" : tail;
+  }
+  return pathname || "/";
+}
+
+/** Programmatic navigation — pushes a new entry; triggers the router. */
+export function navigate(path: string, opts: { replace?: boolean } = {}): void {
+  const target = withBase(path);
+  if (opts.replace) history.replaceState(null, "", target);
+  else history.pushState(null, "", target);
+  window.dispatchEvent(new PopStateEvent("popstate"));
+}
+
+/**
+ * URL builders. Every page that wants an in-app link calls one of these
+ * instead of constructing strings inline. The `state` argument is always
+ * an ECI code (S22) — slugification happens here so callers don't need to
+ * know whether the slug resolver is loaded yet.
+ */
+export const url = {
+  home(): string {
+    return withBase("/");
+  },
+  about(section?: string): string {
+    return withBase(section ? `/about?section=${encodeURIComponent(section)}` : "/about");
+  },
+  settings(): string {
+    return withBase("/settings");
+  },
+  state(stateCode: string): string {
+    return withBase(`/s/${states.slug(stateCode) || stateCode.toLowerCase()}`);
+  },
+  ac(stateCode: string, eci_no: number, name: string): string {
+    return withBase(`/s/${states.slug(stateCode) || stateCode.toLowerCase()}/ac/${acSlug(eci_no, name)}`);
+  },
+  // AC link without a name (used by callers that don't have one to hand).
+  acByNo(stateCode: string, eci_no: number): string {
+    return withBase(`/s/${states.slug(stateCode) || stateCode.toLowerCase()}/ac/${eci_no}`);
+  },
+  party(stateCode: string, partyEciCode: string, shortName: string): string {
+    const slug = partySlug(shortName, partyEciCode);
+    return withBase(`/s/${states.slug(stateCode) || stateCode.toLowerCase()}/party/${slug}-${partyEciCode.toLowerCase()}`);
+  },
+  explore(stateCode: string): string {
+    return withBase(`/s/${states.slug(stateCode) || stateCode.toLowerCase()}/explore`);
+  },
+  lab(stateCode: string, event: string): string {
+    return withBase(`/lab/${states.slug(stateCode) || stateCode.toLowerCase()}/${event}`);
+  },
+  compare(stateCode: string, event: string): string {
+    return withBase(`/compare/${states.slug(stateCode) || stateCode.toLowerCase()}/${event}`);
+  },
+};

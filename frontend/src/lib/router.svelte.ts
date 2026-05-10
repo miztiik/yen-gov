@@ -1,11 +1,19 @@
-// Tiny hash-based router (docs/architecture/frontend/overview.md). 4 routes, no nesting, no dependency.
+// Tiny history-based router (docs/architecture/frontend/overview.md).
 //
-// Routes are matched against `window.location.hash.slice(1)` (so `#/s/S22`
-// matches the path `/s/S22`). Patterns use `:name` for named params, which
-// are returned as a string-keyed map. The first registered route to match
-// wins.
+// Routes are matched against `window.location.pathname` with the deploy
+// base stripped (see lib/url.ts > stripBase). Patterns use `:name` for
+// named params, returned as a string-keyed map. The first registered
+// route to match wins.
+//
+// History routing (vs. hash routing) gives us clean paths like
+// `/s/tamil-nadu/ac/167-mylapore`. GitHub Pages does not natively support
+// SPA history routing, so a tiny `404.html` shim (in `public/`) bounces
+// unknown paths back to `index.html` while preserving the requested path
+// in `sessionStorage`. An inline boot script in `index.html` then restores
+// the path before the SPA initialises. See public/404.html for the shim.
 
 import { mount, type Component } from "svelte";
+import { stripBase } from "./url";
 
 // Pages declare their own params shape via $props(); the router doesn't try to
 // share a single typed `RouteProps`. We accept any Component here and let each
@@ -39,14 +47,12 @@ function compile(routes: Route[]): Compiled[] {
 }
 
 function currentPath(): string {
-  const h = window.location.hash;
-  if (!h || h === "#" || h === "#/") return "/";
-  let p = h.startsWith("#") ? h.slice(1) : h;
-  // Strip the fragment query string (e.g. `?s=...` used by Psephlab to
-  // serialise scenario state). The route pattern only matches the path.
-  const q = p.indexOf("?");
-  if (q >= 0) p = p.slice(0, q);
-  return p;
+  // Strip the deploy base (e.g. `/yen-gov/`) so route patterns stay
+  // base-agnostic. The query string is intentionally NOT included — pages
+  // that own URL state (Psephlab, Compare) read it directly from
+  // `location.search`.
+  const path = stripBase(window.location.pathname);
+  return path || "/";
 }
 
 interface Matched {
@@ -74,7 +80,7 @@ export function startRouter(opts: {
   const compiled = compile(opts.routes);
   let current: ReturnType<typeof mount> | null = null;
 
-  function render() {
+  function render(): void {
     const path = currentPath();
     const matched = resolve(compiled, opts.notFound, path);
     route.path = path;
@@ -86,9 +92,37 @@ export function startRouter(opts: {
     });
   }
 
-  // If we land with no hash, redirect to "#/" so back/forward behave.
-  if (!window.location.hash) window.location.hash = "#/";
-  window.addEventListener("hashchange", render);
+  // popstate fires for back/forward AND for the synthetic event we dispatch
+  // from `url.ts > navigate()`. That covers every navigation path.
+  window.addEventListener("popstate", render);
+
+  // Intercept clicks on in-app links so we use pushState instead of a full
+  // page reload. Skips: external links, target=_blank, modifier keys (so
+  // ⌘-click / middle-click still open in a new tab as the user expects),
+  // anchor links (`href="#..."`), and explicit downloads.
+  document.addEventListener("click", e => {
+    if (e.defaultPrevented || e.button !== 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = (e.target as HTMLElement | null)?.closest("a");
+    if (!a) return;
+    const href = a.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+    if (a.target && a.target !== "" && a.target !== "_self") return;
+    if (a.hasAttribute("download")) return;
+    // Resolve absolute href and stay only if it's same-origin AND under
+    // our deploy base.
+    let resolved: URL;
+    try { resolved = new URL(a.href, window.location.href); }
+    catch { return; }
+    if (resolved.origin !== window.location.origin) return;
+    e.preventDefault();
+    if (resolved.pathname + resolved.search + resolved.hash !==
+        window.location.pathname + window.location.search + window.location.hash) {
+      history.pushState(null, "", resolved.href);
+    }
+    render();
+  });
+
   render();
   void current;  // silence unused-var linters
 }
