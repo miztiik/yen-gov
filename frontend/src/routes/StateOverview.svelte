@@ -6,6 +6,7 @@
   import PartyBar from "../lib/PartyBar.svelte";
   import SeatDonut from "../lib/SeatDonut.svelte";
   import MarginHistogram from "../lib/MarginHistogram.svelte";
+  import RacesBoard from "../lib/RacesBoard.svelte";
   import SourceList from "../lib/SourceList.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
@@ -200,9 +201,12 @@
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
     <p class="text-xs"><a class="text-slate-500 hover:underline" href={url.home()}>← All states</a></p>
-    <h1 class="text-2xl font-bold">{states.name(state_code)} — Legislative Assembly, May 2026</h1>
-    <p class="text-sm text-slate-500">
-      Event <code class="font-mono">{event}</code> · State <code class="font-mono">{state_code ?? "…"}</code>
+    <h1 class="text-2xl font-bold leading-tight">{states.name(state_code)}</h1>
+    <p class="text-sm text-slate-600">
+      Legislative Assembly election, May 2026.
+      <span class="text-slate-400 ml-1">
+        State <code class="font-mono">{state_code ?? "…"}</code> · event <code class="font-mono">{event}</code>
+      </span>
       · <a class="text-blue-600 hover:underline" href={state_code ? url.explore(state_code) : url.home()}>Data explorer →</a>
       · <a class="text-blue-600 hover:underline" href={state_code ? url.lab(state_code, event) : url.home()}>Psephlab →</a>
     </p>
@@ -309,6 +313,16 @@
     <section class="bg-white rounded-lg shadow-sm p-5">
       <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Margin of victory</h2>
       <MarginHistogram {event} state={state_code} />
+    </section>
+
+    <!-- Races by competitiveness. Same per-AC margin data as the
+         histogram, viewed as a NYT-style "All races" board: one column
+         per top-3 winning party (their easy wins), then narrow wins,
+         smaller-party wins, and a most-competitive column. The relative
+         column heights are themselves the headline. -->
+    <section class="bg-white rounded-lg shadow-sm p-5">
+      <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Races by competitiveness</h2>
+      <RacesBoard {event} state={state_code} />
     </section>
 
     <section class="bg-white rounded-lg shadow-sm p-5">
