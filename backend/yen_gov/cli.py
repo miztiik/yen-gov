@@ -427,5 +427,49 @@ def eci_statreport_emit(
     )
 
 
-if __name__ == "__main__":
-    app()
+@app.command("ingest-energy-power-plants")
+def ingest_energy_power_plants(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+    config: Path = typer.Option(
+        None, "--config", "-c",
+        help="Path to processing.json. Defaults to <root>/config/processing.json.",
+    ),
+) -> None:
+    """Ingest india-geodata energy/power-plants → features + indicator artifacts.
+
+    Phase B of TODO/SOCIO-ECONOMIC-EXPANSION.md. See
+    docs/research/energy-power-plants.md for source rationale.
+    """
+    from yen_gov.sources.india_geodata import power_plants
+
+    config_path = config or (root / "config" / "processing.json")
+    config_doc = json.loads(config_path.read_text(encoding="utf-8"))
+    for key in ("$schema", "$schema_version"):
+        config_doc.pop(key, None)
+    cfg = ProcessingConfig.model_validate(config_doc)
+    schema_dir = root / "datasets" / "schemas"
+
+    with Fetcher(
+        source="india_geodata",
+        runtime_root=root,
+        timeout_seconds=cfg.fetch.timeout_seconds,
+        retry_attempts=cfg.fetch.retry_attempts,
+        retry_backoff_seconds=cfg.fetch.retry_backoff_seconds or 1.0,
+        user_agent=cfg.fetch.user_agent,
+    ) as fetcher:
+        paths = power_plants.ingest(
+            fetcher=fetcher, repo_root=root, schema_dir=schema_dir,
+        )
+
+    typer.echo(
+        "ingest-energy-power-plants: OK\n"
+        f"  geojson:   {paths.geojson}\n"
+        f"  sidecar:   {paths.sidecar}\n"
+        f"  indicator: {paths.indicator}"
+    )
+
+

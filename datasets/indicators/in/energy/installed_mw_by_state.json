@@ -1,0 +1,128 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/yashveeeeeeer/india-geodata/main/data/energy/power-plants/INDIA_ENERGY_PLANTS.geojson",
+      "fetched_at": "2026-05-10T21:37:10Z"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/yashveeeeeeer/india-geodata/main/data/energy/power-plants/metadata.json",
+      "fetched_at": "2026-05-10T21:37:10Z"
+    },
+    {
+      "url": "https://cea.nic.in/",
+      "fetched_at": "2026-05-10T21:37:10Z"
+    }
+  ],
+  "license": {
+    "id": "Unspecified",
+    "name": "Unspecified",
+    "url": null,
+    "redistributable": null
+  },
+  "coverage": {
+    "spatial": "Subset of India (states with ECI codes resolved at emit time)",
+    "temporal": "2019",
+    "admin_level": "state"
+  },
+  "indicator": {
+    "id": "energy/installed_mw_by_state",
+    "title": "Installed power capacity by state",
+    "description": "Total installed electricity-generation capacity in megawatts, rolled up by state and faceted by fuel type. Source data is a snapshot — see `coverage.temporal`.",
+    "entity_kind": "state",
+    "time_grain": "year",
+    "value_kind": "raw",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "MW",
+    "denominator": null,
+    "notes": "v1: rollup is restricted to states present in datasets/reference/in/states.json (currently TN, KL, AS, WB). Upstream covers all India; 57 distinct upstream state labels were not mapped to ECI codes in this run and their plants are excluded from this indicator. See docs/research/energy-power-plants.md for v2 plans (CEA direct + expanded states.json)."
+  },
+  "rows": [
+    {
+      "entity_id": "S03",
+      "time": "2019",
+      "value": 820.0,
+      "facet": "coal_power_plant"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2019",
+      "value": 300.0,
+      "facet": "hydro_power_plant"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2019",
+      "value": 595.855,
+      "facet": "natural_gas_power_plant"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2019",
+      "value": 249.9,
+      "facet": "diesel_power_plant"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2019",
+      "value": 1856.5,
+      "facet": "hydro_power_plant"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2019",
+      "value": 524.0,
+      "facet": "natural_gas_power_plant"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2019",
+      "value": 3.0,
+      "facet": "small_hydro_power_plant"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2019",
+      "value": 11190.0,
+      "facet": "coal_power_plant"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2019",
+      "value": 411.66,
+      "facet": "diesel_power_plant"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2019",
+      "value": 1778.2,
+      "facet": "hydro_power_plant"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2019",
+      "value": 1016.3,
+      "facet": "natural_gas_power_plant"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2019",
+      "value": 400.0,
+      "facet": "pumped_storage_hydro_power_plant"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2019",
+      "value": 441.2,
+      "facet": "hydro_power_plant"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2019",
+      "value": 900.0,
+      "facet": "pumped_storage_hydro_power_plant"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/feature_collection.metadata.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/yashveeeeeeer/india-geodata/main/data/energy/power-plants/INDIA_ENERGY_PLANTS.geojson",
+      "fetched_at": "2026-05-10T21:37:10Z"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/yashveeeeeeer/india-geodata/main/data/energy/power-plants/metadata.json",
+      "fetched_at": "2026-05-10T21:37:10Z"
+    },
+    {
+      "url": "https://cea.nic.in/",
+      "fetched_at": "2026-05-10T21:37:10Z"
+    }
+  ],
+  "for": "power-plants.geojson",
+  "title": "Power Plants",
+  "description": "Point locations of power plants across India — coal, diesel, and hydroelectric — with plant name, district, state, installed capacity (MW), and fuel type attributes.",
+  "category": "energy",
+  "license": {
+    "id": "Unspecified",
+    "name": "Unspecified",
+    "url": null,
+    "redistributable": null
+  },
+  "coverage": {
+    "spatial": "India (national)",
+    "temporal": "2019",
+    "admin_level": null
+  },
+  "coordinate_system": "EPSG:4326"
+}
