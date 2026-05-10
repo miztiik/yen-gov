@@ -155,7 +155,7 @@ Key properties:
 - **Source-proportional.** A `K%` swing means *"K% of party A's voters in each AC defected"*, which matches Indian psephology's colloquial usage ("a 3% anti-incumbency swing").
 - **Many-to-one supported.** `from = [C, D], to = B, pct = 50%` pools 50% of C's and 50% of D's votes into B per AC.
 - **Slider range:** `0–100%`. Nudging to 100% in a `from = [C], to = B` config wipes C entirely from every AC where B contested and dumps the lot into B.
-- **Default:** `from = top-1 party (statewide), to = top-2 party, pct = 0` — a safe identity. The 0% start is intentional; the user picks the direction that interests them.
+- **Default:** `from = top-3 party (statewide, falls back to top-1 in two-party-effective elections), to = top-2 party, pct = 0` — a safe identity that frames the *kingmaker → runner-up* counterfactual rather than the headline winner-loses-by-default. The 0% start is intentional; the user picks the direction that interests them.
 
 ### How threshold drop works
 

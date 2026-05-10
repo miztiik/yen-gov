@@ -67,7 +67,22 @@ export const statewideSwing: MutationPlugin<StatewideSwingConfig> = {
   },
 
   defaultConfig(tallies: Tallies): StatewideSwingConfig {
-    // Pick the two top parties by aggregate votes as the default swap.
+    // Defaults aim at the *interesting* counterfactual rather than the
+    // headline one. The journalist's instinct is "winner → runner-up,
+    // anti-incumbency", but that produces a dramatic seat-tally cliff
+    // the moment the slider moves and overshadows the lab's subtler
+    // tools. Starting from the third party makes "kingmaker drains
+    // into the runner-up" the visible default — gentler motion, more
+    // pedagogically interesting, and avoids any optical impression
+    // that the lab ships with a political opinion baked in.
+    //
+    // - to   = top-2 (runner-up): canonical destination of any swing.
+    // - from = top-3 if a real third exists; falls back to top-1 in
+    //          two-party-effective elections so we never default to an
+    //          empty source list.
+    //
+    // pct = 0 keeps the default a no-op identity; the user picks the
+    // swing direction by moving the slider.
     const totals = new Map<string, number>();
     for (const ac of tallies.acs) {
       for (const c of ac.candidates) {
@@ -76,10 +91,14 @@ export const statewideSwing: MutationPlugin<StatewideSwingConfig> = {
       }
     }
     const sorted = [...totals.entries()].sort((a, b) => b[1] - a[1]);
+    const top1 = sorted[0]?.[0];
+    const top2 = sorted[1]?.[0];
+    const top3 = sorted[2]?.[0];
+    const from_default = top3 ?? top1;
     return {
       id: "statewideSwing",
-      from_party_eci_codes: sorted[0]?.[0] ? [sorted[0][0]] : [],
-      to_party_eci_code: sorted[1]?.[0] ?? "",
+      from_party_eci_codes: from_default ? [from_default] : [],
+      to_party_eci_code: top2 ?? "",
       pct: 0,
     };
   },
