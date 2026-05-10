@@ -19,7 +19,12 @@ import sqlite3
 import tempfile
 from pathlib import Path
 
-USER_VERSION = 1
+# Layout v2: column names follow the canonical-column rule from ADR-0019
+# (docs/architecture/decisions/0019-dataset-topology-and-column-discipline.md).
+# `ac_eci_no` is the canonical name for the per-state ECI Assembly
+# Constituency number; it replaces the legacy `eci_no` / `constituency_eci_no`
+# spellings used in v1.
+USER_VERSION = 2
 
 _DDL = """
 CREATE TABLE parties (
@@ -29,22 +34,22 @@ CREATE TABLE parties (
 );
 
 CREATE TABLE constituencies (
-  eci_no       INTEGER PRIMARY KEY,
+  ac_eci_no    INTEGER PRIMARY KEY,
   name         TEXT NOT NULL,
   votes_polled INTEGER
 );
 
 CREATE TABLE candidates (
-  constituency_eci_no INTEGER NOT NULL REFERENCES constituencies(eci_no),
-  rank                INTEGER NOT NULL,
-  name                TEXT NOT NULL,
-  party_eci_code      TEXT REFERENCES parties(eci_code),
-  party_short         TEXT NOT NULL,
-  votes               INTEGER NOT NULL,
-  vote_share_pct      REAL NOT NULL,
-  is_winner           INTEGER NOT NULL DEFAULT 0,
-  is_nota             INTEGER NOT NULL DEFAULT 0,
-  PRIMARY KEY (constituency_eci_no, rank)
+  ac_eci_no      INTEGER NOT NULL REFERENCES constituencies(ac_eci_no),
+  rank           INTEGER NOT NULL,
+  name           TEXT NOT NULL,
+  party_eci_code TEXT REFERENCES parties(eci_code),
+  party_short    TEXT NOT NULL,
+  votes          INTEGER NOT NULL,
+  vote_share_pct REAL NOT NULL,
+  is_winner      INTEGER NOT NULL DEFAULT 0,
+  is_nota        INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (ac_eci_no, rank)
 );
 
 CREATE INDEX idx_candidates_party  ON candidates(party_short);
@@ -171,11 +176,11 @@ def _insert_constituencies_and_candidates(
     candidate_rows.sort(key=lambda r: (r[0], r[1]))
 
     conn.executemany(
-        "INSERT INTO constituencies (eci_no, name, votes_polled) VALUES (?, ?, ?)",
+        "INSERT INTO constituencies (ac_eci_no, name, votes_polled) VALUES (?, ?, ?)",
         constituency_rows,
     )
     conn.executemany(
-        "INSERT INTO candidates (constituency_eci_no, rank, name, party_eci_code,"
+        "INSERT INTO candidates (ac_eci_no, rank, name, party_eci_code,"
         " party_short, votes, vote_share_pct, is_winner, is_nota)"
         " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         candidate_rows,

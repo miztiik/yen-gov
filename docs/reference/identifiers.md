@@ -1,6 +1,6 @@
 # Identifier Conventions
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-10
 
 yen-gov never invents identifiers when an upstream authority publishes one (CLAUDE.md §3, Anti-pattern §10). Display names live as fields, not as keys. This document records which authority owns which kind of ID, and how to verify it.
 
@@ -77,8 +77,24 @@ Two rules:
 1. **Cite the URL** in the file's `sources[]` entries (`url` + `fetched_at`). Future-you will thank present-you.
 2. **Prefer the upstream code over a name.** Names get translated, transliterated, and abbreviated; codes don't.
 
+## Canonical column names (SQLite emitters)
+
+Per [ADR-0019](../architecture/decisions/0019-dataset-topology-and-column-discipline.md), every SQLite emitter uses these exact column names whenever the underlying concept is present in a row. State and event are encoded in the **file path** (per ADR-0014); they appear as columns only in cross-state aggregates, where the literal is injected at query time.
+
+| Column                | Type      | Concept                                            | Source row in §"At a glance" above |
+| --------------------- | --------- | -------------------------------------------------- | ---------------------------------- |
+| `state_eci_code`      | `TEXT`    | ECI state code, e.g. `S22`                         | State / UT (machine)               |
+| `district_lgd_code`   | `INTEGER` | LGD numeric district code                          | District (LGD branch)              |
+| `ac_eci_no`           | `INTEGER` | ECI Assembly Constituency number, scoped by state  | Constituency                       |
+| `year`                | `INTEGER` | Calendar year, four digits                         | —                                  |
+
+Adding a new canonical name (e.g. `pc_eci_no`, `block_lgd_code`, `village_lgd_code`, `gender`, `age_band`, `year_quarter`) is additive: append a row here in the same commit as the first emitter that uses it. **Renaming** an existing canonical column requires a follow-up ADR — every emitter and every saved `/explore` query depends on these names.
+
+When the LGD code is not yet known for a district, fall back to `district_id` (`TEXT`) plus an `id_source` column with values `lgd` or `wikipedia`, per the District row in §"At a glance" above.
+
 ## See also
 
 - [`docs/architecture/data-model.md`](../architecture/data-model.md) — entities the IDs key into.
 - [`docs/reference/schemas.md`](schemas.md) — schemas that enforce the patterns above.
+- [ADR-0019: dataset topology and column discipline](../architecture/decisions/0019-dataset-topology-and-column-discipline.md) — why these column names are locked.
 - `CLAUDE.md` §3 (identifier convention paragraph).

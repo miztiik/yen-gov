@@ -10,10 +10,10 @@
 
   const PRESETS: { label: string; sql: string }[] = [
     { label: "Party totals (winners)", sql: "SELECT party_short, seats_won, votes FROM party_totals ORDER BY seats_won DESC, votes DESC;" },
-    { label: "Top 10 winning margins", sql: "SELECT c.eci_no, c.name, w.name AS winner, w.party_short, w.votes - r2.votes AS margin\nFROM constituencies c\nJOIN candidates w ON w.constituency_eci_no = c.eci_no AND w.is_winner = 1\nJOIN candidates r2 ON r2.constituency_eci_no = c.eci_no AND r2.rank = 2\nORDER BY margin DESC LIMIT 10;" },
-    { label: "Closest 10 contests", sql: "SELECT c.eci_no, c.name, w.party_short AS winner, r2.party_short AS runner_up, w.votes - r2.votes AS margin\nFROM constituencies c\nJOIN candidates w ON w.constituency_eci_no = c.eci_no AND w.is_winner = 1\nJOIN candidates r2 ON r2.constituency_eci_no = c.eci_no AND r2.rank = 2\nORDER BY margin ASC LIMIT 10;" },
-    { label: "Candidates per constituency (avg/min/max)", sql: "SELECT AVG(n) AS avg, MIN(n) AS min, MAX(n) AS max FROM (SELECT constituency_eci_no, COUNT(*) AS n FROM candidates WHERE is_nota = 0 GROUP BY constituency_eci_no);" },
-    { label: "NOTA share by constituency (top 10)", sql: "SELECT c.eci_no, c.name, n.vote_share_pct AS nota_pct, n.votes AS nota_votes\nFROM constituencies c\nJOIN candidates n ON n.constituency_eci_no = c.eci_no AND n.is_nota = 1\nORDER BY n.vote_share_pct DESC LIMIT 10;" },
+    { label: "Top 10 winning margins", sql: "SELECT c.ac_eci_no, c.name, w.name AS winner, w.party_short, w.votes - r2.votes AS margin\nFROM constituencies c\nJOIN candidates w ON w.ac_eci_no = c.ac_eci_no AND w.is_winner = 1\nJOIN candidates r2 ON r2.ac_eci_no = c.ac_eci_no AND r2.rank = 2\nORDER BY margin DESC LIMIT 10;" },
+    { label: "Closest 10 contests", sql: "SELECT c.ac_eci_no, c.name, w.party_short AS winner, r2.party_short AS runner_up, w.votes - r2.votes AS margin\nFROM constituencies c\nJOIN candidates w ON w.ac_eci_no = c.ac_eci_no AND w.is_winner = 1\nJOIN candidates r2 ON r2.ac_eci_no = c.ac_eci_no AND r2.rank = 2\nORDER BY margin ASC LIMIT 10;" },
+    { label: "Candidates per constituency (avg/min/max)", sql: "SELECT AVG(n) AS avg, MIN(n) AS min, MAX(n) AS max FROM (SELECT ac_eci_no, COUNT(*) AS n FROM candidates WHERE is_nota = 0 GROUP BY ac_eci_no);" },
+    { label: "NOTA share by constituency (top 10)", sql: "SELECT c.ac_eci_no, c.name, n.vote_share_pct AS nota_pct, n.votes AS nota_votes\nFROM constituencies c\nJOIN candidates n ON n.ac_eci_no = c.ac_eci_no AND n.is_nota = 1\nORDER BY n.vote_share_pct DESC LIMIT 10;" },
   ];
 
   let db = $state<Database | null>(null);

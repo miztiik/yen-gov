@@ -114,8 +114,11 @@ def snapshot_one(entry: dict[str, Any], out_root: Path) -> dict[str, Any] | None
 
     # Sidecar: minimal CLAUDE.md §12 envelope. We deliberately don't echo
     # the license here — that lives in pipeline.json and the boundary
-    # manifest. Sidecar is provenance only.
+    # manifest. Sidecar is provenance only. Validated against
+    # datasets/schemas/boundary.sources.schema.json by the Tier-B validator.
     sidecar = {
+        "$schema": "https://yen-gov.github.io/schemas/boundary.sources.schema.json",
+        "$schema_version": "1.0",
         "$comment": (
             "CLAUDE.md §12 provenance sidecar for the GeoJSON of the same name. "
             "GeoJSON has no native top-level metadata slot; this file carries the "
