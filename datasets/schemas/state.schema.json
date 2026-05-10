@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/state.schema.json",
   "title": "States collection",
   "description": "All first-level administrative divisions (states + union territories) of a country, keyed by ECI state code. ECI codes are the canonical identifiers; ISO 3166-2 codes are carried for cross-referencing.",
-  "x-version": "3.0",
+  "x-version": "3.1",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,6 +19,11 @@
       "version": "3.0",
       "date": "2026-05-08",
       "description": "Replaced single source string with sources array of {url, fetched_at} per ADR-0002. Empty array means hand-authored. Item-level source overrides removed."
+    },
+    {
+      "version": "3.1",
+      "date": "2026-05-11",
+      "description": "Additive: optional verification_status enum on each state entry. Records whether the (eci_code, name) pair was confirmed by a live URL probe, by a cited published authority only, or remains unverified. Downstream fetchers must gate per-state work on live_url_probe_ok per Gregor architecture review 2026-05-11."
     }
   ],
   "type": "object",
@@ -72,6 +77,10 @@
             "enum": ["state", "union_territory"]
           },
           "capital": { "type": "string" },
+          "verification_status": {
+            "enum": ["live_url_probe_ok", "published_authority_only", "unverified"],
+            "description": "How the (eci_code, name) pairing was confirmed for this row. 'live_url_probe_ok' means a results.eci.gov.in URL bearing this code resolved with HTTP 200 and a matching state name. 'published_authority_only' means the code appears in a cited ECI Statistical Report or equivalent published authority but no live endpoint has been probed yet. 'unverified' means the pairing is provisional. Per Gregor architecture review 2026-05-11: per-state fetchers MUST refuse to compose URLs for rows whose status is not live_url_probe_ok."
+          },
           "notes": { "type": "string" }
         }
       }

@@ -64,7 +64,7 @@ The commit message that introduces or modifies a hand-authored file MUST record 
 
 - **Intermediate downloaded files** under `.runtime/raw/` (per ADR-0003) are not data files in the `datasets/` sense. They have no `sources` field and no schema; they are throwaway debug artifacts.
 - **Reference materials a human consulted** to write a hand-authored file. Those go in commit messages or `notes` fields.
-- **Provenance of identifiers** (e.g. "S22 is the ECI code for Tamil Nadu, confirmed by URL X"). The identifier convention is documented in [`identifiers.md`](../reference/identifiers.md); per-file `sources` is for the *content*, not for the *naming*.
+- **Provenance of identifiers** (e.g. "S22 is the ECI code for Tamil Nadu, confirmed by URL X"). The identifier convention is documented in [`identifiers.md`](../reference/identifiers.md); per-file `sources` is for the *content*, not for the *naming*. When a per-row claim *about* an identifier needs to be machine-readable (e.g. "this code-to-name pair was confirmed by a live URL probe vs. only by a published ECI report"), that belongs in a typed schema field — see `verification_status` on `state.schema.json` v3.1 — not in `sources` and not in `notes`. Gregor architecture review 2026-05-11 sums this up: `sources[]` records *what was fetched*; row-level verification summaries are typed fields the schema anticipates.
 
 ## Why an array, not a single string
 
