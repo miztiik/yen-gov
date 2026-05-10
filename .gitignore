@@ -26,6 +26,7 @@ dist/
 build/
 .next/
 .cache/
+.vite/
 *.tsbuildinfo
 .env
 .env.local
