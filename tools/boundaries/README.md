@@ -36,11 +36,32 @@ datasets/boundaries/in/
 | KL (S11) | same repo, `state_ut/kerala/assembly/kerala_AC.json` | MIT | `AC_NO` 1–140 |
 | WB (S25) | same repo, `state_ut/westbengal/assembly/westbengal_AC.json` | MIT | `AC_NO` 1–294 |
 | AS (S03) | same repo, `state_ut/assam/assembly/assam_AC.json` | MIT | ⚠️ may not match post-2008 delimitation; verify (see below) |
-| India states | [geohacker/india](https://github.com/geohacker/india) `state/india_state.geojson` | CC-BY 4.0 (GADM v2 derivative) | 35 features; joins on `NAME_1`. datameet has no clean states-as-features GeoJSON. |
+| India states | [datameet/maps](https://github.com/datameet/maps) `States/Admin2.{shp,dbf,shx,prj,cpg}` | CC-BY 4.0 | 36 features; joins on `ST_NM`. Includes the post-2014 Telangana split, post-2019 Ladakh split (PR #73), and merged DNH-DD UT. Replaces the GADM v2 layer that pre-dated all three reorganizations. |
 
 ### ⚠️ Assam delimitation caveat
 
 The Assam AC shapefile may predate the 2008 Delimitation Order's revisions. Before the boundaries workflow PR is merged, cross-check that every `AC_NO` 1..126 in the simplified GeoJSON matches a constituency under [`datasets/reference/in/states/S03/constituencies.json`](../../datasets/reference/in/states/S03/constituencies.json) (compare names too, not just counts — a renumbering would pass a count check but produce a wrong-color map). If they don't match, hold the merge and source a 2026-current shapefile.
+
+## Source format dispatch
+
+Each `inputs[]` entry in [pipeline.json](pipeline.json) carries a `source` block:
+
+```json
+"source": {
+  "format": "geojson" | "shp_bundle",
+  "urls":   [ "...", ... ],
+  "coord_precision": 3
+}
+```
+
+| `format` | What `urls` contains | Conversion in `snapshot.py` / `build.py` |
+| --- | --- | --- |
+| `geojson` | Single-element list with the `.geojson` URL | Streamed verbatim. |
+| `shp_bundle` | Every sibling shapefile component (`.shp`, `.dbf`, `.shx`, `.prj`, `.cpg`) | Downloaded into `.runtime/raw/boundaries/`, then converted to GeoJSON via [pyshp](https://pypi.org/project/pyshp/). `coord_precision` rounds coordinates (3 decimals ≈ 110 m) and drops consecutive duplicate vertices, which is enough for state-level choropleth rendering at z≤6. |
+
+This split exists so adding a future format (zip+geojson, GeoPackage, GeoParquet) is a new `format` value plus a new branch in `materialize_input()` / `fetch_*` — not a rewrite of existing entries. The frontend resolver and the sidecar schema are format-agnostic.
+
+For `format: shp_bundle`, install pyshp once: `pip install pyshp`.
 
 ## Running
 

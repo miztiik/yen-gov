@@ -1,0 +1,28 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/boundary.sources.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "CLAUDE.md §12 provenance sidecar for the GeoJSON of the same name. GeoJSON has no native top-level metadata slot; this file carries the required `sources` array on its behalf.",
+  "for": "india-states.geojson",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.shp",
+      "fetched_at": "2026-05-10T09:51:58Z"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.dbf",
+      "fetched_at": "2026-05-10T09:52:03Z"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.shx",
+      "fetched_at": "2026-05-10T09:52:03Z"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.prj",
+      "fetched_at": "2026-05-10T09:52:03Z"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/datameet/maps/master/States/Admin2.cpg",
+      "fetched_at": "2026-05-10T09:52:03Z"
+    }
+  ]
+}

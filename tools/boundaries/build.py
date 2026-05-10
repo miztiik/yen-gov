@@ -68,6 +68,87 @@ def feature_count(geojson_path: Path) -> int:
     return len(feats) if isinstance(feats, list) else 0
 
 
+def materialize_input(
+    entry: dict[str, Any],
+    raw_root: Path,
+) -> tuple[Path, list[dict[str, str]]]:
+    """Fetch upstream sources and return a path to a single GeoJSON mapshaper
+    can ingest, plus the per-URL provenance list.
+
+    Dispatches on `source.format`:
+
+    - `geojson`: stream URL[0] to disk and hand it back unchanged.
+    - `shp_bundle`: stream every sibling component, then convert .shp + .dbf
+      to GeoJSON via pyshp (same converter used by snapshot.py).
+
+    Adding a new format is a new branch here; entries that already use
+    existing formats keep working.
+    """
+    source = entry["source"]
+    fmt: str = source["format"]
+    urls: list[str] = source["urls"]
+    kind: str = entry["kind"]
+    state = entry.get("state")
+    sub = state or "global"
+
+    if fmt == "geojson":
+        url = urls[0]
+        raw_path = raw_root / kind / sub / url.rsplit("/", 1)[-1]
+        fetched_at = utc_now()
+        print(f"  download → {raw_path.relative_to(Path.cwd())}", flush=True)
+        download(url, raw_path)
+        return raw_path, [{"url": url, "fetched_at": fetched_at}]
+
+    if fmt == "shp_bundle":
+        try:
+            import shapefile  # type: ignore[import-not-found]
+        except ImportError as e:  # pragma: no cover
+            msg = (
+                "format=shp_bundle requires `pyshp` (`pip install pyshp`); "
+                "see tools/boundaries/README.md"
+            )
+            raise RuntimeError(msg) from e
+        bundle_dir = raw_root / kind / sub
+        bundle_dir.mkdir(parents=True, exist_ok=True)
+        sources: list[dict[str, str]] = []
+        shp_path: Path | None = None
+        for url in urls:
+            dest = bundle_dir / url.rsplit("/", 1)[-1]
+            fetched_at = utc_now()
+            print(f"  download → {dest.relative_to(Path.cwd())}", flush=True)
+            download(url, dest)
+            sources.append({"url": url, "fetched_at": fetched_at})
+            if dest.suffix.lower() == ".shp":
+                shp_path = dest
+        if shp_path is None:
+            msg = f"shp_bundle missing a .shp URL among: {urls}"
+            raise ValueError(msg)
+        # Convert to a sibling .geojson next to the .shp; mapshaper ingests it.
+        converted = shp_path.with_suffix(".geojson")
+        reader = shapefile.Reader(str(shp_path.with_suffix("")))
+        geojson = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": dict(
+                        zip([f[0] for f in reader.fields[1:]], rec.record, strict=False)
+                    ),
+                    "geometry": rec.shape.__geo_interface__,
+                }
+                for rec in reader.iterShapeRecords()
+            ],
+        }
+        with converted.open("w", encoding="utf-8", newline="\n") as fh:
+            json.dump(geojson, fh, ensure_ascii=False)
+            fh.write("\n")
+        reader.close()
+        return converted, sources
+
+    msg = f"unknown source.format: {fmt!r}"
+    raise ValueError(msg)
+
+
 def build_one(
     entry: dict[str, Any],
     raw_root: Path,
@@ -75,21 +156,14 @@ def build_one(
     simplify: dict[str, Any],
 ) -> dict[str, Any]:
     """Process one pipeline.json entry. Returns its manifest record."""
-    url: str = entry["url"]
     kind: str = entry["kind"]
     out_rel: str = entry["out"]
     state = entry.get("state")
     label = f"{kind}:{state}" if state else kind
-
-    # Stable raw path keeps re-runs cheap when CI caches .runtime/.
-    raw_basename = url.rsplit("/", 1)[-1]
-    raw_path = raw_root / kind / (state or "global") / raw_basename
     out_path = out_root / out_rel
 
-    print(f"\n[{label}] {url}", flush=True)
-    print(f"  download → {raw_path.relative_to(Path.cwd())}", flush=True)
-    fetched_at = utc_now()
-    download(url, raw_path)
+    print(f"\n[{label}]", flush=True)
+    raw_path, sources = materialize_input(entry, raw_root)
 
     # Simplify with mapshaper. Output is a temporary GeoJSON we then feed to
     # tippecanoe. Skipping simplification on small inputs is a false economy:
@@ -135,7 +209,7 @@ def build_one(
         "size_bytes": out_path.stat().st_size,
         "license": entry["license"],
         "license_url": entry["license_url"],
-        "sources": [{"url": url, "fetched_at": fetched_at}],
+        "sources": sources,
     }
     if state:
         record["state"] = state
