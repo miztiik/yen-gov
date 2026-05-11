@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 149,
+  "constituency_name": "Uravakonda",
+  "totals": {
+    "electors": 224574,
+    "votes_polled": 194522,
+    "turnout_pct": 86.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Payyavula Keshav",
+      "party_short": "TDP",
+      "votes": 102046,
+      "vote_share_pct": 52.46,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Y. Visweswara Reddy",
+      "party_short": "YSRCP",
+      "votes": 80342,
+      "vote_share_pct": 41.3
+    },
+    {
+      "rank": 3,
+      "name": "Y. Madhusudhan Reddy",
+      "party_short": "INC",
+      "votes": 4529,
+      "vote_share_pct": 2.33
+    },
+    {
+      "rank": 4,
+      "name": "Anke Thippeswamy",
+      "party_short": "BSP",
+      "votes": 3832,
+      "vote_share_pct": 1.97
+    },
+    {
+      "rank": 5,
+      "name": "Visweswaraiah",
+      "party_short": "IND",
+      "votes": 469,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 1915,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1389,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Payyavula Keshav",
+    "party_short": "TDP",
+    "votes": 102046,
+    "margin_votes": 21704,
+    "margin_pct": 11.16
+  }
+}

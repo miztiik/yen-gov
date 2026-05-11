@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "BALLIMARAN",
+  "totals": {
+    "electors": 153571,
+    "votes_polled": 98277,
+    "turnout_pct": 63.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "IMRAN HUSSAIN",
+      "party_short": "AAAP",
+      "votes": 57004,
+      "vote_share_pct": 58.0,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "KAMAL BAGRI",
+      "party_short": "BJP",
+      "votes": 27181,
+      "vote_share_pct": 27.66
+    },
+    {
+      "rank": 3,
+      "name": "HAROON YUSUF",
+      "party_short": "INC",
+      "votes": 13059,
+      "vote_share_pct": 13.29
+    },
+    {
+      "rank": 4,
+      "name": "ABRAR",
+      "party_short": "AADMPRVTNP",
+      "votes": 224,
+      "vote_share_pct": 0.23
+    },
+    {
+      "rank": 5,
+      "name": "SONU",
+      "party_short": "BSP",
+      "votes": 190,
+      "vote_share_pct": 0.19
+    }
+  ],
+  "nota": {
+    "votes": 301,
+    "vote_share_pct": 0.31
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 318,
+    "vote_share_pct": 0.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "IMRAN HUSSAIN",
+    "party_short": "AAAP",
+    "votes": 57004,
+    "margin_votes": 29823,
+    "margin_pct": 30.35
+  }
+}

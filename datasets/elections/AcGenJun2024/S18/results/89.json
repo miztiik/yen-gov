@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 89,
+  "constituency_name": "Athagarh",
+  "totals": {
+    "electors": 214063,
+    "votes_polled": 173881,
+    "turnout_pct": 81.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ranendra Pratap Swain",
+      "party_short": "BJD",
+      "votes": 86006,
+      "vote_share_pct": 49.46,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Abhaya Kumar Barik",
+      "party_short": "BJP",
+      "votes": 82422,
+      "vote_share_pct": 47.4
+    },
+    {
+      "rank": 3,
+      "name": "Sudarsan Sahoo",
+      "party_short": "INC",
+      "votes": 2405,
+      "vote_share_pct": 1.38
+    },
+    {
+      "rank": 4,
+      "name": "Ganeswar Sahoo",
+      "party_short": "BSP",
+      "votes": 485,
+      "vote_share_pct": 0.28
+    },
+    {
+      "rank": 5,
+      "name": "Debiprasad Mohapatra",
+      "party_short": "AAAP",
+      "votes": 352,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 740,
+    "vote_share_pct": 0.43
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1471,
+    "vote_share_pct": 0.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ranendra Pratap Swain",
+    "party_short": "BJD",
+    "votes": 86006,
+    "margin_votes": 3584,
+    "margin_pct": 2.06
+  }
+}

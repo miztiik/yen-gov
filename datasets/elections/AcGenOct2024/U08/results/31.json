@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "U08",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "CHADOORA",
+  "totals": {
+    "electors": 88853,
+    "votes_polled": 50321,
+    "turnout_pct": 56.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ali Mohammad Dar",
+      "party_short": "JKN",
+      "votes": 31991,
+      "vote_share_pct": 63.57,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mohmad Yaseen Bhat",
+      "party_short": "JKPDP",
+      "votes": 14773,
+      "vote_share_pct": 29.36
+    },
+    {
+      "rank": 3,
+      "name": "Faisal Fayaz",
+      "party_short": "IND",
+      "votes": 942,
+      "vote_share_pct": 1.87
+    },
+    {
+      "rank": 4,
+      "name": "Syed Fahed Andrabi",
+      "party_short": "JAKAP",
+      "votes": 716,
+      "vote_share_pct": 1.42
+    },
+    {
+      "rank": 5,
+      "name": "Nilofar Sajjad Gandru",
+      "party_short": "IND",
+      "votes": 452,
+      "vote_share_pct": 0.9
+    }
+  ],
+  "nota": {
+    "votes": 1265,
+    "vote_share_pct": 2.51
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 182,
+    "vote_share_pct": 0.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ali Mohammad Dar",
+    "party_short": "JKN",
+    "votes": 31991,
+    "margin_votes": 17218,
+    "margin_pct": 34.22
+  }
+}

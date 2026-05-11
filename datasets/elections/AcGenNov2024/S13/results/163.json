@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "GOREGAON",
+  "totals": {
+    "electors": 329239,
+    "votes_polled": 183953,
+    "turnout_pct": 55.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIDYA THAKUR",
+      "party_short": "BJP",
+      "votes": 96364,
+      "vote_share_pct": 52.39,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SAMEER KAMLAKAR DESAI",
+      "party_short": "SHSUBT",
+      "votes": 72764,
+      "vote_share_pct": 39.56
+    },
+    {
+      "rank": 3,
+      "name": "VIRENDRA VIJAY JADHAV",
+      "party_short": "MNS",
+      "votes": 9718,
+      "vote_share_pct": 5.28
+    },
+    {
+      "rank": 4,
+      "name": "AMOL DASHRATH SAWANT",
+      "party_short": "BSP",
+      "votes": 1177,
+      "vote_share_pct": 0.64
+    },
+    {
+      "rank": 5,
+      "name": "CHANDAN CHATURVEDI",
+      "party_short": "UBVS",
+      "votes": 389,
+      "vote_share_pct": 0.21
+    }
+  ],
+  "nota": {
+    "votes": 1805,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1736,
+    "vote_share_pct": 0.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIDYA THAKUR",
+    "party_short": "BJP",
+    "votes": 96364,
+    "margin_votes": 23600,
+    "margin_pct": 12.83
+  }
+}

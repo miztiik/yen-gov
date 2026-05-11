@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "Rajgangpur (ST)",
+  "totals": {
+    "electors": 253571,
+    "votes_polled": 182030,
+    "turnout_pct": 71.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C.s. Raazen Ekka",
+      "party_short": "INC",
+      "votes": 66869,
+      "vote_share_pct": 36.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Anil Barwa",
+      "party_short": "BJD",
+      "votes": 56685,
+      "vote_share_pct": 31.14
+    },
+    {
+      "rank": 3,
+      "name": "Narasingha Minz",
+      "party_short": "BJP",
+      "votes": 52655,
+      "vote_share_pct": 28.93
+    },
+    {
+      "rank": 4,
+      "name": "Leoni Tirkey",
+      "party_short": "SUCI",
+      "votes": 1621,
+      "vote_share_pct": 0.89
+    },
+    {
+      "rank": 5,
+      "name": "Gregory Minz",
+      "party_short": "IND",
+      "votes": 1268,
+      "vote_share_pct": 0.7
+    }
+  ],
+  "nota": {
+    "votes": 1944,
+    "vote_share_pct": 1.07
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 988,
+    "vote_share_pct": 0.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C.s. Raazen Ekka",
+    "party_short": "INC",
+    "votes": 66869,
+    "margin_votes": 10184,
+    "margin_pct": 5.59
+  }
+}

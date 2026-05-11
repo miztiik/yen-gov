@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "ATELI",
+  "totals": {
+    "electors": 207320,
+    "votes_polled": 145240,
+    "turnout_pct": 70.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Arti Singh Rao",
+      "party_short": "BJP",
+      "votes": 57737,
+      "vote_share_pct": 39.75,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Attar Lal",
+      "party_short": "BSP",
+      "votes": 54652,
+      "vote_share_pct": 37.63
+    },
+    {
+      "rank": 3,
+      "name": "Anita Yadav",
+      "party_short": "INC",
+      "votes": 30037,
+      "vote_share_pct": 20.68
+    },
+    {
+      "rank": 4,
+      "name": "Aayushi Abhimanyu Rao",
+      "party_short": "JNJP",
+      "votes": 1748,
+      "vote_share_pct": 1.2
+    },
+    {
+      "rank": 5,
+      "name": "Suneel Rao",
+      "party_short": "AAAP",
+      "votes": 220,
+      "vote_share_pct": 0.15
+    }
+  ],
+  "nota": {
+    "votes": 418,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 428,
+    "vote_share_pct": 0.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Arti Singh Rao",
+    "party_short": "BJP",
+    "votes": 57737,
+    "margin_votes": 3085,
+    "margin_pct": 2.12
+  }
+}

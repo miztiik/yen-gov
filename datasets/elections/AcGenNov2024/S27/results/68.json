@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "GUMLA (ST)",
+  "totals": {
+    "electors": 249117,
+    "votes_polled": 164866,
+    "turnout_pct": 66.18
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHUSHAN TIRKEY",
+      "party_short": "JMM",
+      "votes": 84974,
+      "vote_share_pct": 51.54,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SUDARSHAN BHAGAT",
+      "party_short": "BJP",
+      "votes": 58673,
+      "vote_share_pct": 35.59
+    },
+    {
+      "rank": 3,
+      "name": "MISHIR KUJUR",
+      "party_short": "IND",
+      "votes": 9873,
+      "vote_share_pct": 5.99
+    },
+    {
+      "rank": 4,
+      "name": "NISHA KUMARI BHAGAT",
+      "party_short": "JLKM",
+      "votes": 1535,
+      "vote_share_pct": 0.93
+    },
+    {
+      "rank": 5,
+      "name": "SUDHIRAM KISAN",
+      "party_short": "IND",
+      "votes": 1455,
+      "vote_share_pct": 0.88
+    }
+  ],
+  "nota": {
+    "votes": 3308,
+    "vote_share_pct": 2.01
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5048,
+    "vote_share_pct": 3.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHUSHAN TIRKEY",
+    "party_short": "JMM",
+    "votes": 84974,
+    "margin_votes": 26301,
+    "margin_pct": 15.95
+  }
+}

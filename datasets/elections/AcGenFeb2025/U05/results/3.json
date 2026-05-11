@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "TIMARPUR",
+  "totals": {
+    "electors": 216184,
+    "votes_polled": 121541,
+    "turnout_pct": 56.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURYA PRAKASH KHATRI",
+      "party_short": "BJP",
+      "votes": 55941,
+      "vote_share_pct": 46.03,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SURINDER PAL SINGH (BITTOO)",
+      "party_short": "AAAP",
+      "votes": 54773,
+      "vote_share_pct": 45.07
+    },
+    {
+      "rank": 3,
+      "name": "LOKENDRA KALYAN SINGH",
+      "party_short": "INC",
+      "votes": 8361,
+      "vote_share_pct": 6.88
+    },
+    {
+      "rank": 4,
+      "name": "SURENDER PAL",
+      "party_short": "BSP",
+      "votes": 985,
+      "vote_share_pct": 0.81
+    },
+    {
+      "rank": 5,
+      "name": "TARUN KUMAR",
+      "party_short": "rpsn",
+      "votes": 167,
+      "vote_share_pct": 0.14
+    }
+  ],
+  "nota": {
+    "votes": 663,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 651,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURYA PRAKASH KHATRI",
+    "party_short": "BJP",
+    "votes": 55941,
+    "margin_votes": 1168,
+    "margin_pct": 0.96
+  }
+}

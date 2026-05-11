@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "TRILOKPURI (SC)",
+  "totals": {
+    "electors": 192949,
+    "votes_polled": 126283,
+    "turnout_pct": 65.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAVI KANT",
+      "party_short": "BJP",
+      "votes": 58217,
+      "vote_share_pct": 46.1,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ANJANA PARCHA",
+      "party_short": "AAAP",
+      "votes": 57825,
+      "vote_share_pct": 45.79
+    },
+    {
+      "rank": 3,
+      "name": "AMARDEEP",
+      "party_short": "INC",
+      "votes": 6147,
+      "vote_share_pct": 4.87
+    },
+    {
+      "rank": 4,
+      "name": "VICKY",
+      "party_short": "ASPKR",
+      "votes": 1681,
+      "vote_share_pct": 1.33
+    },
+    {
+      "rank": 5,
+      "name": "NAND LAL",
+      "party_short": "BSP",
+      "votes": 1322,
+      "vote_share_pct": 1.05
+    }
+  ],
+  "nota": {
+    "votes": 683,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 408,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAVI KANT",
+    "party_short": "BJP",
+    "votes": 58217,
+    "margin_votes": 392,
+    "margin_pct": 0.31
+  }
+}

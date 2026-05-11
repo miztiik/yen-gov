@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "KATOL",
+  "totals": {
+    "electors": 281789,
+    "votes_polled": 198980,
+    "turnout_pct": 70.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHARANSING BABULALJI THAKUR",
+      "party_short": "BJP",
+      "votes": 104338,
+      "vote_share_pct": 52.44,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DESHMUKH SALIL ANILBABU",
+      "party_short": "NCPSP",
+      "votes": 65522,
+      "vote_share_pct": 32.93
+    },
+    {
+      "rank": 3,
+      "name": "YAJNAVALKYA SHRIKANT JICHKAR",
+      "party_short": "IND",
+      "votes": 13922,
+      "vote_share_pct": 7.0
+    },
+    {
+      "rank": 4,
+      "name": "RAHUL VIRENDRABABU DESHMUKH",
+      "party_short": "PWPI",
+      "votes": 6182,
+      "vote_share_pct": 3.11
+    },
+    {
+      "rank": 5,
+      "name": "VIVEK RAMCHANDRA GAYAKWAD",
+      "party_short": "VBA",
+      "votes": 1983,
+      "vote_share_pct": 1.0
+    }
+  ],
+  "nota": {
+    "votes": 1543,
+    "vote_share_pct": 0.78
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 5490,
+    "vote_share_pct": 2.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHARANSING BABULALJI THAKUR",
+    "party_short": "BJP",
+    "votes": 104338,
+    "margin_votes": 38816,
+    "margin_pct": 19.51
+  }
+}

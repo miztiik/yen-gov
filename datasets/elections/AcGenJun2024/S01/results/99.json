@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 99,
+  "constituency_name": "Vinukonda",
+  "totals": {
+    "electors": 264770,
+    "votes_polled": 238697,
+    "turnout_pct": 90.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anzanneyllu G.v",
+      "party_short": "TDP",
+      "votes": 131438,
+      "vote_share_pct": 55.06,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bolla Brahma Naidu",
+      "party_short": "YSRCP",
+      "votes": 101171,
+      "vote_share_pct": 42.38
+    },
+    {
+      "rank": 3,
+      "name": "Chenna Srinivasa Rao",
+      "party_short": "INC",
+      "votes": 1902,
+      "vote_share_pct": 0.8
+    },
+    {
+      "rank": 4,
+      "name": "Masipogu Yesobu",
+      "party_short": "BSP",
+      "votes": 1243,
+      "vote_share_pct": 0.52
+    },
+    {
+      "rank": 5,
+      "name": "N.srinivasa Rao",
+      "party_short": "IND",
+      "votes": 335,
+      "vote_share_pct": 0.14
+    }
+  ],
+  "nota": {
+    "votes": 1694,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 914,
+    "vote_share_pct": 0.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anzanneyllu G.v",
+    "party_short": "TDP",
+    "votes": 131438,
+    "margin_votes": 30267,
+    "margin_pct": 12.68
+  }
+}

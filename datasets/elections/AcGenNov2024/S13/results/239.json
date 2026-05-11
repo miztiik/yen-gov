@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 239,
+  "constituency_name": "AUSA",
+  "totals": {
+    "electors": 304761,
+    "votes_polled": 211313,
+    "turnout_pct": 69.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABHIMANYU DATTATRAY PAWAR",
+      "party_short": "BJP",
+      "votes": 115590,
+      "vote_share_pct": 54.7,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DINKAR BABURAO MANE",
+      "party_short": "SHSUBT",
+      "votes": 82128,
+      "vote_share_pct": 38.87
+    },
+    {
+      "rank": 3,
+      "name": "SHIVAJI KERRAPPA KUMBHAR",
+      "party_short": "IND",
+      "votes": 4147,
+      "vote_share_pct": 1.96
+    },
+    {
+      "rank": 4,
+      "name": "NAGRALE SHIVKUMAR GANGADHAR",
+      "party_short": "MNS",
+      "votes": 1541,
+      "vote_share_pct": 0.73
+    },
+    {
+      "rank": 5,
+      "name": "PROF.DR.ANIL SUGRIV KAMBLE",
+      "party_short": "BSP",
+      "votes": 992,
+      "vote_share_pct": 0.47
+    }
+  ],
+  "nota": {
+    "votes": 497,
+    "vote_share_pct": 0.24
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 6418,
+    "vote_share_pct": 3.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABHIMANYU DATTATRAY PAWAR",
+    "party_short": "BJP",
+    "votes": 115590,
+    "margin_votes": 33462,
+    "margin_pct": 15.84
+  }
+}

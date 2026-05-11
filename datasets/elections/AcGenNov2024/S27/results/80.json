@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 80,
+  "constituency_name": "GARHWA",
+  "totals": {
+    "electors": 420314,
+    "votes_polled": 293209,
+    "turnout_pct": 69.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATYENDRA NATH TIWARI",
+      "party_short": "BJP",
+      "votes": 133109,
+      "vote_share_pct": 45.4,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "MITHILESH KUMAR THAKUR",
+      "party_short": "JMM",
+      "votes": 116356,
+      "vote_share_pct": 39.68
+    },
+    {
+      "rank": 3,
+      "name": "GIRINATH SINGH",
+      "party_short": "SP",
+      "votes": 8096,
+      "vote_share_pct": 2.76
+    },
+    {
+      "rank": 4,
+      "name": "AJAY KUMAR CHOUDHARY",
+      "party_short": "BSP",
+      "votes": 7722,
+      "vote_share_pct": 2.63
+    },
+    {
+      "rank": 5,
+      "name": "RABINDRA KUMAR SINGH",
+      "party_short": "IND",
+      "votes": 4502,
+      "vote_share_pct": 1.54
+    }
+  ],
+  "nota": {
+    "votes": 937,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 22487,
+    "vote_share_pct": 7.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATYENDRA NATH TIWARI",
+    "party_short": "BJP",
+    "votes": 133109,
+    "margin_votes": 16753,
+    "margin_pct": 5.71
+  }
+}

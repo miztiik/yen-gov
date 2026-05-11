@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 242,
+  "constituency_name": "OSMANABAD",
+  "totals": {
+    "electors": 375359,
+    "votes_polled": 242995,
+    "turnout_pct": 64.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KAILAS BALASAHEB GHADGE PATIL",
+      "party_short": "SHSUBT",
+      "votes": 130573,
+      "vote_share_pct": 53.73,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "AJIT BAPPASAHEB PINGLE",
+      "party_short": "SHS",
+      "votes": 94007,
+      "vote_share_pct": 38.69
+    },
+    {
+      "rank": 3,
+      "name": "PRANIT SHAMRAO DIKALE",
+      "party_short": "VBA",
+      "votes": 10117,
+      "vote_share_pct": 4.16
+    },
+    {
+      "rank": 4,
+      "name": "DEODATTA BHAGWAT MORE",
+      "party_short": "MNS",
+      "votes": 2042,
+      "vote_share_pct": 0.84
+    },
+    {
+      "rank": 5,
+      "name": "SHRIHARI VASANT MALI",
+      "party_short": "RSPS",
+      "votes": 1440,
+      "vote_share_pct": 0.59
+    }
+  ],
+  "nota": {
+    "votes": 1581,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3235,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KAILAS BALASAHEB GHADGE PATIL",
+    "party_short": "SHSUBT",
+    "votes": 130573,
+    "margin_votes": 36566,
+    "margin_pct": 15.05
+  }
+}

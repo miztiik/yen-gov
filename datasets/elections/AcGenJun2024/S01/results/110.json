@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 110,
+  "constituency_name": "Kondapi (SC) (SC)",
+  "totals": {
+    "electors": 239702,
+    "votes_polled": 213944,
+    "turnout_pct": 89.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Doctor Dola Sree Bala Veeranjaneya Swamy",
+      "party_short": "TDP",
+      "votes": 116674,
+      "vote_share_pct": 54.53,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Audimulapu Suresh",
+      "party_short": "YSRCP",
+      "votes": 91918,
+      "vote_share_pct": 42.96
+    },
+    {
+      "rank": 3,
+      "name": "Pasumarthi Sudhakara Rao",
+      "party_short": "INC",
+      "votes": 1666,
+      "vote_share_pct": 0.78
+    },
+    {
+      "rank": 4,
+      "name": "Ravinutala Matrika",
+      "party_short": "BSP",
+      "votes": 728,
+      "vote_share_pct": 0.34
+    },
+    {
+      "rank": 5,
+      "name": "Sujatha Vighnam",
+      "party_short": "IND",
+      "votes": 249,
+      "vote_share_pct": 0.12
+    }
+  ],
+  "nota": {
+    "votes": 1612,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1097,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Doctor Dola Sree Bala Veeranjaneya Swamy",
+    "party_short": "TDP",
+    "votes": 116674,
+    "margin_votes": 24756,
+    "margin_pct": 11.57
+  }
+}

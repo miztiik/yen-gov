@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "JALGAON (JAMOD)",
+  "totals": {
+    "electors": 306785,
+    "votes_polled": 227409,
+    "turnout_pct": 74.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KUTE SANJAY SHRIRAM",
+      "party_short": "BJP",
+      "votes": 107318,
+      "vote_share_pct": 47.19,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DR SWATI SANDIP WAKEKAR",
+      "party_short": "INC",
+      "votes": 88547,
+      "vote_share_pct": 38.94
+    },
+    {
+      "rank": 3,
+      "name": "DR PRAVEEN JANARDHAN PATIL",
+      "party_short": "VBA",
+      "votes": 17648,
+      "vote_share_pct": 7.76
+    },
+    {
+      "rank": 4,
+      "name": "PRASHANT KASHIRAM DIKKAR",
+      "party_short": "MHSP",
+      "votes": 9983,
+      "vote_share_pct": 4.39
+    },
+    {
+      "rank": 5,
+      "name": "GAJANAN SUKHDEO SHEGOKAR",
+      "party_short": "BSP",
+      "votes": 800,
+      "vote_share_pct": 0.35
+    }
+  ],
+  "nota": {
+    "votes": 1319,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1794,
+    "vote_share_pct": 0.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KUTE SANJAY SHRIRAM",
+    "party_short": "BJP",
+    "votes": 107318,
+    "margin_votes": 18771,
+    "margin_pct": 8.25
+  }
+}

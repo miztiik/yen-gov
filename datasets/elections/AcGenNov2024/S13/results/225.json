@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 225,
+  "constituency_name": "AHMEDNAGAR CITY",
+  "totals": {
+    "electors": 317397,
+    "votes_polled": 204106,
+    "turnout_pct": 64.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANGRAM ARUNKAKA JAGTAP",
+      "party_short": "NCP",
+      "votes": 118636,
+      "vote_share_pct": 58.12,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ABHISHEK BALASAHEB KALAMKAR",
+      "party_short": "NCPSP",
+      "votes": 79018,
+      "vote_share_pct": 38.71
+    },
+    {
+      "rank": 3,
+      "name": "SACHIN CHANDRABHAN DAFAL",
+      "party_short": "MNS",
+      "votes": 1145,
+      "vote_share_pct": 0.56
+    },
+    {
+      "rank": 4,
+      "name": "BARSE PRATIK ARVIND (PAPPU BHAU)",
+      "party_short": "IND",
+      "votes": 936,
+      "vote_share_pct": 0.46
+    },
+    {
+      "rank": 5,
+      "name": "HANIF JAINUDDIN SHAIKH",
+      "party_short": "VBA",
+      "votes": 590,
+      "vote_share_pct": 0.29
+    }
+  ],
+  "nota": {
+    "votes": 1601,
+    "vote_share_pct": 0.78
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2180,
+    "vote_share_pct": 1.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANGRAM ARUNKAKA JAGTAP",
+    "party_short": "NCP",
+    "votes": 118636,
+    "margin_votes": 39618,
+    "margin_pct": 19.41
+  }
+}

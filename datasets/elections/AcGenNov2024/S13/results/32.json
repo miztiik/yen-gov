@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "MURTIZAPUR (SC)",
+  "totals": {
+    "electors": 311175,
+    "votes_polled": 208754,
+    "turnout_pct": 67.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARISH MAROTIAPPA PIMPLE",
+      "party_short": "BJP",
+      "votes": 91820,
+      "vote_share_pct": 43.98,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SAMRAT DONGARDIVE",
+      "party_short": "NCPSP",
+      "votes": 55956,
+      "vote_share_pct": 26.8
+    },
+    {
+      "rank": 3,
+      "name": "SUGAT GYANESHWAR WAGHMARE",
+      "party_short": "VBA",
+      "votes": 49608,
+      "vote_share_pct": 23.76
+    },
+    {
+      "rank": 4,
+      "name": "SURWADE SAMRAT MANIKRAO",
+      "party_short": "AIMIM",
+      "votes": 3201,
+      "vote_share_pct": 1.53
+    },
+    {
+      "rank": 5,
+      "name": "RAVI RAMESHCHANDRA RATHI",
+      "party_short": "IND",
+      "votes": 2764,
+      "vote_share_pct": 1.32
+    }
+  ],
+  "nota": {
+    "votes": 886,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4519,
+    "vote_share_pct": 2.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARISH MAROTIAPPA PIMPLE",
+    "party_short": "BJP",
+    "votes": 91820,
+    "margin_votes": 35864,
+    "margin_pct": 17.18
+  }
+}

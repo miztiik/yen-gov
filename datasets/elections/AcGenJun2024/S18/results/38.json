@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Balasore",
+  "totals": {
+    "electors": 229852,
+    "votes_polled": 175560,
+    "turnout_pct": 76.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manas Kumar Dutta",
+      "party_short": "BJP",
+      "votes": 89360,
+      "vote_share_pct": 50.9,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Swarup Kumar Das",
+      "party_short": "BJD",
+      "votes": 60734,
+      "vote_share_pct": 34.59
+    },
+    {
+      "rank": 3,
+      "name": "Monalisa Samal",
+      "party_short": "INC",
+      "votes": 19259,
+      "vote_share_pct": 10.97
+    },
+    {
+      "rank": 4,
+      "name": "Bikram Keshari Panda",
+      "party_short": "IND",
+      "votes": 4695,
+      "vote_share_pct": 2.67
+    },
+    {
+      "rank": 5,
+      "name": "Santosh Kumar Mohapatra",
+      "party_short": "BSP",
+      "votes": 331,
+      "vote_share_pct": 0.19
+    }
+  ],
+  "nota": {
+    "votes": 698,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 483,
+    "vote_share_pct": 0.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manas Kumar Dutta",
+    "party_short": "BJP",
+    "votes": 89360,
+    "margin_votes": 28626,
+    "margin_pct": 16.31
+  }
+}

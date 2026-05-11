@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "BHAWANATHPUR",
+  "totals": {
+    "electors": 440722,
+    "votes_polled": 301643,
+    "turnout_pct": 68.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANANT PRATAP DEO",
+      "party_short": "JMM",
+      "votes": 146265,
+      "vote_share_pct": 48.49,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BHANU PRATAP SHAHI",
+      "party_short": "BJP",
+      "votes": 124803,
+      "vote_share_pct": 41.37
+    },
+    {
+      "rank": 3,
+      "name": "RAHUL PRASAD GUPTA",
+      "party_short": "IND",
+      "votes": 5946,
+      "vote_share_pct": 1.97
+    },
+    {
+      "rank": 4,
+      "name": "RAJESH BAITHA",
+      "party_short": "IND",
+      "votes": 5087,
+      "vote_share_pct": 1.69
+    },
+    {
+      "rank": 5,
+      "name": "PANKAJ KUMAR",
+      "party_short": "BSP",
+      "votes": 3744,
+      "vote_share_pct": 1.24
+    }
+  ],
+  "nota": {
+    "votes": 1244,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 14554,
+    "vote_share_pct": 4.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANANT PRATAP DEO",
+    "party_short": "JMM",
+    "votes": 146265,
+    "margin_votes": 21462,
+    "margin_pct": 7.12
+  }
+}

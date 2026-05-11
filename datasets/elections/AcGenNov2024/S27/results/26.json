@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "SIMARIA (SC)",
+  "totals": {
+    "electors": 378063,
+    "votes_polled": 251640,
+    "turnout_pct": 66.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KUMAR UJJWAL",
+      "party_short": "BJP",
+      "votes": 111906,
+      "vote_share_pct": 44.47,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "MANOJ KUMAR CHANDRA",
+      "party_short": "JMM",
+      "votes": 107905,
+      "vote_share_pct": 42.88
+    },
+    {
+      "rank": 3,
+      "name": "JITENDRA KUMAR",
+      "party_short": "JLKM",
+      "votes": 11164,
+      "vote_share_pct": 4.44
+    },
+    {
+      "rank": 4,
+      "name": "SURESH KUMAR",
+      "party_short": "CPI",
+      "votes": 3809,
+      "vote_share_pct": 1.51
+    },
+    {
+      "rank": 5,
+      "name": "SADANAND BHUIYAN",
+      "party_short": "IND",
+      "votes": 3598,
+      "vote_share_pct": 1.43
+    }
+  ],
+  "nota": {
+    "votes": 6928,
+    "vote_share_pct": 2.75
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 6330,
+    "vote_share_pct": 2.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KUMAR UJJWAL",
+    "party_short": "BJP",
+    "votes": 111906,
+    "margin_votes": 4001,
+    "margin_pct": 1.59
+  }
+}

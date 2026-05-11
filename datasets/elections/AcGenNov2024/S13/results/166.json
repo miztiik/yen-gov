@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 166,
+  "constituency_name": "ANDHERI EAST",
+  "totals": {
+    "electors": 288185,
+    "votes_polled": 168903,
+    "turnout_pct": 58.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MURJI PATEL (KAKA)",
+      "party_short": "SHS",
+      "votes": 94010,
+      "vote_share_pct": 55.66,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RUTUJA RAMESH LATKE",
+      "party_short": "SHSUBT",
+      "votes": 68524,
+      "vote_share_pct": 40.57
+    },
+    {
+      "rank": 3,
+      "name": "ADV. SANJEEVKUMAR APPARAV KALKORI",
+      "party_short": "VBA",
+      "votes": 1821,
+      "vote_share_pct": 1.08
+    },
+    {
+      "rank": 4,
+      "name": "KUNDAN HINDURAO WAGHMARE",
+      "party_short": "BSP",
+      "votes": 543,
+      "vote_share_pct": 0.32
+    },
+    {
+      "rank": 5,
+      "name": "KAUSAR ALI ZAFAR ALI SYED",
+      "party_short": "RUC",
+      "votes": 399,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 2346,
+    "vote_share_pct": 1.39
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1260,
+    "vote_share_pct": 0.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MURJI PATEL (KAKA)",
+    "party_short": "SHS",
+    "votes": 94010,
+    "margin_votes": 25486,
+    "margin_pct": 15.09
+  }
+}

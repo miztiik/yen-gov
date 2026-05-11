@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 286,
+  "constituency_name": "KHANAPUR",
+  "totals": {
+    "electors": 351802,
+    "votes_polled": 251685,
+    "turnout_pct": 71.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BABAR SUHAS ANILBHAU",
+      "party_short": "SHS",
+      "votes": 153892,
+      "vote_share_pct": 61.14,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "VAIBHAVDADA SADASHIVRAO PATIL",
+      "party_short": "NCPSP",
+      "votes": 75711,
+      "vote_share_pct": 30.08
+    },
+    {
+      "rank": 3,
+      "name": "RAJENDRA (ANNA) DESHMUKH",
+      "party_short": "IND",
+      "votes": 13958,
+      "vote_share_pct": 5.55
+    },
+    {
+      "rank": 4,
+      "name": "DADASO KONDIRAM CHANDANSHIVE",
+      "party_short": "IND",
+      "votes": 2198,
+      "vote_share_pct": 0.87
+    },
+    {
+      "rank": 5,
+      "name": "RAJESH (RAJUDADA) RAMCHANDRA JADHAV",
+      "party_short": "MNS",
+      "votes": 1012,
+      "vote_share_pct": 0.4
+    }
+  ],
+  "nota": {
+    "votes": 769,
+    "vote_share_pct": 0.31
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4145,
+    "vote_share_pct": 1.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BABAR SUHAS ANILBHAU",
+    "party_short": "SHS",
+    "votes": 153892,
+    "margin_votes": 78181,
+    "margin_pct": 31.06
+  }
+}

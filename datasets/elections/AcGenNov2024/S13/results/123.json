@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 123,
+  "constituency_name": "NASHIK EAST",
+  "totals": {
+    "electors": 409539,
+    "votes_polled": 243079,
+    "turnout_pct": 59.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADV.RAHUL UTTAMRAO DHIKALE",
+      "party_short": "BJP",
+      "votes": 156246,
+      "vote_share_pct": 64.28,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "GANESH (BHAU) BABAN GITE",
+      "party_short": "NCPSP",
+      "votes": 68429,
+      "vote_share_pct": 28.15
+    },
+    {
+      "rank": 3,
+      "name": "RAVINDRAKUMAR ( AANNA) JANARDAN PAGARE",
+      "party_short": "VBA",
+      "votes": 5191,
+      "vote_share_pct": 2.14
+    },
+    {
+      "rank": 4,
+      "name": "PRASAD (BALASAHEB) DATTATRAY SANAP",
+      "party_short": "MNS",
+      "votes": 4987,
+      "vote_share_pct": 2.05
+    },
+    {
+      "rank": 5,
+      "name": "BHABHE JITENDRA NARESH (JITENDRA BHAVE)",
+      "party_short": "NBMP",
+      "votes": 2085,
+      "vote_share_pct": 0.86
+    }
+  ],
+  "nota": {
+    "votes": 1989,
+    "vote_share_pct": 0.82
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4152,
+    "vote_share_pct": 1.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADV.RAHUL UTTAMRAO DHIKALE",
+    "party_short": "BJP",
+    "votes": 156246,
+    "margin_votes": 87817,
+    "margin_pct": 36.13
+  }
+}

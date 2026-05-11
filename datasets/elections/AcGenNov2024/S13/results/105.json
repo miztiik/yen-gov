@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 105,
+  "constituency_name": "KANNAD",
+  "totals": {
+    "electors": 333280,
+    "votes_polled": 232302,
+    "turnout_pct": 69.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RANJANATAI (SANJANA) HARSHVARDHAN JADHAV",
+      "party_short": "SHS",
+      "votes": 84492,
+      "vote_share_pct": 36.37,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "JADHAV HARSHWARDHAN RAIBHAN",
+      "party_short": "IND",
+      "votes": 66291,
+      "vote_share_pct": 28.54
+    },
+    {
+      "rank": 3,
+      "name": "UDAYSING SARDARSING RAJPUT",
+      "party_short": "SHSUBT",
+      "votes": 46510,
+      "vote_share_pct": 20.02
+    },
+    {
+      "rank": 4,
+      "name": "MANOJ KESHAVRAO PAWAR",
+      "party_short": "IND",
+      "votes": 11735,
+      "vote_share_pct": 5.05
+    },
+    {
+      "rank": 5,
+      "name": "AYAS MAKBUL SHAH",
+      "party_short": "VBA",
+      "votes": 8539,
+      "vote_share_pct": 3.68
+    }
+  ],
+  "nota": {
+    "votes": 1093,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 13642,
+    "vote_share_pct": 5.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RANJANATAI (SANJANA) HARSHVARDHAN JADHAV",
+    "party_short": "SHS",
+    "votes": 84492,
+    "margin_votes": 18201,
+    "margin_pct": 7.84
+  }
+}

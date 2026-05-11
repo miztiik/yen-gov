@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "U08",
+  "body": "AC",
+  "eci_no": 73,
+  "constituency_name": "SUCHETGARH(SC) (SC)",
+  "totals": {
+    "electors": 118022,
+    "votes_polled": 84847,
+    "turnout_pct": 71.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gharu Ram",
+      "party_short": "BJP",
+      "votes": 39302,
+      "vote_share_pct": 46.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bhusan Lal",
+      "party_short": "INC",
+      "votes": 28161,
+      "vote_share_pct": 33.19
+    },
+    {
+      "rank": 3,
+      "name": "Ajaib Singh",
+      "party_short": "DPAP",
+      "votes": 8265,
+      "vote_share_pct": 9.74
+    },
+    {
+      "rank": 4,
+      "name": "Usha Devi",
+      "party_short": "IND",
+      "votes": 4210,
+      "vote_share_pct": 4.96
+    },
+    {
+      "rank": 5,
+      "name": "Sham Lal",
+      "party_short": "IND",
+      "votes": 1277,
+      "vote_share_pct": 1.51
+    }
+  ],
+  "nota": {
+    "votes": 409,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3223,
+    "vote_share_pct": 3.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gharu Ram",
+    "party_short": "BJP",
+    "votes": 39302,
+    "margin_votes": 11141,
+    "margin_pct": 13.13
+  }
+}

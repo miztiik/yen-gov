@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "CHALISGAON",
+  "totals": {
+    "electors": 376664,
+    "votes_polled": 234200,
+    "turnout_pct": 62.18
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANGESH RAMESH CHAVAN",
+      "party_short": "BJP",
+      "votes": 157101,
+      "vote_share_pct": 67.08,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "UNMESH BHAIYYASAHEB PATIL",
+      "party_short": "SHSUBT",
+      "votes": 71448,
+      "vote_share_pct": 30.51
+    },
+    {
+      "rank": 3,
+      "name": "RAJARAM BARAKU MORE",
+      "party_short": "BSP",
+      "votes": 1089,
+      "vote_share_pct": 0.46
+    },
+    {
+      "rank": 4,
+      "name": "SUNIL TARACHAND MORE",
+      "party_short": "IND",
+      "votes": 972,
+      "vote_share_pct": 0.42
+    },
+    {
+      "rank": 5,
+      "name": "VALMIK SUBHASH GARUD (ABASAHEB GARUD)",
+      "party_short": "SaSP",
+      "votes": 550,
+      "vote_share_pct": 0.23
+    }
+  ],
+  "nota": {
+    "votes": 1813,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1227,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANGESH RAMESH CHAVAN",
+    "party_short": "BJP",
+    "votes": 157101,
+    "margin_votes": 85653,
+    "margin_pct": 36.57
+  }
+}

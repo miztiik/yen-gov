@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Narasannapeta",
+  "totals": {
+    "electors": 217094,
+    "votes_polled": 177376,
+    "turnout_pct": 81.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Baggu Ramanamurthy",
+      "party_short": "TDP",
+      "votes": 99951,
+      "vote_share_pct": 56.35,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dharmana Krishnadas",
+      "party_short": "YSRCP",
+      "votes": 70580,
+      "vote_share_pct": 39.79
+    },
+    {
+      "rank": 3,
+      "name": "Narasimhamurthy Mantri",
+      "party_short": "INC",
+      "votes": 2225,
+      "vote_share_pct": 1.25
+    },
+    {
+      "rank": 4,
+      "name": "Kaya Kameswari",
+      "party_short": "NRCP",
+      "votes": 432,
+      "vote_share_pct": 0.24
+    },
+    {
+      "rank": 5,
+      "name": "Bora Venkata Satyendranath Abihishek",
+      "party_short": "IND",
+      "votes": 332,
+      "vote_share_pct": 0.19
+    }
+  ],
+  "nota": {
+    "votes": 3300,
+    "vote_share_pct": 1.86
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 556,
+    "vote_share_pct": 0.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Baggu Ramanamurthy",
+    "party_short": "TDP",
+    "votes": 99951,
+    "margin_votes": 29371,
+    "margin_pct": 16.56
+  }
+}

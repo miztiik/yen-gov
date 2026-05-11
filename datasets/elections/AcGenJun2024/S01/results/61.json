@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 61,
+  "constituency_name": "Tanuku",
+  "totals": {
+    "electors": 234677,
+    "votes_polled": 194768,
+    "turnout_pct": 82.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Arimilli Radha Krishna",
+      "party_short": "TDP",
+      "votes": 129547,
+      "vote_share_pct": 66.51,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Karumuri Venkata Nageswara Rao",
+      "party_short": "YSRCP",
+      "votes": 57426,
+      "vote_share_pct": 29.48
+    },
+    {
+      "rank": 3,
+      "name": "Kadali Rama Rao",
+      "party_short": "INC",
+      "votes": 2422,
+      "vote_share_pct": 1.24
+    },
+    {
+      "rank": 4,
+      "name": "Akumarthi Dhanumjaya",
+      "party_short": "BSP",
+      "votes": 1427,
+      "vote_share_pct": 0.73
+    },
+    {
+      "rank": 5,
+      "name": "Karuturi Subbarao",
+      "party_short": "IND",
+      "votes": 901,
+      "vote_share_pct": 0.46
+    }
+  ],
+  "nota": {
+    "votes": 1722,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1323,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Arimilli Radha Krishna",
+    "party_short": "TDP",
+    "votes": 129547,
+    "margin_votes": 72121,
+    "margin_pct": 37.03
+  }
+}

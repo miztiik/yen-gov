@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "KHARSAWAN (ST)",
+  "totals": {
+    "electors": 227724,
+    "votes_polled": 181571,
+    "turnout_pct": 79.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DASHRATH GAGRAI",
+      "party_short": "JMM",
+      "votes": 85772,
+      "vote_share_pct": 47.24,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SONARAM BODRA",
+      "party_short": "BJP",
+      "votes": 53157,
+      "vote_share_pct": 29.28
+    },
+    {
+      "rank": 3,
+      "name": "PANDU RAM HAIBURU",
+      "party_short": "JLKM",
+      "votes": 33841,
+      "vote_share_pct": 18.64
+    },
+    {
+      "rank": 4,
+      "name": "HIRALAL HEMBROM",
+      "party_short": "IND",
+      "votes": 1350,
+      "vote_share_pct": 0.74
+    },
+    {
+      "rank": 5,
+      "name": "SANJAY JARIKA",
+      "party_short": "IND",
+      "votes": 1182,
+      "vote_share_pct": 0.65
+    }
+  ],
+  "nota": {
+    "votes": 3356,
+    "vote_share_pct": 1.85
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2913,
+    "vote_share_pct": 1.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DASHRATH GAGRAI",
+    "party_short": "JMM",
+    "votes": 85772,
+    "margin_votes": 32615,
+    "margin_pct": 17.96
+  }
+}

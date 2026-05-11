@@ -1,0 +1,54 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S02",
+  "body": "AC",
+  "eci_no": 36,
+  "constituency_name": "Nari-Koyu (ST)",
+  "totals": {
+    "electors": 8259,
+    "votes_polled": 7501,
+    "turnout_pct": 90.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Tojir Kadu",
+      "party_short": "BJP",
+      "votes": 4545,
+      "vote_share_pct": 60.59,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Gegong Apang",
+      "party_short": "ANCHDMCP",
+      "votes": 2896,
+      "vote_share_pct": 38.61
+    }
+  ],
+  "nota": {
+    "votes": 60,
+    "vote_share_pct": 0.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Tojir Kadu",
+    "party_short": "BJP",
+    "votes": 4545,
+    "margin_votes": 1649,
+    "margin_pct": 21.98
+  },
+  "others": null
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "HAZARIBAGH",
+  "totals": {
+    "electors": 441027,
+    "votes_polled": 268643,
+    "turnout_pct": 60.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRADIP PRASAD",
+      "party_short": "BJP",
+      "votes": 139458,
+      "vote_share_pct": 51.91,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "MUNNA SINGH",
+      "party_short": "INC",
+      "votes": 95981,
+      "vote_share_pct": 35.73
+    },
+    {
+      "rank": 3,
+      "name": "UDAY KUMAR MEHTA",
+      "party_short": "JLKM",
+      "votes": 14070,
+      "vote_share_pct": 5.24
+    },
+    {
+      "rank": 4,
+      "name": "HARSH AJMERA",
+      "party_short": "IND",
+      "votes": 4027,
+      "vote_share_pct": 1.5
+    },
+    {
+      "rank": 5,
+      "name": "PRASHANT KUMAR VARMA",
+      "party_short": "IND",
+      "votes": 1555,
+      "vote_share_pct": 0.58
+    }
+  ],
+  "nota": {
+    "votes": 1059,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 12493,
+    "vote_share_pct": 4.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRADIP PRASAD",
+    "party_short": "BJP",
+    "votes": 139458,
+    "margin_votes": 43477,
+    "margin_pct": 16.18
+  }
+}

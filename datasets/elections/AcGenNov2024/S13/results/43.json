@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "MORSHI",
+  "totals": {
+    "electors": 291492,
+    "votes_polled": 210069,
+    "turnout_pct": 72.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UMESH ALIAS CHANDU ATMARAMJI YAWALKAR",
+      "party_short": "BJP",
+      "votes": 99683,
+      "vote_share_pct": 47.45,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DEVENDRA MAHADEVRAO BHUYAR",
+      "party_short": "NCP",
+      "votes": 34695,
+      "vote_share_pct": 16.52
+    },
+    {
+      "rank": 3,
+      "name": "GIRISH RANGRAO KARALE",
+      "party_short": "NCPSP",
+      "votes": 31843,
+      "vote_share_pct": 15.16
+    },
+    {
+      "rank": 4,
+      "name": "VIKRAM NARESHCHANDRAJI THAKARE",
+      "party_short": "IND",
+      "votes": 26729,
+      "vote_share_pct": 12.72
+    },
+    {
+      "rank": 5,
+      "name": "KAMALNARAYAN JANRAO UIKE",
+      "party_short": "BSP",
+      "votes": 4122,
+      "vote_share_pct": 1.96
+    }
+  ],
+  "nota": {
+    "votes": 758,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 12239,
+    "vote_share_pct": 5.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UMESH ALIAS CHANDU ATMARAMJI YAWALKAR",
+    "party_short": "BJP",
+    "votes": 99683,
+    "margin_votes": 64988,
+    "margin_pct": 30.94
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 267,
+  "constituency_name": "RAJAPUR",
+  "totals": {
+    "electors": 238455,
+    "votes_polled": 154615,
+    "turnout_pct": 64.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KIRAN ALIAS BHAIYYA SAMANT",
+      "party_short": "SHS",
+      "votes": 80256,
+      "vote_share_pct": 51.91,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RAJAN PRABHAKAR SALVI",
+      "party_short": "SHSUBT",
+      "votes": 60579,
+      "vote_share_pct": 39.18
+    },
+    {
+      "rank": 3,
+      "name": "AVINASH SHANTARAM LAD",
+      "party_short": "IND",
+      "votes": 7945,
+      "vote_share_pct": 5.14
+    },
+    {
+      "rank": 4,
+      "name": "AMRUT TAMBADE (DADA)",
+      "party_short": "IND",
+      "votes": 1204,
+      "vote_share_pct": 0.78
+    },
+    {
+      "rank": 5,
+      "name": "RAJENDRA RAVINDRANATH SALVI",
+      "party_short": "IND",
+      "votes": 1074,
+      "vote_share_pct": 0.69
+    }
+  ],
+  "nota": {
+    "votes": 1834,
+    "vote_share_pct": 1.19
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1723,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KIRAN ALIAS BHAIYYA SAMANT",
+    "party_short": "SHS",
+    "votes": 80256,
+    "margin_votes": 19677,
+    "margin_pct": 12.73
+  }
+}

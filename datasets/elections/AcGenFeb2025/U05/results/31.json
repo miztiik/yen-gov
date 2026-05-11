@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "VIKASPURI",
+  "totals": {
+    "electors": 464659,
+    "votes_polled": 273648,
+    "turnout_pct": 58.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PANKAJ KUMAR SINGH",
+      "party_short": "BJP",
+      "votes": 135564,
+      "vote_share_pct": 49.54,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "MAHINDER YADAV",
+      "party_short": "AAAP",
+      "votes": 122688,
+      "vote_share_pct": 44.83
+    },
+    {
+      "rank": 3,
+      "name": "JITENDER SOLANKI",
+      "party_short": "INC",
+      "votes": 8465,
+      "vote_share_pct": 3.09
+    },
+    {
+      "rank": 4,
+      "name": "KRISHNA THAKUR",
+      "party_short": "BSP",
+      "votes": 2642,
+      "vote_share_pct": 0.97
+    },
+    {
+      "rank": 5,
+      "name": "SHEJO VARGHESE",
+      "party_short": "CPI",
+      "votes": 687,
+      "vote_share_pct": 0.25
+    }
+  ],
+  "nota": {
+    "votes": 1460,
+    "vote_share_pct": 0.53
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2142,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PANKAJ KUMAR SINGH",
+    "party_short": "BJP",
+    "votes": 135564,
+    "margin_votes": 12876,
+    "margin_pct": 4.71
+  }
+}

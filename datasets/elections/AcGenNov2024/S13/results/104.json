@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 104,
+  "constituency_name": "SILLOD",
+  "totals": {
+    "electors": 358550,
+    "votes_polled": 289312,
+    "turnout_pct": 80.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABDUL SATTAR",
+      "party_short": "SHS",
+      "votes": 137960,
+      "vote_share_pct": 47.69,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BANKAR SURESH PANDURANG",
+      "party_short": "SHSUBT",
+      "votes": 135540,
+      "vote_share_pct": 46.85
+    },
+    {
+      "rank": 3,
+      "name": "RAHUL ANKUSH RATHOD",
+      "party_short": "IND",
+      "votes": 2705,
+      "vote_share_pct": 0.93
+    },
+    {
+      "rank": 4,
+      "name": "PATHAN BANEKHAN NOORKHAN",
+      "party_short": "VBA",
+      "votes": 1989,
+      "vote_share_pct": 0.69
+    },
+    {
+      "rank": 5,
+      "name": "RAJU PANDURANG SATHE",
+      "party_short": "IND",
+      "votes": 1830,
+      "vote_share_pct": 0.63
+    }
+  ],
+  "nota": {
+    "votes": 725,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 8563,
+    "vote_share_pct": 2.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABDUL SATTAR",
+    "party_short": "SHS",
+    "votes": 137960,
+    "margin_votes": 2420,
+    "margin_pct": 0.84
+  }
+}

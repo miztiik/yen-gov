@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 204,
+  "constituency_name": "MAVAL",
+  "totals": {
+    "electors": 386301,
+    "votes_polled": 279081,
+    "turnout_pct": 72.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUNIL SHANKARRAO SHELKE",
+      "party_short": "NCP",
+      "votes": 191255,
+      "vote_share_pct": 68.53,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ANNA ALIAS BAPU JAYWANTRAO BHEGADE",
+      "party_short": "IND",
+      "votes": 82690,
+      "vote_share_pct": 29.63
+    },
+    {
+      "rank": 3,
+      "name": "RAVINDRA NANABHAU WAGHCHOURE",
+      "party_short": "BHMS",
+      "votes": 749,
+      "vote_share_pct": 0.27
+    },
+    {
+      "rank": 4,
+      "name": "GOPAL YASHWANTRAO TANTARPALE",
+      "party_short": "IND",
+      "votes": 616,
+      "vote_share_pct": 0.22
+    },
+    {
+      "rank": 5,
+      "name": "AGARWAL MUKESH MANOHAR",
+      "party_short": "IND",
+      "votes": 545,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 2715,
+    "vote_share_pct": 0.97
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 511,
+    "vote_share_pct": 0.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUNIL SHANKARRAO SHELKE",
+    "party_short": "NCP",
+    "votes": 191255,
+    "margin_votes": 108565,
+    "margin_pct": 38.9
+  }
+}

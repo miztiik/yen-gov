@@ -1,0 +1,75 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 71,
+  "constituency_name": "NANGAL CHAUDHRY",
+  "totals": {
+    "electors": 169131,
+    "votes_polled": 118473,
+    "turnout_pct": 70.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manju Choudhary",
+      "party_short": "INC",
+      "votes": 61989,
+      "vote_share_pct": 52.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Abhe Singh Yadav",
+      "party_short": "BJP",
+      "votes": 55059,
+      "vote_share_pct": 46.47
+    },
+    {
+      "rank": 3,
+      "name": "Rao Om Prakash Engineer",
+      "party_short": "JNJP",
+      "votes": 576,
+      "vote_share_pct": 0.49
+    },
+    {
+      "rank": 4,
+      "name": "Sagar Chauhan",
+      "party_short": "VLP",
+      "votes": 353,
+      "vote_share_pct": 0.3
+    },
+    {
+      "rank": 5,
+      "name": "Kartar Singh",
+      "party_short": "IND",
+      "votes": 110,
+      "vote_share_pct": 0.09
+    }
+  ],
+  "nota": {
+    "votes": 386,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manju Choudhary",
+    "party_short": "INC",
+    "votes": 61989,
+    "margin_votes": 6930,
+    "margin_pct": 5.85
+  },
+  "others": null
+}

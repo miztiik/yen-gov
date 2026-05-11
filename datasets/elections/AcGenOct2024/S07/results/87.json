@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "BADKHAL",
+  "totals": {
+    "electors": 332253,
+    "votes_polled": 159984,
+    "turnout_pct": 48.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dhanesh Adlakha",
+      "party_short": "BJP",
+      "votes": 79476,
+      "vote_share_pct": 49.68,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vijay Pratap Singh",
+      "party_short": "INC",
+      "votes": 73295,
+      "vote_share_pct": 45.81
+    },
+    {
+      "rank": 3,
+      "name": "Manoj Choudhary",
+      "party_short": "BSP",
+      "votes": 2493,
+      "vote_share_pct": 1.56
+    },
+    {
+      "rank": 4,
+      "name": "Om Prakash Verma",
+      "party_short": "AAAP",
+      "votes": 1681,
+      "vote_share_pct": 1.05
+    },
+    {
+      "rank": 5,
+      "name": "Parvinder Singh",
+      "party_short": "JNJP",
+      "votes": 659,
+      "vote_share_pct": 0.41
+    }
+  ],
+  "nota": {
+    "votes": 1509,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 871,
+    "vote_share_pct": 0.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dhanesh Adlakha",
+    "party_short": "BJP",
+    "votes": 79476,
+    "margin_votes": 6181,
+    "margin_pct": 3.86
+  }
+}

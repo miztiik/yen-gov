@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 83,
+  "constituency_name": "KINWAT",
+  "totals": {
+    "electors": 278803,
+    "votes_polled": 202360,
+    "turnout_pct": 72.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHIMRAO RAMJI KERAM",
+      "party_short": "BJP",
+      "votes": 92856,
+      "vote_share_pct": 45.89,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "JADHAV PRADEEP NAIK",
+      "party_short": "NCPSP",
+      "votes": 87220,
+      "vote_share_pct": 43.1
+    },
+    {
+      "rank": 3,
+      "name": "JADHAV SACHIN MADHAVRAO (NAIK)",
+      "party_short": "IND",
+      "votes": 5511,
+      "vote_share_pct": 2.72
+    },
+    {
+      "rank": 4,
+      "name": "ASHOK SAMBHAJIRAO DHOLE",
+      "party_short": "RP(K)",
+      "votes": 5311,
+      "vote_share_pct": 2.62
+    },
+    {
+      "rank": 5,
+      "name": "DR. AMLE PUNDALIK GOMAJI",
+      "party_short": "VBA",
+      "votes": 4515,
+      "vote_share_pct": 2.23
+    }
+  ],
+  "nota": {
+    "votes": 1266,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 5681,
+    "vote_share_pct": 2.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHIMRAO RAMJI KERAM",
+    "party_short": "BJP",
+    "votes": 92856,
+    "margin_votes": 5636,
+    "margin_pct": 2.79
+  }
+}

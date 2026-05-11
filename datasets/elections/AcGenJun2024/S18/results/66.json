@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "Loisingha (SC)",
+  "totals": {
+    "electors": 245851,
+    "votes_polled": 187992,
+    "turnout_pct": 76.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mukesh Mahaling",
+      "party_short": "BJP",
+      "votes": 83313,
+      "vote_share_pct": 44.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Nihar Ranjan Behera",
+      "party_short": "BJD",
+      "votes": 65123,
+      "vote_share_pct": 34.64
+    },
+    {
+      "rank": 3,
+      "name": "Om Prakash Kumbhar",
+      "party_short": "INC",
+      "votes": 32249,
+      "vote_share_pct": 17.15
+    },
+    {
+      "rank": 4,
+      "name": "Gobinda Bibhar",
+      "party_short": "BSP",
+      "votes": 1655,
+      "vote_share_pct": 0.88
+    },
+    {
+      "rank": 5,
+      "name": "Saroj Kumar Suna",
+      "party_short": "NAPt",
+      "votes": 1437,
+      "vote_share_pct": 0.76
+    }
+  ],
+  "nota": {
+    "votes": 2160,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2055,
+    "vote_share_pct": 1.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mukesh Mahaling",
+    "party_short": "BJP",
+    "votes": 83313,
+    "margin_votes": 18190,
+    "margin_pct": 9.68
+  }
+}

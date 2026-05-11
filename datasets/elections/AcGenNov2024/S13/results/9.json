@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "SHIRPUR (ST)",
+  "totals": {
+    "electors": 351226,
+    "votes_polled": 232164,
+    "turnout_pct": 66.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KASHIRAM VECHAN PAWARA",
+      "party_short": "BJP",
+      "votes": 178073,
+      "vote_share_pct": 76.7,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DR.JITENDRA YUVRAJ THAKUR",
+      "party_short": "IND",
+      "votes": 32129,
+      "vote_share_pct": 13.84
+    },
+    {
+      "rank": 3,
+      "name": "BUDHA MALA PAWARA",
+      "party_short": "CPI",
+      "votes": 10038,
+      "vote_share_pct": 4.32
+    },
+    {
+      "rank": 4,
+      "name": "ADVOCATE VARSHA RAMESH VASAVE",
+      "party_short": "IND",
+      "votes": 5042,
+      "vote_share_pct": 2.17
+    },
+    {
+      "rank": 5,
+      "name": "SANDIP DEVIDAS BHIL (BAGUL)",
+      "party_short": "BSP",
+      "votes": 2586,
+      "vote_share_pct": 1.11
+    }
+  ],
+  "nota": {
+    "votes": 2664,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1632,
+    "vote_share_pct": 0.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KASHIRAM VECHAN PAWARA",
+    "party_short": "BJP",
+    "votes": 178073,
+    "margin_votes": 145944,
+    "margin_pct": 62.86
+  }
+}

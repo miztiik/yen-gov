@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 35,
+  "constituency_name": "Jaleswar",
+  "totals": {
+    "electors": 254539,
+    "votes_polled": 196081,
+    "turnout_pct": 77.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Aswini Kumar Patra",
+      "party_short": "BJD",
+      "votes": 83105,
+      "vote_share_pct": 42.38,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Brajamohan Pradhan",
+      "party_short": "BJP",
+      "votes": 82786,
+      "vote_share_pct": 42.22
+    },
+    {
+      "rank": 3,
+      "name": "Sudarsan Das",
+      "party_short": "INC",
+      "votes": 26692,
+      "vote_share_pct": 13.61
+    },
+    {
+      "rank": 4,
+      "name": "Dibyakam Mohanty",
+      "party_short": "IND",
+      "votes": 1550,
+      "vote_share_pct": 0.79
+    },
+    {
+      "rank": 5,
+      "name": "Pradip Kumar Singha",
+      "party_short": "PBI",
+      "votes": 328,
+      "vote_share_pct": 0.17
+    }
+  ],
+  "nota": {
+    "votes": 868,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 752,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Aswini Kumar Patra",
+    "party_short": "BJD",
+    "votes": 83105,
+    "margin_votes": 319,
+    "margin_pct": 0.16
+  }
+}

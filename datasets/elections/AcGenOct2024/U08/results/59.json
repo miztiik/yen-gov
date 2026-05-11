@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "U08",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "UDHAMPUR WEST",
+  "totals": {
+    "electors": 117010,
+    "votes_polled": 90603,
+    "turnout_pct": 77.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pawan Kumar Gupta",
+      "party_short": "BJP",
+      "votes": 47164,
+      "vote_share_pct": 52.06,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sumeet Magotra",
+      "party_short": "INC",
+      "votes": 26412,
+      "vote_share_pct": 29.15
+    },
+    {
+      "rank": 3,
+      "name": "Jasvir Singh",
+      "party_short": "IND",
+      "votes": 12556,
+      "vote_share_pct": 13.86
+    },
+    {
+      "rank": 4,
+      "name": "Tranter Singh",
+      "party_short": "JKNPPB",
+      "votes": 637,
+      "vote_share_pct": 0.7
+    },
+    {
+      "rank": 5,
+      "name": "Anil Khajuria",
+      "party_short": "IND",
+      "votes": 495,
+      "vote_share_pct": 0.55
+    }
+  ],
+  "nota": {
+    "votes": 1290,
+    "vote_share_pct": 1.42
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2049,
+    "vote_share_pct": 2.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pawan Kumar Gupta",
+    "party_short": "BJP",
+    "votes": 47164,
+    "margin_votes": 20752,
+    "margin_pct": 22.9
+  }
+}

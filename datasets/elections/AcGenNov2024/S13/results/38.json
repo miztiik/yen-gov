@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "AMRAVATI",
+  "totals": {
+    "electors": 374727,
+    "votes_polled": 215258,
+    "turnout_pct": 57.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SULBHA SANJAY KHODKE",
+      "party_short": "NCP",
+      "votes": 60087,
+      "vote_share_pct": 27.91,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DR. SUNIL PANJABRAO DESHMUKH",
+      "party_short": "INC",
+      "votes": 54674,
+      "vote_share_pct": 25.4
+    },
+    {
+      "rank": 3,
+      "name": "ALIM PATEL MO. WAHEED",
+      "party_short": "ASPKR",
+      "votes": 54591,
+      "vote_share_pct": 25.36
+    },
+    {
+      "rank": 4,
+      "name": "JAGDISH GUPTA",
+      "party_short": "IND",
+      "votes": 34067,
+      "vote_share_pct": 15.83
+    },
+    {
+      "rank": 5,
+      "name": "RAHUL LILADHAR MESHRAM",
+      "party_short": "VBA",
+      "votes": 3048,
+      "vote_share_pct": 1.42
+    }
+  ],
+  "nota": {
+    "votes": 856,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 7935,
+    "vote_share_pct": 3.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SULBHA SANJAY KHODKE",
+    "party_short": "NCP",
+    "votes": 60087,
+    "margin_votes": 5413,
+    "margin_pct": 2.51
+  }
+}

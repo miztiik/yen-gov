@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "OKHLA",
+  "totals": {
+    "electors": 380354,
+    "votes_polled": 209522,
+    "turnout_pct": 55.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMANATULLAH KHAN",
+      "party_short": "AAAP",
+      "votes": 88943,
+      "vote_share_pct": 42.45,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "MANISH CHAUDHARY",
+      "party_short": "BJP",
+      "votes": 65304,
+      "vote_share_pct": 31.17
+    },
+    {
+      "rank": 3,
+      "name": "SHIFA UR REHMAN KHAN",
+      "party_short": "AIMIM",
+      "votes": 39558,
+      "vote_share_pct": 18.88
+    },
+    {
+      "rank": 4,
+      "name": "ARIBA KHAN",
+      "party_short": "INC",
+      "votes": 12739,
+      "vote_share_pct": 6.08
+    },
+    {
+      "rank": 5,
+      "name": "SATISH KUMAR",
+      "party_short": "BSP",
+      "votes": 756,
+      "vote_share_pct": 0.36
+    }
+  ],
+  "nota": {
+    "votes": 604,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1618,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMANATULLAH KHAN",
+    "party_short": "AAAP",
+    "votes": 88943,
+    "margin_votes": 23639,
+    "margin_pct": 11.28
+  }
+}

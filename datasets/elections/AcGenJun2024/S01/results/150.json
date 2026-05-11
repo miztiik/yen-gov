@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 150,
+  "constituency_name": "Guntakal",
+  "totals": {
+    "electors": 271057,
+    "votes_polled": 206731,
+    "turnout_pct": 76.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gummanur Jayaram",
+      "party_short": "TDP",
+      "votes": 101700,
+      "vote_share_pct": 49.19,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Y. Venkata Rama Reddy",
+      "party_short": "YSRCP",
+      "votes": 94874,
+      "vote_share_pct": 45.89
+    },
+    {
+      "rank": 3,
+      "name": "K. Prabhakar",
+      "party_short": "INC",
+      "votes": 5146,
+      "vote_share_pct": 2.49
+    },
+    {
+      "rank": 4,
+      "name": "Shaik Mahaboob Basha",
+      "party_short": "IND",
+      "votes": 1190,
+      "vote_share_pct": 0.58
+    },
+    {
+      "rank": 5,
+      "name": "Shaik Abdul Malik",
+      "party_short": "BSP",
+      "votes": 938,
+      "vote_share_pct": 0.45
+    }
+  ],
+  "nota": {
+    "votes": 1743,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1140,
+    "vote_share_pct": 0.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gummanur Jayaram",
+    "party_short": "TDP",
+    "votes": 101700,
+    "margin_votes": 6826,
+    "margin_pct": 3.3
+  }
+}

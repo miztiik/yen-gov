@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 285,
+  "constituency_name": "PALUS - KADEGAON",
+  "totals": {
+    "electors": 293574,
+    "votes_polled": 234010,
+    "turnout_pct": 79.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KADAM VISHWAJIT PATANGRAO",
+      "party_short": "INC",
+      "votes": 130769,
+      "vote_share_pct": 55.88,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SANGRAM SAMPATRAO DESHMUKH",
+      "party_short": "BJP",
+      "votes": 100705,
+      "vote_share_pct": 43.03
+    },
+    {
+      "rank": 3,
+      "name": "JIVAN KISAN KARKATE",
+      "party_short": "VBA",
+      "votes": 556,
+      "vote_share_pct": 0.24
+    },
+    {
+      "rank": 4,
+      "name": "ANANDA SHANKAR NALAGE-PATIL",
+      "party_short": "BALP",
+      "votes": 299,
+      "vote_share_pct": 0.13
+    },
+    {
+      "rank": 5,
+      "name": "ANKUSH (AABA) VASANT PATIL",
+      "party_short": "JALOP",
+      "votes": 176,
+      "vote_share_pct": 0.08
+    }
+  ],
+  "nota": {
+    "votes": 899,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 606,
+    "vote_share_pct": 0.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KADAM VISHWAJIT PATANGRAO",
+    "party_short": "INC",
+    "votes": 130769,
+    "margin_votes": 30064,
+    "margin_pct": 12.85
+  }
+}

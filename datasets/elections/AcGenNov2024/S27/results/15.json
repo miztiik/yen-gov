@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "DEOGHAR (SC)",
+  "totals": {
+    "electors": 438372,
+    "votes_polled": 291577,
+    "turnout_pct": 66.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURESH PASWAN",
+      "party_short": "RJD",
+      "votes": 156079,
+      "vote_share_pct": 53.53,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "NARAYAN DAS",
+      "party_short": "BJP",
+      "votes": 116358,
+      "vote_share_pct": 39.91
+    },
+    {
+      "rank": 3,
+      "name": "BAJRANGI MAHTHA",
+      "party_short": "IND",
+      "votes": 4414,
+      "vote_share_pct": 1.51
+    },
+    {
+      "rank": 4,
+      "name": "GYAN RANJAN",
+      "party_short": "BSP",
+      "votes": 3854,
+      "vote_share_pct": 1.32
+    },
+    {
+      "rank": 5,
+      "name": "ANGREJ DAS",
+      "party_short": "JLKM",
+      "votes": 3527,
+      "vote_share_pct": 1.21
+    }
+  ],
+  "nota": {
+    "votes": 3906,
+    "vote_share_pct": 1.34
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 3439,
+    "vote_share_pct": 1.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURESH PASWAN",
+    "party_short": "RJD",
+    "votes": 156079,
+    "margin_votes": 39721,
+    "margin_pct": 13.62
+  }
+}

@@ -43,13 +43,26 @@ This unlocks all 15 pinned states for parsed per-AC ingest, with the explicit un
 
 **Verified**: `eci-statreport-emit S21 2024` ran clean against ECI's live API, produced 32 schema-valid AC results, then was rolled back (the new event needs `datasets/events/in/eci/AcGenJun2024/election.json` metadata before it can land in the repo — separate per-cohort decision).
 
-### N3 — Legacy portal (2022-2023) — STILL DEFERRED
+### N3 — Land all 15 pinned (state, year) entries in `datasets/elections/` (L3, current)
 
-Unchanged from original framing. Twenty states (2022 + 2023 cohorts) have NO entry in the new ECI API; their data lives at `https://eci.gov.in/files/file/<id>-...pdf` on the legacy portal. PDF table extraction is week+ work per state.
+The events registry at [backend/yen_gov/sources/eci/events.py](../backend/yen_gov/sources/eci/events.py) lists 15 pinned `(state, year)` pairs. Today only 6 of 15 have parsed data on disk:
 
-**Why still deferred even after N2 shipped**: the ten newly-unlockable archived 2024-2025 states need `datasets/events/in/eci/<event>/election.json` cohort metadata before their parsed data can land in the repo (the integrity test enforces this). That's 5 cohorts of metadata work + per-state route additions in the public app. Doing N3's hard fetcher work BEFORE consuming the easy N2 data is bad ordering.
+- `AcGenMay2026/` — S03, S11, S22, S25, U07 (5/5 ✅)
+- `AcGenJun2024/` — S01 only (1/4)
+- `AcGenOct2024/` — empty (0/2)
+- `AcGenNov2024/`, `AcGenFeb2025/`, `AcGenNov2025/` — no event dir at all (0/4 combined)
 
-**Recommended next slice if N3 truly wanted**: pick ONE state from N2's pool (e.g. S07 Haryana 2024 or U05 Delhi 2025), author its `election.json`, ingest it, wire up a public-app route, and learn what the rendering layer actually needs from a partywise-less event. THEN decide whether N3 is worth the cost.
+N3 closes that gap. For each missing `(state, year)`:
+
+1. Author `datasets/events/in/eci/<event_id>/election.json` if the cohort dir doesn't exist (mirroring the AcGenMay2026 + AcGenJun2024 shape: `eci_event_id`, `scope`, `body`, `year`, `month`, `states[]`, empty `sources[]` since hand-authored). Append the new state code to the existing `states[]` if the cohort already exists.
+2. Run `python -m yen_gov eci-statreport-emit <state> <year>` — pipeline already supports `has_partywise=False`, no code changes needed.
+3. Validate.
+
+**Status (2026-05-11)**: 14 of 15 ingested. Only **S04 Bihar 2025** is blocked upstream — ECI has not yet published its Statistical Report (the API's `category_id=15` returns the per-AC candidate listings, not Section 10 Detailed Results). Re-run `eci-statreport-emit S04 2025` periodically; when Section 10 lands the existing pipeline picks it up with no code changes.
+
+**Hand-curated URLs and per-cohort metadata are the canonical method, not a workaround.** Past election results are frozen-in-time data: the bytes don't change once polling closes. Upstream URL schemes can and do rot (legacy 2022-2023 portal proves it), but the underlying truth is immutable. So a hand-maintained `events.py` registry + per-cohort `election.json` are the right shape — automation is a convenience for live cohorts only.
+
+**Out of scope**: the 16-state 2022-2023 legacy cohort. Those URLs are gone from the live portal and require either Wayback HTML scraping (with a new parser — the legacy HTML structure differs) or PDF extraction. Both are heavy, and ECI's data export practice may yet republish the cohort under a unified scheme. Defer until someone explicitly wants it.
 
 ### N4 — Indicator-first IA — ALREADY DONE
 

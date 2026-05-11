@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "PUSAD",
+  "totals": {
+    "electors": 322054,
+    "votes_polled": 213828,
+    "turnout_pct": 66.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "INDRANIL MANOHAR NAIK",
+      "party_short": "NCP",
+      "votes": 127964,
+      "vote_share_pct": 59.84,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SHARAD APPARAO MAIND",
+      "party_short": "NCPSP",
+      "votes": 37195,
+      "vote_share_pct": 17.39
+    },
+    {
+      "rank": 3,
+      "name": "MADHAV RUKHMAJI VAIDYA",
+      "party_short": "VBA",
+      "votes": 36575,
+      "vote_share_pct": 17.1
+    },
+    {
+      "rank": 4,
+      "name": "MADHUKAR RAJU RATHOD",
+      "party_short": "IND",
+      "votes": 2545,
+      "vote_share_pct": 1.19
+    },
+    {
+      "rank": 5,
+      "name": "VISHAL BALIRAM JADHAO",
+      "party_short": "IND",
+      "votes": 1942,
+      "vote_share_pct": 0.91
+    }
+  ],
+  "nota": {
+    "votes": 1348,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6259,
+    "vote_share_pct": 2.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "INDRANIL MANOHAR NAIK",
+    "party_short": "NCP",
+    "votes": 127964,
+    "margin_votes": 90769,
+    "margin_pct": 42.45
+  }
+}

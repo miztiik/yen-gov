@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "CHANDNI CHOWK",
+  "totals": {
+    "electors": 126943,
+    "votes_polled": 71173,
+    "turnout_pct": 56.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PUNARDEEP SINGH SAWHNEY (SABBY)",
+      "party_short": "AAAP",
+      "votes": 38993,
+      "vote_share_pct": 54.79,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SATISH JAIN",
+      "party_short": "BJP",
+      "votes": 22421,
+      "vote_share_pct": 31.5
+    },
+    {
+      "rank": 3,
+      "name": "MUDIT AGARWAL",
+      "party_short": "INC",
+      "votes": 9065,
+      "vote_share_pct": 12.74
+    },
+    {
+      "rank": 4,
+      "name": "KALI CHARAN",
+      "party_short": "BSP",
+      "votes": 246,
+      "vote_share_pct": 0.35
+    },
+    {
+      "rank": 5,
+      "name": "KHALID UR REHMAN",
+      "party_short": "NCP",
+      "votes": 81,
+      "vote_share_pct": 0.11
+    }
+  ],
+  "nota": {
+    "votes": 253,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 114,
+    "vote_share_pct": 0.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PUNARDEEP SINGH SAWHNEY (SABBY)",
+    "party_short": "AAAP",
+    "votes": 38993,
+    "margin_votes": 16572,
+    "margin_pct": 23.28
+  }
+}

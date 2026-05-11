@@ -1,0 +1,68 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S02",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Changlang North (ST)",
+  "totals": {
+    "electors": 10410,
+    "votes_polled": 8732,
+    "turnout_pct": 83.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Tesam Pongte",
+      "party_short": "BJP",
+      "votes": 4524,
+      "vote_share_pct": 51.81,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dihom Kitnya",
+      "party_short": "NPEP",
+      "votes": 2522,
+      "vote_share_pct": 28.88
+    },
+    {
+      "rank": 3,
+      "name": "Marina Kenglang",
+      "party_short": "INC",
+      "votes": 1547,
+      "vote_share_pct": 17.72
+    },
+    {
+      "rank": 4,
+      "name": "Nyasam Jongsam",
+      "party_short": "NCP",
+      "votes": 75,
+      "vote_share_pct": 0.86
+    }
+  ],
+  "nota": {
+    "votes": 64,
+    "vote_share_pct": 0.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Tesam Pongte",
+    "party_short": "BJP",
+    "votes": 4524,
+    "margin_votes": 2002,
+    "margin_pct": 22.93
+  },
+  "others": null
+}

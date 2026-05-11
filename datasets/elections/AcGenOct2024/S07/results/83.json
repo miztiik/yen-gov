@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 83,
+  "constituency_name": "HODAL (SC)",
+  "totals": {
+    "electors": 198244,
+    "votes_polled": 141146,
+    "turnout_pct": 71.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Harinder Singh",
+      "party_short": "BJP",
+      "votes": 68865,
+      "vote_share_pct": 48.79,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Udai Bhan",
+      "party_short": "INC",
+      "votes": 66270,
+      "vote_share_pct": 46.95
+    },
+    {
+      "rank": 3,
+      "name": "Naveen Rohila",
+      "party_short": "IND",
+      "votes": 2077,
+      "vote_share_pct": 1.47
+    },
+    {
+      "rank": 4,
+      "name": "Sunil Kumar",
+      "party_short": "INLD",
+      "votes": 1838,
+      "vote_share_pct": 1.3
+    },
+    {
+      "rank": 5,
+      "name": "Sunita Sorout",
+      "party_short": "IND",
+      "votes": 546,
+      "vote_share_pct": 0.39
+    }
+  ],
+  "nota": {
+    "votes": 393,
+    "vote_share_pct": 0.28
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1157,
+    "vote_share_pct": 0.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Harinder Singh",
+    "party_short": "BJP",
+    "votes": 68865,
+    "margin_votes": 2595,
+    "margin_pct": 1.84
+  }
+}

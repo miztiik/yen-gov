@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 85,
+  "constituency_name": "BHOKAR",
+  "totals": {
+    "electors": 303352,
+    "votes_polled": 233349,
+    "turnout_pct": 76.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHAVAN SREEJAYA ASHOKRAO",
+      "party_short": "BJP",
+      "votes": 133187,
+      "vote_share_pct": 57.08,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "KADAM KONDHEKAR TIRUPATI ALIAS PAPPU BABURAO",
+      "party_short": "INC",
+      "votes": 82636,
+      "vote_share_pct": 35.41
+    },
+    {
+      "rank": 3,
+      "name": "SURESH TIKARAM RATHOD",
+      "party_short": "VBA",
+      "votes": 8872,
+      "vote_share_pct": 3.8
+    },
+    {
+      "rank": 4,
+      "name": "KAMLESHKUMAR PANDURANGRAO CHOUDANTE",
+      "party_short": "BSP",
+      "votes": 1664,
+      "vote_share_pct": 0.71
+    },
+    {
+      "rank": 5,
+      "name": "NAGNATH LAXMAN GHISEWAD",
+      "party_short": "JALOP",
+      "votes": 1272,
+      "vote_share_pct": 0.55
+    }
+  ],
+  "nota": {
+    "votes": 284,
+    "vote_share_pct": 0.12
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 5434,
+    "vote_share_pct": 2.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHAVAN SREEJAYA ASHOKRAO",
+    "party_short": "BJP",
+    "votes": 133187,
+    "margin_votes": 50551,
+    "margin_pct": 21.66
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "Palakonda (ST)",
+  "totals": {
+    "electors": 195673,
+    "votes_polled": 148375,
+    "turnout_pct": 75.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jayakrishna Nimmaka",
+      "party_short": "JnP",
+      "votes": 75208,
+      "vote_share_pct": 50.69,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Viswasarayi Kalavathi",
+      "party_short": "YSRCP",
+      "votes": 61917,
+      "vote_share_pct": 41.73
+    },
+    {
+      "rank": 3,
+      "name": "Chanti Babu Savara",
+      "party_short": "INC",
+      "votes": 2041,
+      "vote_share_pct": 1.38
+    },
+    {
+      "rank": 4,
+      "name": "Vooyaka. Bhanu Chandar",
+      "party_short": "BSP",
+      "votes": 1570,
+      "vote_share_pct": 1.06
+    },
+    {
+      "rank": 5,
+      "name": "Krishna Nimmaka",
+      "party_short": "JJSP",
+      "votes": 1363,
+      "vote_share_pct": 0.92
+    }
+  ],
+  "nota": {
+    "votes": 4260,
+    "vote_share_pct": 2.87
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2016,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jayakrishna Nimmaka",
+    "party_short": "JnP",
+    "votes": 75208,
+    "margin_votes": 13291,
+    "margin_pct": 8.96
+  }
+}

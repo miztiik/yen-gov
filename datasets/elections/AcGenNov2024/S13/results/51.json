@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 51,
+  "constituency_name": "UMRED (SC)",
+  "totals": {
+    "electors": 301080,
+    "votes_polled": 215887,
+    "turnout_pct": 71.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANJAY NARAYANRAO MESHRAM",
+      "party_short": "INC",
+      "votes": 85372,
+      "vote_share_pct": 39.54,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SUDHIR LAXMAN PARWE",
+      "party_short": "BJP",
+      "votes": 72547,
+      "vote_share_pct": 33.6
+    },
+    {
+      "rank": 3,
+      "name": "GHARDE PRAMOD DEORAO",
+      "party_short": "IND",
+      "votes": 49262,
+      "vote_share_pct": 22.82
+    },
+    {
+      "rank": 4,
+      "name": "BHIMRAO SURYABHAN GAJBHIYE",
+      "party_short": "BSP",
+      "votes": 3379,
+      "vote_share_pct": 1.57
+    },
+    {
+      "rank": 5,
+      "name": "SAPNA RAJENDRA MESHRAM",
+      "party_short": "VBA",
+      "votes": 1854,
+      "vote_share_pct": 0.86
+    }
+  ],
+  "nota": {
+    "votes": 1263,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2210,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANJAY NARAYANRAO MESHRAM",
+    "party_short": "INC",
+    "votes": 85372,
+    "margin_votes": 12825,
+    "margin_pct": 5.94
+  }
+}

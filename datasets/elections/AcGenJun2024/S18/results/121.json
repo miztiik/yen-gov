@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 121,
+  "constituency_name": "Daspalla (SC)",
+  "totals": {
+    "electors": 190742,
+    "votes_polled": 139737,
+    "turnout_pct": 73.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ramesh Chandra Behera",
+      "party_short": "BJD",
+      "votes": 62039,
+      "vote_share_pct": 44.4,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Raghab Malik",
+      "party_short": "BJP",
+      "votes": 55743,
+      "vote_share_pct": 39.89
+    },
+    {
+      "rank": 3,
+      "name": "Rabindra Sethi",
+      "party_short": "IND",
+      "votes": 10673,
+      "vote_share_pct": 7.64
+    },
+    {
+      "rank": 4,
+      "name": "Nakul Nayak",
+      "party_short": "INC",
+      "votes": 5259,
+      "vote_share_pct": 3.76
+    },
+    {
+      "rank": 5,
+      "name": "Indumati Nayak",
+      "party_short": "IND",
+      "votes": 1951,
+      "vote_share_pct": 1.4
+    }
+  ],
+  "nota": {
+    "votes": 1570,
+    "vote_share_pct": 1.12
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2502,
+    "vote_share_pct": 1.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ramesh Chandra Behera",
+    "party_short": "BJD",
+    "votes": 62039,
+    "margin_votes": 6296,
+    "margin_pct": 4.51
+  }
+}

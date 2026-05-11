@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 152,
+  "constituency_name": "BORIVALI",
+  "totals": {
+    "electors": 325749,
+    "votes_polled": 204079,
+    "turnout_pct": 62.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANJAY UPADHYAY",
+      "party_short": "BJP",
+      "votes": 139947,
+      "vote_share_pct": 68.57,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SANJAY WAMAN BHOSALE",
+      "party_short": "SHSUBT",
+      "votes": 39690,
+      "vote_share_pct": 19.45
+    },
+    {
+      "rank": 3,
+      "name": "KUNAL VIJAY MAINKAR",
+      "party_short": "MNS",
+      "votes": 17829,
+      "vote_share_pct": 8.74
+    },
+    {
+      "rank": 4,
+      "name": "KISAN SUKHDEVRAO INGOLE",
+      "party_short": "BSP",
+      "votes": 1677,
+      "vote_share_pct": 0.82
+    },
+    {
+      "rank": 5,
+      "name": "BHARAT ARJANBHAI BHUVA(PATEL)",
+      "party_short": "SVPP",
+      "votes": 537,
+      "vote_share_pct": 0.26
+    }
+  ],
+  "nota": {
+    "votes": 3637,
+    "vote_share_pct": 1.78
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 762,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANJAY UPADHYAY",
+    "party_short": "BJP",
+    "votes": 139947,
+    "margin_votes": 100257,
+    "margin_pct": 49.13
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "BORIO (ST)",
+  "totals": {
+    "electors": 284763,
+    "votes_polled": 191590,
+    "turnout_pct": 67.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DHANANJAY SOREN",
+      "party_short": "JMM",
+      "votes": 97317,
+      "vote_share_pct": 50.79,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "LOBIN HEMBRAM",
+      "party_short": "BJP",
+      "votes": 78044,
+      "vote_share_pct": 40.73
+    },
+    {
+      "rank": 3,
+      "name": "SURYANARAYAN HANSDA",
+      "party_short": "JLKM",
+      "votes": 2937,
+      "vote_share_pct": 1.53
+    },
+    {
+      "rank": 4,
+      "name": "RAMA PAHARIA",
+      "party_short": "IND",
+      "votes": 2251,
+      "vote_share_pct": 1.17
+    },
+    {
+      "rank": 5,
+      "name": "AMIT KUMAR MALTO",
+      "party_short": "LKHAP",
+      "votes": 1612,
+      "vote_share_pct": 0.84
+    }
+  ],
+  "nota": {
+    "votes": 3566,
+    "vote_share_pct": 1.86
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5863,
+    "vote_share_pct": 3.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DHANANJAY SOREN",
+    "party_short": "JMM",
+    "votes": 97317,
+    "margin_votes": 19273,
+    "margin_pct": 10.06
+  }
+}

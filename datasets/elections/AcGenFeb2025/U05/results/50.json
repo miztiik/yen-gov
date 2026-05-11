@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "GREATER KAILASH",
+  "totals": {
+    "electors": 188445,
+    "votes_polled": 103884,
+    "turnout_pct": 55.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHIKHA ROY",
+      "party_short": "BJP",
+      "votes": 49594,
+      "vote_share_pct": 47.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SAURABH BHARADWAJ",
+      "party_short": "AAAP",
+      "votes": 46406,
+      "vote_share_pct": 44.67
+    },
+    {
+      "rank": 3,
+      "name": "GARVIT SINGHVI",
+      "party_short": "INC",
+      "votes": 6711,
+      "vote_share_pct": 6.46
+    },
+    {
+      "rank": 4,
+      "name": "NIYATI CHOUDHARY",
+      "party_short": "BSP",
+      "votes": 235,
+      "vote_share_pct": 0.23
+    },
+    {
+      "rank": 5,
+      "name": "SATISH KUMAR GULLIYA",
+      "party_short": "BhaRP",
+      "votes": 171,
+      "vote_share_pct": 0.16
+    }
+  ],
+  "nota": {
+    "votes": 671,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 96,
+    "vote_share_pct": 0.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHIKHA ROY",
+    "party_short": "BJP",
+    "votes": 49594,
+    "margin_votes": 3188,
+    "margin_pct": 3.07
+  }
+}

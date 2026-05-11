@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 73,
+  "constituency_name": "BRAHMAPURI",
+  "totals": {
+    "electors": 275922,
+    "votes_polled": 224241,
+    "turnout_pct": 81.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIJAY NAMDEORAO WADETTIWAR",
+      "party_short": "INC",
+      "votes": 114196,
+      "vote_share_pct": 50.93,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "KRISHNALAL BAJIRAO SAHARE",
+      "party_short": "BJP",
+      "votes": 100225,
+      "vote_share_pct": 44.7
+    },
+    {
+      "rank": 3,
+      "name": "DR. RAHUL KALIDAS MESHRAM",
+      "party_short": "VBA",
+      "votes": 4005,
+      "vote_share_pct": 1.79
+    },
+    {
+      "rank": 4,
+      "name": "KEVALRAM VASUDEV PARDHI",
+      "party_short": "BSP",
+      "votes": 1808,
+      "vote_share_pct": 0.81
+    },
+    {
+      "rank": 5,
+      "name": "CHAKRADHAR PUNIRAM MESHRAM",
+      "party_short": "JNJWDIP",
+      "votes": 905,
+      "vote_share_pct": 0.4
+    }
+  ],
+  "nota": {
+    "votes": 1034,
+    "vote_share_pct": 0.46
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2068,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIJAY NAMDEORAO WADETTIWAR",
+    "party_short": "INC",
+    "votes": 114196,
+    "margin_votes": 13971,
+    "margin_pct": 6.23
+  }
+}

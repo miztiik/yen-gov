@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 89,
+  "constituency_name": "NAIGAON",
+  "totals": {
+    "electors": 310610,
+    "votes_polled": 232219,
+    "turnout_pct": 74.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJESH SAMBHAJIRAO PAWAR",
+      "party_short": "BJP",
+      "votes": 129192,
+      "vote_share_pct": 55.63,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DR. MEENAL PATIL KHATGAONKAR",
+      "party_short": "INC",
+      "votes": 81563,
+      "vote_share_pct": 35.12
+    },
+    {
+      "rank": 3,
+      "name": "DR. MADHAV SAMBHAJIRAO VIBHUTE",
+      "party_short": "VBA",
+      "votes": 16043,
+      "vote_share_pct": 6.91
+    },
+    {
+      "rank": 4,
+      "name": "GAJANAN SHANKARRAO CHAVAN",
+      "party_short": "PHJSP",
+      "votes": 2144,
+      "vote_share_pct": 0.92
+    },
+    {
+      "rank": 5,
+      "name": "ARCHANA VITTHAL PATIL",
+      "party_short": "PWPI",
+      "votes": 910,
+      "vote_share_pct": 0.39
+    }
+  ],
+  "nota": {
+    "votes": 743,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1624,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJESH SAMBHAJIRAO PAWAR",
+    "party_short": "BJP",
+    "votes": 129192,
+    "margin_votes": 47629,
+    "margin_pct": 20.51
+  }
+}

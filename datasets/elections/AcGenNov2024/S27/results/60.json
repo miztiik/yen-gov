@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "KHUNTI (ST)",
+  "totals": {
+    "electors": 226864,
+    "votes_polled": 159842,
+    "turnout_pct": 70.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM SURYA MUNDA",
+      "party_short": "JMM",
+      "votes": 91721,
+      "vote_share_pct": 57.38,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "NILKANTH SINGH MUNDA",
+      "party_short": "BJP",
+      "votes": 49668,
+      "vote_share_pct": 31.07
+    },
+    {
+      "rank": 3,
+      "name": "BI ANIL KUMAR",
+      "party_short": "JLKM",
+      "votes": 3865,
+      "vote_share_pct": 2.42
+    },
+    {
+      "rank": 4,
+      "name": "ALOK RITESH DUNGDUNG",
+      "party_short": "BSP",
+      "votes": 2085,
+      "vote_share_pct": 1.3
+    },
+    {
+      "rank": 5,
+      "name": "PASTAR SANJAY KUMAR TIRKEY",
+      "party_short": "IND",
+      "votes": 2057,
+      "vote_share_pct": 1.29
+    }
+  ],
+  "nota": {
+    "votes": 3547,
+    "vote_share_pct": 2.22
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 6899,
+    "vote_share_pct": 4.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM SURYA MUNDA",
+    "party_short": "JMM",
+    "votes": 91721,
+    "margin_votes": 42053,
+    "margin_pct": 26.31
+  }
+}

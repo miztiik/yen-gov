@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 145,
+  "constituency_name": "MIRA BHAYANDAR",
+  "totals": {
+    "electors": 510890,
+    "votes_polled": 263129,
+    "turnout_pct": 51.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NARENDRA MEHTA",
+      "party_short": "BJP",
+      "votes": 144376,
+      "vote_share_pct": 54.87,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "MUZAFFAR HUSSAIN",
+      "party_short": "INC",
+      "votes": 83943,
+      "vote_share_pct": 31.9
+    },
+    {
+      "rank": 3,
+      "name": "GEETA JAIN",
+      "party_short": "IND",
+      "votes": 23051,
+      "vote_share_pct": 8.76
+    },
+    {
+      "rank": 4,
+      "name": "SANDEEP RANE",
+      "party_short": "MNS",
+      "votes": 5243,
+      "vote_share_pct": 1.99
+    },
+    {
+      "rank": 5,
+      "name": "ARUN KADAM",
+      "party_short": "IND",
+      "votes": 991,
+      "vote_share_pct": 0.38
+    }
+  ],
+  "nota": {
+    "votes": 2279,
+    "vote_share_pct": 0.87
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 3246,
+    "vote_share_pct": 1.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NARENDRA MEHTA",
+    "party_short": "BJP",
+    "votes": 144376,
+    "margin_votes": 60433,
+    "margin_pct": 22.97
+  }
+}

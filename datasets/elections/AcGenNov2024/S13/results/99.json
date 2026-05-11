@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 99,
+  "constituency_name": "PARTUR",
+  "totals": {
+    "electors": 323263,
+    "votes_polled": 228732,
+    "turnout_pct": 70.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BABANRAO DATTATRAY YADAV (LONIKAR)",
+      "party_short": "BJP",
+      "votes": 70659,
+      "vote_share_pct": 30.89,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ASARAM JIJABHAU BORADE (A. J. PATIL)",
+      "party_short": "SHSUBT",
+      "votes": 65919,
+      "vote_share_pct": 28.82
+    },
+    {
+      "rank": 3,
+      "name": "JETHLIYA SURESHKUMAR KANHAIALAL",
+      "party_short": "IND",
+      "votes": 53921,
+      "vote_share_pct": 23.57
+    },
+    {
+      "rank": 4,
+      "name": "RAMPRASAD KISANRAO THORAT",
+      "party_short": "VBA",
+      "votes": 29810,
+      "vote_share_pct": 13.03
+    },
+    {
+      "rank": 5,
+      "name": "AGRAWAL MOHANKUMAR HARIPRASAD",
+      "party_short": "IND",
+      "votes": 1633,
+      "vote_share_pct": 0.71
+    }
+  ],
+  "nota": {
+    "votes": 1163,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 5627,
+    "vote_share_pct": 2.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BABANRAO DATTATRAY YADAV (LONIKAR)",
+    "party_short": "BJP",
+    "votes": 70659,
+    "margin_votes": 4740,
+    "margin_pct": 2.07
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 130,
+  "constituency_name": "Kamalapuram",
+  "totals": {
+    "electors": 204387,
+    "votes_polled": 172196,
+    "turnout_pct": 84.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Krishna Chaitanya Reddy Putha",
+      "party_short": "TDP",
+      "votes": 95207,
+      "vote_share_pct": 55.29,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Pochimareddy Ravindranath Reddy",
+      "party_short": "YSRCP",
+      "votes": 69850,
+      "vote_share_pct": 40.56
+    },
+    {
+      "rank": 3,
+      "name": "Chinnarigandla Bala Chennaiah",
+      "party_short": "BSP",
+      "votes": 2261,
+      "vote_share_pct": 1.31
+    },
+    {
+      "rank": 4,
+      "name": "Gali Chandra",
+      "party_short": "CPI",
+      "votes": 1092,
+      "vote_share_pct": 0.63
+    },
+    {
+      "rank": 5,
+      "name": "Veeranarayana Reddy Rajoli",
+      "party_short": "IND",
+      "votes": 823,
+      "vote_share_pct": 0.48
+    }
+  ],
+  "nota": {
+    "votes": 2128,
+    "vote_share_pct": 1.24
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 835,
+    "vote_share_pct": 0.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Krishna Chaitanya Reddy Putha",
+    "party_short": "TDP",
+    "votes": 95207,
+    "margin_votes": 25357,
+    "margin_pct": 14.73
+  }
+}

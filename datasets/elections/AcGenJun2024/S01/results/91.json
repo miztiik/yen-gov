@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 91,
+  "constituency_name": "Tenali",
+  "totals": {
+    "electors": 267914,
+    "votes_polled": 205996,
+    "turnout_pct": 76.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nadendla Manohar",
+      "party_short": "JnP",
+      "votes": 123961,
+      "vote_share_pct": 60.18,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Annabathuni Sivakumar",
+      "party_short": "YSRCP",
+      "votes": 75849,
+      "vote_share_pct": 36.82
+    },
+    {
+      "rank": 3,
+      "name": "Karumanchi Sunil Sundeep",
+      "party_short": "BSP",
+      "votes": 2188,
+      "vote_share_pct": 1.06
+    },
+    {
+      "rank": 4,
+      "name": "Jinka Mallikarjuna Rao",
+      "party_short": "PPOI",
+      "votes": 472,
+      "vote_share_pct": 0.23
+    },
+    {
+      "rank": 5,
+      "name": "Tumapala Narendra",
+      "party_short": "IND",
+      "votes": 462,
+      "vote_share_pct": 0.22
+    }
+  ],
+  "nota": {
+    "votes": 1412,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1652,
+    "vote_share_pct": 0.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nadendla Manohar",
+    "party_short": "JnP",
+    "votes": 123961,
+    "margin_votes": 48112,
+    "margin_pct": 23.36
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "U08",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "RAMBAN",
+  "totals": {
+    "electors": 98541,
+    "votes_polled": 69207,
+    "turnout_pct": 70.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Arjun Singh Raju",
+      "party_short": "JKN",
+      "votes": 28425,
+      "vote_share_pct": 41.07,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Suraj Singh Parihar",
+      "party_short": "IND",
+      "votes": 19412,
+      "vote_share_pct": 28.05
+    },
+    {
+      "rank": 3,
+      "name": "Rakesh Singh Thakur",
+      "party_short": "BJP",
+      "votes": 17511,
+      "vote_share_pct": 25.3
+    },
+    {
+      "rank": 4,
+      "name": "Sunil Singh",
+      "party_short": "IND",
+      "votes": 1371,
+      "vote_share_pct": 1.98
+    },
+    {
+      "rank": 5,
+      "name": "Tilak Raj",
+      "party_short": "SHS (UBT)",
+      "votes": 567,
+      "vote_share_pct": 0.82
+    }
+  ],
+  "nota": {
+    "votes": 1123,
+    "vote_share_pct": 1.62
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 798,
+    "vote_share_pct": 1.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Arjun Singh Raju",
+    "party_short": "JKN",
+    "votes": 28425,
+    "margin_votes": 9013,
+    "margin_pct": 13.02
+  }
+}

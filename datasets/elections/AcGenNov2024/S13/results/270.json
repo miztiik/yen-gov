@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 270,
+  "constituency_name": "SAWANTWADI",
+  "totals": {
+    "electors": 230545,
+    "votes_polled": 166090,
+    "turnout_pct": 72.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DEEPAK VASANTRAO KESARKAR",
+      "party_short": "SHS",
+      "votes": 81008,
+      "vote_share_pct": 48.77,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RAJAN KRISHNA TELI",
+      "party_short": "SHSUBT",
+      "votes": 41109,
+      "vote_share_pct": 24.75
+    },
+    {
+      "rank": 3,
+      "name": "VISHAL PRABHAKAR PARAB",
+      "party_short": "IND",
+      "votes": 33281,
+      "vote_share_pct": 20.04
+    },
+    {
+      "rank": 4,
+      "name": "ARCHANA GHARE PARAB",
+      "party_short": "IND",
+      "votes": 6174,
+      "vote_share_pct": 3.72
+    },
+    {
+      "rank": 5,
+      "name": "DATTARAM VISHNU GAONKAR",
+      "party_short": "IND",
+      "votes": 1234,
+      "vote_share_pct": 0.74
+    }
+  ],
+  "nota": {
+    "votes": 2385,
+    "vote_share_pct": 1.44
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 899,
+    "vote_share_pct": 0.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DEEPAK VASANTRAO KESARKAR",
+    "party_short": "SHS",
+    "votes": 81008,
+    "margin_votes": 39899,
+    "margin_pct": 24.02
+  }
+}

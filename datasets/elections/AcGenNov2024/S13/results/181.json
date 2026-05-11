@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 181,
+  "constituency_name": "MAHIM",
+  "totals": {
+    "electors": 225975,
+    "votes_polled": 134599,
+    "turnout_pct": 59.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAHESH BALIRAM SAWANT",
+      "party_short": "SHSUBT",
+      "votes": 50213,
+      "vote_share_pct": 37.31,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SADA SARVANKAR",
+      "party_short": "SHS",
+      "votes": 48897,
+      "vote_share_pct": 36.33
+    },
+    {
+      "rank": 3,
+      "name": "AMIT RAJ THACKERAY",
+      "party_short": "MNS",
+      "votes": 33062,
+      "vote_share_pct": 24.56
+    },
+    {
+      "rank": 4,
+      "name": "SUDHIR BANDU JADHAV",
+      "party_short": "BSP",
+      "votes": 350,
+      "vote_share_pct": 0.26
+    },
+    {
+      "rank": 5,
+      "name": "FAROOQ SALEEM SAYYED",
+      "party_short": "BARESP",
+      "votes": 276,
+      "vote_share_pct": 0.21
+    }
+  ],
+  "nota": {
+    "votes": 1553,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 248,
+    "vote_share_pct": 0.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAHESH BALIRAM SAWANT",
+    "party_short": "SHSUBT",
+    "votes": 50213,
+    "margin_votes": 1316,
+    "margin_pct": 0.98
+  }
+}

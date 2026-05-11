@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "Tadepalligudem",
+  "totals": {
+    "electors": 215325,
+    "votes_polled": 178049,
+    "turnout_pct": 82.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bolisetty Srinivas",
+      "party_short": "JnP",
+      "votes": 116443,
+      "vote_share_pct": 65.4,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kottu Satyanarayana",
+      "party_short": "YSRCP",
+      "votes": 53951,
+      "vote_share_pct": 30.3
+    },
+    {
+      "rank": 3,
+      "name": "Marneedi. Sekhar (babji)",
+      "party_short": "INC",
+      "votes": 1901,
+      "vote_share_pct": 1.07
+    },
+    {
+      "rank": 4,
+      "name": "P.s.r. Krishna",
+      "party_short": "JBNP",
+      "votes": 919,
+      "vote_share_pct": 0.52
+    },
+    {
+      "rank": 5,
+      "name": "Bolisetty Srinuvasa Rao",
+      "party_short": "NRCP",
+      "votes": 752,
+      "vote_share_pct": 0.42
+    }
+  ],
+  "nota": {
+    "votes": 1534,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2549,
+    "vote_share_pct": 1.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bolisetty Srinivas",
+    "party_short": "JnP",
+    "votes": 116443,
+    "margin_votes": 62492,
+    "margin_pct": 35.1
+  }
+}

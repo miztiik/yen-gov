@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "NERELA",
+  "totals": {
+    "electors": 281212,
+    "votes_polled": 174746,
+    "turnout_pct": 62.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJ KARAN KHATRI",
+      "party_short": "BJP",
+      "votes": 87215,
+      "vote_share_pct": 49.91,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SHARAD KUMAR",
+      "party_short": "AAAP",
+      "votes": 78619,
+      "vote_share_pct": 44.99
+    },
+    {
+      "rank": 3,
+      "name": "ARUNA",
+      "party_short": "INC",
+      "votes": 6782,
+      "vote_share_pct": 3.88
+    },
+    {
+      "rank": 4,
+      "name": "ANIL KUMAR SINGH",
+      "party_short": "CPI(ML)(L)",
+      "votes": 328,
+      "vote_share_pct": 0.19
+    },
+    {
+      "rank": 5,
+      "name": "VIKAS BHARDWAJ",
+      "party_short": "IND",
+      "votes": 301,
+      "vote_share_pct": 0.17
+    }
+  ],
+  "nota": {
+    "votes": 981,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 520,
+    "vote_share_pct": 0.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJ KARAN KHATRI",
+    "party_short": "BJP",
+    "votes": 87215,
+    "margin_votes": 8596,
+    "margin_pct": 4.92
+  }
+}

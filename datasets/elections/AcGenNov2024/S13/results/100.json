@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 100,
+  "constituency_name": "GHANSAWANGI",
+  "totals": {
+    "electors": 330425,
+    "votes_polled": 256289,
+    "turnout_pct": 77.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UDHAN HIKMAT BALIRAM",
+      "party_short": "SHS",
+      "votes": 98496,
+      "vote_share_pct": 38.43,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RAJESHBHAIYYA TOPE",
+      "party_short": "NCPSP",
+      "votes": 96187,
+      "vote_share_pct": 37.53
+    },
+    {
+      "rank": 3,
+      "name": "GHATGE SATISH JAGNNATHRAO",
+      "party_short": "IND",
+      "votes": 23696,
+      "vote_share_pct": 9.25
+    },
+    {
+      "rank": 4,
+      "name": "KAVERI BALIRAM KHATKE",
+      "party_short": "VBA",
+      "votes": 20731,
+      "vote_share_pct": 8.09
+    },
+    {
+      "rank": 5,
+      "name": "BABASAHEB SANTUKRAO SHELKE",
+      "party_short": "SAP",
+      "votes": 4830,
+      "vote_share_pct": 1.88
+    }
+  ],
+  "nota": {
+    "votes": 486,
+    "vote_share_pct": 0.19
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 11863,
+    "vote_share_pct": 4.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UDHAN HIKMAT BALIRAM",
+    "party_short": "SHS",
+    "votes": 98496,
+    "margin_votes": 2309,
+    "margin_pct": 0.9
+  }
+}

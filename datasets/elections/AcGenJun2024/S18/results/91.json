@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 91,
+  "constituency_name": "Choudwar-Cuttack",
+  "totals": {
+    "electors": 233928,
+    "votes_polled": 139878,
+    "turnout_pct": 59.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Souvic Biswal",
+      "party_short": "BJD",
+      "votes": 72325,
+      "vote_share_pct": 51.71,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Nayan Kishore Mohanty",
+      "party_short": "BJP",
+      "votes": 54509,
+      "vote_share_pct": 38.97
+    },
+    {
+      "rank": 3,
+      "name": "Meera Mallick",
+      "party_short": "INC",
+      "votes": 5118,
+      "vote_share_pct": 3.66
+    },
+    {
+      "rank": 4,
+      "name": "Rupali Lenka",
+      "party_short": "IND",
+      "votes": 2804,
+      "vote_share_pct": 2.0
+    },
+    {
+      "rank": 5,
+      "name": "Sukanta Chandra Sahani",
+      "party_short": "IND",
+      "votes": 2113,
+      "vote_share_pct": 1.51
+    }
+  ],
+  "nota": {
+    "votes": 1040,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1969,
+    "vote_share_pct": 1.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Souvic Biswal",
+    "party_short": "BJD",
+    "votes": 72325,
+    "margin_votes": 17816,
+    "margin_pct": 12.74
+  }
+}

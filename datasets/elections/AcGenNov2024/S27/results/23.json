@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "RAMGARH",
+  "totals": {
+    "electors": 357298,
+    "votes_polled": 260291,
+    "turnout_pct": 72.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAMTA DEVI",
+      "party_short": "INC",
+      "votes": 89818,
+      "vote_share_pct": 34.51,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SUNITA CHOUDHARY",
+      "party_short": "AJSUP",
+      "votes": 83028,
+      "vote_share_pct": 31.9
+    },
+    {
+      "rank": 3,
+      "name": "PANESHWAR KUMAR",
+      "party_short": "JLKM",
+      "votes": 70979,
+      "vote_share_pct": 27.27
+    },
+    {
+      "rank": 4,
+      "name": "NITESH KUMAR SINHA",
+      "party_short": "BHRTRSHTJG",
+      "votes": 2264,
+      "vote_share_pct": 0.87
+    },
+    {
+      "rank": 5,
+      "name": "GAUTAM KUMAR PANDA",
+      "party_short": "IND",
+      "votes": 1760,
+      "vote_share_pct": 0.68
+    }
+  ],
+  "nota": {
+    "votes": 1450,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 10992,
+    "vote_share_pct": 4.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAMTA DEVI",
+    "party_short": "INC",
+    "votes": 89818,
+    "margin_votes": 6790,
+    "margin_pct": 2.61
+  }
+}

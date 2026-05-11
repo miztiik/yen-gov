@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 278,
+  "constituency_name": "HATKANANGLE (SC)",
+  "totals": {
+    "electors": 342091,
+    "votes_polled": 262721,
+    "turnout_pct": 76.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DALITMITRA DR.ASHOKRAO MANE(BAPU",
+      "party_short": "JSS",
+      "votes": 134191,
+      "vote_share_pct": 51.08,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "AWALE RAJU(BABA) JAYWANTRAO",
+      "party_short": "INC",
+      "votes": 87942,
+      "vote_share_pct": 33.47
+    },
+    {
+      "rank": 3,
+      "name": "DR.SUJIT VASANTRAO MINCHEKAR",
+      "party_short": "SWP",
+      "votes": 24952,
+      "vote_share_pct": 9.5
+    },
+    {
+      "rank": 4,
+      "name": "PRAGATI RAVINDRA CHAVAN",
+      "party_short": "IND",
+      "votes": 4373,
+      "vote_share_pct": 1.66
+    },
+    {
+      "rank": 5,
+      "name": "DR.KRANTI DILIP SAWANT",
+      "party_short": "VBA",
+      "votes": 3741,
+      "vote_share_pct": 1.42
+    }
+  ],
+  "nota": {
+    "votes": 1152,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 6370,
+    "vote_share_pct": 2.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DALITMITRA DR.ASHOKRAO MANE(BAPU",
+    "party_short": "JSS",
+    "votes": 134191,
+    "margin_votes": 46249,
+    "margin_pct": 17.6
+  }
+}

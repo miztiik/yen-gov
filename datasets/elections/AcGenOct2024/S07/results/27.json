@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "SAMALKHA",
+  "totals": {
+    "electors": 230107,
+    "votes_polled": 168119,
+    "turnout_pct": 73.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manmohan Bhadana",
+      "party_short": "BJP",
+      "votes": 81293,
+      "vote_share_pct": 48.35,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dharam Singh Chhoker",
+      "party_short": "INC",
+      "votes": 61978,
+      "vote_share_pct": 36.87
+    },
+    {
+      "rank": 3,
+      "name": "Ravinder Machhrauli",
+      "party_short": "IND",
+      "votes": 21132,
+      "vote_share_pct": 12.57
+    },
+    {
+      "rank": 4,
+      "name": "Rajesh",
+      "party_short": "INLD",
+      "votes": 1103,
+      "vote_share_pct": 0.66
+    },
+    {
+      "rank": 5,
+      "name": "Jaikanwar Alias Bittu Pahalwan",
+      "party_short": "AAAP",
+      "votes": 1060,
+      "vote_share_pct": 0.63
+    }
+  ],
+  "nota": {
+    "votes": 419,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1134,
+    "vote_share_pct": 0.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manmohan Bhadana",
+    "party_short": "BJP",
+    "votes": 81293,
+    "margin_votes": 19315,
+    "margin_pct": 11.49
+  }
+}

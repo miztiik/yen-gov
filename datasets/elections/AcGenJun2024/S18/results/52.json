@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "Jajpur",
+  "totals": {
+    "electors": 244613,
+    "votes_polled": 179580,
+    "turnout_pct": 73.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sujata Sahu",
+      "party_short": "BJD",
+      "votes": 86049,
+      "vote_share_pct": 47.92,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Goutam Ray",
+      "party_short": "BJP",
+      "votes": 83485,
+      "vote_share_pct": 46.49
+    },
+    {
+      "rank": 3,
+      "name": "Sudip Kumar Kar",
+      "party_short": "INC",
+      "votes": 6477,
+      "vote_share_pct": 3.61
+    },
+    {
+      "rank": 4,
+      "name": "Raghunath Sethi",
+      "party_short": "BSP",
+      "votes": 1052,
+      "vote_share_pct": 0.59
+    },
+    {
+      "rank": 5,
+      "name": "Deba Prakash Mohanty",
+      "party_short": "IND",
+      "votes": 845,
+      "vote_share_pct": 0.47
+    }
+  ],
+  "nota": {
+    "votes": 1230,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 442,
+    "vote_share_pct": 0.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sujata Sahu",
+    "party_short": "BJD",
+    "votes": 86049,
+    "margin_votes": 2564,
+    "margin_pct": 1.43
+  }
+}

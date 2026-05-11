@@ -1,0 +1,14 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/election.schema.json",
+  "$schema_version": "3.1",
+  "sources": [],
+  "eci_event_id": "AcGenNov2024",
+  "scope": "state",
+  "body": "AC",
+  "year": 2024,
+  "month": 11,
+  "states": [
+    "S13",
+    "S27"
+  ]
+}

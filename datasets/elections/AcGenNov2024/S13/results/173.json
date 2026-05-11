@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "CHEMBUR",
+  "totals": {
+    "electors": 259002,
+    "votes_polled": 143031,
+    "turnout_pct": 55.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TUKARAM RAMKRUSHNA KATE",
+      "party_short": "SHS",
+      "votes": 63194,
+      "vote_share_pct": 44.18,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "PRAKASH VAIKUNTH PHATERPEKAR",
+      "party_short": "SHSUBT",
+      "votes": 52483,
+      "vote_share_pct": 36.69
+    },
+    {
+      "rank": 3,
+      "name": "ANAND BHIMRAO JADHAV",
+      "party_short": "VBA",
+      "votes": 8854,
+      "vote_share_pct": 6.19
+    },
+    {
+      "rank": 4,
+      "name": "MAULI THORAVE",
+      "party_short": "MNS",
+      "votes": 7820,
+      "vote_share_pct": 5.47
+    },
+    {
+      "rank": 5,
+      "name": "DEEPAKBHAU NIKALJE",
+      "party_short": "RPI(A)",
+      "votes": 7440,
+      "vote_share_pct": 5.2
+    }
+  ],
+  "nota": {
+    "votes": 2018,
+    "vote_share_pct": 1.41
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1222,
+    "vote_share_pct": 0.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TUKARAM RAMKRUSHNA KATE",
+    "party_short": "SHS",
+    "votes": 63194,
+    "margin_votes": 10711,
+    "margin_pct": 7.49
+  }
+}

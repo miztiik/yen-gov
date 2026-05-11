@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 94,
+  "constituency_name": "Guntur West",
+  "totals": {
+    "electors": 278320,
+    "votes_polled": 188475,
+    "turnout_pct": 67.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Galla Madhavi",
+      "party_short": "TDP",
+      "votes": 116067,
+      "vote_share_pct": 61.58,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rajini Vidadala",
+      "party_short": "YSRCP",
+      "votes": 64917,
+      "vote_share_pct": 34.44
+    },
+    {
+      "rank": 3,
+      "name": "John Babu Rachakonda",
+      "party_short": "INC",
+      "votes": 3719,
+      "vote_share_pct": 1.97
+    },
+    {
+      "rank": 4,
+      "name": "Palleboyina Swathi",
+      "party_short": "IND",
+      "votes": 815,
+      "vote_share_pct": 0.43
+    },
+    {
+      "rank": 5,
+      "name": "Kanaka Ratnam Gundu",
+      "party_short": "IND",
+      "votes": 290,
+      "vote_share_pct": 0.15
+    }
+  ],
+  "nota": {
+    "votes": 1055,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 23,
+    "votes": 1612,
+    "vote_share_pct": 0.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Galla Madhavi",
+    "party_short": "TDP",
+    "votes": 116067,
+    "margin_votes": 51150,
+    "margin_pct": 27.14
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "BALAPUR",
+  "totals": {
+    "electors": 311167,
+    "votes_polled": 221631,
+    "turnout_pct": 71.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NITIN BHIKANRAO DESHMUKH",
+      "party_short": "SHSUBT",
+      "votes": 82088,
+      "vote_share_pct": 37.04,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "S.N. KHATIB",
+      "party_short": "VBA",
+      "votes": 70349,
+      "vote_share_pct": 31.74
+    },
+    {
+      "rank": 3,
+      "name": "BALIRAM BHAGWAN SIRASKAR",
+      "party_short": "SHS",
+      "votes": 61192,
+      "vote_share_pct": 27.61
+    },
+    {
+      "rank": 4,
+      "name": "ANDHARE KRUSHNA GOVINDRAO",
+      "party_short": "IND",
+      "votes": 1334,
+      "vote_share_pct": 0.6
+    },
+    {
+      "rank": 5,
+      "name": "RAJNARAYAN RATAN KAMBLE",
+      "party_short": "IND",
+      "votes": 947,
+      "vote_share_pct": 0.43
+    }
+  ],
+  "nota": {
+    "votes": 589,
+    "vote_share_pct": 0.27
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 5132,
+    "vote_share_pct": 2.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NITIN BHIKANRAO DESHMUKH",
+    "party_short": "SHSUBT",
+    "votes": 82088,
+    "margin_votes": 11739,
+    "margin_pct": 5.3
+  }
+}

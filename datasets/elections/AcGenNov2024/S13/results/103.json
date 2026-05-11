@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "BHOKARDAN",
+  "totals": {
+    "electors": 322736,
+    "votes_polled": 251035,
+    "turnout_pct": 77.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DANVE SANTOSH RAOSAHEB",
+      "party_short": "BJP",
+      "votes": 128480,
+      "vote_share_pct": 51.18,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "CHANDRAKANT PUNDLIKRAO DANWE",
+      "party_short": "NCPSP",
+      "votes": 105301,
+      "vote_share_pct": 41.95
+    },
+    {
+      "rank": 3,
+      "name": "KESHAV ANANDRAO JANJAL",
+      "party_short": "IND",
+      "votes": 3699,
+      "vote_share_pct": 1.47
+    },
+    {
+      "rank": 4,
+      "name": "VAISHALI SURESH DABHADE",
+      "party_short": "IND",
+      "votes": 2370,
+      "vote_share_pct": 0.94
+    },
+    {
+      "rank": 5,
+      "name": "DIPAK BHIMRAO BORHADE",
+      "party_short": "VBA",
+      "votes": 2031,
+      "vote_share_pct": 0.81
+    }
+  ],
+  "nota": {
+    "votes": 727,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 27,
+    "votes": 8427,
+    "vote_share_pct": 3.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DANVE SANTOSH RAOSAHEB",
+    "party_short": "BJP",
+    "votes": 128480,
+    "margin_votes": 23179,
+    "margin_pct": 9.23
+  }
+}

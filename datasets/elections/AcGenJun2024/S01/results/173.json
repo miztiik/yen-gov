@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "Puthalapattu (SC) (SC)",
+  "totals": {
+    "electors": 222074,
+    "votes_polled": 195018,
+    "turnout_pct": 87.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.murali Mohan",
+      "party_short": "TDP",
+      "votes": 102137,
+      "vote_share_pct": 52.37,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "M.suneel Kumar",
+      "party_short": "YSRCP",
+      "votes": 86503,
+      "vote_share_pct": 44.36
+    },
+    {
+      "rank": 3,
+      "name": "M.s.babu",
+      "party_short": "INC",
+      "votes": 2820,
+      "vote_share_pct": 1.45
+    },
+    {
+      "rank": 4,
+      "name": "Kanipakam Nageswara",
+      "party_short": "BSP",
+      "votes": 755,
+      "vote_share_pct": 0.39
+    },
+    {
+      "rank": 5,
+      "name": "Kattamanchi Viswanadh Sai Mohan",
+      "party_short": "ABJS",
+      "votes": 340,
+      "vote_share_pct": 0.17
+    }
+  ],
+  "nota": {
+    "votes": 1420,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1043,
+    "vote_share_pct": 0.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.murali Mohan",
+    "party_short": "TDP",
+    "votes": 102137,
+    "margin_votes": 15634,
+    "margin_pct": 8.02
+  }
+}

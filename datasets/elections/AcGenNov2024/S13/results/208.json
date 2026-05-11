@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 208,
+  "constituency_name": "VADGAON SHERI",
+  "totals": {
+    "electors": 503973,
+    "votes_polled": 284009,
+    "turnout_pct": 56.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BAPUSAHEB TUKARAM PATHARE",
+      "party_short": "NCPSP",
+      "votes": 133689,
+      "vote_share_pct": 47.07,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SUNIL VIJAY TINGRE",
+      "party_short": "NCP",
+      "votes": 128979,
+      "vote_share_pct": 45.41
+    },
+    {
+      "rank": 3,
+      "name": "VIVEK KRISHNA LONDHE",
+      "party_short": "VBA",
+      "votes": 5488,
+      "vote_share_pct": 1.93
+    },
+    {
+      "rank": 4,
+      "name": "CHALWADI HULGESH MARIAPPA",
+      "party_short": "BSP",
+      "votes": 3762,
+      "vote_share_pct": 1.32
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRAKANT PARMESHWAR SAWANT",
+      "party_short": "BSP(A)",
+      "votes": 3198,
+      "vote_share_pct": 1.13
+    }
+  ],
+  "nota": {
+    "votes": 4259,
+    "vote_share_pct": 1.5
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 4634,
+    "vote_share_pct": 1.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BAPUSAHEB TUKARAM PATHARE",
+    "party_short": "NCPSP",
+    "votes": 133689,
+    "margin_votes": 4710,
+    "margin_pct": 1.66
+  }
+}

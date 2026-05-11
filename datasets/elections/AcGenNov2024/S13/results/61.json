@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 61,
+  "constituency_name": "BHANDARA (SC)",
+  "totals": {
+    "electors": 379252,
+    "votes_polled": 261971,
+    "turnout_pct": 69.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHONDEKAR NARENDRA BHOJRAJ",
+      "party_short": "SHS",
+      "votes": 127884,
+      "vote_share_pct": 48.82,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "PUJA GANESH (BALU) THAVAKAR",
+      "party_short": "INC",
+      "votes": 89517,
+      "vote_share_pct": 34.17
+    },
+    {
+      "rank": 3,
+      "name": "NARENDRA SHANKARRAO PAHADE",
+      "party_short": "IND",
+      "votes": 24196,
+      "vote_share_pct": 9.24
+    },
+    {
+      "rank": 4,
+      "name": "BALAK EKANATH GAJBHIYE",
+      "party_short": "BSP",
+      "votes": 5041,
+      "vote_share_pct": 1.92
+    },
+    {
+      "rank": 5,
+      "name": "ARUN JADHO GONDANE",
+      "party_short": "VBA",
+      "votes": 3148,
+      "vote_share_pct": 1.2
+    }
+  ],
+  "nota": {
+    "votes": 2354,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 9831,
+    "vote_share_pct": 3.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHONDEKAR NARENDRA BHOJRAJ",
+    "party_short": "SHS",
+    "votes": 127884,
+    "margin_votes": 38367,
+    "margin_pct": 14.65
+  }
+}

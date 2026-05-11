@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 63,
+  "constituency_name": "ARJUNI MORGAON (SC)",
+  "totals": {
+    "electors": 259324,
+    "votes_polled": 183179,
+    "turnout_pct": 70.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BADOLE RAJKUMAR SUDAM",
+      "party_short": "NCP",
+      "votes": 82506,
+      "vote_share_pct": 45.04,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BANSOD DILIP WAMAN",
+      "party_short": "INC",
+      "votes": 66091,
+      "vote_share_pct": 36.08
+    },
+    {
+      "rank": 3,
+      "name": "CHANDRIKAPURE SUGAT MANOHAR",
+      "party_short": "PHJSP",
+      "votes": 15428,
+      "vote_share_pct": 8.42
+    },
+    {
+      "rank": 4,
+      "name": "DINESH RAMRATAN PANCHABHAI",
+      "party_short": "VBA",
+      "votes": 5453,
+      "vote_share_pct": 2.98
+    },
+    {
+      "rank": 5,
+      "name": "AJAY SAMBHAJI LANJEWAR",
+      "party_short": "IND",
+      "votes": 4744,
+      "vote_share_pct": 2.59
+    }
+  ],
+  "nota": {
+    "votes": 801,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 8156,
+    "vote_share_pct": 4.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BADOLE RAJKUMAR SUDAM",
+    "party_short": "NCP",
+    "votes": 82506,
+    "margin_votes": 16415,
+    "margin_pct": 8.96
+  }
+}

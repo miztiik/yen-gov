@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 178,
+  "constituency_name": "DHARAVI (SC)",
+  "totals": {
+    "electors": 261892,
+    "votes_polled": 131304,
+    "turnout_pct": 50.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. GAIKWAD JYOTI EKNATH",
+      "party_short": "INC",
+      "votes": 70727,
+      "vote_share_pct": 53.87,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RAJESH SHIVDAS KHANDARE",
+      "party_short": "SHS",
+      "votes": 47268,
+      "vote_share_pct": 36.0
+    },
+    {
+      "rank": 3,
+      "name": "MANOHAR KEDARI RAIBAGE",
+      "party_short": "BSP",
+      "votes": 6196,
+      "vote_share_pct": 4.72
+    },
+    {
+      "rank": 4,
+      "name": "GHAZI SAADUDDIN",
+      "party_short": "IND",
+      "votes": 3331,
+      "vote_share_pct": 2.54
+    },
+    {
+      "rank": 5,
+      "name": "ADV. SANDEEP DATTU KATKE",
+      "party_short": "IND",
+      "votes": 598,
+      "vote_share_pct": 0.46
+    }
+  ],
+  "nota": {
+    "votes": 1756,
+    "vote_share_pct": 1.34
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1428,
+    "vote_share_pct": 1.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. GAIKWAD JYOTI EKNATH",
+    "party_short": "INC",
+    "votes": 70727,
+    "margin_votes": 23459,
+    "margin_pct": 17.87
+  }
+}

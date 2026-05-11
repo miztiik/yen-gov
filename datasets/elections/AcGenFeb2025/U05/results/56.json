@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "KONDLI (SC)",
+  "totals": {
+    "electors": 203721,
+    "votes_polled": 128730,
+    "turnout_pct": 63.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KULDEEP KUMAR (MONU)",
+      "party_short": "AAAP",
+      "votes": 61792,
+      "vote_share_pct": 48.0,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "PRIYANKA GAUTAM",
+      "party_short": "BJP",
+      "votes": 55499,
+      "vote_share_pct": 43.11
+    },
+    {
+      "rank": 3,
+      "name": "AKSHAY KUMAR",
+      "party_short": "INC",
+      "votes": 7230,
+      "vote_share_pct": 5.62
+    },
+    {
+      "rank": 4,
+      "name": "MUKESH KUMAR",
+      "party_short": "BSP",
+      "votes": 2438,
+      "vote_share_pct": 1.89
+    },
+    {
+      "rank": 5,
+      "name": "SUNNY KUMAR",
+      "party_short": "ASPKR",
+      "votes": 418,
+      "vote_share_pct": 0.32
+    }
+  ],
+  "nota": {
+    "votes": 776,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 577,
+    "vote_share_pct": 0.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KULDEEP KUMAR (MONU)",
+    "party_short": "AAAP",
+    "votes": 61792,
+    "margin_votes": 6293,
+    "margin_pct": 4.89
+  }
+}

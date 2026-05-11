@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Khariar",
+  "totals": {
+    "electors": 253164,
+    "votes_polled": 198876,
+    "turnout_pct": 78.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adhiraj Mohan Panigrahi",
+      "party_short": "BJD",
+      "votes": 93246,
+      "vote_share_pct": 46.89,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Hitesh Kumar Bagartti",
+      "party_short": "BJP",
+      "votes": 83628,
+      "vote_share_pct": 42.05
+    },
+    {
+      "rank": 3,
+      "name": "Kamal Charan Tandi",
+      "party_short": "INC",
+      "votes": 13330,
+      "vote_share_pct": 6.7
+    },
+    {
+      "rank": 4,
+      "name": "Shreekant Chatterjee",
+      "party_short": "IND",
+      "votes": 2104,
+      "vote_share_pct": 1.06
+    },
+    {
+      "rank": 5,
+      "name": "Uddhab Majhi",
+      "party_short": "ODSHJP",
+      "votes": 1759,
+      "vote_share_pct": 0.88
+    }
+  ],
+  "nota": {
+    "votes": 2436,
+    "vote_share_pct": 1.22
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2373,
+    "vote_share_pct": 1.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adhiraj Mohan Panigrahi",
+    "party_short": "BJD",
+    "votes": 93246,
+    "margin_votes": 9618,
+    "margin_pct": 4.84
+  }
+}

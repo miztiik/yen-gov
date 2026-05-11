@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "ROHINI",
+  "totals": {
+    "electors": 173272,
+    "votes_polled": 108233,
+    "turnout_pct": 62.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIJENDER GUPTA",
+      "party_short": "BJP",
+      "votes": 70365,
+      "vote_share_pct": 65.01,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "PARDEEP MITTAL",
+      "party_short": "AAAP",
+      "votes": 32549,
+      "vote_share_pct": 30.07
+    },
+    {
+      "rank": 3,
+      "name": "SUMESH GUPTA",
+      "party_short": "INC",
+      "votes": 3765,
+      "vote_share_pct": 3.48
+    },
+    {
+      "rank": 4,
+      "name": "HARSHAD CHADHA",
+      "party_short": "BSP",
+      "votes": 197,
+      "vote_share_pct": 0.18
+    },
+    {
+      "rank": 5,
+      "name": "ABHISHEK",
+      "party_short": "JMBP",
+      "votes": 118,
+      "vote_share_pct": 0.11
+    }
+  ],
+  "nota": {
+    "votes": 1031,
+    "vote_share_pct": 0.95
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 208,
+    "vote_share_pct": 0.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIJENDER GUPTA",
+    "party_short": "BJP",
+    "votes": 70365,
+    "margin_votes": 37816,
+    "margin_pct": 34.94
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 7,
+  "constituency_name": "SIKARIPARA (ST)",
+  "totals": {
+    "electors": 230874,
+    "votes_polled": 174313,
+    "turnout_pct": 75.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ALOK KUMAR SOREN",
+      "party_short": "JMM",
+      "votes": 102199,
+      "vote_share_pct": 58.63,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "PARITOSH SOREN",
+      "party_short": "BJP",
+      "votes": 61025,
+      "vote_share_pct": 35.01
+    },
+    {
+      "rank": 3,
+      "name": "HABIL MURMU",
+      "party_short": "IND",
+      "votes": 2158,
+      "vote_share_pct": 1.24
+    },
+    {
+      "rank": 4,
+      "name": "PROMILA MARANDI",
+      "party_short": "IND",
+      "votes": 1176,
+      "vote_share_pct": 0.67
+    },
+    {
+      "rank": 5,
+      "name": "SIMAN MURMU",
+      "party_short": "INSAF",
+      "votes": 1060,
+      "vote_share_pct": 0.61
+    }
+  ],
+  "nota": {
+    "votes": 3791,
+    "vote_share_pct": 2.17
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2904,
+    "vote_share_pct": 1.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ALOK KUMAR SOREN",
+    "party_short": "JMM",
+    "votes": 102199,
+    "margin_votes": 41174,
+    "margin_pct": 23.62
+  }
+}

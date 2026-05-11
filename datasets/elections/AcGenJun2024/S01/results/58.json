@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "Narasapuram",
+  "totals": {
+    "electors": 170521,
+    "votes_polled": 145418,
+    "turnout_pct": 85.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bommidi Nayakar",
+      "party_short": "JnP",
+      "votes": 94116,
+      "vote_share_pct": 64.72,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mudunuri Prasada Raju",
+      "party_short": "YSRCP",
+      "votes": 44378,
+      "vote_share_pct": 30.52
+    },
+    {
+      "rank": 3,
+      "name": "Kanuri U.b.k Prasad(bujji)",
+      "party_short": "INC",
+      "votes": 1915,
+      "vote_share_pct": 1.32
+    },
+    {
+      "rank": 4,
+      "name": "Kolli Nayakar",
+      "party_short": "NRCP",
+      "votes": 1172,
+      "vote_share_pct": 0.81
+    },
+    {
+      "rank": 5,
+      "name": "Akula Venkata Swamy",
+      "party_short": "BCYP",
+      "votes": 540,
+      "vote_share_pct": 0.37
+    }
+  ],
+  "nota": {
+    "votes": 1216,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2081,
+    "vote_share_pct": 1.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bommidi Nayakar",
+    "party_short": "JnP",
+    "votes": 94116,
+    "margin_votes": 49738,
+    "margin_pct": 34.2
+  }
+}

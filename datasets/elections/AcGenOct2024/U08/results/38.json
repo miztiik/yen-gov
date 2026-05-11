@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "U08",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "D. H. PORA",
+  "totals": {
+    "electors": 99290,
+    "votes_polled": 68520,
+    "turnout_pct": 69.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sakeena Masood",
+      "party_short": "JKN",
+      "votes": 36623,
+      "vote_share_pct": 53.45,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Gulzar Ahmad Dar",
+      "party_short": "JKPDP",
+      "votes": 19174,
+      "vote_share_pct": 27.98
+    },
+    {
+      "rank": 3,
+      "name": "Mohd Arif Dar",
+      "party_short": "IND",
+      "votes": 4054,
+      "vote_share_pct": 5.92
+    },
+    {
+      "rank": 4,
+      "name": "Abdul Majeed Padder",
+      "party_short": "JAKAP",
+      "votes": 2974,
+      "vote_share_pct": 4.34
+    },
+    {
+      "rank": 5,
+      "name": "Mohammad Ayub Matoo",
+      "party_short": "JD(U)",
+      "votes": 2620,
+      "vote_share_pct": 3.82
+    }
+  ],
+  "nota": {
+    "votes": 2390,
+    "vote_share_pct": 3.49
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 685,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sakeena Masood",
+    "party_short": "JKN",
+    "votes": 36623,
+    "margin_votes": 17449,
+    "margin_pct": 25.47
+  }
+}

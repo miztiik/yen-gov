@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 85,
+  "constituency_name": "PRITHLA",
+  "totals": {
+    "electors": 226996,
+    "votes_polled": 167191,
+    "turnout_pct": 73.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Raghubir Tewatia",
+      "party_short": "INC",
+      "votes": 70262,
+      "vote_share_pct": 42.02,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Tek Chand Sharma",
+      "party_short": "BJP",
+      "votes": 49721,
+      "vote_share_pct": 29.74
+    },
+    {
+      "rank": 3,
+      "name": "Nayanpal Rawat",
+      "party_short": "IND",
+      "votes": 22023,
+      "vote_share_pct": 13.17
+    },
+    {
+      "rank": 4,
+      "name": "Deepak Dagar",
+      "party_short": "IND",
+      "votes": 16055,
+      "vote_share_pct": 9.6
+    },
+    {
+      "rank": 5,
+      "name": "Surender Vashisht",
+      "party_short": "BSP",
+      "votes": 4412,
+      "vote_share_pct": 2.64
+    }
+  ],
+  "nota": {
+    "votes": 666,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4052,
+    "vote_share_pct": 2.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Raghubir Tewatia",
+    "party_short": "INC",
+    "votes": 70262,
+    "margin_votes": 20541,
+    "margin_pct": 12.29
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 231,
+  "constituency_name": "ASHTI",
+  "totals": {
+    "electors": 388216,
+    "votes_polled": 286784,
+    "turnout_pct": 73.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DHAS SURESH RAMCHANDRA",
+      "party_short": "BJP",
+      "votes": 140507,
+      "vote_share_pct": 48.99,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BHIMRAO ANANDRAO DHONDE",
+      "party_short": "IND",
+      "votes": 62532,
+      "vote_share_pct": 21.8
+    },
+    {
+      "rank": 3,
+      "name": "MAHEBUB IBRAHIM SHEKH",
+      "party_short": "NCPSP",
+      "votes": 52738,
+      "vote_share_pct": 18.39
+    },
+    {
+      "rank": 4,
+      "name": "AJABE BALASAHEB BHAUSAHEB",
+      "party_short": "NCP",
+      "votes": 21598,
+      "vote_share_pct": 7.53
+    },
+    {
+      "rank": 5,
+      "name": "AKSHAY SADASHIV ADHAV",
+      "party_short": "RASMARP",
+      "votes": 3760,
+      "vote_share_pct": 1.31
+    }
+  ],
+  "nota": {
+    "votes": 547,
+    "vote_share_pct": 0.19
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 5102,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DHAS SURESH RAMCHANDRA",
+    "party_short": "BJP",
+    "votes": 140507,
+    "margin_votes": 77975,
+    "margin_pct": 27.19
+  }
+}

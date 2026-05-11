@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "KALYAN WEST",
+  "totals": {
+    "electors": 440729,
+    "votes_polled": 245550,
+    "turnout_pct": 55.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VISHWANATH ATMARAM BHOIR",
+      "party_short": "SHS",
+      "votes": 126020,
+      "vote_share_pct": 51.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BASARE SACHIN DILIP",
+      "party_short": "SHSUBT",
+      "votes": 83566,
+      "vote_share_pct": 34.03
+    },
+    {
+      "rank": 3,
+      "name": "BHOIR ULHAS MAHADEV",
+      "party_short": "MNS",
+      "votes": 22114,
+      "vote_share_pct": 9.01
+    },
+    {
+      "rank": 4,
+      "name": "AYAZ GULZAR MOULVI",
+      "party_short": "VBA",
+      "votes": 3628,
+      "vote_share_pct": 1.48
+    },
+    {
+      "rank": 5,
+      "name": "RAKESH AMRUTLAL MUTHA",
+      "party_short": "IND",
+      "votes": 1383,
+      "vote_share_pct": 0.56
+    }
+  ],
+  "nota": {
+    "votes": 2774,
+    "vote_share_pct": 1.13
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 6065,
+    "vote_share_pct": 2.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VISHWANATH ATMARAM BHOIR",
+    "party_short": "SHS",
+    "votes": 126020,
+    "margin_votes": 42454,
+    "margin_pct": 17.29
+  }
+}

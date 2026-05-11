@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 244,
+  "constituency_name": "KARMALA",
+  "totals": {
+    "electors": 329461,
+    "votes_polled": 231310,
+    "turnout_pct": 70.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NARAYAN (ABA) GOVINDRAO PATIL",
+      "party_short": "NCPSP",
+      "votes": 96091,
+      "vote_share_pct": 41.54,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SHINDE SANJAYMAMA VITHALRAO",
+      "party_short": "IND",
+      "votes": 80006,
+      "vote_share_pct": 34.59
+    },
+    {
+      "rank": 3,
+      "name": "DIGVIJAY DIGAMBARRAO BAGAL",
+      "party_short": "SHS",
+      "votes": 40834,
+      "vote_share_pct": 17.65
+    },
+    {
+      "rank": 4,
+      "name": "RAMDAS MADHUKAR ZOL",
+      "party_short": "IND",
+      "votes": 4791,
+      "vote_share_pct": 2.07
+    },
+    {
+      "rank": 5,
+      "name": "ASHOK DNYANADEV WAGHMODE",
+      "party_short": "NRSP",
+      "votes": 3962,
+      "vote_share_pct": 1.71
+    }
+  ],
+  "nota": {
+    "votes": 995,
+    "vote_share_pct": 0.43
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4631,
+    "vote_share_pct": 2.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NARAYAN (ABA) GOVINDRAO PATIL",
+    "party_short": "NCPSP",
+    "votes": 96091,
+    "margin_votes": 16085,
+    "margin_pct": 6.95
+  }
+}

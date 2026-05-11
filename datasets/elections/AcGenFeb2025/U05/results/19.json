@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "SADAR BAZAR",
+  "totals": {
+    "electors": 195174,
+    "votes_polled": 118400,
+    "turnout_pct": 60.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SOM DUTT",
+      "party_short": "AAAP",
+      "votes": 56177,
+      "vote_share_pct": 47.45,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "MANOJ KUMAR JINDAL",
+      "party_short": "BJP",
+      "votes": 49870,
+      "vote_share_pct": 42.12
+    },
+    {
+      "rank": 3,
+      "name": "ANIL BHARDWAJ",
+      "party_short": "INC",
+      "votes": 10057,
+      "vote_share_pct": 8.49
+    },
+    {
+      "rank": 4,
+      "name": "SHAIL KUMARI",
+      "party_short": "BSP",
+      "votes": 709,
+      "vote_share_pct": 0.6
+    },
+    {
+      "rank": 5,
+      "name": "MEENAKSHI KUMARI",
+      "party_short": "BHLBP",
+      "votes": 247,
+      "vote_share_pct": 0.21
+    }
+  ],
+  "nota": {
+    "votes": 586,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 754,
+    "vote_share_pct": 0.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SOM DUTT",
+    "party_short": "AAAP",
+    "votes": 56177,
+    "margin_votes": 6307,
+    "margin_pct": 5.33
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 94,
+  "constituency_name": "HINGOLI",
+  "totals": {
+    "electors": 333588,
+    "votes_polled": 229820,
+    "turnout_pct": 68.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MUTKULE TANHAJI SAKHARAMJI",
+      "party_short": "BJP",
+      "votes": 74584,
+      "vote_share_pct": 32.45,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RUPALITAI RAJESH PATIL",
+      "party_short": "SHSUBT",
+      "votes": 63658,
+      "vote_share_pct": 27.7
+    },
+    {
+      "rank": 3,
+      "name": "PRAKASH DATTRAO THORAT",
+      "party_short": "VBA",
+      "votes": 23944,
+      "vote_share_pct": 10.42
+    },
+    {
+      "rank": 4,
+      "name": "BHAURAO BABURAO PATIL",
+      "party_short": "IND",
+      "votes": 22267,
+      "vote_share_pct": 9.69
+    },
+    {
+      "rank": 5,
+      "name": "RAMESH VITTHALRAO SHINDE",
+      "party_short": "IND",
+      "votes": 19336,
+      "vote_share_pct": 8.41
+    }
+  ],
+  "nota": {
+    "votes": 665,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 25366,
+    "vote_share_pct": 11.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MUTKULE TANHAJI SAKHARAMJI",
+    "party_short": "BJP",
+    "votes": 74584,
+    "margin_votes": 10926,
+    "margin_pct": 4.75
+  }
+}

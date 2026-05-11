@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 251,
+  "constituency_name": "SOLAPUR SOUTH",
+  "totals": {
+    "electors": 382994,
+    "votes_polled": 225958,
+    "turnout_pct": 59.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DESHMUKH SUBHASH SURESHCHANDRA",
+      "party_short": "BJP",
+      "votes": 116932,
+      "vote_share_pct": 51.75,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "AMAR RATIKANT PATIL",
+      "party_short": "SHSUBT",
+      "votes": 39805,
+      "vote_share_pct": 17.62
+    },
+    {
+      "rank": 3,
+      "name": "MOULALI BASHUMIYA SAYYED (BABA MISTRY)",
+      "party_short": "PHJSP",
+      "votes": 26706,
+      "vote_share_pct": 11.82
+    },
+    {
+      "rank": 4,
+      "name": "DHARMRAJ ANNARAJ KADADI",
+      "party_short": "IND",
+      "votes": 18747,
+      "vote_share_pct": 8.3
+    },
+    {
+      "rank": 5,
+      "name": "SANTOSH SEVU PAVAR",
+      "party_short": "VBA",
+      "votes": 11343,
+      "vote_share_pct": 5.02
+    }
+  ],
+  "nota": {
+    "votes": 826,
+    "vote_share_pct": 0.37
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 11599,
+    "vote_share_pct": 5.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DESHMUKH SUBHASH SURESHCHANDRA",
+    "party_short": "BJP",
+    "votes": 116932,
+    "margin_votes": 77127,
+    "margin_pct": 34.13
+  }
+}

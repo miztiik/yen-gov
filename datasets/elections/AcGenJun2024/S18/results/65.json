@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 65,
+  "constituency_name": "Sonepur",
+  "totals": {
+    "electors": 256007,
+    "votes_polled": 213366,
+    "turnout_pct": 83.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Niranjan Pujari",
+      "party_short": "BJD",
+      "votes": 98202,
+      "vote_share_pct": 46.03,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Pramod Kumar Mahapatra",
+      "party_short": "BJP",
+      "votes": 82963,
+      "vote_share_pct": 38.88
+    },
+    {
+      "rank": 3,
+      "name": "Priyabrata Sahu",
+      "party_short": "INC",
+      "votes": 20508,
+      "vote_share_pct": 9.61
+    },
+    {
+      "rank": 4,
+      "name": "Sonali Bishi",
+      "party_short": "IND",
+      "votes": 5506,
+      "vote_share_pct": 2.58
+    },
+    {
+      "rank": 5,
+      "name": "Mandodari Chhatri",
+      "party_short": "BSP",
+      "votes": 1433,
+      "vote_share_pct": 0.67
+    }
+  ],
+  "nota": {
+    "votes": 1905,
+    "vote_share_pct": 0.89
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2849,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Niranjan Pujari",
+    "party_short": "BJD",
+    "votes": 98202,
+    "margin_votes": 15239,
+    "margin_pct": 7.14
+  }
+}

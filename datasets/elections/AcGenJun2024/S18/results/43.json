@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "Bhandaripokhari",
+  "totals": {
+    "electors": 240416,
+    "votes_polled": 185437,
+    "turnout_pct": 77.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sanjib Kumar Mallick",
+      "party_short": "BJD",
+      "votes": 72447,
+      "vote_share_pct": 39.07,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Niranjan Patnaik",
+      "party_short": "INC",
+      "votes": 70896,
+      "vote_share_pct": 38.23
+    },
+    {
+      "rank": 3,
+      "name": "Sudhanshu Sekhar Nayak",
+      "party_short": "BJP",
+      "votes": 38952,
+      "vote_share_pct": 21.01
+    },
+    {
+      "rank": 4,
+      "name": "Utkal Keshari Biswal",
+      "party_short": "IND",
+      "votes": 762,
+      "vote_share_pct": 0.41
+    },
+    {
+      "rank": 5,
+      "name": "Digambar Swain",
+      "party_short": "SUCI",
+      "votes": 703,
+      "vote_share_pct": 0.38
+    }
+  ],
+  "nota": {
+    "votes": 357,
+    "vote_share_pct": 0.19
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1320,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sanjib Kumar Mallick",
+    "party_short": "BJD",
+    "votes": 72447,
+    "margin_votes": 1551,
+    "margin_pct": 0.84
+  }
+}

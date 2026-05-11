@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "MOTI NAGAR",
+  "totals": {
+    "electors": 185619,
+    "votes_polled": 109361,
+    "turnout_pct": 58.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARISH KHURANA",
+      "party_short": "BJP",
+      "votes": 57565,
+      "vote_share_pct": 52.64,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SHIVCHARAN GOEL",
+      "party_short": "AAAP",
+      "votes": 45908,
+      "vote_share_pct": 41.98
+    },
+    {
+      "rank": 3,
+      "name": "RAJENDER SINGH",
+      "party_short": "INC",
+      "votes": 3334,
+      "vote_share_pct": 3.05
+    },
+    {
+      "rank": 4,
+      "name": "AVINASH GUPTA",
+      "party_short": "BSP",
+      "votes": 851,
+      "vote_share_pct": 0.78
+    },
+    {
+      "rank": 5,
+      "name": "SADRE ALAM",
+      "party_short": "IND",
+      "votes": 416,
+      "vote_share_pct": 0.38
+    }
+  ],
+  "nota": {
+    "votes": 689,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 598,
+    "vote_share_pct": 0.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARISH KHURANA",
+    "party_short": "BJP",
+    "votes": 57565,
+    "margin_votes": 11657,
+    "margin_pct": 10.66
+  }
+}

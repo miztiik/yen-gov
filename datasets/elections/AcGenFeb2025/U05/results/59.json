@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "VISHWAS NAGAR",
+  "totals": {
+    "electors": 204910,
+    "votes_polled": 125022,
+    "turnout_pct": 61.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "OM PRAKASH SHARMA",
+      "party_short": "BJP",
+      "votes": 72141,
+      "vote_share_pct": 57.7,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DEEPAK SINGHAL",
+      "party_short": "AAAP",
+      "votes": 47099,
+      "vote_share_pct": 37.67
+    },
+    {
+      "rank": 3,
+      "name": "RAJIV CHAUDHARY",
+      "party_short": "INC",
+      "votes": 3627,
+      "vote_share_pct": 2.9
+    },
+    {
+      "rank": 4,
+      "name": "RAJESH KUMAR YADAV",
+      "party_short": "BSP",
+      "votes": 443,
+      "vote_share_pct": 0.35
+    },
+    {
+      "rank": 5,
+      "name": "BHAWANA BOTHRA",
+      "party_short": "VJSP",
+      "votes": 217,
+      "vote_share_pct": 0.17
+    }
+  ],
+  "nota": {
+    "votes": 1047,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 448,
+    "vote_share_pct": 0.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "OM PRAKASH SHARMA",
+    "party_short": "BJP",
+    "votes": 72141,
+    "margin_votes": 25042,
+    "margin_pct": 20.03
+  }
+}

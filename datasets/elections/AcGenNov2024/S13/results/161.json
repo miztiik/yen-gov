@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 161,
+  "constituency_name": "CHARKOP",
+  "totals": {
+    "electors": 317443,
+    "votes_polled": 183406,
+    "turnout_pct": 57.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "YOGESH SAGAR",
+      "party_short": "BJP",
+      "votes": 127355,
+      "vote_share_pct": 69.44,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "YASHWANT JAYPRAKASH SINGH",
+      "party_short": "INC",
+      "votes": 36201,
+      "vote_share_pct": 19.74
+    },
+    {
+      "rank": 3,
+      "name": "DINESH SALVI",
+      "party_short": "MNS",
+      "votes": 15200,
+      "vote_share_pct": 8.29
+    },
+    {
+      "rank": 4,
+      "name": "DILIP GULABRAO LINGAYAT",
+      "party_short": "VBA",
+      "votes": 1225,
+      "vote_share_pct": 0.67
+    },
+    {
+      "rank": 5,
+      "name": "ABDUL LATIF NAWAZ ALI SHAIKH",
+      "party_short": "IND",
+      "votes": 260,
+      "vote_share_pct": 0.14
+    }
+  ],
+  "nota": {
+    "votes": 2313,
+    "vote_share_pct": 1.26
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 852,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "YOGESH SAGAR",
+    "party_short": "BJP",
+    "votes": 127355,
+    "margin_votes": 91154,
+    "margin_pct": 49.7
+  }
+}

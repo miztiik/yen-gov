@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "U08",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "THANNAMANDI(ST) (ST)",
+  "totals": {
+    "electors": 124168,
+    "votes_polled": 91380,
+    "turnout_pct": 73.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Muzaffar Iqbal Khan",
+      "party_short": "IND",
+      "votes": 32645,
+      "vote_share_pct": 35.72,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mohd Iqbal Malik",
+      "party_short": "BJP",
+      "votes": 26466,
+      "vote_share_pct": 28.96
+    },
+    {
+      "rank": 3,
+      "name": "Qamar Hussain",
+      "party_short": "JKPDP",
+      "votes": 21986,
+      "vote_share_pct": 24.06
+    },
+    {
+      "rank": 4,
+      "name": "Mohd Shabir Khan",
+      "party_short": "INC",
+      "votes": 7508,
+      "vote_share_pct": 8.22
+    },
+    {
+      "rank": 5,
+      "name": "Astkhar Ali Ahmed",
+      "party_short": "IND",
+      "votes": 1015,
+      "vote_share_pct": 1.11
+    }
+  ],
+  "nota": {
+    "votes": 1094,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 666,
+    "vote_share_pct": 0.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Muzaffar Iqbal Khan",
+    "party_short": "IND",
+    "votes": 32645,
+    "margin_votes": 6179,
+    "margin_pct": 6.76
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 259,
+  "constituency_name": "KARAD NORTH",
+  "totals": {
+    "electors": 308438,
+    "votes_polled": 231281,
+    "turnout_pct": 74.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANOJ BHIMRAO GHORPADE",
+      "party_short": "BJP",
+      "votes": 134626,
+      "vote_share_pct": 58.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "PATIL BALASAHEB URF SHAMRAO PANDURANG",
+      "party_short": "NCPSP",
+      "votes": 90935,
+      "vote_share_pct": 39.32
+    },
+    {
+      "rank": 3,
+      "name": "SOMNATH RAMESH CHAVAN",
+      "party_short": "RSPS",
+      "votes": 1697,
+      "vote_share_pct": 0.73
+    },
+    {
+      "rank": 4,
+      "name": "ANSARALI MAHAMUD PATEL",
+      "party_short": "VBA",
+      "votes": 711,
+      "vote_share_pct": 0.31
+    },
+    {
+      "rank": 5,
+      "name": "SHRIPATI KONDIBA KAMBLE",
+      "party_short": "BSP",
+      "votes": 534,
+      "vote_share_pct": 0.23
+    }
+  ],
+  "nota": {
+    "votes": 959,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1819,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANOJ BHIMRAO GHORPADE",
+    "party_short": "BJP",
+    "votes": 134626,
+    "margin_votes": 43691,
+    "margin_pct": 18.89
+  }
+}

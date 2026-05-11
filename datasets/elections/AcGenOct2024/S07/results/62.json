@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "ROHTAK",
+  "totals": {
+    "electors": 200518,
+    "votes_polled": 120648,
+    "turnout_pct": 60.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bharat Bhushan Batra",
+      "party_short": "INC",
+      "votes": 59419,
+      "vote_share_pct": 49.25,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Manish Kumar Grover",
+      "party_short": "BJP",
+      "votes": 58078,
+      "vote_share_pct": 48.14
+    },
+    {
+      "rank": 3,
+      "name": "Bijender Hooda",
+      "party_short": "AAAP",
+      "votes": 1188,
+      "vote_share_pct": 0.98
+    },
+    {
+      "rank": 4,
+      "name": "Dilour Mehra",
+      "party_short": "INLD",
+      "votes": 428,
+      "vote_share_pct": 0.35
+    },
+    {
+      "rank": 5,
+      "name": "Jitender Balhara",
+      "party_short": "JNJP",
+      "votes": 268,
+      "vote_share_pct": 0.22
+    }
+  ],
+  "nota": {
+    "votes": 569,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 698,
+    "vote_share_pct": 0.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bharat Bhushan Batra",
+    "party_short": "INC",
+    "votes": 59419,
+    "margin_votes": 1341,
+    "margin_pct": 1.11
+  }
+}

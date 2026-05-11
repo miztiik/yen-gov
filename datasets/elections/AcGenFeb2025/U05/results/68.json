@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "GOKALPUR (SC)",
+  "totals": {
+    "electors": 241729,
+    "votes_polled": 166051,
+    "turnout_pct": 68.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURENDRA KUMAR",
+      "party_short": "AAAP",
+      "votes": 80504,
+      "vote_share_pct": 48.48,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "PRAVEEN NIMESH",
+      "party_short": "BJP",
+      "votes": 72297,
+      "vote_share_pct": 43.54
+    },
+    {
+      "rank": 3,
+      "name": "ISHWAR SINGH",
+      "party_short": "INC",
+      "votes": 5905,
+      "vote_share_pct": 3.56
+    },
+    {
+      "rank": 4,
+      "name": "ARVIND KUMAR",
+      "party_short": "ASPKR",
+      "votes": 3086,
+      "vote_share_pct": 1.86
+    },
+    {
+      "rank": 5,
+      "name": "LAL SINGH",
+      "party_short": "BSP",
+      "votes": 2562,
+      "vote_share_pct": 1.54
+    }
+  ],
+  "nota": {
+    "votes": 601,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1096,
+    "vote_share_pct": 0.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURENDRA KUMAR",
+    "party_short": "AAAP",
+    "votes": 80504,
+    "margin_votes": 8207,
+    "margin_pct": 4.94
+  }
+}

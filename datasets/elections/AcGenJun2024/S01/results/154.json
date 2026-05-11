@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 154,
+  "constituency_name": "Kalyandurg",
+  "totals": {
+    "electors": 230906,
+    "votes_polled": 205841,
+    "turnout_pct": 89.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Amilineni Surendra Babu",
+      "party_short": "TDP",
+      "votes": 118878,
+      "vote_share_pct": 57.75,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Talari Rangaiah",
+      "party_short": "YSRCP",
+      "votes": 81144,
+      "vote_share_pct": 39.42
+    },
+    {
+      "rank": 3,
+      "name": "Peramneti Rambhupal Reddy",
+      "party_short": "INC",
+      "votes": 2585,
+      "vote_share_pct": 1.26
+    },
+    {
+      "rank": 4,
+      "name": "Harijana Nagamma",
+      "party_short": "BSP",
+      "votes": 440,
+      "vote_share_pct": 0.21
+    },
+    {
+      "rank": 5,
+      "name": "Sreerangarajula Gopinath Royal",
+      "party_short": "IND",
+      "votes": 247,
+      "vote_share_pct": 0.12
+    }
+  ],
+  "nota": {
+    "votes": 1450,
+    "vote_share_pct": 0.7
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1097,
+    "vote_share_pct": 0.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Amilineni Surendra Babu",
+    "party_short": "TDP",
+    "votes": 118878,
+    "margin_votes": 37734,
+    "margin_pct": 18.33
+  }
+}

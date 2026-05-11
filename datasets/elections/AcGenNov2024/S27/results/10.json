@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "DUMKA (ST)",
+  "totals": {
+    "electors": 260088,
+    "votes_polled": 186419,
+    "turnout_pct": 71.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BASANT SOREN",
+      "party_short": "JMM",
+      "votes": 95685,
+      "vote_share_pct": 51.33,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SUNIL SOREN",
+      "party_short": "BJP",
+      "votes": 81097,
+      "vote_share_pct": 43.5
+    },
+    {
+      "rank": 3,
+      "name": "SUSHIL MARANDI",
+      "party_short": "IND",
+      "votes": 1714,
+      "vote_share_pct": 0.92
+    },
+    {
+      "rank": 4,
+      "name": "BABU RAM MURMU",
+      "party_short": "BSP",
+      "votes": 1153,
+      "vote_share_pct": 0.62
+    },
+    {
+      "rank": 5,
+      "name": "SONA MURMU",
+      "party_short": "IND",
+      "votes": 818,
+      "vote_share_pct": 0.44
+    }
+  ],
+  "nota": {
+    "votes": 3189,
+    "vote_share_pct": 1.71
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2763,
+    "vote_share_pct": 1.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BASANT SOREN",
+    "party_short": "JMM",
+    "votes": 95685,
+    "margin_votes": 14588,
+    "margin_pct": 7.83
+  }
+}

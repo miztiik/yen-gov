@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "Darsi",
+  "totals": {
+    "electors": 226590,
+    "votes_polled": 207106,
+    "turnout_pct": 91.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Buchepalli Siva Prasad Reddy",
+      "party_short": "YSRCP",
+      "votes": 101889,
+      "vote_share_pct": 49.2,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Gottipati Lakshmi",
+      "party_short": "TDP",
+      "votes": 99433,
+      "vote_share_pct": 48.01
+    },
+    {
+      "rank": 3,
+      "name": "Putluri Konda Reddy",
+      "party_short": "INC",
+      "votes": 1985,
+      "vote_share_pct": 0.96
+    },
+    {
+      "rank": 4,
+      "name": "Etthadi Siva Prasad",
+      "party_short": "BSP",
+      "votes": 561,
+      "vote_share_pct": 0.27
+    },
+    {
+      "rank": 5,
+      "name": "Arigela Srinivasulu",
+      "party_short": "BCYP",
+      "votes": 305,
+      "vote_share_pct": 0.15
+    }
+  ],
+  "nota": {
+    "votes": 2107,
+    "vote_share_pct": 1.02
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 826,
+    "vote_share_pct": 0.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Buchepalli Siva Prasad Reddy",
+    "party_short": "YSRCP",
+    "votes": 101889,
+    "margin_votes": 2456,
+    "margin_pct": 1.19
+  }
+}

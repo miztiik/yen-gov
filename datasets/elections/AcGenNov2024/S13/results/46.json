@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "HINGANGHAT",
+  "totals": {
+    "electors": 297703,
+    "votes_polled": 213215,
+    "turnout_pct": 71.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAMIR TRYAMBAKRAO KUNAWAR",
+      "party_short": "BJP",
+      "votes": 114578,
+      "vote_share_pct": 53.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ATUL NAMDEVRAO WANDILE",
+      "party_short": "NCPSP",
+      "votes": 84484,
+      "vote_share_pct": 39.62
+    },
+    {
+      "rank": 3,
+      "name": "ASHWIN TAWADE",
+      "party_short": "VBA",
+      "votes": 2865,
+      "vote_share_pct": 1.34
+    },
+    {
+      "rank": 4,
+      "name": "PRALAY BHAURAO TELANG",
+      "party_short": "BSP",
+      "votes": 2362,
+      "vote_share_pct": 1.11
+    },
+    {
+      "rank": 5,
+      "name": "RAJU ALIAS MOHAN WASUDEO TIMANDE",
+      "party_short": "IND",
+      "votes": 2251,
+      "vote_share_pct": 1.06
+    }
+  ],
+  "nota": {
+    "votes": 2100,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4575,
+    "vote_share_pct": 2.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAMIR TRYAMBAKRAO KUNAWAR",
+    "party_short": "BJP",
+    "votes": 114578,
+    "margin_votes": 30094,
+    "margin_pct": 14.11
+  }
+}

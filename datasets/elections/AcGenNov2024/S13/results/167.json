@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 167,
+  "constituency_name": "VILE PARLE",
+  "totals": {
+    "electors": 275347,
+    "votes_polled": 157628,
+    "turnout_pct": 57.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ALAVANI PARAG",
+      "party_short": "BJP",
+      "votes": 97259,
+      "vote_share_pct": 61.7,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SANDEEP RAJU NAIK",
+      "party_short": "SHSUBT",
+      "votes": 42324,
+      "vote_share_pct": 26.85
+    },
+    {
+      "rank": 3,
+      "name": "JUILEE OMKAR SHENDE",
+      "party_short": "MNS",
+      "votes": 12123,
+      "vote_share_pct": 7.69
+    },
+    {
+      "rank": 4,
+      "name": "SANTOSH GANPAT AMBULGE",
+      "party_short": "VBA",
+      "votes": 2201,
+      "vote_share_pct": 1.4
+    },
+    {
+      "rank": 5,
+      "name": "HARBANS SINGH BANWAIT BITTU BHAI",
+      "party_short": "IND",
+      "votes": 827,
+      "vote_share_pct": 0.52
+    }
+  ],
+  "nota": {
+    "votes": 2255,
+    "vote_share_pct": 1.43
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 639,
+    "vote_share_pct": 0.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ALAVANI PARAG",
+    "party_short": "BJP",
+    "votes": 97259,
+    "margin_votes": 54935,
+    "margin_pct": 34.85
+  }
+}

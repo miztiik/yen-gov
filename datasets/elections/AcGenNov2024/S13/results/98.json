@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 98,
+  "constituency_name": "PATHRI",
+  "totals": {
+    "electors": 393392,
+    "votes_polled": 281445,
+    "turnout_pct": 71.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJESH UTTAMRAO VITEKAR",
+      "party_short": "NCP",
+      "votes": 83767,
+      "vote_share_pct": 29.76,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "WARPUDKAR SURESH AMBADASRAO",
+      "party_short": "INC",
+      "votes": 70523,
+      "vote_share_pct": 25.06
+    },
+    {
+      "rank": 3,
+      "name": "KHAN SAEED (GABBAR)",
+      "party_short": "RSPS",
+      "votes": 54647,
+      "vote_share_pct": 19.42
+    },
+    {
+      "rank": 4,
+      "name": "ABDULLAH KHAN LATIF KHAN DURRANI (BABAJANI)",
+      "party_short": "IND",
+      "votes": 48257,
+      "vote_share_pct": 17.15
+    },
+    {
+      "rank": 5,
+      "name": "MADHAVRAO TUKARAM PHAD",
+      "party_short": "IND",
+      "votes": 10544,
+      "vote_share_pct": 3.75
+    }
+  ],
+  "nota": {
+    "votes": 1657,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 12050,
+    "vote_share_pct": 4.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJESH UTTAMRAO VITEKAR",
+    "party_short": "NCP",
+    "votes": 83767,
+    "margin_votes": 13244,
+    "margin_pct": 4.71
+  }
+}

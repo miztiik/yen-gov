@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 281,
+  "constituency_name": "MIRAJ (SC)",
+  "totals": {
+    "electors": 344731,
+    "votes_polled": 228875,
+    "turnout_pct": 66.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. SURESH (BHAU) DAGADU KHADE",
+      "party_short": "BJP",
+      "votes": 129766,
+      "vote_share_pct": 56.7,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "TANAJI ANANDA SATPUTE",
+      "party_short": "SHSUBT",
+      "votes": 84571,
+      "vote_share_pct": 36.95
+    },
+    {
+      "rank": 3,
+      "name": "VIDNYAN PRAKASH MANE",
+      "party_short": "VBA",
+      "votes": 5528,
+      "vote_share_pct": 2.42
+    },
+    {
+      "rank": 4,
+      "name": "MAHESHKUMAR MAHADEV KAMBLE",
+      "party_short": "AIMIM",
+      "votes": 2599,
+      "vote_share_pct": 1.14
+    },
+    {
+      "rank": 5,
+      "name": "JAINAB SHAKILAHMAD PIRJADE",
+      "party_short": "IND",
+      "votes": 940,
+      "vote_share_pct": 0.41
+    }
+  ],
+  "nota": {
+    "votes": 1350,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4121,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. SURESH (BHAU) DAGADU KHADE",
+    "party_short": "BJP",
+    "votes": 129766,
+    "margin_votes": 45195,
+    "margin_pct": 19.75
+  }
+}

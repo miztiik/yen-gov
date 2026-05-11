@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 193,
+  "constituency_name": "SHRIVARDHAN",
+  "totals": {
+    "electors": 265354,
+    "votes_polled": 163939,
+    "turnout_pct": 61.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADITI SUNIL TATKARE",
+      "party_short": "NCP",
+      "votes": 116050,
+      "vote_share_pct": 70.79,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ANIL DATTARAM NAVGANE",
+      "party_short": "NCPSP",
+      "votes": 33252,
+      "vote_share_pct": 20.28
+    },
+    {
+      "rank": 3,
+      "name": "RAJABHAU THAKUR",
+      "party_short": "IND",
+      "votes": 4080,
+      "vote_share_pct": 2.49
+    },
+    {
+      "rank": 4,
+      "name": "FAIZAL ABDUL AJIJ POPERE",
+      "party_short": "MNS",
+      "votes": 2125,
+      "vote_share_pct": 1.3
+    },
+    {
+      "rank": 5,
+      "name": "MOHAMMED QASIM BURHANUDDIN SOLKAR",
+      "party_short": "IND",
+      "votes": 1589,
+      "vote_share_pct": 0.97
+    }
+  ],
+  "nota": {
+    "votes": 3375,
+    "vote_share_pct": 2.06
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3468,
+    "vote_share_pct": 2.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADITI SUNIL TATKARE",
+    "party_short": "NCP",
+    "votes": 116050,
+    "margin_votes": 82798,
+    "margin_pct": 50.51
+  }
+}

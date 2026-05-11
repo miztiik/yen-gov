@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 184,
+  "constituency_name": "BYCULLA",
+  "totals": {
+    "electors": 258880,
+    "votes_polled": 137947,
+    "turnout_pct": 53.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANOJ PANDURANG JAMSUTKAR",
+      "party_short": "SHSUBT",
+      "votes": 80133,
+      "vote_share_pct": 58.09,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "YAMINI YASHWANT JADHAV",
+      "party_short": "SHS",
+      "votes": 48772,
+      "vote_share_pct": 35.36
+    },
+    {
+      "rank": 3,
+      "name": "FAIYAZ AHMED",
+      "party_short": "AIMIM",
+      "votes": 5531,
+      "vote_share_pct": 4.01
+    },
+    {
+      "rank": 4,
+      "name": "WARIS ALI SHAIKH",
+      "party_short": "BSP",
+      "votes": 398,
+      "vote_share_pct": 0.29
+    },
+    {
+      "rank": 5,
+      "name": "MOHD. NAEEM SHAIKH",
+      "party_short": "AimPP",
+      "votes": 258,
+      "vote_share_pct": 0.19
+    }
+  ],
+  "nota": {
+    "votes": 1581,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1274,
+    "vote_share_pct": 0.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANOJ PANDURANG JAMSUTKAR",
+    "party_short": "SHSUBT",
+    "votes": 80133,
+    "margin_votes": 31361,
+    "margin_pct": 22.73
+  }
+}

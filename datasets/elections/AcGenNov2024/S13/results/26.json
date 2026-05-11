@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "KHAMGAON",
+  "totals": {
+    "electors": 298332,
+    "votes_polled": 228519,
+    "turnout_pct": 76.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AKASH PANDURANG FUNDKAR",
+      "party_short": "BJP",
+      "votes": 110599,
+      "vote_share_pct": 48.4,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RANA DILIPKUMAR GOKULCHAND SANANDA",
+      "party_short": "INC",
+      "votes": 85122,
+      "vote_share_pct": 37.25
+    },
+    {
+      "rank": 3,
+      "name": "DEORAO BHAURAO HIVARALE",
+      "party_short": "VBA",
+      "votes": 26482,
+      "vote_share_pct": 11.59
+    },
+    {
+      "rank": 4,
+      "name": "SHYAM BANSILAL SHARMA",
+      "party_short": "IND",
+      "votes": 891,
+      "vote_share_pct": 0.39
+    },
+    {
+      "rank": 5,
+      "name": "ASHWINI VIJAY WAGHMARE",
+      "party_short": "BSP",
+      "votes": 654,
+      "vote_share_pct": 0.29
+    }
+  ],
+  "nota": {
+    "votes": 1136,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 3635,
+    "vote_share_pct": 1.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AKASH PANDURANG FUNDKAR",
+    "party_short": "BJP",
+    "votes": 110599,
+    "margin_votes": 25477,
+    "margin_pct": 11.15
+  }
+}

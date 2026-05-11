@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 84,
+  "constituency_name": "HADGAON",
+  "totals": {
+    "electors": 299252,
+    "votes_polled": 216355,
+    "turnout_pct": 72.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KOHLIKAR BABURAO KADAM",
+      "party_short": "SHS",
+      "votes": 113245,
+      "vote_share_pct": 52.34,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "JAWALGAVKAR MADHAVRAO NIVRUTTIRAO PATIL",
+      "party_short": "INC",
+      "votes": 83178,
+      "vote_share_pct": 38.45
+    },
+    {
+      "rank": 3,
+      "name": "DILIP AALA RATHOD",
+      "party_short": "VBA",
+      "votes": 11409,
+      "vote_share_pct": 5.27
+    },
+    {
+      "rank": 4,
+      "name": "DEVSARKAR MADHAV DADARAO",
+      "party_short": "MHSP",
+      "votes": 1276,
+      "vote_share_pct": 0.59
+    },
+    {
+      "rank": 5,
+      "name": "GANESH DEVARAO RAUT",
+      "party_short": "BSP",
+      "votes": 1045,
+      "vote_share_pct": 0.48
+    }
+  ],
+  "nota": {
+    "votes": 600,
+    "vote_share_pct": 0.28
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 5602,
+    "vote_share_pct": 2.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KOHLIKAR BABURAO KADAM",
+    "party_short": "SHS",
+    "votes": 113245,
+    "margin_votes": 30067,
+    "margin_pct": 13.9
+  }
+}

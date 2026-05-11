@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "GHATSILA (ST)",
+  "totals": {
+    "electors": 250659,
+    "votes_polled": 190966,
+    "turnout_pct": 76.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM DAS SOREN",
+      "party_short": "JMM",
+      "votes": 98356,
+      "vote_share_pct": 51.5,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BABU LAL SOREN",
+      "party_short": "BJP",
+      "votes": 75910,
+      "vote_share_pct": 39.75
+    },
+    {
+      "rank": 3,
+      "name": "RAMDAS MURMU",
+      "party_short": "JLKM",
+      "votes": 8092,
+      "vote_share_pct": 4.24
+    },
+    {
+      "rank": 4,
+      "name": "SUNIL KUMAR MURMU",
+      "party_short": "IND",
+      "votes": 1272,
+      "vote_share_pct": 0.67
+    },
+    {
+      "rank": 5,
+      "name": "INDRAJIT MURMU",
+      "party_short": "BHRTADVSIP",
+      "votes": 1027,
+      "vote_share_pct": 0.54
+    }
+  ],
+  "nota": {
+    "votes": 2868,
+    "vote_share_pct": 1.5
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3441,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM DAS SOREN",
+    "party_short": "JMM",
+    "votes": 98356,
+    "margin_votes": 22446,
+    "margin_pct": 11.75
+  }
+}

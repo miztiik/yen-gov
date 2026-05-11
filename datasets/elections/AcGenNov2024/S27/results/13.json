@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "MADHUPUR",
+  "totals": {
+    "electors": 368735,
+    "votes_polled": 282427,
+    "turnout_pct": 76.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HAFIZUL HASSAN",
+      "party_short": "JMM",
+      "votes": 143953,
+      "vote_share_pct": 50.97,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "GANGA NARAYAN SINGH",
+      "party_short": "BJP",
+      "votes": 123926,
+      "vote_share_pct": 43.88
+    },
+    {
+      "rank": 3,
+      "name": "SAHUD MIAN",
+      "party_short": "IND",
+      "votes": 3399,
+      "vote_share_pct": 1.2
+    },
+    {
+      "rank": 4,
+      "name": "SUBODH KUMAR RAJHANS",
+      "party_short": "IND",
+      "votes": 1720,
+      "vote_share_pct": 0.61
+    },
+    {
+      "rank": 5,
+      "name": "MD JIYAUL HAK",
+      "party_short": "BSP",
+      "votes": 1674,
+      "vote_share_pct": 0.59
+    }
+  ],
+  "nota": {
+    "votes": 3657,
+    "vote_share_pct": 1.29
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4098,
+    "vote_share_pct": 1.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HAFIZUL HASSAN",
+    "party_short": "JMM",
+    "votes": 143953,
+    "margin_votes": 20027,
+    "margin_pct": 7.09
+  }
+}

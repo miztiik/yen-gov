@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Visakhapatnam North",
+  "totals": {
+    "electors": 286016,
+    "votes_polled": 188208,
+    "turnout_pct": 65.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vishnu Kumar Raju Penmetsa",
+      "party_short": "BJP",
+      "votes": 108801,
+      "vote_share_pct": 57.81,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kannaparaju Kammila (k.k. Raju)",
+      "party_short": "YSRCP",
+      "votes": 61267,
+      "vote_share_pct": 32.55
+    },
+    {
+      "rank": 3,
+      "name": "Vaddi Sirisha",
+      "party_short": "IND",
+      "votes": 5311,
+      "vote_share_pct": 2.82
+    },
+    {
+      "rank": 4,
+      "name": "Lakshmi Narayana V.v. (j D Lakshmi Narayana)",
+      "party_short": "JBNP",
+      "votes": 5160,
+      "vote_share_pct": 2.74
+    },
+    {
+      "rank": 5,
+      "name": "Lakkaraju Rama Rao",
+      "party_short": "INC",
+      "votes": 4252,
+      "vote_share_pct": 2.26
+    }
+  ],
+  "nota": {
+    "votes": 1130,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2287,
+    "vote_share_pct": 1.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vishnu Kumar Raju Penmetsa",
+    "party_short": "BJP",
+    "votes": 108801,
+    "margin_votes": 47534,
+    "margin_pct": 25.26
+  }
+}

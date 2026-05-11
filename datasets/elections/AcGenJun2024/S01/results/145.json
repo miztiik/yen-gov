@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 145,
+  "constituency_name": "Mantralayam",
+  "totals": {
+    "electors": 208407,
+    "votes_polled": 176324,
+    "turnout_pct": 84.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Y. Balanagi Reddy",
+      "party_short": "YSRCP",
+      "votes": 87662,
+      "vote_share_pct": 49.72,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "N. Raghavendra Reddy",
+      "party_short": "TDP",
+      "votes": 74857,
+      "vote_share_pct": 42.45
+    },
+    {
+      "rank": 3,
+      "name": "P. S Murli Krishnaraju Dora",
+      "party_short": "INC",
+      "votes": 4660,
+      "vote_share_pct": 2.64
+    },
+    {
+      "rank": 4,
+      "name": "Gudipi Samelu",
+      "party_short": "BSP",
+      "votes": 3589,
+      "vote_share_pct": 2.04
+    },
+    {
+      "rank": 5,
+      "name": "M. Raghavendra Reddy",
+      "party_short": "IND",
+      "votes": 624,
+      "vote_share_pct": 0.35
+    }
+  ],
+  "nota": {
+    "votes": 3674,
+    "vote_share_pct": 2.08
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1258,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Y. Balanagi Reddy",
+    "party_short": "YSRCP",
+    "votes": 87662,
+    "margin_votes": 12805,
+    "margin_pct": 7.26
+  }
+}

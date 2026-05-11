@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 90,
+  "constituency_name": "DEGLUR (SC)",
+  "totals": {
+    "electors": 312425,
+    "votes_polled": 200330,
+    "turnout_pct": 64.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANTAPURKAR JITESH RAOSAHEB",
+      "party_short": "BJP",
+      "votes": 107841,
+      "vote_share_pct": 53.83,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "NIVRUTTI KONDIBA KAMBLE SANGVIKAR",
+      "party_short": "INC",
+      "votes": 64842,
+      "vote_share_pct": 32.37
+    },
+    {
+      "rank": 3,
+      "name": "SABNE SUBHASH PIRAJIRAO",
+      "party_short": "PHJSP",
+      "votes": 15919,
+      "vote_share_pct": 7.95
+    },
+    {
+      "rank": 4,
+      "name": "DEGLOORKAR SUSHILKUMAR VITTHALRAO",
+      "party_short": "VBA",
+      "votes": 5403,
+      "vote_share_pct": 2.7
+    },
+    {
+      "rank": 5,
+      "name": "MADHU GIRGAONKAR (SAGROLIKAR)",
+      "party_short": "IND",
+      "votes": 1527,
+      "vote_share_pct": 0.76
+    }
+  ],
+  "nota": {
+    "votes": 939,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3859,
+    "vote_share_pct": 1.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANTAPURKAR JITESH RAOSAHEB",
+    "party_short": "BJP",
+    "votes": 107841,
+    "margin_votes": 42999,
+    "margin_pct": 21.46
+  }
+}

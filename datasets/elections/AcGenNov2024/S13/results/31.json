@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "AKOLA EAST",
+  "totals": {
+    "electors": 355797,
+    "votes_polled": 221870,
+    "turnout_pct": 62.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RANDHIR PRALHADRAO SAWARKAR",
+      "party_short": "BJP",
+      "votes": 108619,
+      "vote_share_pct": 48.96,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "GOPAL ALIAS ASHISH RAMRAO DATKAR",
+      "party_short": "SHSUBT",
+      "votes": 58006,
+      "vote_share_pct": 26.14
+    },
+    {
+      "rank": 3,
+      "name": "DNYANESHWAR SHANKAR SULTANE",
+      "party_short": "VBA",
+      "votes": 50681,
+      "vote_share_pct": 22.84
+    },
+    {
+      "rank": 4,
+      "name": "HARSHAL DEVANAND DAMODAR",
+      "party_short": "BSP",
+      "votes": 684,
+      "vote_share_pct": 0.31
+    },
+    {
+      "rank": 5,
+      "name": "VIJAY SHRIKRUSHNA MALOKAR",
+      "party_short": "IND",
+      "votes": 540,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 1510,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1830,
+    "vote_share_pct": 0.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RANDHIR PRALHADRAO SAWARKAR",
+    "party_short": "BJP",
+    "votes": 108619,
+    "margin_votes": 50613,
+    "margin_pct": 22.81
+  }
+}

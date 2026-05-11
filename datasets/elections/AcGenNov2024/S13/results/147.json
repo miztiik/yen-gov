@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 147,
+  "constituency_name": "KOPRI - PACHPAKHADI",
+  "totals": {
+    "electors": 339659,
+    "votes_polled": 203176,
+    "turnout_pct": 59.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "EKNATH SAMBHAJI SHINDE",
+      "party_short": "SHS",
+      "votes": 159060,
+      "vote_share_pct": 78.29,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "KEDAR PRAKASH DIGHE",
+      "party_short": "SHSUBT",
+      "votes": 38343,
+      "vote_share_pct": 18.87
+    },
+    {
+      "rank": 3,
+      "name": "MANOJ TUKARAM SHINDE",
+      "party_short": "IND",
+      "votes": 1653,
+      "vote_share_pct": 0.81
+    },
+    {
+      "rank": 4,
+      "name": "BABUKUMAR KASHINATH KAMBLE",
+      "party_short": "LRJP",
+      "votes": 392,
+      "vote_share_pct": 0.19
+    },
+    {
+      "rank": 5,
+      "name": "SURESH TULSHIRAM PATILKHEDE",
+      "party_short": "IND",
+      "votes": 259,
+      "vote_share_pct": 0.13
+    }
+  ],
+  "nota": {
+    "votes": 2676,
+    "vote_share_pct": 1.32
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 793,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "EKNATH SAMBHAJI SHINDE",
+    "party_short": "SHS",
+    "votes": 159060,
+    "margin_votes": 120717,
+    "margin_pct": 59.41
+  }
+}

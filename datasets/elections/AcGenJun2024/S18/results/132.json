@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 132,
+  "constituency_name": "Gopalpur",
+  "totals": {
+    "electors": 227313,
+    "votes_polled": 143839,
+    "turnout_pct": 63.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bibhuti Bhushan Jena",
+      "party_short": "BJP",
+      "votes": 72071,
+      "vote_share_pct": 50.11,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bikram Kumar Panda",
+      "party_short": "BJD",
+      "votes": 63009,
+      "vote_share_pct": 43.81
+    },
+    {
+      "rank": 3,
+      "name": "Shyam Sundar Sahu",
+      "party_short": "INC",
+      "votes": 3361,
+      "vote_share_pct": 2.34
+    },
+    {
+      "rank": 4,
+      "name": "P. Nilakanth Redi",
+      "party_short": "AAAP",
+      "votes": 1516,
+      "vote_share_pct": 1.05
+    },
+    {
+      "rank": 5,
+      "name": "Dr. T. Padmavati",
+      "party_short": "IND",
+      "votes": 768,
+      "vote_share_pct": 0.53
+    }
+  ],
+  "nota": {
+    "votes": 1200,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1914,
+    "vote_share_pct": 1.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bibhuti Bhushan Jena",
+    "party_short": "BJP",
+    "votes": 72071,
+    "margin_votes": 9062,
+    "margin_pct": 6.3
+  }
+}

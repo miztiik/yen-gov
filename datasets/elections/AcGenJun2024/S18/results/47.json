@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 47,
+  "constituency_name": "Chandabali",
+  "totals": {
+    "electors": 253394,
+    "votes_polled": 194420,
+    "turnout_pct": 76.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Byomakesh Ray",
+      "party_short": "BJD",
+      "votes": 83063,
+      "vote_share_pct": 42.72,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Manmohan Samal",
+      "party_short": "BJP",
+      "votes": 81147,
+      "vote_share_pct": 41.74
+    },
+    {
+      "rank": 3,
+      "name": "Amiya Kumar Mahapatra",
+      "party_short": "INC",
+      "votes": 28483,
+      "vote_share_pct": 14.65
+    },
+    {
+      "rank": 4,
+      "name": "Shaila Kumar Das",
+      "party_short": "BSP",
+      "votes": 403,
+      "vote_share_pct": 0.21
+    },
+    {
+      "rank": 5,
+      "name": "Jitendra Nayak",
+      "party_short": "APoI",
+      "votes": 220,
+      "vote_share_pct": 0.11
+    }
+  ],
+  "nota": {
+    "votes": 317,
+    "vote_share_pct": 0.16
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 787,
+    "vote_share_pct": 0.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Byomakesh Ray",
+    "party_short": "BJD",
+    "votes": 83063,
+    "margin_votes": 1916,
+    "margin_pct": 0.99
+  }
+}

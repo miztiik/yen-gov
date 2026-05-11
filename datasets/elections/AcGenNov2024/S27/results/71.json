@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 71,
+  "constituency_name": "KOLEBIRA (ST)",
+  "totals": {
+    "electors": 210377,
+    "votes_polled": 145351,
+    "turnout_pct": 69.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAMAN BIXAL KONGARI",
+      "party_short": "INC",
+      "votes": 75376,
+      "vote_share_pct": 51.86,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SUJAN JOJO",
+      "party_short": "BJP",
+      "votes": 38345,
+      "vote_share_pct": 26.38
+    },
+    {
+      "rank": 3,
+      "name": "VIBHAV SANDESH EKKA",
+      "party_short": "JKP",
+      "votes": 18878,
+      "vote_share_pct": 12.99
+    },
+    {
+      "rank": 4,
+      "name": "RICHARD TIRKEY",
+      "party_short": "IND",
+      "votes": 3333,
+      "vote_share_pct": 2.29
+    },
+    {
+      "rank": 5,
+      "name": "ROSALIA SHANTA KANDULNA",
+      "party_short": "IND",
+      "votes": 1570,
+      "vote_share_pct": 1.08
+    }
+  ],
+  "nota": {
+    "votes": 499,
+    "vote_share_pct": 0.34
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 7350,
+    "vote_share_pct": 5.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAMAN BIXAL KONGARI",
+    "party_short": "INC",
+    "votes": 75376,
+    "margin_votes": 37031,
+    "margin_pct": 25.48
+  }
+}

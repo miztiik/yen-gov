@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "SINDRI",
+  "totals": {
+    "electors": 365443,
+    "votes_polled": 265202,
+    "turnout_pct": 72.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHANDRADEO MAHATO",
+      "party_short": "CPI(ML)(L)",
+      "votes": 105136,
+      "vote_share_pct": 39.64,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "TARA DEVI",
+      "party_short": "BJP",
+      "votes": 101688,
+      "vote_share_pct": 38.34
+    },
+    {
+      "rank": 3,
+      "name": "USHA DEVI",
+      "party_short": "JLKM",
+      "votes": 42664,
+      "vote_share_pct": 16.09
+    },
+    {
+      "rank": 4,
+      "name": "MOBIN ANSARI",
+      "party_short": "NCP",
+      "votes": 3820,
+      "vote_share_pct": 1.44
+    },
+    {
+      "rank": 5,
+      "name": "AZAD KUMAR HANSDA",
+      "party_short": "SBKP",
+      "votes": 1690,
+      "vote_share_pct": 0.64
+    }
+  ],
+  "nota": {
+    "votes": 5376,
+    "vote_share_pct": 2.03
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4828,
+    "vote_share_pct": 1.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHANDRADEO MAHATO",
+    "party_short": "CPI(ML)(L)",
+    "votes": 105136,
+    "margin_votes": 3448,
+    "margin_pct": 1.3
+  }
+}

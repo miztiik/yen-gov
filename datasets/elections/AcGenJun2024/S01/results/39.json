@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Peddapuram",
+  "totals": {
+    "electors": 215222,
+    "votes_polled": 178849,
+    "turnout_pct": 83.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "China Rajappa Nimmakayala",
+      "party_short": "TDP",
+      "votes": 105685,
+      "vote_share_pct": 59.09,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Davuluri Dorababu",
+      "party_short": "YSRCP",
+      "votes": 65234,
+      "vote_share_pct": 36.47
+    },
+    {
+      "rank": 3,
+      "name": "Thummala Dorababu",
+      "party_short": "INC",
+      "votes": 2168,
+      "vote_share_pct": 1.21
+    },
+    {
+      "rank": 4,
+      "name": "Duvvada Kannayya@kannababu",
+      "party_short": "IND",
+      "votes": 1227,
+      "vote_share_pct": 0.69
+    },
+    {
+      "rank": 5,
+      "name": "Arun Kumar Peyyala",
+      "party_short": "BSP",
+      "votes": 729,
+      "vote_share_pct": 0.41
+    }
+  ],
+  "nota": {
+    "votes": 2020,
+    "vote_share_pct": 1.13
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1786,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "China Rajappa Nimmakayala",
+    "party_short": "TDP",
+    "votes": 105685,
+    "margin_votes": 40451,
+    "margin_pct": 22.62
+  }
+}

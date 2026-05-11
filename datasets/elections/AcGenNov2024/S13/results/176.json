@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 176,
+  "constituency_name": "VANDRE EAST",
+  "totals": {
+    "electors": 249114,
+    "votes_polled": 136542,
+    "turnout_pct": 54.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VARUN SATISH SARDESAI",
+      "party_short": "SHSUBT",
+      "votes": 57708,
+      "vote_share_pct": 42.26,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ZEESHAN BABA SIDDIQUE",
+      "party_short": "NCP",
+      "votes": 46343,
+      "vote_share_pct": 33.94
+    },
+    {
+      "rank": 3,
+      "name": "TRUPTTI BALA SAWANT",
+      "party_short": "MNS",
+      "votes": 16074,
+      "vote_share_pct": 11.77
+    },
+    {
+      "rank": 4,
+      "name": "KUNAL SARMALKAR",
+      "party_short": "IND",
+      "votes": 8520,
+      "vote_share_pct": 6.24
+    },
+    {
+      "rank": 5,
+      "name": "PRATIK VIJAY JADHAV",
+      "party_short": "VBA",
+      "votes": 1631,
+      "vote_share_pct": 1.19
+    }
+  ],
+  "nota": {
+    "votes": 1912,
+    "vote_share_pct": 1.4
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4354,
+    "vote_share_pct": 3.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VARUN SATISH SARDESAI",
+    "party_short": "SHSUBT",
+    "votes": 57708,
+    "margin_votes": 11365,
+    "margin_pct": 8.32
+  }
+}

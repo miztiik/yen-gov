@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 124,
+  "constituency_name": "Polasara",
+  "totals": {
+    "electors": 249263,
+    "votes_polled": 160776,
+    "turnout_pct": 64.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gokulananda Mallik",
+      "party_short": "BJP",
+      "votes": 85737,
+      "vote_share_pct": 53.33,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Srikanta Sahu",
+      "party_short": "BJD",
+      "votes": 64791,
+      "vote_share_pct": 40.3
+    },
+    {
+      "rank": 3,
+      "name": "Agasti Barada",
+      "party_short": "INC",
+      "votes": 3763,
+      "vote_share_pct": 2.34
+    },
+    {
+      "rank": 4,
+      "name": "Rajib Kumar Jena",
+      "party_short": "IND",
+      "votes": 955,
+      "vote_share_pct": 0.59
+    },
+    {
+      "rank": 5,
+      "name": "Akshya Kumar Rout",
+      "party_short": "IND",
+      "votes": 907,
+      "vote_share_pct": 0.56
+    }
+  ],
+  "nota": {
+    "votes": 1791,
+    "vote_share_pct": 1.11
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2832,
+    "vote_share_pct": 1.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gokulananda Mallik",
+    "party_short": "BJP",
+    "votes": 85737,
+    "margin_votes": 20946,
+    "margin_pct": 13.03
+  }
+}

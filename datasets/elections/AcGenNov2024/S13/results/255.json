@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 255,
+  "constituency_name": "PHALTAN (SC)",
+  "totals": {
+    "electors": 340608,
+    "votes_polled": 244571,
+    "turnout_pct": 71.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SACHIN PATIL",
+      "party_short": "NCP",
+      "votes": 119287,
+      "vote_share_pct": 48.77,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "CHAVAN DEEPAK PRALHAD",
+      "party_short": "NCPSP",
+      "votes": 102241,
+      "vote_share_pct": 41.8
+    },
+    {
+      "rank": 3,
+      "name": "AGAWANE DIGAMBER ROHIDAS",
+      "party_short": "RSPS",
+      "votes": 13828,
+      "vote_share_pct": 5.65
+    },
+    {
+      "rank": 4,
+      "name": "CHAVAN DEEPAK",
+      "party_short": "SCS",
+      "votes": 2157,
+      "vote_share_pct": 0.88
+    },
+    {
+      "rank": 5,
+      "name": "PROF. ADHAV RAMESH TUKARAM",
+      "party_short": "SWP",
+      "votes": 1933,
+      "vote_share_pct": 0.79
+    }
+  ],
+  "nota": {
+    "votes": 1502,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3623,
+    "vote_share_pct": 1.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SACHIN PATIL",
+    "party_short": "NCP",
+    "votes": 119287,
+    "margin_votes": 17046,
+    "margin_pct": 6.97
+  }
+}

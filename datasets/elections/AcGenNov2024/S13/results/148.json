@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 148,
+  "constituency_name": "THANE",
+  "totals": {
+    "electors": 378342,
+    "votes_polled": 232162,
+    "turnout_pct": 61.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANJAY MUKUND KELKAR",
+      "party_short": "BJP",
+      "votes": 120373,
+      "vote_share_pct": 51.85,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RAJAN BABURAO VICHARE",
+      "party_short": "SHSUBT",
+      "votes": 62120,
+      "vote_share_pct": 26.76
+    },
+    {
+      "rank": 3,
+      "name": "AVINASH ANANT JADHAV",
+      "party_short": "MNS",
+      "votes": 42592,
+      "vote_share_pct": 18.35
+    },
+    {
+      "rank": 4,
+      "name": "AMAR ASHOK ATHAWALE",
+      "party_short": "IND",
+      "votes": 1495,
+      "vote_share_pct": 0.64
+    },
+    {
+      "rank": 5,
+      "name": "NAGESH GANPAT JADHAV",
+      "party_short": "BSP",
+      "votes": 1207,
+      "vote_share_pct": 0.52
+    }
+  ],
+  "nota": {
+    "votes": 2694,
+    "vote_share_pct": 1.16
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1681,
+    "vote_share_pct": 0.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANJAY MUKUND KELKAR",
+    "party_short": "BJP",
+    "votes": 120373,
+    "margin_votes": 58253,
+    "margin_pct": 25.09
+  }
+}

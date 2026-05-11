@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "DEOLI",
+  "totals": {
+    "electors": 274833,
+    "votes_polled": 190908,
+    "turnout_pct": 69.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJESH BHAURAV BAKANE",
+      "party_short": "BJP",
+      "votes": 90319,
+      "vote_share_pct": 47.31,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RANJIT PRATAPRAO KAMBLE",
+      "party_short": "INC",
+      "votes": 81011,
+      "vote_share_pct": 42.43
+    },
+    {
+      "rank": 3,
+      "name": "KIRAN ARUNRAO THAKRE",
+      "party_short": "IND",
+      "votes": 5927,
+      "vote_share_pct": 3.1
+    },
+    {
+      "rank": 4,
+      "name": "UMESH MAHADEORAO MHAISKAR",
+      "party_short": "BSP",
+      "votes": 4502,
+      "vote_share_pct": 2.36
+    },
+    {
+      "rank": 5,
+      "name": "KUNDAN CHOKHA JAMBHULKAR",
+      "party_short": "VBA",
+      "votes": 3947,
+      "vote_share_pct": 2.07
+    }
+  ],
+  "nota": {
+    "votes": 850,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4352,
+    "vote_share_pct": 2.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJESH BHAURAV BAKANE",
+    "party_short": "BJP",
+    "votes": 90319,
+    "margin_votes": 9308,
+    "margin_pct": 4.88
+  }
+}

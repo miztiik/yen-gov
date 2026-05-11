@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "AMALNER",
+  "totals": {
+    "electors": 309256,
+    "votes_polled": 204567,
+    "turnout_pct": 66.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANIL BHAIDAS PATIL",
+      "party_short": "NCP",
+      "votes": 109445,
+      "vote_share_pct": 53.5,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SHIRISH HIRALAL CHAUDHARI",
+      "party_short": "IND",
+      "votes": 76010,
+      "vote_share_pct": 37.16
+    },
+    {
+      "rank": 3,
+      "name": "DR. ANIL NATHU SHINDE",
+      "party_short": "INC",
+      "votes": 13798,
+      "vote_share_pct": 6.74
+    },
+    {
+      "rank": 4,
+      "name": "SHIVAJI DAULAT PATIL",
+      "party_short": "IND",
+      "votes": 1013,
+      "vote_share_pct": 0.5
+    },
+    {
+      "rank": 5,
+      "name": "RATAN BHANU BHIL",
+      "party_short": "IND",
+      "votes": 812,
+      "vote_share_pct": 0.4
+    }
+  ],
+  "nota": {
+    "votes": 1329,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2160,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANIL BHAIDAS PATIL",
+    "party_short": "NCP",
+    "votes": 109445,
+    "margin_votes": 33435,
+    "margin_pct": 16.34
+  }
+}

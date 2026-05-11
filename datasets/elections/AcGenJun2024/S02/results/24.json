@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S02",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Daporijo (ST)",
+  "totals": {
+    "electors": 17107,
+    "votes_polled": 13422,
+    "turnout_pct": 78.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Taniya Soki",
+      "party_short": "BJP",
+      "votes": 6671,
+      "vote_share_pct": 49.7,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dikto Yekar",
+      "party_short": "NPEP",
+      "votes": 6443,
+      "vote_share_pct": 48.0
+    },
+    {
+      "rank": 3,
+      "name": "Reri Kirbe Dulom",
+      "party_short": "INC",
+      "votes": 267,
+      "vote_share_pct": 1.99
+    }
+  ],
+  "nota": {
+    "votes": 41,
+    "vote_share_pct": 0.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Taniya Soki",
+    "party_short": "BJP",
+    "votes": 6671,
+    "margin_votes": 228,
+    "margin_pct": 1.7
+  },
+  "others": null
+}

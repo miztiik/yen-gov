@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 245,
+  "constituency_name": "MADHA",
+  "totals": {
+    "electors": 353046,
+    "votes_polled": 269194,
+    "turnout_pct": 76.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABHIJEET DHANANJAY PATIL",
+      "party_short": "NCPSP",
+      "votes": 136559,
+      "vote_share_pct": 50.73,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RANJIT BABANRAO SHINDE",
+      "party_short": "IND",
+      "votes": 105938,
+      "vote_share_pct": 39.35
+    },
+    {
+      "rank": 3,
+      "name": "ADV. MINALTAI DADASAHEB SATHE",
+      "party_short": "NCP",
+      "votes": 13381,
+      "vote_share_pct": 4.97
+    },
+    {
+      "rank": 4,
+      "name": "RAJESH TANAJI KHARE",
+      "party_short": "IND",
+      "votes": 4741,
+      "vote_share_pct": 1.76
+    },
+    {
+      "rank": 5,
+      "name": "RAHUL GAUTAM CHAVAN",
+      "party_short": "VBA",
+      "votes": 2231,
+      "vote_share_pct": 0.83
+    }
+  ],
+  "nota": {
+    "votes": 924,
+    "vote_share_pct": 0.34
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5420,
+    "vote_share_pct": 2.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABHIJEET DHANANJAY PATIL",
+    "party_short": "NCPSP",
+    "votes": 136559,
+    "margin_votes": 30621,
+    "margin_pct": 11.38
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 65,
+  "constituency_name": "KANKE (SC)",
+  "totals": {
+    "electors": 482834,
+    "votes_polled": 307093,
+    "turnout_pct": 63.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURESH KUMAR BAITHA",
+      "party_short": "INC",
+      "votes": 133499,
+      "vote_share_pct": 43.47,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DR. JITU CHARAN RAM",
+      "party_short": "BJP",
+      "votes": 132531,
+      "vote_share_pct": 43.16
+    },
+    {
+      "rank": 3,
+      "name": "PHULESHWAR BAITHA",
+      "party_short": "JLKM",
+      "votes": 25965,
+      "vote_share_pct": 8.46
+    },
+    {
+      "rank": 4,
+      "name": "SANTOSH KUMAR RAJAK",
+      "party_short": "CPI",
+      "votes": 3157,
+      "vote_share_pct": 1.03
+    },
+    {
+      "rank": 5,
+      "name": "SEEMA RAY",
+      "party_short": "IND",
+      "votes": 1536,
+      "vote_share_pct": 0.5
+    }
+  ],
+  "nota": {
+    "votes": 3588,
+    "vote_share_pct": 1.17
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6817,
+    "vote_share_pct": 2.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURESH KUMAR BAITHA",
+    "party_short": "INC",
+    "votes": 133499,
+    "margin_votes": 968,
+    "margin_pct": 0.32
+  }
+}

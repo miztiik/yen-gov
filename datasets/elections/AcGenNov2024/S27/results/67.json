@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "SISAI (ST)",
+  "totals": {
+    "electors": 265197,
+    "votes_polled": 192521,
+    "turnout_pct": 72.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JIGA SUSARAN HORO",
+      "party_short": "JMM",
+      "votes": 106058,
+      "vote_share_pct": 55.09,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ARUN KUMAR ORAON",
+      "party_short": "BJP",
+      "votes": 67069,
+      "vote_share_pct": 34.84
+    },
+    {
+      "rank": 3,
+      "name": "MADUA KACHHAP",
+      "party_short": "CPI(M)",
+      "votes": 3994,
+      "vote_share_pct": 2.07
+    },
+    {
+      "rank": 4,
+      "name": "SUJIT TETE",
+      "party_short": "IND",
+      "votes": 3098,
+      "vote_share_pct": 1.61
+    },
+    {
+      "rank": 5,
+      "name": "SANJAY BARLA",
+      "party_short": "IND",
+      "votes": 1659,
+      "vote_share_pct": 0.86
+    }
+  ],
+  "nota": {
+    "votes": 3203,
+    "vote_share_pct": 1.66
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 7440,
+    "vote_share_pct": 3.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JIGA SUSARAN HORO",
+    "party_short": "JMM",
+    "votes": 106058,
+    "margin_votes": 38989,
+    "margin_pct": 20.25
+  }
+}

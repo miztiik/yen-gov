@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 135,
+  "constituency_name": "SHAHAPUR (ST)",
+  "totals": {
+    "electors": 291096,
+    "votes_polled": 206772,
+    "turnout_pct": 71.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DAULAT BHIKA DARODA",
+      "party_short": "NCP",
+      "votes": 73081,
+      "vote_share_pct": 35.34,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BARORA PANDURANG MAHADU",
+      "party_short": "NCPSP",
+      "votes": 71409,
+      "vote_share_pct": 34.54
+    },
+    {
+      "rank": 3,
+      "name": "RANJANA KALURAM UGHADA",
+      "party_short": "IND",
+      "votes": 42776,
+      "vote_share_pct": 20.69
+    },
+    {
+      "rank": 4,
+      "name": "HARISHCHANDRA (HARRY) BANGO KHANDVI",
+      "party_short": "MNS",
+      "votes": 5648,
+      "vote_share_pct": 2.73
+    },
+    {
+      "rank": 5,
+      "name": "RAMA BALU SHENDE ALIAS RUPALI RAVIKANT ARAJ",
+      "party_short": "IND",
+      "votes": 3892,
+      "vote_share_pct": 1.88
+    }
+  ],
+  "nota": {
+    "votes": 4872,
+    "vote_share_pct": 2.36
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 5094,
+    "vote_share_pct": 2.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DAULAT BHIKA DARODA",
+    "party_short": "NCP",
+    "votes": 73081,
+    "margin_votes": 1672,
+    "margin_pct": 0.81
+  }
+}

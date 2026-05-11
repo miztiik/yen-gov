@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "TUMSAR",
+  "totals": {
+    "electors": 310471,
+    "votes_polled": 231708,
+    "turnout_pct": 74.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KAREMORE RAJU MANIKRAO",
+      "party_short": "NCP",
+      "votes": 135813,
+      "vote_share_pct": 58.61,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "CHARAN SOVINDA WAGHMARE",
+      "party_short": "NCPSP",
+      "votes": 71508,
+      "vote_share_pct": 30.86
+    },
+    {
+      "rank": 3,
+      "name": "THAKCHAND ATMARAM MUNGUSMARE",
+      "party_short": "IND",
+      "votes": 5485,
+      "vote_share_pct": 2.37
+    },
+    {
+      "rank": 4,
+      "name": "BORKAR YADORAO LALAJI",
+      "party_short": "BSP",
+      "votes": 4097,
+      "vote_share_pct": 1.77
+    },
+    {
+      "rank": 5,
+      "name": "AVINASH MAHADEO SONWANE",
+      "party_short": "IND",
+      "votes": 3613,
+      "vote_share_pct": 1.56
+    }
+  ],
+  "nota": {
+    "votes": 1048,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 10144,
+    "vote_share_pct": 4.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KAREMORE RAJU MANIKRAO",
+    "party_short": "NCP",
+    "votes": 135813,
+    "margin_votes": 64305,
+    "margin_pct": 27.75
+  }
+}

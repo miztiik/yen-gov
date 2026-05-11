@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "RISOD",
+  "totals": {
+    "electors": 324918,
+    "votes_polled": 230971,
+    "turnout_pct": 71.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMEET SUBHASHRAO ZANAK",
+      "party_short": "INC",
+      "votes": 76809,
+      "vote_share_pct": 33.25,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ANANTRAO VITTHALRAO DESHMUKH",
+      "party_short": "IND",
+      "votes": 70673,
+      "vote_share_pct": 30.6
+    },
+    {
+      "rank": 3,
+      "name": "BHAVANA PUNDLIKRAO GAWALI",
+      "party_short": "SHS",
+      "votes": 60693,
+      "vote_share_pct": 26.28
+    },
+    {
+      "rank": 4,
+      "name": "PRASHANT SUDHIR GOLEY",
+      "party_short": "VBA",
+      "votes": 15907,
+      "vote_share_pct": 6.89
+    },
+    {
+      "rank": 5,
+      "name": "DIPAK SHRIRAM TIRKE",
+      "party_short": "RSPS",
+      "votes": 1738,
+      "vote_share_pct": 0.75
+    }
+  ],
+  "nota": {
+    "votes": 1271,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3880,
+    "vote_share_pct": 1.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMEET SUBHASHRAO ZANAK",
+    "party_short": "INC",
+    "votes": 76809,
+    "margin_votes": 6136,
+    "margin_pct": 2.66
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 64,
+  "constituency_name": "HATIA",
+  "totals": {
+    "electors": 527902,
+    "votes_polled": 311120,
+    "turnout_pct": 58.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAVIN JAISWAL",
+      "party_short": "BJP",
+      "votes": 152949,
+      "vote_share_pct": 49.16,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "AJAY NATH SHAHDEO",
+      "party_short": "INC",
+      "votes": 138326,
+      "vote_share_pct": 44.46
+    },
+    {
+      "rank": 3,
+      "name": "BHARAT KANSHI",
+      "party_short": "IND",
+      "votes": 6668,
+      "vote_share_pct": 2.14
+    },
+    {
+      "rank": 4,
+      "name": "SOMA SINGH",
+      "party_short": "JMBP",
+      "votes": 1467,
+      "vote_share_pct": 0.47
+    },
+    {
+      "rank": 5,
+      "name": "ALBIN LAKRA",
+      "party_short": "IND",
+      "votes": 1347,
+      "vote_share_pct": 0.43
+    }
+  ],
+  "nota": {
+    "votes": 1358,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 22,
+    "votes": 9005,
+    "vote_share_pct": 2.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAVIN JAISWAL",
+    "party_short": "BJP",
+    "votes": 152949,
+    "margin_votes": 14623,
+    "margin_pct": 4.7
+  }
+}

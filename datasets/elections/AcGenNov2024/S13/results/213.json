@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 213,
+  "constituency_name": "HADAPSAR",
+  "totals": {
+    "electors": 625938,
+    "votes_polled": 317477,
+    "turnout_pct": 50.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHETAN VITTHAL TUPE",
+      "party_short": "NCP",
+      "votes": 134810,
+      "vote_share_pct": 42.46,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "PRASHANT SUDAM JAGTAP",
+      "party_short": "NCPSP",
+      "votes": 127688,
+      "vote_share_pct": 40.22
+    },
+    {
+      "rank": 3,
+      "name": "BABAR SAINATH SAMBHAJI",
+      "party_short": "MNS",
+      "votes": 32821,
+      "vote_share_pct": 10.34
+    },
+    {
+      "rank": 4,
+      "name": "GANGADHAR VITTHAL BADHE",
+      "party_short": "IND",
+      "votes": 6584,
+      "vote_share_pct": 2.07
+    },
+    {
+      "rank": 5,
+      "name": "ADV. AFROZ MULLA",
+      "party_short": "VBA",
+      "votes": 3641,
+      "vote_share_pct": 1.15
+    }
+  ],
+  "nota": {
+    "votes": 2946,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 8987,
+    "vote_share_pct": 2.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHETAN VITTHAL TUPE",
+    "party_short": "NCP",
+    "votes": 134810,
+    "margin_votes": 7122,
+    "margin_pct": 2.24
+  }
+}

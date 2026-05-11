@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "RAJINDER NAGAR",
+  "totals": {
+    "electors": 158029,
+    "votes_polled": 97211,
+    "turnout_pct": 61.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UMANG BAJAJ",
+      "party_short": "BJP",
+      "votes": 46671,
+      "vote_share_pct": 48.01,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DURGESH PATHAK",
+      "party_short": "AAAP",
+      "votes": 45440,
+      "vote_share_pct": 46.74
+    },
+    {
+      "rank": 3,
+      "name": "VINEET YADAV",
+      "party_short": "INC",
+      "votes": 4015,
+      "vote_share_pct": 4.13
+    },
+    {
+      "rank": 4,
+      "name": "PRAVEEN KUMAR BHARTI",
+      "party_short": "ASPKR",
+      "votes": 155,
+      "vote_share_pct": 0.16
+    },
+    {
+      "rank": 5,
+      "name": "SHIV PRASAD VERMA",
+      "party_short": "BSP",
+      "votes": 150,
+      "vote_share_pct": 0.15
+    }
+  ],
+  "nota": {
+    "votes": 571,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 209,
+    "vote_share_pct": 0.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UMANG BAJAJ",
+    "party_short": "BJP",
+    "votes": 46671,
+    "margin_votes": 1231,
+    "margin_pct": 1.27
+  }
+}

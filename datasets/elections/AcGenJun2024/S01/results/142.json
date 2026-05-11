@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 142,
+  "constituency_name": "Pattikonda",
+  "totals": {
+    "electors": 224049,
+    "votes_polled": 191631,
+    "turnout_pct": 85.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.e. Shyam Kumar",
+      "party_short": "TDP",
+      "votes": 98849,
+      "vote_share_pct": 51.58,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kangati Sreedevi",
+      "party_short": "YSRCP",
+      "votes": 84638,
+      "vote_share_pct": 44.17
+    },
+    {
+      "rank": 3,
+      "name": "Ramachandraiah",
+      "party_short": "CPI",
+      "votes": 1956,
+      "vote_share_pct": 1.02
+    },
+    {
+      "rank": 4,
+      "name": "Rajesh. Nayakallu",
+      "party_short": "BSP",
+      "votes": 1567,
+      "vote_share_pct": 0.82
+    },
+    {
+      "rank": 5,
+      "name": "Valmiki Peddaiah",
+      "party_short": "NNKP",
+      "votes": 1105,
+      "vote_share_pct": 0.58
+    }
+  ],
+  "nota": {
+    "votes": 2070,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1446,
+    "vote_share_pct": 0.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.e. Shyam Kumar",
+    "party_short": "TDP",
+    "votes": 98849,
+    "margin_votes": 14211,
+    "margin_pct": 7.42
+  }
+}

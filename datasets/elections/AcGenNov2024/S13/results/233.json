@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 233,
+  "constituency_name": "PARLI",
+  "totals": {
+    "electors": 338441,
+    "votes_polled": 256550,
+    "turnout_pct": 75.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DHANANJAY PANDITRAO MUNDE",
+      "party_short": "NCP",
+      "votes": 194889,
+      "vote_share_pct": 75.97,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "RAJESAHEB SHRIKISHAN DESHMUKH",
+      "party_short": "NCPSP",
+      "votes": 54665,
+      "vote_share_pct": 21.31
+    },
+    {
+      "rank": 3,
+      "name": "SAHAS PANDHARINATH ADODE",
+      "party_short": "MWMM",
+      "votes": 2573,
+      "vote_share_pct": 1.0
+    },
+    {
+      "rank": 4,
+      "name": "DHONDIRAM LAXMAN UJGARE",
+      "party_short": "BSP",
+      "votes": 1064,
+      "vote_share_pct": 0.41
+    },
+    {
+      "rank": 5,
+      "name": "DAYANAND NARAYAN LANDGE",
+      "party_short": "IND",
+      "votes": 816,
+      "vote_share_pct": 0.32
+    }
+  ],
+  "nota": {
+    "votes": 912,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1631,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DHANANJAY PANDITRAO MUNDE",
+    "party_short": "NCP",
+    "votes": 194889,
+    "margin_votes": 140224,
+    "margin_pct": 54.66
+  }
+}

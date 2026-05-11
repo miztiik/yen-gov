@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "U08",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "SHOPIAN",
+  "totals": {
+    "electors": 100615,
+    "votes_polled": 59457,
+    "turnout_pct": 59.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shabir Ahmad Kullay",
+      "party_short": "IND",
+      "votes": 14113,
+      "vote_share_pct": 23.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sheikh Mohammad Rafi",
+      "party_short": "JKN",
+      "votes": 12906,
+      "vote_share_pct": 21.71
+    },
+    {
+      "rank": 3,
+      "name": "Raja Abdul Waheed",
+      "party_short": "IND",
+      "votes": 10440,
+      "vote_share_pct": 17.56
+    },
+    {
+      "rank": 4,
+      "name": "Javid Ahmad Qadri",
+      "party_short": "BJP",
+      "votes": 6895,
+      "vote_share_pct": 11.6
+    },
+    {
+      "rank": 5,
+      "name": "Yawar Shafi Banday",
+      "party_short": "JKPDP",
+      "votes": 5486,
+      "vote_share_pct": 9.23
+    }
+  ],
+  "nota": {
+    "votes": 1559,
+    "vote_share_pct": 2.62
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 8058,
+    "vote_share_pct": 13.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shabir Ahmad Kullay",
+    "party_short": "IND",
+    "votes": 14113,
+    "margin_votes": 1207,
+    "margin_pct": 2.03
+  }
+}

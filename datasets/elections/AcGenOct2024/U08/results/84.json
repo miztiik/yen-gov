@@ -1,0 +1,75 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "U08",
+  "body": "AC",
+  "eci_no": 84,
+  "constituency_name": "NOWSHERA",
+  "totals": {
+    "electors": 89255,
+    "votes_polled": 64748,
+    "turnout_pct": 72.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Surinder Kumar Choudhary",
+      "party_short": "JKN",
+      "votes": 35069,
+      "vote_share_pct": 54.16,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ravinder Raina",
+      "party_short": "BJP",
+      "votes": 27250,
+      "vote_share_pct": 42.09
+    },
+    {
+      "rank": 3,
+      "name": "Manohar Singh",
+      "party_short": "BSP",
+      "votes": 1456,
+      "vote_share_pct": 2.25
+    },
+    {
+      "rank": 4,
+      "name": "Haq Nawaz",
+      "party_short": "JKPDP",
+      "votes": 425,
+      "vote_share_pct": 0.66
+    },
+    {
+      "rank": 5,
+      "name": "Shiv Dev Sharma",
+      "party_short": "IND",
+      "votes": 326,
+      "vote_share_pct": 0.5
+    }
+  ],
+  "nota": {
+    "votes": 222,
+    "vote_share_pct": 0.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Surinder Kumar Choudhary",
+    "party_short": "JKN",
+    "votes": 35069,
+    "margin_votes": 7819,
+    "margin_pct": 12.08
+  },
+  "others": null
+}

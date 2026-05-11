@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 165,
+  "constituency_name": "ANDHERI WEST",
+  "totals": {
+    "electors": 288139,
+    "votes_polled": 155224,
+    "turnout_pct": 53.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMEET BHASKAR SATAM",
+      "party_short": "BJP",
+      "votes": 84981,
+      "vote_share_pct": 54.75,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ASHOK BHAU JADHAV",
+      "party_short": "INC",
+      "votes": 65382,
+      "vote_share_pct": 42.12
+    },
+    {
+      "rank": 3,
+      "name": "ARIF MOINUDDIN SHAIKH",
+      "party_short": "IND",
+      "votes": 1527,
+      "vote_share_pct": 0.98
+    },
+    {
+      "rank": 4,
+      "name": "SANTOSH NATRAJ JANGAM",
+      "party_short": "IND",
+      "votes": 521,
+      "vote_share_pct": 0.34
+    },
+    {
+      "rank": 5,
+      "name": "PATITPAVAN PUNDLIKRAO NEEL",
+      "party_short": "BSP",
+      "votes": 297,
+      "vote_share_pct": 0.19
+    }
+  ],
+  "nota": {
+    "votes": 1822,
+    "vote_share_pct": 1.17
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 694,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMEET BHASKAR SATAM",
+    "party_short": "BJP",
+    "votes": 84981,
+    "margin_votes": 19599,
+    "margin_pct": 12.63
+  }
+}

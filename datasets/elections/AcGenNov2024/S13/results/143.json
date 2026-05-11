@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 143,
+  "constituency_name": "DOMBIVALI",
+  "totals": {
+    "electors": 313180,
+    "votes_polled": 176534,
+    "turnout_pct": 56.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHAVAN RAVINDRA DATTATRAY",
+      "party_short": "BJP",
+      "votes": 123815,
+      "vote_share_pct": 70.14,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DIPESH PUNDLIK MHATRE",
+      "party_short": "SHSUBT",
+      "votes": 46709,
+      "vote_share_pct": 26.46
+    },
+    {
+      "rank": 3,
+      "name": "SONIYA SANJAY INGOLE",
+      "party_short": "VBA",
+      "votes": 1574,
+      "vote_share_pct": 0.89
+    },
+    {
+      "rank": 4,
+      "name": "SURENDRAKUMAR KALICHARAN GAUTAM",
+      "party_short": "BSP",
+      "votes": 624,
+      "vote_share_pct": 0.35
+    },
+    {
+      "rank": 5,
+      "name": "SARITA SANJAY MORE",
+      "party_short": "IND",
+      "votes": 317,
+      "vote_share_pct": 0.18
+    }
+  ],
+  "nota": {
+    "votes": 2745,
+    "vote_share_pct": 1.55
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 750,
+    "vote_share_pct": 0.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHAVAN RAVINDRA DATTATRAY",
+    "party_short": "BJP",
+    "votes": 123815,
+    "margin_votes": 77106,
+    "margin_pct": 43.68
+  }
+}

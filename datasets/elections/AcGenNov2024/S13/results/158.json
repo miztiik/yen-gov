@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 158,
+  "constituency_name": "JOGESHWARI EAST",
+  "totals": {
+    "electors": 299070,
+    "votes_polled": 177851,
+    "turnout_pct": 59.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANANT (BALA) B. NAR",
+      "party_short": "SHSUBT",
+      "votes": 77044,
+      "vote_share_pct": 43.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "MANISHA RAVINDRA WAIKAR",
+      "party_short": "SHS",
+      "votes": 75503,
+      "vote_share_pct": 42.45
+    },
+    {
+      "rank": 3,
+      "name": "BHALCHANDRA GANGARAM AMBURE",
+      "party_short": "MNS",
+      "votes": 12805,
+      "vote_share_pct": 7.2
+    },
+    {
+      "rank": 4,
+      "name": "PARMESHWAR ASHOK RANSHUR",
+      "party_short": "VBA",
+      "votes": 2819,
+      "vote_share_pct": 1.59
+    },
+    {
+      "rank": 5,
+      "name": "ROHAN SATONE",
+      "party_short": "IND",
+      "votes": 1986,
+      "vote_share_pct": 1.12
+    }
+  ],
+  "nota": {
+    "votes": 2887,
+    "vote_share_pct": 1.62
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 4807,
+    "vote_share_pct": 2.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANANT (BALA) B. NAR",
+    "party_short": "SHSUBT",
+    "votes": 77044,
+    "margin_votes": 1541,
+    "margin_pct": 0.87
+  }
+}

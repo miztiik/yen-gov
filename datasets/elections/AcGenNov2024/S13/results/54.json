@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "NAGPUR EAST",
+  "totals": {
+    "electors": 419061,
+    "votes_polled": 250490,
+    "turnout_pct": 59.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KHOPDE KRISHNA PANCHAM",
+      "party_short": "BJP",
+      "votes": 163390,
+      "vote_share_pct": 65.23,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DUNESHWAR SURYABHAN PETHE",
+      "party_short": "NCPSP",
+      "votes": 48102,
+      "vote_share_pct": 19.2
+    },
+    {
+      "rank": 3,
+      "name": "HAJARE PURUSHOTTAM NAGORAO",
+      "party_short": "IND",
+      "votes": 11359,
+      "vote_share_pct": 4.53
+    },
+    {
+      "rank": 4,
+      "name": "ABHA BIJJU PANDE",
+      "party_short": "IND",
+      "votes": 9402,
+      "vote_share_pct": 3.75
+    },
+    {
+      "rank": 5,
+      "name": "MUKESH MADHUKAR MESHRAM",
+      "party_short": "BSP",
+      "votes": 4299,
+      "vote_share_pct": 1.72
+    }
+  ],
+  "nota": {
+    "votes": 2005,
+    "vote_share_pct": 0.8
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 11933,
+    "vote_share_pct": 4.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KHOPDE KRISHNA PANCHAM",
+    "party_short": "BJP",
+    "votes": 163390,
+    "margin_votes": 115288,
+    "margin_pct": 46.02
+  }
+}

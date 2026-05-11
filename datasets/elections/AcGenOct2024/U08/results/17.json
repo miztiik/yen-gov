@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "U08",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "KANGAN(ST) (ST)",
+  "totals": {
+    "electors": 78960,
+    "votes_polled": 57847,
+    "turnout_pct": 73.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mian Mehar Ali",
+      "party_short": "JKN",
+      "votes": 28907,
+      "vote_share_pct": 49.97,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Syed Jamat Ali Shah",
+      "party_short": "JKPDP",
+      "votes": 25088,
+      "vote_share_pct": 43.37
+    },
+    {
+      "rank": 3,
+      "name": "Atta Mohammad Khatana",
+      "party_short": "JAKAP",
+      "votes": 718,
+      "vote_share_pct": 1.24
+    },
+    {
+      "rank": 4,
+      "name": "Mohd Ayoub Chohan",
+      "party_short": "AJKLDP",
+      "votes": 621,
+      "vote_share_pct": 1.07
+    },
+    {
+      "rank": 5,
+      "name": "Abdul Majeed Baniyea",
+      "party_short": "RPI(A)",
+      "votes": 595,
+      "vote_share_pct": 1.03
+    }
+  ],
+  "nota": {
+    "votes": 1564,
+    "vote_share_pct": 2.7
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 354,
+    "vote_share_pct": 0.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mian Mehar Ali",
+    "party_short": "JKN",
+    "votes": 28907,
+    "margin_votes": 3819,
+    "margin_pct": 6.6
+  }
+}

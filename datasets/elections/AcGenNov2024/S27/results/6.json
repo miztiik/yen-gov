@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "MAHESHPUR (ST)",
+  "totals": {
+    "electors": 240157,
+    "votes_polled": 192744,
+    "turnout_pct": 80.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "STEPHEN MARANDI",
+      "party_short": "JMM",
+      "votes": 114924,
+      "vote_share_pct": 59.63,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "NAVNEET ANTHONY HEMBROM",
+      "party_short": "BJP",
+      "votes": 53749,
+      "vote_share_pct": 27.89
+    },
+    {
+      "rank": 3,
+      "name": "GOPIN SOREN",
+      "party_short": "CPI(M)",
+      "votes": 5329,
+      "vote_share_pct": 2.76
+    },
+    {
+      "rank": 4,
+      "name": "MISTRY SOREN",
+      "party_short": "BHAZS",
+      "votes": 5031,
+      "vote_share_pct": 2.61
+    },
+    {
+      "rank": 5,
+      "name": "DAUD MARANDI",
+      "party_short": "SP",
+      "votes": 2644,
+      "vote_share_pct": 1.37
+    }
+  ],
+  "nota": {
+    "votes": 1304,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 9763,
+    "vote_share_pct": 5.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "STEPHEN MARANDI",
+    "party_short": "JMM",
+    "votes": 114924,
+    "margin_votes": 61175,
+    "margin_pct": 31.74
+  }
+}

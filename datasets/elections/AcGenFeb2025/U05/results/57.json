@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "PATPARGANJ",
+  "totals": {
+    "electors": 227373,
+    "votes_polled": 138652,
+    "turnout_pct": 60.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAVINDER SINGH NEGI (RAVI NEGI)",
+      "party_short": "BJP",
+      "votes": 74060,
+      "vote_share_pct": 53.41,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "AVADH OJHA",
+      "party_short": "AAAP",
+      "votes": 45988,
+      "vote_share_pct": 33.17
+    },
+    {
+      "rank": 3,
+      "name": "ANIL KUMAR",
+      "party_short": "INC",
+      "votes": 16549,
+      "vote_share_pct": 11.94
+    },
+    {
+      "rank": 4,
+      "name": "OM SHANKAR PANDEY",
+      "party_short": "BSP",
+      "votes": 756,
+      "vote_share_pct": 0.55
+    },
+    {
+      "rank": 5,
+      "name": "PRAKASH CHANDRA JOSHI",
+      "party_short": "BRJ",
+      "votes": 188,
+      "vote_share_pct": 0.14
+    }
+  ],
+  "nota": {
+    "votes": 692,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 419,
+    "vote_share_pct": 0.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAVINDER SINGH NEGI (RAVI NEGI)",
+    "party_short": "BJP",
+    "votes": 74060,
+    "margin_votes": 28072,
+    "margin_pct": 20.25
+  }
+}

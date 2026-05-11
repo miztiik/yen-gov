@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "Basta",
+  "totals": {
+    "electors": 246159,
+    "votes_polled": 190803,
+    "turnout_pct": 77.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Subasini Jena",
+      "party_short": "BJD",
+      "votes": 83314,
+      "vote_share_pct": 43.66,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bijan Nayak",
+      "party_short": "INC",
+      "votes": 62937,
+      "vote_share_pct": 32.99
+    },
+    {
+      "rank": 3,
+      "name": "Rabindra Nath Andia",
+      "party_short": "BJP",
+      "votes": 42732,
+      "vote_share_pct": 22.4
+    },
+    {
+      "rank": 4,
+      "name": "Jyotshna Mohanty",
+      "party_short": "IND",
+      "votes": 347,
+      "vote_share_pct": 0.18
+    },
+    {
+      "rank": 5,
+      "name": "Swadhin Kumar Das",
+      "party_short": "BHRBKP",
+      "votes": 335,
+      "vote_share_pct": 0.18
+    }
+  ],
+  "nota": {
+    "votes": 403,
+    "vote_share_pct": 0.21
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 735,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Subasini Jena",
+    "party_short": "BJD",
+    "votes": 83314,
+    "margin_votes": 20377,
+    "margin_pct": 10.68
+  }
+}

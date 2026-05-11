@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 260,
+  "constituency_name": "KARAD SOUTH",
+  "totals": {
+    "electors": 316060,
+    "votes_polled": 243101,
+    "turnout_pct": 76.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR ATULBABA SURESH BHOSALE",
+      "party_short": "BJP",
+      "votes": 139505,
+      "vote_share_pct": 57.39,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "CHAVAN PRITHVIRAJ DAJISAHEB",
+      "party_short": "INC",
+      "votes": 100150,
+      "vote_share_pct": 41.2
+    },
+    {
+      "rank": 3,
+      "name": "INDRAJIT ASHOK GUJAR",
+      "party_short": "SWP",
+      "votes": 764,
+      "vote_share_pct": 0.31
+    },
+    {
+      "rank": 4,
+      "name": "SHAMA RAHIM SHAIKH",
+      "party_short": "IND",
+      "votes": 749,
+      "vote_share_pct": 0.31
+    },
+    {
+      "rank": 5,
+      "name": "GAIKWAD VIDYADHAR KRISHNA",
+      "party_short": "BSP",
+      "votes": 467,
+      "vote_share_pct": 0.19
+    }
+  ],
+  "nota": {
+    "votes": 859,
+    "vote_share_pct": 0.35
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 607,
+    "vote_share_pct": 0.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR ATULBABA SURESH BHOSALE",
+    "party_short": "BJP",
+    "votes": 139505,
+    "margin_votes": 39355,
+    "margin_pct": 16.19
+  }
+}

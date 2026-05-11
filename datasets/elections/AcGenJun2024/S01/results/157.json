@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 157,
+  "constituency_name": "Hindupur",
+  "totals": {
+    "electors": 249261,
+    "votes_polled": 195961,
+    "turnout_pct": 78.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nandamuri Balakrishna",
+      "party_short": "TDP",
+      "votes": 107250,
+      "vote_share_pct": 54.73,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Deepika T N",
+      "party_short": "YSRCP",
+      "votes": 74653,
+      "vote_share_pct": 38.1
+    },
+    {
+      "rank": 3,
+      "name": "M H Enayathulla",
+      "party_short": "INC",
+      "votes": 8958,
+      "vote_share_pct": 4.57
+    },
+    {
+      "rank": 4,
+      "name": "Swami Paripoornananda Saraswathi",
+      "party_short": "IND",
+      "votes": 1512,
+      "vote_share_pct": 0.77
+    },
+    {
+      "rank": 5,
+      "name": "M Sreeramulu",
+      "party_short": "BSP",
+      "votes": 646,
+      "vote_share_pct": 0.33
+    }
+  ],
+  "nota": {
+    "votes": 1686,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1256,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nandamuri Balakrishna",
+    "party_short": "TDP",
+    "votes": 107250,
+    "margin_votes": 32597,
+    "margin_pct": 16.63
+  }
+}

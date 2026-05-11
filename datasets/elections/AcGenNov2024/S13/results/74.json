@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 74,
+  "constituency_name": "CHIMUR",
+  "totals": {
+    "electors": 281018,
+    "votes_polled": 231820,
+    "turnout_pct": 82.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BANTI BHANGDIYA",
+      "party_short": "BJP",
+      "votes": 116495,
+      "vote_share_pct": 50.25,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SATISH MANOHAR WARJUKAR",
+      "party_short": "INC",
+      "votes": 106642,
+      "vote_share_pct": 46.0
+    },
+    {
+      "rank": 3,
+      "name": "ARVIND ATMARAM SADEKAR",
+      "party_short": "VBA",
+      "votes": 3956,
+      "vote_share_pct": 1.71
+    },
+    {
+      "rank": 4,
+      "name": "AMIT HARIDAS BHIMTE",
+      "party_short": "ASPKR",
+      "votes": 1039,
+      "vote_share_pct": 0.45
+    },
+    {
+      "rank": 5,
+      "name": "HEMANT GAJANAN DANDEKAR",
+      "party_short": "IND",
+      "votes": 588,
+      "vote_share_pct": 0.25
+    }
+  ],
+  "nota": {
+    "votes": 1725,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1375,
+    "vote_share_pct": 0.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BANTI BHANGDIYA",
+    "party_short": "BJP",
+    "votes": 116495,
+    "margin_votes": 9853,
+    "margin_pct": 4.25
+  }
+}

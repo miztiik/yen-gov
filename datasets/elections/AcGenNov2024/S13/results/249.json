@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 249,
+  "constituency_name": "SOLAPUR CITY CENTRAL",
+  "totals": {
+    "electors": 346722,
+    "votes_polled": 201557,
+    "turnout_pct": 58.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DEVENDRA RAJESH KOTHE",
+      "party_short": "BJP",
+      "votes": 110278,
+      "vote_share_pct": 54.71,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "FAROOQ MAQBOOL SHABDI",
+      "party_short": "AIMIM",
+      "votes": 61428,
+      "vote_share_pct": 30.48
+    },
+    {
+      "rank": 3,
+      "name": "CHETAN PANDIT NAROTE",
+      "party_short": "INC",
+      "votes": 16385,
+      "vote_share_pct": 8.13
+    },
+    {
+      "rank": 4,
+      "name": "ADAM NARSAYYA NARAYAN",
+      "party_short": "CPI(M)",
+      "votes": 6816,
+      "vote_share_pct": 3.38
+    },
+    {
+      "rank": 5,
+      "name": "SHRINIWAS RANGAPPA SANGEPAG",
+      "party_short": "VBA",
+      "votes": 1563,
+      "vote_share_pct": 0.78
+    }
+  ],
+  "nota": {
+    "votes": 557,
+    "vote_share_pct": 0.28
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 4530,
+    "vote_share_pct": 2.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DEVENDRA RAJESH KOTHE",
+    "party_short": "BJP",
+    "votes": 110278,
+    "margin_votes": 48850,
+    "margin_pct": 24.24
+  }
+}

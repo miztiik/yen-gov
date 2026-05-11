@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 78,
+  "constituency_name": "CHHATARPUR (SC)",
+  "totals": {
+    "electors": 320465,
+    "votes_polled": 196745,
+    "turnout_pct": 61.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RADHA KRISHANA KISHORE",
+      "party_short": "INC",
+      "votes": 71857,
+      "vote_share_pct": 36.52,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "PUSHPA DEVI",
+      "party_short": "BJP",
+      "votes": 71121,
+      "vote_share_pct": 36.15
+    },
+    {
+      "rank": 3,
+      "name": "VIJAY KUMAR",
+      "party_short": "RJD",
+      "votes": 20963,
+      "vote_share_pct": 10.65
+    },
+    {
+      "rank": 4,
+      "name": "SANDEEP KUMAR",
+      "party_short": "IND",
+      "votes": 6159,
+      "vote_share_pct": 3.13
+    },
+    {
+      "rank": 5,
+      "name": "LAXMI RAVI",
+      "party_short": "IND",
+      "votes": 4649,
+      "vote_share_pct": 2.36
+    }
+  ],
+  "nota": {
+    "votes": 3026,
+    "vote_share_pct": 1.54
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 18970,
+    "vote_share_pct": 9.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RADHA KRISHANA KISHORE",
+    "party_short": "INC",
+    "votes": 71857,
+    "margin_votes": 736,
+    "margin_pct": 0.37
+  }
+}

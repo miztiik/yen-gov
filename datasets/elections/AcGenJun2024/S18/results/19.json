@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Deogarh",
+  "totals": {
+    "electors": 251730,
+    "votes_polled": 197873,
+    "turnout_pct": 78.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Romancha Ranjan Biswal",
+      "party_short": "BJD",
+      "votes": 89074,
+      "vote_share_pct": 45.02,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Subash Chandra Panigrahi",
+      "party_short": "BJP",
+      "votes": 73282,
+      "vote_share_pct": 37.03
+    },
+    {
+      "rank": 3,
+      "name": "Sem Hemram",
+      "party_short": "INC",
+      "votes": 28279,
+      "vote_share_pct": 14.29
+    },
+    {
+      "rank": 4,
+      "name": "Pramod Kumar Jhankar",
+      "party_short": "IND",
+      "votes": 1454,
+      "vote_share_pct": 0.73
+    },
+    {
+      "rank": 5,
+      "name": "Shrimanta Sahu",
+      "party_short": "IND",
+      "votes": 1087,
+      "vote_share_pct": 0.55
+    }
+  ],
+  "nota": {
+    "votes": 2767,
+    "vote_share_pct": 1.4
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1930,
+    "vote_share_pct": 0.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Romancha Ranjan Biswal",
+    "party_short": "BJD",
+    "votes": 89074,
+    "margin_votes": 15792,
+    "margin_pct": 7.98
+  }
+}

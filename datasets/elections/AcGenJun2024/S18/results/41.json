@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "Soro (SC)",
+  "totals": {
+    "electors": 228076,
+    "votes_polled": 162905,
+    "turnout_pct": 71.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Madhab Dhada",
+      "party_short": "BJD",
+      "votes": 63642,
+      "vote_share_pct": 39.07,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Parshuram Dhada",
+      "party_short": "BJP",
+      "votes": 62840,
+      "vote_share_pct": 38.57
+    },
+    {
+      "rank": 3,
+      "name": "Subrat Kumar Dhada",
+      "party_short": "INC",
+      "votes": 32149,
+      "vote_share_pct": 19.73
+    },
+    {
+      "rank": 4,
+      "name": "Rakesh Kumar Malik",
+      "party_short": "IND",
+      "votes": 2566,
+      "vote_share_pct": 1.58
+    },
+    {
+      "rank": 5,
+      "name": "Akshay Kumar Jena",
+      "party_short": "IND",
+      "votes": 290,
+      "vote_share_pct": 0.18
+    }
+  ],
+  "nota": {
+    "votes": 650,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 768,
+    "vote_share_pct": 0.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Madhab Dhada",
+    "party_short": "BJD",
+    "votes": 63642,
+    "margin_votes": 802,
+    "margin_pct": 0.49
+  }
+}

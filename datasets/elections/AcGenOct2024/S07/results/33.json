@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "BARODA",
+  "totals": {
+    "electors": 190792,
+    "votes_polled": 129971,
+    "turnout_pct": 68.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Induraj Singh Narwal",
+      "party_short": "INC",
+      "votes": 54462,
+      "vote_share_pct": 41.9,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kapoor Singh Narwal",
+      "party_short": "IND",
+      "votes": 48820,
+      "vote_share_pct": 37.56
+    },
+    {
+      "rank": 3,
+      "name": "Pardeep Singh Sangwan",
+      "party_short": "BJP",
+      "votes": 22584,
+      "vote_share_pct": 17.38
+    },
+    {
+      "rank": 4,
+      "name": "Dharam Vir",
+      "party_short": "BSP",
+      "votes": 1742,
+      "vote_share_pct": 1.34
+    },
+    {
+      "rank": 5,
+      "name": "Sandeep Malik",
+      "party_short": "AAAP",
+      "votes": 1286,
+      "vote_share_pct": 0.99
+    }
+  ],
+  "nota": {
+    "votes": 272,
+    "vote_share_pct": 0.21
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 805,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Induraj Singh Narwal",
+    "party_short": "INC",
+    "votes": 54462,
+    "margin_votes": 5642,
+    "margin_pct": 4.34
+  }
+}

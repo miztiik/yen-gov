@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "TAMAR (ST)",
+  "totals": {
+    "electors": 218930,
+    "votes_polled": 163001,
+    "turnout_pct": 74.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIKAS KUMAR MUNDA",
+      "party_short": "JMM",
+      "votes": 65655,
+      "vote_share_pct": 40.28,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "GOPAL KRISHNA PATAR",
+      "party_short": "JD(U)",
+      "votes": 41409,
+      "vote_share_pct": 25.4
+    },
+    {
+      "rank": 3,
+      "name": "DAMAYANTI MUNDA",
+      "party_short": "JLKM",
+      "votes": 26562,
+      "vote_share_pct": 16.3
+    },
+    {
+      "rank": 4,
+      "name": "SURESH MUNDA",
+      "party_short": "CPI(M)",
+      "votes": 5030,
+      "vote_share_pct": 3.09
+    },
+    {
+      "rank": 5,
+      "name": "SINGRAI TUTI",
+      "party_short": "IND",
+      "votes": 4801,
+      "vote_share_pct": 2.95
+    }
+  ],
+  "nota": {
+    "votes": 972,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 18572,
+    "vote_share_pct": 11.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIKAS KUMAR MUNDA",
+    "party_short": "JMM",
+    "votes": 65655,
+    "margin_votes": 24246,
+    "margin_pct": 14.87
+  }
+}

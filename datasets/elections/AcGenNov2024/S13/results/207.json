@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 207,
+  "constituency_name": "BHOSARI",
+  "totals": {
+    "electors": 608598,
+    "votes_polled": 375404,
+    "turnout_pct": 61.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAHESH (DADA) KISAN LANDGE",
+      "party_short": "BJP",
+      "votes": 213624,
+      "vote_share_pct": 56.91,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "AJIT DAMODAR GAVHANE",
+      "party_short": "NCPSP",
+      "votes": 149859,
+      "vote_share_pct": 39.92
+    },
+    {
+      "rank": 3,
+      "name": "AMJAD MEHBOOB KHAN",
+      "party_short": "AIMEIEM",
+      "votes": 3117,
+      "vote_share_pct": 0.83
+    },
+    {
+      "rank": 4,
+      "name": "GOVIND HARIBHAU CHUNCHUNE",
+      "party_short": "IND",
+      "votes": 2904,
+      "vote_share_pct": 0.77
+    },
+    {
+      "rank": 5,
+      "name": "BALRAJ UDDHAVRAO KATKE",
+      "party_short": "BSP",
+      "votes": 1909,
+      "vote_share_pct": 0.51
+    }
+  ],
+  "nota": {
+    "votes": 2685,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1306,
+    "vote_share_pct": 0.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAHESH (DADA) KISAN LANDGE",
+    "party_short": "BJP",
+    "votes": 213624,
+    "margin_votes": 63765,
+    "margin_pct": 16.99
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 279,
+  "constituency_name": "ICHALKARANJI",
+  "totals": {
+    "electors": 312823,
+    "votes_polled": 218897,
+    "turnout_pct": 69.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAHUL PRAKASH AWADE",
+      "party_short": "BJP",
+      "votes": 131919,
+      "vote_share_pct": 60.27,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "MADAN SITARAM KARANDE",
+      "party_short": "NCPSP",
+      "votes": 75108,
+      "vote_share_pct": 34.31
+    },
+    {
+      "rank": 3,
+      "name": "CHOPADE VITTHAL PUNDLIK",
+      "party_short": "IND",
+      "votes": 2461,
+      "vote_share_pct": 1.12
+    },
+    {
+      "rank": 4,
+      "name": "RAVI GAJANAN GONDKAR",
+      "party_short": "MNS",
+      "votes": 2143,
+      "vote_share_pct": 0.98
+    },
+    {
+      "rank": 5,
+      "name": "SAM ALIAS SACHIN SHIVAJI ATHAWALE",
+      "party_short": "IND",
+      "votes": 2133,
+      "vote_share_pct": 0.97
+    }
+  ],
+  "nota": {
+    "votes": 1487,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3646,
+    "vote_share_pct": 1.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAHUL PRAKASH AWADE",
+    "party_short": "BJP",
+    "votes": 131919,
+    "margin_votes": 56811,
+    "margin_pct": 25.95
+  }
+}

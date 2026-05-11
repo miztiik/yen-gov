@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "HISAR",
+  "totals": {
+    "electors": 182294,
+    "votes_polled": 112494,
+    "turnout_pct": 61.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Savitri Jindal",
+      "party_short": "IND",
+      "votes": 49231,
+      "vote_share_pct": 43.76,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ram Niwas Rara",
+      "party_short": "INC",
+      "votes": 30290,
+      "vote_share_pct": 26.93
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Kamal Gupta",
+      "party_short": "BJP",
+      "votes": 17385,
+      "vote_share_pct": 15.45
+    },
+    {
+      "rank": 4,
+      "name": "Gautam Sardana",
+      "party_short": "IND",
+      "votes": 6831,
+      "vote_share_pct": 6.07
+    },
+    {
+      "rank": 5,
+      "name": "Amit Grover",
+      "party_short": "IND",
+      "votes": 2014,
+      "vote_share_pct": 1.79
+    }
+  ],
+  "nota": {
+    "votes": 421,
+    "vote_share_pct": 0.37
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 6322,
+    "vote_share_pct": 5.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Savitri Jindal",
+    "party_short": "IND",
+    "votes": 49231,
+    "margin_votes": 18941,
+    "margin_pct": 16.84
+  }
+}

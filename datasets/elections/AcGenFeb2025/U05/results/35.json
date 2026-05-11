@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 35,
+  "constituency_name": "NAJAFGARH",
+  "totals": {
+    "electors": 278988,
+    "votes_polled": 180334,
+    "turnout_pct": 64.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NEELAM PAHALWAN",
+      "party_short": "BJP",
+      "votes": 101708,
+      "vote_share_pct": 56.4,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "TARUN KUMAR",
+      "party_short": "AAAP",
+      "votes": 72699,
+      "vote_share_pct": 40.31
+    },
+    {
+      "rank": 3,
+      "name": "SUSHMA DEVI YADAV",
+      "party_short": "INC",
+      "votes": 2902,
+      "vote_share_pct": 1.61
+    },
+    {
+      "rank": 4,
+      "name": "ROHIT",
+      "party_short": "BSP",
+      "votes": 903,
+      "vote_share_pct": 0.5
+    },
+    {
+      "rank": 5,
+      "name": "MANGE RAM SANGWAN",
+      "party_short": "IND",
+      "votes": 225,
+      "vote_share_pct": 0.12
+    }
+  ],
+  "nota": {
+    "votes": 1346,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 551,
+    "vote_share_pct": 0.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NEELAM PAHALWAN",
+    "party_short": "BJP",
+    "votes": 101708,
+    "margin_votes": 29009,
+    "margin_pct": 16.09
+  }
+}

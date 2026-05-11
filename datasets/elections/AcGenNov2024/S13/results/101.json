@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 101,
+  "constituency_name": "JALNA",
+  "totals": {
+    "electors": 344367,
+    "votes_polled": 223940,
+    "turnout_pct": 65.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARJUN PANDITRAO KHOTKAR",
+      "party_short": "SHS",
+      "votes": 104665,
+      "vote_share_pct": 46.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "KAILAS KISANRAO GORANTYAL",
+      "party_short": "INC",
+      "votes": 73014,
+      "vote_share_pct": 32.6
+    },
+    {
+      "rank": 3,
+      "name": "ABDUL HAFIZ ABDUL GAFFAR",
+      "party_short": "IND",
+      "votes": 30454,
+      "vote_share_pct": 13.6
+    },
+    {
+      "rank": 4,
+      "name": "DAVID PRALHADRAO DHUMARE",
+      "party_short": "VBA",
+      "votes": 6322,
+      "vote_share_pct": 2.82
+    },
+    {
+      "rank": 5,
+      "name": "ASHOK ALIS LAXMIKANT MANOHAR PANGARKAR",
+      "party_short": "IND",
+      "votes": 2227,
+      "vote_share_pct": 0.99
+    }
+  ],
+  "nota": {
+    "votes": 813,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 6445,
+    "vote_share_pct": 2.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARJUN PANDITRAO KHOTKAR",
+    "party_short": "SHS",
+    "votes": 104665,
+    "margin_votes": 31651,
+    "margin_pct": 14.13
+  }
+}

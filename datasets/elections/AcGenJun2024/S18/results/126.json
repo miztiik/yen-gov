@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 126,
+  "constituency_name": "Khalikote (SC)",
+  "totals": {
+    "electors": 233062,
+    "votes_polled": 149058,
+    "turnout_pct": 63.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Purna Chandra Sethy",
+      "party_short": "BJP",
+      "votes": 80230,
+      "vote_share_pct": 53.82,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Suryamani Baidya",
+      "party_short": "BJD",
+      "votes": 57173,
+      "vote_share_pct": 38.36
+    },
+    {
+      "rank": 3,
+      "name": "Chitrasen Behera",
+      "party_short": "INC",
+      "votes": 7857,
+      "vote_share_pct": 5.27
+    }
+  ],
+  "nota": {
+    "votes": 3798,
+    "vote_share_pct": 2.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Purna Chandra Sethy",
+    "party_short": "BJP",
+    "votes": 80230,
+    "margin_votes": 23057,
+    "margin_pct": 15.47
+  },
+  "others": null
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "SULTANPUR MAJRA (SC)",
+  "totals": {
+    "electors": 186990,
+    "votes_polled": 112825,
+    "turnout_pct": 60.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MUKESH KUMAR AHLAWAT",
+      "party_short": "AAAP",
+      "votes": 58767,
+      "vote_share_pct": 52.09,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "KARAM SINGH KARMA",
+      "party_short": "BJP",
+      "votes": 41641,
+      "vote_share_pct": 36.91
+    },
+    {
+      "rank": 3,
+      "name": "JAI KISHAN",
+      "party_short": "INC",
+      "votes": 8688,
+      "vote_share_pct": 7.7
+    },
+    {
+      "rank": 4,
+      "name": "KULWANT RANA",
+      "party_short": "BSP",
+      "votes": 1885,
+      "vote_share_pct": 1.67
+    },
+    {
+      "rank": 5,
+      "name": "JITENDER",
+      "party_short": "JMBP",
+      "votes": 555,
+      "vote_share_pct": 0.49
+    }
+  ],
+  "nota": {
+    "votes": 494,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 795,
+    "vote_share_pct": 0.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MUKESH KUMAR AHLAWAT",
+    "party_short": "AAAP",
+    "votes": 58767,
+    "margin_votes": 17126,
+    "margin_pct": 15.18
+  }
+}

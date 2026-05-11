@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "MALEGAON OUTER",
+  "totals": {
+    "electors": 381259,
+    "votes_polled": 258950,
+    "turnout_pct": 67.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DADAJI DAGDU BHUSE",
+      "party_short": "SHS",
+      "votes": 158284,
+      "vote_share_pct": 61.13,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "PRAMOD BANDUKAKA PURUSHOTTAM BACHHAV",
+      "party_short": "IND",
+      "votes": 51678,
+      "vote_share_pct": 19.96
+    },
+    {
+      "rank": 3,
+      "name": "ADVAY (AABA) PRASHANT HIRAY",
+      "party_short": "SHSUBT",
+      "votes": 39843,
+      "vote_share_pct": 15.39
+    },
+    {
+      "rank": 4,
+      "name": "RAJESH MANGU MORE",
+      "party_short": "BSP",
+      "votes": 1236,
+      "vote_share_pct": 0.48
+    },
+    {
+      "rank": 5,
+      "name": "KUNAL SHIVAJI SURYAWANSHI",
+      "party_short": "IND",
+      "votes": 1149,
+      "vote_share_pct": 0.44
+    }
+  ],
+  "nota": {
+    "votes": 1539,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 5221,
+    "vote_share_pct": 2.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DADAJI DAGDU BHUSE",
+    "party_short": "SHS",
+    "votes": 158284,
+    "margin_votes": 106606,
+    "margin_pct": 41.17
+  }
+}

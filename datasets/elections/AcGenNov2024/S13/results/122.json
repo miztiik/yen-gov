@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 122,
+  "constituency_name": "DINDORI (ST)",
+  "totals": {
+    "electors": 329389,
+    "votes_polled": 258484,
+    "turnout_pct": 78.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NARAHARI SITARAM ZIRWAL",
+      "party_short": "NCP",
+      "votes": 138622,
+      "vote_share_pct": 53.63,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "CHAROSKAR SUNITA RAMDAS",
+      "party_short": "NCPSP",
+      "votes": 94219,
+      "vote_share_pct": 36.45
+    },
+    {
+      "rank": 3,
+      "name": "SUSHILA SHIVAJI CHAROSKAR",
+      "party_short": "IND",
+      "votes": 9704,
+      "vote_share_pct": 3.75
+    },
+    {
+      "rank": 4,
+      "name": "SANTOSH MANIK RAHERE",
+      "party_short": "IND",
+      "votes": 4301,
+      "vote_share_pct": 1.66
+    },
+    {
+      "rank": 5,
+      "name": "YOGESH UTTAM BHUSAR",
+      "party_short": "VBA",
+      "votes": 3619,
+      "vote_share_pct": 1.4
+    }
+  ],
+  "nota": {
+    "votes": 1673,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6346,
+    "vote_share_pct": 2.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NARAHARI SITARAM ZIRWAL",
+    "party_short": "NCP",
+    "votes": 138622,
+    "margin_votes": 44403,
+    "margin_pct": 17.18
+  }
+}

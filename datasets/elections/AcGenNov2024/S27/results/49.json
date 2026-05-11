@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 49,
+  "constituency_name": "JAMSHEDPUR WEST",
+  "totals": {
+    "electors": 387200,
+    "votes_polled": 221722,
+    "turnout_pct": 57.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SARYU ROY",
+      "party_short": "JD(U)",
+      "votes": 103631,
+      "vote_share_pct": 46.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BANNA GUPTA",
+      "party_short": "INC",
+      "votes": 95768,
+      "vote_share_pct": 43.19
+    },
+    {
+      "rank": 3,
+      "name": "RASHID HUSSAIN",
+      "party_short": "AIMIM",
+      "votes": 4787,
+      "vote_share_pct": 2.16
+    },
+    {
+      "rank": 4,
+      "name": "SHAMBHU NATH CHOUDHARY",
+      "party_short": "IND",
+      "votes": 2280,
+      "vote_share_pct": 1.03
+    },
+    {
+      "rank": 5,
+      "name": "VIKAS SINGH",
+      "party_short": "IND",
+      "votes": 2247,
+      "vote_share_pct": 1.01
+    }
+  ],
+  "nota": {
+    "votes": 1561,
+    "vote_share_pct": 0.7
+  },
+  "others": {
+    "candidate_count": 23,
+    "votes": 11448,
+    "vote_share_pct": 5.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SARYU ROY",
+    "party_short": "JD(U)",
+    "votes": 103631,
+    "margin_votes": 7863,
+    "margin_pct": 3.55
+  }
+}

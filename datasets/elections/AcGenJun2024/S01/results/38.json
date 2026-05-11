@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Kakinada Rural",
+  "totals": {
+    "electors": 269453,
+    "votes_polled": 206439,
+    "turnout_pct": 76.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pantam Venkateswara Rao (pantam Nanaji)",
+      "party_short": "JnP",
+      "votes": 134414,
+      "vote_share_pct": 65.11,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kurasala Kanna Babu",
+      "party_short": "YSRCP",
+      "votes": 62374,
+      "vote_share_pct": 30.21
+    },
+    {
+      "rank": 3,
+      "name": "Melam Veeraswamy",
+      "party_short": "NRCP",
+      "votes": 2365,
+      "vote_share_pct": 1.15
+    },
+    {
+      "rank": 4,
+      "name": "Pilli Satya Lakshmi",
+      "party_short": "INC",
+      "votes": 2205,
+      "vote_share_pct": 1.07
+    },
+    {
+      "rank": 5,
+      "name": "Annavaram Pithani",
+      "party_short": "IND",
+      "votes": 675,
+      "vote_share_pct": 0.33
+    }
+  ],
+  "nota": {
+    "votes": 1783,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2623,
+    "vote_share_pct": 1.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pantam Venkateswara Rao (pantam Nanaji)",
+    "party_short": "JnP",
+    "votes": 134414,
+    "margin_votes": 72040,
+    "margin_pct": 34.9
+  }
+}

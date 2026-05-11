@@ -1,0 +1,68 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 93,
+  "constituency_name": "Cuttack Sadar (SC)",
+  "totals": {
+    "electors": 229006,
+    "votes_polled": 164034,
+    "turnout_pct": 71.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Prakash Chandra Sethi",
+      "party_short": "BJP",
+      "votes": 79542,
+      "vote_share_pct": 48.49,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Chandra Sarathi Behera",
+      "party_short": "BJD",
+      "votes": 75733,
+      "vote_share_pct": 46.17
+    },
+    {
+      "rank": 3,
+      "name": "Rama Chandra Gochhayat",
+      "party_short": "INC",
+      "votes": 7010,
+      "vote_share_pct": 4.27
+    },
+    {
+      "rank": 4,
+      "name": "Paramananda Sethi",
+      "party_short": "SUCI",
+      "votes": 678,
+      "vote_share_pct": 0.41
+    }
+  ],
+  "nota": {
+    "votes": 1071,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Prakash Chandra Sethi",
+    "party_short": "BJP",
+    "votes": 79542,
+    "margin_votes": 3809,
+    "margin_pct": 2.32
+  },
+  "others": null
+}

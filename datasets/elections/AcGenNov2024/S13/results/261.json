@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 261,
+  "constituency_name": "PATAN",
+  "totals": {
+    "electors": 310702,
+    "votes_polled": 231484,
+    "turnout_pct": 74.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DESAI SHAMBHURAJ SHIVAJIRAO",
+      "party_short": "SHS",
+      "votes": 125759,
+      "vote_share_pct": 54.33,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SATYAJIT VIKRAMSINH PATANKAR",
+      "party_short": "IND",
+      "votes": 90935,
+      "vote_share_pct": 39.28
+    },
+    {
+      "rank": 3,
+      "name": "BHANUPRATAP ALIAS HARSHAD MOHANRAO KADAM",
+      "party_short": "SHSUBT",
+      "votes": 9626,
+      "vote_share_pct": 4.16
+    },
+    {
+      "rank": 4,
+      "name": "YADAV SANTOSH RAGHUNATH",
+      "party_short": "IND",
+      "votes": 1299,
+      "vote_share_pct": 0.56
+    },
+    {
+      "rank": 5,
+      "name": "SURAJ UTTAM PATANKAR",
+      "party_short": "IND",
+      "votes": 554,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 1339,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1972,
+    "vote_share_pct": 0.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DESAI SHAMBHURAJ SHIVAJIRAO",
+    "party_short": "SHS",
+    "votes": 125759,
+    "margin_votes": 34824,
+    "margin_pct": 15.04
+  }
+}

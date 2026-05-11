@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "TEOSA",
+  "totals": {
+    "electors": 296916,
+    "votes_polled": 202963,
+    "turnout_pct": 68.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJESH SHRIRAMJI WANKHADE",
+      "party_short": "BJP",
+      "votes": 99664,
+      "vote_share_pct": 49.1,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ADV. YASHOMATI CHANDRAKANT THAKUR",
+      "party_short": "INC",
+      "votes": 92047,
+      "vote_share_pct": 45.35
+    },
+    {
+      "rank": 3,
+      "name": "MILIND SHRIRAMJI TAYADE",
+      "party_short": "VBA",
+      "votes": 6710,
+      "vote_share_pct": 3.31
+    },
+    {
+      "rank": 4,
+      "name": "DR. MUKUND YASHVANT DHONE",
+      "party_short": "BSP",
+      "votes": 1073,
+      "vote_share_pct": 0.53
+    },
+    {
+      "rank": 5,
+      "name": "ER. AVINASH DHANWATE",
+      "party_short": "PPID",
+      "votes": 555,
+      "vote_share_pct": 0.27
+    }
+  ],
+  "nota": {
+    "votes": 635,
+    "vote_share_pct": 0.31
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 2279,
+    "vote_share_pct": 1.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJESH SHRIRAMJI WANKHADE",
+    "party_short": "BJP",
+    "votes": 99664,
+    "margin_votes": 7617,
+    "margin_pct": 3.75
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 113,
+  "constituency_name": "NANDGAON",
+  "totals": {
+    "electors": 344436,
+    "votes_polled": 244448,
+    "turnout_pct": 70.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUHAS (AANNA) DWARKANATH KANDE",
+      "party_short": "SHS",
+      "votes": 138068,
+      "vote_share_pct": 56.48,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BHUJBAL SAMEER",
+      "party_short": "IND",
+      "votes": 48194,
+      "vote_share_pct": 19.72
+    },
+    {
+      "rank": 3,
+      "name": "DR. ROHAN NIMBAJI BORSE",
+      "party_short": "IND",
+      "votes": 28108,
+      "vote_share_pct": 11.5
+    },
+    {
+      "rank": 4,
+      "name": "GANESH JAGANNATH DHATRAK",
+      "party_short": "SHSUBT",
+      "votes": 22120,
+      "vote_share_pct": 9.05
+    },
+    {
+      "rank": 5,
+      "name": "ANAND SURESH SHINGARE",
+      "party_short": "VBA",
+      "votes": 2154,
+      "vote_share_pct": 0.88
+    }
+  ],
+  "nota": {
+    "votes": 775,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 5029,
+    "vote_share_pct": 2.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUHAS (AANNA) DWARKANATH KANDE",
+    "party_short": "SHS",
+    "votes": 138068,
+    "margin_votes": 89874,
+    "margin_pct": 36.77
+  }
+}

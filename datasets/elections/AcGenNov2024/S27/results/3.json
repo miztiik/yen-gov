@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "BARHAIT (ST)",
+  "totals": {
+    "electors": 225960,
+    "votes_polled": 162197,
+    "turnout_pct": 71.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HEMANT SOREN",
+      "party_short": "JMM",
+      "votes": 95612,
+      "vote_share_pct": 58.95,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "GAMLIYEL HEMBROM",
+      "party_short": "BJP",
+      "votes": 55821,
+      "vote_share_pct": 34.42
+    },
+    {
+      "rank": 3,
+      "name": "THOMAS SOREN",
+      "party_short": "JLKM",
+      "votes": 2181,
+      "vote_share_pct": 1.34
+    },
+    {
+      "rank": 4,
+      "name": "SEBASTION HEMBROM",
+      "party_short": "IND",
+      "votes": 1781,
+      "vote_share_pct": 1.1
+    },
+    {
+      "rank": 5,
+      "name": "ROSHANI MURMU",
+      "party_short": "IND",
+      "votes": 955,
+      "vote_share_pct": 0.59
+    }
+  ],
+  "nota": {
+    "votes": 3469,
+    "vote_share_pct": 2.14
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2378,
+    "vote_share_pct": 1.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HEMANT SOREN",
+    "party_short": "JMM",
+    "votes": 95612,
+    "margin_votes": 39791,
+    "margin_pct": 24.53
+  }
+}

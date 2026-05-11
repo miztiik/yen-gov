@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "GHONDA",
+  "totals": {
+    "electors": 229547,
+    "votes_polled": 140420,
+    "turnout_pct": 61.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AJAY MAHAWAR",
+      "party_short": "BJP",
+      "votes": 79987,
+      "vote_share_pct": 56.96,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "GAURAV SHARMA",
+      "party_short": "AAAP",
+      "votes": 53929,
+      "vote_share_pct": 38.41
+    },
+    {
+      "rank": 3,
+      "name": "BHISHAM SHARMA",
+      "party_short": "INC",
+      "votes": 4883,
+      "vote_share_pct": 3.48
+    },
+    {
+      "rank": 4,
+      "name": "SUNDER LOHIYA",
+      "party_short": "BSP",
+      "votes": 454,
+      "vote_share_pct": 0.32
+    },
+    {
+      "rank": 5,
+      "name": "GAURAV SHARMA",
+      "party_short": "IND",
+      "votes": 279,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 588,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 300,
+    "vote_share_pct": 0.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AJAY MAHAWAR",
+    "party_short": "BJP",
+    "votes": 79987,
+    "margin_votes": 26058,
+    "margin_pct": 18.56
+  }
+}

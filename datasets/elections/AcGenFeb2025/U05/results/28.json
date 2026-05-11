@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "HARI NAGAR",
+  "totals": {
+    "electors": 169464,
+    "votes_polled": 103040,
+    "turnout_pct": 60.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHYAM SHARMA",
+      "party_short": "BJP",
+      "votes": 50179,
+      "vote_share_pct": 48.7,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SURINDER KUMAR SETIA",
+      "party_short": "AAAP",
+      "votes": 43547,
+      "vote_share_pct": 42.26
+    },
+    {
+      "rank": 3,
+      "name": "PREM BALLABH",
+      "party_short": "INC",
+      "votes": 4252,
+      "vote_share_pct": 4.13
+    },
+    {
+      "rank": 4,
+      "name": "RAJ KUMARI DHILLON",
+      "party_short": "IND",
+      "votes": 3398,
+      "vote_share_pct": 3.3
+    },
+    {
+      "rank": 5,
+      "name": "BINDU KUMAR",
+      "party_short": "BSP",
+      "votes": 569,
+      "vote_share_pct": 0.55
+    }
+  ],
+  "nota": {
+    "votes": 713,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 382,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHYAM SHARMA",
+    "party_short": "BJP",
+    "votes": 50179,
+    "margin_votes": 6632,
+    "margin_pct": 6.44
+  }
+}

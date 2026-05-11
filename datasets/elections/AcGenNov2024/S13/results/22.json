@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "BULDHANA",
+  "totals": {
+    "electors": 308194,
+    "votes_polled": 194774,
+    "turnout_pct": 63.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GAIKWAD SANJAY RAMBHAU",
+      "party_short": "SHS",
+      "votes": 91660,
+      "vote_share_pct": 47.06,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "JAYSHREE SUNIL SHELKE",
+      "party_short": "SHSUBT",
+      "votes": 90819,
+      "vote_share_pct": 46.63
+    },
+    {
+      "rank": 3,
+      "name": "PRASHANT UTTAM WAGHODE",
+      "party_short": "VBA",
+      "votes": 7146,
+      "vote_share_pct": 3.67
+    },
+    {
+      "rank": 4,
+      "name": "MOHAMMAD ANSAR MOHAMMAD ALTAF",
+      "party_short": "IND",
+      "votes": 741,
+      "vote_share_pct": 0.38
+    },
+    {
+      "rank": 5,
+      "name": "JAYSHRI RAVINDRA SHELKE",
+      "party_short": "IND",
+      "votes": 651,
+      "vote_share_pct": 0.33
+    }
+  ],
+  "nota": {
+    "votes": 1354,
+    "vote_share_pct": 0.7
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2403,
+    "vote_share_pct": 1.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GAIKWAD SANJAY RAMBHAU",
+    "party_short": "SHS",
+    "votes": 91660,
+    "margin_votes": 841,
+    "margin_pct": 0.43
+  }
+}

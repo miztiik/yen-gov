@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 202,
+  "constituency_name": "PURANDAR",
+  "totals": {
+    "electors": 464651,
+    "votes_polled": 284628,
+    "turnout_pct": 61.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIJAYBAPU SHIVTARE",
+      "party_short": "SHS",
+      "votes": 125819,
+      "vote_share_pct": 44.2,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SANJAY CHANDUKAKA JAGTAP",
+      "party_short": "INC",
+      "votes": 101631,
+      "vote_share_pct": 35.71
+    },
+    {
+      "rank": 3,
+      "name": "SAMBHAJI SADASHIV( ANNA) ZENDE (COLLECTOR SAHEB)I.A.S.",
+      "party_short": "NCP",
+      "votes": 47196,
+      "vote_share_pct": 16.58
+    },
+    {
+      "rank": 4,
+      "name": "UMESH NARAYAN JAGTAP",
+      "party_short": "MNS",
+      "votes": 2920,
+      "vote_share_pct": 1.03
+    },
+    {
+      "rank": 5,
+      "name": "UTTAM GULAB KAMTHE",
+      "party_short": "SBBGP",
+      "votes": 1529,
+      "vote_share_pct": 0.54
+    }
+  ],
+  "nota": {
+    "votes": 1484,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 4049,
+    "vote_share_pct": 1.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIJAYBAPU SHIVTARE",
+    "party_short": "SHS",
+    "votes": 125819,
+    "margin_votes": 24188,
+    "margin_pct": 8.5
+  }
+}

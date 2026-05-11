@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "CHAKRADHARPUR (ST)",
+  "totals": {
+    "electors": 208918,
+    "votes_polled": 144290,
+    "turnout_pct": 69.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUKHRAM ORAON",
+      "party_short": "JMM",
+      "votes": 58639,
+      "vote_share_pct": 40.64,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SHASHIBHUSHAN SAMAD",
+      "party_short": "BJP",
+      "votes": 49329,
+      "vote_share_pct": 34.19
+    },
+    {
+      "rank": 3,
+      "name": "VIJAY SINGH GAGRAI",
+      "party_short": "IND",
+      "votes": 20148,
+      "vote_share_pct": 13.96
+    },
+    {
+      "rank": 4,
+      "name": "BASANTI PURTY",
+      "party_short": "JLKM",
+      "votes": 7933,
+      "vote_share_pct": 5.5
+    },
+    {
+      "rank": 5,
+      "name": "DAMAYANTI NAG",
+      "party_short": "IND",
+      "votes": 1594,
+      "vote_share_pct": 1.1
+    }
+  ],
+  "nota": {
+    "votes": 3444,
+    "vote_share_pct": 2.39
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3203,
+    "vote_share_pct": 2.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUKHRAM ORAON",
+    "party_short": "JMM",
+    "votes": 58639,
+    "margin_votes": 9310,
+    "margin_pct": 6.45
+  }
+}

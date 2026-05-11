@@ -1,0 +1,54 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S02",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Koloriang (ST)",
+  "totals": {
+    "electors": 14561,
+    "votes_polled": 12807,
+    "turnout_pct": 87.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pani Taram",
+      "party_short": "BJP",
+      "votes": 11594,
+      "vote_share_pct": 90.53,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kahfa Bengia",
+      "party_short": "PPA",
+      "votes": 1044,
+      "vote_share_pct": 8.15
+    }
+  ],
+  "nota": {
+    "votes": 169,
+    "vote_share_pct": 1.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pani Taram",
+    "party_short": "BJP",
+    "votes": 11594,
+    "margin_votes": 10550,
+    "margin_pct": 82.38
+  },
+  "others": null
+}

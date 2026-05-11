@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "MALKAPUR",
+  "totals": {
+    "electors": 288792,
+    "votes_polled": 207489,
+    "turnout_pct": 71.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHAINSUKH MADANLAL SANCHETI",
+      "party_short": "BJP",
+      "votes": 109921,
+      "vote_share_pct": 52.98,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "EKDE RAJESH PANDITRAO",
+      "party_short": "INC",
+      "votes": 83524,
+      "vote_share_pct": 40.25
+    },
+    {
+      "rank": 3,
+      "name": "DR. MOHMMAD ZAMEER SABIRODDIN",
+      "party_short": "VBA",
+      "votes": 9316,
+      "vote_share_pct": 4.49
+    },
+    {
+      "rank": 4,
+      "name": "INGALE DHIRAJ DHAMMAPAL",
+      "party_short": "BSP",
+      "votes": 776,
+      "vote_share_pct": 0.37
+    },
+    {
+      "rank": 5,
+      "name": "SHAIKH AKIL SHAIKH MAJID",
+      "party_short": "IND",
+      "votes": 570,
+      "vote_share_pct": 0.27
+    }
+  ],
+  "nota": {
+    "votes": 1045,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2337,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHAINSUKH MADANLAL SANCHETI",
+    "party_short": "BJP",
+    "votes": 109921,
+    "margin_votes": 26397,
+    "margin_pct": 12.72
+  }
+}

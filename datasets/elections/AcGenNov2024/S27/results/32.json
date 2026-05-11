@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "GIRIDIH",
+  "totals": {
+    "electors": 305172,
+    "votes_polled": 207682,
+    "turnout_pct": 68.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUDIVYA KUMAR",
+      "party_short": "JMM",
+      "votes": 94042,
+      "vote_share_pct": 45.28,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "NIRBHAY KUMAR SHAHABADI",
+      "party_short": "BJP",
+      "votes": 90204,
+      "vote_share_pct": 43.43
+    },
+    {
+      "rank": 3,
+      "name": "NAVIN ANAND",
+      "party_short": "JLKM",
+      "votes": 10787,
+      "vote_share_pct": 5.19
+    },
+    {
+      "rank": 4,
+      "name": "SUNAINA PATHAK",
+      "party_short": "IND",
+      "votes": 2635,
+      "vote_share_pct": 1.27
+    },
+    {
+      "rank": 5,
+      "name": "RAMESHWAR DUSADH",
+      "party_short": "IND",
+      "votes": 2163,
+      "vote_share_pct": 1.04
+    }
+  ],
+  "nota": {
+    "votes": 2004,
+    "vote_share_pct": 0.96
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 5847,
+    "vote_share_pct": 2.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUDIVYA KUMAR",
+    "party_short": "JMM",
+    "votes": 94042,
+    "margin_votes": 3838,
+    "margin_pct": 1.85
+  }
+}

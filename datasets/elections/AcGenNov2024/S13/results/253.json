@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 253,
+  "constituency_name": "SANGOLE",
+  "totals": {
+    "electors": 334379,
+    "votes_polled": 263679,
+    "turnout_pct": 78.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. BABASAHEB ANNASAHEB DESHMUKH",
+      "party_short": "PWPI",
+      "votes": 116256,
+      "vote_share_pct": 44.09,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ADV. SHAHAJIBAPU RAJARAM PATIL",
+      "party_short": "SHS",
+      "votes": 90870,
+      "vote_share_pct": 34.46
+    },
+    {
+      "rank": 3,
+      "name": "DIPAKABA BAPUSAHEB SALUNKHE",
+      "party_short": "SHSUBT",
+      "votes": 50962,
+      "vote_share_pct": 19.33
+    },
+    {
+      "rank": 4,
+      "name": "RAGHU YETALA GHUTUKADE",
+      "party_short": "NRSP",
+      "votes": 977,
+      "vote_share_pct": 0.37
+    },
+    {
+      "rank": 5,
+      "name": "SHASHIKANT SUBRAV GADHIRE",
+      "party_short": "BSP",
+      "votes": 848,
+      "vote_share_pct": 0.32
+    }
+  ],
+  "nota": {
+    "votes": 1106,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2660,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. BABASAHEB ANNASAHEB DESHMUKH",
+    "party_short": "PWPI",
+    "votes": 116256,
+    "margin_votes": 25386,
+    "margin_pct": 9.63
+  }
+}

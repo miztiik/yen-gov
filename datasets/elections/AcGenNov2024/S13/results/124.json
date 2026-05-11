@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 124,
+  "constituency_name": "NASHIK CENTRAL",
+  "totals": {
+    "electors": 345502,
+    "votes_polled": 200659,
+    "turnout_pct": 58.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DEVYANI SUHAS PHARANDE",
+      "party_short": "BJP",
+      "votes": 105689,
+      "vote_share_pct": 52.67,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "GITE VASANT NIVRUTTI",
+      "party_short": "SHSUBT",
+      "votes": 87833,
+      "vote_share_pct": 43.77
+    },
+    {
+      "rank": 3,
+      "name": "MUSHIR MUNIRODDIN SAYED",
+      "party_short": "VBA",
+      "votes": 3080,
+      "vote_share_pct": 1.53
+    },
+    {
+      "rank": 4,
+      "name": "RAVINDRA VASANT AUTE",
+      "party_short": "BSP",
+      "votes": 919,
+      "vote_share_pct": 0.46
+    },
+    {
+      "rank": 5,
+      "name": "WASIM NOORMOHAMMAD SHAIKH",
+      "party_short": "IND",
+      "votes": 480,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 1660,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 998,
+    "vote_share_pct": 0.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DEVYANI SUHAS PHARANDE",
+    "party_short": "BJP",
+    "votes": 105689,
+    "margin_votes": 17856,
+    "margin_pct": 8.9
+  }
+}

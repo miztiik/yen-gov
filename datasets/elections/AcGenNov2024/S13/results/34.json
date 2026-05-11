@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "WASHIM (SC)",
+  "totals": {
+    "electors": 369051,
+    "votes_polled": 245331,
+    "turnout_pct": 66.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHYAM RAMCHARAN KHODE",
+      "party_short": "BJP",
+      "votes": 122914,
+      "vote_share_pct": 50.1,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SIDDHARTH AKARAMJI DEOLE",
+      "party_short": "SHSUBT",
+      "votes": 103040,
+      "vote_share_pct": 42.0
+    },
+    {
+      "rank": 3,
+      "name": "MEGHA KIRAN DONGARE",
+      "party_short": "VBA",
+      "votes": 9264,
+      "vote_share_pct": 3.78
+    },
+    {
+      "rank": 4,
+      "name": "GAJANAN NIVRUTTI VAIRAGADE",
+      "party_short": "MNS",
+      "votes": 1517,
+      "vote_share_pct": 0.62
+    },
+    {
+      "rank": 5,
+      "name": "SUBHASH KHANDU PATTEBAHADUR",
+      "party_short": "IND",
+      "votes": 1184,
+      "vote_share_pct": 0.48
+    }
+  ],
+  "nota": {
+    "votes": 507,
+    "vote_share_pct": 0.21
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 6905,
+    "vote_share_pct": 2.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHYAM RAMCHARAN KHODE",
+    "party_short": "BJP",
+    "votes": 122914,
+    "margin_votes": 19874,
+    "margin_pct": 8.1
+  }
+}

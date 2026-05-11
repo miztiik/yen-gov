@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 256,
+  "constituency_name": "WAI",
+  "totals": {
+    "electors": 348113,
+    "votes_polled": 236827,
+    "turnout_pct": 68.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAKRAND LAXMANRAO JADHAV (PATIL)",
+      "party_short": "NCP",
+      "votes": 140971,
+      "vote_share_pct": 59.52,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "ARUNADEVI SHASHIKANT PISAL",
+      "party_short": "NCPSP",
+      "votes": 79579,
+      "vote_share_pct": 33.6
+    },
+    {
+      "rank": 3,
+      "name": "PURUSHOTTAM BAJIRAO JADHAV",
+      "party_short": "IND",
+      "votes": 4695,
+      "vote_share_pct": 1.98
+    },
+    {
+      "rank": 4,
+      "name": "GANESH DADA KESKAR",
+      "party_short": "IND",
+      "votes": 2301,
+      "vote_share_pct": 0.97
+    },
+    {
+      "rank": 5,
+      "name": "SUHAS EKNATH MORE",
+      "party_short": "IND",
+      "votes": 1904,
+      "vote_share_pct": 0.8
+    }
+  ],
+  "nota": {
+    "votes": 1786,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5591,
+    "vote_share_pct": 2.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAKRAND LAXMANRAO JADHAV (PATIL)",
+    "party_short": "NCP",
+    "votes": 140971,
+    "margin_votes": 61392,
+    "margin_pct": 25.92
+  }
+}

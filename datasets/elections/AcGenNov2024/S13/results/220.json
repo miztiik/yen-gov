@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 220,
+  "constituency_name": "SHRIRAMPUR (SC)",
+  "totals": {
+    "electors": 309518,
+    "votes_polled": 218755,
+    "turnout_pct": 70.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "OGALE HEMANT BHUJANGRAO",
+      "party_short": "INC",
+      "votes": 66099,
+      "vote_share_pct": 30.22,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BHAUSAHEB MALHARI KAMBLE",
+      "party_short": "SHS",
+      "votes": 52726,
+      "vote_share_pct": 24.1
+    },
+    {
+      "rank": 3,
+      "name": "SAGAR ASHOK BEG",
+      "party_short": "IND",
+      "votes": 47860,
+      "vote_share_pct": 21.88
+    },
+    {
+      "rank": 4,
+      "name": "KANADE LAHU NATHA",
+      "party_short": "NCP",
+      "votes": 42571,
+      "vote_share_pct": 19.46
+    },
+    {
+      "rank": 5,
+      "name": "ANAND ALIAS ANNASAHEB APPAJI MOHAN",
+      "party_short": "VBA",
+      "votes": 2222,
+      "vote_share_pct": 1.02
+    }
+  ],
+  "nota": {
+    "votes": 675,
+    "vote_share_pct": 0.31
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 6602,
+    "vote_share_pct": 3.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "OGALE HEMANT BHUJANGRAO",
+    "party_short": "INC",
+    "votes": 66099,
+    "margin_votes": 13373,
+    "margin_pct": 6.11
+  }
+}

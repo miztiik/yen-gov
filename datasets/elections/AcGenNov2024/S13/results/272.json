@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 272,
+  "constituency_name": "RADHANAGARI",
+  "totals": {
+    "electors": 345530,
+    "votes_polled": 273061,
+    "turnout_pct": 79.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABITKAR PRAKASH ANANDRAO",
+      "party_short": "SHS",
+      "votes": 144359,
+      "vote_share_pct": 52.87,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "KRISHNARAO PARSHRAM ALIAS K. P. PATIL",
+      "party_short": "SHSUBT",
+      "votes": 106100,
+      "vote_share_pct": 38.86
+    },
+    {
+      "rank": 3,
+      "name": "ANANDRAO YASHWANT ALIAS A. Y. PATIL",
+      "party_short": "IND",
+      "votes": 19117,
+      "vote_share_pct": 7.0
+    },
+    {
+      "rank": 4,
+      "name": "K. P. PATIL",
+      "party_short": "IND",
+      "votes": 1157,
+      "vote_share_pct": 0.42
+    },
+    {
+      "rank": 5,
+      "name": "YUVRAJ RAMCHANDRA YEDURE",
+      "party_short": "MNS",
+      "votes": 614,
+      "vote_share_pct": 0.22
+    }
+  ],
+  "nota": {
+    "votes": 996,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 718,
+    "vote_share_pct": 0.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABITKAR PRAKASH ANANDRAO",
+    "party_short": "SHS",
+    "votes": 144359,
+    "margin_votes": 38259,
+    "margin_pct": 14.01
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S02",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Mebo (ST)",
+  "totals": {
+    "electors": 12436,
+    "votes_polled": 11693,
+    "turnout_pct": 94.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Oken Tayeng",
+      "party_short": "PPA",
+      "votes": 6287,
+      "vote_share_pct": 53.77,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Lombo Tayeng",
+      "party_short": "BJP",
+      "votes": 5270,
+      "vote_share_pct": 45.07
+    },
+    {
+      "rank": 3,
+      "name": "Shoney Pertin",
+      "party_short": "IND",
+      "votes": 105,
+      "vote_share_pct": 0.9
+    }
+  ],
+  "nota": {
+    "votes": 31,
+    "vote_share_pct": 0.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Oken Tayeng",
+    "party_short": "PPA",
+    "votes": 6287,
+    "margin_votes": 1017,
+    "margin_pct": 8.7
+  },
+  "others": null
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 95,
+  "constituency_name": "Mahanga",
+  "totals": {
+    "electors": 271535,
+    "votes_polled": 206802,
+    "turnout_pct": 76.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sarada Prasad Padhan",
+      "party_short": "IND",
+      "votes": 88632,
+      "vote_share_pct": 42.86,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ankit Pratap Jena",
+      "party_short": "BJD",
+      "votes": 81209,
+      "vote_share_pct": 39.27
+    },
+    {
+      "rank": 3,
+      "name": "Sumanta Kumar Ghadei",
+      "party_short": "BJP",
+      "votes": 19481,
+      "vote_share_pct": 9.42
+    },
+    {
+      "rank": 4,
+      "name": "Debendra Kumar Sahoo",
+      "party_short": "INC",
+      "votes": 14796,
+      "vote_share_pct": 7.15
+    },
+    {
+      "rank": 5,
+      "name": "Sarada Prasad Das",
+      "party_short": "AAAP",
+      "votes": 543,
+      "vote_share_pct": 0.26
+    }
+  ],
+  "nota": {
+    "votes": 525,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1616,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sarada Prasad Padhan",
+    "party_short": "IND",
+    "votes": 88632,
+    "margin_votes": 7423,
+    "margin_pct": 3.59
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 102,
+  "constituency_name": "Yerragondapalem (SC) (SC)",
+  "totals": {
+    "electors": 207435,
+    "votes_polled": 185725,
+    "turnout_pct": 89.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chandra Sekhar Tatiparthi",
+      "party_short": "YSRCP",
+      "votes": 91741,
+      "vote_share_pct": 49.4,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Erixion Babu Guduri",
+      "party_short": "TDP",
+      "votes": 86541,
+      "vote_share_pct": 46.6
+    },
+    {
+      "rank": 3,
+      "name": "Ajitha Rao Budala",
+      "party_short": "INC",
+      "votes": 2192,
+      "vote_share_pct": 1.18
+    },
+    {
+      "rank": 4,
+      "name": "Kota Pitchaiah",
+      "party_short": "BSP",
+      "votes": 1330,
+      "vote_share_pct": 0.72
+    },
+    {
+      "rank": 5,
+      "name": "Turaka Ratna Paul",
+      "party_short": "IND",
+      "votes": 368,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 2231,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1322,
+    "vote_share_pct": 0.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chandra Sekhar Tatiparthi",
+    "party_short": "YSRCP",
+    "votes": 91741,
+    "margin_votes": 5200,
+    "margin_pct": 2.8
+  }
+}

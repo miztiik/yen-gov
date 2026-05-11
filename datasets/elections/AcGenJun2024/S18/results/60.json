@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:08Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S18",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "Talcher",
+  "totals": {
+    "electors": 164354,
+    "votes_polled": 128565,
+    "turnout_pct": 78.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Braja Kishore Pradhan",
+      "party_short": "BJD",
+      "votes": 75621,
+      "vote_share_pct": 58.82,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kalandi Charan Samal",
+      "party_short": "BJP",
+      "votes": 43499,
+      "vote_share_pct": 33.83
+    },
+    {
+      "rank": 3,
+      "name": "Prafulla Chandra Das",
+      "party_short": "INC",
+      "votes": 6189,
+      "vote_share_pct": 4.81
+    },
+    {
+      "rank": 4,
+      "name": "Prahlada Chandra Sahoo",
+      "party_short": "SUCI",
+      "votes": 445,
+      "vote_share_pct": 0.35
+    },
+    {
+      "rank": 5,
+      "name": "Santosh Kumar Sahu",
+      "party_short": "IND",
+      "votes": 385,
+      "vote_share_pct": 0.3
+    }
+  ],
+  "nota": {
+    "votes": 976,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1450,
+    "vote_share_pct": 1.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Braja Kishore Pradhan",
+    "party_short": "BJD",
+    "votes": 75621,
+    "margin_votes": 32122,
+    "margin_pct": 24.99
+  }
+}

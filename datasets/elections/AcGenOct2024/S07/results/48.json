@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "UKLANA (SC)",
+  "totals": {
+    "electors": 216680,
+    "votes_polled": 144715,
+    "turnout_pct": 66.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Naresh Selwal",
+      "party_short": "INC",
+      "votes": 78448,
+      "vote_share_pct": 54.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Anoop Dhanak",
+      "party_short": "BJP",
+      "votes": 50356,
+      "vote_share_pct": 34.8
+    },
+    {
+      "rank": 3,
+      "name": "Balraj Singh",
+      "party_short": "INLD",
+      "votes": 11447,
+      "vote_share_pct": 7.91
+    },
+    {
+      "rank": 4,
+      "name": "Narender Khanna",
+      "party_short": "AAAP",
+      "votes": 2050,
+      "vote_share_pct": 1.42
+    },
+    {
+      "rank": 5,
+      "name": "Rohtash",
+      "party_short": "JNJP",
+      "votes": 1218,
+      "vote_share_pct": 0.84
+    }
+  ],
+  "nota": {
+    "votes": 627,
+    "vote_share_pct": 0.43
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 569,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Naresh Selwal",
+    "party_short": "INC",
+    "votes": 78448,
+    "margin_votes": 28092,
+    "margin_pct": 19.41
+  }
+}

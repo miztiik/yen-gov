@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "election": "AcGenJun2024",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 63,
+  "constituency_name": "Ungutur",
+  "totals": {
+    "electors": 206634,
+    "votes_polled": 182623,
+    "turnout_pct": 88.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dharmaraju Patsamatla",
+      "party_short": "JnP",
+      "votes": 108894,
+      "vote_share_pct": 59.63,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Puppala Srinivasa Rao (vasu Babu)",
+      "party_short": "YSRCP",
+      "votes": 63949,
+      "vote_share_pct": 35.02
+    },
+    {
+      "rank": 3,
+      "name": "Pathapati Hari Kumara Raju",
+      "party_short": "INC",
+      "votes": 3130,
+      "vote_share_pct": 1.71
+    },
+    {
+      "rank": 4,
+      "name": "Bunga Yesu",
+      "party_short": "BSP",
+      "votes": 1302,
+      "vote_share_pct": 0.71
+    },
+    {
+      "rank": 5,
+      "name": "Potla Dharmaraju",
+      "party_short": "NRCP",
+      "votes": 1070,
+      "vote_share_pct": 0.59
+    }
+  ],
+  "nota": {
+    "votes": 2105,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2173,
+    "vote_share_pct": 1.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dharmaraju Patsamatla",
+    "party_short": "JnP",
+    "votes": 108894,
+    "margin_votes": 44945,
+    "margin_pct": 24.61
+  }
+}

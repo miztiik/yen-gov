@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 80,
+  "constituency_name": "ARNI (ST)",
+  "totals": {
+    "electors": 322160,
+    "votes_polled": 235542,
+    "turnout_pct": 73.11
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJU NARAYAN TODSAM",
+      "party_short": "BJP",
+      "votes": 127203,
+      "vote_share_pct": 54.0,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "JITENDRA SHIVAJI MOGHE",
+      "party_short": "INC",
+      "votes": 97890,
+      "vote_share_pct": 41.56
+    },
+    {
+      "rank": 3,
+      "name": "NEETA ANANDRAO MADAVI",
+      "party_short": "PHJSP",
+      "votes": 1804,
+      "vote_share_pct": 0.77
+    },
+    {
+      "rank": 4,
+      "name": "BABAN SRINIWAS SOYAM",
+      "party_short": "BSP",
+      "votes": 1700,
+      "vote_share_pct": 0.72
+    },
+    {
+      "rank": 5,
+      "name": "ADV. AJAY DATTA ATRAM",
+      "party_short": "IND",
+      "votes": 1313,
+      "vote_share_pct": 0.56
+    }
+  ],
+  "nota": {
+    "votes": 1569,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4063,
+    "vote_share_pct": 1.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJU NARAYAN TODSAM",
+    "party_short": "BJP",
+    "votes": 127203,
+    "margin_votes": 29313,
+    "margin_pct": 12.44
+  }
+}

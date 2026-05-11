@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 61,
+  "constituency_name": "SILLI",
+  "totals": {
+    "electors": 225111,
+    "votes_polled": 174572,
+    "turnout_pct": 77.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMIT KUMAR",
+      "party_short": "JMM",
+      "votes": 73169,
+      "vote_share_pct": 41.91,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SUDESH KUMAR MAHTO",
+      "party_short": "AJSUP",
+      "votes": 49302,
+      "vote_share_pct": 28.24
+    },
+    {
+      "rank": 3,
+      "name": "DEVENDRA NATH MAHTO",
+      "party_short": "JLKM",
+      "votes": 41725,
+      "vote_share_pct": 23.9
+    },
+    {
+      "rank": 4,
+      "name": "HEMANTI DEVI",
+      "party_short": "IND",
+      "votes": 1620,
+      "vote_share_pct": 0.93
+    },
+    {
+      "rank": 5,
+      "name": "VIKAS SINGH MUNDA",
+      "party_short": "IND",
+      "votes": 1449,
+      "vote_share_pct": 0.83
+    }
+  ],
+  "nota": {
+    "votes": 1313,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5994,
+    "vote_share_pct": 3.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMIT KUMAR",
+    "party_short": "JMM",
+    "votes": 73169,
+    "margin_votes": 23867,
+    "margin_pct": 13.67
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "PALAM",
+  "totals": {
+    "electors": 259806,
+    "votes_polled": 162615,
+    "turnout_pct": 62.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KULDEEP SOLANKI",
+      "party_short": "BJP",
+      "votes": 82046,
+      "vote_share_pct": 50.45,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "JOGINDER SOLANKI",
+      "party_short": "AAAP",
+      "votes": 73094,
+      "vote_share_pct": 44.95
+    },
+    {
+      "rank": 3,
+      "name": "MANGE RAM",
+      "party_short": "INC",
+      "votes": 4697,
+      "vote_share_pct": 2.89
+    },
+    {
+      "rank": 4,
+      "name": "GEETA",
+      "party_short": "BSP",
+      "votes": 810,
+      "vote_share_pct": 0.5
+    },
+    {
+      "rank": 5,
+      "name": "DILIP KUMAR",
+      "party_short": "CPI",
+      "votes": 326,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 1119,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 523,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KULDEEP SOLANKI",
+    "party_short": "BJP",
+    "votes": 82046,
+    "margin_votes": 8952,
+    "margin_pct": 5.51
+  }
+}

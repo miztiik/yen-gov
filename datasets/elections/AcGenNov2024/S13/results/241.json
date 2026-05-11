@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 241,
+  "constituency_name": "TULJAPUR",
+  "totals": {
+    "electors": 383672,
+    "votes_polled": 259489,
+    "turnout_pct": 67.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RANAJAGJITSINHA PADMASINHA PATIL",
+      "party_short": "BJP",
+      "votes": 131863,
+      "vote_share_pct": 50.82,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "KULDEEP DHIRAJ APPASAHEB KADAM PATIL",
+      "party_short": "INC",
+      "votes": 94984,
+      "vote_share_pct": 36.6
+    },
+    {
+      "rank": 3,
+      "name": "ROCHKARI DEVANAND SAHEBRAO",
+      "party_short": "SP",
+      "votes": 16335,
+      "vote_share_pct": 6.3
+    },
+    {
+      "rank": 4,
+      "name": "DR.SNEHA APPARAO SONKATE",
+      "party_short": "VBA",
+      "votes": 7908,
+      "vote_share_pct": 3.05
+    },
+    {
+      "rank": 5,
+      "name": "ANNASAHEB RAGHUNATH DARADE",
+      "party_short": "PHJSP",
+      "votes": 1438,
+      "vote_share_pct": 0.55
+    }
+  ],
+  "nota": {
+    "votes": 769,
+    "vote_share_pct": 0.3
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 6192,
+    "vote_share_pct": 2.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RANAJAGJITSINHA PADMASINHA PATIL",
+    "party_short": "BJP",
+    "votes": 131863,
+    "margin_votes": 36879,
+    "margin_pct": 14.21
+  }
+}

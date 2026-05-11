@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "KAROL BAGH (SC)",
+  "totals": {
+    "electors": 187987,
+    "votes_polled": 102794,
+    "turnout_pct": 54.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VISHESH RAVI",
+      "party_short": "AAAP",
+      "votes": 52297,
+      "vote_share_pct": 50.88,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "DUSHYANT GAUTAM",
+      "party_short": "BJP",
+      "votes": 44867,
+      "vote_share_pct": 43.65
+    },
+    {
+      "rank": 3,
+      "name": "RAHUL KUMAR",
+      "party_short": "INC",
+      "votes": 4252,
+      "vote_share_pct": 4.14
+    },
+    {
+      "rank": 4,
+      "name": "RANJEET",
+      "party_short": "BSP",
+      "votes": 626,
+      "vote_share_pct": 0.61
+    },
+    {
+      "rank": 5,
+      "name": "SHIV KUMAR",
+      "party_short": "RAM",
+      "votes": 116,
+      "vote_share_pct": 0.11
+    }
+  ],
+  "nota": {
+    "votes": 548,
+    "vote_share_pct": 0.53
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 88,
+    "vote_share_pct": 0.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VISHESH RAVI",
+    "party_short": "AAAP",
+    "votes": 52297,
+    "margin_votes": 7430,
+    "margin_pct": 7.23
+  }
+}

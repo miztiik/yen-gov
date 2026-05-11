@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 240,
+  "constituency_name": "UMARGA (SC)",
+  "totals": {
+    "electors": 316046,
+    "votes_polled": 197773,
+    "turnout_pct": 62.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRAVIN VIRBHADRAYYA SWAMI (SIR)",
+      "party_short": "SHSUBT",
+      "votes": 96206,
+      "vote_share_pct": 48.64,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "CHOUGULE DNYANRAJ DHONDIRAM",
+      "party_short": "SHS",
+      "votes": 92241,
+      "vote_share_pct": 46.64
+    },
+    {
+      "rank": 3,
+      "name": "RAM SAIDA GAIKWAD",
+      "party_short": "VBA",
+      "votes": 4087,
+      "vote_share_pct": 2.07
+    },
+    {
+      "rank": 4,
+      "name": "SUNANDA SHANKAR RASAL",
+      "party_short": "BSP",
+      "votes": 1176,
+      "vote_share_pct": 0.59
+    },
+    {
+      "rank": 5,
+      "name": "SHRIRANG KERNATH SARWADE",
+      "party_short": "IND",
+      "votes": 845,
+      "vote_share_pct": 0.43
+    }
+  ],
+  "nota": {
+    "votes": 1330,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1888,
+    "vote_share_pct": 0.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRAVIN VIRBHADRAYYA SWAMI (SIR)",
+    "party_short": "SHSUBT",
+    "votes": 96206,
+    "margin_votes": 3965,
+    "margin_pct": 2.0
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "MANDU",
+  "totals": {
+    "electors": 431888,
+    "votes_polled": 285343,
+    "turnout_pct": 66.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NIRMAL MAHTO",
+      "party_short": "AJSUP",
+      "votes": 90871,
+      "vote_share_pct": 31.85,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "JAI PRAKASH BHAI PATEL",
+      "party_short": "INC",
+      "votes": 90640,
+      "vote_share_pct": 31.77
+    },
+    {
+      "rank": 3,
+      "name": "BIHARI KUMAR",
+      "party_short": "JLKM",
+      "votes": 71276,
+      "vote_share_pct": 24.98
+    },
+    {
+      "rank": 4,
+      "name": "MOHAMMAD NAZIR ANSARI",
+      "party_short": "ASPKR",
+      "votes": 10198,
+      "vote_share_pct": 3.57
+    },
+    {
+      "rank": 5,
+      "name": "MAHESH TIGGA",
+      "party_short": "IND",
+      "votes": 4752,
+      "vote_share_pct": 1.67
+    }
+  ],
+  "nota": {
+    "votes": 1011,
+    "vote_share_pct": 0.35
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 16595,
+    "vote_share_pct": 5.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NIRMAL MAHTO",
+    "party_short": "AJSUP",
+    "votes": 90871,
+    "margin_votes": 231,
+    "margin_pct": 0.08
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 266,
+  "constituency_name": "RATNAGIRI",
+  "totals": {
+    "electors": 291263,
+    "votes_polled": 187602,
+    "turnout_pct": 64.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UDAY RAVINDRA SAMANT",
+      "party_short": "SHS",
+      "votes": 111335,
+      "vote_share_pct": 59.35,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "BAL MANE",
+      "party_short": "SHSUBT",
+      "votes": 69745,
+      "vote_share_pct": 37.18
+    },
+    {
+      "rank": 3,
+      "name": "JYOTIPRABHA PRABHAKAR PATIL",
+      "party_short": "IND",
+      "votes": 1061,
+      "vote_share_pct": 0.57
+    },
+    {
+      "rank": 4,
+      "name": "BHARAT SITARAM PAWAR",
+      "party_short": "BSP",
+      "votes": 1002,
+      "vote_share_pct": 0.53
+    },
+    {
+      "rank": 5,
+      "name": "PANKAJ PRATAP TODANKAR",
+      "party_short": "IND",
+      "votes": 603,
+      "vote_share_pct": 0.32
+    }
+  ],
+  "nota": {
+    "votes": 3073,
+    "vote_share_pct": 1.64
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 783,
+    "vote_share_pct": 0.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UDAY RAVINDRA SAMANT",
+    "party_short": "SHS",
+    "votes": 111335,
+    "margin_votes": 41590,
+    "margin_pct": 22.17
+  }
+}

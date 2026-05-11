@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:23Z"
+    }
+  ],
+  "election": "AcGenOct2024",
+  "state": "U08",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "DOORU",
+  "totals": {
+    "electors": 117320,
+    "votes_polled": 72397,
+    "turnout_pct": 61.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gulam Ahmad Mir",
+      "party_short": "INC",
+      "votes": 44270,
+      "vote_share_pct": 61.15,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mohammad Ashraf Malik",
+      "party_short": "JKPDP",
+      "votes": 14542,
+      "vote_share_pct": 20.09
+    },
+    {
+      "rank": 3,
+      "name": "Mohamad Saleem Paray",
+      "party_short": "DPAP",
+      "votes": 2877,
+      "vote_share_pct": 3.97
+    },
+    {
+      "rank": 4,
+      "name": "Hilal Ahmad Malik",
+      "party_short": "IND",
+      "votes": 2292,
+      "vote_share_pct": 3.17
+    },
+    {
+      "rank": 5,
+      "name": "Bashir Ahmad Wani",
+      "party_short": "JAKAP",
+      "votes": 2108,
+      "vote_share_pct": 2.91
+    }
+  ],
+  "nota": {
+    "votes": 2662,
+    "vote_share_pct": 3.68
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3646,
+    "vote_share_pct": 5.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gulam Ahmad Mir",
+    "party_short": "INC",
+    "votes": 44270,
+    "margin_votes": 29728,
+    "margin_pct": 41.06
+  }
+}

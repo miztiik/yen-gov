@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "RITHALA",
+  "totals": {
+    "electors": 322320,
+    "votes_polled": 187164,
+    "turnout_pct": 58.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KULWANT RANA",
+      "party_short": "BJP",
+      "votes": 104371,
+      "vote_share_pct": 55.76,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "MOHINDER GOYAL",
+      "party_short": "AAAP",
+      "votes": 74755,
+      "vote_share_pct": 39.94
+    },
+    {
+      "rank": 3,
+      "name": "SUSHANT MISHRA",
+      "party_short": "INC",
+      "votes": 5258,
+      "vote_share_pct": 2.81
+    },
+    {
+      "rank": 4,
+      "name": "NEYAZ KHAN",
+      "party_short": "BSP",
+      "votes": 619,
+      "vote_share_pct": 0.33
+    },
+    {
+      "rank": 5,
+      "name": "ASHOK JAIN",
+      "party_short": "YBRP",
+      "votes": 213,
+      "vote_share_pct": 0.11
+    }
+  ],
+  "nota": {
+    "votes": 1235,
+    "vote_share_pct": 0.66
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 713,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KULWANT RANA",
+    "party_short": "BJP",
+    "votes": 104371,
+    "margin_votes": 29616,
+    "margin_pct": 15.82
+  }
+}

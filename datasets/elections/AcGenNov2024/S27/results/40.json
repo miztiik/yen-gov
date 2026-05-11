@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
+      "fetched_at": "2026-05-11T17:41:33Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 40,
+  "constituency_name": "DHANBAD",
+  "totals": {
+    "electors": 468605,
+    "votes_polled": 252960,
+    "turnout_pct": 53.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJ SINHA",
+      "party_short": "BJP",
+      "votes": 136336,
+      "vote_share_pct": 53.9,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "AJAY KUMAR DUBEY",
+      "party_short": "INC",
+      "votes": 87595,
+      "vote_share_pct": 34.63
+    },
+    {
+      "rank": 3,
+      "name": "SAPAN KUMAR MODAK",
+      "party_short": "JLKM",
+      "votes": 16664,
+      "vote_share_pct": 6.59
+    },
+    {
+      "rank": 4,
+      "name": "RUBINA NAZ",
+      "party_short": "IND",
+      "votes": 1477,
+      "vote_share_pct": 0.58
+    },
+    {
+      "rank": 5,
+      "name": "ANABARI KHATOON",
+      "party_short": "BSP",
+      "votes": 1248,
+      "vote_share_pct": 0.49
+    }
+  ],
+  "nota": {
+    "votes": 1735,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 7905,
+    "vote_share_pct": 3.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJ SINHA",
+    "party_short": "BJP",
+    "votes": 136336,
+    "margin_votes": 48741,
+    "margin_pct": 19.27
+  }
+}

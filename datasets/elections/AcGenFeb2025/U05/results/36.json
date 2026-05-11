@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "election": "AcGenFeb2025",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 36,
+  "constituency_name": "BIJWASAN",
+  "totals": {
+    "electors": 212804,
+    "votes_polled": 130504,
+    "turnout_pct": 61.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KAILASH GAHLOT",
+      "party_short": "BJP",
+      "votes": 64951,
+      "vote_share_pct": 49.77,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "SURENDER BHARDWAJ",
+      "party_short": "AAAP",
+      "votes": 53675,
+      "vote_share_pct": 41.13
+    },
+    {
+      "rank": 3,
+      "name": "COL DEVINDER KUMAR SEHRAWAT",
+      "party_short": "INC",
+      "votes": 9409,
+      "vote_share_pct": 7.21
+    },
+    {
+      "rank": 4,
+      "name": "KAMAL SINGH",
+      "party_short": "BSP",
+      "votes": 702,
+      "vote_share_pct": 0.54
+    },
+    {
+      "rank": 5,
+      "name": "MONIS KURESHI",
+      "party_short": "IND",
+      "votes": 225,
+      "vote_share_pct": 0.17
+    }
+  ],
+  "nota": {
+    "votes": 756,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 786,
+    "vote_share_pct": 0.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KAILASH GAHLOT",
+    "party_short": "BJP",
+    "votes": 64951,
+    "margin_votes": 11276,
+    "margin_pct": 8.64
+  }
+}

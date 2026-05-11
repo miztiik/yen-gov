@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
+      "fetched_at": "2026-05-11T17:41:27Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
+      "fetched_at": "2026-05-11T17:41:28Z"
+    }
+  ],
+  "election": "AcGenNov2024",
+  "state": "S13",
+  "body": "AC",
+  "eci_no": 288,
+  "constituency_name": "JAT",
+  "totals": {
+    "electors": 292456,
+    "votes_polled": 213041,
+    "turnout_pct": 72.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GOPICHAND KUNDLIK PADALKAR",
+      "party_short": "BJP",
+      "votes": 113737,
+      "vote_share_pct": 53.39,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "VIKRAMSINH BALASO SAWANT",
+      "party_short": "INC",
+      "votes": 75497,
+      "vote_share_pct": 35.44
+    },
+    {
+      "rank": 3,
+      "name": "TAMMANGOUDA ISHWARAPPA RAVI-PATIL",
+      "party_short": "IND",
+      "votes": 19426,
+      "vote_share_pct": 9.12
+    },
+    {
+      "rank": 4,
+      "name": "VIKRAM DADASO DHONE",
+      "party_short": "BSP",
+      "votes": 1514,
+      "vote_share_pct": 0.71
+    },
+    {
+      "rank": 5,
+      "name": "KADAM SATISH LALITA KRISHNA",
+      "party_short": "HJP",
+      "votes": 621,
+      "vote_share_pct": 0.29
+    }
+  ],
+  "nota": {
+    "votes": 1019,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1227,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GOPICHAND KUNDLIK PADALKAR",
+    "party_short": "BJP",
+    "votes": 113737,
+    "margin_votes": 38240,
+    "margin_pct": 17.95
+  }
+}
