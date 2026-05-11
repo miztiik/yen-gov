@@ -1,10 +1,10 @@
 # Data Sources
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-11
 
-> The "look here first" catalogue. Every external place yen-gov pulls — or might pull — election data from is listed below, with what it covers, what format it ships, and when to use (or avoid) it. When enriching data in future, start here.
+> The "look here first" catalogue. Every external place yen-gov pulls — or might pull — data from is listed below, with what it covers, what format it ships, and when to use (or avoid) it. When enriching data in future, start here.
 >
-> The hierarchy is enforced by the [authority hierarchy for past elections](../architecture/backend/sources-eci.md#authority-hierarchy-for-past-elections): **ECI is the canonical source**; everything else is bootstrap, enrichment, or cross-check.
+> The hierarchy for **election data** is enforced by the [authority hierarchy for past elections](../architecture/backend/sources-eci.md#authority-hierarchy-for-past-elections): **ECI is the canonical source**; everything else is bootstrap, enrichment, or cross-check. Non-election data (fiscal, energy, demographics) follow per-domain authority — see the per-source sections below.
 
 ## Source authority order
 
@@ -112,6 +112,28 @@ https://en.wikipedia.org/wiki/List_of_districts_of_<State>
 
 Wikipedia is excellent for fast structured tables and for human-readable history fields (`established_year`, mergers). Per [backend/sources-wikipedia.md](../architecture/backend/sources-wikipedia.md) and CLAUDE.md §10, never the *only* source for a `complete` file.
 
+## RBI — *State Finances: A Study of Budgets* (fiscal indicators)
+
+**Authority/listing page**: <https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets>
+
+The Reserve Bank of India publishes this volume annually (typically December–January). It is the **canonical source for cross-state fiscal-indicator series** — own-tax revenue, revenue/fiscal deficit, outstanding debt, interest payments, capital outlay, central transfers — for every state and the two UTs with legislatures (Delhi, Puducherry). RBI compiles it from each state government's Budget documents and applies a uniform classification, which makes the series comparable across states in a way the underlying state budgets are not.
+
+**Layout we depend on**: each Statement / Appendix Table ships as **its own XLSX** on the listing page (87 files in the Jan 23, 2026 edition). URL slugs include a `DDMMYYYY` date stamp and an opaque hex hash, so URLs change wholesale every edition — there is no stable redirect. The pinned-URL registry lives in [`backend/yen_gov/sources/rbi_xlsx/urls.py`](../../backend/yen_gov/sources/rbi_xlsx/urls.py); recon procedure for new editions is in [backend/sources-rbi.md](../architecture/backend/sources-rbi.md).
+
+**Statements currently consumed** (Jan 23, 2026 edition, FY 2025-26 budgets):
+
+| Statement | Title | Indicator id | URL |
+| --------- | ----- | ------------ | --- |
+| 20 | Total Outstanding Liabilities of State Governments — As per cent of GSDP | `fiscal/outstanding_debt_pct_gsdp` | <https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/20_ST2301202696AC652FC4CE482EAAD928FC544CD86A.XLSX> |
+
+More Statements (revenue deficit, fiscal deficit, interest payments, central transfers, capital outlay, own-tax, own non-tax) are queued — see [backend/sources-rbi.md](../architecture/backend/sources-rbi.md) for the per-Statement → indicator mapping and the honesty fields each indicator carries (`direction`, `comparability`, `attribution_geography`, `funding_split`).
+
+**Network note**: RBI's CDN (`rbidocs.rbi.org.in`) rejects non-browser User-Agents with an HTML error page (which then fails XLSX parsing). The `ingest-fiscal-rbi` CLI passes a Chrome-style UA for this source only — every other adapter retains the project's `yen-gov/0.1` UA. Documented inline in `backend/yen_gov/cli.py` at the call site.
+
+**License**: Government of India open publication (`GoI-Open`, redistributable). The license URL on each artifact points at <https://data.gov.in/government-open-data-license-india>.
+
+## Wikipedia
+
 ## What does NOT belong in `sources[]`
 
 (Recap — see [`docs/concepts/data-provenance.md`](../concepts/data-provenance.md) for the canonical rule.)
@@ -126,6 +148,7 @@ Wikipedia is excellent for fast structured tables and for human-readable history
 - [`docs/concepts/disclaimer.md`](../concepts/disclaimer.md) — user-facing disclaimer wording (boundaries are community-contributed, data is best-effort, etc.); rendered by the app's About page.
 - [backend/sources-eci.md](../architecture/backend/sources-eci.md) — ECI results portal adapter conventions and authority hierarchy for past elections.
 - [backend/sources-wikipedia.md](../architecture/backend/sources-wikipedia.md) — Wikipedia adapter scope.
+- [backend/sources-rbi.md](../architecture/backend/sources-rbi.md) — RBI *State Finances* adapter contract, per-Statement → indicator mapping, recon procedure for new editions.
 - [data-model.md](../architecture/data-model.md#constituency-hierarchy-and-status-lifecycle) — `status: complete` requires an ECI source.
 - [`docs/concepts/data-provenance.md`](../concepts/data-provenance.md) — `sources[]` contract.
 - [`docs/concepts/electoral-hierarchy.md`](../concepts/electoral-hierarchy.md) — what each source can authoritatively tell us about.
