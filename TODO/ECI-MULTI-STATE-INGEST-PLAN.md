@@ -29,30 +29,27 @@ This makes the button safe (no crashes from running emit on AP 2024) and surface
 
 **Done = GUI shows ⬇ XLSX (raw), ⬇ +PDF (raw), and 🚀 Full ingest (only on May-2026 pins) for each pin.**
 
-### N2 — Source partywise from Section 4, decouple from results portal (L3)
+### N2 — Source partywise from Section 4, decouple from results portal (L3) — SHIPPED with revised approach
 
-`eci-statreport-emit` cross-fetches a `partywise` HTML page to get numeric `eci_code` for each party short code. ECI's Statistical Report **already includes this**: Section 4 ("List of Political Parties Participated") has the same data in XLSX form for every state.
+**Recon finding (2026-05-11)**: Section 3 (List of Political Parties Participated) — NOT Section 4 as originally guessed — carries `(party_type, abbreviation, full_name)` triplets but NOT the numeric `eci_code` (e.g. 742 for BJP). The numeric code is published ONLY on the live-results portal partywise page. So Section 3 cannot replace partywise for archived events.
 
-Switch the emit pipeline to:
+**Approach taken**: branch the emit pipeline on a `has_partywise: bool` flag in the events registry.
+- **has_partywise=True** (5 May-2026 pins): unchanged behaviour — partywise cross-fetch + reconciliation + parties.json.
+- **has_partywise=False** (10 archived pins, 2024+2025): fetch Section 3 instead of partywise, leave `party_eci_code: null` on candidates (schema-allowed), skip reconciliation, skip `parties.json` (its schema requires numeric eci_code which we don't have).
 
-1. Parse Section 4 instead of the live-results partywise HTML.
-2. Drop the `--event`-derived URL builder from this code path entirely.
-3. Output path becomes `datasets/elections/<event>/<state>/` where `event` is still required (it's the on-disk grouping) but no longer constrains where data can be sourced from.
+This unlocks all 15 pinned states for parsed per-AC ingest, with the explicit understanding that the 10 archived ones lose the canonical party roster + the partywise reconciliation cross-check. The admin GUI surfaces this with an asterisk on the button label and an amber-700 (vs amber-500) tint.
 
-Once N2 lands, **all 15 pinned states unlock for full per-AC ingest**, regardless of whether their results portal still serves HTML.
+**Followup deferred**: a one-time backfill of `eci_code_by_short` from notification.eci.gov.in (party registration notifications) could resolve nulls retroactively without needing partywise. Not in N2 scope.
 
-Risk: Section 4 schema across states needs sampling — formats may differ between 2024 (Andhra) and 2026 (TN). One inspection pass before coding the parser.
+**Verified**: `eci-statreport-emit S21 2024` ran clean against ECI's live API, produced 32 schema-valid AC results, then was rolled back (the new event needs `datasets/events/in/eci/AcGenJun2024/election.json` metadata before it can land in the repo — separate per-cohort decision).
 
-### N3 — Legacy portal (2022-2023) — DEFER
+### N3 — Legacy portal (2022-2023) — STILL DEFERRED
 
-Twenty states (2022 cohort: Goa, Gujarat, HP, Manipur, Punjab, UP, Uttarakhand; 2023 cohort: Chhattisgarh, Karnataka, MP, Meghalaya, Mizoram, Nagaland, Rajasthan, Telangana, Tripura) have NO entry in the new ECI API (catalogue ends at category_id=27). Their data lives at `https://eci.gov.in/files/file/<id>-...pdf` on the legacy portal.
+Unchanged from original framing. Twenty states (2022 + 2023 cohorts) have NO entry in the new ECI API; their data lives at `https://eci.gov.in/files/file/<id>-...pdf` on the legacy portal. PDF table extraction is week+ work per state.
 
-Approaches if/when prioritized:
-- (a) **Manual PDF table extraction** with `pdfplumber` — accurate but slow per state.
-- (b) **Find a third-party ETL** (myneta.info, opencityprojects, datameet) and ingest from there with provenance pointing to both upstream and the original ECI PDF.
-- (c) **Wait for ECI back-fill** — they are rebuilding the legacy data into the new API gradually.
+**Why still deferred even after N2 shipped**: the ten newly-unlockable archived 2024-2025 states need `datasets/events/in/eci/<event>/election.json` cohort metadata before their parsed data can land in the repo (the integrity test enforces this). That's 5 cohorts of metadata work + per-state route additions in the public app. Doing N3's hard fetcher work BEFORE consuming the easy N2 data is bad ordering.
 
-**Recommendation**: defer until at least 5 of the 15 API-supported states have full ingest shipped. Don't optimize for the harder cohort first.
+**Recommended next slice if N3 truly wanted**: pick ONE state from N2's pool (e.g. S07 Haryana 2024 or U05 Delhi 2025), author its `election.json`, ingest it, wire up a public-app route, and learn what the rendering layer actually needs from a partywise-less event. THEN decide whether N3 is worth the cost.
 
 ### N4 — Indicator-first IA — ALREADY DONE
 

@@ -18,8 +18,9 @@ from yen_gov.pipeline.compose import (
 from yen_gov.pipeline.reference import scrape_state_reference
 from yen_gov.pipeline.run import parties_snapshot_from_partywise, run_state_slice
 from yen_gov.sources.eci.categories import category_id_for
-from yen_gov.sources.eci.events import event_id_for
+from yen_gov.sources.eci.events import event_info_for
 from yen_gov.sources.eci.partywise import parse_partywise
+from yen_gov.sources.eci.section3 import parse_section3_parties
 from yen_gov.sources.eci.statistical_report import (
     download_documents,
     fetch_catalog,
@@ -295,12 +296,19 @@ def eci_statreport_emit(
     # Default --event from the (state, year) registry. Explicit --event
     # still overrides for ad-hoc runs / future events not yet in the
     # registry. Per N1 of TODO/ECI-MULTI-STATE-INGEST-PLAN.md.
-    if event is None:
-        try:
-            event = event_id_for(state, year)
-        except KeyError as exc:
+    try:
+        info = event_info_for(state, year)
+    except KeyError as exc:
+        if event is None:
             raise typer.BadParameter(str(exc), param_hint="--event") from exc
-    typer.echo(f"event:       {event}")
+        # Caller passed an explicit --event for an unregistered (state, year).
+        # Assume no partywise; user takes responsibility.
+        from yen_gov.sources.eci.events import EventInfo  # local import OK
+        info = EventInfo(event_id=event, has_partywise=False)
+    if event is None:
+        event = info.event_id
+    has_partywise = info.has_partywise
+    typer.echo(f"event:       {event} (has_partywise={has_partywise})")
 
     output_dir = output or (root / "datasets" / "elections" / event / state)
     schema_dir = root / "datasets" / "schemas"
@@ -337,22 +345,56 @@ def eci_statreport_emit(
         fetched = fetcher.fetch(section_10.xlsx_url)
         raw = parse_detailed_results(fetched.content)
 
-        # Backfill numeric party_eci_code from the live-results partywise page.
-        # Section 10 carries SHORT codes only; the live-results table is the
-        # authoritative source for {short → numeric eci_code} mappings.
-        partywise_url = partywise_state_url(event, state)
-        partywise_fetched = fetcher.fetch(partywise_url)
-        partywise_snapshot = parse_partywise(partywise_fetched.content)
-        party_eci_codes = eci_code_by_short_from_partywise(partywise_snapshot)
-        typer.echo(
-            f"partywise:   {partywise_url} "
-            f"({len(party_eci_codes)} short->code mappings)"
-        )
+        partywise_snapshot = None
+        partywise_fetched = None
+        section_3_fetched = None
+        section_3_parties: list = []
+        if has_partywise:
+            # Backfill numeric party_eci_code from the live-results partywise page.
+            # Section 10 carries SHORT codes only; the live-results table is the
+            # authoritative source for {short → numeric eci_code} mappings.
+            partywise_url = partywise_state_url(event, state)
+            partywise_fetched = fetcher.fetch(partywise_url)
+            partywise_snapshot = parse_partywise(partywise_fetched.content)
+            party_eci_codes = eci_code_by_short_from_partywise(partywise_snapshot)
+            typer.echo(
+                f"partywise:   {partywise_url} "
+                f"({len(party_eci_codes)} short->code mappings)"
+            )
+        else:
+            # Archived event without a live-results portal page. Section 3
+            # (List of Political Parties Participated) gives short→full
+            # names but no numeric eci_code. party_eci_code on candidates
+            # stays null (schema-allowed); parties.json + reconciliation
+            # are skipped. Per N2 of TODO/ECI-MULTI-STATE-INGEST-PLAN.md.
+            party_eci_codes = {}
+            section_3 = next(
+                (d for d in catalog.documents if d.title.lstrip().startswith("3")),
+                None,
+            )
+            if section_3 is not None:
+                typer.echo(f"section 3:   {section_3.title}")
+                typer.echo(f"             {section_3.xlsx_url}")
+                section_3_fetched = fetcher.fetch(section_3.xlsx_url)
+                section_3_parties = parse_section3_parties(section_3_fetched.content)
+                typer.echo(
+                    f"             ({len(section_3_parties)} parties; "
+                    f"eci_code unresolved — partywise not available for this event)"
+                )
+            else:
+                typer.echo(
+                    "section 3:   (not found in catalog — parties roster will be empty)"
+                )
 
-    sources = [
-        SourceRef(url=fetched.url, fetched_at=fetched.fetched_at),
-        SourceRef(url=partywise_fetched.url, fetched_at=partywise_fetched.fetched_at),
-    ]
+    sources = [SourceRef(url=fetched.url, fetched_at=fetched.fetched_at)]
+    if partywise_fetched is not None:
+        sources.append(SourceRef(
+            url=partywise_fetched.url, fetched_at=partywise_fetched.fetched_at,
+        ))
+    elif section_3_fetched is not None:
+        sources.append(SourceRef(
+            url=section_3_fetched.url, fetched_at=section_3_fetched.fetched_at,
+        ))
     results = to_constituency_results(
         raw,
         election=event,
@@ -363,13 +405,18 @@ def eci_statreport_emit(
         party_eci_codes=party_eci_codes,
     )
 
-    # Cross-check: per-AC winners aggregated by party_short must match the
-    # partywise (seats_won + leading) numbers. Either source could be wrong;
-    # what matters is they agree before we publish. Fails loud — no partial
-    # writes if mismatched.
-    reconcile_winners_against_partywise(
-        partywise=partywise_snapshot, constituencies=results,
-    )
+    if partywise_snapshot is not None:
+        # Cross-check: per-AC winners aggregated by party_short must match
+        # the partywise (seats_won + leading) numbers. Either source could
+        # be wrong; what matters is they agree before we publish. Fails
+        # loud — no partial writes if mismatched.
+        reconcile_winners_against_partywise(
+            partywise=partywise_snapshot, constituencies=results,
+        )
+    else:
+        typer.echo(
+            "reconcile:   SKIPPED (no partywise snapshot; trusting Section 10 only)"
+        )
 
     results_dir = output_dir / "results"
     results_dir.mkdir(parents=True, exist_ok=True)
@@ -400,29 +447,35 @@ def eci_statreport_emit(
         schema_for_validation=summary_schema,
     )
 
-    # Emit parties.json from the partywise snapshot — same shape as the
-    # Phase A pipeline. Required by the SQLite emitter and downstream consumers
-    # that need the canonical {eci_code, short, full} party roster.
-    parties = parties_snapshot_from_partywise(
-        partywise_snapshot,
-        election=event,
-        sources=[SourceRef(
-            url=partywise_fetched.url,
-            fetched_at=partywise_fetched.fetched_at,
-        )],
-    )
-    parties_schema = json.loads(
-        (schema_dir / "party.schema.json").read_text(encoding="utf-8")
-    )
-    parties_path = output_dir / "parties.json"
-    write_artifact(
-        path=parties_path,
-        schema_id=parties._schema_id,
-        schema_version=parties._schema_version,
-        payload=parties.body_payload(),
-        sources=parties.sources_payload(),
-        schema_for_validation=parties_schema,
-    )
+    # parties.json is only emitted when the partywise snapshot is
+    # available — its schema requires a numeric eci_code per entry which
+    # cannot be sourced from the Statistical Report alone. Inventory and
+    # the SQLite emitter both treat parties.json as optional.
+    if partywise_snapshot is not None and partywise_fetched is not None:
+        parties = parties_snapshot_from_partywise(
+            partywise_snapshot,
+            election=event,
+            sources=[SourceRef(
+                url=partywise_fetched.url,
+                fetched_at=partywise_fetched.fetched_at,
+            )],
+        )
+        parties_schema = json.loads(
+            (schema_dir / "party.schema.json").read_text(encoding="utf-8")
+        )
+        parties_path = output_dir / "parties.json"
+        write_artifact(
+            path=parties_path,
+            schema_id=parties._schema_id,
+            schema_version=parties._schema_version,
+            payload=parties.body_payload(),
+            sources=parties.sources_payload(),
+            schema_for_validation=parties_schema,
+        )
+    else:
+        typer.echo(
+            "parties.json: SKIPPED (no partywise snapshot; numeric eci_code unknown)"
+        )
 
     typer.echo(
         f"emit: OK \u2014 {len(results)} ACs into {results_dir}"

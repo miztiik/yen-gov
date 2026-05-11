@@ -30,7 +30,7 @@
   // --- Pins state ---
   let pins = $state<EciPinEntry[]>([]);
   let pins_loaded_in_process = $state<{ state: string; year: number; category_id: number }[]>([]);
-  let events_registry = $state<{ state: string; year: number; event_id: string }[]>([]);
+  let events_registry = $state<{ state: string; year: number; event_id: string; has_partywise: boolean }[]>([]);
   let pins_error = $state<string | null>(null);
   let pin_form = $state({
     state: "",
@@ -183,18 +183,25 @@
     return events_registry.find(e => e.state === state && e.year === year)?.event_id ?? null;
   }
 
+  function eventInfoFor(state: string, year: number) {
+    return events_registry.find(e => e.state === state && e.year === year);
+  }
+
   async function fullIngest(p: EciPinEntry): Promise<void> {
     const key = `${p.state}-${p.year}`;
-    const eventId = eventIdFor(p.state, p.year);
-    if (!eventId) {
-      download_msg = { ...download_msg, [key]: `Error: no event registered for (${p.state}, ${p.year}). See TODO/ECI-MULTI-STATE-INGEST-PLAN.md (N2).` };
+    const info = eventInfoFor(p.state, p.year);
+    if (!info) {
+      download_msg = { ...download_msg, [key]: `Error: no event registered for (${p.state}, ${p.year}). See backend/yen_gov/sources/eci/events.py.` };
       return;
     }
+    const partywiseLine = info.has_partywise
+      ? `Partywise cross-fetch ENABLED — full per-AC results + parties.json + reconciliation.`
+      : `Partywise cross-fetch DISABLED (archived event) — per-AC results + summary only; party_eci_code stays null; no parties.json.`;
     if (!confirm(
-      `Full ingest for (${p.state}, ${p.year}) under event "${eventId}"?\n\n` +
+      `Full ingest for (${p.state}, ${p.year}) under event "${info.event_id}"?\n\n` +
       `Runs: eci-statreport-emit ${p.state} ${p.year}\n` +
-      `Writes parsed per-AC JSON to datasets/elections/${eventId}/${p.state}/results/.\n\n` +
-      `This re-runs idempotently if data already exists.`
+      `Writes parsed JSON to datasets/elections/${info.event_id}/${p.state}/results/.\n\n` +
+      partywiseLine + `\n\nThis re-runs idempotently if data already exists.`
     )) return;
     download_busy = { ...download_busy, [key]: true };
     download_msg = { ...download_msg, [key]: "" };
@@ -393,16 +400,23 @@
                         title="Run eci-statreport --download (raw XLSX + PDF zips)">
                   ⬇ +PDF
                 </button>
-                {#if eventIdFor(p.state, p.year)}
+                {#if eventInfoFor(p.state, p.year)}
+                  {@const info = eventInfoFor(p.state, p.year)!}
                   <button onclick={() => fullIngest(p)} disabled={download_busy[key]}
-                          class="bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-slate-900 font-semibold rounded px-2 py-0.5"
-                          title={`Run eci-statreport-emit (full parse → datasets/elections/${eventIdFor(p.state, p.year)}/${p.state}/)`}>
-                    🚀 Full ingest
+                          class:bg-amber-500={info.has_partywise}
+                          class:hover:bg-amber-400={info.has_partywise}
+                          class:bg-amber-700={!info.has_partywise}
+                          class:hover:bg-amber-600={!info.has_partywise}
+                          class="disabled:opacity-50 text-slate-900 font-semibold rounded px-2 py-0.5"
+                          title={info.has_partywise
+                            ? `Run eci-statreport-emit (full parse → datasets/elections/${info.event_id}/${p.state}/)`
+                            : `Run eci-statreport-emit (archived event — Section 10 only; no parties.json, party_eci_code stays null)`}>
+                    🚀 Full ingest{info.has_partywise ? "" : "*"}
                   </button>
                 {:else}
                   <button disabled
                           class="bg-slate-800 text-slate-500 rounded px-2 py-0.5 cursor-not-allowed"
-                          title="No event registered for (state, year). Full ingest needs N2 — see TODO/ECI-MULTI-STATE-INGEST-PLAN.md.">
+                          title="No event registered for (state, year). Extend EVENTS in backend/yen_gov/sources/eci/events.py.">
                     🚀 Full ingest
                   </button>
                 {/if}
