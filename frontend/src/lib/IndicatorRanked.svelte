@@ -40,6 +40,10 @@
   let load_error = $state<string | null>(null);
   let selected_time = $state<string | null>(null);
   let show_all = $state(false);
+  // Optional second state pinned for direct comparison. Null = no compare.
+  // When set, it gets its own row pin (emerald) under the home-state row
+  // and an inline gap-vs-home strip in the header.
+  let compare_state = $state<string | null>(null);
   // Sort direction: respects indicator.direction by default — higher_is_better
   // sorts descending, lower_is_better ascending. (Reserved for a future
   // user-flip control; currently always derives from the indicator.)
@@ -82,6 +86,7 @@
     value: number | null;
     rank: number | null;
     is_home: boolean;
+    is_compare: boolean;
   };
 
   // Build the row list. Keep ALL states (including those with null values)
@@ -102,6 +107,7 @@
         value: v ?? null,
         rank: null,
         is_home: code === home_state,
+        is_compare: !!compare_state && code === compare_state && code !== home_state,
       });
     }
     // Suppress rank when not comparable across states.
@@ -122,6 +128,7 @@
     // descending, then by name. Rows with no data go last.
     return all.sort((a, b) => {
       if (a.is_home !== b.is_home) return a.is_home ? -1 : 1;
+      if (a.is_compare !== b.is_compare) return a.is_compare ? -1 : 1;
       const a_has = a.value !== null;
       const b_has = b.value !== null;
       if (a_has !== b_has) return a_has ? -1 : 1;
@@ -149,6 +156,28 @@
   const can_rank = $derived(
     artifact?.indicator.comparability !== "not_comparable_across_states",
   );
+
+  // Per-row lookups for the header compare strip.
+  const home_row = $derived(rows.find(r => r.is_home) ?? null);
+  const compare_row = $derived(rows.find(r => r.is_compare) ?? null);
+  // Gap calculation honours the indicator's direction: positive `gap` means
+  // home is doing BETTER than compare (more of the good thing, or less of
+  // the bad thing). Null when either side is missing.
+  const gap = $derived.by(() => {
+    if (!artifact || !home_row || !compare_row) return null;
+    if (home_row.value === null || compare_row.value === null) return null;
+    const dir = artifact.indicator.direction;
+    const raw = home_row.value - compare_row.value;
+    if (dir === "lower_is_better") return -raw;
+    return raw;
+  });
+
+  // States offered in the picker: every state EXCEPT home, sorted by name.
+  const compare_options = $derived(
+    Object.entries(STATE_NAME_TO_ECI)
+      .filter(([, code]) => code !== home_state)
+      .sort(([a], [b]) => a.localeCompare(b)),
+  );
 </script>
 
 <section class="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -165,19 +194,62 @@
           {artifact.indicator.title}
           <span class="text-xs font-normal text-slate-500">· ranked</span>
         </h3>
-        {#if times.length > 1 && selected_time}
-          <div class="flex items-center gap-2">
-            <label class="text-xs text-slate-500" for="ranked-year-select">Year</label>
-            <select
-              id="ranked-year-select"
-              bind:value={selected_time}
-              class="text-sm border border-slate-200 rounded px-1.5 py-0.5"
-            >
-              {#each times as t}<option value={t}>{t}</option>{/each}
-            </select>
-          </div>
-        {/if}
+        <div class="flex items-center gap-3 flex-wrap">
+          {#if home_state}
+            <div class="flex items-center gap-2">
+              <label class="text-xs text-slate-500" for="ranked-compare-select">Compare with</label>
+              <select
+                id="ranked-compare-select"
+                bind:value={compare_state}
+                class="text-sm border border-slate-200 rounded px-1.5 py-0.5"
+              >
+                <option value={null}>— none —</option>
+                {#each compare_options as [n, c]}<option value={c}>{n}</option>{/each}
+              </select>
+            </div>
+          {/if}
+          {#if times.length > 1 && selected_time}
+            <div class="flex items-center gap-2">
+              <label class="text-xs text-slate-500" for="ranked-year-select">Year</label>
+              <select
+                id="ranked-year-select"
+                bind:value={selected_time}
+                class="text-sm border border-slate-200 rounded px-1.5 py-0.5"
+              >
+                {#each times as t}<option value={t}>{t}</option>{/each}
+              </select>
+            </div>
+          {/if}
+        </div>
       </div>
+
+      {#if home_row && compare_row && gap !== null && artifact.indicator.comparability !== "not_comparable_across_states"}
+        {@const better = gap > 0}
+        {@const equal = gap === 0}
+        <div class="text-xs px-2.5 py-1.5 rounded border flex items-center gap-2 flex-wrap"
+          class:bg-emerald-50={better}
+          class:border-emerald-200={better}
+          class:text-emerald-900={better}
+          class:bg-rose-50={!better && !equal}
+          class:border-rose-200={!better && !equal}
+          class:text-rose-900={!better && !equal}
+          class:bg-slate-50={equal}
+          class:border-slate-200={equal}
+          class:text-slate-700={equal}
+        >
+          <span class="font-semibold">{home_row.name}</span>
+          <span class="tabular-nums">{formatValue(home_row.value as number, artifact.indicator)}</span>
+          <span class="text-slate-400">vs</span>
+          <span class="font-semibold">{compare_row.name}</span>
+          <span class="tabular-nums">{formatValue(compare_row.value as number, artifact.indicator)}</span>
+          <span class="ml-auto">
+            {#if equal}equal{:else}{home_row.name} is
+              <strong>{better ? "ahead" : "behind"}</strong>
+              by {formatValue(Math.abs((home_row.value as number) - (compare_row.value as number)), artifact.indicator)}
+            {/if}
+          </span>
+        </div>
+      {/if}
 
       {#if !can_rank}
         <div class="text-[11px] px-2.5 py-1.5 rounded bg-amber-50 border border-amber-200 text-amber-900 leading-snug">
@@ -202,7 +274,8 @@
             <tr
               class="border-b border-slate-50 hover:bg-slate-50/60"
               class:bg-amber-50={r.is_home}
-              class:font-medium={r.is_home}
+              class:bg-emerald-50={r.is_compare}
+              class:font-medium={r.is_home || r.is_compare}
             >
               {#if can_rank}
                 <td class="py-1.5 pl-3 pr-2 text-right text-slate-500 tabular-nums">
@@ -212,6 +285,7 @@
               <td class="py-1.5 pr-3">
                 {r.name}
                 {#if r.is_home}<span class="ml-1 text-[10px] text-amber-700 uppercase tracking-wide">your state</span>{/if}
+                {#if r.is_compare}<span class="ml-1 text-[10px] text-emerald-700 uppercase tracking-wide">compare</span>{/if}
               </td>
               <td class="py-1.5 pr-3 text-right tabular-nums">
                 {#if r.value === null}
@@ -226,7 +300,8 @@
                     <div
                       class="h-full"
                       class:bg-amber-500={r.is_home}
-                      class:bg-sky-400={!r.is_home}
+                      class:bg-emerald-500={r.is_compare}
+                      class:bg-sky-400={!r.is_home && !r.is_compare}
                       style:width="{Math.min(100, (Math.abs(r.value) / max_abs) * 100)}%"
                     ></div>
                   </div>

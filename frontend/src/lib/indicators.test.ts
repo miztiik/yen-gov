@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   uniqueTimes,
   rollupByEntity,
+  seriesByEntity,
   facetsByEntity,
   hueForDirection,
   normalise,
@@ -51,6 +52,22 @@ describe("facetsByEntity", () => {
     expect(tn[0].facet).toBe("coal_power_plant");
     expect(tn[0].value).toBe(11190);
     expect(tn[1].facet).toBe("hydro_power_plant");
+  });
+});
+
+describe("seriesByEntity", () => {
+  it("returns per-entity time-series sorted ascending in time", () => {
+    const m = seriesByEntity(ROWS);
+    const s11 = m.get("S11")!;
+    expect(s11.map(p => p.time)).toEqual(["2018", "2019"]);
+    expect(s11[0].value).toBe(500);
+    expect(s11[1].value).toBe(1856 + 524);
+    const s22 = m.get("S22")!;
+    expect(s22).toEqual([{ time: "2019", value: 11190 + 1778 }]);
+  });
+  it("omits entities whose only rows are null", () => {
+    const m = seriesByEntity(ROWS);
+    expect(m.has("S03")).toBe(false);
   });
 });
 

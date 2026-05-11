@@ -117,16 +117,16 @@ Action when this work begins: fetch one representative state's 2021 page first t
 1. **The HTML scraper is not the universal ingest**. It works for May-2026 because that cycle reverted to the live HTML model. Every other cycle from 2021 onwards needs either an XLSX parser (2024+) or a PDF/archive fetcher (2021).
 2. **An API client + XLSX parser is the highest-leverage Phase 6C addition**. One client unlocks LS-2024 + 14 state cycles + every byelection. Per-PC PDF cards (`category_id=11`) are a Phase-6C+ add for higher fidelity.
 3. **State codes are stable** across all observed cycles — the existing `categories.py` mapping carries forward. PC numbering for LS uses the same `S22167`-style composite as AC (state code + sequential index within state).
-4. **Body enum extension** (`backend/yen_gov` body types) needs to accept `lok_sabha` for LS ingest. PC reference list (543 PCs) needs a one-time backfill from a stable source — the LS-2024 candidate-wise XLSX itself works as the source of truth.
+4. **Body enum**: already covers Lok Sabha. `Body = Literal["AC", "PC"]` in `backend/yen_gov/core/models.py` and `enum: ["AC", "PC"]` in `election.schema.json` mean LS ingest writes `body: "PC"` with no schema change. (Earlier draft of this note proposed adding `"lok_sabha"` — redundant; PC = parliamentary constituency = Lok Sabha seat.) The 543-PC reference list still needs a one-time backfill from a stable source — the LS-2024 candidate-wise XLSX itself works as the source of truth.
 5. **No SPA-rendered portals encountered** — every result surface is either static HTML or a JSON-returning API. No headless browser needed for any era.
 
 ## Next concrete steps (Phase 6C plan)
 
-- [ ] Add `body: "lok_sabha"` to the body enum in `backend/yen_gov/core/models.py` and to `election.schema.json` (additive minor bump).
+- [x] Body enum: no work — `"PC"` already in `Body = Literal["AC", "PC"]` and `election.schema.json`. (Verified 2026-05-11.)
 - [ ] Create `backend/yen_gov/sources/eci_api/__init__.py` — HTTP client for `…/election-result?category_id=N` with the same provenance + caching discipline as the HTML scraper (paths POSIX-relative; `sources[]` records each fetched URL + `fetched_at`).
 - [ ] Create `backend/yen_gov/sources/eci_xlsx/parsers.py` — openpyxl-based parser for `33-Constituency-Wise-Detailed-Result.xlsx`. One row per (PC, candidate); roll-up code reused from existing event aggregator.
-- [ ] Add `datasets/elections/PcGenJune2024/` event metadata (event scope=`india`, body=`lok_sabha`, year=2024, dates filled).
-- [ ] Add a one-time backfill script to materialise the 543-PC reference under `datasets/reference/in/parliamentary_constituencies.json` (`$schema` constituency, scoped to `body=lok_sabha`).
+- [ ] Add `datasets/elections/PcGenJune2024/` event metadata (event scope=`general`, body=`PC`, year=2024, dates filled).
+- [ ] Add a one-time backfill script to materialise the 543-PC reference under `datasets/reference/in/parliamentary_constituencies.json` (`$schema` constituency, scoped to `body=PC`).
 - [ ] Write a single LS-2024 state slice (e.g. TN) end-to-end before generalising.
 - [ ] Defer per-PC PDF card extraction (`category_id=11`) to a Phase 6C+ follow-up — only useful for forensic reconciliation, not for the primary citizen view.
 

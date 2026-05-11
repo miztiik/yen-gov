@@ -135,6 +135,33 @@ export function rollupByEntity(
   return out;
 }
 
+/** For each entity, return its (time, value) series sorted ascending in
+ *  time. Multiple rows at the same (entity, time) are summed (mirrors
+ *  rollupByEntity's null-skip semantics). Used by the small-multiples
+ *  primitive to draw one mini sparkline per state. */
+export function seriesByEntity(
+  rows: readonly IndicatorRow[],
+): Map<string, Array<{ time: string; value: number }>> {
+  const buckets = new Map<string, Map<string, number>>();
+  for (const r of rows) {
+    if (r.value == null) continue;
+    let inner = buckets.get(r.entity_id);
+    if (!inner) {
+      inner = new Map<string, number>();
+      buckets.set(r.entity_id, inner);
+    }
+    inner.set(r.time, (inner.get(r.time) ?? 0) + r.value);
+  }
+  const out = new Map<string, Array<{ time: string; value: number }>>();
+  for (const [entity, inner] of buckets) {
+    const arr = [...inner.entries()]
+      .map(([time, value]) => ({ time, value }))
+      .sort((a, b) => a.time.localeCompare(b.time));
+    out.set(entity, arr);
+  }
+  return out;
+}
+
 /** Per-entity facet breakdown for a given time. Used by tooltips. */
 export function facetsByEntity(
   rows: readonly IndicatorRow[],

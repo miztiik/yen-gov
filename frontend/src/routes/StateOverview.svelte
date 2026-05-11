@@ -11,6 +11,7 @@
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import IndicatorRanked from "../lib/IndicatorRanked.svelte";
+  import IndicatorSmallMultiples from "../lib/IndicatorSmallMultiples.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { getDb } from "../lib/sql";
@@ -340,6 +341,10 @@
         highlight_state={state_code}
       />
       <IndicatorRanked
+        indicator_path="/indicators/in/energy/installed_mw_by_state.json"
+        home_state={state_code}
+      />
+      <IndicatorSmallMultiples
         indicator_path="/indicators/in/energy/installed_mw_by_state.json"
         home_state={state_code}
       />
