@@ -1,0 +1,65 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "Hand-authored taxonomy. Powers the Topic Front Door (/t, /t/:topic) and the section list inside each state hub (/s/:state). See ADR-0022 and TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md. DOCTRINE (user-mandated 2026-05-11): elections are ONE indicator family among many. Social-welfare topics (fiscal, education, health, livelihood) are first-class; elections are not the spine and not the default theme. Order in this array IS the rendering order on /t and inside the state hub.",
+  "sources": [],
+  "topics": [
+    {
+      "id": "fiscal",
+      "title": "Fiscal capacity",
+      "list": "state",
+      "summary": "How states raise, borrow, and spend. Debt, deficit, transfers from the Centre. The baseline that contextualises every other state-level number.",
+      "icon": "landmark",
+      "featured": true,
+      "peer_set_default": "general_category",
+      "artifacts": [
+        {
+          "kind": "indicator",
+          "id": "fiscal/outstanding_debt_pct_gsdp",
+          "default": true,
+          "featured": true,
+          "scope": "national"
+        }
+      ],
+      "notes": "Debt and deficit are co-determined by central transfers \u2014 the transfers indicator is the missing context that makes ranked tables honest. Tracked under the IA reset's ingest gate (TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md \u00a7Phased migration)."
+    },
+    {
+      "id": "energy",
+      "title": "Energy",
+      "list": "concurrent",
+      "summary": "Where electricity is generated. Installed capacity by state, by fuel.",
+      "icon": "zap",
+      "featured": true,
+      "peer_set_default": "all",
+      "artifacts": [
+        {
+          "kind": "indicator",
+          "id": "energy/installed_mw_by_state",
+          "default": true,
+          "featured": true,
+          "scope": "national"
+        }
+      ],
+      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic \u2014 the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer."
+    },
+    {
+      "id": "elections",
+      "title": "Elections",
+      "list": "na",
+      "summary": "Who governs. State Assembly and Lok Sabha results, candidate-level detail, party totals, margins. One indicator family among many \u2014 not the spine of the site.",
+      "icon": "vote",
+      "featured": false,
+      "artifacts": [
+        {
+          "kind": "election",
+          "id": "AcGenMay2026",
+          "display": "Tamil Nadu Assembly \u00b7 May 2026",
+          "default": true,
+          "featured": false,
+          "scope": "state"
+        }
+      ],
+      "notes": "Per ADR-0022 doctrine: elections are NOT the default home-page theme and NOT a featured topic. Social-welfare topics (fiscal, future: education, health, livelihood) are first-class; elections are one of many. Election artifacts have a different schema family (result.summary.schema.json) than indicators \u2014 the catalogue's polymorphic `kind` lets them coexist without being demoted in capability or promoted in IA prominence."
+    }
+  ]
+}
