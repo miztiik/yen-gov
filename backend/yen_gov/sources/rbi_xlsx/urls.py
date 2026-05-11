@@ -50,6 +50,16 @@ KNOWN_URLS: dict[str, dict[str, str]] = {
             "20_ST2301202696AC652FC4CE482EAAD928FC544CD86A.XLSX"
         ),
     },
+    # Statement 17: "Devolution and Transfer of Resources from the Centre".
+    # Per-state, 3 fiscal years (2023-24 Accounts, 2024-25 RE, 2025-26 BE),
+    # stacked Gross | Net* sub-columns under each fiscal year. We extract
+    # the Net column (RBI's net-of-adjustments figure).
+    "fiscal/net_transfers_from_centre": {
+        "23012026": (
+            "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/"
+            "17_ST2301202683B49BF6F4584A6985B2CCCAA41B020E.XLSX"
+        ),
+    },
 }
 
 

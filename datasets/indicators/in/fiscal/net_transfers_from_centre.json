@@ -1,0 +1,576 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.1",
+  "sources": [
+    {
+      "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/17_ST2301202683B49BF6F4584A6985B2CCCAA41B020E.XLSX",
+      "fetched_at": "2026-05-11T15:18:58Z"
+    },
+    {
+      "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
+      "fetched_at": "2026-05-11T15:18:58Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (states + Delhi + Puducherry)",
+    "temporal": "2023-04..2025-04",
+    "admin_level": "state"
+  },
+  "indicator": {
+    "id": "fiscal/net_transfers_from_centre",
+    "title": "Net transfers from the Centre",
+    "description": "Total devolution + grants flowing from the Central Government to each State / Union Territory in a fiscal year, net of items returned or adjusted (RBI's 'Net' column). Devolution is the state's share in central taxes (Finance Commission formula); grants include Finance Commission grants, centrally-sponsored scheme grants, and special-purpose transfers. This is the federal-transfer side of state fiscal capacity — a state's debt and deficit numbers are only honest read alongside how much the Centre is sending.",
+    "entity_kind": "state",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "INR (crore)",
+    "icon": "landmark",
+    "attribution_geography": "where_administered",
+    "comparability": "comparable_with_normalisation",
+    "funding_split": {
+      "centre_pct": 100,
+      "state_pct": 0,
+      "source": "definition (own vs centrally-transferred)"
+    },
+    "implementing_authority": "state",
+    "methodology_vintage": "RBI State Finances: A Study of Budgets, fetched 2026-05-11T15:18:58Z",
+    "notes": "Source: RBI 'State Finances: A Study of Budgets', Statement 17 (Devolution and Transfer of Resources from the Centre, Net column). Coverage is currently 3 fiscal years: 2023-24 (Accounts), 2024-25 (Revised Estimates), 2025-26 (Budget Estimates). Earlier years require scraping prior editions of the publication — tracked as a follow-up in the IA reset's ingest gate. Raw ₹ Crore values are not directly comparable across states of very different size; per-capita and %-of-state-revenue normalisations are planned as sibling indicators."
+  },
+  "rows": [
+    {
+      "entity_id": "S01",
+      "time": "2023-04",
+      "value": 83109.5
+    },
+    {
+      "entity_id": "S01",
+      "time": "2024-04",
+      "value": 88250.4,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 109342.5,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2023-04",
+      "value": 26077.1
+    },
+    {
+      "entity_id": "S02",
+      "time": "2024-04",
+      "value": 31808.2,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2025-04",
+      "value": 33198.6,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2023-04",
+      "value": 63202.8
+    },
+    {
+      "entity_id": "S03",
+      "time": "2024-04",
+      "value": 77186.1,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2025-04",
+      "value": 82939.5,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2023-04",
+      "value": 147896.9
+    },
+    {
+      "entity_id": "S04",
+      "time": "2024-04",
+      "value": 193389.9,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2025-04",
+      "value": 191175.7,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2023-04",
+      "value": 52865.9
+    },
+    {
+      "entity_id": "S26",
+      "time": "2024-04",
+      "value": 63870.4,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2025-04",
+      "value": 69137.1,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2023-04",
+      "value": 5932.9
+    },
+    {
+      "entity_id": "S05",
+      "time": "2024-04",
+      "value": 7232.1,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2025-04",
+      "value": 7618.9,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2023-04",
+      "value": 68643.8
+    },
+    {
+      "entity_id": "S06",
+      "time": "2024-04",
+      "value": 75183.9,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 81085.2,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2023-04",
+      "value": 22127.0
+    },
+    {
+      "entity_id": "S07",
+      "time": "2024-04",
+      "value": 23331.1,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2025-04",
+      "value": 27070.1,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2023-04",
+      "value": 25777.5
+    },
+    {
+      "entity_id": "S08",
+      "time": "2024-04",
+      "value": 27287.9,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2025-04",
+      "value": 23074.8,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2023-04",
+      "value": 51018.1
+    },
+    {
+      "entity_id": "S27",
+      "time": "2024-04",
+      "value": 60558.8,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2025-04",
+      "value": 68931.5,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2023-04",
+      "value": 60141.6
+    },
+    {
+      "entity_id": "S10",
+      "time": "2024-04",
+      "value": 67305.9,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 72026.6,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2023-04",
+      "value": 33387.0
+    },
+    {
+      "entity_id": "S11",
+      "time": "2024-04",
+      "value": 35523.4,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2025-04",
+      "value": 45182.2,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2023-04",
+      "value": 133683.1
+    },
+    {
+      "entity_id": "S12",
+      "time": "2024-04",
+      "value": 154060.8,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2025-04",
+      "value": 169607.5,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2023-04",
+      "value": 114384.0
+    },
+    {
+      "entity_id": "S13",
+      "time": "2024-04",
+      "value": 152801.8,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 148926.8,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2023-04",
+      "value": 13779.8
+    },
+    {
+      "entity_id": "S14",
+      "time": "2024-04",
+      "value": 23396.0,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2025-04",
+      "value": 21142.0,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2023-04",
+      "value": 15555.8
+    },
+    {
+      "entity_id": "S15",
+      "time": "2024-04",
+      "value": 19280.9,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2025-04",
+      "value": 20616.3,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2023-04",
+      "value": 9842.2
+    },
+    {
+      "entity_id": "S16",
+      "time": "2024-04",
+      "value": 11320.3,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2025-04",
+      "value": 11037.4,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2023-04",
+      "value": 14842.7
+    },
+    {
+      "entity_id": "S17",
+      "time": "2024-04",
+      "value": 16444.5,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2025-04",
+      "value": 16262.5,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2023-04",
+      "value": 75349.8
+    },
+    {
+      "entity_id": "S18",
+      "time": "2024-04",
+      "value": 100210.8,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2025-04",
+      "value": 109539.5,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2023-04",
+      "value": 34030.4
+    },
+    {
+      "entity_id": "S19",
+      "time": "2024-04",
+      "value": 37101.3,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2025-04",
+      "value": 36062.4,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2023-04",
+      "value": 98955.7
+    },
+    {
+      "entity_id": "S20",
+      "time": "2024-04",
+      "value": 126261.9,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 139730.7,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2023-04",
+      "value": 6511.8
+    },
+    {
+      "entity_id": "S21",
+      "time": "2024-04",
+      "value": 9581.7,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2025-04",
+      "value": 10189.4,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2023-04",
+      "value": 82843.3
+    },
+    {
+      "entity_id": "S22",
+      "time": "2024-04",
+      "value": 79368.6,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 87652.2,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2023-04",
+      "value": 35192.3
+    },
+    {
+      "entity_id": "S29",
+      "time": "2024-04",
+      "value": 48724.4,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2025-04",
+      "value": 56130.4,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2023-04",
+      "value": 17861.0
+    },
+    {
+      "entity_id": "S23",
+      "time": "2024-04",
+      "value": 23254.0,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2025-04",
+      "value": 24353.7,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2023-04",
+      "value": 275905.8
+    },
+    {
+      "entity_id": "S24",
+      "time": "2024-04",
+      "value": 345660.7,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 365307.4,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2023-04",
+      "value": 28857.4
+    },
+    {
+      "entity_id": "S28",
+      "time": "2024-04",
+      "value": 33859.1,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2025-04",
+      "value": 35682.8,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2023-04",
+      "value": 112951.7
+    },
+    {
+      "entity_id": "S25",
+      "time": "2024-04",
+      "value": 137697.6,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2025-04",
+      "value": 153197.6,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "S09",
+      "time": "2023-04",
+      "value": 49616.2
+    },
+    {
+      "entity_id": "S09",
+      "time": "2024-04",
+      "value": 58923.1,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "S09",
+      "time": "2025-04",
+      "value": 58503.3,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2023-04",
+      "value": -5994.9
+    },
+    {
+      "entity_id": "U05",
+      "time": "2024-04",
+      "value": -381.0,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2025-04",
+      "value": 20588.0,
+      "facet": "BE"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2023-04",
+      "value": 3306.5
+    },
+    {
+      "entity_id": "U07",
+      "time": "2024-04",
+      "value": 3594.6,
+      "facet": "RE"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2025-04",
+      "value": 3699.8,
+      "facet": "BE"
+    }
+  ]
+}

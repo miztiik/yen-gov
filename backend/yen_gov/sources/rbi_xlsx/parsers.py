@@ -181,6 +181,15 @@ class IndicatorSpec:
             header row's first labelled cell (e.g. ``"state"``).
         period_kind: ``"fy_end_year"`` (stocks) or ``"fy_span"`` (flows).
         sign: ``+1`` normally; ``-1`` for sign-convention flips.
+        value_column_label: when the workbook stacks multiple value
+            sub-columns under each period header (e.g. Statement 17's
+            ``Gross | Net*`` pair under each fiscal year), the
+            case-insensitive substring of the desired sub-header.
+            ``None`` (default) = no sub-header; the period header column
+            IS the value column (the Statement 20 / outstanding-debt
+            shape). When set, the parser reads the row immediately
+            below the period header as a sub-header row and shifts each
+            period's column to the matching sub-cell.
     """
 
     indicator_id: str
@@ -188,6 +197,7 @@ class IndicatorSpec:
     header_label_match: str
     period_kind: str
     sign: int = 1
+    value_column_label: str | None = None
 
 
 @dataclass(frozen=True)
@@ -332,6 +342,53 @@ def _is_aggregate_label(label: str) -> bool:
     )
 
 
+def _apply_subcolumn_offset(
+    periods: list[tuple[int, str, str | None]],
+    sub_header_row: list[Any],
+    value_column_label: str,
+) -> list[tuple[int, str, str | None]]:
+    """Shift each period's column to its matching sub-header sub-cell.
+
+    For Statement 17 each fiscal-year header (e.g. ``"2023-24 (Accounts)"``
+    at col 2) spans two value cells: ``Gross`` at col 2, ``Net*`` at col 3.
+    Given ``value_column_label="Net*"``, return periods with col bumped
+    to the matching sub-cell column. The search window for each period
+    is ``[period_col, next_period_col)`` so we never cross a year boundary.
+    """
+    needle = value_column_label.lower().strip()
+    out: list[tuple[int, str, str | None]] = []
+    for i, (col, time, qual) in enumerate(periods):
+        end = periods[i + 1][0] if i + 1 < len(periods) else len(sub_header_row)
+        match_col: int | None = None
+        for j in range(col, end):
+            if j >= len(sub_header_row):
+                break
+            cell = sub_header_row[j]
+            if cell is None:
+                continue
+            if needle in str(cell).strip().lower():
+                match_col = j
+                break
+        if match_col is None:
+            raise RBIWorkbookShapeError(
+                f"sub-header {value_column_label!r} not found under period "
+                f"{time!r} (search cols {col}..{end - 1})"
+            )
+        out.append((match_col, time, qual))
+    return out
+
+
+def _is_index_row_cell(cell: Any) -> bool:
+    """Detect the ``"1 2 3 …"`` column-index row RBI inserts below
+    headers. The first labelled cell is a small integer string."""
+    if cell is None:
+        return False
+    s = str(cell).strip()
+    if not s:
+        return False
+    return s.isdigit() and len(s) <= 3
+
+
 # ---------------------------------------------------------------------------
 # Per-indicator parser
 # ---------------------------------------------------------------------------
@@ -357,20 +414,53 @@ def _parse_one(
             f"{sheet_name!r} for {spec.indicator_id}; expected >=2"
         )
 
+    # Optional: shift each period's column to its sub-header sub-cell
+    # (Statement 17's stacked Gross|Net under each fiscal year). When
+    # set, the sub-header row is the FIRST row at or below header+1
+    # that contains the value_column_label substring in any cell;
+    # intermediate decoration rows (e.g. Statement 17's
+    # ``Col.4/Col.2`` variation-formula row) are skipped. The parser
+    # then resumes data-row scanning past the sub-header.
+    sub_header_idx: int | None = None
+    if spec.value_column_label is not None:
+        needle = spec.value_column_label.lower().strip()
+        for j in range(header_idx + 1, len(rows)):
+            for cell in rows[j]:
+                if cell is None:
+                    continue
+                if needle in str(cell).strip().lower():
+                    sub_header_idx = j
+                    break
+            if sub_header_idx is not None:
+                break
+        if sub_header_idx is None:
+            raise RBIWorkbookShapeError(
+                f"value_column_label {spec.value_column_label!r} not found "
+                f"in any row below header in {sheet_name!r}"
+            )
+        periods = _apply_subcolumn_offset(
+            periods, rows[sub_header_idx], spec.value_column_label
+        )
+
     out = ParsedIndicator(
         indicator_id=spec.indicator_id,
         sheet_name=sheet_name,
         period_columns=len(periods),
     )
 
-    # Skip rows: header itself, and any "1 2 3 …" index row immediately after.
-    start = header_idx + 1
-    if start < len(rows):
-        first_after = rows[start]
-        if first_after and label_col < len(first_after):
-            sample = first_after[label_col]
-            if sample is not None and str(sample).strip().isdigit():
-                start += 1
+    # Data starts after: the header row, any rows up to AND including
+    # the sub-header row (when present), and zero-or-more "1 2 3 …"
+    # column-index rows. Skip them all.
+    start = (sub_header_idx if sub_header_idx is not None else header_idx) + 1
+    while start < len(rows):
+        row = rows[start]
+        if not row or label_col >= len(row):
+            start += 1
+            continue
+        if _is_index_row_cell(row[label_col]):
+            start += 1
+            continue
+        break
 
     seen_unknown: set[str] = set()
     for i in range(start, len(rows)):
@@ -447,5 +537,17 @@ SHIPPED_SPECS: tuple[IndicatorSpec, ...] = (
         sheet_match="ST_20",
         header_label_match="state",
         period_kind="fy_end_year",
+    ),
+    # Statement 17: net devolution + grants from Centre to each state.
+    # Stacked Gross | Net* sub-columns under each fiscal year; we take
+    # Net (RBI's net-of-adjustments figure). Coverage is currently 3
+    # fiscal years from one edition; historical depth requires scraping
+    # prior editions (deferred per ADR-0022 ingest gate).
+    IndicatorSpec(
+        indicator_id="fiscal/net_transfers_from_centre",
+        sheet_match="ST_17",
+        header_label_match="state/ut",
+        period_kind="fy_span",
+        value_column_label="Net",
     ),
 )

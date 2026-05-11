@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/20_ST2301202696AC652FC4CE482EAAD928FC544CD86A.XLSX",
-      "fetched_at": "2026-05-11T06:41:08Z"
+      "fetched_at": "2026-05-11T15:18:58Z"
     },
     {
       "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
-      "fetched_at": "2026-05-11T06:41:08Z"
+      "fetched_at": "2026-05-11T15:18:58Z"
     }
   ],
   "license": {
@@ -41,7 +41,7 @@
       "source": "definition (own vs centrally-transferred)"
     },
     "implementing_authority": "state",
-    "methodology_vintage": "RBI State Finances: A Study of Budgets, fetched 2026-05-11T06:41:08Z",
+    "methodology_vintage": "RBI State Finances: A Study of Budgets, fetched 2026-05-11T15:18:58Z",
     "notes": "Source: RBI 'State Finances: A Study of Budgets', Statement 20 (Total Outstanding Liabilities — As per cent of GSDP). The latest two periods are the State governments' Revised Estimates (RE) and Budget Estimates (BE); earlier periods are Accounts data. Telangana's series begins in 2014-15 (state formation) — pre-2014 cells are intentionally null."
   },
   "rows": [

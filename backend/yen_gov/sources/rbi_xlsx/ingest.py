@@ -64,6 +64,12 @@ class IndicatorMeta:
     icon: str
     funding_split_state_pct: int
     notes: str
+    # Schema-driven rendering hints. Per the unit-not-in-id rule (see
+    # docs/concepts/schema-is-the-design-system.md, section
+    # "Indicator id encodes concept + normalisation, never the unit"):
+    # the id is unit-agnostic; the unit lives in the indicator artifact.
+    value_kind: str = "share"  # count | rate | share | currency | index | duration | raw
+    unit: str = "%"
     series_breaks: tuple[dict[str, str], ...] = ()
 
 
@@ -88,6 +94,8 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
         attribution_geography="where_administered",
         icon="landmark",
         funding_split_state_pct=100,
+        value_kind="share",
+        unit="%",
         notes=(
             "Source: RBI 'State Finances: A Study of Budgets', Statement 20 "
             "(Total Outstanding Liabilities — As per cent of GSDP). The "
@@ -95,6 +103,47 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "Estimates (RE) and Budget Estimates (BE); earlier periods are "
             "Accounts data. Telangana's series begins in 2014-15 (state "
             "formation) — pre-2014 cells are intentionally null."
+        ),
+    ),
+    "fiscal/net_transfers_from_centre": IndicatorMeta(
+        indicator_id="fiscal/net_transfers_from_centre",
+        title="Net transfers from the Centre",
+        description=(
+            "Total devolution + grants flowing from the Central Government "
+            "to each State / Union Territory in a fiscal year, net of "
+            "items returned or adjusted (RBI's 'Net' column). Devolution "
+            "is the state's share in central taxes (Finance Commission "
+            "formula); grants include Finance Commission grants, "
+            "centrally-sponsored scheme grants, and special-purpose "
+            "transfers. This is the federal-transfer side of state "
+            "fiscal capacity — a state's debt and deficit numbers are "
+            "only honest read alongside how much the Centre is sending."
+        ),
+        direction="neutral",
+        # ₹ Crore raw transfers are size-confounded: large states (UP, MH)
+        # always lead. Honest comparability requires per-capita or
+        # %-of-state-revenue normalisation, which arrives as sibling
+        # indicators (per the unit-not-in-id rule, those are distinct ids).
+        comparability="comparable_with_normalisation",
+        attribution_geography="where_administered",
+        icon="landmark",
+        funding_split_state_pct=0,
+        value_kind="currency",
+        # The Indian convention: value column is in ₹ Crore (1 crore =
+        # 10 million). The unit is metadata; the renderer's legend is
+        # responsible for showing it. Per the unit-not-in-id rule.
+        unit="INR (crore)",
+        notes=(
+            "Source: RBI 'State Finances: A Study of Budgets', "
+            "Statement 17 (Devolution and Transfer of Resources from the "
+            "Centre, Net column). Coverage is currently 3 fiscal years: "
+            "2023-24 (Accounts), 2024-25 (Revised Estimates), "
+            "2025-26 (Budget Estimates). Earlier years require scraping "
+            "prior editions of the publication — tracked as a follow-up "
+            "in the IA reset's ingest gate. Raw ₹ Crore values are not "
+            "directly comparable across states of very different size; "
+            "per-capita and %-of-state-revenue normalisations are "
+            "planned as sibling indicators."
         ),
     ),
 }
@@ -253,10 +302,10 @@ def _build_indicator_payload(
             "description": meta.description,
             "entity_kind": "state",
             "time_grain": "fiscal_year",
-            "value_kind": "share",
+            "value_kind": meta.value_kind,
             "direction": meta.direction,
             "scale_hint": "linear",
-            "unit": "%",
+            "unit": meta.unit,
             "icon": meta.icon,
             "attribution_geography": meta.attribution_geography,
             "comparability": meta.comparability,

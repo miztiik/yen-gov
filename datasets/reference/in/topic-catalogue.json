@@ -19,9 +19,16 @@
           "default": true,
           "featured": true,
           "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/net_transfers_from_centre",
+          "default": false,
+          "featured": true,
+          "scope": "national"
         }
       ],
-      "notes": "Debt and deficit are co-determined by central transfers \u2014 the transfers indicator is the missing context that makes ranked tables honest. Tracked under the IA reset's ingest gate (TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md \u00a7Phased migration)."
+      "notes": "Debt and deficit are co-determined by central transfers \u2014 the transfers indicator (`fiscal/net_transfers_from_centre`) is the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. Currently 3 fiscal years of transfers data (2023-24 Accounts, 2024-25 RE, 2025-26 BE); historical extension is a follow-up."
     },
     {
       "id": "energy",

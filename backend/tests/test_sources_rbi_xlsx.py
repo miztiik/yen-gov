@@ -262,3 +262,164 @@ def test_shipped_specs_present_and_well_formed():
     for s in SHIPPED_SPECS:
         assert s.period_kind in {"fy_end_year", "fy_span"}
         assert s.sign in {1, -1}
+
+
+# ---------------------------------------------------------------------------
+# Sub-column selector (Statement-17-style stacked Gross | Net headers)
+# ---------------------------------------------------------------------------
+
+
+def _make_subcolumn_workbook(
+    *,
+    sheet_name: str = "ST_17",
+    states: list[str] | None = None,
+    fiscal_years: list[str] | None = None,
+    sub_labels: list[str] | None = None,
+    values_per_state: list[list[float | None]] | None = None,
+) -> bytes:
+    """Build a synthetic Statement-17-shaped workbook.
+
+    Layout:
+      r00 blank
+      r01 ['', '<title>']
+      r02 ['', '(₹ Crore)']
+      r03 ['', 'State/UT', '<FY1>', '', '<FY2>', '', ...]   (period header, sparse)
+      r04 ['', '', 'Gross', 'Net*', 'Gross', 'Net*', ...]  (sub-header)
+      r05 ['', '1', '2', '3', '4', '5', ...]              (column-index row)
+      r06+ data rows: ['', '<state>', g1, n1, g2, n2, ...]
+    """
+    if states is None:
+        states = ["1. Andhra Pradesh", "2. Bihar"]
+    if fiscal_years is None:
+        fiscal_years = ["2023-24 (Accounts)", "2024-25 (Revised Estimates)"]
+    if sub_labels is None:
+        sub_labels = ["Gross", "Net*"]
+    n_subs = len(sub_labels)
+    if values_per_state is None:
+        values_per_state = [
+            [85423.7, 83109.5, 90290.6, 88250.4],
+            [150401.3, 147896.9, 195737.7, 193389.9],
+        ]
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = sheet_name
+
+    ws.append([])
+    ws.append(["", "Statement 17: Devolution and Transfer of Resources from the Centre"])
+    ws.append(["", "(\u20b9 Crore)"])
+
+    # Period header row: each fiscal-year cell, then (n_subs - 1) blanks
+    period_row: list[Any] = ["", "State/UT"]
+    for fy in fiscal_years:
+        period_row.append(fy)
+        period_row.extend([""] * (n_subs - 1))
+    ws.append(period_row)
+
+    # Sub-header row
+    sub_row: list[Any] = ["", ""]
+    for _ in fiscal_years:
+        sub_row.extend(sub_labels)
+    ws.append(sub_row)
+
+    # Column-index row
+    n_data_cols = len(fiscal_years) * n_subs
+    idx_row: list[Any] = ["", "1"] + [str(i + 2) for i in range(n_data_cols)]
+    ws.append(idx_row)
+
+    # Data rows
+    for state, vals in zip(states, values_per_state):
+        ws.append(["", state, *vals])
+
+    buf = io.BytesIO()
+    wb.save(buf)
+    return buf.getvalue()
+
+
+def test_subcolumn_selects_net_under_each_period():
+    """Statement-17 shape: each fiscal year stacks Gross + Net*; the
+    spec's value_column_label='Net' must pick the Net column, not the
+    Gross column directly under the year header."""
+    wb_bytes = _make_subcolumn_workbook()
+    spec = IndicatorSpec(
+        indicator_id="fiscal/net_transfers_from_centre",
+        sheet_match="ST_17",
+        header_label_match="state/ut",
+        period_kind="fy_span",
+        value_column_label="Net",
+    )
+    parsed = parse_workbook(wb_bytes, spec)
+
+    # 2 states × 2 fiscal years = 4 rows
+    assert len(parsed.rows) == 4
+    assert parsed.unmatched_states == []
+
+    by_state: dict[str, list[tuple[str, float | None, str | None]]] = {}
+    for r in parsed.rows:
+        by_state.setdefault(r.entity_id, []).append((r.time, r.value, r.facet))
+
+    # AP Net values are columns 3 and 5 of each data row -> 83109.5 and 88250.4.
+    ap = sorted(by_state["S01"])
+    assert ap == [
+        ("2023-04", 83109.5, None),
+        ("2024-04", 88250.4, "RE"),
+    ]
+    # Bihar Net values are 147896.9 and 193389.9.
+    br = sorted(by_state["S04"])
+    assert br == [
+        ("2023-04", 147896.9, None),
+        ("2024-04", 193389.9, "RE"),
+    ]
+
+
+def test_subcolumn_label_not_found_raises():
+    wb_bytes = _make_subcolumn_workbook()
+    spec = IndicatorSpec(
+        indicator_id="fiscal/test",
+        sheet_match="ST_17",
+        header_label_match="state/ut",
+        period_kind="fy_span",
+        value_column_label="Nonexistent",
+    )
+    with pytest.raises(RBIWorkbookShapeError, match="value_column_label 'Nonexistent' not found"):
+        parse_workbook(wb_bytes, spec)
+
+
+def test_subcolumn_does_not_cross_period_boundary():
+    """If the desired label only exists under one period (e.g.
+    ``Variation`` columns at the right of ST_17), the parser must
+    raise rather than silently borrow a column from a neighbouring
+    period."""
+    # Build a workbook where the FIRST period has Gross+Net but the
+    # SECOND only has Gross — second period must fail.
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "ST_17"
+    ws.append([])
+    ws.append(["", "Title"])
+    ws.append(["", "(unit)"])
+    # period header: FY1 spans 2 cols (Gross+Net), FY2 spans 1 col (Gross only)
+    ws.append(["", "State/UT", "2023-24", "", "2024-25"])
+    ws.append(["", "", "Gross", "Net*", "Gross"])
+    ws.append(["", "1. Andhra Pradesh", 1.0, 2.0, 3.0])
+    buf = io.BytesIO()
+    wb.save(buf)
+
+    spec = IndicatorSpec(
+        indicator_id="fiscal/test",
+        sheet_match="ST_17",
+        header_label_match="state/ut",
+        period_kind="fy_span",
+        value_column_label="Net",
+    )
+    with pytest.raises(RBIWorkbookShapeError, match="sub-header 'Net' not found under period '2024-04'"):
+        parse_workbook(buf.getvalue(), spec)
+
+
+def test_value_column_label_none_preserves_old_behaviour():
+    """Existing Statement-20 (no sub-header) artifact must still parse
+    identically when value_column_label is left None."""
+    wb_bytes = _make_synthetic_workbook()
+    parsed = parse_workbook(wb_bytes, _SPEC)
+    assert _SPEC.value_column_label is None
+    assert len(parsed.rows) == 6

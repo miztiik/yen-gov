@@ -76,6 +76,27 @@ Because every indicator flows through the same renderers, honesty fields propaga
 
 A future maintainer cannot accidentally publish a Union-list ranking without the banner, or a not-comparable indicator with a rank column. The contract refuses to render dishonestly.
 
+## Indicator id encodes concept + normalisation, never the unit
+
+**Decided 2026-05-11** by the four-persona panel (Architect Hohpe, Governance Strategist, UI/UX Lead, Citizen) — unanimous. Pinned here so the next ingest does not relitigate it.
+
+> The indicator `id` (and its URL slug) identifies **what is measured + how it is normalised** (raw / per-capita / % of GSDP / share of revenue / index). It does **not** identify the **display unit** (₹ Crore vs ₹ Lakh vs ₹ Thousand vs USD). Unit conversions are renderer affordances; denominator changes are new sibling indicators.
+
+Concretely:
+
+| ✅ Allowed | ❌ Forbidden | Why |
+|---|---|---|
+| `fiscal/net_transfers_from_centre` | `fiscal/net_transfers_from_centre_crore` | Crore is a display unit, not an identity. |
+| `fiscal/net_transfers_from_centre_per_capita` (sibling) | `fiscal/net_transfers_from_centre_inr` | Currency is a display unit; the indicator does not change when shown in USD. |
+| `fiscal/net_transfers_from_centre_pct_gsdp` (sibling) | `fiscal/net_transfers_from_centre_2024` | Time is a row dimension, not an id dimension. |
+| `health/imr_per_1000` (a rate is its denominator-with-units, fine in id) | `economy/gdp_billion_usd` | "billion USD" is presentation; concept is "GDP". |
+
+The indicator artifact carries the unit in the `unit` field (free-form: `"%"`, `"INR (crore)"`, `"MW"`, `"per 100k"`, `"years"`). The renderer's legend / axis formatter is responsible for displaying it. A future "show in ₹ Lakh" or "show in USD" toggle is a thin chrome affordance that mutates a render-time prop; it never swaps the indicator id, never breaks a URL, never forks the artifact.
+
+The test that settles edge cases: *can these two artifacts coexist as different rows in `datasets/indicators/in/`?* `_crore` and `_lakh` cannot — they're the same fact table multiplied by 100. So they must not differ in id. `_per_capita` and `_pct_gsdp` can — they're different numerator-over-denominator constructs with their own honesty fields. So they earn distinct ids.
+
+This rule is part of the design-system contract. A renderer that special-cases on unit (instead of reading `unit` from the artifact) violates this section as much as a renderer that special-cases on indicator id violates *The rule* above.
+
 ## See also
 
 - [ADR-0020](../architecture/decisions/0020-indicator-artifact-as-data-contract.md) — the indicator artifact as the generic data contract.
