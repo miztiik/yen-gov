@@ -249,6 +249,36 @@
   {:else if !summary || !acs || !districts}
     <div class="text-slate-500">Loading…</div>
   {:else}
+    <!-- Indicator sections — catalogue-driven, lead the page (P2 commit B
+         of IA reset, ADR-0022 §Doctrine). Welfare topics (fiscal first,
+         then energy) come BEFORE the election bundle because elections
+         are one indicator family among many, not the spine. The closed
+         renderer set runs unchanged for every indicator artifact; adding
+         the 8th fiscal indicator is a one-line catalogue edit.
+
+         Election artifacts in the catalogue are intentionally skipped
+         here — the existing election-only renderer family below handles
+         them. A future refactor (P3+) can collapse the election block
+         into a single catalogue dispatch slot of its own; until then
+         this single move is what the doctrine actually requires:
+         welfare visible first. -->
+    {#each indicator_topics as topic (topic.id)}
+      {#each topic.artifacts.filter(a => a.kind === "indicator") as artifact (artifact.id)}
+        {@const path = indicatorPathForArtifact(artifact)}
+        {#if path}
+          <section class="space-y-3">
+            <h2 class="text-sm font-semibold uppercase text-slate-500">{topic.title}</h2>
+            <IndicatorChoropleth indicator_path={path} highlight_state={state_code} />
+            <IndicatorRanked indicator_path={path} home_state={state_code} />
+            <IndicatorSmallMultiples indicator_path={path} home_state={state_code} />
+          </section>
+        {/if}
+      {/each}
+    {/each}
+
+    <!-- Election sections — preserved unchanged in capability and layout,
+         but no longer the page's lead. -->
+
     <!-- Top row: map (3fr) + donut + key totals (2fr).
          At <lg the donut wraps below the map (single column). -->
     <section class="grid lg:grid-cols-[3fr_2fr] gap-6 items-start">
@@ -352,26 +382,6 @@
       <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Races by competitiveness</h2>
       <RacesBoard {event} state={state_code} />
     </section>
-
-    <!-- Indicator sections, catalogue-driven (P2.4 of IA reset, ADR-0022).
-         Order follows datasets/reference/in/topic-catalogue.json — welfare
-         topics (fiscal) lead, energy follows, election artifacts are
-         skipped here (rendered by the election-specific sections above).
-         The closed renderer set runs unchanged for every indicator artifact;
-         adding the 8th fiscal indicator is a one-line catalogue edit. -->
-    {#each indicator_topics as topic (topic.id)}
-      {#each topic.artifacts.filter(a => a.kind === "indicator") as artifact (artifact.id)}
-        {@const path = indicatorPathForArtifact(artifact)}
-        {#if path}
-          <section class="space-y-3">
-            <h2 class="text-sm font-semibold uppercase text-slate-500">{topic.title}</h2>
-            <IndicatorChoropleth indicator_path={path} highlight_state={state_code} />
-            <IndicatorRanked indicator_path={path} home_state={state_code} />
-            <IndicatorSmallMultiples indicator_path={path} home_state={state_code} />
-          </section>
-        {/if}
-      {/each}
-    {/each}
 
     <section class="bg-white rounded-lg shadow-sm p-5">
       <div class="flex justify-between items-baseline mb-1 gap-3 flex-wrap">
