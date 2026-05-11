@@ -109,6 +109,7 @@ A change is not done until ALL hold:
 
 - [ ] Tests added/updated for changed behavior.
 - [ ] Lint, type-check, schema validation, tests all pass.
+- [ ] **For any change touching `frontend/` or `admin/` runtime behaviour: smoke-tested via the agent's integrated browser tools** against a running dev server (`http://localhost:5173/` for frontend, `5174` for admin). Verify both the page actually changed (`read_page` snapshot, not just code diff) AND no new console errors / 404s appeared on the affected route. See §13 for the policy.
 - [ ] Canonical docs updated in `docs/` (right tier).
 - [ ] Schemas bumped/migrated if any persisted contract changed.
 - [ ] Every new/changed data file has a `source` field per §12.
@@ -189,7 +190,25 @@ Schemas enforce this with an `array of {url, fetched_at}` constraint; the valida
 
 Canonical doc: [`docs/concepts/data-provenance.md`](docs/concepts/data-provenance.md). Design rationale: [ADR-0002](docs/architecture/decisions/0002-provenance-as-sources-list.md).
 
-## 13. Open Questions (TBD)
+## 13. UI Verification (Mandatory for Frontend / Admin Changes)
+
+Any change that touches `frontend/` or `admin/` runtime behaviour MUST be verified by the agent itself using the integrated browser tools — not deferred to the human as a "please smoke test it" task. The agent has `open_browser_page`, `navigate_page`, `read_page`, `click_element`, and `screenshot_page` available; not using them when the change is UI-visible is a process violation, not a stylistic choice.
+
+The minimum verification loop:
+
+1. Confirm the dev server is up (`http://localhost:5173/` for frontend, `http://localhost:5174/` for admin). If not, start it before continuing.
+2. `open_browser_page` (or `navigate_page` on an existing pageId) to the affected route(s) — at minimum the route the change targets, plus one cross-route smoke (e.g. home + a state hub).
+3. `read_page` and confirm: (a) the new copy / structure / sections actually render, (b) no new `[error]` console events appeared in the snapshot's "Recent events" tail, (c) no new `404` for any path the change introduced.
+4. If the change is layout-sensitive, `screenshot_page` to confirm visual intent.
+5. Only then mark the task done. "It builds and svelte-check is clean" is necessary but NOT sufficient.
+
+Apply this whenever applicable: route additions, copy / heading changes, data-loader changes, schema-driven section lists, theme switches, anything that changes what a citizen sees. It does NOT apply to pure backend / pipeline / docs / schema-only changes (no UI surface to read).
+
+When the change spans many routes (e.g. an IA reset), pick a representative slice — home + one indicator page + one state hub — rather than all of them, but document which routes were checked in the commit message.
+
+If a 404 / console error pre-exists the change and is unrelated, note it but do not block on it; if it is new and caused by the change, fix before merging.
+
+## 14. Open Questions (TBD)
 
 These are unresolved and must be answered before the corresponding work starts:
 
