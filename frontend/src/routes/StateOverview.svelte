@@ -350,6 +350,28 @@
       />
     </section>
 
+    <!-- Fiscal capacity: state-government finances published annually by
+         RBI in "State Finances: A Study of Budgets". Outstanding debt as
+         a share of GSDP is the headline solvency indicator — the FRBM
+         Act 2003 imposed the first hard ceiling. RE/BE qualifiers on
+         the latest two periods surface in tooltips so citizens can tell
+         actuals from projections. -->
+    <section class="space-y-3">
+      <h2 class="text-sm font-semibold uppercase text-slate-500">Fiscal capacity</h2>
+      <IndicatorChoropleth
+        indicator_path="/indicators/in/fiscal/outstanding_debt_pct_gsdp.json"
+        highlight_state={state_code}
+      />
+      <IndicatorRanked
+        indicator_path="/indicators/in/fiscal/outstanding_debt_pct_gsdp.json"
+        home_state={state_code}
+      />
+      <IndicatorSmallMultiples
+        indicator_path="/indicators/in/fiscal/outstanding_debt_pct_gsdp.json"
+        home_state={state_code}
+      />
+    </section>
+
     <section class="bg-white rounded-lg shadow-sm p-5">
       <div class="flex justify-between items-baseline mb-1 gap-3 flex-wrap">
         <h2 class="text-sm font-semibold uppercase text-slate-500">All parties · directory</h2>
