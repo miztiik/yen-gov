@@ -13,6 +13,7 @@
   import MapChoropleth from "./maplibre/MapChoropleth.svelte";
   import { INDIA_STATES, STATE_NAME_TO_ECI } from "./maplibre/sources";
   import SourceList from "./SourceList.svelte";
+  import IndicatorIcon from "./IndicatorIcon.svelte";
   import {
     fetchIndicator,
     uniqueTimes,
@@ -235,6 +236,13 @@
       <div class="flex justify-between items-baseline gap-3 flex-wrap">
         <div class="min-w-0">
           <h3 class="text-base font-semibold flex items-baseline gap-2">
+            {#if artifact.indicator.icon}
+              <IndicatorIcon
+                name={artifact.indicator.icon}
+                cls="w-4 h-4 text-slate-500 self-center"
+                title={artifact.indicator.title}
+              />
+            {/if}
             <span>{artifact.indicator.title}</span>
             {#if artifact.indicator.implementing_authority && artifact.indicator.implementing_authority !== "state"}
               <span
