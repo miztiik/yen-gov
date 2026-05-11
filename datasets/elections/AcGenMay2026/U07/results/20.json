@@ -1,0 +1,77 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU0720.htm",
+      "fetched_at": "2026-05-11T09:32:58Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "MANAVELY",
+  "totals": {
+    "votes_polled": 32386
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B.RAMU",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 13822,
+      "vote_share_pct": 42.68,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "EMBALAM SELVAM @ SELVAM. R",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 10729,
+      "vote_share_pct": 33.13
+    },
+    {
+      "rank": 3,
+      "name": "R K R. ANANTHARAMAN",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 5932,
+      "vote_share_pct": 18.32
+    },
+    {
+      "rank": 4,
+      "name": "R. PERUMAL",
+      "party_short": "IND",
+      "votes": 754,
+      "vote_share_pct": 2.33
+    },
+    {
+      "rank": 5,
+      "name": "M.S. ELANGOVAN",
+      "party_short": "Naam Tamilar Katchi",
+      "votes": 589,
+      "vote_share_pct": 1.82
+    }
+  ],
+  "nota": {
+    "votes": 235,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 325,
+    "vote_share_pct": 1.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B.RAMU",
+    "party_eci_code": "3679",
+    "party_short": "TVK",
+    "votes": 13822,
+    "margin_votes": 3093,
+    "margin_pct": 9.55
+  }
+}

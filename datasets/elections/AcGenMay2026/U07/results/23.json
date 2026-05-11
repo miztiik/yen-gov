@@ -1,0 +1,77 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU0723.htm",
+      "fetched_at": "2026-05-11T09:33:03Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "BAHOUR",
+  "totals": {
+    "votes_polled": 27456
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "R. SENTHIL KUMAR",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 10520,
+      "vote_share_pct": 38.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "T. THIAGARAJAN",
+      "party_eci_code": "126",
+      "party_short": "AINRC",
+      "votes": 8123,
+      "vote_share_pct": 29.59
+    },
+    {
+      "rank": 3,
+      "name": "N. DHANAVELOU",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 8043,
+      "vote_share_pct": 29.29
+    },
+    {
+      "rank": 4,
+      "name": "S. NAVEENA",
+      "party_short": "Naam Tamilar Katchi",
+      "votes": 265,
+      "vote_share_pct": 0.97
+    },
+    {
+      "rank": 5,
+      "name": "A. ARULPRAKASH @ ARUL OLI",
+      "party_short": "IND",
+      "votes": 135,
+      "vote_share_pct": 0.49
+    }
+  ],
+  "nota": {
+    "votes": 147,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 223,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "R. SENTHIL KUMAR",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 10520,
+    "margin_votes": 2397,
+    "margin_pct": 8.73
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU0712.htm",
+      "fetched_at": "2026-05-11T09:32:51Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "KALAPET",
+  "totals": {
+    "votes_polled": 31545
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SENTHIL @ RAMESH",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 12069,
+      "vote_share_pct": 38.26,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "P.M.L. KALYANASUNDARAM",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 11622,
+      "vote_share_pct": 36.84
+    },
+    {
+      "rank": 3,
+      "name": "D. SASIKUMAR",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 4775,
+      "vote_share_pct": 15.14
+    },
+    {
+      "rank": 4,
+      "name": "M.O.H.F. SHAHJAHAN",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 1990,
+      "vote_share_pct": 6.31
+    },
+    {
+      "rank": 5,
+      "name": "K. KAMARAJ",
+      "party_short": "Naam Tamilar Katchi",
+      "votes": 639,
+      "vote_share_pct": 2.03
+    }
+  ],
+  "nota": {
+    "votes": 293,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 157,
+    "vote_share_pct": 0.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SENTHIL @ RAMESH",
+    "party_eci_code": "582",
+    "party_short": "DMK",
+    "votes": 12069,
+    "margin_votes": 447,
+    "margin_pct": 1.42
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU078.htm",
+      "fetched_at": "2026-05-11T09:32:44Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "INDIRA NAGAR",
+  "totals": {
+    "votes_polled": 30001
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.V. AROUMOUGAME @ AKD",
+      "party_eci_code": "126",
+      "party_short": "AINRC",
+      "votes": 12640,
+      "vote_share_pct": 42.13,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "S. MOUROUGANE",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 12056,
+      "vote_share_pct": 40.19
+    },
+    {
+      "rank": 3,
+      "name": "N. RAJAKUMAR",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 2104,
+      "vote_share_pct": 7.01
+    },
+    {
+      "rank": 4,
+      "name": "G. ROBERT JESUDASS",
+      "party_short": "IND",
+      "votes": 1946,
+      "vote_share_pct": 6.49
+    },
+    {
+      "rank": 5,
+      "name": "T. DEVIKA",
+      "party_short": "Naam Tamilar Katchi",
+      "votes": 675,
+      "vote_share_pct": 2.25
+    }
+  ],
+  "nota": {
+    "votes": 316,
+    "vote_share_pct": 1.05
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 264,
+    "vote_share_pct": 0.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.V. AROUMOUGAME @ AKD",
+    "party_eci_code": "126",
+    "party_short": "AINRC",
+    "votes": 12640,
+    "margin_votes": 584,
+    "margin_pct": 1.95
+  }
+}

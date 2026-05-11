@@ -1,0 +1,77 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU0716.htm",
+      "fetched_at": "2026-05-11T09:32:57Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "ORLEAMPETH",
+  "totals": {
+    "votes_polled": 19594
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G. NEHRU ALIAS COUPPOUSSAMY",
+      "party_eci_code": "3737",
+      "party_short": "NYMK",
+      "votes": 9960,
+      "vote_share_pct": 50.83,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "S. GOPAL",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 8759,
+      "vote_share_pct": 44.7
+    },
+    {
+      "rank": 3,
+      "name": "A. GANDHI",
+      "party_eci_code": "75",
+      "party_short": "ADMK",
+      "votes": 300,
+      "vote_share_pct": 1.53
+    },
+    {
+      "rank": 4,
+      "name": "ANITHA VEERAPAN",
+      "party_short": "Naam Tamilar Katchi",
+      "votes": 184,
+      "vote_share_pct": 0.94
+    },
+    {
+      "rank": 5,
+      "name": "V. HARIHARANE",
+      "party_short": "IND",
+      "votes": 55,
+      "vote_share_pct": 0.28
+    }
+  ],
+  "nota": {
+    "votes": 153,
+    "vote_share_pct": 0.78
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 183,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G. NEHRU ALIAS COUPPOUSSAMY",
+    "party_eci_code": "3737",
+    "party_short": "NYMK",
+    "votes": 9960,
+    "margin_votes": 1201,
+    "margin_pct": 6.13
+  }
+}

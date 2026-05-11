@@ -1,0 +1,73 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU073.htm",
+      "fetched_at": "2026-05-11T09:32:43Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "OUSSUDU",
+  "totals": {
+    "votes_polled": 31301
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P. KARTHIKEYAN",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 15400,
+      "vote_share_pct": 49.2,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "E. THEEPPAINTHAN",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 11382,
+      "vote_share_pct": 36.36
+    },
+    {
+      "rank": 3,
+      "name": "S. SARAGANABAVA",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 3698,
+      "vote_share_pct": 11.81
+    },
+    {
+      "rank": 4,
+      "name": "GOWRI",
+      "party_short": "Naam Tamilar Katchi",
+      "votes": 458,
+      "vote_share_pct": 1.46
+    },
+    {
+      "rank": 5,
+      "name": "P. ARIAPOUTRY",
+      "party_short": "Viduthalai Chiruthaigal Katchi",
+      "votes": 90,
+      "vote_share_pct": 0.29
+    }
+  ],
+  "nota": {
+    "votes": 273,
+    "vote_share_pct": 0.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P. KARTHIKEYAN",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 15400,
+    "margin_votes": 4018,
+    "margin_pct": 12.84
+  },
+  "others": null
+}

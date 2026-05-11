@@ -1,0 +1,77 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU071.htm",
+      "fetched_at": "2026-05-11T09:32:38Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "MANNADIPET",
+  "totals": {
+    "votes_polled": 29502
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A. NAMASSIVAYAM",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 15918,
+      "vote_share_pct": 53.96,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "T.P.R. SELVAME",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 9808,
+      "vote_share_pct": 33.25
+    },
+    {
+      "rank": 3,
+      "name": "K. BHARATHITHASAN",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 3032,
+      "vote_share_pct": 10.28
+    },
+    {
+      "rank": 4,
+      "name": "B. VENKATESAN",
+      "party_short": "Naam Tamilar Katchi",
+      "votes": 260,
+      "vote_share_pct": 0.88
+    },
+    {
+      "rank": 5,
+      "name": "J. YUVARAJ",
+      "party_short": "IND",
+      "votes": 147,
+      "vote_share_pct": 0.5
+    }
+  ],
+  "nota": {
+    "votes": 164,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 173,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A. NAMASSIVAYAM",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 15918,
+    "margin_votes": 6110,
+    "margin_pct": 20.71
+  }
+}

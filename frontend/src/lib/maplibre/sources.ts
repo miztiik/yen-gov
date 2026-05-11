@@ -107,6 +107,7 @@ export const STATE_NAME_TO_ECI: Record<string, string> = {
   "Kerala": "S11",
   "West Bengal": "S25",
   "Assam": "S03",
+  "Puducherry": "U07",
 };
 
 // Reverse, for India-map tooltips that want the ECI code from feature props.

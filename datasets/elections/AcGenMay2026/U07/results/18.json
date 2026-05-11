@@ -1,0 +1,77 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU0718.htm",
+      "fetched_at": "2026-05-11T09:32:57Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "MUDALIARPET",
+  "totals": {
+    "votes_polled": 31199
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A. JOHNKUMAR",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 12945,
+      "vote_share_pct": 41.49,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "L. SAMBATH",
+      "party_eci_code": "582",
+      "party_short": "DMK",
+      "votes": 10574,
+      "vote_share_pct": 33.89
+    },
+    {
+      "rank": 3,
+      "name": "N. MANIBALAN",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 5906,
+      "vote_share_pct": 18.93
+    },
+    {
+      "rank": 4,
+      "name": "M. VELAVAN",
+      "party_short": "Naam Tamilar Katchi",
+      "votes": 730,
+      "vote_share_pct": 2.34
+    },
+    {
+      "rank": 5,
+      "name": "N. ANNATHURAI",
+      "party_short": "IND",
+      "votes": 384,
+      "vote_share_pct": 1.23
+    }
+  ],
+  "nota": {
+    "votes": 308,
+    "vote_share_pct": 0.99
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 352,
+    "vote_share_pct": 1.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A. JOHNKUMAR",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 12945,
+    "margin_votes": 2371,
+    "margin_pct": 7.6
+  }
+}

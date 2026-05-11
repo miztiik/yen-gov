@@ -1,0 +1,77 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU0713.htm",
+      "fetched_at": "2026-05-11T09:32:51Z"
+    }
+  ],
+  "election": "AcGenMay2026",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "MUTHIALPET",
+  "totals": {
+    "votes_polled": 23560
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VAIYAPURI MANIKANDAN",
+      "party_eci_code": "126",
+      "party_short": "AINRC",
+      "votes": 8382,
+      "vote_share_pct": 35.58,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "EERAM G. RAJENDRAN",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 7430,
+      "vote_share_pct": 31.54
+    },
+    {
+      "rank": 3,
+      "name": "J. PRAKASH KUMAR",
+      "party_eci_code": "3679",
+      "party_short": "TVK",
+      "votes": 3611,
+      "vote_share_pct": 15.33
+    },
+    {
+      "rank": 4,
+      "name": "M. PRABAGARAN",
+      "party_short": "IND",
+      "votes": 3285,
+      "vote_share_pct": 13.94
+    },
+    {
+      "rank": 5,
+      "name": "M. FARITHA BEGUM",
+      "party_short": "Naam Tamilar Katchi",
+      "votes": 315,
+      "vote_share_pct": 1.34
+    }
+  ],
+  "nota": {
+    "votes": 162,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 375,
+    "vote_share_pct": 1.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VAIYAPURI MANIKANDAN",
+    "party_eci_code": "126",
+    "party_short": "AINRC",
+    "votes": 8382,
+    "margin_votes": 952,
+    "margin_pct": 4.04
+  }
+}

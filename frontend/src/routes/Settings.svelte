@@ -17,7 +17,7 @@
   let load_error = $state<string | null>(null);
 
   $effect(() => {
-    Promise.all(["S22", "S11", "S25", "S03"].map(s =>
+    Promise.all(["S22", "S11", "S25", "S03", "U07"].map(s =>
       fetchParties(event, s).then(p => p.parties).catch(() => [] as PartyEntry[]),
     ))
       .then(arrays => {
