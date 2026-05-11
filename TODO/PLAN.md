@@ -1,7 +1,7 @@
 # yen-gov — Phased Build Plan
 
 **Last Updated**: 2026-05-11
-**Status**: Phases 0–5 complete; Phase 1 + 3 + 4 status re-verified against code 2026-05-11 (Phase 3 outstanding: Playwright harness + `add-a-visualization.md`); Phase 6 Steps 1–4 complete. Phase 6 ongoing.
+**Status**: Phases 0–5 complete; Phase 3 closed (Playwright harness + add-a-visualization how-to landed 2026-05-11); Phase 6 Steps 1–4 complete. Phase 6 ongoing.
 **Authority**: Non-authoritative scratchpad (per CLAUDE.md §3). Promote decisions into `docs/architecture/` as they solidify.
 
 > **Historical-ADR notice (2026-05-09)**: References below to ADR-0001, -0004, -0007, -0008, -0009, -0010, -0013, -0014, -0015, -0016 record what was done at the time those ADRs existed. Those decisions have since been absorbed into subsystem docs under `docs/architecture/backend/` and `docs/architecture/frontend/`; see `docs/architecture/decisions/README.md` for the mapping table. Only ADR-0002 (provenance) and ADR-0003 (no fetch cache) survive as standalone ADRs.
@@ -102,7 +102,7 @@ The orchestrator + CLI shipped in Phase 0.5E is per-AC capable; the live test in
 
 ---
 
-## Phase 3 — Visualization layer (DONE except Playwright + add-a-visualization how-to, 2026-05-11 verification)
+## Phase 3 — Visualization layer (DONE, 2026-05-11)
 
 - [x] State overview: party totals bar (`PartyBar`), seat-share donut (`SeatDonut`), state AC choropleth (`maplibre/`), parliament arc (`ParliamentArc`), races board (`RacesBoard`). `frontend/src/routes/StateOverview.svelte`.
 - [x] District drill-down: rolled into `StateOverview.svelte` `by_district` grouping (ACs grouped by `district_id`, sorted by AC count, with winner and margin per row). No separate route — single-page drill-down kept the IA flatter.
@@ -110,11 +110,11 @@ The orchestrator + CLI shipped in Phase 0.5E is per-AC capable; the live test in
 - [x] Party page: `frontend/src/routes/Party.svelte` (seats, margin histogram, narrow-loss list).
 - [x] `/explore` page: `frontend/src/routes/Explore.svelte` + `frontend/src/lib/sql.ts` (sql.js / sqlite-wasm lazy load).
 - [x] Vitest on golden path: 39+ cases across `colors/`, `indicators.test.ts`, etc.
-- [ ] Playwright on golden path — **not started**. Vitest covers pure helpers; no end-to-end browser harness yet.
+- [x] Playwright golden-path harness: `frontend/playwright.config.ts` + `frontend/e2e/golden-path.spec.ts` (4 cases: home / state overview / constituency / explore). Wired into `.github/workflows/ci-checks.yml` as a separate `e2e` job (chromium only, see config rationale). 4/4 green locally 2026-05-11.
 - [x] Docs: `docs/architecture/frontend/` tree (overview, map, indicators, colours, compare, data-loading, psephlab).
-- [ ] `docs/how-to/add-a-visualization.md` — **not started**.
+- [x] `docs/how-to/add-a-visualization.md` — contributor path covering indicator / election / cross-cutting buckets, conventions table, definition of done, common pitfalls.
 
-**Definition of done**: golden-path tested in a real browser. Pending Playwright harness.
+**Definition of done**: golden-path tested in a real browser — met.
 
 ---
 

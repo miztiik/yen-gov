@@ -506,18 +506,26 @@ def ingest_fiscal_rbi(
         timeout_seconds=cfg.fetch.timeout_seconds,
         retry_attempts=cfg.fetch.retry_attempts,
         retry_backoff_seconds=cfg.fetch.retry_backoff_seconds or 1.0,
-        user_agent=cfg.fetch.user_agent,
+        # RBI's CDN rejects non-browser UAs with an HTML error page (which
+        # then fails XLSX parsing as ``BadZipFile``). Use a real Chrome UA
+        # for this source only — the project's "yen-gov/0.1" UA is kept
+        # for every other adapter so RBI is the documented exception.
+        user_agent=(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 yen-gov/0.1"
+        ),
     ) as fetcher:
         result = rbi_ingest_mod.ingest(
             fetcher=fetcher, repo_root=root, schema_dir=schema_dir,
         )
 
     typer.echo("ingest-fiscal-rbi: OK")
-    typer.echo(f"  workbook_url:   {result.workbook_url}")
-    typer.echo(f"  workbook_time:  {result.workbook_fetched_at.isoformat()}")
-    typer.echo(f"  sheets:         {len(result.sheet_names)} ({', '.join(result.sheet_names[:3])}{'…' if len(result.sheet_names) > 3 else ''})")
-    typer.echo(f"  indicators:     {len(result.indicator_paths)} written")
-    for p in result.indicator_paths:
-        typer.echo(f"    - {p.relative_to(root).as_posix()}")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    workbook_url:  {r.workbook_url}")
+        typer.echo(f"    workbook_time: {r.workbook_fetched_at.isoformat()}")
+        typer.echo(f"    sheet:         {r.sheet_name}  ({r.period_columns} period cols)")
+        typer.echo(f"    rows written:  {r.row_count}")
+        typer.echo(f"    artifact:      {r.artifact_path.relative_to(root).as_posix()}")
 
 

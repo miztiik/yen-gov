@@ -1,9 +1,12 @@
 """Orchestrator for the RBI fiscal ingest.
 
-Network + filesystem boundary. Pulls the State Finances workbook
-(URL → env → local cache fallback chain), runs the pure parser
-(:mod:`.parsers`), and writes one indicator artifact per indicator id
-under ``datasets/indicators/in/fiscal/``.
+Network + filesystem boundary. For each shipped indicator spec:
+  1. Resolve a workbook URL via :mod:`.urls` (registry → env override
+     → local cache fallback).
+  2. Fetch the XLSX bytes.
+  3. Run the pure parser (:mod:`.parsers`) for that single indicator.
+  4. Write a ``datasets/indicators/in/fiscal/<leaf>.json`` artifact
+     conforming to ``datasets/schemas/indicator.schema.json``.
 
 See ``docs/architecture/backend/sources-rbi.md`` for the per-indicator
 honesty fields each artifact materialises.
@@ -12,7 +15,7 @@ from __future__ import annotations
 
 import json
 import os
-from collections import defaultdict
+import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -20,16 +23,16 @@ from typing import Any
 
 from yen_gov.core.http import Fetcher, FetchResult
 from yen_gov.core.io import Source, write_artifact
+
 from .parsers import (
-    INDICATOR_SPECS,
+    SHIPPED_SPECS,
     IndicatorSpec,
     ParsedIndicator,
-    parse_state_finances_workbook,
+    parse_workbook,
 )
-from .urls import LISTING_PAGE, latest_known_url
+from .urls import LISTING_PAGE, RBI_AUTHORITY_URL, latest_url
 
 
-RBI_AUTHORITY_URL = "https://www.rbi.org.in/"
 RBI_SOURCE_NAME = "rbi"
 
 
@@ -39,7 +42,8 @@ RBI_SOURCE_NAME = "rbi"
 
 
 class RBISourceUnavailable(RuntimeError):
-    """No usable workbook source: registry empty, env unset, no local cache."""
+    """No usable workbook source for an indicator: registry empty, env
+    unset, no local cache."""
 
 
 # ---------------------------------------------------------------------------
@@ -49,13 +53,13 @@ class RBISourceUnavailable(RuntimeError):
 
 @dataclass(frozen=True)
 class IndicatorMeta:
-    """Honesty fields for one fiscal indicator. One-to-one with the spec."""
+    """Honesty fields for one fiscal indicator."""
 
     indicator_id: str
     title: str
     description: str
     direction: str            # higher_is_better | lower_is_better | neutral
-    comparability: str        # comparable_across_states | comparable_with_normalisation | not_comparable_across_states
+    comparability: str
     attribution_geography: str
     icon: str
     funding_split_state_pct: int
@@ -63,179 +67,52 @@ class IndicatorMeta:
     series_breaks: tuple[dict[str, str], ...] = ()
 
 
-# Same order as INDICATOR_SPECS so we can zip by index.
+# Registry of shipped indicators' metadata. Currently one entry; new
+# entries land alongside their spec in parsers.SHIPPED_SPECS and their
+# URL pin in urls.KNOWN_URLS.
 INDICATOR_META: dict[str, IndicatorMeta] = {
-    m.indicator_id: m
-    for m in (
-        IndicatorMeta(
-            indicator_id="in.fiscal.own_tax_revenue_pct_gsdp",
-            title="Own-tax revenue (% of GSDP)",
-            description=(
-                "Share of state GSDP that the state government collects as its "
-                "own tax revenue. Proxy for state fiscal capacity."
-            ),
-            direction="higher_is_better",
-            comparability="comparable_across_states",
-            attribution_geography="where_administered",
-            icon="coins",
-            funding_split_state_pct=100,
-            notes=(
-                "RBI re-classification (Statement 6, Revenue Receipts). "
-                "Pre-GST own-tax includes central sales tax, entry tax, "
-                "entertainment tax; post-GST these subsume into SGST. "
-                "Treat the 2017-18 step as a regime shift, not a behaviour shift."
-            ),
-            series_breaks=(
-                {
-                    "at_time": "2017-04",
-                    "kind": "definition_change",
-                    "note": "GST introduction subsumed CST, entry tax, entertainment tax into SGST.",
-                },
-            ),
+    "fiscal/outstanding_debt_pct_gsdp": IndicatorMeta(
+        indicator_id="fiscal/outstanding_debt_pct_gsdp",
+        title="Outstanding liabilities (% of GSDP)",
+        description=(
+            "Stock of state-government debt outstanding at the end of each "
+            "fiscal year, expressed as a share of Gross State Domestic "
+            "Product. Includes loans and public-account liabilities. "
+            "Higher values mean a larger debt burden relative to the "
+            "state's economic base. The FRBM Act 2003 imposed the first "
+            "hard ceilings on state debt; pre-2003 series used different "
+            "consolidation rules."
         ),
-        IndicatorMeta(
-            indicator_id="in.fiscal.revenue_deficit_pct_gsdp",
-            title="Revenue deficit (% of GSDP)",
-            description=(
-                "Excess of revenue expenditure over revenue receipts as a share of GSDP. "
-                "Positive = the state borrows to pay current expenses (salaries, pensions, "
-                "interest), not to build assets. FRBM target = 0."
-            ),
-            direction="lower_is_better",
-            comparability="comparable_across_states",
-            attribution_geography="where_administered",
-            icon="trending-up",
-            funding_split_state_pct=100,
-            notes="RBI Statement (Key Deficit Indicators). Sign convention: positive = deficit.",
+        direction="lower_is_better",
+        comparability="comparable_across_states",
+        attribution_geography="where_administered",
+        icon="landmark",
+        funding_split_state_pct=100,
+        notes=(
+            "Source: RBI 'State Finances: A Study of Budgets', Statement 20 "
+            "(Total Outstanding Liabilities — As per cent of GSDP). The "
+            "latest two periods are the State governments' Revised "
+            "Estimates (RE) and Budget Estimates (BE); earlier periods are "
+            "Accounts data. Telangana's series begins in 2014-15 (state "
+            "formation) — pre-2014 cells are intentionally null."
         ),
-        IndicatorMeta(
-            indicator_id="in.fiscal.gross_fiscal_deficit_pct_gsdp",
-            title="Gross fiscal deficit (% of GSDP)",
-            description=(
-                "Total borrowing requirement of the state as a share of GSDP. "
-                "FRBM ceiling is 3% for states (with conditional flexibility)."
-            ),
-            direction="lower_is_better",
-            comparability="comparable_across_states",
-            attribution_geography="where_administered",
-            icon="trending-up",
-            funding_split_state_pct=100,
-            notes="Sign convention: positive = deficit. FRBM Act ceiling = 3% of GSDP for states.",
-        ),
-        IndicatorMeta(
-            indicator_id="in.fiscal.outstanding_debt_pct_gsdp",
-            title="Outstanding liabilities (% of GSDP)",
-            description=(
-                "Stock of state-government debt outstanding at year-end as a share of "
-                "GSDP. The FRBM Act 2003 imposed the first hard ceilings; pre-2003 "
-                "series used different consolidation rules."
-            ),
-            direction="lower_is_better",
-            comparability="comparable_across_states",
-            attribution_geography="where_administered",
-            icon="landmark",
-            funding_split_state_pct=100,
-            notes="Includes loans + public account liabilities + small savings.",
-            series_breaks=(
-                {
-                    "at_time": "2003-04",
-                    "kind": "frame_change",
-                    "note": "FRBM Act 2003 imposed first hard ceiling on state debt.",
-                },
-            ),
-        ),
-        IndicatorMeta(
-            indicator_id="in.fiscal.interest_payments_pct_revenue_receipts",
-            title="Interest payments (% of revenue receipts)",
-            description=(
-                "Share of state revenue receipts consumed by debt servicing. "
-                "First-order proxy for fiscal stress: when this exceeds ~20%, "
-                "interest payments crowd out development spending."
-            ),
-            direction="lower_is_better",
-            comparability="comparable_across_states",
-            attribution_geography="where_administered",
-            icon="trending-up",
-            funding_split_state_pct=100,
-            notes="Denominator is revenue receipts, not GSDP — captures debt-service burden on the cash-flow side.",
-        ),
-        IndicatorMeta(
-            indicator_id="in.fiscal.capital_outlay_pct_gsdp",
-            title="Capital outlay (% of GSDP)",
-            description=(
-                "State spending on creation of fixed assets (schools, roads, "
-                "irrigation, hospitals) as a share of GSDP. Per-capita matters more "
-                "than per-GSDP for some uses — use the small-multiples view to "
-                "see trajectory."
-            ),
-            direction="higher_is_better",
-            comparability="comparable_with_normalisation",
-            attribution_geography="where_administered",
-            icon="factory",
-            funding_split_state_pct=100,
-            notes="Excludes capital receipts (loans, recoveries). Capital outlay = actual asset creation.",
-        ),
-        IndicatorMeta(
-            indicator_id="in.fiscal.own_non_tax_revenue_pct_gsdp",
-            title="Own non-tax revenue (% of GSDP)",
-            description=(
-                "Royalties (notably mineral royalties), state-PSU dividends, user "
-                "charges, and interest receipts as a share of GSDP. Mineral-royalty-"
-                "heavy states (Odisha, Jharkhand, Chhattisgarh) sit on a different "
-                "fiscal posture than manufacturing/services states."
-            ),
-            direction="higher_is_better",
-            comparability="comparable_with_normalisation",
-            attribution_geography="where_produced",
-            icon="coins",
-            funding_split_state_pct=100,
-            notes=(
-                "Mineral-royalty-heavy states should not be ranked head-to-head "
-                "with manufacturing/services states without a per-capita or "
-                "per-GSDP-ex-mining caveat."
-            ),
-        ),
-        IndicatorMeta(
-            indicator_id="in.fiscal.central_transfers_pct_revenue_receipts",
-            title="Central transfers (% of revenue receipts)",
-            description=(
-                "Share of state revenue receipts coming from the centre — Finance "
-                "Commission devolution + central grants. By Constitutional design, "
-                "this is HIGHER for states with weaker own-revenue capacity. A high "
-                "value is not a state failure."
-            ),
-            direction="neutral",
-            comparability="not_comparable_across_states",
-            attribution_geography="where_administered",
-            icon="scale",
-            funding_split_state_pct=0,
-            notes=(
-                "Suppress ranked-table rank: the Finance Commission's horizontal "
-                "devolution formula deliberately raises this share for poorer/"
-                "lower-capacity states. Read as fiscal context, not performance."
-            ),
-        ),
-    )
+    ),
 }
-
-assert set(INDICATOR_META.keys()) == {s.indicator_id for s in INDICATOR_SPECS}, (
-    "INDICATOR_META and INDICATOR_SPECS must cover the same indicator ids"
-)
 
 
 # ---------------------------------------------------------------------------
-# Source resolution
+# Source resolution (per-indicator)
 # ---------------------------------------------------------------------------
 
 
 @dataclass(frozen=True)
 class WorkbookBytes:
-    """The XLSX bytes plus what we know about where they came from.
+    """The XLSX bytes plus where they came from.
 
-    ``url`` is the canonical RBI URL when known (registry or env var).
-    ``fetched_at`` is when the bytes were retrieved (for the ``sources[]``
-    array); when bytes were loaded from the local cache, this is the
-    file's mtime — honest about the actual freshness.
+    ``url``: canonical RBI URL when known (registry or env), otherwise
+    the listing page when bytes loaded from local cache.
+    ``fetched_at``: when the bytes were retrieved (for ``sources[]``);
+    for cache reads, the file's mtime — honest about real freshness.
     """
 
     content: bytes
@@ -243,50 +120,87 @@ class WorkbookBytes:
     fetched_at: datetime
 
 
-def _resolve_source(*, fetcher: Fetcher, repo_root: Path) -> WorkbookBytes:
+def _env_var_for(indicator_id: str) -> str:
+    # fiscal/outstanding_debt_pct_gsdp → RBI_OUTSTANDING_DEBT_PCT_GSDP_URL
+    leaf = indicator_id.split("/")[-1]
+    return f"RBI_{leaf.upper()}_URL"
+
+
+def _cache_glob_for(indicator_id: str) -> str:
+    """Glob pattern used when looking for a locally-downloaded copy.
+
+    We accept any file whose name contains the indicator's leaf token —
+    that lets the operator name the cached file something readable
+    (e.g. ``St20_OutstandingLiabilities_pctGSDP_2026.xlsx``).
+    """
+    leaf = indicator_id.split("/")[-1]
+    # Normalise to a token that should appear in the operator's filename.
+    token = leaf.replace("_pct_gsdp", "").replace("_", "")
+    return f"*{token}*.xlsx"
+
+
+def _resolve_source(
+    *,
+    indicator_id: str,
+    fetcher: Fetcher,
+    repo_root: Path,
+) -> WorkbookBytes:
     """Try registry → env → local cache, in that order."""
-    # 1. Pinned registry.
-    pinned = latest_known_url()
+    pinned = latest_url(indicator_id)
     if pinned is not None:
         _, url = pinned
         result: FetchResult = fetcher.fetch(url)
-        return WorkbookBytes(content=result.content, url=result.url, fetched_at=result.fetched_at)
+        return WorkbookBytes(
+            content=result.content,
+            url=result.url,
+            fetched_at=result.fetched_at,
+        )
 
-    # 2. Env override.
-    env_url = os.environ.get("RBI_STATE_FINANCES_URL", "").strip()
+    env_url = os.environ.get(_env_var_for(indicator_id), "").strip()
     if env_url:
         result = fetcher.fetch(env_url)
-        return WorkbookBytes(content=result.content, url=result.url, fetched_at=result.fetched_at)
+        return WorkbookBytes(
+            content=result.content,
+            url=result.url,
+            fetched_at=result.fetched_at,
+        )
 
-    # 3. Local cache (operator manually downloaded).
     cache_dir = repo_root / ".runtime" / "raw" / RBI_SOURCE_NAME / "state_finances"
     if cache_dir.exists():
-        candidates = sorted(cache_dir.glob("*.xlsx"))
-        if candidates:
-            latest = candidates[-1]
-            mtime = datetime.fromtimestamp(latest.stat().st_mtime, tz=timezone.utc).replace(
-                microsecond=0
-            )
+        # Prefer indicator-specific filename matches; fall back to any xlsx.
+        matches = sorted(cache_dir.glob(_cache_glob_for(indicator_id)))
+        if not matches:
+            matches = sorted(cache_dir.glob("*.xlsx"))
+        if matches:
+            latest = matches[-1]
+            mtime = datetime.fromtimestamp(
+                latest.stat().st_mtime, tz=timezone.utc
+            ).replace(microsecond=0)
             return WorkbookBytes(
                 content=latest.read_bytes(),
-                # No real URL — surface the listing page as best-effort
-                # provenance so the citizen can find the source.
                 url=LISTING_PAGE,
                 fetched_at=mtime,
             )
 
     raise RBISourceUnavailable(
-        "No RBI workbook source available. Either:\n"
-        f"  (a) pin a URL in {Path('backend/yen_gov/sources/rbi_xlsx/urls.py').as_posix()}\n"
-        "  (b) set RBI_STATE_FINANCES_URL to the direct XLSX URL\n"
-        f"  (c) download the workbook from {LISTING_PAGE}\n"
-        "      and save it as .runtime/raw/rbi/state_finances/<year>.xlsx"
+        f"No RBI workbook source available for {indicator_id!r}. Either:\n"
+        f"  (a) pin a URL in backend/yen_gov/sources/rbi_xlsx/urls.py\n"
+        f"  (b) set ${_env_var_for(indicator_id)} to the direct XLSX URL\n"
+        f"  (c) download the workbook from {LISTING_PAGE} and save it as\n"
+        f"      .runtime/raw/rbi/state_finances/<filename>.xlsx"
     )
 
 
 # ---------------------------------------------------------------------------
 # Indicator artifact builder
 # ---------------------------------------------------------------------------
+
+
+def _coverage_temporal(parsed: ParsedIndicator) -> str:
+    times = sorted({r.time for r in parsed.rows})
+    if not times:
+        return "unknown"
+    return f"{times[0]}..{times[-1]}"
 
 
 def _build_indicator_payload(
@@ -298,15 +212,12 @@ def _build_indicator_payload(
 ) -> dict[str, Any]:
     meta = INDICATOR_META[spec.indicator_id]
 
-    # The parser emits one row per (state, year_span, qualifier-as-facet).
-    # Schema requires non-empty rows; the parser already guarantees this
-    # by raising RBIWorkbookShapeError on empty matches.
     rows = [
         {
             "entity_id": r.entity_id,
             "time": r.time,
             "value": r.value,
-            "facet": r.facet,
+            **({"facet": r.facet} if r.facet else {}),
         }
         for r in parsed.rows
     ]
@@ -319,9 +230,9 @@ def _build_indicator_payload(
         )
     if workbook_url == LISTING_PAGE:
         notes_parts.append(
-            "Workbook bytes loaded from local cache; ``sources[].url`` points "
-            "to the RBI listing page rather than the direct XLSX URL because "
-            "no pinned URL was available at ingest time."
+            "Workbook bytes loaded from local cache; sources[].url points "
+            "to the RBI listing page rather than the direct XLSX URL "
+            "because no pinned URL was available at ingest time."
         )
 
     payload: dict[str, Any] = {
@@ -345,8 +256,7 @@ def _build_indicator_payload(
             "value_kind": "share",
             "direction": meta.direction,
             "scale_hint": "linear",
-            "unit": spec.denominator,
-            "denominator": _denominator_id(spec.denominator),
+            "unit": "%",
             "icon": meta.icon,
             "attribution_geography": meta.attribution_geography,
             "comparability": meta.comparability,
@@ -371,34 +281,27 @@ def _build_indicator_payload(
     return payload
 
 
-def _denominator_id(unit: str) -> str:
-    if "GSDP" in unit:
-        return "gsdp_current_prices"
-    if "revenue receipts" in unit.lower():
-        return "revenue_receipts"
-    return "unknown"
-
-
-def _coverage_temporal(parsed: ParsedIndicator) -> str:
-    times = sorted({r.time for r in parsed.rows})
-    if not times:
-        return "unknown"
-    return f"{times[0]}..{times[-1]}"
-
-
 # ---------------------------------------------------------------------------
 # Orchestrator
 # ---------------------------------------------------------------------------
 
 
 @dataclass(frozen=True)
-class IngestResult:
-    """Summary of a successful ingest run."""
-
-    indicator_paths: tuple[Path, ...]
+class IndicatorIngestResult:
+    indicator_id: str
+    artifact_path: Path
     workbook_url: str
     workbook_fetched_at: datetime
-    sheet_names: tuple[str, ...]
+    sheet_name: str
+    period_columns: int
+    row_count: int
+
+
+@dataclass(frozen=True)
+class IngestResult:
+    """Summary of a successful ingest run across all shipped indicators."""
+
+    indicators: tuple[IndicatorIngestResult, ...]
 
 
 def ingest(
@@ -407,36 +310,36 @@ def ingest(
     repo_root: Path,
     schema_dir: Path,
 ) -> IngestResult:
-    """Fetch the RBI workbook, parse all 8 fiscal indicators, write artifacts.
+    """Fetch + parse + write all shipped fiscal indicators.
 
     Idempotent: re-runs overwrite the artifacts and re-stamp ``fetched_at``.
     Raises:
-        RBISourceUnavailable: no resolvable source.
+        RBISourceUnavailable: no resolvable source for an indicator.
         RBIWorkbookShapeError: workbook layout has shifted; re-run recon.
     """
-    wb_bytes = _resolve_source(fetcher=fetcher, repo_root=repo_root)
-    parsed = parse_state_finances_workbook(wb_bytes.content)
-
-    # One row per spec, in the same order they appear in INDICATOR_SPECS.
-    parsed_by_id: dict[str, ParsedIndicator] = {p.indicator_id: p for p in parsed.indicators}
-
     indicator_schema_path = schema_dir / "indicator.schema.json"
     indicator_schema = json.loads(indicator_schema_path.read_text(encoding="utf-8"))
 
     out_dir = repo_root / "datasets" / "indicators" / "in" / "fiscal"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    written: list[Path] = []
-    for spec in INDICATOR_SPECS:
-        parsed_indicator = parsed_by_id[spec.indicator_id]
+    results: list[IndicatorIngestResult] = []
+    for spec in SHIPPED_SPECS:
+        wb = _resolve_source(
+            indicator_id=spec.indicator_id,
+            fetcher=fetcher,
+            repo_root=repo_root,
+        )
+        parsed = parse_workbook(wb.content, spec)
+
         payload = _build_indicator_payload(
             spec=spec,
-            parsed=parsed_indicator,
-            workbook_url=wb_bytes.url,
-            workbook_fetched_at=wb_bytes.fetched_at,
+            parsed=parsed,
+            workbook_url=wb.url,
+            workbook_fetched_at=wb.fetched_at,
         )
-        # Filename strips the "in.fiscal." prefix for path-readability.
-        leaf = spec.indicator_id.removeprefix("in.fiscal.") + ".json"
+
+        leaf = spec.indicator_id.split("/")[-1] + ".json"
         path = out_dir / leaf
         write_artifact(
             path=path,
@@ -444,26 +347,21 @@ def ingest(
             schema_version=indicator_schema["x-version"],
             payload=payload,
             sources=[
-                Source(url=wb_bytes.url, fetched_at=wb_bytes.fetched_at),
-                Source(url=RBI_AUTHORITY_URL, fetched_at=wb_bytes.fetched_at),
+                Source(url=wb.url, fetched_at=wb.fetched_at),
+                Source(url=RBI_AUTHORITY_URL, fetched_at=wb.fetched_at),
             ],
             schema_for_validation=indicator_schema,
         )
-        written.append(path)
+        results.append(
+            IndicatorIngestResult(
+                indicator_id=spec.indicator_id,
+                artifact_path=path,
+                workbook_url=wb.url,
+                workbook_fetched_at=wb.fetched_at,
+                sheet_name=parsed.sheet_name,
+                period_columns=parsed.period_columns,
+                row_count=len(parsed.rows),
+            )
+        )
 
-    return IngestResult(
-        indicator_paths=tuple(written),
-        workbook_url=wb_bytes.url,
-        workbook_fetched_at=wb_bytes.fetched_at,
-        sheet_names=tuple(parsed.workbook_sheet_names),
-    )
-
-
-# Local-cache loader for offline parser tests / operator dry runs.
-def load_local_cached_bytes(repo_root: Path) -> bytes | None:
-    """Return the most recent locally-cached workbook bytes, or None."""
-    cache_dir = repo_root / ".runtime" / "raw" / RBI_SOURCE_NAME / "state_finances"
-    if not cache_dir.exists():
-        return None
-    candidates = sorted(cache_dir.glob("*.xlsx"))
-    return candidates[-1].read_bytes() if candidates else None
+    return IngestResult(indicators=tuple(results))

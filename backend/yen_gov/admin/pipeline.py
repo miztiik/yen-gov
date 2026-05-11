@@ -40,7 +40,7 @@ ALLOWED_COMMANDS: dict[str, str] = {
     "run": "Fetch + parse + emit one (event, state) AC slice. NETWORK + WRITES.",
     "reference": "Wikipedia scrape for reference data. NETWORK + WRITES.",
     "ingest-energy-power-plants": "india-geodata energy points → features + indicator. NETWORK + WRITES.",
-    "ingest-fiscal-rbi": "RBI State Finances workbook → 8 fiscal indicators. NETWORK + WRITES.",
+    "ingest-fiscal-rbi": "RBI State Finances workbook → fiscal indicator artifacts. NETWORK + WRITES.",
 }
 
 # Single-flight lock. The admin surface is single-user-developer

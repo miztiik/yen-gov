@@ -1,26 +1,37 @@
 """RBI State Finances XLSX adapter.
 
-Pure-parser package. Exposes:
+Layout-driven, fail-loud parser + orchestrator that turns RBI's
+per-Statement workbooks into indicator-schema artifacts under
+``datasets/indicators/in/fiscal/``.
 
-  - parse_state_finances_workbook(xlsx_bytes) -> ParsedFiscals
-  - ingest(...) — orchestrator that fetches, parses, writes 8 indicator
-    artifacts under datasets/indicators/in/fiscal/.
-  - urls (registry of known-good RBI URLs from recon).
+Public surface:
 
-See docs/architecture/backend/sources-rbi.md for the design contract.
+  - :class:`IndicatorSpec` — declares one indicator's location inside
+    one workbook.
+  - :data:`SHIPPED_SPECS` — the indicators currently published.
+  - :func:`parse_workbook` — pure parser; takes XLSX bytes + spec,
+    returns parsed rows.
+  - :func:`ingest` — orchestrator (network + filesystem boundary).
+
+See ``docs/architecture/backend/sources-rbi.md`` for the design
+contract and the per-Statement → indicator mapping.
 """
 from .parsers import (
-    INDICATOR_SPECS,
+    SHIPPED_SPECS,
     IndicatorSpec,
-    ParsedFiscals,
+    ParsedIndicator,
     ParsedRow,
-    parse_state_finances_workbook,
+    RBIWorkbookShapeError,
+    normalise_state_label,
+    parse_workbook,
 )
 
 __all__ = [
-    "INDICATOR_SPECS",
+    "SHIPPED_SPECS",
     "IndicatorSpec",
-    "ParsedFiscals",
+    "ParsedIndicator",
     "ParsedRow",
-    "parse_state_finances_workbook",
+    "RBIWorkbookShapeError",
+    "normalise_state_label",
+    "parse_workbook",
 ]
