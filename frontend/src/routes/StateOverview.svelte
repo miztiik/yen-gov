@@ -10,6 +10,7 @@
   import SourceList from "../lib/SourceList.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
+  import IndicatorRanked from "../lib/IndicatorRanked.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { getDb } from "../lib/sql";
@@ -326,16 +327,21 @@
       <RacesBoard {event} state={state_code} />
     </section>
 
-    <!-- National context: indicator choropleths. Each indicator is rendered
-         by IndicatorChoropleth driven entirely by the artifact's metadata
-         (value_kind, direction, scale_hint, unit) — no per-indicator UI
-         code. The current state is outlined so the citizen can read
-         "where do I stand?" relative to other states. -->
+    <!-- National context: indicator choropleths + ranked tables. The map
+         answers "where is the high concentration"; the ranked table
+         answers "how does my state stack up" — the citizen's first
+         comparison question. Both are driven by the same artifact under
+         datasets/indicators/in/, so adding a new indicator lights up
+         BOTH surfaces with no per-indicator UI code. -->
     <section class="space-y-3">
       <h2 class="text-sm font-semibold uppercase text-slate-500">National context</h2>
       <IndicatorChoropleth
         indicator_path="/indicators/in/energy/installed_mw_by_state.json"
         highlight_state={state_code}
+      />
+      <IndicatorRanked
+        indicator_path="/indicators/in/energy/installed_mw_by_state.json"
+        home_state={state_code}
       />
     </section>
 
