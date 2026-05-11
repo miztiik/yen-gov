@@ -194,7 +194,7 @@ Purpose: turn yen-gov from "view one state at a time" into "compare states by ca
 - [ ] **Category index** (off the roadmap): composite indices hide the trade-offs that ARE the story.
 
 ### 6E — More indicators (data depth, ordered per Governance review)
-- [ ] **fiscal/** (PRIORITY 1, contextualises everything else): RBI *State Finances: A Study of Budgets* — own-tax % GSDP, devolution per capita, debt-to-GSDP. Without this baseline every economic/social indicator ships without context.
+- [~] **fiscal/** (PRIORITY 1 — SPEC LANDED 2026-05-11): `docs/architecture/backend/sources-rbi.md` — full contract for the 8-indicator first cut (own-tax % GSDP, revenue deficit, gross fiscal deficit, outstanding debt, interest payments % revenue receipts, capital outlay % GSDP, own non-tax revenue, central transfers % revenue receipts). Every honesty field pre-declared per indicator (direction, comparability, attribution_geography, series_breaks, funding_split, methodology_vintage). Ingest blocked on real RBI Excel companion download — holy law forbids fabricating fiscal numbers.
 - [ ] **economy/**: GSDP constant prices (2011-12 series); per-capita NSDP; sectoral GVA share. MoSPI + RBI Handbook of Statistics on Indian States.
 - [ ] **demographics/**: total population (Census 2011 + UIDAI projection); decadal growth; sex ratio at birth. RGI/Census + CRS.
 - [ ] **human_development/**: IMR; under-5 mortality; TFR; institutional-delivery share. NFHS-5 + SRS.
