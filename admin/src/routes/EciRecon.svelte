@@ -30,6 +30,7 @@
   // --- Pins state ---
   let pins = $state<EciPinEntry[]>([]);
   let pins_loaded_in_process = $state<{ state: string; year: number; category_id: number }[]>([]);
+  let events_registry = $state<{ state: string; year: number; event_id: string }[]>([]);
   let pins_error = $state<string | null>(null);
   let pin_form = $state({
     state: "",
@@ -83,6 +84,7 @@
       const r = await api.eciPins();
       pins = r.payload.pins;
       pins_loaded_in_process = r.loaded_in_process;
+      events_registry = r.events;
       pins_error = null;
     } catch (e) {
       pins_error = String(e);
@@ -167,6 +169,39 @@
       const res = await api.triggerPipeline({
         command: "eci-statreport",
         args,
+        confirm: true,
+      });
+      download_msg = { ...download_msg, [key]: `Started run ${res.run_id} — see Pipeline panel for live tail.` };
+    } catch (e) {
+      download_msg = { ...download_msg, [key]: `Error: ${e}` };
+    } finally {
+      download_busy = { ...download_busy, [key]: false };
+    }
+  }
+
+  function eventIdFor(state: string, year: number): string | null {
+    return events_registry.find(e => e.state === state && e.year === year)?.event_id ?? null;
+  }
+
+  async function fullIngest(p: EciPinEntry): Promise<void> {
+    const key = `${p.state}-${p.year}`;
+    const eventId = eventIdFor(p.state, p.year);
+    if (!eventId) {
+      download_msg = { ...download_msg, [key]: `Error: no event registered for (${p.state}, ${p.year}). See TODO/ECI-MULTI-STATE-INGEST-PLAN.md (N2).` };
+      return;
+    }
+    if (!confirm(
+      `Full ingest for (${p.state}, ${p.year}) under event "${eventId}"?\n\n` +
+      `Runs: eci-statreport-emit ${p.state} ${p.year}\n` +
+      `Writes parsed per-AC JSON to datasets/elections/${eventId}/${p.state}/results/.\n\n` +
+      `This re-runs idempotently if data already exists.`
+    )) return;
+    download_busy = { ...download_busy, [key]: true };
+    download_msg = { ...download_msg, [key]: "" };
+    try {
+      const res = await api.triggerPipeline({
+        command: "eci-statreport-emit",
+        args: [p.state, String(p.year)],
         confirm: true,
       });
       download_msg = { ...download_msg, [key]: `Started run ${res.run_id} — see Pipeline panel for live tail.` };
@@ -301,39 +336,21 @@
             {#if side.kind === "hit"}
               <div><span class="text-slate-400">cat_name:</span> {side.cat_name}</div>
               <div><span class="text-slate-400">index_name:</span> {side.index_name || "(empty)"}</div>
-              <div><span class="text-slate-4notes</th>
-            <th class="text-left px-2 py-1">download</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {#each pins as p (`${p.state}-${p.year}`)}
-            {@const key = `${p.state}-${p.year}`}
-            <tr class="border-t border-slate-800 align-top">
-              <td class="px-2 py-1 font-mono">{p.state}</td>
-              <td class="px-2 py-1">{p.year}</td>
-              <td class="px-2 py-1 font-mono">{p.category_id}</td>
-              <td class="px-2 py-1 text-xs">{p.cat_name}</td>
-              <td class="px-2 py-1 text-xs text-slate-500 max-w-xs" title={p.notes}>{p.notes || ""}</td>
-              <td class="px-2 py-1 text-xs whitespace-nowrap">
-                <button onclick={() => downloadStatReport(p, false)} disabled={download_busy[key]}
-                        class="bg-emerald-700 hover:bg-emerald-600 disabled:opacity-50 text-white rounded px-2 py-0.5 mr-1"
-                        title="Run eci-statreport --download --skip-pdf">
-                  {download_busy[key] ? "…" : "⬇ XLSX"}
-                </button>
-                <button onclick={() => downloadStatReport(p, true)} disabled={download_busy[key]}
-                        class="bg-slate-700 hover:bg-slate-600 disabled:opacity-50 text-white rounded px-2 py-0.5"
-                        title="Run eci-statreport --download (XLSX + PDF)">
-                  ⬇ +PDF
-                </button>
-                {#if download_msg[key]}
-                  <div class="text-[10px] mt-1"
-                       class:text-rose-400={download_msg[key].startsWith("Error")}
-                       class:text-emerald-400={!download_msg[key].startsWith("Error")}>
-                    {download_msg[key]}
-                  </div>
-                {/if}
-              
+              {#if side.index_url}
+                <div class="break-all">
+                  <span class="text-slate-400">index_url:</span>
+                  <a href={side.index_url} target="_blank" rel="noreferrer" class="text-sky-400 underline">{side.index_url}</a>
+                </div>
+              {/if}
+            {:else if side.kind === "miss"}
+              <div class="text-slate-500">No data for this id.</div>
+            {:else}
+              <div class="text-rose-400">Error: {side.error ?? "unknown"}</div>
+            {/if}
+          </div>
+        {/each}
+      </div>
+    {/if}
   </section>
 
   <!-- 3. Pins -------------------------------------------------------- -->
@@ -351,18 +368,52 @@
             <th class="text-left px-2 py-1">cat_name</th>
             <th class="text-left px-2 py-1">confirmed_at</th>
             <th class="text-left px-2 py-1">notes</th>
+            <th class="text-left px-2 py-1">actions</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           {#each pins as p (`${p.state}-${p.year}`)}
-            <tr class="border-t border-slate-800">
+            {@const key = `${p.state}-${p.year}`}
+            <tr class="border-t border-slate-800 align-top">
               <td class="px-2 py-1 font-mono">{p.state}</td>
               <td class="px-2 py-1">{p.year}</td>
               <td class="px-2 py-1 font-mono">{p.category_id}</td>
               <td class="px-2 py-1 text-xs">{p.cat_name}</td>
               <td class="px-2 py-1 text-xs text-slate-500">{p.confirmed_at}</td>
               <td class="px-2 py-1 text-xs text-slate-500 max-w-xs truncate" title={p.notes}>{p.notes || ""}</td>
+              <td class="px-2 py-1 text-xs whitespace-nowrap">
+                <button onclick={() => downloadStatReport(p, false)} disabled={download_busy[key]}
+                        class="bg-emerald-700 hover:bg-emerald-600 disabled:opacity-50 text-white rounded px-2 py-0.5 mr-1"
+                        title="Run eci-statreport --download --skip-pdf (raw XLSX → .runtime/raw/eci/)">
+                  {download_busy[key] ? "…" : "⬇ XLSX"}
+                </button>
+                <button onclick={() => downloadStatReport(p, true)} disabled={download_busy[key]}
+                        class="bg-slate-700 hover:bg-slate-600 disabled:opacity-50 text-white rounded px-2 py-0.5 mr-1"
+                        title="Run eci-statreport --download (raw XLSX + PDF zips)">
+                  ⬇ +PDF
+                </button>
+                {#if eventIdFor(p.state, p.year)}
+                  <button onclick={() => fullIngest(p)} disabled={download_busy[key]}
+                          class="bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-slate-900 font-semibold rounded px-2 py-0.5"
+                          title={`Run eci-statreport-emit (full parse → datasets/elections/${eventIdFor(p.state, p.year)}/${p.state}/)`}>
+                    🚀 Full ingest
+                  </button>
+                {:else}
+                  <button disabled
+                          class="bg-slate-800 text-slate-500 rounded px-2 py-0.5 cursor-not-allowed"
+                          title="No event registered for (state, year). Full ingest needs N2 — see TODO/ECI-MULTI-STATE-INGEST-PLAN.md.">
+                    🚀 Full ingest
+                  </button>
+                {/if}
+                {#if download_msg[key]}
+                  <div class="text-[10px] mt-1 whitespace-normal"
+                       class:text-rose-400={download_msg[key].startsWith("Error")}
+                       class:text-emerald-400={!download_msg[key].startsWith("Error")}>
+                    {download_msg[key]}
+                  </div>
+                {/if}
+              </td>
               <td class="px-2 py-1 text-right">
                 <button onclick={() => deletePin(p.state, p.year)}
                         class="text-xs text-rose-400 hover:text-rose-300">delete</button>

@@ -37,6 +37,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 from ..sources.eci import categories as eci_categories
+from ..sources.eci.events import EVENT_ID_FOR
 
 router = APIRouter()
 
@@ -240,6 +241,10 @@ def get_pins() -> dict[str, Any]:
         "loaded_in_process": [
             {"state": s, "year": y, "category_id": cid}
             for (s, y), cid in sorted(eci_categories.STATISTICAL_REPORT_CATEGORY_ID.items())
+        ],
+        "events": [
+            {"state": s, "year": y, "event_id": eid}
+            for (s, y), eid in sorted(EVENT_ID_FOR.items())
         ],
     }
 

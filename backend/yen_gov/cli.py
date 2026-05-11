@@ -18,6 +18,7 @@ from yen_gov.pipeline.compose import (
 from yen_gov.pipeline.reference import scrape_state_reference
 from yen_gov.pipeline.run import parties_snapshot_from_partywise, run_state_slice
 from yen_gov.sources.eci.categories import category_id_for
+from yen_gov.sources.eci.events import event_id_for
 from yen_gov.sources.eci.partywise import parse_partywise
 from yen_gov.sources.eci.statistical_report import (
     download_documents,
@@ -257,9 +258,12 @@ def eci_statreport_emit(
     state: str = typer.Argument(..., help="ECI state code, e.g. S22."),
     year: int = typer.Argument(..., help="Election year, e.g. 2026."),
     event: str = typer.Option(
-        "AcGenMay2026", "--event",
-        help="Event id used for the election field + output path. "
-             "Defaults to AcGenMay2026 (the live-results event for this cohort).",
+        None, "--event",
+        help="On-disk event id (groups artifacts under "
+             "datasets/elections/<event>/<state>/). Defaults to the value "
+             "registered for (state, year) in sources/eci/events.py — only "
+             "the May-2026 cohort is registered today (N1 of "
+             "TODO/ECI-MULTI-STATE-INGEST-PLAN.md).",
     ),
     root: Path = typer.Option(
         Path.cwd(), "--root", "-r",
@@ -287,6 +291,16 @@ def eci_statreport_emit(
     for key in ("$schema", "$schema_version"):
         config_doc.pop(key, None)
     cfg = ProcessingConfig.model_validate(config_doc)
+
+    # Default --event from the (state, year) registry. Explicit --event
+    # still overrides for ad-hoc runs / future events not yet in the
+    # registry. Per N1 of TODO/ECI-MULTI-STATE-INGEST-PLAN.md.
+    if event is None:
+        try:
+            event = event_id_for(state, year)
+        except KeyError as exc:
+            raise typer.BadParameter(str(exc), param_hint="--event") from exc
+    typer.echo(f"event:       {event}")
 
     output_dir = output or (root / "datasets" / "elections" / event / state)
     schema_dir = root / "datasets" / "schemas"

@@ -157,6 +157,7 @@ export interface EciPinsResponse {
   path: string;
   schema_id: string;
   loaded_in_process: { state: string; year: number; category_id: number }[];
+  events: { state: string; year: number; event_id: string }[];
 }
 
 async function getJson<T>(path: string): Promise<T> {
