@@ -1,0 +1,469 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:17Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:18Z"
+    }
+  ],
+  "state": "S07",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Kalka",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Panchkula",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Naraingarh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Ambala Cantt.",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Ambala City",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Mulana",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 7,
+      "name": "Sadhaura",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 8,
+      "name": "Jagadhri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Yamunanagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Radaur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Ladwa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Shahbad",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 13,
+      "name": "Thanesar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Pehowa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Guhla",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 16,
+      "name": "Kalayat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Kaithal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Pundri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Nilokheri",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 20,
+      "name": "Indri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Karnal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Gharaunda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Assandh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Panipat Rural",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Panipat City",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Israna",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 27,
+      "name": "Samalkha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Ganaur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Rai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Kharkhauda",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 31,
+      "name": "Sonipat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Gohana",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Baroda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Julana",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Safidon",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Jind",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Uchana Kalan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Narwana",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 39,
+      "name": "Tohana",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Fatehabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Ratia",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 42,
+      "name": "Kalanwali",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 43,
+      "name": "Dabwali",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Rania",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Sirsa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Ellenabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Adampur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Uklana",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 49,
+      "name": "Narnaund",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Hansi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Barwala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Hisar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Nalwa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "Loharu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Badhra",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Dadri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Bhiwani",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Tosham",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Bawani Khera",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 60,
+      "name": "Meham",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Garhi Sampla - Kiloi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 62,
+      "name": "Rohtak",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 63,
+      "name": "Kalanaur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 64,
+      "name": "Bahadurgarh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Badli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 66,
+      "name": "Jhajjar",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 67,
+      "name": "Beri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 68,
+      "name": "Ateli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 69,
+      "name": "Mahendragarh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 70,
+      "name": "Narnaul",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 71,
+      "name": "Nangal Chaudhry",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 72,
+      "name": "Bawal",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 73,
+      "name": "Kosli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 74,
+      "name": "Rewari",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 75,
+      "name": "Pataudi",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 76,
+      "name": "Badshahpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 77,
+      "name": "Gurgaon",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 78,
+      "name": "Sohna",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 79,
+      "name": "Nuh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 80,
+      "name": "Ferozepur Jhirka",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 81,
+      "name": "Punahana",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 82,
+      "name": "Hathin",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 83,
+      "name": "Hodal",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 84,
+      "name": "Palwal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 85,
+      "name": "Prithla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 86,
+      "name": "Faridabad Nit",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 87,
+      "name": "Badkhal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 88,
+      "name": "Ballabgarh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 89,
+      "name": "Faridabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 90,
+      "name": "Tigaon",
+      "reservation": "GEN"
+    }
+  ]
+}

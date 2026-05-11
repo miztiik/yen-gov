@@ -1,0 +1,369 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
+      "fetched_at": "2026-05-11T17:41:37Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
+      "fetched_at": "2026-05-11T17:41:38Z"
+    }
+  ],
+  "state": "U05",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Nerela",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Burari",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Timarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Adarsh Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Badli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Rithala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Bawana",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 8,
+      "name": "Mundka",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Kirari",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Sultanpur Majra",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 11,
+      "name": "Nangloi Jat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Mangol Puri",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 13,
+      "name": "Rohini",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Shalimar Bagh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Shakur Basti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Tri Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Wazirpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Model Town",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Sadar Bazar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Chandni Chowk",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Matia Mahal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Ballimaran",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Karol Bagh",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 24,
+      "name": "Patel Nagar",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 25,
+      "name": "Moti Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Madipur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 27,
+      "name": "Rajouri Garden",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Hari Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Tilak Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Janakpuri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Vikaspuri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Uttam Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Dwarka",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Matiala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Najafgarh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Bijwasan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Palam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Delhi Cantt",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Rajinder Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "New Delhi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Jangpura",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "Kasturba Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Malviya Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "R. K. Puram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Mehrauli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Chhatarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Deoli",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 48,
+      "name": "Ambedkar Nagar",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 49,
+      "name": "Sangam Vihar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Greater Kailash",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Kalkaji",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Tughlakabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Badarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "Okhla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Trilokpuri",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 56,
+      "name": "Kondli",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 57,
+      "name": "Patparganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Laxmi Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Vishwas Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Krishna Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Gandhi Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 62,
+      "name": "Shahdara",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 63,
+      "name": "Seemapuri",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 64,
+      "name": "Rohtas Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Seelam Pur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 66,
+      "name": "Ghonda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 67,
+      "name": "Babarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 68,
+      "name": "Gokalpur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 69,
+      "name": "Mustafabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 70,
+      "name": "Karawal Nagar",
+      "reservation": "GEN"
+    }
+  ]
+}

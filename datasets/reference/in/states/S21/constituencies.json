@@ -1,0 +1,179 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-SK/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-SK/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:13Z"
+    }
+  ],
+  "state": "S21",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Yuksom-Tashiding (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Yangthang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Maneybung-Dentam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Gyalshing-Barnyak",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Rinchenpong (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Daramdin (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Soreng-Chakung",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Salghari-Zoom",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 9,
+      "name": "Barfung (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Poklok-Kamrang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Namchi-Singhithang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Melli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Namthang-Rateypani",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Temi-Namphing",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Rangang-Yangang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Tumen-Lingi (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Khamdong-Singtam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "West Pendam",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 19,
+      "name": "Rhenock",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Chujachen",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Gnathang-Machong (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Namcheybung",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Shyari (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Martam-Rumtek (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Upper Tadong",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Arithang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Gangtok (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Upper Burtuk",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Kabi Lungchuk (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Djongu (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Lachen Mangan (Bl)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Sangha",
+      "reservation": "GEN"
+    }
+  ]
+}

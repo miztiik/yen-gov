@@ -1,0 +1,894 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T15:45:13Z"
+    }
+  ],
+  "state": "S01",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Ichchapuram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Palasa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Tekkali",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Pathapatnam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Srikakulam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Amadalavalasa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Etcherla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Narasannapeta",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Rajam",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 10,
+      "name": "Palakonda",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 11,
+      "name": "Kurupam",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 12,
+      "name": "Parvathipuram",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 13,
+      "name": "Salur",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 14,
+      "name": "Bobbili",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Cheepurupalle",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Gajapathinagaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Nellimarla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Vizianagaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Srungavarapukota",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Bhimili",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Visakhapatnam East",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Visakhapatnam South",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Visakhapatnam North",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Visakhapatnam West",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Gajuwaka",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Chodavaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Madugula",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Araku Valley",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 29,
+      "name": "Paderu",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 30,
+      "name": "Anakapalle",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Pendurthi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Yelamanchili",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Payakaraopet",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 34,
+      "name": "Narsipatnam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Tuni",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Prathipadu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Pithapuram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Kakinada Rural",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Peddapuram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Anaparthy",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Kakinada City",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "Ramachandrapuram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Mummidivaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Amalapuram",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 45,
+      "name": "Razole",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 46,
+      "name": "Gannavaram",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 47,
+      "name": "Kothapeta",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Mandapeta",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Rajanagaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Rajahmundry City",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Rajahmundry Rural",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Jaggampeta",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Rampachodavaram",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 54,
+      "name": "Kovvur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 55,
+      "name": "Nidadavole",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Achanta",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Palacole",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Narasapuram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Bhimavaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Undi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Tanuku",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 62,
+      "name": "Tadepalligudem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 63,
+      "name": "Ungutur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 64,
+      "name": "Denduluru",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Eluru",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 66,
+      "name": "Gopalapuram",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 67,
+      "name": "Polavaram",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 68,
+      "name": "Chintalapudi",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 69,
+      "name": "Tiruvuru",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 70,
+      "name": "Nuzvid",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 71,
+      "name": "Gannavaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 72,
+      "name": "Gudivada",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 73,
+      "name": "Kaikalur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 74,
+      "name": "Pedana",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 75,
+      "name": "Machilipatnam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 76,
+      "name": "Avanigadda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 77,
+      "name": "Pamarru",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 78,
+      "name": "Penamaluru",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 79,
+      "name": "Vijayawada West",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 80,
+      "name": "Vijayawada Central",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 81,
+      "name": "Vijayawada East",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 82,
+      "name": "Mylavaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 83,
+      "name": "Nandigama",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 84,
+      "name": "Jaggayyapeta",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 85,
+      "name": "Pedakurapadu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 86,
+      "name": "Tadikonda",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 87,
+      "name": "Mangalagiri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 88,
+      "name": "Ponnur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 89,
+      "name": "Vemuru",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 90,
+      "name": "Repalle",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 91,
+      "name": "Tenali",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 92,
+      "name": "Bapatla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 93,
+      "name": "Prathipadu",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 94,
+      "name": "Guntur West",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 95,
+      "name": "Guntur East",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 96,
+      "name": "Chilakaluripet",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 97,
+      "name": "Narasaraopet",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 98,
+      "name": "Sattenapalle",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 99,
+      "name": "Vinukonda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 100,
+      "name": "Gurajala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 101,
+      "name": "Macherla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 102,
+      "name": "Yerragondapalem",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 103,
+      "name": "Darsi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 104,
+      "name": "Parchur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 105,
+      "name": "Addanki",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 106,
+      "name": "Chirala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 107,
+      "name": "Santhanuthalapadu",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 108,
+      "name": "Ongole",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 109,
+      "name": "Kandukur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 110,
+      "name": "Kondapi",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 111,
+      "name": "Markapuram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 112,
+      "name": "Giddalur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 113,
+      "name": "Kanigiri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 114,
+      "name": "Kavali",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 115,
+      "name": "Atmakur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 116,
+      "name": "Kovur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 117,
+      "name": "Nellore City",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 118,
+      "name": "Nellore Rural",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 119,
+      "name": "Sarvepalli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 120,
+      "name": "Gudur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 121,
+      "name": "Sullurpeta",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 122,
+      "name": "Venkatagiri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 123,
+      "name": "Udayagiri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 124,
+      "name": "Badvel",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 125,
+      "name": "Rajampet",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 126,
+      "name": "Kadapa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 127,
+      "name": "Kodur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 128,
+      "name": "Rayachoti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 129,
+      "name": "Pulivendla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 130,
+      "name": "Kamalapuram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 131,
+      "name": "Jammalamadugu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 132,
+      "name": "Proddatur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 133,
+      "name": "Mydukur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 134,
+      "name": "Allagadda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 135,
+      "name": "Srisailam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 136,
+      "name": "Nandikotkur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 137,
+      "name": "Kurnool",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 138,
+      "name": "Panyam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 139,
+      "name": "Nandyal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 140,
+      "name": "Banaganapalle",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 141,
+      "name": "Dhone",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 142,
+      "name": "Pattikonda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 143,
+      "name": "Kodumur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 144,
+      "name": "Yemmiganur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 145,
+      "name": "Mantralayam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 146,
+      "name": "Adoni",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 147,
+      "name": "Alur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 148,
+      "name": "Rayadurg",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 149,
+      "name": "Uravakonda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 150,
+      "name": "Guntakal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 151,
+      "name": "Tadpatri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 152,
+      "name": "Singanamala",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 153,
+      "name": "Anantapur Urban",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 154,
+      "name": "Kalyandurg",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 155,
+      "name": "Raptadu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 156,
+      "name": "Madakasira",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 157,
+      "name": "Hindupur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 158,
+      "name": "Penukonda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 159,
+      "name": "Puttaparthi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 160,
+      "name": "Dharmavaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 161,
+      "name": "Kadiri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 162,
+      "name": "Thamballapalle",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 163,
+      "name": "Pileru",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 164,
+      "name": "Madanapalle",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 165,
+      "name": "Punganur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 166,
+      "name": "Chandragiri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 167,
+      "name": "Tirupati",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 168,
+      "name": "Srikalahasti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 169,
+      "name": "Satyavedu",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 170,
+      "name": "Nagari",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 171,
+      "name": "Gangadhara Nellore",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 172,
+      "name": "Chittoor",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 173,
+      "name": "Puthalapattu",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 174,
+      "name": "Palamaner",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 175,
+      "name": "Kuppam",
+      "reservation": "GEN"
+    }
+  ]
+}

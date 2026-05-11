@@ -248,13 +248,13 @@
   // eci_no string match; districts with zero matches are dropped from the
   // listing entirely.
   const by_district = $derived.by(() => {
-    if (!acs || !districts) return [];
+    if (!acs) return [];
     const q = ac_query.trim().toLowerCase();
     const filter = q
       ? (ac: ConstituencyEntry) =>
           ac.name.toLowerCase().includes(q) || String(ac.eci_no) === q
       : () => true;
-    const name_by_id = new Map(districts.map(d => [d.id, d.name]));
+    const name_by_id = new Map((districts ?? []).map(d => [d.id, d.name]));
     const groups = new Map<string, ConstituencyEntry[]>();
     for (const ac of acs) {
       if (!filter(ac)) continue;
@@ -413,17 +413,17 @@
       </section>
     {:else if event_row && !summary && !error}
       <div class="text-slate-500">Loading election data…</div>
-    {:else if event_row && summary && (!acs || !districts)}
+    {:else if event_row && summary && !acs}
       <section class="bg-white rounded-lg shadow-sm p-6 text-sm text-slate-600">
         <p class="font-medium text-slate-700 mb-1">Election results loaded.</p>
         <p>
-          Per-constituency directory and district map for {event_row.display}
-          are not available yet — the constituencies and districts reference
-          files for this state still need to be ingested. Once the reference
-          data lands the AC directory below will populate automatically.
+          Per-constituency directory for {event_row.display}
+          isn't available yet — the constituencies reference file for this
+          state still needs to be bootstrapped (run
+          <code>python tools/bootstrap_constituencies_from_results.py {state_code}</code>).
         </p>
       </section>
-    {:else if event_row && summary && acs && districts}
+    {:else if event_row && summary && acs}
 
     <!-- Top row: map (3fr) + donut + key totals (2fr).
          At <lg the donut wraps below the map (single column). -->

@@ -1,0 +1,269 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/10-Detailed-Results.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/3-List-Of-Political-Parties-Participated.xlsx",
+      "fetched_at": "2026-05-11T17:41:03Z"
+    }
+  ],
+  "state": "S02",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Lumla",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 2,
+      "name": "Tawang",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 4,
+      "name": "Dirang",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 5,
+      "name": "Kalaktang",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 6,
+      "name": "Thrizino-Buragaon",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 8,
+      "name": "Bameng",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 9,
+      "name": "Chayangtajo",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 10,
+      "name": "Seppa East",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 11,
+      "name": "Seppa West",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 12,
+      "name": "Pakke-Kasang",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 14,
+      "name": "Doimukh",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 16,
+      "name": "Yachuli",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 18,
+      "name": "Palin",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 19,
+      "name": "Nyapin",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 21,
+      "name": "Koloriang",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 22,
+      "name": "Nacho",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 24,
+      "name": "Daporijo",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 25,
+      "name": "Raga",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 26,
+      "name": "Damporijo",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 27,
+      "name": "Liromoba",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 28,
+      "name": "Likabali",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 29,
+      "name": "Basar",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 30,
+      "name": "Along West",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 31,
+      "name": "Along East",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 32,
+      "name": "Rumgong",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 33,
+      "name": "Mechuka",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 34,
+      "name": "Tuting-Yingkiong",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 35,
+      "name": "Pangin",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 36,
+      "name": "Nari-Koyu",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 37,
+      "name": "Pasighat West",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 38,
+      "name": "Pasighat East",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 39,
+      "name": "Mebo",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 40,
+      "name": "Mariyang-Geku",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 41,
+      "name": "Anini",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 42,
+      "name": "Dambuk",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 44,
+      "name": "Tezu",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 47,
+      "name": "Namsai",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 48,
+      "name": "Lekang",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 49,
+      "name": "Bordumsa-Diyun",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Miao",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 51,
+      "name": "Nampong",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 52,
+      "name": "Changlang South",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 53,
+      "name": "Changlang North",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 54,
+      "name": "Namsang",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 55,
+      "name": "Khonsa East",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 56,
+      "name": "Khonsa West",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 57,
+      "name": "Borduria-Bogapani",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 58,
+      "name": "Kanubari",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 59,
+      "name": "Longding-Pumao",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 60,
+      "name": "Pongchao-Wakka",
+      "reservation": "ST"
+    }
+  ]
+}
