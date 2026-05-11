@@ -110,14 +110,49 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   },
 };
 
-// GADM NAME_1 → ECI state code. Only states we currently have data for.
-// When new states ship, append entries here (additive change).
+// datameet ST_NM → ECI state code. Covers all 36 states/UTs so the India
+// choropleth can highlight any state that has a /s/<state> route, even if
+// per-AC boundary tiles for that state aren't yet shipped. Two name
+// adjustments vs datasets/reference/in/states.json (which uses the legal
+// names): "Andaman and Nicobar Islands" → "Andaman & Nicobar" and
+// "NCT of Delhi" → "Delhi", to match the datameet india-states.geojson.
 export const STATE_NAME_TO_ECI: Record<string, string> = {
-  "Tamil Nadu": "S22",
-  "Kerala": "S11",
-  "West Bengal": "S25",
+  "Andhra Pradesh": "S01",
+  "Arunachal Pradesh": "S02",
   "Assam": "S03",
+  "Bihar": "S04",
+  "Goa": "S05",
+  "Gujarat": "S06",
+  "Haryana": "S07",
+  "Himachal Pradesh": "S08",
+  "Karnataka": "S10",
+  "Kerala": "S11",
+  "Madhya Pradesh": "S12",
+  "Maharashtra": "S13",
+  "Manipur": "S14",
+  "Meghalaya": "S15",
+  "Mizoram": "S16",
+  "Nagaland": "S17",
+  "Odisha": "S18",
+  "Punjab": "S19",
+  "Rajasthan": "S20",
+  "Sikkim": "S21",
+  "Tamil Nadu": "S22",
+  "Tripura": "S23",
+  "Uttar Pradesh": "S24",
+  "West Bengal": "S25",
+  "Chhattisgarh": "S26",
+  "Jharkhand": "S27",
+  "Uttarakhand": "S28",
+  "Telangana": "S29",
+  "Andaman & Nicobar": "U01",
+  "Chandigarh": "U02",
+  "Dadra and Nagar Haveli and Daman and Diu": "U03",
+  "Lakshadweep": "U04",
+  "Delhi": "U05",
   "Puducherry": "U07",
+  "Jammu & Kashmir": "U08",
+  "Ladakh": "U09",
 };
 
 // Reverse, for India-map tooltips that want the ECI code from feature props.
