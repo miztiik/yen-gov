@@ -9,23 +9,40 @@
   // event in their path will need to navigate too — Phase 2 concern.
 
   import { fetchStates, type StateEntry } from "../lib/data";
+  import { fetchTopicCatalogue, type TopicCatalogue } from "../lib/catalogue";
   import { scope, COUNTRIES, ELECTIONS } from "./scope.svelte";
   import { STATE_NAME_TO_ECI } from "./maplibre/sources";
   import { navigate, url } from "./url";
 
-  // Codes we have election data for; surface them at the top of the
-  // dropdown so the picker is useful before the long tail is filled in.
-  const HAS_DATA = new Set(Object.values(STATE_NAME_TO_ECI));
+  // P2.3 of IA reset (ADR-0022): state availability is decoupled from
+  // election-data presence. When the catalogue exposes any national-scope
+  // indicator artifact, every state has data and the picker shows a single
+  // sorted list. The STATE_NAME_TO_ECI proxy stays as a bootstrap fallback.
+  const fallback_codes = new Set(Object.values(STATE_NAME_TO_ECI));
 
   let states_list = $state<StateEntry[] | null>(null);
+  let catalogue = $state<TopicCatalogue | null>(null);
+
   fetchStates()
     .then(s => (states_list = s.states))
     .catch(() => (states_list = []));
+  fetchTopicCatalogue()
+    .then(c => (catalogue = c))
+    .catch(() => (catalogue = null));
+
+  const has_national_indicator = $derived(
+    (catalogue?.topics ?? []).some(t =>
+      t.artifacts.some(a => a.kind === "indicator" && (a.scope ?? "national") === "national"),
+    ),
+  );
 
   const sorted_states = $derived.by(() => {
     const a: StateEntry[] = [];
     const b: StateEntry[] = [];
-    for (const s of states_list ?? []) (HAS_DATA.has(s.eci_code) ? a : b).push(s);
+    for (const s of states_list ?? []) {
+      const has = has_national_indicator || fallback_codes.has(s.eci_code);
+      (has ? a : b).push(s);
+    }
     a.sort((x, y) => x.name.localeCompare(y.name));
     b.sort((x, y) => x.name.localeCompare(y.name));
     return { with_data: a, without_data: b };

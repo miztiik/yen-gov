@@ -3,6 +3,12 @@
     fetchResultSummary, fetchConstituencies, fetchDistricts,
     type ResultSummary, type ConstituencyEntry, type DistrictEntry,
   } from "../lib/data";
+  import {
+    fetchTopicCatalogue,
+    indicatorPathForArtifact,
+    type TopicCatalogue,
+    type CatalogueTopic,
+  } from "../lib/catalogue";
   import PartyBar from "../lib/PartyBar.svelte";
   import SeatDonut from "../lib/SeatDonut.svelte";
   import MarginHistogram from "../lib/MarginHistogram.svelte";
@@ -29,7 +35,26 @@
   let summary = $state<ResultSummary | null>(null);
   let acs = $state<ConstituencyEntry[] | null>(null);
   let districts = $state<DistrictEntry[] | null>(null);
+  let catalogue = $state<TopicCatalogue | null>(null);
   let error = $state<string | null>(null);
+
+  // Indicator sections on the state hub are now data-driven (P2.4 of the
+  // IA reset, ADR-0022): each topic in the catalogue that ships at least
+  // one `kind: "indicator"` artifact renders as a section in catalogue
+  // order. The closed renderer set (IndicatorChoropleth/Ranked/SmallMultiples)
+  // is reused unchanged — no per-topic bespoke chrome (per
+  // docs/concepts/schema-is-the-design-system.md). Election artifacts in the
+  // catalogue are intentionally skipped here; they're rendered by the
+  // election-specific sections above (different renderer family).
+  const indicator_topics = $derived(
+    (catalogue?.topics ?? []).filter(t =>
+      t.artifacts.some(a => a.kind === "indicator"),
+    ),
+  );
+
+  fetchTopicCatalogue()
+    .then(c => (catalogue = c))
+    .catch(() => (catalogue = null));
 
   // Per-AC winner & margin lookup. Loaded from results.sqlite (same DB the
   // map and histogram use; the lib/sql cache means this is a single fetch
@@ -328,49 +353,25 @@
       <RacesBoard {event} state={state_code} />
     </section>
 
-    <!-- National context: indicator choropleths + ranked tables. The map
-         answers "where is the high concentration"; the ranked table
-         answers "how does my state stack up" — the citizen's first
-         comparison question. Both are driven by the same artifact under
-         datasets/indicators/in/, so adding a new indicator lights up
-         BOTH surfaces with no per-indicator UI code. -->
-    <section class="space-y-3">
-      <h2 class="text-sm font-semibold uppercase text-slate-500">National context</h2>
-      <IndicatorChoropleth
-        indicator_path="/indicators/in/energy/installed_mw_by_state.json"
-        highlight_state={state_code}
-      />
-      <IndicatorRanked
-        indicator_path="/indicators/in/energy/installed_mw_by_state.json"
-        home_state={state_code}
-      />
-      <IndicatorSmallMultiples
-        indicator_path="/indicators/in/energy/installed_mw_by_state.json"
-        home_state={state_code}
-      />
-    </section>
-
-    <!-- Fiscal capacity: state-government finances published annually by
-         RBI in "State Finances: A Study of Budgets". Outstanding debt as
-         a share of GSDP is the headline solvency indicator — the FRBM
-         Act 2003 imposed the first hard ceiling. RE/BE qualifiers on
-         the latest two periods surface in tooltips so citizens can tell
-         actuals from projections. -->
-    <section class="space-y-3">
-      <h2 class="text-sm font-semibold uppercase text-slate-500">Fiscal capacity</h2>
-      <IndicatorChoropleth
-        indicator_path="/indicators/in/fiscal/outstanding_debt_pct_gsdp.json"
-        highlight_state={state_code}
-      />
-      <IndicatorRanked
-        indicator_path="/indicators/in/fiscal/outstanding_debt_pct_gsdp.json"
-        home_state={state_code}
-      />
-      <IndicatorSmallMultiples
-        indicator_path="/indicators/in/fiscal/outstanding_debt_pct_gsdp.json"
-        home_state={state_code}
-      />
-    </section>
+    <!-- Indicator sections, catalogue-driven (P2.4 of IA reset, ADR-0022).
+         Order follows datasets/reference/in/topic-catalogue.json — welfare
+         topics (fiscal) lead, energy follows, election artifacts are
+         skipped here (rendered by the election-specific sections above).
+         The closed renderer set runs unchanged for every indicator artifact;
+         adding the 8th fiscal indicator is a one-line catalogue edit. -->
+    {#each indicator_topics as topic (topic.id)}
+      {#each topic.artifacts.filter(a => a.kind === "indicator") as artifact (artifact.id)}
+        {@const path = indicatorPathForArtifact(artifact)}
+        {#if path}
+          <section class="space-y-3">
+            <h2 class="text-sm font-semibold uppercase text-slate-500">{topic.title}</h2>
+            <IndicatorChoropleth indicator_path={path} highlight_state={state_code} />
+            <IndicatorRanked indicator_path={path} home_state={state_code} />
+            <IndicatorSmallMultiples indicator_path={path} home_state={state_code} />
+          </section>
+        {/if}
+      {/each}
+    {/each}
 
     <section class="bg-white rounded-lg shadow-sm p-5">
       <div class="flex justify-between items-baseline mb-1 gap-3 flex-wrap">

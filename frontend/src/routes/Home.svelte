@@ -1,31 +1,57 @@
 <script lang="ts">
   import { fetchStates, type StateEntry } from "../lib/data";
+  import { fetchTopicCatalogue, type TopicCatalogue } from "../lib/catalogue";
   import IndiaMap from "../lib/maplibre/IndiaMap.svelte";
   import { STATE_NAME_TO_ECI } from "../lib/maplibre/sources";
   import { url } from "../lib/url";
 
+  // The IndiaMap currently themes by leading-party for the May 2026 event.
+  // The default-theme switch (per ADR-0022 doctrine: elections are NOT the
+  // default theme) lands in P5. For now the const stays code-internal and
+  // is used only for data lookups inside IndiaMap.
   const EVENT = "AcGenMay2026";
-  // States we have data for (drives the "Available" bucket below).
-  const HAS_DATA = new Set(Object.values(STATE_NAME_TO_ECI));
 
   let states = $state<StateEntry[] | null>(null);
+  let catalogue = $state<TopicCatalogue | null>(null);
   let error = $state<string | null>(null);
 
   fetchStates()
     .then(s => (states = s.states))
     .catch(e => (error = String(e)));
 
-  const available = $derived((states ?? []).filter(s => HAS_DATA.has(s.eci_code)));
-  const stub = $derived((states ?? []).filter(s => !HAS_DATA.has(s.eci_code)));
+  fetchTopicCatalogue()
+    .then(c => (catalogue = c))
+    .catch(e => (error = String(e)));
+
+  // Availability is decoupled from election-data presence (ADR-0022, P2.3 of
+  // IA reset). When the catalogue has any national-scope indicator artifact,
+  // every state in states.json has data — indicator artifacts cover all 35+
+  // entities. The election-only proxy (STATE_NAME_TO_ECI) remains a fallback
+  // for the bootstrap case where the catalogue hasn't loaded yet.
+  const has_national_indicator = $derived(
+    (catalogue?.topics ?? []).some(t =>
+      t.artifacts.some(a => a.kind === "indicator" && (a.scope ?? "national") === "national"),
+    ),
+  );
+  const fallback_codes = new Set(Object.values(STATE_NAME_TO_ECI));
+  const available = $derived(
+    has_national_indicator
+      ? (states ?? [])
+      : (states ?? []).filter(s => fallback_codes.has(s.eci_code)),
+  );
+  const stub = $derived(
+    has_national_indicator
+      ? []
+      : (states ?? []).filter(s => !fallback_codes.has(s.eci_code)),
+  );
 </script>
 
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
     <h1 class="text-2xl font-bold">yen-gov</h1>
     <p class="text-sm text-slate-500">
-      Indian civic data — starting with electoral results and growing into
-      socio-economic indicators. Currently showing event
-      <code class="font-mono">{EVENT}</code>. Click a state to drill in.
+      Indian civic data — fiscal capacity, energy, elections, and more,
+      compared across states. Click a state to drill in.
       <a href={url.about()} class="text-sky-700 hover:underline">What is this?</a>
     </p>
   </header>
