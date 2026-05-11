@@ -39,6 +39,8 @@ ALLOWED_COMMANDS: dict[str, str] = {
     "validate": "Two-tier schema + data validation (read-only).",
     "run": "Fetch + parse + emit one (event, state) AC slice. NETWORK + WRITES.",
     "reference": "Wikipedia scrape for reference data. NETWORK + WRITES.",
+    "ingest-energy-power-plants": "india-geodata energy points → features + indicator. NETWORK + WRITES.",
+    "ingest-fiscal-rbi": "RBI State Finances workbook → 8 fiscal indicators. NETWORK + WRITES.",
 }
 
 # Single-flight lock. The admin surface is single-user-developer
@@ -191,7 +193,13 @@ def get_run(run_id: str, max_lines: int = 500) -> dict[str, Any]:
 
 
 class TriggerBody(BaseModel):
-    command: Literal["validate", "run", "reference"] = Field(
+    command: Literal[
+        "validate",
+        "run",
+        "reference",
+        "ingest-energy-power-plants",
+        "ingest-fiscal-rbi",
+    ] = Field(
         ..., description="CLI subcommand to spawn."
     )
     args: list[str] = Field(

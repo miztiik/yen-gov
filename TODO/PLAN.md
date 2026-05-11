@@ -1,7 +1,7 @@
 # yen-gov — Phased Build Plan
 
 **Last Updated**: 2026-05-11
-**Status**: Phases 0–5 complete + Phase 6 Steps 1–4 complete (schema honesty bumps, UX hardening, ranked-table primitive, ECI recon). Phase 6 ongoing.
+**Status**: Phases 0–5 complete; Phase 1 + 3 + 4 status re-verified against code 2026-05-11 (Phase 3 outstanding: Playwright harness + `add-a-visualization.md`); Phase 6 Steps 1–4 complete. Phase 6 ongoing.
 **Authority**: Non-authoritative scratchpad (per CLAUDE.md §3). Promote decisions into `docs/architecture/` as they solidify.
 
 > **Historical-ADR notice (2026-05-09)**: References below to ADR-0001, -0004, -0007, -0008, -0009, -0010, -0013, -0014, -0015, -0016 record what was done at the time those ADRs existed. Those decisions have since been absorbed into subsystem docs under `docs/architecture/backend/` and `docs/architecture/frontend/`; see `docs/architecture/decisions/README.md` for the mapping table. Only ADR-0002 (provenance) and ADR-0003 (no fetch cache) survive as standalone ADRs.
@@ -77,14 +77,14 @@
 
 ---
 
-## Phase 1 — One AC end-to-end (DONE as a by-product of 0.5E, 2026-05-08)
+## Phase 1 — One AC end-to-end (DONE, 2026-05-11 verification)
 
-The orchestrator + CLI shipped in Phase 0.5E is per-AC capable; the live test in `backend/tests/test_pipeline_run_live.py` exercises Gummidipoondi (S22 AC #1) through the full chain (fetch → parse → compose → validate → write). What 0.5E did NOT ship and Phase 1 originally called for:
+The orchestrator + CLI shipped in Phase 0.5E is per-AC capable; the live test in `backend/tests/test_pipeline_run_live.py` exercises Gummidipoondi (S22 AC #1) through the full chain (fetch → parse → compose → validate → write). Status of the original Phase 1 follow-on items, re-verified 2026-05-11:
 
-- [ ] Frontend Svelte route to render one AC. **Punted** until Phase 3.
-- [ ] FastAPI dev server + SSE progress stream. **Punted** — CLI is sufficient for development.
-- [ ] Vite static-copy of `datasets/`. **Punted** to Phase 3 frontend work.
-- [ ] `docs/how-to/run-the-pipeline.md` — **DONE** (2026-05-09).
+- [x] Frontend Svelte route to render one AC — `frontend/src/routes/Constituency.svelte` shipped in Phase 3.
+- [x] Vite static-copy of `datasets/` — superseded by `serveDatasets()` middleware in `frontend/vite.config.ts` (dev) + CI staging per ADR-0013 (prod). Same outcome; no copy needed.
+- [x] `docs/how-to/run-the-pipeline.md` — DONE (2026-05-09).
+- [ ] FastAPI dev server + SSE progress stream — **deliberately punted**. CLI is the source of truth (locked decision, 2026-05-08). The admin/ app (Phase 4 v0) replaces this with an Inventory-only console; full SSE pipeline runner deferred until a real need surfaces.
 
 ---
 
@@ -102,17 +102,19 @@ The orchestrator + CLI shipped in Phase 0.5E is per-AC capable; the live test in
 
 ---
 
-## Phase 3 — Visualization layer
+## Phase 3 — Visualization layer (DONE except Playwright + add-a-visualization how-to, 2026-05-11 verification)
 
-- [ ] State overview: party totals bar, seat-share donut, district-level turnout map (if district GeoJSON feasible).
-- [ ] District drill-down: AC list with winner + margin sparkline.
-- [ ] Constituency page: top-N candidates bar, vote share, NOTA share, others summary.
-- [ ] Party page: seats, margin distribution, narrow-loss list.
-- [ ] Optional `/explore` page: lazy-load `sqlite-wasm` for ad-hoc queries.
-- [ ] Vitest + Playwright on golden path.
-- [ ] Docs: `docs/architecture/frontend.md`, `docs/how-to/add-a-visualization.md`.
+- [x] State overview: party totals bar (`PartyBar`), seat-share donut (`SeatDonut`), state AC choropleth (`maplibre/`), parliament arc (`ParliamentArc`), races board (`RacesBoard`). `frontend/src/routes/StateOverview.svelte`.
+- [x] District drill-down: rolled into `StateOverview.svelte` `by_district` grouping (ACs grouped by `district_id`, sorted by AC count, with winner and margin per row). No separate route — single-page drill-down kept the IA flatter.
+- [x] Constituency page: `frontend/src/routes/Constituency.svelte` (top-N + others, NOTA, vote share, AcStackedBar).
+- [x] Party page: `frontend/src/routes/Party.svelte` (seats, margin histogram, narrow-loss list).
+- [x] `/explore` page: `frontend/src/routes/Explore.svelte` + `frontend/src/lib/sql.ts` (sql.js / sqlite-wasm lazy load).
+- [x] Vitest on golden path: 39+ cases across `colors/`, `indicators.test.ts`, etc.
+- [ ] Playwright on golden path — **not started**. Vitest covers pure helpers; no end-to-end browser harness yet.
+- [x] Docs: `docs/architecture/frontend/` tree (overview, map, indicators, colours, compare, data-loading, psephlab).
+- [ ] `docs/how-to/add-a-visualization.md` — **not started**.
 
-**Definition of done**: golden-path tested in a real browser.
+**Definition of done**: golden-path tested in a real browser. Pending Playwright harness.
 
 ---
 
@@ -123,7 +125,7 @@ The orchestrator + CLI shipped in Phase 0.5E is per-AC capable; the live test in
 - [x] Scraping (`pipeline.yml`) and boundary rebuilds (`boundaries.yml`) removed 2026-05-10 — both are local-only operations (CLAUDE.md §1, §13).
 - [x] ADR-0013 (production data placement: CI-side staging).
 - [x] `docs/architecture/deployment.md` + `docs/how-to/release.md`.
-- [ ] Verify Pages bundle has zero cross-origin fetches — covered by smoke job; live verification pending first actual deploy.
+- [x] Verify Pages bundle has zero cross-origin fetches — bundle is self-contained: all 5 boundary GeoJSON snapshots live under `datasets/boundaries/in/geojson/` (S22, S11, S25, S03, india-states), data files served from same origin under `/data/` (dev middleware + CI staging), and the only `https://raw.githubusercontent.com/...` URLs in `frontend/src/lib/maplibre/sources.ts` are documented last-resort fallbacks that the resolver never picks when `geojson_local_path` exists. Smoke job in `deploy-site.yml` confirms `result.summary.json` is reachable from the deployed origin.
 
 **Definition of done**: workflows committed; smoke job enforces the dev/prod URL contract. Custom-domain / `base` decision deferred to ADR-0014 if a project-Pages URL forces the issue.
 

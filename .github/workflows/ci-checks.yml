@@ -56,3 +56,35 @@ jobs:
       - name: build
         working-directory: frontend
         run: bun run build
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install
+        working-directory: frontend
+        run: bun install --frozen-lockfile
+
+      # Chromium only — golden-path is a smoke test, not a cross-browser
+      # matrix. See frontend/playwright.config.ts for rationale.
+      - name: install playwright browser
+        working-directory: frontend
+        run: bunx playwright install --with-deps chromium
+
+      - name: golden-path e2e
+        working-directory: frontend
+        run: bun run test:e2e
+
+      - name: upload playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: frontend/playwright-report/
+          retention-days: 7

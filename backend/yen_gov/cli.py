@@ -473,3 +473,51 @@ def ingest_energy_power_plants(
     )
 
 
+@app.command("ingest-fiscal-rbi")
+def ingest_fiscal_rbi(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+    config: Path = typer.Option(
+        None, "--config", "-c",
+        help="Path to processing.json. Defaults to <root>/config/processing.json.",
+    ),
+) -> None:
+    """Ingest RBI State Finances workbook → 8 fiscal indicator artifacts.
+
+    See docs/architecture/backend/sources-rbi.md for the contract and
+    backend/yen_gov/sources/rbi_xlsx/urls.py for source-resolution chain
+    (pinned URL → RBI_STATE_FINANCES_URL env → local .runtime cache).
+    """
+    from yen_gov.sources.rbi_xlsx import ingest as rbi_ingest_mod
+
+    config_path = config or (root / "config" / "processing.json")
+    config_doc = json.loads(config_path.read_text(encoding="utf-8"))
+    for key in ("$schema", "$schema_version"):
+        config_doc.pop(key, None)
+    cfg = ProcessingConfig.model_validate(config_doc)
+    schema_dir = root / "datasets" / "schemas"
+
+    with Fetcher(
+        source="rbi",
+        runtime_root=root,
+        timeout_seconds=cfg.fetch.timeout_seconds,
+        retry_attempts=cfg.fetch.retry_attempts,
+        retry_backoff_seconds=cfg.fetch.retry_backoff_seconds or 1.0,
+        user_agent=cfg.fetch.user_agent,
+    ) as fetcher:
+        result = rbi_ingest_mod.ingest(
+            fetcher=fetcher, repo_root=root, schema_dir=schema_dir,
+        )
+
+    typer.echo("ingest-fiscal-rbi: OK")
+    typer.echo(f"  workbook_url:   {result.workbook_url}")
+    typer.echo(f"  workbook_time:  {result.workbook_fetched_at.isoformat()}")
+    typer.echo(f"  sheets:         {len(result.sheet_names)} ({', '.join(result.sheet_names[:3])}{'…' if len(result.sheet_names) > 3 else ''})")
+    typer.echo(f"  indicators:     {len(result.indicator_paths)} written")
+    for p in result.indicator_paths:
+        typer.echo(f"    - {p.relative_to(root).as_posix()}")
+
+
