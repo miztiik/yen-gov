@@ -1,7 +1,7 @@
 # yen-gov — Phased Build Plan
 
 **Last Updated**: 2026-05-11
-**Status**: Phases 0–4 complete + Phase 5 (socio-economic indicator pilot) complete. Single TN slice extended to KL/AS/WB results; energy/installed_mw_by_state indicator rendered nationally on TN overview via generic IndicatorChoropleth.
+**Status**: Phases 0–5 complete + Phase 6 Steps 1–4 complete (schema honesty bumps, UX hardening, ranked-table primitive, ECI recon). Phase 6 ongoing.
 **Authority**: Non-authoritative scratchpad (per CLAUDE.md §3). Promote decisions into `docs/architecture/` as they solidify.
 
 > **Historical-ADR notice (2026-05-09)**: References below to ADR-0001, -0004, -0007, -0008, -0009, -0010, -0013, -0014, -0015, -0016 record what was done at the time those ADRs existed. Those decisions have since been absorbed into subsystem docs under `docs/architecture/backend/` and `docs/architecture/frontend/`; see `docs/architecture/decisions/README.md` for the mapping table. Only ADR-0002 (provenance) and ADR-0003 (no fetch cache) survive as standalone ADRs.
@@ -157,46 +157,51 @@ Purpose: extend the project from "election-results viewer" toward "compare state
 
 Purpose: turn yen-gov from "view one state at a time" into "compare states by category". The user mandate (2026-05-11) is explicit: this is the actual product hypothesis. Election data so far is one state's assembly; we also need to ingest national elections (LS-2024) and at least the prior assembly cycle for each of the four covered states, so cross-time and cross-event comparisons are possible.
 
-### 6A — Reviews & propagation (this turn)
-- [ ] UI/UX agent review of IndicatorChoropleth (legend semantics, time-slider affordance, mobile breakpoint, colour-direction reading).
-- [ ] Citizen agent walkthrough on a mid-tier Android phone (does the National-context section answer a question they'd actually ask?).
-- [ ] Governance Strategist review (does aggregating MW by state misrepresent fiscal/energy reality? what indicator categories should we plan for?).
-- [ ] Apply priority feedback before propagating.
-- [ ] Extend IndicatorChoropleth onto KL/AS/WB state-overview pages.
-- [ ] Migrate hot-path multi-party charts (`PartyBar`, `RacesBoard`, `IndiaMap`, `StateAcMap`) from `colors.for(code)` to `colors.forSet(codes)` for cross-chart de-duplication.
-- [ ] Indicator icon system: lucide-svelte (already a viable peer dep) or hand-authored SVGs in `frontend/src/lib/icons/indicators/`. Each indicator declares an icon hint (`indicator.icon`); generic fallback when absent. Schema 1.1 minor bump.
+### 6A — Reviews & propagation (DONE 2026-05-11)
+- [x] UI/UX agent review of IndicatorChoropleth (legend semantics, time-slider affordance, mobile breakpoint, colour-direction reading).
+- [x] Citizen agent walkthrough on a mid-tier Android phone (does the National-context section answer a question they'd actually ask?).
+- [x] Governance Strategist review (does aggregating MW by state misrepresent fiscal/energy reality? what indicator categories should we plan for?).
+- [x] Apply priority feedback: schema indicator v1.1 + state v3.3 honesty bumps; MW artifact rewrite (`installed_mw_by_state` v1.1, honest title/license/coverage); IndicatorChoropleth template rewrite in editorial-priority order with comparability banner, coverage caption, stale chip, gradient legend, methodology vintage, redistributable chip. Commit `0c97d99`.
+- [x] Extend IndicatorChoropleth onto KL/AS/WB — done implicitly via shared `StateOverview` route (one component renders for all four state pages).
+- [x] Migrate hot-path multi-party charts (`PartyBar`, `RacesBoard`, `IndiaMap`, `StateAcMap`) from `colors.for(code)` to `colors.forSet(codes)` for cross-chart hue de-duplication. Commit `196ee1f`.
+- [x] Indicator icon system: `frontend/src/lib/IndicatorIcon.svelte` with inline-SVG REGISTRY of 11 Lucide-derived paths (zap/heart/graduation-cap/coins/trending-up/users/droplets/stethoscope/landmark/scale/factory). Wired into IndicatorChoropleth header. Commit `535b1d1`.
+- [x] MapChoropleth UX hardening: `cooperativeGestures: true`; tap-to-popup on touch (UX P0-3); double-stroke white-halo highlight (UX P1-3). Commit `196ee1f`.
 
-### 6B — Documentation sweep (mandatory per user)
-- [ ] `docs/architecture/frontend/indicators.md` — new doc covering the indicator data contract, IndicatorChoropleth's metadata-driven rendering, ramp-hue rationale, faceted tooltip behaviour, license-badge surface.
-- [ ] `docs/concepts/cross-state-comparison.md` — what it means to compare two states fairly (per-capita normalisation, base-year alignment, unit consistency, fiscal devolution caveats).
-- [ ] `docs/architecture/frontend/colours.md` — three-layer party-colour model, ANCHORS rationale, algorithmic palette knobs, when to use `for` vs `forSet`.
-- [ ] `docs/architecture/data-sources/elections-india.md` — catalogue of ECI portals (state assembly per cycle, LS general, by-elections), URL templates, what's available pre-2014 vs post-2014, our coverage targets.
-- [ ] `docs/architecture/decisions/0005-indicator-as-generic-data-contract.md` — promote the indicator-schema decision out of TODO/SOCIO-ECONOMIC-EXPANSION.md (it meets ADR test (a)+(b): credible alternative was per-indicator schemas; cross-cutting because backend, frontend, and validator all consume it).
-- [ ] `docs/architecture/decisions/0006-party-colours-three-layer.md` — anchors + algorithmic + override; cross-cutting (every chart, the settings page, the colour resolver).
-- [ ] Update `docs/architecture/data-flow.md` to include the indicators tributary.
-- [ ] Update `docs/reference/schemas.md` with the new schemas at their current versions.
-- [ ] Memory: persist key design decisions (party-colour, indicator metadata-driven rendering, verification_status enum) into `/memories/repo/`.
+### 6B — Documentation sweep (DONE 2026-05-11)
+- [x] `docs/architecture/frontend/indicators.md` — indicator data contract, metadata-driven rendering, layout order, MW cautionary tale, decisions log.
+- [x] `docs/concepts/cross-state-comparison.md` — five ways naive comparison goes wrong; four primitives ranked by citizen-firstness; 8-bucket category taxonomy ordered by governance leverage with `fiscal/` first.
+- [x] `docs/architecture/frontend/colours.md` — OkLCh in 90 seconds; three-layer party-colour resolver; reserved hue bands; when to use `for` vs `forSet`.
+- [x] `docs/architecture/decisions/0020-indicator-artifact-as-data-contract.md` — ADR; v1.1 honesty fields rationale; consequences.
+- [x] `docs/reference/schemas.md` updated to indicator 1.1 + state 3.3 with ADR cross-reference.
+- [x] Memory: `/memories/repo/yen-gov-architecture.md` — holy laws, indicator system, colour system, schema versions, Phase-6 ordering, file layout.
+- [ ] `docs/architecture/data-flow.md` update with the indicators tributary — deferred to next sweep.
+- [ ] `docs/architecture/data-sources/elections-india.md` — to be promoted from `notes/eci-portal-recon-2026-05-11.md` once Phase 6C implementation begins.
 
-### 6C — National elections + prior cycles (data)
-- [ ] **Recon**: enumerate ECI portal coverage. State assembly: TN/KL/AS/WB prior cycles (2021/2016/2021/2021). LS general: 2024, 2019, 2014. Note URL patterns (`Pc*` vs `Ac*`), constituency layer (PC vs AC), what fields ECI publishes per cycle (older cycles often have fewer fields). Document in `notes/eci-portal-coverage.md`.
+### 6C — National elections + prior cycles (data) (RECON DONE 2026-05-11)
+- [x] **Recon**: `notes/eci-portal-recon-2026-05-11.md` — catalogued portal URL templates. Key findings: May-2026 AC is the EXCEPTION (live HTML); LS-2024 + 2024-25 state cycles + by-elections are API-only at `www.eci.gov.in/eci-backend/public/api/election-result?category_id=N`; 2021 cycles live on `old.eci.gov.in`. State codes (S22/S11/S03/S25) are stable across all eras. Commit `535b1d1`.
 - [ ] Backend: extend `body` enum to admit `lok_sabha`. Add LS constituency reference (PC, 543 seats, ECI codes). Verify per-state PC counts.
-- [ ] Pipeline: parameterise `run_state_slice` over body. Emit `datasets/elections/PcGen2024/<state>/...` mirroring the AC layout.
-- [ ] Frontend: event-aware StateOverview (selector for AcGenMay2026 vs PcGen2024 vs prior assembly). Default to most recent.
+- [ ] Backend: new `eci_api/` HTTP client + `eci_xlsx/` parser for `33-Constituency-Wise-Detailed-Result.xlsx`.
+- [ ] Pipeline: parameterise `run_state_slice` over body. Emit `datasets/elections/PcGenJune2024/<state>/...` mirroring the AC layout.
+- [ ] One TN LS-2024 slice end-to-end before generalising.
+- [ ] Frontend: event-aware StateOverview (selector for AcGenMay2026 vs PcGenJune2024 vs prior assembly). Default to most recent.
 - [ ] Cross-event comparison: swing analysis between consecutive elections (same state, same body, two cycles).
 
-### 6D — Cross-state comparison views
-- [ ] **State cards**: a grid of 28 state cards each summarising one indicator (or one election outcome). Sortable + filterable. The "compare two states" view picks two cards.
-- [ ] **Ranked tables**: every indicator gets a "states ranked by X" view with per-capita normalisation when a denominator is declared.
-- [ ] **Small multiples**: the same indicator over time, one tiny chart per state, on a single page. Lets the citizen spot trajectory differences (is Kerala growing solar faster than TN?).
-- [ ] **Category index**: state-level rollup across multiple indicators in a category (energy: installed MW + per-capita kWh + renewable share). Diverging from a national average is the headline.
+### 6D — Cross-state comparison views (RANKED TABLE DONE 2026-05-11)
+- [x] **Ranked table**: `frontend/src/lib/IndicatorRanked.svelte` — generic, citizen-first, sortable, home-state pin, rank suppressed when `comparability=not_comparable_across_states`. Wired into `StateOverview` next to the choropleth. Commit `8452326`.
+- [ ] **Compare-two view**: pick a second state; both rows highlighted in the ranked table; side-by-side strip showing absolute and per-capita gap; optional small line chart of both states' trajectories when `times.length > 1`.
+- [ ] **Small multiples**: the same indicator over time, one tiny chart per state, on a single page.
+- [ ] **State cards** (deferred): designer-bait per the cross-state-comparison concept doc — build only if research validates the need.
+- [ ] **Category index** (off the roadmap): composite indices hide the trade-offs that ARE the story.
 
-### 6E — More indicators (data depth)
-- [ ] Demographics: total population, density, age pyramid (Census 2011 baseline, NFHS-5 update).
-- [ ] Economy: GSDP constant prices (RBI), per-capita NSDP, gross fixed capital formation.
-- [ ] Energy: per-capita consumption (CEA), renewable installed MW (MNRE), grid losses (CEA).
-- [ ] Health: IMR (NFHS), under-5 mortality, hospital beds per 100k.
-- [ ] Education: literacy, GER higher-education (AISHE), pupil-teacher ratio.
-- [ ] Infrastructure: road density (MoRTH), rail length (Indian Railways).
-- [ ] Each indicator: ingest → indicator.json under `datasets/indicators/in/<category>/...` → render via existing IndicatorChoropleth without new code.
+### 6E — More indicators (data depth, ordered per Governance review)
+- [ ] **fiscal/** (PRIORITY 1, contextualises everything else): RBI *State Finances: A Study of Budgets* — own-tax % GSDP, devolution per capita, debt-to-GSDP. Without this baseline every economic/social indicator ships without context.
+- [ ] **economy/**: GSDP constant prices (2011-12 series); per-capita NSDP; sectoral GVA share. MoSPI + RBI Handbook of Statistics on Indian States.
+- [ ] **demographics/**: total population (Census 2011 + UIDAI projection); decadal growth; sex ratio at birth. RGI/Census + CRS.
+- [ ] **human_development/**: IMR; under-5 mortality; TFR; institutional-delivery share. NFHS-5 + SRS.
+- [ ] **education/**: adult literacy; GER secondary & higher-secondary; PTR; ASER reading-level. UDISE+ + AISHE + ASER.
+- [ ] **livelihood/**: LFPR (15+); unemployment rate (CWS); MGNREGA person-days per rural household. PLFS + MoRD MIS + Labour Bureau.
+- [ ] **infrastructure/**: electrification %; piped-water %; road density; rail route-km. CEA/MoP + JJM + MoRTH + Indian Railways Year Book.
+- [ ] **governance/**: criminal cases pending per 1000; IPC cognisable crime rate; CPGRAMS disposal time. NJDG + NCRB + CPGRAMS + CIC. (Highest marginal-utility category for yen-gov — most underserved by existing aggregators.)
+- [ ] **energy/** v2: replace siting-based MW with CEA Installed Capacity report (proper methodology, all states); add per-capita consumption (CEA); add renewable share (MNRE).
 
 **Definition of done for Phase 6**: a citizen can land on any state's overview, see four assembly elections + the state's standing on six categories of indicators, and click any indicator to compare with another state. All decisions are documented; all reviews (UI/UX, Citizen, Governance) have signed off.
