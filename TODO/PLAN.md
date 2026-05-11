@@ -188,8 +188,8 @@ Purpose: turn yen-gov from "view one state at a time" into "compare states by ca
 
 ### 6D — Cross-state comparison views (RANKED TABLE DONE 2026-05-11)
 - [x] **Ranked table**: `frontend/src/lib/IndicatorRanked.svelte` — generic, citizen-first, sortable, home-state pin, rank suppressed when `comparability=not_comparable_across_states`. Wired into `StateOverview` next to the choropleth. Commit `8452326`.
-- [ ] **Compare-two view**: pick a second state; both rows highlighted in the ranked table; side-by-side strip showing absolute and per-capita gap; optional small line chart of both states' trajectories when `times.length > 1`.
-- [ ] **Small multiples**: the same indicator over time, one tiny chart per state, on a single page.
+- [x] **Compare-two view** (`f8f8c34`, 2026-05-11): IndicatorRanked grew a `compare_state` picker. Second state pins under the home row in emerald (chip + bar). Header shows a one-line gap strip honouring direction (`TN is ahead by 12,345 MW` / `behind by N` / `equal`). Suppressed when `comparability=not_comparable_across_states`.
+- [x] **Small multiples** (`f8f8c34`, 2026-05-11): `frontend/src/lib/IndicatorSmallMultiples.svelte` — one mini sparkline per state, shared Y axis (per-state Y would lie about scale), home/compare highlighted, series_breaks rendered as dashed verticals, single-time-point fallback banner. Wired into StateOverview national-context section. New `seriesByEntity` helper + 2 vitest cases (39/39).
 - [ ] **State cards** (deferred): designer-bait per the cross-state-comparison concept doc — build only if research validates the need.
 - [ ] **Category index** (off the roadmap): composite indices hide the trade-offs that ARE the story.
 
