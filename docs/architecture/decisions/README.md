@@ -30,6 +30,7 @@ Keep ADRs short. They are immutable once accepted; a later ADR supersedes (and t
 | --- | ----- | ------ |
 | [0002](0002-provenance-as-sources-list.md) | Provenance as a list of `{url, fetched_at}` entries | accepted |
 | [0003](0003-no-fetch-cache.md) | No HTTP cache layer; intermediates live in `.runtime/raw/` | accepted |
+| [0021](0021-no-implementation-disclosure-on-public-pages.md) | No implementation or security-boundary disclosure on public pages | accepted |
 
 ## Absorbed ADRs (2026-05-09)
 

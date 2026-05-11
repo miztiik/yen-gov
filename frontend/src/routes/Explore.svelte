@@ -109,14 +109,14 @@
         Data explorer <span class="text-slate-400 font-normal">— {states.name(state_code)}</span>
       </h1>
       <p class="text-xs text-slate-500">
-        Browser SQL via <code class="font-mono">sql.js</code> over <code class="font-mono">results.sqlite</code>
-        for event <code class="font-mono">{event}</code>.
+        Ad-hoc queries against this state's results for
+        <code class="font-mono">{event}</code>.
       </p>
     </div>
   </header>
 
   {#if loading}
-    <div class="text-slate-500">Loading SQLite database…</div>
+    <div class="text-slate-500">Loading data…</div>
   {:else if error}
     <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900">
       Failed to load: <code>{error}</code>
@@ -218,21 +218,7 @@
       <code>constituencies</code>(ac_eci_no, name, votes_polled),
       <code>candidates</code>(ac_eci_no, rank, name, party_eci_code, party_short, votes, vote_share_pct, is_winner, is_nota);
       view <code>party_totals</code>(party_short, seats_won, votes).
-      See <code>docs/reference/sqlite-schema.md</code>.
-    </p>
-
-    <!--
-      Safety footnote. The DB is a per-tab in-memory copy and read-only mode is
-      enforced client-side by `lib/explore/sqlGuard.ts`. There is no backend to
-      attack and no shared state to corrupt.
-    -->
-    <p class="text-[11px] text-slate-400 leading-relaxed">
-      <span class="font-semibold text-slate-500">Safety:</span>
-      Read-only mode is enforced — only one <code>SELECT</code>/<code>WITH</code> statement per run;
-      <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>, <code>DROP</code>,
-      <code>ALTER</code>, <code>ATTACH</code>, <code>PRAGMA</code> etc. are blocked client-side.
-      Even without that, the database is an in-memory copy in your tab — there is no
-      server-side database to corrupt.
+      Only <code>SELECT</code> / <code>WITH</code> queries are supported.
     </p>
   {/if}
 </main>

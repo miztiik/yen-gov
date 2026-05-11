@@ -45,10 +45,12 @@ export function validateSql(raw: string): GuardResult {
   }
 
   // Read-only: reject any forbidden keyword as a whole word (case-insensitive).
+  // The user-facing reason intentionally avoids advertising the broader policy
+  // (see ADR-0021) — it just tells them this specific token isn't supported.
   const upper = withoutTrailing.toUpperCase();
   for (const kw of FORBIDDEN_KEYWORDS) {
     if (new RegExp(`\\b${kw}\\b`).test(upper)) {
-      return { ok: false, reason: `Read-only mode: \`${kw}\` is not allowed.` };
+      return { ok: false, reason: `\`${kw}\` is not supported here.` };
     }
   }
   return { ok: true };
