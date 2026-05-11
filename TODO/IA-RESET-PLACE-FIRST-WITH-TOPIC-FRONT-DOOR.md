@@ -1,6 +1,6 @@
 # IA Reset — Atlas of Places, with a Topic Front Door
 
-**Status**: Strategy approved (2026-05-11). **P1 complete (2026-05-11)** — catalogue contract + ADR + guardrail doc shipped, validator green. P2 next.
+**Status**: Strategy approved (2026-05-11). **P1 + P2 complete (2026-05-11)** — catalogue contract shipped; state hub reads sections from catalogue; AcGenMay2026 no longer leaks into citizen-visible chrome; state list decoupled from election-data availability. Validator green, 39 vitest + 144 backend pytest pass.
 **Correction Level**: 5 (design consultation) for the spine choice; subsequent phases are L2/L3.
 **Supersedes**: the IA portion of [TODO/SOCIO-ECONOMIC-EXPANSION.md](SOCIO-ECONOMIC-EXPANSION.md) §6 — this doc closes the spatial-first vs indicator-first question.
 **ADR**: [ADR-0022](../docs/architecture/decisions/0022-place-first-ia-with-topic-catalogue.md). **Guardrail**: [docs/concepts/schema-is-the-design-system.md](../docs/concepts/schema-is-the-design-system.md).
@@ -50,7 +50,7 @@ Four persona reviews ran in parallel. Dissents surfaced:
 | Phase | Level | Ships | Doesn't change |
 |---|---|---|---|
 | **P1 — Catalogue contract** ✅ | L3 | `topic-catalogue.schema.json` v1.0; `topic-catalogue.json` populated; ADR-0022; guardrail doc `docs/concepts/schema-is-the-design-system.md`. **Done 2026-05-11.** | No UI changes. Validator green. |
-| **P2 — De-jargon and de-couple** | L2 | Replace `AcGenMay2026` user-visible strings with display names. Decouple state-list filter from election-data presence. State hub reads its sections list from the catalogue (no inline literals). | Routes unchanged. |
+| **P2 — De-jargon and de-couple** ✅ | L2 | `frontend/src/lib/catalogue.ts` (typed loader). `Home.svelte` header no longer says "showing event AcGenMay2026". `Home.svelte` + `ScopePicker.svelte` use catalogue-aware state availability (any national-scope indicator → all states available). `StateOverview.svelte` indicator sections come from the catalogue in catalogue order (fiscal first). **Done 2026-05-11.** | Routes unchanged. Election sections in StateOverview unchanged. Home India-map theme still election (P5 work). |
 | **Ingest gate** | — | Central transfers to states (FC devolution + GST compensation + CSS releases), FY15–FY26 (RBI State Finances Statement 8 + Union Budget transfers statement). **Blocks P3.** | — |
 | **P3 — Topic Front Door** | L3 | New routes `/t` and `/t/:topic`. Top-nav becomes 3 peers (Atlas · Topics · About). List-badge component. Peer-set filter on Ranked + Choropleth. Union-list banner. | State hub layout unchanged. Election routes unchanged. |
 | **P4 — Generic Compare** | L3 | `/compare?i=…&states=…` route using existing renderers. | Election Compare stays at `/compare/:state/:event`. |
