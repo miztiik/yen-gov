@@ -114,6 +114,27 @@
         "maxzoom": 10,
         "layer": "ac"
       }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "U07",
+      "out": "ac/U07-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/puducherry/assembly/puducherry_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
     }
   ],
   "simplify": {

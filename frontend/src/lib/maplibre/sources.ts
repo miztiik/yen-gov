@@ -98,6 +98,16 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     attribution:
       '<a href="https://github.com/HindustanTimesLabs/shapefiles" target="_blank" rel="noreferrer">HTL shapefiles</a> (MIT) — boundaries predate the 2023 delimitation; AC_NO ↔ eci_no may not align for some seats',
   },
+  U07: {
+    id: "U07-ac",
+    label: "Puducherry — Assembly constituencies",
+    geojson_local_path: "boundaries/in/geojson/U07-ac.geojson",
+    geojson_url:
+      "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/puducherry/assembly/puducherry_AC.json",
+    join_property: "AC_NO",
+    attribution:
+      '<a href="https://github.com/HindustanTimesLabs/shapefiles" target="_blank" rel="noreferrer">HTL shapefiles</a> (MIT)',
+  },
 };
 
 // GADM NAME_1 → ECI state code. Only states we currently have data for.

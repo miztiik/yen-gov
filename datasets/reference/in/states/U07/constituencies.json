@@ -1,0 +1,47 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/puducherry/assembly/puducherry_AC.json",
+      "fetched_at": "2026-05-11T10:00:00Z",
+      "name": "Puducherry Assembly Constituency boundaries",
+      "authority": "HindustanTimesLabs (republishing ECI Delimitation 2008)"
+    }
+  ],
+  "state": "U07",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    { "eci_no": 1, "name": "Mannadipet", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 2, "name": "Thirubhuvanai (SC)", "district_id": "puducherry", "reservation": "SC" },
+    { "eci_no": 3, "name": "Oussudu (SC)", "district_id": "puducherry", "reservation": "SC" },
+    { "eci_no": 4, "name": "Mangalam", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 5, "name": "Villianur", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 6, "name": "Ozhukarai", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 7, "name": "Kadirgamam", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 8, "name": "Indira Nagar", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 9, "name": "Thattanchavady", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 10, "name": "Kamaraj Nagar", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 11, "name": "Lawspet", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 12, "name": "Kalapet", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 13, "name": "Muthialpet", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 14, "name": "Raj Bhavan", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 15, "name": "Oupalam", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 16, "name": "Orleampeth", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 17, "name": "Nellithope", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 18, "name": "Mudaliarpet", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 19, "name": "Ariankuppam", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 20, "name": "Manavely", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 21, "name": "Embalam (SC)", "district_id": "puducherry", "reservation": "SC" },
+    { "eci_no": 22, "name": "Nettapakkam (SC)", "district_id": "puducherry", "reservation": "SC" },
+    { "eci_no": 23, "name": "Bahour", "district_id": "puducherry", "reservation": "GEN" },
+    { "eci_no": 24, "name": "Nedungadu (SC)", "district_id": "karaikal", "reservation": "SC" },
+    { "eci_no": 25, "name": "Thirunallar", "district_id": "karaikal", "reservation": "GEN" },
+    { "eci_no": 26, "name": "Karaikal North", "district_id": "karaikal", "reservation": "GEN" },
+    { "eci_no": 27, "name": "Karaikal South", "district_id": "karaikal", "reservation": "GEN" },
+    { "eci_no": 28, "name": "Neravy-T.R.Pattinam", "district_id": "karaikal", "reservation": "GEN" },
+    { "eci_no": 29, "name": "Mahe", "district_id": "mahe", "reservation": "GEN" },
+    { "eci_no": 30, "name": "Yanam", "district_id": "yanam", "reservation": "GEN" }
+  ]
+}
