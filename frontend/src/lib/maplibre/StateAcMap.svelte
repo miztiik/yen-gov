@@ -77,8 +77,16 @@
   const fills = $derived.by(() => {
     const out: Record<number, string> = {};
     void colors.overrides;
-    for (const r of rows ?? []) {
-      out[r.eci_no] = colors.fill(r.winner_party_eci_code, r.winner_party_short);
+    const list = rows ?? [];
+    // colors.forSet: one allocation across every winning party in the state
+    // so two unanchored regional parties never land on near-identical hues.
+    const palette = colors.forSet(
+      list.map(r => r.winner_party_eci_code ?? r.winner_party_short),
+    );
+    for (const r of list) {
+      const k = r.winner_party_eci_code ?? r.winner_party_short;
+      out[r.eci_no] = palette.get(k)?.fill
+        ?? colors.fill(r.winner_party_eci_code, r.winner_party_short);
     }
     return out;
   });

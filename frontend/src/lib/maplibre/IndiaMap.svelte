@@ -44,17 +44,31 @@
   });
 
   // Pick the leading party (max seats_won, tiebreak votes) per state.
-  // colors.fill is reactive — the $derived re-runs when overrides change.
+  // Use colors.forSet for a single, set-aware allocation across all
+  // leading parties on the map — avoids two unanchored regional parties
+  // landing on visually similar hues that the choropleth would conflate.
   const fills = $derived.by(() => {
     const out: Record<string, string> = {};
     void colors.overrides; // declare reactive read
+    const tops: { name: string; key: string; eci: string | null; short: string }[] = [];
     for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
       const s = summaries[code];
       if (!s) continue;
       const top = [...s.party_totals]
         .filter(p => p.seats_won > 0)
         .sort((a, b) => b.seats_won - a.seats_won || b.votes - a.votes)[0];
-      if (top) out[name] = colors.fill(top.party_eci_code, top.party_short);
+      if (top) {
+        tops.push({
+          name,
+          key: top.party_eci_code ?? top.party_short,
+          eci: top.party_eci_code,
+          short: top.party_short,
+        });
+      }
+    }
+    const palette = colors.forSet(tops.map(t => t.key));
+    for (const t of tops) {
+      out[t.name] = palette.get(t.key)?.fill ?? colors.fill(t.eci, t.short);
     }
     return out;
   });

@@ -25,6 +25,18 @@
     return p.party_eci_code ?? p.party_short;
   }
 
+  // Resolve every party's swatch in ONE pass via colors.forSet so
+  // unanchored parties (regional outfits without an ANCHOR entry) are
+  // assigned hues round-robin across the available bands rather than
+  // each computed in isolation. Per docs/architecture/frontend/colours.md.
+  const palette = $derived(
+    colors.forSet(parties.map(p => p.party_eci_code ?? p.party_short)),
+  );
+  function colour_of(p: PartyTotals): string {
+    return palette.get(p.party_eci_code ?? p.party_short)?.fill
+      ?? colors.fill(p.party_eci_code, p.party_short);
+  }
+
   // Sort by seats descending; ties broken by vote share so that 0-seat
   // parties surface in a meaningful order. Caller may pre-sort but we
   // re-sort defensively (cheap).
@@ -83,7 +95,7 @@
     tooltip = {
       x: e.clientX,
       y: e.clientY,
-      color: colors.fill(p.party_eci_code, p.party_short),
+      color: colour_of(p),
       title: p.party_short,
       subtitle: p.party_full && p.party_full !== p.party_short ? p.party_full : undefined,
       lines: [
@@ -159,7 +171,7 @@
       {@const k = key_for(p)}
       {@const hidden = !!hidden_parties?.has(k)}
       {@const clickable = !!onToggleHidden}
-      {@const fill = colors.fill(p.party_eci_code, p.party_short)}
+      {@const fill = colour_of(p)}
       {@const fill_light = lighten(fill)}
       {@const is_leader = k === leader_key}
       <div

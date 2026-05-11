@@ -185,8 +185,18 @@
   // Color helpers — read from the shared palette store so any custom party
   // color overrides apply here too. The chip color matches the chip the
   // same party gets in the donut, bar chart, and histogram.
+  //
+  // colors.forSet allocates a stable batch palette across every winning
+  // party in this state's results — keeps unanchored regional parties
+  // visually separated within the chart.
+  const palette = $derived.by(() => {
+    void colors.overrides;
+    const keys = (rows ?? []).map(r => r.winner_party_eci_code ?? r.winner_party_short);
+    return colors.forSet(keys);
+  });
   function chipBg(eci_code: string | null, short: string): string {
-    return colors.fill(eci_code, short);
+    const k = eci_code ?? short;
+    return palette.get(k)?.fill ?? colors.fill(eci_code, short);
   }
   // Margin band color: same RdYlBu trio used by the map legend so the
   // mental model "red = nail-biter, blue = comfortable" is consistent.

@@ -77,6 +77,10 @@
   const FILL_LAYER_ID = "yen-fill";
   const LINE_LAYER_ID = "yen-line";
   const HIGHLIGHT_LAYER_ID = "yen-highlight";
+  // Halo layer drawn beneath HIGHLIGHT_LAYER_ID so the slate-900 stroke
+  // reads against any underlying fill colour (UX review P1-3 — without
+  // the halo, dark strokes on dark choropleth fills are hard to spot).
+  const HIGHLIGHT_HALO_LAYER_ID = "yen-highlight-halo";
   const SOURCE_ID = "yen-src";
 
   // Build a maplibre `match` expression from the fills map. Numeric keys
@@ -142,8 +146,12 @@
     if (!map || !map.getLayer(FILL_LAYER_ID)) return;
     map.setPaintProperty(FILL_LAYER_ID, "fill-color", fill_expression());
     map.setPaintProperty(FILL_LAYER_ID, "fill-opacity", opacity_expression());
+    const f = highlight_filter();
+    if (map.getLayer(HIGHLIGHT_HALO_LAYER_ID)) {
+      map.setFilter(HIGHLIGHT_HALO_LAYER_ID, f);
+    }
     if (map.getLayer(HIGHLIGHT_LAYER_ID)) {
-      map.setFilter(HIGHLIGHT_LAYER_ID, highlight_filter());
+      map.setFilter(HIGHLIGHT_LAYER_ID, f);
     }
   }
 
@@ -221,8 +229,25 @@
                 "line-width": 0.4,
               },
             },
-            // Highlight layer drawn on top so the focused feature reads first.
+            // Highlight = double-stroke (white halo + slate-900 inner) so
+            // the focused feature reads against any choropleth fill colour.
+            // UX review P1-3: a single dark stroke on a dark fill was easy
+            // to miss; the white halo gives a guaranteed luminance contrast.
             // Filter is rebuilt on highlight_key change via repaint().
+            {
+              id: HIGHLIGHT_HALO_LAYER_ID,
+              type: "line",
+              source: SOURCE_ID,
+              ...(resolved.kind === "pmtiles"
+                ? { "source-layer": resolved.source_layer! }
+                : {}),
+              filter: highlight_filter(),
+              paint: {
+                "line-color": "#ffffff",
+                "line-width": 5,
+                "line-opacity": 0.9,
+              },
+            },
             {
               id: HIGHLIGHT_LAYER_ID,
               type: "line",
@@ -266,6 +291,13 @@
           // choropleths never need world wrap, so we turn it off globally
           // for this component.
           renderWorldCopies: false,
+          // Cooperative gestures: scroll-wheel without Ctrl/Cmd scrolls
+          // the page, not the map; one-finger drag on touch pans the page,
+          // two-finger drag pans the map. Citizen-review feedback ("the
+          // map fights my scroll") + standard practice on long-form pages
+          // that embed maps. Maplibre renders an instructional overlay
+          // automatically when the user attempts a non-cooperative gesture.
+          cooperativeGestures: true,
         });
         map.touchZoomRotate.disableRotation();
 
@@ -357,6 +389,14 @@
           const f = e.features?.[0];
           if (!f) return;
           const key = f.properties?.[entry.join_property];
+          // UX review P0-3: touch devices don't fire `mousemove`, so the
+          // hover-only popup never appeared on phones/tablets. Show the
+          // popup on click as well — desktop users get it on hover and
+          // again on click (idempotent), touch users get it on tap.
+          const html = tooltips[key];
+          if (html && popup) {
+            popup.setLngLat(e.lngLat).setHTML(html).addTo(map);
+          }
           onSelect?.({ key, properties: f.properties ?? {} });
         });
       } catch (e) {
