@@ -4,44 +4,124 @@
   "sources": [],
   "pins": [
     {
+      "state": "S01",
+      "year": 2024,
+      "category_id": 2,
+      "cat_name": "Andhra Pradesh Legislative Assembly Election- 2024",
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
+    },
+    {
+      "state": "S02",
+      "year": 2024,
+      "category_id": 3,
+      "cat_name": "Arunachal Pradesh Legislative Assembly Election-2024",
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "17 documents in catalog."
+    },
+    {
+      "state": "S18",
+      "year": 2024,
+      "category_id": 4,
+      "cat_name": "Odisha Legislative Assembly Election-2024",
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
+    },
+    {
+      "state": "S21",
+      "year": 2024,
+      "category_id": 5,
+      "cat_name": "Sikkim Legislative Assembly Election-2024",
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
+    },
+    {
+      "state": "S07",
+      "year": 2024,
+      "category_id": 6,
+      "cat_name": "Haryana Legislative Assembly Election - 2024",
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
+    },
+    {
+      "state": "U08",
+      "year": 2024,
+      "category_id": 7,
+      "cat_name": "Jammu and Kashmir Legislative Assembly Election - 2024",
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
+    },
+    {
+      "state": "S13",
+      "year": 2024,
+      "category_id": 8,
+      "cat_name": "Maharashtra Legislative Assembly Election  2024",
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
+    },
+    {
+      "state": "S27",
+      "year": 2024,
+      "category_id": 9,
+      "cat_name": "Jharkhand Legislative Assembly Election  2024",
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
+    },
+    {
+      "state": "U05",
+      "year": 2025,
+      "category_id": 10,
+      "cat_name": "NCT of Delhi Legislative Assembly Election 2025",
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
+    },
+    {
+      "state": "S04",
+      "year": 2025,
+      "category_id": 15,
+      "cat_name": "General Election to the Legislative Assembly of Bihar October to November 2025",
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "243 documents in catalog. Bihar Oct-Nov 2025. ECI catalogue lists ids 15 and 16 with the same cat_name; 16 has suffix 'S' (likely supplementary). Pinned 15 as the primary."
+    },
+    {
       "state": "S03",
       "year": 2026,
       "category_id": 23,
       "cat_name": "General Election to the Legislative Assembly of Assam 2026",
-      "confirmed_at": "2026-05-09T00:00:00Z",
-      "notes": "Second batch (ids 23-27 are 'Copy of Index Cards [Digital]' with index_url; first batch 18-22 was empty placeholders)."
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
     },
     {
       "state": "S11",
       "year": 2026,
       "category_id": 24,
       "cat_name": "General Election to the Legislative Assembly of Kerala 2026",
-      "confirmed_at": "2026-05-09T00:00:00Z",
-      "notes": "Second batch."
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
     },
     {
       "state": "U07",
       "year": 2026,
       "category_id": 25,
       "cat_name": "General Election to the Legislative Assembly of Puducherry 2026",
-      "confirmed_at": "2026-05-11T00:00:00Z",
-      "notes": "Second batch. Confirmed live during U07 onboarding."
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog. Confirmed live during U07 onboarding (2026-05-11)."
     },
     {
       "state": "S22",
       "year": 2026,
       "category_id": 26,
       "cat_name": "General Election to the Legislative Assembly of Tamil Nadu 2026",
-      "confirmed_at": "2026-05-09T00:00:00Z",
-      "notes": "Second batch."
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
     },
     {
       "state": "S25",
       "year": 2026,
       "category_id": 27,
       "cat_name": "General Election to the Legislative Assembly of West Bengal 2026",
-      "confirmed_at": "2026-05-09T00:00:00Z",
-      "notes": "Second batch."
+      "confirmed_at": "2026-05-11T13:51:40.385239Z",
+      "notes": "14 documents in catalog."
     }
   ]
 }

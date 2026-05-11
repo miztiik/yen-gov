@@ -100,7 +100,14 @@ export interface PipelineRunDetail {
 }
 
 export interface TriggerRequest {
-  command: "validate" | "run" | "reference";
+  command:
+    | "validate"
+    | "run"
+    | "reference"
+    | "ingest-energy-power-plants"
+    | "ingest-fiscal-rbi"
+    | "eci-statreport"
+    | "eci-statreport-emit";
   args: string[];
   confirm: true;
 }

@@ -148,6 +148,35 @@
     }
   }
 
+  // --- Download (triggers eci-statreport --download via Pipeline endpoint) ---
+  let download_busy = $state<Record<string, boolean>>({});
+  let download_msg = $state<Record<string, string>>({});
+
+  async function downloadStatReport(p: EciPinEntry, includePdf: boolean): Promise<void> {
+    const key = `${p.state}-${p.year}`;
+    if (!confirm(
+      `Download Statistical Report for (${p.state}, ${p.year}) — category_id ${p.category_id}?\n\n` +
+      `Files land in .runtime/raw/eci/ (debug area, not datasets/).\n` +
+      (includePdf ? "Includes PDF zips." : "XLSX only (PDF skipped).")
+    )) return;
+    download_busy = { ...download_busy, [key]: true };
+    download_msg = { ...download_msg, [key]: "" };
+    try {
+      const args = [p.state, String(p.year), "--download"];
+      if (!includePdf) args.push("--skip-pdf");
+      const res = await api.triggerPipeline({
+        command: "eci-statreport",
+        args,
+        confirm: true,
+      });
+      download_msg = { ...download_msg, [key]: `Started run ${res.run_id} — see Pipeline panel for live tail.` };
+    } catch (e) {
+      download_msg = { ...download_msg, [key]: `Error: ${e}` };
+    } finally {
+      download_busy = { ...download_busy, [key]: false };
+    }
+  }
+
   $effect(() => {
     void loadLastSweep();
     void loadPins();
@@ -272,20 +301,39 @@
             {#if side.kind === "hit"}
               <div><span class="text-slate-400">cat_name:</span> {side.cat_name}</div>
               <div><span class="text-slate-400">index_name:</span> {side.index_name || "(empty)"}</div>
-              <div><span class="text-slate-400">index_url:</span>
-                {#if side.index_url}
-                  <a href={side.index_url} target="_blank" rel="noreferrer" class="text-sky-400 underline break-all">{side.index_url}</a>
-                {:else}
-                  <span class="text-slate-600">(empty)</span>
+              <div><span class="text-slate-4notes</th>
+            <th class="text-left px-2 py-1">download</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {#each pins as p (`${p.state}-${p.year}`)}
+            {@const key = `${p.state}-${p.year}`}
+            <tr class="border-t border-slate-800 align-top">
+              <td class="px-2 py-1 font-mono">{p.state}</td>
+              <td class="px-2 py-1">{p.year}</td>
+              <td class="px-2 py-1 font-mono">{p.category_id}</td>
+              <td class="px-2 py-1 text-xs">{p.cat_name}</td>
+              <td class="px-2 py-1 text-xs text-slate-500 max-w-xs" title={p.notes}>{p.notes || ""}</td>
+              <td class="px-2 py-1 text-xs whitespace-nowrap">
+                <button onclick={() => downloadStatReport(p, false)} disabled={download_busy[key]}
+                        class="bg-emerald-700 hover:bg-emerald-600 disabled:opacity-50 text-white rounded px-2 py-0.5 mr-1"
+                        title="Run eci-statreport --download --skip-pdf">
+                  {download_busy[key] ? "…" : "⬇ XLSX"}
+                </button>
+                <button onclick={() => downloadStatReport(p, true)} disabled={download_busy[key]}
+                        class="bg-slate-700 hover:bg-slate-600 disabled:opacity-50 text-white rounded px-2 py-0.5"
+                        title="Run eci-statreport --download (XLSX + PDF)">
+                  ⬇ +PDF
+                </button>
+                {#if download_msg[key]}
+                  <div class="text-[10px] mt-1"
+                       class:text-rose-400={download_msg[key].startsWith("Error")}
+                       class:text-emerald-400={!download_msg[key].startsWith("Error")}>
+                    {download_msg[key]}
+                  </div>
                 {/if}
-              </div>
-            {:else}
-              <div class="text-slate-500">{side.error || "no payload"}</div>
-            {/if}
-          </div>
-        {/each}
-      </div>
-    {/if}
+              
   </section>
 
   <!-- 3. Pins -------------------------------------------------------- -->

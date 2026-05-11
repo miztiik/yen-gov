@@ -41,6 +41,8 @@ ALLOWED_COMMANDS: dict[str, str] = {
     "reference": "Wikipedia scrape for reference data. NETWORK + WRITES.",
     "ingest-energy-power-plants": "india-geodata energy points → features + indicator. NETWORK + WRITES.",
     "ingest-fiscal-rbi": "RBI State Finances workbook → fiscal indicator artifacts. NETWORK + WRITES.",
+    "eci-statreport": "ECI Statistical Report catalog + (with --download) raw XLSX/PDF download into .runtime/raw/eci/. NETWORK + WRITES (.runtime/ only).",
+    "eci-statreport-emit": "ECI Statistical Report Section 10 → per-AC JSON under datasets/elections/<event>/<state>/. NETWORK + WRITES. Requires a corresponding live-results URL pattern (May-2026 cohort only today).",
 }
 
 # Single-flight lock. The admin surface is single-user-developer
@@ -197,6 +199,8 @@ class TriggerBody(BaseModel):
         "validate",
         "run",
         "reference",
+        "eci-statreport",
+        "eci-statreport-emit",
         "ingest-energy-power-plants",
         "ingest-fiscal-rbi",
     ] = Field(
