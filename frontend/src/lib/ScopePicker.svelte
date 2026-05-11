@@ -1,16 +1,18 @@
 <script lang="ts">
-  // Scope picker pinned at the top of the left rail. Three selects:
-  // Country (India only today), State (loaded from datasets/reference/),
-  // Election (AcGenMay2026 only today).
+  // Scope picker pinned at the top of the left rail. Two selects:
+  // Country (India only today), State (loaded from datasets/reference/).
   //
   // Changing State navigates the router to the new state's overview;
-  // selecting "All India" clears state and lands at #/. Changing
-  // Election persists to localStorage; future routes that include the
-  // event in their path will need to navigate too — Phase 2 concern.
+  // selecting "All India" clears state and lands at #/.
+  //
+  // Election was removed on 2026-05-11 per ADR-0023: there is no global
+  // "current election" in India (states poll on different cycles), so
+  // per-state event resolution lives in routes/components that need it,
+  // resolved via lib/election-events.ts.
 
   import { fetchStates, type StateEntry } from "../lib/data";
   import { fetchTopicCatalogue, type TopicCatalogue } from "../lib/catalogue";
-  import { scope, COUNTRIES, ELECTIONS } from "./scope.svelte";
+  import { scope, COUNTRIES } from "./scope.svelte";
   import { STATE_NAME_TO_ECI } from "./maplibre/sources";
   import { navigate, url } from "./url";
 
@@ -52,10 +54,6 @@
     const v = (e.target as HTMLSelectElement).value;
     navigate(v === "" ? url.home() : url.state(v));
   }
-
-  function on_election_change(e: Event): void {
-    scope.setElection((e.target as HTMLSelectElement).value);
-  }
 </script>
 
 <div class="space-y-2 p-3 border-b border-slate-200 bg-slate-50">
@@ -95,17 +93,4 @@
     </select>
   </label>
 
-  <label class="block">
-    <span class="text-[10px] uppercase tracking-wide text-slate-500">Election</span>
-    <select
-      class="mt-0.5 w-full text-sm rounded border-slate-300 bg-white py-1 px-2 disabled:opacity-60"
-      value={scope.election}
-      onchange={on_election_change}
-      disabled={ELECTIONS.length === 1}
-    >
-      {#each ELECTIONS as e}
-        <option value={e.code}>{e.name}</option>
-      {/each}
-    </select>
-  </label>
 </div>

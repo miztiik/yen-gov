@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/election-events.schema.json",
+  "title": "Per-state election event inventory",
+  "description": "The frontend-readable catalogue of which election events exist for each state. The backend's events.py registry is the source of truth at backend-build time; this JSON is the static-app view, hand-authored and kept consistent via CI test (backend/tests/test_election_events_consistency.py). Per-state arrays let route components resolve `defaultEventForState(stateCode)` without bundling Python. National events (e.g. LsGenApr2024) appear in every relevant state's array as a 'slice' — same event_id, same artifact directory, the per-state read just selects the right row. Per ADR-0023.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-11",
+      "description": "Initial schema. Per-state event inventory keyed by ECI state code. Each event entry: event_id, kind (assembly/lok_sabha/by_election), display, polled_on, optional default flag (at most one default per state — defines what /s/<state>/elections resolves to)."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "states"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. Empty array signals hand-authored content (the canonical case here — this file mirrors backend/yen_gov/sources/eci/events.py, validated by CI consistency test).",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+
+    "states": {
+      "type": "object",
+      "description": "Map from ECI state code (e.g. S22, U07) to a chronological list (most recent first) of election events for which our datasets/elections/ tree contains parsed data. States with NO election data on disk are omitted entirely; the loader returns an empty array for them, which the UI renders as 'no election data ingested yet'.",
+      "patternProperties": {
+        "^[SU]\\d{2}$": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["event_id", "kind", "display", "polled_on"],
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "description": "ECI event identifier matching the on-disk grouping under datasets/elections/<event_id>/<state_code>/. Mirrors the value emitted by events.py event_id_for(state, year).",
+                "pattern": "^[A-Za-z0-9]+$"
+              },
+              "kind": {
+                "enum": ["assembly", "lok_sabha", "by_election"],
+                "description": "Political body the event elected. 'assembly' is the state Vidhan Sabha (citizen's primary state government); 'lok_sabha' is the national Lok Sabha (the state's MPs sent to Delhi — kept separate per the cause/consequence doctrine in ADR-0023, never co-mingled with assembly results); 'by_election' is a partial mid-term."
+              },
+              "display": {
+                "type": "string",
+                "description": "Citizen-facing label. Cohort codes (e.g. AcGenJun2024) MUST NOT appear in this string — citizens think in (state, year), not ECI cohort artifact. Format guideline: '<State> Assembly · <Month YYYY>' or '<State> · Lok Sabha <YYYY>'.",
+                "pattern": "^[^|]+$"
+              },
+              "polled_on": {
+                "type": "string",
+                "format": "date",
+                "description": "Polling date (or last polling date for multi-phase events). Drives the recency rule in StateOverview (election leads <90d post-poll, otherwise government-card leads). For multi-state cohorts polling on different days, this is the state-specific date."
+              },
+              "term_end_estimated": {
+                "type": ["string", "null"],
+                "format": "date",
+                "description": "Estimated term-end (typically polled_on + 5 years per Article 172). Null for Lok Sabha slices and by-elections. Used to surface 'next election due' chrome in the final year of term."
+              },
+              "default": {
+                "type": "boolean",
+                "description": "At most one event per state may set default: true. Defines what /s/<state>/elections (no event_id segment) resolves to, and which event the StateOverview's 'last election' card pulls from. Convention: the most recent assembly election."
+              },
+              "data_status": {
+                "enum": ["complete", "partial", "pending_upstream"],
+                "description": "Tells the UI what to expect on disk. 'complete' = full result.summary.json + per-AC results emitted (the ingested case); 'partial' = some artifacts present (rare); 'pending_upstream' = ECI has not yet published (e.g. Bihar 2025), UI surfaces an honest 'awaiting publication' message rather than a 404."
+              },
+              "notes": {
+                "type": "string",
+                "description": "Optional context for citizen-facing display (e.g. 'Held concurrently with Lok Sabha 2024')."
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

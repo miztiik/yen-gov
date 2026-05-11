@@ -1,7 +1,7 @@
 # yen-gov — Phased Build Plan
 
 **Last Updated**: 2026-05-11
-**Status**: Phases 0–5 complete; Phase 3 closed (Playwright harness + add-a-visualization how-to landed 2026-05-11); Phase 6 Steps 1–4 complete. Phase 6 ongoing.
+**Status**: Phases 0–5 complete; Phase 3 closed (Playwright harness + add-a-visualization how-to landed 2026-05-11); Phase 6 Steps 1–4 complete. Phase 6 ongoing. **IA reset P2.5 landed 2026-05-11** (election-event identity is per-state; government timeline is the citizen anchor; ADR-0023). Bug fix: `/s/<state>` no longer 404s for non-May-2026 cohort.
 **Authority**: Non-authoritative scratchpad (per CLAUDE.md §3). Promote decisions into `docs/architecture/` as they solidify.
 
 > **Historical-ADR notice (2026-05-09)**: References below to ADR-0001, -0004, -0007, -0008, -0009, -0010, -0013, -0014, -0015, -0016 record what was done at the time those ADRs existed. Those decisions have since been absorbed into subsystem docs under `docs/architecture/backend/` and `docs/architecture/frontend/`; see `docs/architecture/decisions/README.md` for the mapping table. Only ADR-0002 (provenance) and ADR-0003 (no fetch cache) survive as standalone ADRs.

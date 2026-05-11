@@ -1,5 +1,10 @@
 <script lang="ts">
   import { fetchConstituencyResult, type ConstituencyResult } from "../lib/data";
+  import {
+    fetchElectionEvents,
+    defaultEventForState,
+    type ElectionEventsCatalogue,
+  } from "../lib/election-events";
   import AcStackedBar from "../lib/AcStackedBar.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
@@ -12,8 +17,17 @@
   interface Props { params: { state: string; eci_no: number; ac_slug: string } }
   let { params }: Props = $props();
 
-  const event = "AcGenMay2026";
+  // Per-state event resolution (ADR-0023): no global "current election".
+  // The state's default event from datasets/reference/in/election-events.json
+  // names the artifact directory we read from.
+  let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
+  fetchElectionEvents()
+    .then(c => (election_catalogue = c))
+    .catch(() => (election_catalogue = null));
+
   const state_code = $derived(states.codeFromSlug(params.state));
+  const event_row = $derived(defaultEventForState(election_catalogue, state_code));
+  const event = $derived(event_row?.event_id ?? null);
   let result = $state<ConstituencyResult | null>(null);
   let not_published = $state(false);
   let error = $state<string | null>(null);
@@ -21,8 +35,9 @@
   $effect(() => {
     result = null; error = null; not_published = false;
     const sc = state_code;
-    if (!sc || params.eci_no <= 0) return;
-    fetchConstituencyResult(event, sc, params.eci_no)
+    const ev = event;
+    if (!sc || !ev || params.eci_no <= 0) return;
+    fetchConstituencyResult(ev, sc, params.eci_no)
       .then(r => {
         if (r === null) not_published = true;
         else result = r;

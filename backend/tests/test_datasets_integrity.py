@@ -22,6 +22,7 @@ DATASETS = REPO / "datasets"
 EVENTS_IN_ECI = DATASETS / "events" / "in" / "eci"
 ELECTIONS_ROOT = DATASETS / "elections"
 REFERENCE_STATES_ROOT = DATASETS / "reference" / "in" / "states"
+ELECTION_EVENTS_PATH = DATASETS / "reference" / "in" / "election-events.json"
 
 # Known missing per-AC files where Section 10 intentionally has no publishable
 # winner record (countermanded/postponed constituency).
@@ -153,4 +154,76 @@ def test_result_name_reservation_matches_reference():
                 assert not explicit_reserved_mismatches, (
                     f"{event_dir.name}/{state_dir.name}: reservation mismatches where "
                     f"result names explicitly encode SC/ST: {explicit_reserved_mismatches[:10]}"
+                )
+
+
+def test_election_events_catalogue_matches_backend_registry():
+    """The hand-authored citizen-facing catalogue (datasets/reference/in/
+    election-events.json, ADR-0023) must agree with the backend's
+    authoritative `events.py` registry on every (state, event_id) pair.
+
+    This is the load-bearing contract that lets the frontend resolve
+    `defaultEventForState(state)` without bundling Python. If the two ever
+    drift, the frontend will 404 on a state we have data for, or claim we
+    have data for a state that's never been ingested. Either way, this
+    test fails LOUDLY at CI rather than silently in production.
+    """
+    from yen_gov.sources.eci.events import EVENTS  # local import: keeps stdlib-only top of file
+
+    catalogue = _load_json(ELECTION_EVENTS_PATH)
+    catalogue_pairs: set[tuple[str, str]] = {
+        (state_code, str(entry["event_id"]))
+        for state_code, entries in catalogue["states"].items()
+        for entry in entries
+    }
+    backend_pairs: set[tuple[str, str]] = {
+        (state_code, info.event_id) for (state_code, _year), info in EVENTS.items()
+    }
+
+    only_in_backend = sorted(backend_pairs - catalogue_pairs)
+    only_in_catalogue = sorted(catalogue_pairs - backend_pairs)
+
+    assert not only_in_backend, (
+        "events.py declares (state, event_id) pairs missing from "
+        "datasets/reference/in/election-events.json — citizens will see "
+        f"states with no election link in the UI: {only_in_backend}"
+    )
+    assert not only_in_catalogue, (
+        "election-events.json declares (state, event_id) pairs not in "
+        "events.py — frontend will 404 trying to fetch nonexistent "
+        f"artifacts: {only_in_catalogue}"
+    )
+
+
+def test_election_events_default_uniqueness_and_data_status_alignment():
+    """Per state: at most one event has `default: true`. And every event
+    flagged `data_status: complete` MUST have its result.summary.json on
+    disk (this catches the "I added a row but forgot to ingest" case).
+    Conversely, `data_status: pending_upstream` rows MUST NOT have data
+    files (catches stale rows after a successful ingest).
+    """
+    catalogue = _load_json(ELECTION_EVENTS_PATH)
+
+    for state_code, entries in catalogue["states"].items():
+        defaults = [e for e in entries if e.get("default") is True]
+        assert len(defaults) <= 1, (
+            f"state {state_code}: more than one event marked default=true "
+            f"({[e['event_id'] for e in defaults]}); /s/<state>/elections "
+            f"would not have a deterministic landing event."
+        )
+
+        for entry in entries:
+            event_id = str(entry["event_id"])
+            status = str(entry.get("data_status", ""))
+            summary_path = ELECTIONS_ROOT / event_id / state_code / "result.summary.json"
+            if status == "complete":
+                assert summary_path.exists(), (
+                    f"{state_code}/{event_id}: data_status=complete but "
+                    f"{summary_path.relative_to(REPO).as_posix()} is missing."
+                )
+            elif status == "pending_upstream":
+                assert not summary_path.exists(), (
+                    f"{state_code}/{event_id}: data_status=pending_upstream "
+                    f"but {summary_path.relative_to(REPO).as_posix()} exists "
+                    f"— flip status to 'complete'."
                 )

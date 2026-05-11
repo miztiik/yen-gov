@@ -3,6 +3,11 @@
     fetchResultSummary, fetchParties,
     type ResultSummary, type PartyEntry, type PartyTotals,
   } from "../lib/data";
+  import {
+    fetchElectionEvents,
+    defaultEventForState,
+    type ElectionEventsCatalogue,
+  } from "../lib/election-events";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
   import { slugify } from "../lib/slug";
@@ -14,8 +19,18 @@
   interface Props { params: { state: string; party_slug: string } }
   let { params }: Props = $props();
 
-  const event = "AcGenMay2026";
+  // Per-state event resolution (ADR-0023). Note: parties.json only exists
+  // for events with `has_partywise=true` (May-2026 cohort today); other
+  // states will surface an empty parties result gracefully.
+  let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
+  fetchElectionEvents()
+    .then(c => (election_catalogue = c))
+    .catch(() => (election_catalogue = null));
+
   const state_code = $derived(states.codeFromSlug(params.state));
+  const event = $derived(
+    defaultEventForState(election_catalogue, state_code)?.event_id ?? null,
+  );
 
   let summary = $state<ResultSummary | null>(null);
   let parties = $state<PartyEntry[] | null>(null);
@@ -24,8 +39,9 @@
   $effect(() => {
     summary = null; parties = null; error = null;
     const sc = state_code;
-    if (!sc) return;
-    Promise.all([fetchResultSummary(event, sc), fetchParties(event, sc)])
+    const ev = event;
+    if (!sc || !ev) return;
+    Promise.all([fetchResultSummary(ev, sc), fetchParties(ev, sc)])
       .then(([s, p]) => { summary = s; parties = p.parties; })
       .catch(e => (error = String(e)));
   });

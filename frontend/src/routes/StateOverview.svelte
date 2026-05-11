@@ -23,14 +23,59 @@
   import { getDb } from "../lib/sql";
   import { colors } from "../lib/colors/store.svelte";
   import { url } from "../lib/url";
+  import {
+    fetchElectionEvents,
+    defaultEventForState,
+    daysSincePolled,
+    type ElectionEventsCatalogue,
+    type ElectionEventRow,
+  } from "../lib/election-events";
+  import {
+    fetchGovernmentTimeline,
+    currentTerm,
+    type GovernmentTimeline,
+    type GovernmentTerm,
+  } from "../lib/governments";
 
   interface Props { params: { state: string } }
   let { params }: Props = $props();
 
-  const event = "AcGenMay2026";
+  // Per-state event resolution (ADR-0023). The state-overview hub used to
+  // hardcode `const event = "AcGenMay2026"`; that 404'd every state outside
+  // the May-2026 cohort. The catalogue now drives per-state defaults, and
+  // the election block degrades gracefully (showing the upstream-pending
+  // copy or a "no election data ingested" notice) when no event row exists.
+  let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
+  fetchElectionEvents()
+    .then(c => (election_catalogue = c))
+    .catch(() => (election_catalogue = null));
+
   // params.state is a SLUG (or, for backwards compatibility, an ECI code).
   // Resolve via the reactive states store; null while loading or unknown.
   const state_code = $derived(states.codeFromSlug(params.state));
+  const event_row = $derived<ElectionEventRow | null>(
+    defaultEventForState(election_catalogue, state_code),
+  );
+  const event = $derived(event_row?.event_id ?? null);
+  const event_status = $derived(event_row?.data_status ?? null);
+  const days_since_poll = $derived(event_row ? daysSincePolled(event_row) : null);
+  const is_news_cycle = $derived(
+    days_since_poll !== null && days_since_poll >= 0 && days_since_poll < 90,
+  );
+
+  // Government timeline (ADR-0023 §3) — primary citizen anchor for "who
+  // governs this state right now". Loads in parallel with the catalogue;
+  // null when the per-state file is not yet authored (graceful degradation).
+  let government = $state<GovernmentTimeline | null>(null);
+  $effect(() => {
+    government = null;
+    const sc = state_code;
+    if (!sc) return;
+    fetchGovernmentTimeline(sc)
+      .then(t => { if (state_code === sc) government = t; })
+      .catch(() => { /* non-fatal — card just hides */ });
+  });
+  const cur_term = $derived<GovernmentTerm | null>(currentTerm(government));
 
   let summary = $state<ResultSummary | null>(null);
   let acs = $state<ConstituencyEntry[] | null>(null);
@@ -74,21 +119,30 @@
     winners = new Map();
     error = null;
     const sc = state_code;
+    const ev = event;
     if (!sc) return; // wait for slug → code resolution
-    Promise.all([
-      fetchResultSummary(event, sc),
-      fetchConstituencies(sc),
-      fetchDistricts(sc),
-    ])
-      .then(([s, c, d]) => { summary = s; acs = c.constituencies; districts = d.districts; })
-      .catch(e => (error = String(e)));
+    // Constituencies + districts are reference data and load even when the
+    // state has no election data on disk yet (so the AC directory still
+    // renders). The election summary is only fetched when we have an event.
+    // Reference-data 404s are non-fatal: the AC directory simply won't render
+    // for states whose reference files haven't been built yet (e.g. recently
+    // ingested states). Government card + indicator sections still appear.
+    const summary_p =
+      ev && event_status !== "pending_upstream"
+        ? fetchResultSummary(ev, sc).catch(e => { error = String(e); return null; })
+        : Promise.resolve(null);
+    const acs_p = fetchConstituencies(sc).then(c => c.constituencies).catch(() => null);
+    const districts_p = fetchDistricts(sc).then(d => d.districts).catch(() => null);
+    Promise.all([summary_p, acs_p, districts_p])
+      .then(([s, c, d]) => { summary = s; acs = c; districts = d; });
     // Winners load is independent of the JSON fetches so the page renders
     // even if the SQLite is briefly unavailable -- the badges just stay
     // empty rather than blocking everything else.
+    if (!ev || event_status === "pending_upstream") return;
     (async () => {
       try {
         if (!sc) return;
-        const db = await getDb(event, sc);
+        const db = await getDb(ev, sc);
         const sql = `
           SELECT c.ac_eci_no AS ac, w.party_eci_code, w.party_short,
                  100.0 * (w.votes - r2.votes) / NULLIF(c.votes_polled, 0) AS margin_pct
@@ -231,12 +285,21 @@
     <p class="text-xs"><a class="text-slate-500 hover:underline" href={url.home()}>← All states</a></p>
     <h1 class="text-2xl font-bold leading-tight">{states.name(state_code)}</h1>
     <p class="text-sm text-slate-600">
-      Legislative Assembly election, May 2026.
+      {#if event_row}
+        Most recent assembly election: {event_row.display}.
+      {:else if state_code}
+        No assembly election data ingested yet for this state.
+      {/if}
       <span class="text-slate-400 ml-1">
-        State <code class="font-mono">{state_code ?? "…"}</code> · event <code class="font-mono">{event}</code>
+        State <code class="font-mono">{state_code ?? "…"}</code>
+        {#if event}· event <code class="font-mono">{event}</code>{/if}
       </span>
-      · <a class="text-blue-600 hover:underline" href={state_code ? url.explore(state_code) : url.home()}>Data explorer →</a>
-      · <a class="text-blue-600 hover:underline" href={state_code ? url.lab(state_code, event) : url.home()}>Psephlab →</a>
+      {#if state_code}
+        · <a class="text-blue-600 hover:underline" href={url.explore(state_code)}>Data explorer →</a>
+        {#if event}
+          · <a class="text-blue-600 hover:underline" href={url.lab(state_code, event)}>Psephlab →</a>
+        {/if}
+      {/if}
     </p>
   </header>
 
@@ -246,9 +309,64 @@
     <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900">
       Failed to load: <code>{error}</code>
     </div>
-  {:else if !summary || !acs || !districts}
-    <div class="text-slate-500">Loading…</div>
   {:else}
+    <!-- Recency banner (ADR-0023 §3 recency rule). When polling closed
+         within the last 90 days, the citizen wants to know about the
+         election first; otherwise the government card leads. -->
+    {#if is_news_cycle && event_row}
+      <section class="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-900">
+        <strong class="font-semibold">Latest:</strong>
+        {event_row.display} — polled {days_since_poll} day{days_since_poll === 1 ? "" : "s"} ago.
+      </section>
+    {/if}
+
+    <!-- "Your government" card (ADR-0023 §3). Anchors the page on the
+         continuing condition (who governs right now) rather than the
+         discrete event that produced it. Degrades to a one-line caption
+         when no cm_terms.json file exists for this state yet. -->
+    {#if cur_term}
+      <section class="bg-white rounded-lg shadow-sm ring-1 ring-slate-200/70 p-4 space-y-2">
+        <h2 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Your government</h2>
+        {#if cur_term.regime === "elected"}
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span class="text-lg font-semibold text-slate-800">{cur_term.cm_name ?? "—"}</span>
+            <span class="text-sm text-slate-600">Chief Minister</span>
+            {#if cur_term.alliance}
+              <span class="text-sm text-slate-500">· {cur_term.alliance}</span>
+            {/if}
+          </div>
+          <p class="text-xs text-slate-500">
+            In office since {cur_term.start}. Government is an elected ministry.
+          </p>
+        {:else if cur_term.regime === "presidents_rule"}
+          <div class="text-base font-semibold text-amber-800">President's Rule</div>
+          <p class="text-xs text-slate-600">
+            In effect since {cur_term.start}. The state is administered by the
+            Governor under Article 356; the Legislative Assembly is dissolved
+            or suspended. {cur_term.notes ?? ""}
+          </p>
+        {:else if cur_term.regime === "governors_rule"}
+          <div class="text-base font-semibold text-amber-800">Governor's Rule</div>
+          <p class="text-xs text-slate-600">
+            In effect since {cur_term.start}. {cur_term.notes ?? ""}
+          </p>
+        {:else}
+          <div class="text-base font-semibold text-slate-700">Caretaker / interim government</div>
+          <p class="text-xs text-slate-600">
+            In effect since {cur_term.start}. {cur_term.notes ?? ""}
+          </p>
+        {/if}
+      </section>
+    {:else if government === null && state_code}
+      <!-- Timeline file not yet authored for this state. Honest one-liner
+           rather than silently omitting the card. The government schema is
+           v1.0 and the file path is documented in
+           docs/concepts/government-vs-election.md so a contributor can fill
+           it in without reverse-engineering anything. -->
+      <section class="text-xs text-slate-400 italic">
+        Government timeline coming soon for {states.name(state_code)}.
+      </section>
+    {/if}
     <!-- Indicator sections — catalogue-driven, lead the page (P2 commit B
          of IA reset, ADR-0022 §Doctrine). Welfare topics (fiscal first,
          then energy) come BEFORE the election bundle because elections
@@ -277,7 +395,35 @@
     {/each}
 
     <!-- Election sections — preserved unchanged in capability and layout,
-         but no longer the page's lead. -->
+         but no longer the page's lead. Per ADR-0023 these are gated on
+         the per-state event row: states with `data_status: pending_upstream`
+         get an honest "awaiting publication" notice; states with no row at
+         all (no election data ingested) skip the block entirely. -->
+    {#if event_status === "pending_upstream"}
+      <section class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700">
+        <strong class="font-semibold">Election results awaiting publication.</strong>
+        {#if event_row}
+          {event_row.display} — polled {event_row.polled_on}.
+        {/if}
+        The Election Commission of India has not yet released the
+        Statistical Report Section&nbsp;10 for this election (typical
+        publication lag is 6–18 months). yen-gov ingests results from
+        the official Statistical Reports rather than partial day-of
+        feeds, so this page will populate as soon as ECI publishes.
+      </section>
+    {:else if event_row && !summary && !error}
+      <div class="text-slate-500">Loading election data…</div>
+    {:else if event_row && summary && (!acs || !districts)}
+      <section class="bg-white rounded-lg shadow-sm p-6 text-sm text-slate-600">
+        <p class="font-medium text-slate-700 mb-1">Election results loaded.</p>
+        <p>
+          Per-constituency directory and district map for {event_row.display}
+          are not available yet — the constituencies and districts reference
+          files for this state still need to be ingested. Once the reference
+          data lands the AC directory below will populate automatically.
+        </p>
+      </section>
+    {:else if event_row && summary && acs && districts}
 
     <!-- Top row: map (3fr) + donut + key totals (2fr).
          At <lg the donut wraps below the map (single column). -->
@@ -521,5 +667,6 @@
         </div>
       {/if}
     </section>
+    {/if}
   {/if}
 </main>

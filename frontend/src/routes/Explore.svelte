@@ -11,6 +11,11 @@
   } from "../lib/explore/presets";
   import { validateSql } from "../lib/explore/sqlGuard";
   import { fmtCell, isNumericCol } from "../lib/explore/format";
+  import {
+    fetchElectionEvents,
+    defaultEventForState,
+    type ElectionEventsCatalogue,
+  } from "../lib/election-events";
 
   // Component responsibility: load the per-state SQLite, hold UI state
   // (selected preset, editor content, last result), and render.
@@ -23,8 +28,18 @@
   interface Props { params: { state: string } }
   let { params }: Props = $props();
 
-  const event = "AcGenMay2026";
+  // Per-state event resolution (ADR-0023): the per-state SQLite (and the
+  // SQL preset queries that read it) are scoped to the state's default
+  // election. States with no election data render a graceful empty state.
+  let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
+  fetchElectionEvents()
+    .then(c => (election_catalogue = c))
+    .catch(() => (election_catalogue = null));
+
   const state_code = $derived(states.codeFromSlug(params.state));
+  const event = $derived(
+    defaultEventForState(election_catalogue, state_code)?.event_id ?? null,
+  );
 
   let db = $state<Database | null>(null);
   let loading = $state(true);
@@ -40,8 +55,9 @@
     error = null;
     db = null;
     const sc = state_code;
-    if (!sc) return;
-    getDb(event, sc)
+    const ev = event;
+    if (!sc || !ev) { loading = false; return; }
+    getDb(ev, sc)
       .then(d => { db = d; })
       .catch(e => { error = String(e); })
       .finally(() => { loading = false; });

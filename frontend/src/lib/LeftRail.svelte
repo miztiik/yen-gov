@@ -12,6 +12,11 @@
   import { url } from "./url";
   import { REPO_URL } from "./repo";
   import ScopePicker from "./ScopePicker.svelte";
+  import {
+    fetchElectionEvents,
+    defaultEventForState,
+    type ElectionEventsCatalogue,
+  } from "./election-events";
 
   interface Tool {
     label: string;
@@ -23,6 +28,19 @@
     /** Disabled reason — when set, the tool renders as a non-link with tooltip. */
     disabled_reason?: () => string | null;
   }
+
+  // Per-state election event resolution (ADR-0023). Psephlab and Compare
+  // need a specific event_id in the URL; we use the state's default. When
+  // the state has no election data on disk, the tool is disabled with a
+  // contextual reason rather than linking into a 404.
+  let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
+  fetchElectionEvents()
+    .then(c => (election_catalogue = c))
+    .catch(() => (election_catalogue = null));
+
+  const default_event = $derived(
+    defaultEventForState(election_catalogue, scope.state)?.event_id ?? null,
+  );
 
   const tools: Tool[] = [
     {
@@ -41,16 +59,30 @@
     {
       label: "Psephlab",
       icon: "🧪",
-      href: () => (scope.state ? url.lab(scope.state, scope.election) : url.home()),
+      href: () =>
+        scope.state && default_event
+          ? url.lab(scope.state, default_event)
+          : url.home(),
       match: p => p.startsWith("/lab/"),
-      disabled_reason: () => (scope.state ? null : "Pick a state first"),
+      disabled_reason: () => {
+        if (!scope.state) return "Pick a state first";
+        if (!default_event) return "No election data ingested for this state";
+        return null;
+      },
     },
     {
       label: "Compare",
       icon: "⇄",
-      href: () => (scope.state ? url.compare(scope.state, scope.election) : url.home()),
+      href: () =>
+        scope.state && default_event
+          ? url.compare(scope.state, default_event)
+          : url.home(),
       match: p => p.startsWith("/compare/"),
-      disabled_reason: () => (scope.state ? null : "Pick a state first"),
+      disabled_reason: () => {
+        if (!scope.state) return "Pick a state first";
+        if (!default_event) return "No election data ingested for this state";
+        return null;
+      },
     },
     {
       label: "Settings",

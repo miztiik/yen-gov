@@ -3,6 +3,7 @@
 **Last Updated**: 2026-05-11
 **Status**: accepted
 **Supersedes**: the IA portion of [TODO/SOCIO-ECONOMIC-EXPANSION.md](../../../TODO/SOCIO-ECONOMIC-EXPANSION.md) §6 (the spatial-first vs indicator-first question).
+**Sequel**: [ADR-0023 — Election event identity is per-place; government-timeline is the citizen unit](0023-election-event-identity-per-place.md). The first concrete consequence of this ADR's "elections are one of many" doctrine was that `/s/<state>` 404'd for every state outside the May-2026 cohort because the global Election dropdown was a federal falsehood. ADR-0023 deletes that dropdown, makes per-state event resolution the contract, and promotes the government timeline to the citizen anchor.
 
 ## Context
 
