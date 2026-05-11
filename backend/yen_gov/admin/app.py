@@ -16,6 +16,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .. import __version__
+from .eci_recon import router as eci_recon_router
 from .inventory import router as inventory_router
 from .pipeline import router as pipeline_router
 from .schemas import router as schemas_router
@@ -52,3 +53,4 @@ def health() -> dict[str, str]:
 app.include_router(inventory_router, prefix="/api", tags=["inventory"])
 app.include_router(schemas_router, prefix="/api", tags=["schemas"])
 app.include_router(pipeline_router, prefix="/api", tags=["pipeline"])
+app.include_router(eci_recon_router, prefix="/api", tags=["eci-recon"])

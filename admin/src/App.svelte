@@ -7,9 +7,10 @@
   import Inventory from "./routes/Inventory.svelte";
   import Schemas from "./routes/Schemas.svelte";
   import Pipeline from "./routes/Pipeline.svelte";
+  import EciRecon from "./routes/EciRecon.svelte";
   import { api } from "./lib/api";
 
-  type PanelId = "inventory" | "schemas" | "pipeline";
+  type PanelId = "inventory" | "schemas" | "pipeline" | "eci-recon";
   let active: PanelId = $state("inventory");
   let api_version = $state<string | null>(null);
   let api_error = $state<string | null>(null);
@@ -45,6 +46,11 @@
         class:bg-slate-800={active === 'pipeline'}
         onclick={() => (active = 'pipeline')}
       >⚙ Pipeline</button>
+      <button
+        class="block w-full text-left px-2 py-1 rounded"
+        class:bg-slate-800={active === 'eci-recon'}
+        onclick={() => (active = 'eci-recon')}
+      >🛰 ECI Recon</button>
       <span class="block px-2 py-1 text-slate-600 text-xs italic" title="Coming next">📝 Patches</span>
     </nav>
 
@@ -66,6 +72,8 @@
       <Schemas />
     {:else if active === 'pipeline'}
       <Pipeline />
+    {:else if active === 'eci-recon'}
+      <EciRecon />
     {/if}
   </main>
 </div>

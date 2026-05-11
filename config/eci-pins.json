@@ -1,0 +1,47 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/eci_pins.schema.json",
+  "$schema_version": "1.0",
+  "sources": [],
+  "pins": [
+    {
+      "state": "S03",
+      "year": 2026,
+      "category_id": 23,
+      "cat_name": "General Election to the Legislative Assembly of Assam 2026",
+      "confirmed_at": "2026-05-09T00:00:00Z",
+      "notes": "Second batch (ids 23-27 are 'Copy of Index Cards [Digital]' with index_url; first batch 18-22 was empty placeholders)."
+    },
+    {
+      "state": "S11",
+      "year": 2026,
+      "category_id": 24,
+      "cat_name": "General Election to the Legislative Assembly of Kerala 2026",
+      "confirmed_at": "2026-05-09T00:00:00Z",
+      "notes": "Second batch."
+    },
+    {
+      "state": "U07",
+      "year": 2026,
+      "category_id": 25,
+      "cat_name": "General Election to the Legislative Assembly of Puducherry 2026",
+      "confirmed_at": "2026-05-11T00:00:00Z",
+      "notes": "Second batch. Confirmed live during U07 onboarding."
+    },
+    {
+      "state": "S22",
+      "year": 2026,
+      "category_id": 26,
+      "cat_name": "General Election to the Legislative Assembly of Tamil Nadu 2026",
+      "confirmed_at": "2026-05-09T00:00:00Z",
+      "notes": "Second batch."
+    },
+    {
+      "state": "S25",
+      "year": 2026,
+      "category_id": 27,
+      "cat_name": "General Election to the Legislative Assembly of West Bengal 2026",
+      "confirmed_at": "2026-05-09T00:00:00Z",
+      "notes": "Second batch."
+    }
+  ]
+}

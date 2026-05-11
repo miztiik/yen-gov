@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/eci_pins.schema.json",
+  "title": "ECI Statistical Report category_id pins",
+  "description": "Pinned (state, year) -> ECI Statistical Report category_id mapping. Migrated 2026-05-11 from STATISTICAL_REPORT_CATEGORY_ID dict in backend/yen_gov/sources/eci/categories.py so the admin GUI can edit pins without touching code (CLAUDE.md §6 — config edit, not code change). The pipeline reads this file at import time. Recon discovery still lives in tools/eci_recon/.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-11",
+      "description": "Initial schema. Migrates the in-code dict to a config file so pin additions become a config edit (admin GUI can write it). Each pin records the upstream cat_name and confirmed_at timestamp for auditability."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "pins"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "sources": {
+      "type": "array",
+      "description": "Per CLAUDE.md §12. Empty array = hand-authored / curated by recon.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+    "pins": {
+      "type": "array",
+      "description": "One entry per (state, year) -> category_id mapping. Order is insignificant.",
+      "items": {
+        "type": "object",
+        "required": ["state", "year", "category_id", "cat_name", "confirmed_at"],
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "type": "string",
+            "pattern": "^[SU][0-9]{2}$",
+            "description": "ECI state code (S03, U07, etc.)."
+          },
+          "year": {
+            "type": "integer",
+            "minimum": 2024,
+            "maximum": 2099,
+            "description": "Election year. The upstream API only carries 2024+ events."
+          },
+          "category_id": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "ECI's category_id query param value."
+          },
+          "cat_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Verbatim cat_name returned by /api/election-result?category_id=<id>. Stored for auditability — drift between this string and a fresh fetch is the early-warning signal."
+          },
+          "confirmed_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the pin was last verified live."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Optional operator note (e.g. 'second batch — first batch was empty placeholders')."
+          }
+        }
+      }
+    }
+  }
+}

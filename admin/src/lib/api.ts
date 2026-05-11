@@ -105,6 +105,53 @@ export interface TriggerRequest {
   confirm: true;
 }
 
+// ---------- ECI Recon ----------
+
+export interface EciHit {
+  id: number;
+  kind: "hit";
+  cat_name: string;
+  index_name: string;
+  index_url: string;
+  title_headline: string;
+}
+export interface EciMissOrError {
+  id: number;
+  kind: "miss" | "error";
+  error?: string;
+}
+export type EciProbe = EciHit | EciMissOrError;
+
+export interface EciSweepResult {
+  available?: boolean;
+  ts: string;
+  range: [number, number];
+  hits: EciHit[];
+  misses: number[];
+  errors: { id: number; error: string }[];
+}
+
+export interface EciPinEntry {
+  state: string;
+  year: number;
+  category_id: number;
+  cat_name: string;
+  confirmed_at: string;
+  notes?: string;
+}
+
+export interface EciPinsResponse {
+  payload: {
+    $schema: string;
+    $schema_version: string;
+    sources: ProvenanceSource[];
+    pins: EciPinEntry[];
+  };
+  path: string;
+  schema_id: string;
+  loaded_in_process: { state: string; year: number; category_id: number }[];
+}
+
 async function getJson<T>(path: string): Promise<T> {
   const res = await fetch(path);
   if (!res.ok) {
@@ -137,4 +184,19 @@ export const api = {
     getJson(`/api/pipeline/runs/${encodeURIComponent(run_id)}`),
   triggerPipeline: (req: TriggerRequest): Promise<{ run_id: string; meta: Record<string, unknown> }> =>
     postJson("/api/pipeline/runs", req),
+
+  // ECI Recon
+  eciLastSweep: (): Promise<EciSweepResult & { available: boolean }> =>
+    getJson("/api/eci/recon/last-sweep"),
+  eciSweep: (start: number, end: number, sleep_ms = 300): Promise<EciSweepResult> =>
+    postJson("/api/eci/recon/sweep", { start, end, sleep_ms }),
+  eciProbe: (id: number): Promise<EciProbe> =>
+    getJson(`/api/eci/recon/probe/${id}`),
+  eciCompare: (a: number, b: number): Promise<{ a: EciProbe; b: EciProbe }> =>
+    postJson("/api/eci/recon/compare", { a, b }),
+  eciPins: (): Promise<EciPinsResponse> => getJson("/api/eci/pins"),
+  eciUpsertPin: (entry: Omit<EciPinEntry, "confirmed_at"> & { confirmed_at?: string; notes?: string }): Promise<{ replaced: boolean; entry: EciPinEntry; total_pins: number }> =>
+    postJson("/api/eci/pins", { ...entry, confirm: true }),
+  eciDeletePin: (state: string, year: number): Promise<{ removed: boolean; total_pins: number }> =>
+    postJson("/api/eci/pins/delete", { state, year, confirm: true }),
 };
