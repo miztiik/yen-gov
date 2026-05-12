@@ -11,6 +11,7 @@
 // SSR entry point of svelte gets picked and `mount()` throws
 // `lifecycle_function_unavailable` at runtime.
 
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 
@@ -33,5 +34,12 @@ export default defineConfig({
         changeOrigin: false,
       },
     },
+  },
+  // Vitest — unit tests live next to the modules they cover.
+  // No DOM environment yet (api.ts is a pure fetch wrapper); add `jsdom`
+  // here when component tests land.
+  test: {
+    include: ["src/**/*.{test,spec}.{ts,js}"],
+    exclude: ["node_modules/**", "dist/**", "e2e/**"],
   },
 });
