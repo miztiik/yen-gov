@@ -133,6 +133,11 @@ def run(
         True, "--sqlite/--no-sqlite",
         help="Also emit results.sqlite next to the JSON (docs/architecture/backend/emit-sqlite.md).",
     ),
+    csv_bundle: bool = typer.Option(
+        True, "--csv/--no-csv",
+        help="Also emit results.csv (long format, researcher-facing) next to the JSON "
+             "(docs/architecture/backend/emit-csv.md).",
+    ),
 ) -> None:
     """Fetch + parse + compose + emit one (event, state) AC slice from results.eci.gov.in."""
     config_path = config or (root / "config" / "processing.json")
@@ -169,6 +174,11 @@ def run(
         from yen_gov.emit.sqlite import emit_state_sqlite
         sqlite_path = emit_state_sqlite(state_dir=output_dir)
         typer.echo(f"sqlite: OK — {sqlite_path}")
+
+    if csv_bundle:
+        from yen_gov.emit.csv_bundle import emit_state_csv
+        csv_path = emit_state_csv(state_dir=output_dir)
+        typer.echo(f"csv: OK — {csv_path}")
 
 
 @app.command()
