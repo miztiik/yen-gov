@@ -5,11 +5,11 @@
   import { STATE_NAME_TO_ECI } from "../lib/maplibre/sources";
   import { url } from "../lib/url";
 
-  // The IndiaMap currently themes by leading-party for the May 2026 event.
-  // The default-theme switch (per ADR-0022 doctrine: elections are NOT the
-  // default theme) lands in P5. For now the const stays code-internal and
-  // is used only for data lookups inside IndiaMap.
-  const EVENT = "AcGenMay2026";
+  // The IndiaMap colours each state by its leading party in that state's
+  // *own* default election event (resolved from
+  // datasets/reference/in/election-events.json), so states from different
+  // cohorts (May-2026, Nov-2024, Nov-2023, ...) all show up together.
+  // No global "current election" — per ADR-0023 / ADR-0022.
 
   let states = $state<StateEntry[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
@@ -58,7 +58,7 @@
 
   <section class="bg-white rounded-lg shadow-sm p-4">
     <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">India — leading party by state</h2>
-    <IndiaMap event={EVENT} />
+    <IndiaMap />
   </section>
 
   {#if error}

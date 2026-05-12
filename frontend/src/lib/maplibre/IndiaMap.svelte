@@ -1,10 +1,16 @@
 <script lang="ts">
   // India choropleth: each state colored by its leading party (most seats
-  // won) in the given event. Hover shows seat-and-vote summary; click
-  // navigates to the state overview.
+  // won) in that state's *default* election event from
+  // datasets/reference/in/election-events.json. Hover shows seat-and-vote
+  // summary; click navigates to the state overview.
   //
-  // Currently we only have data for 4 states (TN, KL, WB, AS). Other
-  // features render in the default fill color and remain non-interactive.
+  // The optional `event` prop, when set, forces every state to that single
+  // cohort (used for cohort-comparison views). When unset (the default
+  // home-page case), each state resolves its own most-recent assembly
+  // event from the catalogue, so a state with data under AcGenNov2023
+  // gets coloured the same way a state with data under AcGenMay2026 does.
+  // States with no catalogue entry render in the default fill colour and
+  // remain non-interactive.
 
   import MapChoropleth from "./MapChoropleth.svelte";
   import {
@@ -12,31 +18,48 @@
     STATE_NAME_TO_ECI,
   } from "./sources";
   import { fetchResultSummary, type ResultSummary } from "../data";
+  import {
+    defaultEventForState,
+    fetchElectionEvents,
+    type ElectionEventsCatalogue,
+  } from "../election-events";
   import { colors } from "../colors/store.svelte";
   import { navigate, url } from "../url";
 
   interface Props {
-    event: string;
+    /** Optional cohort to force every state into. When omitted, each
+     *  state's own default event from the catalogue is used. */
+    event?: string;
   }
   let { event }: Props = $props();
 
-  let summaries = $state<Record<string, ResultSummary>>({});
+  // Per-state summary AND the event_id it was loaded from (so the tooltip
+  // can show "AcGenNov2023" for MP next to "AcGenMay2026" for TN without
+  // misattributing).
+  type Loaded = { summary: ResultSummary; event_id: string };
+  let summaries = $state<Record<string, Loaded>>({});
   let load_error = $state<string | null>(null);
 
   $effect(() => {
     summaries = {};
     load_error = null;
-    const ev = event;
-    const codes = Object.values(STATE_NAME_TO_ECI);
-    Promise.all(
-      codes.map(c =>
-        fetchResultSummary(ev, c)
-          .then(s => [c, s] as const)
-          .catch(() => null),
-      ),
-    )
+    const force_event = event;
+    fetchElectionEvents()
+      .then(catalogue => {
+        const tasks: Promise<readonly [string, Loaded] | null>[] = [];
+        for (const code of Object.values(STATE_NAME_TO_ECI)) {
+          const ev = force_event ?? defaultEventForState(catalogue, code)?.event_id;
+          if (!ev) continue;  // state has no entry in the catalogue → no data path
+          tasks.push(
+            fetchResultSummary(ev, code)
+              .then(s => [code, { summary: s, event_id: ev }] as const)
+              .catch(() => null),
+          );
+        }
+        return Promise.all(tasks);
+      })
       .then(results => {
-        const out: Record<string, ResultSummary> = {};
+        const out: Record<string, Loaded> = {};
         for (const r of results) if (r) out[r[0]] = r[1];
         summaries = out;
       })
@@ -52,9 +75,9 @@
     void colors.overrides; // declare reactive read
     const tops: { name: string; key: string; eci: string | null; short: string }[] = [];
     for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
-      const s = summaries[code];
-      if (!s) continue;
-      const top = [...s.party_totals]
+      const loaded = summaries[code];
+      if (!loaded) continue;
+      const top = [...loaded.summary.party_totals]
         .filter(p => p.seats_won > 0)
         .sort((a, b) => b.seats_won - a.seats_won || b.votes - a.votes)[0];
       if (top) {
@@ -76,12 +99,12 @@
   const tooltips = $derived.by(() => {
     const out: Record<string, string> = {};
     for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
-      const s = summaries[code];
-      if (!s) {
-        out[name] = `<div class="font-semibold">${name}</div><div class="text-slate-500">no data loaded</div>`;
+      const loaded = summaries[code];
+      if (!loaded) {
+        out[name] = `<div class="font-semibold">${escape_html(name)}</div><div class="text-slate-500">no data loaded</div>`;
         continue;
       }
-      const top = [...s.party_totals]
+      const top = [...loaded.summary.party_totals]
         .filter(p => p.seats_won > 0)
         .sort((a, b) => b.seats_won - a.seats_won)
         .slice(0, 3);
@@ -91,7 +114,7 @@
       out[name] =
         `<div class="font-semibold">${escape_html(name)} <span class="text-slate-400 font-mono text-[10px]">${code}</span></div>` +
         `<div class="text-slate-600">${rows}</div>` +
-        `<div class="text-slate-400 text-[10px] mt-1">click to open →</div>`;
+        `<div class="text-slate-400 text-[10px] mt-1">${escape_html(loaded.event_id)} · click to open →</div>`;
     }
     return out;
   });
