@@ -1,6 +1,6 @@
 # CLAUDE.md — yen-gov Engineering Contract
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-12
 
 This file is the non-negotiable contract for any human or AI agent working in this repository. The full standard it derives from lives in [docs/reference/documentation-structure.md](docs/reference/documentation-structure.md). When the two disagree, **this file wins for yen-gov**; the standard is generic.
 
@@ -17,6 +17,7 @@ This file is the non-negotiable contract for any human or AI agent working in th
 7. **No mocks unless asked.** Use real implementations and real fixtures. Mocks are allowed only on the user's explicit request, or for genuinely untestable external boundaries.
 8. **Open source first.** Prefer mature OSS (Tailwind, Zod/Pydantic, httpx/fetch, tenacity/p-retry, lxml, sqlite, etc.) over custom builds.
 9. **Provenance is mandatory.** Every data file carries a `sources` array. No anonymous data ships. See §12.
+10. **Tests ship with the feature.** Every behaviour-changing commit lands with the tests that prove it works AND the tests that would have caught the bug had it existed before. The full suite (`npm test` in `frontend/`, `pytest -q` in `backend/`) MUST be green at merge. Coverage is measured across four tiers — unit, contract, integration, end-to-end — and a feature is incomplete if the tier appropriate to its surface is missing. "I'll add tests later" is a band-aid (§5). See §15 for the per-tier policy.
 
 ## 2. Path Rules (Mandatory)
 
@@ -107,7 +108,8 @@ Commit messages describe the change. **No AI co-author / attribution tags.**
 
 A change is not done until ALL hold:
 
-- [ ] Tests added/updated for changed behavior.
+- [ ] Tests added/updated for changed behavior, at the tier appropriate to the surface (§15). For frontend code that means at minimum a vitest unit/contract test; for citizen-visible UI, also one Playwright assertion in `frontend/e2e/`. For backend pipeline / parsers / loaders, a `pytest` test against a real fixture (no mocks per Holy Law #7).
+- [ ] Full test suite green locally before commit — `npm test` in `frontend/`, `npm run test:e2e` in `frontend/` if the change touches `frontend/` runtime, `pytest -q` in `backend/`. A red suite at commit time is a Definition-of-Done failure, not a follow-up ticket.
 - [ ] Lint, type-check, schema validation, tests all pass.
 - [ ] **For any change touching `frontend/` or `admin/` runtime behaviour: smoke-tested via the agent's integrated browser tools** against a running dev server (`http://localhost:5173/` for frontend, `5174` for admin). Verify both the page actually changed (`read_page` snapshot, not just code diff) AND no new console errors / 404s appeared on the affected route. See §13 for the policy.
 - [ ] Canonical docs updated in `docs/` (right tier).
@@ -217,3 +219,24 @@ These are unresolved and must be answered before the corresponding work starts:
 - GitHub Actions cadence: manual dispatch only for now (results don't change post-declaration). Revisit if we add live event tracking.
 
 Update this section as decisions are made; promote each decision into an architecture doc under `docs/architecture/`.
+
+## 15. Test Coverage Policy (Mandatory)
+
+Every feature lands with tests at the tier(s) appropriate to its surface. Coverage is split into four tiers; missing the tier that matches your change is a Definition-of-Done failure (§9).
+
+| Tier | Where it lives | What it asserts | When it's required |
+| --- | --- | --- | --- |
+| **Unit** | `frontend/src/**/*.test.ts` (vitest), `backend/tests/test_*.py` (pytest) | Pure functions, formatters, parsers, slug round-trips, math invariants. No I/O, no DOM, no network. | Any change to a pure function or pure module. |
+| **Contract** | `frontend/src/contracts/*.test.ts` (ajv against `datasets/schemas/`), `backend/tests/test_validate.py`, `backend/tests/test_datasets_integrity.py` | Every `datasets/**/*.json` validates against its declared `$schema`; `$schema_version` matches `x-version` (§11); `sources` array shape (§12); cross-registry consistency (frontend catalogue ↔ backend events). | Any schema bump, new emitted artifact, or new loader — producer AND consumer side. |
+| **Integration** | `frontend/src/**/*.test.ts` for loader+fixture composition; `backend/tests/test_pipeline_*.py` for adapter+pipeline composition | Loaders compose paths correctly, mock `fetch` returns the expected shape, the 404-as-null and other graceful-degradation contracts hold; pipeline adapters compose end-to-end against fixture pages. | Any new loader, adapter, or composed pipeline step. |
+| **End-to-end** | `frontend/e2e/*.spec.ts` (Playwright) for citizen routes; `admin/e2e/*.spec.ts` (when added) for the operator console | Page renders without console errors / 404s, key copy and DOM landmarks present, user-visible interaction works. Smoke-tested via the agent's browser tools too (§13). | Any change to a citizen-visible route or admin panel. |
+
+Non-negotiables:
+
+- A change that touches `frontend/src/lib/**` MUST have a corresponding `*.test.ts` covering the new or changed behaviour, in the same commit.
+- A new `datasets/**/*.json` artifact (or a schema bump) MUST be covered by the consumer-side contract test (`frontend/src/contracts/datasets-conform.test.ts`) AND the producer-side validator (`backend/tests/test_validate.py`). Both sides validate; never just one.
+- A new citizen-visible route or a meaningful change to an existing one MUST extend `frontend/e2e/golden-path.spec.ts` (or add a sibling spec) with at least: route loads, no `pageerror`, one DOM assertion that proves the new content is there, one provenance (`SourceList`) assertion if the route surfaces data.
+- Mocks remain forbidden (Holy Law #7) except: (a) `fetch` in unit tests of loaders — the loader's contract IS the fetch boundary, mocking it is testing the contract; (b) explicit user request.
+- A red test at commit time blocks the commit. "Skip this for now" is a structural fix request (§5), not a casual override.
+
+New tiers (component, accessibility, mobile, visual regression) tracked under §14 Open Questions until they ship; once shipped they get a row in the table above.
