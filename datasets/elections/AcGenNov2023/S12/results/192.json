@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 192,
+  "constituency_name": "Jobat (ST)",
+  "totals": {
+    "electors": 301436,
+    "votes_polled": 165860,
+    "turnout_pct": 55.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sena - Mahesh Patel",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 80784,
+      "vote_share_pct": 48.71,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vishal Rawat",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 42027,
+      "vote_share_pct": 25.34
+    },
+    {
+      "rank": 3,
+      "name": "Madhosingh Dawar",
+      "party_short": "IND",
+      "votes": 21312,
+      "vote_share_pct": 12.85
+    },
+    {
+      "rank": 4,
+      "name": "Ajnar Surpal Singh",
+      "party_short": "IND",
+      "votes": 9614,
+      "vote_share_pct": 5.8
+    },
+    {
+      "rank": 5,
+      "name": "Mohansingh Ningwal",
+      "party_short": "BSaP",
+      "votes": 3216,
+      "vote_share_pct": 1.94
+    }
+  ],
+  "nota": {
+    "votes": 4643,
+    "vote_share_pct": 2.8
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 4264,
+    "vote_share_pct": 2.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sena - Mahesh Patel",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 80784,
+    "margin_votes": 38757,
+    "margin_pct": 23.37
+  }
+}

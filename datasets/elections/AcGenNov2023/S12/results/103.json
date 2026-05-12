@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "Shahpura (ST)",
+  "totals": {
+    "electors": 267094,
+    "votes_polled": 221924,
+    "turnout_pct": 83.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Omprakash Dhurwey",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 84844,
+      "vote_share_pct": 38.23,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bhoopendra Maravi (bablu)",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 79227,
+      "vote_share_pct": 35.7
+    },
+    {
+      "rank": 3,
+      "name": "Aman Singh Porte",
+      "party_short": "GGP",
+      "votes": 40860,
+      "vote_share_pct": 18.41
+    },
+    {
+      "rank": 4,
+      "name": "Amar Singh Marko",
+      "party_short": "AAAP",
+      "votes": 4530,
+      "vote_share_pct": 2.04
+    },
+    {
+      "rank": 5,
+      "name": "Sukhdev Singh Kushram",
+      "party_short": "AAPP",
+      "votes": 3029,
+      "vote_share_pct": 1.36
+    }
+  ],
+  "nota": {
+    "votes": 4636,
+    "vote_share_pct": 2.09
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 4798,
+    "vote_share_pct": 2.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Omprakash Dhurwey",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 84844,
+    "margin_votes": 5617,
+    "margin_pct": 2.53
+  }
+}

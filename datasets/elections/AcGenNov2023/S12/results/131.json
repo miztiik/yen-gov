@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 131,
+  "constituency_name": "Betul",
+  "totals": {
+    "electors": 255497,
+    "votes_polled": 210572,
+    "turnout_pct": 82.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Hemant Vijay Khandelwal",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 109183,
+      "vote_share_pct": 51.85,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Nilay Vinod Daga",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 93650,
+      "vote_share_pct": 44.47
+    },
+    {
+      "rank": 3,
+      "name": "Hemant Sariyam",
+      "party_short": "IND",
+      "votes": 1166,
+      "vote_share_pct": 0.55
+    },
+    {
+      "rank": 4,
+      "name": "Shivpal Singh Rajput",
+      "party_short": "GGP",
+      "votes": 895,
+      "vote_share_pct": 0.43
+    },
+    {
+      "rank": 5,
+      "name": "Vijendra Gole",
+      "party_short": "IND",
+      "votes": 802,
+      "vote_share_pct": 0.38
+    }
+  ],
+  "nota": {
+    "votes": 3049,
+    "vote_share_pct": 1.45
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1827,
+    "vote_share_pct": 0.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Hemant Vijay Khandelwal",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 109183,
+    "margin_votes": 15533,
+    "margin_pct": 7.38
+  }
+}

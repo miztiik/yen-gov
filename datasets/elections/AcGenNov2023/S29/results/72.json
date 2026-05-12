@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Kodangal",
+  "totals": {
+    "electors": 236789,
+    "votes_polled": 195163,
+    "turnout_pct": 82.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anumula Revanth Reddy",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 107429,
+      "vote_share_pct": 55.05,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Patnam Narender Reddy",
+      "party_short": "BHRS",
+      "votes": 74897,
+      "vote_share_pct": 38.38
+    },
+    {
+      "rank": 3,
+      "name": "Bantu Ramesh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 3988,
+      "vote_share_pct": 2.04
+    },
+    {
+      "rank": 4,
+      "name": "M.madhusudhan Reddy",
+      "party_short": "IND",
+      "votes": 2173,
+      "vote_share_pct": 1.11
+    },
+    {
+      "rank": 5,
+      "name": "Kurva Narmada Kistappa",
+      "party_short": "BSP",
+      "votes": 2133,
+      "vote_share_pct": 1.09
+    }
+  ],
+  "nota": {
+    "votes": 2002,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2541,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anumula Revanth Reddy",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 107429,
+    "margin_votes": 32532,
+    "margin_pct": 16.67
+  }
+}

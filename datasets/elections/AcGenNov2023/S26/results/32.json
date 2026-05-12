@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "Masturi (SC)",
+  "totals": {
+    "electors": 305620,
+    "votes_polled": 204084,
+    "turnout_pct": 66.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dilip Lahariya",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 95497,
+      "vote_share_pct": 46.79,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Krishna Murti Bandhi",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 75356,
+      "vote_share_pct": 36.92
+    },
+    {
+      "rank": 3,
+      "name": "Dauram Ratnakar",
+      "party_short": "BSP",
+      "votes": 15583,
+      "vote_share_pct": 7.64
+    },
+    {
+      "rank": 4,
+      "name": "Dharamdas Bhargav",
+      "party_short": "AAAP",
+      "votes": 3820,
+      "vote_share_pct": 1.87
+    },
+    {
+      "rank": 5,
+      "name": "Laxman Tandan",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 2835,
+      "vote_share_pct": 1.39
+    }
+  ],
+  "nota": {
+    "votes": 2333,
+    "vote_share_pct": 1.14
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 8660,
+    "vote_share_pct": 4.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dilip Lahariya",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 95497,
+    "margin_votes": 20141,
+    "margin_pct": 9.87
+  }
+}

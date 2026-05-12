@@ -59,6 +59,17 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S27", 2024): EventInfo("AcGenNov2024", False),  # Jharkhand
     ("U05", 2025): EventInfo("AcGenFeb2025", False),  # NCT of Delhi
     ("S04", 2025): EventInfo("AcGenNov2025", False),  # Bihar (Oct-Nov)
+
+    # Nov-2023 cohort: four states polled together (counting 2023-12-03).
+    # Polling dates: Mizoram + Chhattisgarh-phase-1 (2023-11-07),
+    # Chhattisgarh-phase-2 + MP (2023-11-17), Telangana (2023-11-30).
+    # Sources: legacy /<state>-legislative-election-2023-statistical-report
+    # landing pages routed through static_catalog.py (no /api). Predates
+    # the live-results portal redesign so has_partywise=False.
+    ("S12", 2023): EventInfo("AcGenNov2023", False),  # Madhya Pradesh
+    ("S26", 2023): EventInfo("AcGenNov2023", False),  # Chhattisgarh
+    ("S16", 2023): EventInfo("AcGenNov2023", False),  # Mizoram
+    ("S29", 2023): EventInfo("AcGenNov2023", False),  # Telangana
 }
 
 

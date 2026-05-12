@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "Narsampet",
+  "totals": {
+    "electors": 232519,
+    "votes_polled": 205386,
+    "turnout_pct": 88.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Donthi Madhava Reddy",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 104185,
+      "vote_share_pct": 50.73,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Peddi Sudarshan Reddy",
+      "party_short": "BHRS",
+      "votes": 85296,
+      "vote_share_pct": 41.53
+    },
+    {
+      "rank": 3,
+      "name": "Kambhampati Prathap (pulla Rao)",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 3062,
+      "vote_share_pct": 1.49
+    },
+    {
+      "rank": 4,
+      "name": "Gone Yuwa Raj",
+      "party_short": "AODRP",
+      "votes": 2451,
+      "vote_share_pct": 1.19
+    },
+    {
+      "rank": 5,
+      "name": "Dr. Gundala Madan Kumar",
+      "party_short": "BSP",
+      "votes": 1531,
+      "vote_share_pct": 0.75
+    }
+  ],
+  "nota": {
+    "votes": 738,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 8123,
+    "vote_share_pct": 3.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Donthi Madhava Reddy",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 104185,
+    "margin_votes": 18889,
+    "margin_pct": 9.2
+  }
+}

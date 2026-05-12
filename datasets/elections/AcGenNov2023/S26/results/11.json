@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Sitapur (ST)",
+  "totals": {
+    "electors": 201660,
+    "votes_polled": 164980,
+    "turnout_pct": 81.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Poorv Sainik Ramkumar Toppo",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 83088,
+      "vote_share_pct": 50.36,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Amarjeet Bhagat",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 65928,
+      "vote_share_pct": 39.96
+    },
+    {
+      "rank": 3,
+      "name": "Santosh Kumar Khess",
+      "party_short": "IND",
+      "votes": 3264,
+      "vote_share_pct": 1.98
+    },
+    {
+      "rank": 4,
+      "name": "Priyanka",
+      "party_short": "AAAP",
+      "votes": 1464,
+      "vote_share_pct": 0.89
+    },
+    {
+      "rank": 5,
+      "name": "Kamal Nath Singh",
+      "party_short": "HMR",
+      "votes": 1456,
+      "vote_share_pct": 0.88
+    }
+  ],
+  "nota": {
+    "votes": 1414,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 8366,
+    "vote_share_pct": 5.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Poorv Sainik Ramkumar Toppo",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 83088,
+    "margin_votes": 17160,
+    "margin_pct": 10.4
+  }
+}

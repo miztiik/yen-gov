@@ -1,0 +1,76 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S16",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Aizawl West-I (ST)",
+  "totals": {
+    "electors": 29932,
+    "votes_polled": 23898,
+    "turnout_pct": 79.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Tbc Lalvenchhunga",
+      "party_short": "ZPM",
+      "votes": 11872,
+      "vote_share_pct": 49.68,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Zothantluanga",
+      "party_short": "MNF",
+      "votes": 7205,
+      "vote_share_pct": 30.15
+    },
+    {
+      "rank": 3,
+      "name": "R. Lalbiakthanga",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 4546,
+      "vote_share_pct": 19.02
+    },
+    {
+      "rank": 4,
+      "name": "Vanlalvena",
+      "party_short": "IND",
+      "votes": 132,
+      "vote_share_pct": 0.55
+    },
+    {
+      "rank": 5,
+      "name": "Vanlalmawia Vanchhawng",
+      "party_short": "AAAP",
+      "votes": 75,
+      "vote_share_pct": 0.31
+    }
+  ],
+  "nota": {
+    "votes": 68,
+    "vote_share_pct": 0.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Tbc Lalvenchhunga",
+    "party_short": "ZPM",
+    "votes": 11872,
+    "margin_votes": 4667,
+    "margin_pct": 19.53
+  },
+  "others": null
+}

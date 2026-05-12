@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 91,
+  "constituency_name": "Barwara (ST)",
+  "totals": {
+    "electors": 253593,
+    "votes_polled": 198380,
+    "turnout_pct": 78.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dhirendra Bahadur Singh Dhiru",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 112916,
+      "vote_share_pct": 56.92,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vijay Raghvendra Singh (basant Singh)",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 61923,
+      "vote_share_pct": 31.21
+    },
+    {
+      "rank": 3,
+      "name": "Arvind Singh Tekam",
+      "party_short": "GGP",
+      "votes": 10060,
+      "vote_share_pct": 5.07
+    },
+    {
+      "rank": 4,
+      "name": "Geeta Singh",
+      "party_short": "IND",
+      "votes": 4273,
+      "vote_share_pct": 2.15
+    },
+    {
+      "rank": 5,
+      "name": "Suresh Kol",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 3316,
+      "vote_share_pct": 1.67
+    }
+  ],
+  "nota": {
+    "votes": 3386,
+    "vote_share_pct": 1.71
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2506,
+    "vote_share_pct": 1.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dhirendra Bahadur Singh Dhiru",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 112916,
+    "margin_votes": 50993,
+    "margin_pct": 25.7
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 49,
+  "constituency_name": "Chandla (SC)",
+  "totals": {
+    "electors": 236818,
+    "votes_polled": 161494,
+    "turnout_pct": 68.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ahirwar Dileep",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 69668,
+      "vote_share_pct": 43.14,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Anuragi Harprasad (gopi Master)",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 54177,
+      "vote_share_pct": 33.55
+    },
+    {
+      "rank": 3,
+      "name": "Ahirwar Pushpendra Kumar",
+      "party_short": "SP",
+      "votes": 24977,
+      "vote_share_pct": 15.47
+    },
+    {
+      "rank": 4,
+      "name": "D. D. Ahirwar (deendayal)",
+      "party_short": "BSP",
+      "votes": 7124,
+      "vote_share_pct": 4.41
+    },
+    {
+      "rank": 5,
+      "name": "Premchand Verma",
+      "party_short": "IND",
+      "votes": 783,
+      "vote_share_pct": 0.48
+    }
+  ],
+  "nota": {
+    "votes": 2135,
+    "vote_share_pct": 1.32
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2630,
+    "vote_share_pct": 1.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ahirwar Dileep",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 69668,
+    "margin_votes": 15491,
+    "margin_pct": 9.59
+  }
+}

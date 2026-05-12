@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "Raigaon (SC)",
+  "totals": {
+    "electors": 220009,
+    "votes_polled": 157076,
+    "turnout_pct": 71.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pratima Bagri",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 77626,
+      "vote_share_pct": 49.42,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kalpana Verma",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 41566,
+      "vote_share_pct": 26.46
+    },
+    {
+      "rank": 3,
+      "name": "Devraj Ahirwar",
+      "party_short": "BSP",
+      "votes": 27743,
+      "vote_share_pct": 17.66
+    },
+    {
+      "rank": 4,
+      "name": "Rani Bagri",
+      "party_short": "VNDHYJNTP",
+      "votes": 2240,
+      "vote_share_pct": 1.43
+    },
+    {
+      "rank": 5,
+      "name": "Varun Gujar 'dinkal'",
+      "party_short": "AAAP",
+      "votes": 1938,
+      "vote_share_pct": 1.23
+    }
+  ],
+  "nota": {
+    "votes": 991,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4972,
+    "vote_share_pct": 3.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pratima Bagri",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 77626,
+    "margin_votes": 36060,
+    "margin_pct": 22.96
+  }
+}

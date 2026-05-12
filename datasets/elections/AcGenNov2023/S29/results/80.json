@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 80,
+  "constituency_name": "Alampur (SC)",
+  "totals": {
+    "electors": 237997,
+    "votes_polled": 196797,
+    "turnout_pct": 82.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vijayudu",
+      "party_short": "BHRS",
+      "votes": 104060,
+      "vote_share_pct": 52.88,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "S.a.sampath Kumar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 73487,
+      "vote_share_pct": 37.34
+    },
+    {
+      "rank": 3,
+      "name": "Dr.r.prasanna Kumar",
+      "party_short": "BSP",
+      "votes": 6082,
+      "vote_share_pct": 3.09
+    },
+    {
+      "rank": 4,
+      "name": "Rajagopal Perumallu",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 4711,
+      "vote_share_pct": 2.39
+    },
+    {
+      "rank": 5,
+      "name": "Beesanna",
+      "party_short": "IND",
+      "votes": 1263,
+      "vote_share_pct": 0.64
+    }
+  ],
+  "nota": {
+    "votes": 2013,
+    "vote_share_pct": 1.02
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5181,
+    "vote_share_pct": 2.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vijayudu",
+    "party_short": "BHRS",
+    "votes": 104060,
+    "margin_votes": 30573,
+    "margin_pct": 15.54
+  }
+}

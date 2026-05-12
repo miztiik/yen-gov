@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "Raipur Rural",
+  "totals": {
+    "electors": 349371,
+    "votes_polled": 205599,
+    "turnout_pct": 58.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Motilal Sahu",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 113032,
+      "vote_share_pct": 54.98,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Pankaj Sharma",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 77282,
+      "vote_share_pct": 37.59
+    },
+    {
+      "rank": 3,
+      "name": "Dhirendra Sahu",
+      "party_short": "JCGP",
+      "votes": 5485,
+      "vote_share_pct": 2.67
+    },
+    {
+      "rank": 4,
+      "name": "Manoj Kumar Banjare",
+      "party_short": "JCCJ",
+      "votes": 1936,
+      "vote_share_pct": 0.94
+    },
+    {
+      "rank": 5,
+      "name": "Bhupendra Dhritlahare",
+      "party_short": "BSP",
+      "votes": 1644,
+      "vote_share_pct": 0.8
+    }
+  ],
+  "nota": {
+    "votes": 730,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 5490,
+    "vote_share_pct": 2.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Motilal Sahu",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 113032,
+    "margin_votes": 35750,
+    "margin_pct": 17.39
+  }
+}

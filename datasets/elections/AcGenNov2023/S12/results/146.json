@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 146,
+  "constituency_name": "Kurwai (SC)",
+  "totals": {
+    "electors": 234520,
+    "votes_polled": 183774,
+    "turnout_pct": 78.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Hari Singh Sapre",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 102343,
+      "vote_share_pct": 55.69,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rani Ahirwar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 76274,
+      "vote_share_pct": 41.5
+    },
+    {
+      "rank": 3,
+      "name": "Janki Prasad Ahirwar",
+      "party_short": "BSP",
+      "votes": 2453,
+      "vote_share_pct": 1.33
+    },
+    {
+      "rank": 4,
+      "name": "Raj Kumar Thekedar",
+      "party_short": "IND",
+      "votes": 1235,
+      "vote_share_pct": 0.67
+    }
+  ],
+  "nota": {
+    "votes": 1469,
+    "vote_share_pct": 0.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Hari Singh Sapre",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 102343,
+    "margin_votes": 26069,
+    "margin_pct": 14.19
+  },
+  "others": null
+}

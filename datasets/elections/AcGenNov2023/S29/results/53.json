@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Chevella (SC)",
+  "totals": {
+    "electors": 262079,
+    "votes_polled": 196802,
+    "turnout_pct": 75.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kale Yadaiah",
+      "party_short": "BHRS",
+      "votes": 76218,
+      "vote_share_pct": 38.73,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Beem Bharath Pamena",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 75950,
+      "vote_share_pct": 38.59
+    },
+    {
+      "rank": 3,
+      "name": "K.s.ratnam",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 38455,
+      "vote_share_pct": 19.54
+    },
+    {
+      "rank": 4,
+      "name": "Raja Mahendra Varma",
+      "party_short": "BSP",
+      "votes": 1720,
+      "vote_share_pct": 0.87
+    },
+    {
+      "rank": 5,
+      "name": "Durga Prasad. T",
+      "party_short": "PRJVLGUP",
+      "votes": 871,
+      "vote_share_pct": 0.44
+    }
+  ],
+  "nota": {
+    "votes": 1423,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2165,
+    "vote_share_pct": 1.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kale Yadaiah",
+    "party_short": "BHRS",
+    "votes": 76218,
+    "margin_votes": 268,
+    "margin_pct": 0.14
+  }
+}

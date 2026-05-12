@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 96,
+  "constituency_name": "Bargi",
+  "totals": {
+    "electors": 242381,
+    "votes_polled": 197803,
+    "turnout_pct": 81.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Neeraj Singh Lodhi",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 109506,
+      "vote_share_pct": 55.36,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sanjay Yadav \"seoni Tola\"",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 69549,
+      "vote_share_pct": 35.16
+    },
+    {
+      "rank": 3,
+      "name": "Mangilal Maravi",
+      "party_short": "GGP",
+      "votes": 8393,
+      "vote_share_pct": 4.24
+    },
+    {
+      "rank": 4,
+      "name": "Aanand Singh Lodhi",
+      "party_short": "AAAP",
+      "votes": 2355,
+      "vote_share_pct": 1.19
+    },
+    {
+      "rank": 5,
+      "name": "Aneeta Patel",
+      "party_short": "BSCP",
+      "votes": 1651,
+      "vote_share_pct": 0.83
+    }
+  ],
+  "nota": {
+    "votes": 1836,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4513,
+    "vote_share_pct": 2.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Neeraj Singh Lodhi",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 109506,
+    "margin_votes": 39957,
+    "margin_pct": 20.2
+  }
+}

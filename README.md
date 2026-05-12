@@ -50,6 +50,14 @@ PYTHONPATH=backend python -m pytest backend/tests -q
 
 Both should exit 0.
 
+Re-render the data inventory after each ingest:
+
+```sh
+PYTHONPATH=backend python -m yen_gov coverage
+```
+
+Writes [`docs/reference/data-inventory.md`](docs/reference/data-inventory.md) — the auto-generated checkpoint of which (state, event) slices have been ingested. The file is the contract; the catalogue at [`datasets/reference/in/election-events.json`](datasets/reference/in/election-events.json) is the spec; divergences surface in the inventory's "Inconsistencies" section.
+
 ## Status
 
 **Phase 0 complete** (2026-05-08): schemas, validator, CLI, default `processing.json`, Tamil Nadu seed, architecture docs.
@@ -64,5 +72,6 @@ Canonical docs live under `docs/` and follow the Diataxis tiers (architecture / 
 - [`docs/architecture/data-model.md`](docs/architecture/data-model.md) — entities and relationships.
 - [`docs/concepts/data-provenance.md`](docs/concepts/data-provenance.md) — every data file carries a `sources` array of `{url, fetched_at}` entries.
 - [`docs/reference/schemas.md`](docs/reference/schemas.md) — current schemas with versions.
+- [`docs/reference/data-inventory.md`](docs/reference/data-inventory.md) — auto-generated election data coverage checkpoint.
 - [`docs/reference/identifiers.md`](docs/reference/identifiers.md) — ECI/ISO/LGD code conventions.
 - [`docs/reference/documentation-structure.md`](docs/reference/documentation-structure.md) — upstream documentation standard.

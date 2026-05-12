@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Kolaras",
+  "totals": {
+    "electors": 252773,
+    "votes_polled": 200069,
+    "turnout_pct": 79.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mahendra Ramsingh Yadav Khatora",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 108685,
+      "vote_share_pct": 54.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Baijnath Singh Yadav Dada Ji",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 57712,
+      "vote_share_pct": 28.85
+    },
+    {
+      "rank": 3,
+      "name": "Naval Dhakad",
+      "party_short": "BSP",
+      "votes": 24886,
+      "vote_share_pct": 12.44
+    },
+    {
+      "rank": 4,
+      "name": "Thakurlal Jatav",
+      "party_short": "ASPKR",
+      "votes": 1683,
+      "vote_share_pct": 0.84
+    },
+    {
+      "rank": 5,
+      "name": "Mahendra Singh Yadav",
+      "party_short": "IND",
+      "votes": 1417,
+      "vote_share_pct": 0.71
+    }
+  ],
+  "nota": {
+    "votes": 1805,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3881,
+    "vote_share_pct": 1.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mahendra Ramsingh Yadav Khatora",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 108685,
+    "margin_votes": 50973,
+    "margin_pct": 25.48
+  }
+}

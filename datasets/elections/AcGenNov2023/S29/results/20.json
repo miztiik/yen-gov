@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Koratla",
+  "totals": {
+    "electors": 240901,
+    "votes_polled": 183590,
+    "turnout_pct": 76.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kalvakuntla Sanjay",
+      "party_short": "BHRS",
+      "votes": 72115,
+      "vote_share_pct": 39.28,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Arvind Dharmapuri",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 61810,
+      "vote_share_pct": 33.67
+    },
+    {
+      "rank": 3,
+      "name": "Narsinga Rao Juvvadi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 39647,
+      "vote_share_pct": 21.6
+    },
+    {
+      "rank": 4,
+      "name": "Nishanth Karthikeya Pudhari",
+      "party_short": "BSP",
+      "votes": 2466,
+      "vote_share_pct": 1.34
+    },
+    {
+      "rank": 5,
+      "name": "Muthyam Raghu",
+      "party_short": "IND",
+      "votes": 2141,
+      "vote_share_pct": 1.17
+    }
+  ],
+  "nota": {
+    "votes": 1391,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4020,
+    "vote_share_pct": 2.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kalvakuntla Sanjay",
+    "party_short": "BHRS",
+    "votes": 72115,
+    "margin_votes": 10305,
+    "margin_pct": 5.61
+  }
+}

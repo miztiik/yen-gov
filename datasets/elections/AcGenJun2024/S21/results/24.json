@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-SK/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T17:41:13Z"
+      "fetched_at": "2026-05-12T18:39:24Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-SK/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T17:41:13Z"
+      "fetched_at": "2026-05-12T18:39:24Z"
     }
   ],
   "election": "AcGenJun2024",
@@ -40,6 +40,7 @@
     {
       "rank": 3,
       "name": "Chewang Dadul Bhutia",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 705,
       "vote_share_pct": 4.72
@@ -54,6 +55,7 @@
     {
       "rank": 5,
       "name": "Ganga Lepcha",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 89,
       "vote_share_pct": 0.6

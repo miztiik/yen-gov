@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "Sanathnagar",
+  "totals": {
+    "electors": 249032,
+    "votes_polled": 128263,
+    "turnout_pct": 51.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Talasani Srinivas Yadav",
+      "party_short": "BHRS",
+      "votes": 72557,
+      "vote_share_pct": 56.57,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Marri Shashidhar Reddy",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 30730,
+      "vote_share_pct": 23.96
+    },
+    {
+      "rank": 3,
+      "name": "Kota Neelima",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 22492,
+      "vote_share_pct": 17.54
+    },
+    {
+      "rank": 4,
+      "name": "Gunneboina Akhilesh",
+      "party_short": "BSP",
+      "votes": 418,
+      "vote_share_pct": 0.33
+    },
+    {
+      "rank": 5,
+      "name": "A.srinivas",
+      "party_short": "IND",
+      "votes": 165,
+      "vote_share_pct": 0.13
+    }
+  ],
+  "nota": {
+    "votes": 1040,
+    "vote_share_pct": 0.81
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 861,
+    "vote_share_pct": 0.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Talasani Srinivas Yadav",
+    "party_short": "BHRS",
+    "votes": 72557,
+    "margin_votes": 41827,
+    "margin_pct": 32.61
+  }
+}

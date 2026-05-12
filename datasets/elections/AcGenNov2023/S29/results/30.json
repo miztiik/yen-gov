@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "Manakondur (SC)",
+  "totals": {
+    "electors": 221741,
+    "votes_polled": 185829,
+    "turnout_pct": 83.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Kavvampally Satyanarayana",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 96773,
+      "vote_share_pct": 52.08,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Erupula Balakishan Rasamayi",
+      "party_short": "BHRS",
+      "votes": 64408,
+      "vote_share_pct": 34.66
+    },
+    {
+      "rank": 3,
+      "name": "Arepally Mohan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 14879,
+      "vote_share_pct": 8.01
+    },
+    {
+      "rank": 4,
+      "name": "Nisani Ramachandram",
+      "party_short": "BSP",
+      "votes": 3345,
+      "vote_share_pct": 1.8
+    },
+    {
+      "rank": 5,
+      "name": "Shanigarapu Yuvaraju",
+      "party_short": "IND",
+      "votes": 2216,
+      "vote_share_pct": 1.19
+    }
+  ],
+  "nota": {
+    "votes": 1998,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2210,
+    "vote_share_pct": 1.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Kavvampally Satyanarayana",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 96773,
+    "margin_votes": 32365,
+    "margin_pct": 17.42
+  }
+}

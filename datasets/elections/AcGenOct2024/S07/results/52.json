@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T17:41:17Z"
+      "fetched_at": "2026-05-12T18:39:27Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-HR/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T17:41:18Z"
+      "fetched_at": "2026-05-12T18:39:27Z"
     }
   ],
   "election": "AcGenOct2024",
@@ -33,6 +33,7 @@
     {
       "rank": 2,
       "name": "Ram Niwas Rara",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 30290,
       "vote_share_pct": 26.93
@@ -40,6 +41,7 @@
     {
       "rank": 3,
       "name": "Dr. Kamal Gupta",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 17385,
       "vote_share_pct": 15.45

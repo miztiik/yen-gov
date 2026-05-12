@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 116,
+  "constituency_name": "Sathupalle (SC)",
+  "totals": {
+    "electors": 243220,
+    "votes_polled": 215349,
+    "turnout_pct": 88.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Matta Ragamayee",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 111245,
+      "vote_share_pct": 51.66,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sandra Venkata Veeraiah",
+      "party_short": "BHRS",
+      "votes": 91805,
+      "vote_share_pct": 42.63
+    },
+    {
+      "rank": 3,
+      "name": "Namburi Ramalingeswara Rao",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 1882,
+      "vote_share_pct": 0.87
+    },
+    {
+      "rank": 4,
+      "name": "Seelam Venkateswara Rao",
+      "party_short": "BSP",
+      "votes": 1415,
+      "vote_share_pct": 0.66
+    },
+    {
+      "rank": 5,
+      "name": "Amboju Sumalatha",
+      "party_short": "AODRP",
+      "votes": 1305,
+      "vote_share_pct": 0.61
+    }
+  ],
+  "nota": {
+    "votes": 635,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 7062,
+    "vote_share_pct": 3.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Matta Ragamayee",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 111245,
+    "margin_votes": 19440,
+    "margin_pct": 9.03
+  }
+}

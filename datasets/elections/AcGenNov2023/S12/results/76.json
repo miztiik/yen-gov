@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 76,
+  "constituency_name": "Churhat",
+  "totals": {
+    "electors": 263938,
+    "votes_polled": 188749,
+    "turnout_pct": 71.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ajay Arjun Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 97517,
+      "vote_share_pct": 51.66,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sharadendu Tiwari",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 69740,
+      "vote_share_pct": 36.95
+    },
+    {
+      "rank": 3,
+      "name": "Anendra Govind Mishra \"rajan\"",
+      "party_short": "AAAP",
+      "votes": 8200,
+      "vote_share_pct": 4.34
+    },
+    {
+      "rank": 4,
+      "name": "Sunil Soni 'nirdali'",
+      "party_short": "IND",
+      "votes": 2724,
+      "vote_share_pct": 1.44
+    },
+    {
+      "rank": 5,
+      "name": "Bablu Vishwakarma",
+      "party_short": "BSP",
+      "votes": 1866,
+      "vote_share_pct": 0.99
+    }
+  ],
+  "nota": {
+    "votes": 414,
+    "vote_share_pct": 0.22
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 8288,
+    "vote_share_pct": 4.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ajay Arjun Singh",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 97517,
+    "margin_votes": 27777,
+    "margin_pct": 14.72
+  }
+}

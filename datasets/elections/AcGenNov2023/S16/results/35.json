@@ -1,0 +1,70 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S16",
+  "body": "AC",
+  "eci_no": 35,
+  "constituency_name": "West Tuipui (ST)",
+  "totals": {
+    "electors": 16793,
+    "votes_polled": 14740,
+    "turnout_pct": 87.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Prova Chakma",
+      "party_short": "MNF",
+      "votes": 7167,
+      "vote_share_pct": 48.62,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Nihar Kanti Chakma",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 6456,
+      "vote_share_pct": 43.8
+    },
+    {
+      "rank": 3,
+      "name": "Kawlhnuna",
+      "party_short": "ZPM",
+      "votes": 789,
+      "vote_share_pct": 5.35
+    },
+    {
+      "rank": 4,
+      "name": "T. Lalengthanga",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 250,
+      "vote_share_pct": 1.7
+    }
+  ],
+  "nota": {
+    "votes": 78,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Prova Chakma",
+    "party_short": "MNF",
+    "votes": 7167,
+    "margin_votes": 711,
+    "margin_pct": 4.82
+  },
+  "others": null
+}

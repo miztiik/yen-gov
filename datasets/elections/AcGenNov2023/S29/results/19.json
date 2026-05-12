@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Balkonda",
+  "totals": {
+    "electors": 221511,
+    "votes_polled": 174839,
+    "turnout_pct": 78.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Prashanth Reddy Vemula",
+      "party_short": "BHRS",
+      "votes": 70417,
+      "vote_share_pct": 40.28,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sunil Kumar Muthyala",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 65884,
+      "vote_share_pct": 37.68
+    },
+    {
+      "rank": 3,
+      "name": "Annapurna Devi Aleti",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 30250,
+      "vote_share_pct": 17.3
+    },
+    {
+      "rank": 4,
+      "name": "Gadde Srinivas",
+      "party_short": "AODRP",
+      "votes": 3313,
+      "vote_share_pct": 1.89
+    },
+    {
+      "rank": 5,
+      "name": "Pallikonda Narsaiah",
+      "party_short": "BSP",
+      "votes": 1228,
+      "vote_share_pct": 0.7
+    }
+  ],
+  "nota": {
+    "votes": 1162,
+    "vote_share_pct": 0.66
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2585,
+    "vote_share_pct": 1.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Prashanth Reddy Vemula",
+    "party_short": "BHRS",
+    "votes": 70417,
+    "margin_votes": 4533,
+    "margin_pct": 2.59
+  }
+}

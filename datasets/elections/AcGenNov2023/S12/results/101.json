@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 101,
+  "constituency_name": "Panagar",
+  "totals": {
+    "electors": 267844,
+    "votes_polled": 207707,
+    "turnout_pct": 77.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sushil Kumar Tiwari (indu Bhaiya)",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 119071,
+      "vote_share_pct": 57.33,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rajesh Patel",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 78530,
+      "vote_share_pct": 37.81
+    },
+    {
+      "rank": 3,
+      "name": "Miss Asha Gotiya",
+      "party_short": "BSP",
+      "votes": 3812,
+      "vote_share_pct": 1.84
+    },
+    {
+      "rank": 4,
+      "name": "Anita Omprakash Kewat (banti) Moolniwasi",
+      "party_short": "BMUP",
+      "votes": 923,
+      "vote_share_pct": 0.44
+    },
+    {
+      "rank": 5,
+      "name": "Gauri Shankar Tiwari (r.f.o)",
+      "party_short": "IND",
+      "votes": 903,
+      "vote_share_pct": 0.43
+    }
+  ],
+  "nota": {
+    "votes": 1812,
+    "vote_share_pct": 0.87
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2656,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sushil Kumar Tiwari (indu Bhaiya)",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 119071,
+    "margin_votes": 40541,
+    "margin_pct": 19.52
+  }
+}

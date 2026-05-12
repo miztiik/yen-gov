@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "Nagarjuna Sagar",
+  "totals": {
+    "electors": 233514,
+    "votes_polled": 202088,
+    "turnout_pct": 86.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kunduru Jayaveer",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 119831,
+      "vote_share_pct": 59.3,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Nomula Bhagath Kumar",
+      "party_short": "BHRS",
+      "votes": 63982,
+      "vote_share_pct": 31.66
+    },
+    {
+      "rank": 3,
+      "name": "Kankanala Nivedita",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 6491,
+      "vote_share_pct": 3.21
+    },
+    {
+      "rank": 4,
+      "name": "Chittipolu Surender",
+      "party_short": "IND",
+      "votes": 2331,
+      "vote_share_pct": 1.15
+    },
+    {
+      "rank": 5,
+      "name": "Panugotu Lalsingh",
+      "party_short": "IND",
+      "votes": 2065,
+      "vote_share_pct": 1.02
+    }
+  ],
+  "nota": {
+    "votes": 1056,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 6332,
+    "vote_share_pct": 3.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kunduru Jayaveer",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 119831,
+    "margin_votes": 55849,
+    "margin_pct": 27.64
+  }
+}

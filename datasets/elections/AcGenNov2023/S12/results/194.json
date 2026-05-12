@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 194,
+  "constituency_name": "Thandla (ST)",
+  "totals": {
+    "electors": 264577,
+    "votes_polled": 231468,
+    "turnout_pct": 87.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Veersingh Bhuriya",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 105197,
+      "vote_share_pct": 45.45,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kalsingh Bhabar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 103857,
+      "vote_share_pct": 44.87
+    },
+    {
+      "rank": 3,
+      "name": "Maju Damor",
+      "party_short": "BHRTADVSIP",
+      "votes": 9215,
+      "vote_share_pct": 3.98
+    },
+    {
+      "rank": 4,
+      "name": "Tolsingh Bhuriya",
+      "party_short": "JD(U)",
+      "votes": 3103,
+      "vote_share_pct": 1.34
+    },
+    {
+      "rank": 5,
+      "name": "Eliyas Bhai Machar",
+      "party_short": "BSP",
+      "votes": 2396,
+      "vote_share_pct": 1.04
+    }
+  ],
+  "nota": {
+    "votes": 3108,
+    "vote_share_pct": 1.34
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4592,
+    "vote_share_pct": 1.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Veersingh Bhuriya",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 105197,
+    "margin_votes": 1340,
+    "margin_pct": 0.58
+  }
+}

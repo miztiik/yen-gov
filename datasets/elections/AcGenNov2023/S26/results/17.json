@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Sarangarh (SC)",
+  "totals": {
+    "electors": 263526,
+    "votes_polled": 209926,
+    "turnout_pct": 79.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Uttari Ganpat Jangde",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 109484,
+      "vote_share_pct": 52.15,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Shivkumari Saradhan Chouhan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 79789,
+      "vote_share_pct": 38.01
+    },
+    {
+      "rank": 3,
+      "name": "Narayan Ratnakar",
+      "party_short": "BSP",
+      "votes": 13215,
+      "vote_share_pct": 6.3
+    },
+    {
+      "rank": 4,
+      "name": "Madhulal Sarthi",
+      "party_short": "BSCP",
+      "votes": 1244,
+      "vote_share_pct": 0.59
+    },
+    {
+      "rank": 5,
+      "name": "Dev Prasad Kosle",
+      "party_short": "AAAP",
+      "votes": 1052,
+      "vote_share_pct": 0.5
+    }
+  ],
+  "nota": {
+    "votes": 2287,
+    "vote_share_pct": 1.09
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2855,
+    "vote_share_pct": 1.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Uttari Ganpat Jangde",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 109484,
+    "margin_votes": 29695,
+    "margin_pct": 14.15
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Mungeli (SC)",
+  "totals": {
+    "electors": 253778,
+    "votes_polled": 171821,
+    "turnout_pct": 67.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Punnulal Mohle",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 85429,
+      "vote_share_pct": 49.72,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sanjeet Banarjee",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 73648,
+      "vote_share_pct": 42.86
+    },
+    {
+      "rank": 3,
+      "name": "Samaru Bhaskar",
+      "party_short": "BSP",
+      "votes": 2705,
+      "vote_share_pct": 1.57
+    },
+    {
+      "rank": 4,
+      "name": "Deepak Patre",
+      "party_short": "AAAP",
+      "votes": 2080,
+      "vote_share_pct": 1.21
+    },
+    {
+      "rank": 5,
+      "name": "Dr. Sarita Bhardwaj",
+      "party_short": "JCCJ",
+      "votes": 1448,
+      "vote_share_pct": 0.84
+    }
+  ],
+  "nota": {
+    "votes": 1252,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5259,
+    "vote_share_pct": 3.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Punnulal Mohle",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 85429,
+    "margin_votes": 11781,
+    "margin_pct": 6.86
+  }
+}

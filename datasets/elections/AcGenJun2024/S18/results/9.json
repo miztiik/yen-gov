@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T17:41:08Z"
+      "fetched_at": "2026-05-12T18:39:19Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T17:41:08Z"
+      "fetched_at": "2026-05-12T18:39:20Z"
     }
   ],
   "election": "AcGenJun2024",
@@ -33,6 +33,7 @@
     {
       "rank": 2,
       "name": "Kusum Tete",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 77276,
       "vote_share_pct": 43.07
@@ -40,6 +41,7 @@
     {
       "rank": 3,
       "name": "Sudharani Raudia",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 8301,
       "vote_share_pct": 4.63
@@ -47,6 +49,7 @@
     {
       "rank": 4,
       "name": "Rajendra Naik",
+      "party_eci_code": "544",
       "party_short": "CPI",
       "votes": 2847,
       "vote_share_pct": 1.59

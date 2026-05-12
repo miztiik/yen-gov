@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Bhander (SC)",
+  "totals": {
+    "electors": 189931,
+    "votes_polled": 139828,
+    "turnout_pct": 73.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Phool Singh Baraiya",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 82043,
+      "vote_share_pct": 58.67,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ghanshyam Pironiya",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 52605,
+      "vote_share_pct": 37.62
+    },
+    {
+      "rank": 3,
+      "name": "Chaudhari Raju Dohare",
+      "party_short": "BSP",
+      "votes": 1954,
+      "vote_share_pct": 1.4
+    },
+    {
+      "rank": 4,
+      "name": "Sushil-radhey Shyam Chandoriya",
+      "party_short": "IND",
+      "votes": 845,
+      "vote_share_pct": 0.6
+    },
+    {
+      "rank": 5,
+      "name": "D.r. Rahul",
+      "party_short": "SP",
+      "votes": 370,
+      "vote_share_pct": 0.26
+    }
+  ],
+  "nota": {
+    "votes": 1175,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 836,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Phool Singh Baraiya",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 82043,
+    "margin_votes": 29438,
+    "margin_pct": 21.05
+  }
+}

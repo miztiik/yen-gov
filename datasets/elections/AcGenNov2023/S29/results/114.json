@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 114,
+  "constituency_name": "Madhira (SC)",
+  "totals": {
+    "electors": 221473,
+    "votes_polled": 196364,
+    "turnout_pct": 88.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhatti Vikramarka Mallu",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 108970,
+      "vote_share_pct": 55.49,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kamal Raju Lingala",
+      "party_short": "BHRS",
+      "votes": 73518,
+      "vote_share_pct": 37.44
+    },
+    {
+      "rank": 3,
+      "name": "Bhaskar Paladugu",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 6575,
+      "vote_share_pct": 3.35
+    },
+    {
+      "rank": 4,
+      "name": "Perumallapalli Vijayaraju",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 2021,
+      "vote_share_pct": 1.03
+    },
+    {
+      "rank": 5,
+      "name": "Amboju Buddaiah",
+      "party_short": "AODRP",
+      "votes": 1242,
+      "vote_share_pct": 0.63
+    }
+  ],
+  "nota": {
+    "votes": 1453,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2585,
+    "vote_share_pct": 1.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhatti Vikramarka Mallu",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 108970,
+    "margin_votes": 35452,
+    "margin_pct": 18.05
+  }
+}

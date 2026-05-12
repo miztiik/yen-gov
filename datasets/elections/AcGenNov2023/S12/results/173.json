@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "Khategaon",
+  "totals": {
+    "electors": 235697,
+    "votes_polled": 192077,
+    "turnout_pct": 81.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Aashish Govind Sharma",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 98629,
+      "vote_share_pct": 51.35,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Deepak Kelash Joshi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 86087,
+      "vote_share_pct": 44.82
+    },
+    {
+      "rank": 3,
+      "name": "Gokul Prasad Hariyale",
+      "party_short": "ASPKR",
+      "votes": 1999,
+      "vote_share_pct": 1.04
+    },
+    {
+      "rank": 4,
+      "name": "Anil S/o Rambhrosh Vishvkarma (sutar)",
+      "party_short": "AMBHRTP",
+      "votes": 1158,
+      "vote_share_pct": 0.6
+    },
+    {
+      "rank": 5,
+      "name": "Aasharam (ashu) Bhavsar",
+      "party_short": "IND",
+      "votes": 889,
+      "vote_share_pct": 0.46
+    }
+  ],
+  "nota": {
+    "votes": 1642,
+    "vote_share_pct": 0.85
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1673,
+    "vote_share_pct": 0.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Aashish Govind Sharma",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 98629,
+    "margin_votes": 12542,
+    "margin_pct": 6.53
+  }
+}

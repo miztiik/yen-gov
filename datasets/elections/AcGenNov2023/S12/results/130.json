@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 130,
+  "constituency_name": "Amla (SC)",
+  "totals": {
+    "electors": 216247,
+    "votes_polled": 168743,
+    "turnout_pct": 78.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Yogesh Pandagre",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 86726,
+      "vote_share_pct": 51.4,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Manoj Malve",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 74608,
+      "vote_share_pct": 44.21
+    },
+    {
+      "rank": 3,
+      "name": "Ranjana Wamne Vakil",
+      "party_short": "GGP",
+      "votes": 1609,
+      "vote_share_pct": 0.95
+    },
+    {
+      "rank": 4,
+      "name": "Rupesh Pandole",
+      "party_short": "BMUP",
+      "votes": 1167,
+      "vote_share_pct": 0.69
+    },
+    {
+      "rank": 5,
+      "name": "Hariplal Bihare",
+      "party_short": "IND",
+      "votes": 1010,
+      "vote_share_pct": 0.6
+    }
+  ],
+  "nota": {
+    "votes": 2769,
+    "vote_share_pct": 1.64
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 854,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Yogesh Pandagre",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 86726,
+    "margin_votes": 12118,
+    "margin_pct": 7.18
+  }
+}

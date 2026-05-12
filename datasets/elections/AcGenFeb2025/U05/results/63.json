@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-11T17:41:37Z"
+      "fetched_at": "2026-05-12T18:39:44Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-11T17:41:38Z"
+      "fetched_at": "2026-05-12T18:39:44Z"
     }
   ],
   "election": "AcGenFeb2025",
@@ -33,6 +33,7 @@
     {
       "rank": 2,
       "name": "KU. RINKU",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 55985,
       "vote_share_pct": 40.88
@@ -40,6 +41,7 @@
     {
       "rank": 3,
       "name": "RAJESH LILOTHIA",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 11823,
       "vote_share_pct": 8.63

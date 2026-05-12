@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 198,
+  "constituency_name": "Kukshi (ST)",
+  "totals": {
+    "electors": 246580,
+    "votes_polled": 186680,
+    "turnout_pct": 75.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Baghel Surendra Singh Honey",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 114464,
+      "vote_share_pct": 61.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bhinde Jaydeep Patel",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 64576,
+      "vote_share_pct": 34.59
+    },
+    {
+      "rank": 3,
+      "name": "Ajay Rawat",
+      "party_short": "BSP",
+      "votes": 2098,
+      "vote_share_pct": 1.12
+    },
+    {
+      "rank": 4,
+      "name": "Bondarsingh Mujhalda",
+      "party_short": "IND",
+      "votes": 1460,
+      "vote_share_pct": 0.78
+    },
+    {
+      "rank": 5,
+      "name": "Magansingh Baghel",
+      "party_short": "IND",
+      "votes": 1115,
+      "vote_share_pct": 0.6
+    }
+  ],
+  "nota": {
+    "votes": 1885,
+    "vote_share_pct": 1.01
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1082,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Baghel Surendra Singh Honey",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 114464,
+    "margin_votes": 49888,
+    "margin_pct": 26.72
+  }
+}

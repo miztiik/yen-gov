@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 90,
+  "constituency_name": "Kodad",
+  "totals": {
+    "electors": 241669,
+    "votes_polled": 208992,
+    "turnout_pct": 86.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nalamada Padmavathi Reddy",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 125783,
+      "vote_share_pct": 60.19,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bollam. Mallaiah Yadav",
+      "party_short": "BHRS",
+      "votes": 67611,
+      "vote_share_pct": 32.35
+    },
+    {
+      "rank": 3,
+      "name": "Pillutla Srinivas",
+      "party_short": "BSP",
+      "votes": 3369,
+      "vote_share_pct": 1.61
+    },
+    {
+      "rank": 4,
+      "name": "Mekala Satheesh Reddy",
+      "party_short": "JnP",
+      "votes": 2151,
+      "vote_share_pct": 1.03
+    },
+    {
+      "rank": 5,
+      "name": "Mattapalli Saidulu",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 1195,
+      "vote_share_pct": 0.57
+    }
+  ],
+  "nota": {
+    "votes": 887,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 29,
+    "votes": 7996,
+    "vote_share_pct": 3.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nalamada Padmavathi Reddy",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 125783,
+    "margin_votes": 58172,
+    "margin_pct": 27.83
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 104,
+  "constituency_name": "Dindori (ST)",
+  "totals": {
+    "electors": 247439,
+    "votes_polled": 208241,
+    "turnout_pct": 84.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Omkar Singh Markam",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 93946,
+      "vote_share_pct": 45.11,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Pankaj Singh Tekam",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 81681,
+      "vote_share_pct": 39.22
+    },
+    {
+      "rank": 3,
+      "name": "Rudesh Paraste",
+      "party_short": "IND",
+      "votes": 18194,
+      "vote_share_pct": 8.74
+    },
+    {
+      "rank": 4,
+      "name": "Charan Singh Dhurve",
+      "party_short": "GGP",
+      "votes": 5179,
+      "vote_share_pct": 2.49
+    },
+    {
+      "rank": 5,
+      "name": "Chandrasingh Kushram",
+      "party_short": "BSCP",
+      "votes": 2622,
+      "vote_share_pct": 1.26
+    }
+  ],
+  "nota": {
+    "votes": 4186,
+    "vote_share_pct": 2.01
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2433,
+    "vote_share_pct": 1.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Omkar Singh Markam",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 93946,
+    "margin_votes": 12265,
+    "margin_pct": 5.89
+  }
+}

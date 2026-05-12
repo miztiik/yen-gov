@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Pratappur (ST)",
+  "totals": {
+    "electors": 231709,
+    "votes_polled": 192242,
+    "turnout_pct": 82.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shakuntala Singh Portey",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 83796,
+      "vote_share_pct": 43.59,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rajkumari Shivbhajan Marabi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 72088,
+      "vote_share_pct": 37.5
+    },
+    {
+      "rank": 3,
+      "name": "Jagmohan Singh",
+      "party_short": "GGP",
+      "votes": 17041,
+      "vote_share_pct": 8.86
+    },
+    {
+      "rank": 4,
+      "name": "Raja Ram Shyam",
+      "party_short": "AAAP",
+      "votes": 4870,
+      "vote_share_pct": 2.53
+    },
+    {
+      "rank": 5,
+      "name": "Nainendra Singh Maravi",
+      "party_short": "IND",
+      "votes": 1544,
+      "vote_share_pct": 0.8
+    }
+  ],
+  "nota": {
+    "votes": 4351,
+    "vote_share_pct": 2.26
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 8552,
+    "vote_share_pct": 4.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shakuntala Singh Portey",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 83796,
+    "margin_votes": 11708,
+    "margin_pct": 6.09
+  }
+}

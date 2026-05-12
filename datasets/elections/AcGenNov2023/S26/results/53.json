@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Abhanpur",
+  "totals": {
+    "electors": 214002,
+    "votes_polled": 179427,
+    "turnout_pct": 83.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Indra Kumar Sahu",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 93295,
+      "vote_share_pct": 52.0,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dhanendra Sahu",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 77742,
+      "vote_share_pct": 43.33
+    },
+    {
+      "rank": 3,
+      "name": "Makhan Lal Tamrakar",
+      "party_short": "JCCJ",
+      "votes": 2379,
+      "vote_share_pct": 1.33
+    },
+    {
+      "rank": 4,
+      "name": "Mamta Sahu",
+      "party_short": "BSP",
+      "votes": 1045,
+      "vote_share_pct": 0.58
+    },
+    {
+      "rank": 5,
+      "name": "Hemchand Gilhre",
+      "party_short": "IND",
+      "votes": 876,
+      "vote_share_pct": 0.49
+    }
+  ],
+  "nota": {
+    "votes": 2087,
+    "vote_share_pct": 1.16
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2003,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Indra Kumar Sahu",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 93295,
+    "margin_votes": 15553,
+    "margin_pct": 8.67
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 142,
+  "constituency_name": "Sanchi (SC)",
+  "totals": {
+    "electors": 264257,
+    "votes_polled": 206825,
+    "turnout_pct": 78.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Prabhuram Choudhary",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 122960,
+      "vote_share_pct": 59.45,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dr. G. C. Gautam",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 78687,
+      "vote_share_pct": 38.05
+    },
+    {
+      "rank": 3,
+      "name": "Suraj Pal Singh (retired Teacher)",
+      "party_short": "BSP",
+      "votes": 1763,
+      "vote_share_pct": 0.85
+    },
+    {
+      "rank": 4,
+      "name": "Manoj Ahirwar",
+      "party_short": "IND",
+      "votes": 573,
+      "vote_share_pct": 0.28
+    },
+    {
+      "rank": 5,
+      "name": "Bheekam Singh",
+      "party_short": "IND",
+      "votes": 239,
+      "vote_share_pct": 0.12
+    }
+  ],
+  "nota": {
+    "votes": 1616,
+    "vote_share_pct": 0.78
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 987,
+    "vote_share_pct": 0.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Prabhuram Choudhary",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 122960,
+    "margin_votes": 44273,
+    "margin_pct": 21.41
+  }
+}

@@ -1,11 +1,26 @@
 """Parse ECI Statistical Report Section 10 — "Detailed Results" XLSX.
 
 Section 10 is the per-AC per-candidate vote breakdown — the richest single
-sheet in the Statistical Report family. Layout (header row at index 3):
+sheet in the Statistical Report family. Two layouts ECI has shipped under
+this title since 2023, both supported by header-name-based column
+resolution (so a future column tweak fails loudly rather than silently
+shifting a column index):
 
+  2024+ (15 cols, e.g. May-2026 cohort):
     STATE/UT NAME | AC NO. | AC NAME | CANDIDATE NAME | GENDER | AGE |
     CATEGORY | PARTY | SYMBOL | GENERAL | POSTAL | TOTAL |
-    %_OVER_VALID_NOTA | %_OVER_TOTAL_ELECTORS | TOTAL_ELECTORS
+    OVER VALID VOTES + NOTA | OVER TOTAL ELECTORS | TOTAL ELECTORS
+
+  2023 (14 cols, MP / Chhattisgarh / Mizoram / Telangana cohort):
+    STATE/UT NAME | AC NO. | AC NAME | CANDIDATE NAME | SEX | AGE |
+    CATEGORY | PARTY | SYMBOL | GENERAL | POSTAL | TOTAL |
+    % VOTES POLLED | TOTAL ELECTORS
+
+Semantically the 2023 single "% VOTES POLLED" column is the same as the
+2024+ "OVER VALID VOTES + NOTA" (candidate vote share over valid+NOTA).
+The 2024+ extra "OVER TOTAL ELECTORS" column is unused on candidate rows
+but is what the 2024+ TURN OUT row reads as turnout %; in 2023 the only
+% column doubles as turnout on the TURN OUT row.
 
 Rows after the header alternate between:
 
@@ -90,6 +105,37 @@ class DetailedResultsRaw:
     sections: list[AcSection]
 
 
+@dataclass(frozen=True)
+class _ColumnMap:
+    """Resolved column indices for one header row.
+
+    Built by :func:`_resolve_columns` from the actual header text so the
+    same parser handles both the 2023 14-col and 2024+ 15-col layouts. A
+    missing required column raises at parse-time with the offending
+    header text in the message — same fail-loud posture as the rest of
+    the package.
+    """
+
+    state: int
+    eci_no: int
+    ac_name: int
+    candidate: int
+    party: int
+    general: int
+    postal: int
+    total: int
+    vote_share: int
+    total_electors: int
+    # 2024+ only: separate "OVER TOTAL ELECTORS" % column. None for 2023
+    # (which carries turnout in the single % column on the TURN OUT row).
+    over_electors_pct: int | None
+
+    @property
+    def turnout_on_turn_out_row(self) -> int:
+        """Column to read turnout_pct from on a TURN OUT sentinel row."""
+        return self.over_electors_pct if self.over_electors_pct is not None else self.vote_share
+
+
 # ---------------------------------------------------------------------------
 # parsing
 # ---------------------------------------------------------------------------
@@ -108,6 +154,7 @@ def parse_detailed_results(content: bytes) -> DetailedResultsRaw:
     wb.close()
 
     header_idx = _find_header_row(rows)
+    cols = _resolve_columns(rows[header_idx])
     sections: list[AcSection] = []
     state_name: str | None = None
     current: list[CandidateRow] = []
@@ -119,7 +166,7 @@ def parse_detailed_results(content: bytes) -> DetailedResultsRaw:
     for raw_row in rows[header_idx + 1:]:
         if raw_row is None or all(c is None for c in raw_row):
             continue
-        first = raw_row[0]
+        first = raw_row[cols.state]
 
         # End-of-AC sentinel
         if isinstance(first, str) and first.strip().upper() == "TURN OUT":
@@ -128,10 +175,10 @@ def parse_detailed_results(content: bytes) -> DetailedResultsRaw:
                     f"TURN OUT row with no preceding candidates "
                     f"(eci_no={current_eci_no})"
                 )
-            polled_general = _to_int(raw_row[9])
-            polled_postal = _to_int(raw_row[10])
-            polled_total = _to_int(raw_row[11])
-            turnout_pct = _to_float_or_none(raw_row[13])
+            polled_general = _to_int(raw_row[cols.general])
+            polled_postal = _to_int(raw_row[cols.postal])
+            polled_total = _to_int(raw_row[cols.total])
+            turnout_pct = _to_float_or_none(raw_row[cols.turnout_on_turn_out_row])
             sections.append(
                 AcSection(
                     state_name=current_state or "",
@@ -161,14 +208,14 @@ def parse_detailed_results(content: bytes) -> DetailedResultsRaw:
             break
 
         # Candidate row
-        ac_no = raw_row[1]
+        ac_no = raw_row[cols.eci_no]
         if not isinstance(ac_no, int):
             continue  # skip stray header repeats / spacer rows
         if state_name is None:
             state_name = str(first).strip() if first else ""
         if current_eci_no is None:
             current_eci_no = ac_no
-            current_ac_name = str(raw_row[2]).strip() if raw_row[2] else ""
+            current_ac_name = str(raw_row[cols.ac_name]).strip() if raw_row[cols.ac_name] else ""
             current_state = str(first).strip() if first else state_name
         elif current_eci_no != ac_no:
             raise ValueError(
@@ -176,10 +223,11 @@ def parse_detailed_results(content: bytes) -> DetailedResultsRaw:
                 f"(was building #{current_eci_no})"
             )
 
-        cand = _row_to_candidate(raw_row)
+        cand = _row_to_candidate(raw_row, cols)
         current.append(cand)
-        if current_electors is None and isinstance(raw_row[14], (int, float)):
-            current_electors = int(raw_row[14])
+        electors_cell = raw_row[cols.total_electors]
+        if current_electors is None and isinstance(electors_cell, (int, float)):
+            current_electors = int(electors_cell)
 
     if current:
         raise ValueError(
@@ -204,9 +252,75 @@ def _find_header_row(rows: list[tuple]) -> int:
     )
 
 
-def _row_to_candidate(raw_row: tuple) -> CandidateRow:
-    name = str(raw_row[3]).strip() if raw_row[3] else ""
-    party = str(raw_row[7]).strip() if raw_row[7] else ""
+def _resolve_columns(header_row: tuple) -> _ColumnMap:
+    """Map header text to canonical column indices.
+
+    Required headers (case-insensitive substring match unless noted):
+      - STATE / AC NO / AC NAME / CANDIDATE / PARTY (exact, to avoid
+        Section 3's "PARTY TYPE") / GENERAL / POSTAL / TOTAL (exact, to
+        avoid "TOTAL ELECTORS") / TOTAL ELECTORS
+      - vote_share: "% VOTES POLLED" (2023) or "OVER VALID" (2024+)
+
+    Optional 2024+-only header:
+      - over_electors_pct: "OVER TOTAL ELECTORS" (drives turnout reading
+        on the TURN OUT row when present; 2023 falls back to vote_share)
+    """
+    cells = [
+        str(c).strip().upper() if c is not None else ""
+        for c in header_row
+    ]
+
+    def find(predicate, label: str) -> int:
+        for i, c in enumerate(cells):
+            if predicate(c):
+                return i
+        raise ValueError(
+            f"Section 10 header missing column for {label!r}; "
+            f"saw: {[c for c in cells if c]!r}"
+        )
+
+    state = find(lambda c: c.startswith("STATE"), "STATE/UT NAME")
+    eci_no = find(lambda c: c.startswith("AC NO"), "AC NO.")
+    ac_name = find(lambda c: c == "AC NAME", "AC NAME")
+    candidate = find(lambda c: c == "CANDIDATE NAME", "CANDIDATE NAME")
+    party = find(lambda c: c == "PARTY", "PARTY")
+    general = find(lambda c: c == "GENERAL", "GENERAL")
+    postal = find(lambda c: c == "POSTAL", "POSTAL")
+    total = find(lambda c: c == "TOTAL", "TOTAL (candidate vote sum)")
+    total_electors = find(lambda c: c == "TOTAL ELECTORS", "TOTAL ELECTORS")
+
+    # vote_share column: 2023 uses "% VOTES POLLED", 2024+ uses
+    # "OVER VALID VOTES + NOTA". Both must NOT match "OVER TOTAL ELECTORS".
+    vote_share = find(
+        lambda c: ("% VOTES POLLED" in c) or ("OVER VALID" in c),
+        "vote-share %",
+    )
+
+    # 2024+ only: separate "OVER TOTAL ELECTORS" column. None for 2023.
+    over_electors_pct: int | None = None
+    for i, c in enumerate(cells):
+        if "OVER TOTAL ELECTORS" in c:
+            over_electors_pct = i
+            break
+
+    return _ColumnMap(
+        state=state,
+        eci_no=eci_no,
+        ac_name=ac_name,
+        candidate=candidate,
+        party=party,
+        general=general,
+        postal=postal,
+        total=total,
+        vote_share=vote_share,
+        total_electors=total_electors,
+        over_electors_pct=over_electors_pct,
+    )
+
+
+def _row_to_candidate(raw_row: tuple, cols: _ColumnMap) -> CandidateRow:
+    name = str(raw_row[cols.candidate]).strip() if raw_row[cols.candidate] else ""
+    party = str(raw_row[cols.party]).strip() if raw_row[cols.party] else ""
     party_lower = party.lower()
     is_nota = party_lower in _NOTA_TOKENS
     is_ind = party_lower in _INDEPENDENT_TOKENS
@@ -216,10 +330,10 @@ def _row_to_candidate(raw_row: tuple) -> CandidateRow:
         party_short=party if party else "IND",
         is_nota=is_nota,
         is_independent=is_ind,
-        votes_general=_to_int(raw_row[9]),
-        votes_postal=_to_int(raw_row[10]),
-        votes_total=_to_int(raw_row[11]),
-        vote_share_pct=_to_float(raw_row[12]),
+        votes_general=_to_int(raw_row[cols.general]),
+        votes_postal=_to_int(raw_row[cols.postal]),
+        votes_total=_to_int(raw_row[cols.total]),
+        vote_share_pct=_to_float(raw_row[cols.vote_share]),
     )
 
 

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 113,
+  "constituency_name": "Katangi",
+  "totals": {
+    "electors": 202615,
+    "votes_polled": 177185,
+    "turnout_pct": 87.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gaurav Singh Pardhi",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 85950,
+      "vote_share_pct": 48.51,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bodhsingh Bhagat",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 64019,
+      "vote_share_pct": 36.13
+    },
+    {
+      "rank": 3,
+      "name": "Engg. Prashant Bhau",
+      "party_short": "AAAP",
+      "votes": 11029,
+      "vote_share_pct": 6.22
+    },
+    {
+      "rank": 4,
+      "name": "Keshar Bisen (bahanjee)",
+      "party_short": "IND",
+      "votes": 7167,
+      "vote_share_pct": 4.04
+    },
+    {
+      "rank": 5,
+      "name": "Udaysingh Pancheshwar Guruji",
+      "party_short": "BSP",
+      "votes": 4743,
+      "vote_share_pct": 2.68
+    }
+  ],
+  "nota": {
+    "votes": 1027,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3250,
+    "vote_share_pct": 1.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gaurav Singh Pardhi",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 85950,
+    "margin_votes": 21931,
+    "margin_pct": 12.38
+  }
+}

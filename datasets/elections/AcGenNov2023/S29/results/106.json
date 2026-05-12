@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 106,
+  "constituency_name": "Warangal East",
+  "totals": {
+    "electors": 254726,
+    "votes_polled": 171687,
+    "turnout_pct": 67.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Konda Surekha",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 67757,
+      "vote_share_pct": 39.47,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Errabelli Pradeep Kumar Rao",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 52105,
+      "vote_share_pct": 30.35
+    },
+    {
+      "rank": 3,
+      "name": "Narendar Nannapuneni",
+      "party_short": "BHRS",
+      "votes": 42783,
+      "vote_share_pct": 24.92
+    },
+    {
+      "rank": 4,
+      "name": "Koutam Ravindar",
+      "party_short": "AODRP",
+      "votes": 1217,
+      "vote_share_pct": 0.71
+    },
+    {
+      "rank": 5,
+      "name": "Chithrapu Pushpitha Laya",
+      "party_short": "BSP",
+      "votes": 970,
+      "vote_share_pct": 0.56
+    }
+  ],
+  "nota": {
+    "votes": 1978,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 24,
+    "votes": 4877,
+    "vote_share_pct": 2.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Konda Surekha",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 67757,
+    "margin_votes": 15652,
+    "margin_pct": 9.12
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 229,
+  "constituency_name": "Neemuch",
+  "totals": {
+    "electors": 229060,
+    "votes_polled": 189146,
+    "turnout_pct": 82.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dilip Singh Parihar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 105290,
+      "vote_share_pct": 55.67,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Umrao Singh Gurjar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 79007,
+      "vote_share_pct": 41.77
+    },
+    {
+      "rank": 3,
+      "name": "Durgaprasad Jatav",
+      "party_short": "BSP",
+      "votes": 748,
+      "vote_share_pct": 0.4
+    },
+    {
+      "rank": 4,
+      "name": "Suraj Yadav",
+      "party_short": "IND",
+      "votes": 650,
+      "vote_share_pct": 0.34
+    },
+    {
+      "rank": 5,
+      "name": "Govind Kumar Ranva",
+      "party_short": "ASPKR",
+      "votes": 451,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 1840,
+    "vote_share_pct": 0.97
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1160,
+    "vote_share_pct": 0.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dilip Singh Parihar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 105290,
+    "margin_votes": 26283,
+    "margin_pct": 13.9
+  }
+}

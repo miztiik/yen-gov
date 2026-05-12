@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "Ambikapur",
+  "totals": {
+    "electors": 256691,
+    "votes_polled": 195914,
+    "turnout_pct": 76.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajesh Agrawal",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 90780,
+      "vote_share_pct": 46.34,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "T. S. Baba",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 90686,
+      "vote_share_pct": 46.29
+    },
+    {
+      "rank": 3,
+      "name": "Balsai Korram",
+      "party_short": "GGP",
+      "votes": 6083,
+      "vote_share_pct": 3.1
+    },
+    {
+      "rank": 4,
+      "name": "Rakesh Kumar Sahu",
+      "party_short": "IND",
+      "votes": 1318,
+      "vote_share_pct": 0.67
+    },
+    {
+      "rank": 5,
+      "name": "Abdul Majid",
+      "party_short": "JCCJ",
+      "votes": 1193,
+      "vote_share_pct": 0.61
+    }
+  ],
+  "nota": {
+    "votes": 2168,
+    "vote_share_pct": 1.11
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3686,
+    "vote_share_pct": 1.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajesh Agrawal",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 90780,
+    "margin_votes": 94,
+    "margin_pct": 0.05
+  }
+}

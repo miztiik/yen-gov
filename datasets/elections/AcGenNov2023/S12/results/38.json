@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Deori",
+  "totals": {
+    "electors": 216497,
+    "votes_polled": 172067,
+    "turnout_pct": 79.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Brijbihari Pateriya\"gudda Bhaiya\"",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 94932,
+      "vote_share_pct": 55.17,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Harsh Yadav",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 67709,
+      "vote_share_pct": 39.35
+    },
+    {
+      "rank": 3,
+      "name": "Rajat Diwan",
+      "party_short": "GGP",
+      "votes": 3143,
+      "vote_share_pct": 1.83
+    },
+    {
+      "rank": 4,
+      "name": "Arvindra Dixit",
+      "party_short": "BSCP",
+      "votes": 1709,
+      "vote_share_pct": 0.99
+    },
+    {
+      "rank": 5,
+      "name": "Ranu Lodhi",
+      "party_short": "IND",
+      "votes": 806,
+      "vote_share_pct": 0.47
+    }
+  ],
+  "nota": {
+    "votes": 1642,
+    "vote_share_pct": 0.95
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2126,
+    "vote_share_pct": 1.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Brijbihari Pateriya\"gudda Bhaiya\"",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 94932,
+    "margin_votes": 27223,
+    "margin_pct": 15.82
+  }
+}

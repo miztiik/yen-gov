@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 82,
+  "constituency_name": "Dhauhani (ST)",
+  "totals": {
+    "electors": 251193,
+    "votes_polled": 185906,
+    "turnout_pct": 74.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kunwar Singh Tekam",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 82063,
+      "vote_share_pct": 44.14,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kamlesh Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 78742,
+      "vote_share_pct": 42.36
+    },
+    {
+      "rank": 3,
+      "name": "Laldev Singh Kusharam",
+      "party_short": "GGP",
+      "votes": 11724,
+      "vote_share_pct": 6.31
+    },
+    {
+      "rank": 4,
+      "name": "Pragya Singh",
+      "party_short": "JANADIP",
+      "votes": 2065,
+      "vote_share_pct": 1.11
+    },
+    {
+      "rank": 5,
+      "name": "Ram Singh S/o Karan Singh",
+      "party_short": "IND",
+      "votes": 1783,
+      "vote_share_pct": 0.96
+    }
+  ],
+  "nota": {
+    "votes": 3459,
+    "vote_share_pct": 1.86
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 6070,
+    "vote_share_pct": 3.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kunwar Singh Tekam",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 82063,
+    "margin_votes": 3321,
+    "margin_pct": 1.79
+  }
+}

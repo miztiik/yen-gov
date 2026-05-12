@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Gunnaor (SC)",
+  "totals": {
+    "electors": 232225,
+    "votes_polled": 168207,
+    "turnout_pct": 72.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajesh Kumar Verma",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 77196,
+      "vote_share_pct": 45.89,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Jeevan Lal Siddharth",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 76036,
+      "vote_share_pct": 45.2
+    },
+    {
+      "rank": 3,
+      "name": "Devideen 'ashu'",
+      "party_short": "BSP",
+      "votes": 5946,
+      "vote_share_pct": 3.53
+    },
+    {
+      "rank": 4,
+      "name": "Amita Bagri",
+      "party_short": "SP",
+      "votes": 3892,
+      "vote_share_pct": 2.31
+    },
+    {
+      "rank": 5,
+      "name": "Sant Lal Prajapati Urf- Tiger",
+      "party_short": "IND",
+      "votes": 809,
+      "vote_share_pct": 0.48
+    }
+  ],
+  "nota": {
+    "votes": 2012,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2316,
+    "vote_share_pct": 1.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajesh Kumar Verma",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 77196,
+    "margin_votes": 1160,
+    "margin_pct": 0.69
+  }
+}

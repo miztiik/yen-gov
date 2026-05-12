@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 204,
+  "constituency_name": "Indore-1",
+  "totals": {
+    "electors": 363935,
+    "votes_polled": 264978,
+    "turnout_pct": 72.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kailash Vijayvargiya",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 158123,
+      "vote_share_pct": 59.67,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sanjay Shukla",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 100184,
+      "vote_share_pct": 37.81
+    },
+    {
+      "rank": 3,
+      "name": "Yasir. Pathan",
+      "party_short": "AIMIM",
+      "votes": 1519,
+      "vote_share_pct": 0.57
+    },
+    {
+      "rank": 4,
+      "name": "Anurag Yadav (deepu Bhaiya)",
+      "party_short": "AAAP",
+      "votes": 1402,
+      "vote_share_pct": 0.53
+    },
+    {
+      "rank": 5,
+      "name": "Er. Suneel Kumar Ahirwar",
+      "party_short": "BSP",
+      "votes": 851,
+      "vote_share_pct": 0.32
+    }
+  ],
+  "nota": {
+    "votes": 1384,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1515,
+    "vote_share_pct": 0.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kailash Vijayvargiya",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 158123,
+    "margin_votes": 57939,
+    "margin_pct": 21.87
+  }
+}

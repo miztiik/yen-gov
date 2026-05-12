@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 225,
+  "constituency_name": "Malhargarh (SC)",
+  "totals": {
+    "electors": 245686,
+    "votes_polled": 213094,
+    "turnout_pct": 86.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jagdish Devda",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 115498,
+      "vote_share_pct": 54.2,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Shyamlal Jokchand",
+      "party_short": "IND",
+      "votes": 56474,
+      "vote_share_pct": 26.5
+    },
+    {
+      "rank": 3,
+      "name": "Parshuram Sisodiya",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 36163,
+      "vote_share_pct": 16.97
+    },
+    {
+      "rank": 4,
+      "name": "Narendra Malviya",
+      "party_short": "BSP",
+      "votes": 1209,
+      "vote_share_pct": 0.57
+    },
+    {
+      "rank": 5,
+      "name": "Basantilal Malviya",
+      "party_short": "IND",
+      "votes": 1201,
+      "vote_share_pct": 0.56
+    }
+  ],
+  "nota": {
+    "votes": 1730,
+    "vote_share_pct": 0.81
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 819,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jagdish Devda",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 115498,
+    "margin_votes": 59024,
+    "margin_pct": 27.7
+  }
+}

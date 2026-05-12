@@ -1,0 +1,78 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 178,
+  "constituency_name": "Pandhana (ST)",
+  "totals": {
+    "electors": 282159,
+    "votes_polled": 225152,
+    "turnout_pct": 79.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chaya More",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 123332,
+      "vote_share_pct": 54.78,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rupali Nandu Bare",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 94516,
+      "vote_share_pct": 41.98
+    },
+    {
+      "rank": 3,
+      "name": "Chhaya More",
+      "party_short": "IND",
+      "votes": 1821,
+      "vote_share_pct": 0.81
+    },
+    {
+      "rank": 4,
+      "name": "Manoj Solanki",
+      "party_short": "BSP",
+      "votes": 1744,
+      "vote_share_pct": 0.77
+    },
+    {
+      "rank": 5,
+      "name": "Mamta More",
+      "party_short": "IND",
+      "votes": 1149,
+      "vote_share_pct": 0.51
+    }
+  ],
+  "nota": {
+    "votes": 2590,
+    "vote_share_pct": 1.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chaya More",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 123332,
+    "margin_votes": 28816,
+    "margin_pct": 12.8
+  },
+  "others": null
+}

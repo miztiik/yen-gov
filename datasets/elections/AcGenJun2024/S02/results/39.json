@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T17:41:03Z"
+      "fetched_at": "2026-05-12T18:39:14Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T17:41:03Z"
+      "fetched_at": "2026-05-12T18:39:15Z"
     }
   ],
   "election": "AcGenJun2024",
@@ -33,6 +33,7 @@
     {
       "rank": 2,
       "name": "Lombo Tayeng",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 5270,
       "vote_share_pct": 45.07

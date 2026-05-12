@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 197,
+  "constituency_name": "Gandhwani (ST)",
+  "totals": {
+    "electors": 247168,
+    "votes_polled": 183251,
+    "turnout_pct": 74.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Umang Singhar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 98982,
+      "vote_share_pct": 54.01,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sardar Singh Meda",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 76863,
+      "vote_share_pct": 41.94
+    },
+    {
+      "rank": 3,
+      "name": "Sumanbai Bherusingh Anare",
+      "party_short": "AAAP",
+      "votes": 2296,
+      "vote_share_pct": 1.25
+    },
+    {
+      "rank": 4,
+      "name": "Dhumsingh Mandloi (machhar)",
+      "party_short": "BSP",
+      "votes": 2041,
+      "vote_share_pct": 1.11
+    }
+  ],
+  "nota": {
+    "votes": 3069,
+    "vote_share_pct": 1.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Umang Singhar",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 98982,
+    "margin_votes": 22119,
+    "margin_pct": 12.07
+  },
+  "others": null
+}

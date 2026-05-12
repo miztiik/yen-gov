@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 74,
+  "constituency_name": "Dongargarh (SC)",
+  "totals": {
+    "electors": 209950,
+    "votes_polled": 172810,
+    "turnout_pct": 82.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Harshita Swami Baghel",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 89145,
+      "vote_share_pct": 51.59,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vinod Khandekar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 74778,
+      "vote_share_pct": 43.27
+    },
+    {
+      "rank": 3,
+      "name": "Bahadur Kurre",
+      "party_short": "BSP",
+      "votes": 2032,
+      "vote_share_pct": 1.18
+    },
+    {
+      "rank": 4,
+      "name": "Narayan Jagane",
+      "party_short": "BSCP",
+      "votes": 1423,
+      "vote_share_pct": 0.82
+    },
+    {
+      "rank": 5,
+      "name": "Nitin Kumar Bhandekar",
+      "party_short": "IND",
+      "votes": 899,
+      "vote_share_pct": 0.52
+    }
+  ],
+  "nota": {
+    "votes": 1679,
+    "vote_share_pct": 0.97
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2854,
+    "vote_share_pct": 1.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Harshita Swami Baghel",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 89145,
+    "margin_votes": 14367,
+    "margin_pct": 8.31
+  }
+}

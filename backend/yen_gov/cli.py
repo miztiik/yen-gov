@@ -13,6 +13,8 @@ from yen_gov.core.models import ProcessingConfig, SourceRef
 from yen_gov.pipeline.compose import (
     compose_result_summary_from_section_10,
     eci_code_by_short_from_partywise,
+    load_eci_party_registry,
+    parties_snapshot_from_section3,
     reconcile_winners_against_partywise,
 )
 from yen_gov.pipeline.reference import scrape_state_reference
@@ -25,9 +27,19 @@ from yen_gov.sources.eci.statistical_report import (
     download_documents,
     fetch_catalog,
 )
+from yen_gov.sources.eci.static_catalog import (
+    STATIC_CATALOG_BROWSER_HEADERS,
+    has_static_catalog,
+    resolve_catalog,
+)
 from yen_gov.sources.eci.statistical_report_detailed import (
     parse_detailed_results,
     to_constituency_results,
+)
+from yen_gov.coverage import (
+    INVENTORY_REL,
+    compute_coverage,
+    render_markdown,
 )
 from yen_gov.sources.eci.urls import partywise_state_url
 from yen_gov.validate import run as run_validate
@@ -64,6 +76,40 @@ def validate(
         typer.echo(f"  [tier {f.tier}] {f.file}: {f.message}")
     typer.echo(f"\nvalidate: FAILED — Tier A: {by_tier.get('A', 0)}, Tier B: {by_tier.get('B', 0)}")
     raise typer.Exit(1)
+
+
+@app.command()
+def coverage(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    write: bool = typer.Option(
+        True,
+        "--write/--no-write",
+        help=f"Also write the rendered Markdown to <root>/{INVENTORY_REL}.",
+    ),
+) -> None:
+    """Print + write the election data inventory (CLAUDE.md Holy Law #4).
+
+    Reconciles the declared coverage in
+    ``datasets/reference/in/election-events.json`` against the on-disk
+    artifacts under ``datasets/elections/`` and renders a citizen-readable
+    inventory. Re-run after every ingest; the file is not hand-maintained.
+    """
+    report = compute_coverage(root)
+    md = render_markdown(report)
+    typer.echo(md, nl=False)
+    if write:
+        target = root / INVENTORY_REL
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(md, encoding="utf-8")
+        typer.echo(f"\ncoverage: wrote {INVENTORY_REL}")
 
 
 @app.command()
@@ -316,8 +362,17 @@ def eci_statreport_emit(
         (schema_dir / "result.constituency.schema.json").read_text(encoding="utf-8")
     )
 
-    cid = category_id_for(state, year)
-    typer.echo(f"category_id: {cid}")
+    # 2024+ cohorts go through /api/election-result?category_id=<pinned id>;
+    # 2023 cohorts go through the static URL template registered in
+    # sources/eci/static_catalog.py. The dispatcher picks; the rest of the
+    # function reads the same CatalogResponse contract regardless.
+    static_path = has_static_catalog(state, year)
+    if static_path:
+        typer.echo("catalog:     static (legacy /full-statistical-reports/ URL template)")
+    else:
+        typer.echo(f"category_id: {category_id_for(state, year)}")
+
+    extra_headers = STATIC_CATALOG_BROWSER_HEADERS if static_path else None
 
     with Fetcher(
         source="eci",
@@ -326,8 +381,9 @@ def eci_statreport_emit(
         retry_attempts=cfg.fetch.retry_attempts,
         retry_backoff_seconds=cfg.fetch.retry_backoff_seconds or 1.0,
         user_agent="Mozilla/5.0",  # Akamai blocks the project default
+        extra_headers=extra_headers,
     ) as fetcher:
-        catalog = fetch_catalog(cid, fetcher=fetcher)
+        catalog = resolve_catalog(state, year, fetcher=fetcher)
         # Section 10 — title starts with "10" (sometimes "10-" or "10 -").
         section_10 = next(
             (d for d in catalog.documents if d.title.lstrip().startswith("10")),
@@ -336,7 +392,7 @@ def eci_statreport_emit(
         if section_10 is None:
             raise typer.Exit(
                 f"no Section 10 (Detailed Results) document in catalog for "
-                f"category_id={cid}; titles were: "
+                f"({state!r}, {year}); titles were: "
                 f"{[d.title for d in catalog.documents]}"
             )
         typer.echo(f"section 10:  {section_10.title}")
@@ -364,9 +420,11 @@ def eci_statreport_emit(
         else:
             # Archived event without a live-results portal page. Section 3
             # (List of Political Parties Participated) gives short→full
-            # names but no numeric eci_code. party_eci_code on candidates
-            # stays null (schema-allowed); parties.json + reconciliation
-            # are skipped. Per N2 of TODO/ECI-MULTI-STATE-INGEST-PLAN.md.
+            # names but no numeric eci_code. We backfill numeric codes from
+            # the canonical party registry derived from every parties.json
+            # already on disk (ECI numeric codes are stable across cohorts).
+            # Per N6 of TODO/ECI-MULTI-STATE-INGEST-PLAN.md.
+            registry = load_eci_party_registry(root / "datasets" / "elections")
             party_eci_codes = {}
             section_3 = next(
                 (d for d in catalog.documents if d.title.lstrip().startswith("3")),
@@ -377,9 +435,20 @@ def eci_statreport_emit(
                 typer.echo(f"             {section_3.xlsx_url}")
                 section_3_fetched = fetcher.fetch(section_3.xlsx_url)
                 section_3_parties = parse_section3_parties(section_3_fetched.content)
+                # Resolve {short → eci_code} against the registry and feed
+                # the same dict into to_constituency_results /
+                # compose_result_summary_from_section_10 so per-AC results
+                # AND result.summary.json carry numeric codes too.
+                party_eci_codes = {
+                    p.short_name: registry[p.short_name].eci_code
+                    for p in section_3_parties
+                    if p.short_name in registry
+                }
                 typer.echo(
                     f"             ({len(section_3_parties)} parties; "
-                    f"eci_code unresolved — partywise not available for this event)"
+                    f"{len(party_eci_codes)} resolved via registry "
+                    f"({len(registry)} known shorts), "
+                    f"{len(section_3_parties) - len(party_eci_codes)} unresolved)"
                 )
             else:
                 typer.echo(
@@ -447,12 +516,18 @@ def eci_statreport_emit(
         schema_for_validation=summary_schema,
     )
 
-    # parties.json is only emitted when the partywise snapshot is
-    # available — its schema requires a numeric eci_code per entry which
-    # cannot be sourced from the Statistical Report alone. Inventory and
-    # the SQLite emitter both treat parties.json as optional.
+    # parties.json: live cohorts use the partywise snapshot directly; archived
+    # cohorts use Section 3 + the canonical eci_code registry built from every
+    # parties.json already on disk. The schema requires numeric eci_code, so
+    # any Section-3 party whose short isn't in the registry is dropped from
+    # the artifact (and surfaced in the unresolved log line).
+    parties_schema = json.loads(
+        (schema_dir / "party.schema.json").read_text(encoding="utf-8")
+    )
+    parties_path = output_dir / "parties.json"
+    parties_snapshot = None
     if partywise_snapshot is not None and partywise_fetched is not None:
-        parties = parties_snapshot_from_partywise(
+        parties_snapshot = parties_snapshot_from_partywise(
             partywise_snapshot,
             election=event,
             sources=[SourceRef(
@@ -460,21 +535,47 @@ def eci_statreport_emit(
                 fetched_at=partywise_fetched.fetched_at,
             )],
         )
-        parties_schema = json.loads(
-            (schema_dir / "party.schema.json").read_text(encoding="utf-8")
+    elif section_3_fetched is not None and section_3_parties:
+        # Archived path. registry was loaded above in the else branch.
+        registry = load_eci_party_registry(root / "datasets" / "elections")
+        parties_snapshot, unresolved = parties_snapshot_from_section3(
+            section_3_parties,
+            election=event,
+            section_3_source=SourceRef(
+                url=section_3_fetched.url,
+                fetched_at=section_3_fetched.fetched_at,
+            ),
+            registry=registry,
+            fetched_at=section_3_fetched.fetched_at,
         )
-        parties_path = output_dir / "parties.json"
+        if parties_snapshot is None:
+            typer.echo(
+                "parties.json: SKIPPED (zero of "
+                f"{len(section_3_parties)} Section-3 parties resolved against "
+                f"registry; populate datasets/elections/<event>/<state>/parties.json "
+                "for at least one cohort first)"
+            )
+        elif unresolved:
+            typer.echo(
+                f"parties.json: {len(parties_snapshot.parties)} parties "
+                f"({len(unresolved)} dropped — short_names absent from registry: "
+                f"{', '.join(sorted(unresolved)[:10])}"
+                + ("…" if len(unresolved) > 10 else "")
+                + ")"
+            )
+
+    if parties_snapshot is not None:
         write_artifact(
             path=parties_path,
-            schema_id=parties._schema_id,
-            schema_version=parties._schema_version,
-            payload=parties.body_payload(),
-            sources=parties.sources_payload(),
+            schema_id=parties_snapshot._schema_id,
+            schema_version=parties_snapshot._schema_version,
+            payload=parties_snapshot.body_payload(),
+            sources=parties_snapshot.sources_payload(),
             schema_for_validation=parties_schema,
         )
-    else:
+    elif partywise_snapshot is None and section_3_fetched is None:
         typer.echo(
-            "parties.json: SKIPPED (no partywise snapshot; numeric eci_code unknown)"
+            "parties.json: SKIPPED (no partywise snapshot and no Section 3)"
         )
 
     typer.echo(

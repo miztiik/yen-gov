@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 160,
+  "constituency_name": "Narsinghgarh",
+  "totals": {
+    "electors": 239323,
+    "votes_polled": 200891,
+    "turnout_pct": 83.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mohan Sharma",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 113084,
+      "vote_share_pct": 56.29,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Girish Bhandari",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 81169,
+      "vote_share_pct": 40.4
+    },
+    {
+      "rank": 3,
+      "name": "Badreelal Patel",
+      "party_short": "BSP",
+      "votes": 1625,
+      "vote_share_pct": 0.81
+    },
+    {
+      "rank": 4,
+      "name": "Hemant Sharma",
+      "party_short": "AAAP",
+      "votes": 1124,
+      "vote_share_pct": 0.56
+    },
+    {
+      "rank": 5,
+      "name": "Bharat Singh Meena",
+      "party_short": "ASPKR",
+      "votes": 645,
+      "vote_share_pct": 0.32
+    }
+  ],
+  "nota": {
+    "votes": 1088,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2156,
+    "vote_share_pct": 1.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mohan Sharma",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 113084,
+    "margin_votes": 31915,
+    "margin_pct": 15.89
+  }
+}

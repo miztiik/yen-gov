@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Manthani",
+  "totals": {
+    "electors": 236597,
+    "votes_polled": 196543,
+    "turnout_pct": 83.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Duddilla Sridhar Babu",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 103822,
+      "vote_share_pct": 52.82,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Putta Madhukar",
+      "party_short": "BHRS",
+      "votes": 72442,
+      "vote_share_pct": 36.86
+    },
+    {
+      "rank": 3,
+      "name": "Chandrupatla Sunil Reddy",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 5779,
+      "vote_share_pct": 2.94
+    },
+    {
+      "rank": 4,
+      "name": "Challa Narayana Reddy",
+      "party_short": "BSP",
+      "votes": 2937,
+      "vote_share_pct": 1.49
+    },
+    {
+      "rank": 5,
+      "name": "Arla Nagaraju",
+      "party_short": "AODRP",
+      "votes": 2414,
+      "vote_share_pct": 1.23
+    }
+  ],
+  "nota": {
+    "votes": 776,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 8373,
+    "vote_share_pct": 4.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Duddilla Sridhar Babu",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 103822,
+    "margin_votes": 31380,
+    "margin_pct": 15.97
+  }
+}

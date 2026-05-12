@@ -1,0 +1,77 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S16",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Serlui (ST)",
+  "totals": {
+    "electors": 21265,
+    "votes_polled": 18224,
+    "turnout_pct": 85.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Lalrinsanga Ralte",
+      "party_short": "MNF",
+      "votes": 7242,
+      "vote_share_pct": 39.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Lalhmachhuana",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 6336,
+      "vote_share_pct": 34.77
+    },
+    {
+      "rank": 3,
+      "name": "C Lalthanfela",
+      "party_short": "ZPM",
+      "votes": 4375,
+      "vote_share_pct": 24.01
+    },
+    {
+      "rank": 4,
+      "name": "Robinson Malsawmtluanga Hmar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 157,
+      "vote_share_pct": 0.86
+    },
+    {
+      "rank": 5,
+      "name": "Vl Nghaka",
+      "party_short": "IND",
+      "votes": 62,
+      "vote_share_pct": 0.34
+    }
+  ],
+  "nota": {
+    "votes": 52,
+    "vote_share_pct": 0.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Lalrinsanga Ralte",
+    "party_short": "MNF",
+    "votes": 7242,
+    "margin_votes": 906,
+    "margin_pct": 4.97
+  },
+  "others": null
+}

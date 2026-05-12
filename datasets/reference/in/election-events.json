@@ -72,6 +72,18 @@
         "data_status": "complete"
       }
     ],
+    "S12": [
+      {
+        "event_id": "AcGenNov2023",
+        "kind": "assembly",
+        "display": "Madhya Pradesh Assembly · November 2023",
+        "polled_on": "2023-11-17",
+        "term_end_estimated": "2028-11-16",
+        "default": true,
+        "data_status": "complete",
+        "notes": "Single-phase poll on 17 November 2023; counting on 3 December 2023. BJP won 163 of 230 seats. Ingested from the legacy /full-statistical-reports/ static URL template (no /api/election-result entry)."
+      }
+    ],
     "S13": [
       {
         "event_id": "AcGenNov2024",
@@ -81,6 +93,18 @@
         "term_end_estimated": "2029-11-19",
         "default": true,
         "data_status": "complete"
+      }
+    ],
+    "S16": [
+      {
+        "event_id": "AcGenNov2023",
+        "kind": "assembly",
+        "display": "Mizoram Assembly · November 2023",
+        "polled_on": "2023-11-07",
+        "term_end_estimated": "2028-11-06",
+        "default": true,
+        "data_status": "complete",
+        "notes": "Single-phase poll on 7 November 2023; counting on 4 December 2023 (delayed one day at state request to avoid Sunday). Zoram People's Movement (ZPM) won 27 of 40 seats, ending MNF rule. Ingested from the legacy /full-statistical-reports/ static URL template."
       }
     ],
     "S18": [
@@ -129,6 +153,18 @@
         "data_status": "complete"
       }
     ],
+    "S26": [
+      {
+        "event_id": "AcGenNov2023",
+        "kind": "assembly",
+        "display": "Chhattisgarh Assembly · November 2023",
+        "polled_on": "2023-11-07",
+        "term_end_estimated": "2028-11-06",
+        "default": true,
+        "data_status": "complete",
+        "notes": "Two-phase poll: 20 seats on 7 November 2023, remaining 70 seats on 17 November 2023; counting on 3 December 2023. BJP won 54 of 90 seats, ending Congress's single term. Ingested from the legacy /full-statistical-reports/ static URL template."
+      }
+    ],
     "S27": [
       {
         "event_id": "AcGenNov2024",
@@ -138,6 +174,18 @@
         "term_end_estimated": "2029-11-19",
         "default": true,
         "data_status": "complete"
+      }
+    ],
+    "S29": [
+      {
+        "event_id": "AcGenNov2023",
+        "kind": "assembly",
+        "display": "Telangana Assembly · November 2023",
+        "polled_on": "2023-11-30",
+        "term_end_estimated": "2028-11-29",
+        "default": true,
+        "data_status": "complete",
+        "notes": "Single-phase poll on 30 November 2023; counting on 3 December 2023. Indian National Congress won 64 of 119 seats, defeating BRS (39) which had governed since the state's 2014 creation. Ingested from the legacy /full-statistical-reports/ static URL template."
       }
     ],
     "U05": [

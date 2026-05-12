@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744893339.xlsx",
-      "fetched_at": "2026-05-11T17:41:27Z"
+      "fetched_at": "2026-05-12T18:39:35Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Maharashtra_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744889410.xlsx",
-      "fetched_at": "2026-05-11T17:41:28Z"
+      "fetched_at": "2026-05-12T18:39:36Z"
     }
   ],
   "election": "AcGenNov2024",
@@ -22,6 +22,7 @@
   },
   "party_totals": [
     {
+      "party_eci_code": "369",
       "party_short": "BJP",
       "seats_contested": 149,
       "seats_won": 132,
@@ -50,6 +51,7 @@
       "vote_share_pct": 9.96
     },
     {
+      "party_eci_code": "742",
       "party_short": "INC",
       "seats_contested": 101,
       "seats_won": 16,
@@ -106,6 +108,7 @@
       "vote_share_pct": 0.41
     },
     {
+      "party_eci_code": "547",
       "party_short": "CPI(M)",
       "seats_contested": 3,
       "seats_won": 1,
@@ -253,6 +256,7 @@
       "vote_share_pct": 0.02
     },
     {
+      "party_eci_code": "544",
       "party_short": "CPI",
       "seats_contested": 2,
       "seats_won": 0,
@@ -449,6 +453,7 @@
       "vote_share_pct": 0.0
     },
     {
+      "party_eci_code": "2162",
       "party_short": "RMPOI",
       "seats_contested": 3,
       "seats_won": 0,
@@ -624,6 +629,7 @@
       "vote_share_pct": 0.0
     },
     {
+      "party_eci_code": "772",
       "party_short": "IUML",
       "seats_contested": 2,
       "seats_won": 0,
@@ -757,6 +763,7 @@
       "vote_share_pct": 0.0
     },
     {
+      "party_eci_code": "1847",
       "party_short": "VCK",
       "seats_contested": 4,
       "seats_won": 0,

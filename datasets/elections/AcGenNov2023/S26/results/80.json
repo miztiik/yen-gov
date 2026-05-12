@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 80,
+  "constituency_name": "Bhanupratappur (ST)",
+  "totals": {
+    "electors": 203467,
+    "votes_polled": 165777,
+    "turnout_pct": 81.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Savitri Manoj Mandavi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 83931,
+      "vote_share_pct": 50.63,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Gautam Uike",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 52999,
+      "vote_share_pct": 31.97
+    },
+    {
+      "rank": 3,
+      "name": "Komal Hupendi",
+      "party_short": "AAAP",
+      "votes": 15255,
+      "vote_share_pct": 9.2
+    },
+    {
+      "rank": 4,
+      "name": "Akbar Ram Korram",
+      "party_short": "HMR",
+      "votes": 3217,
+      "vote_share_pct": 1.94
+    },
+    {
+      "rank": 5,
+      "name": "Sewalal Chiram",
+      "party_short": "IND",
+      "votes": 1222,
+      "vote_share_pct": 0.74
+    }
+  ],
+  "nota": {
+    "votes": 2305,
+    "vote_share_pct": 1.39
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 6848,
+    "vote_share_pct": 4.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Savitri Manoj Mandavi",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 83931,
+    "margin_votes": 30932,
+    "margin_pct": 18.66
+  }
+}

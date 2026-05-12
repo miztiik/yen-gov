@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T17:41:03Z"
+      "fetched_at": "2026-05-12T18:39:14Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T17:41:03Z"
+      "fetched_at": "2026-05-12T18:39:15Z"
     }
   ],
   "election": "AcGenJun2024",
@@ -25,6 +25,7 @@
     {
       "rank": 1,
       "name": "Biyuram Wahge",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 3933,
       "vote_share_pct": 47.48,
@@ -47,6 +48,7 @@
     {
       "rank": 4,
       "name": "Gollo Yapung Tana",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 166,
       "vote_share_pct": 2.0
@@ -59,6 +61,7 @@
   "top_n_cutoff": 5,
   "winner": {
     "name": "Biyuram Wahge",
+    "party_eci_code": "369",
     "party_short": "BJP",
     "votes": 3933,
     "margin_votes": 813,

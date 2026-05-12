@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 70,
+  "constituency_name": "Teonthar",
+  "totals": {
+    "electors": 217455,
+    "votes_polled": 149025,
+    "turnout_pct": 68.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Siddharth Tiwari 'raj'",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 61082,
+      "vote_share_pct": 40.99,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rama Shankar Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 56336,
+      "vote_share_pct": 37.8
+    },
+    {
+      "rank": 3,
+      "name": "Devendra Singh",
+      "party_short": "BSP",
+      "votes": 24393,
+      "vote_share_pct": 16.37
+    },
+    {
+      "rank": 4,
+      "name": "Commando Arun Gautam (ex-army)",
+      "party_short": "VNDHYJNTP",
+      "votes": 1791,
+      "vote_share_pct": 1.2
+    },
+    {
+      "rank": 5,
+      "name": "Maharshi Singh",
+      "party_short": "AAAP",
+      "votes": 666,
+      "vote_share_pct": 0.45
+    }
+  ],
+  "nota": {
+    "votes": 1148,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3609,
+    "vote_share_pct": 2.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Siddharth Tiwari 'raj'",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 61082,
+    "margin_votes": 4746,
+    "margin_pct": 3.18
+  }
+}

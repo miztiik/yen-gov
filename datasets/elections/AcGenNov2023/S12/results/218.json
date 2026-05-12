@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 218,
+  "constituency_name": "Badnagar",
+  "totals": {
+    "electors": 203691,
+    "votes_polled": 171904,
+    "turnout_pct": 84.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jitendra Uday Singh Pandya",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 80728,
+      "vote_share_pct": 46.96,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Murli Morwal",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 44035,
+      "vote_share_pct": 25.62
+    },
+    {
+      "rank": 3,
+      "name": "Rajendra Singh Solanki",
+      "party_short": "IND",
+      "votes": 31005,
+      "vote_share_pct": 18.04
+    },
+    {
+      "rank": 4,
+      "name": "Prakash Goud",
+      "party_short": "IND",
+      "votes": 10480,
+      "vote_share_pct": 6.1
+    },
+    {
+      "rank": 5,
+      "name": "Nirbhay Singh Chandravanshi",
+      "party_short": "BSP",
+      "votes": 3307,
+      "vote_share_pct": 1.92
+    }
+  ],
+  "nota": {
+    "votes": 1624,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 725,
+    "vote_share_pct": 0.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jitendra Uday Singh Pandya",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 80728,
+    "margin_votes": 36693,
+    "margin_pct": 21.35
+  }
+}

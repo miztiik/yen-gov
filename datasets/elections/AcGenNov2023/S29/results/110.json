@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 110,
+  "constituency_name": "Pinapaka (ST)",
+  "totals": {
+    "electors": 198604,
+    "votes_polled": 159883,
+    "turnout_pct": 80.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Payam Venkateswarlu",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 90510,
+      "vote_share_pct": 56.61,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kantha Rao Rega",
+      "party_short": "BHRS",
+      "votes": 56004,
+      "vote_share_pct": 35.03
+    },
+    {
+      "rank": 3,
+      "name": "Balaraju. Podium",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 2627,
+      "vote_share_pct": 1.64
+    },
+    {
+      "rank": 4,
+      "name": "Durga Palvancha",
+      "party_short": "IND",
+      "votes": 2167,
+      "vote_share_pct": 1.36
+    },
+    {
+      "rank": 5,
+      "name": "Punem Rajesh",
+      "party_short": "IND",
+      "votes": 1998,
+      "vote_share_pct": 1.25
+    }
+  ],
+  "nota": {
+    "votes": 905,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 5672,
+    "vote_share_pct": 3.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Payam Venkateswarlu",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 90510,
+    "margin_votes": 34506,
+    "margin_pct": 21.58
+  }
+}

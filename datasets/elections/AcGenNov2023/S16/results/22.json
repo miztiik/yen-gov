@@ -1,0 +1,69 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S16",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Tuichang (ST)",
+  "totals": {
+    "electors": 17605,
+    "votes_polled": 14858,
+    "turnout_pct": 84.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "W Chhuanawma",
+      "party_short": "ZPM",
+      "votes": 6988,
+      "vote_share_pct": 47.03,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Tawnluia",
+      "party_short": "MNF",
+      "votes": 6079,
+      "vote_share_pct": 40.91
+    },
+    {
+      "rank": 3,
+      "name": "C. Lalhriatpuia",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 1674,
+      "vote_share_pct": 11.27
+    },
+    {
+      "rank": 4,
+      "name": "Lalhmunsiami",
+      "party_short": "IND",
+      "votes": 67,
+      "vote_share_pct": 0.45
+    }
+  ],
+  "nota": {
+    "votes": 50,
+    "vote_share_pct": 0.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "W Chhuanawma",
+    "party_short": "ZPM",
+    "votes": 6988,
+    "margin_votes": 909,
+    "margin_pct": 6.12
+  },
+  "others": null
+}

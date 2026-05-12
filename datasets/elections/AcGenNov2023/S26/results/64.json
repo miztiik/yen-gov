@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 64,
+  "constituency_name": "Durg City",
+  "totals": {
+    "electors": 227843,
+    "votes_polled": 153236,
+    "turnout_pct": 67.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gajendra Yadav",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 97906,
+      "vote_share_pct": 63.89,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Arun Vora",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 49209,
+      "vote_share_pct": 32.11
+    },
+    {
+      "rank": 3,
+      "name": "Indrani Bai Sahu",
+      "party_short": "IND",
+      "votes": 666,
+      "vote_share_pct": 0.43
+    },
+    {
+      "rank": 4,
+      "name": "Arun Joshi",
+      "party_short": "IND",
+      "votes": 525,
+      "vote_share_pct": 0.34
+    },
+    {
+      "rank": 5,
+      "name": "Pankaj Kumar",
+      "party_short": "JCGP",
+      "votes": 508,
+      "vote_share_pct": 0.33
+    }
+  ],
+  "nota": {
+    "votes": 933,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 3489,
+    "vote_share_pct": 2.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gajendra Yadav",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 97906,
+    "margin_votes": 48697,
+    "margin_pct": 31.78
+  }
+}

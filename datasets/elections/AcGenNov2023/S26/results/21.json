@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Korba",
+  "totals": {
+    "electors": 256051,
+    "votes_polled": 171246,
+    "turnout_pct": 66.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Lakhanlal Devangan S/o Tulsiram Devangan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 92029,
+      "vote_share_pct": 53.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Jaisingh Agrawal (jaisingh Bhaiya)",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 66400,
+      "vote_share_pct": 38.77
+    },
+    {
+      "rank": 3,
+      "name": "Engineer Vishal Kelkar",
+      "party_short": "AAAP",
+      "votes": 4646,
+      "vote_share_pct": 2.71
+    },
+    {
+      "rank": 4,
+      "name": "Dhananjay Singh Chandra",
+      "party_short": "BSP",
+      "votes": 2380,
+      "vote_share_pct": 1.39
+    },
+    {
+      "rank": 5,
+      "name": "Mirja Mushtak Ahmad",
+      "party_short": "IND",
+      "votes": 876,
+      "vote_share_pct": 0.51
+    }
+  ],
+  "nota": {
+    "votes": 972,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 3943,
+    "vote_share_pct": 2.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Lakhanlal Devangan S/o Tulsiram Devangan",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 92029,
+    "margin_votes": 25629,
+    "margin_pct": 14.97
+  }
+}

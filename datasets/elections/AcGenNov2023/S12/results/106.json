@@ -1,0 +1,78 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 106,
+  "constituency_name": "Niwas (ST)",
+  "totals": {
+    "electors": 264324,
+    "votes_polled": 217895,
+    "turnout_pct": 82.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chainsingh Warkade",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 99644,
+      "vote_share_pct": 45.73,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Faggan Singh Kulaste",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 89921,
+      "vote_share_pct": 41.27
+    },
+    {
+      "rank": 3,
+      "name": "Devendra Maravi 'bhoi'",
+      "party_short": "GGP",
+      "votes": 19264,
+      "vote_share_pct": 8.84
+    },
+    {
+      "rank": 4,
+      "name": "Manmohan Singh Gouthariya",
+      "party_short": "KRJAP",
+      "votes": 2884,
+      "vote_share_pct": 1.32
+    },
+    {
+      "rank": 5,
+      "name": "Zanyfar Mary",
+      "party_short": "IND",
+      "votes": 1836,
+      "vote_share_pct": 0.84
+    }
+  ],
+  "nota": {
+    "votes": 4346,
+    "vote_share_pct": 1.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chainsingh Warkade",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 99644,
+    "margin_votes": 9723,
+    "margin_pct": 4.46
+  },
+  "others": null
+}

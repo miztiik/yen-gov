@@ -1,6 +1,6 @@
 # Backend `sources/eci/` — ECI Source Adapter
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-12
 
 `backend/yen_gov/sources/eci/` is the adapter for the Election Commission of India's surfaces. It owns URL conventions for both the live results portal (`results.eci.gov.in`) and the Statistical Reports hub (`eci.gov.in/statistical-report/...`), the HTML and XLSX parsers, and the per-page commitment about which artifact each ECI page can produce.
 
@@ -13,6 +13,7 @@
 | [`constituencywise.py`](../../../backend/yen_gov/sources/eci/constituencywise.py) | `parse_constituencywise(content) -> ConstituencywiseRaw`; `to_constituency_result(raw, *, election, state, body, eci_no, ...)` binds it to `result.constituency.schema.json`. |
 | [`categories.py`](../../../backend/yen_gov/sources/eci/categories.py) | Pinned `dict[(state_code, year), int]` of Statistical Report `category_id`s for the new ECI portal. Hand-curated from Phase A recon — extending it requires a code change, not a config edit. |
 | [`statistical_report.py`](../../../backend/yen_gov/sources/eci/statistical_report.py) | `statistical_report_catalog_url`, `parse_catalog`, `fetch_catalog`, `download_documents`. Catalog = list of `(xlsx_url, pdf_zip_url)` permalinks under `/all_files/election_report/...` (safe to persist in `sources[]`). |
+| [`static_catalog.py`](../../../backend/yen_gov/sources/eci/static_catalog.py) | Synthesises a `CatalogResponse` for legacy cohorts whose Statistical Report is published under `/all_files/full-statistical-reports/<state-slug>/<year>/...` rather than the 2024+ `/api/election-result?category_id=...` endpoint. `resolve_catalog(state, year, *, fetcher)` is the single dispatcher — pinned `(state, year)` win over the static registry, so a future ECI republish under the unified API automatically takes over. Today: 2023 cohort (S12 MP, S26 Chhattisgarh, S16 Mizoram, S29 Telangana). |
 | [`statistical_report_detailed.py`](../../../backend/yen_gov/sources/eci/statistical_report_detailed.py) | `parse_detailed_results(xlsx_bytes) -> DetailedResultsRaw`; `to_constituency_results(raw, *, election, state, top_n, collapse_others, sources, party_eci_codes=None)` emits one `ConstituencyResult` per AC from Section 10 ("Detailed Results"). |
 
 The Statistical Reports parser (XLSX-based) is Phase B work — see [authority hierarchy for past elections](#authority-hierarchy-for-past-elections) below.
@@ -136,7 +137,14 @@ Smoke-tested 2026-05-09: all four states (S22/S11/S25/S03) returned 14 documents
 
 ### Section 10 ("Detailed Results") parser
 
-Section 10 of every Statistical Report carries the per-AC per-candidate vote breakdown — the richest single sheet in the bundle and a near-direct fit for `result.constituency.schema.json`. The XLSX layout (header at row 4) is `STATE/UT NAME | AC NO. | AC NAME | CANDIDATE NAME | GENDER | AGE | CATEGORY | PARTY | SYMBOL | GENERAL | POSTAL | TOTAL | %_OVER_VALID_NOTA | %_OVER_TOTAL_ELECTORS | TOTAL_ELECTORS`. Each AC section ends with a `TURN OUT` sentinel row carrying the polled totals + turnout %; the file ends with a single `GRAND TOTAL:` row and a disclaimer (both ignored).
+Section 10 of every Statistical Report carries the per-AC per-candidate vote breakdown — the richest single sheet in the bundle and a near-direct fit for `result.constituency.schema.json`. ECI has shipped two layouts under this title since 2023, both supported by the parser via header-name-based column resolution (so a future column tweak fails loudly rather than silently shifting an index):
+
+- **2024+ (15 cols, May-2026 cohort and the post-API archived states):** `STATE/UT NAME | AC NO. | AC NAME | CANDIDATE NAME | GENDER | AGE | CATEGORY | PARTY | SYMBOL | GENERAL | POSTAL | TOTAL | OVER VALID VOTES + NOTA | OVER TOTAL ELECTORS | TOTAL ELECTORS`. The TURN OUT row's turnout % is read from the dedicated *OVER TOTAL ELECTORS* column.
+- **2023 (14 cols, Nov-2023 cohort — MP / Chhattisgarh / Mizoram / Telangana):** `STATE/UT NAME | AC NO. | AC NAME | CANDIDATE NAME | SEX | AGE | CATEGORY | PARTY | SYMBOL | GENERAL | POSTAL | TOTAL | % VOTES POLLED | TOTAL ELECTORS`. The TURN OUT row's turnout % is read from the single % column. Backed by `static_catalog.py` rather than `/api/election-result`.
+
+Resolving by header name rather than fixed indices was the structural fix when the 2023 cohort landed: the original parser hardcoded column 13 for turnout and column 14 for total_electors, both off-by-one for the 14-col layout. A single-layout regression test wouldn't have caught it; [`test_sources_eci_statistical_report_detailed.py`](../../../backend/tests/test_sources_eci_statistical_report_detailed.py) now pins both layouts.
+
+Each AC section ends with a `TURN OUT` sentinel row carrying the polled totals + turnout %; the file ends with a single `GRAND TOTAL:` row and a disclaimer (both ignored).
 
 The parser (`statistical_report_detailed.py`) follows the same two-step convention as the HTML parsers: `parse_detailed_results(bytes) -> DetailedResultsRaw` is pure XLSX → data; `to_constituency_results(raw, *, election, state, top_n, collapse_others, sources)` adds caller-supplied identity coordinates and the processing knobs and emits the schema-bound model. Vote-share columns are taken as-authoritative from ECI's own pre-computed values.
 
@@ -144,9 +152,32 @@ The parser (`statistical_report_detailed.py`) follows the same two-step conventi
 
 **Countermanded ACs are skipped silently.** ECI publishes a stub Section-10 row for postponed/countermanded constituencies (a single zero-vote NOTA row with `polled_total = 0`; e.g. WB 2026 AC #144 FALTA). The schema requires `candidates: minItems: 1` and a non-zero winner — emitting a stub would mislead consumers. Skipping leaves a gap in the per-AC file sequence (`results/144.json` simply does not exist) which is the correct signal: a contiguous AC numbering can't be assumed.
 
-End-to-end emit is exposed as `python -m yen_gov eci-statreport-emit <state> <year> [--event AcGenMay2026] [--output ...]`. The command fetches the catalog, the Section 10 XLSX, AND the live-results `partywiseresult-<state>.htm`; both URLs land in the `sources[]` array of every emitted artifact. Before any artifact is written, `reconcile_winners_against_partywise` cross-checks per-AC winners (aggregated by `party_short`) against partywise `seats_won + leading` — a mismatch aborts the run with a fail-loud `ValueError`, so we never publish a partial slice when the two ECI sources disagree. Outputs under `<output_dir>/`: `results/<eci_no>.json` per AC, `result.summary.json` (state-level rollup, composed directly from the raw sections via `compose_result_summary_from_section_10`), and `parties.json` (canonical roster, same shape as the Phase A pipeline). The state-level `result.summary.json` carries `party_eci_code` on every party_totals row whose short is mapped. Confirmed 2026-05-09 against all four 2026 states: S03=126, S11=140, S22=234, S25=293 (1 countermanded), 793 ConstituencyResult artifacts total, reconciliation passes for all four, validator clean. SQLite is then emitted by `emit_state_sqlite(state_dir=...)` against the same directory (S03 80 KB, S11 96 KB, S22 140 KB, S25 172 KB).
+End-to-end emit is exposed as `python -m yen_gov eci-statreport-emit <state> <year> [--event AcGenMay2026] [--output ...]`. The command resolves the catalog through `static_catalog.resolve_catalog(state, year, *, fetcher)` — pinned `(state, year)` use the 2024+ `/api/election-result` path; legacy cohorts use the synthesised static catalog with no network call to discover URLs. For the static path the Fetcher is given an extra browser-fingerprint header set (`Sec-Fetch-*` + `Accept` + `Referer`) because the Akamai WAF in front of `www.eci.gov.in` returns 403 on `/all_files/full-statistical-reports/` for minimalist clients (verified 2026-05-12; recon at [`tools/eci_2023_recon.py`](../../../tools/eci_2023_recon.py)). The fetched Section 10 XLSX URL plus, when available, the live-results `partywiseresult-<state>.htm` URL land in the `sources[]` array of every emitted artifact. Before any artifact is written, `reconcile_winners_against_partywise` cross-checks per-AC winners (aggregated by `party_short`) against partywise `seats_won + leading` — a mismatch aborts the run with a fail-loud `ValueError`, so we never publish a partial slice when the two ECI sources disagree. Reconciliation is skipped for archived events with no live-results page (`has_partywise=False` in `events.py`), including every 2024+-archived cohort and the entire 2023 cohort. Outputs under `<output_dir>/`: `results/<eci_no>.json` per AC, `result.summary.json` (state-level rollup, composed directly from the raw sections via `compose_result_summary_from_section_10`), and `parties.json` (live cohorts: full roster from the partywise snapshot; archived cohorts: the registry-resolvable subset from Section 3 \u00d7 `pipeline.compose.load_eci_party_registry()` aggregated across every existing `parties.json` on disk \u2014 see N6 in `TODO/ECI-MULTI-STATE-INGEST-PLAN.md`. Per-state resolution rate for archived cohorts is bounded by what's in the live cohorts; dropped shorts are logged on the emit line and remain visible in `result.summary.json` with `party_eci_code: null`). Confirmed 2026-05-09 against all four 2026 states: S03=126, S11=140, S22=234, S25=293 (1 countermanded), 793 ConstituencyResult artifacts total, reconciliation passes for all four, validator clean. Confirmed 2026-05-12 against the 2023 cohort: S12=230 (BJP=163 / INC=66), S26=90 (BJP=54 / INC=35), S16=40 (ZPM=27 / MNF=10), S29=119 (INC=64 / BRS=39); validator clean. SQLite is then emitted by `emit_state_sqlite(state_dir=...)` against the same directory (S03 80 KB, S11 96 KB, S22 140 KB, S25 172 KB).
 
 **Out of scope for the first Phase B slice**: 2021 / 2016 / 2011 backfill (blocked on `old.eci.gov.in` reachability — needs a network change or a mirroring decision before it can run); promotion of any reference file from `provisional` to `complete` (needs the Delimitation Order PDF for AC↔PC↔district mapping, independent of statistical-report ingestion); per-AC live counting pages on `results.eci.gov.in` (covered by the live-results scraper, different host and schema).
+
+### When `parties.json` gets emitted (and when it doesn't)
+
+`parties.json` is the per-event canonical roster of political parties — `{eci_code (numeric), short_name, full_name}`. Its schema requires `eci_code`, so the emit path branches on whether the numeric code is recoverable for this `(state, year)`:
+
+| Cohort kind | `has_partywise` | Source of `eci_code` | `parties.json` |
+| --- | :---: | --- | --- |
+| **Live** (May-2026 today; any future event for which the live-results portal still serves `partywiseresult-<state>.htm`) | `True` | The partywise HTML page is the authority — it carries `(eci_code, short, full)` directly. | Full roster, one entry per party in the partywise table. |
+| **Archived with on-disk registry hits** (every cohort ingested via Statistical Reports today: 2023 cohort + the 10 archived 2024+ pins + Delhi 2025) | `False` | Section 3 (List of Political Parties Participated) gives `(short, full)` only; numeric codes come from `pipeline.compose.load_eci_party_registry()` which aggregates every existing `parties.json` on disk. ECI numeric party codes are stable across elections, so a code minted by any live cohort is the same code in every other cohort. | Resolved subset only — Section 3 parties whose `short_name` exists in the registry. Dropped `short_name`s are logged on the emit line and remain visible in `result.summary.json` with `party_eci_code: null`. |
+| **Archived with zero registry hits** (transitional — would only happen on a fresh checkout with no live cohort yet ingested) | `False` | Nothing. | Skipped. The emit line says `parties.json: SKIPPED`. The slice still ships per-AC results + `result.summary.json` with `party_eci_code: null` everywhere. |
+
+Concretely, what the emit log tells you:
+
+```
+parties.json: 4 parties (102 dropped — short_names absent from registry: AAAP, ...)
+  └─ archived path; 4 of 106 Section-3 parties resolved against registry
+parties.json: SKIPPED (no partywise snapshot and no Section 3)
+  └─ very unusual; means the catalog had no Section 3 either
+(no parties.json line)
+  └─ live path; full roster always emitted
+```
+
+`reconcile_winners_against_partywise` only runs on the live path. Archived cohorts trust Section 10 alone (there is no second source to cross-check against), and the validator picks up any internal inconsistency at file-write time. Increasing archived-cohort coverage means growing the registry — either by ingesting more live cohorts, or by a future adapter for `notification.eci.gov.in` (the canonical party-registration source for the full ~2,800 entry party universe). Both are tracked under N6 of `TODO/ECI-MULTI-STATE-INGEST-PLAN.md`.
 
 ### WB (S25) bootstrap policy
 

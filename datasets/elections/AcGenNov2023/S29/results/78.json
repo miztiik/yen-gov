@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 78,
+  "constituency_name": "Wanaparthy",
+  "totals": {
+    "electors": 271371,
+    "votes_polled": 213164,
+    "turnout_pct": 78.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Megha Reddy Tudi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 107115,
+      "vote_share_pct": 50.25,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Singireddy Niranjan Reddy",
+      "party_short": "BHRS",
+      "votes": 81795,
+      "vote_share_pct": 38.37
+    },
+    {
+      "rank": 3,
+      "name": "Anugna Reddy Bujala",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 9185,
+      "vote_share_pct": 4.31
+    },
+    {
+      "rank": 4,
+      "name": "Mandla Maiboos",
+      "party_short": "BSP",
+      "votes": 3982,
+      "vote_share_pct": 1.87
+    },
+    {
+      "rank": 5,
+      "name": "Arjun Yadav Kundhella",
+      "party_short": "AODRP",
+      "votes": 2393,
+      "vote_share_pct": 1.12
+    }
+  ],
+  "nota": {
+    "votes": 1938,
+    "vote_share_pct": 0.91
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6756,
+    "vote_share_pct": 3.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Megha Reddy Tudi",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 107115,
+    "margin_votes": 25320,
+    "margin_pct": 11.88
+  }
+}
