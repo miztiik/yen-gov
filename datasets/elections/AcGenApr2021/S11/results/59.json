@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "NENMARA",
+  "totals": {
+    "electors": 193075,
+    "votes_polled": 151535,
+    "turnout_pct": 78.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K. Babu",
+      "party_short": "CPI(M)",
+      "votes": 80145,
+      "vote_share_pct": 52.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "C.n.vijayakrishnan",
+      "party_short": "CMPKSC",
+      "votes": 51441,
+      "vote_share_pct": 33.95,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Anurag .a.n",
+      "party_short": "BDJS",
+      "votes": 16666,
+      "vote_share_pct": 11.0,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Prakash.c",
+      "party_short": "BSP",
+      "votes": 1350,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Babu S/o Kunchu",
+      "party_short": "IND",
+      "votes": 863,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1070,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K. Babu",
+    "party_short": "CPI(M)",
+    "votes": 80145,
+    "margin_votes": 28704,
+    "margin_pct": 18.94
+  },
+  "others": null
+}

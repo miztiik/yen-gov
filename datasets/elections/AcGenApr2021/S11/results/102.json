@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 102,
+  "constituency_name": "AROOR",
+  "totals": {
+    "electors": 200211,
+    "votes_polled": 164491,
+    "turnout_pct": 82.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Daleema",
+      "party_short": "CPI(M)",
+      "votes": 75617,
+      "vote_share_pct": 45.97,
+      "is_winner": true,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv. Shanimol Osman",
+      "party_short": "INC",
+      "votes": 68604,
+      "vote_share_pct": 41.71,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Aniyappan",
+      "party_short": "BDJS",
+      "votes": 17479,
+      "vote_share_pct": 10.63,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rugma Pradeep",
+      "party_short": "BSP",
+      "votes": 682,
+      "vote_share_pct": 0.41,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ambika K N (priyanka Anup)",
+      "party_short": "DSJP",
+      "votes": 475,
+      "vote_share_pct": 0.29,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 846,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 788,
+    "vote_share_pct": 0.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Daleema",
+    "party_short": "CPI(M)",
+    "votes": 75617,
+    "margin_votes": 7013,
+    "margin_pct": 4.26
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Bawani Khera (SC)",
+  "totals": {
+    "electors": 201042,
+    "votes_polled": 136052,
+    "turnout_pct": 67.67342147411983
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bishamber Singh",
+      "party_short": "BJP",
+      "votes": 52387,
+      "vote_share_pct": 38.50513039132096,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Ramkishan Fauji",
+      "party_short": "INC",
+      "votes": 41492,
+      "vote_share_pct": 30.49716284949872,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Ram Singh Vaid",
+      "party_short": "JNJP",
+      "votes": 22934,
+      "vote_share_pct": 16.856790050862905,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Vikas",
+      "party_short": "RtrJP",
+      "votes": 9380,
+      "vote_share_pct": 6.894422720724429,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Banarsi Dass",
+      "party_short": "BSP",
+      "votes": 3499,
+      "vote_share_pct": 2.5718107782318524,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 285,
+    "vote_share_pct": 0.20947872872137124
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 6075,
+    "vote_share_pct": 4.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bishamber Singh",
+    "party_short": "BJP",
+    "votes": 52387,
+    "margin_votes": 10895,
+    "margin_pct": 8.01
+  }
+}

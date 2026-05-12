@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 84,
+  "constituency_name": "KUNNATHUNAD",
+  "totals": {
+    "electors": 172595,
+    "votes_polled": 148317,
+    "turnout_pct": 85.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V P  SAJEENDRAN",
+      "party_short": "INC",
+      "votes": 65445,
+      "vote_share_pct": 44.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ADV. SHIJI SIVAJI",
+      "party_short": "CPM",
+      "votes": 62766,
+      "vote_share_pct": 42.32,
+      "gender": "F",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "THURAVOOR SURESH",
+      "party_short": "BDJS",
+      "votes": 16459,
+      "vote_share_pct": 11.1,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "N O KUTTAPPAN",
+      "party_short": "SP",
+      "votes": 1263,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ORNA KRISHNANKUTTY",
+      "party_short": "PDP",
+      "votes": 653,
+      "vote_share_pct": 0.44,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1179,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 552,
+    "vote_share_pct": 0.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V P  SAJEENDRAN",
+    "party_short": "INC",
+    "votes": 65445,
+    "margin_votes": 2679,
+    "margin_pct": 1.81
+  }
+}

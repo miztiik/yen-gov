@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "KONGAD",
+  "totals": {
+    "electors": 173779,
+    "votes_polled": 134061,
+    "turnout_pct": 77.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.V.VIJAYADAS",
+      "party_short": "CPM",
+      "votes": 60790,
+      "vote_share_pct": 45.35,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PANDALAM SUDHAKARAN",
+      "party_short": "INC",
+      "votes": 47519,
+      "vote_share_pct": 35.45,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RENU SURESH",
+      "party_short": "BJP",
+      "votes": 23800,
+      "vote_share_pct": 17.75,
+      "gender": "F",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAMESH P.V KANNAMPARIYARAM",
+      "party_short": "BSP",
+      "votes": 789,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1163,
+    "vote_share_pct": 0.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.V.VIJAYADAS",
+    "party_short": "CPM",
+    "votes": 60790,
+    "margin_votes": 13271,
+    "margin_pct": 9.9
+  },
+  "others": null
+}

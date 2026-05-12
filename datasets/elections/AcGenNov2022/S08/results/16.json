@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Kangra",
+  "totals": {
+    "electors": 83547,
+    "votes_polled": 63339,
+    "turnout_pct": 75.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pawan Kumar Kajal",
+      "party_short": "BJP",
+      "votes": 35239,
+      "vote_share_pct": 55.64,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Choudhary Surinder Kaku",
+      "party_short": "INC",
+      "votes": 15405,
+      "vote_share_pct": 24.32,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kulbhash Chand",
+      "party_short": "IND",
+      "votes": 7994,
+      "vote_share_pct": 12.62,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Amit Verma",
+      "party_short": "IND",
+      "votes": 3033,
+      "vote_share_pct": 4.79,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Raj Kumar",
+      "party_short": "AAAP",
+      "votes": 866,
+      "vote_share_pct": 1.37,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 464,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 338,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pawan Kumar Kajal",
+    "party_short": "BJP",
+    "votes": 35239,
+    "margin_votes": 19834,
+    "margin_pct": 31.31
+  }
+}

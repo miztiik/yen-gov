@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 184,
+  "constituency_name": "Patna Sahib",
+  "totals": {
+    "electors": 360318,
+    "votes_polled": 188189,
+    "turnout_pct": 52.228586970398375
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAND KISHORE  YADAV",
+      "party_short": "BJP",
+      "votes": 97692,
+      "vote_share_pct": 51.91164201945916,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PRAVIN SINGH",
+      "party_short": "INC",
+      "votes": 79392,
+      "vote_share_pct": 42.18737545765162,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MITHILESH KUMAR ROY",
+      "party_short": "IND",
+      "votes": 1264,
+      "vote_share_pct": 0.6716651876570895,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JAGDEEP PRASAD VERMA",
+      "party_short": "RLSP",
+      "votes": 1192,
+      "vote_share_pct": 0.6334057782335843,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAM NATH MAHTO",
+      "party_short": "IND",
+      "votes": 1148,
+      "vote_share_pct": 0.6100250280303312,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3234,
+    "vote_share_pct": 1.718485139939104
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4267,
+    "vote_share_pct": 2.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAND KISHORE  YADAV",
+    "party_short": "BJP",
+    "votes": 97692,
+    "margin_votes": 18300,
+    "margin_pct": 9.72
+  }
+}

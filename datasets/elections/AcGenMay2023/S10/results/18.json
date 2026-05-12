@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Ramdurg",
+  "totals": {
+    "electors": 203880,
+    "votes_polled": 154029,
+    "turnout_pct": 75.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ashok Mahadevappa Pattan",
+      "party_short": "INC",
+      "votes": 80294,
+      "vote_share_pct": 52.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Chikkarevanna",
+      "party_short": "BJP",
+      "votes": 68564,
+      "vote_share_pct": 44.51,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Prakash Bhirappa Mudhol",
+      "party_short": "JD(S)",
+      "votes": 1105,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shivappa Basappa Bakadi",
+      "party_short": "IND",
+      "votes": 984,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Madhura Sudhir Siddankolla",
+      "party_short": "IND",
+      "votes": 306,
+      "vote_share_pct": 0.2,
+      "gender": "F",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1646,
+    "vote_share_pct": 1.07
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1130,
+    "vote_share_pct": 0.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ashok Mahadevappa Pattan",
+    "party_short": "INC",
+    "votes": 80294,
+    "margin_votes": 11730,
+    "margin_pct": 7.62
+  }
+}

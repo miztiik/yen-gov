@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 90,
+  "constituency_name": "THODUPUZHA",
+  "totals": {
+    "electors": 195987,
+    "votes_polled": 141574,
+    "turnout_pct": 72.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.J. JOSEPH",
+      "party_short": "KEC(M)",
+      "votes": 76564,
+      "vote_share_pct": 54.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV. ROY VARICATTU",
+      "party_short": "IND",
+      "votes": 30977,
+      "vote_share_pct": 21.88,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ADV. S. PRAVEEN",
+      "party_short": "BDJS",
+      "votes": 28845,
+      "vote_share_pct": 20.37,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ROY ARACKAL",
+      "party_short": "SDPI",
+      "votes": 1294,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NISHA JIMMY",
+      "party_short": "SUCI",
+      "votes": 811,
+      "vote_share_pct": 0.57,
+      "gender": "F",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1219,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1864,
+    "vote_share_pct": 1.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.J. JOSEPH",
+    "party_short": "KEC(M)",
+    "votes": 76564,
+    "margin_votes": 45587,
+    "margin_pct": 32.2
+  }
+}

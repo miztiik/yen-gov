@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Kesaria",
+  "totals": {
+    "electors": 267733,
+    "votes_polled": 151279,
+    "turnout_pct": 56.50368090597723
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shalini Mishra",
+      "party_short": "JD(U)",
+      "votes": 40219,
+      "vote_share_pct": 26.585976903601953,
+      "is_winner": true,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Santosh Kushwha",
+      "party_short": "RJD",
+      "votes": 30992,
+      "vote_share_pct": 20.486650493459106,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ram Sharn Prasad Yadav",
+      "party_short": "LJP",
+      "votes": 18904,
+      "vote_share_pct": 12.49611644709444,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Maheshwar Singh",
+      "party_short": "RLSP",
+      "votes": 18576,
+      "vote_share_pct": 12.279298514664957,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Dr. Rajesh Kumar",
+      "party_short": "IND",
+      "votes": 17729,
+      "vote_share_pct": 11.71940586598272,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1483,
+    "vote_share_pct": 0.9803079079052611
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 23376,
+    "vote_share_pct": 15.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shalini Mishra",
+    "party_short": "JD(U)",
+    "votes": 40219,
+    "margin_votes": 9227,
+    "margin_pct": 6.1
+  }
+}

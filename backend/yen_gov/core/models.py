@@ -231,6 +231,12 @@ class CandidateResult(_Strict):
     votes: int = Field(ge=0)
     vote_share_pct: float = Field(ge=0, le=100)
     is_winner: bool | None = None
+    # New in schema 3.2 (additive): optional per-candidate demographics carried
+    # in every ECI Section-10 Statistical Report. None on NOTA rows and on the
+    # pre-2018 Layout-B sheets that omit the columns.
+    gender: Literal["M", "F", "O"] | None = None
+    age: int | None = Field(default=None, ge=18, le=120)
+    category: Literal["GEN", "SC", "ST"] | None = None
 
 
 class NotaResult(_Strict):
@@ -254,10 +260,10 @@ class WinnerInfo(_Strict):
 
 
 class ConstituencyResult(_Artifact):
-    """Mirrors datasets/schemas/result.constituency.schema.json (x-version 3.1)."""
+    """Mirrors datasets/schemas/result.constituency.schema.json (x-version 3.2)."""
 
     _schema_id = "https://yen-gov.github.io/schemas/result.constituency.schema.json"
-    _schema_version = "3.1"
+    _schema_version = "3.2"
 
     election: str = Field(min_length=1)
     state: ECIStateCode

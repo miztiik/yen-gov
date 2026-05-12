@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 98,
+  "constituency_name": "Sahebganj",
+  "totals": {
+    "electors": 308120,
+    "votes_polled": 183501,
+    "turnout_pct": 59.55504348954953
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJU KUMAR SINGH",
+      "party_short": "VSIP",
+      "votes": 81203,
+      "vote_share_pct": 44.252074920572646,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAMVICHAR RAI",
+      "party_short": "RJD",
+      "votes": 65870,
+      "vote_share_pct": 35.89626214571038,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KRISHNA KUMAR SINGH",
+      "party_short": "LJP",
+      "votes": 5382,
+      "vote_share_pct": 2.9329540438471726,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MD. MOQEEM",
+      "party_short": "AIMIM",
+      "votes": 4055,
+      "vote_share_pct": 2.2097972218135054,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUDHIR KUMAR",
+      "party_short": "RSWD",
+      "votes": 3886,
+      "vote_share_pct": 2.1176996310646805,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1105,
+    "vote_share_pct": 0.6021765548961586
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 22000,
+    "vote_share_pct": 11.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJU KUMAR SINGH",
+    "party_short": "VSIP",
+    "votes": 81203,
+    "margin_votes": 15333,
+    "margin_pct": 8.36
+  }
+}

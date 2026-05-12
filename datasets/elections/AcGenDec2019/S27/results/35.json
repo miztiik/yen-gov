@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 35,
+  "constituency_name": "Bermo",
+  "totals": {
+    "electors": 311390,
+    "votes_polled": 189734,
+    "turnout_pct": 60.93130800603744
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajendra Pd. Singh",
+      "party_short": "INC",
+      "votes": 88945,
+      "vote_share_pct": 46.878788198214345,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Yogeshwar Mahto",
+      "party_short": "BJP",
+      "votes": 63773,
+      "vote_share_pct": 33.61179335279918,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kashi Nath Singh",
+      "party_short": "AJSUP",
+      "votes": 16546,
+      "vote_share_pct": 8.720629934539934,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Md. Aftab Alam Khan",
+      "party_short": "CPI",
+      "votes": 5695,
+      "vote_share_pct": 3.0015706199205203,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ram Kinkar Pandey",
+      "party_short": "JVM",
+      "votes": 1997,
+      "vote_share_pct": 1.0525261682144476,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 961,
+    "vote_share_pct": 0.5064985716845689
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 11817,
+    "vote_share_pct": 6.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajendra Pd. Singh",
+    "party_short": "INC",
+    "votes": 88945,
+    "margin_votes": 25172,
+    "margin_pct": 13.27
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 104,
+  "constituency_name": "ALAPPUZHA",
+  "totals": {
+    "electors": 202381,
+    "votes_polled": 158446,
+    "turnout_pct": 78.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.p Chitharanjan",
+      "party_short": "CPI(M)",
+      "votes": 73412,
+      "vote_share_pct": 46.33,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dr.k.s Manoj",
+      "party_short": "INC",
+      "votes": 61768,
+      "vote_share_pct": 38.98,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sandeep Vachaspati",
+      "party_short": "BJP",
+      "votes": 21650,
+      "vote_share_pct": 13.66,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Subeendran K.c",
+      "party_short": "BSP",
+      "votes": 207,
+      "vote_share_pct": 0.13,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "K.a Vinod",
+      "party_short": "SUCI",
+      "votes": 205,
+      "vote_share_pct": 0.13,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1089,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 115,
+    "vote_share_pct": 0.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.p Chitharanjan",
+    "party_short": "CPI(M)",
+    "votes": 73412,
+    "margin_votes": 11644,
+    "margin_pct": 7.35
+  }
+}

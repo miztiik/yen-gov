@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 172,
+  "constituency_name": "B.T.M Layout",
+  "totals": {
+    "electors": 275067,
+    "votes_polled": 135231,
+    "turnout_pct": 49.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ramalinga Reddy",
+      "party_short": "INC",
+      "votes": 68557,
+      "vote_share_pct": 50.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K.r.sridhara",
+      "party_short": "BJP",
+      "votes": 59335,
+      "vote_share_pct": 43.88,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M.venkatesha",
+      "party_short": "JD(S)",
+      "votes": 1841,
+      "vote_share_pct": 1.36,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Srinivasa Reddy.m",
+      "party_short": "AAAP",
+      "votes": 1055,
+      "vote_share_pct": 0.78,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Nagendrarao",
+      "party_short": "UPJP",
+      "votes": 976,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 28,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1785,
+    "vote_share_pct": 1.32
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1682,
+    "vote_share_pct": 1.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ramalinga Reddy",
+    "party_short": "INC",
+    "votes": 68557,
+    "margin_votes": 9222,
+    "margin_pct": 6.82
+  }
+}

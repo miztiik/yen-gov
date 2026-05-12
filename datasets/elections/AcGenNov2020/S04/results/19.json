@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Motihari",
+  "totals": {
+    "electors": 314345,
+    "votes_polled": 187555,
+    "turnout_pct": 59.66533585709969
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRAMOD KUMAR",
+      "party_short": "BJP",
+      "votes": 92733,
+      "vote_share_pct": 49.443096691637116,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "OM PRAKASH CHAUDHARY",
+      "party_short": "RJD",
+      "votes": 78088,
+      "vote_share_pct": 41.63472048199195,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DEEPAK KUMAR KUSHWAHA",
+      "party_short": "RLSP",
+      "votes": 3716,
+      "vote_share_pct": 1.9812854895897205,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMESHVAR SAH",
+      "party_short": "IND",
+      "votes": 3263,
+      "vote_share_pct": 1.739756338140812,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ZALALUDDIN ROY",
+      "party_short": "IND",
+      "votes": 1847,
+      "vote_share_pct": 0.9847777985124364,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3455,
+    "vote_share_pct": 1.842126309615846
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4453,
+    "vote_share_pct": 2.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRAMOD KUMAR",
+    "party_short": "BJP",
+    "votes": 92733,
+    "margin_votes": 14645,
+    "margin_pct": 7.81
+  }
+}

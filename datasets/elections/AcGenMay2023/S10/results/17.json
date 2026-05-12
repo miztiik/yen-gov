@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Saundatti Yellamma",
+  "totals": {
+    "electors": 199847,
+    "votes_polled": 163317,
+    "turnout_pct": 81.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vishwas Vasant Vaidya",
+      "party_short": "INC",
+      "votes": 71224,
+      "vote_share_pct": 43.61,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mamani Ratna Anand @ Vishwanath",
+      "party_short": "BJP",
+      "votes": 56529,
+      "vote_share_pct": 34.61,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Chopra Saurav Anand",
+      "party_short": "JD(S)",
+      "votes": 30857,
+      "vote_share_pct": 18.89,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Bapugouda Siddanagouda Patil",
+      "party_short": "AAAP",
+      "votes": 1596,
+      "vote_share_pct": 0.98,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mallikarjun Gangappa Mudenur",
+      "party_short": "IND",
+      "votes": 629,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 586,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1896,
+    "vote_share_pct": 1.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vishwas Vasant Vaidya",
+    "party_short": "INC",
+    "votes": 71224,
+    "margin_votes": 14695,
+    "margin_pct": 9.0
+  }
+}

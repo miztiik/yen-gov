@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 219,
+  "constituency_name": "Varuna",
+  "totals": {
+    "electors": 234533,
+    "votes_polled": 199379,
+    "turnout_pct": 85.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Siddaramaiah",
+      "party_short": "INC",
+      "votes": 119816,
+      "vote_share_pct": 60.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "V. Somanna",
+      "party_short": "BJP",
+      "votes": 73653,
+      "vote_share_pct": 36.94,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Krishnamurthy. M",
+      "party_short": "BSP",
+      "votes": 1078,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Dr|| Bharathi Shankar N. L.",
+      "party_short": "JD(S)",
+      "votes": 1037,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Rajesh",
+      "party_short": "AAAP",
+      "votes": 564,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 634,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2597,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Siddaramaiah",
+    "party_short": "INC",
+    "votes": 119816,
+    "margin_votes": 46163,
+    "margin_pct": 23.15
+  }
+}

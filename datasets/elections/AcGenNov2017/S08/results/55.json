@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "Pachhad",
+  "totals": {
+    "electors": 69110,
+    "votes_polled": 56611,
+    "turnout_pct": 81.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURESH KUMAR KASHYAP",
+      "party_short": "BJP",
+      "votes": 30243,
+      "vote_share_pct": 53.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "GANGU RAM MUSAFIR",
+      "party_short": "INC",
+      "votes": 23816,
+      "vote_share_pct": 42.07,
+      "gender": "M",
+      "age": 72,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RATTAN SINGH KASHYAP",
+      "party_short": "IND",
+      "votes": 1182,
+      "vote_share_pct": 2.09,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 495,
+    "vote_share_pct": 0.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURESH KUMAR KASHYAP",
+    "party_short": "BJP",
+    "votes": 30243,
+    "margin_votes": 6427,
+    "margin_pct": 11.35
+  },
+  "others": null
+}

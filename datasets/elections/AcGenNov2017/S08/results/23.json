@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Kullu",
+  "totals": {
+    "electors": 81653,
+    "votes_polled": 63122,
+    "turnout_pct": 77.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUNDER SINGH THAKUR",
+      "party_short": "INC",
+      "votes": 31423,
+      "vote_share_pct": 49.78,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAHESHWAR SINGH",
+      "party_short": "BJP",
+      "votes": 29885,
+      "vote_share_pct": 47.34,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RENUKA DOGRA",
+      "party_short": "RADM",
+      "votes": 469,
+      "vote_share_pct": 0.74,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KAMAL KANT SHARMA",
+      "party_short": "IND",
+      "votes": 243,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 79,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 407,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUNDER SINGH THAKUR",
+    "party_short": "INC",
+    "votes": 31423,
+    "margin_votes": 1538,
+    "margin_pct": 2.44
+  },
+  "others": null
+}

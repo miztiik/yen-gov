@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Nirsa",
+  "totals": {
+    "electors": 309439,
+    "votes_polled": 211063,
+    "turnout_pct": 68.20827368237359
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "APARNA SENGUPTA",
+      "party_short": "BJP",
+      "votes": 89082,
+      "vote_share_pct": 42.20635544837323,
+      "is_winner": true,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARUP CHATTERJEE",
+      "party_short": "MCO",
+      "votes": 63624,
+      "vote_share_pct": 30.14455399572639,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASHOK KUMAR MANDAL",
+      "party_short": "JMM",
+      "votes": 47168,
+      "vote_share_pct": 22.347829794895365,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BAMPY CHAKRAWARTY",
+      "party_short": "JVM",
+      "votes": 2007,
+      "vote_share_pct": 0.950900915840294,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AWADHESH  KUMAR DAS",
+      "party_short": "IND",
+      "votes": 1603,
+      "vote_share_pct": 0.7594888729905289,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3800,
+    "vote_share_pct": 1.8004103040324453
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3779,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "APARNA SENGUPTA",
+    "party_short": "BJP",
+    "votes": 89082,
+    "margin_votes": 25458,
+    "margin_pct": 12.06
+  }
+}

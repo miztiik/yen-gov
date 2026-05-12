@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 101,
+  "constituency_name": "Gopalganj",
+  "totals": {
+    "electors": 325040,
+    "votes_polled": 178862,
+    "turnout_pct": 55.02768889982771
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Subash Singh",
+      "party_short": "BJP",
+      "votes": 77791,
+      "vote_share_pct": 43.49218950923058,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Anirudh Prasad Alias Sadhu Yadav",
+      "party_short": "BSP",
+      "votes": 41039,
+      "vote_share_pct": 22.94450470194899,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Asif Ghafoor",
+      "party_short": "INC",
+      "votes": 36460,
+      "vote_share_pct": 20.384430454764008,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Abdul Salam",
+      "party_short": "JNSNGHDL",
+      "votes": 2450,
+      "vote_share_pct": 1.3697711084523263,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Lalan Prasad Bind",
+      "party_short": "IND",
+      "votes": 2418,
+      "vote_share_pct": 1.3518802205051939,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1028,
+    "vote_share_pct": 0.5747447753016292
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 17676,
+    "vote_share_pct": 9.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Subash Singh",
+    "party_short": "BJP",
+    "votes": 77791,
+    "margin_votes": 36752,
+    "margin_pct": 20.55
+  }
+}

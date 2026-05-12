@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 35,
+  "constituency_name": "Jevargi",
+  "totals": {
+    "electors": 234403,
+    "votes_polled": 161746,
+    "turnout_pct": 69.00338306250346
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AJAY DHARAM SINGH",
+      "party_short": "INC",
+      "votes": 68508,
+      "vote_share_pct": 42.355297812619796,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DODDAPPAGOWDA S. PATIL NARIBOL",
+      "party_short": "BJP",
+      "votes": 52452,
+      "vote_share_pct": 32.42862265527432,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KEDARLINGAYYA HIREMATH",
+      "party_short": "JD(S)",
+      "votes": 35691,
+      "vote_share_pct": 22.06607891385258,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRABHU KALAPPA",
+      "party_short": "AIMEP",
+      "votes": 856,
+      "vote_share_pct": 0.529224833998986,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VAKIL PATEL S/O KHAJAPATEL",
+      "party_short": "IND",
+      "votes": 813,
+      "vote_share_pct": 0.5026399416368874,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1310,
+    "vote_share_pct": 0.8099118370778875
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2116,
+    "vote_share_pct": 1.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AJAY DHARAM SINGH",
+    "party_short": "INC",
+    "votes": 68508,
+    "margin_votes": 16056,
+    "margin_pct": 9.93
+  }
+}

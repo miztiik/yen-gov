@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Phulparas",
+  "totals": {
+    "electors": 325217,
+    "votes_polled": 182055,
+    "turnout_pct": 55.979545964694346
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHEELA KUMARI",
+      "party_short": "JD(U)",
+      "votes": 75116,
+      "vote_share_pct": 41.26005877344758,
+      "is_winner": true,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KRIPANATH PATHAK",
+      "party_short": "INC",
+      "votes": 64150,
+      "vote_share_pct": 35.23660432286946,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BINOD KUMAR SINGH",
+      "party_short": "LJP",
+      "votes": 10088,
+      "vote_share_pct": 5.54118260965093,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GULAJAR DEVI",
+      "party_short": "IND",
+      "votes": 4939,
+      "vote_share_pct": 2.7129164263546732,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GAURI SHANKAR YADAV",
+      "party_short": "JAPL",
+      "votes": 4916,
+      "vote_share_pct": 2.7002828815467854,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3894,
+    "vote_share_pct": 2.1389140644310785
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 18952,
+    "vote_share_pct": 10.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHEELA KUMARI",
+    "party_short": "JD(U)",
+    "votes": 75116,
+    "margin_votes": 10966,
+    "margin_pct": 6.02
+  }
+}

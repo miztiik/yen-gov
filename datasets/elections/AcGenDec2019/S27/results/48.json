@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "Jamshedpur  East",
+  "totals": {
+    "electors": 304972,
+    "votes_polled": 173618,
+    "turnout_pct": 56.92916070983566
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Saryu Roy",
+      "party_short": "IND",
+      "votes": 73945,
+      "vote_share_pct": 42.59063000380145,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAGHUBAR DAS",
+      "party_short": "BJP",
+      "votes": 58112,
+      "vote_share_pct": 33.4711838634243,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GOURAV VALLABH",
+      "party_short": "INC",
+      "votes": 18976,
+      "vote_share_pct": 10.929742307825226,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ABHAY SINGH",
+      "party_short": "JVM",
+      "votes": 11772,
+      "vote_share_pct": 6.780402953610801,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Gopal Lohar",
+      "party_short": "IND",
+      "votes": 2425,
+      "vote_share_pct": 1.3967445771751776,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1211,
+    "vote_share_pct": 0.6975083228697485
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 7177,
+    "vote_share_pct": 4.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Saryu Roy",
+    "party_short": "IND",
+    "votes": 73945,
+    "margin_votes": 15833,
+    "margin_pct": 9.12
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 128,
+  "constituency_name": "ATTINGAL",
+  "totals": {
+    "electors": 198678,
+    "votes_polled": 138137,
+    "turnout_pct": 69.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADV.B.SATYAN",
+      "party_short": "CPM",
+      "votes": 72808,
+      "vote_share_pct": 52.71,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "K.CHANDRABABU",
+      "party_short": "RSP",
+      "votes": 32425,
+      "vote_share_pct": 23.47,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RAJI PRASAD",
+      "party_short": "BJP",
+      "votes": 27602,
+      "vote_share_pct": 19.98,
+      "gender": "F",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "M.K.MANOJKUMAR",
+      "party_short": "SDPI",
+      "votes": 1437,
+      "vote_share_pct": 1.04,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "K.SIVANANDAN",
+      "party_short": "BSP",
+      "votes": 789,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1267,
+    "vote_share_pct": 0.92
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1809,
+    "vote_share_pct": 1.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADV.B.SATYAN",
+    "party_short": "CPM",
+    "votes": 72808,
+    "margin_votes": 40383,
+    "margin_pct": 29.23
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 203,
+  "constituency_name": "Ramgarh",
+  "totals": {
+    "electors": 279545,
+    "votes_polled": 179266,
+    "turnout_pct": 64.12777906955947
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sudhakar Singh",
+      "party_short": "RJD",
+      "votes": 58083,
+      "vote_share_pct": 32.40045518949494,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ambika Singh",
+      "party_short": "BSP",
+      "votes": 57894,
+      "vote_share_pct": 32.29502526971093,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ashok Kumar Singh",
+      "party_short": "BJP",
+      "votes": 56084,
+      "vote_share_pct": 31.285352492943446,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sanjay Kumar Singh",
+      "party_short": "IND",
+      "votes": 1171,
+      "vote_share_pct": 0.6532192384501244,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ram Bachan Ram",
+      "party_short": "NCP",
+      "votes": 907,
+      "vote_share_pct": 0.5059520489105576,
+      "gender": "M",
+      "age": 70,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2019,
+    "vote_share_pct": 1.1262593018196423
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3108,
+    "vote_share_pct": 1.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sudhakar Singh",
+    "party_short": "RJD",
+    "votes": 58083,
+    "margin_votes": 189,
+    "margin_pct": 0.11
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 128,
+  "constituency_name": "Chikkanayakanahalli",
+  "totals": {
+    "electors": 218952,
+    "votes_polled": 188657,
+    "turnout_pct": 86.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C B Suresh Baabu",
+      "party_short": "JD(S)",
+      "votes": 71036,
+      "vote_share_pct": 37.65,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "J C Madhu Swamy",
+      "party_short": "BJP",
+      "votes": 60994,
+      "vote_share_pct": 32.33,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K S Kiran Kumar",
+      "party_short": "INC",
+      "votes": 50996,
+      "vote_share_pct": 27.03,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ningaraju S C",
+      "party_short": "AAAP",
+      "votes": 1771,
+      "vote_share_pct": 0.94,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Jayaram H R",
+      "party_short": "UPJP",
+      "votes": 972,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 778,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2110,
+    "vote_share_pct": 1.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C B Suresh Baabu",
+    "party_short": "JD(S)",
+    "votes": 71036,
+    "margin_votes": 10042,
+    "margin_pct": 5.32
+  }
+}

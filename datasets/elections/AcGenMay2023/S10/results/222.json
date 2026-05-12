@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 222,
+  "constituency_name": "Kollegal (SC)",
+  "totals": {
+    "electors": 216643,
+    "votes_polled": 167779,
+    "turnout_pct": 77.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A.r.krishnamurthy",
+      "party_short": "INC",
+      "votes": 108363,
+      "vote_share_pct": 64.59,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "N.mahesh",
+      "party_short": "BJP",
+      "votes": 48844,
+      "vote_share_pct": 29.11,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "B.puttaswamy",
+      "party_short": "JD(S)",
+      "votes": 3925,
+      "vote_share_pct": 2.34,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "B.rachaiah, Kinakahalli",
+      "party_short": "IND",
+      "votes": 1519,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "V.vinay Kumar",
+      "party_short": "UPJP",
+      "votes": 1022,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1671,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2435,
+    "vote_share_pct": 1.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A.r.krishnamurthy",
+    "party_short": "INC",
+    "votes": 108363,
+    "margin_votes": 59519,
+    "margin_pct": 35.47
+  }
+}

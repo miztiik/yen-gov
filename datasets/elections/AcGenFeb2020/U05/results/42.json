@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "KASTURBA NAGAR",
+  "totals": {
+    "electors": 153485,
+    "votes_polled": 91710,
+    "turnout_pct": 59.75176727367495
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MADAN LAL",
+      "party_short": "AAAP",
+      "votes": 37100,
+      "vote_share_pct": 40.453603750954095,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAVINDER CHOUDHRY",
+      "party_short": "BJP",
+      "votes": 33935,
+      "vote_share_pct": 37.00250790535383,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ABHISHEK DUTT",
+      "party_short": "INC",
+      "votes": 19648,
+      "vote_share_pct": 21.42405408352415,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KHEM CHAND",
+      "party_short": "BSP",
+      "votes": 283,
+      "vote_share_pct": 0.30858139788463634,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SUMAN LATA KATIYAR",
+      "party_short": "AJPI",
+      "votes": 281,
+      "vote_share_pct": 0.306400610620434,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 463,
+    "vote_share_pct": 0.5048522516628503
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MADAN LAL",
+    "party_short": "AAAP",
+    "votes": 37100,
+    "margin_votes": 3165,
+    "margin_pct": 3.45
+  },
+  "others": null
+}

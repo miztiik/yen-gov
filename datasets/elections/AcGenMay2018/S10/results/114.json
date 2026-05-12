@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 114,
+  "constituency_name": "Tirthahalli",
+  "totals": {
+    "electors": 184189,
+    "votes_polled": 156920,
+    "turnout_pct": 85.19509851294052
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARAGA JNANENDRA",
+      "party_short": "BJP",
+      "votes": 67527,
+      "vote_share_pct": 43.032755544226355,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KIMMANE RATHNAKARA",
+      "party_short": "INC",
+      "votes": 45572,
+      "vote_share_pct": 29.04154983431048,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "R.M. MANJUNATHA GOWDA",
+      "party_short": "JD(S)",
+      "votes": 40127,
+      "vote_share_pct": 25.57162885546775,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "A.PUTTHABBA",
+      "party_short": "AIMEP",
+      "votes": 762,
+      "vote_share_pct": 0.48559775681876116,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SRILATHA SHETTY",
+      "party_short": "IND",
+      "votes": 525,
+      "vote_share_pct": 0.33456538363497323,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1195,
+    "vote_share_pct": 0.7615345398929391
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1212,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARAGA JNANENDRA",
+    "party_short": "BJP",
+    "votes": 67527,
+    "margin_votes": 21955,
+    "margin_pct": 13.99
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Guhla (SC)",
+  "totals": {
+    "electors": 180209,
+    "votes_polled": 131282,
+    "turnout_pct": 72.84985766526644
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ishwar Singh",
+      "party_short": "JNJP",
+      "votes": 36518,
+      "vote_share_pct": 27.816456178303195,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Chaudhary Dilu Ram",
+      "party_short": "INC",
+      "votes": 31944,
+      "vote_share_pct": 24.332353254825488,
+      "gender": "M",
+      "age": 72,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Devender Hans",
+      "party_short": "IND",
+      "votes": 29473,
+      "vote_share_pct": 22.45014548833808,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Para Ram alias Ravi Taranwali",
+      "party_short": "BJP",
+      "votes": 25203,
+      "vote_share_pct": 19.197605155314516,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ram Kumar Valmiki",
+      "party_short": "SAD",
+      "votes": 3555,
+      "vote_share_pct": 2.707911214027818,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 790,
+    "vote_share_pct": 0.6017580475617373
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3799,
+    "vote_share_pct": 2.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ishwar Singh",
+    "party_short": "JNJP",
+    "votes": 36518,
+    "margin_votes": 4574,
+    "margin_pct": 3.48
+  }
+}

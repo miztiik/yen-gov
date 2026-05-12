@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 61,
+  "constituency_name": "CHELAKKARA",
+  "totals": {
+    "electors": 190919,
+    "votes_polled": 151225,
+    "turnout_pct": 79.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "U R PRADEEP",
+      "party_short": "CPM",
+      "votes": 67771,
+      "vote_share_pct": 44.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "THULASI",
+      "party_short": "INC",
+      "votes": 57571,
+      "vote_share_pct": 38.07,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SHAJUMON P P",
+      "party_short": "BJP",
+      "votes": 23845,
+      "vote_share_pct": 15.77,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "A SUBRAMANIAN",
+      "party_short": "SDPI",
+      "votes": 1116,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 922,
+    "vote_share_pct": 0.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "U R PRADEEP",
+    "party_short": "CPM",
+    "votes": 67771,
+    "margin_votes": 10200,
+    "margin_pct": 6.74
+  },
+  "others": null
+}

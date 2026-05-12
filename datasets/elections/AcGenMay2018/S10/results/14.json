@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Khanapur",
+  "totals": {
+    "electors": 206576,
+    "votes_polled": 154219,
+    "turnout_pct": 74.65484857873132
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. ANJALI HEMANT NIMBALKAR",
+      "party_short": "INC",
+      "votes": 36649,
+      "vote_share_pct": 23.764257322379216,
+      "is_winner": true,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VITHAL HALAGEKAR",
+      "party_short": "BJP",
+      "votes": 31516,
+      "vote_share_pct": 20.435873660184544,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BAGWAN NASIR PAPULSAB",
+      "party_short": "JD(S)",
+      "votes": 27272,
+      "vote_share_pct": 17.683942964226198,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARVIND CHANDRAKANT  PATIL",
+      "party_short": "IND",
+      "votes": 26613,
+      "vote_share_pct": 17.256628560683183,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VILAS KRISHNA BELGAONKAR",
+      "party_short": "IND",
+      "votes": 17851,
+      "vote_share_pct": 11.575097750601417,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1561,
+    "vote_share_pct": 1.012196940714179
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 12757,
+    "vote_share_pct": 8.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. ANJALI HEMANT NIMBALKAR",
+    "party_short": "INC",
+    "votes": 36649,
+    "margin_votes": 5133,
+    "margin_pct": 3.33
+  }
+}

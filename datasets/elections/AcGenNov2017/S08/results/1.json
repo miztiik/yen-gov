@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Churah",
+  "totals": {
+    "electors": 68623,
+    "votes_polled": 54005,
+    "turnout_pct": 78.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HANS RAJ",
+      "party_short": "BJP",
+      "votes": 28293,
+      "vote_share_pct": 52.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SURENDER BHARDWAJ",
+      "party_short": "INC",
+      "votes": 23349,
+      "vote_share_pct": 43.23,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "NAND KUMAR",
+      "party_short": "SP",
+      "votes": 442,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "DES RAJ",
+      "party_short": "IND",
+      "votes": 425,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 505,
+    "vote_share_pct": 0.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HANS RAJ",
+    "party_short": "BJP",
+    "votes": 28293,
+    "margin_votes": 4944,
+    "margin_pct": 9.15
+  },
+  "others": null
+}

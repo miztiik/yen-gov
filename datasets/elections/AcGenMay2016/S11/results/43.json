@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "TIRURANGADI",
+  "totals": {
+    "electors": 182849,
+    "votes_polled": 135246,
+    "turnout_pct": 73.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.K ABDU RABB",
+      "party_short": "IUML",
+      "votes": 62927,
+      "vote_share_pct": 46.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NIYAS PULIKKALAKATH",
+      "party_short": "IND",
+      "votes": 56884,
+      "vote_share_pct": 42.06,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "P.V GEETHA MADHAVAN",
+      "party_short": "BJP",
+      "votes": 8046,
+      "vote_share_pct": 5.95,
+      "gender": "F",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ADV. K.C NASEER",
+      "party_short": "SDPI",
+      "votes": 2478,
+      "vote_share_pct": 1.83,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MALIYATT ABDURAZAK HAJI",
+      "party_short": "PDP",
+      "votes": 1902,
+      "vote_share_pct": 1.41,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 630,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2379,
+    "vote_share_pct": 1.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.K ABDU RABB",
+    "party_short": "IUML",
+    "votes": 62927,
+    "margin_votes": 6043,
+    "margin_pct": 4.47
+  }
+}

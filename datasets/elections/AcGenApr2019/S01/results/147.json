@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 147,
+  "constituency_name": "Alur",
+  "totals": {
+    "electors": 236320,
+    "votes_polled": 189321,
+    "turnout_pct": 80.11213608666216
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gummanur Jayaram",
+      "party_short": "YSRCP",
+      "votes": 107101,
+      "vote_share_pct": 56.571114667680824,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kotla Sujathamma",
+      "party_short": "TDP",
+      "votes": 67205,
+      "vote_share_pct": 35.49791095546717,
+      "gender": "F",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S Venkappa",
+      "party_short": "JnP",
+      "votes": 3539,
+      "vote_share_pct": 1.869311909402549,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "D Asha Begum",
+      "party_short": "INC",
+      "votes": 2776,
+      "vote_share_pct": 1.4662926986441018,
+      "gender": "F",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Dumma Venkataramudu",
+      "party_short": "BJP",
+      "votes": 2077,
+      "vote_share_pct": 1.0970785068745676,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2981,
+    "vote_share_pct": 1.5745744000929638
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3642,
+    "vote_share_pct": 1.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gummanur Jayaram",
+    "party_short": "YSRCP",
+    "votes": 107101,
+    "margin_votes": 39896,
+    "margin_pct": 21.07
+  }
+}

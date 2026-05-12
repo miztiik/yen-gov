@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 112,
+  "constituency_name": "Bhadravati",
+  "totals": {
+    "electors": 207749,
+    "votes_polled": 152877,
+    "turnout_pct": 73.58735782121694
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B.K.SANGAMESHWARA.",
+      "party_short": "INC",
+      "votes": 75722,
+      "vote_share_pct": 49.53132256650772,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "APPAJI.M.J.",
+      "party_short": "JD(S)",
+      "votes": 64155,
+      "vote_share_pct": 41.96510920543967,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRAVEEN PATEL.G.R.",
+      "party_short": "BJP",
+      "votes": 8974,
+      "vote_share_pct": 5.8700785598880145,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHASHIKUMAR S.GOWDA.",
+      "party_short": "IND",
+      "votes": 572,
+      "vote_share_pct": 0.3741570020343151,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUMTAZ BEGUM",
+      "party_short": "AIMEP",
+      "votes": 450,
+      "vote_share_pct": 0.294354284817206,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1427,
+    "vote_share_pct": 0.9334301431870067
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1577,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B.K.SANGAMESHWARA.",
+    "party_short": "INC",
+    "votes": 75722,
+    "margin_votes": 11567,
+    "margin_pct": 7.57
+  }
+}

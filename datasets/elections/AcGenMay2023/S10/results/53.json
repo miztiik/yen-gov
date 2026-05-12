@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Raichur Rural (ST)",
+  "totals": {
+    "electors": 229071,
+    "votes_polled": 173361,
+    "turnout_pct": 75.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Basanagouda Daddal",
+      "party_short": "INC",
+      "votes": 89140,
+      "vote_share_pct": 51.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Tipparaju Hawaldar",
+      "party_short": "BJP",
+      "votes": 75283,
+      "vote_share_pct": 43.43,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "K. Narasimha Nayak",
+      "party_short": "JD(S)",
+      "votes": 4127,
+      "vote_share_pct": 2.38,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Shubhashchandra Sambaji",
+      "party_short": "AAAP",
+      "votes": 1535,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Veerangoda",
+      "party_short": "IMP",
+      "votes": 760,
+      "vote_share_pct": 0.44,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1456,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1060,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Basanagouda Daddal",
+    "party_short": "INC",
+    "votes": 89140,
+    "margin_votes": 13857,
+    "margin_pct": 7.99
+  }
+}

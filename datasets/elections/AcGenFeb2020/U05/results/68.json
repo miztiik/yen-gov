@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "GOKALPUR(SC)",
+  "totals": {
+    "electors": 234779,
+    "votes_polled": 166196,
+    "turnout_pct": 70.78827322716256
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURENDRA KUMAR",
+      "party_short": "AAAP",
+      "votes": 88452,
+      "vote_share_pct": 53.22149750896532,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RANJEET SINGH",
+      "party_short": "BJP",
+      "votes": 68964,
+      "vote_share_pct": 41.495583527882744,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PRAVEEN KUMAR",
+      "party_short": "BSP",
+      "votes": 4599,
+      "vote_share_pct": 2.767214614070134,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "S P SINGH",
+      "party_short": "INC",
+      "votes": 2233,
+      "vote_share_pct": 1.3435943103323786,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SHANU KUMAR",
+      "party_short": "AAPP",
+      "votes": 593,
+      "vote_share_pct": 0.35680762473224387,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 456,
+    "vote_share_pct": 0.27437483453272044
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 899,
+    "vote_share_pct": 0.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURENDRA KUMAR",
+    "party_short": "AAAP",
+    "votes": 88452,
+    "margin_votes": 19488,
+    "margin_pct": 11.73
+  }
+}

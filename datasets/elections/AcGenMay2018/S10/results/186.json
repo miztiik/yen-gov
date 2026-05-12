@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 186,
+  "constituency_name": "Malavalli  (SC)",
+  "totals": {
+    "electors": 238777,
+    "votes_polled": 194675,
+    "turnout_pct": 81.53004686381017
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR.K.ANNADANI",
+      "party_short": "JD(S)",
+      "votes": 103038,
+      "vote_share_pct": 52.928213689482476,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "P.M.NARENDRASWAMY",
+      "party_short": "INC",
+      "votes": 76278,
+      "vote_share_pct": 39.18222678823681,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "B.SOMASHEKHAR",
+      "party_short": "BJP",
+      "votes": 10808,
+      "vote_share_pct": 5.551817131115963,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "M.S.SHASHIKUMAR",
+      "party_short": "INCP",
+      "votes": 820,
+      "vote_share_pct": 0.42121484525491204,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "R.SIDDARAJU",
+      "party_short": "IND",
+      "votes": 523,
+      "vote_share_pct": 0.2686528830101451,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1471,
+    "vote_share_pct": 0.7556183382560678
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1737,
+    "vote_share_pct": 0.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR.K.ANNADANI",
+    "party_short": "JD(S)",
+    "votes": 103038,
+    "margin_votes": 26760,
+    "margin_pct": 13.75
+  }
+}

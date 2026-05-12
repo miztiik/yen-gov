@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 74,
+  "constituency_name": "Pedana",
+  "totals": {
+    "electors": 166223,
+    "votes_polled": 145848,
+    "turnout_pct": 87.7423701894443
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JOGI RAMESH",
+      "party_short": "YSRCP",
+      "votes": 61920,
+      "vote_share_pct": 42.45515879545829,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAGITHA KRISHNA PRASAD",
+      "party_short": "TDP",
+      "votes": 54081,
+      "vote_share_pct": 37.08038505841698,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANKEM LAKSHMI SRINIVAS",
+      "party_short": "JnP",
+      "votes": 25733,
+      "vote_share_pct": 17.643711261038888,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VENKATA RAJU SATTINENI",
+      "party_short": "INC",
+      "votes": 1180,
+      "vote_share_pct": 0.8090614886731391,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SODESETTI BALAJI RAO",
+      "party_short": "BJP",
+      "votes": 699,
+      "vote_share_pct": 0.4792660852394274,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1407,
+    "vote_share_pct": 0.9647029784433109
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 828,
+    "vote_share_pct": 0.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JOGI RAMESH",
+    "party_short": "YSRCP",
+    "votes": 61920,
+    "margin_votes": 7839,
+    "margin_pct": 5.37
+  }
+}

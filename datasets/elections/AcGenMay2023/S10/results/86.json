@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 86,
+  "constituency_name": "Hirekerur",
+  "totals": {
+    "electors": 185982,
+    "votes_polled": 159497,
+    "turnout_pct": 85.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ujaneshwar Basavannappa Banakar",
+      "party_short": "INC",
+      "votes": 85378,
+      "vote_share_pct": 53.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Basavanagouda Patil",
+      "party_short": "BJP",
+      "votes": 70358,
+      "vote_share_pct": 44.11,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Jayananda Javannanavar",
+      "party_short": "JD(S)",
+      "votes": 1847,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rajashekhar Kallappa Dudihalli",
+      "party_short": "AAAP",
+      "votes": 451,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Harish Ingalagondi",
+      "party_short": "KJP",
+      "votes": 210,
+      "vote_share_pct": 0.13,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 953,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 300,
+    "vote_share_pct": 0.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ujaneshwar Basavannappa Banakar",
+    "party_short": "INC",
+    "votes": 85378,
+    "margin_votes": 15020,
+    "margin_pct": 9.42
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 146,
+  "constituency_name": "Kolar Gold Field (SC)",
+  "totals": {
+    "electors": 199982,
+    "votes_polled": 148051,
+    "turnout_pct": 74.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Roopa Kala. M",
+      "party_short": "INC",
+      "votes": 81569,
+      "vote_share_pct": 55.1,
+      "is_winner": true,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Ashwini Sampangi",
+      "party_short": "BJP",
+      "votes": 31102,
+      "vote_share_pct": 21.01,
+      "gender": "F",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "S. Rajendran",
+      "party_short": "RPI",
+      "votes": 29795,
+      "vote_share_pct": 20.12,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Dr. Ramesh Babu.v.m.",
+      "party_short": "JD(S)",
+      "votes": 1360,
+      "vote_share_pct": 0.92,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Thangaraj. P",
+      "party_short": "CPI(M)",
+      "votes": 1008,
+      "vote_share_pct": 0.68,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1383,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1834,
+    "vote_share_pct": 1.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Roopa Kala. M",
+    "party_short": "INC",
+    "votes": 81569,
+    "margin_votes": 50467,
+    "margin_pct": 34.09
+  }
+}

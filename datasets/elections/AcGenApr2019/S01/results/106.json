@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 106,
+  "constituency_name": "Chirala",
+  "totals": {
+    "electors": 190830,
+    "votes_polled": 157511,
+    "turnout_pct": 82.53995702981712
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARANAM BALARAMA KRISHNA MURTHY",
+      "party_short": "TDP",
+      "votes": 83901,
+      "vote_share_pct": 53.26675597259873,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMANCHI KRISHNA MOHAN",
+      "party_short": "YSRCP",
+      "votes": 66482,
+      "vote_share_pct": 42.207845801245625,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KATTA RAJ VINAYA KUMAR",
+      "party_short": "BSP",
+      "votes": 2470,
+      "vote_share_pct": 1.5681444470544914,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "DEVARAPALLI RANGA RAO",
+      "party_short": "INC",
+      "votes": 1348,
+      "vote_share_pct": 0.8558132447892528,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MUVVALA VENKATA RAMANA RAO",
+      "party_short": "BJP",
+      "votes": 814,
+      "vote_share_pct": 0.5167893036041927,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1348,
+    "vote_share_pct": 0.8558132447892528
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1148,
+    "vote_share_pct": 0.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARANAM BALARAMA KRISHNA MURTHY",
+    "party_short": "TDP",
+    "votes": 83901,
+    "margin_votes": 17419,
+    "margin_pct": 11.06
+  }
+}

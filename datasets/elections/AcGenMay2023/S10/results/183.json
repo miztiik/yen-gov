@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 183,
+  "constituency_name": "Ramanagaram",
+  "totals": {
+    "electors": 216086,
+    "votes_polled": 182750,
+    "turnout_pct": 84.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "H. A. Iqbal Hussain",
+      "party_short": "INC",
+      "votes": 87690,
+      "vote_share_pct": 47.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Nikhil Kumaraswamy",
+      "party_short": "JD(S)",
+      "votes": 76975,
+      "vote_share_pct": 42.12,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Gautham Marilingegowda",
+      "party_short": "BJP",
+      "votes": 12912,
+      "vote_share_pct": 7.07,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Byregowda. S",
+      "party_short": "AAAP",
+      "votes": 1264,
+      "vote_share_pct": 0.69,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "D. Puttamadaiah (prajakeeya Puttanna)",
+      "party_short": "UPJP",
+      "votes": 860,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 880,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2169,
+    "vote_share_pct": 1.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "H. A. Iqbal Hussain",
+    "party_short": "INC",
+    "votes": 87690,
+    "margin_votes": 10715,
+    "margin_pct": 5.86
+  }
+}

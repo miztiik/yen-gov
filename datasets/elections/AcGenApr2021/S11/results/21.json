@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "KUTTIADI",
+  "totals": {
+    "electors": 202518,
+    "votes_polled": 169779,
+    "turnout_pct": 83.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K P Kunhammed Kutti Master",
+      "party_short": "CPI(M)",
+      "votes": 80143,
+      "vote_share_pct": 47.2,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Parakkal Abdulla",
+      "party_short": "IUML",
+      "votes": 79810,
+      "vote_share_pct": 47.01,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "P P Murali Master",
+      "party_short": "BJP",
+      "votes": 9139,
+      "vote_share_pct": 5.38,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Suresh Babu M K",
+      "party_short": "IND",
+      "votes": 128,
+      "vote_share_pct": 0.08,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "V P Pratheesh",
+      "party_short": "IND",
+      "votes": 108,
+      "vote_share_pct": 0.06,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 296,
+    "vote_share_pct": 0.17
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 155,
+    "vote_share_pct": 0.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K P Kunhammed Kutti Master",
+    "party_short": "CPI(M)",
+    "votes": 80143,
+    "margin_votes": 333,
+    "margin_pct": 0.2
+  }
+}

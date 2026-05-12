@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "TIMARPUR",
+  "totals": {
+    "electors": 203599,
+    "votes_polled": 124011,
+    "turnout_pct": 60.909434722174474
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DILIP PANDEY",
+      "party_short": "AAAP",
+      "votes": 71432,
+      "vote_share_pct": 57.601341816451765,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURINDER PAL SINGH (BITTOO)",
+      "party_short": "BJP",
+      "votes": 47288,
+      "vote_share_pct": 38.132101184572335,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AMAR LATA SANGWAN",
+      "party_short": "INC",
+      "votes": 3102,
+      "vote_share_pct": 2.501391005636597,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SONU KAUSHIK",
+      "party_short": "AAPP",
+      "votes": 495,
+      "vote_share_pct": 0.39915813919732923,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ADVOCATE UMA SHANKER GAUTAM",
+      "party_short": "BSP",
+      "votes": 306,
+      "vote_share_pct": 0.24675230423107627,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 508,
+    "vote_share_pct": 0.40964108022675405
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 880,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DILIP PANDEY",
+    "party_short": "AAAP",
+    "votes": 71432,
+    "margin_votes": 24144,
+    "margin_pct": 19.47
+  }
+}

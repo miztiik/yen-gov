@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "Seraj",
+  "totals": {
+    "electors": 84315,
+    "votes_polled": 70752,
+    "turnout_pct": 83.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jai Ram Thakur",
+      "party_short": "BJP",
+      "votes": 53562,
+      "vote_share_pct": 75.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Chet Ram",
+      "party_short": "INC",
+      "votes": 15379,
+      "vote_share_pct": 21.74,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Mahender Rana",
+      "party_short": "CPI(M)",
+      "votes": 818,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Gita Nand",
+      "party_short": "AAAP",
+      "votes": 339,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Indra Devi",
+      "party_short": "BSP",
+      "votes": 264,
+      "vote_share_pct": 0.37,
+      "gender": "F",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 292,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 98,
+    "vote_share_pct": 0.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jai Ram Thakur",
+    "party_short": "BJP",
+    "votes": 53562,
+    "margin_votes": 38183,
+    "margin_pct": 53.97
+  }
+}

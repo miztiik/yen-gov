@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 122,
+  "constituency_name": "Karkal",
+  "totals": {
+    "electors": 190611,
+    "votes_polled": 156843,
+    "turnout_pct": 82.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V Sunill Kumar",
+      "party_short": "BJP",
+      "votes": 77028,
+      "vote_share_pct": 49.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Udaya Shetty Muniyal",
+      "party_short": "INC",
+      "votes": 72426,
+      "vote_share_pct": 46.18,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Pramod Muthalik",
+      "party_short": "IND",
+      "votes": 4508,
+      "vote_share_pct": 2.87,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Daniel Ranjar",
+      "party_short": "AAAP",
+      "votes": 556,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Arun Deepak",
+      "party_short": "UPJP",
+      "votes": 501,
+      "vote_share_pct": 0.32,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 921,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 903,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V Sunill Kumar",
+    "party_short": "BJP",
+    "votes": 77028,
+    "margin_votes": 4602,
+    "margin_pct": 2.93
+  }
+}

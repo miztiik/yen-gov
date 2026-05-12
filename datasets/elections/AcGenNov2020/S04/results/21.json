@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Dhaka",
+  "totals": {
+    "electors": 321111,
+    "votes_polled": 207840,
+    "turnout_pct": 64.72528191186225
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PAWAN KUMAR JAISWAL",
+      "party_short": "BJP",
+      "votes": 99792,
+      "vote_share_pct": 48.01385681293303,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "FAISAL RAHMAN",
+      "party_short": "RJD",
+      "votes": 89678,
+      "vote_share_pct": 43.147613548883754,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAM PUKAR SINHA",
+      "party_short": "RLSP",
+      "votes": 10932,
+      "vote_share_pct": 5.259815242494226,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MD SALIM MANSURI",
+      "party_short": "IND",
+      "votes": 1313,
+      "vote_share_pct": 0.6317359507313318,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ABHIJIT SINGH",
+      "party_short": "JAPL",
+      "votes": 966,
+      "vote_share_pct": 0.4647806004618938,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2965,
+    "vote_share_pct": 1.4265781370284834
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2194,
+    "vote_share_pct": 1.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PAWAN KUMAR JAISWAL",
+    "party_short": "BJP",
+    "votes": 99792,
+    "margin_votes": 10114,
+    "margin_pct": 4.87
+  }
+}

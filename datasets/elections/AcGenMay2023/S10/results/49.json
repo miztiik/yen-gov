@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 49,
+  "constituency_name": "Bidar South",
+  "totals": {
+    "electors": 205201,
+    "votes_polled": 153384,
+    "turnout_pct": 74.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Shailendra Beldale",
+      "party_short": "BJP",
+      "votes": 49872,
+      "vote_share_pct": 32.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ashok Kheny",
+      "party_short": "INC",
+      "votes": 48609,
+      "vote_share_pct": 31.69,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Bandeppa Khashempur",
+      "party_short": "JD(S)",
+      "votes": 31374,
+      "vote_share_pct": 20.45,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Chandra Singh",
+      "party_short": "IND",
+      "votes": 14837,
+      "vote_share_pct": 9.67,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "M.naseemuddin Patel",
+      "party_short": "AAAP",
+      "votes": 5104,
+      "vote_share_pct": 3.33,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 671,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2917,
+    "vote_share_pct": 1.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Shailendra Beldale",
+    "party_short": "BJP",
+    "votes": 49872,
+    "margin_votes": 1263,
+    "margin_pct": 0.82
+  }
+}

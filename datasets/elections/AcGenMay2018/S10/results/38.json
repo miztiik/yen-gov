@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Yadgir",
+  "totals": {
+    "electors": 235682,
+    "votes_polled": 144449,
+    "turnout_pct": 61.28978878319091
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VENKATREDDY MUDNAL",
+      "party_short": "BJP",
+      "votes": 62227,
+      "vote_share_pct": 43.07887212787904,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR.A B MAALAKARADDY",
+      "party_short": "INC",
+      "votes": 49346,
+      "vote_share_pct": 34.16153798226364,
+      "gender": "M",
+      "age": 82,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "A.C. KADLOOR",
+      "party_short": "JD(S)",
+      "votes": 25774,
+      "vote_share_pct": 17.842975721534938,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M. BASAVARAJ PADUKOTI",
+      "party_short": "AIMEP",
+      "votes": 1074,
+      "vote_share_pct": 0.7435150122188454,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "IRAPPA M.KASAN",
+      "party_short": "BRPI",
+      "votes": 1068,
+      "vote_share_pct": 0.7393612970667847,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1648,
+    "vote_share_pct": 1.1408870950993084
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3312,
+    "vote_share_pct": 2.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VENKATREDDY MUDNAL",
+    "party_short": "BJP",
+    "votes": 62227,
+    "margin_votes": 12881,
+    "margin_pct": 8.92
+  }
+}

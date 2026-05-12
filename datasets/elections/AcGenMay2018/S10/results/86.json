@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 86,
+  "constituency_name": "Hirekerur",
+  "totals": {
+    "electors": 179355,
+    "votes_polled": 150646,
+    "turnout_pct": 83.99319784784366
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BASAVANAGOUDA PATIL",
+      "party_short": "INC",
+      "votes": 72461,
+      "vote_share_pct": 48.10018188335568,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "UJANESHWARA BANAKAR",
+      "party_short": "BJP",
+      "votes": 71906,
+      "vote_share_pct": 47.731768516920454,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SIDDAPPA GUDADAPPANAVAR",
+      "party_short": "JD(S)",
+      "votes": 3597,
+      "vote_share_pct": 2.38771689922069,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJASHEKHAR DUDIHALLI",
+      "party_short": "IND",
+      "votes": 555,
+      "vote_share_pct": 0.368413366435219,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAHADEVAPPA MALAMMANAVAR",
+      "party_short": "AIMEP",
+      "votes": 317,
+      "vote_share_pct": 0.21042709398191786,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 972,
+    "vote_share_pct": 0.6452212471622214
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 838,
+    "vote_share_pct": 0.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BASAVANAGOUDA PATIL",
+    "party_short": "INC",
+    "votes": 72461,
+    "margin_votes": 555,
+    "margin_pct": 0.37
+  }
+}

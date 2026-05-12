@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "RATABARI",
+  "totals": {
+    "electors": 173974,
+    "votes_polled": 136811,
+    "turnout_pct": 78.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BIJOY MALAKAR",
+      "party_short": "BJP",
+      "votes": 84711,
+      "vote_share_pct": 61.92,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SAMBHU SING MALLAH",
+      "party_short": "INC",
+      "votes": 48490,
+      "vote_share_pct": 35.44,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SANCHITA SUKLA",
+      "party_short": "SUCI",
+      "votes": 708,
+      "vote_share_pct": 0.52,
+      "gender": "F",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SUJIT ROY",
+      "party_short": "IND",
+      "votes": 628,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BEBUL DAS",
+      "party_short": "IND",
+      "votes": 348,
+      "vote_share_pct": 0.25,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1200,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 726,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BIJOY MALAKAR",
+    "party_short": "BJP",
+    "votes": 84711,
+    "margin_votes": 36221,
+    "margin_pct": 26.48
+  }
+}

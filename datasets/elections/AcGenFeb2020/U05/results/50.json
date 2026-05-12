@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "GREATER KAILASH",
+  "totals": {
+    "electors": 180653,
+    "votes_polled": 108548,
+    "turnout_pct": 60.0864641052183
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAURABH BHARADWAJ",
+      "party_short": "AAAP",
+      "votes": 60372,
+      "vote_share_pct": 55.617791207576374,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHIKHA ROY",
+      "party_short": "BJP",
+      "votes": 43563,
+      "vote_share_pct": 40.13247595533773,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUKHBIR SINGH PANWAR",
+      "party_short": "INC",
+      "votes": 3339,
+      "vote_share_pct": 3.076058517890703,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHOBHA DHAR",
+      "party_short": "PBI",
+      "votes": 282,
+      "vote_share_pct": 0.2597929026789991,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJBIR SINGH",
+      "party_short": "BSP",
+      "votes": 214,
+      "vote_share_pct": 0.19714780557909864,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 586,
+    "vote_share_pct": 0.539853336772672
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 192,
+    "vote_share_pct": 0.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAURABH BHARADWAJ",
+    "party_short": "AAAP",
+    "votes": 60372,
+    "margin_votes": 16809,
+    "margin_pct": 15.49
+  }
+}

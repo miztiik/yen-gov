@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 184,
+  "constituency_name": "Kanakapura",
+  "totals": {
+    "electors": 224987,
+    "votes_polled": 190623,
+    "turnout_pct": 84.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "D K Shivakumar",
+      "party_short": "INC",
+      "votes": 143023,
+      "vote_share_pct": 75.03,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "B Nagaraju",
+      "party_short": "JD(S)",
+      "votes": 20631,
+      "vote_share_pct": 10.82,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "R Ashoka",
+      "party_short": "BJP",
+      "votes": 19753,
+      "vote_share_pct": 10.36,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Manmohan Raj K N",
+      "party_short": "UPJP",
+      "votes": 1258,
+      "vote_share_pct": 0.66,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "E Puttaraju",
+      "party_short": "AAAP",
+      "votes": 1144,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 762,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4052,
+    "vote_share_pct": 2.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "D K Shivakumar",
+    "party_short": "INC",
+    "votes": 143023,
+    "margin_votes": 122392,
+    "margin_pct": 64.21
+  }
+}

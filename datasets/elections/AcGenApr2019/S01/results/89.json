@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 89,
+  "constituency_name": "Vemuru (SC)",
+  "totals": {
+    "electors": 195274,
+    "votes_polled": 171618,
+    "turnout_pct": 87.8857400370761
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MERUGU NAGARJUNA",
+      "party_short": "YSRCP",
+      "votes": 81671,
+      "vote_share_pct": 47.58883100840238,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ANANDA BABU NAKKA",
+      "party_short": "TDP",
+      "votes": 71672,
+      "vote_share_pct": 41.762519083079866,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "APPIKATLA BHARAT BHUSHAN",
+      "party_short": "JnP",
+      "votes": 13038,
+      "vote_share_pct": 7.597105198755376,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "JALADI SOBHAN KUMAR",
+      "party_short": "INC",
+      "votes": 1718,
+      "vote_share_pct": 1.0010604948198907,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DARSANAPU SRINIVASA RAO",
+      "party_short": "BJP",
+      "votes": 942,
+      "vote_share_pct": 0.5488934727126524,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1793,
+    "vote_share_pct": 1.0447622044307707
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 784,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MERUGU NAGARJUNA",
+    "party_short": "YSRCP",
+    "votes": 81671,
+    "margin_votes": 9999,
+    "margin_pct": 5.83
+  }
+}

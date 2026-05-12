@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 159,
+  "constituency_name": "Pulakeshinagar  (SC)",
+  "totals": {
+    "electors": 237288,
+    "votes_polled": 126432,
+    "turnout_pct": 53.28208758976433
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "R. AKHANDA SRINIVASAMURTHY",
+      "party_short": "INC",
+      "votes": 97574,
+      "vote_share_pct": 77.17508225765629,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "B. PRASANNAKUMAR",
+      "party_short": "JD(S)",
+      "votes": 15948,
+      "vote_share_pct": 12.61389521640091,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SUSHEELA DEVARAJ",
+      "party_short": "BJP",
+      "votes": 9479,
+      "vote_share_pct": 7.497310807390535,
+      "gender": "F",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "D.ANBARASAN",
+      "party_short": "IND",
+      "votes": 636,
+      "vote_share_pct": 0.503037205770691,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PRIYA",
+      "party_short": "IND",
+      "votes": 324,
+      "vote_share_pct": 0.25626423690205014,
+      "gender": "F",
+      "age": 31,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1402,
+    "vote_share_pct": 1.1088964819033156
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1069,
+    "vote_share_pct": 0.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "R. AKHANDA SRINIVASAMURTHY",
+    "party_short": "INC",
+    "votes": 97574,
+    "margin_votes": 81626,
+    "margin_pct": 64.56
+  }
+}

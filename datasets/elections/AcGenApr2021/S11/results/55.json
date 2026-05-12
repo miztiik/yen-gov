@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "MALAMPUZHA",
+  "totals": {
+    "electors": 213746,
+    "votes_polled": 163605,
+    "turnout_pct": 76.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A. Prabhakaran",
+      "party_short": "CPI(M)",
+      "votes": 75934,
+      "vote_share_pct": 46.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Krishnakumar.c",
+      "party_short": "BJP",
+      "votes": 50200,
+      "vote_share_pct": 30.68,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S. K. Ananthakrishnan",
+      "party_short": "INC",
+      "votes": 35444,
+      "vote_share_pct": 21.66,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K.prasad",
+      "party_short": "SUCI",
+      "votes": 555,
+      "vote_share_pct": 0.34,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Abdul Raheem. S",
+      "party_short": "IND",
+      "votes": 418,
+      "vote_share_pct": 0.26,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1054,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A. Prabhakaran",
+    "party_short": "CPI(M)",
+    "votes": 75934,
+    "margin_votes": 25734,
+    "margin_pct": 15.73
+  },
+  "others": null
+}

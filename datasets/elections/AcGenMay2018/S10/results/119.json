@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 119,
+  "constituency_name": "Kundapura",
+  "totals": {
+    "electors": 199617,
+    "votes_polled": 158644,
+    "turnout_pct": 79.47419307974772
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HALADY SRINIVAS SHETTY",
+      "party_short": "BJP",
+      "votes": 103434,
+      "vote_share_pct": 65.19880991402133,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAKESH MALLI",
+      "party_short": "INC",
+      "votes": 47029,
+      "vote_share_pct": 29.644360959128615,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "THEKKATTE PRAKASH SHETTY",
+      "party_short": "JD(S)",
+      "votes": 2712,
+      "vote_share_pct": 1.7094879100375684,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJIV KOTIAN",
+      "party_short": "JD(U)",
+      "votes": 2628,
+      "vote_share_pct": 1.6565391694611833,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUDHAKARA SOORGOLI",
+      "party_short": "RPI(A)",
+      "votes": 1028,
+      "vote_share_pct": 0.6479917299109959,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1813,
+    "vote_share_pct": 1.1428103174403066
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HALADY SRINIVAS SHETTY",
+    "party_short": "BJP",
+    "votes": 103434,
+    "margin_votes": 56405,
+    "margin_pct": 35.55
+  },
+  "others": null
+}

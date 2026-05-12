@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 75,
+  "constituency_name": "Pataudi (SC)",
+  "totals": {
+    "electors": 222465,
+    "votes_polled": 137194,
+    "turnout_pct": 61.66992560627514
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATYA PARKASH",
+      "party_short": "BJP",
+      "votes": 60633,
+      "vote_share_pct": 44.195081417554704,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "NARENDER SINGH PAHARI",
+      "party_short": "IND",
+      "votes": 24054,
+      "vote_share_pct": 17.532836712975786,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DEEP CHAND",
+      "party_short": "JNJP",
+      "votes": 19629,
+      "vote_share_pct": 14.307477003367493,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SUDHIR KUMAR",
+      "party_short": "INC",
+      "votes": 18994,
+      "vote_share_pct": 13.844628773853085,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PARDEEP JATAULI",
+      "party_short": "IND",
+      "votes": 5062,
+      "vote_share_pct": 3.68966572882196,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 732,
+    "vote_share_pct": 0.5335510299284225
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 8090,
+    "vote_share_pct": 5.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATYA PARKASH",
+    "party_short": "BJP",
+    "votes": 60633,
+    "margin_votes": 36579,
+    "margin_pct": 26.66
+  }
+}

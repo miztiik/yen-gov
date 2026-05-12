@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 90,
+  "constituency_name": "THODUPUZHA",
+  "totals": {
+    "electors": 191364,
+    "votes_polled": 138807,
+    "turnout_pct": 72.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P J Joseph",
+      "party_short": "KEC",
+      "votes": 67495,
+      "vote_share_pct": 48.63,
+      "is_winner": true,
+      "gender": "M",
+      "age": 79,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Prof. K I Antony",
+      "party_short": "KEC(M)",
+      "votes": 47236,
+      "vote_share_pct": 34.03,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Shyamraj P",
+      "party_short": "BJP",
+      "votes": 21263,
+      "vote_share_pct": 15.32,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Leethesh P T",
+      "party_short": "BSP",
+      "votes": 934,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "M T Thomas",
+      "party_short": "IND",
+      "votes": 562,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 674,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 643,
+    "vote_share_pct": 0.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P J Joseph",
+    "party_short": "KEC",
+    "votes": 67495,
+    "margin_votes": 20259,
+    "margin_pct": 14.6
+  }
+}

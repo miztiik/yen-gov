@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 100,
+  "constituency_name": "Barauli",
+  "totals": {
+    "electors": 300044,
+    "votes_polled": 176066,
+    "turnout_pct": 58.68006025782885
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMPRAVESH RAI",
+      "party_short": "BJP",
+      "votes": 81956,
+      "vote_share_pct": 46.548453420876264,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "REYAZUL HAQUE Urf RAJU",
+      "party_short": "RJD",
+      "votes": 67801,
+      "vote_share_pct": 38.508854634057684,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RUDAL MAHATO",
+      "party_short": "IND",
+      "votes": 5037,
+      "vote_share_pct": 2.8608589960582966,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMESH KUMAR PRASAD",
+      "party_short": "IND",
+      "votes": 4927,
+      "vote_share_pct": 2.7983824247725284,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAH ALAM",
+      "party_short": "BSP",
+      "votes": 4856,
+      "vote_share_pct": 2.7580566378517144,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 676,
+    "vote_share_pct": 0.38394692899253685
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 10813,
+    "vote_share_pct": 6.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMPRAVESH RAI",
+    "party_short": "BJP",
+    "votes": 81956,
+    "margin_votes": 14155,
+    "margin_pct": 8.04
+  }
+}

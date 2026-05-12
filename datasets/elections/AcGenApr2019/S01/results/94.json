@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 94,
+  "constituency_name": "Guntur West",
+  "totals": {
+    "electors": 265258,
+    "votes_polled": 174645,
+    "turnout_pct": 65.83967307300817
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MADDALI GIRIDHARA RAO",
+      "party_short": "TDP",
+      "votes": 71864,
+      "vote_share_pct": 41.148615763405765,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHANDRAGIRI YESURATNAM",
+      "party_short": "YSRCP",
+      "votes": 67575,
+      "vote_share_pct": 38.69277677574508,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. THOTA CHANDRA SHEKHAR",
+      "party_short": "JnP",
+      "votes": 27869,
+      "vote_share_pct": 15.957513813736437,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MADHAVI LATHA PASUPULETI",
+      "party_short": "BJP",
+      "votes": 1989,
+      "vote_share_pct": 1.1388817315124968,
+      "gender": "F",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ROHIT SAVARAM",
+      "party_short": "INC",
+      "votes": 1655,
+      "vote_share_pct": 0.9476366343153254,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 769,
+    "vote_share_pct": 0.4403217956425893
+  },
+  "others": {
+    "candidate_count": 29,
+    "votes": 2924,
+    "vote_share_pct": 1.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MADDALI GIRIDHARA RAO",
+    "party_short": "TDP",
+    "votes": 71864,
+    "margin_votes": 4289,
+    "margin_pct": 2.46
+  }
+}

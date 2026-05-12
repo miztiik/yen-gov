@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 105,
+  "constituency_name": "AMBALAPUZHA",
+  "totals": {
+    "electors": 168949,
+    "votes_polled": 133294,
+    "turnout_pct": 78.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G.SUDHAKARAN",
+      "party_short": "CPM",
+      "votes": 63069,
+      "vote_share_pct": 47.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHAIK.P.HARRIZ",
+      "party_short": "JD(U)",
+      "votes": 40448,
+      "vote_share_pct": 30.34,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "L.P.JAYACHANDRAN",
+      "party_short": "BJP",
+      "votes": 22730,
+      "vote_share_pct": 17.05,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K.S.SHAN",
+      "party_short": "SDPI",
+      "votes": 1622,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "R.ARJUNAN",
+      "party_short": "SUCI",
+      "votes": 1439,
+      "vote_share_pct": 1.08,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 627,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3359,
+    "vote_share_pct": 2.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G.SUDHAKARAN",
+    "party_short": "CPM",
+    "votes": 63069,
+    "margin_votes": 22621,
+    "margin_pct": 16.97
+  }
+}

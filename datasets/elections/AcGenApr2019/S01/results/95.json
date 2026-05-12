@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 95,
+  "constituency_name": "Guntur East",
+  "totals": {
+    "electors": 229909,
+    "votes_polled": 161522,
+    "turnout_pct": 70.25475296747844
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHAMMED MUSTAFA SHAIK",
+      "party_short": "YSRCP",
+      "votes": 77047,
+      "vote_share_pct": 47.700622825373635,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MOHAMMED NASEER",
+      "party_short": "TDP",
+      "votes": 54956,
+      "vote_share_pct": 34.0238481445252,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ZIA UR RAHMAN SHAIK",
+      "party_short": "JnP",
+      "votes": 21508,
+      "vote_share_pct": 13.315833137281608,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NERELLA V.S. SURESH",
+      "party_short": "BJP",
+      "votes": 2814,
+      "vote_share_pct": 1.742177536187021,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAGAN MOHAN REDDY MADDIREDDY",
+      "party_short": "INC",
+      "votes": 2466,
+      "vote_share_pct": 1.5267270093238072,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 712,
+    "vote_share_pct": 0.4408068250764602
+  },
+  "others": {
+    "candidate_count": 22,
+    "votes": 2019,
+    "vote_share_pct": 1.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHAMMED MUSTAFA SHAIK",
+    "party_short": "YSRCP",
+    "votes": 77047,
+    "margin_votes": 22091,
+    "margin_pct": 13.68
+  }
+}

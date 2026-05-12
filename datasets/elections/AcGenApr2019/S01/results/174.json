@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 174,
+  "constituency_name": "Palamaner",
+  "totals": {
+    "electors": 256090,
+    "votes_polled": 218957,
+    "turnout_pct": 85.50001952438596
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "N VENKATE GOWDA",
+      "party_short": "YSRCP",
+      "votes": 119241,
+      "vote_share_pct": 54.45863799741502,
+      "is_winner": true,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMARNATHA REDDY. N",
+      "party_short": "TDP",
+      "votes": 87625,
+      "vote_share_pct": 40.01927319062647,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SRIKANT NAIDU",
+      "party_short": "JnP",
+      "votes": 4254,
+      "vote_share_pct": 1.9428472257109843,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THIPPI REDDYGARI PARTHASARADHI REDDY",
+      "party_short": "INC",
+      "votes": 1814,
+      "vote_share_pct": 0.8284731705312002,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "P . C. ESWAR REDDY",
+      "party_short": "BJP",
+      "votes": 1148,
+      "vote_share_pct": 0.5243038587485215,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2561,
+    "vote_share_pct": 1.169636047260421
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2314,
+    "vote_share_pct": 1.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "N VENKATE GOWDA",
+    "party_short": "YSRCP",
+    "votes": 119241,
+    "margin_votes": 31616,
+    "margin_pct": 14.44
+  }
+}

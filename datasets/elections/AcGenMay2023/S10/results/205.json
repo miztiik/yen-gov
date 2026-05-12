@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 205,
+  "constituency_name": "Bantval",
+  "totals": {
+    "electors": 228415,
+    "votes_polled": 185572,
+    "turnout_pct": 81.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajesh Naik U",
+      "party_short": "BJP",
+      "votes": 93324,
+      "vote_share_pct": 50.29,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "B. Ramanath Rai",
+      "party_short": "INC",
+      "votes": 85042,
+      "vote_share_pct": 45.83,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ilyas Mohammed Thumbe",
+      "party_short": "SDPI",
+      "votes": 5436,
+      "vote_share_pct": 2.93,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Purushothama Gowda Kolpe",
+      "party_short": "AAAP",
+      "votes": 495,
+      "vote_share_pct": 0.27,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Prakash Gomes",
+      "party_short": "JD(S)",
+      "votes": 454,
+      "vote_share_pct": 0.24,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 821,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajesh Naik U",
+    "party_short": "BJP",
+    "votes": 93324,
+    "margin_votes": 8282,
+    "margin_pct": 4.46
+  },
+  "others": null
+}

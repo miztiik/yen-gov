@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 109,
+  "constituency_name": "Channagiri",
+  "totals": {
+    "electors": 196265,
+    "votes_polled": 158094,
+    "turnout_pct": 80.55129544238658
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K MADALU VIRUPAKSHAPPA",
+      "party_short": "BJP",
+      "votes": 73794,
+      "vote_share_pct": 46.67729325591104,
+      "is_winner": true,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VADNAL RAJANNA",
+      "party_short": "INC",
+      "votes": 48014,
+      "vote_share_pct": 30.37053904639012,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "D RAMESHA",
+      "party_short": "JD(S)",
+      "votes": 29106,
+      "vote_share_pct": 18.41056586587726,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAHIMA J PATEL",
+      "party_short": "JD(U)",
+      "votes": 3954,
+      "vote_share_pct": 2.5010436828722153,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "B R RUDRESHA",
+      "party_short": "KRRS",
+      "votes": 684,
+      "vote_share_pct": 0.4326539906637823,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 946,
+    "vote_share_pct": 0.5983781800700849
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1596,
+    "vote_share_pct": 1.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K MADALU VIRUPAKSHAPPA",
+    "party_short": "BJP",
+    "votes": 73794,
+    "margin_votes": 25780,
+    "margin_pct": 16.31
+  }
+}

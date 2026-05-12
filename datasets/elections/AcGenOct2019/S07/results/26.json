@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Israna (SC)",
+  "totals": {
+    "electors": 175134,
+    "votes_polled": 127311,
+    "turnout_pct": 72.69348042070644
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BALBIR SINGH",
+      "party_short": "INC",
+      "votes": 61376,
+      "vote_share_pct": 48.209502713826765,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "KRISHAN LAL PANWAR",
+      "party_short": "BJP",
+      "votes": 41361,
+      "vote_share_pct": 32.4881589179254,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DAYANAND URLANA",
+      "party_short": "JNJP",
+      "votes": 17735,
+      "vote_share_pct": 13.930453770687528,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "USHA ATKAN",
+      "party_short": "LTSP",
+      "votes": 2697,
+      "vote_share_pct": 2.118434385088484,
+      "gender": "F",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SUNITA SABHARWAL (JOSHI)",
+      "party_short": "BSP",
+      "votes": 1725,
+      "vote_share_pct": 1.354949690128897,
+      "gender": "F",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 551,
+    "vote_share_pct": 0.4327984227600129
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1866,
+    "vote_share_pct": 1.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BALBIR SINGH",
+    "party_short": "INC",
+    "votes": 61376,
+    "margin_votes": 20015,
+    "margin_pct": 15.72
+  }
+}

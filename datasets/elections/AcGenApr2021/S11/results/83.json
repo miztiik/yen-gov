@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 83,
+  "constituency_name": "THRIKKAKARA",
+  "totals": {
+    "electors": 194113,
+    "votes_polled": 136570,
+    "turnout_pct": 70.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv.p.t.thomas",
+      "party_short": "INC",
+      "votes": 59839,
+      "vote_share_pct": 43.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dr.j.jacob",
+      "party_short": "IND",
+      "votes": 45510,
+      "vote_share_pct": 33.32,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S Saji",
+      "party_short": "BJP",
+      "votes": 15483,
+      "vote_share_pct": 11.34,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dr.terry Thomas",
+      "party_short": "TTPty",
+      "votes": 13897,
+      "vote_share_pct": 10.18,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "P.m.shibu",
+      "party_short": "BSP",
+      "votes": 331,
+      "vote_share_pct": 0.24,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 695,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 815,
+    "vote_share_pct": 0.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv.p.t.thomas",
+    "party_short": "INC",
+    "votes": 59839,
+    "margin_votes": 14329,
+    "margin_pct": 10.49
+  }
+}

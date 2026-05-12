@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "Palasa",
+  "totals": {
+    "electors": 206799,
+    "votes_polled": 150691,
+    "turnout_pct": 72.86834075599978
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "APPALARAJU SEEDIRI",
+      "party_short": "YSRCP",
+      "votes": 76603,
+      "vote_share_pct": 50.83448912011998,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GOUTHU SIREESHA",
+      "party_short": "TDP",
+      "votes": 60356,
+      "vote_share_pct": 40.052823327206006,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KOTHA PURNACHANDRA RAO",
+      "party_short": "JnP",
+      "votes": 6133,
+      "vote_share_pct": 4.069917911487746,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KORRAYI BALAKRISHNA",
+      "party_short": "BJP",
+      "votes": 1574,
+      "vote_share_pct": 1.0445215706312918,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAJJI SARADA",
+      "party_short": "INC",
+      "votes": 1255,
+      "vote_share_pct": 0.8328300960243148,
+      "gender": "F",
+      "age": 64,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3044,
+    "vote_share_pct": 2.0200277388828796
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1726,
+    "vote_share_pct": 1.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "APPALARAJU SEEDIRI",
+    "party_short": "YSRCP",
+    "votes": 76603,
+    "margin_votes": 16247,
+    "margin_pct": 10.78
+  }
+}

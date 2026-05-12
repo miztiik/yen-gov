@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "Shahapur",
+  "totals": {
+    "electors": 238979,
+    "votes_polled": 166714,
+    "turnout_pct": 69.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sharanabasappa Darshanapur",
+      "party_short": "INC",
+      "votes": 78353,
+      "vote_share_pct": 47.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ameenraddi Yalagi",
+      "party_short": "BJP",
+      "votes": 52326,
+      "vote_share_pct": 31.39,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Guru Patil Shirwal",
+      "party_short": "JD(S)",
+      "votes": 30396,
+      "vote_share_pct": 18.23,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Chandrashekhar Sabayya",
+      "party_short": "AAAP",
+      "votes": 1320,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Prakash B. Kulkarni",
+      "party_short": "KRS",
+      "votes": 888,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1252,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2179,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sharanabasappa Darshanapur",
+    "party_short": "INC",
+    "votes": 78353,
+    "margin_votes": 26027,
+    "margin_pct": 15.61
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "Vijayawada East",
+  "totals": {
+    "electors": 275724,
+    "votes_polled": 186923,
+    "turnout_pct": 67.79351815583699
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gadde Rama Mohan",
+      "party_short": "TDP",
+      "votes": 82990,
+      "vote_share_pct": 44.39796065759698,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Boppana Bhava Kumar",
+      "party_short": "YSRCP",
+      "votes": 67826,
+      "vote_share_pct": 36.28552933560878,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Battina Ramu",
+      "party_short": "JnP",
+      "votes": 30137,
+      "vote_share_pct": 16.122681531967707,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Narendra Vangaveeti",
+      "party_short": "BJP",
+      "votes": 2102,
+      "vote_share_pct": 1.1245272117395935,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ponugupati Nancharayya",
+      "party_short": "INC",
+      "votes": 1881,
+      "vote_share_pct": 1.0062967104101688,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1063,
+    "vote_share_pct": 0.5686833615980912
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 924,
+    "vote_share_pct": 0.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gadde Rama Mohan",
+    "party_short": "TDP",
+    "votes": 82990,
+    "margin_votes": 15164,
+    "margin_pct": 8.11
+  }
+}

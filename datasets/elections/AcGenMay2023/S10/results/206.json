@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 206,
+  "constituency_name": "Puttur",
+  "totals": {
+    "electors": 212848,
+    "votes_polled": 172762,
+    "turnout_pct": 81.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ashok Kumar Rai",
+      "party_short": "INC",
+      "votes": 66607,
+      "vote_share_pct": 38.55,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Arun Kumar Puthila",
+      "party_short": "IND",
+      "votes": 62458,
+      "vote_share_pct": 36.15,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Asha Thimmappa",
+      "party_short": "BJP",
+      "votes": 37558,
+      "vote_share_pct": 21.74,
+      "gender": "F",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shaffi Bellare",
+      "party_short": "SDPI",
+      "votes": 2788,
+      "vote_share_pct": 1.61,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Divyaprabha Gowda",
+      "party_short": "JD(S)",
+      "votes": 684,
+      "vote_share_pct": 0.4,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 866,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1801,
+    "vote_share_pct": 1.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ashok Kumar Rai",
+    "party_short": "INC",
+    "votes": 66607,
+    "margin_votes": 4149,
+    "margin_pct": 2.4
+  }
+}

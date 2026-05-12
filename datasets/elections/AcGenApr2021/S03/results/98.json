@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 98,
+  "constituency_name": "JORHAT",
+  "totals": {
+    "electors": 186273,
+    "votes_polled": 139896,
+    "turnout_pct": 75.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HITENDRA NATH GOSWAMI",
+      "party_short": "BJP",
+      "votes": 68321,
+      "vote_share_pct": 48.84,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RANA GOSWAMI",
+      "party_short": "INC",
+      "votes": 61833,
+      "vote_share_pct": 44.2,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NIROD CHANGKAKOTI",
+      "party_short": "ASMJTYP",
+      "votes": 6925,
+      "vote_share_pct": 4.95,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RANJIT BARUAH",
+      "party_short": "IND",
+      "votes": 1100,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1717,
+    "vote_share_pct": 1.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HITENDRA NATH GOSWAMI",
+    "party_short": "BJP",
+    "votes": 68321,
+    "margin_votes": 6488,
+    "margin_pct": 4.64
+  },
+  "others": null
+}

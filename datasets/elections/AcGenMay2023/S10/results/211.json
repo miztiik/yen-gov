@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 211,
+  "constituency_name": "Krishnarajanagara",
+  "totals": {
+    "electors": 218050,
+    "votes_polled": 188841,
+    "turnout_pct": 86.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ravishankar.d.",
+      "party_short": "INC",
+      "votes": 104502,
+      "vote_share_pct": 55.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sa.ra. Mahesh.",
+      "party_short": "JD(S)",
+      "votes": 78863,
+      "vote_share_pct": 41.76,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Hosahalli Venkatesh.",
+      "party_short": "BJP",
+      "votes": 2350,
+      "vote_share_pct": 1.24,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Murugesh",
+      "party_short": "AAAP",
+      "votes": 1120,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Bharath Kumar",
+      "party_short": "BSP",
+      "votes": 545,
+      "vote_share_pct": 0.29,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 539,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 922,
+    "vote_share_pct": 0.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ravishankar.d.",
+    "party_short": "INC",
+    "votes": 104502,
+    "margin_votes": 25639,
+    "margin_pct": 13.58
+  }
+}

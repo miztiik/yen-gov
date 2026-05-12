@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "Achanta",
+  "totals": {
+    "electors": 174308,
+    "votes_polled": 138747,
+    "turnout_pct": 79.5987562246139
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHERUKUVADA SRIRANGANADHA RAJU",
+      "party_short": "YSRCP",
+      "votes": 66494,
+      "vote_share_pct": 47.92463981203197,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATYANARAYANA PITHANI",
+      "party_short": "TDP",
+      "votes": 53608,
+      "vote_share_pct": 38.637231796002794,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAVVADI VIJAY VENKATRAM",
+      "party_short": "JnP",
+      "votes": 13993,
+      "vote_share_pct": 10.085263104787852,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Nekkanti Venkata Satyanarayana (Satish)",
+      "party_short": "INC",
+      "votes": 1194,
+      "vote_share_pct": 0.8605591472248049,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Yedida Kodanda Chakrapani",
+      "party_short": "BJP",
+      "votes": 650,
+      "vote_share_pct": 0.46847859773544653,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1453,
+    "vote_share_pct": 1.0472298500147752
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1355,
+    "vote_share_pct": 0.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHERUKUVADA SRIRANGANADHA RAJU",
+    "party_short": "YSRCP",
+    "votes": 66494,
+    "margin_votes": 12886,
+    "margin_pct": 9.29
+  }
+}

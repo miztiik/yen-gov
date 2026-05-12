@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Maheshpur",
+  "totals": {
+    "electors": 216533,
+    "votes_polled": 165366,
+    "turnout_pct": 76.36988357432817
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "STEPHEN MARANDI",
+      "party_short": "JMM",
+      "votes": 89197,
+      "vote_share_pct": 53.93914105680733,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "MISTRY SOREN",
+      "party_short": "BJP",
+      "votes": 55091,
+      "vote_share_pct": 33.31458703723861,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "GOPIN SOREN",
+      "party_short": "CPIM",
+      "votes": 5176,
+      "vote_share_pct": 3.130026728589916,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SHIVDHAN HEMBROM",
+      "party_short": "JVM",
+      "votes": 2860,
+      "vote_share_pct": 1.7294969945454326,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SUPHAL MARANDI",
+      "party_short": "AJSUP",
+      "votes": 2706,
+      "vote_share_pct": 1.6363702333006787,
+      "gender": "M",
+      "age": 65,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1939,
+    "vote_share_pct": 1.1725505847634943
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 8397,
+    "vote_share_pct": 5.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "STEPHEN MARANDI",
+    "party_short": "JMM",
+    "votes": 89197,
+    "margin_votes": 34106,
+    "margin_pct": 20.62
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Nilokheri (SC)",
+  "totals": {
+    "electors": 214843,
+    "votes_polled": 134210,
+    "turnout_pct": 62.46887261860987
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DHARAM PAL GONDER",
+      "party_short": "IND",
+      "votes": 42979,
+      "vote_share_pct": 32.02369421056554,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "BHAGWAN DASS",
+      "party_short": "BJP",
+      "votes": 40757,
+      "vote_share_pct": 30.36807987482304,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BANTA RAM",
+      "party_short": "INC",
+      "votes": 19736,
+      "vote_share_pct": 14.705312569853216,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BHIM SINGH JALALA",
+      "party_short": "JNJP",
+      "votes": 11278,
+      "vote_share_pct": 8.403248640190746,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ARUNA",
+      "party_short": "RtrJP",
+      "votes": 7067,
+      "vote_share_pct": 5.265628492660755,
+      "gender": "F",
+      "age": 41,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 804,
+    "vote_share_pct": 0.5990611727889129
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 11589,
+    "vote_share_pct": 8.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DHARAM PAL GONDER",
+    "party_short": "IND",
+    "votes": 42979,
+    "margin_votes": 2222,
+    "margin_pct": 1.66
+  }
+}

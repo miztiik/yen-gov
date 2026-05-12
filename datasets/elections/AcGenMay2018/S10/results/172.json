@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 172,
+  "constituency_name": "B.T.M.Layout",
+  "totals": {
+    "electors": 270500,
+    "votes_polled": 135932,
+    "turnout_pct": 50.252125693160814
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMALINGA REDDY",
+      "party_short": "INC",
+      "votes": 67085,
+      "vote_share_pct": 49.35188182326456,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "LALLESH REDDY",
+      "party_short": "BJP",
+      "votes": 46607,
+      "vote_share_pct": 34.28699643939617,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K DEVADAS",
+      "party_short": "JD(S)",
+      "votes": 17307,
+      "vote_share_pct": 12.732101344790042,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DR. SYED ASAD ABBAS (M C ABBAS)",
+      "party_short": "AAAP",
+      "votes": 701,
+      "vote_share_pct": 0.5156990259835799,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "N KRISHNOJI RAO",
+      "party_short": "BJC",
+      "votes": 497,
+      "vote_share_pct": 0.3656239884648207,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2365,
+    "vote_share_pct": 1.7398405084895388
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1370,
+    "vote_share_pct": 1.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMALINGA REDDY",
+    "party_short": "INC",
+    "votes": 67085,
+    "margin_votes": 20478,
+    "margin_pct": 15.06
+  }
+}

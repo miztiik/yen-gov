@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 147,
+  "constituency_name": "Bakhri",
+  "totals": {
+    "electors": 270948,
+    "votes_polled": 163507,
+    "turnout_pct": 60.34626570412035
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURYAKANT PASWAN",
+      "party_short": "CPI",
+      "votes": 72177,
+      "vote_share_pct": 44.143064211318176,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAMSHANKAR PASWAN",
+      "party_short": "BJP",
+      "votes": 71400,
+      "vote_share_pct": 43.66785519885999,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "VIJAY PASWAN",
+      "party_short": "RLSP",
+      "votes": 3857,
+      "vote_share_pct": 2.358920413193319,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAJESH KUMAR RAJAK",
+      "party_short": "IND",
+      "votes": 2454,
+      "vote_share_pct": 1.5008531744818265,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SATYA PRAKASH",
+      "party_short": "RSTJNVKSP",
+      "votes": 2395,
+      "vote_share_pct": 1.4647690924547574,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2313,
+    "vote_share_pct": 1.4146183343832375
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 8911,
+    "vote_share_pct": 5.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURYAKANT PASWAN",
+    "party_short": "CPI",
+    "votes": 72177,
+    "margin_votes": 777,
+    "margin_pct": 0.48
+  }
+}

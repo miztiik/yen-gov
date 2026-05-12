@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Bokajan",
+  "totals": {
+    "electors": 129723,
+    "votes_polled": 107156,
+    "turnout_pct": 82.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NUMAL MOMIN",
+      "party_short": "BJP",
+      "votes": 40170,
+      "vote_share_pct": 37.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "KLENGDOON ENGTI",
+      "party_short": "INC",
+      "votes": 35426,
+      "vote_share_pct": 33.06,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "JAGAT SING ENGTI",
+      "party_short": "IND",
+      "votes": 25388,
+      "vote_share_pct": 23.69,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "DANIEL MOMIN",
+      "party_short": "NPEP",
+      "votes": 1628,
+      "vote_share_pct": 1.52,
+      "gender": "M",
+      "age": 31,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SANJAY KEMPRAI",
+      "party_short": "IND",
+      "votes": 1441,
+      "vote_share_pct": 1.34,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2144,
+    "vote_share_pct": 2.0
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 959,
+    "vote_share_pct": 0.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NUMAL MOMIN",
+    "party_short": "BJP",
+    "votes": 40170,
+    "margin_votes": 4744,
+    "margin_pct": 4.43
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 4,
+  "constituency_name": "Bagaha",
+  "totals": {
+    "electors": 305226,
+    "votes_polled": 181799,
+    "turnout_pct": 59.562094972250065
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM SINGH",
+      "party_short": "BJP",
+      "votes": 90013,
+      "vote_share_pct": 49.51237355541009,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAYESH MANGLAM SINGH",
+      "party_short": "INC",
+      "votes": 59993,
+      "vote_share_pct": 32.99963146111915,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAGHAW SHARAN PANDEY",
+      "party_short": "IND",
+      "votes": 6429,
+      "vote_share_pct": 3.53632308208516,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PURNMASI RAM",
+      "party_short": "JNSNGHDL",
+      "votes": 3649,
+      "vote_share_pct": 2.007161755565212,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KAMRAN AZIZ",
+      "party_short": "IND",
+      "votes": 3077,
+      "vote_share_pct": 1.692528561763266,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3456,
+    "vote_share_pct": 1.9010005555586116
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 15182,
+    "vote_share_pct": 8.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM SINGH",
+    "party_short": "BJP",
+    "votes": 90013,
+    "margin_votes": 30020,
+    "margin_pct": 16.51
+  }
+}

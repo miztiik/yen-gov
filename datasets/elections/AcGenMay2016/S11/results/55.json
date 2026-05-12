@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "MALAMPUZHA",
+  "totals": {
+    "electors": 202828,
+    "votes_polled": 159710,
+    "turnout_pct": 78.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V S ACHUTHANANDAN  E",
+      "party_short": "CPM",
+      "votes": 73299,
+      "vote_share_pct": 45.9,
+      "is_winner": true,
+      "gender": "M",
+      "age": 92,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "C.KRISHNAKUMAR",
+      "party_short": "BJP",
+      "votes": 46157,
+      "vote_share_pct": 28.9,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "V S JOY",
+      "party_short": "INC",
+      "votes": 35333,
+      "vote_share_pct": 22.12,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "C P SREEDHARAN",
+      "party_short": "ADMK",
+      "votes": 3154,
+      "vote_share_pct": 1.97,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAVI PALLATHERI",
+      "party_short": "BSP",
+      "votes": 326,
+      "vote_share_pct": 0.2,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 924,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 517,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V S ACHUTHANANDAN  E",
+    "party_short": "CPM",
+    "votes": 73299,
+    "margin_votes": 27142,
+    "margin_pct": 16.99
+  }
+}

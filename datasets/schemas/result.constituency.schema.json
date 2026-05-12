@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
   "title": "Per-constituency result",
   "description": "Result for a single constituency in a single election event. Includes top-N candidates plus NOTA, with remaining candidates collapsed into an 'others' bucket per processing config.",
-  "x-version": "3.1",
+  "x-version": "3.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -24,6 +24,11 @@
       "version": "3.1",
       "date": "2026-05-11",
       "description": "Additive: optional name (human-readable upstream name) and authority (issuing body) fields on each sources[] entry. Aligns with Phase A schemas (feature_collection.metadata, indicator) so attribution can be uniform across electoral and socio-economic data. Per TODO/SOCIO-ECONOMIC-EXPANSION.md §6 D3."
+    },
+    {
+      "version": "3.2",
+      "date": "2026-05-12",
+      "description": "Additive: optional gender, age, category fields on each candidates[] entry. ECI Section 10 carries these per-candidate; previously they were dropped on emit. No required-field changes; existing artifacts remain valid."
     }
   ],
   "type": "object",
@@ -177,6 +182,22 @@
           },
           "is_winner": {
             "type": "boolean"
+          },
+          "gender": {
+            "type": ["string", "null"],
+            "enum": ["M", "F", "O", null],
+            "description": "Candidate gender per the ECI Statistical Report column (SEX / GENDER). M=male, F=female, O=other / third-gender. Null when ECI did not record a value (e.g. NOTA rows, or pre-rollout layouts that omitted the column)."
+          },
+          "age": {
+            "type": ["integer", "null"],
+            "minimum": 18,
+            "maximum": 120,
+            "description": "Candidate age at nomination per the ECI Statistical Report column. Null when ECI omitted the value (NOTA rows, or layouts missing the column). Lower bound 18 = constitutional minimum for assembly candidacy (Art. 173(b))."
+          },
+          "category": {
+            "type": ["string", "null"],
+            "enum": ["GEN", "SC", "ST", null],
+            "description": "Candidate's social category as published in the ECI report (GEN / SC / ST). Reflects the candidate's category, NOT the seat reservation (which is constituency-level). Null on NOTA rows or layouts that omitted the column."
           }
         }
       }

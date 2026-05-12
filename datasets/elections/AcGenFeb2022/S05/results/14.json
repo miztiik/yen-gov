@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "St. Andre",
+  "totals": {
+    "electors": 21428,
+    "votes_polled": 16279,
+    "turnout_pct": 75.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Viresh Mukesh Borkar",
+      "party_short": "RVLTGONP",
+      "votes": 5395,
+      "vote_share_pct": 33.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Francisco Silveira",
+      "party_short": "BJP",
+      "votes": 5319,
+      "vote_share_pct": 32.67,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Anthony Lino Fernandes",
+      "party_short": "INC",
+      "votes": 2695,
+      "vote_share_pct": 16.56,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Jagdish Umakant Bhobe",
+      "party_short": "AITC",
+      "votes": 1261,
+      "vote_share_pct": 7.75,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ramrao Surya Naik Wagh",
+      "party_short": "AAAP",
+      "votes": 1122,
+      "vote_share_pct": 6.89,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 137,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 350,
+    "vote_share_pct": 2.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Viresh Mukesh Borkar",
+    "party_short": "RVLTGONP",
+    "votes": 5395,
+    "margin_votes": 76,
+    "margin_pct": 0.47
+  }
+}

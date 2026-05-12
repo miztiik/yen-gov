@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 141,
+  "constituency_name": "Chikkaballapur",
+  "totals": {
+    "electors": 197826,
+    "votes_polled": 173467,
+    "turnout_pct": 87.68665392819952
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. K. SUDHAKAR",
+      "party_short": "INC",
+      "votes": 82006,
+      "vote_share_pct": 47.274697781134165,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K.P.BACHEGOWDA",
+      "party_short": "JD(S)",
+      "votes": 51575,
+      "vote_share_pct": 29.731879838816607,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NAVEEN KIRAN K.V.",
+      "party_short": "IND",
+      "votes": 29433,
+      "vote_share_pct": 16.96749237607153,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DR. G.V. MANJUNATHA",
+      "party_short": "BJP",
+      "votes": 5576,
+      "vote_share_pct": 3.2144442458796196,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "N NARASIMHAMURTHY B.E.,",
+      "party_short": "KP",
+      "votes": 1830,
+      "vote_share_pct": 1.054955697625485,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 714,
+    "vote_share_pct": 0.4116056656309269
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2333,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. K. SUDHAKAR",
+    "party_short": "INC",
+    "votes": 82006,
+    "margin_votes": 30431,
+    "margin_pct": 17.54
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "Kinnaur (ST)",
+  "totals": {
+    "electors": 60289,
+    "votes_polled": 44085,
+    "turnout_pct": 73.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jagat Singh Negi",
+      "party_short": "INC",
+      "votes": 20696,
+      "vote_share_pct": 46.95,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Surat Negi",
+      "party_short": "BJP",
+      "votes": 13732,
+      "vote_share_pct": 31.15,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Tejwant Singh Negi",
+      "party_short": "IND",
+      "votes": 8574,
+      "vote_share_pct": 19.45,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Tersem Singh",
+      "party_short": "AAAP",
+      "votes": 580,
+      "vote_share_pct": 1.32,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Anil Kapoor",
+      "party_short": "BSP",
+      "votes": 280,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 223,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jagat Singh Negi",
+    "party_short": "INC",
+    "votes": 20696,
+    "margin_votes": 6964,
+    "margin_pct": 15.8
+  },
+  "others": null
+}

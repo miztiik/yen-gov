@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "Jharia",
+  "totals": {
+    "electors": 302949,
+    "votes_polled": 158509,
+    "turnout_pct": 52.32200799474499
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PURNIMA NIRAJ SINGH",
+      "party_short": "INC",
+      "votes": 79786,
+      "vote_share_pct": 50.33531219047499,
+      "is_winner": true,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAGINI SINGH",
+      "party_short": "BJP",
+      "votes": 67732,
+      "vote_share_pct": 42.7306966796838,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "YOGENDRA YADAV",
+      "party_short": "JVM",
+      "votes": 2779,
+      "vote_share_pct": 1.753212751326423,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ABADHESH KUMAR",
+      "party_short": "AJSUP",
+      "votes": 1279,
+      "vote_share_pct": 0.8068942457526072,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MD ALAM ANSARI",
+      "party_short": "IND",
+      "votes": 1006,
+      "vote_share_pct": 0.6346642777381726,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 636,
+    "vote_share_pct": 0.40123904636329794
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 5291,
+    "vote_share_pct": 3.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PURNIMA NIRAJ SINGH",
+    "party_short": "INC",
+    "votes": 79786,
+    "margin_votes": 12054,
+    "margin_pct": 7.6
+  }
+}

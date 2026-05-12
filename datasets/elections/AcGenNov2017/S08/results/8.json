@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Fatehpur",
+  "totals": {
+    "electors": 80793,
+    "votes_polled": 59401,
+    "turnout_pct": 73.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUJAN SINGH PATHANIA",
+      "party_short": "INC",
+      "votes": 18962,
+      "vote_share_pct": 31.92,
+      "is_winner": true,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KRIPAL SINGH PARMAR",
+      "party_short": "BJP",
+      "votes": 17678,
+      "vote_share_pct": 29.76,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BALDEV THAKUR",
+      "party_short": "IND",
+      "votes": 13090,
+      "vote_share_pct": 22.04,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DR. RAJAN SUSHANT",
+      "party_short": "IND",
+      "votes": 6205,
+      "vote_share_pct": 10.45,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "OM PARKASH",
+      "party_short": "BSP",
+      "votes": 830,
+      "vote_share_pct": 1.4,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 329,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1347,
+    "vote_share_pct": 2.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUJAN SINGH PATHANIA",
+    "party_short": "INC",
+    "votes": 18962,
+    "margin_votes": 1284,
+    "margin_pct": 2.16
+  }
+}

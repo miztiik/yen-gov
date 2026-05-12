@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "Bhawanathpur",
+  "totals": {
+    "electors": 378363,
+    "votes_polled": 255498,
+    "turnout_pct": 67.52721592756163
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhanu Pratap Shahi",
+      "party_short": "BJP",
+      "votes": 96818,
+      "vote_share_pct": 37.893838699324455,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sogra Bibi",
+      "party_short": "BSP",
+      "votes": 56914,
+      "vote_share_pct": 22.275712530039375,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Anant Pratap Deo",
+      "party_short": "IND",
+      "votes": 53050,
+      "vote_share_pct": 20.76337192463346,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Kedar Prasad Yadav",
+      "party_short": "INC",
+      "votes": 10895,
+      "vote_share_pct": 4.264221246350266,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Vijay Kumar Keshri",
+      "party_short": "JVM",
+      "votes": 3876,
+      "vote_share_pct": 1.51703731536059,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2163,
+    "vote_share_pct": 0.846581969330484
+  },
+  "others": {
+    "candidate_count": 23,
+    "votes": 31782,
+    "vote_share_pct": 12.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhanu Pratap Shahi",
+    "party_short": "BJP",
+    "votes": 96818,
+    "margin_votes": 39904,
+    "margin_pct": 15.62
+  }
+}

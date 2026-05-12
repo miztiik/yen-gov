@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Margao",
+  "totals": {
+    "electors": 29508,
+    "votes_polled": 22633,
+    "turnout_pct": 76.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DIGAMBAR KAMAT",
+      "party_short": "INC",
+      "votes": 13674,
+      "vote_share_pct": 60.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AJGAONKAR MANOHAR (BABU)",
+      "party_short": "BJP",
+      "votes": 5880,
+      "vote_share_pct": 25.98,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "LINCOLN ANTHONY VAZ",
+      "party_short": "AAAP",
+      "votes": 1173,
+      "vote_share_pct": 5.18,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAHESH AMONKAR",
+      "party_short": "AITC",
+      "votes": 923,
+      "vote_share_pct": 4.08,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHASHIRAJ SUBHA NAIK SHIRODKAR",
+      "party_short": "RVLTGONP",
+      "votes": 722,
+      "vote_share_pct": 3.19,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 261,
+    "vote_share_pct": 1.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DIGAMBAR KAMAT",
+    "party_short": "INC",
+    "votes": 13674,
+    "margin_votes": 7794,
+    "margin_pct": 34.44
+  },
+  "others": null
+}

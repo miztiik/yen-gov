@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 177,
+  "constituency_name": "Harnaut",
+  "totals": {
+    "electors": 308138,
+    "votes_polled": 158608,
+    "turnout_pct": 51.47304129967741
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARI NARAYAN SINGH",
+      "party_short": "JD(U)",
+      "votes": 65404,
+      "vote_share_pct": 41.2362554221729,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAMTA DEVI",
+      "party_short": "LJP",
+      "votes": 38163,
+      "vote_share_pct": 24.061207505296075,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KUNDAN KUMAR",
+      "party_short": "INC",
+      "votes": 21144,
+      "vote_share_pct": 13.330979521840009,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KAUSHLENDRA KUMAR SINGH",
+      "party_short": "BSP",
+      "votes": 6846,
+      "vote_share_pct": 4.316301825885201,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ASHOK KUMAR SINGH",
+      "party_short": "IND",
+      "votes": 2980,
+      "vote_share_pct": 1.8788459598507012,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1299,
+    "vote_share_pct": 0.8190003026329064
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 22772,
+    "vote_share_pct": 14.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARI NARAYAN SINGH",
+    "party_short": "JD(U)",
+    "votes": 65404,
+    "margin_votes": 27241,
+    "margin_pct": 17.18
+  }
+}

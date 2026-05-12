@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "SULTANPUR MAJRA(SC)",
+  "totals": {
+    "electors": 175622,
+    "votes_polled": 112125,
+    "turnout_pct": 63.84450695243192
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mukesh Kumar Ahlawat",
+      "party_short": "AAAP",
+      "votes": 74573,
+      "vote_share_pct": 66.50880713489408,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Ram Chander Chawriya",
+      "party_short": "BJP",
+      "votes": 26521,
+      "vote_share_pct": 23.653065774804904,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Jai Kishan",
+      "party_short": "INC",
+      "votes": 9033,
+      "vote_share_pct": 8.0561872909699,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Neelam",
+      "party_short": "BSP",
+      "votes": 671,
+      "vote_share_pct": 0.5984392419175028,
+      "gender": "F",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Mahender Kumar",
+      "party_short": "svjn",
+      "votes": 351,
+      "vote_share_pct": 0.3130434782608696,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 460,
+    "vote_share_pct": 0.41025641025641024
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 516,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mukesh Kumar Ahlawat",
+    "party_short": "AAAP",
+    "votes": 74573,
+    "margin_votes": 48052,
+    "margin_pct": 42.86
+  }
+}

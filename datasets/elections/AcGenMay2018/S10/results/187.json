@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 187,
+  "constituency_name": "Maddur",
+  "totals": {
+    "electors": 205471,
+    "votes_polled": 172095,
+    "turnout_pct": 83.75634517766497
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "D.C.THAMMANNA",
+      "party_short": "JD(S)",
+      "votes": 109239,
+      "vote_share_pct": 63.475987100148174,
+      "is_winner": true,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MADHU G MADEGOWDA",
+      "party_short": "INC",
+      "votes": 55209,
+      "vote_share_pct": 32.080536912751676,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MADDURU SATHISHA",
+      "party_short": "BJP",
+      "votes": 4159,
+      "vote_share_pct": 2.4166884569569134,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "LINGEGOWDA S H",
+      "party_short": "SWARAJ",
+      "votes": 450,
+      "vote_share_pct": 0.261483482959993,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VENKATESHA",
+      "party_short": "IND",
+      "votes": 429,
+      "vote_share_pct": 0.24928092042185998,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1350,
+    "vote_share_pct": 0.784450448879979
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1259,
+    "vote_share_pct": 0.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "D.C.THAMMANNA",
+    "party_short": "JD(S)",
+    "votes": 109239,
+    "margin_votes": 54030,
+    "margin_pct": 31.4
+  }
+}

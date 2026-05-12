@@ -26,6 +26,8 @@
   import {
     fetchElectionEvents,
     defaultEventForState,
+    listEventsForState,
+    findEvent,
     daysSincePolled,
     type ElectionEventsCatalogue,
     type ElectionEventRow,
@@ -53,11 +55,34 @@
   // params.state is a SLUG (or, for backwards compatibility, an ECI code).
   // Resolve via the reactive states store; null while loading or unknown.
   const state_code = $derived(states.codeFromSlug(params.state));
-  const event_row = $derived<ElectionEventRow | null>(
+
+  // Per-state event picker. Citizen lands on the catalogue default (most
+  // recent assembly election); switching the picker re-resolves every
+  // election-scoped fetch (summary, winners, SQLite) without leaving the
+  // hub. `selected_event_id` is reset whenever the state changes so a
+  // selection in TN doesn't bleed into Kerala. The list is intentionally
+  // hidden when there is only one event for this state.
+  let selected_event_id = $state<string | null>(null);
+  const all_events = $derived<ElectionEventRow[]>(
+    listEventsForState(election_catalogue, state_code),
+  );
+  const default_event_row = $derived<ElectionEventRow | null>(
     defaultEventForState(election_catalogue, state_code),
+  );
+  const event_row = $derived<ElectionEventRow | null>(
+    (selected_event_id
+      ? findEvent(election_catalogue, state_code, selected_event_id)
+      : null) ?? default_event_row,
   );
   const event = $derived(event_row?.event_id ?? null);
   const event_status = $derived(event_row?.data_status ?? null);
+
+  // Reset the picker when the state changes so cross-state navigation
+  // never carries a now-invalid event_id.
+  $effect(() => {
+    void state_code;
+    selected_event_id = null;
+  });
   const days_since_poll = $derived(event_row ? daysSincePolled(event_row) : null);
   const is_news_cycle = $derived(
     days_since_poll !== null && days_since_poll >= 0 && days_since_poll < 90,
@@ -286,7 +311,7 @@
     <h1 class="text-2xl font-bold leading-tight">{states.name(state_code)}</h1>
     <p class="text-sm text-slate-600">
       {#if event_row}
-        Most recent assembly election: {event_row.display}.
+        {selected_event_id ? "Election" : "Most recent assembly election"}: {event_row.display}.
       {:else if state_code}
         No assembly election data ingested yet for this state.
       {/if}
@@ -301,6 +326,23 @@
         {/if}
       {/if}
     </p>
+    {#if all_events.length > 1}
+      <p class="text-xs text-slate-600 flex items-center gap-2 pt-1">
+        <label for="event-picker" class="font-medium text-slate-700">Election:</label>
+        <select
+          id="event-picker"
+          class="border border-slate-300 rounded px-2 py-0.5 text-xs bg-white"
+          bind:value={selected_event_id}
+        >
+          {#each all_events as row (row.event_id)}
+            <option value={row.event_id}>
+              {row.display}{row === default_event_row ? " (latest)" : ""}
+            </option>
+          {/each}
+        </select>
+        <span class="text-slate-400">{all_events.length} elections on record</span>
+      </p>
+    {/if}
   </header>
 
   {#if !state_code}

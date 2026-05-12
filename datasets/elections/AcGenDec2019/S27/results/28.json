@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "Dhanwar",
+  "totals": {
+    "electors": 307716,
+    "votes_polled": 189838,
+    "turnout_pct": 61.69259966982542
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BABULAL MARANDI",
+      "party_short": "JVM",
+      "votes": 52352,
+      "vote_share_pct": 27.577197399888327,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "LAKSHMAN PRASAD SINGH",
+      "party_short": "BJP",
+      "votes": 34802,
+      "vote_share_pct": 18.332472950621057,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJ KUMAR YADAV",
+      "party_short": "CPI(ML)(L)",
+      "votes": 32245,
+      "vote_share_pct": 16.98553503513522,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANUP KUMAR SONTHALIA",
+      "party_short": "IND",
+      "votes": 22624,
+      "vote_share_pct": 11.917529683203574,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHAMMAD DANISH",
+      "party_short": "AIMIM",
+      "votes": 15416,
+      "vote_share_pct": 8.12060809743044,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2485,
+    "vote_share_pct": 1.3090108408221748
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 29914,
+    "vote_share_pct": 15.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BABULAL MARANDI",
+    "party_short": "JVM",
+    "votes": 52352,
+    "margin_votes": 17550,
+    "margin_pct": 9.24
+  }
+}

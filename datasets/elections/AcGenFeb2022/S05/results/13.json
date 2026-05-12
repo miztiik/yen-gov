@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "St.Cruz",
+  "totals": {
+    "electors": 29298,
+    "votes_polled": 22685,
+    "turnout_pct": 77.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rodolfo Louis Fernandes",
+      "party_short": "INC",
+      "votes": 8841,
+      "vote_share_pct": 38.97,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Antonio Caetano Fernandes",
+      "party_short": "BJP",
+      "votes": 6377,
+      "vote_share_pct": 28.11,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Amit Palekar",
+      "party_short": "AAAP",
+      "votes": 4098,
+      "vote_share_pct": 18.06,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ajay Tipu Kholkar",
+      "party_short": "RVLTGONP",
+      "votes": 2497,
+      "vote_share_pct": 11.01,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Victor Benjamin Gonsalves",
+      "party_short": "AITC",
+      "votes": 523,
+      "vote_share_pct": 2.31,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 349,
+    "vote_share_pct": 1.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rodolfo Louis Fernandes",
+    "party_short": "INC",
+    "votes": 8841,
+    "margin_votes": 2464,
+    "margin_pct": 10.86
+  },
+  "others": null
+}

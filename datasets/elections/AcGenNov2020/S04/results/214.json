@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 214,
+  "constituency_name": "Arwal",
+  "totals": {
+    "electors": 258687,
+    "votes_polled": 144740,
+    "turnout_pct": 55.95178729507088
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Maha Nand Singh",
+      "party_short": "CPI(ML)(L)",
+      "votes": 68286,
+      "vote_share_pct": 47.17838883515269,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dipak Kumar Sharma",
+      "party_short": "BJP",
+      "votes": 48336,
+      "vote_share_pct": 33.3950531988393,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Subhash Chandra Yadav",
+      "party_short": "RLSP",
+      "votes": 7941,
+      "vote_share_pct": 5.4863893878679,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Mohan Kumar",
+      "party_short": "JP",
+      "votes": 2594,
+      "vote_share_pct": 1.7921790797291695,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ajay Kumar",
+      "party_short": "IND",
+      "votes": 2342,
+      "vote_share_pct": 1.6180737874810003,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2372,
+    "vote_share_pct": 1.638800607986735
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 12869,
+    "vote_share_pct": 8.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Maha Nand Singh",
+    "party_short": "CPI(ML)(L)",
+    "votes": 68286,
+    "margin_votes": 19950,
+    "margin_pct": 13.78
+  }
+}

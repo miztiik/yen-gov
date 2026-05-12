@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "AZHIKODE",
+  "totals": {
+    "electors": 172757,
+    "votes_polled": 141498,
+    "turnout_pct": 81.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K M SHAJI",
+      "party_short": "IUML",
+      "votes": 63082,
+      "vote_share_pct": 44.58,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M V NIKESH KUMAR",
+      "party_short": "CPM",
+      "votes": 60795,
+      "vote_share_pct": 42.97,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "A V KESAVAN",
+      "party_short": "BJP",
+      "votes": 12580,
+      "vote_share_pct": 8.89,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K K ABDUL JABBAR",
+      "party_short": "SDPI",
+      "votes": 1705,
+      "vote_share_pct": 1.2,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "P K RAGESH",
+      "party_short": "IND",
+      "votes": 1518,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 453,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1365,
+    "vote_share_pct": 0.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K M SHAJI",
+    "party_short": "IUML",
+    "votes": 63082,
+    "margin_votes": 2287,
+    "margin_pct": 1.62
+  }
+}

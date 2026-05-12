@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Badarpur",
+  "totals": {
+    "electors": 139063,
+    "votes_polled": 112519,
+    "turnout_pct": 80.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAMAL UDDIN AHMED",
+      "party_short": "INC",
+      "votes": 38266,
+      "vote_share_pct": 34.01,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ABDUL AZIZ",
+      "party_short": "AIUDF",
+      "votes": 36178,
+      "vote_share_pct": 32.15,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DIPAK DEB",
+      "party_short": "BJP",
+      "votes": 35694,
+      "vote_share_pct": 31.72,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAZIDUL HOQUE",
+      "party_short": "IND",
+      "votes": 418,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KAMRUL ISLAM",
+      "party_short": "SP",
+      "votes": 303,
+      "vote_share_pct": 0.27,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 596,
+    "vote_share_pct": 0.53
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1064,
+    "vote_share_pct": 0.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAMAL UDDIN AHMED",
+    "party_short": "INC",
+    "votes": 38266,
+    "margin_votes": 2088,
+    "margin_pct": 1.86
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "MEHRAULI",
+  "totals": {
+    "electors": 203804,
+    "votes_polled": 115007,
+    "turnout_pct": 56.43019764087064
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NARESH YADAV",
+      "party_short": "AAAP",
+      "votes": 62417,
+      "vote_share_pct": 54.272348639648015,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KUSUM KHATRI",
+      "party_short": "BJP",
+      "votes": 44256,
+      "vote_share_pct": 38.48113593085638,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "A A MAHENDER CHAUDHARY",
+      "party_short": "INC",
+      "votes": 6952,
+      "vote_share_pct": 6.04484944394689,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KAMAL SINGH",
+      "party_short": "BSP",
+      "votes": 470,
+      "vote_share_pct": 0.40867077656142664,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "D K CHOPRA",
+      "party_short": "﻿AIFB",
+      "votes": 163,
+      "vote_share_pct": 0.141730503360665,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 593,
+    "vote_share_pct": 0.5156207882998426
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 156,
+    "vote_share_pct": 0.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NARESH YADAV",
+    "party_short": "AAAP",
+    "votes": 62417,
+    "margin_votes": 18161,
+    "margin_pct": 15.79
+  }
+}

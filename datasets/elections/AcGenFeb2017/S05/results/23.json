@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Marcaim",
+  "totals": {
+    "electors": 26984,
+    "votes_polled": 23356,
+    "turnout_pct": 86.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMKRISHNA ALIAS SUDIN DHAVALIKAR",
+      "party_short": "MAG",
+      "votes": 17093,
+      "vote_share_pct": 73.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PRADEEP PUNDALIK SHET",
+      "party_short": "BJP",
+      "votes": 3413,
+      "vote_share_pct": 14.61,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "URMILA ALIAS VINDIKSHA VINOD NAIK",
+      "party_short": "INC",
+      "votes": 1259,
+      "vote_share_pct": 5.39,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUREL DATTA TILVE",
+      "party_short": "AAAP",
+      "votes": 971,
+      "vote_share_pct": 4.16,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HANUMANT VASANT NAIK",
+      "party_short": "IND",
+      "votes": 244,
+      "vote_share_pct": 1.04,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 376,
+    "vote_share_pct": 1.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMKRISHNA ALIAS SUDIN DHAVALIKAR",
+    "party_short": "MAG",
+    "votes": 17093,
+    "margin_votes": 13680,
+    "margin_pct": 58.57
+  },
+  "others": null
+}

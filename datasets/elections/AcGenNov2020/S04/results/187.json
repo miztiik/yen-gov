@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 187,
+  "constituency_name": "Maner",
+  "totals": {
+    "electors": 325625,
+    "votes_polled": 198628,
+    "turnout_pct": 60.9990019193858
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHAI VIRENDRA",
+      "party_short": "RJD",
+      "votes": 94223,
+      "vote_share_pct": 47.43691725235113,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NIKHIL ANAND",
+      "party_short": "BJP",
+      "votes": 61306,
+      "vote_share_pct": 30.864732061944945,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHRIKANT NIRALA",
+      "party_short": "IND",
+      "votes": 14615,
+      "vote_share_pct": 7.3579757133938815,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIKASH KUMAR",
+      "party_short": "IND",
+      "votes": 4024,
+      "vote_share_pct": 2.025897657933423,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KAMESHWAR KUMAR",
+      "party_short": "IND",
+      "votes": 3108,
+      "vote_share_pct": 1.5647340757597117,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1106,
+    "vote_share_pct": 0.5568197837162937
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 20246,
+    "vote_share_pct": 10.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHAI VIRENDRA",
+    "party_short": "RJD",
+    "votes": 94223,
+    "margin_votes": 32917,
+    "margin_pct": 16.57
+  }
+}

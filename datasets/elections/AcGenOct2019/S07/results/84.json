@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 84,
+  "constituency_name": "Palwal",
+  "totals": {
+    "electors": 230061,
+    "votes_polled": 160830,
+    "turnout_pct": 69.90754625947031
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DEEPAK MANGLA",
+      "party_short": "BJP",
+      "votes": 89426,
+      "vote_share_pct": 55.60281042094136,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KARAN SINGH",
+      "party_short": "INC",
+      "votes": 61130,
+      "vote_share_pct": 38.00907790835043,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GAYA LAL",
+      "party_short": "JNJP",
+      "votes": 6498,
+      "vote_share_pct": 4.04029099048685,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SATPAL",
+      "party_short": "INLD",
+      "votes": 775,
+      "vote_share_pct": 0.48187527202636327,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Dr. K.P. SINGH",
+      "party_short": "IND",
+      "votes": 490,
+      "vote_share_pct": 0.3046695268295716,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 910,
+    "vote_share_pct": 0.5658148355406329
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1601,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DEEPAK MANGLA",
+    "party_short": "BJP",
+    "votes": 89426,
+    "margin_votes": 28296,
+    "margin_pct": 17.59
+  }
+}

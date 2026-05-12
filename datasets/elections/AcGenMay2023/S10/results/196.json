@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 196,
+  "constituency_name": "Hassan",
+  "totals": {
+    "electors": 228436,
+    "votes_polled": 171038,
+    "turnout_pct": 74.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Swaroop Prakash",
+      "party_short": "JD(S)",
+      "votes": 85176,
+      "vote_share_pct": 49.8,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Preetham J. Gowda",
+      "party_short": "BJP",
+      "votes": 77322,
+      "vote_share_pct": 45.21,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Banavase Rangaswamy",
+      "party_short": "INC",
+      "votes": 4305,
+      "vote_share_pct": 2.52,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Agile Yogish",
+      "party_short": "AAAP",
+      "votes": 1301,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Swaroopa B. M",
+      "party_short": "PMPT",
+      "votes": 914,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 889,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1131,
+    "vote_share_pct": 0.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Swaroop Prakash",
+    "party_short": "JD(S)",
+    "votes": 85176,
+    "margin_votes": 7854,
+    "margin_pct": 4.59
+  }
+}

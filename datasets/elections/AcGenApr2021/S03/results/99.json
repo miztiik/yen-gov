@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 99,
+  "constituency_name": "MAJULI",
+  "totals": {
+    "electors": 132403,
+    "votes_polled": 105782,
+    "turnout_pct": 79.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SARBANANDA SONOWAL",
+      "party_short": "BJP",
+      "votes": 71436,
+      "vote_share_pct": 67.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "RAJIB LOCHAN PEGU",
+      "party_short": "INC",
+      "votes": 28244,
+      "vote_share_pct": 26.7,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SISHUDHAR DOLEY",
+      "party_short": "ASMJTYP",
+      "votes": 3246,
+      "vote_share_pct": 3.07,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "BHAITY RICHONG",
+      "party_short": "SUCI",
+      "votes": 1080,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 28,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "PURNA PEGU",
+      "party_short": "IND",
+      "votes": 701,
+      "vote_share_pct": 0.66,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1075,
+    "vote_share_pct": 1.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SARBANANDA SONOWAL",
+    "party_short": "BJP",
+    "votes": 71436,
+    "margin_votes": 43192,
+    "margin_pct": 40.83
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 96,
+  "constituency_name": "Kudligi  (ST)",
+  "totals": {
+    "electors": 198220,
+    "votes_polled": 152076,
+    "turnout_pct": 76.7208152557764
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "N.Y. GOPALAKRISHNA",
+      "party_short": "BJP",
+      "votes": 50085,
+      "vote_share_pct": 32.93419079933717,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "N.T. BOMMANNA",
+      "party_short": "JD(S)",
+      "votes": 39272,
+      "vote_share_pct": 25.82393014019306,
+      "gender": "M",
+      "age": 74,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "LOKESH. V. NAYAKA",
+      "party_short": "IND",
+      "votes": 29514,
+      "vote_share_pct": 19.407401562376705,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "RAGHU GUJJAL",
+      "party_short": "INC",
+      "votes": 23316,
+      "vote_share_pct": 15.331807780320366,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "H.VEERANNA",
+      "party_short": "CPI",
+      "votes": 3414,
+      "vote_share_pct": 2.2449301664956995,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2055,
+    "vote_share_pct": 1.3512980351929298
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4420,
+    "vote_share_pct": 2.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "N.Y. GOPALAKRISHNA",
+    "party_short": "BJP",
+    "votes": 50085,
+    "margin_votes": 10813,
+    "margin_pct": 7.11
+  }
+}

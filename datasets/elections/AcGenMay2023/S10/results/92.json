@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 92,
+  "constituency_name": "Siruguppa (ST)",
+  "totals": {
+    "electors": 217209,
+    "votes_polled": 168106,
+    "turnout_pct": 77.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B. M. Nagaraja",
+      "party_short": "INC",
+      "votes": 90862,
+      "vote_share_pct": 54.05,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "M. S. Somalingappa",
+      "party_short": "BJP",
+      "votes": 53830,
+      "vote_share_pct": 32.02,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "T. Darappa Naik",
+      "party_short": "KRPP",
+      "votes": 18652,
+      "vote_share_pct": 11.1,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "B. Parameshwara Nayaka",
+      "party_short": "JD(S)",
+      "votes": 992,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Doddayallappa",
+      "party_short": "KRS",
+      "votes": 526,
+      "vote_share_pct": 0.31,
+      "gender": "M",
+      "age": 36,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1645,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1599,
+    "vote_share_pct": 0.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B. M. Nagaraja",
+    "party_short": "INC",
+    "votes": 90862,
+    "margin_votes": 37032,
+    "margin_pct": 22.03
+  }
+}

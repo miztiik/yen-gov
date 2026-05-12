@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "Hajo",
+  "totals": {
+    "electors": 154525,
+    "votes_polled": 135168,
+    "turnout_pct": 87.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUMAN HARIPRIYA",
+      "party_short": "BJP",
+      "votes": 55096,
+      "vote_share_pct": 40.76,
+      "is_winner": true,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DULU AHMED",
+      "party_short": "INC",
+      "votes": 46188,
+      "vote_share_pct": 34.17,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NURUL HUSSAIN",
+      "party_short": "AGP",
+      "votes": 16608,
+      "vote_share_pct": 12.29,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DWIPEN PATHAK",
+      "party_short": "AITC",
+      "votes": 6673,
+      "vote_share_pct": 4.94,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUJIBUR RAHMAN",
+      "party_short": "AIUDF",
+      "votes": 3567,
+      "vote_share_pct": 2.64,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1163,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 5873,
+    "vote_share_pct": 4.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUMAN HARIPRIYA",
+    "party_short": "BJP",
+    "votes": 55096,
+    "margin_votes": 8908,
+    "margin_pct": 6.59
+  }
+}

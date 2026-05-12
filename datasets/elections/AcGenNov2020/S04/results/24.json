@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Bathnaha",
+  "totals": {
+    "electors": 307230,
+    "votes_polled": 171093,
+    "turnout_pct": 55.688897568596815
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANIL KUMAR",
+      "party_short": "BJP",
+      "votes": 92648,
+      "vote_share_pct": 54.150666596529376,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SANJAY RAM",
+      "party_short": "INC",
+      "votes": 45830,
+      "vote_share_pct": 26.786601438983475,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "CHANDRIKA PASWAN",
+      "party_short": "RLSP",
+      "votes": 15322,
+      "vote_share_pct": 8.955363457300999,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "VIJAY KUMAR BAITHA",
+      "party_short": "IND",
+      "votes": 2890,
+      "vote_share_pct": 1.6891398245398699,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "LALU DAS",
+      "party_short": "IND",
+      "votes": 2482,
+      "vote_share_pct": 1.4506730257813003,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 5240,
+    "vote_share_pct": 3.0626618271933976
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 6681,
+    "vote_share_pct": 3.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANIL KUMAR",
+    "party_short": "BJP",
+    "votes": 92648,
+    "margin_votes": 46818,
+    "margin_pct": 27.36
+  }
+}

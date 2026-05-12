@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 36,
+  "constituency_name": "Quepem",
+  "totals": {
+    "electors": 31293,
+    "votes_polled": 26662,
+    "turnout_pct": 85.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHANDRAKANT (BABU) KAVLEKAR",
+      "party_short": "INC",
+      "votes": 13525,
+      "vote_share_pct": 50.73,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PRAKASH SHANKAR VELIP",
+      "party_short": "BJP",
+      "votes": 10933,
+      "vote_share_pct": 41.01,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JOAO FERNANDES",
+      "party_short": "AAAP",
+      "votes": 1385,
+      "vote_share_pct": 5.19,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "CHARLES D&#39;SILVA",
+      "party_short": "GSRP",
+      "votes": 251,
+      "vote_share_pct": 0.94,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUDESH GAUDE",
+      "party_short": "MAG",
+      "votes": 211,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 357,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHANDRAKANT (BABU) KAVLEKAR",
+    "party_short": "INC",
+    "votes": 13525,
+    "margin_votes": 2592,
+    "margin_pct": 9.72
+  },
+  "others": null
+}

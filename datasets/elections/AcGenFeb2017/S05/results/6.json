@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Siolim",
+  "totals": {
+    "electors": 28171,
+    "votes_polled": 23496,
+    "turnout_pct": 83.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VINODA DATARAMA PALIENCAR",
+      "party_short": "GFP",
+      "votes": 10189,
+      "vote_share_pct": 43.36,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DAYANAND RAYU MANDREKAR",
+      "party_short": "BJP",
+      "votes": 8748,
+      "vote_share_pct": 37.23,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VISHNU MHADDU NAIK",
+      "party_short": "AAAP",
+      "votes": 1854,
+      "vote_share_pct": 7.89,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PATRICK SAVIO ALMEIDA",
+      "party_short": "IND",
+      "votes": 1497,
+      "vote_share_pct": 6.37,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PARESH RAIKAR",
+      "party_short": "GSM",
+      "votes": 532,
+      "vote_share_pct": 2.26,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 212,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 464,
+    "vote_share_pct": 1.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VINODA DATARAMA PALIENCAR",
+    "party_short": "GFP",
+    "votes": 10189,
+    "margin_votes": 1441,
+    "margin_pct": 6.13
+  }
+}

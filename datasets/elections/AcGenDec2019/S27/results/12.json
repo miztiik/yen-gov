@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "Jarmundi",
+  "totals": {
+    "electors": 227038,
+    "votes_polled": 162951,
+    "turnout_pct": 71.77256670689488
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BADAL",
+      "party_short": "INC",
+      "votes": 52507,
+      "vote_share_pct": 32.22256997502317,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DEVENDRA KUNWAR",
+      "party_short": "BJP",
+      "votes": 49408,
+      "vote_share_pct": 30.3207712748004,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "FULKUMARI DEVI",
+      "party_short": "IND",
+      "votes": 17313,
+      "vote_share_pct": 10.624666310731447,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANJAY KUMAR",
+      "party_short": "JVM",
+      "votes": 9242,
+      "vote_share_pct": 5.671643622929593,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SITA RAM PATHAK",
+      "party_short": "IND",
+      "votes": 3989,
+      "vote_share_pct": 2.4479751581763844,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1449,
+    "vote_share_pct": 0.8892243680615645
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 29043,
+    "vote_share_pct": 17.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BADAL",
+    "party_short": "INC",
+    "votes": 52507,
+    "margin_votes": 3099,
+    "margin_pct": 1.9
+  }
+}

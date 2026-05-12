@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 185,
+  "constituency_name": "Channapatna",
+  "totals": {
+    "electors": 217606,
+    "votes_polled": 189013,
+    "turnout_pct": 86.86019686957161
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "H D KUMARA SWAMY",
+      "party_short": "JD(S)",
+      "votes": 87995,
+      "vote_share_pct": 46.5549988625121,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "C P YOGEESHWARA",
+      "party_short": "BJP",
+      "votes": 66465,
+      "vote_share_pct": 35.164247961780404,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "H M REVANNA",
+      "party_short": "INC",
+      "votes": 30208,
+      "vote_share_pct": 15.98196949416178,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RATNAMMA",
+      "party_short": "IND",
+      "votes": 927,
+      "vote_share_pct": 0.490442456338982,
+      "gender": "F",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "YOGISHA M",
+      "party_short": "IND",
+      "votes": 488,
+      "vote_share_pct": 0.25818329956140584,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1103,
+    "vote_share_pct": 0.5835577447053908
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1827,
+    "vote_share_pct": 0.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "H D KUMARA SWAMY",
+    "party_short": "JD(S)",
+    "votes": 87995,
+    "margin_votes": 21530,
+    "margin_pct": 11.39
+  }
+}

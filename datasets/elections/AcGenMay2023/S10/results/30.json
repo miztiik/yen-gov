@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "Bijapur City",
+  "totals": {
+    "electors": 281726,
+    "votes_polled": 183047,
+    "turnout_pct": 64.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Basanagouda R Patil (yatnal)",
+      "party_short": "BJP",
+      "votes": 94201,
+      "vote_share_pct": 51.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Abdul Hameed Khajasab Musharif",
+      "party_short": "INC",
+      "votes": 85978,
+      "vote_share_pct": 46.97,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Bandenawaz Husenasab Mahabari",
+      "party_short": "JD(S)",
+      "votes": 459,
+      "vote_share_pct": 0.25,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Raju Yallappa Pawar",
+      "party_short": "IND",
+      "votes": 351,
+      "vote_share_pct": 0.19,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Kenganal Mallikarjun Bhimappa",
+      "party_short": "BSP",
+      "votes": 213,
+      "vote_share_pct": 0.12,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 994,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 851,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Basanagouda R Patil (yatnal)",
+    "party_short": "BJP",
+    "votes": 94201,
+    "margin_votes": 8223,
+    "margin_pct": 4.49
+  }
+}

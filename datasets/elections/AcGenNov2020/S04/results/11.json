@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Sugauli",
+  "totals": {
+    "electors": 287461,
+    "votes_polled": 170583,
+    "turnout_pct": 59.341267163197784
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Er. Shashi Bhushan Singh",
+      "party_short": "RJD",
+      "votes": 65267,
+      "vote_share_pct": 38.26113973842645,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ramchandra Sahni",
+      "party_short": "VSIP",
+      "votes": 61820,
+      "vote_share_pct": 36.24042255089898,
+      "gender": "M",
+      "age": 77,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vijay Prasad Gupta",
+      "party_short": "LJP",
+      "votes": 14188,
+      "vote_share_pct": 8.317358705146468,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sant Singh Kushwaha",
+      "party_short": "RLSP",
+      "votes": 6710,
+      "vote_share_pct": 3.933568995738145,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sadre Alam",
+      "party_short": "AIMF",
+      "votes": 3431,
+      "vote_share_pct": 2.0113375893260175,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2193,
+    "vote_share_pct": 1.2855911784878915
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 16974,
+    "vote_share_pct": 9.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Er. Shashi Bhushan Singh",
+    "party_short": "RJD",
+    "votes": 65267,
+    "margin_votes": 3447,
+    "margin_pct": 2.02
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 135,
+  "constituency_name": "Srisailam",
+  "totals": {
+    "electors": 185218,
+    "votes_polled": 152679,
+    "turnout_pct": 82.43205304020128
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SILPA CHAKRAPANI REDDY",
+      "party_short": "YSRCP",
+      "votes": 92236,
+      "vote_share_pct": 60.411713464196126,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BUDDA RAJASEKHARA REDDY",
+      "party_short": "TDP",
+      "votes": 53538,
+      "vote_share_pct": 35.06572613129507,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANNAPUREDDY SUJALA",
+      "party_short": "JnP",
+      "votes": 1982,
+      "vote_share_pct": 1.2981484028582844,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NAYAB SYED THASLIMA",
+      "party_short": "INC",
+      "votes": 1190,
+      "vote_share_pct": 0.7794130168523504,
+      "gender": "F",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BUDDA SRIKANTH REDDY",
+      "party_short": "BJP",
+      "votes": 1184,
+      "vote_share_pct": 0.7754832033220024,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1471,
+    "vote_share_pct": 0.963459283856981
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1078,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SILPA CHAKRAPANI REDDY",
+    "party_short": "YSRCP",
+    "votes": 92236,
+    "margin_votes": 38698,
+    "margin_pct": 25.35
+  }
+}

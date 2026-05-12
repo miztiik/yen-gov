@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "UDMA",
+  "totals": {
+    "electors": 199962,
+    "votes_polled": 160870,
+    "turnout_pct": 80.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K KUNHIRAMAN",
+      "party_short": "CPM",
+      "votes": 70679,
+      "vote_share_pct": 43.94,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K SUDHAKARAN",
+      "party_short": "INC",
+      "votes": 66847,
+      "vote_share_pct": 41.55,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ADV. K SHREEKANTH",
+      "party_short": "BJP",
+      "votes": 21231,
+      "vote_share_pct": 13.2,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GOPI KUTHIRAKALLU",
+      "party_short": "PDP",
+      "votes": 353,
+      "vote_share_pct": 0.22,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "DAMODARAN P",
+      "party_short": "IND",
+      "votes": 349,
+      "vote_share_pct": 0.22,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 405,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1006,
+    "vote_share_pct": 0.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K KUNHIRAMAN",
+    "party_short": "CPM",
+    "votes": 70679,
+    "margin_votes": 3832,
+    "margin_pct": 2.38
+  }
+}

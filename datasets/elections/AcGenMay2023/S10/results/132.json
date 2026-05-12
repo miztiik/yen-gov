@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 132,
+  "constituency_name": "Tumkur City",
+  "totals": {
+    "electors": 258925,
+    "votes_polled": 175085,
+    "turnout_pct": 67.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G B Jyothi Ganesh",
+      "party_short": "BJP",
+      "votes": 59165,
+      "vote_share_pct": 33.79,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "N Govindaraju",
+      "party_short": "JD(S)",
+      "votes": 55967,
+      "vote_share_pct": 31.97,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Iqbal Ahmed",
+      "party_short": "INC",
+      "votes": 46900,
+      "vote_share_pct": 26.79,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sogadu Shivanna",
+      "party_short": "IND",
+      "votes": 8954,
+      "vote_share_pct": 5.11,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "T N Rajesh",
+      "party_short": "UPJP",
+      "votes": 974,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1131,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1994,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G B Jyothi Ganesh",
+    "party_short": "BJP",
+    "votes": 59165,
+    "margin_votes": 3198,
+    "margin_pct": 1.83
+  }
+}

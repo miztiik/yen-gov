@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "BARHAMPUR",
+  "totals": {
+    "electors": 179641,
+    "votes_polled": 143957,
+    "turnout_pct": 80.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JITU GOSWAMI",
+      "party_short": "BJP",
+      "votes": 70111,
+      "vote_share_pct": 48.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURESH BORAH",
+      "party_short": "INC",
+      "votes": 69360,
+      "vote_share_pct": 48.18,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DIPIKA SAIKIA KEOT",
+      "party_short": "ASMJTYP",
+      "votes": 1922,
+      "vote_share_pct": 1.34,
+      "gender": "F",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SONARAM BORA",
+      "party_short": "SUCI",
+      "votes": 523,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SAMSHEDDIN AHMED",
+      "party_short": "IND",
+      "votes": 417,
+      "vote_share_pct": 0.29,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1291,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 333,
+    "vote_share_pct": 0.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JITU GOSWAMI",
+    "party_short": "BJP",
+    "votes": 70111,
+    "margin_votes": 751,
+    "margin_pct": 0.52
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 119,
+  "constituency_name": "Garkha",
+  "totals": {
+    "electors": 307080,
+    "votes_polled": 176670,
+    "turnout_pct": 57.53223915592029
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURENDRA RAM",
+      "party_short": "RJD",
+      "votes": 83412,
+      "vote_share_pct": 47.213448802852774,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "GYANCHAND MANJHI",
+      "party_short": "BJP",
+      "votes": 73475,
+      "vote_share_pct": 41.588837946453836,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MUNESHWAR CHOUDHARY",
+      "party_short": "JAPL",
+      "votes": 4419,
+      "vote_share_pct": 2.50127356087621,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BIGAN MANJHI",
+      "party_short": "IND",
+      "votes": 2874,
+      "vote_share_pct": 1.6267617592120902,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SHIV PRASAD MANJHI",
+      "party_short": "IND",
+      "votes": 2681,
+      "vote_share_pct": 1.517518537386087,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3874,
+    "vote_share_pct": 2.1927888153053714
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 5935,
+    "vote_share_pct": 3.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURENDRA RAM",
+    "party_short": "RJD",
+    "votes": 83412,
+    "margin_votes": 9937,
+    "margin_pct": 5.62
+  }
+}

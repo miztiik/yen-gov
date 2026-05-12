@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "THALASSERY",
+  "totals": {
+    "electors": 167024,
+    "votes_polled": 132666,
+    "turnout_pct": 79.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADV. A N SHAMSEER",
+      "party_short": "CPM",
+      "votes": 70741,
+      "vote_share_pct": 53.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "A P ABDULLAKUTTY",
+      "party_short": "INC",
+      "votes": 36624,
+      "vote_share_pct": 27.61,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "V K SAJEEVAN",
+      "party_short": "BJP",
+      "votes": 22125,
+      "vote_share_pct": 16.68,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JABEENA IRSHAD",
+      "party_short": "WPOI",
+      "votes": 1337,
+      "vote_share_pct": 1.01,
+      "gender": "F",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "A C JALALUDHEEN",
+      "party_short": "SDPI",
+      "votes": 959,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 514,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 366,
+    "vote_share_pct": 0.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADV. A N SHAMSEER",
+    "party_short": "CPM",
+    "votes": 70741,
+    "margin_votes": 34117,
+    "margin_pct": 25.72
+  }
+}

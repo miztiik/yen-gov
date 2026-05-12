@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "Narkatia",
+  "totals": {
+    "electors": 287950,
+    "votes_polled": 183251,
+    "turnout_pct": 63.63986803264455
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHAMIM AHMAD",
+      "party_short": "RJD",
+      "votes": 85562,
+      "vote_share_pct": 46.69115038935667,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHYAM BIHARI PRASAD",
+      "party_short": "JD(U)",
+      "votes": 57771,
+      "vote_share_pct": 31.525612411392025,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SONU KUMAR",
+      "party_short": "LJP",
+      "votes": 20494,
+      "vote_share_pct": 11.1835678932175,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SURESH PRASAD YADAV",
+      "party_short": "IND",
+      "votes": 6149,
+      "vote_share_pct": 3.355506927656602,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SANJAY KUMAR",
+      "party_short": "IND",
+      "votes": 2104,
+      "vote_share_pct": 1.1481519882565443,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4936,
+    "vote_share_pct": 2.69357329564368
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6235,
+    "vote_share_pct": 3.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHAMIM AHMAD",
+    "party_short": "RJD",
+    "votes": 85562,
+    "margin_votes": 27791,
+    "margin_pct": 15.17
+  }
+}

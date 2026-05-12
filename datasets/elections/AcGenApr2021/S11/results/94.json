@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 94,
+  "constituency_name": "KADUTHURUTHY",
+  "totals": {
+    "electors": 187910,
+    "votes_polled": 131411,
+    "turnout_pct": 69.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. Mons Joseph",
+      "party_short": "KEC",
+      "votes": 59666,
+      "vote_share_pct": 45.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Stephen George",
+      "party_short": "KEC(M)",
+      "votes": 55410,
+      "vote_share_pct": 42.17,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ligin Lal",
+      "party_short": "BJP",
+      "votes": 11670,
+      "vote_share_pct": 8.88,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vinod K Jose",
+      "party_short": "IND",
+      "votes": 2425,
+      "vote_share_pct": 1.85,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Adv. Anju Mathew",
+      "party_short": "BSP",
+      "votes": 1207,
+      "vote_share_pct": 0.92,
+      "gender": "F",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 731,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 302,
+    "vote_share_pct": 0.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. Mons Joseph",
+    "party_short": "KEC",
+    "votes": 59666,
+    "margin_votes": 4256,
+    "margin_pct": 3.24
+  }
+}

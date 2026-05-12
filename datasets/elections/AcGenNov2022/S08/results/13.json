@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "Jaisinghpur (SC)",
+  "totals": {
+    "electors": 85180,
+    "votes_polled": 55637,
+    "turnout_pct": 65.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Yadvinder Goma",
+      "party_short": "INC",
+      "votes": 28058,
+      "vote_share_pct": 50.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Ravinder Kumar Dhiman",
+      "party_short": "BJP",
+      "votes": 25362,
+      "vote_share_pct": 45.58,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Sushil Kumar",
+      "party_short": "RTRYDVBHMP",
+      "votes": 943,
+      "vote_share_pct": 1.69,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Santosh Kumar",
+      "party_short": "AAAP",
+      "votes": 697,
+      "vote_share_pct": 1.25,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Surender Singh",
+      "party_short": "IND",
+      "votes": 155,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 298,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 124,
+    "vote_share_pct": 0.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Yadvinder Goma",
+    "party_short": "INC",
+    "votes": 28058,
+    "margin_votes": 2696,
+    "margin_pct": 4.85
+  }
+}

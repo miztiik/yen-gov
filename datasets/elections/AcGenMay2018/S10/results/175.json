@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 175,
+  "constituency_name": "Bommanahalli",
+  "totals": {
+    "electors": 414080,
+    "votes_polled": 195510,
+    "turnout_pct": 47.21551391035548
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATHISH REDDY M",
+      "party_short": "BJP",
+      "votes": 111863,
+      "vote_share_pct": 57.21599918162754,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUSHMA RAJAGOPALA  REDDY",
+      "party_short": "INC",
+      "votes": 64701,
+      "vote_share_pct": 33.09344790547798,
+      "gender": "F",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "T R PRASAD",
+      "party_short": "JD(S)",
+      "votes": 9379,
+      "vote_share_pct": 4.797197074318449,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SOMASHEKAR.N",
+      "party_short": "PPRP",
+      "votes": 2142,
+      "vote_share_pct": 1.095596133190118,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DR.P.ANILKUMAR",
+      "party_short": "IND",
+      "votes": 1143,
+      "vote_share_pct": 0.5846248273745589,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2491,
+    "vote_share_pct": 1.2741036264129713
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 3791,
+    "vote_share_pct": 1.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATHISH REDDY M",
+    "party_short": "BJP",
+    "votes": 111863,
+    "margin_votes": 47162,
+    "margin_pct": 24.12
+  }
+}

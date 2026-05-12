@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 105,
+  "constituency_name": "Addanki",
+  "totals": {
+    "electors": 231977,
+    "votes_polled": 207501,
+    "turnout_pct": 89.44895399112843
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GOTTIPATI RAVIKUMAR",
+      "party_short": "TDP",
+      "votes": 105545,
+      "vote_share_pct": 50.86481510932478,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BACHINA CHENCHU GARATAIAH",
+      "party_short": "YSRCP",
+      "votes": 92554,
+      "vote_share_pct": 44.60412238977162,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KANCHARLA SRIKRISHNA",
+      "party_short": "JnP",
+      "votes": 4375,
+      "vote_share_pct": 2.1084235738622947,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NANNURI SITHARAMANJANEYULU",
+      "party_short": "INC",
+      "votes": 2178,
+      "vote_share_pct": 1.0496334957421891,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VUNDAVALLI KRISHNA RAO",
+      "party_short": "BJP",
+      "votes": 551,
+      "vote_share_pct": 0.2655408889595713,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1567,
+    "vote_share_pct": 0.755177083483935
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 731,
+    "vote_share_pct": 0.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GOTTIPATI RAVIKUMAR",
+    "party_short": "TDP",
+    "votes": 105545,
+    "margin_votes": 12991,
+    "margin_pct": 6.26
+  }
+}

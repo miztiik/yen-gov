@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "Tundi",
+  "totals": {
+    "electors": 280475,
+    "votes_polled": 193536,
+    "turnout_pct": 69.0029414386309
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MATHURA PRASAD MAHATO",
+      "party_short": "JMM",
+      "votes": 72552,
+      "vote_share_pct": 37.4875992063492,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIKRAM PANDEY",
+      "party_short": "BJP",
+      "votes": 46893,
+      "vote_share_pct": 24.229600694444446,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SABA AHMAD",
+      "party_short": "JVM",
+      "votes": 25547,
+      "vote_share_pct": 13.200128141534393,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJ KISHORE MAHATO",
+      "party_short": "AJSUP",
+      "votes": 15946,
+      "vote_share_pct": 8.239293981481481,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DIP NARAYAN SINGH",
+      "party_short": "AAAP",
+      "votes": 7702,
+      "vote_share_pct": 3.9796213624338628,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2550,
+    "vote_share_pct": 1.3175843253968254
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 22346,
+    "vote_share_pct": 11.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MATHURA PRASAD MAHATO",
+    "party_short": "JMM",
+    "votes": 72552,
+    "margin_votes": 25659,
+    "margin_pct": 13.26
+  }
+}

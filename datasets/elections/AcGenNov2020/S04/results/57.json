@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Baisi",
+  "totals": {
+    "electors": 273738,
+    "votes_polled": 178787,
+    "turnout_pct": 65.31318267832745
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SYED RUKNUDDIN AHMAD",
+      "party_short": "AIMIM",
+      "votes": 68416,
+      "vote_share_pct": 38.26676436206212,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VINOD KUMAR",
+      "party_short": "BJP",
+      "votes": 52043,
+      "vote_share_pct": 29.108939688008633,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ABDUS SUBHAN",
+      "party_short": "RJD",
+      "votes": 38254,
+      "vote_share_pct": 21.396410253541926,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GHULAM SARWAR",
+      "party_short": "IND",
+      "votes": 5075,
+      "vote_share_pct": 2.838573274343213,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MD RASHID RAZA",
+      "party_short": "IND",
+      "votes": 2626,
+      "vote_share_pct": 1.4687868804778872,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3042,
+    "vote_share_pct": 1.7014659902565625
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 9331,
+    "vote_share_pct": 5.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SYED RUKNUDDIN AHMAD",
+    "party_short": "AIMIM",
+    "votes": 68416,
+    "margin_votes": 16373,
+    "margin_pct": 9.16
+  }
+}

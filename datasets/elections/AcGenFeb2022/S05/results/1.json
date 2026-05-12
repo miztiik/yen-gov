@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Mandrem",
+  "totals": {
+    "electors": 32732,
+    "votes_polled": 29643,
+    "turnout_pct": 90.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JIT VINAYAK AROLKAR",
+      "party_short": "MAG",
+      "votes": 10387,
+      "vote_share_pct": 35.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DAYANAND RAGHUNATH SOPTE",
+      "party_short": "BJP",
+      "votes": 9672,
+      "vote_share_pct": 32.63,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "LAXMIKANT PARSEKAR",
+      "party_short": "IND",
+      "votes": 5811,
+      "vote_share_pct": 19.6,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DEEPAK BHALCHANDRA KALANGUTKAR",
+      "party_short": "GFP",
+      "votes": 1676,
+      "vote_share_pct": 5.65,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUNAYANA RAJANIKANT GAWDE",
+      "party_short": "RVLTGONP",
+      "votes": 1219,
+      "vote_share_pct": 4.11,
+      "gender": "F",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 261,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 617,
+    "vote_share_pct": 2.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JIT VINAYAK AROLKAR",
+    "party_short": "MAG",
+    "votes": 10387,
+    "margin_votes": 715,
+    "margin_pct": 2.41
+  }
+}

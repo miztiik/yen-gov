@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "ELATHUR",
+  "totals": {
+    "electors": 204036,
+    "votes_polled": 164350,
+    "turnout_pct": 80.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A .k Saseendran",
+      "party_short": "NCP",
+      "votes": 83639,
+      "vote_share_pct": 50.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Zulphikar Mayoori",
+      "party_short": "IND",
+      "votes": 45137,
+      "vote_share_pct": 27.46,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "T P Jayachandran Master",
+      "party_short": "BJP",
+      "votes": 32010,
+      "vote_share_pct": 19.48,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Tahir Mokkandi",
+      "party_short": "WPOI",
+      "votes": 2000,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Radhakrishnan P K",
+      "party_short": "IND",
+      "votes": 580,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 984,
+    "vote_share_pct": 0.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A .k Saseendran",
+    "party_short": "NCP",
+    "votes": 83639,
+    "margin_votes": 38502,
+    "margin_pct": 23.43
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "PERAMBRA",
+  "totals": {
+    "electors": 179658,
+    "votes_polled": 153512,
+    "turnout_pct": 85.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "T.P.RAMAKRISHNAN",
+      "party_short": "CPM",
+      "votes": 72359,
+      "vote_share_pct": 47.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV.MOHAMMED IKBAL",
+      "party_short": "KEC(M)",
+      "votes": 68258,
+      "vote_share_pct": 44.46,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUKUMARAN NAIR",
+      "party_short": "BDJS",
+      "votes": 8561,
+      "vote_share_pct": 5.58,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAZAK PALERI",
+      "party_short": "WPOI",
+      "votes": 1673,
+      "vote_share_pct": 1.09,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K.P.GOPI",
+      "party_short": "SDPI",
+      "votes": 1036,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 616,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1009,
+    "vote_share_pct": 0.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "T.P.RAMAKRISHNAN",
+    "party_short": "CPM",
+    "votes": 72359,
+    "margin_votes": 4101,
+    "margin_pct": 2.67
+  }
+}

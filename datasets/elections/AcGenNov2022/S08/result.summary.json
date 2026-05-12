@@ -1,0 +1,121 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.summary.schema.json",
+  "$schema_version": "3.1",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "total_seats": 68,
+  "totals": {
+    "electors": 5592828,
+    "votes_polled": 4219635,
+    "turnout_pct": 75.45
+  },
+  "party_totals": [
+    {
+      "party_short": "INC",
+      "seats_contested": 68,
+      "seats_won": 40,
+      "votes": 1852504,
+      "vote_share_pct": 43.9
+    },
+    {
+      "party_short": "BJP",
+      "seats_contested": 68,
+      "seats_won": 25,
+      "votes": 1814530,
+      "vote_share_pct": 43.0
+    },
+    {
+      "party_short": "IND",
+      "seats_contested": 54,
+      "seats_won": 3,
+      "votes": 409273,
+      "vote_share_pct": 9.7
+    },
+    {
+      "party_short": "AAAP",
+      "seats_contested": 67,
+      "seats_won": 0,
+      "votes": 46270,
+      "vote_share_pct": 1.1
+    },
+    {
+      "party_short": "CPI(M)",
+      "seats_contested": 11,
+      "seats_won": 0,
+      "votes": 27817,
+      "vote_share_pct": 0.66
+    },
+    {
+      "party_short": "RTRYDVBHMP",
+      "seats_contested": 29,
+      "seats_won": 0,
+      "votes": 25861,
+      "vote_share_pct": 0.61
+    },
+    {
+      "party_short": "BSP",
+      "seats_contested": 53,
+      "seats_won": 0,
+      "votes": 14613,
+      "vote_share_pct": 0.35
+    },
+    {
+      "party_short": "HIMJKP",
+      "seats_contested": 6,
+      "seats_won": 0,
+      "votes": 1148,
+      "vote_share_pct": 0.03
+    },
+    {
+      "party_short": "HSP",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 848,
+      "vote_share_pct": 0.02
+    },
+    {
+      "party_short": "SWAP",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 685,
+      "vote_share_pct": 0.02
+    },
+    {
+      "party_short": "CPI",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 627,
+      "vote_share_pct": 0.01
+    },
+    {
+      "party_short": "SaSP",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 195,
+      "vote_share_pct": 0.0
+    },
+    {
+      "party_short": "HCHLJP",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 187,
+      "vote_share_pct": 0.0
+    },
+    {
+      "party_short": "BVD",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 159,
+      "vote_share_pct": 0.0
+    },
+    {
+      "party_short": "RSHTLKNTP",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 57,
+      "vote_share_pct": 0.0
+    }
+  ]
+}

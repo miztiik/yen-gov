@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 4,
+  "constituency_name": "KANHANGAD",
+  "totals": {
+    "electors": 204931,
+    "votes_polled": 161189,
+    "turnout_pct": 78.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "E.CHANDRASHEKARAN",
+      "party_short": "CPI",
+      "votes": 80558,
+      "vote_share_pct": 49.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DHANYA SURESH",
+      "party_short": "INC",
+      "votes": 54547,
+      "vote_share_pct": 33.84,
+      "gender": "F",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M P RAGHAVAN",
+      "party_short": "BDJS",
+      "votes": 21104,
+      "vote_share_pct": 13.09,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CHANDRAN PARAPPA",
+      "party_short": "BSP",
+      "votes": 965,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "ASSAINAR MUTTUMTHALA",
+      "party_short": "PDP",
+      "votes": 959,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 856,
+    "vote_share_pct": 0.53
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2200,
+    "vote_share_pct": 1.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "E.CHANDRASHEKARAN",
+    "party_short": "CPI",
+    "votes": 80558,
+    "margin_votes": 26011,
+    "margin_pct": 16.14
+  }
+}

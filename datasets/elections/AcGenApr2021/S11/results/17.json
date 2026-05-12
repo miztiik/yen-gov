@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "MANANTHAVADY (ST)",
+  "totals": {
+    "electors": 195326,
+    "votes_polled": 152581,
+    "turnout_pct": 78.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "O.r.kelu",
+      "party_short": "CPI(M)",
+      "votes": 72536,
+      "vote_share_pct": 47.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "P.k.jayalakshmi",
+      "party_short": "INC",
+      "votes": 63254,
+      "vote_share_pct": 41.46,
+      "gender": "F",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Palliyara Mukundan",
+      "party_short": "BJP",
+      "votes": 13142,
+      "vote_share_pct": 8.61,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Babitha Sreenu",
+      "party_short": "SDPI",
+      "votes": 1992,
+      "vote_share_pct": 1.31,
+      "gender": "F",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Lakshmi",
+      "party_short": "IND",
+      "votes": 382,
+      "vote_share_pct": 0.25,
+      "gender": "F",
+      "age": 53,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 797,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 478,
+    "vote_share_pct": 0.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "O.r.kelu",
+    "party_short": "CPI(M)",
+    "votes": 72536,
+    "margin_votes": 9282,
+    "margin_pct": 6.08
+  }
+}

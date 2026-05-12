@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 79,
+  "constituency_name": "Nuh",
+  "totals": {
+    "electors": 170551,
+    "votes_polled": 125234,
+    "turnout_pct": 73.42906227462753
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Aftab Ahmed",
+      "party_short": "INC",
+      "votes": 52311,
+      "vote_share_pct": 41.770605426641325,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ZAKIR HUSSAIN",
+      "party_short": "BJP",
+      "votes": 48273,
+      "vote_share_pct": 38.54624143603175,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "TAYYAB HUSSAIN",
+      "party_short": "JNJP",
+      "votes": 17745,
+      "vote_share_pct": 14.16947474328058,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Nasir Husain",
+      "party_short": "INLD",
+      "votes": 3583,
+      "vote_share_pct": 2.8610441253972563,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Arjan",
+      "party_short": "BSP",
+      "votes": 1668,
+      "vote_share_pct": 1.3319066707124263,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 376,
+    "vote_share_pct": 0.30023795454908414
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1278,
+    "vote_share_pct": 1.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Aftab Ahmed",
+    "party_short": "INC",
+    "votes": 52311,
+    "margin_votes": 4038,
+    "margin_pct": 3.22
+  }
+}

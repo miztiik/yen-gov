@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Sanquelim",
+  "totals": {
+    "electors": 27919,
+    "votes_polled": 25666,
+    "turnout_pct": 91.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Pramod Sawant",
+      "party_short": "BJP",
+      "votes": 12250,
+      "vote_share_pct": 47.73,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dharmesh Saglani",
+      "party_short": "INC",
+      "votes": 11584,
+      "vote_share_pct": 45.13,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sujay Gauns",
+      "party_short": "RVLTGONP",
+      "votes": 742,
+      "vote_share_pct": 2.89,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Mahadev Yeshwant Khandekar",
+      "party_short": "MAG",
+      "votes": 370,
+      "vote_share_pct": 1.44,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Manojkumar Ghadi",
+      "party_short": "AAAP",
+      "votes": 109,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 286,
+    "vote_share_pct": 1.11
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 325,
+    "vote_share_pct": 1.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Pramod Sawant",
+    "party_short": "BJP",
+    "votes": 12250,
+    "margin_votes": 666,
+    "margin_pct": 2.59
+  }
+}

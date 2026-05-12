@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 161,
+  "constituency_name": "C.V. Raman Nagar  (SC)",
+  "totals": {
+    "electors": 269010,
+    "votes_polled": 132011,
+    "turnout_pct": 49.07289691833017
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "S. RAGHU",
+      "party_short": "BJP",
+      "votes": 58887,
+      "vote_share_pct": 44.6076463325026,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "R. SAMPATH RAJ",
+      "party_short": "INC",
+      "votes": 46660,
+      "vote_share_pct": 35.34553938686927,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "P. RAMESH",
+      "party_short": "JD(S)",
+      "votes": 20478,
+      "vote_share_pct": 15.512343668330669,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MOHANA DASARI",
+      "party_short": "AAAP",
+      "votes": 1956,
+      "vote_share_pct": 1.4816947072592435,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "S.R. JAYARAM",
+      "party_short": "AIMEP",
+      "votes": 354,
+      "vote_share_pct": 0.26815947155918823,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2261,
+    "vote_share_pct": 1.7127360598737986
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1415,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "S. RAGHU",
+    "party_short": "BJP",
+    "votes": 58887,
+    "margin_votes": 12227,
+    "margin_pct": 9.26
+  }
+}

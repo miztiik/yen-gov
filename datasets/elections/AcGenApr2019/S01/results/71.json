@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 71,
+  "constituency_name": "Gannavaram",
+  "totals": {
+    "electors": 258084,
+    "votes_polled": 220718,
+    "turnout_pct": 85.52176810650795
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vamsi Vallabhaneni",
+      "party_short": "TDP",
+      "votes": 103881,
+      "vote_share_pct": 47.06503320979712,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Yarlagadda Venkatrao",
+      "party_short": "YSRCP",
+      "votes": 103043,
+      "vote_share_pct": 46.68536322366096,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Afsar Syed",
+      "party_short": "CPI",
+      "votes": 6675,
+      "vote_share_pct": 3.024220951621526,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Veera Bhadra Prasad Sunkara",
+      "party_short": "INC",
+      "votes": 1823,
+      "vote_share_pct": 0.8259407932293695,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Addanki Amos",
+      "party_short": "DABAP",
+      "votes": 1048,
+      "vote_share_pct": 0.4748140160748104,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1818,
+    "vote_share_pct": 0.8236754591832112
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2430,
+    "vote_share_pct": 1.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vamsi Vallabhaneni",
+    "party_short": "TDP",
+    "votes": 103881,
+    "margin_votes": 838,
+    "margin_pct": 0.38
+  }
+}

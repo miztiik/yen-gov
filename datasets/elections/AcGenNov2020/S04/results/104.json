@@ -1,0 +1,84 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 104,
+  "constituency_name": "Hathua",
+  "totals": {
+    "electors": 304045,
+    "votes_polled": 174035,
+    "turnout_pct": 57.23988225427157
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajesh Kumar Singh",
+      "party_short": "RJD",
+      "votes": 86731,
+      "vote_share_pct": 49.835377941218724,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ramsewak Singh",
+      "party_short": "JD(U)",
+      "votes": 56204,
+      "vote_share_pct": 32.29465337432126,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ram Darshan Prasad",
+      "party_short": "LJP",
+      "votes": 9894,
+      "vote_share_pct": 5.685063349326285,
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shreeram Bhagat",
+      "party_short": "IND",
+      "votes": 4135,
+      "vote_share_pct": 2.3759588588502316,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Surendra Ram S/O Kanhaiya Ram",
+      "party_short": "BSP",
+      "votes": 3392,
+      "vote_share_pct": 1.9490332404401414,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 4501,
+    "vote_share_pct": 2.586261384204327
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 9178,
+    "vote_share_pct": 5.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajesh Kumar Singh",
+    "party_short": "RJD",
+    "votes": 86731,
+    "margin_votes": 30527,
+    "margin_pct": 17.54
+  }
+}

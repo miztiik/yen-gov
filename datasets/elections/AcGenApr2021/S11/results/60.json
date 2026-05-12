@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "ALATHUR",
+  "totals": {
+    "electors": 171419,
+    "votes_polled": 135366,
+    "turnout_pct": 78.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.d.prasenan",
+      "party_short": "CPI(M)",
+      "votes": 74653,
+      "vote_share_pct": 55.15,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Palayam Pradeep",
+      "party_short": "INC",
+      "votes": 40535,
+      "vote_share_pct": 29.94,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Prasanth Sivan",
+      "party_short": "BJP",
+      "votes": 18349,
+      "vote_share_pct": 13.56,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Chandran",
+      "party_short": "BSP",
+      "votes": 699,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Rajesh.m",
+      "party_short": "IND",
+      "votes": 347,
+      "vote_share_pct": 0.26,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 783,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.d.prasenan",
+    "party_short": "CPI(M)",
+    "votes": 74653,
+    "margin_votes": 34118,
+    "margin_pct": 25.2
+  },
+  "others": null
+}

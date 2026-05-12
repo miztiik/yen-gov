@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 102,
+  "constituency_name": "Teok",
+  "totals": {
+    "electors": 118981,
+    "votes_polled": 95446,
+    "turnout_pct": 80.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RENUPOMA RAJKHOWA",
+      "party_short": "AGP",
+      "votes": 40928,
+      "vote_share_pct": 42.88,
+      "is_winner": true,
+      "gender": "F",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PALLABI SAIKIA GOGOI",
+      "party_short": "INC",
+      "votes": 35879,
+      "vote_share_pct": 37.59,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GOJANAND MUNDA",
+      "party_short": "IND",
+      "votes": 3923,
+      "vote_share_pct": 4.11,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BUBUL DUTTA",
+      "party_short": "IND",
+      "votes": 3645,
+      "vote_share_pct": 3.82,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHENDRA KUMAR GOGOI",
+      "party_short": "IND",
+      "votes": 3270,
+      "vote_share_pct": 3.43,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1570,
+    "vote_share_pct": 1.64
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 6231,
+    "vote_share_pct": 6.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RENUPOMA RAJKHOWA",
+    "party_short": "AGP",
+    "votes": 40928,
+    "margin_votes": 5049,
+    "margin_pct": 5.29
+  }
+}

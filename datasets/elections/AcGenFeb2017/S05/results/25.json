@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Vasco-da-gama",
+  "totals": {
+    "electors": 35938,
+    "votes_polled": 26099,
+    "turnout_pct": 72.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JOSE LUIS CARLOS ALMEIDA",
+      "party_short": "BJP",
+      "votes": 8765,
+      "vote_share_pct": 33.58,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KRISHNA (DAJI) V SALKAR",
+      "party_short": "IND",
+      "votes": 7414,
+      "vote_share_pct": 28.41,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JOSE FILIPE DE SOUSA",
+      "party_short": "NCP",
+      "votes": 4202,
+      "vote_share_pct": 16.1,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAIFULA KHAN",
+      "party_short": "INC",
+      "votes": 3737,
+      "vote_share_pct": 14.32,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "LORETTA SHREEDHARAN",
+      "party_short": "AAAP",
+      "votes": 928,
+      "vote_share_pct": 3.56,
+      "gender": "F",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 263,
+    "vote_share_pct": 1.01
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 790,
+    "vote_share_pct": 3.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JOSE LUIS CARLOS ALMEIDA",
+    "party_short": "BJP",
+    "votes": 8765,
+    "margin_votes": 1351,
+    "margin_pct": 5.18
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Calangute",
+  "totals": {
+    "electors": 24541,
+    "votes_polled": 20084,
+    "turnout_pct": 81.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MICHAEL VINCENT LOBO",
+      "party_short": "BJP",
+      "votes": 11136,
+      "vote_share_pct": 55.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JOSEPH ROBERT SEQUEIRA",
+      "party_short": "INC",
+      "votes": 7311,
+      "vote_share_pct": 36.4,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GODWIN FERNANDES",
+      "party_short": "AAAP",
+      "votes": 1465,
+      "vote_share_pct": 7.29,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 172,
+    "vote_share_pct": 0.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MICHAEL VINCENT LOBO",
+    "party_short": "BJP",
+    "votes": 11136,
+    "margin_votes": 3825,
+    "margin_pct": 19.05
+  },
+  "others": null
+}

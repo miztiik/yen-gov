@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Pundri",
+  "totals": {
+    "electors": 181938,
+    "votes_polled": 136959,
+    "turnout_pct": 75.27784190218647
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RANDHIR SINGH GOLLEN",
+      "party_short": "IND",
+      "votes": 41008,
+      "vote_share_pct": 29.94180740221526,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATBIR BHANA",
+      "party_short": "INC",
+      "votes": 28184,
+      "vote_share_pct": 20.578421279360974,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VEDPAL ADVOCATE",
+      "party_short": "BJP",
+      "votes": 20990,
+      "vote_share_pct": 15.325754422856475,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dinesh Kaushik",
+      "party_short": "IND",
+      "votes": 16142,
+      "vote_share_pct": 11.786008951584051,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NARENDER SHARMA",
+      "party_short": "IND",
+      "votes": 14242,
+      "vote_share_pct": 10.398732467380748,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 656,
+    "vote_share_pct": 0.47897545980913997
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 15737,
+    "vote_share_pct": 11.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RANDHIR SINGH GOLLEN",
+    "party_short": "IND",
+    "votes": 41008,
+    "margin_votes": 12824,
+    "margin_pct": 9.36
+  }
+}

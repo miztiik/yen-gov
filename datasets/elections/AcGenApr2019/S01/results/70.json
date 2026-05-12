@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 70,
+  "constituency_name": "Nuzvid",
+  "totals": {
+    "electors": 230693,
+    "votes_polled": 200547,
+    "turnout_pct": 86.93241667497496
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Meka Venkata Pratap Apparao",
+      "party_short": "YSRCP",
+      "votes": 101950,
+      "vote_share_pct": 50.83596363944611,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Muddaraboina Venkateswararao.",
+      "party_short": "TDP",
+      "votes": 85740,
+      "vote_share_pct": 42.753070352585674,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Basava Vaykunta Venkata Bhaskara Rao",
+      "party_short": "JnP",
+      "votes": 5464,
+      "vote_share_pct": 2.724548360234758,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "B.D. Ravi kumar",
+      "party_short": "INC",
+      "votes": 2123,
+      "vote_share_pct": 1.0586047161014625,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Bommareddy Venkata Naga Chandrareddy",
+      "party_short": "BJP",
+      "votes": 1927,
+      "vote_share_pct": 0.9608720150388687,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2247,
+    "vote_share_pct": 1.1204356086104503
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1096,
+    "vote_share_pct": 0.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Meka Venkata Pratap Apparao",
+    "party_short": "YSRCP",
+    "votes": 101950,
+    "margin_votes": 16210,
+    "margin_pct": 8.08
+  }
+}

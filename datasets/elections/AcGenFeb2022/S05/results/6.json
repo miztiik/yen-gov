@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Siolim",
+  "totals": {
+    "electors": 29661,
+    "votes_polled": 24940,
+    "turnout_pct": 84.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DELILAH MICHAEL LOBO",
+      "party_short": "INC",
+      "votes": 9699,
+      "vote_share_pct": 38.89,
+      "is_winner": true,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DAYANAND RAYU MANDREKAR",
+      "party_short": "BJP",
+      "votes": 7972,
+      "vote_share_pct": 31.96,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GAURESH MANDREKAR",
+      "party_short": "RVLTGONP",
+      "votes": 3188,
+      "vote_share_pct": 12.78,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PATRICK SAVIO ALMEIDA",
+      "party_short": "IND",
+      "votes": 1482,
+      "vote_share_pct": 5.94,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VISHNU NAIK",
+      "party_short": "AAAP",
+      "votes": 893,
+      "vote_share_pct": 3.58,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 206,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1500,
+    "vote_share_pct": 6.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DELILAH MICHAEL LOBO",
+    "party_short": "INC",
+    "votes": 9699,
+    "margin_votes": 1727,
+    "margin_pct": 6.92
+  }
+}

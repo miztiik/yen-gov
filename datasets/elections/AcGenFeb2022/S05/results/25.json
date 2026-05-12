@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Vasco-Da-Gama",
+  "totals": {
+    "electors": 35613,
+    "votes_polled": 25506,
+    "turnout_pct": 71.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Krishna V. Salkar",
+      "party_short": "BJP",
+      "votes": 13118,
+      "vote_share_pct": 51.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Jose Luis Carlos Almeida",
+      "party_short": "INC",
+      "votes": 9461,
+      "vote_share_pct": 37.09,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Saifula Khan",
+      "party_short": "AITC",
+      "votes": 860,
+      "vote_share_pct": 3.37,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Andre Sebastiao Viegas",
+      "party_short": "RVLTGONP",
+      "votes": 851,
+      "vote_share_pct": 3.34,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sunil Loran",
+      "party_short": "AAAP",
+      "votes": 784,
+      "vote_share_pct": 3.07,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 244,
+    "vote_share_pct": 0.96
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 188,
+    "vote_share_pct": 0.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Krishna V. Salkar",
+    "party_short": "BJP",
+    "votes": 13118,
+    "margin_votes": 3657,
+    "margin_pct": 14.34
+  }
+}

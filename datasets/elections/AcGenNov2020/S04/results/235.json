@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 235,
+  "constituency_name": "Rajauli",
+  "totals": {
+    "electors": 332577,
+    "votes_polled": 167735,
+    "turnout_pct": 50.43493687176203
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRAKASH VEER",
+      "party_short": "RJD",
+      "votes": 69984,
+      "vote_share_pct": 41.72295585298239,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "KANHAIYA KUMAR",
+      "party_short": "BJP",
+      "votes": 57391,
+      "vote_share_pct": 34.21528005484842,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ARJUN RAM",
+      "party_short": "IND",
+      "votes": 14394,
+      "vote_share_pct": 8.581393269144783,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PREMA CHAUDHARY",
+      "party_short": "IND",
+      "votes": 5309,
+      "vote_share_pct": 3.1651116344233463,
+      "gender": "F",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BANWARI RAM",
+      "party_short": "IND",
+      "votes": 3506,
+      "vote_share_pct": 2.0902018064208425,
+      "gender": "M",
+      "age": 68,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1188,
+    "vote_share_pct": 0.7082600530598862
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 15963,
+    "vote_share_pct": 9.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRAKASH VEER",
+    "party_short": "RJD",
+    "votes": 69984,
+    "margin_votes": 12593,
+    "margin_pct": 7.51
+  }
+}

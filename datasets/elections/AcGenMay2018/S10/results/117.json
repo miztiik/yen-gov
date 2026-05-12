@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 117,
+  "constituency_name": "Sagar",
+  "totals": {
+    "electors": 193884,
+    "votes_polled": 154944,
+    "turnout_pct": 79.9158259577892
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "H HALAPPA HARATHALU",
+      "party_short": "BJP",
+      "votes": 78475,
+      "vote_share_pct": 50.647330648492364,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAGODU THIMMAPPA",
+      "party_short": "INC",
+      "votes": 70436,
+      "vote_share_pct": 45.45900454357704,
+      "gender": "M",
+      "age": 87,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M B GIRISHGOWDA",
+      "party_short": "JD(S)",
+      "votes": 2100,
+      "vote_share_pct": 1.355328376703841,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KALAVATHI",
+      "party_short": "AIMEP",
+      "votes": 927,
+      "vote_share_pct": 0.5982806691449816,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KAMBALIKOPPA K LAKSHMANA",
+      "party_short": "IND",
+      "votes": 448,
+      "vote_share_pct": 0.28913672036348614,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1511,
+    "vote_share_pct": 0.9751910367616686
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1047,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "H HALAPPA HARATHALU",
+    "party_short": "BJP",
+    "votes": 78475,
+    "margin_votes": 8039,
+    "margin_pct": 5.19
+  }
+}

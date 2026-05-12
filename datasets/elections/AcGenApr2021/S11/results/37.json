@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "MANJERI",
+  "totals": {
+    "electors": 207051,
+    "votes_polled": 156992,
+    "turnout_pct": 75.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. U.a. Latheef",
+      "party_short": "IUML",
+      "votes": 78836,
+      "vote_share_pct": 50.22,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Nazar Debona",
+      "party_short": "CPI",
+      "votes": 64263,
+      "vote_share_pct": 40.93,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "P.r. Rasmil Nath",
+      "party_short": "BJP",
+      "votes": 11350,
+      "vote_share_pct": 7.23,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Palathingal Aboobacker",
+      "party_short": "IND",
+      "votes": 1341,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1202,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. U.a. Latheef",
+    "party_short": "IUML",
+    "votes": 78836,
+    "margin_votes": 14573,
+    "margin_pct": 9.28
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Sonipat",
+  "totals": {
+    "electors": 216117,
+    "votes_polled": 133483,
+    "turnout_pct": 61.76422956083974
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURENDER PANWAR",
+      "party_short": "INC",
+      "votes": 79438,
+      "vote_share_pct": 59.51169811886158,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAVITA JAIN",
+      "party_short": "BJP",
+      "votes": 46560,
+      "vote_share_pct": 34.88084625008428,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HANS RAJ",
+      "party_short": "LTSP",
+      "votes": 1845,
+      "vote_share_pct": 1.3821984822037263,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIMAL KISHOR",
+      "party_short": "AAAP",
+      "votes": 1661,
+      "vote_share_pct": 1.2443532135178264,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AZAD SINGH",
+      "party_short": "BSP",
+      "votes": 1337,
+      "vote_share_pct": 1.0016256751796109,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 654,
+    "vote_share_pct": 0.4899500310901013
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1988,
+    "vote_share_pct": 1.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURENDER PANWAR",
+    "party_short": "INC",
+    "votes": 79438,
+    "margin_votes": 32878,
+    "margin_pct": 24.63
+  }
+}

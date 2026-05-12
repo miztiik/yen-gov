@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 61,
+  "constituency_name": "Silli",
+  "totals": {
+    "electors": 205955,
+    "votes_polled": 158708,
+    "turnout_pct": 77.05955184384938
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUDESH KUMAR MAHTO",
+      "party_short": "AJSUP",
+      "votes": 83700,
+      "vote_share_pct": 52.73836227537364,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Seema Devi",
+      "party_short": "JMM",
+      "votes": 63505,
+      "vote_share_pct": 40.013735917534085,
+      "gender": "F",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Bishwadeo Singh Munda",
+      "party_short": "CPIM",
+      "votes": 2766,
+      "vote_share_pct": 1.7428232981324194,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "AMIT KUMAR",
+      "party_short": "IND",
+      "votes": 2018,
+      "vote_share_pct": 1.2715175038435367,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DEVENDRA NATH MAHTO",
+      "party_short": "IND",
+      "votes": 1445,
+      "vote_share_pct": 0.9104771026035234,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1062,
+    "vote_share_pct": 0.6691534138165688
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4212,
+    "vote_share_pct": 2.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUDESH KUMAR MAHTO",
+    "party_short": "AJSUP",
+    "votes": 83700,
+    "margin_votes": 20195,
+    "margin_pct": 12.72
+  }
+}

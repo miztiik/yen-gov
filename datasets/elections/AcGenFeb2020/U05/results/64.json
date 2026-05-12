@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 64,
+  "constituency_name": "ROHTAS NAGAR",
+  "totals": {
+    "electors": 210943,
+    "votes_polled": 142227,
+    "turnout_pct": 67.42437530517724
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jitender Mahajan",
+      "party_short": "BJP",
+      "votes": 73873,
+      "vote_share_pct": 51.940208258628815,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sarita Singh",
+      "party_short": "AAAP",
+      "votes": 60632,
+      "vote_share_pct": 42.63044288355938,
+      "gender": "F",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vipin Sharma",
+      "party_short": "INC",
+      "votes": 5572,
+      "vote_share_pct": 3.9176808904075875,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Trivender",
+      "party_short": "BSP",
+      "votes": 619,
+      "vote_share_pct": 0.4352197543363778,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Anupam Sharma",
+      "party_short": "IND",
+      "votes": 376,
+      "vote_share_pct": 0.2643661189506915,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 513,
+    "vote_share_pct": 0.36069100803644877
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 642,
+    "vote_share_pct": 0.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jitender Mahajan",
+    "party_short": "BJP",
+    "votes": 73873,
+    "margin_votes": 13241,
+    "margin_pct": 9.31
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 73,
+  "constituency_name": "Kosli",
+  "totals": {
+    "electors": 239722,
+    "votes_polled": 150349,
+    "turnout_pct": 62.718065092064975
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LAXMAN SINGH YADAV",
+      "party_short": "BJP",
+      "votes": 78813,
+      "vote_share_pct": 52.42003604945826,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "YADUVENDER SINGH",
+      "party_short": "INC",
+      "votes": 40189,
+      "vote_share_pct": 26.73047376437489,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAMPHAL S/0 RICHHPAL",
+      "party_short": "JNJP",
+      "votes": 15941,
+      "vote_share_pct": 10.602664467339324,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DR. AJIT SINGH CHAHAL",
+      "party_short": "BSP",
+      "votes": 3612,
+      "vote_share_pct": 2.402410391821695,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "JAGPHOOL",
+      "party_short": "IND",
+      "votes": 3219,
+      "vote_share_pct": 2.141018563475647,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 530,
+    "vote_share_pct": 0.3525131527313118
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 8045,
+    "vote_share_pct": 5.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LAXMAN SINGH YADAV",
+    "party_short": "BJP",
+    "votes": 78813,
+    "margin_votes": 38624,
+    "margin_pct": 25.69
+  }
+}

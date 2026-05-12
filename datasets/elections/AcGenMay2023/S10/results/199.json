@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 199,
+  "constituency_name": "Sakleshpur (SC)",
+  "totals": {
+    "electors": 205876,
+    "votes_polled": 164898,
+    "turnout_pct": 80.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Cement Manju",
+      "party_short": "BJP",
+      "votes": 58604,
+      "vote_share_pct": 35.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Kumaraswamy H.k",
+      "party_short": "JD(S)",
+      "votes": 56548,
+      "vote_share_pct": 34.29,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Murali Mohan",
+      "party_short": "INC",
+      "votes": 42811,
+      "vote_share_pct": 25.96,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "D. Shivamma",
+      "party_short": "BSP",
+      "votes": 1536,
+      "vote_share_pct": 0.93,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "K.s. Pavan Kumar",
+      "party_short": "AAAP",
+      "votes": 1002,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1231,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3166,
+    "vote_share_pct": 1.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Cement Manju",
+    "party_short": "BJP",
+    "votes": 58604,
+    "margin_votes": 2056,
+    "margin_pct": 1.25
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "PAYYANNUR",
+  "totals": {
+    "electors": 184264,
+    "votes_polled": 149945,
+    "turnout_pct": 81.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "T I Madhusoodanan",
+      "party_short": "CPI(M)",
+      "votes": 93695,
+      "vote_share_pct": 62.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M Pradeep Kumar",
+      "party_short": "INC",
+      "votes": 43915,
+      "vote_share_pct": 29.29,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Adv K K Sreedharan",
+      "party_short": "BJP",
+      "votes": 11308,
+      "vote_share_pct": 7.54,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Abhilash K V",
+      "party_short": "IND",
+      "votes": 341,
+      "vote_share_pct": 0.23,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 686,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "T I Madhusoodanan",
+    "party_short": "CPI(M)",
+    "votes": 93695,
+    "margin_votes": 49780,
+    "margin_pct": 33.2
+  },
+  "others": null
+}

@@ -1,16 +1,7 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-  "$schema_version": "3.1",
-  "sources": [
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    },
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    }
-  ],
+  "$schema_version": "3.2",
+  "sources": [],
   "election": "AcGenFeb2025",
   "state": "U05",
   "body": "AC",
@@ -28,37 +19,50 @@
       "party_short": "AAAP",
       "votes": 52297,
       "vote_share_pct": 50.88,
-      "is_winner": true
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
     },
     {
       "rank": 2,
       "name": "DUSHYANT GAUTAM",
-      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 44867,
-      "vote_share_pct": 43.65
+      "vote_share_pct": 43.65,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
     },
     {
       "rank": 3,
       "name": "RAHUL KUMAR",
-      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 4252,
-      "vote_share_pct": 4.14
+      "vote_share_pct": 4.14,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
     },
     {
       "rank": 4,
       "name": "RANJEET",
       "party_short": "BSP",
       "votes": 626,
-      "vote_share_pct": 0.61
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
     },
     {
       "rank": 5,
       "name": "SHIV KUMAR",
       "party_short": "RAM",
       "votes": 116,
-      "vote_share_pct": 0.11
+      "vote_share_pct": 0.11,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
     }
   ],
   "nota": {

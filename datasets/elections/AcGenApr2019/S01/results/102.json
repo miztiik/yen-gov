@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 102,
+  "constituency_name": "Yerragondapalem",
+  "totals": {
+    "electors": 200581,
+    "votes_polled": 176447,
+    "turnout_pct": 87.96795309625539
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Audimulapu Suresh",
+      "party_short": "YSRCP",
+      "votes": 99408,
+      "vote_share_pct": 56.338730610324916,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Budala Ajitha Rao",
+      "party_short": "TDP",
+      "votes": 67776,
+      "vote_share_pct": 38.41153434175701,
+      "gender": "F",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Gowtham Raj Pakanati",
+      "party_short": "JnP",
+      "votes": 2942,
+      "vote_share_pct": 1.6673562032791716,
+      "gender": "M",
+      "age": 26,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Medabalimi Venkateswara Rao",
+      "party_short": "INC",
+      "votes": 1066,
+      "vote_share_pct": 0.6041474210386122,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Angalakurthi Chennaiah",
+      "party_short": "BJP",
+      "votes": 750,
+      "vote_share_pct": 0.425056815927729,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2997,
+    "vote_share_pct": 1.698527036447205
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1508,
+    "vote_share_pct": 0.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Audimulapu Suresh",
+    "party_short": "YSRCP",
+    "votes": 99408,
+    "margin_votes": 31632,
+    "margin_pct": 17.93
+  }
+}

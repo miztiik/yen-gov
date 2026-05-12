@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "Belhar",
+  "totals": {
+    "electors": 307445,
+    "votes_polled": 183245,
+    "turnout_pct": 59.60253053391663
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANOJ YADAV",
+      "party_short": "JD(U)",
+      "votes": 73589,
+      "vote_share_pct": 40.158803787279325,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAMDEO YADAV",
+      "party_short": "RJD",
+      "votes": 71116,
+      "vote_share_pct": 38.80924445414609,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BRAHMDEV RAY",
+      "party_short": "BSP",
+      "votes": 6127,
+      "vote_share_pct": 3.343611012578788,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Binod Pandit",
+      "party_short": "IND",
+      "votes": 5463,
+      "vote_share_pct": 2.9812546044912547,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KUMARI ARCHANA",
+      "party_short": "LJP",
+      "votes": 5312,
+      "vote_share_pct": 2.898851264700265,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3430,
+    "vote_share_pct": 1.8718109634642144
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 18208,
+    "vote_share_pct": 9.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANOJ YADAV",
+    "party_short": "JD(U)",
+    "votes": 73589,
+    "margin_votes": 2473,
+    "margin_pct": 1.35
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 85,
+  "constituency_name": "Pedakurapadu",
+  "totals": {
+    "electors": 222800,
+    "votes_polled": 197885,
+    "turnout_pct": 88.81732495511669
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAMBURU SANKARA RAO",
+      "party_short": "YSRCP",
+      "votes": 99577,
+      "vote_share_pct": 50.3206407762084,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KOMMALAPATI SRIDHAR",
+      "party_short": "TDP",
+      "votes": 85473,
+      "vote_share_pct": 43.19326881774768,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PUTTI SAMRAJYAM",
+      "party_short": "JnP",
+      "votes": 7198,
+      "vote_share_pct": 3.6374662051191353,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PAMIDI NAGESWARA RAO",
+      "party_short": "INC",
+      "votes": 2132,
+      "vote_share_pct": 1.077393435581272,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GANDHAM KOTESWARA RAO",
+      "party_short": "BJP",
+      "votes": 1114,
+      "vote_share_pct": 0.5629532304116027,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1397,
+    "vote_share_pct": 0.705965586072719
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 994,
+    "vote_share_pct": 0.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAMBURU SANKARA RAO",
+    "party_short": "YSRCP",
+    "votes": 99577,
+    "margin_votes": 14104,
+    "margin_pct": 7.13
+  }
+}

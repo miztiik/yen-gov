@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Jaswan-Pragpur",
+  "totals": {
+    "electors": 79856,
+    "votes_polled": 59201,
+    "turnout_pct": 74.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bikram Singh",
+      "party_short": "BJP",
+      "votes": 22658,
+      "vote_share_pct": 38.27,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Surinder Singh Mankotia",
+      "party_short": "INC",
+      "votes": 20869,
+      "vote_share_pct": 35.25,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sanjay Prashar",
+      "party_short": "IND",
+      "votes": 13405,
+      "vote_share_pct": 22.64,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Mukesh Kumar",
+      "party_short": "IND",
+      "votes": 1658,
+      "vote_share_pct": 2.8,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Prem Chand",
+      "party_short": "BSP",
+      "votes": 189,
+      "vote_share_pct": 0.32,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 259,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 163,
+    "vote_share_pct": 0.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bikram Singh",
+    "party_short": "BJP",
+    "votes": 22658,
+    "margin_votes": 1789,
+    "margin_pct": 3.02
+  }
+}

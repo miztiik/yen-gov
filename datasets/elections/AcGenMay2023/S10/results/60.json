@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "Kushtagi",
+  "totals": {
+    "electors": 233835,
+    "votes_polled": 183082,
+    "turnout_pct": 78.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Doddanagouda Hanamagouda Patil",
+      "party_short": "BJP",
+      "votes": 92915,
+      "vote_share_pct": 50.75,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Amaregouda Linganagouda Patil Bayyapur",
+      "party_short": "INC",
+      "votes": 83269,
+      "vote_share_pct": 45.48,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "B.vazeerali Gonal",
+      "party_short": "IND",
+      "votes": 1377,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sharanappa Siddappa Kumbar",
+      "party_short": "JD(S)",
+      "votes": 1048,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Kanakappa Malagavi",
+      "party_short": "AAAP",
+      "votes": 729,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1592,
+    "vote_share_pct": 0.87
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2152,
+    "vote_share_pct": 1.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Doddanagouda Hanamagouda Patil",
+    "party_short": "BJP",
+    "votes": 92915,
+    "margin_votes": 9646,
+    "margin_pct": 5.27
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "Barhait",
+  "totals": {
+    "electors": 195453,
+    "votes_polled": 137822,
+    "turnout_pct": 70.51413894900564
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HEMANT SOREN",
+      "party_short": "JMM",
+      "votes": 73725,
+      "vote_share_pct": 53.49291114626112,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SIMON MALTO",
+      "party_short": "BJP",
+      "votes": 47985,
+      "vote_share_pct": 34.8166475598961,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "HOPNA TUDU",
+      "party_short": "JVM",
+      "votes": 2622,
+      "vote_share_pct": 1.9024538897998866,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "GAMLIYEL HEMBROM",
+      "party_short": "AJSUP",
+      "votes": 2573,
+      "vote_share_pct": 1.8669007850705983,
+      "gender": "M",
+      "age": 25,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SAMUEL KUMAR MARAIYA",
+      "party_short": "LJP",
+      "votes": 1844,
+      "vote_share_pct": 1.3379576555266939,
+      "gender": "M",
+      "age": 30,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2566,
+    "vote_share_pct": 1.8618217701092714
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 6507,
+    "vote_share_pct": 4.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HEMANT SOREN",
+    "party_short": "JMM",
+    "votes": 73725,
+    "margin_votes": 25740,
+    "margin_pct": 18.68
+  }
+}

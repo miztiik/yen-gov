@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Barkatha",
+  "totals": {
+    "electors": 338721,
+    "votes_polled": 211618,
+    "turnout_pct": 62.475606767811854
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMIT KUMAR YADAV S/O-CHITRANJAN YADAV",
+      "party_short": "IND",
+      "votes": 72572,
+      "vote_share_pct": 34.29386914156641,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JANKI PRASAD YADAV",
+      "party_short": "BJP",
+      "votes": 47760,
+      "vote_share_pct": 22.56896861325596,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BATESHWAR PRASAD MEHTA",
+      "party_short": "JVM",
+      "votes": 33526,
+      "vote_share_pct": 15.842697691122684,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHAMMAD ASRAF ANSARI",
+      "party_short": "AIMIM",
+      "votes": 18416,
+      "vote_share_pct": 8.702473324575415,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DIGANBAR KUMAR MEHTA",
+      "party_short": "CPI",
+      "votes": 5634,
+      "vote_share_pct": 2.6623444130461493,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1419,
+    "vote_share_pct": 0.6705478739993762
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 32291,
+    "vote_share_pct": 15.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMIT KUMAR YADAV S/O-CHITRANJAN YADAV",
+    "party_short": "IND",
+    "votes": 72572,
+    "margin_votes": 24812,
+    "margin_pct": 11.72
+  }
+}

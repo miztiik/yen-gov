@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Godda",
+  "totals": {
+    "electors": 288545,
+    "votes_polled": 191478,
+    "turnout_pct": 66.35983988632623
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Amit Kumar Mandal",
+      "party_short": "BJP",
+      "votes": 87578,
+      "vote_share_pct": 45.73789155934363,
+      "is_winner": true,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sanjay Prasad Yadav",
+      "party_short": "RJD",
+      "votes": 83066,
+      "vote_share_pct": 43.38148507922581,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ravindra Mahto",
+      "party_short": "JD(U)",
+      "votes": 6417,
+      "vote_share_pct": 3.351298843731395,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Phool Kumari",
+      "party_short": "JVM",
+      "votes": 1728,
+      "vote_share_pct": 0.9024535455770376,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Noor Hassan",
+      "party_short": "PECP",
+      "votes": 1708,
+      "vote_share_pct": 0.8920084813921182,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2731,
+    "vote_share_pct": 1.4262735144507463
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 8250,
+    "vote_share_pct": 4.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Amit Kumar Mandal",
+    "party_short": "BJP",
+    "votes": 87578,
+    "margin_votes": 4512,
+    "margin_pct": 2.36
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Singheshwar",
+  "totals": {
+    "electors": 310531,
+    "votes_polled": 190950,
+    "turnout_pct": 61.491445298537016
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHANDRAHAS CHAUPAL",
+      "party_short": "RJD",
+      "votes": 86181,
+      "vote_share_pct": 45.132757266300075,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAMESH RISHIDEV",
+      "party_short": "JD(U)",
+      "votes": 80608,
+      "vote_share_pct": 42.21419219691019,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "AMIT KUMAR BHARTI",
+      "party_short": "LJP",
+      "votes": 5607,
+      "vote_share_pct": 2.936370777690495,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "ANIL KUMAR BANDHU",
+      "party_short": "JAPL",
+      "votes": 3830,
+      "vote_share_pct": 2.0057606703325477,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SHIVJEE RAM",
+      "party_short": "AMJNMTP",
+      "votes": 2354,
+      "vote_share_pct": 1.2327834511652265,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3998,
+    "vote_share_pct": 2.0937418172296414
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 8372,
+    "vote_share_pct": 4.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHANDRAHAS CHAUPAL",
+    "party_short": "RJD",
+    "votes": 86181,
+    "margin_votes": 5573,
+    "margin_pct": 2.92
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Sanguem",
+  "totals": {
+    "electors": 26659,
+    "votes_polled": 23751,
+    "turnout_pct": 89.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Subhash Uttam Phal Dessai",
+      "party_short": "BJP",
+      "votes": 8724,
+      "vote_share_pct": 36.73,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Savitri Chandrakant Kavlekar",
+      "party_short": "IND",
+      "votes": 7295,
+      "vote_share_pct": 30.71,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Prasad Shashikant Gaonkar",
+      "party_short": "INC",
+      "votes": 4644,
+      "vote_share_pct": 19.55,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Sunil Bombi Gaonkar",
+      "party_short": "RVLTGONP",
+      "votes": 1500,
+      "vote_share_pct": 6.32,
+      "gender": "M",
+      "age": 28,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Abhijit Dessai",
+      "party_short": "AAAP",
+      "votes": 894,
+      "vote_share_pct": 3.76,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 241,
+    "vote_share_pct": 1.01
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 453,
+    "vote_share_pct": 1.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Subhash Uttam Phal Dessai",
+    "party_short": "BJP",
+    "votes": 8724,
+    "margin_votes": 1429,
+    "margin_pct": 6.02
+  }
+}

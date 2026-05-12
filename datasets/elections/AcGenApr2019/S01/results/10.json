@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "Palakonda  (ST)",
+  "totals": {
+    "electors": 184967,
+    "votes_polled": 136712,
+    "turnout_pct": 73.91156260305893
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VISWASARAYI KALAVATHI",
+      "party_short": "YSRCP",
+      "votes": 72054,
+      "vote_share_pct": 52.70495640470478,
+      "is_winner": true,
+      "gender": "F",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "JAYAKRISHNA NIMMAKA",
+      "party_short": "TDP",
+      "votes": 54074,
+      "vote_share_pct": 39.55322137047224,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "DVG SANKARA RAO",
+      "party_short": "CPI",
+      "votes": 3343,
+      "vote_share_pct": 2.445286441570601,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SUNEETHA THADANGI",
+      "party_short": "BJP",
+      "votes": 1169,
+      "vote_share_pct": 0.855082216630581,
+      "gender": "F",
+      "age": 28,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "H. PRASAD RAO",
+      "party_short": "INC",
+      "votes": 1001,
+      "vote_share_pct": 0.7321961495698988,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3548,
+    "vote_share_pct": 2.595236701972029
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1523,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VISWASARAYI KALAVATHI",
+    "party_short": "YSRCP",
+    "votes": 72054,
+    "margin_votes": 17980,
+    "margin_pct": 13.15
+  }
+}

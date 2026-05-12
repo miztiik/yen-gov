@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "Navelim",
+  "totals": {
+    "electors": 28892,
+    "votes_polled": 21332,
+    "turnout_pct": 73.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ulhas Tuenkar",
+      "party_short": "BJP",
+      "votes": 5168,
+      "vote_share_pct": 24.23,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Valanka Natasha Alemao",
+      "party_short": "AITC",
+      "votes": 4738,
+      "vote_share_pct": 22.21,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Avertano Furtado",
+      "party_short": "INC",
+      "votes": 3806,
+      "vote_share_pct": 17.84,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Mohammad Rehan Mujawar",
+      "party_short": "NCP",
+      "votes": 2622,
+      "vote_share_pct": 12.29,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Pratima Betsy Coutinho",
+      "party_short": "AAAP",
+      "votes": 2327,
+      "vote_share_pct": 10.91,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 168,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2503,
+    "vote_share_pct": 11.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ulhas Tuenkar",
+    "party_short": "BJP",
+    "votes": 5168,
+    "margin_votes": 430,
+    "margin_pct": 2.02
+  }
+}

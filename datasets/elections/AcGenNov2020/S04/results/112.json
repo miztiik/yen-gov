@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 112,
+  "constituency_name": "Maharajganj",
+  "totals": {
+    "electors": 302786,
+    "votes_polled": 162353,
+    "turnout_pct": 53.619718216826406
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vijay Shanker Dubey",
+      "party_short": "INC",
+      "votes": 48825,
+      "vote_share_pct": 30.073358669072945,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "HEM NARAYAN SAH",
+      "party_short": "JD(U)",
+      "votes": 46849,
+      "vote_share_pct": 28.85625766077621,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Deo Ranjan Singh",
+      "party_short": "LJP",
+      "votes": 18278,
+      "vote_share_pct": 11.258184326744809,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ejaz Ahmad Siddique",
+      "party_short": "AZSP",
+      "votes": 7714,
+      "vote_share_pct": 4.751375090081488,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AJIT Prasad",
+      "party_short": "RLSP",
+      "votes": 4983,
+      "vote_share_pct": 3.0692380183920225,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2473,
+    "vote_share_pct": 1.5232240857883748
+  },
+  "others": {
+    "candidate_count": 22,
+    "votes": 33231,
+    "vote_share_pct": 20.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vijay Shanker Dubey",
+    "party_short": "INC",
+    "votes": 48825,
+    "margin_votes": 1976,
+    "margin_pct": 1.22
+  }
+}

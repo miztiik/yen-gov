@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "THRISSUR",
+  "totals": {
+    "electors": 182823,
+    "votes_polled": 129237,
+    "turnout_pct": 70.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P Balachandran",
+      "party_short": "CPI",
+      "votes": 44263,
+      "vote_share_pct": 34.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Padmaja Venugopal",
+      "party_short": "INC",
+      "votes": 43317,
+      "vote_share_pct": 33.52,
+      "gender": "F",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Suresh Gopi",
+      "party_short": "BJP",
+      "votes": 40457,
+      "vote_share_pct": 31.3,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ajith Menon Ponnemkattil",
+      "party_short": "IND",
+      "votes": 252,
+      "vote_share_pct": 0.19,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Thrissur Mukundan",
+      "party_short": "igp",
+      "votes": 225,
+      "vote_share_pct": 0.17,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 723,
+    "vote_share_pct": 0.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P Balachandran",
+    "party_short": "CPI",
+    "votes": 44263,
+    "margin_votes": 946,
+    "margin_pct": 0.73
+  },
+  "others": null
+}

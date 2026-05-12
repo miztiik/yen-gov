@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 91,
+  "constituency_name": "HOJAI",
+  "totals": {
+    "electors": 266431,
+    "votes_polled": 222096,
+    "turnout_pct": 83.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ramkrishna Ghosh",
+      "party_short": "BJP",
+      "votes": 125790,
+      "vote_share_pct": 56.64,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Debabrata Saha",
+      "party_short": "INC",
+      "votes": 92008,
+      "vote_share_pct": 41.43,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Raj Kumar Gupta",
+      "party_short": "LRAP",
+      "votes": 1137,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dulal Sutradhar",
+      "party_short": "IND",
+      "votes": 727,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 82,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Najmul Hussain Laskar",
+      "party_short": "IND",
+      "votes": 710,
+      "vote_share_pct": 0.32,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1724,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ramkrishna Ghosh",
+    "party_short": "BJP",
+    "votes": 125790,
+    "margin_votes": 33782,
+    "margin_pct": 15.21
+  },
+  "others": null
+}

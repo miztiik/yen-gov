@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 223,
+  "constituency_name": "Aurangabad",
+  "totals": {
+    "electors": 317947,
+    "votes_polled": 169654,
+    "turnout_pct": 53.35920766668658
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANAND SHANKAR SINGH",
+      "party_short": "INC",
+      "votes": 70018,
+      "vote_share_pct": 41.271057564218935,
+      "is_winner": true,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAMADHAR SINGH",
+      "party_short": "BJP",
+      "votes": 67775,
+      "vote_share_pct": 39.94895493180237,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANIL KUMAR",
+      "party_short": "BSP",
+      "votes": 18444,
+      "vote_share_pct": 10.871538543152534,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANJIV KUMAR SINGH",
+      "party_short": "IND",
+      "votes": 2610,
+      "vote_share_pct": 1.538425265540453,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SURESH PRASAD",
+      "party_short": "BMUP",
+      "votes": 2366,
+      "vote_share_pct": 1.394603133436288,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2484,
+    "vote_share_pct": 1.4641564596178105
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 5957,
+    "vote_share_pct": 3.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANAND SHANKAR SINGH",
+    "party_short": "INC",
+    "votes": 70018,
+    "margin_votes": 2243,
+    "margin_pct": 1.32
+  }
+}

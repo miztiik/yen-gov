@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 140,
+  "constituency_name": "Bagepalli",
+  "totals": {
+    "electors": 197982,
+    "votes_polled": 164528,
+    "turnout_pct": 83.10250426806476
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "S.N. SUBBAREDDY(CHINNAKAYALAPALLI)",
+      "party_short": "INC",
+      "votes": 65710,
+      "vote_share_pct": 39.938490712827,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "G.V. SREERAMAREDDY",
+      "party_short": "CPM",
+      "votes": 51697,
+      "vote_share_pct": 31.42139939706311,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. C. R. MANOHAR",
+      "party_short": "JD(S)",
+      "votes": 38302,
+      "vote_share_pct": 23.279928036565206,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAIKUMAR. P.",
+      "party_short": "BJP",
+      "votes": 4140,
+      "vote_share_pct": 2.5162890207137996,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "TAHSEEN TAJ",
+      "party_short": "SP",
+      "votes": 851,
+      "vote_share_pct": 0.5172371875911699,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 680,
+    "vote_share_pct": 0.41330351064864346
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3148,
+    "vote_share_pct": 1.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "S.N. SUBBAREDDY(CHINNAKAYALAPALLI)",
+    "party_short": "INC",
+    "votes": 65710,
+    "margin_votes": 14013,
+    "margin_pct": 8.52
+  }
+}

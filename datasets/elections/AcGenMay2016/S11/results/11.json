@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "KANNUR",
+  "totals": {
+    "electors": 163205,
+    "votes_polled": 126219,
+    "turnout_pct": 77.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMACHANDRAN KADANNAPPALLI",
+      "party_short": "C(S)",
+      "votes": 54347,
+      "vote_share_pct": 43.06,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATHEESAN PACHENI",
+      "party_short": "INC",
+      "votes": 53151,
+      "vote_share_pct": 42.11,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.G. BABU",
+      "party_short": "BJP",
+      "votes": 13215,
+      "vote_share_pct": 10.47,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUFIRA K P",
+      "party_short": "SDPI",
+      "votes": 2551,
+      "vote_share_pct": 2.02,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "C P RAHNA TEACHER",
+      "party_short": "WPOI",
+      "votes": 1134,
+      "vote_share_pct": 0.9,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 517,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1304,
+    "vote_share_pct": 1.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMACHANDRAN KADANNAPPALLI",
+    "party_short": "C(S)",
+    "votes": 54347,
+    "margin_votes": 1196,
+    "margin_pct": 0.95
+  }
+}

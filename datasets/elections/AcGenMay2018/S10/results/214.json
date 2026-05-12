@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 214,
+  "constituency_name": "Nanjangud  (SC)",
+  "totals": {
+    "electors": 209121,
+    "votes_polled": 163979,
+    "turnout_pct": 78.41345441156076
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B. HARSHAVARDHAN",
+      "party_short": "BJP",
+      "votes": 78030,
+      "vote_share_pct": 47.58536154019722,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "KALALE N. KESHAVAMURTHY",
+      "party_short": "INC",
+      "votes": 65551,
+      "vote_share_pct": 39.97524073204496,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DAYANANDAMURTHY. H. S.",
+      "party_short": "JD(S)",
+      "votes": 13679,
+      "vote_share_pct": 8.341921831454028,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "DODDASWAMY",
+      "party_short": "APOI",
+      "votes": 1363,
+      "vote_share_pct": 0.8312039956335873,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BASAVARAJU. C.",
+      "party_short": "AIMEP",
+      "votes": 753,
+      "vote_share_pct": 0.4592051421218571,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1947,
+    "vote_share_pct": 1.1873471603071124
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2656,
+    "vote_share_pct": 1.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B. HARSHAVARDHAN",
+    "party_short": "BJP",
+    "votes": 78030,
+    "margin_votes": 12479,
+    "margin_pct": 7.61
+  }
+}

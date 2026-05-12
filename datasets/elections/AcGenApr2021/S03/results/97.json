@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 97,
+  "constituency_name": "DERGAON",
+  "totals": {
+    "electors": 174870,
+    "votes_polled": 133102,
+    "turnout_pct": 76.11
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHABENDRA NATH BHARALI",
+      "party_short": "AGP",
+      "votes": 64043,
+      "vote_share_pct": 48.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "BANI HAZARIKA",
+      "party_short": "INC",
+      "votes": 51546,
+      "vote_share_pct": 38.73,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ANANDA CHANDRA DAS",
+      "party_short": "ASMJTYP",
+      "votes": 7585,
+      "vote_share_pct": 5.7,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PROBIN DAS",
+      "party_short": "IND",
+      "votes": 7487,
+      "vote_share_pct": 5.63,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2441,
+    "vote_share_pct": 1.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHABENDRA NATH BHARALI",
+    "party_short": "AGP",
+    "votes": 64043,
+    "margin_votes": 12497,
+    "margin_pct": 9.39
+  },
+  "others": null
+}

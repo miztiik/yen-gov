@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 147,
+  "constituency_name": "Bangarapet  (SC)",
+  "totals": {
+    "electors": 193234,
+    "votes_polled": 157152,
+    "turnout_pct": 81.32730264860221
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "S.N.NARAYANASWAMY K.M",
+      "party_short": "INC",
+      "votes": 71171,
+      "vote_share_pct": 45.28800142537161,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "M.MALLESH BABU",
+      "party_short": "JD(S)",
+      "votes": 49300,
+      "vote_share_pct": 31.370902056607616,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "VENKATAMUNIYAPPA B.P.",
+      "party_short": "BJP",
+      "votes": 33554,
+      "vote_share_pct": 21.351303196904905,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "G.CHIKKANARAYANA",
+      "party_short": "RPSN",
+      "votes": 404,
+      "vote_share_pct": 0.25707595194461413,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "C.VENKATESHAPPA",
+      "party_short": "IND",
+      "votes": 353,
+      "vote_share_pct": 0.22462329464467526,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1127,
+    "vote_share_pct": 0.7171400936672775
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1243,
+    "vote_share_pct": 0.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "S.N.NARAYANASWAMY K.M",
+    "party_short": "INC",
+    "votes": 71171,
+    "margin_votes": 21871,
+    "margin_pct": 13.92
+  }
+}

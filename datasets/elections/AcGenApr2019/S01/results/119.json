@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 119,
+  "constituency_name": "Sarvepalli",
+  "totals": {
+    "electors": 230446,
+    "votes_polled": 189392,
+    "turnout_pct": 82.18498042925458
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KAKANI GOVARDHAN REDDY",
+      "party_short": "YSRCP",
+      "votes": 97272,
+      "vote_share_pct": 51.36014192785334,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHANDRAMOHAN REDDY SOMIREDDY",
+      "party_short": "TDP",
+      "votes": 83299,
+      "vote_share_pct": 43.98232237898116,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUNKARA HEMALATHA",
+      "party_short": "JnP",
+      "votes": 1913,
+      "vote_share_pct": 1.010074343161274,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "POOLA CHANDRASEKHAR",
+      "party_short": "INC",
+      "votes": 1420,
+      "vote_share_pct": 0.7497676776210188,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MASTHANAIAH PANDI",
+      "party_short": "BJP",
+      "votes": 1420,
+      "vote_share_pct": 0.7497676776210188,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2782,
+    "vote_share_pct": 1.4689110416490665
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1286,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KAKANI GOVARDHAN REDDY",
+    "party_short": "YSRCP",
+    "votes": 97272,
+    "margin_votes": 13973,
+    "margin_pct": 7.38
+  }
+}

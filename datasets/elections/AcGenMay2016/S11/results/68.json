@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "NATTIKA",
+  "totals": {
+    "electors": 196781,
+    "votes_polled": 150512,
+    "turnout_pct": 76.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GEETHA GOPI",
+      "party_short": "CPI",
+      "votes": 70218,
+      "vote_share_pct": 46.65,
+      "is_winner": true,
+      "gender": "F",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "K.V. DASAN",
+      "party_short": "INC",
+      "votes": 43441,
+      "vote_share_pct": 28.86,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "T.V. BABU",
+      "party_short": "BDJS",
+      "votes": 33650,
+      "vote_share_pct": 22.36,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "ARUMUGHAN SNEHATHEERAM",
+      "party_short": "PDP",
+      "votes": 534,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "A.K. SANTHOSH",
+      "party_short": "BSP",
+      "votes": 530,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 903,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1236,
+    "vote_share_pct": 0.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GEETHA GOPI",
+    "party_short": "CPI",
+    "votes": 70218,
+    "margin_votes": 26777,
+    "margin_pct": 17.79
+  }
+}

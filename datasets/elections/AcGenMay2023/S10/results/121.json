@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 121,
+  "constituency_name": "Kapu",
+  "totals": {
+    "electors": 189007,
+    "votes_polled": 151355,
+    "turnout_pct": 80.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gurme Suresh Shetty",
+      "party_short": "BJP",
+      "votes": 80559,
+      "vote_share_pct": 53.23,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Vinay Kumar Sorake",
+      "party_short": "INC",
+      "votes": 67555,
+      "vote_share_pct": 44.63,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Mohammed Haneef",
+      "party_short": "SDPI",
+      "votes": 1616,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sabina Samad",
+      "party_short": "JD(S)",
+      "votes": 568,
+      "vote_share_pct": 0.38,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "S.r.lobo",
+      "party_short": "AAAP",
+      "votes": 252,
+      "vote_share_pct": 0.17,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 805,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gurme Suresh Shetty",
+    "party_short": "BJP",
+    "votes": 80559,
+    "margin_votes": 13004,
+    "margin_pct": 8.59
+  },
+  "others": null
+}

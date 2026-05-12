@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 77,
+  "constituency_name": "KALAMASSERY",
+  "totals": {
+    "electors": 201781,
+    "votes_polled": 155863,
+    "turnout_pct": 77.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P. Rajeeve",
+      "party_short": "CPI(M)",
+      "votes": 77141,
+      "vote_share_pct": 49.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv. V. E. Abdul Gafoor",
+      "party_short": "IUML",
+      "votes": 61805,
+      "vote_share_pct": 39.65,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "P. S. Jayaraj",
+      "party_short": "BDJS",
+      "votes": 11179,
+      "vote_share_pct": 7.17,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "V. M. Faisal",
+      "party_short": "SDPI",
+      "votes": 2385,
+      "vote_share_pct": 1.53,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "P. S. Unnikrishnan",
+      "party_short": "BSP",
+      "votes": 857,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1518,
+    "vote_share_pct": 0.97
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 978,
+    "vote_share_pct": 0.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P. Rajeeve",
+    "party_short": "CPI(M)",
+    "votes": 77141,
+    "margin_votes": 15336,
+    "margin_pct": 9.84
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "SHAKUR BASTI",
+  "totals": {
+    "electors": 146226,
+    "votes_polled": 99165,
+    "turnout_pct": 67.81625702679413
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATYENDAR JAIN",
+      "party_short": "AAAP",
+      "votes": 51165,
+      "vote_share_pct": 51.59582513991832,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. S. C. VATS",
+      "party_short": "BJP",
+      "votes": 43573,
+      "vote_share_pct": 43.93989814954873,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DEV RAJ ARORA",
+      "party_short": "INC",
+      "votes": 3382,
+      "vote_share_pct": 3.410477487016589,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ASHA RAM",
+      "party_short": "BSP",
+      "votes": 289,
+      "vote_share_pct": 0.2914334694700751,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PRAVEEN YADAV",
+      "party_short": "AKBHJSP",
+      "votes": 115,
+      "vote_share_pct": 0.11596833560227904,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 641,
+    "vote_share_pct": 0.6463974184440074
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATYENDAR JAIN",
+    "party_short": "AAAP",
+    "votes": 51165,
+    "margin_votes": 7592,
+    "margin_pct": 7.66
+  },
+  "others": null
+}

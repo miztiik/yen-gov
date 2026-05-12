@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Visakhapatnam  North",
+  "totals": {
+    "electors": 280328,
+    "votes_polled": 176841,
+    "turnout_pct": 63.08360206615108
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GANTA SRINIVASA RAO",
+      "party_short": "TDP",
+      "votes": 67352,
+      "vote_share_pct": 38.0861904196425,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAMMILA KANNAPARAJU (K.K. RAJU)",
+      "party_short": "YSRCP",
+      "votes": 65408,
+      "vote_share_pct": 36.986897834778134,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PASUPULETI USHA KIRAN",
+      "party_short": "JnP",
+      "votes": 19139,
+      "vote_share_pct": 10.82271645150163,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VISHNU KUMAR RAJU PENMETSA",
+      "party_short": "BJP",
+      "votes": 18790,
+      "vote_share_pct": 10.625364027572791,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GOMPA GOVINDA RAJU",
+      "party_short": "INC",
+      "votes": 2054,
+      "vote_share_pct": 1.1614953545840614,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1411,
+    "vote_share_pct": 0.7978918915862271
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 2687,
+    "vote_share_pct": 1.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GANTA SRINIVASA RAO",
+    "party_short": "TDP",
+    "votes": 67352,
+    "margin_votes": 1944,
+    "margin_pct": 1.1
+  }
+}

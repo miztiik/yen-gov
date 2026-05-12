@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 126,
+  "constituency_name": "CHATHANNUR",
+  "totals": {
+    "electors": 179928,
+    "votes_polled": 133199,
+    "turnout_pct": 74.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G.S.JAYALAL",
+      "party_short": "CPI",
+      "votes": 67606,
+      "vote_share_pct": 50.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "B B GOPAKUMAR",
+      "party_short": "BJP",
+      "votes": 33199,
+      "vote_share_pct": 24.92,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR.SOORANAD RAJASEKHARAN",
+      "party_short": "INC",
+      "votes": 30139,
+      "vote_share_pct": 22.63,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJU",
+      "party_short": "IND",
+      "votes": 658,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SALIMRAJ A",
+      "party_short": "BSP",
+      "votes": 491,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 604,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 502,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G.S.JAYALAL",
+    "party_short": "CPI",
+    "votes": 67606,
+    "margin_votes": 34407,
+    "margin_pct": 25.83
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 109,
+  "constituency_name": "Kandukur",
+  "totals": {
+    "electors": 218961,
+    "votes_polled": 195916,
+    "turnout_pct": 89.47529468718174
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAHEEDHAR REDDY MANUGUNTA",
+      "party_short": "YSRCP",
+      "votes": 101275,
+      "vote_share_pct": 51.693072541293205,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "POTHULA RAMA RAO",
+      "party_short": "TDP",
+      "votes": 86339,
+      "vote_share_pct": 44.06939708854815,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PULI MALLIKARJUNA RAO",
+      "party_short": "JnP",
+      "votes": 2322,
+      "vote_share_pct": 1.1852018211886728,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "CHILAKAPATI SUSHEELA",
+      "party_short": "INC",
+      "votes": 896,
+      "vote_share_pct": 0.45733885951121905,
+      "gender": "F",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRAGIRI VENKATESWARA RAO",
+      "party_short": "BJP",
+      "votes": 882,
+      "vote_share_pct": 0.4501929398313563,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 962,
+    "vote_share_pct": 0.4910267665734294
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 3240,
+    "vote_share_pct": 1.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAHEEDHAR REDDY MANUGUNTA",
+    "party_short": "YSRCP",
+    "votes": 101275,
+    "margin_votes": 14936,
+    "margin_pct": 7.62
+  }
+}

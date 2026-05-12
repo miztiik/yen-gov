@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 204,
+  "constituency_name": "Mangalore",
+  "totals": {
+    "electors": 195746,
+    "votes_polled": 149358,
+    "turnout_pct": 76.30194231299745
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "U.T.ABDUL KHADER",
+      "party_short": "INC",
+      "votes": 80813,
+      "vote_share_pct": 54.106910912036845,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SANTHOSH KUMAR RAI BOLIYARU",
+      "party_short": "BJP",
+      "votes": 61074,
+      "vote_share_pct": 40.89101353794239,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.ASHRAF",
+      "party_short": "JD(S)",
+      "votes": 3692,
+      "vote_share_pct": 2.471913121493325,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NITHIN KUTHAR",
+      "party_short": "CPM",
+      "votes": 2372,
+      "vote_share_pct": 1.5881305320103376,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "USMAN",
+      "party_short": "AIMEP",
+      "votes": 586,
+      "vote_share_pct": 0.39234590714926554,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 821,
+    "vote_share_pct": 0.5496859893678276
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "U.T.ABDUL KHADER",
+    "party_short": "INC",
+    "votes": 80813,
+    "margin_votes": 19739,
+    "margin_pct": 13.22
+  },
+  "others": null
+}

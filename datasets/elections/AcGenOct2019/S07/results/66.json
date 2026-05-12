@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "Jhajjar (SC)",
+  "totals": {
+    "electors": 173787,
+    "votes_polled": 111208,
+    "turnout_pct": 63.9909774609148
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GEETA BHUKKAL",
+      "party_short": "INC",
+      "votes": 46480,
+      "vote_share_pct": 41.79555427667074,
+      "is_winner": true,
+      "gender": "F",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAKESH KUMAR",
+      "party_short": "BJP",
+      "votes": 31481,
+      "vote_share_pct": 28.308215236313934,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "NASEEB KUMAR",
+      "party_short": "JNJP",
+      "votes": 24445,
+      "vote_share_pct": 21.981332278253362,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "AJAY TANWAR",
+      "party_short": "LTSP",
+      "votes": 4116,
+      "vote_share_pct": 3.701172577512409,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAMDHAN",
+      "party_short": "BSP",
+      "votes": 2653,
+      "vote_share_pct": 2.38561973958708,
+      "gender": "M",
+      "age": 72,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 386,
+    "vote_share_pct": 0.34709733112725705
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1647,
+    "vote_share_pct": 1.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GEETA BHUKKAL",
+    "party_short": "INC",
+    "votes": 46480,
+    "margin_votes": 14999,
+    "margin_pct": 13.49
+  }
+}

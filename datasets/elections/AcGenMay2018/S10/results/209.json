@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 209,
+  "constituency_name": "Virajpet",
+  "totals": {
+    "electors": 217457,
+    "votes_polled": 157772,
+    "turnout_pct": 72.55319442464487
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K G BOPAIAH",
+      "party_short": "BJP",
+      "votes": 77944,
+      "vote_share_pct": 49.40293588215906,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARUN MACHAIAH C S",
+      "party_short": "INC",
+      "votes": 64591,
+      "vote_share_pct": 40.939456937859696,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANKETH POOVAIAH M",
+      "party_short": "JD(S)",
+      "votes": 11224,
+      "vote_share_pct": 7.11406333189666,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BASAVARAJU H D",
+      "party_short": "AIMEP",
+      "votes": 1015,
+      "vote_share_pct": 0.6433334178434703,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NANJAPPA M K",
+      "party_short": "IND",
+      "votes": 666,
+      "vote_share_pct": 0.42212813426970563,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1733,
+    "vote_share_pct": 1.0984205055396394
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 599,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K G BOPAIAH",
+    "party_short": "BJP",
+    "votes": 77944,
+    "margin_votes": 13353,
+    "margin_pct": 8.46
+  }
+}

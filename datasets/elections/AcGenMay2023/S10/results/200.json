@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 200,
+  "constituency_name": "Belthangady",
+  "totals": {
+    "electors": 228941,
+    "votes_polled": 189007,
+    "turnout_pct": 82.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Harish Poonja",
+      "party_short": "BJP",
+      "votes": 101004,
+      "vote_share_pct": 53.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rakshith Shivaram",
+      "party_short": "INC",
+      "votes": 82788,
+      "vote_share_pct": 43.8,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Akbar Belthangady",
+      "party_short": "SDPI",
+      "votes": 2513,
+      "vote_share_pct": 1.33,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ashraf Alikunhi Mundaje",
+      "party_short": "JD(S)",
+      "votes": 556,
+      "vote_share_pct": 0.29,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Adithya Narayana Kollaje",
+      "party_short": "SKP",
+      "votes": 454,
+      "vote_share_pct": 0.24,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 892,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 800,
+    "vote_share_pct": 0.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Harish Poonja",
+    "party_short": "BJP",
+    "votes": 101004,
+    "margin_votes": 18216,
+    "margin_pct": 9.64
+  }
+}

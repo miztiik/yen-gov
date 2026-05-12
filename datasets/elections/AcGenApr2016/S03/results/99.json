@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 99,
+  "constituency_name": "Majuli",
+  "totals": {
+    "electors": 114572,
+    "votes_polled": 97761,
+    "turnout_pct": 85.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SARBANANDA SONOWAL",
+      "party_short": "BJP",
+      "votes": 49602,
+      "vote_share_pct": 50.74,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "RAJIB LOCHAN PEGU",
+      "party_short": "INC",
+      "votes": 30679,
+      "vote_share_pct": 31.38,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "RANJIT DOLEY",
+      "party_short": "IND",
+      "votes": 15695,
+      "vote_share_pct": 16.05,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "HEMANTA PEGU",
+      "party_short": "SUCI",
+      "votes": 798,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 987,
+    "vote_share_pct": 1.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SARBANANDA SONOWAL",
+    "party_short": "BJP",
+    "votes": 49602,
+    "margin_votes": 18923,
+    "margin_pct": 19.36
+  },
+  "others": null
+}

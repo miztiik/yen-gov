@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "Dabwali",
+  "totals": {
+    "electors": 199291,
+    "votes_polled": 157136,
+    "turnout_pct": 78.84751443868514
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMIT SIHAG",
+      "party_short": "INC",
+      "votes": 66885,
+      "vote_share_pct": 42.56503920171062,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADITYA",
+      "party_short": "BJP",
+      "votes": 51238,
+      "vote_share_pct": 32.60742286936157,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SARAVJIT SINGH MASITAN",
+      "party_short": "JNJP",
+      "votes": 23002,
+      "vote_share_pct": 14.638275124732717,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dr. SITA RAM",
+      "party_short": "INLD",
+      "votes": 8825,
+      "vote_share_pct": 5.616154159454231,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SUBHASH CHANDER",
+      "party_short": "BSP",
+      "votes": 1290,
+      "vote_share_pct": 0.8209449139598819,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1477,
+    "vote_share_pct": 0.9399501069137564
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4419,
+    "vote_share_pct": 2.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMIT SIHAG",
+    "party_short": "INC",
+    "votes": 66885,
+    "margin_votes": 15647,
+    "margin_pct": 9.96
+  }
+}

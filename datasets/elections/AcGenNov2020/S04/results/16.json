@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Kalyanpur",
+  "totals": {
+    "electors": 256790,
+    "votes_polled": 160557,
+    "turnout_pct": 62.524631021457225
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manoj Kumar Yadav",
+      "party_short": "RJD",
+      "votes": 72819,
+      "vote_share_pct": 45.35398643472411,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sachindra Prasad Singh",
+      "party_short": "BJP",
+      "votes": 71626,
+      "vote_share_pct": 44.61094813679877,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Mohammad Badiuzzaman",
+      "party_short": "BSP",
+      "votes": 6367,
+      "vote_share_pct": 3.9655698599251354,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Mala Thakur",
+      "party_short": "JDR",
+      "votes": 2006,
+      "vote_share_pct": 1.2494005244243478,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rituraj Pandey",
+      "party_short": "IND",
+      "votes": 1797,
+      "vote_share_pct": 1.119228685139857,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2887,
+    "vote_share_pct": 1.798115311073326
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3055,
+    "vote_share_pct": 1.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manoj Kumar Yadav",
+    "party_short": "RJD",
+    "votes": 72819,
+    "margin_votes": 1193,
+    "margin_pct": 0.74
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 179,
+  "constituency_name": "Barh",
+  "totals": {
+    "electors": 280165,
+    "votes_polled": 149739,
+    "turnout_pct": 53.446718897792366
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GYANENDRA KUMAR SINGH",
+      "party_short": "BJP",
+      "votes": 49327,
+      "vote_share_pct": 32.94198572182264,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATYENDRA BAHADUR",
+      "party_short": "INC",
+      "votes": 39087,
+      "vote_share_pct": 26.10341995071424,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KARN VEER SINGH YADAV",
+      "party_short": "IND",
+      "votes": 38406,
+      "vote_share_pct": 25.648628613787995,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RANVEER KUMAR \"PANKAJ\"",
+      "party_short": "IND",
+      "votes": 5959,
+      "vote_share_pct": 3.979591155276849,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RANA SUDHIR KUMAR SINGH",
+      "party_short": "IND",
+      "votes": 3328,
+      "vote_share_pct": 2.2225338756102286,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1461,
+    "vote_share_pct": 0.975697714022399
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 12171,
+    "vote_share_pct": 8.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GYANENDRA KUMAR SINGH",
+    "party_short": "BJP",
+    "votes": 49327,
+    "margin_votes": 10240,
+    "margin_pct": 6.84
+  }
+}

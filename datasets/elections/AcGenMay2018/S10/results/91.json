@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 91,
+  "constituency_name": "Kampli  (ST)",
+  "totals": {
+    "electors": 212841,
+    "votes_polled": 165760,
+    "turnout_pct": 77.87973181858759
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "J N GANESH",
+      "party_short": "INC",
+      "votes": 80592,
+      "vote_share_pct": 48.61969111969111,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "T H SURESH BABU",
+      "party_short": "BJP",
+      "votes": 75037,
+      "vote_share_pct": 45.268460424710426,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "K RAGHAVENDRA",
+      "party_short": "JD(S)",
+      "votes": 4832,
+      "vote_share_pct": 2.9150579150579152,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "B SHANTHI LAKSHMI",
+      "party_short": "PPOI",
+      "votes": 1217,
+      "vote_share_pct": 0.7341940154440154,
+      "gender": "F",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "V SHIVASHANKRAPPA",
+      "party_short": "CPM",
+      "votes": 1111,
+      "vote_share_pct": 0.6702461389961392,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2125,
+    "vote_share_pct": 1.281973938223938
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 846,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "J N GANESH",
+    "party_short": "INC",
+    "votes": 80592,
+    "margin_votes": 5555,
+    "margin_pct": 3.35
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 144,
+  "constituency_name": "Yemmiganur",
+  "totals": {
+    "electors": 227395,
+    "votes_polled": 181121,
+    "turnout_pct": 79.65038809120693
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K CHENNAKESAVA REDDY",
+      "party_short": "YSRCP",
+      "votes": 96498,
+      "vote_share_pct": 53.27819523964642,
+      "is_winner": true,
+      "gender": "M",
+      "age": 79,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "B JAYA NAGESWARA REDDY",
+      "party_short": "TDP",
+      "votes": 70888,
+      "vote_share_pct": 39.138476488093595,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.R. MURAHARI REDDY",
+      "party_short": "BJP",
+      "votes": 3022,
+      "vote_share_pct": 1.6684978550250937,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "REKHA JAVVAJI",
+      "party_short": "JnP",
+      "votes": 2964,
+      "vote_share_pct": 1.6364750636314949,
+      "gender": "F",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KADIMETLA LAKSHMI NARAYANA REDDY",
+      "party_short": "INC",
+      "votes": 2684,
+      "vote_share_pct": 1.4818822775934322,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2460,
+    "vote_share_pct": 1.3582080487629817
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2605,
+    "vote_share_pct": 1.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K CHENNAKESAVA REDDY",
+    "party_short": "YSRCP",
+    "votes": 96498,
+    "margin_votes": 25610,
+    "margin_pct": 14.14
+  }
+}

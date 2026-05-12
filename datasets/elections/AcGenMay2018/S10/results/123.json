@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 123,
+  "constituency_name": "Sringeri",
+  "totals": {
+    "electors": 166026,
+    "votes_polled": 137053,
+    "turnout_pct": 82.54911881271607
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "T D RAJEGOWDA",
+      "party_short": "INC",
+      "votes": 62780,
+      "vote_share_pct": 45.80709652470212,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "D N JEEVARAJ",
+      "party_short": "BJP",
+      "votes": 60791,
+      "vote_share_pct": 44.355833144841775,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "H G VENKATESH",
+      "party_short": "JD(S)",
+      "votes": 9799,
+      "vote_share_pct": 7.149788767848935,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRAVEEN KHANDYA",
+      "party_short": "IND",
+      "votes": 1294,
+      "vote_share_pct": 0.9441602883555995,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ABRAHAM",
+      "party_short": "IND",
+      "votes": 482,
+      "vote_share_pct": 0.35168876274142113,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1015,
+    "vote_share_pct": 0.740589407017723
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 892,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "T D RAJEGOWDA",
+    "party_short": "INC",
+    "votes": 62780,
+    "margin_votes": 1989,
+    "margin_pct": 1.45
+  }
+}

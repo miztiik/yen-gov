@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "Shikaripura",
+  "totals": {
+    "electors": 188266,
+    "votes_polled": 154883,
+    "turnout_pct": 82.26817375415636
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B S YADIYURAPPA",
+      "party_short": "BJP",
+      "votes": 86983,
+      "vote_share_pct": 56.16045660272594,
+      "is_winner": true,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GONI MALATESHA",
+      "party_short": "INC",
+      "votes": 51586,
+      "vote_share_pct": 33.306431306211785,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "H T BALEGAR",
+      "party_short": "JD(S)",
+      "votes": 13191,
+      "vote_share_pct": 8.516751354248045,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "CHANDRAKANTA S REVANAKAR",
+      "party_short": "AAAP",
+      "votes": 693,
+      "vote_share_pct": 0.44743451508558074,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VINAY K C RAJAVATH",
+      "party_short": "IND",
+      "votes": 459,
+      "vote_share_pct": 0.2963527307709691,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 903,
+    "vote_share_pct": 0.5830207317781809
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1068,
+    "vote_share_pct": 0.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B S YADIYURAPPA",
+    "party_short": "BJP",
+    "votes": 86983,
+    "margin_votes": 35397,
+    "margin_pct": 22.85
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "Rajgir",
+  "totals": {
+    "electors": 294082,
+    "votes_polled": 157806,
+    "turnout_pct": 53.66054365789134
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KAUSHAL KISHORE",
+      "party_short": "JD(U)",
+      "votes": 67191,
+      "vote_share_pct": 42.578228964678146,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAVI JOYTI KUMAR",
+      "party_short": "INC",
+      "votes": 51143,
+      "vote_share_pct": 32.408780401252166,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MANJU DEVI",
+      "party_short": "LJP",
+      "votes": 11174,
+      "vote_share_pct": 7.08084610217609,
+      "gender": "F",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SHAMBHU KUMAR",
+      "party_short": "BSP",
+      "votes": 4954,
+      "vote_share_pct": 3.1392976185949837,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ASHOK KUMAR",
+      "party_short": "IND",
+      "votes": 3842,
+      "vote_share_pct": 2.434634931498169,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1490,
+    "vote_share_pct": 0.9441973055523871
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 18012,
+    "vote_share_pct": 11.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KAUSHAL KISHORE",
+    "party_short": "JD(U)",
+    "votes": 67191,
+    "margin_votes": 16048,
+    "margin_pct": 10.17
+  }
+}

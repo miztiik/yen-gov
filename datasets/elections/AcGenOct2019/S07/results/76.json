@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 76,
+  "constituency_name": "Badshahpur",
+  "totals": {
+    "electors": 396281,
+    "votes_polled": 226990,
+    "turnout_pct": 57.280061370593096
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAKESH DAULTABAD",
+      "party_short": "IND",
+      "votes": 106827,
+      "vote_share_pct": 47.062425657517956,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANISH YADAV",
+      "party_short": "BJP",
+      "votes": 96641,
+      "vote_share_pct": 42.57500330411032,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAO KAMALBIR SINGH (MINTU)",
+      "party_short": "INC",
+      "votes": 10610,
+      "vote_share_pct": 4.674214723115556,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RISHI RAJ RANA",
+      "party_short": "JNJP",
+      "votes": 2964,
+      "vote_share_pct": 1.3057843957883608,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HEMANT KUMAR",
+      "party_short": "IND",
+      "votes": 1643,
+      "vote_share_pct": 0.723820432618177,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1654,
+    "vote_share_pct": 0.7286664610775805
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 6651,
+    "vote_share_pct": 2.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAKESH DAULTABAD",
+    "party_short": "IND",
+    "votes": 106827,
+    "margin_votes": 10186,
+    "margin_pct": 4.49
+  }
+}

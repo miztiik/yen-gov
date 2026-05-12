@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Bhimavaram",
+  "totals": {
+    "electors": 246424,
+    "votes_polled": 192061,
+    "turnout_pct": 77.93924293088335
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GRANDHI SRINIVAS",
+      "party_short": "YSRCP",
+      "votes": 70642,
+      "vote_share_pct": 36.78102269591432,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PAWAN KALYAN KONIDALA",
+      "party_short": "JnP",
+      "votes": 62285,
+      "vote_share_pct": 32.42980094865694,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAMANJANEYULU PULAPARTHI (ANJIBABU)",
+      "party_short": "TDP",
+      "votes": 54037,
+      "vote_share_pct": 28.135332003894597,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KAAYITHA SURENDRA",
+      "party_short": "BJP",
+      "votes": 976,
+      "vote_share_pct": 0.508171882891373,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ADDANKI DORA BABU",
+      "party_short": "INC",
+      "votes": 894,
+      "vote_share_pct": 0.46547711404189296,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1492,
+    "vote_share_pct": 0.7768365258954186
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1735,
+    "vote_share_pct": 0.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GRANDHI SRINIVAS",
+    "party_short": "YSRCP",
+    "votes": 70642,
+    "margin_votes": 8357,
+    "margin_pct": 4.35
+  }
+}

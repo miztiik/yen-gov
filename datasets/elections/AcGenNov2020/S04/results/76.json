@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 76,
+  "constituency_name": "Simri Bakhtiarpur",
+  "totals": {
+    "electors": 338615,
+    "votes_polled": 196700,
+    "turnout_pct": 58.089570751443375
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "YUSUF SALAHUDDIN",
+      "party_short": "RJD",
+      "votes": 75684,
+      "vote_share_pct": 38.47686832740214,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MUKESH SAHANI",
+      "party_short": "VSIP",
+      "votes": 73925,
+      "vote_share_pct": 37.582613116420944,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANJAY KUMAR SINGH",
+      "party_short": "LJP",
+      "votes": 6962,
+      "vote_share_pct": 3.539400101677682,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "UMESH CHANDRA BHARTI",
+      "party_short": "AMiP",
+      "votes": 5296,
+      "vote_share_pct": 2.6924250127097102,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KHAGESH KUMAR SAH",
+      "party_short": "IND",
+      "votes": 4752,
+      "vote_share_pct": 2.4158617183528217,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1407,
+    "vote_share_pct": 0.7153024911032029
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 28674,
+    "vote_share_pct": 14.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "YUSUF SALAHUDDIN",
+    "party_short": "RJD",
+    "votes": 75684,
+    "margin_votes": 1759,
+    "margin_pct": 0.89
+  }
+}

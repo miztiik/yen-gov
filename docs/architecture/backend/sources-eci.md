@@ -1,6 +1,6 @@
 # Backend `sources/eci/` — ECI Source Adapter
 
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-13
 
 `backend/yen_gov/sources/eci/` is the adapter for the Election Commission of India's surfaces. It owns URL conventions for both the live results portal (`results.eci.gov.in`) and the Statistical Reports hub (`eci.gov.in/statistical-report/...`), the HTML and XLSX parsers, and the per-page commitment about which artifact each ECI page can produce.
 
@@ -155,6 +155,38 @@ The parser (`statistical_report_detailed.py`) follows the same two-step conventi
 End-to-end emit is exposed as `python -m yen_gov eci-statreport-emit <state> <year> [--event AcGenMay2026] [--output ...]`. The command resolves the catalog through `static_catalog.resolve_catalog(state, year, *, fetcher)` — pinned `(state, year)` use the 2024+ `/api/election-result` path; legacy cohorts use the synthesised static catalog with no network call to discover URLs. For the static path the Fetcher is given an extra browser-fingerprint header set (`Sec-Fetch-*` + `Accept` + `Referer`) because the Akamai WAF in front of `www.eci.gov.in` returns 403 on `/all_files/full-statistical-reports/` for minimalist clients (verified 2026-05-12; recon at [`tools/eci_2023_recon.py`](../../../tools/eci_2023_recon.py)). The fetched Section 10 XLSX URL plus, when available, the live-results `partywiseresult-<state>.htm` URL land in the `sources[]` array of every emitted artifact. Before any artifact is written, `reconcile_winners_against_partywise` cross-checks per-AC winners (aggregated by `party_short`) against partywise `seats_won + leading` — a mismatch aborts the run with a fail-loud `ValueError`, so we never publish a partial slice when the two ECI sources disagree. Reconciliation is skipped for archived events with no live-results page (`has_partywise=False` in `events.py`), including every 2024+-archived cohort and the entire 2023 cohort. Outputs under `<output_dir>/`: `results/<eci_no>.json` per AC, `result.summary.json` (state-level rollup, composed directly from the raw sections via `compose_result_summary_from_section_10`), and `parties.json` (live cohorts: full roster from the partywise snapshot; archived cohorts: the registry-resolvable subset from Section 3 \u00d7 `pipeline.compose.load_eci_party_registry()` aggregated across every existing `parties.json` on disk \u2014 see N6 in `TODO/ECI-MULTI-STATE-INGEST-PLAN.md`. Per-state resolution rate for archived cohorts is bounded by what's in the live cohorts; dropped shorts are logged on the emit line and remain visible in `result.summary.json` with `party_eci_code: null`). Confirmed 2026-05-09 against all four 2026 states: S03=126, S11=140, S22=234, S25=293 (1 countermanded), 793 ConstituencyResult artifacts total, reconciliation passes for all four, validator clean. Confirmed 2026-05-12 against the 2023 cohort: S12=230 (BJP=163 / INC=66), S26=90 (BJP=54 / INC=35), S16=40 (ZPM=27 / MNF=10), S29=119 (INC=64 / BRS=39); validator clean. SQLite is then emitted by `emit_state_sqlite(state_dir=...)` against the same directory (S03 80 KB, S11 96 KB, S22 140 KB, S25 172 KB).
 
 **Out of scope for the first Phase B slice**: 2021 / 2016 / 2011 backfill (blocked on `old.eci.gov.in` reachability — needs a network change or a mirroring decision before it can run); promotion of any reference file from `provisional` to `complete` (needs the Delimitation Order PDF for AC↔PC↔district mapping, independent of statistical-report ingestion); per-AC live counting pages on `results.eci.gov.in` (covered by the live-results scraper, different host and schema).
+
+#### Historical hand-import path (`eci-statreport-emit-local`)
+
+The 2016-2023 backfill was lifted from blocker status by a parallel CLI: `python -m yen_gov eci-statreport-emit-local <file.xlsx>`. Operator hand-downloads the Section 10 XLSX from `old.eci.gov.in` (it remains the only authoritative source for these cohorts) into `datasets/raw_ephemeral_datasets/`, then runs the command. Filename pattern `YYYY_state_<name>_*.xlsx` is auto-decoded to `(state_code, year)` against an internal name→ECI map; `--state` and `--year` overrides exist for one-offs. The file is then parsed in-process via the same `parse_detailed_results` → `to_constituency_results` → `compose_result_summary_from_section_10` pipeline as the network path, but with `sources=[]` (the hand-authored signal per ADR-0002) instead of a real `SourceRef`. On success the source XLSX is unlinked (drop dir is ephemeral by convention); `--keep-source` overrides for debugging.
+
+Output parity with the live emit path: per-AC `results/<eci_no>.json`, `result.summary.json`, `parties.json` (registry-resolved subset, see below), `results.sqlite`, and `results.csv`. The SQLite + CSV bundles are non-optional on this path because Psephlab and the per-AC winners overlay both load `results.sqlite` directly — emitting only the JSONs would 404 the historical events on those routes while letting the state-overview hub render. Reconciliation against partywise is intentionally skipped (no partywise snapshot for archived cohorts).
+
+Because Section 10 across 2016-2023 ships in three structurally different sheet shapes, `parse_detailed_results` dispatches via `_detect_layout`:
+
+| Layout | Cohorts | Shape | Discriminator |
+| --- | --- | --- | --- |
+| A | 2019+ Delhi/AP/Haryana/Jharkhand/Bihar; every 2021+ event | 14-15 cols, `STATE/UT NAME` header, `TURNOUT`/`TURN OUT` sentinel row between ACs | `STATE/UT NAME` in first 20 rows |
+| B | 2016-2017 Assam/Kerala/Goa/HP | No STATE col, no sentinel; AC boundary inferred from `Constituency No.` change. Carries `Candidate Sex/Age/Category` as separate columns. | `Constituency No` in first 20 rows |
+| C | 2018 Karnataka | No header row at all; AC announced by marker row `['Constituency', '<n>', '.', '<name>', 'TOTAL ELECTORS :', N]`; positional column indices (gender/age/category at fixed offsets) | `Constituency` + `TOTAL ELECTORS` in first 20 rows |
+
+All three flows produce the same `DetailedResultsRaw` shape, so `to_constituency_results` is layout-agnostic. The schema bumped from 3.1 → 3.2 to carry the optional gender/age/category fields surfaced by Layouts B and C (Layout A's 2024+ files also carry them; older Layout A files just leave them `None`). Anchor tests in [`backend/tests/test_sources_eci_historical_imports.py`](../../../backend/tests/test_sources_eci_historical_imports.py) pin one known winner per layout against the emitted artifacts.
+
+Confirmed 2026-05-13 against all 15 hand-imports: Assam-2016=126, Kerala-2016=140, Goa-2017=40, HP-2017=68, Karnataka-2018=223, AP-2019=175, Haryana-2019=90, Jharkhand-2019=81, Bihar-2020=243, Delhi-2020=70, Assam-2021=126, Kerala-2021=140, Goa-2022=40, HP-2022=68, Karnataka-2023=224. All artifacts schema-valid; Assam+Kerala 2021 share `AcGenApr2021`.
+
+#### Ingestion test gate (mandatory)
+
+Every Section 10 ingest — live (`eci-statreport-emit`), 2024+ pinned (`--category-id`), or hand-imported (`eci-statreport-emit-local`) — MUST clear the same three-tier gate before the emitting commit lands. This is binding per CLAUDE.md §15; "I'll add a test later" is a Definition-of-Done failure (§9).
+
+| Tier | Command | What it asserts | Failure means |
+| --- | --- | --- | --- |
+| **Schema / file conformance** | `python -m yen_gov validate` | Every file under `datasets/` carries the required `$schema` + `$schema_version`, validates against its declared schema, and the `sources` array has the required `{url, fetched_at}` shape (§12). | A bad emit, a stale `$schema_version`, or a missing/malformed `sources` array. Re-emit, do not patch the artifact by hand. |
+| **Cross-registry integrity** | `pytest backend/tests/test_datasets_integrity.py -q` | Reference catalogues stay consistent: every `event_id` registered in `events.py` exists in [`election-events.json`](../../../datasets/reference/in/election-events.json); every emitted result file's `name`/`number` is reservable against the AC reference for that state; per-AC `sources[]` URLs match the upstream cohort. | A new event was registered without the catalogue entry, or an emit raced ahead of an AC reference update. Add the missing entry first; do not delete the integrity assertion. |
+| **Adapter anchors** | `pytest backend/tests/test_sources_eci_*.py -q` | One known-winner / known-runner-up assertion per layout (Layout A live, Layout A 2024+ pin, Layout B 2016-2017, Layout C 2018) against the actually-emitted artifact for one canonical AC. New cohorts get a new anchor. | The parser silently mis-bound a column or row across a layout boundary. Investigate the cohort, not the test. |
+
+The full suite (`pytest -q` from `backend/`, currently 173 tests) runs all three tiers plus everything else. A red suite at commit time blocks the commit per §9 / §15. The reviewer is expected to ask "which anchor pins this cohort?" for any new event ingested.
+
+When a hand-import lands a *new* layout (rare — three exist today) the gate expects: (a) a `_detect_layout` branch + parser function in [`statistical_report_detailed.py`](../../../backend/yen_gov/sources/eci/statistical_report_detailed.py), (b) one new anchor in `test_sources_eci_historical_imports.py`, (c) a new row in the Layout table above. None of those three are optional.
 
 ### When `parties.json` gets emitted (and when it doesn't)
 

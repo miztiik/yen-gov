@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "BALLIMARAN",
+  "totals": {
+    "electors": 141744,
+    "votes_polled": 101532,
+    "turnout_pct": 71.63054520826279
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "IMRAN HUSSAIN",
+      "party_short": "AAAP",
+      "votes": 65644,
+      "vote_share_pct": 64.65350825355553,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "LATA",
+      "party_short": "BJP",
+      "votes": 29472,
+      "vote_share_pct": 29.027301737383286,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "HAROON YUSUF",
+      "party_short": "INC",
+      "votes": 4802,
+      "vote_share_pct": 4.729543395185754,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KRISHAN KUMAR",
+      "party_short": "BRRTD",
+      "votes": 827,
+      "vote_share_pct": 0.8145215301579797,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DEEP CHAND",
+      "party_short": "BSP",
+      "votes": 167,
+      "vote_share_pct": 0.1644801638892172,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 340,
+    "vote_share_pct": 0.33486979474451406
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 280,
+    "vote_share_pct": 0.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "IMRAN HUSSAIN",
+    "party_short": "AAAP",
+    "votes": 65644,
+    "margin_votes": 36172,
+    "margin_pct": 35.63
+  }
+}

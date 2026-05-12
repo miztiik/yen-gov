@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Sundernagar",
+  "totals": {
+    "electors": 74361,
+    "votes_polled": 58120,
+    "turnout_pct": 78.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAKESH KUMAR",
+      "party_short": "BJP",
+      "votes": 32545,
+      "vote_share_pct": 56.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SOHAN LAL",
+      "party_short": "INC",
+      "votes": 23282,
+      "vote_share_pct": 40.06,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DHARAM SINGH",
+      "party_short": "BSP",
+      "votes": 624,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 807,
+    "vote_share_pct": 1.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAKESH KUMAR",
+    "party_short": "BJP",
+    "votes": 32545,
+    "margin_votes": 9263,
+    "margin_pct": 15.94
+  },
+  "others": null
+}

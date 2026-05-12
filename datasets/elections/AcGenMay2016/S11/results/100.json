@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 100,
+  "constituency_name": "KANJIRAPPALLY",
+  "totals": {
+    "electors": 178950,
+    "votes_polled": 136708,
+    "turnout_pct": 76.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. N JAYARAJ",
+      "party_short": "KEC(M)",
+      "votes": 53126,
+      "vote_share_pct": 38.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV. V B BINU",
+      "party_short": "CPI",
+      "votes": 49236,
+      "vote_share_pct": 36.02,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "V N MANOJ",
+      "party_short": "BJP",
+      "votes": 31411,
+      "vote_share_pct": 22.98,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARUN M JOHN",
+      "party_short": "BSP",
+      "votes": 1113,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUHAMMED SIYAD",
+      "party_short": "SDPI",
+      "votes": 839,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 618,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 365,
+    "vote_share_pct": 0.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. N JAYARAJ",
+    "party_short": "KEC(M)",
+    "votes": 53126,
+    "margin_votes": 3890,
+    "margin_pct": 2.85
+  }
+}

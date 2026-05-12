@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 114,
+  "constituency_name": "Manjhi",
+  "totals": {
+    "electors": 302479,
+    "votes_polled": 157930,
+    "turnout_pct": 52.211889089821106
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Satyendra Yadav",
+      "party_short": "CPIM",
+      "votes": 59324,
+      "vote_share_pct": 37.563477490027225,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RANA PRATAP SINGH",
+      "party_short": "IND",
+      "votes": 33938,
+      "vote_share_pct": 21.489267396948016,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MADHAVI KUMARI",
+      "party_short": "JD(U)",
+      "votes": 29155,
+      "vote_share_pct": 18.46071044133477,
+      "gender": "F",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "OM PRAKASH PRASAD",
+      "party_short": "RLSP",
+      "votes": 10109,
+      "vote_share_pct": 6.400937124042297,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VIJAY PRATAP SINGH",
+      "party_short": "IND",
+      "votes": 7374,
+      "vote_share_pct": 4.669157221553853,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 906,
+    "vote_share_pct": 0.5736718799468119
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 17124,
+    "vote_share_pct": 10.84
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Satyendra Yadav",
+    "party_short": "CPIM",
+    "votes": 59324,
+    "margin_votes": 25386,
+    "margin_pct": 16.07
+  }
+}

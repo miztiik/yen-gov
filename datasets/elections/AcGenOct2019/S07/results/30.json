@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "Kharkhauda (SC)",
+  "totals": {
+    "electors": 161586,
+    "votes_polled": 101373,
+    "turnout_pct": 62.7362519030114
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAIVEER SINGH",
+      "party_short": "INC",
+      "votes": 38577,
+      "vote_share_pct": 38.05451155633157,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PAWAN KUMAR",
+      "party_short": "JNJP",
+      "votes": 37033,
+      "vote_share_pct": 36.531423554595406,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MEENA RANI",
+      "party_short": "BJP",
+      "votes": 20542,
+      "vote_share_pct": 20.263778323616744,
+      "gender": "F",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SHADI LAL",
+      "party_short": "BSP",
+      "votes": 1655,
+      "vote_share_pct": 1.6325846132599409,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SAGAR BAKHETA",
+      "party_short": "LTSP",
+      "votes": 1270,
+      "vote_share_pct": 1.2527990687855741,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 349,
+    "vote_share_pct": 0.3442731299261145
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1947,
+    "vote_share_pct": 1.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAIVEER SINGH",
+    "party_short": "INC",
+    "votes": 38577,
+    "margin_votes": 1544,
+    "margin_pct": 1.52
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "NATTIKA (SC)",
+  "totals": {
+    "electors": 210708,
+    "votes_polled": 153554,
+    "turnout_pct": 72.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C C Mukundhan",
+      "party_short": "CPI",
+      "votes": 72930,
+      "vote_share_pct": 47.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Adv. Sunil Laloor",
+      "party_short": "INC",
+      "votes": 44499,
+      "vote_share_pct": 28.98,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Lojanan Ambatt",
+      "party_short": "BJP",
+      "votes": 33716,
+      "vote_share_pct": 21.96,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "C S Jitheshkumar",
+      "party_short": "IND",
+      "votes": 617,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Sivarathnan Alathi",
+      "party_short": "IND",
+      "votes": 595,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 830,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 367,
+    "vote_share_pct": 0.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C C Mukundhan",
+    "party_short": "CPI",
+    "votes": 72930,
+    "margin_votes": 28431,
+    "margin_pct": 18.52
+  }
+}

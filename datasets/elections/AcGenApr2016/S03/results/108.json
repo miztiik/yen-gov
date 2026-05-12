@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "Sibsagar",
+  "totals": {
+    "electors": 138397,
+    "votes_polled": 113331,
+    "turnout_pct": 81.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRANAB KUMAR GOGOI",
+      "party_short": "INC",
+      "votes": 48584,
+      "vote_share_pct": 42.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 80,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURABHI RAJKONWAR",
+      "party_short": "BJP",
+      "votes": 48042,
+      "vote_share_pct": 42.39,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASHINI KUMAR CHETIA",
+      "party_short": "IND",
+      "votes": 10188,
+      "vote_share_pct": 8.99,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JITEN BORPATRA GOHAIN",
+      "party_short": "CPI",
+      "votes": 2174,
+      "vote_share_pct": 1.92,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAYANTA RAJKONWAR",
+      "party_short": "IND",
+      "votes": 1506,
+      "vote_share_pct": 1.33,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 893,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1944,
+    "vote_share_pct": 1.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRANAB KUMAR GOGOI",
+    "party_short": "INC",
+    "votes": 48584,
+    "margin_votes": 542,
+    "margin_pct": 0.48
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "PAYAKARAOPETA",
+  "totals": {
+    "electors": 240678,
+    "votes_polled": 195725,
+    "turnout_pct": 81.32234770107779
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GOLLA BABURAO",
+      "party_short": "YSRCP",
+      "votes": 98745,
+      "vote_share_pct": 50.45088772512454,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "B. BANGARAIAH",
+      "party_short": "TDP",
+      "votes": 67556,
+      "vote_share_pct": 34.515774683867676,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "NAKKA RAJA BABU",
+      "party_short": "JnP",
+      "votes": 15921,
+      "vote_share_pct": 8.134372205901137,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KAKARA NOOKA RAJU",
+      "party_short": "BJP",
+      "votes": 3031,
+      "vote_share_pct": 1.5486013539404777,
+      "gender": "M",
+      "age": 71,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "TALLURI VIJAY KUMAR",
+      "party_short": "INC",
+      "votes": 2395,
+      "vote_share_pct": 1.22365563928982,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 5189,
+    "vote_share_pct": 2.651168731638779
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2888,
+    "vote_share_pct": 1.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GOLLA BABURAO",
+    "party_short": "YSRCP",
+    "votes": 98745,
+    "margin_votes": 31189,
+    "margin_pct": 15.94
+  }
+}

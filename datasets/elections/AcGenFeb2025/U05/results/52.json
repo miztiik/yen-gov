@@ -1,16 +1,7 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-  "$schema_version": "3.1",
-  "sources": [
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    },
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    }
-  ],
+  "$schema_version": "3.2",
+  "sources": [],
   "election": "AcGenFeb2025",
   "state": "U05",
   "body": "AC",
@@ -28,37 +19,50 @@
       "party_short": "AAAP",
       "votes": 62155,
       "vote_share_pct": 54.08,
-      "is_winner": true
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
     },
     {
       "rank": 2,
       "name": "ROHTASH KUMAR",
-      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 47444,
-      "vote_share_pct": 41.28
+      "vote_share_pct": 41.28,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
     },
     {
       "rank": 3,
       "name": "VIRENDER SINGH",
-      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 2313,
-      "vote_share_pct": 2.01
+      "vote_share_pct": 2.01,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
     },
     {
       "rank": 4,
       "name": "AMJAD HASAN",
       "party_short": "BSP",
       "votes": 1606,
-      "vote_share_pct": 1.4
+      "vote_share_pct": 1.4,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
     },
     {
       "rank": 5,
       "name": "PARVEEN CHAUHAN",
       "party_short": "SAP",
       "votes": 323,
-      "vote_share_pct": 0.28
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
     }
   ],
   "nota": {

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 7,
+  "constituency_name": "BAWANA(SC)",
+  "totals": {
+    "electors": 319559,
+    "votes_polled": 197842,
+    "turnout_pct": 61.910946022487245
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAI BHAGWAN",
+      "party_short": "AAAP",
+      "votes": 95715,
+      "vote_share_pct": 48.37951496648841,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAVINDER KUMAR",
+      "party_short": "BJP",
+      "votes": 84189,
+      "vote_share_pct": 42.55365392586003,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SURENDER KUMAR",
+      "party_short": "INC",
+      "votes": 12803,
+      "vote_share_pct": 6.471325603259166,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RANJIT RAM",
+      "party_short": "BSP",
+      "votes": 1941,
+      "vote_share_pct": 0.9810859170449147,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ABHIPSA CHAUHAN",
+      "party_short": "CPI",
+      "votes": 1227,
+      "vote_share_pct": 0.6201918702803246,
+      "gender": "F",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1046,
+    "vote_share_pct": 0.5287047239716541
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 921,
+    "vote_share_pct": 0.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAI BHAGWAN",
+    "party_short": "AAAP",
+    "votes": 95715,
+    "margin_votes": 11526,
+    "margin_pct": 5.83
+  }
+}

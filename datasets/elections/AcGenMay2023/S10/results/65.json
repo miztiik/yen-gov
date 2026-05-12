@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 65,
+  "constituency_name": "Shirahatti (SC)",
+  "totals": {
+    "electors": 226999,
+    "votes_polled": 163974,
+    "turnout_pct": 72.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr.chandru Lamani",
+      "party_short": "BJP",
+      "votes": 74489,
+      "vote_share_pct": 45.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Ramakrishna. Shidlingappa. Doddamani",
+      "party_short": "IND",
+      "votes": 45969,
+      "vote_share_pct": 28.03,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Sujata Ningappa Doddamani",
+      "party_short": "INC",
+      "votes": 34791,
+      "vote_share_pct": 21.22,
+      "gender": "F",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Hanamantappa. M.nayak",
+      "party_short": "JD(S)",
+      "votes": 2065,
+      "vote_share_pct": 1.26,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Doddappa. Bhadrappa. Lamani",
+      "party_short": "IND",
+      "votes": 965,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1642,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4053,
+    "vote_share_pct": 2.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr.chandru Lamani",
+    "party_short": "BJP",
+    "votes": 74489,
+    "margin_votes": 28520,
+    "margin_pct": 17.39
+  }
+}

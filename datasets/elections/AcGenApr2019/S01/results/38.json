@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Kakinada Rural",
+  "totals": {
+    "electors": 249109,
+    "votes_polled": 184507,
+    "turnout_pct": 74.06677398247353
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kurasala Kannababu",
+      "party_short": "YSRCP",
+      "votes": 74068,
+      "vote_share_pct": 40.14373438406131,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ananthlakshmi Pilli",
+      "party_short": "TDP",
+      "votes": 65279,
+      "vote_share_pct": 35.38022947638843,
+      "gender": "F",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Pantam Venkateswara Rao (Nanaji)",
+      "party_short": "JnP",
+      "votes": 39247,
+      "vote_share_pct": 21.27127968044573,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Nurukurthi Venkateswara Rao",
+      "party_short": "INC",
+      "votes": 1591,
+      "vote_share_pct": 0.8622979073964674,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Kavikondala Bhima Sekhar",
+      "party_short": "BJP",
+      "votes": 1183,
+      "vote_share_pct": 0.6411680857636838,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1575,
+    "vote_share_pct": 0.8536261496853779
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1564,
+    "vote_share_pct": 0.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kurasala Kannababu",
+    "party_short": "YSRCP",
+    "votes": 74068,
+    "margin_votes": 8789,
+    "margin_pct": 4.76
+  }
+}

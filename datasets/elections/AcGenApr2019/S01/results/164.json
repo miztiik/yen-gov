@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 164,
+  "constituency_name": "Madanapalle",
+  "totals": {
+    "electors": 246284,
+    "votes_polled": 179830,
+    "turnout_pct": 73.01732958698088
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M. Nawaz Basha",
+      "party_short": "YSRCP",
+      "votes": 92066,
+      "vote_share_pct": 51.196129678029244,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dommalapati Ramesh",
+      "party_short": "TDP",
+      "votes": 62418,
+      "vote_share_pct": 34.70944781182227,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Gangarapu Swathi",
+      "party_short": "JnP",
+      "votes": 14601,
+      "vote_share_pct": 8.119334927431462,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "D Mohana Rami Reddy",
+      "party_short": "INC",
+      "votes": 2697,
+      "vote_share_pct": 1.4997497636656842,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Bandi Anand",
+      "party_short": "BJP",
+      "votes": 1884,
+      "vote_share_pct": 1.0476561196685759,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1420,
+    "vote_share_pct": 0.789634654951899
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 4744,
+    "vote_share_pct": 2.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M. Nawaz Basha",
+    "party_short": "YSRCP",
+    "votes": 92066,
+    "margin_votes": 29648,
+    "margin_pct": 16.49
+  }
+}

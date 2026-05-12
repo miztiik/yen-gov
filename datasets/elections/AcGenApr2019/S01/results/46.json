@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "Gannavaram",
+  "totals": {
+    "electors": 189385,
+    "votes_polled": 156212,
+    "turnout_pct": 82.48382923673996
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KONDETI CHITTI BABU",
+      "party_short": "YSRCP",
+      "votes": 67373,
+      "vote_share_pct": 43.129209023634544,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "NELAPUDI STALIN BABU",
+      "party_short": "TDP",
+      "votes": 45166,
+      "vote_share_pct": 28.913271707679307,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PAMULA RAJESWARI DEVI",
+      "party_short": "JnP",
+      "votes": 36259,
+      "vote_share_pct": 23.21140501369933,
+      "gender": "F",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KOLLI SURYA RAO (Sudhakar)",
+      "party_short": "BJP",
+      "votes": 1385,
+      "vote_share_pct": 0.8866156249199805,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "CHINNAM RAMESH BABU",
+      "party_short": "IND",
+      "votes": 1059,
+      "vote_share_pct": 0.6779248713287072,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2470,
+    "vote_share_pct": 1.5811845440811205
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2500,
+    "vote_share_pct": 1.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KONDETI CHITTI BABU",
+    "party_short": "YSRCP",
+    "votes": 67373,
+    "margin_votes": 22207,
+    "margin_pct": 14.22
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 4,
+  "constituency_name": "Littipara",
+  "totals": {
+    "electors": 199843,
+    "votes_polled": 144199,
+    "turnout_pct": 72.15614257191896
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dinesh William Marandi",
+      "party_short": "JMM",
+      "votes": 66675,
+      "vote_share_pct": 46.23818473082338,
+      "is_winner": true,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Daniel Kisku",
+      "party_short": "BJP",
+      "votes": 52772,
+      "vote_share_pct": 36.596647688264135,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Raska Hembram",
+      "party_short": "JVM",
+      "votes": 7195,
+      "vote_share_pct": 4.989632383026234,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Devendra Dehri",
+      "party_short": "CPIM",
+      "votes": 5244,
+      "vote_share_pct": 3.6366410307977173,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Shivcharan Malto",
+      "party_short": "AITC",
+      "votes": 2604,
+      "vote_share_pct": 1.8058377658652278,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3228,
+    "vote_share_pct": 2.238573083031089
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 6481,
+    "vote_share_pct": 4.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dinesh William Marandi",
+    "party_short": "JMM",
+    "votes": 66675,
+    "margin_votes": 13903,
+    "margin_pct": 9.64
+  }
+}

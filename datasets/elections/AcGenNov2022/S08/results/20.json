@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Baijnath (SC)",
+  "totals": {
+    "electors": 91352,
+    "votes_polled": 58301,
+    "turnout_pct": 63.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kishori Lal",
+      "party_short": "INC",
+      "votes": 29338,
+      "vote_share_pct": 50.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 75,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Mulkh Raj Premi",
+      "party_short": "BJP",
+      "votes": 25892,
+      "vote_share_pct": 44.41,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Parmodh Chand",
+      "party_short": "AAAP",
+      "votes": 1109,
+      "vote_share_pct": 1.9,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Ajay Kumar",
+      "party_short": "BSP",
+      "votes": 536,
+      "vote_share_pct": 0.92,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Gurdas Ram",
+      "party_short": "IND",
+      "votes": 531,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 669,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 226,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kishori Lal",
+    "party_short": "INC",
+    "votes": 29338,
+    "margin_votes": 3446,
+    "margin_pct": 5.91
+  }
+}

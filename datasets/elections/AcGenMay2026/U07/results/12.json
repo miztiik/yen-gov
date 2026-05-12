@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-  "$schema_version": "3.1",
+  "$schema_version": "3.2",
   "sources": [
     {
       "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseU0712.htm",

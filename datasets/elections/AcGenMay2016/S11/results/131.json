@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 131,
+  "constituency_name": "VAMANAPURAM",
+  "totals": {
+    "electors": 197254,
+    "votes_polled": 141435,
+    "turnout_pct": 71.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADV. D.K.MURALI",
+      "party_short": "CPM",
+      "votes": 65848,
+      "vote_share_pct": 46.56,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV.T.SARATHCHANDRA PRASAD",
+      "party_short": "INC",
+      "votes": 56252,
+      "vote_share_pct": 39.77,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "R.V.NIKHIL",
+      "party_short": "BDJS",
+      "votes": 13956,
+      "vote_share_pct": 9.87,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THACHONAM NISAMUDEEN",
+      "party_short": "SDPI",
+      "votes": 1774,
+      "vote_share_pct": 1.25,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ANIL PALODE",
+      "party_short": "BSP",
+      "votes": 901,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 789,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1915,
+    "vote_share_pct": 1.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADV. D.K.MURALI",
+    "party_short": "CPM",
+    "votes": 65848,
+    "margin_votes": 9596,
+    "margin_pct": 6.78
+  }
+}

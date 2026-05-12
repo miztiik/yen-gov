@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "KATTAKKADA",
+  "totals": {
+    "electors": 196792,
+    "votes_polled": 145719,
+    "turnout_pct": 74.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv I B Satheesh",
+      "party_short": "CPI(M)",
+      "votes": 66293,
+      "vote_share_pct": 45.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Malayinkeezhu Venugopal",
+      "party_short": "INC",
+      "votes": 43062,
+      "vote_share_pct": 29.55,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "P.k Krishnadas",
+      "party_short": "BJP",
+      "votes": 34642,
+      "vote_share_pct": 23.77,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Kandala Suresh",
+      "party_short": "BSP",
+      "votes": 628,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Sreekala Nadar",
+      "party_short": "IND",
+      "votes": 266,
+      "vote_share_pct": 0.18,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 701,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 127,
+    "vote_share_pct": 0.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv I B Satheesh",
+    "party_short": "CPI(M)",
+    "votes": 66293,
+    "margin_votes": 23231,
+    "margin_pct": 15.94
+  }
+}

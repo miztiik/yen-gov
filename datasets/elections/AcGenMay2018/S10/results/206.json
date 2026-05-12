@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 206,
+  "constituency_name": "Puttur",
+  "totals": {
+    "electors": 201948,
+    "votes_polled": 166271,
+    "turnout_pct": 82.33357101828193
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANJEEVA MATANDOOR",
+      "party_short": "BJP",
+      "votes": 90073,
+      "vote_share_pct": 54.17240529015884,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHAKUNTHALA.T. SHETTY",
+      "party_short": "INC",
+      "votes": 70596,
+      "vote_share_pct": 42.45839623265633,
+      "gender": "F",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "I. C. KAILAS GOWDA",
+      "party_short": "JD(S)",
+      "votes": 1424,
+      "vote_share_pct": 0.8564331723511617,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ABDUL MAJEED KOLPE",
+      "party_short": "JD(U)",
+      "votes": 527,
+      "vote_share_pct": 0.3169524451046785,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VIDYASHRI. S",
+      "party_short": "IND",
+      "votes": 454,
+      "vote_share_pct": 0.27304821646589,
+      "gender": "F",
+      "age": 26,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1227,
+    "vote_share_pct": 0.73795189780539
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1970,
+    "vote_share_pct": 1.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANJEEVA MATANDOOR",
+    "party_short": "BJP",
+    "votes": 90073,
+    "margin_votes": 19477,
+    "margin_pct": 11.71
+  }
+}

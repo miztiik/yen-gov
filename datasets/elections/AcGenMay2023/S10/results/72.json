@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Hubli-Dharwad-East (SC)",
+  "totals": {
+    "electors": 209530,
+    "votes_polled": 148640,
+    "turnout_pct": 70.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Abbayya Prasad",
+      "party_short": "INC",
+      "votes": 85426,
+      "vote_share_pct": 57.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Kranthi Kiran",
+      "party_short": "BJP",
+      "votes": 53056,
+      "vote_share_pct": 35.69,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Durgappa Kashappa Bijawad",
+      "party_short": "AIMIM",
+      "votes": 5644,
+      "vote_share_pct": 3.8,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Guntral Vijay Mahadevappa",
+      "party_short": "SDPI",
+      "votes": 1360,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Halaharavi Veerabadrappa",
+      "party_short": "JD(S)",
+      "votes": 900,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 798,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1456,
+    "vote_share_pct": 0.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Abbayya Prasad",
+    "party_short": "INC",
+    "votes": 85426,
+    "margin_votes": 32370,
+    "margin_pct": 21.78
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "Chamba",
+  "totals": {
+    "electors": 75289,
+    "votes_polled": 55258,
+    "turnout_pct": 73.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PAWAN NAYYAR",
+      "party_short": "BJP",
+      "votes": 26763,
+      "vote_share_pct": 48.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NEERAJ NAYAR",
+      "party_short": "INC",
+      "votes": 24884,
+      "vote_share_pct": 45.03,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. D. K. SONI",
+      "party_short": "IND",
+      "votes": 725,
+      "vote_share_pct": 1.31,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BAL KRISHAN CHAUHAN",
+      "party_short": "IND",
+      "votes": 649,
+      "vote_share_pct": 1.17,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PARAS RAM BHARDWAJ",
+      "party_short": "BSP",
+      "votes": 562,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 674,
+    "vote_share_pct": 1.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PAWAN NAYYAR",
+    "party_short": "BJP",
+    "votes": 26763,
+    "margin_votes": 1879,
+    "margin_pct": 3.4
+  },
+  "others": null
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Bhattiyat",
+  "totals": {
+    "electors": 81594,
+    "votes_polled": 59424,
+    "turnout_pct": 72.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kuldeep Singh Pathania",
+      "party_short": "INC",
+      "votes": 25989,
+      "vote_share_pct": 43.73,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Bikram Singh Jaryal",
+      "party_short": "BJP",
+      "votes": 24422,
+      "vote_share_pct": 41.1,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Nirmal Singh Pandey",
+      "party_short": "IND",
+      "votes": 7741,
+      "vote_share_pct": 13.03,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Amrita Chaudhry",
+      "party_short": "HSP",
+      "votes": 607,
+      "vote_share_pct": 1.02,
+      "gender": "F",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Naresh Kumar",
+      "party_short": "AAAP",
+      "votes": 197,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 468,
+    "vote_share_pct": 0.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kuldeep Singh Pathania",
+    "party_short": "INC",
+    "votes": 25989,
+    "margin_votes": 1567,
+    "margin_pct": 2.64
+  },
+  "others": null
+}

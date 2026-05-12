@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 96,
+  "constituency_name": "Kudligi (ST)",
+  "totals": {
+    "electors": 203802,
+    "votes_polled": 163810,
+    "turnout_pct": 80.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Srinivas N T",
+      "party_short": "INC",
+      "votes": 104753,
+      "vote_share_pct": 63.95,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Lokesh. V. Nayaka",
+      "party_short": "BJP",
+      "votes": 50403,
+      "vote_share_pct": 30.77,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Pujar Bheemappa",
+      "party_short": "JD(S)",
+      "votes": 3138,
+      "vote_share_pct": 1.92,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "H. Veeranna",
+      "party_short": "CPI",
+      "votes": 1513,
+      "vote_share_pct": 0.92,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Srinivas. N.",
+      "party_short": "AAAP",
+      "votes": 1341,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 804,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1858,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Srinivas N T",
+    "party_short": "INC",
+    "votes": 104753,
+    "margin_votes": 54350,
+    "margin_pct": 33.18
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 123,
+  "constituency_name": "KUNDARA",
+  "totals": {
+    "electors": 200163,
+    "votes_polled": 152558,
+    "turnout_pct": 76.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "J.MERCY KUTTY AMMA",
+      "party_short": "CPM",
+      "votes": 79047,
+      "vote_share_pct": 51.81,
+      "is_winner": true,
+      "gender": "F",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJMOHAN UNNITHAN",
+      "party_short": "INC",
+      "votes": 48587,
+      "vote_share_pct": 31.85,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M S SYAM KUMAR",
+      "party_short": "BJP",
+      "votes": 20257,
+      "vote_share_pct": 13.28,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHARAFATH MALLAM",
+      "party_short": "SDPI",
+      "votes": 1325,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KABEER KUTTY.I.PUTHEZHAM",
+      "party_short": "PDP",
+      "votes": 1132,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 687,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1523,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "J.MERCY KUTTY AMMA",
+    "party_short": "CPM",
+    "votes": 79047,
+    "margin_votes": 30460,
+    "margin_pct": 19.97
+  }
+}

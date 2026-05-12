@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Badami",
+  "totals": {
+    "electors": 220435,
+    "votes_polled": 169038,
+    "turnout_pct": 76.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B.b.chimmanakatti",
+      "party_short": "INC",
+      "votes": 65845,
+      "vote_share_pct": 38.95,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Shanthagouda Thirthgouda Patil.",
+      "party_short": "BJP",
+      "votes": 56120,
+      "vote_share_pct": 33.2,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Hanamant. B. Mavinamarad",
+      "party_short": "JD(S)",
+      "votes": 41572,
+      "vote_share_pct": 24.59,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Jogin. Shivarayappa . Doddakariyappa .",
+      "party_short": "AAAP",
+      "votes": 1650,
+      "vote_share_pct": 0.98,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Bhimappa. Fakeerappa. Talawar",
+      "party_short": "IND",
+      "votes": 989,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1479,
+    "vote_share_pct": 0.87
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1383,
+    "vote_share_pct": 0.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B.b.chimmanakatti",
+    "party_short": "INC",
+    "votes": 65845,
+    "margin_votes": 9725,
+    "margin_pct": 5.75
+  }
+}

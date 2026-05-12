@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "ADOOR (SC)",
+  "totals": {
+    "electors": 209397,
+    "votes_polled": 155411,
+    "turnout_pct": 74.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chittayam Gopakumar",
+      "party_short": "CPI",
+      "votes": 66569,
+      "vote_share_pct": 42.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "M. G. Kannan",
+      "party_short": "INC",
+      "votes": 63650,
+      "vote_share_pct": 40.96,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Adv. Pandalam Prathapan",
+      "party_short": "BJP",
+      "votes": 23980,
+      "vote_share_pct": 15.43,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "R. Kannan S/o Rajan",
+      "party_short": "IND",
+      "votes": 218,
+      "vote_share_pct": 0.14,
+      "gender": "M",
+      "age": 26,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Vipin Kanikonathu",
+      "party_short": "BSP",
+      "votes": 178,
+      "vote_share_pct": 0.11,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 594,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 222,
+    "vote_share_pct": 0.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chittayam Gopakumar",
+    "party_short": "CPI",
+    "votes": 66569,
+    "margin_votes": 2919,
+    "margin_pct": 1.88
+  }
+}

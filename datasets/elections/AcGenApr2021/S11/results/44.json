@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "TANUR",
+  "totals": {
+    "electors": 196123,
+    "votes_polled": 152570,
+    "turnout_pct": 77.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V.abdurahiman",
+      "party_short": "NSC",
+      "votes": 70704,
+      "vote_share_pct": 46.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "P.k.firos",
+      "party_short": "IUML",
+      "votes": 69719,
+      "vote_share_pct": 45.7,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.narayanan Master",
+      "party_short": "BJP",
+      "votes": 10590,
+      "vote_share_pct": 6.94,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Firoz S/o Kunhumarakkar",
+      "party_short": "IND",
+      "votes": 247,
+      "vote_share_pct": 0.16,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "V.abdurahiman S/o Kathiyamu",
+      "party_short": "IND",
+      "votes": 224,
+      "vote_share_pct": 0.15,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 336,
+    "vote_share_pct": 0.22
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 750,
+    "vote_share_pct": 0.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V.abdurahiman",
+    "party_short": "NSC",
+    "votes": 70704,
+    "margin_votes": 985,
+    "margin_pct": 0.65
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 71,
+  "constituency_name": "Kolebira",
+  "totals": {
+    "electors": 196667,
+    "votes_polled": 127264,
+    "turnout_pct": 64.71039879593424
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAMAN BIXAL KONGARI",
+      "party_short": "INC",
+      "votes": 48574,
+      "vote_share_pct": 38.16790294191602,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SUJAN JOJO",
+      "party_short": "BJP",
+      "votes": 36236,
+      "vote_share_pct": 28.47309529796329,
+      "gender": "M",
+      "age": 36,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "IREEN EKKA",
+      "party_short": "JKP",
+      "votes": 18700,
+      "vote_share_pct": 14.693864722152375,
+      "gender": "F",
+      "age": 25,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "ANIL KANDULNA",
+      "party_short": "RTSGP",
+      "votes": 14351,
+      "vote_share_pct": 11.276558964043248,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SURENDRA SINGH",
+      "party_short": "BSP",
+      "votes": 1810,
+      "vote_share_pct": 1.4222403821976364,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2353,
+    "vote_share_pct": 1.8489124968569273
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 5240,
+    "vote_share_pct": 4.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAMAN BIXAL KONGARI",
+    "party_short": "INC",
+    "votes": 48574,
+    "margin_votes": 12338,
+    "margin_pct": 9.69
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 178,
+  "constituency_name": "Hosakote",
+  "totals": {
+    "electors": 213750,
+    "votes_polled": 193071,
+    "turnout_pct": 90.32561403508771
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "N NAGARAJU (M.T.B)",
+      "party_short": "INC",
+      "votes": 98824,
+      "vote_share_pct": 51.18531524672271,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHARATH KUMAR BACHEGOWDA",
+      "party_short": "BJP",
+      "votes": 91227,
+      "vote_share_pct": 47.25049334182762,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KRISHNA MURTHY R",
+      "party_short": "JD(S)",
+      "votes": 1083,
+      "vote_share_pct": 0.5609335425827804,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMESHA",
+      "party_short": "ASP",
+      "votes": 417,
+      "vote_share_pct": 0.21598272138228938,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "V SHAMANNA",
+      "party_short": "IND",
+      "votes": 242,
+      "vote_share_pct": 0.1253424905863646,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 539,
+    "vote_share_pct": 0.2791719108514485
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 739,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "N NAGARAJU (M.T.B)",
+    "party_short": "INC",
+    "votes": 98824,
+    "margin_votes": 7597,
+    "margin_pct": 3.93
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 180,
+  "constituency_name": "Doddaballapur",
+  "totals": {
+    "electors": 214240,
+    "votes_polled": 182365,
+    "turnout_pct": 85.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dheeraj Muniraj",
+      "party_short": "BJP",
+      "votes": 85144,
+      "vote_share_pct": 46.69,
+      "is_winner": true,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "T.venkataramanaiah (appakaranahalli T.venkatesh)",
+      "party_short": "INC",
+      "votes": 53391,
+      "vote_share_pct": 29.28,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "B.munegowda",
+      "party_short": "JD(S)",
+      "votes": 39280,
+      "vote_share_pct": 21.54,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Purushothama",
+      "party_short": "AAAP",
+      "votes": 1356,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ravikumar.m",
+      "party_short": "UPJP",
+      "votes": 794,
+      "vote_share_pct": 0.44,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1010,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1390,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dheeraj Muniraj",
+    "party_short": "BJP",
+    "votes": 85144,
+    "margin_votes": 31753,
+    "margin_pct": 17.41
+  }
+}

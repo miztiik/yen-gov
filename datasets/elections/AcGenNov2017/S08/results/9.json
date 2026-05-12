@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Jawali",
+  "totals": {
+    "electors": 90307,
+    "votes_polled": 68600,
+    "turnout_pct": 75.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARJUN SINGH",
+      "party_short": "BJP",
+      "votes": 36999,
+      "vote_share_pct": 53.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHANDER KUMAR",
+      "party_short": "INC",
+      "votes": 28786,
+      "vote_share_pct": 41.96,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAKESH KUMAR",
+      "party_short": "IND",
+      "votes": 315,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RUSTAM SINGH",
+      "party_short": "CPI",
+      "votes": 314,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MANJANA DEVI",
+      "party_short": "BSP",
+      "votes": 266,
+      "vote_share_pct": 0.39,
+      "gender": "F",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 518,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 236,
+    "vote_share_pct": 0.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARJUN SINGH",
+    "party_short": "BJP",
+    "votes": 36999,
+    "margin_votes": 8213,
+    "margin_pct": 11.97
+  }
+}

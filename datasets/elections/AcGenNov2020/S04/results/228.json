@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 228,
+  "constituency_name": "Barachatti",
+  "totals": {
+    "electors": 304389,
+    "votes_polled": 184902,
+    "turnout_pct": 60.74529631491282
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JYOTI DEVI",
+      "party_short": "HAMS",
+      "votes": 72491,
+      "vote_share_pct": 39.205092427339885,
+      "is_winner": true,
+      "gender": "F",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SAMATA DEVI",
+      "party_short": "RJD",
+      "votes": 66173,
+      "vote_share_pct": 35.788147234751385,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RENUKA DEVI",
+      "party_short": "LJP",
+      "votes": 11244,
+      "vote_share_pct": 6.081059155660837,
+      "gender": "F",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RITA DEVI",
+      "party_short": "BSP",
+      "votes": 9721,
+      "vote_share_pct": 5.2573795848611695,
+      "gender": "F",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ARJUN BHUIYAN",
+      "party_short": "IND",
+      "votes": 3836,
+      "vote_share_pct": 2.0746124974310716,
+      "gender": "M",
+      "age": 28,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3767,
+    "vote_share_pct": 2.0372954321748815
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 17670,
+    "vote_share_pct": 9.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JYOTI DEVI",
+    "party_short": "HAMS",
+    "votes": 72491,
+    "margin_votes": 6318,
+    "margin_pct": 3.42
+  }
+}

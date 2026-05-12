@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Ladwa",
+  "totals": {
+    "electors": 183470,
+    "votes_polled": 137763,
+    "turnout_pct": 75.08748024200142
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mewa Singh",
+      "party_short": "INC",
+      "votes": 57665,
+      "vote_share_pct": 41.858118653049075,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Pawan Saini",
+      "party_short": "BJP",
+      "votes": 45028,
+      "vote_share_pct": 32.68511864579023,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sapna Barshami",
+      "party_short": "INLD",
+      "votes": 15513,
+      "vote_share_pct": 11.260643278674246,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Naib Singh",
+      "party_short": "LTSP",
+      "votes": 9099,
+      "vote_share_pct": 6.604821323577448,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Dr. Santosh Dahiya",
+      "party_short": "JNJP",
+      "votes": 2918,
+      "vote_share_pct": 2.1181304123748754,
+      "gender": "F",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 684,
+    "vote_share_pct": 0.4965048670542889
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 6856,
+    "vote_share_pct": 4.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mewa Singh",
+    "party_short": "INC",
+    "votes": 57665,
+    "margin_votes": 12637,
+    "margin_pct": 9.17
+  }
+}

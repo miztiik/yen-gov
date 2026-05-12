@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 140,
+  "constituency_name": "Hasanpur",
+  "totals": {
+    "electors": 292161,
+    "votes_polled": 171336,
+    "turnout_pct": 58.64437758633082
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TEJ PRATAP YADAV",
+      "party_short": "RJD",
+      "votes": 80991,
+      "vote_share_pct": 47.27027594901247,
+      "is_winner": true,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJ KUMAR RAY",
+      "party_short": "JD(U)",
+      "votes": 59852,
+      "vote_share_pct": 34.932530232992484,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARJUN PRASAD YADAV",
+      "party_short": "JAPL",
+      "votes": 9882,
+      "vote_share_pct": 5.767614511836391,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANISH KUMAR",
+      "party_short": "LJP",
+      "votes": 8797,
+      "vote_share_pct": 5.13435588551151,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VIRENDRA YADAV",
+      "party_short": "RSWD",
+      "votes": 2593,
+      "vote_share_pct": 1.5134005696409394,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4426,
+    "vote_share_pct": 2.5832282766026986
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 4795,
+    "vote_share_pct": 2.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TEJ PRATAP YADAV",
+    "party_short": "RJD",
+    "votes": 80991,
+    "margin_votes": 21139,
+    "margin_pct": 12.34
+  }
+}

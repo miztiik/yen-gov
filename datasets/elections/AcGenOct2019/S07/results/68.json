@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "Ateli",
+  "totals": {
+    "electors": 190134,
+    "votes_polled": 126900,
+    "turnout_pct": 66.74240272649816
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sitaram",
+      "party_short": "BJP",
+      "votes": 55793,
+      "vote_share_pct": 43.966115051221436,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Atar Lal",
+      "party_short": "BSP",
+      "votes": 37387,
+      "vote_share_pct": 29.461780929866038,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Samrat",
+      "party_short": "JNJP",
+      "votes": 13191,
+      "vote_share_pct": 10.394799054373523,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Arjun Singh",
+      "party_short": "INC",
+      "votes": 9238,
+      "vote_share_pct": 7.279747832939322,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Naresh Yadav",
+      "party_short": "IND",
+      "votes": 4278,
+      "vote_share_pct": 3.3711583924349884,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 538,
+    "vote_share_pct": 0.4239558707643814
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 6475,
+    "vote_share_pct": 5.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sitaram",
+    "party_short": "BJP",
+    "votes": 55793,
+    "margin_votes": 18406,
+    "margin_pct": 14.5
+  }
+}

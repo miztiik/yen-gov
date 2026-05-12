@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "Gangawati",
+  "totals": {
+    "electors": 202243,
+    "votes_polled": 159859,
+    "turnout_pct": 79.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G Janardhan Reddy",
+      "party_short": "KRPP",
+      "votes": 66213,
+      "vote_share_pct": 41.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Iqbal Ansari",
+      "party_short": "INC",
+      "votes": 57947,
+      "vote_share_pct": 36.25,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Paranna Ishwarappa Munavalli",
+      "party_short": "BJP",
+      "votes": 29167,
+      "vote_share_pct": 18.25,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Channakeshave Heriyaal Ramulu",
+      "party_short": "JD(S)",
+      "votes": 1212,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Prasad Taluri",
+      "party_short": "IND",
+      "votes": 792,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 426,
+    "vote_share_pct": 0.27
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 4102,
+    "vote_share_pct": 2.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G Janardhan Reddy",
+    "party_short": "KRPP",
+    "votes": 66213,
+    "margin_votes": 8266,
+    "margin_pct": 5.17
+  }
+}

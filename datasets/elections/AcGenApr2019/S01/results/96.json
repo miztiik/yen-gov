@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 96,
+  "constituency_name": "Chilakaluripet",
+  "totals": {
+    "electors": 223976,
+    "votes_polled": 188115,
+    "turnout_pct": 83.98890952602065
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJINI VIDADALA",
+      "party_short": "YSRCP",
+      "votes": 94430,
+      "vote_share_pct": 50.19801717034793,
+      "is_winner": true,
+      "gender": "F",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PRATHIPATI PULLARAO",
+      "party_short": "TDP",
+      "votes": 86129,
+      "vote_share_pct": 45.785290912473755,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NAGESWARA RAO GADE",
+      "party_short": "JnP",
+      "votes": 2958,
+      "vote_share_pct": 1.5724423889641976,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MADDULA RADHA KRISHNA",
+      "party_short": "INC",
+      "votes": 1473,
+      "vote_share_pct": 0.7830316561677698,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ANNAM SREENIVASARAO",
+      "party_short": "BJP",
+      "votes": 406,
+      "vote_share_pct": 0.2158254259362624,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 897,
+    "vote_share_pct": 0.4768359779921856
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 1822,
+    "vote_share_pct": 0.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJINI VIDADALA",
+    "party_short": "YSRCP",
+    "votes": 94430,
+    "margin_votes": 8301,
+    "margin_pct": 4.41
+  }
+}

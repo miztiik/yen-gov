@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "MANNARKAD",
+  "totals": {
+    "electors": 198421,
+    "votes_polled": 152102,
+    "turnout_pct": 76.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Advocate. N. Samsudheen",
+      "party_short": "IUML",
+      "votes": 71657,
+      "vote_share_pct": 47.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K. P. Suresh Raj",
+      "party_short": "CPI",
+      "votes": 65787,
+      "vote_share_pct": 43.25,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Agali Naseema P",
+      "party_short": "ADMK",
+      "votes": 10376,
+      "vote_share_pct": 6.82,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "James Mash",
+      "party_short": "IND",
+      "votes": 988,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sivadasan",
+      "party_short": "BSP",
+      "votes": 827,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 760,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1707,
+    "vote_share_pct": 1.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Advocate. N. Samsudheen",
+    "party_short": "IUML",
+    "votes": 71657,
+    "margin_votes": 5870,
+    "margin_pct": 3.86
+  }
+}

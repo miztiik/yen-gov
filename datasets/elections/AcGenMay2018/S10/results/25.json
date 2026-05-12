@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Hungund",
+  "totals": {
+    "electors": 214145,
+    "votes_polled": 156533,
+    "turnout_pct": 73.09673352167924
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DODDANAGOUDA G PATIL",
+      "party_short": "BJP",
+      "votes": 65012,
+      "vote_share_pct": 41.53245641494125,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KASHAPPANAVAR VIJAYANAND SHIVASHANKRAPPA",
+      "party_short": "INC",
+      "votes": 59785,
+      "vote_share_pct": 38.193224431908924,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S. R. NAVALIHIREMATH",
+      "party_short": "IND",
+      "votes": 25850,
+      "vote_share_pct": 16.51408968077019,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M. SHASHIKUMAR HALEPADI.",
+      "party_short": "IND",
+      "votes": 2359,
+      "vote_share_pct": 1.5070304664192216,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMARANNAVAR PRADEEP. SHANKARAGOUDA",
+      "party_short": "SHS",
+      "votes": 922,
+      "vote_share_pct": 0.5890131793295982,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1698,
+    "vote_share_pct": 1.0847552912165486
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 907,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DODDANAGOUDA G PATIL",
+    "party_short": "BJP",
+    "votes": 65012,
+    "margin_votes": 5227,
+    "margin_pct": 3.34
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Siroda",
+  "totals": {
+    "electors": 28265,
+    "votes_polled": 24624,
+    "turnout_pct": 87.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUBHASH ANKUSH SHIRODKAR",
+      "party_short": "INC",
+      "votes": 11156,
+      "vote_share_pct": 45.31,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAHADEV NARAYAN NAIK",
+      "party_short": "BJP",
+      "votes": 6286,
+      "vote_share_pct": 25.53,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ABHAY RAMCHANDRA PRABHU",
+      "party_short": "MAG",
+      "votes": 5815,
+      "vote_share_pct": 23.62,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOLU ANAND VELIP",
+      "party_short": "AAAP",
+      "votes": 586,
+      "vote_share_pct": 2.38,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NILESH GOVIND GAONKAR",
+      "party_short": "IND",
+      "votes": 447,
+      "vote_share_pct": 1.82,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 194,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 140,
+    "vote_share_pct": 0.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUBHASH ANKUSH SHIRODKAR",
+    "party_short": "INC",
+    "votes": 11156,
+    "margin_votes": 4870,
+    "margin_pct": 19.78
+  }
+}

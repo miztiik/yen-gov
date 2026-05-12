@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 168,
+  "constituency_name": "Chamrajpet",
+  "totals": {
+    "electors": 229914,
+    "votes_polled": 124767,
+    "turnout_pct": 54.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B.z.zameer Ahmed Khan",
+      "party_short": "INC",
+      "votes": 77631,
+      "vote_share_pct": 62.22,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Bhaskar Rao",
+      "party_short": "BJP",
+      "votes": 23678,
+      "vote_share_pct": 18.98,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "C.govindaraj",
+      "party_short": "JD(S)",
+      "votes": 19086,
+      "vote_share_pct": 15.3,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Narasimha Murthy",
+      "party_short": "BSP",
+      "votes": 916,
+      "vote_share_pct": 0.73,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "V.somashekar",
+      "party_short": "UPJP",
+      "votes": 779,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1130,
+    "vote_share_pct": 0.91
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1547,
+    "vote_share_pct": 1.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B.z.zameer Ahmed Khan",
+    "party_short": "INC",
+    "votes": 77631,
+    "margin_votes": 53953,
+    "margin_pct": 43.24
+  }
+}

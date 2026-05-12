@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 135,
+  "constituency_name": "NEMOM",
+  "totals": {
+    "electors": 204718,
+    "votes_polled": 146017,
+    "turnout_pct": 71.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V.sivankutty",
+      "party_short": "CPI(M)",
+      "votes": 55837,
+      "vote_share_pct": 38.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kummanam Rajasekharan",
+      "party_short": "BJP",
+      "votes": 51888,
+      "vote_share_pct": 35.54,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.muraleedharan",
+      "party_short": "INC",
+      "votes": 36524,
+      "vote_share_pct": 25.01,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "D.vijayan",
+      "party_short": "BSP",
+      "votes": 356,
+      "vote_share_pct": 0.24,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Jain Wilson",
+      "party_short": "IND",
+      "votes": 165,
+      "vote_share_pct": 0.11,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 756,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 491,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V.sivankutty",
+    "party_short": "CPI(M)",
+    "votes": 55837,
+    "margin_votes": 3949,
+    "margin_pct": 2.7
+  }
+}

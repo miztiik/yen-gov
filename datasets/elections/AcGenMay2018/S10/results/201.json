@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 201,
+  "constituency_name": "Moodabidri",
+  "totals": {
+    "electors": 200066,
+    "votes_polled": 152247,
+    "turnout_pct": 76.0983875321144
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UMANATHA. A. KOTIAN",
+      "party_short": "BJP",
+      "votes": 87444,
+      "vote_share_pct": 57.435614494866904,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K. ABHAYACHANDRA",
+      "party_short": "INC",
+      "votes": 57645,
+      "vote_share_pct": 37.86281503083804,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASHWIN JOSSY PEREIRA",
+      "party_short": "IND",
+      "votes": 2111,
+      "vote_share_pct": 1.3865626252077217,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JEEVAN KRISHNA SHETTY",
+      "party_short": "JD(S)",
+      "votes": 1845,
+      "vote_share_pct": 1.2118465388480562,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K. YADAVA SHETTY",
+      "party_short": "CPM",
+      "votes": 1114,
+      "vote_share_pct": 0.7317057150551407,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1037,
+    "vote_share_pct": 0.6811300058457637
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1051,
+    "vote_share_pct": 0.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UMANATHA. A. KOTIAN",
+    "party_short": "BJP",
+    "votes": 87444,
+    "margin_votes": 29799,
+    "margin_pct": 19.57
+  }
+}

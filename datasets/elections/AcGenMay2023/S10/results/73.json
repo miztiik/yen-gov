@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 73,
+  "constituency_name": "Hubli-Dharwad-Central",
+  "totals": {
+    "electors": 249371,
+    "votes_polled": 160401,
+    "turnout_pct": 64.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mahesh Tenginakai",
+      "party_short": "BJP",
+      "votes": 95064,
+      "vote_share_pct": 59.27,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Jagadish Shettar",
+      "party_short": "INC",
+      "votes": 60775,
+      "vote_share_pct": 37.89,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Mahantawodeyar Siddalingeshwargouda",
+      "party_short": "JD(S)",
+      "votes": 513,
+      "vote_share_pct": 0.32,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Badni Hemaraj Adiveppa",
+      "party_short": "IND",
+      "votes": 494,
+      "vote_share_pct": 0.31,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Vikas Soppin",
+      "party_short": "AAAP",
+      "votes": 468,
+      "vote_share_pct": 0.29,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1251,
+    "vote_share_pct": 0.78
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 1836,
+    "vote_share_pct": 1.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mahesh Tenginakai",
+    "party_short": "BJP",
+    "votes": 95064,
+    "margin_votes": 34289,
+    "margin_pct": 21.38
+  }
+}

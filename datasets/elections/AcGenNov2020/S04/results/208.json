@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 208,
+  "constituency_name": "Sasaram",
+  "totals": {
+    "electors": 350097,
+    "votes_polled": 178993,
+    "turnout_pct": 51.12668774653881
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJESH KUMAR GUPTA",
+      "party_short": "RJD",
+      "votes": 83303,
+      "vote_share_pct": 46.5398088193393,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ASHOK KUMAR",
+      "party_short": "JD(U)",
+      "votes": 56880,
+      "vote_share_pct": 31.77777901929126,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAMESHWAR PRASAD",
+      "party_short": "LJP",
+      "votes": 21426,
+      "vote_share_pct": 11.970300514545261,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MUNESHWAR GUPTA",
+      "party_short": "IND",
+      "votes": 2463,
+      "vote_share_pct": 1.3760314649176224,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DEEN DAYAL SINGH",
+      "party_short": "IND",
+      "votes": 2178,
+      "vote_share_pct": 1.216807361181722,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1093,
+    "vote_share_pct": 0.6106384048538211
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 11650,
+    "vote_share_pct": 6.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJESH KUMAR GUPTA",
+    "party_short": "RJD",
+    "votes": 83303,
+    "margin_votes": 26423,
+    "margin_pct": 14.76
+  }
+}

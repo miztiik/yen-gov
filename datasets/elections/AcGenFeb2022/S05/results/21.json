@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Ponda",
+  "totals": {
+    "electors": 32160,
+    "votes_polled": 25801,
+    "turnout_pct": 80.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAVI NAIK",
+      "party_short": "BJP",
+      "votes": 7514,
+      "vote_share_pct": 29.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KETAN PRABHU BHATIKAR",
+      "party_short": "MAG",
+      "votes": 7437,
+      "vote_share_pct": 28.82,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJESH VERENKAR",
+      "party_short": "INC",
+      "votes": 6839,
+      "vote_share_pct": 26.51,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANISH TILVE",
+      "party_short": "RVLTGONP",
+      "votes": 1770,
+      "vote_share_pct": 6.86,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SANDEEP SINAI KHANDEPARKAR",
+      "party_short": "IND",
+      "votes": 1237,
+      "vote_share_pct": 4.79,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 292,
+    "vote_share_pct": 1.13
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 712,
+    "vote_share_pct": 2.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAVI NAIK",
+    "party_short": "BJP",
+    "votes": 7514,
+    "margin_votes": 77,
+    "margin_pct": 0.3
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "Forbesganj",
+  "totals": {
+    "electors": 340760,
+    "votes_polled": 206372,
+    "turnout_pct": 60.562272567202726
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIDYA SAGAR KESHARI",
+      "party_short": "BJP",
+      "votes": 102212,
+      "vote_share_pct": 49.5280367491714,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ZAKIR HUSSAIN KHAN",
+      "party_short": "INC",
+      "votes": 82510,
+      "vote_share_pct": 39.98119899986432,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRADEEP KUMAR DEO",
+      "party_short": "IND",
+      "votes": 6452,
+      "vote_share_pct": 3.1263931153451052,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJA RAMAN BHASKAR",
+      "party_short": "BSP",
+      "votes": 5818,
+      "vote_share_pct": 2.8191808966332643,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AKHLAQUR RAHMAN",
+      "party_short": "JAPL",
+      "votes": 2207,
+      "vote_share_pct": 1.0694280231814393,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3351,
+    "vote_share_pct": 1.62376679006842
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3822,
+    "vote_share_pct": 1.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIDYA SAGAR KESHARI",
+    "party_short": "BJP",
+    "votes": 102212,
+    "margin_votes": 19702,
+    "margin_pct": 9.55
+  }
+}

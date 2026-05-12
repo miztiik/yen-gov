@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "V.Madugula",
+  "totals": {
+    "electors": 186294,
+    "votes_polled": 154609,
+    "turnout_pct": 82.99193747517364
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BUDI MUTYALA NAIDU",
+      "party_short": "YSRCP",
+      "votes": 78830,
+      "vote_share_pct": 50.986682534651926,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GAVIREDDI RAMANAIDU",
+      "party_short": "TDP",
+      "votes": 62438,
+      "vote_share_pct": 40.38445368639601,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANYASINAIDU GAVIREDDY",
+      "party_short": "JnP",
+      "votes": 3745,
+      "vote_share_pct": 2.422239326300539,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BODDU SRINIVASA",
+      "party_short": "INC",
+      "votes": 1657,
+      "vote_share_pct": 1.0717357980453919,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MATALA ARI NAIDU",
+      "party_short": "IND",
+      "votes": 957,
+      "vote_share_pct": 0.618980783783609,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4672,
+    "vote_share_pct": 3.021816323758643
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2310,
+    "vote_share_pct": 1.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BUDI MUTYALA NAIDU",
+    "party_short": "YSRCP",
+    "votes": 78830,
+    "margin_votes": 16392,
+    "margin_pct": 10.6
+  }
+}

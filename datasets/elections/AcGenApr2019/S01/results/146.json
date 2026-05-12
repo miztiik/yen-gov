@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 146,
+  "constituency_name": "Adoni",
+  "totals": {
+    "electors": 240234,
+    "votes_polled": 157298,
+    "turnout_pct": 65.47699326490005
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Y. SAI PRASAD REDDY",
+      "party_short": "YSRCP",
+      "votes": 74109,
+      "vote_share_pct": 47.113758598329284,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KONKA MEENAKSHI NAIDU",
+      "party_short": "TDP",
+      "votes": 61790,
+      "vote_share_pct": 39.282126918333354,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "N. MALLAPPA",
+      "party_short": "JnP",
+      "votes": 11898,
+      "vote_share_pct": 7.563986827550255,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KUNIGIRI NEELAKANTA",
+      "party_short": "BJP",
+      "votes": 3854,
+      "vote_share_pct": 2.4501265114623196,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BOYA NEELAKANTAPPA",
+      "party_short": "INC",
+      "votes": 2151,
+      "vote_share_pct": 1.3674681178400232,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1519,
+    "vote_share_pct": 0.9656829711757301
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1977,
+    "vote_share_pct": 1.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Y. SAI PRASAD REDDY",
+    "party_short": "YSRCP",
+    "votes": 74109,
+    "margin_votes": 12319,
+    "margin_pct": 7.83
+  }
+}

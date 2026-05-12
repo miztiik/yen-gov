@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "Thowra",
+  "totals": {
+    "electors": 100072,
+    "votes_polled": 85836,
+    "turnout_pct": 85.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KUSHAL DOWARI",
+      "party_short": "BJP",
+      "votes": 41560,
+      "vote_share_pct": 48.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUSHANTA BORGOHAIN",
+      "party_short": "INC",
+      "votes": 40334,
+      "vote_share_pct": 46.99,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KUSHAL BORGOHAIN",
+      "party_short": "CPI",
+      "votes": 2066,
+      "vote_share_pct": 2.41,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1876,
+    "vote_share_pct": 2.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KUSHAL DOWARI",
+    "party_short": "BJP",
+    "votes": 41560,
+    "margin_votes": 1226,
+    "margin_pct": 1.43
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 80,
+  "constituency_name": "Benipur",
+  "totals": {
+    "electors": 289224,
+    "votes_polled": 163428,
+    "turnout_pct": 56.50568417558709
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Binay Kumar Choudhary",
+      "party_short": "JD(U)",
+      "votes": 61416,
+      "vote_share_pct": 37.57985167780306,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mithilesh Kumar Choudhary",
+      "party_short": "INC",
+      "votes": 54826,
+      "vote_share_pct": 33.547494921310914,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kamal Ram Vinod Jha",
+      "party_short": "LJP",
+      "votes": 17616,
+      "vote_share_pct": 10.779058668037301,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ram Kumar Jha",
+      "party_short": "IND",
+      "votes": 6221,
+      "vote_share_pct": 3.8065692537386493,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rajeev Kumar",
+      "party_short": "RLSP",
+      "votes": 4641,
+      "vote_share_pct": 2.8397826565827153,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4621,
+    "vote_share_pct": 2.827544851555425
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 14087,
+    "vote_share_pct": 8.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Binay Kumar Choudhary",
+    "party_short": "JD(U)",
+    "votes": 61416,
+    "margin_votes": 6590,
+    "margin_pct": 4.03
+  }
+}

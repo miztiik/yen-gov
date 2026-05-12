@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 190,
+  "constituency_name": "Paliganj",
+  "totals": {
+    "electors": 283864,
+    "votes_polled": 155296,
+    "turnout_pct": 54.707888284530625
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANDEEP SAURAV",
+      "party_short": "CPI(ML)(L)",
+      "votes": 67917,
+      "vote_share_pct": 43.7339017102823,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAY VARDHAN YADAV @ BACHCHA YADAV",
+      "party_short": "JD(U)",
+      "votes": 37002,
+      "vote_share_pct": 23.826756645373994,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. USHA VIDYARTHI",
+      "party_short": "LJP",
+      "votes": 16102,
+      "vote_share_pct": 10.368586441376468,
+      "gender": "F",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MADHU MANJARI",
+      "party_short": "RLSP",
+      "votes": 5467,
+      "vote_share_pct": 3.5203739954667217,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUNIL KUMAR",
+      "party_short": "IND",
+      "votes": 5261,
+      "vote_share_pct": 3.3877240881928707,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1881,
+    "vote_share_pct": 1.2112353183597775
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 21666,
+    "vote_share_pct": 13.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANDEEP SAURAV",
+    "party_short": "CPI(ML)(L)",
+    "votes": 67917,
+    "margin_votes": 30915,
+    "margin_pct": 19.91
+  }
+}

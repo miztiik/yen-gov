@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Visakhapatnam South",
+  "totals": {
+    "electors": 209356,
+    "votes_polled": 125701,
+    "turnout_pct": 60.04174707197309
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GANESH KUMAR VASUPALLI",
+      "party_short": "TDP",
+      "votes": 52172,
+      "vote_share_pct": 41.504840852499186,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DRONAMRAJU SRINIVASA RAO",
+      "party_short": "YSRCP",
+      "votes": 48443,
+      "vote_share_pct": 38.5382773406735,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GIRIDHAR GAMPALA",
+      "party_short": "JnP",
+      "votes": 18119,
+      "vote_share_pct": 14.414364245312289,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KOPPALA RAM KUMAR",
+      "party_short": "BJP",
+      "votes": 2397,
+      "vote_share_pct": 1.9069060707552048,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HYDER ALI SINKA",
+      "party_short": "INC",
+      "votes": 1876,
+      "vote_share_pct": 1.492430450036197,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1208,
+    "vote_share_pct": 0.9610106522621141
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1486,
+    "vote_share_pct": 1.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GANESH KUMAR VASUPALLI",
+    "party_short": "TDP",
+    "votes": 52172,
+    "margin_votes": 3729,
+    "margin_pct": 2.97
+  }
+}

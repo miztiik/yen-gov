@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 117,
+  "constituency_name": "Marhaura",
+  "totals": {
+    "electors": 267925,
+    "votes_polled": 151664,
+    "turnout_pct": 56.606886255481946
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JITENDRA KUMAR RAY",
+      "party_short": "RJD",
+      "votes": 59812,
+      "vote_share_pct": 39.43717691739635,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ALTAF ALAM",
+      "party_short": "JD(U)",
+      "votes": 48427,
+      "vote_share_pct": 31.93045152442241,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VINAY KUMAR",
+      "party_short": "LJP",
+      "votes": 6550,
+      "vote_share_pct": 4.318757252874776,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "LAL BABU RAY",
+      "party_short": "IND",
+      "votes": 6323,
+      "vote_share_pct": 4.16908429159194,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NAGENDRA RAY",
+      "party_short": "IND",
+      "votes": 4445,
+      "vote_share_pct": 2.930820761683722,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1525,
+    "vote_share_pct": 1.0055121848296233
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 24582,
+    "vote_share_pct": 16.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JITENDRA KUMAR RAY",
+    "party_short": "RJD",
+    "votes": 59812,
+    "margin_votes": 11385,
+    "margin_pct": 7.51
+  }
+}

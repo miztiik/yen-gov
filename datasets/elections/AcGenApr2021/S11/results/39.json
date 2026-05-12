@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "MANKADA",
+  "totals": {
+    "electors": 217930,
+    "votes_polled": 168268,
+    "turnout_pct": 77.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manjalamkuzhi Ali",
+      "party_short": "IUML",
+      "votes": 83231,
+      "vote_share_pct": 49.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv. T.k. Rasheedali",
+      "party_short": "CPI(M)",
+      "votes": 76985,
+      "vote_share_pct": 45.75,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sajesh Elayil",
+      "party_short": "BJP",
+      "votes": 6641,
+      "vote_share_pct": 3.95,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ali S/o Musthafa",
+      "party_short": "IND",
+      "votes": 350,
+      "vote_share_pct": 0.21,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ali S/o Alavi Haji",
+      "party_short": "IND",
+      "votes": 193,
+      "vote_share_pct": 0.11,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 599,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 269,
+    "vote_share_pct": 0.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manjalamkuzhi Ali",
+    "party_short": "IUML",
+    "votes": 83231,
+    "margin_votes": 6246,
+    "margin_pct": 3.71
+  }
+}

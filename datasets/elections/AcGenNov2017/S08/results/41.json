@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "Chintpurni",
+  "totals": {
+    "electors": 77979,
+    "votes_polled": 58422,
+    "turnout_pct": 74.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BALBIR SINGH",
+      "party_short": "BJP",
+      "votes": 32488,
+      "vote_share_pct": 55.61,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "KULDIP  KUMAR",
+      "party_short": "INC",
+      "votes": 23909,
+      "vote_share_pct": 40.92,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RANJIT SINGH",
+      "party_short": "BSP",
+      "votes": 621,
+      "vote_share_pct": 1.06,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 534,
+    "vote_share_pct": 0.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BALBIR SINGH",
+    "party_short": "BJP",
+    "votes": 32488,
+    "margin_votes": 8579,
+    "margin_pct": 14.68
+  },
+  "others": null
+}

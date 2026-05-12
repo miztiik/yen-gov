@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 83,
+  "constituency_name": "Nandigama",
+  "totals": {
+    "electors": 195053,
+    "votes_polled": 170474,
+    "turnout_pct": 87.39880955432626
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MONDITOKA JAGAN MOHANA RAO",
+      "party_short": "YSRCP",
+      "votes": 87493,
+      "vote_share_pct": 51.32336895948942,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Tangirala Sowmya",
+      "party_short": "TDP",
+      "votes": 76612,
+      "vote_share_pct": 44.940577448760514,
+      "gender": "F",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Batchalakoor Pushpa Raju",
+      "party_short": "BSP",
+      "votes": 2753,
+      "vote_share_pct": 1.614909018384035,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "VELPULA PARAMESWARARAO",
+      "party_short": "INC",
+      "votes": 1247,
+      "vote_share_pct": 0.7314898459589145,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Jangam Sunil Raju",
+      "party_short": "BJP",
+      "votes": 782,
+      "vote_share_pct": 0.45872097797904665,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1026,
+    "vote_share_pct": 0.6018513087039666
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 561,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MONDITOKA JAGAN MOHANA RAO",
+    "party_short": "YSRCP",
+    "votes": 87493,
+    "margin_votes": 10881,
+    "margin_pct": 6.38
+  }
+}

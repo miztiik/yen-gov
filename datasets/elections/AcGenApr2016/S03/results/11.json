@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Dholai",
+  "totals": {
+    "electors": 160525,
+    "votes_polled": 128303,
+    "turnout_pct": 79.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARIMAL SUKLABAIDYA",
+      "party_short": "BJP",
+      "votes": 68694,
+      "vote_share_pct": 53.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "GIRINDRA MALLIK",
+      "party_short": "INC",
+      "votes": 41857,
+      "vote_share_pct": 32.62,
+      "gender": "M",
+      "age": 77,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "LALTA PROSAD MALA",
+      "party_short": "AIUDF",
+      "votes": 13382,
+      "vote_share_pct": 10.43,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "GOUR CHANDRA DAS",
+      "party_short": "SUCI",
+      "votes": 1146,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "NIHAR RANJAN DAS",
+      "party_short": "IND",
+      "votes": 1114,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2110,
+    "vote_share_pct": 1.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARIMAL SUKLABAIDYA",
+    "party_short": "BJP",
+    "votes": 68694,
+    "margin_votes": 26837,
+    "margin_pct": 20.92
+  },
+  "others": null
+}

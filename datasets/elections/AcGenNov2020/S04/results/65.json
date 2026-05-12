@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 65,
+  "constituency_name": "Balrampur",
+  "totals": {
+    "electors": 333492,
+    "votes_polled": 204439,
+    "turnout_pct": 61.302520000479774
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAHBOOB ALAM",
+      "party_short": "CPI(ML)(L)",
+      "votes": 104489,
+      "vote_share_pct": 51.11011108447997,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BARUN KUMAR JHA",
+      "party_short": "VSIP",
+      "votes": 50892,
+      "vote_share_pct": 24.893489011392152,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANGITA DEVI",
+      "party_short": "LJP",
+      "votes": 8949,
+      "vote_share_pct": 4.377344831465621,
+      "gender": "F",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MD. ZINNAH",
+      "party_short": "IND",
+      "votes": 7878,
+      "vote_share_pct": 3.8534721848570963,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AZAD KHAN",
+      "party_short": "RaJPa",
+      "votes": 4747,
+      "vote_share_pct": 2.321964008824148,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 5166,
+    "vote_share_pct": 2.5269151189352326
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 22318,
+    "vote_share_pct": 10.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAHBOOB ALAM",
+    "party_short": "CPI(ML)(L)",
+    "votes": 104489,
+    "margin_votes": 53597,
+    "margin_pct": 26.22
+  }
+}

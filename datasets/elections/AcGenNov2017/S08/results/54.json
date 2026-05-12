@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "Kasauli",
+  "totals": {
+    "electors": 64245,
+    "votes_polled": 49025,
+    "turnout_pct": 76.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJIV SAIZAL",
+      "party_short": "BJP",
+      "votes": 23656,
+      "vote_share_pct": 48.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "VINOD SULTANPURI",
+      "party_short": "INC",
+      "votes": 23214,
+      "vote_share_pct": 47.35,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "VIRENDER KUMAR KASHYAP",
+      "party_short": "CPI",
+      "votes": 652,
+      "vote_share_pct": 1.33,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAJEEV KUMAR KAUNDAL",
+      "party_short": "IND",
+      "votes": 329,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KESHAV KUMAR",
+      "party_short": "SWAP",
+      "votes": 321,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 503,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJIV SAIZAL",
+    "party_short": "BJP",
+    "votes": 23656,
+    "margin_votes": 442,
+    "margin_pct": 0.9
+  },
+  "others": null
+}

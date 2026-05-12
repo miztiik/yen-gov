@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 120,
+  "constituency_name": "Amnour",
+  "totals": {
+    "electors": 263716,
+    "votes_polled": 149711,
+    "turnout_pct": 56.76978264496656
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Krishan Kumar Mantoo",
+      "party_short": "BJP",
+      "votes": 63316,
+      "vote_share_pct": 42.29214954144986,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sunil Kumar",
+      "party_short": "RJD",
+      "votes": 59635,
+      "vote_share_pct": 39.83341237450822,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Shatrudhan Tiwari",
+      "party_short": "IND",
+      "votes": 7493,
+      "vote_share_pct": 5.004976254249855,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rahul Kumar",
+      "party_short": "RLSP",
+      "votes": 4783,
+      "vote_share_pct": 3.1948220237657887,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sangeeta Singh",
+      "party_short": "IND",
+      "votes": 3909,
+      "vote_share_pct": 2.611030585594913,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3669,
+    "vote_share_pct": 2.4507217238546266
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 6906,
+    "vote_share_pct": 4.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Krishan Kumar Mantoo",
+    "party_short": "BJP",
+    "votes": 63316,
+    "margin_votes": 3681,
+    "margin_pct": 2.46
+  }
+}

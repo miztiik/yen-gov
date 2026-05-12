@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "Rampur",
+  "totals": {
+    "electors": 71014,
+    "votes_polled": 54005,
+    "turnout_pct": 76.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAND LAL",
+      "party_short": "INC",
+      "votes": 25730,
+      "vote_share_pct": 47.64,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PREM SINGH DARAIK",
+      "party_short": "BJP",
+      "votes": 21693,
+      "vote_share_pct": 40.17,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SINGHI RAM",
+      "party_short": "IND",
+      "votes": 3801,
+      "vote_share_pct": 7.04,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "VIVEK KASHYAP",
+      "party_short": "CPM",
+      "votes": 1325,
+      "vote_share_pct": 2.45,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SURESH SINGH SAINI",
+      "party_short": "BSP",
+      "votes": 297,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 504,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAND LAL",
+    "party_short": "INC",
+    "votes": 25730,
+    "margin_votes": 4037,
+    "margin_pct": 7.48
+  },
+  "others": null
+}

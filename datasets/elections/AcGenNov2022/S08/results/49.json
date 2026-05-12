@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 49,
+  "constituency_name": "Sri Naina Deviji",
+  "totals": {
+    "electors": 75176,
+    "votes_polled": 62254,
+    "turnout_pct": 82.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Randhir Sharma",
+      "party_short": "BJP",
+      "votes": 29403,
+      "vote_share_pct": 47.23,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ram Lal Thakur",
+      "party_short": "INC",
+      "votes": 29232,
+      "vote_share_pct": 46.96,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Deepak Kumar",
+      "party_short": "RTRYDVBHMP",
+      "votes": 2114,
+      "vote_share_pct": 3.4,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Narinder Singh",
+      "party_short": "AAAP",
+      "votes": 653,
+      "vote_share_pct": 1.05,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Bhag Singh",
+      "party_short": "CPI",
+      "votes": 627,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 225,
+    "vote_share_pct": 0.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Randhir Sharma",
+    "party_short": "BJP",
+    "votes": 29403,
+    "margin_votes": 171,
+    "margin_pct": 0.27
+  },
+  "others": null
+}
