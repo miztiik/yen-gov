@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 131,
+  "constituency_name": "KALYANPUR (SC)",
+  "totals": {
+    "electors": 324932,
+    "votes_polled": 239675,
+    "turnout_pct": 73.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Maheshwar Hazari",
+      "party_short": "JD(U)",
+      "votes": 118162,
+      "vote_share_pct": 49.3,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ranjeet Kumar Ram",
+      "party_short": "CPI(ML)(L)",
+      "votes": 79576,
+      "vote_share_pct": 33.2
+    },
+    {
+      "rank": 3,
+      "name": "Ram Balak Paswan",
+      "party_short": "JNSRJP",
+      "votes": 16574,
+      "vote_share_pct": 6.92
+    },
+    {
+      "rank": 4,
+      "name": "Rajeev Kumar",
+      "party_short": "IND",
+      "votes": 5631,
+      "vote_share_pct": 2.35
+    },
+    {
+      "rank": 5,
+      "name": "Ratneshwar Ram",
+      "party_short": "BSP",
+      "votes": 3805,
+      "vote_share_pct": 1.59
+    }
+  ],
+  "nota": {
+    "votes": 8634,
+    "vote_share_pct": 3.6
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 7293,
+    "vote_share_pct": 3.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Maheshwar Hazari",
+    "party_short": "JD(U)",
+    "votes": 118162,
+    "margin_votes": 38586,
+    "margin_pct": 16.1
+  }
+}

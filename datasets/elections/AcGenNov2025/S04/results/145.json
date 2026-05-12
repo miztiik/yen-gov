@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 145,
+  "constituency_name": "SAHEBPUR KAMAL",
+  "totals": {
+    "electors": 263289,
+    "votes_polled": 189684,
+    "turnout_pct": 72.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sattanand Sambuddha Alias Lalan Jee",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 76798,
+      "vote_share_pct": 40.49,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Surendra Kumar Alias Surendra Vivek",
+      "party_short": "LJPRV",
+      "votes": 61077,
+      "vote_share_pct": 32.2
+    },
+    {
+      "rank": 3,
+      "name": "Shashikant Kumar Shashi Alias Amar Kumar Singh",
+      "party_short": "IND",
+      "votes": 34781,
+      "vote_share_pct": 18.34
+    },
+    {
+      "rank": 4,
+      "name": "Md. Shahzaduzzama Alias Saify",
+      "party_short": "IND",
+      "votes": 4905,
+      "vote_share_pct": 2.59
+    },
+    {
+      "rank": 5,
+      "name": "Md. Abdullah",
+      "party_short": "JNSRJP",
+      "votes": 3396,
+      "vote_share_pct": 1.79
+    }
+  ],
+  "nota": {
+    "votes": 1751,
+    "vote_share_pct": 0.92
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 6976,
+    "vote_share_pct": 3.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sattanand Sambuddha Alias Lalan Jee",
+    "party_eci_code": "1420",
+    "party_short": "RJD",
+    "votes": 76798,
+    "margin_votes": 15721,
+    "margin_pct": 8.29
+  }
+}

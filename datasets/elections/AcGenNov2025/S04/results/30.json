@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "BELSAND",
+  "totals": {
+    "electors": 261773,
+    "votes_polled": 183072,
+    "turnout_pct": 69.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Amit Kumar",
+      "party_short": "LJPRV",
+      "votes": 82076,
+      "vote_share_pct": 44.83,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sanjay Kumar Gupta",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 59391,
+      "vote_share_pct": 32.44
+    },
+    {
+      "rank": 3,
+      "name": "Arpna Singh",
+      "party_short": "JNSRJP",
+      "votes": 19025,
+      "vote_share_pct": 10.39
+    },
+    {
+      "rank": 4,
+      "name": "Rana Randhir Singh Chouhan",
+      "party_short": "BSP",
+      "votes": 7600,
+      "vote_share_pct": 4.15
+    },
+    {
+      "rank": 5,
+      "name": "Ambika Sah",
+      "party_short": "RJBP",
+      "votes": 2559,
+      "vote_share_pct": 1.4
+    }
+  ],
+  "nota": {
+    "votes": 6110,
+    "vote_share_pct": 3.34
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 6311,
+    "vote_share_pct": 3.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Amit Kumar",
+    "party_short": "LJPRV",
+    "votes": 82076,
+    "margin_votes": 22685,
+    "margin_pct": 12.39
+  }
+}

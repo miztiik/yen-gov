@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 111,
+  "constituency_name": "GORIAKOTHI",
+  "totals": {
+    "electors": 331190,
+    "votes_polled": 213345,
+    "turnout_pct": 64.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Devesh Kant Singh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 105909,
+      "vote_share_pct": 49.64,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Anwarul Haque",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 93524,
+      "vote_share_pct": 43.84
+    },
+    {
+      "rank": 3,
+      "name": "Ejaz Ahmad Siddique",
+      "party_short": "JNSRJP",
+      "votes": 3281,
+      "vote_share_pct": 1.54
+    },
+    {
+      "rank": 4,
+      "name": "Ashok Kumar Varma",
+      "party_short": "IND",
+      "votes": 2797,
+      "vote_share_pct": 1.31
+    },
+    {
+      "rank": 5,
+      "name": "Ravi Bhushan Gupta",
+      "party_short": "AAAP",
+      "votes": 1379,
+      "vote_share_pct": 0.65
+    }
+  ],
+  "nota": {
+    "votes": 3655,
+    "vote_share_pct": 1.71
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2800,
+    "vote_share_pct": 1.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Devesh Kant Singh",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 105909,
+    "margin_votes": 12385,
+    "margin_pct": 5.81
+  }
+}

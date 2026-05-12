@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "RAMNAGAR (SC)",
+  "totals": {
+    "electors": 299784,
+    "votes_polled": 212859,
+    "turnout_pct": 71.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nand Kishor Ram",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 115214,
+      "vote_share_pct": 54.13,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Subodh Kumar",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 79534,
+      "vote_share_pct": 37.36
+    },
+    {
+      "rank": 3,
+      "name": "Pappu Kumar Ranjan",
+      "party_short": "JNSRJP",
+      "votes": 6992,
+      "vote_share_pct": 3.28
+    },
+    {
+      "rank": 4,
+      "name": "Aaditya Kumar",
+      "party_short": "BSP",
+      "votes": 2663,
+      "vote_share_pct": 1.25
+    },
+    {
+      "rank": 5,
+      "name": "Santosh Ram",
+      "party_short": "IND",
+      "votes": 2295,
+      "vote_share_pct": 1.08
+    }
+  ],
+  "nota": {
+    "votes": 2184,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3977,
+    "vote_share_pct": 1.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nand Kishor Ram",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 115214,
+    "margin_votes": 35680,
+    "margin_pct": 16.76
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "PIPRA",
+  "totals": {
+    "electors": 305165,
+    "votes_polled": 223019,
+    "turnout_pct": 73.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rambilash Kamat",
+      "party_short": "JD(U)",
+      "votes": 107041,
+      "vote_share_pct": 48.0,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Anil Kumar",
+      "party_short": "CPI(ML)(L)",
+      "votes": 69265,
+      "vote_share_pct": 31.06
+    },
+    {
+      "rank": 3,
+      "name": "Laxmi Kant Bharti",
+      "party_short": "IND",
+      "votes": 12014,
+      "vote_share_pct": 5.39
+    },
+    {
+      "rank": 4,
+      "name": "Indradev Sah",
+      "party_short": "JNSRJP",
+      "votes": 5519,
+      "vote_share_pct": 2.47
+    },
+    {
+      "rank": 5,
+      "name": "Hema Bharti",
+      "party_short": "IND",
+      "votes": 3772,
+      "vote_share_pct": 1.69
+    }
+  ],
+  "nota": {
+    "votes": 10691,
+    "vote_share_pct": 4.79
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 14717,
+    "vote_share_pct": 6.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rambilash Kamat",
+    "party_short": "JD(U)",
+    "votes": 107041,
+    "margin_votes": 37776,
+    "margin_pct": 16.94
+  }
+}

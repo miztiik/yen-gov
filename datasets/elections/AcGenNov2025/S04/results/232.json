@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 232,
+  "constituency_name": "BELAGANJ",
+  "totals": {
+    "electors": 279839,
+    "votes_polled": 205019,
+    "turnout_pct": 73.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manorma Devi",
+      "party_short": "JD(U)",
+      "votes": 95685,
+      "vote_share_pct": 46.67,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vishvanath Kumar Singh",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 92803,
+      "vote_share_pct": 45.27
+    },
+    {
+      "rank": 3,
+      "name": "Lalu Yadav",
+      "party_short": "IND",
+      "votes": 2769,
+      "vote_share_pct": 1.35
+    },
+    {
+      "rank": 4,
+      "name": "Vibhuti Narayan Singh",
+      "party_short": "IND",
+      "votes": 2562,
+      "vote_share_pct": 1.25
+    },
+    {
+      "rank": 5,
+      "name": "Madhumala Kumari",
+      "party_short": "AAAP",
+      "votes": 2204,
+      "vote_share_pct": 1.08
+    }
+  ],
+  "nota": {
+    "votes": 3074,
+    "vote_share_pct": 1.5
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 5922,
+    "vote_share_pct": 2.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manorma Devi",
+    "party_short": "JD(U)",
+    "votes": 95685,
+    "margin_votes": 2882,
+    "margin_pct": 1.41
+  }
+}

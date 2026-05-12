@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "RAJNAGAR (SC)",
+  "totals": {
+    "electors": 313288,
+    "votes_polled": 190800,
+    "turnout_pct": 60.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sujeet Kumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 108362,
+      "vote_share_pct": 56.79,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bishnu Deo Mochi",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 66177,
+      "vote_share_pct": 34.68
+    },
+    {
+      "rank": 3,
+      "name": "Surendra Kumar Das",
+      "party_short": "JNSRJP",
+      "votes": 5669,
+      "vote_share_pct": 2.97
+    },
+    {
+      "rank": 4,
+      "name": "Rampari Devi",
+      "party_short": "AJPP",
+      "votes": 3568,
+      "vote_share_pct": 1.87
+    },
+    {
+      "rank": 5,
+      "name": "Maheshwar Paswan",
+      "party_short": "BRCTP",
+      "votes": 1838,
+      "vote_share_pct": 0.96
+    }
+  ],
+  "nota": {
+    "votes": 2889,
+    "vote_share_pct": 1.51
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2297,
+    "vote_share_pct": 1.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sujeet Kumar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 108362,
+    "margin_votes": 42185,
+    "margin_pct": 22.11
+  }
+}

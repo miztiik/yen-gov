@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 175,
+  "constituency_name": "HILSA",
+  "totals": {
+    "electors": 304842,
+    "votes_polled": 193058,
+    "turnout_pct": 63.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Krishana Murari Sharan Urf Prem Mukhiya",
+      "party_short": "JD(U)",
+      "votes": 96009,
+      "vote_share_pct": 49.73,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Atri Muni Urf Shakti Singh Yadav",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 79997,
+      "vote_share_pct": 41.44
+    },
+    {
+      "rank": 3,
+      "name": "Umesh Kumar Verma",
+      "party_short": "JNSRJP",
+      "votes": 4252,
+      "vote_share_pct": 2.2
+    },
+    {
+      "rank": 4,
+      "name": "Shukesh Kumar",
+      "party_short": "IND",
+      "votes": 3337,
+      "vote_share_pct": 1.73
+    },
+    {
+      "rank": 5,
+      "name": "Kumar Niraj",
+      "party_short": "RASLJP",
+      "votes": 1646,
+      "vote_share_pct": 0.85
+    }
+  ],
+  "nota": {
+    "votes": 3853,
+    "vote_share_pct": 2.0
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3964,
+    "vote_share_pct": 2.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Krishana Murari Sharan Urf Prem Mukhiya",
+    "party_short": "JD(U)",
+    "votes": 96009,
+    "margin_votes": 16012,
+    "margin_pct": 8.29
+  }
+}

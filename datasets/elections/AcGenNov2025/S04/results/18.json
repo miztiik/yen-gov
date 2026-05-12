@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "MADHUBAN",
+  "totals": {
+    "electors": 265505,
+    "votes_polled": 183824,
+    "turnout_pct": 69.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rana Randhir",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 86002,
+      "vote_share_pct": 46.78,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sandhya Rani",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 80510,
+      "vote_share_pct": 43.8
+    },
+    {
+      "rank": 3,
+      "name": "Vijay Kumar Kushwaha",
+      "party_short": "JNSRJP",
+      "votes": 5383,
+      "vote_share_pct": 2.93
+    },
+    {
+      "rank": 4,
+      "name": "Shashi Ranjan Kumar Alias Sonu Singh",
+      "party_short": "IND",
+      "votes": 2647,
+      "vote_share_pct": 1.44
+    },
+    {
+      "rank": 5,
+      "name": "Kunal Bhushan Alias Bittu",
+      "party_short": "AAAP",
+      "votes": 2602,
+      "vote_share_pct": 1.42
+    }
+  ],
+  "nota": {
+    "votes": 2064,
+    "vote_share_pct": 1.12
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 4616,
+    "vote_share_pct": 2.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rana Randhir",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 86002,
+    "margin_votes": 5492,
+    "margin_pct": 2.99
+  }
+}

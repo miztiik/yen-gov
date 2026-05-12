@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 213,
+  "constituency_name": "KARAKAT",
+  "totals": {
+    "electors": 333262,
+    "votes_polled": 197715,
+    "turnout_pct": 59.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Arun Singh (vill-ajnap Tola)",
+      "party_short": "CPI(ML)(L)",
+      "votes": 74157,
+      "vote_share_pct": 37.51,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mahabali Singh",
+      "party_short": "JD(U)",
+      "votes": 71321,
+      "vote_share_pct": 36.07
+    },
+    {
+      "rank": 3,
+      "name": "Jyoti Singh",
+      "party_short": "IND",
+      "votes": 23469,
+      "vote_share_pct": 11.87
+    },
+    {
+      "rank": 4,
+      "name": "Yogendra Singh",
+      "party_short": "JNSRJP",
+      "votes": 7503,
+      "vote_share_pct": 3.79
+    },
+    {
+      "rank": 5,
+      "name": "Bandana Raj",
+      "party_short": "BSP",
+      "votes": 7377,
+      "vote_share_pct": 3.73
+    }
+  ],
+  "nota": {
+    "votes": 5765,
+    "vote_share_pct": 2.92
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 8123,
+    "vote_share_pct": 4.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Arun Singh (vill-ajnap Tola)",
+    "party_short": "CPI(ML)(L)",
+    "votes": 74157,
+    "margin_votes": 2836,
+    "margin_pct": 1.43
+  }
+}

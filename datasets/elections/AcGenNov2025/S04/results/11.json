@@ -1,0 +1,75 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "SUGAULI",
+  "totals": {
+    "electors": 283696,
+    "votes_polled": 198790,
+    "turnout_pct": 70.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajesh Kumar Alias Bablu Gupta",
+      "party_short": "LJPRV",
+      "votes": 98875,
+      "vote_share_pct": 49.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Shyam Kishor Chaudhary",
+      "party_short": "JNSKJNDL",
+      "votes": 40684,
+      "vote_share_pct": 20.47
+    },
+    {
+      "rank": 3,
+      "name": "Zulfiquar Aftab",
+      "party_short": "BSP",
+      "votes": 25036,
+      "vote_share_pct": 12.59
+    },
+    {
+      "rank": 4,
+      "name": "Ajay Kumar Jha",
+      "party_short": "JNSRJP",
+      "votes": 24718,
+      "vote_share_pct": 12.43
+    },
+    {
+      "rank": 5,
+      "name": "Jitendra Tiwari",
+      "party_short": "KSNSD",
+      "votes": 4250,
+      "vote_share_pct": 2.14
+    }
+  ],
+  "nota": {
+    "votes": 5227,
+    "vote_share_pct": 2.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajesh Kumar Alias Bablu Gupta",
+    "party_short": "LJPRV",
+    "votes": 98875,
+    "margin_votes": 58191,
+    "margin_pct": 29.27
+  },
+  "others": null
+}

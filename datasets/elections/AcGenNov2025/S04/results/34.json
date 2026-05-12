@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "BABUBARHI",
+  "totals": {
+    "electors": 308096,
+    "votes_polled": 206322,
+    "turnout_pct": 66.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mina Kumari",
+      "party_short": "JD(U)",
+      "votes": 98221,
+      "vote_share_pct": 47.61,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Arun Kumar Singh",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 80653,
+      "vote_share_pct": 39.09
+    },
+    {
+      "rank": 3,
+      "name": "Alok Kumar Yadav",
+      "party_short": "JNSRJP",
+      "votes": 7740,
+      "vote_share_pct": 3.75
+    },
+    {
+      "rank": 4,
+      "name": "Umesh Kumar Yadav",
+      "party_short": "IND",
+      "votes": 5547,
+      "vote_share_pct": 2.69
+    },
+    {
+      "rank": 5,
+      "name": "Shanti Devi",
+      "party_short": "JNSKJNDL",
+      "votes": 2556,
+      "vote_share_pct": 1.24
+    }
+  ],
+  "nota": {
+    "votes": 5248,
+    "vote_share_pct": 2.54
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 6357,
+    "vote_share_pct": 3.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mina Kumari",
+    "party_short": "JD(U)",
+    "votes": 98221,
+    "margin_votes": 17568,
+    "margin_pct": 8.51
+  }
+}

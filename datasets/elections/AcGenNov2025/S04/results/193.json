@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 193,
+  "constituency_name": "BARHARA",
+  "totals": {
+    "electors": 312103,
+    "votes_polled": 182096,
+    "turnout_pct": 58.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Raghvendra Pratap Singh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 79593,
+      "vote_share_pct": 43.71,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ashok Kumar Singh",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 65190,
+      "vote_share_pct": 35.8
+    },
+    {
+      "rank": 3,
+      "name": "Surya Bhan Singh",
+      "party_short": "IND",
+      "votes": 9268,
+      "vote_share_pct": 5.09
+    },
+    {
+      "rank": 4,
+      "name": "Saroj Yadav",
+      "party_short": "IND",
+      "votes": 8984,
+      "vote_share_pct": 4.93
+    },
+    {
+      "rank": 5,
+      "name": "Ranvijay Kumar Singh",
+      "party_short": "IND",
+      "votes": 3863,
+      "vote_share_pct": 2.12
+    }
+  ],
+  "nota": {
+    "votes": 3471,
+    "vote_share_pct": 1.91
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 11727,
+    "vote_share_pct": 6.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Raghvendra Pratap Singh",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 79593,
+    "margin_votes": 14403,
+    "margin_pct": 7.91
+  }
+}

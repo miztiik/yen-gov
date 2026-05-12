@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 146,
+  "constituency_name": "BEGUSARAI",
+  "totals": {
+    "electors": 342217,
+    "votes_polled": 228447,
+    "turnout_pct": 66.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kundan Kumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 119506,
+      "vote_share_pct": 52.31,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Amita Bhushan",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 88874,
+      "vote_share_pct": 38.9
+    },
+    {
+      "rank": 3,
+      "name": "Surendra Kumar Sahani",
+      "party_short": "JNSRJP",
+      "votes": 7773,
+      "vote_share_pct": 3.4
+    },
+    {
+      "rank": 4,
+      "name": "Md. Saddam Husain",
+      "party_short": "IND",
+      "votes": 2912,
+      "vote_share_pct": 1.27
+    },
+    {
+      "rank": 5,
+      "name": "Mira Singh",
+      "party_short": "AAAP",
+      "votes": 1115,
+      "vote_share_pct": 0.49
+    }
+  ],
+  "nota": {
+    "votes": 3560,
+    "vote_share_pct": 1.56
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4707,
+    "vote_share_pct": 2.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kundan Kumar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 119506,
+    "margin_votes": 30632,
+    "margin_pct": 13.41
+  }
+}

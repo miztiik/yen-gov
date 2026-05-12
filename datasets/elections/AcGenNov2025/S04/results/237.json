@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 237,
+  "constituency_name": "NAWADA",
+  "totals": {
+    "electors": 364839,
+    "votes_polled": 201494,
+    "turnout_pct": 55.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vibha Devi",
+      "party_short": "JD(U)",
+      "votes": 87423,
+      "vote_share_pct": 43.39,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kaushal Yadav",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 59829,
+      "vote_share_pct": 29.69
+    },
+    {
+      "rank": 3,
+      "name": "Anuj Singh",
+      "party_short": "JNSRJP",
+      "votes": 19349,
+      "vote_share_pct": 9.6
+    },
+    {
+      "rank": 4,
+      "name": "Nasima Khatoon",
+      "party_short": "AIMIM",
+      "votes": 12835,
+      "vote_share_pct": 6.37
+    },
+    {
+      "rank": 5,
+      "name": "Ravish Kumar",
+      "party_short": "IND",
+      "votes": 4317,
+      "vote_share_pct": 2.14
+    }
+  ],
+  "nota": {
+    "votes": 3268,
+    "vote_share_pct": 1.62
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 14473,
+    "vote_share_pct": 7.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vibha Devi",
+    "party_short": "JD(U)",
+    "votes": 87423,
+    "margin_votes": 27594,
+    "margin_pct": 13.69
+  }
+}

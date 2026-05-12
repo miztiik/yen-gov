@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "BIBHUTIPUR",
+  "totals": {
+    "electors": 275296,
+    "votes_polled": 196318,
+    "turnout_pct": 71.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ajay Kumar",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 79246,
+      "vote_share_pct": 40.37,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ravina Kushwaha",
+      "party_short": "JD(U)",
+      "votes": 68965,
+      "vote_share_pct": 35.13
+    },
+    {
+      "rank": 3,
+      "name": "Rupanjali Kumari",
+      "party_short": "IND",
+      "votes": 14456,
+      "vote_share_pct": 7.36
+    },
+    {
+      "rank": 4,
+      "name": "Vishwanath Choudhary",
+      "party_short": "JNSRJP",
+      "votes": 13450,
+      "vote_share_pct": 6.85
+    },
+    {
+      "rank": 5,
+      "name": "Arvind Kumar",
+      "party_short": "AAAP",
+      "votes": 2574,
+      "vote_share_pct": 1.31
+    }
+  ],
+  "nota": {
+    "votes": 4807,
+    "vote_share_pct": 2.45
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 12820,
+    "vote_share_pct": 6.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ajay Kumar",
+    "party_eci_code": "547",
+    "party_short": "CPI(M)",
+    "votes": 79246,
+    "margin_votes": 10281,
+    "margin_pct": 5.24
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 169,
+  "constituency_name": "SHEIKHPURA",
+  "totals": {
+    "electors": 263432,
+    "votes_polled": 163341,
+    "turnout_pct": 62.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Randhir Kumar Soni",
+      "party_short": "JD(U)",
+      "votes": 82922,
+      "vote_share_pct": 50.77,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vijay Kumar S/o Ganga Kumar Yadav",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 60375,
+      "vote_share_pct": 36.96
+    },
+    {
+      "rank": 3,
+      "name": "Rajesh Kumar",
+      "party_short": "JNSRJP",
+      "votes": 4184,
+      "vote_share_pct": 2.56
+    },
+    {
+      "rank": 4,
+      "name": "Vijay Kumar S/o Sadhusharan Prasad",
+      "party_short": "IND",
+      "votes": 3819,
+      "vote_share_pct": 2.34
+    },
+    {
+      "rank": 5,
+      "name": "Umesh Prasad Singh",
+      "party_short": "AAAP",
+      "votes": 2834,
+      "vote_share_pct": 1.74
+    }
+  ],
+  "nota": {
+    "votes": 2422,
+    "vote_share_pct": 1.48
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 6785,
+    "vote_share_pct": 4.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Randhir Kumar Soni",
+    "party_short": "JD(U)",
+    "votes": 82922,
+    "margin_votes": 22547,
+    "margin_pct": 13.8
+  }
+}

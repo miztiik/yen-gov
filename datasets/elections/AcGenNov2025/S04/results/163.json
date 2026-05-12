@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "BELHAR",
+  "totals": {
+    "electors": 319717,
+    "votes_polled": 227772,
+    "turnout_pct": 71.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manoj Yadav",
+      "party_short": "JD(U)",
+      "votes": 115393,
+      "vote_share_pct": 50.66,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Chanakya Prakash Ranjan",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 78187,
+      "vote_share_pct": 34.33
+    },
+    {
+      "rank": 3,
+      "name": "Braj Kishor Pandit",
+      "party_short": "JNSRJP",
+      "votes": 7711,
+      "vote_share_pct": 3.39
+    },
+    {
+      "rank": 4,
+      "name": "Lalan Prasad Singh",
+      "party_short": "IND",
+      "votes": 6065,
+      "vote_share_pct": 2.66
+    },
+    {
+      "rank": 5,
+      "name": "Rajesh Kumar Paswan",
+      "party_short": "IND",
+      "votes": 4451,
+      "vote_share_pct": 1.95
+    }
+  ],
+  "nota": {
+    "votes": 5462,
+    "vote_share_pct": 2.4
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 10503,
+    "vote_share_pct": 4.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manoj Yadav",
+    "party_short": "JD(U)",
+    "votes": 115393,
+    "margin_votes": 37206,
+    "margin_pct": 16.33
+  }
+}

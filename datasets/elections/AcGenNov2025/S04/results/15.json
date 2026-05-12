@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "KESARIA",
+  "totals": {
+    "electors": 260995,
+    "votes_polled": 176683,
+    "turnout_pct": 67.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shalini Mishra",
+      "party_short": "JD(U)",
+      "votes": 78192,
+      "vote_share_pct": 44.26,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Varun Vijay",
+      "party_short": "VSIP",
+      "votes": 61852,
+      "vote_share_pct": 35.01
+    },
+    {
+      "rank": 3,
+      "name": "Naj Ahamad Khan",
+      "party_short": "JNSRJP",
+      "votes": 11206,
+      "vote_share_pct": 6.34
+    },
+    {
+      "rank": 4,
+      "name": "Sunil Kumar",
+      "party_short": "IND",
+      "votes": 4567,
+      "vote_share_pct": 2.58
+    },
+    {
+      "rank": 5,
+      "name": "Chandreshwar Mishra",
+      "party_short": "IND",
+      "votes": 4342,
+      "vote_share_pct": 2.46
+    }
+  ],
+  "nota": {
+    "votes": 3382,
+    "vote_share_pct": 1.91
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 13142,
+    "vote_share_pct": 7.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shalini Mishra",
+    "party_short": "JD(U)",
+    "votes": 78192,
+    "margin_votes": 16340,
+    "margin_pct": 9.25
+  }
+}

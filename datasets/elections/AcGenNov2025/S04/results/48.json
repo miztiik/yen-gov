@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "FORBESGANJ",
+  "totals": {
+    "electors": 360102,
+    "votes_polled": 251439,
+    "turnout_pct": 69.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manoj Bishwas",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 120114,
+      "vote_share_pct": 47.77,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vidya Sagar Keshari",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 119893,
+      "vote_share_pct": 47.68
+    },
+    {
+      "rank": 3,
+      "name": "Fatma Khatun",
+      "party_short": "RJBP",
+      "votes": 2151,
+      "vote_share_pct": 0.86
+    },
+    {
+      "rank": 4,
+      "name": "Raja Raman Bhaskar",
+      "party_short": "IND",
+      "votes": 1759,
+      "vote_share_pct": 0.7
+    },
+    {
+      "rank": 5,
+      "name": "Subhash Chandra Agrawal",
+      "party_short": "IND",
+      "votes": 1325,
+      "vote_share_pct": 0.53
+    }
+  ],
+  "nota": {
+    "votes": 3114,
+    "vote_share_pct": 1.24
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3083,
+    "vote_share_pct": 1.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manoj Bishwas",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 120114,
+    "margin_votes": 221,
+    "margin_pct": 0.09
+  }
+}

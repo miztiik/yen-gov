@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 197,
+  "constituency_name": "JAGDISHPUR",
+  "totals": {
+    "electors": 308381,
+    "votes_polled": 188244,
+    "turnout_pct": 61.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sribhagwan Singh Kushwaha",
+      "party_short": "JD(U)",
+      "votes": 92974,
+      "vote_share_pct": 49.39,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kishore Kunal",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 74781,
+      "vote_share_pct": 39.73
+    },
+    {
+      "rank": 3,
+      "name": "Vijay Singh",
+      "party_short": "JNSRJP",
+      "votes": 5106,
+      "vote_share_pct": 2.71
+    },
+    {
+      "rank": 4,
+      "name": "Rajeev Ranjan",
+      "party_short": "IND",
+      "votes": 3272,
+      "vote_share_pct": 1.74
+    },
+    {
+      "rank": 5,
+      "name": "Hiralal Singh",
+      "party_short": "IND",
+      "votes": 3070,
+      "vote_share_pct": 1.63
+    }
+  ],
+  "nota": {
+    "votes": 3955,
+    "vote_share_pct": 2.1
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 5086,
+    "vote_share_pct": 2.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sribhagwan Singh Kushwaha",
+    "party_short": "JD(U)",
+    "votes": 92974,
+    "margin_votes": 18193,
+    "margin_pct": 9.66
+  }
+}

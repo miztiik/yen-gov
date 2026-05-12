@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "DARAULI (SC)",
+  "totals": {
+    "electors": 308041,
+    "votes_polled": 175213,
+    "turnout_pct": 56.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vishnu Deo Paswan",
+      "party_short": "LJPRV",
+      "votes": 83014,
+      "vote_share_pct": 47.38,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Satyadeo Ram",
+      "party_short": "CPI(ML)(L)",
+      "votes": 73442,
+      "vote_share_pct": 41.92
+    },
+    {
+      "rank": 3,
+      "name": "Ganesh Ram",
+      "party_short": "JNSRJP",
+      "votes": 4630,
+      "vote_share_pct": 2.64
+    },
+    {
+      "rank": 4,
+      "name": "Manoj Ram",
+      "party_short": "SBSP",
+      "votes": 3908,
+      "vote_share_pct": 2.23
+    },
+    {
+      "rank": 5,
+      "name": "Harilal Ram",
+      "party_short": "BSP",
+      "votes": 3208,
+      "vote_share_pct": 1.83
+    }
+  ],
+  "nota": {
+    "votes": 4546,
+    "vote_share_pct": 2.59
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 2465,
+    "vote_share_pct": 1.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vishnu Deo Paswan",
+    "party_short": "LJPRV",
+    "votes": 83014,
+    "margin_votes": 9572,
+    "margin_pct": 5.46
+  }
+}

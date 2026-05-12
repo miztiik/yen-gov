@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 76,
+  "constituency_name": "SIMRI BAKHTIARPUR",
+  "totals": {
+    "electors": 336967,
+    "votes_polled": 233725,
+    "turnout_pct": 69.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sanjay Kumar Singh",
+      "party_short": "LJPRV",
+      "votes": 109699,
+      "vote_share_pct": 46.94,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Yusuf Salahuddin",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 101769,
+      "vote_share_pct": 43.54
+    },
+    {
+      "rank": 3,
+      "name": "Vikash Raj",
+      "party_short": "IND",
+      "votes": 7493,
+      "vote_share_pct": 3.21
+    },
+    {
+      "rank": 4,
+      "name": "Surendra Kumar Yadav",
+      "party_short": "JNSRJP",
+      "votes": 2270,
+      "vote_share_pct": 0.97
+    },
+    {
+      "rank": 5,
+      "name": "Rajkumar Sada",
+      "party_short": "IND",
+      "votes": 1436,
+      "vote_share_pct": 0.61
+    }
+  ],
+  "nota": {
+    "votes": 4996,
+    "vote_share_pct": 2.14
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 6062,
+    "vote_share_pct": 2.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sanjay Kumar Singh",
+    "party_short": "LJPRV",
+    "votes": 109699,
+    "margin_votes": 7930,
+    "margin_pct": 3.39
+  }
+}

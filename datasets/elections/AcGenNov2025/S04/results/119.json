@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 119,
+  "constituency_name": "GARKHA (SC)",
+  "totals": {
+    "electors": 311162,
+    "votes_polled": 203497,
+    "turnout_pct": 65.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Surendra Ram",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 91134,
+      "vote_share_pct": 44.78,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Simant Mrinal",
+      "party_short": "LJPRV",
+      "votes": 78330,
+      "vote_share_pct": 38.49
+    },
+    {
+      "rank": 3,
+      "name": "Muneshwar Chaudhary",
+      "party_short": "IND",
+      "votes": 9453,
+      "vote_share_pct": 4.65
+    },
+    {
+      "rank": 4,
+      "name": "Manohar Kumar Ram",
+      "party_short": "JNSRJP",
+      "votes": 5314,
+      "vote_share_pct": 2.61
+    },
+    {
+      "rank": 5,
+      "name": "Avinash Kumar",
+      "party_short": "BSP",
+      "votes": 3278,
+      "vote_share_pct": 1.61
+    }
+  ],
+  "nota": {
+    "votes": 2617,
+    "vote_share_pct": 1.29
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 13371,
+    "vote_share_pct": 6.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Surendra Ram",
+    "party_eci_code": "1420",
+    "party_short": "RJD",
+    "votes": 91134,
+    "margin_votes": 12804,
+    "margin_pct": 6.29
+  }
+}

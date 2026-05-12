@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 212,
+  "constituency_name": "DEHRI",
+  "totals": {
+    "electors": 299804,
+    "votes_polled": 191592,
+    "turnout_pct": 63.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajeev Ranjan Singh Alias Sonu Singh",
+      "party_short": "LJPRV",
+      "votes": 104022,
+      "vote_share_pct": 54.29,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Guddu Kumar Chandrawansi",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 68054,
+      "vote_share_pct": 35.52
+    },
+    {
+      "rank": 3,
+      "name": "Phate Bahadur Singh",
+      "party_short": "ASPKR",
+      "votes": 7003,
+      "vote_share_pct": 3.66
+    },
+    {
+      "rank": 4,
+      "name": "Pradeep Lallan Singh",
+      "party_short": "JNSRJP",
+      "votes": 4323,
+      "vote_share_pct": 2.26
+    },
+    {
+      "rank": 5,
+      "name": "Saroj Kumar Singh",
+      "party_short": "IND",
+      "votes": 1806,
+      "vote_share_pct": 0.94
+    }
+  ],
+  "nota": {
+    "votes": 2405,
+    "vote_share_pct": 1.26
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3979,
+    "vote_share_pct": 2.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajeev Ranjan Singh Alias Sonu Singh",
+    "party_short": "LJPRV",
+    "votes": 104022,
+    "margin_votes": 35968,
+    "margin_pct": 18.77
+  }
+}
