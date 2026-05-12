@@ -6,9 +6,16 @@
 // dev wiring so the test exercises the same code path the local
 // developer hits.
 //
-// Why a single project (chromium): golden-path is a smoke test, not a
-// cross-browser matrix. Adding firefox/webkit triples the CI minutes for
-// no extra signal until we hit a real browser-specific bug.
+// Why two projects (chromium desktop + Pixel 5 mobile): the citizen-target
+// (CLAUDE.md "mid-tier Android, patchy 4G") makes the LeftRail's `lg:`
+// breakpoint switch (drawer ↔ static rail) the most layout-fragile code in
+// the app — running the same specs at 393×851 catches regressions that
+// Desktop Chrome doesn't. Firefox/webkit are still descoped: not enough
+// browser-specific bugs to justify the CI-minute multiplier.
+//
+// Accessibility (axe-core, contrast assertions, screen-reader hints) is a
+// project-level non-goal per CLAUDE.md §0 — do NOT add @axe-core/playwright
+// or aria-* assertions here.
 //
 // docs/architecture/frontend/overview.md lists the routes under test.
 
@@ -31,6 +38,7 @@ export default defineConfig({
   },
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    { name: "mobile-pixel-5", use: { ...devices["Pixel 5"] } },
   ],
   webServer: {
     command: "bun run dev -- --host 127.0.0.1 --port 5173 --strictPort",
