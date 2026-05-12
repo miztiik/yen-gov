@@ -225,8 +225,21 @@ def reference(
 
 @app.command("eci-statreport")
 def eci_statreport(
-    state: str = typer.Argument(..., help="ECI state code, e.g. S22."),
-    year: int = typer.Argument(..., help="Election year, e.g. 2026."),
+    state: str = typer.Argument(
+        None,
+        help="ECI state code, e.g. S22. Omit when using --category-id.",
+    ),
+    year: int = typer.Argument(
+        None,
+        help="Election year, e.g. 2026. Omit when using --category-id.",
+    ),
+    category_id_opt: int = typer.Option(
+        None, "--category-id",
+        help="Bypass the (state, year) pin lookup and fetch this category_id "
+             "directly. Useful for recon on a freshly-published URL like "
+             "https://www.eci.gov.in/statistical-report/ae/<year>/<id> before "
+             "editing config/eci-pins.json. Mutually exclusive with state/year.",
+    ),
     root: Path = typer.Option(
         Path.cwd(), "--root", "-r",
         help="Repo root (defaults to current directory).",
@@ -248,11 +261,17 @@ def eci_statreport(
 ) -> None:
     """Phase B catalog + download for ECI Statistical Reports (cleartext API).
 
-    Resolves the pinned category_id for (state, year), fetches the
-    /api/election-result catalog, and optionally downloads every listed
-    XLSX (and PDF). The on-disk artifacts under .runtime/raw/eci/ are debug
-    only (ADR-0003); only the cleartext landing-page permalinks shown in the
-    output are safe to persist in sources[].
+    Two ways to identify the catalogue:
+      - ``eci-statreport S22 2026``                    (pinned lookup)
+      - ``eci-statreport --category-id 16``            (direct, no pin)
+
+    The first resolves the pinned category_id for (state, year); use this
+    once a state's pin is in config/eci-pins.json. The second is for recon:
+    when ECI publishes a new URL like /statistical-report/ae/2025/16, the
+    integer at the end IS the category_id and you can inspect it without
+    touching the pin file. The on-disk artifacts under .runtime/raw/eci/
+    are debug only (ADR-0003); only the cleartext landing-page permalinks
+    shown in the output are safe to persist in sources[].
     """
     config_path = config or (root / "config" / "processing.json")
     config_doc = json.loads(config_path.read_text(encoding="utf-8"))
@@ -260,8 +279,22 @@ def eci_statreport(
         config_doc.pop(key, None)
     cfg = ProcessingConfig.model_validate(config_doc)
 
-    cid = category_id_for(state, year)
-    typer.echo(f"category_id: {cid}  (pinned in sources/eci/categories.py)")
+    if category_id_opt is not None:
+        if state is not None or year is not None:
+            raise typer.BadParameter(
+                "--category-id is mutually exclusive with state/year arguments",
+                param_hint="--category-id",
+            )
+        cid = category_id_opt
+        typer.echo(f"category_id: {cid}  (direct, bypassing pin lookup)")
+    else:
+        if state is None or year is None:
+            raise typer.BadParameter(
+                "provide either (state year) positional args OR --category-id",
+                param_hint="state year",
+            )
+        cid = category_id_for(state, year)
+        typer.echo(f"category_id: {cid}  (pinned in sources/eci/categories.py)")
 
     # www.eci.gov.in is fronted by Akamai; processing.json's default
     # `yen-gov/0.1` UA is blocked. Bare Mozilla/5.0 is the only UA that
