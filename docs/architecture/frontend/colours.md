@@ -54,7 +54,7 @@ Anchors aren't free-form hex codes; they're the perceptual coordinates. This mea
 For unknown parties, hash the code to a hue, exclude reserved hue bands occupied by anchored parties (so a fresh regional party never gets BJP-saffron by accident), and emit `{L: 0.55, C: 0.16, h}`. The resulting colour is guaranteed:
 - distinct from every anchor,
 - consistent across reloads (deterministic on code),
-- WCAG-AA legible against white at L=0.55.
+- legible against white at L=0.55 (clarity rule — a11y is a project-level non-goal per CLAUDE.md §0).
 
 `forSet([codes])` runs the algorithmic layer in *batch* mode: when the input set has multiple unanchored parties, hue allocation is round-robin across the available bands so the parties are maximally visually separated *within the chart*, rather than each computed in isolation.
 
