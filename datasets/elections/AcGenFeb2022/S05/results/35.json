@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 35,
+  "constituency_name": "Velim",
+  "totals": {
+    "electors": 31534,
+    "votes_polled": 23390,
+    "turnout_pct": 74.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CRUZ SILVA",
+      "party_short": "AAAP",
+      "votes": 5390,
+      "vote_share_pct": 23.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "D'SILVA SAVIO",
+      "party_short": "INC",
+      "votes": 5221,
+      "vote_share_pct": 22.32,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BENJAMIN SILVA",
+      "party_short": "AITC",
+      "votes": 4134,
+      "vote_share_pct": 17.67,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DAGLEY FERNANDES",
+      "party_short": "RVLTGONP",
+      "votes": 3653,
+      "vote_share_pct": 15.62,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "FILIPE NERY RODRIGUES",
+      "party_short": "NCP",
+      "votes": 3420,
+      "vote_share_pct": 14.62,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 241,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1331,
+    "vote_share_pct": 5.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CRUZ SILVA",
+    "party_short": "AAAP",
+    "votes": 5390,
+    "margin_votes": 169,
+    "margin_pct": 0.72
+  }
+}

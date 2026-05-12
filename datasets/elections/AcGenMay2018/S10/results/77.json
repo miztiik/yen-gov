@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 77,
+  "constituency_name": "Karwar",
+  "totals": {
+    "electors": 217910,
+    "votes_polled": 160098,
+    "turnout_pct": 73.46978110228993
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ROOPALI SANTOSH NAIK",
+      "party_short": "BJP",
+      "votes": 60339,
+      "vote_share_pct": 37.688790615747855,
+      "is_winner": true,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANAND VASANT ASNOTIKAR",
+      "party_short": "JD(S)",
+      "votes": 46275,
+      "vote_share_pct": 28.904171195142975,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SATISH KRISHNA SAIL",
+      "party_short": "INC",
+      "votes": 45071,
+      "vote_share_pct": 28.152131819260703,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MADHAV BABU NAYAK",
+      "party_short": "NCP",
+      "votes": 3751,
+      "vote_share_pct": 2.342939949281065,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KUNDABAI PARULEKAR",
+      "party_short": "RJBP",
+      "votes": 1617,
+      "vote_share_pct": 1.0100063710977027,
+      "gender": "F",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2359,
+    "vote_share_pct": 1.4734724980949168
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 686,
+    "vote_share_pct": 0.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ROOPALI SANTOSH NAIK",
+    "party_short": "BJP",
+    "votes": 60339,
+    "margin_votes": 14064,
+    "margin_pct": 8.78
+  }
+}

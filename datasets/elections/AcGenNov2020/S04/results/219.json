@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 219,
+  "constituency_name": "Goh",
+  "totals": {
+    "electors": 308689,
+    "votes_polled": 184728,
+    "turnout_pct": 59.84275435794603
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHIM KUMAR SINGH",
+      "party_short": "RJD",
+      "votes": 81410,
+      "vote_share_pct": 44.07020051102161,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANOJ KUMAR",
+      "party_short": "BJP",
+      "votes": 45792,
+      "vote_share_pct": 24.788878783941794,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. RANVIJAY KUMAR",
+      "party_short": "RLSP",
+      "votes": 44050,
+      "vote_share_pct": 23.84587068554848,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJESH KUMAR, SON OF MADAN SINGH",
+      "party_short": "IND",
+      "votes": 3067,
+      "vote_share_pct": 1.6602788965397772,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SREEKANT SHARMA",
+      "party_short": "IND",
+      "votes": 1678,
+      "vote_share_pct": 0.9083625655017106,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1663,
+    "vote_share_pct": 0.9002425187302413
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 7068,
+    "vote_share_pct": 3.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHIM KUMAR SINGH",
+    "party_short": "RJD",
+    "votes": 81410,
+    "margin_votes": 35618,
+    "margin_pct": 19.28
+  }
+}

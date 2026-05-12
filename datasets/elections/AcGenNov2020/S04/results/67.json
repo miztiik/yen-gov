@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "Manihari",
+  "totals": {
+    "electors": 287266,
+    "votes_polled": 181260,
+    "turnout_pct": 63.098313061761566
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANOHAR PRASAD SINGH",
+      "party_short": "INC",
+      "votes": 83032,
+      "vote_share_pct": 45.80823126999889,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SHAMBHU KUMAR SUMAN",
+      "party_short": "JD(U)",
+      "votes": 61823,
+      "vote_share_pct": 34.10735959395343,
+      "gender": "M",
+      "age": 36,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "ANIL KUMAR ORAON",
+      "party_short": "LJP",
+      "votes": 20441,
+      "vote_share_pct": 11.277170914708154,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "RAMESHWAR HEMBRAM",
+      "party_short": "IND",
+      "votes": 2568,
+      "vote_share_pct": 1.4167494207216154,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "GORETI MURMU",
+      "party_short": "AIMIM",
+      "votes": 2475,
+      "vote_share_pct": 1.365441906653426,
+      "gender": "F",
+      "age": 38,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3456,
+    "vote_share_pct": 1.906653426017875
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 7465,
+    "vote_share_pct": 4.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANOHAR PRASAD SINGH",
+    "party_short": "INC",
+    "votes": 83032,
+    "margin_votes": 21209,
+    "margin_pct": 11.7
+  }
+}

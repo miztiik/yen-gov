@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "MALVIYA NAGAR",
+  "totals": {
+    "electors": 152442,
+    "votes_polled": 89778,
+    "turnout_pct": 58.893218404376746
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SOMNATH BHARTI",
+      "party_short": "AAAP",
+      "votes": 52043,
+      "vote_share_pct": 57.968544632315265,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHAILENDER SINGH",
+      "party_short": "BJP",
+      "votes": 33899,
+      "vote_share_pct": 37.75869366659983,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NEETU VERMA SOIN",
+      "party_short": "INC",
+      "votes": 2856,
+      "vote_share_pct": 3.1811802446033552,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GYAN CHAND GAUTAM",
+      "party_short": "BSP",
+      "votes": 229,
+      "vote_share_pct": 0.25507362605538103,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MOBIN ALI",
+      "party_short": "SHS",
+      "votes": 115,
+      "vote_share_pct": 0.12809374234222193,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 549,
+    "vote_share_pct": 0.6115083873554769
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 87,
+    "vote_share_pct": 0.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SOMNATH BHARTI",
+    "party_short": "AAAP",
+    "votes": 52043,
+    "margin_votes": 18144,
+    "margin_pct": 20.21
+  }
+}

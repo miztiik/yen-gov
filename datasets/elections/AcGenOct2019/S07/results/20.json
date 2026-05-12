@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Indri",
+  "totals": {
+    "electors": 197250,
+    "votes_polled": 142655,
+    "turnout_pct": 72.32192648922687
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM KUMAR",
+      "party_short": "BJP",
+      "votes": 54221,
+      "vote_share_pct": 38.00848200203288,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAKESH KAMBOJ",
+      "party_short": "IND",
+      "votes": 46790,
+      "vote_share_pct": 32.79941116680102,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. NAVJOT KASHYAP",
+      "party_short": "INC",
+      "votes": 16776,
+      "vote_share_pct": 11.759840173845992,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GURDEV SINGH",
+      "party_short": "JNJP",
+      "votes": 11946,
+      "vote_share_pct": 8.37404927973082,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HAWA SINGH",
+      "party_short": "BSP",
+      "votes": 6564,
+      "vote_share_pct": 4.601310854859626,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 718,
+    "vote_share_pct": 0.503312186744243
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 5640,
+    "vote_share_pct": 3.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM KUMAR",
+    "party_short": "BJP",
+    "votes": 54221,
+    "margin_votes": 7431,
+    "margin_pct": 5.21
+  }
+}

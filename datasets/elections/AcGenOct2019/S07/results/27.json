@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Samalkha",
+  "totals": {
+    "electors": 209824,
+    "votes_polled": 157025,
+    "turnout_pct": 74.83652966295563
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dharam Singh Chhoker",
+      "party_short": "INC",
+      "votes": 81898,
+      "vote_share_pct": 52.15602611049196,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Shashi Kant Kaushik",
+      "party_short": "BJP",
+      "votes": 66956,
+      "vote_share_pct": 42.64034389428435,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Brham Pal Rawal",
+      "party_short": "JNJP",
+      "votes": 4114,
+      "vote_share_pct": 2.6199649737302977,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Joginder",
+      "party_short": "BSP",
+      "votes": 2083,
+      "vote_share_pct": 1.326540359815316,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Prem Lata",
+      "party_short": "INLD",
+      "votes": 624,
+      "vote_share_pct": 0.3973889508040121,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 402,
+    "vote_share_pct": 0.25601018946027704
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 948,
+    "vote_share_pct": 0.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dharam Singh Chhoker",
+    "party_short": "INC",
+    "votes": 81898,
+    "margin_votes": 14942,
+    "margin_pct": 9.52
+  }
+}

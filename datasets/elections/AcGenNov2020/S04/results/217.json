@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 217,
+  "constituency_name": "Ghosi",
+  "totals": {
+    "electors": 262439,
+    "votes_polled": 152267,
+    "turnout_pct": 58.019958923788
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM BALI SINGH YADAV",
+      "party_short": "CPI(ML)(L)",
+      "votes": 74712,
+      "vote_share_pct": 49.066442499031304,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAHUL KUMAR",
+      "party_short": "JD(U)",
+      "votes": 57379,
+      "vote_share_pct": 37.68314867962198,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAKESH KUMAR SINGH",
+      "party_short": "LJP",
+      "votes": 4762,
+      "vote_share_pct": 3.1274012097171413,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SATYENDRA PRASAD YADAV",
+      "party_short": "IND",
+      "votes": 2729,
+      "vote_share_pct": 1.7922465143465096,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NITYANANDA",
+      "party_short": "IND",
+      "votes": 2328,
+      "vote_share_pct": 1.5288933255400055,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3793,
+    "vote_share_pct": 2.4910190651946906
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 6564,
+    "vote_share_pct": 4.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM BALI SINGH YADAV",
+    "party_short": "CPI(ML)(L)",
+    "votes": 74712,
+    "margin_votes": 17333,
+    "margin_pct": 11.38
+  }
+}

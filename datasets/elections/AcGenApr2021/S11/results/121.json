@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 121,
+  "constituency_name": "PUNALUR",
+  "totals": {
+    "electors": 206496,
+    "votes_polled": 146251,
+    "turnout_pct": 70.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P S Supal",
+      "party_short": "CPI",
+      "votes": 80428,
+      "vote_share_pct": 54.99,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Abdurahiman Randathani",
+      "party_short": "IUML",
+      "votes": 43371,
+      "vote_share_pct": 29.66,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ayoor Murali",
+      "party_short": "BJP",
+      "votes": 20069,
+      "vote_share_pct": 13.72,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shibu M Skaria",
+      "party_short": "IND",
+      "votes": 617,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K Mahesh",
+      "party_short": "SUCI",
+      "votes": 407,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 688,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 671,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P S Supal",
+    "party_short": "CPI",
+    "votes": 80428,
+    "margin_votes": 37057,
+    "margin_pct": 25.34
+  }
+}

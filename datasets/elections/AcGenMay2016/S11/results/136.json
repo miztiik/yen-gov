@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 136,
+  "constituency_name": "ARUVIKKARA",
+  "totals": {
+    "electors": 189505,
+    "votes_polled": 143761,
+    "turnout_pct": 75.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.S. SABARINADHAN",
+      "party_short": "INC",
+      "votes": 70910,
+      "vote_share_pct": 49.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV. A.A.RASHEED",
+      "party_short": "CPM",
+      "votes": 49596,
+      "vote_share_pct": 34.5,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJASENAN",
+      "party_short": "BJP",
+      "votes": 20294,
+      "vote_share_pct": 14.12,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M.A.JALEEL",
+      "party_short": "SDPI",
+      "votes": 707,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHITHRALEKHA.E",
+      "party_short": "BSP",
+      "votes": 673,
+      "vote_share_pct": 0.47,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 640,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 941,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.S. SABARINADHAN",
+    "party_short": "INC",
+    "votes": 70910,
+    "margin_votes": 21314,
+    "margin_pct": 14.83
+  }
+}

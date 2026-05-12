@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 40,
+  "constituency_name": "Anaparthy",
+  "totals": {
+    "electors": 213511,
+    "votes_polled": 186710,
+    "turnout_pct": 87.44748514128078
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DOCTOR. SATHI SURYANARAYANA REDDY",
+      "party_short": "YSRCP",
+      "votes": 111771,
+      "vote_share_pct": 59.86342456215521,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NALLAMILLI RAMAKRISHNA REDDY",
+      "party_short": "TDP",
+      "votes": 56564,
+      "vote_share_pct": 30.295110063735205,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RELANGI NAGESWARA RAO",
+      "party_short": "JnP",
+      "votes": 12842,
+      "vote_share_pct": 6.87804616785389,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DR II Y.A.VADAYAR",
+      "party_short": "INC",
+      "votes": 1128,
+      "vote_share_pct": 0.6041454662310536,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MEDAPATI HARINARAYANAREDDY",
+      "party_short": "BJP",
+      "votes": 627,
+      "vote_share_pct": 0.3358149001124739,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2114,
+    "vote_share_pct": 1.1322371592308929
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1664,
+    "vote_share_pct": 0.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DOCTOR. SATHI SURYANARAYANA REDDY",
+    "party_short": "YSRCP",
+    "votes": 111771,
+    "margin_votes": 55207,
+    "margin_pct": 29.57
+  }
+}

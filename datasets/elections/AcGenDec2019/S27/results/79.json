@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 79,
+  "constituency_name": "Hussainabad",
+  "totals": {
+    "electors": 278361,
+    "votes_polled": 163876,
+    "turnout_pct": 58.871752867679014
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kamlesh Kumar Singh",
+      "party_short": "NCP",
+      "votes": 41293,
+      "vote_share_pct": 25.197710464009372,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sanjay Kumar Singh Yadav",
+      "party_short": "RJD",
+      "votes": 31444,
+      "vote_share_pct": 19.18767848861334,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sher Ali",
+      "party_short": "BSP",
+      "votes": 28877,
+      "vote_share_pct": 17.62125021357612,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vinod Kr. Singh",
+      "party_short": "IND",
+      "votes": 27860,
+      "vote_share_pct": 17.00065903488003,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Kushwaha Shivpujan Mehta",
+      "party_short": "AJSUP",
+      "votes": 15544,
+      "vote_share_pct": 9.485220532597818,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1234,
+    "vote_share_pct": 0.7530083721838463
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 17624,
+    "vote_share_pct": 10.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kamlesh Kumar Singh",
+    "party_short": "NCP",
+    "votes": 41293,
+    "margin_votes": 9849,
+    "margin_pct": 6.01
+  }
+}

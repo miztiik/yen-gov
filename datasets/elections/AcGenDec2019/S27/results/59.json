@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Torpa",
+  "totals": {
+    "electors": 181744,
+    "votes_polled": 116993,
+    "turnout_pct": 64.37241394488952
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KOCHE MUNDA",
+      "party_short": "BJP",
+      "votes": 43482,
+      "vote_share_pct": 37.16632619045584,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SUDEEP GURIA",
+      "party_short": "JMM",
+      "votes": 33852,
+      "vote_share_pct": 28.935064491037927,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "PAULUS SURIN",
+      "party_short": "IND",
+      "votes": 19234,
+      "vote_share_pct": 16.44029984699939,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SUBHAS KONGARI",
+      "party_short": "JKP",
+      "votes": 6190,
+      "vote_share_pct": 5.290914841058867,
+      "gender": "M",
+      "age": 31,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "ISHWARDUTT MARSHAL MUNDU",
+      "party_short": "JVM",
+      "votes": 4910,
+      "vote_share_pct": 4.196832289111314,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2737,
+    "vote_share_pct": 2.3394562067816023
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 6588,
+    "vote_share_pct": 5.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KOCHE MUNDA",
+    "party_short": "BJP",
+    "votes": 43482,
+    "margin_votes": 9630,
+    "margin_pct": 8.23
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Kittur",
+  "totals": {
+    "electors": 195886,
+    "votes_polled": 156660,
+    "turnout_pct": 79.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Babasaheb Patil",
+      "party_short": "INC",
+      "votes": 77536,
+      "vote_share_pct": 49.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Doddagoudar Mahantesh Basavantaray",
+      "party_short": "BJP",
+      "votes": 74543,
+      "vote_share_pct": 47.58,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ashwini Singayya Pujer",
+      "party_short": "JD(S)",
+      "votes": 775,
+      "vote_share_pct": 0.49,
+      "gender": "F",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Chetan. R. Dematti",
+      "party_short": "KMP",
+      "votes": 564,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Basappa (basavaraj) Y Kelagade",
+      "party_short": "IND",
+      "votes": 548,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 802,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1892,
+    "vote_share_pct": 1.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Babasaheb Patil",
+    "party_short": "INC",
+    "votes": 77536,
+    "margin_votes": 2993,
+    "margin_pct": 1.91
+  }
+}

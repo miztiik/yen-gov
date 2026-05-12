@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 136,
+  "constituency_name": "Sira",
+  "totals": {
+    "electors": 223648,
+    "votes_polled": 190706,
+    "turnout_pct": 85.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "T B Jayachandra",
+      "party_short": "INC",
+      "votes": 86084,
+      "vote_share_pct": 45.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "R Ugresh",
+      "party_short": "JD(S)",
+      "votes": 56834,
+      "vote_share_pct": 29.8,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "C M Rajesh Gowda",
+      "party_short": "BJP",
+      "votes": 42329,
+      "vote_share_pct": 22.2,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Nataraju N K",
+      "party_short": "BSP",
+      "votes": 828,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ranganatha",
+      "party_short": "IND",
+      "votes": 790,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 722,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3119,
+    "vote_share_pct": 1.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "T B Jayachandra",
+    "party_short": "INC",
+    "votes": 86084,
+    "margin_votes": 29250,
+    "margin_pct": 15.34
+  }
+}

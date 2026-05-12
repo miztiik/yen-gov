@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "Jhanduta",
+  "totals": {
+    "electors": 72355,
+    "votes_polled": 54699,
+    "turnout_pct": 75.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JEET RAM KATWAL",
+      "party_short": "BJP",
+      "votes": 29030,
+      "vote_share_pct": 53.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "BEERU RAM KISHORE",
+      "party_short": "INC",
+      "votes": 24068,
+      "vote_share_pct": 44.0,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 624,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JEET RAM KATWAL",
+    "party_short": "BJP",
+    "votes": 29030,
+    "margin_votes": 4962,
+    "margin_pct": 9.07
+  },
+  "others": null
+}

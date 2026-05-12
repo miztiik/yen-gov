@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 36,
+  "constituency_name": "Bhoranj (SC)",
+  "totals": {
+    "electors": 82738,
+    "votes_polled": 57417,
+    "turnout_pct": 69.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Suresh Kumar",
+      "party_short": "INC",
+      "votes": 24779,
+      "vote_share_pct": 43.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Anil Dhiman",
+      "party_short": "BJP",
+      "votes": 24719,
+      "vote_share_pct": 43.05,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Pawan Kumar",
+      "party_short": "IND",
+      "votes": 6861,
+      "vote_share_pct": 11.95,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Rajni Kaushal",
+      "party_short": "AAAP",
+      "votes": 463,
+      "vote_share_pct": 0.81,
+      "gender": "F",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Jarnail Singh",
+      "party_short": "BSP",
+      "votes": 302,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 293,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Suresh Kumar",
+    "party_short": "INC",
+    "votes": 24779,
+    "margin_votes": 60,
+    "margin_pct": 0.1
+  },
+  "others": null
+}

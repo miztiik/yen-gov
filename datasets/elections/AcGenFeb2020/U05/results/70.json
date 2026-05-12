@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 70,
+  "constituency_name": "KARAWAL NAGAR",
+  "totals": {
+    "electors": 283203,
+    "votes_polled": 191186,
+    "turnout_pct": 67.50846565890897
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHAN SINGH BISHT",
+      "party_short": "BJP",
+      "votes": 96721,
+      "vote_share_pct": 50.59000135993222,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DURGESH PATHAK",
+      "party_short": "AAAP",
+      "votes": 88498,
+      "vote_share_pct": 46.2889542121285,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARBIND SINGH",
+      "party_short": "INC",
+      "votes": 2242,
+      "vote_share_pct": 1.172680007950373,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NATHU RAM",
+      "party_short": "BSP",
+      "votes": 824,
+      "vote_share_pct": 0.43099390122707726,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RANJIT TIWARI",
+      "party_short": "CPIM",
+      "votes": 414,
+      "vote_share_pct": 0.2165430523155461,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 373,
+    "vote_share_pct": 0.195097967424393
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 2114,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHAN SINGH BISHT",
+    "party_short": "BJP",
+    "votes": 96721,
+    "margin_votes": 8223,
+    "margin_pct": 4.3
+  }
+}

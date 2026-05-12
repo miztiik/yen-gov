@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 227,
+  "constituency_name": "Imamganj",
+  "totals": {
+    "electors": 295866,
+    "votes_polled": 173645,
+    "turnout_pct": 58.69042066340844
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jitan Ram Manjhi",
+      "party_short": "HAMS",
+      "votes": 78762,
+      "vote_share_pct": 45.3580581070575,
+      "is_winner": true,
+      "gender": "M",
+      "age": 74,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Uday Narain Choudhary",
+      "party_short": "RJD",
+      "votes": 62728,
+      "vote_share_pct": 36.12427654121915,
+      "gender": "M",
+      "age": 68,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Kumari Shobha Sinha",
+      "party_short": "LJP",
+      "votes": 14197,
+      "vote_share_pct": 8.175876068991334,
+      "gender": "F",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Fakirchand Das",
+      "party_short": "JAPL",
+      "votes": 3797,
+      "vote_share_pct": 2.1866451668634284,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Jitendra Kumar Paswan",
+      "party_short": "RLSP",
+      "votes": 2337,
+      "vote_share_pct": 1.3458492902185493,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 4705,
+    "vote_share_pct": 2.709551095626134
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 7119,
+    "vote_share_pct": 4.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jitan Ram Manjhi",
+    "party_short": "HAMS",
+    "votes": 78762,
+    "margin_votes": 16034,
+    "margin_pct": 9.23
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "DHARMADAM",
+  "totals": {
+    "electors": 184431,
+    "votes_polled": 153627,
+    "turnout_pct": 83.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PINARAYI VIJAYAN",
+      "party_short": "CPM",
+      "votes": 87329,
+      "vote_share_pct": 56.84,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAMBARAM DIVAKARAN",
+      "party_short": "INC",
+      "votes": 50424,
+      "vote_share_pct": 32.82,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MOHANAN MANANTHERY",
+      "party_short": "BJP",
+      "votes": 12763,
+      "vote_share_pct": 8.31,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THARAMMAL  NIYAS",
+      "party_short": "SDPI",
+      "votes": 1994,
+      "vote_share_pct": 1.3,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DIVAKARAN.M.THIRUVATHIRA",
+      "party_short": "IND",
+      "votes": 354,
+      "vote_share_pct": 0.23,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 615,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 148,
+    "vote_share_pct": 0.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PINARAYI VIJAYAN",
+    "party_short": "CPM",
+    "votes": 87329,
+    "margin_votes": 36905,
+    "margin_pct": 24.02
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "SIPAJHAR",
+  "totals": {
+    "electors": 178319,
+    "votes_polled": 148505,
+    "turnout_pct": 83.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARAMANANDA RAJBONGSHI",
+      "party_short": "BJP",
+      "votes": 74739,
+      "vote_share_pct": 50.33,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KULDIP BARUA",
+      "party_short": "INC",
+      "votes": 67605,
+      "vote_share_pct": 45.52,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GITIKA KAKATI",
+      "party_short": "ASMJTYP",
+      "votes": 2201,
+      "vote_share_pct": 1.48,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAHNUR ALI",
+      "party_short": "IND",
+      "votes": 877,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMIYA KUMAR DEKA",
+      "party_short": "IND",
+      "votes": 507,
+      "vote_share_pct": 0.34,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1326,
+    "vote_share_pct": 0.89
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1250,
+    "vote_share_pct": 0.84
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARAMANANDA RAJBONGSHI",
+    "party_short": "BJP",
+    "votes": 74739,
+    "margin_votes": 7134,
+    "margin_pct": 4.8
+  }
+}

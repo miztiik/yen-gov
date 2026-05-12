@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "BONGAIGAON",
+  "totals": {
+    "electors": 177417,
+    "votes_polled": 153630,
+    "turnout_pct": 86.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PHANI BHUSAN CHOUDHURY",
+      "party_short": "AGP",
+      "votes": 82800,
+      "vote_share_pct": 53.9,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHANKAR PRASAD RAY",
+      "party_short": "INC",
+      "votes": 44633,
+      "vote_share_pct": 29.05,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DIPU CHOUDHURY",
+      "party_short": "ASMJTYP",
+      "votes": 13988,
+      "vote_share_pct": 9.1,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANTANU MUKHERJEE",
+      "party_short": "PLTIJSTP",
+      "votes": 2266,
+      "vote_share_pct": 1.47,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SRI SUJIT KUMAR ROY",
+      "party_short": "BGanP",
+      "votes": 2184,
+      "vote_share_pct": 1.42,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2179,
+    "vote_share_pct": 1.42
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 5580,
+    "vote_share_pct": 3.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PHANI BHUSAN CHOUDHURY",
+    "party_short": "AGP",
+    "votes": 82800,
+    "margin_votes": 38167,
+    "margin_pct": 24.84
+  }
+}

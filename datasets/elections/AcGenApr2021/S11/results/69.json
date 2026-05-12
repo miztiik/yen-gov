@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 69,
+  "constituency_name": "KAIPAMANGALAM",
+  "totals": {
+    "electors": 174025,
+    "votes_polled": 136083,
+    "turnout_pct": 78.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "E T Taison Master",
+      "party_short": "CPI",
+      "votes": 73161,
+      "vote_share_pct": 53.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sobha Subin",
+      "party_short": "INC",
+      "votes": 50463,
+      "vote_share_pct": 37.08,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "C D Sreelal",
+      "party_short": "BDJS",
+      "votes": 9066,
+      "vote_share_pct": 6.66,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M K Aslam",
+      "party_short": "WPOI",
+      "votes": 1671,
+      "vote_share_pct": 1.23,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "M K Shameer",
+      "party_short": "SDPI",
+      "votes": 814,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 466,
+    "vote_share_pct": 0.34
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 442,
+    "vote_share_pct": 0.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "E T Taison Master",
+    "party_short": "CPI",
+    "votes": 73161,
+    "margin_votes": 22698,
+    "margin_pct": 16.68
+  }
+}

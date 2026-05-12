@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "NADAPURAM",
+  "totals": {
+    "electors": 216491,
+    "votes_polled": 175503,
+    "turnout_pct": 81.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "E. K. Vijayan",
+      "party_short": "CPI",
+      "votes": 83293,
+      "vote_share_pct": 47.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv. K. Praveen Kumar",
+      "party_short": "INC",
+      "votes": 79257,
+      "vote_share_pct": 45.16,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M. P. Rajan",
+      "party_short": "BJP",
+      "votes": 10538,
+      "vote_share_pct": 6.0,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K. K. Nasar Master",
+      "party_short": "SDPI",
+      "votes": 1676,
+      "vote_share_pct": 0.95,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "T.praveen Kumar S/o Kannan",
+      "party_short": "IND",
+      "votes": 258,
+      "vote_share_pct": 0.15,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 316,
+    "vote_share_pct": 0.18
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 165,
+    "vote_share_pct": 0.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "E. K. Vijayan",
+    "party_short": "CPI",
+    "votes": 83293,
+    "margin_votes": 4036,
+    "margin_pct": 2.3
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "Bhorey",
+  "totals": {
+    "electors": 338763,
+    "votes_polled": 182861,
+    "turnout_pct": 53.97903549088892
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sunil Kumar",
+      "party_short": "JD(U)",
+      "votes": 74067,
+      "vote_share_pct": 40.504536232438845,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Jitendra Paswan",
+      "party_short": "CPI(ML)(L)",
+      "votes": 73605,
+      "vote_share_pct": 40.251885311794204,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Pushpa Devi",
+      "party_short": "LJP",
+      "votes": 4520,
+      "vote_share_pct": 2.4718228599865473,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Manoj Kumar Baitha",
+      "party_short": "JAPL",
+      "votes": 4328,
+      "vote_share_pct": 2.366825074783579,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ajay Kumar Bharti",
+      "party_short": "BJNP",
+      "votes": 3686,
+      "vote_share_pct": 2.015738730511153,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 8010,
+    "vote_share_pct": 4.380376351436337
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 14645,
+    "vote_share_pct": 8.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sunil Kumar",
+    "party_short": "JD(U)",
+    "votes": 74067,
+    "margin_votes": 462,
+    "margin_pct": 0.25
+  }
+}

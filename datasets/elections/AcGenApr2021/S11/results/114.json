@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 114,
+  "constituency_name": "KONNI",
+  "totals": {
+    "electors": 203737,
+    "votes_polled": 149722,
+    "turnout_pct": 73.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. K.u Jenish Kumar",
+      "party_short": "CPI(M)",
+      "votes": 62318,
+      "vote_share_pct": 41.62,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Robin Peter",
+      "party_short": "INC",
+      "votes": 53810,
+      "vote_share_pct": 35.94,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K. Surendran",
+      "party_short": "BJP",
+      "votes": 32811,
+      "vote_share_pct": 21.91,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Raghu P",
+      "party_short": "ADHRMPI",
+      "votes": 214,
+      "vote_share_pct": 0.14,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Suku Balan",
+      "party_short": "APoI",
+      "votes": 122,
+      "vote_share_pct": 0.08,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 372,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 75,
+    "vote_share_pct": 0.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. K.u Jenish Kumar",
+    "party_short": "CPI(M)",
+    "votes": 62318,
+    "margin_votes": 8508,
+    "margin_pct": 5.68
+  }
+}

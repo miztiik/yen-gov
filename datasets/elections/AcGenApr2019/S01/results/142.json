@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 142,
+  "constituency_name": "Pattikonda",
+  "totals": {
+    "electors": 206915,
+    "votes_polled": 168788,
+    "turnout_pct": 81.57359302128894
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KANGATI SREEDEVI",
+      "party_short": "YSRCP",
+      "votes": 100981,
+      "vote_share_pct": 59.827120411403655,
+      "is_winner": true,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K E SHYAM KUMAR",
+      "party_short": "TDP",
+      "votes": 58916,
+      "vote_share_pct": 34.90532502310591,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BOYA KRANTHI NAIDU",
+      "party_short": "INC",
+      "votes": 2385,
+      "vote_share_pct": 1.4130151432566296,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K L MURTHI",
+      "party_short": "JnP",
+      "votes": 2329,
+      "vote_share_pct": 1.379837429201128,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "EEDIGA RANGA GOUD",
+      "party_short": "BJP",
+      "votes": 959,
+      "vote_share_pct": 0.5681683532004645,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1956,
+    "vote_share_pct": 1.1588501552243051
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1262,
+    "vote_share_pct": 0.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KANGATI SREEDEVI",
+    "party_short": "YSRCP",
+    "votes": 100981,
+    "margin_votes": 42065,
+    "margin_pct": 24.92
+  }
+}

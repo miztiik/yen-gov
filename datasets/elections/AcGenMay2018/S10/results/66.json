@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "Gadag",
+  "totals": {
+    "electors": 219575,
+    "votes_polled": 160490,
+    "turnout_pct": 73.09119890697939
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HANAMANTAGOUDA KRISHNAGOUDA PATIL",
+      "party_short": "INC",
+      "votes": 77699,
+      "vote_share_pct": 48.41360832450619,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANIL  MENSINAKAI",
+      "party_short": "BJP",
+      "votes": 75831,
+      "vote_share_pct": 47.249672876814756,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BASANAGOUDA M PATIL",
+      "party_short": "INCP",
+      "votes": 1043,
+      "vote_share_pct": 0.6498847280204374,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANJUNATH BASAPPA ABBIGERI",
+      "party_short": "IND",
+      "votes": 1034,
+      "vote_share_pct": 0.6442769019876627,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAHABOOBSAB R SOMPUR",
+      "party_short": "BSP",
+      "votes": 985,
+      "vote_share_pct": 0.613745404698112,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2007,
+    "vote_share_pct": 1.250545205308742
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1891,
+    "vote_share_pct": 1.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HANAMANTAGOUDA KRISHNAGOUDA PATIL",
+    "party_short": "INC",
+    "votes": 77699,
+    "margin_votes": 1868,
+    "margin_pct": 1.16
+  }
+}

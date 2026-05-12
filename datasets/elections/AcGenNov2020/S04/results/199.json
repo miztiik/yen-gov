@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 199,
+  "constituency_name": "Brahampur",
+  "totals": {
+    "electors": 340864,
+    "votes_polled": 185396,
+    "turnout_pct": 54.390020653398416
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHAMBHU NATH YADAV",
+      "party_short": "RJD",
+      "votes": 90176,
+      "vote_share_pct": 48.63966860126432,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "HULAS PANDEY",
+      "party_short": "LJP",
+      "votes": 39035,
+      "vote_share_pct": 21.054931066473927,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAIRAJ CHAUDHARY",
+      "party_short": "VSIP",
+      "votes": 30482,
+      "vote_share_pct": 16.441562924766444,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JATA DHARI @ JATA DHARI PASWAN",
+      "party_short": "BSP",
+      "votes": 5484,
+      "vote_share_pct": 2.957992621200026,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BHARAT SHARMA @ BHARAT SHARMA VYAS",
+      "party_short": "IND",
+      "votes": 3379,
+      "vote_share_pct": 1.8225851690435608,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2293,
+    "vote_share_pct": 1.2368120132041682
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 14547,
+    "vote_share_pct": 7.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHAMBHU NATH YADAV",
+    "party_short": "RJD",
+    "votes": 90176,
+    "margin_votes": 51141,
+    "margin_pct": 27.58
+  }
+}

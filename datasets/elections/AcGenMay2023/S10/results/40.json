@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 40,
+  "constituency_name": "Chittapur (SC)",
+  "totals": {
+    "electors": 235755,
+    "votes_polled": 153195,
+    "turnout_pct": 64.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Priyank Kharge",
+      "party_short": "INC",
+      "votes": 81323,
+      "vote_share_pct": 53.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Manikanta Rathod",
+      "party_short": "BJP",
+      "votes": 67683,
+      "vote_share_pct": 44.18,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Jagadish S Sagar",
+      "party_short": "AAAP",
+      "votes": 962,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Sharanu P. Sugur",
+      "party_short": "BSP",
+      "votes": 878,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Dr. Subhaschandra Rathod",
+      "party_short": "JD(S)",
+      "votes": 643,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 816,
+    "vote_share_pct": 0.53
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 890,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Priyank Kharge",
+    "party_short": "INC",
+    "votes": 81323,
+    "margin_votes": 13640,
+    "margin_pct": 8.9
+  }
+}

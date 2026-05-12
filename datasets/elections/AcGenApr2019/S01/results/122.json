@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 122,
+  "constituency_name": "Venkatagiri",
+  "totals": {
+    "electors": 240304,
+    "votes_polled": 190714,
+    "turnout_pct": 79.36363939010587
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANAM RAMANARAYANA REDDY",
+      "party_short": "YSRCP",
+      "votes": 109204,
+      "vote_share_pct": 57.260610128254875,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KURUGONDLA RAMAKRISHNA",
+      "party_short": "TDP",
+      "votes": 70484,
+      "vote_share_pct": 36.95795798945017,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PALLIPATI RAJA",
+      "party_short": "BSP",
+      "votes": 2253,
+      "vote_share_pct": 1.181350084419602,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PANTA SRINIVASULU REDDY",
+      "party_short": "INC",
+      "votes": 1725,
+      "vote_share_pct": 0.9044957370722653,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "S.S.R. NAIDU",
+      "party_short": "BJP",
+      "votes": 1700,
+      "vote_share_pct": 0.8913871032016527,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4106,
+    "vote_share_pct": 2.1529620269094036
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1242,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANAM RAMANARAYANA REDDY",
+    "party_short": "YSRCP",
+    "votes": 109204,
+    "margin_votes": 38720,
+    "margin_pct": 20.3
+  }
+}

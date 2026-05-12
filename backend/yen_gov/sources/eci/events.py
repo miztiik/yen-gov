@@ -70,6 +70,25 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S26", 2023): EventInfo("AcGenNov2023", False),  # Chhattisgarh
     ("S16", 2023): EventInfo("AcGenNov2023", False),  # Mizoram
     ("S29", 2023): EventInfo("AcGenNov2023", False),  # Telangana
+
+    # Historical hand-imports (2016-2023) from old.eci.gov.in Section 10
+    # XLSX dumps. No live-results portal; no Statistical Report API.
+    # Polling-month event_ids researched against Wikipedia/ECI archives.
+    ("S03", 2016): EventInfo("AcGenApr2016", False),  # Assam
+    ("S11", 2016): EventInfo("AcGenMay2016", False),  # Kerala
+    ("S05", 2017): EventInfo("AcGenFeb2017", False),  # Goa
+    ("S08", 2017): EventInfo("AcGenNov2017", False),  # Himachal Pradesh
+    ("S10", 2018): EventInfo("AcGenMay2018", False),  # Karnataka
+    ("S01", 2019): EventInfo("AcGenApr2019", False),  # Andhra Pradesh (with LS-2019)
+    ("S07", 2019): EventInfo("AcGenOct2019", False),  # Haryana
+    ("S27", 2019): EventInfo("AcGenDec2019", False),  # Jharkhand
+    ("S04", 2020): EventInfo("AcGenNov2020", False),  # Bihar
+    ("U05", 2020): EventInfo("AcGenFeb2020", False),  # NCT of Delhi
+    ("S03", 2021): EventInfo("AcGenApr2021", False),  # Assam (shared with Kerala-2021)
+    ("S11", 2021): EventInfo("AcGenApr2021", False),  # Kerala
+    ("S05", 2022): EventInfo("AcGenFeb2022", False),  # Goa
+    ("S08", 2022): EventInfo("AcGenNov2022", False),  # Himachal Pradesh
+    ("S10", 2023): EventInfo("AcGenMay2023", False),  # Karnataka
 }
 
 

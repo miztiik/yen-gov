@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 136,
+  "constituency_name": "ARUVIKKARA",
+  "totals": {
+    "electors": 193873,
+    "votes_polled": 145708,
+    "turnout_pct": 75.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. G. Steephen",
+      "party_short": "CPI(M)",
+      "votes": 66776,
+      "vote_share_pct": 45.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K. S. Sabarinadhan",
+      "party_short": "INC",
+      "votes": 61730,
+      "vote_share_pct": 42.37,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "C. Sivankutty",
+      "party_short": "BJP",
+      "votes": 15379,
+      "vote_share_pct": 10.55,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Krishnankutty. M",
+      "party_short": "BSP",
+      "votes": 923,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 900,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. G. Steephen",
+    "party_short": "CPI(M)",
+    "votes": 66776,
+    "margin_votes": 5046,
+    "margin_pct": 3.46
+  },
+  "others": null
+}

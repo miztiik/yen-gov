@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 4,
+  "constituency_name": "Tivim",
+  "totals": {
+    "electors": 29132,
+    "votes_polled": 23929,
+    "turnout_pct": 82.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NILKANTH RAMNATH HALARNKAR",
+      "party_short": "BJP",
+      "votes": 9414,
+      "vote_share_pct": 39.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAVITA KANDOLKAR",
+      "party_short": "AITC",
+      "votes": 7363,
+      "vote_share_pct": 30.77,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "TUKARAM BHARAT PARAB",
+      "party_short": "RVLTGONP",
+      "votes": 5051,
+      "vote_share_pct": 21.11,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AMAN LOTLIKAR",
+      "party_short": "INC",
+      "votes": 1262,
+      "vote_share_pct": 5.27,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "UDAI SALKAR",
+      "party_short": "AAAP",
+      "votes": 421,
+      "vote_share_pct": 1.76,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 202,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 216,
+    "vote_share_pct": 0.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NILKANTH RAMNATH HALARNKAR",
+    "party_short": "BJP",
+    "votes": 9414,
+    "margin_votes": 2051,
+    "margin_pct": 8.57
+  }
+}

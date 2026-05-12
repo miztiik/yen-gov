@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 40,
+  "constituency_name": "Nadaun",
+  "totals": {
+    "electors": 94931,
+    "votes_polled": 71039,
+    "turnout_pct": 74.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sukhvinder Singh Sukhu",
+      "party_short": "INC",
+      "votes": 36142,
+      "vote_share_pct": 50.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Vijay Agnihotri",
+      "party_short": "BJP",
+      "votes": 32779,
+      "vote_share_pct": 46.14,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Shankey Thukral",
+      "party_short": "AAAP",
+      "votes": 1487,
+      "vote_share_pct": 2.09,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Desh Raj Daroch",
+      "party_short": "BSP",
+      "votes": 225,
+      "vote_share_pct": 0.32,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ranjit Singh Jeetu",
+      "party_short": "IND",
+      "votes": 116,
+      "vote_share_pct": 0.16,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 192,
+    "vote_share_pct": 0.27
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 98,
+    "vote_share_pct": 0.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sukhvinder Singh Sukhu",
+    "party_short": "INC",
+    "votes": 36142,
+    "margin_votes": 3363,
+    "margin_pct": 4.73
+  }
+}

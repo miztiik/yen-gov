@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Yadgir",
+  "totals": {
+    "electors": 237435,
+    "votes_polled": 155002,
+    "turnout_pct": 65.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Channareddy Patil Tunnur",
+      "party_short": "INC",
+      "votes": 53802,
+      "vote_share_pct": 34.71,
+      "is_winner": true,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Venkatreddy Mudnal",
+      "party_short": "BJP",
+      "votes": 50129,
+      "vote_share_pct": 32.34,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Hanamagouda Beerankal",
+      "party_short": "IND",
+      "votes": 36838,
+      "vote_share_pct": 23.77,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dr. A.b. Malakareddy",
+      "party_short": "JD(S)",
+      "votes": 7420,
+      "vote_share_pct": 4.79,
+      "gender": "M",
+      "age": 87,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Venkatareddy",
+      "party_short": "IND",
+      "votes": 867,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1609,
+    "vote_share_pct": 1.04
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4337,
+    "vote_share_pct": 2.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Channareddy Patil Tunnur",
+    "party_short": "INC",
+    "votes": 53802,
+    "margin_votes": 3673,
+    "margin_pct": 2.37
+  }
+}

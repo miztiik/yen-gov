@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "CHITTUR",
+  "totals": {
+    "electors": 189510,
+    "votes_polled": 152905,
+    "turnout_pct": 80.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K. Krishnankutty",
+      "party_short": "JD(S)",
+      "votes": 84672,
+      "vote_share_pct": 55.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv. Sumesh Achuthan",
+      "party_short": "INC",
+      "votes": 50794,
+      "vote_share_pct": 33.22,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "V. Natesan",
+      "party_short": "BJP",
+      "votes": 14458,
+      "vote_share_pct": 9.46,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "A. Chandran",
+      "party_short": "BSP",
+      "votes": 918,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Prameela. K",
+      "party_short": "IND",
+      "votes": 552,
+      "vote_share_pct": 0.36,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1285,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 226,
+    "vote_share_pct": 0.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K. Krishnankutty",
+    "party_short": "JD(S)",
+    "votes": 84672,
+    "margin_votes": 33878,
+    "margin_pct": 22.16
+  }
+}

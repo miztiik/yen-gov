@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Tohana",
+  "totals": {
+    "electors": 220517,
+    "votes_polled": 177622,
+    "turnout_pct": 80.5479849626106
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DEVENDER SINGH BABLI",
+      "party_short": "JNJP",
+      "votes": 100752,
+      "vote_share_pct": 56.722703268739224,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUBHASH BARALA",
+      "party_short": "BJP",
+      "votes": 48450,
+      "vote_share_pct": 27.27702649446578,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PARAMVIR SINGH",
+      "party_short": "INC",
+      "votes": 16717,
+      "vote_share_pct": 9.411559378905766,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BALJIT BOUDDH",
+      "party_short": "BSP",
+      "votes": 2593,
+      "vote_share_pct": 1.459841686277601,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "AJAY KUMAR",
+      "party_short": "AAAP",
+      "votes": 1852,
+      "vote_share_pct": 1.0426636340093007,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 472,
+    "vote_share_pct": 0.2657328484084179
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 6786,
+    "vote_share_pct": 3.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DEVENDER SINGH BABLI",
+    "party_short": "JNJP",
+    "votes": 100752,
+    "margin_votes": 52302,
+    "margin_pct": 29.45
+  }
+}

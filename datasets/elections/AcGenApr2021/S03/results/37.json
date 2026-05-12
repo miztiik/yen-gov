@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "GOALPARA EAST",
+  "totals": {
+    "electors": 223041,
+    "votes_polled": 195474,
+    "turnout_pct": 87.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABUL KALAM RASHEED ALAM",
+      "party_short": "INC",
+      "votes": 112995,
+      "vote_share_pct": 57.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JYOTISH DAS",
+      "party_short": "AGP",
+      "votes": 67747,
+      "vote_share_pct": 34.66,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AMINUL HOQUE",
+      "party_short": "IND",
+      "votes": 3437,
+      "vote_share_pct": 1.76,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RINKU MAZUMDAR",
+      "party_short": "NPEP",
+      "votes": 1551,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RANJAN SARKAR",
+      "party_short": "IND",
+      "votes": 1356,
+      "vote_share_pct": 0.69,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1706,
+    "vote_share_pct": 0.87
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6682,
+    "vote_share_pct": 3.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABUL KALAM RASHEED ALAM",
+    "party_short": "INC",
+    "votes": 112995,
+    "margin_votes": 45248,
+    "margin_pct": 23.15
+  }
+}

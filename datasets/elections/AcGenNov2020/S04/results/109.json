@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 109,
+  "constituency_name": "Daraundha",
+  "totals": {
+    "electors": 319225,
+    "votes_polled": 163163,
+    "turnout_pct": 51.11222491972747
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARNJEET SINGH ALIAS VYAS SINGH",
+      "party_short": "BJP",
+      "votes": 71934,
+      "vote_share_pct": 44.087201142415864,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMARNATH YADAV",
+      "party_short": "CPI(ML)(L)",
+      "votes": 60614,
+      "vote_share_pct": 37.14935371377089,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ROHIT KUMAR ANURAG ALIAS BHOLA JI",
+      "party_short": "IND",
+      "votes": 10299,
+      "vote_share_pct": 6.3120928151603,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "LAICHI BANSAFOR",
+      "party_short": "IND",
+      "votes": 3676,
+      "vote_share_pct": 2.252961762164216,
+      "gender": "M",
+      "age": 72,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SHAILENDRA KUMAR YADAV",
+      "party_short": "JAPL",
+      "votes": 3453,
+      "vote_share_pct": 2.116288619356104,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 5458,
+    "vote_share_pct": 3.3451211365321796
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 7729,
+    "vote_share_pct": 4.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARNJEET SINGH ALIAS VYAS SINGH",
+    "party_short": "BJP",
+    "votes": 71934,
+    "margin_votes": 11320,
+    "margin_pct": 6.94
+  }
+}

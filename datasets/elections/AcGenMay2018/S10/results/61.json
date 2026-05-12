@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 61,
+  "constituency_name": "Kanakagiri  (SC)",
+  "totals": {
+    "electors": 211567,
+    "votes_polled": 167506,
+    "turnout_pct": 79.17397325669883
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BASAVARAJ  DADESUGUR",
+      "party_short": "BJP",
+      "votes": 87735,
+      "vote_share_pct": 52.37722827839003,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SHIVARAJ SANGAPPA TANGADAGI",
+      "party_short": "INC",
+      "votes": 73510,
+      "vote_share_pct": 43.88499516435232,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MANJULA RAVIKUMAR",
+      "party_short": "JD(S)",
+      "votes": 1464,
+      "vote_share_pct": 0.8739985433357611,
+      "gender": "F",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KENCHAPPA HIREKHEDA",
+      "party_short": "CPI(ML)(L)",
+      "votes": 843,
+      "vote_share_pct": 0.5032655546666985,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DR. M P DARKESWARAIAH",
+      "party_short": "IND",
+      "votes": 686,
+      "vote_share_pct": 0.40953756880350556,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1677,
+    "vote_share_pct": 1.001158167468628
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1591,
+    "vote_share_pct": 0.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BASAVARAJ  DADESUGUR",
+    "party_short": "BJP",
+    "votes": 87735,
+    "margin_votes": 14225,
+    "margin_pct": 8.49
+  }
+}

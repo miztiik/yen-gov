@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 132,
+  "constituency_name": "KAZHAKKOOTTAM",
+  "totals": {
+    "electors": 194752,
+    "votes_polled": 138325,
+    "turnout_pct": 71.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kadakampally Surendran",
+      "party_short": "CPI(M)",
+      "votes": 63690,
+      "vote_share_pct": 46.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sobha Surendran",
+      "party_short": "BJP",
+      "votes": 40193,
+      "vote_share_pct": 29.06,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. S. S. Lal",
+      "party_short": "INC",
+      "votes": 32995,
+      "vote_share_pct": 23.85,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Kochumani",
+      "party_short": "BSP",
+      "votes": 377,
+      "vote_share_pct": 0.27,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "V. Sasikumaran Nair",
+      "party_short": "IND",
+      "votes": 129,
+      "vote_share_pct": 0.09,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 668,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 273,
+    "vote_share_pct": 0.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kadakampally Surendran",
+    "party_short": "CPI(M)",
+    "votes": 63690,
+    "margin_votes": 23497,
+    "margin_pct": 16.99
+  }
+}

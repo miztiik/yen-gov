@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Arabhavi",
+  "totals": {
+    "electors": 248632,
+    "votes_polled": 190105,
+    "turnout_pct": 76.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Balachandra Laxmanrao Jarkiholi",
+      "party_short": "BJP",
+      "votes": 115402,
+      "vote_share_pct": 60.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Bhimappa Gundappa Gadad",
+      "party_short": "IND",
+      "votes": 43862,
+      "vote_share_pct": 23.07,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Arvind Mahadevarao Dalwai",
+      "party_short": "INC",
+      "votes": 23956,
+      "vote_share_pct": 12.6,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Prakash Ramappa Kalashetti",
+      "party_short": "JD(S)",
+      "votes": 1217,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Basappa Shivappa Naganur",
+      "party_short": "IND",
+      "votes": 919,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 930,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3819,
+    "vote_share_pct": 2.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Balachandra Laxmanrao Jarkiholi",
+    "party_short": "BJP",
+    "votes": 115402,
+    "margin_votes": 71540,
+    "margin_pct": 37.63
+  }
+}

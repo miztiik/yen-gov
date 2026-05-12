@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 121,
+  "constituency_name": "PUNALUR",
+  "totals": {
+    "electors": 204628,
+    "votes_polled": 144471,
+    "turnout_pct": 70.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADV.K.RAJU",
+      "party_short": "CPI",
+      "votes": 82136,
+      "vote_share_pct": 56.85,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR.A.YOUNUS KUNJU",
+      "party_short": "IUML",
+      "votes": 48554,
+      "vote_share_pct": 33.61,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ADV.SISIL FERNANDES",
+      "party_short": "KEC",
+      "votes": 10558,
+      "vote_share_pct": 7.31,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K.SASANKAN",
+      "party_short": "SUCI",
+      "votes": 1117,
+      "vote_share_pct": 0.77,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NETTAYAM SUJI",
+      "party_short": "IND",
+      "votes": 639,
+      "vote_share_pct": 0.44,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 888,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 579,
+    "vote_share_pct": 0.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADV.K.RAJU",
+    "party_short": "CPI",
+    "votes": 82136,
+    "margin_votes": 33582,
+    "margin_pct": 23.24
+  }
+}

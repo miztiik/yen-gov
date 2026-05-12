@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Kangra",
+  "totals": {
+    "electors": 75899,
+    "votes_polled": 59269,
+    "turnout_pct": 78.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PAWAN KUMAR KAJAL",
+      "party_short": "INC",
+      "votes": 25549,
+      "vote_share_pct": 43.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SANJAY CHAUDHARY",
+      "party_short": "BJP",
+      "votes": 19341,
+      "vote_share_pct": 32.63,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. RAJESH SHARMA",
+      "party_short": "IND",
+      "votes": 11805,
+      "vote_share_pct": 19.92,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "COL.(RET.)  KULDIP SINGH",
+      "party_short": "LOGAP",
+      "votes": 482,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAVI CHAND",
+      "party_short": "NCP",
+      "votes": 408,
+      "vote_share_pct": 0.69,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 656,
+    "vote_share_pct": 1.11
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 225,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PAWAN KUMAR KAJAL",
+    "party_short": "INC",
+    "votes": 25549,
+    "margin_votes": 6208,
+    "margin_pct": 10.47
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "Atmakur",
+  "totals": {
+    "electors": 209051,
+    "votes_polled": 174307,
+    "turnout_pct": 83.38013212087003
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MEKAPATI GOUTHAM REDDY",
+      "party_short": "YSRCP",
+      "votes": 92758,
+      "vote_share_pct": 53.21530403254029,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BOLLINENI KRISHNAIAH",
+      "party_short": "TDP",
+      "votes": 70482,
+      "vote_share_pct": 40.43555336274504,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANJANEYA REDDY KARNATI",
+      "party_short": "BJP",
+      "votes": 2314,
+      "vote_share_pct": 1.3275427837092026,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANDALA PADMAJA",
+      "party_short": "BSP",
+      "votes": 2274,
+      "vote_share_pct": 1.3045947667047222,
+      "gender": "F",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "CHEERLA CHINNAA REDDY",
+      "party_short": "JnP",
+      "votes": 2089,
+      "vote_share_pct": 1.1984601880589993,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2161,
+    "vote_share_pct": 1.2397666186670644
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2229,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MEKAPATI GOUTHAM REDDY",
+    "party_short": "YSRCP",
+    "votes": 92758,
+    "margin_votes": 22276,
+    "margin_pct": 12.78
+  }
+}

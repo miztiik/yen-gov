@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 118,
+  "constituency_name": "Chapra",
+  "totals": {
+    "electors": 330176,
+    "votes_polled": 168361,
+    "turnout_pct": 50.991289494088
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. C. N. GUPTA",
+      "party_short": "BJP",
+      "votes": 75710,
+      "vote_share_pct": 44.968846704403035,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RANDHIR KUMAR SINGH",
+      "party_short": "RJD",
+      "votes": 68939,
+      "vote_share_pct": 40.94713146156177,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUNIL KUMAR",
+      "party_short": "IND",
+      "votes": 6062,
+      "vote_share_pct": 3.600596337631637,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANJEEV KUMAR SINGH",
+      "party_short": "IND",
+      "votes": 3744,
+      "vote_share_pct": 2.223792921163452,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUBHASH RAY",
+      "party_short": "IND",
+      "votes": 3193,
+      "vote_share_pct": 1.8965199779046216,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1920,
+    "vote_share_pct": 1.1404066262376678
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 8793,
+    "vote_share_pct": 5.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. C. N. GUPTA",
+    "party_short": "BJP",
+    "votes": 75710,
+    "margin_votes": 6771,
+    "margin_pct": 4.02
+  }
+}

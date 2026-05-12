@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "Ellenabad",
+  "totals": {
+    "electors": 181021,
+    "votes_polled": 150684,
+    "turnout_pct": 83.24117091387187
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Abhay Singh Chautala",
+      "party_short": "INLD",
+      "votes": 57055,
+      "vote_share_pct": 37.86400679567837,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Pawan Beniwal",
+      "party_short": "BJP",
+      "votes": 45133,
+      "vote_share_pct": 29.952085158344616,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Bharat Singh Beniwal",
+      "party_short": "INC",
+      "votes": 35383,
+      "vote_share_pct": 23.481590613469248,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "O. P Sihag",
+      "party_short": "JNJP",
+      "votes": 6569,
+      "vote_share_pct": 4.359454222080646,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Advocate Ravinder Balyan",
+      "party_short": "BSP",
+      "votes": 1947,
+      "vote_share_pct": 1.2921079875766506,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 737,
+    "vote_share_pct": 0.48910302354596374
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3860,
+    "vote_share_pct": 2.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Abhay Singh Chautala",
+    "party_short": "INLD",
+    "votes": 57055,
+    "margin_votes": 11922,
+    "margin_pct": 7.91
+  }
+}

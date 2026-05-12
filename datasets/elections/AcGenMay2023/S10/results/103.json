@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "Jagalur (ST)",
+  "totals": {
+    "electors": 193028,
+    "votes_polled": 156483,
+    "turnout_pct": 81.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B.devendrappa",
+      "party_short": "INC",
+      "votes": 50765,
+      "vote_share_pct": 32.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "S.v.ramachandra",
+      "party_short": "BJP",
+      "votes": 49891,
+      "vote_share_pct": 31.88,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "H.p.rajesh",
+      "party_short": "IND",
+      "votes": 49442,
+      "vote_share_pct": 31.6,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Mallapura Devaraj",
+      "party_short": "JD(S)",
+      "votes": 1972,
+      "vote_share_pct": 1.26,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Bheemappa.g.n",
+      "party_short": "IND",
+      "votes": 869,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1996,
+    "vote_share_pct": 1.28
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1548,
+    "vote_share_pct": 0.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B.devendrappa",
+    "party_short": "INC",
+    "votes": 50765,
+    "margin_votes": 874,
+    "margin_pct": 0.56
+  }
+}

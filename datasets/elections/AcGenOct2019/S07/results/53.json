@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Nalwa",
+  "totals": {
+    "electors": 165498,
+    "votes_polled": 115668,
+    "turnout_pct": 69.89087481419715
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RANBIR GANGWA",
+      "party_short": "BJP",
+      "votes": 47523,
+      "vote_share_pct": 41.08569353667393,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RANDHIR PANIHAR",
+      "party_short": "INC",
+      "votes": 37851,
+      "vote_share_pct": 32.72383027284988,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VIRENDER CHOUDHARY",
+      "party_short": "JNJP",
+      "votes": 20516,
+      "vote_share_pct": 17.736971331742573,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ADVOCATE BAJRANG INDAL",
+      "party_short": "BSP",
+      "votes": 3510,
+      "vote_share_pct": 3.034547152194211,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RANDEEP LOHCHAB",
+      "party_short": "IND",
+      "votes": 1828,
+      "vote_share_pct": 1.5803852405159593,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 504,
+    "vote_share_pct": 0.4357298474945534
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3936,
+    "vote_share_pct": 3.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RANBIR GANGWA",
+    "party_short": "BJP",
+    "votes": 47523,
+    "margin_votes": 9672,
+    "margin_pct": 8.36
+  }
+}

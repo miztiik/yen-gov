@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "CHANDNI CHOWK",
+  "totals": {
+    "electors": 125717,
+    "votes_polled": 77199,
+    "turnout_pct": 61.40696962224679
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARLAD SINGH SAWHNEY",
+      "party_short": "AAAP",
+      "votes": 50891,
+      "vote_share_pct": 65.92183836578194,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUMAN KUMAR GUPTA",
+      "party_short": "BJP",
+      "votes": 21307,
+      "vote_share_pct": 27.600098446871073,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ALKA LAMBA",
+      "party_short": "INC",
+      "votes": 3881,
+      "vote_share_pct": 5.027267192580215,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANIL SINGH JADON",
+      "party_short": "SHS",
+      "votes": 242,
+      "vote_share_pct": 0.31347556315496317,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUDESH",
+      "party_short": "BSP",
+      "votes": 218,
+      "vote_share_pct": 0.28238707755281806,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 263,
+    "vote_share_pct": 0.34067798805684013
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 397,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARLAD SINGH SAWHNEY",
+    "party_short": "AAAP",
+    "votes": 50891,
+    "margin_votes": 29584,
+    "margin_pct": 38.32
+  }
+}

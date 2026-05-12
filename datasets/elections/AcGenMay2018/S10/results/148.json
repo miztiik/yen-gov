@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 148,
+  "constituency_name": "Kolar",
+  "totals": {
+    "electors": 225183,
+    "votes_polled": 179102,
+    "turnout_pct": 79.53619944667226
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.SRINIVASA GOWDA",
+      "party_short": "JD(S)",
+      "votes": 82788,
+      "vote_share_pct": 46.22393943116214,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SYED ZAMEER PASHA",
+      "party_short": "INC",
+      "votes": 38537,
+      "vote_share_pct": 21.516789315585534,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "R VARTHUR PRAKASH",
+      "party_short": "NAC",
+      "votes": 35544,
+      "vote_share_pct": 19.845674531831023,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "R.VENKATACHALAPATHI (OM SHAKTHI CHALAPATHI)",
+      "party_short": "BJP",
+      "votes": 12458,
+      "vote_share_pct": 6.955812888744961,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GOWRAMMA",
+      "party_short": "IND",
+      "votes": 2085,
+      "vote_share_pct": 1.164141103951938,
+      "gender": "F",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1195,
+    "vote_share_pct": 0.6672175631762906
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 6495,
+    "vote_share_pct": 3.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.SRINIVASA GOWDA",
+    "party_short": "JD(S)",
+    "votes": 82788,
+    "margin_votes": 44251,
+    "margin_pct": 24.71
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 191,
+  "constituency_name": "Bikram",
+  "totals": {
+    "electors": 308429,
+    "votes_polled": 180640,
+    "turnout_pct": 58.56777410684468
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SIDDHARTH SAURAV",
+      "party_short": "INC",
+      "votes": 86177,
+      "vote_share_pct": 47.7064880425155,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANIL KUMAR",
+      "party_short": "IND",
+      "votes": 50717,
+      "vote_share_pct": 28.07628432240921,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ATUL KUMAR",
+      "party_short": "BJP",
+      "votes": 14439,
+      "vote_share_pct": 7.993246235606731,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NAGENDRA KUMAR",
+      "party_short": "IND",
+      "votes": 11223,
+      "vote_share_pct": 6.2129096545615585,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ARUN KUMAR",
+      "party_short": "BSP",
+      "votes": 3363,
+      "vote_share_pct": 1.861713906111603,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1814,
+    "vote_share_pct": 1.004207263064659
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 12907,
+    "vote_share_pct": 7.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SIDDHARTH SAURAV",
+    "party_short": "INC",
+    "votes": 86177,
+    "margin_votes": 35460,
+    "margin_pct": 19.63
+  }
+}

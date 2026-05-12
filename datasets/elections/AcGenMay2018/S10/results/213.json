@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 213,
+  "constituency_name": "Heggadadevankote  (ST)",
+  "totals": {
+    "electors": 214900,
+    "votes_polled": 171053,
+    "turnout_pct": 79.59655653792461
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANIL KUMAR C",
+      "party_short": "INC",
+      "votes": 76652,
+      "vote_share_pct": 44.81184194372504,
+      "is_winner": true,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "CHIKKANNA",
+      "party_short": "JD(S)",
+      "votes": 54559,
+      "vote_share_pct": 31.89596207023554,
+      "gender": "M",
+      "age": 74,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SIDDARAJU",
+      "party_short": "BJP",
+      "votes": 34425,
+      "vote_share_pct": 20.12534126849573,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "J K GOPALA",
+      "party_short": "BRPP",
+      "votes": 1763,
+      "vote_share_pct": 1.030674703162178,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "M S SHIVAKUMAR",
+      "party_short": "IND",
+      "votes": 760,
+      "vote_share_pct": 0.44430673533933934,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1596,
+    "vote_share_pct": 0.9330441442126124
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1298,
+    "vote_share_pct": 0.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANIL KUMAR C",
+    "party_short": "INC",
+    "votes": 76652,
+    "margin_votes": 22093,
+    "margin_pct": 12.92
+  }
+}

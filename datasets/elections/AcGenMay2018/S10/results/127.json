@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 127,
+  "constituency_name": "Kadur",
+  "totals": {
+    "electors": 201915,
+    "votes_polled": 159688,
+    "turnout_pct": 79.08674442215784
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K S PRAKASH",
+      "party_short": "BJP",
+      "votes": 62232,
+      "vote_share_pct": 38.970993437202544,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Y S V DATTA",
+      "party_short": "JD(S)",
+      "votes": 46860,
+      "vote_share_pct": 29.344722208306198,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K S ANAND",
+      "party_short": "INC",
+      "votes": 46142,
+      "vote_share_pct": 28.895095436100394,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NAGARAJ N T",
+      "party_short": "KPJP",
+      "votes": 698,
+      "vote_share_pct": 0.43710234958168426,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "C M RUDRESH",
+      "party_short": "IND",
+      "votes": 546,
+      "vote_share_pct": 0.3419167376383948,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1075,
+    "vote_share_pct": 0.6731877160462904
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2135,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K S PRAKASH",
+    "party_short": "BJP",
+    "votes": 62232,
+    "margin_votes": 15372,
+    "margin_pct": 9.63
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 101,
+  "constituency_name": "Hosadurga",
+  "totals": {
+    "electors": 197693,
+    "votes_polled": 167580,
+    "turnout_pct": 84.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B. G. Govindappa",
+      "party_short": "INC",
+      "votes": 81050,
+      "vote_share_pct": 48.36,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "S. Lingamurthy",
+      "party_short": "BJP",
+      "votes": 48234,
+      "vote_share_pct": 28.78,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "T. Manjunath",
+      "party_short": "IND",
+      "votes": 20812,
+      "vote_share_pct": 12.42,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Gulihatti D. Shekhar",
+      "party_short": "IND",
+      "votes": 10449,
+      "vote_share_pct": 6.24,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Thippeswamy. M",
+      "party_short": "JD(S)",
+      "votes": 1914,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1030,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4091,
+    "vote_share_pct": 2.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B. G. Govindappa",
+    "party_short": "INC",
+    "votes": 81050,
+    "margin_votes": 32816,
+    "margin_pct": 19.58
+  }
+}

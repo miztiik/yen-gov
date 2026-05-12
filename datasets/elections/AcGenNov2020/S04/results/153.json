@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 153,
+  "constituency_name": "Gopalpur",
+  "totals": {
+    "electors": 270432,
+    "votes_polled": 162823,
+    "turnout_pct": 60.2084812448231
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Narendra Kumar Niraj",
+      "party_short": "JD(U)",
+      "votes": 75533,
+      "vote_share_pct": 46.38963782757964,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Shailesh Kumar",
+      "party_short": "RJD",
+      "votes": 51072,
+      "vote_share_pct": 31.366575975138648,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sures Bhagat",
+      "party_short": "LJP",
+      "votes": 23406,
+      "vote_share_pct": 14.375118994245284,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sanjeev Kumar Singh",
+      "party_short": "RJnJnP",
+      "votes": 4002,
+      "vote_share_pct": 2.457883714217279,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ruchi Singh",
+      "party_short": "IND",
+      "votes": 1419,
+      "vote_share_pct": 0.871498498369395,
+      "gender": "F",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3888,
+    "vote_share_pct": 2.3878690357013443
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3503,
+    "vote_share_pct": 2.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Narendra Kumar Niraj",
+    "party_short": "JD(U)",
+    "votes": 75533,
+    "margin_votes": 24461,
+    "margin_pct": 15.02
+  }
+}

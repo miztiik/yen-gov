@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "MODEL TOWN",
+  "totals": {
+    "electors": 168355,
+    "votes_polled": 100163,
+    "turnout_pct": 59.49511449021413
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AKHILESH PATI TRIPATHI",
+      "party_short": "AAAP",
+      "votes": 52665,
+      "vote_share_pct": 52.57929574793088,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAPIL MISHRA",
+      "party_short": "BJP",
+      "votes": 41532,
+      "vote_share_pct": 41.464413006798914,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AKANKSHA OLA",
+      "party_short": "INC",
+      "votes": 4085,
+      "vote_share_pct": 4.078352285774188,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PARMOD KUMAR SAHANI",
+      "party_short": "BSP",
+      "votes": 492,
+      "vote_share_pct": 0.49119934506753987,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJESH KUMAR TIWARI",
+      "party_short": "PHRC",
+      "votes": 242,
+      "vote_share_pct": 0.24160618192346478,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 841,
+    "vote_share_pct": 0.8396314008166688
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 306,
+    "vote_share_pct": 0.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AKHILESH PATI TRIPATHI",
+    "party_short": "AAAP",
+    "votes": 52665,
+    "margin_votes": 11133,
+    "margin_pct": 11.11
+  }
+}

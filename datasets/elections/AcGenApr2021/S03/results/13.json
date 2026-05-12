@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "LAKHIPUR",
+  "totals": {
+    "electors": 166933,
+    "votes_polled": 124046,
+    "turnout_pct": 74.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kaushik Rai",
+      "party_short": "BJP",
+      "votes": 55341,
+      "vote_share_pct": 44.61,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mukesh Pandey",
+      "party_short": "INC",
+      "votes": 42641,
+      "vote_share_pct": 34.38,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Thoiba Singha",
+      "party_short": "IND",
+      "votes": 20503,
+      "vote_share_pct": 16.53,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Alim Uddin Mazumder",
+      "party_short": "ASMJTYP",
+      "votes": 2991,
+      "vote_share_pct": 2.41,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Chiranjit Acharjee",
+      "party_short": "IND",
+      "votes": 646,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1536,
+    "vote_share_pct": 1.24
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 388,
+    "vote_share_pct": 0.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kaushik Rai",
+    "party_short": "BJP",
+    "votes": 55341,
+    "margin_votes": 12700,
+    "margin_pct": 10.24
+  }
+}

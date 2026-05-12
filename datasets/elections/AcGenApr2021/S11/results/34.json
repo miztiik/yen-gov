@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "ERANAD",
+  "totals": {
+    "electors": 179951,
+    "votes_polled": 143272,
+    "turnout_pct": 79.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.k. Basheer",
+      "party_short": "IUML",
+      "votes": 78076,
+      "vote_share_pct": 54.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K.t. Abdurahiman",
+      "party_short": "IND",
+      "votes": 55530,
+      "vote_share_pct": 38.76,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Adv. C. Dinesh",
+      "party_short": "BJP",
+      "votes": 6683,
+      "vote_share_pct": 4.66,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Velayudhan",
+      "party_short": "BSP",
+      "votes": 1247,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Adv. Sebastian",
+      "party_short": "IND",
+      "votes": 1100,
+      "vote_share_pct": 0.77,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 636,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.k. Basheer",
+    "party_short": "IUML",
+    "votes": 78076,
+    "margin_votes": 22546,
+    "margin_pct": 15.74
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 51,
+  "constituency_name": "Bhalki",
+  "totals": {
+    "electors": 230959,
+    "votes_polled": 174778,
+    "turnout_pct": 75.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Eshwar Khandre",
+      "party_short": "INC",
+      "votes": 99451,
+      "vote_share_pct": 56.9,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Prakash Khandre",
+      "party_short": "BJP",
+      "votes": 71745,
+      "vote_share_pct": 41.05,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Tukaram Hajare S/o Narayanrao",
+      "party_short": "AAAP",
+      "votes": 949,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rouf Patel",
+      "party_short": "JD(S)",
+      "votes": 636,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Vaijinath S/o Bajirao Tagare",
+      "party_short": "IND",
+      "votes": 376,
+      "vote_share_pct": 0.22,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 851,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 770,
+    "vote_share_pct": 0.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Eshwar Khandre",
+    "party_short": "INC",
+    "votes": 99451,
+    "margin_votes": 27706,
+    "margin_pct": 15.85
+  }
+}

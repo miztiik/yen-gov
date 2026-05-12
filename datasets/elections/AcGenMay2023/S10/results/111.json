@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 111,
+  "constituency_name": "Shimoga Rural (SC)",
+  "totals": {
+    "electors": 212458,
+    "votes_polled": 180848,
+    "turnout_pct": 85.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sharada Puryanaik",
+      "party_short": "JD(S)",
+      "votes": 86340,
+      "vote_share_pct": 47.74,
+      "is_winner": true,
+      "gender": "F",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "K.b.ashok Naik",
+      "party_short": "BJP",
+      "votes": 71198,
+      "vote_share_pct": 39.37,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Dr.srinivas Kariyanna",
+      "party_short": "INC",
+      "votes": 18335,
+      "vote_share_pct": 10.14,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Manjunatha.s.s",
+      "party_short": "AAAP",
+      "votes": 1715,
+      "vote_share_pct": 0.95,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "A.d.shivappa",
+      "party_short": "BSP",
+      "votes": 576,
+      "vote_share_pct": 0.32,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1053,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1631,
+    "vote_share_pct": 0.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sharada Puryanaik",
+    "party_short": "JD(S)",
+    "votes": 86340,
+    "margin_votes": 15142,
+    "margin_pct": 8.37
+  }
+}

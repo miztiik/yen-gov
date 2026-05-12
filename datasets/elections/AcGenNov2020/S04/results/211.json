@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 211,
+  "constituency_name": "Nokha",
+  "totals": {
+    "electors": 290458,
+    "votes_polled": 148787,
+    "turnout_pct": 51.224961956634004
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANITA DEVI",
+      "party_short": "RJD",
+      "votes": 65690,
+      "vote_share_pct": 44.15036259888297,
+      "is_winner": true,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NAGENDRA CHANDRAWANSI",
+      "party_short": "JD(U)",
+      "votes": 48018,
+      "vote_share_pct": 32.272980838379695,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KRISHNA KABIR",
+      "party_short": "LJP",
+      "votes": 12313,
+      "vote_share_pct": 8.27558859308945,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AKHILESHWAR PRASAD SINGH",
+      "party_short": "RLSP",
+      "votes": 10275,
+      "vote_share_pct": 6.905845268739877,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ARTI DEVI",
+      "party_short": "IND",
+      "votes": 2164,
+      "vote_share_pct": 1.4544281422436098,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1798,
+    "vote_share_pct": 1.2084389093133137
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 8529,
+    "vote_share_pct": 5.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANITA DEVI",
+    "party_short": "RJD",
+    "votes": 65690,
+    "margin_votes": 17672,
+    "margin_pct": 11.88
+  }
+}

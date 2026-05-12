@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 137,
+  "constituency_name": "Pavagada  (SC)",
+  "totals": {
+    "electors": 197250,
+    "votes_polled": 162911,
+    "turnout_pct": 82.59112801013941
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VENKATARAMANAPPA",
+      "party_short": "INC",
+      "votes": 72974,
+      "vote_share_pct": 44.79378310856848,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "K M THIMMARAYAPPA",
+      "party_short": "JD(S)",
+      "votes": 72565,
+      "vote_share_pct": 44.542725782789375,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "G.V.BALARAM",
+      "party_short": "BJP",
+      "votes": 14074,
+      "vote_share_pct": 8.639072868007686,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "G.MUTHYALAPPA",
+      "party_short": "LAD",
+      "votes": 796,
+      "vote_share_pct": 0.4886103455260848,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "VENKATAPPA",
+      "party_short": "SJPL",
+      "votes": 458,
+      "vote_share_pct": 0.2811350983052096,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 794,
+    "vote_share_pct": 0.4873826813413459
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1250,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VENKATARAMANAPPA",
+    "party_short": "INC",
+    "votes": 72974,
+    "margin_votes": 409,
+    "margin_pct": 0.25
+  }
+}

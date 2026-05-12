@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 188,
+  "constituency_name": "Melukote",
+  "totals": {
+    "electors": 195487,
+    "votes_polled": 174965,
+    "turnout_pct": 89.50211523016877
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C S PUTTARAJU",
+      "party_short": "JD(S)",
+      "votes": 96003,
+      "vote_share_pct": 54.86983110907896,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DARSHAN PUTTANNAIAH",
+      "party_short": "SWARAJ",
+      "votes": 73779,
+      "vote_share_pct": 42.167862143857334,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUNDAHALLI SOMASHEKARA",
+      "party_short": "BJP",
+      "votes": 1595,
+      "vote_share_pct": 0.911610893607293,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "B.K.PUTTARAJU",
+      "party_short": "IND",
+      "votes": 689,
+      "vote_share_pct": 0.3937930443231503,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MAHESH VAKEELARU",
+      "party_short": "AIMEP",
+      "votes": 498,
+      "vote_share_pct": 0.284628354242277,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 979,
+    "vote_share_pct": 0.5595404795244763
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1422,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C S PUTTARAJU",
+    "party_short": "JD(S)",
+    "votes": 96003,
+    "margin_votes": 22224,
+    "margin_pct": 12.7
+  }
+}

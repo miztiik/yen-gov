@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "Amour",
+  "totals": {
+    "electors": 313928,
+    "votes_polled": 184606,
+    "turnout_pct": 58.80520374098519
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AKHTARUL IMAN",
+      "party_short": "AIMIM",
+      "votes": 94459,
+      "vote_share_pct": 51.16789270121232,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SABA ZAFAR",
+      "party_short": "JD(U)",
+      "votes": 41944,
+      "vote_share_pct": 22.72082164176679,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ABDUL JALIL MASTAN",
+      "party_short": "INC",
+      "votes": 31863,
+      "vote_share_pct": 17.26000238345449,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JHALKESHWAR KUMAR GUPTA",
+      "party_short": "JAPL",
+      "votes": 3164,
+      "vote_share_pct": 1.7139204576232625,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MATIUR RAHMAN",
+      "party_short": "JDR",
+      "votes": 1673,
+      "vote_share_pct": 0.9062544012653977,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4958,
+    "vote_share_pct": 2.685719857426086
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 6545,
+    "vote_share_pct": 3.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AKHTARUL IMAN",
+    "party_short": "AIMIM",
+    "votes": 94459,
+    "margin_votes": 52515,
+    "margin_pct": 28.45
+  }
+}

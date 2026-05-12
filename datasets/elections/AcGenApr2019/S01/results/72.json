@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Gudivada",
+  "totals": {
+    "electors": 208393,
+    "votes_polled": 167902,
+    "turnout_pct": 80.56988478499758
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KODALI SRI VENKATESWARA RAO (NANI)",
+      "party_short": "YSRCP",
+      "votes": 89833,
+      "vote_share_pct": 53.50323402937428,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DEVINENI AVINASH",
+      "party_short": "TDP",
+      "votes": 70354,
+      "vote_share_pct": 41.90182368286262,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DATTATREYULU SISTLA",
+      "party_short": "INC",
+      "votes": 1401,
+      "vote_share_pct": 0.8344153136948935,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SRI RAJA BABU GUTTIKONDA",
+      "party_short": "BJP",
+      "votes": 1212,
+      "vote_share_pct": 0.7218496503912997,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ESSAKU MADDALI",
+      "party_short": "IND",
+      "votes": 511,
+      "vote_share_pct": 0.30434420078379054,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3285,
+    "vote_share_pct": 1.9564984336100821
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1306,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KODALI SRI VENKATESWARA RAO (NANI)",
+    "party_short": "YSRCP",
+    "votes": 89833,
+    "margin_votes": 19479,
+    "margin_pct": 11.6
+  }
+}

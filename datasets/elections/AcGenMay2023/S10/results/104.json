@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 104,
+  "constituency_name": "Harapanahalli",
+  "totals": {
+    "electors": 217175,
+    "votes_polled": 177425,
+    "turnout_pct": 81.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Latha Mallikarjun",
+      "party_short": "IND",
+      "votes": 70194,
+      "vote_share_pct": 39.56,
+      "is_winner": true,
+      "gender": "F",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "G Karunakara Reddy",
+      "party_short": "BJP",
+      "votes": 56349,
+      "vote_share_pct": 31.76,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "N Kotreshi",
+      "party_short": "INC",
+      "votes": 44988,
+      "vote_share_pct": 25.36,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Latha",
+      "party_short": "IND",
+      "votes": 905,
+      "vote_share_pct": 0.51,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sumanth Kumar R S",
+      "party_short": "IND",
+      "votes": 721,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 926,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3342,
+    "vote_share_pct": 1.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Latha Mallikarjun",
+    "party_short": "IND",
+    "votes": 70194,
+    "margin_votes": 13845,
+    "margin_pct": 7.8
+  }
+}

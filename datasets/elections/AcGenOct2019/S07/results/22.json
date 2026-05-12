@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Gharaunda",
+  "totals": {
+    "electors": 217199,
+    "votes_polled": 143876,
+    "turnout_pct": 66.24155728157127
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARVINDER KALYAN",
+      "party_short": "BJP",
+      "votes": 67209,
+      "vote_share_pct": 46.713141872167704,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANIL KUMAR",
+      "party_short": "INC",
+      "votes": 49807,
+      "vote_share_pct": 34.61800439267147,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Umed Singh Kashyap",
+      "party_short": "JNJP",
+      "votes": 13709,
+      "vote_share_pct": 9.528343851650032,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DR MEHAR SINGH",
+      "party_short": "BSP",
+      "votes": 5456,
+      "vote_share_pct": 3.7921543551391474,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MANINDER RANA",
+      "party_short": "INLD",
+      "votes": 2841,
+      "vote_share_pct": 1.9746170313325362,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 868,
+    "vote_share_pct": 0.6032972837721372
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3986,
+    "vote_share_pct": 2.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARVINDER KALYAN",
+    "party_short": "BJP",
+    "votes": 67209,
+    "margin_votes": 17402,
+    "margin_pct": 12.1
+  }
+}

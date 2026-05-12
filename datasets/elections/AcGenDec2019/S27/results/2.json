@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "Borio",
+  "totals": {
+    "electors": 250607,
+    "votes_polled": 163232,
+    "turnout_pct": 65.13465306236458
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Lobin Hembrom",
+      "party_short": "JMM",
+      "votes": 77365,
+      "vote_share_pct": 47.39573122917075,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Surya Narayan Hansada",
+      "party_short": "BJP",
+      "votes": 59441,
+      "vote_share_pct": 36.41504116839835,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Tala Marandi",
+      "party_short": "AJSUP",
+      "votes": 8955,
+      "vote_share_pct": 5.486056655557734,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Sonaram Madaiya",
+      "party_short": "CPI",
+      "votes": 2705,
+      "vote_share_pct": 1.6571505587139779,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Lukas Hansda",
+      "party_short": "JD(U)",
+      "votes": 2181,
+      "vote_share_pct": 1.336135071554597,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2687,
+    "vote_share_pct": 1.6461233091550675
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 9898,
+    "vote_share_pct": 6.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Lobin Hembrom",
+    "party_short": "JMM",
+    "votes": 77365,
+    "margin_votes": 17924,
+    "margin_pct": 10.98
+  }
+}

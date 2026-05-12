@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 95,
+  "constituency_name": "Kanti",
+  "totals": {
+    "electors": 309654,
+    "votes_polled": 195962,
+    "turnout_pct": 63.28418169957436
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHAMMAD ISRAIL MANSURI",
+      "party_short": "RJD",
+      "votes": 64458,
+      "vote_share_pct": 32.893111929863956,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AJIT KUMAR",
+      "party_short": "IND",
+      "votes": 54144,
+      "vote_share_pct": 27.62984660291281,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MOHAMMAD JAMAL",
+      "party_short": "JD(U)",
+      "votes": 25891,
+      "vote_share_pct": 13.212255437278655,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BIJAY PRASAD SINGH",
+      "party_short": "LJP",
+      "votes": 18093,
+      "vote_share_pct": 9.232912503444545,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NEERA DEVI",
+      "party_short": "IND",
+      "votes": 9885,
+      "vote_share_pct": 5.044345332258295,
+      "gender": "F",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1507,
+    "vote_share_pct": 0.7690266480235964
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 21984,
+    "vote_share_pct": 11.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHAMMAD ISRAIL MANSURI",
+    "party_short": "RJD",
+    "votes": 64458,
+    "margin_votes": 10314,
+    "margin_pct": 5.26
+  }
+}

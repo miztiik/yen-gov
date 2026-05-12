@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Peddapuram",
+  "totals": {
+    "electors": 201975,
+    "votes_polled": 162928,
+    "turnout_pct": 80.66740933283822
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nimmakayala China Rajappa",
+      "party_short": "TDP",
+      "votes": 67393,
+      "vote_share_pct": 41.363669841893355,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Thota Saraswathi Ane Vani",
+      "party_short": "YSRCP",
+      "votes": 63366,
+      "vote_share_pct": 38.892025925562216,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Tummala Ramaswamy (Babu)",
+      "party_short": "JnP",
+      "votes": 25816,
+      "vote_share_pct": 15.845035844053815,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dora Babu Tummala",
+      "party_short": "INC",
+      "votes": 1668,
+      "vote_share_pct": 1.0237650986939015,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Yarlagadda Ramkumar",
+      "party_short": "BJP",
+      "votes": 849,
+      "vote_share_pct": 0.5210890700186586,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2072,
+    "vote_share_pct": 1.2717273887852303
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1764,
+    "vote_share_pct": 1.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nimmakayala China Rajappa",
+    "party_short": "TDP",
+    "votes": 67393,
+    "margin_votes": 4027,
+    "margin_pct": 2.47
+  }
+}

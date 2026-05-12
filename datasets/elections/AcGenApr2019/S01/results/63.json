@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 63,
+  "constituency_name": "Unguturu",
+  "totals": {
+    "electors": 200216,
+    "votes_polled": 173841,
+    "turnout_pct": 86.82672713469452
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Puppala Srinivasarao (Vasubabu)",
+      "party_short": "YSRCP",
+      "votes": 94621,
+      "vote_share_pct": 54.42962247110865,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ganni Veeranjaneyulu",
+      "party_short": "TDP",
+      "votes": 61468,
+      "vote_share_pct": 35.35874736109433,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NOWDU VENKATA RAMANA (RAMANA BABU)",
+      "party_short": "JnP",
+      "votes": 10721,
+      "vote_share_pct": 6.167129733492099,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "INTI UDAYA BHASKARARAO",
+      "party_short": "BJP",
+      "votes": 2381,
+      "vote_share_pct": 1.369642374353576,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Hari Kumara Raju Pathapati",
+      "party_short": "INC",
+      "votes": 1535,
+      "vote_share_pct": 0.8829907789301717,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2321,
+    "vote_share_pct": 1.3351280768058167
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 794,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Puppala Srinivasarao (Vasubabu)",
+    "party_short": "YSRCP",
+    "votes": 94621,
+    "margin_votes": 33153,
+    "margin_pct": 19.07
+  }
+}

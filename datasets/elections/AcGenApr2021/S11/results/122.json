@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 122,
+  "constituency_name": "CHADAYAMANGALAM",
+  "totals": {
+    "electors": 201643,
+    "votes_polled": 147177,
+    "turnout_pct": 72.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "J.chinchurani",
+      "party_short": "CPI",
+      "votes": 67252,
+      "vote_share_pct": 45.69,
+      "is_winner": true,
+      "gender": "F",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M.m.naseer",
+      "party_short": "INC",
+      "votes": 53574,
+      "vote_share_pct": 36.4,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vishnu Pattathanam",
+      "party_short": "BJP",
+      "votes": 22238,
+      "vote_share_pct": 15.11,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sharafath Mallam",
+      "party_short": "SDPI",
+      "votes": 1879,
+      "vote_share_pct": 1.28,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Archana Prajith",
+      "party_short": "WPOI",
+      "votes": 605,
+      "vote_share_pct": 0.41,
+      "gender": "F",
+      "age": 33,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 685,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 944,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "J.chinchurani",
+    "party_short": "CPI",
+    "votes": 67252,
+    "margin_votes": 13678,
+    "margin_pct": 9.29
+  }
+}

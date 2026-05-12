@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "Giridih",
+  "totals": {
+    "electors": 264814,
+    "votes_polled": 167822,
+    "turnout_pct": 63.373537652843126
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUDIVYA  KUMAR",
+      "party_short": "JMM",
+      "votes": 80871,
+      "vote_share_pct": 48.18855692340694,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NIRBHAY KUMAR SHAHABADI",
+      "party_short": "BJP",
+      "votes": 64987,
+      "vote_share_pct": 38.72376684820822,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHUNNU KANT",
+      "party_short": "JVM",
+      "votes": 6903,
+      "vote_share_pct": 4.113286696619037,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHAMMAD LALLU",
+      "party_short": "IND",
+      "votes": 2493,
+      "vote_share_pct": 1.4855024966929247,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "UPENDRA KUMAR SHARMA",
+      "party_short": "LJP",
+      "votes": 2026,
+      "vote_share_pct": 1.207231471439978,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2773,
+    "vote_share_pct": 1.6523459379580747
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 7769,
+    "vote_share_pct": 4.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUDIVYA  KUMAR",
+    "party_short": "JMM",
+    "votes": 80871,
+    "margin_votes": 15884,
+    "margin_pct": 9.46
+  }
+}

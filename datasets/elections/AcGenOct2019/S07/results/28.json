@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "Ganaur",
+  "totals": {
+    "electors": 175399,
+    "votes_polled": 119656,
+    "turnout_pct": 68.21931709986944
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NIRMAL RANI",
+      "party_short": "BJP",
+      "votes": 57830,
+      "vote_share_pct": 48.33021327806378,
+      "is_winner": true,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KULDIP SHARMA",
+      "party_short": "INC",
+      "votes": 47550,
+      "vote_share_pct": 39.73891823226583,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Randhir Singh Malik",
+      "party_short": "JNJP",
+      "votes": 6518,
+      "vote_share_pct": 5.447282208999131,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JITENDER KUMAR",
+      "party_short": "BSP",
+      "votes": 4377,
+      "vote_share_pct": 3.657986227184596,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Bijender Shekhpura",
+      "party_short": "INLD",
+      "votes": 1480,
+      "vote_share_pct": 1.2368790532860867,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 439,
+    "vote_share_pct": 0.3668850705355352
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1462,
+    "vote_share_pct": 1.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NIRMAL RANI",
+    "party_short": "BJP",
+    "votes": 57830,
+    "margin_votes": 10280,
+    "margin_pct": 8.59
+  }
+}

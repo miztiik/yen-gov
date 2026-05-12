@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 83,
+  "constituency_name": "THRIKKAKARA",
+  "totals": {
+    "electors": 181261,
+    "votes_polled": 135304,
+    "turnout_pct": 74.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADV.P T THOMAS            E",
+      "party_short": "INC",
+      "votes": 61451,
+      "vote_share_pct": 45.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR.SEBASTIAN PAUL",
+      "party_short": "CPM",
+      "votes": 49455,
+      "vote_share_pct": 36.55,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S SAJI",
+      "party_short": "BJP",
+      "votes": 21247,
+      "vote_share_pct": 15.7,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K M SHAJAHAN",
+      "party_short": "SDPI",
+      "votes": 956,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ADV. SHIBU P A",
+      "party_short": "BSP",
+      "votes": 346,
+      "vote_share_pct": 0.26,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1275,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 574,
+    "vote_share_pct": 0.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADV.P T THOMAS            E",
+    "party_short": "INC",
+    "votes": 61451,
+    "margin_votes": 11996,
+    "margin_pct": 8.87
+  }
+}

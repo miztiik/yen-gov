@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "NARELA",
+  "totals": {
+    "electors": 253982,
+    "votes_polled": 165694,
+    "turnout_pct": 65.2384814671906
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHARAD KUMAR",
+      "party_short": "AAAP",
+      "votes": 86262,
+      "vote_share_pct": 52.06102816034377,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NEEL DAMAN KHATRI",
+      "party_short": "BJP",
+      "votes": 68833,
+      "vote_share_pct": 41.54224051564933,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SIDDHARTH KUNDU",
+      "party_short": "INC",
+      "votes": 6270,
+      "vote_share_pct": 3.784083913720473,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJBALA SAINI",
+      "party_short": "LTSP",
+      "votes": 1082,
+      "vote_share_pct": 0.6530109720327834,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAHENDER CHAUDHARY",
+      "party_short": "BSP",
+      "votes": 821,
+      "vote_share_pct": 0.49549168949992156,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 753,
+    "vote_share_pct": 0.45445218293963574
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1673,
+    "vote_share_pct": 1.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHARAD KUMAR",
+    "party_short": "AAAP",
+    "votes": 86262,
+    "margin_votes": 17429,
+    "margin_pct": 10.52
+  }
+}

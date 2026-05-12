@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "Gopalapuram",
+  "totals": {
+    "electors": 232124,
+    "votes_polled": 199464,
+    "turnout_pct": 85.92993400079268
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Venkatrao Talari",
+      "party_short": "YSRCP",
+      "votes": 111785,
+      "vote_share_pct": 56.04269442104841,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Muppidi Venkateswara Rao",
+      "party_short": "TDP",
+      "votes": 74324,
+      "vote_share_pct": 37.26186178959612,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Sirra Bharatha Rao",
+      "party_short": "BSP",
+      "votes": 5882,
+      "vote_share_pct": 2.9489030602013395,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Nuthalapati M.Vara Prasad",
+      "party_short": "INC",
+      "votes": 1597,
+      "vote_share_pct": 0.8006457305578951,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Dunna Suman Babu",
+      "party_short": "BJP",
+      "votes": 967,
+      "vote_share_pct": 0.48479926202221957,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3998,
+    "vote_share_pct": 2.0043717161994143
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 911,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Venkatrao Talari",
+    "party_short": "YSRCP",
+    "votes": 111785,
+    "margin_votes": 37461,
+    "margin_pct": 18.78
+  }
+}

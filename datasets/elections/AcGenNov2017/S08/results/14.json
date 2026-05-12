@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Sullah",
+  "totals": {
+    "electors": 96145,
+    "votes_polled": 70486,
+    "turnout_pct": 73.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIPIN SINGH PARMAR",
+      "party_short": "BJP",
+      "votes": 38173,
+      "vote_share_pct": 54.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAGJIWAN PAUL",
+      "party_short": "INC",
+      "votes": 27882,
+      "vote_share_pct": 39.56,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VISHAL SINGH",
+      "party_short": "IND",
+      "votes": 972,
+      "vote_share_pct": 1.38,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "LEKH RAJ",
+      "party_short": "IND",
+      "votes": 728,
+      "vote_share_pct": 1.03,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BIKRAM SINGH RANA",
+      "party_short": "IND",
+      "votes": 460,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 555,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 554,
+    "vote_share_pct": 0.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIPIN SINGH PARMAR",
+    "party_short": "BJP",
+    "votes": 38173,
+    "margin_votes": 10291,
+    "margin_pct": 14.6
+  }
+}

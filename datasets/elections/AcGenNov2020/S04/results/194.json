@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 194,
+  "constituency_name": "Arrah",
+  "totals": {
+    "electors": 329572,
+    "votes_polled": 159332,
+    "turnout_pct": 48.345126406369474
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Amrendra Pratap singh",
+      "party_short": "BJP",
+      "votes": 71781,
+      "vote_share_pct": 45.051213817688854,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Quyamuddin Ansari",
+      "party_short": "CPI(ML)(L)",
+      "votes": 68779,
+      "vote_share_pct": 43.167097632616176,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Hakim Prasad",
+      "party_short": "IND",
+      "votes": 4360,
+      "vote_share_pct": 2.7364245725905656,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sheodas Singh",
+      "party_short": "IND",
+      "votes": 2991,
+      "vote_share_pct": 1.8772123616097207,
+      "gender": "M",
+      "age": 82,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Brajesh Kumar Singh",
+      "party_short": "JAPL",
+      "votes": 1221,
+      "vote_share_pct": 0.7663244043883213,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2811,
+    "vote_share_pct": 1.7642407049431374
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 7389,
+    "vote_share_pct": 4.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Amrendra Pratap singh",
+    "party_short": "BJP",
+    "votes": 71781,
+    "margin_votes": 3002,
+    "margin_pct": 1.88
+  }
+}

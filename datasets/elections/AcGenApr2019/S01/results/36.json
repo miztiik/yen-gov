@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 36,
+  "constituency_name": "Prathipadu",
+  "totals": {
+    "electors": 202808,
+    "votes_polled": 164915,
+    "turnout_pct": 81.31582580568814
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sri Purnachandra Prasad Parvatha",
+      "party_short": "YSRCP",
+      "votes": 77103,
+      "vote_share_pct": 46.75317587848286,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Varupula Raja",
+      "party_short": "TDP",
+      "votes": 72492,
+      "vote_share_pct": 43.95719006761058,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Varupula Tammayyababu",
+      "party_short": "JnP",
+      "votes": 6958,
+      "vote_share_pct": 4.219143194979232,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ummidi Venkatrao",
+      "party_short": "INC",
+      "votes": 3363,
+      "vote_share_pct": 2.0392323318072947,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Chilukuri Ram Kumar",
+      "party_short": "BJP",
+      "votes": 1207,
+      "vote_share_pct": 0.7318921868841525,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2079,
+    "vote_share_pct": 1.2606494254616014
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1713,
+    "vote_share_pct": 1.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sri Purnachandra Prasad Parvatha",
+    "party_short": "YSRCP",
+    "votes": 77103,
+    "margin_votes": 4611,
+    "margin_pct": 2.8
+  }
+}

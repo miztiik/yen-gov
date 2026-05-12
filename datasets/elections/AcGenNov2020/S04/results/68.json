@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "Barari",
+  "totals": {
+    "electors": 271982,
+    "votes_polled": 182851,
+    "turnout_pct": 67.2290813362649
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bijay Singh",
+      "party_short": "JD(U)",
+      "votes": 81752,
+      "vote_share_pct": 44.709626964030825,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Neeraj Kumar",
+      "party_short": "RJD",
+      "votes": 71314,
+      "vote_share_pct": 39.00115394501534,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Bibhash Chandra Choudhary",
+      "party_short": "LJP",
+      "votes": 7920,
+      "vote_share_pct": 4.331395507817841,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rakesh Kumar Raushan",
+      "party_short": "AIMIM",
+      "votes": 6598,
+      "vote_share_pct": 3.608402469770469,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Srikant Mandal",
+      "party_short": "IND",
+      "votes": 1943,
+      "vote_share_pct": 1.062613822183089,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3652,
+    "vote_share_pct": 1.99725459527156
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 9672,
+    "vote_share_pct": 5.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bijay Singh",
+    "party_short": "JD(U)",
+    "votes": 81752,
+    "margin_votes": 10438,
+    "margin_pct": 5.71
+  }
+}

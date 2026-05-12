@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Anni",
+  "totals": {
+    "electors": 77740,
+    "votes_polled": 61989,
+    "turnout_pct": 79.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KISHORI LAL",
+      "party_short": "BJP",
+      "votes": 30559,
+      "vote_share_pct": 49.3,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PARAS RAM",
+      "party_short": "INC",
+      "votes": 24576,
+      "vote_share_pct": 39.65,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "LOKENDER KUMAR",
+      "party_short": "CPM",
+      "votes": 4704,
+      "vote_share_pct": 7.59,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 943,
+    "vote_share_pct": 1.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KISHORI LAL",
+    "party_short": "BJP",
+    "votes": 30559,
+    "margin_votes": 5983,
+    "margin_pct": 9.65
+  },
+  "others": null
+}

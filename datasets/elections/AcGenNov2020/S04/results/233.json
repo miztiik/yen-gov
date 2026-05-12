@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 233,
+  "constituency_name": "Atri",
+  "totals": {
+    "electors": 310443,
+    "votes_polled": 171418,
+    "turnout_pct": 55.2172218410465
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AJAY YADAV",
+      "party_short": "RJD",
+      "votes": 62658,
+      "vote_share_pct": 36.552754086502,
+      "is_winner": true,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANORMA DEVI",
+      "party_short": "JD(U)",
+      "votes": 54727,
+      "vote_share_pct": 31.92605210654657,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARVIND KUMAR SINGH",
+      "party_short": "LJP",
+      "votes": 25873,
+      "vote_share_pct": 15.093514100036169,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AJAY KUMAR SINHA",
+      "party_short": "RLSP",
+      "votes": 9442,
+      "vote_share_pct": 5.508173004001914,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUBHAS CHANDRA BOSE",
+      "party_short": "IND",
+      "votes": 3036,
+      "vote_share_pct": 1.7711092184018014,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4561,
+    "vote_share_pct": 2.66074741275712
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 11121,
+    "vote_share_pct": 6.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AJAY YADAV",
+    "party_short": "RJD",
+    "votes": 62658,
+    "margin_votes": 7931,
+    "margin_pct": 4.63
+  }
+}

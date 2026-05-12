@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 94,
+  "constituency_name": "Bellary City",
+  "totals": {
+    "electors": 259221,
+    "votes_polled": 178350,
+    "turnout_pct": 68.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nara Bharath Reddy",
+      "party_short": "INC",
+      "votes": 86440,
+      "vote_share_pct": 48.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Gali Lakshmi Aruna",
+      "party_short": "KRPP",
+      "votes": 48577,
+      "vote_share_pct": 27.24,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "G. Somasekhara Reddy",
+      "party_short": "BJP",
+      "votes": 37155,
+      "vote_share_pct": 20.83,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "V.dodda Keshavareddy",
+      "party_short": "AAAP",
+      "votes": 716,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Anil H Lad",
+      "party_short": "JD(S)",
+      "votes": 610,
+      "vote_share_pct": 0.34,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 983,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 3869,
+    "vote_share_pct": 2.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nara Bharath Reddy",
+    "party_short": "INC",
+    "votes": 86440,
+    "margin_votes": 37863,
+    "margin_pct": 21.23
+  }
+}

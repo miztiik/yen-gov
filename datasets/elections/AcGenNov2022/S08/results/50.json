@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Arki",
+  "totals": {
+    "electors": 95788,
+    "votes_polled": 73536,
+    "turnout_pct": 76.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sanjay",
+      "party_short": "INC",
+      "votes": 30897,
+      "vote_share_pct": 42.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rajender",
+      "party_short": "IND",
+      "votes": 26075,
+      "vote_share_pct": 35.46,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Govind Ram",
+      "party_short": "BJP",
+      "votes": 13444,
+      "vote_share_pct": 18.28,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Jai Dev Singh",
+      "party_short": "RTRYDVBHMP",
+      "votes": 1747,
+      "vote_share_pct": 2.38,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Jeet Ram",
+      "party_short": "AAAP",
+      "votes": 316,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 466,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 591,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sanjay",
+    "party_short": "INC",
+    "votes": 30897,
+    "margin_votes": 4822,
+    "margin_pct": 6.56
+  }
+}

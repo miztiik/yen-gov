@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 61,
+  "constituency_name": "Theog",
+  "totals": {
+    "electors": 78540,
+    "votes_polled": 58784,
+    "turnout_pct": 74.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAKESH SINGHA",
+      "party_short": "CPM",
+      "votes": 24791,
+      "vote_share_pct": 42.17,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAKESH VERMA",
+      "party_short": "BJP",
+      "votes": 22808,
+      "vote_share_pct": 38.8,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DEEPAK RATHOUR",
+      "party_short": "INC",
+      "votes": 9101,
+      "vote_share_pct": 15.48,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DEVI RAM SHARMA",
+      "party_short": "IND",
+      "votes": 641,
+      "vote_share_pct": 1.09,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ROSHAN LAL",
+      "party_short": "IND",
+      "votes": 294,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 383,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAKESH SINGHA",
+    "party_short": "CPM",
+    "votes": 24791,
+    "margin_votes": 1983,
+    "margin_pct": 3.37
+  },
+  "others": null
+}

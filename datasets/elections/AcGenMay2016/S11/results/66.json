@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "OLLUR",
+  "totals": {
+    "electors": 193404,
+    "votes_polled": 150719,
+    "turnout_pct": 77.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADV. K. RAJAN",
+      "party_short": "CPI",
+      "votes": 71666,
+      "vote_share_pct": 47.55,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M P VINCENT",
+      "party_short": "INC",
+      "votes": 58418,
+      "vote_share_pct": 38.76,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "P.K. SANTHOSH (LALA)",
+      "party_short": "BDJS",
+      "votes": 17694,
+      "vote_share_pct": 11.74,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAJEED MULLAKARA",
+      "party_short": "PDP",
+      "votes": 696,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SAJIMON MANJAMATTAM",
+      "party_short": "CPIM",
+      "votes": 334,
+      "vote_share_pct": 0.22,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1151,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 760,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADV. K. RAJAN",
+    "party_short": "CPI",
+    "votes": 71666,
+    "margin_votes": 13248,
+    "margin_pct": 8.79
+  }
+}

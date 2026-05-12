@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 144,
+  "constituency_name": "Matihani",
+  "totals": {
+    "electors": 338858,
+    "votes_polled": 207048,
+    "turnout_pct": 61.101700417283936
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Raj Kumar Singh",
+      "party_short": "LJP",
+      "votes": 61364,
+      "vote_share_pct": 29.63757196398903,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Narendra Kumar Singh @ Bogo Singh",
+      "party_short": "JD(U)",
+      "votes": 61031,
+      "vote_share_pct": 29.476739693211236,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Rajendra Prasad Singh",
+      "party_short": "CPIM",
+      "votes": 60599,
+      "vote_share_pct": 29.26809242301302,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Amresh Ray",
+      "party_short": "IND",
+      "votes": 4378,
+      "vote_share_pct": 2.1144855299254277,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Hemant Kumar",
+      "party_short": "IND",
+      "votes": 3258,
+      "vote_share_pct": 1.5735481627448706,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 6733,
+    "vote_share_pct": 3.2519029403809747
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 9685,
+    "vote_share_pct": 4.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Raj Kumar Singh",
+    "party_short": "LJP",
+    "votes": 61364,
+    "margin_votes": 333,
+    "margin_pct": 0.16
+  }
+}

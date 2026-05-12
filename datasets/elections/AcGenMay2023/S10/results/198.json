@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 198,
+  "constituency_name": "Arkalgud",
+  "totals": {
+    "electors": 227985,
+    "votes_polled": 194067,
+    "turnout_pct": 85.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A. Manju",
+      "party_short": "JD(S)",
+      "votes": 74844,
+      "vote_share_pct": 38.57,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M.t. Krishnegowda",
+      "party_short": "IND",
+      "votes": 54946,
+      "vote_share_pct": 28.31,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "H.p. Sridhargowda",
+      "party_short": "INC",
+      "votes": 35974,
+      "vote_share_pct": 18.54,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "H. Yogaramesha",
+      "party_short": "BJP",
+      "votes": 19549,
+      "vote_share_pct": 10.07,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Harish Athni",
+      "party_short": "BSP",
+      "votes": 2400,
+      "vote_share_pct": 1.24,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 624,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5730,
+    "vote_share_pct": 2.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A. Manju",
+    "party_short": "JD(S)",
+    "votes": 74844,
+    "margin_votes": 19898,
+    "margin_pct": 10.25
+  }
+}

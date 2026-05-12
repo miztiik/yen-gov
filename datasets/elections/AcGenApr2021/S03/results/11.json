@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "DHOLAI",
+  "totals": {
+    "electors": 191374,
+    "votes_polled": 150051,
+    "turnout_pct": 78.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARIMAL SUKLA BAIDYA",
+      "party_short": "BJP",
+      "votes": 82568,
+      "vote_share_pct": 55.03,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "KAMAKHYA PRASAD MALA",
+      "party_short": "INC",
+      "votes": 62176,
+      "vote_share_pct": 41.44,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "GOUR CHANDRA DAS",
+      "party_short": "SUCI",
+      "votes": 1834,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PARIMAL DAS",
+      "party_short": "IND",
+      "votes": 750,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DIPAK RANJAN ROY",
+      "party_short": "IND",
+      "votes": 425,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1561,
+    "vote_share_pct": 1.04
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 737,
+    "vote_share_pct": 0.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARIMAL SUKLA BAIDYA",
+    "party_short": "BJP",
+    "votes": 82568,
+    "margin_votes": 20392,
+    "margin_pct": 13.59
+  }
+}

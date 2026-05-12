@@ -5,6 +5,15 @@
   "states": {
     "S01": [
       {
+        "event_id": "AcGenApr2019",
+        "kind": "assembly",
+        "display": "Andhra Pradesh Assembly · April 2019",
+        "polled_on": "2019-04-11",
+        "term_end_estimated": "2024-04-10",
+        "data_status": "complete",
+        "notes": "Held concurrently with Lok Sabha 2019 phase 1 (11 April 2019). 175 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
+      {
         "event_id": "AcGenJun2024",
         "kind": "assembly",
         "display": "Andhra Pradesh Assembly · May 2024",
@@ -29,6 +38,24 @@
     ],
     "S03": [
       {
+        "event_id": "AcGenApr2016",
+        "kind": "assembly",
+        "display": "Assam Assembly · April 2016",
+        "polled_on": "2016-04-11",
+        "term_end_estimated": "2021-04-10",
+        "data_status": "complete",
+        "notes": "Two-phase poll: 4 April 2016 and 11 April 2016. 126 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
+      {
+        "event_id": "AcGenApr2021",
+        "kind": "assembly",
+        "display": "Assam Assembly · March-April 2021",
+        "polled_on": "2021-04-06",
+        "term_end_estimated": "2026-04-05",
+        "data_status": "complete",
+        "notes": "Three-phase poll: 27 March, 1 April, 6 April 2021. 126 ACs. Shared event_id with Kerala 2021. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
+      {
         "event_id": "AcGenMay2026",
         "kind": "assembly",
         "display": "Assam Assembly · May 2026",
@@ -40,6 +67,15 @@
     ],
     "S04": [
       {
+        "event_id": "AcGenNov2020",
+        "kind": "assembly",
+        "display": "Bihar Assembly · October-November 2020",
+        "polled_on": "2020-11-07",
+        "term_end_estimated": "2025-11-06",
+        "data_status": "complete",
+        "notes": "Three-phase poll: 28 October, 3 November, 7 November 2020. 243 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
+      {
         "event_id": "AcGenNov2025",
         "kind": "assembly",
         "display": "Bihar Assembly · November 2025",
@@ -50,7 +86,37 @@
         "notes": "Statistical Report Section 10 ingested 2026-05-12 from category_id=16 (UI: https://www.eci.gov.in/statistical-report/ae/2025/16). 243 ACs."
       }
     ],
+    "S05": [
+      {
+        "event_id": "AcGenFeb2017",
+        "kind": "assembly",
+        "display": "Goa Assembly · February 2017",
+        "polled_on": "2017-02-04",
+        "term_end_estimated": "2022-02-03",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 4 February 2017. 40 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
+      {
+        "event_id": "AcGenFeb2022",
+        "kind": "assembly",
+        "display": "Goa Assembly · February 2022",
+        "polled_on": "2022-02-14",
+        "term_end_estimated": "2027-02-13",
+        "default": true,
+        "data_status": "complete",
+        "notes": "Single-phase poll on 14 February 2022. 40 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      }
+    ],
     "S07": [
+      {
+        "event_id": "AcGenOct2019",
+        "kind": "assembly",
+        "display": "Haryana Assembly · October 2019",
+        "polled_on": "2019-10-21",
+        "term_end_estimated": "2024-10-20",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 21 October 2019. 90 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
       {
         "event_id": "AcGenOct2024",
         "kind": "assembly",
@@ -61,7 +127,67 @@
         "data_status": "complete"
       }
     ],
+    "S08": [
+      {
+        "event_id": "AcGenNov2017",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · November 2017",
+        "polled_on": "2017-11-09",
+        "term_end_estimated": "2022-11-08",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 9 November 2017. 68 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
+      {
+        "event_id": "AcGenNov2022",
+        "kind": "assembly",
+        "display": "Himachal Pradesh Assembly · November 2022",
+        "polled_on": "2022-11-12",
+        "term_end_estimated": "2027-11-11",
+        "default": true,
+        "data_status": "complete",
+        "notes": "Single-phase poll on 12 November 2022. 68 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      }
+    ],
+    "S10": [
+      {
+        "event_id": "AcGenMay2018",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · May 2018",
+        "polled_on": "2018-05-12",
+        "term_end_estimated": "2023-05-11",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 12 May 2018 (2 ACs polled later). 223 ACs in Section 10 dump. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
+      {
+        "event_id": "AcGenMay2023",
+        "kind": "assembly",
+        "display": "Karnataka Assembly · May 2023",
+        "polled_on": "2023-05-10",
+        "term_end_estimated": "2028-05-09",
+        "default": true,
+        "data_status": "complete",
+        "notes": "Single-phase poll on 10 May 2023. 224 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      }
+    ],
     "S11": [
+      {
+        "event_id": "AcGenMay2016",
+        "kind": "assembly",
+        "display": "Kerala Assembly · May 2016",
+        "polled_on": "2016-05-16",
+        "term_end_estimated": "2021-05-15",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 16 May 2016. 140 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
+      {
+        "event_id": "AcGenApr2021",
+        "kind": "assembly",
+        "display": "Kerala Assembly · April 2021",
+        "polled_on": "2021-04-06",
+        "term_end_estimated": "2026-04-05",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 6 April 2021. 140 ACs. Shared event_id with Assam 2021. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
       {
         "event_id": "AcGenMay2026",
         "kind": "assembly",
@@ -167,6 +293,15 @@
     ],
     "S27": [
       {
+        "event_id": "AcGenDec2019",
+        "kind": "assembly",
+        "display": "Jharkhand Assembly · November-December 2019",
+        "polled_on": "2019-12-20",
+        "term_end_estimated": "2024-12-19",
+        "data_status": "complete",
+        "notes": "Five-phase poll: 30 November, 7 December, 12 December, 16 December, 20 December 2019. 81 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
+      {
         "event_id": "AcGenNov2024",
         "kind": "assembly",
         "display": "Jharkhand Assembly · November 2024",
@@ -189,6 +324,15 @@
       }
     ],
     "U05": [
+      {
+        "event_id": "AcGenFeb2020",
+        "kind": "assembly",
+        "display": "NCT of Delhi Assembly · February 2020",
+        "polled_on": "2020-02-08",
+        "term_end_estimated": "2025-02-07",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 8 February 2020. 70 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: [])."
+      },
       {
         "event_id": "AcGenFeb2025",
         "kind": "assembly",

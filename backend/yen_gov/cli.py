@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import typer
 
 from yen_gov.core.http import Fetcher
 from yen_gov.core.io import write_artifact
-from yen_gov.core.models import ProcessingConfig, SourceRef
+from yen_gov.core.models import PartyEntry, PartiesSnapshot, ProcessingConfig, SourceRef
 from yen_gov.pipeline.compose import (
     compose_result_summary_from_section_10,
     eci_code_by_short_from_partywise,
@@ -636,6 +637,250 @@ def eci_statreport_emit(
             f"{p.party_short}={p.seats_won}" for p in summary.party_totals[:5]
         )
     )
+
+
+# State-name token → ECI state code. Mirrors NAME_TO_ECI used by the
+# (now-deleted) recon tool; used by eci-statreport-emit-local to
+# auto-detect (state, year) from the drop-dir filename.
+_LOCAL_NAME_TO_ECI: dict[str, str] = {
+    "andhra_pradesh": "S01", "arunachal_pradesh": "S02", "assam": "S03",
+    "bihar": "S04", "goa": "S05", "gujarat": "S06", "haryana": "S07",
+    "himachal_pradesh": "S08", "karnataka": "S10", "kerala": "S11",
+    "madhya_pradesh": "S12", "maharashtra": "S13", "manipur": "S14",
+    "meghalaya": "S15", "mizoram": "S16", "nagaland": "S17",
+    "odisha": "S18", "punjab": "S19", "rajasthan": "S20", "sikkim": "S21",
+    "tamil_nadu": "S22", "tripura": "S23", "uttar_pradesh": "S24",
+    "west_bengal": "S25", "chhattisgarh": "S26", "jharkhand": "S27",
+    "uttarakhand": "S28", "telangana": "S29",
+    "delhi": "U05", "puducherry": "U07", "jammu_kashmir": "U08",
+}
+
+# Filename pattern: ``YYYY_state_<name>_*.xlsx`` (the shape produced by
+# old.eci.gov.in's Section 10 hand-download flow). See
+# notes/eci-portal-recon-2026-05-11.md for sample filenames.
+_LOCAL_FNAME_RE = re.compile(
+    r"^(?P<year>\d{4})_state_(?P<state>[a-z][a-z_]*?)(?=_[A-Z0-9]|[-. ]|$)",
+)
+
+
+@app.command("eci-statreport-emit-local")
+def eci_statreport_emit_local(
+    file: Path = typer.Argument(
+        ..., help="Path to a hand-downloaded Section 10 XLSX file.",
+        exists=True, file_okay=True, dir_okay=False,
+    ),
+    state: str = typer.Option(
+        None, "--state",
+        help="ECI state code (e.g. S03). Auto-detected from filename "
+             "'YYYY_state_<name>_*.xlsx' if omitted.",
+    ),
+    year: int = typer.Option(
+        None, "--year",
+        help="Election year. Auto-detected from filename if omitted.",
+    ),
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root.",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+    config: Path = typer.Option(
+        None, "--config", "-c",
+        help="Path to processing.json. Defaults to <root>/config/processing.json.",
+    ),
+    delete_source_on_success: bool = typer.Option(
+        True, "--delete-source/--keep-source",
+        help="Delete the source XLSX after successful emit. Drop-dir is "
+             "ephemeral by convention (datasets/raw_ephemeral_datasets/).",
+    ),
+) -> None:
+    """Phase B per-AC emit from a LOCAL Section 10 XLSX file (no network).
+
+    Historical assembly elections (2016-2023) that predate the live-results
+    portal are not retrievable through the regular ``eci-statreport-emit``
+    path: there is no `/api/election-result` entry, no static catalog page,
+    and most are served only as XLSX downloads behind old.eci.gov.in's
+    finicky portal. The "ingest" for those is therefore a hand-download
+    into ``datasets/raw_ephemeral_datasets/`` followed by this command.
+
+    Because the bytes were obtained outside our Fetcher, this command emits
+    artifacts with ``sources: []`` per ADR-0002 — the "empty list = hand-
+    authored / out-of-band ingest" signal. Future re-ingest from a proper
+    archive URL family can replace these in place.
+    """
+    # --- Resolve (state, year) ------------------------------------------------
+    if state is None or year is None:
+        m = _LOCAL_FNAME_RE.match(file.name)
+        if m is None:
+            raise typer.BadParameter(
+                f"could not auto-detect state/year from filename {file.name!r}; "
+                f"pass --state and --year explicitly. Expected pattern: "
+                f"'YYYY_state_<name>_*.xlsx'.",
+                param_hint="--state/--year",
+            )
+        if year is None:
+            year = int(m.group("year"))
+        if state is None:
+            token = m.group("state").rstrip("_").lower()
+            if token not in _LOCAL_NAME_TO_ECI:
+                raise typer.BadParameter(
+                    f"unknown state token {token!r} in filename {file.name!r}; "
+                    f"pass --state explicitly.",
+                    param_hint="--state",
+                )
+            state = _LOCAL_NAME_TO_ECI[token]
+
+    # --- Resolve event (must be registered) -----------------------------------
+    try:
+        info = event_info_for(state, year)
+    except KeyError as exc:
+        raise typer.BadParameter(str(exc), param_hint="--state/--year") from exc
+    event = info.event_id
+    typer.echo(f"file:        {file.name}")
+    typer.echo(f"state/year:  {state} / {year}")
+    typer.echo(f"event:       {event} (has_partywise={info.has_partywise})")
+
+    # --- Load config (top_n / collapse_others) --------------------------------
+    config_path = config or (root / "config" / "processing.json")
+    config_doc = json.loads(config_path.read_text(encoding="utf-8"))
+    for key in ("$schema", "$schema_version"):
+        config_doc.pop(key, None)
+    cfg = ProcessingConfig.model_validate(config_doc)
+
+    # --- Parse + emit ---------------------------------------------------------
+    schema_dir = root / "datasets" / "schemas"
+    cr_schema = json.loads(
+        (schema_dir / "result.constituency.schema.json").read_text(encoding="utf-8")
+    )
+    summary_schema = json.loads(
+        (schema_dir / "result.summary.schema.json").read_text(encoding="utf-8")
+    )
+
+    raw = parse_detailed_results(file.read_bytes())
+    typer.echo(f"parsed:      {len(raw.sections)} AC sections")
+
+    # sources=[] per ADR-0002 (hand-authored / out-of-band ingest)
+    results = to_constituency_results(
+        raw,
+        election=event,
+        state=state,
+        top_n=cfg.results.top_n_candidates,
+        collapse_others=cfg.results.collapse_others,
+        sources=[],
+        party_eci_codes=None,
+    )
+    output_dir = root / "datasets" / "elections" / event / state
+    results_dir = output_dir / "results"
+    results_dir.mkdir(parents=True, exist_ok=True)
+    for cr in results:
+        write_artifact(
+            path=results_dir / f"{cr.eci_no}.json",
+            schema_id=cr._schema_id,
+            schema_version=cr._schema_version,
+            payload=cr.body_payload(),
+            sources=cr.sources_payload(),
+            schema_for_validation=cr_schema,
+        )
+
+    summary = compose_result_summary_from_section_10(
+        raw, election=event, state=state, sources=[], party_eci_codes=None,
+    )
+    summary_path = output_dir / "result.summary.json"
+    write_artifact(
+        path=summary_path,
+        schema_id=summary._schema_id,
+        schema_version=summary._schema_version,
+        payload=summary.body_payload(),
+        sources=summary.sources_payload(),
+        schema_for_validation=summary_schema,
+    )
+
+    # parties.json: hand-import path has no Section 3 (the operator only
+    # downloaded the Section 10 XLSX). Fall back to the same registry-
+    # resolve idea used by the archived /api/ path, but treat the *unique
+    # set of party_shorts present in Section 10 candidates* as the "which
+    # parties participated\" claim. Independents and NOTA are excluded.
+    # See docs/architecture/backend/sources-eci.md §\"When parties.json
+    # gets emitted (and when it doesn't)\" for the wider doctrine.
+    parties_schema = json.loads(
+        (schema_dir / "party.schema.json").read_text(encoding="utf-8")
+    )
+    parties_path = output_dir / "parties.json"
+    section_10_shorts: list[str] = sorted({
+        c.party_short
+        for sec in raw.sections
+        for c in sec.candidates
+        if not c.is_nota and not c.is_independent
+    })
+    registry = load_eci_party_registry(root / "datasets" / "elections")
+    resolved = [s for s in section_10_shorts if s in registry]
+    unresolved = [s for s in section_10_shorts if s not in registry]
+    if resolved:
+        # Aggregated artifact per ADR-0002: sources is the union of every
+        # registry source-URL that contributed a resolved short. The local-
+        # emit path itself was hand-authored (no upstream URL of its own),
+        # so the only sources cited are the live cohorts whose published
+        # eci_code we are reusing.
+        contributing_urls: set[str] = set()
+        for s in resolved:
+            contributing_urls.update(registry[s].source_urls)
+        snapshot = PartiesSnapshot(
+            sources=[
+                SourceRef(url=url, fetched_at=registry[resolved[0]].source_urls and "2026-05-13T00:00:00Z")  # noqa: E501
+                for url in sorted(contributing_urls)
+            ],
+            election=event,
+            parties=[
+                PartyEntry(
+                    eci_code=registry[s].eci_code,
+                    short_name=s,
+                    full_name=registry[s].full_name,
+                )
+                for s in resolved
+            ],
+        )
+        write_artifact(
+            path=parties_path,
+            schema_id=snapshot._schema_id,
+            schema_version=snapshot._schema_version,
+            payload=snapshot.body_payload(),
+            sources=snapshot.sources_payload(),
+            schema_for_validation=parties_schema,
+        )
+        typer.echo(
+            f"parties.json: {len(resolved)} parties "
+            + (f"({len(unresolved)} dropped \u2014 absent from registry: "
+               f"{', '.join(unresolved[:10])}"
+               + ("\u2026" if len(unresolved) > 10 else "")
+               + ")" if unresolved else "")
+        )
+    else:
+        typer.echo(
+            f"parties.json: SKIPPED (zero of {len(section_10_shorts)} "
+            "Section-10 party_shorts resolved against registry)"
+        )
+
+    skipped = len(raw.sections) - len(results)
+    typer.echo(
+        f"emit:        OK \u2014 {len(results)} ACs into {results_dir}"
+        + (f" (skipped {skipped} countermanded)" if skipped else "")
+    )
+    typer.echo(f"summary:     {summary_path}")
+
+    # SQLite + CSV bundles parity with the live emit path. Psephlab and
+    # the per-AC winner overlay both load results.sqlite directly, so
+    # skipping it here would render the historical events but blank the
+    # winners-on-map and 404 every Psephlab route. Same rationale for
+    # the CSV bundle (researcher-facing).
+    from yen_gov.emit.sqlite import emit_state_sqlite
+    from yen_gov.emit.csv_bundle import emit_state_csv
+    sqlite_path = emit_state_sqlite(state_dir=output_dir)
+    typer.echo(f"sqlite:      OK \u2014 {sqlite_path}")
+    csv_path = emit_state_csv(state_dir=output_dir)
+    typer.echo(f"csv:         OK \u2014 {csv_path}")
+
+    if delete_source_on_success:
+        file.unlink()
+        typer.echo(f"cleaned:     removed source {file}")
 
 
 @app.command("ingest-energy-power-plants")

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 35,
+  "constituency_name": "Safidon",
+  "totals": {
+    "electors": 179332,
+    "votes_polled": 135936,
+    "turnout_pct": 75.80130707291504
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUBHASH GANGOLI",
+      "party_short": "INC",
+      "votes": 57468,
+      "vote_share_pct": 42.275776836158194,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BACHAN SINGH ARYA",
+      "party_short": "BJP",
+      "votes": 53810,
+      "vote_share_pct": 39.58480461393597,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DAYANAND KUNDU",
+      "party_short": "JNJP",
+      "votes": 7772,
+      "vote_share_pct": 5.717396421845574,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJBIR SHARMA",
+      "party_short": "IND",
+      "votes": 7361,
+      "vote_share_pct": 5.415048258003766,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VIJAY SAINI",
+      "party_short": "LTSP",
+      "votes": 5617,
+      "vote_share_pct": 4.132091572504708,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 355,
+    "vote_share_pct": 0.2611523069679849
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3553,
+    "vote_share_pct": 2.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUBHASH GANGOLI",
+    "party_short": "INC",
+    "votes": 57468,
+    "margin_votes": 3658,
+    "margin_pct": 2.69
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 165,
+  "constituency_name": "Punganur",
+  "totals": {
+    "electors": 229643,
+    "votes_polled": 195868,
+    "turnout_pct": 85.29238862059806
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PEDDIREDDI RAMACHANDRA REDDY",
+      "party_short": "YSRCP",
+      "votes": 107431,
+      "vote_share_pct": 54.84867359650377,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "N.ANESHA REDDY",
+      "party_short": "TDP",
+      "votes": 63876,
+      "vote_share_pct": 32.61175893969408,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BODE RAMACHANDRA YADAV",
+      "party_short": "JnP",
+      "votes": 16452,
+      "vote_share_pct": 8.399534380296934,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "S.SAFIYA",
+      "party_short": "INC",
+      "votes": 2007,
+      "vote_share_pct": 1.024669675495742,
+      "gender": "F",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GANNA MADAN MOHAN BABU",
+      "party_short": "BJP",
+      "votes": 1472,
+      "vote_share_pct": 0.7515265382808831,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3287,
+    "vote_share_pct": 1.6781710131312924
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1343,
+    "vote_share_pct": 0.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PEDDIREDDI RAMACHANDRA REDDY",
+    "party_short": "YSRCP",
+    "votes": 107431,
+    "margin_votes": 43555,
+    "margin_pct": 22.24
+  }
+}

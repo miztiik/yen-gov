@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 49,
+  "constituency_name": "THRITHALA",
+  "totals": {
+    "electors": 178784,
+    "votes_polled": 141021,
+    "turnout_pct": 78.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V.T. BALRAM",
+      "party_short": "INC",
+      "votes": 66505,
+      "vote_share_pct": 47.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUBAIDA ISHAC",
+      "party_short": "CPM",
+      "votes": 55958,
+      "vote_share_pct": 39.68,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PROF.V.T.REMA",
+      "party_short": "BJP",
+      "votes": 14510,
+      "vote_share_pct": 10.29,
+      "gender": "F",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "C.P.MOHAMMEDALI",
+      "party_short": "SDPI",
+      "votes": 1313,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUBAIDA",
+      "party_short": "IND",
+      "votes": 1080,
+      "vote_share_pct": 0.77,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 549,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1106,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V.T. BALRAM",
+    "party_short": "INC",
+    "votes": 66505,
+    "margin_votes": 10547,
+    "margin_pct": 7.48
+  }
+}

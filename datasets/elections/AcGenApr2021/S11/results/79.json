@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 79,
+  "constituency_name": "VYPEN",
+  "totals": {
+    "electors": 172205,
+    "votes_polled": 130596,
+    "turnout_pct": 75.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.n. Unnikrishnan",
+      "party_short": "CPI(M)",
+      "votes": 53858,
+      "vote_share_pct": 41.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Deepak Joy",
+      "party_short": "INC",
+      "votes": 45657,
+      "vote_share_pct": 34.96,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr.job Chakalakal",
+      "party_short": "TTPty",
+      "votes": 16707,
+      "vote_share_pct": 12.79,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Adv.k.s. Shaiju",
+      "party_short": "BJP",
+      "votes": 13540,
+      "vote_share_pct": 10.37,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Dr.m.k. Mukundan",
+      "party_short": "IND",
+      "votes": 309,
+      "vote_share_pct": 0.24,
+      "gender": "M",
+      "age": 73,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 525,
+    "vote_share_pct": 0.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.n. Unnikrishnan",
+    "party_short": "CPI(M)",
+    "votes": 53858,
+    "margin_votes": 8201,
+    "margin_pct": 6.28
+  },
+  "others": null
+}

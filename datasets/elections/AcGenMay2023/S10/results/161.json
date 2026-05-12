@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 161,
+  "constituency_name": "C.V. Raman Nagar (SC)",
+  "totals": {
+    "electors": 271340,
+    "votes_polled": 129325,
+    "turnout_pct": 47.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "S. Raghu",
+      "party_short": "BJP",
+      "votes": 69228,
+      "vote_share_pct": 53.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Anand Kumar. S",
+      "party_short": "INC",
+      "votes": 52833,
+      "vote_share_pct": 40.85,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Mohan Dasari",
+      "party_short": "AAAP",
+      "votes": 2967,
+      "vote_share_pct": 2.29,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Chaitra. G",
+      "party_short": "UPJP",
+      "votes": 892,
+      "vote_share_pct": 0.69,
+      "gender": "F",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "P. Ramesh",
+      "party_short": "IND",
+      "votes": 448,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1999,
+    "vote_share_pct": 1.55
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 958,
+    "vote_share_pct": 0.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "S. Raghu",
+    "party_short": "BJP",
+    "votes": 69228,
+    "margin_votes": 16395,
+    "margin_pct": 12.68
+  }
+}

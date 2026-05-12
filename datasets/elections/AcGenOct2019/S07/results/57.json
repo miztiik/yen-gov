@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Bhiwani",
+  "totals": {
+    "electors": 216968,
+    "votes_polled": 130190,
+    "turnout_pct": 60.0042402566277
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GHANSHYAM SARAF",
+      "party_short": "BJP",
+      "votes": 61704,
+      "vote_share_pct": 47.39534526461326,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. SHIV SHANKER BHARDWAJ",
+      "party_short": "JNJP",
+      "votes": 33820,
+      "vote_share_pct": 25.97741762040095,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AMAR SINGH HALUWASIA",
+      "party_short": "INC",
+      "votes": 18682,
+      "vote_share_pct": 14.34979645134035,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AMIT BALMIKI",
+      "party_short": "BSP",
+      "votes": 8012,
+      "vote_share_pct": 6.15408249481527,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "AMAN TANWAR RAGHAV",
+      "party_short": "LTSP",
+      "votes": 1785,
+      "vote_share_pct": 1.3710730470850296,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 777,
+    "vote_share_pct": 0.5968200322605424
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 5410,
+    "vote_share_pct": 4.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GHANSHYAM SARAF",
+    "party_short": "BJP",
+    "votes": 61704,
+    "margin_votes": 27884,
+    "margin_pct": 21.42
+  }
+}

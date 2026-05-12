@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 110,
+  "constituency_name": "Naoboicha",
+  "totals": {
+    "electors": 184281,
+    "votes_polled": 162236,
+    "turnout_pct": 88.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAMUN IMDADUL HAQUE CHAWDHURY",
+      "party_short": "AIUDF",
+      "votes": 56003,
+      "vote_share_pct": 34.52,
+      "is_winner": true,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAO GAJENDRA SINGH",
+      "party_short": "BJP",
+      "votes": 54770,
+      "vote_share_pct": 33.76,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANJAY RAJ SUBBA",
+      "party_short": "INC",
+      "votes": 33862,
+      "vote_share_pct": 20.87,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JAYANTA KHAUND",
+      "party_short": "AGP",
+      "votes": 8070,
+      "vote_share_pct": 4.97,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SIMANTA BORUAH",
+      "party_short": "IND",
+      "votes": 2787,
+      "vote_share_pct": 1.72,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1176,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 5568,
+    "vote_share_pct": 3.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAMUN IMDADUL HAQUE CHAWDHURY",
+    "party_short": "AIUDF",
+    "votes": 56003,
+    "margin_votes": 1233,
+    "margin_pct": 0.76
+  }
+}

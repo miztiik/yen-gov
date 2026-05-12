@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 70,
+  "constituency_name": "Narnaul",
+  "totals": {
+    "electors": 144066,
+    "votes_polled": 98894,
+    "turnout_pct": 68.64492663084974
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Om Prakash Yadav",
+      "party_short": "BJP",
+      "votes": 42732,
+      "vote_share_pct": 43.209901510708434,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kamlesh Saini",
+      "party_short": "JNJP",
+      "votes": 28017,
+      "vote_share_pct": 28.3303334883815,
+      "gender": "F",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Narender Singh",
+      "party_short": "INC",
+      "votes": 25009,
+      "vote_share_pct": 25.2886929439602,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Comrade Sita Ram",
+      "party_short": "SUCI(C)",
+      "votes": 845,
+      "vote_share_pct": 0.8544502194268611,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Krishan Kumar",
+      "party_short": "BSP",
+      "votes": 560,
+      "vote_share_pct": 0.566262867312476,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 447,
+    "vote_share_pct": 0.45199911015835137
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1284,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Om Prakash Yadav",
+    "party_short": "BJP",
+    "votes": 42732,
+    "margin_votes": 14715,
+    "margin_pct": 14.88
+  }
+}

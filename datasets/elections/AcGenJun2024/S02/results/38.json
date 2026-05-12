@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-  "$schema_version": "3.1",
+  "$schema_version": "3.2",
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AR/10-Detailed-Results.xlsx",

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 150,
+  "constituency_name": "Yelahanka",
+  "totals": {
+    "electors": 387663,
+    "votes_polled": 245135,
+    "turnout_pct": 63.23404606578394
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "S.R.VISHWANATH",
+      "party_short": "BJP",
+      "votes": 120110,
+      "vote_share_pct": 48.99749117833031,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "A M HANUMANTHEGOWDA",
+      "party_short": "JD(S)",
+      "votes": 77607,
+      "vote_share_pct": 31.658881840618434,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M N GOPALAKRISHNA",
+      "party_short": "INC",
+      "votes": 41449,
+      "vote_share_pct": 16.90864217675974,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "H MARAPPA",
+      "party_short": "PPRP",
+      "votes": 914,
+      "vote_share_pct": 0.3728557733493789,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "HANUMANTHEGOWDA H A",
+      "party_short": "IND",
+      "votes": 547,
+      "vote_share_pct": 0.22314235013359984,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2051,
+    "vote_share_pct": 0.8366818283802803
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2457,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "S.R.VISHWANATH",
+    "party_short": "BJP",
+    "votes": 120110,
+    "margin_votes": 42503,
+    "margin_pct": 17.34
+  }
+}

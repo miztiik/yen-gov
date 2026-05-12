@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "Shanti Nagar",
+  "totals": {
+    "electors": 226046,
+    "votes_polled": 121420,
+    "turnout_pct": 53.714730630048756
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "N A HARIS",
+      "party_short": "INC",
+      "votes": 60009,
+      "vote_share_pct": 49.42266512930324,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K VASUDEVAMURTHY",
+      "party_short": "BJP",
+      "votes": 41804,
+      "vote_share_pct": 34.4292538296821,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "N R SRIDHAR REDDY",
+      "party_short": "JD(S)",
+      "votes": 13569,
+      "vote_share_pct": 11.175259430077418,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RENUKA VISHWANATHAN",
+      "party_short": "AAAP",
+      "votes": 2658,
+      "vote_share_pct": 2.1890957008730028,
+      "gender": "F",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JOHN PAUL",
+      "party_short": "RMVP",
+      "votes": 340,
+      "vote_share_pct": 0.2800197661011366,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1386,
+    "vote_share_pct": 1.1414923406358095
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 1654,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "N A HARIS",
+    "party_short": "INC",
+    "votes": 60009,
+    "margin_votes": 18205,
+    "margin_pct": 14.99
+  }
+}

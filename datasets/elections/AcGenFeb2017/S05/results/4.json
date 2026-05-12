@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 4,
+  "constituency_name": "Tivim",
+  "totals": {
+    "electors": 26575,
+    "votes_polled": 22560,
+    "turnout_pct": 84.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NILKANTH RAMNATH HALARNKAR",
+      "party_short": "INC",
+      "votes": 11099,
+      "vote_share_pct": 49.2,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KIRAN MOHAN KANDOLKAR",
+      "party_short": "BJP",
+      "votes": 10304,
+      "vote_share_pct": 45.67,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRADEEP AMONKAR GHADI",
+      "party_short": "AAAP",
+      "votes": 703,
+      "vote_share_pct": 3.12,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DOUGLAS LAWRENCE SEQUEIRA",
+      "party_short": "NCP",
+      "votes": 275,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 179,
+    "vote_share_pct": 0.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NILKANTH RAMNATH HALARNKAR",
+    "party_short": "INC",
+    "votes": 11099,
+    "margin_votes": 795,
+    "margin_pct": 3.52
+  },
+  "others": null
+}

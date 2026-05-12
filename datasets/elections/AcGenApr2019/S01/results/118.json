@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 118,
+  "constituency_name": "Nellore Rural",
+  "totals": {
+    "electors": 254641,
+    "votes_polled": 166092,
+    "turnout_pct": 65.22594554686795
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kotamreddy Sridhar Reddy",
+      "party_short": "YSRCP",
+      "votes": 85724,
+      "vote_share_pct": 51.61235941526383,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Abdul Aziz Shaik",
+      "party_short": "TDP",
+      "votes": 64948,
+      "vote_share_pct": 39.10362931387424,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Chennareddy Manukranth",
+      "party_short": "JnP",
+      "votes": 9002,
+      "vote_share_pct": 5.419887773041447,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Bhaskar Karanam",
+      "party_short": "BJP",
+      "votes": 1784,
+      "vote_share_pct": 1.0741035088986826,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Udatha Venkatarao",
+      "party_short": "INC",
+      "votes": 1626,
+      "vote_share_pct": 0.9789755075500326,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1875,
+    "vote_share_pct": 1.128892421067842
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1133,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kotamreddy Sridhar Reddy",
+    "party_short": "YSRCP",
+    "votes": 85724,
+    "margin_votes": 20776,
+    "margin_pct": 12.51
+  }
+}

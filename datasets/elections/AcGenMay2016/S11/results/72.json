@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "CHALAKKUDY",
+  "totals": {
+    "electors": 190675,
+    "votes_polled": 150394,
+    "turnout_pct": 78.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B. D. DEVASSY",
+      "party_short": "CPM",
+      "votes": 74251,
+      "vote_share_pct": 49.37,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "T. U. RADHAKRISHNAN",
+      "party_short": "INC",
+      "votes": 47603,
+      "vote_share_pct": 31.65,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "UNNIKRISHNAN. K. A",
+      "party_short": "BDJS",
+      "votes": 26229,
+      "vote_share_pct": 17.44,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AYYAPPAN VAZHAVALAPPIL",
+      "party_short": "BSP",
+      "votes": 561,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "JIJO",
+      "party_short": "IND",
+      "votes": 367,
+      "vote_share_pct": 0.24,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 739,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 644,
+    "vote_share_pct": 0.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B. D. DEVASSY",
+    "party_short": "CPM",
+    "votes": 74251,
+    "margin_votes": 26648,
+    "margin_pct": 17.72
+  }
+}

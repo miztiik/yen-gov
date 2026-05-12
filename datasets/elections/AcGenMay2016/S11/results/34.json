@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "ERANAD",
+  "totals": {
+    "electors": 166044,
+    "votes_polled": 135850,
+    "turnout_pct": 81.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.K BASHEER",
+      "party_short": "IUML",
+      "votes": 69048,
+      "vote_share_pct": 50.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K.T.ABDURAHIMAN",
+      "party_short": "IND",
+      "votes": 56155,
+      "vote_share_pct": 41.34,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K P BABURAJ MASTER THUNDATHIL",
+      "party_short": "BJP",
+      "votes": 6055,
+      "vote_share_pct": 4.46,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ADV. UMMER CHELAKKODE",
+      "party_short": "SP",
+      "votes": 1298,
+      "vote_share_pct": 0.96,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VELAYUDHAN",
+      "party_short": "BSP",
+      "votes": 885,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 461,
+    "vote_share_pct": 0.34
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1948,
+    "vote_share_pct": 1.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.K BASHEER",
+    "party_short": "IUML",
+    "votes": 69048,
+    "margin_votes": 12893,
+    "margin_pct": 9.49
+  }
+}

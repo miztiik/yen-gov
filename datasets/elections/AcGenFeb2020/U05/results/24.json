@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "PATEL NAGAR(SC)",
+  "totals": {
+    "electors": 198185,
+    "votes_polled": 120814,
+    "turnout_pct": 60.96021394151929
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAAJ KUMAR ANAND",
+      "party_short": "AAAP",
+      "votes": 73463,
+      "vote_share_pct": 60.80669458837552,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PRAVESH RATN",
+      "party_short": "BJP",
+      "votes": 42528,
+      "vote_share_pct": 35.20121840184085,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KRISHNA TIRATH",
+      "party_short": "INC",
+      "votes": 3382,
+      "vote_share_pct": 2.7993444468356317,
+      "gender": "F",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PRADEEP KUMAR RAWAL",
+      "party_short": "BSP",
+      "votes": 674,
+      "vote_share_pct": 0.5578823646266161,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 767,
+    "vote_share_pct": 0.6348601983213866
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAAJ KUMAR ANAND",
+    "party_short": "AAAP",
+    "votes": 73463,
+    "margin_votes": 30935,
+    "margin_pct": 25.61
+  },
+  "others": null
+}

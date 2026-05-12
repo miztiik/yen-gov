@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "Aland",
+  "totals": {
+    "electors": 241750,
+    "votes_polled": 174588,
+    "turnout_pct": 72.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhojaraj",
+      "party_short": "INC",
+      "votes": 89508,
+      "vote_share_pct": 51.27,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Subhash Guttedar",
+      "party_short": "BJP",
+      "votes": 79160,
+      "vote_share_pct": 45.34,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Maheshwari",
+      "party_short": "JD(S)",
+      "votes": 1419,
+      "vote_share_pct": 0.81,
+      "gender": "F",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Moula Sab",
+      "party_short": "CPI",
+      "votes": 811,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Apparao Patil",
+      "party_short": "IND",
+      "votes": 477,
+      "vote_share_pct": 0.27,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1316,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1897,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhojaraj",
+    "party_short": "INC",
+    "votes": 89508,
+    "margin_votes": 10348,
+    "margin_pct": 5.93
+  }
+}

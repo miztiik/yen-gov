@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 113,
+  "constituency_name": "Shimoga",
+  "totals": {
+    "electors": 256373,
+    "votes_polled": 172354,
+    "turnout_pct": 67.22782820343795
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.S. ESHWARAPPA",
+      "party_short": "BJP",
+      "votes": 104027,
+      "vote_share_pct": 60.35659166598976,
+      "is_winner": true,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K.B. PRASANNA KUMAR",
+      "party_short": "INC",
+      "votes": 57920,
+      "vote_share_pct": 33.605254302192,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "H.N. NIRANJAN",
+      "party_short": "JD(S)",
+      "votes": 5796,
+      "vote_share_pct": 3.362846235074324,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAVIKISHAN",
+      "party_short": "IND",
+      "votes": 671,
+      "vote_share_pct": 0.3893150144470102,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "A.YASEEN MUBARAK",
+      "party_short": "IND",
+      "votes": 598,
+      "vote_share_pct": 0.34696032584100167,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 875,
+    "vote_share_pct": 0.5076760620583218
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 2467,
+    "vote_share_pct": 1.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.S. ESHWARAPPA",
+    "party_short": "BJP",
+    "votes": 104027,
+    "margin_votes": 46107,
+    "margin_pct": 26.75
+  }
+}

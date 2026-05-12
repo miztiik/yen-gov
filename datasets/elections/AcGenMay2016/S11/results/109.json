@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 109,
+  "constituency_name": "MAVELIKARA",
+  "totals": {
+    "electors": 198395,
+    "votes_polled": 149688,
+    "turnout_pct": 75.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "R.RAJESH",
+      "party_short": "CPM",
+      "votes": 74555,
+      "vote_share_pct": 49.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "BAIJU KALASALA",
+      "party_short": "INC",
+      "votes": 43013,
+      "vote_share_pct": 28.74,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "P.M.VELAYUDHAN",
+      "party_short": "BJP",
+      "votes": 30929,
+      "vote_share_pct": 20.66,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "ASHA.T",
+      "party_short": "SUCI",
+      "votes": 242,
+      "vote_share_pct": 0.16,
+      "gender": "F",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KATTANAM SURESH",
+      "party_short": "BSP",
+      "votes": 213,
+      "vote_share_pct": 0.14,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 523,
+    "vote_share_pct": 0.35
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 213,
+    "vote_share_pct": 0.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "R.RAJESH",
+    "party_short": "CPM",
+    "votes": 74555,
+    "margin_votes": 31542,
+    "margin_pct": 21.07
+  }
+}

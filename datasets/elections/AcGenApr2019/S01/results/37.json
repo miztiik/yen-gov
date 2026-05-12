@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "Pithapuram",
+  "totals": {
+    "electors": 229729,
+    "votes_polled": 186682,
+    "turnout_pct": 81.26183459641577
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dorababu Pendem",
+      "party_short": "YSRCP",
+      "votes": 83459,
+      "vote_share_pct": 44.706506251272216,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "S.V.S.N. VARMA",
+      "party_short": "TDP",
+      "votes": 68467,
+      "vote_share_pct": 36.675737350146235,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Makineedi Seshu Kumari",
+      "party_short": "JnP",
+      "votes": 28011,
+      "vote_share_pct": 15.004660331472772,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Medidi Venkata Srinivasa Rao",
+      "party_short": "INC",
+      "votes": 1139,
+      "vote_share_pct": 0.6101284537341575,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Billakurthi Rameswara Reddy",
+      "party_short": "BJP",
+      "votes": 1034,
+      "vote_share_pct": 0.553883073890359,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2339,
+    "vote_share_pct": 1.2529327948061408
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2233,
+    "vote_share_pct": 1.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dorababu Pendem",
+    "party_short": "YSRCP",
+    "votes": 83459,
+    "margin_votes": 14992,
+    "margin_pct": 8.03
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "JANAKPURI",
+  "totals": {
+    "electors": 189818,
+    "votes_polled": 124881,
+    "turnout_pct": 65.78986186768378
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJESH RISHI",
+      "party_short": "AAAP",
+      "votes": 67968,
+      "vote_share_pct": 54.42621375549523,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ASHISH SOOD",
+      "party_short": "BJP",
+      "votes": 53051,
+      "vote_share_pct": 42.481242142519676,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RADHIKA KHERA",
+      "party_short": "INC",
+      "votes": 2084,
+      "vote_share_pct": 1.668788686829862,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJ KUMAR",
+      "party_short": "BSP",
+      "votes": 505,
+      "vote_share_pct": 0.40438497449572,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAMESH CHAND VERMA",
+      "party_short": "IND",
+      "votes": 381,
+      "vote_share_pct": 0.30509044610469166,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 691,
+    "vote_share_pct": 0.5533267670822622
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 201,
+    "vote_share_pct": 0.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJESH RISHI",
+    "party_short": "AAAP",
+    "votes": 67968,
+    "margin_votes": 14917,
+    "margin_pct": 11.94
+  }
+}

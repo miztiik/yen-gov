@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 78,
+  "constituency_name": "PARAVUR",
+  "totals": {
+    "electors": 201478,
+    "votes_polled": 158594,
+    "turnout_pct": 78.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V.d. Satheesan",
+      "party_short": "INC",
+      "votes": 82264,
+      "vote_share_pct": 51.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M.t. Nixon",
+      "party_short": "CPI",
+      "votes": 60963,
+      "vote_share_pct": 38.44,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "A.b. Jayaprakash",
+      "party_short": "BDJS",
+      "votes": 12964,
+      "vote_share_pct": 8.17,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "N.k.biju",
+      "party_short": "BSP",
+      "votes": 724,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Sathyanesan Ezhikkara",
+      "party_short": "IND",
+      "votes": 287,
+      "vote_share_pct": 0.18,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1113,
+    "vote_share_pct": 0.7
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 279,
+    "vote_share_pct": 0.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V.d. Satheesan",
+    "party_short": "INC",
+    "votes": 82264,
+    "margin_votes": 21301,
+    "margin_pct": 13.43
+  }
+}

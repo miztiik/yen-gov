@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 182,
+  "constituency_name": "Magadi",
+  "totals": {
+    "electors": 224869,
+    "votes_polled": 194218,
+    "turnout_pct": 86.36939729353534
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A. MANJUNATH",
+      "party_short": "JD(S)",
+      "votes": 119492,
+      "vote_share_pct": 61.52467845410827,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "H.C. BALAKRISHNA",
+      "party_short": "INC",
+      "votes": 68067,
+      "vote_share_pct": 35.04670009988776,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M.C.HANUMANTHARAJ",
+      "party_short": "BJP",
+      "votes": 4410,
+      "vote_share_pct": 2.2706443275082635,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MURALI.B",
+      "party_short": "IND",
+      "votes": 600,
+      "vote_share_pct": 0.3089312010215325,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "D.M.MADEGOWDA",
+      "party_short": "AIMEP",
+      "votes": 223,
+      "vote_share_pct": 0.11481942971300292,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 839,
+    "vote_share_pct": 0.4319887960951096
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 587,
+    "vote_share_pct": 0.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A. MANJUNATH",
+    "party_short": "JD(S)",
+    "votes": 119492,
+    "margin_votes": 51425,
+    "margin_pct": 26.48
+  }
+}

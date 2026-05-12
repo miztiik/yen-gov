@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 98,
+  "constituency_name": "Challakere (ST)",
+  "totals": {
+    "electors": 220968,
+    "votes_polled": 178061,
+    "turnout_pct": 80.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "T. Raghumurthy",
+      "party_short": "INC",
+      "votes": 67952,
+      "vote_share_pct": 38.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Ravish Kumar.m",
+      "party_short": "JD(S)",
+      "votes": 51502,
+      "vote_share_pct": 28.92,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "K.t. Kumar Swamy",
+      "party_short": "IND",
+      "votes": 29148,
+      "vote_share_pct": 16.37,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Anil Kumar. R",
+      "party_short": "BJP",
+      "votes": 22894,
+      "vote_share_pct": 12.86,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Marakka",
+      "party_short": "AAAP",
+      "votes": 3072,
+      "vote_share_pct": 1.73,
+      "gender": "F",
+      "age": 40,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1639,
+    "vote_share_pct": 0.92
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1854,
+    "vote_share_pct": 1.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "T. Raghumurthy",
+    "party_short": "INC",
+    "votes": 67952,
+    "margin_votes": 16450,
+    "margin_pct": 9.24
+  }
+}

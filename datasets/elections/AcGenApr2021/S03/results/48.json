@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "BOKO",
+  "totals": {
+    "electors": 237220,
+    "votes_polled": 205066,
+    "turnout_pct": 86.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NANDITA DAS",
+      "party_short": "INC",
+      "votes": 120613,
+      "vote_share_pct": 58.82,
+      "is_winner": true,
+      "gender": "F",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "JYOTI PRASAD DAS",
+      "party_short": "AGP",
+      "votes": 68147,
+      "vote_share_pct": 33.23,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "GOPI NATH DAS",
+      "party_short": "AITC",
+      "votes": 12571,
+      "vote_share_pct": 6.13,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3735,
+    "vote_share_pct": 1.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NANDITA DAS",
+    "party_short": "INC",
+    "votes": 120613,
+    "margin_votes": 52466,
+    "margin_pct": 25.58
+  },
+  "others": null
+}

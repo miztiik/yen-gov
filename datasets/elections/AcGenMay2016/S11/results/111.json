@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 111,
+  "constituency_name": "THIRUVALLA",
+  "totals": {
+    "electors": 208798,
+    "votes_polled": 144542,
+    "turnout_pct": 69.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADV.MATHEW T THOMAS",
+      "party_short": "JD(S)",
+      "votes": 59660,
+      "vote_share_pct": 41.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JOSEPH M PUTHUSSERY",
+      "party_short": "KEC(M)",
+      "votes": 51398,
+      "vote_share_pct": 35.56,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AKKERAMAN KALIDASAN BHATTATHIRIPAD",
+      "party_short": "BDJS",
+      "votes": 31439,
+      "vote_share_pct": 21.75,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAJI KADAMPANAD",
+      "party_short": "BSP",
+      "votes": 756,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ADV.SIMI M JACOB",
+      "party_short": "SDPI",
+      "votes": 444,
+      "vote_share_pct": 0.31,
+      "gender": "F",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 479,
+    "vote_share_pct": 0.33
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 366,
+    "vote_share_pct": 0.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADV.MATHEW T THOMAS",
+    "party_short": "JD(S)",
+    "votes": 59660,
+    "margin_votes": 8262,
+    "margin_pct": 5.72
+  }
+}

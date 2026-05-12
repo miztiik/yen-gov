@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 193,
+  "constituency_name": "Shravanabelagola",
+  "totals": {
+    "electors": 202255,
+    "votes_polled": 167261,
+    "turnout_pct": 82.6980791574992
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C N  BALAKRISHNA",
+      "party_short": "JD(S)",
+      "votes": 105516,
+      "vote_share_pct": 63.08464017314258,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "C S PUTTEGOWDA",
+      "party_short": "INC",
+      "votes": 52504,
+      "vote_share_pct": 31.39046161388489,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHIVANANJEGOWDA",
+      "party_short": "BJP",
+      "votes": 7506,
+      "vote_share_pct": 4.487597228283939,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DWARAKISH",
+      "party_short": "AIMEP",
+      "votes": 415,
+      "vote_share_pct": 0.24811522112148077,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BOJEGOWDA",
+      "party_short": "SJPL",
+      "votes": 414,
+      "vote_share_pct": 0.2475173531187784,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 906,
+    "vote_share_pct": 0.5416684104483412
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C N  BALAKRISHNA",
+    "party_short": "JD(S)",
+    "votes": 105516,
+    "margin_votes": 53012,
+    "margin_pct": 31.69
+  },
+  "others": null
+}

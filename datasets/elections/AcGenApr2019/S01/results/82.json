@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 82,
+  "constituency_name": "Mylavaram",
+  "totals": {
+    "electors": 280536,
+    "votes_polled": 232500,
+    "turnout_pct": 82.87706390623664
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VASANTHA VENKATA KRISHNA PRASAD",
+      "party_short": "YSRCP",
+      "votes": 114940,
+      "vote_share_pct": 49.43655913978495,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "UMA MAHESWARARAO DEVINENI",
+      "party_short": "TDP",
+      "votes": 102287,
+      "vote_share_pct": 43.994408602150536,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AKKALA RAMA MOHANRAO (GANDHI)",
+      "party_short": "JnP",
+      "votes": 8716,
+      "vote_share_pct": 3.7488172043010755,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BORRA KIRAN",
+      "party_short": "INC",
+      "votes": 1895,
+      "vote_share_pct": 0.8150537634408601,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BALA KOTESWARARAO NUTULAPATI",
+      "party_short": "BJP",
+      "votes": 1264,
+      "vote_share_pct": 0.5436559139784947,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 815,
+    "vote_share_pct": 0.35053763440860214
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 2583,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VASANTHA VENKATA KRISHNA PRASAD",
+    "party_short": "YSRCP",
+    "votes": 114940,
+    "margin_votes": 12653,
+    "margin_pct": 5.44
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Cortalim",
+  "totals": {
+    "electors": 30463,
+    "votes_polled": 23486,
+    "turnout_pct": 77.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ALINA SALDANHA",
+      "party_short": "BJP",
+      "votes": 5666,
+      "vote_share_pct": 24.13,
+      "is_winner": true,
+      "gender": "F",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANTONIO VAS",
+      "party_short": "IND",
+      "votes": 5148,
+      "vote_share_pct": 21.92,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GILBERT MARIANO RODRIGUES",
+      "party_short": "INC",
+      "votes": 4326,
+      "vote_share_pct": 18.42,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NELLY RODRIGUES",
+      "party_short": "GVP",
+      "votes": 3380,
+      "vote_share_pct": 14.39,
+      "gender": "F",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "OLENCIO SIMOES",
+      "party_short": "AAAP",
+      "votes": 2482,
+      "vote_share_pct": 10.57,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 210,
+    "vote_share_pct": 0.89
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2274,
+    "vote_share_pct": 9.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ALINA SALDANHA",
+    "party_short": "BJP",
+    "votes": 5666,
+    "margin_votes": 518,
+    "margin_pct": 2.21
+  }
+}

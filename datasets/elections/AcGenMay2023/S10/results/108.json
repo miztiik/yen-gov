@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "Mayakonda (SC)",
+  "totals": {
+    "electors": 191421,
+    "votes_polled": 161790,
+    "turnout_pct": 84.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K. S. Basavanthappa",
+      "party_short": "INC",
+      "votes": 70916,
+      "vote_share_pct": 43.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "B.m. Pushpa Vageeshaswamy",
+      "party_short": "IND",
+      "votes": 37614,
+      "vote_share_pct": 23.25,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "M. Basavaraja Naik",
+      "party_short": "BJP",
+      "votes": 34630,
+      "vote_share_pct": 21.4,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Anandappa. H.",
+      "party_short": "JD(S)",
+      "votes": 12915,
+      "vote_share_pct": 7.98,
+      "gender": "M",
+      "age": 68,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Chethan Kumar Naik. K.",
+      "party_short": "UPJP",
+      "votes": 1235,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 718,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3762,
+    "vote_share_pct": 2.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K. S. Basavanthappa",
+    "party_short": "INC",
+    "votes": 70916,
+    "margin_votes": 33302,
+    "margin_pct": 20.58
+  }
+}

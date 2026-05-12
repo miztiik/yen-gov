@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 92,
+  "constituency_name": "PEERUMADE",
+  "totals": {
+    "electors": 174514,
+    "votes_polled": 127291,
+    "turnout_pct": 72.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vazhoor Soman",
+      "party_short": "CPI",
+      "votes": 60141,
+      "vote_share_pct": 47.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv.syriac Thomas",
+      "party_short": "INC",
+      "votes": 58306,
+      "vote_share_pct": 45.81,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sreenagari Rajan",
+      "party_short": "BJP",
+      "votes": 7126,
+      "vote_share_pct": 5.6,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Biju Mattappally",
+      "party_short": "BSP",
+      "votes": 818,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "P.k Gopalakrishnan",
+      "party_short": "IND",
+      "votes": 251,
+      "vote_share_pct": 0.2,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 401,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 248,
+    "vote_share_pct": 0.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vazhoor Soman",
+    "party_short": "CPI",
+    "votes": 60141,
+    "margin_votes": 1835,
+    "margin_pct": 1.44
+  }
+}

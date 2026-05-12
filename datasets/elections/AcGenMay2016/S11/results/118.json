@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 118,
+  "constituency_name": "KUNNATHUR",
+  "totals": {
+    "electors": 208541,
+    "votes_polled": 159808,
+    "turnout_pct": 76.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KOVOOR KUNJUMON",
+      "party_short": "IND",
+      "votes": 75725,
+      "vote_share_pct": 47.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ULLAS KOVUR",
+      "party_short": "RSP",
+      "votes": 55196,
+      "vote_share_pct": 34.54,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "THAZHAVA SAHADEVAN",
+      "party_short": "BDJS",
+      "votes": 21742,
+      "vote_share_pct": 13.61,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "THULASEEDHARAN PALLICKAL",
+      "party_short": "SDPI",
+      "votes": 1698,
+      "vote_share_pct": 1.06,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KUNJUMON",
+      "party_short": "IND",
+      "votes": 1516,
+      "vote_share_pct": 0.95,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1051,
+    "vote_share_pct": 0.66
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2880,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KOVOOR KUNJUMON",
+    "party_short": "IND",
+    "votes": 75725,
+    "margin_votes": 20529,
+    "margin_pct": 12.85
+  }
+}

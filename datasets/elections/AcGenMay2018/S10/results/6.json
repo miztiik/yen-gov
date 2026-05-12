@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Raybag  (SC)",
+  "totals": {
+    "electors": 195850,
+    "votes_polled": 150399,
+    "turnout_pct": 76.79295379116671
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AIHOLE DURYODHAN MAHALINGAPPA",
+      "party_short": "BJP",
+      "votes": 67502,
+      "vote_share_pct": 44.88194735337336,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PRADEEPKUMAR RAMU MALAGE",
+      "party_short": "INC",
+      "votes": 50954,
+      "vote_share_pct": 33.87921462243765,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MAHAVEER  MOHITE",
+      "party_short": "IND",
+      "votes": 24627,
+      "vote_share_pct": 16.37444397901582,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "DR.RAJEEV KAMBLE",
+      "party_short": "BSP",
+      "votes": 1724,
+      "vote_share_pct": 1.1462842173152747,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAMANNA DATTU PATROT",
+      "party_short": "IND",
+      "votes": 677,
+      "vote_share_pct": 0.45013597164874775,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1184,
+    "vote_share_pct": 0.7872392768568939
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3731,
+    "vote_share_pct": 2.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AIHOLE DURYODHAN MAHALINGAPPA",
+    "party_short": "BJP",
+    "votes": 67502,
+    "margin_votes": 16548,
+    "margin_pct": 11.0
+  }
+}

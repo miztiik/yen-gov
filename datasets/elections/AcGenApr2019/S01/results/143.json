@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 143,
+  "constituency_name": "Kodumur",
+  "totals": {
+    "electors": 216212,
+    "votes_polled": 167971,
+    "turnout_pct": 77.68810241799716
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JARADODDI SUDHAKAR",
+      "party_short": "YSRCP",
+      "votes": 95037,
+      "vote_share_pct": 56.57940954093266,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "BURLA. RAMANJANEYULU",
+      "party_short": "TDP",
+      "votes": 58992,
+      "vote_share_pct": 35.12034815533634,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "AREKANTI JEEVAN RAJ",
+      "party_short": "BSP",
+      "votes": 4294,
+      "vote_share_pct": 2.5563936631918605,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "DAMODARAM RADHAKRISHNA MURTHY",
+      "party_short": "INC",
+      "votes": 3616,
+      "vote_share_pct": 2.1527525584773564,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MEESALA PREM KUMAR",
+      "party_short": "BJP",
+      "votes": 1970,
+      "vote_share_pct": 1.1728214989492234,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2485,
+    "vote_share_pct": 1.4794220430907716
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1577,
+    "vote_share_pct": 0.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JARADODDI SUDHAKAR",
+    "party_short": "YSRCP",
+    "votes": 95037,
+    "margin_votes": 36045,
+    "margin_pct": 21.46
+  }
+}

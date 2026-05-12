@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 133,
+  "constituency_name": "Mydukur",
+  "totals": {
+    "electors": 208194,
+    "votes_polled": 169289,
+    "turnout_pct": 81.31310220275321
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Raghurami Reddy Settipally",
+      "party_short": "YSRCP",
+      "votes": 94849,
+      "vote_share_pct": 56.02785768715037,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Putta Sudhakar Yadav",
+      "party_short": "TDP",
+      "votes": 65505,
+      "vote_share_pct": 38.69418568247199,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kotaiahgari Mallikharjuna Murthy",
+      "party_short": "INC",
+      "votes": 3617,
+      "vote_share_pct": 2.1365830030303212,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Panditi Malhotra",
+      "party_short": "JnP",
+      "votes": 1824,
+      "vote_share_pct": 1.0774474419483842,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "B P Venkata Pratap Reddy",
+      "party_short": "BJP",
+      "votes": 986,
+      "vote_share_pct": 0.582435952719905,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1613,
+    "vote_share_pct": 0.9528085108896621
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 895,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Raghurami Reddy Settipally",
+    "party_short": "YSRCP",
+    "votes": 94849,
+    "margin_votes": 29344,
+    "margin_pct": 17.33
+  }
+}

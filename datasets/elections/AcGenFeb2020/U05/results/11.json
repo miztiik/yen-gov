@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "NANGLOI JAT",
+  "totals": {
+    "electors": 266339,
+    "votes_polled": 151272,
+    "turnout_pct": 56.79678905455078
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAGHUVINDER SHOKEEN",
+      "party_short": "AAAP",
+      "votes": 74444,
+      "vote_share_pct": 49.21201544238193,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUMAN LATA",
+      "party_short": "BJP",
+      "votes": 62820,
+      "vote_share_pct": 41.527843883864826,
+      "gender": "F",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MANDEEP SINGH",
+      "party_short": "INC",
+      "votes": 9761,
+      "vote_share_pct": 6.452615156803638,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANDEEP",
+      "party_short": "BSP",
+      "votes": 1438,
+      "vote_share_pct": 0.9506055317573642,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAKESH SHARMA",
+      "party_short": "IND",
+      "votes": 615,
+      "vote_share_pct": 0.4065524353482469,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 862,
+    "vote_share_pct": 0.5698344703580305
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1332,
+    "vote_share_pct": 0.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAGHUVINDER SHOKEEN",
+    "party_short": "AAAP",
+    "votes": 74444,
+    "margin_votes": 11624,
+    "margin_pct": 7.68
+  }
+}

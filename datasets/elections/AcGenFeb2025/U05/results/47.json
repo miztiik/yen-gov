@@ -1,16 +1,7 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-  "$schema_version": "3.1",
-  "sources": [
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    },
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    }
-  ],
+  "$schema_version": "3.2",
+  "sources": [],
   "election": "AcGenFeb2025",
   "state": "U05",
   "body": "AC",
@@ -28,36 +19,50 @@
       "party_short": "AAAP",
       "votes": 86889,
       "vote_share_pct": 55.09,
-      "is_winner": true
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
     },
     {
       "rank": 2,
       "name": "DEEPAK TANWAR",
       "party_short": "LJPRV",
       "votes": 50209,
-      "vote_share_pct": 31.83
+      "vote_share_pct": 31.83,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
     },
     {
       "rank": 3,
       "name": "RAJESH CHAUHAN",
-      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 12211,
-      "vote_share_pct": 7.74
+      "vote_share_pct": 7.74,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
     },
     {
       "rank": 4,
       "name": "ASMITA",
       "party_short": "BSP",
       "votes": 2581,
-      "vote_share_pct": 1.64
+      "vote_share_pct": 1.64,
+      "gender": "F",
+      "age": 30,
+      "category": "SC"
     },
     {
       "rank": 5,
       "name": "RAJA RAM",
       "party_short": "BhaRP",
       "votes": 2229,
-      "vote_share_pct": 1.41
+      "vote_share_pct": 1.41,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
     }
   ],
   "nota": {

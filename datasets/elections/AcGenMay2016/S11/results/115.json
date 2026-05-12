@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "ADOOR",
+  "totals": {
+    "electors": 208432,
+    "votes_polled": 155018,
+    "turnout_pct": 74.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHITTAYAM GOPAKUMAR",
+      "party_short": "CPI",
+      "votes": 76034,
+      "vote_share_pct": 49.05,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "K K SHAJU",
+      "party_short": "INC",
+      "votes": 50574,
+      "vote_share_pct": 32.62,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ADV P SUDHEER",
+      "party_short": "BJP",
+      "votes": 25940,
+      "vote_share_pct": 16.73,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "JYOTHISH PERUMPULICKAL",
+      "party_short": "SDPI",
+      "votes": 673,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PLAVINAL SANTHOSH",
+      "party_short": "BSP",
+      "votes": 410,
+      "vote_share_pct": 0.26,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 672,
+    "vote_share_pct": 0.43
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 715,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHITTAYAM GOPAKUMAR",
+    "party_short": "CPI",
+    "votes": 76034,
+    "margin_votes": 25460,
+    "margin_pct": 16.42
+  }
+}

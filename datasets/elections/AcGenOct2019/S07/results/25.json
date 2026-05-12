@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Panipat City",
+  "totals": {
+    "electors": 220440,
+    "votes_polled": 122315,
+    "turnout_pct": 55.48675376519688
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARMOD KUMAR VIJ",
+      "party_short": "BJP",
+      "votes": 76863,
+      "vote_share_pct": 62.840207660548586,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SANJAY AGGARWAL",
+      "party_short": "INC",
+      "votes": 37318,
+      "vote_share_pct": 30.509749417487637,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAIDEV NAULTHA",
+      "party_short": "JNJP",
+      "votes": 2246,
+      "vote_share_pct": 1.836242488656338,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAMESH SINGLA",
+      "party_short": "BSP",
+      "votes": 1787,
+      "vote_share_pct": 1.46098189101909,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VIJAY KUMAR KALRA",
+      "party_short": "LTSP",
+      "votes": 783,
+      "vote_share_pct": 0.6401504312635409,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1725,
+    "vote_share_pct": 1.4102930956955402
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1593,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARMOD KUMAR VIJ",
+    "party_short": "BJP",
+    "votes": 76863,
+    "margin_votes": 39545,
+    "margin_pct": 32.33
+  }
+}

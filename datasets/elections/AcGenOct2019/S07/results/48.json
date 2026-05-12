@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "Uklana (SC)",
+  "totals": {
+    "electors": 196278,
+    "votes_polled": 139545,
+    "turnout_pct": 71.0955889096078
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anoop Dhanak",
+      "party_short": "JNJP",
+      "votes": 65369,
+      "vote_share_pct": 46.84438711526748,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Asha Khedar",
+      "party_short": "BJP",
+      "votes": 41676,
+      "vote_share_pct": 29.865634741481244,
+      "gender": "F",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Bala Devi",
+      "party_short": "INC",
+      "votes": 11573,
+      "vote_share_pct": 8.293382063133755,
+      "gender": "F",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Naresh Selwal",
+      "party_short": "IND",
+      "votes": 10353,
+      "vote_share_pct": 7.419112114371708,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ch. Bhajan Lal",
+      "party_short": "BSP",
+      "votes": 4206,
+      "vote_share_pct": 3.014081479092766,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 690,
+    "vote_share_pct": 0.49446415134902716
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5678,
+    "vote_share_pct": 4.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anoop Dhanak",
+    "party_short": "JNJP",
+    "votes": 65369,
+    "margin_votes": 23693,
+    "margin_pct": 16.98
+  }
+}

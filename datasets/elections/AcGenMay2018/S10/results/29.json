@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "Babaleshwar",
+  "totals": {
+    "electors": 211779,
+    "votes_polled": 171645,
+    "turnout_pct": 81.04911251823836
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MALLANAGOUD BASANAGOUD PATIL",
+      "party_short": "INC",
+      "votes": 98339,
+      "vote_share_pct": 57.292085408838005,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIJAYAKUMAR SIDRAMGOUDA PATIL",
+      "party_short": "BJP",
+      "votes": 68624,
+      "vote_share_pct": 39.98019167467739,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SAMBHAJI KRISHNA GAYAKAWAD",
+      "party_short": "IND",
+      "votes": 925,
+      "vote_share_pct": 0.5389029683358094,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BHAVARAMMA SHIVANAND JANAWAD",
+      "party_short": "AIMEP",
+      "votes": 778,
+      "vote_share_pct": 0.4532610912056862,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SANGAYYA SHARANAYYA MARIMATH",
+      "party_short": "IND",
+      "votes": 308,
+      "vote_share_pct": 0.1794401235107344,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1786,
+    "vote_share_pct": 1.0405196772408167
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 885,
+    "vote_share_pct": 0.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MALLANAGOUD BASANAGOUD PATIL",
+    "party_short": "INC",
+    "votes": 98339,
+    "margin_votes": 29715,
+    "margin_pct": 17.31
+  }
+}

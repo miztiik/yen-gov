@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "PONNANI",
+  "totals": {
+    "electors": 205353,
+    "votes_polled": 145422,
+    "turnout_pct": 70.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P Nandakumar",
+      "party_short": "CPI(M)",
+      "votes": 74668,
+      "vote_share_pct": 51.35,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv. A.m. Rohith",
+      "party_short": "INC",
+      "votes": 57625,
+      "vote_share_pct": 39.63,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Subramannian Chunkappallii",
+      "party_short": "BDJS",
+      "votes": 7419,
+      "vote_share_pct": 5.1,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Anvar Pazhanji",
+      "party_short": "SDPI",
+      "votes": 3065,
+      "vote_share_pct": 2.11,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ganesh Vaderi",
+      "party_short": "WPOI",
+      "votes": 1863,
+      "vote_share_pct": 1.28,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 467,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 315,
+    "vote_share_pct": 0.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P Nandakumar",
+    "party_short": "CPI(M)",
+    "votes": 74668,
+    "margin_votes": 17043,
+    "margin_pct": 11.72
+  }
+}

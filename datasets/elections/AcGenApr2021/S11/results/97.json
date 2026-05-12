@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 97,
+  "constituency_name": "KOTTAYAM",
+  "totals": {
+    "electors": 165404,
+    "votes_polled": 121738,
+    "turnout_pct": 73.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Thiruvanchoor Radhakrishnan",
+      "party_short": "INC",
+      "votes": 65401,
+      "vote_share_pct": 53.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv.k.anilkumar",
+      "party_short": "CPI(M)",
+      "votes": 46658,
+      "vote_share_pct": 38.33,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Minerva Mohan",
+      "party_short": "BJP",
+      "votes": 8611,
+      "vote_share_pct": 7.07,
+      "gender": "F",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sreekumar Chakkala",
+      "party_short": "BSP",
+      "votes": 374,
+      "vote_share_pct": 0.31,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "M.k.shahazad",
+      "party_short": "SUCI",
+      "votes": 144,
+      "vote_share_pct": 0.12,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 473,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 77,
+    "vote_share_pct": 0.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Thiruvanchoor Radhakrishnan",
+    "party_short": "INC",
+    "votes": 65401,
+    "margin_votes": 18743,
+    "margin_pct": 15.4
+  }
+}

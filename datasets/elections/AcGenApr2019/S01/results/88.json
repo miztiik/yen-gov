@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 88,
+  "constituency_name": "Ponnur",
+  "totals": {
+    "electors": 228234,
+    "votes_polled": 190849,
+    "turnout_pct": 83.6198813498427
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kilari Venkata Roshaiah",
+      "party_short": "YSRCP",
+      "votes": 87570,
+      "vote_share_pct": 45.88444267457519,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dhulipalla Narendra Kumar",
+      "party_short": "TDP",
+      "votes": 86458,
+      "vote_share_pct": 45.301783085056776,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Boni Parvathi (Naidu)",
+      "party_short": "JnP",
+      "votes": 12033,
+      "vote_share_pct": 6.304984568952418,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Jakka Naga Srinivasa Vara Prasad",
+      "party_short": "INC",
+      "votes": 1909,
+      "vote_share_pct": 1.000267226970013,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Cheedepudi Bala Vijaya Bhaskaraa Reddy",
+      "party_short": "BJP",
+      "votes": 751,
+      "vote_share_pct": 0.39350481270533244,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1187,
+    "vote_share_pct": 0.6219576733438478
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 941,
+    "vote_share_pct": 0.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kilari Venkata Roshaiah",
+    "party_short": "YSRCP",
+    "votes": 87570,
+    "margin_votes": 1112,
+    "margin_pct": 0.58
+  }
+}

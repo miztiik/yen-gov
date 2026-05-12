@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 222,
+  "constituency_name": "Kutumba",
+  "totals": {
+    "electors": 266974,
+    "votes_polled": 138825,
+    "turnout_pct": 51.999445638901165
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJESH KUMAR",
+      "party_short": "INC",
+      "votes": 50822,
+      "vote_share_pct": 36.60867999279669,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SHARWAN BHUIYA",
+      "party_short": "HAMS",
+      "votes": 34169,
+      "vote_share_pct": 24.61300198091122,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "LALAN RAM",
+      "party_short": "IND",
+      "votes": 20433,
+      "vote_share_pct": 14.718530524041059,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SARUN PASWAN",
+      "party_short": "LJP",
+      "votes": 11800,
+      "vote_share_pct": 8.499909958580949,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KRISHNA RAM",
+      "party_short": "BSP",
+      "votes": 3997,
+      "vote_share_pct": 2.87916441563119,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2586,
+    "vote_share_pct": 1.8627768773635873
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 15018,
+    "vote_share_pct": 10.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJESH KUMAR",
+    "party_short": "INC",
+    "votes": 50822,
+    "margin_votes": 16653,
+    "margin_pct": 12.0
+  }
+}

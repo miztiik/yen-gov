@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "Sindhanur",
+  "totals": {
+    "electors": 239285,
+    "votes_polled": 175412,
+    "turnout_pct": 73.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Hampanagouda Badarli",
+      "party_short": "INC",
+      "votes": 73645,
+      "vote_share_pct": 41.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K. Kariyappa",
+      "party_short": "BJP",
+      "votes": 51703,
+      "vote_share_pct": 29.48,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Venkatrao Nadagouda",
+      "party_short": "JD(S)",
+      "votes": 43461,
+      "vote_share_pct": 24.78,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Mallikarjun Nekkanti",
+      "party_short": "KRPP",
+      "votes": 2147,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sangram Narayan Killed",
+      "party_short": "AAAP",
+      "votes": 1388,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1065,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2003,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Hampanagouda Badarli",
+    "party_short": "INC",
+    "votes": 73645,
+    "margin_votes": 21942,
+    "margin_pct": 12.51
+  }
+}

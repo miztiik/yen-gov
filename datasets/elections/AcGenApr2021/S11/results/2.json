@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "KASARAGOD",
+  "totals": {
+    "electors": 201863,
+    "votes_polled": 144500,
+    "turnout_pct": 71.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "N A Nellikkunnu",
+      "party_short": "IUML",
+      "votes": 63296,
+      "vote_share_pct": 43.8,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv K Shreekanth",
+      "party_short": "BJP",
+      "votes": 50395,
+      "vote_share_pct": 34.88,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M A Latheef",
+      "party_short": "INL",
+      "votes": 28323,
+      "vote_share_pct": 19.6,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vijaya K P",
+      "party_short": "BSP",
+      "votes": 679,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ranjith Raj M",
+      "party_short": "ADHRMPI",
+      "votes": 555,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 28,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 639,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 613,
+    "vote_share_pct": 0.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "N A Nellikkunnu",
+    "party_short": "IUML",
+    "votes": 63296,
+    "margin_votes": 12901,
+    "margin_pct": 8.93
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 127,
+  "constituency_name": "VARKALA",
+  "totals": {
+    "electors": 187948,
+    "votes_polled": 135229,
+    "turnout_pct": 71.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. V Joy",
+      "party_short": "CPI(M)",
+      "votes": 68816,
+      "vote_share_pct": 50.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv. Brm Shafeer",
+      "party_short": "INC",
+      "votes": 50995,
+      "vote_share_pct": 37.71,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Aji S",
+      "party_short": "BDJS",
+      "votes": 11214,
+      "vote_share_pct": 8.29,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Anu M.c",
+      "party_short": "BSP",
+      "votes": 1948,
+      "vote_share_pct": 1.44,
+      "gender": "F",
+      "age": 25,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Prince",
+      "party_short": "IND",
+      "votes": 658,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 815,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 783,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. V Joy",
+    "party_short": "CPI(M)",
+    "votes": 68816,
+    "margin_votes": 17821,
+    "margin_pct": 13.18
+  }
+}

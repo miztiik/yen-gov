@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 160,
+  "constituency_name": "Dhauraiya",
+  "totals": {
+    "electors": 296749,
+    "votes_polled": 180867,
+    "turnout_pct": 60.94948929903723
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhudeo Choudhary",
+      "party_short": "RJD",
+      "votes": 79324,
+      "vote_share_pct": 43.85764125020042,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Manish Kumar",
+      "party_short": "JD(U)",
+      "votes": 76264,
+      "vote_share_pct": 42.1657903321225,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Dipak Kumar Paswan",
+      "party_short": "LJP",
+      "votes": 4108,
+      "vote_share_pct": 2.2712822128967693,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Shiv Shankar",
+      "party_short": "RLSP",
+      "votes": 3157,
+      "vote_share_pct": 1.7454814863960812,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ranjeet Sharma",
+      "party_short": "IND",
+      "votes": 3108,
+      "vote_share_pct": 1.7183897560085588,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3233,
+    "vote_share_pct": 1.7875013131195852
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 11673,
+    "vote_share_pct": 6.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhudeo Choudhary",
+    "party_short": "RJD",
+    "votes": 79324,
+    "margin_votes": 3060,
+    "margin_pct": 1.69
+  }
+}

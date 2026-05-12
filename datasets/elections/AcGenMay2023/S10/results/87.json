@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "Ranibennur",
+  "totals": {
+    "electors": 237234,
+    "votes_polled": 193020,
+    "turnout_pct": 81.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Prakash Koliwad",
+      "party_short": "INC",
+      "votes": 71830,
+      "vote_share_pct": 37.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Arunkumar Guttur",
+      "party_short": "BJP",
+      "votes": 62030,
+      "vote_share_pct": 32.14,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "R Shankar",
+      "party_short": "NCP",
+      "votes": 37559,
+      "vote_share_pct": 19.46,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Santoshkumar Patil",
+      "party_short": "IND",
+      "votes": 11395,
+      "vote_share_pct": 5.9,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Manjunath Goudashivannanavara",
+      "party_short": "JD(S)",
+      "votes": 5840,
+      "vote_share_pct": 3.03,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1584,
+    "vote_share_pct": 0.82
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2782,
+    "vote_share_pct": 1.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Prakash Koliwad",
+    "party_short": "INC",
+    "votes": 71830,
+    "margin_votes": 9800,
+    "margin_pct": 5.08
+  }
+}

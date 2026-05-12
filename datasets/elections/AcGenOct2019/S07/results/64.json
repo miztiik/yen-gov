@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 64,
+  "constituency_name": "Bahadurgarh",
+  "totals": {
+    "electors": 218065,
+    "votes_polled": 136939,
+    "turnout_pct": 62.797331071010944
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJINDER SINGH JOON",
+      "party_short": "INC",
+      "votes": 55825,
+      "vote_share_pct": 40.76632661257932,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NARESH KAUSHIK",
+      "party_short": "BJP",
+      "votes": 40334,
+      "vote_share_pct": 29.453990462906845,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NAFE SINGH RATHEE",
+      "party_short": "INLD",
+      "votes": 24799,
+      "vote_share_pct": 18.1095232183673,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANJAY DALAL",
+      "party_short": "JNJP",
+      "votes": 5495,
+      "vote_share_pct": 4.012735597601852,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KISHAN LAL PANCHAL",
+      "party_short": "LTSP",
+      "votes": 3545,
+      "vote_share_pct": 2.588743893266345,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 523,
+    "vote_share_pct": 0.3819218776243437
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 6418,
+    "vote_share_pct": 4.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJINDER SINGH JOON",
+    "party_short": "INC",
+    "votes": 55825,
+    "margin_votes": 15491,
+    "margin_pct": 11.31
+  }
+}

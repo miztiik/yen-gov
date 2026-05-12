@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "KONDLI(SC)",
+  "totals": {
+    "electors": 191383,
+    "votes_polled": 128680,
+    "turnout_pct": 67.23690191918823
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KULDEEP KUMAR",
+      "party_short": "AAAP",
+      "votes": 68348,
+      "vote_share_pct": 53.11470313957103,
+      "is_winner": true,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAJ KUMAR",
+      "party_short": "BJP",
+      "votes": 50441,
+      "vote_share_pct": 39.198787690394774,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "AMRISH SINGH GAUTAM",
+      "party_short": "INC",
+      "votes": 5861,
+      "vote_share_pct": 4.554709356543364,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KARMVIR",
+      "party_short": "BSP",
+      "votes": 2714,
+      "vote_share_pct": 2.1091078644700034,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "AKSHAY KUMAR",
+      "party_short": "IND",
+      "votes": 375,
+      "vote_share_pct": 0.2914205781784271,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 557,
+    "vote_share_pct": 0.4328566987876904
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 384,
+    "vote_share_pct": 0.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KULDEEP KUMAR",
+    "party_short": "AAAP",
+    "votes": 68348,
+    "margin_votes": 17907,
+    "margin_pct": 13.92
+  }
+}

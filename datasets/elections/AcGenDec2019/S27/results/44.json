@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Baharagora",
+  "totals": {
+    "electors": 225068,
+    "votes_polled": 171017,
+    "turnout_pct": 75.98459132351113
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAMIR Kr. MOHANTY",
+      "party_short": "JMM",
+      "votes": 106017,
+      "vote_share_pct": 61.992082658449156,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KUNAL SHADANGI",
+      "party_short": "BJP",
+      "votes": 45452,
+      "vote_share_pct": 26.577474753971824,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SWAPAN KUMAR MAHATO",
+      "party_short": "CPIM",
+      "votes": 8167,
+      "vote_share_pct": 4.775548629668395,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANAT KUMAR MAHATO",
+      "party_short": "CPI",
+      "votes": 2249,
+      "vote_share_pct": 1.3150739400176592,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DURGAPADA  GHOSH",
+      "party_short": "IND",
+      "votes": 2049,
+      "vote_share_pct": 1.1981265020436564,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1797,
+    "vote_share_pct": 1.0507727301964132
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 5286,
+    "vote_share_pct": 3.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAMIR Kr. MOHANTY",
+    "party_short": "JMM",
+    "votes": 106017,
+    "margin_votes": 60565,
+    "margin_pct": 35.41
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 49,
+  "constituency_name": "Chaygaon",
+  "totals": {
+    "electors": 160287,
+    "votes_polled": 145411,
+    "turnout_pct": 90.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "REKIBUDDIN AHMED",
+      "party_short": "INC",
+      "votes": 72211,
+      "vote_share_pct": 49.66,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. KAMALA KANTA KALITA",
+      "party_short": "AGP",
+      "votes": 64390,
+      "vote_share_pct": 44.28,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DERAJUDDIN AHMED",
+      "party_short": "AIUDF",
+      "votes": 4984,
+      "vote_share_pct": 3.43,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BECKNIUR K. MARAK",
+      "party_short": "IND",
+      "votes": 2225,
+      "vote_share_pct": 1.53,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1601,
+    "vote_share_pct": 1.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "REKIBUDDIN AHMED",
+    "party_short": "INC",
+    "votes": 72211,
+    "margin_votes": 7821,
+    "margin_pct": 5.38
+  },
+  "others": null
+}

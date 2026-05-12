@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "Panyam",
+  "totals": {
+    "electors": 288300,
+    "votes_polled": 215690,
+    "turnout_pct": 74.81442941380506
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KATASANI RAMBHUPAL REDDY",
+      "party_short": "YSRCP",
+      "votes": 122476,
+      "vote_share_pct": 56.783346469470075,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GOWRU CHARITHA REDDY",
+      "party_short": "TDP",
+      "votes": 78619,
+      "vote_share_pct": 36.44999768185822,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHINTHA SURESH BABU",
+      "party_short": "JnP",
+      "votes": 5104,
+      "vote_share_pct": 2.366359126524178,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MADANABOINA NAGA MADHU YADAV",
+      "party_short": "INC",
+      "votes": 2462,
+      "vote_share_pct": 1.141453011266169,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "G S NAGARAJU",
+      "party_short": "BJP",
+      "votes": 1735,
+      "vote_share_pct": 0.804395196810237,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2617,
+    "vote_share_pct": 1.2133154063702536
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2677,
+    "vote_share_pct": 1.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KATASANI RAMBHUPAL REDDY",
+    "party_short": "YSRCP",
+    "votes": 122476,
+    "margin_votes": 43857,
+    "margin_pct": 20.33
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "PONNANI",
+  "totals": {
+    "electors": 190774,
+    "votes_polled": 141763,
+    "turnout_pct": 74.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P. SREERAMAKRISHNAN",
+      "party_short": "CPM",
+      "votes": 69332,
+      "vote_share_pct": 48.91,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "P.T.AJAI MOHAN",
+      "party_short": "INC",
+      "votes": 53692,
+      "vote_share_pct": 37.87,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.K. SURENDRAN",
+      "party_short": "BJP",
+      "votes": 11662,
+      "vote_share_pct": 8.23,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M.M. SHAKKIR",
+      "party_short": "WPOI",
+      "votes": 2048,
+      "vote_share_pct": 1.44,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "M. MOIDUNNI HAJI",
+      "party_short": "PDP",
+      "votes": 1857,
+      "vote_share_pct": 1.31,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 604,
+    "vote_share_pct": 0.43
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2568,
+    "vote_share_pct": 1.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P. SREERAMAKRISHNAN",
+    "party_short": "CPM",
+    "votes": 69332,
+    "margin_votes": 15640,
+    "margin_pct": 11.03
+  }
+}

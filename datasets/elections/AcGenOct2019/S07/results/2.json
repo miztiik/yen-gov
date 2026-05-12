@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "Panchkula",
+  "totals": {
+    "electors": 210149,
+    "votes_polled": 125999,
+    "turnout_pct": 59.9569829026072
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gian Chand Gupta",
+      "party_short": "BJP",
+      "votes": 61537,
+      "vote_share_pct": 48.839276502194465,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Chander Mohan",
+      "party_short": "INC",
+      "votes": 55904,
+      "vote_share_pct": 44.36860610004841,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Karundeep Chaudhary",
+      "party_short": "INLD",
+      "votes": 2342,
+      "vote_share_pct": 1.8587449106738942,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Roshan Lal Kocher",
+      "party_short": "BSP",
+      "votes": 1055,
+      "vote_share_pct": 0.8373082326050206,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Yogeshwar Sharma",
+      "party_short": "AAAP",
+      "votes": 959,
+      "vote_share_pct": 0.7611171517234264,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1195,
+    "vote_share_pct": 0.9484202255573457
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3007,
+    "vote_share_pct": 2.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gian Chand Gupta",
+    "party_short": "BJP",
+    "votes": 61537,
+    "margin_votes": 5633,
+    "margin_pct": 4.47
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 47,
+  "constituency_name": "THAVANUR",
+  "totals": {
+    "electors": 184868,
+    "votes_polled": 142125,
+    "turnout_pct": 76.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. K.T. JALEEL",
+      "party_short": "IND",
+      "votes": 68179,
+      "vote_share_pct": 47.97,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "IFTHIQUARUDHEEN. MASTER",
+      "party_short": "INC",
+      "votes": 51115,
+      "vote_share_pct": 35.96,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAVI THELATH",
+      "party_short": "BJP",
+      "votes": 15801,
+      "vote_share_pct": 11.12,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "P.K. JALEEL PARAKKUZHIYIL",
+      "party_short": "SDPI",
+      "votes": 2649,
+      "vote_share_pct": 1.86,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ALI KADAMPUZHA",
+      "party_short": "PDP",
+      "votes": 1077,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 473,
+    "vote_share_pct": 0.33
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2831,
+    "vote_share_pct": 1.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. K.T. JALEEL",
+    "party_short": "IND",
+    "votes": 68179,
+    "margin_votes": 17064,
+    "margin_pct": 12.01
+  }
+}

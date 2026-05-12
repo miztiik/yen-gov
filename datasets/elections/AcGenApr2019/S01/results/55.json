@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "Nidadavole",
+  "totals": {
+    "electors": 203240,
+    "votes_polled": 168096,
+    "turnout_pct": 82.70812832119661
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G. Srinivas Naidu",
+      "party_short": "YSRCP",
+      "votes": 81001,
+      "vote_share_pct": 48.187345326480106,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Burugupalli Sesharao",
+      "party_short": "TDP",
+      "votes": 59313,
+      "vote_share_pct": 35.28519417475729,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Atikala Naga Venkata Kusumanjali Ramya Sri",
+      "party_short": "JnP",
+      "votes": 23073,
+      "vote_share_pct": 13.726085094231868,
+      "gender": "F",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Lingampalli Venkateswararao",
+      "party_short": "BJP",
+      "votes": 1012,
+      "vote_share_pct": 0.6020369312773654,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Peddireddy Subbarao",
+      "party_short": "INC",
+      "votes": 954,
+      "vote_share_pct": 0.5675328383780697,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1693,
+    "vote_share_pct": 1.007162573767371
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1050,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G. Srinivas Naidu",
+    "party_short": "YSRCP",
+    "votes": 81001,
+    "margin_votes": 21688,
+    "margin_pct": 12.9
+  }
+}

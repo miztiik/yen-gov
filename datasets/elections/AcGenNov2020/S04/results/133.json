@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 133,
+  "constituency_name": "Samastipur",
+  "totals": {
+    "electors": 279144,
+    "votes_polled": 166240,
+    "turnout_pct": 59.55349210443356
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Akhtarul Islam Shahin",
+      "party_short": "RJD",
+      "votes": 68507,
+      "vote_share_pct": 41.20969682386911,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ashwamedh Devi",
+      "party_short": "JD(U)",
+      "votes": 63793,
+      "vote_share_pct": 38.374037536092395,
+      "gender": "F",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Mahendra Pradhan",
+      "party_short": "LJP",
+      "votes": 12074,
+      "vote_share_pct": 7.262993262752647,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Avinash Kumar",
+      "party_short": "IND",
+      "votes": 4053,
+      "vote_share_pct": 2.438041385948027,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Haroon Gauhar",
+      "party_short": "JP",
+      "votes": 2673,
+      "vote_share_pct": 1.6079162656400388,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1837,
+    "vote_share_pct": 1.105028873917228
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 13303,
+    "vote_share_pct": 8.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Akhtarul Islam Shahin",
+    "party_short": "RJD",
+    "votes": 68507,
+    "margin_votes": 4714,
+    "margin_pct": 2.84
+  }
+}

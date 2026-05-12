@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "Humnabad",
+  "totals": {
+    "electors": 238628,
+    "votes_polled": 159335,
+    "turnout_pct": 66.7712925557772
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJSHEKHAR",
+      "party_short": "INC",
+      "votes": 74945,
+      "vote_share_pct": 47.03611886904949,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUBHASH",
+      "party_short": "BJP",
+      "votes": 43131,
+      "vote_share_pct": 27.069382119433893,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M NASEEMODDIN PATEL",
+      "party_short": "JD(S)",
+      "votes": 34280,
+      "vote_share_pct": 21.514419305237393,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANKUSH",
+      "party_short": "BRPP",
+      "votes": 3644,
+      "vote_share_pct": 2.2870053660526564,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ANJUM BEGUM",
+      "party_short": "AIMEP",
+      "votes": 737,
+      "vote_share_pct": 0.4625474628926476,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1173,
+    "vote_share_pct": 0.7361847679417579
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1425,
+    "vote_share_pct": 0.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJSHEKHAR",
+    "party_short": "INC",
+    "votes": 74945,
+    "margin_votes": 31814,
+    "margin_pct": 19.97
+  }
+}

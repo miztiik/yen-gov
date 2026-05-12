@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 85,
+  "constituency_name": "Prithla",
+  "totals": {
+    "electors": 191676,
+    "votes_polled": 147039,
+    "turnout_pct": 76.71226444625306
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAYAN PAL RAWAT",
+      "party_short": "IND",
+      "votes": 64625,
+      "vote_share_pct": 43.95092458463401,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAGHUBIR TEWATIA",
+      "party_short": "INC",
+      "votes": 48196,
+      "vote_share_pct": 32.77769843374887,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SOHAN PAL",
+      "party_short": "BJP",
+      "votes": 21322,
+      "vote_share_pct": 14.5009147233047,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SURENDER",
+      "party_short": "BSP",
+      "votes": 8460,
+      "vote_share_pct": 5.753575581988453,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NARENDER SINGH",
+      "party_short": "INLD",
+      "votes": 1165,
+      "vote_share_pct": 0.7923068029570386,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 642,
+    "vote_share_pct": 0.4366188562218187
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2629,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAYAN PAL RAWAT",
+    "party_short": "IND",
+    "votes": 64625,
+    "margin_votes": 16429,
+    "margin_pct": 11.17
+  }
+}

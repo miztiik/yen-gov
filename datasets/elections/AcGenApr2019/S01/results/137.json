@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 137,
+  "constituency_name": "Kurnool",
+  "totals": {
+    "electors": 258876,
+    "votes_polled": 152659,
+    "turnout_pct": 58.969931550240275
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Abdul Hafeez Khan",
+      "party_short": "YSRCP",
+      "votes": 72819,
+      "vote_share_pct": 47.70043037095749,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "T.G. Bharath",
+      "party_short": "TDP",
+      "votes": 67466,
+      "vote_share_pct": 44.19392240221671,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Teetla Shadrack",
+      "party_short": "CPM",
+      "votes": 3771,
+      "vote_share_pct": 2.4702113861613135,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M. John Wilson",
+      "party_short": "INC",
+      "votes": 3388,
+      "vote_share_pct": 2.2193254246392287,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Venkata Subba Reddy. B",
+      "party_short": "BJP",
+      "votes": 1954,
+      "vote_share_pct": 1.2799769420735103,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 700,
+    "vote_share_pct": 0.45853831087587366
+  },
+  "others": {
+    "candidate_count": 23,
+    "votes": 2561,
+    "vote_share_pct": 1.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Abdul Hafeez Khan",
+    "party_short": "YSRCP",
+    "votes": 72819,
+    "margin_votes": 5353,
+    "margin_pct": 3.51
+  }
+}

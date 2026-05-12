@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "Pipra",
+  "totals": {
+    "electors": 289160,
+    "votes_polled": 181673,
+    "turnout_pct": 62.82784617512795
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMBILASH KAMAT",
+      "party_short": "JD(U)",
+      "votes": 82388,
+      "vote_share_pct": 45.349611664914434,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VISHWA MOHAN KUMAR",
+      "party_short": "RJD",
+      "votes": 63143,
+      "vote_share_pct": 34.75640298778575,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHAKUNTALA PRASAD",
+      "party_short": "LJP",
+      "votes": 5660,
+      "vote_share_pct": 3.115487716941978,
+      "gender": "F",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAHENDRA SAH",
+      "party_short": "JAPL",
+      "votes": 3770,
+      "vote_share_pct": 2.0751570128747803,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJU KUMAR",
+      "party_short": "PSS",
+      "votes": 3563,
+      "vote_share_pct": 1.961216031000754,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2633,
+    "vote_share_pct": 1.4493072718565776
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 20516,
+    "vote_share_pct": 11.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMBILASH KAMAT",
+    "party_short": "JD(U)",
+    "votes": 82388,
+    "margin_votes": 19245,
+    "margin_pct": 10.59
+  }
+}

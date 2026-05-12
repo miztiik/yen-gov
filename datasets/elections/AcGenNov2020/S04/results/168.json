@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 168,
+  "constituency_name": "Lakhisarai",
+  "totals": {
+    "electors": 368106,
+    "votes_polled": 194289,
+    "turnout_pct": 52.780720770647584
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIJAY KUMAR SINHA",
+      "party_short": "BJP",
+      "votes": 74212,
+      "vote_share_pct": 38.1967069674557,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMARESH KUMAR",
+      "party_short": "INC",
+      "votes": 63729,
+      "vote_share_pct": 32.80113645136884,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUJEET KUMAR S/O- BALMIKI SINGH",
+      "party_short": "IND",
+      "votes": 11570,
+      "vote_share_pct": 5.955046348480871,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "FULENA SINGH",
+      "party_short": "IND",
+      "votes": 10938,
+      "vote_share_pct": 5.629757732038356,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KUMARI BABITA",
+      "party_short": "IND",
+      "votes": 4922,
+      "vote_share_pct": 2.5333395096994686,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2058,
+    "vote_share_pct": 1.0592467921498385
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 26860,
+    "vote_share_pct": 13.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIJAY KUMAR SINHA",
+    "party_short": "BJP",
+    "votes": 74212,
+    "margin_votes": 10483,
+    "margin_pct": 5.4
+  }
+}

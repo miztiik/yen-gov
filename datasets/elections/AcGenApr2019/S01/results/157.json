@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 157,
+  "constituency_name": "Hindupur",
+  "totals": {
+    "electors": 229340,
+    "votes_polled": 178167,
+    "turnout_pct": 77.6868404988227
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nandamuri Balakrishna",
+      "party_short": "TDP",
+      "votes": 91704,
+      "vote_share_pct": 51.470811092963345,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHAIK MOHAMMED IQBAL",
+      "party_short": "YSRCP",
+      "votes": 74676,
+      "vote_share_pct": 41.91348566232804,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AKULA UMESH",
+      "party_short": "JnP",
+      "votes": 4305,
+      "vote_share_pct": 2.4162723736718923,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "T. BALAJI MANOHAR",
+      "party_short": "INC",
+      "votes": 2559,
+      "vote_share_pct": 1.436292916196602,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "P. D. PARTHA SARATHY",
+      "party_short": "BJP",
+      "votes": 2104,
+      "vote_share_pct": 1.1809145352394101,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1290,
+    "vote_share_pct": 0.7240398053511593
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1529,
+    "vote_share_pct": 0.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nandamuri Balakrishna",
+    "party_short": "TDP",
+    "votes": 91704,
+    "margin_votes": 17028,
+    "margin_pct": 9.56
+  }
+}

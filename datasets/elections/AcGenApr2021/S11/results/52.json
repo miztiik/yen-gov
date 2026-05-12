@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "OTTAPALAM",
+  "totals": {
+    "electors": 208304,
+    "votes_polled": 161161,
+    "turnout_pct": 77.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. K. Premkumar",
+      "party_short": "CPI(M)",
+      "votes": 74859,
+      "vote_share_pct": 46.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Doctor P. Sarin",
+      "party_short": "INC",
+      "votes": 59707,
+      "vote_share_pct": 37.05,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "P. Venugopalan",
+      "party_short": "BJP",
+      "votes": 25056,
+      "vote_share_pct": 15.55,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "P.p. Sivan",
+      "party_short": "BSP",
+      "votes": 672,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 867,
+    "vote_share_pct": 0.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. K. Premkumar",
+    "party_short": "CPI(M)",
+    "votes": 74859,
+    "margin_votes": 15152,
+    "margin_pct": 9.4
+  },
+  "others": null
+}

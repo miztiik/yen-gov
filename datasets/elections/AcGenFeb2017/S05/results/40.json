@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 40,
+  "constituency_name": "Canacona",
+  "totals": {
+    "electors": 33233,
+    "votes_polled": 28489,
+    "turnout_pct": 85.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ISIDORE ALEIXINHO FERNANDES",
+      "party_short": "INC",
+      "votes": 10853,
+      "vote_share_pct": 38.1,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIJAY PAI KHOT",
+      "party_short": "BJP",
+      "votes": 8745,
+      "vote_share_pct": 30.7,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAMESH TAWADKAR",
+      "party_short": "IND",
+      "votes": 7739,
+      "vote_share_pct": 27.16,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SANDESH TELEKAR",
+      "party_short": "AAAP",
+      "votes": 452,
+      "vote_share_pct": 1.59,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GOURISH BANDEKAR",
+      "party_short": "MAG",
+      "votes": 398,
+      "vote_share_pct": 1.4,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 302,
+    "vote_share_pct": 1.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ISIDORE ALEIXINHO FERNANDES",
+    "party_short": "INC",
+    "votes": 10853,
+    "margin_votes": 2108,
+    "margin_pct": 7.4
+  },
+  "others": null
+}

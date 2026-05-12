@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 159,
+  "constituency_name": "Puttaparthi",
+  "totals": {
+    "electors": 200075,
+    "votes_polled": 171291,
+    "turnout_pct": 85.61339497688367
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DUDDUKUNTA SREEDHAR REDDY",
+      "party_short": "YSRCP",
+      "votes": 97234,
+      "vote_share_pct": 56.7653875568477,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PALLE.RAGHUNATHA REDDY",
+      "party_short": "TDP",
+      "votes": 65979,
+      "vote_share_pct": 38.51866122563357,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PATTI CHALAPATHI",
+      "party_short": "JnP",
+      "votes": 2286,
+      "vote_share_pct": 1.3345709932220606,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KOTA SWETHA",
+      "party_short": "INC",
+      "votes": 1515,
+      "vote_share_pct": 0.8844597789726256,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HANUMANTHA REDDY YALAPALA",
+      "party_short": "BJP",
+      "votes": 1211,
+      "vote_share_pct": 0.706984021343795,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1310,
+    "vote_share_pct": 0.764780402940026
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1756,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DUDDUKUNTA SREEDHAR REDDY",
+    "party_short": "YSRCP",
+    "votes": 97234,
+    "margin_votes": 31255,
+    "margin_pct": 18.25
+  }
+}

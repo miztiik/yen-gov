@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Rania",
+  "totals": {
+    "electors": 180084,
+    "votes_polled": 143601,
+    "turnout_pct": 79.74112081028854
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ranjit Singh",
+      "party_short": "IND",
+      "votes": 53825,
+      "vote_share_pct": 37.482329510240184,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Gobind Kanda",
+      "party_short": "HaLP",
+      "votes": 34394,
+      "vote_share_pct": 23.951086691596853,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ram Chand Kamboj",
+      "party_short": "BJP",
+      "votes": 20709,
+      "vote_share_pct": 14.421208765955667,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ashok Kumar Verma",
+      "party_short": "INLD",
+      "votes": 9753,
+      "vote_share_pct": 6.7917354335972595,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Vineet Kamboj",
+      "party_short": "INC",
+      "votes": 8979,
+      "vote_share_pct": 6.252741972548938,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 401,
+    "vote_share_pct": 0.2792459662537169
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 15540,
+    "vote_share_pct": 10.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ranjit Singh",
+    "party_short": "IND",
+    "votes": 53825,
+    "margin_votes": 19431,
+    "margin_pct": 13.53
+  }
+}

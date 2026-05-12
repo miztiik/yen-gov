@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 99,
+  "constituency_name": "CHANGANASSERY",
+  "totals": {
+    "electors": 171743,
+    "votes_polled": 123585,
+    "turnout_pct": 71.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. Job Maichil",
+      "party_short": "KEC(M)",
+      "votes": 55425,
+      "vote_share_pct": 44.85,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "V. J. Laly",
+      "party_short": "KEC",
+      "votes": 49366,
+      "vote_share_pct": 39.94,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Adv G Raman Nair",
+      "party_short": "BJP",
+      "votes": 14491,
+      "vote_share_pct": 11.73,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Tijo Karikkandam",
+      "party_short": "IND",
+      "votes": 1094,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Amruth Dev T",
+      "party_short": "BSP",
+      "votes": 1079,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 27,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 434,
+    "vote_share_pct": 0.35
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1696,
+    "vote_share_pct": 1.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. Job Maichil",
+    "party_short": "KEC(M)",
+    "votes": 55425,
+    "margin_votes": 6059,
+    "margin_pct": 4.9
+  }
+}

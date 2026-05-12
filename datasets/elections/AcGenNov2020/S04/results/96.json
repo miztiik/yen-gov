@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 96,
+  "constituency_name": "Baruraj",
+  "totals": {
+    "electors": 289045,
+    "votes_polled": 176676,
+    "turnout_pct": 61.12404642875677
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Arun Kumar Singh",
+      "party_short": "BJP",
+      "votes": 87407,
+      "vote_share_pct": 49.47304670696642,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Nand Kumar Rai",
+      "party_short": "RJD",
+      "votes": 43753,
+      "vote_share_pct": 24.76454074124386,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Hiralal Khadia",
+      "party_short": "BSP",
+      "votes": 22650,
+      "vote_share_pct": 12.82007742987163,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rakesh Kumar",
+      "party_short": "IND",
+      "votes": 7304,
+      "vote_share_pct": 4.134121216237633,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sanjay Kumar Paswan",
+      "party_short": "IND",
+      "votes": 3877,
+      "vote_share_pct": 2.19441237066721,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 5160,
+    "vote_share_pct": 2.920600421109828
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 6525,
+    "vote_share_pct": 3.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Arun Kumar Singh",
+    "party_short": "BJP",
+    "votes": 87407,
+    "margin_votes": 43654,
+    "margin_pct": 24.71
+  }
+}

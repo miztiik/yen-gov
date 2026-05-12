@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Jokihat",
+  "totals": {
+    "electors": 293347,
+    "votes_polled": 174138,
+    "turnout_pct": 59.3624615216791
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHAHNAWAZ",
+      "party_short": "AIMIM",
+      "votes": 59596,
+      "vote_share_pct": 34.22343199072,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SARFARAZ ALAM",
+      "party_short": "RJD",
+      "votes": 52213,
+      "vote_share_pct": 29.98369109556788,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RANJIT YADAV",
+      "party_short": "BJP",
+      "votes": 48933,
+      "vote_share_pct": 28.100127485098024,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SABA PERWEEN",
+      "party_short": "IND",
+      "votes": 3696,
+      "vote_share_pct": 2.1224546049684734,
+      "gender": "F",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MD SHABBIR AHMAD",
+      "party_short": "SDPI",
+      "votes": 2350,
+      "vote_share_pct": 1.349504416037855,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2844,
+    "vote_share_pct": 1.6331874720049617
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4506,
+    "vote_share_pct": 2.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHAHNAWAZ",
+    "party_short": "AIMIM",
+    "votes": 59596,
+    "margin_votes": 7383,
+    "margin_pct": 4.24
+  }
+}

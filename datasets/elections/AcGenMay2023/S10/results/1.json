@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Nippani",
+  "totals": {
+    "electors": 226662,
+    "votes_polled": 187412,
+    "turnout_pct": 82.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jolle Shashikala Annasaheb",
+      "party_short": "BJP",
+      "votes": 73348,
+      "vote_share_pct": 39.14,
+      "is_winner": true,
+      "gender": "F",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Uttam Raosaheb Patil",
+      "party_short": "NCP",
+      "votes": 66056,
+      "vote_share_pct": 35.25,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kakasaheb P. Patil",
+      "party_short": "INC",
+      "votes": 44107,
+      "vote_share_pct": 23.53,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shakuntala Ashok Teli",
+      "party_short": "KRPP",
+      "votes": 646,
+      "vote_share_pct": 0.34,
+      "gender": "F",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rajaram Urf Raju Powar",
+      "party_short": "JD(S)",
+      "votes": 611,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 919,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1725,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jolle Shashikala Annasaheb",
+    "party_short": "BJP",
+    "votes": 73348,
+    "margin_votes": 7292,
+    "margin_pct": 3.89
+  }
+}

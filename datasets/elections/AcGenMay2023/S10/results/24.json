@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Bagalkot",
+  "totals": {
+    "electors": 245532,
+    "votes_polled": 170370,
+    "turnout_pct": 69.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Meti. Hullappa. Yamanappa",
+      "party_short": "INC",
+      "votes": 79336,
+      "vote_share_pct": 46.57,
+      "is_winner": true,
+      "gender": "M",
+      "age": 77,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Veerabhadrayya (veeranna) Charantimath",
+      "party_short": "BJP",
+      "votes": 73458,
+      "vote_share_pct": 43.12,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Charantimath. Mallikarjun. Chandrashekharayya.",
+      "party_short": "IND",
+      "votes": 10116,
+      "vote_share_pct": 5.94,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Devaraj H. Patil",
+      "party_short": "JD(S)",
+      "votes": 3470,
+      "vote_share_pct": 2.04,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ramesh R Badnur",
+      "party_short": "AAAP",
+      "votes": 1007,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1236,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1747,
+    "vote_share_pct": 1.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Meti. Hullappa. Yamanappa",
+    "party_short": "INC",
+    "votes": 79336,
+    "margin_votes": 5878,
+    "margin_pct": 3.45
+  }
+}

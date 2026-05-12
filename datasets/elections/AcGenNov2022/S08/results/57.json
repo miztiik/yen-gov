@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Sri Renukaji (SC)",
+  "totals": {
+    "electors": 74365,
+    "votes_polled": 59687,
+    "turnout_pct": 80.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vinay Kumar",
+      "party_short": "INC",
+      "votes": 28642,
+      "vote_share_pct": 47.99,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Narain Singh",
+      "party_short": "BJP",
+      "votes": 27782,
+      "vote_share_pct": 46.55,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Jagmohan Singh",
+      "party_short": "RTRYDVBHMP",
+      "votes": 2092,
+      "vote_share_pct": 3.5,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Ram Kishan",
+      "party_short": "AAAP",
+      "votes": 686,
+      "vote_share_pct": 1.15,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 485,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vinay Kumar",
+    "party_short": "INC",
+    "votes": 28642,
+    "margin_votes": 860,
+    "margin_pct": 1.44
+  },
+  "others": null
+}

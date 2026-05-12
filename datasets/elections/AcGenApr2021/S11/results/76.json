@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 76,
+  "constituency_name": "ALUVA",
+  "totals": {
+    "electors": 196577,
+    "votes_polled": 150428,
+    "turnout_pct": 76.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anwar Sadath",
+      "party_short": "INC",
+      "votes": 73703,
+      "vote_share_pct": 49.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ar Shelna Nishad",
+      "party_short": "IND",
+      "votes": 54817,
+      "vote_share_pct": 36.44,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M.n. Gopi",
+      "party_short": "BJP",
+      "votes": 15893,
+      "vote_share_pct": 10.57,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "V.a Rasheed",
+      "party_short": "SDPI",
+      "votes": 2224,
+      "vote_share_pct": 1.48,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K.m. Shefrin",
+      "party_short": "WPOI",
+      "votes": 1713,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 939,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1139,
+    "vote_share_pct": 0.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anwar Sadath",
+    "party_short": "INC",
+    "votes": 73703,
+    "margin_votes": 18886,
+    "margin_pct": 12.55
+  }
+}

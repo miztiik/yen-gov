@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 196,
+  "constituency_name": "Tarari",
+  "totals": {
+    "electors": 305326,
+    "votes_polled": 169857,
+    "turnout_pct": 55.63135795837891
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sudama Prasad S/o Ganga Dayal Sah",
+      "party_short": "CPI(ML)(L)",
+      "votes": 73945,
+      "vote_share_pct": 43.53367832941827,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Narendra Kumar Pandey @ Sunil Pandey",
+      "party_short": "IND",
+      "votes": 62930,
+      "vote_share_pct": 37.048811647444616,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kaushal Kumar Vidyarthi",
+      "party_short": "BJP",
+      "votes": 13833,
+      "vote_share_pct": 8.14390928840142,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Anil Kumar",
+      "party_short": "JTVP",
+      "votes": 6177,
+      "vote_share_pct": 3.6365884243805082,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Santosh Singh Chandrawanshi",
+      "party_short": "RLSP",
+      "votes": 2278,
+      "vote_share_pct": 1.3411281254231502,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2550,
+    "vote_share_pct": 1.5012628269662127
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 8144,
+    "vote_share_pct": 4.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sudama Prasad S/o Ganga Dayal Sah",
+    "party_short": "CPI(ML)(L)",
+    "votes": 73945,
+    "margin_votes": 11015,
+    "margin_pct": 6.48
+  }
+}

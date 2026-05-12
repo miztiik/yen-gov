@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 194,
+  "constituency_name": "Arsikere",
+  "totals": {
+    "electors": 208389,
+    "votes_polled": 172959,
+    "turnout_pct": 82.99814289621813
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.M SHIVALINGE GOWDA",
+      "party_short": "JD(S)",
+      "votes": 93986,
+      "vote_share_pct": 54.34004590683341,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "G.B.SHASHIDHARA",
+      "party_short": "INC",
+      "votes": 50297,
+      "vote_share_pct": 29.080302268167603,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "G. MARISWAMY",
+      "party_short": "BJP",
+      "votes": 25258,
+      "vote_share_pct": 14.603460935828725,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "N.C CHANDRASHEKARA",
+      "party_short": "RPI(A)",
+      "votes": 1354,
+      "vote_share_pct": 0.7828444891563896,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "JAGADISHA C.B",
+      "party_short": "SJPL",
+      "votes": 539,
+      "vote_share_pct": 0.31163454922842987,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1079,
+    "vote_share_pct": 0.6238472701622928
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 446,
+    "vote_share_pct": 0.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.M SHIVALINGE GOWDA",
+    "party_short": "JD(S)",
+    "votes": 93986,
+    "margin_votes": 43689,
+    "margin_pct": 25.26
+  }
+}

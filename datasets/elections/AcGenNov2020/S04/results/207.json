@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 207,
+  "constituency_name": "Chenari",
+  "totals": {
+    "electors": 303618,
+    "votes_polled": 173823,
+    "turnout_pct": 57.250558267296405
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MURARI PRASAD GAUTAM",
+      "party_short": "INC",
+      "votes": 71701,
+      "vote_share_pct": 41.24943189336279,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "LALAN PASWAN",
+      "party_short": "JD(U)",
+      "votes": 53698,
+      "vote_share_pct": 30.892344511370762,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "CHANDRA SHEKHAR PASWAN",
+      "party_short": "LJP",
+      "votes": 18074,
+      "vote_share_pct": 10.3979335300852,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SHYAM BIHARI RAM",
+      "party_short": "BSP",
+      "votes": 12864,
+      "vote_share_pct": 7.400631677050792,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MANISH KUMAR RAJAK",
+      "party_short": "IND",
+      "votes": 3068,
+      "vote_share_pct": 1.7650138359135443,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3450,
+    "vote_share_pct": 1.9847776186120363
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 10968,
+    "vote_share_pct": 6.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MURARI PRASAD GAUTAM",
+    "party_short": "INC",
+    "votes": 71701,
+    "margin_votes": 18003,
+    "margin_pct": 10.36
+  }
+}

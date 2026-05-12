@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "Meham",
+  "totals": {
+    "electors": 184110,
+    "votes_polled": 139627,
+    "turnout_pct": 75.83890065721579
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BALRAJ KUNDU",
+      "party_short": "IND",
+      "votes": 49418,
+      "vote_share_pct": 35.392868141548554,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANAND SINGH DANGI",
+      "party_short": "INC",
+      "votes": 37371,
+      "vote_share_pct": 26.764880717912725,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHAMSHER KHARKARA",
+      "party_short": "BJP",
+      "votes": 36106,
+      "vote_share_pct": 25.858895485830104,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANIL KUMAR BINTU",
+      "party_short": "BSP",
+      "votes": 8895,
+      "vote_share_pct": 6.370544378952495,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "HARGIAN MOKHRA",
+      "party_short": "JNJP",
+      "votes": 5122,
+      "vote_share_pct": 3.668344947610419,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 200,
+    "vote_share_pct": 0.14323877187076997
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 2515,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BALRAJ KUNDU",
+    "party_short": "IND",
+    "votes": 49418,
+    "margin_votes": 12047,
+    "margin_pct": 8.63
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenOct2019",
+  "state": "S07",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Kalayat",
+  "totals": {
+    "electors": 202080,
+    "votes_polled": 152896,
+    "turnout_pct": 75.66112430720506
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KAMLESH DHANDA",
+      "party_short": "BJP",
+      "votes": 53805,
+      "vote_share_pct": 35.19058706571787,
+      "is_winner": true,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAI PARKASH",
+      "party_short": "INC",
+      "votes": 44831,
+      "vote_share_pct": 29.321237965676016,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SATVINDER SINGH",
+      "party_short": "JNJP",
+      "votes": 37425,
+      "vote_share_pct": 24.477422561741314,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Jogi Ram",
+      "party_short": "BSP",
+      "votes": 7113,
+      "vote_share_pct": 4.652181875261616,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAKESH SINGH",
+      "party_short": "LTSP",
+      "votes": 2448,
+      "vote_share_pct": 1.60108832147342,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 331,
+    "vote_share_pct": 0.2164870238593554
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 6943,
+    "vote_share_pct": 4.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KAMLESH DHANDA",
+    "party_short": "BJP",
+    "votes": 53805,
+    "margin_votes": 8974,
+    "margin_pct": 5.87
+  }
+}

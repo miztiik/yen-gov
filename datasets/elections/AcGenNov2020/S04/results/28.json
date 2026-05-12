@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "Sitamarhi",
+  "totals": {
+    "electors": 292345,
+    "votes_polled": 180842,
+    "turnout_pct": 61.859104824778946
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MITHILESH KUMAR",
+      "party_short": "BJP",
+      "votes": 90236,
+      "vote_share_pct": 49.89770075535551,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUNIL KUMAR",
+      "party_short": "RJD",
+      "votes": 78761,
+      "vote_share_pct": 43.55238274294688,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAKESH KUMAR TUNNA",
+      "party_short": "BSP",
+      "votes": 2035,
+      "vote_share_pct": 1.1252916910894593,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KRISHNA KISHORE",
+      "party_short": "IND",
+      "votes": 1371,
+      "vote_share_pct": 0.7581203481492131,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AFTAB ANJUM",
+      "party_short": "SWARAJ",
+      "votes": 965,
+      "vote_share_pct": 0.5336149788212915,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2979,
+    "vote_share_pct": 1.6472943232213755
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4495,
+    "vote_share_pct": 2.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MITHILESH KUMAR",
+    "party_short": "BJP",
+    "votes": 90236,
+    "margin_votes": 11475,
+    "margin_pct": 6.35
+  }
+}

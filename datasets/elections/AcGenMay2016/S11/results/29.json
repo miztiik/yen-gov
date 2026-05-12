@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "BEYPORE",
+  "totals": {
+    "electors": 191152,
+    "votes_polled": 155709,
+    "turnout_pct": 81.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAMMED KOYA V K C",
+      "party_short": "CPM",
+      "votes": 69114,
+      "vote_share_pct": 44.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADAM MULSI M P",
+      "party_short": "INC",
+      "votes": 54751,
+      "vote_share_pct": 35.16,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRAKASAN",
+      "party_short": "BJP",
+      "votes": 27958,
+      "vote_share_pct": 17.96,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "P.C MUHAMMEDKUTTY",
+      "party_short": "WPOI",
+      "votes": 1387,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUHAMMED MUSTHAFA P.P",
+      "party_short": "SDPI",
+      "votes": 1126,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 605,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 768,
+    "vote_share_pct": 0.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAMMED KOYA V K C",
+    "party_short": "CPM",
+    "votes": 69114,
+    "margin_votes": 14363,
+    "margin_pct": 9.22
+  }
+}

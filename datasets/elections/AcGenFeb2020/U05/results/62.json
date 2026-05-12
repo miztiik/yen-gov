@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "SHAHDARA",
+  "totals": {
+    "electors": 189407,
+    "votes_polled": 125383,
+    "turnout_pct": 66.1976590094347
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM NIWAS GOEL",
+      "party_short": "AAAP",
+      "votes": 62103,
+      "vote_share_pct": 49.53063812478566,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SANJAY GOYAL",
+      "party_short": "BJP",
+      "votes": 56809,
+      "vote_share_pct": 45.30837513857541,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. NARENDER NATH",
+      "party_short": "INC",
+      "votes": 4474,
+      "vote_share_pct": 3.568266830431558,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "INDU",
+      "party_short": "BSP",
+      "votes": 702,
+      "vote_share_pct": 0.559884513849565,
+      "gender": "F",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NISHANT SHARMA",
+      "party_short": "PBI",
+      "votes": 375,
+      "vote_share_pct": 0.29908360782562227,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 411,
+    "vote_share_pct": 0.32779563417688207
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 509,
+    "vote_share_pct": 0.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM NIWAS GOEL",
+    "party_short": "AAAP",
+    "votes": 62103,
+    "margin_votes": 5294,
+    "margin_pct": 4.22
+  }
+}

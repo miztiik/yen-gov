@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Bhimli",
+  "totals": {
+    "electors": 307144,
+    "votes_polled": 229890,
+    "turnout_pct": 74.84762847394056
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MUTTAMSETTI SRINIVASARAO (AVANTHI SRINIVAS)",
+      "party_short": "YSRCP",
+      "votes": 101629,
+      "vote_share_pct": 44.207664535212494,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SABBAM HARI",
+      "party_short": "TDP",
+      "votes": 91917,
+      "vote_share_pct": 39.98303536473966,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NAGA SANDEEP PANCHAKARLA",
+      "party_short": "JnP",
+      "votes": 24248,
+      "vote_share_pct": 10.547653225455653,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "APPARAO KORADA",
+      "party_short": "BJP",
+      "votes": 2468,
+      "vote_share_pct": 1.0735569185262517,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "TEDDU RAMADASU",
+      "party_short": "INC",
+      "votes": 1880,
+      "vote_share_pct": 0.81778241767802,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4263,
+    "vote_share_pct": 1.8543651311496803
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3485,
+    "vote_share_pct": 1.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MUTTAMSETTI SRINIVASARAO (AVANTHI SRINIVAS)",
+    "party_short": "YSRCP",
+    "votes": 101629,
+    "margin_votes": 9712,
+    "margin_pct": 4.22
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 124,
+  "constituency_name": "MARGHERITA",
+  "totals": {
+    "electors": 196210,
+    "votes_polled": 153279,
+    "turnout_pct": 78.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHASKAR SHARMA",
+      "party_short": "BJP",
+      "votes": 86640,
+      "vote_share_pct": 56.52,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANORANJAN BORGOHAIN",
+      "party_short": "INC",
+      "votes": 28140,
+      "vote_share_pct": 18.36,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANJAY KUMAR DEB",
+      "party_short": "ASMJTYP",
+      "votes": 22935,
+      "vote_share_pct": 14.96,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "IGNATIUS EKKA",
+      "party_short": "IND",
+      "votes": 10315,
+      "vote_share_pct": 6.73,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RANTU SONOWAL",
+      "party_short": "IND",
+      "votes": 1444,
+      "vote_share_pct": 0.94,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2536,
+    "vote_share_pct": 1.65
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1269,
+    "vote_share_pct": 0.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHASKAR SHARMA",
+    "party_short": "BJP",
+    "votes": 86640,
+    "margin_votes": 58500,
+    "margin_pct": 38.17
+  }
+}

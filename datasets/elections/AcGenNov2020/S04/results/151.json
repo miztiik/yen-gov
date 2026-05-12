@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 151,
+  "constituency_name": "Parbatta",
+  "totals": {
+    "electors": 308043,
+    "votes_polled": 185576,
+    "turnout_pct": 60.243537428216186
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Doctor Sanjeev Kumar",
+      "party_short": "JD(U)",
+      "votes": 77226,
+      "vote_share_pct": 41.614217355692546,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Digambar Prasad Tiwary",
+      "party_short": "RJD",
+      "votes": 76275,
+      "vote_share_pct": 41.10175884812691,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Aditya kumar shyour",
+      "party_short": "LJP",
+      "votes": 11576,
+      "vote_share_pct": 6.237875587360434,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Priyadarshee Dinkar",
+      "party_short": "IND",
+      "votes": 3596,
+      "vote_share_pct": 1.9377505711945509,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Babulal Shrma",
+      "party_short": "IND",
+      "votes": 3393,
+      "vote_share_pct": 1.8283614260464716,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1923,
+    "vote_share_pct": 1.0362331335948614
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 11587,
+    "vote_share_pct": 6.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Doctor Sanjeev Kumar",
+    "party_short": "JD(U)",
+    "votes": 77226,
+    "margin_votes": 951,
+    "margin_pct": 0.51
+  }
+}

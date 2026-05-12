@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 97,
+  "constituency_name": "KOTTAYAM",
+  "totals": {
+    "electors": 164097,
+    "votes_polled": 128603,
+    "turnout_pct": 78.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "THIRUVANCHOOR RADHAKRISHNAN",
+      "party_short": "INC",
+      "votes": 73894,
+      "vote_share_pct": 57.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV. REJI SAKHARIYA",
+      "party_short": "CPM",
+      "votes": 40262,
+      "vote_share_pct": 31.31,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ADV. M S KARUNAKARAN",
+      "party_short": "BJP",
+      "votes": 12582,
+      "vote_share_pct": 9.78,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ADV. P K GEETHA KRISHNAN",
+      "party_short": "BSP",
+      "votes": 651,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ROY CHEMMANAM",
+      "party_short": "SP",
+      "votes": 403,
+      "vote_share_pct": 0.31,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 483,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 328,
+    "vote_share_pct": 0.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "THIRUVANCHOOR RADHAKRISHNAN",
+    "party_short": "INC",
+    "votes": 73894,
+    "margin_votes": 33632,
+    "margin_pct": 26.15
+  }
+}

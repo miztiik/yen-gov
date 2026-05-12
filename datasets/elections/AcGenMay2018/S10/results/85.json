@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 85,
+  "constituency_name": "Byadgi",
+  "totals": {
+    "electors": 200878,
+    "votes_polled": 166833,
+    "turnout_pct": 83.05190214956342
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BALLARY VIRUPAKSHAPPA RUDRAPPA",
+      "party_short": "BJP",
+      "votes": 91721,
+      "vote_share_pct": 54.97773222324121,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "S.R.PATIL",
+      "party_short": "INC",
+      "votes": 70450,
+      "vote_share_pct": 42.227856599114084,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHIVABASAPPA CHANNABASAPPA BAGANNANAVAR",
+      "party_short": "BSP",
+      "votes": 875,
+      "vote_share_pct": 0.5244765723807641,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SADAR SHIVAMURTHY BASAPPA",
+      "party_short": "IND",
+      "votes": 726,
+      "vote_share_pct": 0.43516570462678245,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "UMESH YALLAPPA KARIGAR",
+      "party_short": "IND",
+      "votes": 508,
+      "vote_share_pct": 0.3044961128793464,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1469,
+    "vote_share_pct": 0.8805212398026769
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1084,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BALLARY VIRUPAKSHAPPA RUDRAPPA",
+    "party_short": "BJP",
+    "votes": 91721,
+    "margin_votes": 21271,
+    "margin_pct": 12.75
+  }
+}

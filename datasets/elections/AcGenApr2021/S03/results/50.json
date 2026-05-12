@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "PALASBARI",
+  "totals": {
+    "electors": 158743,
+    "votes_polled": 131846,
+    "turnout_pct": 83.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HEMANGA THAKURIA",
+      "party_short": "BJP",
+      "votes": 68311,
+      "vote_share_pct": 51.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PANKAJ LOCHAN GOSWAMI",
+      "party_short": "ASMJTYP",
+      "votes": 28641,
+      "vote_share_pct": 21.72,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JATIN MALI",
+      "party_short": "INC",
+      "votes": 27320,
+      "vote_share_pct": 20.72,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANIL BORO",
+      "party_short": "IND",
+      "votes": 2306,
+      "vote_share_pct": 1.75,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "JURI MALI",
+      "party_short": "IND",
+      "votes": 1730,
+      "vote_share_pct": 1.31,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1427,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2111,
+    "vote_share_pct": 1.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HEMANGA THAKURIA",
+    "party_short": "BJP",
+    "votes": 68311,
+    "margin_votes": 39670,
+    "margin_pct": 30.09
+  }
+}

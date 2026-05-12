@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "IRIKKUR",
+  "totals": {
+    "electors": 195695,
+    "votes_polled": 152516,
+    "turnout_pct": 77.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. Sajeev Joseph",
+      "party_short": "INC",
+      "votes": 76764,
+      "vote_share_pct": 50.33,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Saji Kuttiyanimattam",
+      "party_short": "KEC(M)",
+      "votes": 66754,
+      "vote_share_pct": 43.77,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Aniamma Teacher",
+      "party_short": "BJP",
+      "votes": 7825,
+      "vote_share_pct": 5.13,
+      "gender": "F",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Chacko Karimbil",
+      "party_short": "IND",
+      "votes": 311,
+      "vote_share_pct": 0.2,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sajan Kuttiyanikkal",
+      "party_short": "IND",
+      "votes": 275,
+      "vote_share_pct": 0.18,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 459,
+    "vote_share_pct": 0.3
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 128,
+    "vote_share_pct": 0.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. Sajeev Joseph",
+    "party_short": "INC",
+    "votes": 76764,
+    "margin_votes": 10010,
+    "margin_pct": 6.56
+  }
+}

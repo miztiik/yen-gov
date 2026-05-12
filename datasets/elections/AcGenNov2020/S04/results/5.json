@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Lauriya",
+  "totals": {
+    "electors": 256277,
+    "votes_polled": 157495,
+    "turnout_pct": 61.45498815734537
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vinay Bihari",
+      "party_short": "BJP",
+      "votes": 77927,
+      "vote_share_pct": 49.47903108035176,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Shambhu Tiwari",
+      "party_short": "RJD",
+      "votes": 48923,
+      "vote_share_pct": 31.06320835582082,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ran Kaushal Pratap Singh",
+      "party_short": "BSP",
+      "votes": 17515,
+      "vote_share_pct": 11.120987967871995,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Neelam Singh",
+      "party_short": "IND",
+      "votes": 1906,
+      "vote_share_pct": 1.210197149115845,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Doctor Mahto",
+      "party_short": "IND",
+      "votes": 1541,
+      "vote_share_pct": 0.9784437601193688,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3368,
+    "vote_share_pct": 2.1384805866852914
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 6315,
+    "vote_share_pct": 4.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vinay Bihari",
+    "party_short": "BJP",
+    "votes": 77927,
+    "margin_votes": 29004,
+    "margin_pct": 18.42
+  }
+}

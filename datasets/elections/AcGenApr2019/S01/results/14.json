@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Bobbili",
+  "totals": {
+    "electors": 220854,
+    "votes_polled": 174457,
+    "turnout_pct": 78.99200376719462
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAMBANGI VENKATACHINA APPALA NAIDU",
+      "party_short": "YSRCP",
+      "votes": 84955,
+      "vote_share_pct": 48.69681354144574,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VENKATA SUJAY KRISHNA RANGA RAO RAVU",
+      "party_short": "TDP",
+      "votes": 76603,
+      "vote_share_pct": 43.90938741351737,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "APPALASWAMY.GIRADA",
+      "party_short": "JnP",
+      "votes": 4233,
+      "vote_share_pct": 2.426385871590134,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DWARAPUREDDI RAMA MOHANA RAO",
+      "party_short": "BJP",
+      "votes": 3125,
+      "vote_share_pct": 1.7912723479138126,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Dr. NARAYANA RAO VENGALA",
+      "party_short": "INC",
+      "votes": 2148,
+      "vote_share_pct": 1.231248961062038,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3031,
+    "vote_share_pct": 1.7373908756885652
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 362,
+    "vote_share_pct": 0.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAMBANGI VENKATACHINA APPALA NAIDU",
+    "party_short": "YSRCP",
+    "votes": 84955,
+    "margin_votes": 8352,
+    "margin_pct": 4.79
+  }
+}

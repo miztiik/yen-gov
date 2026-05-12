@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "Jaisinghpur",
+  "totals": {
+    "electors": 77477,
+    "votes_polled": 50896,
+    "turnout_pct": 65.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAVINDER KUMAR",
+      "party_short": "BJP",
+      "votes": 29357,
+      "vote_share_pct": 57.68,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "YADVINDER GOMA",
+      "party_short": "INC",
+      "votes": 18647,
+      "vote_share_pct": 36.64,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KEHAR SINGH",
+      "party_short": "BSP",
+      "votes": 1082,
+      "vote_share_pct": 2.13,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MURLIDHAR",
+      "party_short": "ALIMRD",
+      "votes": 440,
+      "vote_share_pct": 0.86,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MOHINDER KUMAR",
+      "party_short": "IND",
+      "votes": 387,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 246,
+    "vote_share_pct": 0.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAVINDER KUMAR",
+    "party_short": "BJP",
+    "votes": 29357,
+    "margin_votes": 10710,
+    "margin_pct": 21.04
+  },
+  "others": null
+}

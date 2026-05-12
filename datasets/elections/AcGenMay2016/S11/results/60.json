@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "ALATHUR",
+  "totals": {
+    "electors": 165294,
+    "votes_polled": 128639,
+    "turnout_pct": 77.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.D.PRASENAN",
+      "party_short": "CPM",
+      "votes": 71206,
+      "vote_share_pct": 55.35,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV.K KUSALAKUMAR",
+      "party_short": "KEC(M)",
+      "votes": 35146,
+      "vote_share_pct": 27.32,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M P SREEKUMAR MASTER",
+      "party_short": "BJP",
+      "votes": 19610,
+      "vote_share_pct": 15.24,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KRISHNANKUTTY.K",
+      "party_short": "BSP",
+      "votes": 1010,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KRISHNANKUTTY KUNISSERY",
+      "party_short": "IND",
+      "votes": 326,
+      "vote_share_pct": 0.25,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1076,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 265,
+    "vote_share_pct": 0.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.D.PRASENAN",
+    "party_short": "CPM",
+    "votes": 71206,
+    "margin_votes": 36060,
+    "margin_pct": 28.03
+  }
+}

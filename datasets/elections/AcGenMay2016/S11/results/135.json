@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 135,
+  "constituency_name": "NEMOM",
+  "totals": {
+    "electors": 192459,
+    "votes_polled": 142882,
+    "turnout_pct": 74.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "O.RAJAGOPAL",
+      "party_short": "BJP",
+      "votes": 67813,
+      "vote_share_pct": 47.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 85,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "V.SIVANKUTTY",
+      "party_short": "CPM",
+      "votes": 59142,
+      "vote_share_pct": 41.39,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "V.SURENDRAN PILLAI",
+      "party_short": "JD(U)",
+      "votes": 13860,
+      "vote_share_pct": 9.7,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "A.NOUSHAD",
+      "party_short": "AKTP",
+      "votes": 406,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAMLAJA BEEVI.B",
+      "party_short": "IND",
+      "votes": 330,
+      "vote_share_pct": 0.23,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 884,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 447,
+    "vote_share_pct": 0.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "O.RAJAGOPAL",
+    "party_short": "BJP",
+    "votes": 67813,
+    "margin_votes": 8671,
+    "margin_pct": 6.07
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 206,
+  "constituency_name": "Chainpur",
+  "totals": {
+    "electors": 318231,
+    "votes_polled": 205970,
+    "turnout_pct": 64.72342417929114
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHD. ZAMA KHAN",
+      "party_short": "BSP",
+      "votes": 95245,
+      "vote_share_pct": 46.242171189979125,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BRIJ KISHOR BIND",
+      "party_short": "BJP",
+      "votes": 70951,
+      "vote_share_pct": 34.44724959945623,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NIRAJ PANDEY",
+      "party_short": "IND",
+      "votes": 13119,
+      "vote_share_pct": 6.369374180705928,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRAKASH KUMAR SINGH",
+      "party_short": "INC",
+      "votes": 5414,
+      "vote_share_pct": 2.628538136621838,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAJANU GOND",
+      "party_short": "IND",
+      "votes": 4191,
+      "vote_share_pct": 2.034762344030684,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 599,
+    "vote_share_pct": 0.2908190513181531
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 16451,
+    "vote_share_pct": 7.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHD. ZAMA KHAN",
+    "party_short": "BSP",
+    "votes": 95245,
+    "margin_votes": 24294,
+    "margin_pct": 11.79
+  }
+}

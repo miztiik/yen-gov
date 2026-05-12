@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 187,
+  "constituency_name": "Maddur",
+  "totals": {
+    "electors": 213854,
+    "votes_polled": 183390,
+    "turnout_pct": 85.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Udaya.k.m",
+      "party_short": "INC",
+      "votes": 87019,
+      "vote_share_pct": 47.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "D.c.thammanna",
+      "party_short": "JD(S)",
+      "votes": 62906,
+      "vote_share_pct": 34.3,
+      "gender": "M",
+      "age": 80,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S.p.swamy",
+      "party_short": "BJP",
+      "votes": 28996,
+      "vote_share_pct": 15.81,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ananda",
+      "party_short": "AAAP",
+      "votes": 1188,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Somanahalli Shivakumar",
+      "party_short": "BSP",
+      "votes": 671,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 753,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1857,
+    "vote_share_pct": 1.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Udaya.k.m",
+    "party_short": "INC",
+    "votes": 87019,
+    "margin_votes": 24113,
+    "margin_pct": 13.15
+  }
+}

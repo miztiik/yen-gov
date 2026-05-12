@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "MADIPUR(SC)",
+  "totals": {
+    "electors": 175048,
+    "votes_polled": 115074,
+    "turnout_pct": 65.73854028609296
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Girish Soni",
+      "party_short": "AAAP",
+      "votes": 64440,
+      "vote_share_pct": 55.9987486313155,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Kailash Sankla",
+      "party_short": "BJP",
+      "votes": 41721,
+      "vote_share_pct": 36.25580061525627,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Jai Prakash Panwar",
+      "party_short": "INC",
+      "votes": 6788,
+      "vote_share_pct": 5.898812937761788,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Hansraj Jaluthria",
+      "party_short": "BSP",
+      "votes": 851,
+      "vote_share_pct": 0.7395241322974782,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Girish Prakash",
+      "party_short": "IND",
+      "votes": 221,
+      "vote_share_pct": 0.19205033282930983,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 517,
+    "vote_share_pct": 0.4492761179762587
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 536,
+    "vote_share_pct": 0.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Girish Soni",
+    "party_short": "AAAP",
+    "votes": 64440,
+    "margin_votes": 22719,
+    "margin_pct": 19.74
+  }
+}

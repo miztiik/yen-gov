@@ -1,16 +1,7 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-  "$schema_version": "3.1",
-  "sources": [
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    },
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    }
-  ],
+  "$schema_version": "3.2",
+  "sources": [],
   "election": "AcGenFeb2025",
   "state": "U05",
   "body": "AC",
@@ -28,37 +19,50 @@
       "party_short": "AAAP",
       "votes": 56177,
       "vote_share_pct": 47.45,
-      "is_winner": true
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
     },
     {
       "rank": 2,
       "name": "MANOJ KUMAR JINDAL",
-      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 49870,
-      "vote_share_pct": 42.12
+      "vote_share_pct": 42.12,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
     },
     {
       "rank": 3,
       "name": "ANIL BHARDWAJ",
-      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 10057,
-      "vote_share_pct": 8.49
+      "vote_share_pct": 8.49,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
     },
     {
       "rank": 4,
       "name": "SHAIL KUMARI",
       "party_short": "BSP",
       "votes": 709,
-      "vote_share_pct": 0.6
+      "vote_share_pct": 0.6,
+      "gender": "F",
+      "age": 27,
+      "category": "SC"
     },
     {
       "rank": 5,
       "name": "MEENAKSHI KUMARI",
       "party_short": "BHLBP",
       "votes": 247,
-      "vote_share_pct": 0.21
+      "vote_share_pct": 0.21,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
     }
   ],
   "nota": {

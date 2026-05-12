@@ -137,6 +137,14 @@ def test_result_name_reservation_matches_reference():
                     continue
 
                 result_doc = _load_json(result_file)
+                # Historical hand-imports (sources: [] per ADR-0002) come
+                # from a different delimitation epoch than the current-
+                # delimitation reference. Same eci_no refers to different
+                # geographies (e.g. Assam #35 was "Abhayapuri South (SC)"
+                # in 2016 but "New Guwahati" GEN today). Skip these — the
+                # reference can only validate same-delimitation results.
+                if result_doc.get("sources") == []:
+                    continue
                 inferred = _reservation_from_result_name(str(result_doc.get("constituency_name", "")))
                 expected = reservation_by_no[eci_no]
                 if inferred != expected:

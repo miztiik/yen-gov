@@ -1,16 +1,7 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-  "$schema_version": "3.1",
-  "sources": [
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    },
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    }
-  ],
+  "$schema_version": "3.2",
+  "sources": [],
   "election": "AcGenFeb2025",
   "state": "U05",
   "body": "AC",
@@ -28,36 +19,50 @@
       "party_short": "AAAP",
       "votes": 121181,
       "vote_share_pct": 47.57,
-      "is_winner": true
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
     },
     {
       "rank": 2,
       "name": "SHAILENDRA KUMAR",
       "party_short": "JD(U)",
       "votes": 100580,
-      "vote_share_pct": 39.48
+      "vote_share_pct": 39.48,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
     },
     {
       "rank": 3,
       "name": "MANGESH TYAGI",
-      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 19920,
-      "vote_share_pct": 7.82
+      "vote_share_pct": 7.82,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
     },
     {
       "rank": 4,
       "name": "RATAN TYAGI",
       "party_short": "NCP",
       "votes": 3852,
-      "vote_share_pct": 1.51
+      "vote_share_pct": 1.51,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
     },
     {
       "rank": 5,
       "name": "GANGA RAM",
       "party_short": "BSP",
       "votes": 2214,
-      "vote_share_pct": 0.87
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
     }
   ],
   "nota": {

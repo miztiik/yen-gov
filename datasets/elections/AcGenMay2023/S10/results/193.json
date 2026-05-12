@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 193,
+  "constituency_name": "Shravanabelagola",
+  "totals": {
+    "electors": 205242,
+    "votes_polled": 175067,
+    "turnout_pct": 85.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C.n. Balakrishna",
+      "party_short": "JD(S)",
+      "votes": 85668,
+      "vote_share_pct": 48.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M.a. Gopalaswamy",
+      "party_short": "INC",
+      "votes": 79023,
+      "vote_share_pct": 45.14,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Chidhananda C.r",
+      "party_short": "BJP",
+      "votes": 5648,
+      "vote_share_pct": 3.23,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Manjegowda Badakanahalli",
+      "party_short": "AAAP",
+      "votes": 898,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Kiran T.k",
+      "party_short": "UPJP",
+      "votes": 779,
+      "vote_share_pct": 0.44,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 667,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2384,
+    "vote_share_pct": 1.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C.n. Balakrishna",
+    "party_short": "JD(S)",
+    "votes": 85668,
+    "margin_votes": 6645,
+    "margin_pct": 3.8
+  }
+}

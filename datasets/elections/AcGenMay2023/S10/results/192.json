@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 192,
+  "constituency_name": "Krishnarajpet",
+  "totals": {
+    "electors": 219983,
+    "votes_polled": 189545,
+    "turnout_pct": 86.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "H.t.manju",
+      "party_short": "JD(S)",
+      "votes": 80646,
+      "vote_share_pct": 42.55,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "B.l.devaraja",
+      "party_short": "INC",
+      "votes": 58302,
+      "vote_share_pct": 30.76,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Narayangowda",
+      "party_short": "BJP",
+      "votes": 38151,
+      "vote_share_pct": 20.13,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Chandan Gowda.k",
+      "party_short": "IND",
+      "votes": 8497,
+      "vote_share_pct": 4.48,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Basthi Pradeepa",
+      "party_short": "BSP",
+      "votes": 1612,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 713,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1624,
+    "vote_share_pct": 0.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "H.t.manju",
+    "party_short": "JD(S)",
+    "votes": 80646,
+    "margin_votes": 22344,
+    "margin_pct": 11.79
+  }
+}

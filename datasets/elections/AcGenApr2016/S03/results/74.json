@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 74,
+  "constituency_name": "Rangapara",
+  "totals": {
+    "electors": 136999,
+    "votes_polled": 117485,
+    "turnout_pct": 85.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PALLAB LOCHAN DAS",
+      "party_short": "BJP",
+      "votes": 51597,
+      "vote_share_pct": 43.92,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BHIMANANDA TANTI",
+      "party_short": "INC",
+      "votes": 28606,
+      "vote_share_pct": 24.35,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BIJOY KUMAR TIRU",
+      "party_short": "AIUDF",
+      "votes": 13281,
+      "vote_share_pct": 11.3,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ROYAL SORENG",
+      "party_short": "CPM",
+      "votes": 8033,
+      "vote_share_pct": 6.84,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHRISTOPHER DHANWAR",
+      "party_short": "IND",
+      "votes": 6415,
+      "vote_share_pct": 5.46,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2321,
+    "vote_share_pct": 1.98
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 7232,
+    "vote_share_pct": 6.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PALLAB LOCHAN DAS",
+    "party_short": "BJP",
+    "votes": 51597,
+    "margin_votes": 22991,
+    "margin_pct": 19.57
+  }
+}

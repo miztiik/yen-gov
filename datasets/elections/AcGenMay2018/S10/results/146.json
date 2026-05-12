@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 146,
+  "constituency_name": "Kolar gold field  (SC)",
+  "totals": {
+    "electors": 190668,
+    "votes_polled": 139569,
+    "turnout_pct": 73.20001258732457
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ROOPAKALA.M",
+      "party_short": "INC",
+      "votes": 71151,
+      "vote_share_pct": 50.979085613567484,
+      "is_winner": true,
+      "gender": "F",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ASHWINI SAMPANGI",
+      "party_short": "BJP",
+      "votes": 30324,
+      "vote_share_pct": 21.72688777593878,
+      "gender": "F",
+      "age": 26,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "S.RAJENDRAN",
+      "party_short": "RPI",
+      "votes": 20393,
+      "vote_share_pct": 14.611410843382128,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "M.BACKTHAVACHALAM",
+      "party_short": "JD(S)",
+      "votes": 8976,
+      "vote_share_pct": 6.431227564860392,
+      "gender": "M",
+      "age": 70,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "THANGARAJ.P",
+      "party_short": "CPM",
+      "votes": 1746,
+      "vote_share_pct": 1.250994131934742,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1750,
+    "vote_share_pct": 1.2538600978727366
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 5229,
+    "vote_share_pct": 3.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ROOPAKALA.M",
+    "party_short": "INC",
+    "votes": 71151,
+    "margin_votes": 40827,
+    "margin_pct": 29.25
+  }
+}

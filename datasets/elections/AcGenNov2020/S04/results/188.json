@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 188,
+  "constituency_name": "Phulwari",
+  "totals": {
+    "electors": 364523,
+    "votes_polled": 209121,
+    "turnout_pct": 57.36839650721628
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GOPAL RAVIDAS",
+      "party_short": "CPI(ML)(L)",
+      "votes": 91124,
+      "vote_share_pct": 43.5747725001315,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ARUN MANJHI",
+      "party_short": "JD(U)",
+      "votes": 77267,
+      "vote_share_pct": 36.94846524261074,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KUMARI PRATIBHA",
+      "party_short": "AIMIM",
+      "votes": 5019,
+      "vote_share_pct": 2.4000459064369433,
+      "gender": "F",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KAMLESH KANT CHAUDHARY",
+      "party_short": "BHRTLKCHTP",
+      "votes": 3885,
+      "vote_share_pct": 1.8577761200453327,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "GAJENDRA MANJHI",
+      "party_short": "BHRTSBLP",
+      "votes": 3480,
+      "vote_share_pct": 1.6641083391911857,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3245,
+    "vote_share_pct": 1.5517332070906318
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 25101,
+    "vote_share_pct": 12.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GOPAL RAVIDAS",
+    "party_short": "CPI(ML)(L)",
+    "votes": 91124,
+    "margin_votes": 13857,
+    "margin_pct": 6.63
+  }
+}

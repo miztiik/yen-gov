@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Kurupam",
+  "totals": {
+    "electors": 184259,
+    "votes_polled": 143258,
+    "turnout_pct": 77.74816969591716
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PUSHPASREEVANI . PAMULA",
+      "party_short": "YSRCP",
+      "votes": 74527,
+      "vote_share_pct": 52.02292367616468,
+      "is_winner": true,
+      "gender": "F",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "VEERA VARA THODRAMAL NARA SIMHA PRIYA THATRAJ",
+      "party_short": "TDP",
+      "votes": 47925,
+      "vote_share_pct": 33.453629116698544,
+      "gender": "F",
+      "age": 65,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "AVINASH KUMAR KOLAKA",
+      "party_short": "CPM",
+      "votes": 8605,
+      "vote_share_pct": 6.006645353139092,
+      "gender": "M",
+      "age": 36,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "NIMMAKA. JAYARAJU.",
+      "party_short": "BJP",
+      "votes": 4204,
+      "vote_share_pct": 2.9345656089014227,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "NIMMAKA SIMHACHALAM",
+      "party_short": "INC",
+      "votes": 2204,
+      "vote_share_pct": 1.5384830166552654,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 4535,
+    "vote_share_pct": 3.165617277918162
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1258,
+    "vote_share_pct": 0.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PUSHPASREEVANI . PAMULA",
+    "party_short": "YSRCP",
+    "votes": 74527,
+    "margin_votes": 26602,
+    "margin_pct": 18.57
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Lingsugur  (SC)",
+  "totals": {
+    "electors": 240984,
+    "votes_polled": 164149,
+    "turnout_pct": 68.11614049065498
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "D. S. HOOLAGERI",
+      "party_short": "INC",
+      "votes": 54230,
+      "vote_share_pct": 33.03705779505206,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "BANDI.SIDDU",
+      "party_short": "JD(S)",
+      "votes": 49284,
+      "vote_share_pct": 30.023941662757615,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MANAPPA D VAJJAL",
+      "party_short": "BJP",
+      "votes": 47385,
+      "vote_share_pct": 28.867065897446828,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "R MANASAYYA",
+      "party_short": "CPIM",
+      "votes": 2334,
+      "vote_share_pct": 1.4218789027042504,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "A BALASWAMY KODLI",
+      "party_short": "IND",
+      "votes": 2056,
+      "vote_share_pct": 1.2525205758183113,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2074,
+    "vote_share_pct": 1.2634862228828687
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 6786,
+    "vote_share_pct": 4.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "D. S. HOOLAGERI",
+    "party_short": "INC",
+    "votes": 54230,
+    "margin_votes": 4946,
+    "margin_pct": 3.01
+  }
+}

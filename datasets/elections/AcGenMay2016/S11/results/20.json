@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "VADAKARA",
+  "totals": {
+    "electors": 158907,
+    "votes_polled": 129572,
+    "turnout_pct": 81.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C.K.NANU",
+      "party_short": "JD(S)",
+      "votes": 49211,
+      "vote_share_pct": 37.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 78,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANAYATH CHANDRAN",
+      "party_short": "JD(U)",
+      "votes": 39700,
+      "vote_share_pct": 30.64,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.K.REMA T. P. HOUSE",
+      "party_short": "IND",
+      "votes": 20504,
+      "vote_share_pct": 15.82,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ADV. M. RAJESHKUMAR",
+      "party_short": "BJP",
+      "votes": 13937,
+      "vote_share_pct": 10.76,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "P. ABDUL HAMEED MASTER",
+      "party_short": "SDPI",
+      "votes": 2673,
+      "vote_share_pct": 2.06,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 506,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3041,
+    "vote_share_pct": 2.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C.K.NANU",
+    "party_short": "JD(S)",
+    "votes": 49211,
+    "margin_votes": 9511,
+    "margin_pct": 7.34
+  }
+}

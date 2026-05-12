@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Sanguem",
+  "totals": {
+    "electors": 25769,
+    "votes_polled": 22683,
+    "turnout_pct": 88.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRASAD S. GAONKAR",
+      "party_short": "IND",
+      "votes": 7636,
+      "vote_share_pct": 33.66,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SUBHASH PHAL DESSAI",
+      "party_short": "BJP",
+      "votes": 6699,
+      "vote_share_pct": 29.53,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SAVITRI KAVLEKAR",
+      "party_short": "INC",
+      "votes": 5736,
+      "vote_share_pct": 25.29,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DATTAPRASAD SAWARDEKAR",
+      "party_short": "IND",
+      "votes": 989,
+      "vote_share_pct": 4.36,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAVINDRA ARJUN VELIP",
+      "party_short": "AAAP",
+      "votes": 658,
+      "vote_share_pct": 2.9,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 208,
+    "vote_share_pct": 0.92
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 757,
+    "vote_share_pct": 3.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRASAD S. GAONKAR",
+    "party_short": "IND",
+    "votes": 7636,
+    "margin_votes": 937,
+    "margin_pct": 4.13
+  }
+}

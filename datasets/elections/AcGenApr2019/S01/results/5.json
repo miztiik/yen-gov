@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Srikakulam",
+  "totals": {
+    "electors": 256243,
+    "votes_polled": 177297,
+    "turnout_pct": 69.19096326533798
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DHARMANA PRASADA RAO",
+      "party_short": "YSRCP",
+      "votes": 84084,
+      "vote_share_pct": 47.42550635374541,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GUNDA LAKSHMI DEVI",
+      "party_short": "TDP",
+      "votes": 78307,
+      "vote_share_pct": 44.16713198756888,
+      "gender": "F",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KORADA SARVESWARA RAO",
+      "party_short": "JnP",
+      "votes": 7557,
+      "vote_share_pct": 4.262339464288735,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CHOWDARI SATISH",
+      "party_short": "INC",
+      "votes": 1827,
+      "vote_share_pct": 1.0304742889050578,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHALLA VENKATESWARA RAO",
+      "party_short": "BJP",
+      "votes": 1340,
+      "vote_share_pct": 0.7557939502642459,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3082,
+    "vote_share_pct": 1.7383260856077654
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1100,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DHARMANA PRASADA RAO",
+    "party_short": "YSRCP",
+    "votes": 84084,
+    "margin_votes": 5777,
+    "margin_pct": 3.26
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "Balh (SC)",
+  "totals": {
+    "electors": 81597,
+    "votes_polled": 64726,
+    "turnout_pct": 79.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Inder Singh",
+      "party_short": "BJP",
+      "votes": 31792,
+      "vote_share_pct": 49.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Prakash Chaudhary",
+      "party_short": "INC",
+      "votes": 30485,
+      "vote_share_pct": 47.1,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Tara Chand",
+      "party_short": "AAAP",
+      "votes": 1406,
+      "vote_share_pct": 2.17,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Prof. Prem Kumar Hawal",
+      "party_short": "BSP",
+      "votes": 300,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Jiwan Ram",
+      "party_short": "RTRYDVBHMP",
+      "votes": 245,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 498,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Inder Singh",
+    "party_short": "BJP",
+    "votes": 31792,
+    "margin_votes": 1307,
+    "margin_pct": 2.02
+  },
+  "others": null
+}

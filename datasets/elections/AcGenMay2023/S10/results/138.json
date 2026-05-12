@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "Madhugiri",
+  "totals": {
+    "electors": 193581,
+    "votes_polled": 166615,
+    "turnout_pct": 86.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kyathasandra N. Rajanna",
+      "party_short": "INC",
+      "votes": 91166,
+      "vote_share_pct": 54.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "M.v.veerabhadraiah",
+      "party_short": "JD(S)",
+      "votes": 55643,
+      "vote_share_pct": 33.4,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "L. C. Nagaraja",
+      "party_short": "BJP",
+      "votes": 15612,
+      "vote_share_pct": 9.37,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "N.madhu",
+      "party_short": "BSP",
+      "votes": 769,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Syed Muzaamil Pashaa",
+      "party_short": "AAAP",
+      "votes": 749,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 618,
+    "vote_share_pct": 0.37
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2058,
+    "vote_share_pct": 1.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kyathasandra N. Rajanna",
+    "party_short": "INC",
+    "votes": 91166,
+    "margin_votes": 35523,
+    "margin_pct": 21.32
+  }
+}

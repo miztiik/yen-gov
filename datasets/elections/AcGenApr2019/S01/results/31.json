@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Pendurthi",
+  "totals": {
+    "electors": 268878,
+    "votes_polled": 200371,
+    "turnout_pct": 74.52115829484003
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANNAMREDDY ADEEP RAJ",
+      "party_short": "YSRCP",
+      "votes": 99759,
+      "vote_share_pct": 49.78714484631009,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BANDARU SATYANARAYANA MURTHY",
+      "party_short": "TDP",
+      "votes": 70899,
+      "vote_share_pct": 35.38386293425695,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHINTALAPUDI VENKATA RAMAIAH",
+      "party_short": "JnP",
+      "votes": 19626,
+      "vote_share_pct": 9.794830589256929,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dr KASAPU.V.V.V.SATYANARAYANA",
+      "party_short": "BJP",
+      "votes": 2236,
+      "vote_share_pct": 1.115929949942856,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ADARI RAMESH",
+      "party_short": "INC",
+      "votes": 1853,
+      "vote_share_pct": 0.924784524706669,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3737,
+    "vote_share_pct": 1.8650403501504709
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2261,
+    "vote_share_pct": 1.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANNAMREDDY ADEEP RAJ",
+    "party_short": "YSRCP",
+    "votes": 99759,
+    "margin_votes": 28860,
+    "margin_pct": 14.4
+  }
+}

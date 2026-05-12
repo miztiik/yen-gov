@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "Sisai",
+  "totals": {
+    "electors": 235231,
+    "votes_polled": 161997,
+    "turnout_pct": 68.86719862603144
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JIGA SUSARAN HORO",
+      "party_short": "JMM",
+      "votes": 93720,
+      "vote_share_pct": 57.852923202281524,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "DINESH ORAON",
+      "party_short": "BJP",
+      "votes": 55302,
+      "vote_share_pct": 34.1376692160966,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "LOHOR MAIN ORAON",
+      "party_short": "JVM",
+      "votes": 2154,
+      "vote_share_pct": 1.3296542528565345,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SANJEET MINJ",
+      "party_short": "IND",
+      "votes": 1608,
+      "vote_share_pct": 0.9926109742773014,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SUNITA TOPNO",
+      "party_short": "JKP",
+      "votes": 1048,
+      "vote_share_pct": 0.646925560349883,
+      "gender": "F",
+      "age": 38,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 5013,
+    "vote_share_pct": 3.094501750032408
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3152,
+    "vote_share_pct": 1.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JIGA SUSARAN HORO",
+    "party_short": "JMM",
+    "votes": 93720,
+    "margin_votes": 38418,
+    "margin_pct": 23.72
+  }
+}

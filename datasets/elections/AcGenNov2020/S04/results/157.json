@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 157,
+  "constituency_name": "Sultanganj",
+  "totals": {
+    "electors": 328314,
+    "votes_polled": 171037,
+    "turnout_pct": 52.09555486515958
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Lalit Narayan Mandal",
+      "party_short": "JD(U)",
+      "votes": 72823,
+      "vote_share_pct": 42.577337067418156,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Lalan Kumar",
+      "party_short": "INC",
+      "votes": 61258,
+      "vote_share_pct": 35.81564222945912,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Nilam Devi",
+      "party_short": "LJP",
+      "votes": 10222,
+      "vote_share_pct": 5.976484620286839,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Himanshu Prasad @ Himanshu Kumar",
+      "party_short": "RLSP",
+      "votes": 5713,
+      "vote_share_pct": 3.340212936382186,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ravi Suman Kumar @ Arun Mandal",
+      "party_short": "BHRTSBLP",
+      "votes": 4692,
+      "vote_share_pct": 2.7432660769307224,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4719,
+    "vote_share_pct": 2.759052134918176
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 11610,
+    "vote_share_pct": 6.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Lalit Narayan Mandal",
+    "party_short": "JD(U)",
+    "votes": 72823,
+    "margin_votes": 11565,
+    "margin_pct": 6.76
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 215,
+  "constituency_name": "Chamundeshwari",
+  "totals": {
+    "electors": 295843,
+    "votes_polled": 226263,
+    "turnout_pct": 76.480768515733
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G.T.DEVEGOWDA",
+      "party_short": "JD(S)",
+      "votes": 121325,
+      "vote_share_pct": 53.62122839350666,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SIDDARAMAIAH",
+      "party_short": "INC",
+      "votes": 85283,
+      "vote_share_pct": 37.69197791950076,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S.R.GOPALRAO",
+      "party_short": "BJP",
+      "votes": 12064,
+      "vote_share_pct": 5.331848335786231,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "P.KARIGOWDA",
+      "party_short": "IND",
+      "votes": 1665,
+      "vote_share_pct": 0.7358693202158552,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHANTHARAJU",
+      "party_short": "IND",
+      "votes": 826,
+      "vote_share_pct": 0.3650618969959737,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1549,
+    "vote_share_pct": 0.684601547756372
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3551,
+    "vote_share_pct": 1.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G.T.DEVEGOWDA",
+    "party_short": "JD(S)",
+    "votes": 121325,
+    "margin_votes": 36042,
+    "margin_pct": 15.93
+  }
+}

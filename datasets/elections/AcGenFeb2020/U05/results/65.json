@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 65,
+  "constituency_name": "SEELAMPUR",
+  "totals": {
+    "electors": 181756,
+    "votes_polled": 129704,
+    "turnout_pct": 71.36160566913885
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABDUL REHMAN",
+      "party_short": "AAAP",
+      "votes": 72694,
+      "vote_share_pct": 56.04607413803738,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAUSHAL KUMAR MISHRA",
+      "party_short": "BJP",
+      "votes": 35774,
+      "vote_share_pct": 27.581261950286805,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHAUDHARY MATEEN AHMAD",
+      "party_short": "INC",
+      "votes": 20247,
+      "vote_share_pct": 15.610158514772095,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHD. AFZAL",
+      "party_short": "BSP",
+      "votes": 352,
+      "vote_share_pct": 0.2713871584530932,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAHISUDDIN AHMAD",
+      "party_short": "BAHUMP",
+      "votes": 175,
+      "vote_share_pct": 0.1349225929809412,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 311,
+    "vote_share_pct": 0.2397767223832727
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 151,
+    "vote_share_pct": 0.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABDUL REHMAN",
+    "party_short": "AAAP",
+    "votes": 72694,
+    "margin_votes": 36920,
+    "margin_pct": 28.46
+  }
+}

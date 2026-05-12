@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "Ramachandrapuram",
+  "totals": {
+    "electors": 193867,
+    "votes_polled": 168891,
+    "turnout_pct": 87.11694099563103
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHELLUBOYINA SRINIVASA VENUGOPALAKRISHNA",
+      "party_short": "YSRCP",
+      "votes": 75365,
+      "vote_share_pct": 44.62345536470268,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "THOTA TRIMURTHULU",
+      "party_short": "TDP",
+      "votes": 70197,
+      "vote_share_pct": 41.56349361422456,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "POLISETTI CHANDRA SEKHAR",
+      "party_short": "JnP",
+      "votes": 18529,
+      "vote_share_pct": 10.970981283786584,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ISUKAPATLA SATHISH KUMAR",
+      "party_short": "INC",
+      "votes": 856,
+      "vote_share_pct": 0.5068357698160353,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DUDALA SANKARANARAYANAMURTHY",
+      "party_short": "BJP",
+      "votes": 788,
+      "vote_share_pct": 0.466573115204481,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1463,
+    "vote_share_pct": 0.8662391720103498
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1693,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHELLUBOYINA SRINIVASA VENUGOPALAKRISHNA",
+    "party_short": "YSRCP",
+    "votes": 75365,
+    "margin_votes": 5168,
+    "margin_pct": 3.06
+  }
+}

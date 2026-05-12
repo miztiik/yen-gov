@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 85,
+  "constituency_name": "PIRAVOM",
+  "totals": {
+    "electors": 200003,
+    "votes_polled": 161170,
+    "turnout_pct": 80.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANOOP JACOB",
+      "party_short": "KEC(J)",
+      "votes": 73770,
+      "vote_share_pct": 45.77,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M.J.JACOB",
+      "party_short": "CPM",
+      "votes": 67575,
+      "vote_share_pct": 41.93,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "C.P.SATHYAN",
+      "party_short": "BDJS",
+      "votes": 17503,
+      "vote_share_pct": 10.86,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GIREESH",
+      "party_short": "PPGP",
+      "votes": 485,
+      "vote_share_pct": 0.3,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K.O.SUDHEER",
+      "party_short": "SUCI",
+      "votes": 342,
+      "vote_share_pct": 0.21,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 964,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 531,
+    "vote_share_pct": 0.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANOOP JACOB",
+    "party_short": "KEC(J)",
+    "votes": 73770,
+    "margin_votes": 6195,
+    "margin_pct": 3.84
+  }
+}

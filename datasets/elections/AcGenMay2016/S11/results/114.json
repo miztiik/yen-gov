@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 114,
+  "constituency_name": "KONNI",
+  "totals": {
+    "electors": 196309,
+    "votes_polled": 143283,
+    "turnout_pct": 72.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADOOR PRAKASH",
+      "party_short": "INC",
+      "votes": 72800,
+      "vote_share_pct": 50.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV. R. SANAL KUMAR",
+      "party_short": "CPM",
+      "votes": 52052,
+      "vote_share_pct": 36.33,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASOKA KUMAR D",
+      "party_short": "BJP",
+      "votes": 16713,
+      "vote_share_pct": 11.66,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "REYASH",
+      "party_short": "SDPI",
+      "votes": 401,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JOSHY JOSEPH",
+      "party_short": "WPOI",
+      "votes": 365,
+      "vote_share_pct": 0.25,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 474,
+    "vote_share_pct": 0.33
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 478,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADOOR PRAKASH",
+    "party_short": "INC",
+    "votes": 72800,
+    "margin_votes": 20748,
+    "margin_pct": 14.48
+  }
+}

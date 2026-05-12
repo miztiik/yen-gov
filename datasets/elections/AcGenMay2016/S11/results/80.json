@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 80,
+  "constituency_name": "KOCHI",
+  "totals": {
+    "electors": 171380,
+    "votes_polled": 123954,
+    "turnout_pct": 72.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K J MAXY",
+      "party_short": "CPM",
+      "votes": 47967,
+      "vote_share_pct": 38.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DOMINIC PRESENTATION",
+      "party_short": "INC",
+      "votes": 46881,
+      "vote_share_pct": 37.82,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRAVEEN DHAMODARA PRABHU",
+      "party_short": "BJP",
+      "votes": 15212,
+      "vote_share_pct": 12.27,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K J LEENUS",
+      "party_short": "IND",
+      "votes": 7588,
+      "vote_share_pct": 6.12,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "A S MUHAMMED",
+      "party_short": "WPOI",
+      "votes": 2357,
+      "vote_share_pct": 1.9,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1002,
+    "vote_share_pct": 0.81
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2947,
+    "vote_share_pct": 2.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K J MAXY",
+    "party_short": "CPM",
+    "votes": 47967,
+    "margin_votes": 1086,
+    "margin_pct": 0.88
+  }
+}

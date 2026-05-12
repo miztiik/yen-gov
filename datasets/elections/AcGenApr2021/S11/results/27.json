@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "KOZHIKODE NORTH",
+  "totals": {
+    "electors": 181191,
+    "votes_polled": 137562,
+    "turnout_pct": 75.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Thottathil Ravindran",
+      "party_short": "CPI(M)",
+      "votes": 59124,
+      "vote_share_pct": 42.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K M Abhijith",
+      "party_short": "INC",
+      "votes": 46196,
+      "vote_share_pct": 33.58,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M T Ramesh",
+      "party_short": "BJP",
+      "votes": 30952,
+      "vote_share_pct": 22.5,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "N Abhijith",
+      "party_short": "IND",
+      "votes": 328,
+      "vote_share_pct": 0.24,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K Rahim",
+      "party_short": "SUCI",
+      "votes": 156,
+      "vote_share_pct": 0.11,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 516,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 290,
+    "vote_share_pct": 0.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Thottathil Ravindran",
+    "party_short": "CPI(M)",
+    "votes": 59124,
+    "margin_votes": 12928,
+    "margin_pct": 9.4
+  }
+}

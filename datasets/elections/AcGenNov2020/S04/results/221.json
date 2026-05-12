@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 221,
+  "constituency_name": "Nabinagar",
+  "totals": {
+    "electors": 275914,
+    "votes_polled": 159657,
+    "turnout_pct": 57.86476945714969
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIJAY KUMAR SINGH ALIAS DABLOO SINGH",
+      "party_short": "RJD",
+      "votes": 64943,
+      "vote_share_pct": 40.67657540853204,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIRENDRA KUMAR SINGH",
+      "party_short": "JD(U)",
+      "votes": 44822,
+      "vote_share_pct": 28.073933494929754,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DHARMENDRA KUMAR",
+      "party_short": "RLSP",
+      "votes": 23490,
+      "vote_share_pct": 14.712790544730264,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIJAY KUMAR SINGH",
+      "party_short": "LJP",
+      "votes": 9140,
+      "vote_share_pct": 5.724772481006156,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DEVPUJAN PRASAD",
+      "party_short": "IND",
+      "votes": 2994,
+      "vote_share_pct": 1.8752701102989533,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3368,
+    "vote_share_pct": 2.10952228840577
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 10900,
+    "vote_share_pct": 6.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIJAY KUMAR SINGH ALIAS DABLOO SINGH",
+    "party_short": "RJD",
+    "votes": 64943,
+    "margin_votes": 20121,
+    "margin_pct": 12.6
+  }
+}

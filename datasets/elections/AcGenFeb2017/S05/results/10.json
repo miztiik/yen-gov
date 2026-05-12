@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "Aldona",
+  "totals": {
+    "electors": 27439,
+    "votes_polled": 21606,
+    "turnout_pct": 78.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GLENN SOUZA TICLO",
+      "party_short": "BJP",
+      "votes": 9405,
+      "vote_share_pct": 43.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMARNATH PANJIKAR",
+      "party_short": "INC",
+      "votes": 4949,
+      "vote_share_pct": 22.91,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ROSY URSULA D`SOUZA",
+      "party_short": "AAAP",
+      "votes": 3272,
+      "vote_share_pct": 15.14,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAHESH VITHU SATELKAR",
+      "party_short": "MAG",
+      "votes": 3000,
+      "vote_share_pct": 13.89,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ANANDRAO NARAYANRAO NAGVENKAR",
+      "party_short": "IND",
+      "votes": 643,
+      "vote_share_pct": 2.98,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 196,
+    "vote_share_pct": 0.91
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 141,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GLENN SOUZA TICLO",
+    "party_short": "BJP",
+    "votes": 9405,
+    "margin_votes": 4456,
+    "margin_pct": 20.62
+  }
+}

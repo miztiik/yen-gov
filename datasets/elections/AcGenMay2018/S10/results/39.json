@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Gurmitkal",
+  "totals": {
+    "electors": 245215,
+    "votes_polled": 151974,
+    "turnout_pct": 61.97581714006076
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAGANGOUDA KANDKUR",
+      "party_short": "JD(S)",
+      "votes": 79627,
+      "vote_share_pct": 52.39514653822364,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BABURAO CHINCHANSUR",
+      "party_short": "INC",
+      "votes": 55147,
+      "vote_share_pct": 36.28712806137892,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SAYIBANNA",
+      "party_short": "BJP",
+      "votes": 8995,
+      "vote_share_pct": 5.918775580033428,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CHANDRASHEKAR T.DASANKERI",
+      "party_short": "INCP",
+      "votes": 1392,
+      "vote_share_pct": 0.9159461486833276,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "K. SOMASHEKAR",
+      "party_short": "SUCI",
+      "votes": 1272,
+      "vote_share_pct": 0.8369852737968337,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2418,
+    "vote_share_pct": 1.591061628962849
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3123,
+    "vote_share_pct": 2.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAGANGOUDA KANDKUR",
+    "party_short": "JD(S)",
+    "votes": 79627,
+    "margin_votes": 24480,
+    "margin_pct": 16.11
+  }
+}

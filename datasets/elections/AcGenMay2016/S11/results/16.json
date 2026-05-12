@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "PERAVOOR",
+  "totals": {
+    "electors": 168458,
+    "votes_polled": 136505,
+    "turnout_pct": 81.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADV. SUNNY JOSEPH",
+      "party_short": "INC",
+      "votes": 65659,
+      "vote_share_pct": 48.1,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV. BINOY KURIAN",
+      "party_short": "CPM",
+      "votes": 57670,
+      "vote_share_pct": 42.25,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PAILY VATHIATTU",
+      "party_short": "BDJS",
+      "votes": 9129,
+      "vote_share_pct": 6.69,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "P K FAROOKH",
+      "party_short": "SDPI",
+      "votes": 1935,
+      "vote_share_pct": 1.42,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PALLIPRAM PRASANNAN",
+      "party_short": "WPOI",
+      "votes": 513,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 458,
+    "vote_share_pct": 0.34
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1141,
+    "vote_share_pct": 0.84
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADV. SUNNY JOSEPH",
+    "party_short": "INC",
+    "votes": 65659,
+    "margin_votes": 7989,
+    "margin_pct": 5.85
+  }
+}

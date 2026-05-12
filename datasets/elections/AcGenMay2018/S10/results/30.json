@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "Bijapur City",
+  "totals": {
+    "electors": 247287,
+    "votes_polled": 151703,
+    "turnout_pct": 61.34693695988871
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BASANAGOUD .R. PATIL (YATNAL)",
+      "party_short": "BJP",
+      "votes": 76308,
+      "vote_share_pct": 50.30091692319862,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ABDUL HAMEED  MUSHRIF",
+      "party_short": "INC",
+      "votes": 69895,
+      "vote_share_pct": 46.07357797802284,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BELLUBBI  SANGAPPA KALLAPPA",
+      "party_short": "JD(S)",
+      "votes": 2083,
+      "vote_share_pct": 1.373077658319216,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PEERPASHA  SHAMSUDDIN  GACHIMAL",
+      "party_short": "NCP",
+      "votes": 449,
+      "vote_share_pct": 0.2959730526093749,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DONDIBA  RAMU  RATHOD",
+      "party_short": "IND",
+      "votes": 409,
+      "vote_share_pct": 0.2696057428000765,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1399,
+    "vote_share_pct": 0.9221966605802127
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1160,
+    "vote_share_pct": 0.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BASANAGOUD .R. PATIL (YATNAL)",
+    "party_short": "BJP",
+    "votes": 76308,
+    "margin_votes": 6413,
+    "margin_pct": 4.23
+  }
+}

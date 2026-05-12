@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 224,
+  "constituency_name": "Rafiganj",
+  "totals": {
+    "electors": 330654,
+    "votes_polled": 185053,
+    "turnout_pct": 55.965752720366304
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHAMMAD NEHALUDDIN",
+      "party_short": "RJD",
+      "votes": 63325,
+      "vote_share_pct": 34.219926183309646,
+      "is_winner": true,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PRAMOD KUMAR SINGH",
+      "party_short": "IND",
+      "votes": 53896,
+      "vote_share_pct": 29.124629160294617,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASHOK KUMAR SINGH",
+      "party_short": "JD(U)",
+      "votes": 26833,
+      "vote_share_pct": 14.50017022150411,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RANJIT KUMAR",
+      "party_short": "BSP",
+      "votes": 14597,
+      "vote_share_pct": 7.888010461867681,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MANOJ KUMAR SINGH",
+      "party_short": "LJP",
+      "votes": 8491,
+      "vote_share_pct": 4.588415210777453,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3190,
+    "vote_share_pct": 1.7238304701896214
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 14721,
+    "vote_share_pct": 7.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHAMMAD NEHALUDDIN",
+    "party_short": "RJD",
+    "votes": 63325,
+    "margin_votes": 9429,
+    "margin_pct": 5.1
+  }
+}

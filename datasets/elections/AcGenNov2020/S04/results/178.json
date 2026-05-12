@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 178,
+  "constituency_name": "Mokama",
+  "totals": {
+    "electors": 275028,
+    "votes_polled": 148555,
+    "turnout_pct": 54.014500341783375
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anant Kumar Singh",
+      "party_short": "RJD",
+      "votes": 78721,
+      "vote_share_pct": 52.99114805964121,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rajeev Lochan Narayan Singh",
+      "party_short": "JD(U)",
+      "votes": 42964,
+      "vote_share_pct": 28.92127494867221,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Suresh Singh Nishad",
+      "party_short": "LJP",
+      "votes": 13331,
+      "vote_share_pct": 8.973780754602673,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dilraj Raushan",
+      "party_short": "RLSP",
+      "votes": 4007,
+      "vote_share_pct": 2.69731749183804,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Dr. Dharambir Kumar",
+      "party_short": "IND",
+      "votes": 1723,
+      "vote_share_pct": 1.1598397899767763,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4534,
+    "vote_share_pct": 3.0520682575477096
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3275,
+    "vote_share_pct": 2.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anant Kumar Singh",
+    "party_short": "RJD",
+    "votes": 78721,
+    "margin_votes": 35757,
+    "margin_pct": 24.07
+  }
+}

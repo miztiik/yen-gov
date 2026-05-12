@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 71,
+  "constituency_name": "PUTHUKKAD",
+  "totals": {
+    "electors": 195265,
+    "votes_polled": 158721,
+    "turnout_pct": 81.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PROF.C.RAVEENDRANATH",
+      "party_short": "CPM",
+      "votes": 79464,
+      "vote_share_pct": 50.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUNDARAN KUNNATHULLY",
+      "party_short": "INC",
+      "votes": 40986,
+      "vote_share_pct": 25.82,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "A NAGESH(PARAMESWARAN)",
+      "party_short": "BJP",
+      "votes": 35833,
+      "vote_share_pct": 22.58,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ASIF NIYAS",
+      "party_short": "PDP",
+      "votes": 519,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "C.V.VIJAYAN",
+      "party_short": "IND",
+      "votes": 431,
+      "vote_share_pct": 0.27,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 779,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 709,
+    "vote_share_pct": 0.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PROF.C.RAVEENDRANATH",
+    "party_short": "CPM",
+    "votes": 79464,
+    "margin_votes": 38478,
+    "margin_pct": 24.24
+  }
+}

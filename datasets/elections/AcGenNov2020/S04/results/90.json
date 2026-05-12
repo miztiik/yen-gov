@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 90,
+  "constituency_name": "Minapur",
+  "totals": {
+    "electors": 274475,
+    "votes_polled": 179124,
+    "turnout_pct": 65.26058839602878
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJEEV KUMAR",
+      "party_short": "RJD",
+      "votes": 60018,
+      "vote_share_pct": 33.50639780263951,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANOJ KUMAR",
+      "party_short": "JD(U)",
+      "votes": 44506,
+      "vote_share_pct": 24.846475067550973,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AJAY KUMAR",
+      "party_short": "LJP",
+      "votes": 43496,
+      "vote_share_pct": 24.282619861101807,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMESH KUMAR",
+      "party_short": "IND",
+      "votes": 4086,
+      "vote_share_pct": 2.2811013599517653,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VEENA YADAV",
+      "party_short": "JAPL",
+      "votes": 3718,
+      "vote_share_pct": 2.0756570867108817,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1216,
+    "vote_share_pct": 0.6788593376655278
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 22084,
+    "vote_share_pct": 12.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJEEV KUMAR",
+    "party_short": "RJD",
+    "votes": 60018,
+    "margin_votes": 15512,
+    "margin_pct": 8.66
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "GOALPARA WEST",
+  "totals": {
+    "electors": 175037,
+    "votes_polled": 158287,
+    "turnout_pct": 90.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABDUR RASHID MANDAL",
+      "party_short": "INC",
+      "votes": 85752,
+      "vote_share_pct": 54.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHEIKH SHAH ALOM",
+      "party_short": "AGP",
+      "votes": 39728,
+      "vote_share_pct": 25.1,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHAN ALI MIAH",
+      "party_short": "IND",
+      "votes": 17786,
+      "vote_share_pct": 11.24,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NABAJYOTI RABHA",
+      "party_short": "IND",
+      "votes": 5276,
+      "vote_share_pct": 3.33,
+      "gender": "M",
+      "age": 36,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "ABDUL BATEN SIKDAR",
+      "party_short": "NPEP",
+      "votes": 1468,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1308,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 6969,
+    "vote_share_pct": 4.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABDUR RASHID MANDAL",
+    "party_short": "INC",
+    "votes": 85752,
+    "margin_votes": 46024,
+    "margin_pct": 29.08
+  }
+}

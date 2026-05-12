@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Solan (SC)",
+  "totals": {
+    "electors": 86333,
+    "votes_polled": 58385,
+    "turnout_pct": 67.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dhani Ram Shandil",
+      "party_short": "INC",
+      "votes": 30089,
+      "vote_share_pct": 51.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 82,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Rajesh Kashyap",
+      "party_short": "BJP",
+      "votes": 26231,
+      "vote_share_pct": 44.93,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Anju",
+      "party_short": "AAAP",
+      "votes": 1108,
+      "vote_share_pct": 1.9,
+      "gender": "F",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Rajinder",
+      "party_short": "BSP",
+      "votes": 323,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 634,
+    "vote_share_pct": 1.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dhani Ram Shandil",
+    "party_short": "INC",
+    "votes": 30089,
+    "margin_votes": 3858,
+    "margin_pct": 6.61
+  },
+  "others": null
+}

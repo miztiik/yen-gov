@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Lohardaga",
+  "totals": {
+    "electors": 245547,
+    "votes_polled": 174312,
+    "turnout_pct": 70.98926071179855
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMESHWAR ORAON",
+      "party_short": "INC",
+      "votes": 74380,
+      "vote_share_pct": 42.67061361237322,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SUKHDEO BHAGAT",
+      "party_short": "BJP",
+      "votes": 44230,
+      "vote_share_pct": 25.374041947771815,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "NERU SHANTI BHAGAT",
+      "party_short": "AJSUP",
+      "votes": 39916,
+      "vote_share_pct": 22.899169305612922,
+      "gender": "F",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SADHNU BHAGAT",
+      "party_short": "BTP",
+      "votes": 4318,
+      "vote_share_pct": 2.477167378034788,
+      "gender": "M",
+      "age": 73,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "PAWAN TIGGA",
+      "party_short": "JVM",
+      "votes": 1661,
+      "vote_share_pct": 0.952889072467759,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2799,
+    "vote_share_pct": 1.6057414291615038
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 7008,
+    "vote_share_pct": 4.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMESHWAR ORAON",
+    "party_short": "INC",
+    "votes": 74380,
+    "margin_votes": 30150,
+    "margin_pct": 17.3
+  }
+}

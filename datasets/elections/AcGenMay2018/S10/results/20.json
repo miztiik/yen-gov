@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Terdal",
+  "totals": {
+    "electors": 220421,
+    "votes_polled": 173610,
+    "turnout_pct": 78.76291278961622
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SIDDU SAVADI",
+      "party_short": "BJP",
+      "votes": 87583,
+      "vote_share_pct": 50.44813086803755,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "UMASHREE",
+      "party_short": "INC",
+      "votes": 66470,
+      "vote_share_pct": 38.286965036576234,
+      "gender": "F",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BASAPPA K KONNUR",
+      "party_short": "JD(S)",
+      "votes": 12462,
+      "vote_share_pct": 7.178157940210817,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GANGAPPA SHRISHAILAPPA METI",
+      "party_short": "KRRS",
+      "votes": 1272,
+      "vote_share_pct": 0.7326766891308104,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "R. VEERESH PRASAD (VEERESH NEKAR)",
+      "party_short": "NAC",
+      "votes": 1098,
+      "vote_share_pct": 0.6324520476931051,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2014,
+    "vote_share_pct": 1.1600714244571164
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2711,
+    "vote_share_pct": 1.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SIDDU SAVADI",
+    "party_short": "BJP",
+    "votes": 87583,
+    "margin_votes": 21113,
+    "margin_pct": 12.16
+  }
+}

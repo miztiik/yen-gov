@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "Nachan",
+  "totals": {
+    "electors": 77783,
+    "votes_polled": 62893,
+    "turnout_pct": 80.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VINOD KUMAR",
+      "party_short": "BJP",
+      "votes": 38154,
+      "vote_share_pct": 60.66,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "LAL SINGH KAUSHAL",
+      "party_short": "INC",
+      "votes": 22258,
+      "vote_share_pct": 35.39,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SATYA PRAKASH",
+      "party_short": "IND",
+      "votes": 804,
+      "vote_share_pct": 1.28,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 471,
+    "vote_share_pct": 0.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VINOD KUMAR",
+    "party_short": "BJP",
+    "votes": 38154,
+    "margin_votes": 15896,
+    "margin_pct": 25.27
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "OTTAPALAM",
+  "totals": {
+    "electors": 197646,
+    "votes_polled": 150212,
+    "turnout_pct": 76.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P UNNI",
+      "party_short": "CPM",
+      "votes": 67161,
+      "vote_share_pct": 44.71,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV.SHANIMOL OSMAN",
+      "party_short": "INC",
+      "votes": 51073,
+      "vote_share_pct": 34.0,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "P VENUGOPALAN",
+      "party_short": "BJP",
+      "votes": 27605,
+      "vote_share_pct": 18.38,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "A A SULFIKAR",
+      "party_short": "SDPI",
+      "votes": 1166,
+      "vote_share_pct": 0.78,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K T PADMINI",
+      "party_short": "BSP",
+      "votes": 811,
+      "vote_share_pct": 0.54,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1012,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1384,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P UNNI",
+    "party_short": "CPM",
+    "votes": 67161,
+    "margin_votes": 16088,
+    "margin_pct": 10.71
+  }
+}

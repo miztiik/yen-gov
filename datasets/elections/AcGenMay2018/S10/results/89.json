@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 89,
+  "constituency_name": "Hagaribommanahalli  (SC)",
+  "totals": {
+    "electors": 221213,
+    "votes_polled": 176196,
+    "turnout_pct": 79.64993015781171
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHEEMA NAIK L.B.P.",
+      "party_short": "INC",
+      "votes": 78337,
+      "vote_share_pct": 44.46014665486163,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "K.NEMIRAJA NAIK",
+      "party_short": "BJP",
+      "votes": 71105,
+      "vote_share_pct": 40.355626688460575,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PARAMESHWARA.L",
+      "party_short": "IND",
+      "votes": 17058,
+      "vote_share_pct": 9.681264046856908,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "S.KRUSHNA NAIK",
+      "party_short": "JD(S)",
+      "votes": 5100,
+      "vote_share_pct": 2.894503847987469,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "B.MALAMMA",
+      "party_short": "CPM",
+      "votes": 1493,
+      "vote_share_pct": 0.8473518127539785,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1345,
+    "vote_share_pct": 0.7633544461849304
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1758,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHEEMA NAIK L.B.P.",
+    "party_short": "INC",
+    "votes": 78337,
+    "margin_votes": 7232,
+    "margin_pct": 4.1
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "HARI NAGAR",
+  "totals": {
+    "electors": 175191,
+    "votes_polled": 108232,
+    "turnout_pct": 61.779429308583204
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJ KUMARI DHILLON",
+      "party_short": "AAAP",
+      "votes": 58087,
+      "vote_share_pct": 53.66897035996748,
+      "is_winner": true,
+      "gender": "F",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "TAJINDER PAL SINGH BAGGA",
+      "party_short": "BJP",
+      "votes": 37956,
+      "vote_share_pct": 35.069110799024315,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SURINDER KUMAR SETIA",
+      "party_short": "INC",
+      "votes": 10394,
+      "vote_share_pct": 9.603444452657255,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAY SINGH SHAYAM",
+      "party_short": "BSP",
+      "votes": 499,
+      "vote_share_pct": 0.4610466405499298,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SANTOSH",
+      "party_short": "IND",
+      "votes": 224,
+      "vote_share_pct": 0.2069628206075837,
+      "gender": "F",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 592,
+    "vote_share_pct": 0.5469731687486141
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 480,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJ KUMARI DHILLON",
+    "party_short": "AAAP",
+    "votes": 58087,
+    "margin_votes": 20131,
+    "margin_pct": 18.6
+  }
+}

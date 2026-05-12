@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 174,
+  "constituency_name": "Mahadevapura (SC)",
+  "totals": {
+    "electors": 607255,
+    "votes_polled": 334616,
+    "turnout_pct": 55.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manjula S",
+      "party_short": "BJP",
+      "votes": 181731,
+      "vote_share_pct": 54.31,
+      "is_winner": true,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "H Nagesh",
+      "party_short": "INC",
+      "votes": 137230,
+      "vote_share_pct": 41.01,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "C R Nataraj",
+      "party_short": "AAAP",
+      "votes": 4551,
+      "vote_share_pct": 1.36,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Nagaraj R",
+      "party_short": "UPJP",
+      "votes": 2627,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Prasad K C",
+      "party_short": "BSP",
+      "votes": 1026,
+      "vote_share_pct": 0.31,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 4775,
+    "vote_share_pct": 1.43
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2676,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manjula S",
+    "party_short": "BJP",
+    "votes": 181731,
+    "margin_votes": 44501,
+    "margin_pct": 13.3
+  }
+}

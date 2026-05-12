@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Lahaul & spiti",
+  "totals": {
+    "electors": 23231,
+    "votes_polled": 17121,
+    "turnout_pct": 73.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. RAM LAL MARKANDA",
+      "party_short": "BJP",
+      "votes": 7756,
+      "vote_share_pct": 45.3,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "RAVI THAKUR",
+      "party_short": "INC",
+      "votes": 6278,
+      "vote_share_pct": 36.67,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "RAJINDER KARPA",
+      "party_short": "IND",
+      "votes": 2240,
+      "vote_share_pct": 13.08,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SUDARSHAN JASPA",
+      "party_short": "IND",
+      "votes": 655,
+      "vote_share_pct": 3.83,
+      "gender": "M",
+      "age": 36,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 70,
+    "vote_share_pct": 0.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. RAM LAL MARKANDA",
+    "party_short": "BJP",
+    "votes": 7756,
+    "margin_votes": 1478,
+    "margin_pct": 8.63
+  },
+  "others": null
+}

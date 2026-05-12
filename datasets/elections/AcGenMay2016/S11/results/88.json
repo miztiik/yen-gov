@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 88,
+  "constituency_name": "DEVIKULAM",
+  "totals": {
+    "electors": 164803,
+    "votes_polled": 117382,
+    "turnout_pct": 71.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "S RAJENDRAN",
+      "party_short": "CPM",
+      "votes": 49510,
+      "vote_share_pct": 42.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "A K MONY",
+      "party_short": "INC",
+      "votes": 43728,
+      "vote_share_pct": 37.25,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "R M DHANALAKSHMY",
+      "party_short": "ADMK",
+      "votes": 11613,
+      "vote_share_pct": 9.89,
+      "gender": "F",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "N CHANDRAN",
+      "party_short": "BJP",
+      "votes": 9592,
+      "vote_share_pct": 8.17,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "J RAJESWARY",
+      "party_short": "IND",
+      "votes": 650,
+      "vote_share_pct": 0.55,
+      "gender": "F",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 921,
+    "vote_share_pct": 0.78
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1368,
+    "vote_share_pct": 1.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "S RAJENDRAN",
+    "party_short": "CPM",
+    "votes": 49510,
+    "margin_votes": 5782,
+    "margin_pct": 4.93
+  }
+}

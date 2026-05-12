@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 51,
+  "constituency_name": "Bhalki",
+  "totals": {
+    "electors": 224708,
+    "votes_polled": 167058,
+    "turnout_pct": 74.3444826174413
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ESHWAR KHANDRE",
+      "party_short": "INC",
+      "votes": 84673,
+      "vote_share_pct": 50.68479210813011,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "D K SIDRAM",
+      "party_short": "BJP",
+      "votes": 63235,
+      "vote_share_pct": 37.8521232146919,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KHANDRE PRAKASH",
+      "party_short": "JD(S)",
+      "votes": 15142,
+      "vote_share_pct": 9.063917920722144,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ESHWARAPPA CHAKOTE ADVOCATE",
+      "party_short": "JD(U)",
+      "votes": 668,
+      "vote_share_pct": 0.3998611260759736,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VAIJINATH SHAPURE",
+      "party_short": "IND",
+      "votes": 577,
+      "vote_share_pct": 0.3453890265656239,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1042,
+    "vote_share_pct": 0.6237354691185097
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1721,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ESHWAR KHANDRE",
+    "party_short": "INC",
+    "votes": 84673,
+    "margin_votes": 21438,
+    "margin_pct": 12.83
+  }
+}

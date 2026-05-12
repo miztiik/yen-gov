@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "THOWRA",
+  "totals": {
+    "electors": 116000,
+    "votes_polled": 96897,
+    "turnout_pct": 83.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUSHANTA BORGOHAIN",
+      "party_short": "INC",
+      "votes": 48026,
+      "vote_share_pct": 49.56,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KUSHAL DOWARI",
+      "party_short": "BJP",
+      "votes": 46020,
+      "vote_share_pct": 47.49,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DIPEN TANTI",
+      "party_short": "ASMJTYP",
+      "votes": 1705,
+      "vote_share_pct": 1.76,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1146,
+    "vote_share_pct": 1.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUSHANTA BORGOHAIN",
+    "party_short": "INC",
+    "votes": 48026,
+    "margin_votes": 2006,
+    "margin_pct": 2.07
+  },
+  "others": null
+}

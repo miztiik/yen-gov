@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "KUNNAMANGALAM",
+  "totals": {
+    "electors": 232409,
+    "votes_polled": 193822,
+    "turnout_pct": 83.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. P. T. A Rahim",
+      "party_short": "IND",
+      "votes": 85138,
+      "vote_share_pct": 43.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dinesh Perumanna",
+      "party_short": "IND",
+      "votes": 74862,
+      "vote_share_pct": 38.62,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Adv: V.k. Sajeevan",
+      "party_short": "BJP",
+      "votes": 27672,
+      "vote_share_pct": 14.28,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Abdul Vahid",
+      "party_short": "SDPI",
+      "votes": 1299,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "E. P. Anwar Sadath",
+      "party_short": "WPOI",
+      "votes": 1057,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 864,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2930,
+    "vote_share_pct": 1.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. P. T. A Rahim",
+    "party_short": "IND",
+    "votes": 85138,
+    "margin_votes": 10276,
+    "margin_pct": 5.3
+  }
+}

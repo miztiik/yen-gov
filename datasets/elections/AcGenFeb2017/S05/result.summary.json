@@ -1,0 +1,142 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.summary.schema.json",
+  "$schema_version": "3.1",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "total_seats": 40,
+  "totals": {
+    "electors": 1111692,
+    "votes_polled": 916216,
+    "turnout_pct": 82.42
+  },
+  "party_totals": [
+    {
+      "party_short": "INC",
+      "seats_contested": 37,
+      "seats_won": 17,
+      "votes": 259758,
+      "vote_share_pct": 28.35
+    },
+    {
+      "party_short": "BJP",
+      "seats_contested": 36,
+      "seats_won": 13,
+      "votes": 297588,
+      "vote_share_pct": 32.48
+    },
+    {
+      "party_short": "MAG",
+      "seats_contested": 25,
+      "seats_won": 3,
+      "votes": 103290,
+      "vote_share_pct": 11.27
+    },
+    {
+      "party_short": "IND",
+      "seats_contested": 31,
+      "seats_won": 3,
+      "votes": 101922,
+      "vote_share_pct": 11.12
+    },
+    {
+      "party_short": "GFP",
+      "seats_contested": 4,
+      "seats_won": 3,
+      "votes": 31900,
+      "vote_share_pct": 3.48
+    },
+    {
+      "party_short": "NCP",
+      "seats_contested": 17,
+      "seats_won": 1,
+      "votes": 20916,
+      "vote_share_pct": 2.28
+    },
+    {
+      "party_short": "AAAP",
+      "seats_contested": 39,
+      "seats_won": 0,
+      "votes": 57420,
+      "vote_share_pct": 6.27
+    },
+    {
+      "party_short": "GSM",
+      "seats_contested": 5,
+      "seats_won": 0,
+      "votes": 10745,
+      "vote_share_pct": 1.17
+    },
+    {
+      "party_short": "UGP",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 8563,
+      "vote_share_pct": 0.93
+    },
+    {
+      "party_short": "GSRP",
+      "seats_contested": 8,
+      "seats_won": 0,
+      "votes": 5747,
+      "vote_share_pct": 0.63
+    },
+    {
+      "party_short": "GVP",
+      "seats_contested": 5,
+      "seats_won": 0,
+      "votes": 5379,
+      "vote_share_pct": 0.59
+    },
+    {
+      "party_short": "SHS",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 792,
+      "vote_share_pct": 0.09
+    },
+    {
+      "party_short": "GOPRP",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 451,
+      "vote_share_pct": 0.05
+    },
+    {
+      "party_short": "BMUP",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 278,
+      "vote_share_pct": 0.03
+    },
+    {
+      "party_short": "CPI",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 256,
+      "vote_share_pct": 0.03
+    },
+    {
+      "party_short": "SAJPCS",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 133,
+      "vote_share_pct": 0.01
+    },
+    {
+      "party_short": "NGRF",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 115,
+      "vote_share_pct": 0.01
+    },
+    {
+      "party_short": "APOI",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 44,
+      "vote_share_pct": 0.0
+    }
+  ]
+}

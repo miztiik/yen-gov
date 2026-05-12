@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Siroda",
+  "totals": {
+    "electors": 29678,
+    "votes_polled": 25034,
+    "turnout_pct": 84.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Subhash Shirodkar",
+      "party_short": "BJP",
+      "votes": 8307,
+      "vote_share_pct": 33.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mahadev Naik",
+      "party_short": "AAAP",
+      "votes": 6133,
+      "vote_share_pct": 24.5,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Shailesh Naik",
+      "party_short": "RVLTGONP",
+      "votes": 5063,
+      "vote_share_pct": 20.22,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sanket Naik Mule",
+      "party_short": "MAG",
+      "votes": 2397,
+      "vote_share_pct": 9.57,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Tukaram Borkar",
+      "party_short": "INC",
+      "votes": 1953,
+      "vote_share_pct": 7.8,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 235,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 946,
+    "vote_share_pct": 3.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Subhash Shirodkar",
+    "party_short": "BJP",
+    "votes": 8307,
+    "margin_votes": 2174,
+    "margin_pct": 8.68
+  }
+}

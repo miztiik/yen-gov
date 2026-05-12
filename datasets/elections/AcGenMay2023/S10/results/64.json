@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 64,
+  "constituency_name": "Koppal",
+  "totals": {
+    "electors": 254021,
+    "votes_polled": 194749,
+    "turnout_pct": 76.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K. Raghavendra Basavaraj Hitnal",
+      "party_short": "INC",
+      "votes": 90430,
+      "vote_share_pct": 46.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Karadi Manjula",
+      "party_short": "BJP",
+      "votes": 54170,
+      "vote_share_pct": 27.82,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "C.v.chandrashekar",
+      "party_short": "JD(S)",
+      "votes": 45369,
+      "vote_share_pct": 23.3,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M.k. Saheb Nageshanahalli",
+      "party_short": "AAAP",
+      "votes": 905,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Adavi Hanumappa Godachalli",
+      "party_short": "KRS",
+      "votes": 651,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1317,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1907,
+    "vote_share_pct": 0.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K. Raghavendra Basavaraj Hitnal",
+    "party_short": "INC",
+    "votes": 90430,
+    "margin_votes": 36260,
+    "margin_pct": 18.62
+  }
+}

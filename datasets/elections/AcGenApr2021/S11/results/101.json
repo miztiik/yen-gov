@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 101,
+  "constituency_name": "POONJAR",
+  "totals": {
+    "electors": 189258,
+    "votes_polled": 139894,
+    "turnout_pct": 73.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. Sebastian Kulathunkal",
+      "party_short": "KEC(M)",
+      "votes": 58668,
+      "vote_share_pct": 41.94,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "P.c.george Plathottam",
+      "party_short": "KJPS",
+      "votes": 41851,
+      "vote_share_pct": 29.92,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Adv. Tomy Kallany",
+      "party_short": "INC",
+      "votes": 34633,
+      "vote_share_pct": 24.76,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M. P. Sen",
+      "party_short": "BDJS",
+      "votes": 2965,
+      "vote_share_pct": 2.12,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ancy George",
+      "party_short": "BSP",
+      "votes": 596,
+      "vote_share_pct": 0.43,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 345,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 836,
+    "vote_share_pct": 0.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. Sebastian Kulathunkal",
+    "party_short": "KEC(M)",
+    "votes": 58668,
+    "margin_votes": 16817,
+    "margin_pct": 12.02
+  }
+}

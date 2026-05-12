@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 82,
+  "constituency_name": "ERANAKULAM",
+  "totals": {
+    "electors": 164641,
+    "votes_polled": 110098,
+    "turnout_pct": 66.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "T. J. Vinod",
+      "party_short": "INC",
+      "votes": 45930,
+      "vote_share_pct": 41.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Shaji George Pranatha",
+      "party_short": "IND",
+      "votes": 34960,
+      "vote_share_pct": 31.75,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Padmaja S. Menon",
+      "party_short": "BJP",
+      "votes": 16043,
+      "vote_share_pct": 14.57,
+      "gender": "F",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Prof. Leslie Pallath",
+      "party_short": "TTPty",
+      "votes": 10634,
+      "vote_share_pct": 9.66,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sujith C. Sukumaran",
+      "party_short": "IND",
+      "votes": 1042,
+      "vote_share_pct": 0.95,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 712,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 777,
+    "vote_share_pct": 0.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "T. J. Vinod",
+    "party_short": "INC",
+    "votes": 45930,
+    "margin_votes": 10970,
+    "margin_pct": 9.96
+  }
+}

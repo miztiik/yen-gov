@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 110,
+  "constituency_name": "Honnali",
+  "totals": {
+    "electors": 193335,
+    "votes_polled": 161867,
+    "turnout_pct": 83.72358858975355
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M P RENUKACHARYA",
+      "party_short": "BJP",
+      "votes": 80624,
+      "vote_share_pct": 49.80879363922232,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHANTHANAGOWDA D G",
+      "party_short": "INC",
+      "votes": 76391,
+      "vote_share_pct": 47.19368370328727,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KATHARI SATYANARAYANA RAO",
+      "party_short": "BSP",
+      "votes": 1395,
+      "vote_share_pct": 0.8618186535859688,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ABDUL RAHAMAN",
+      "party_short": "AIMEP",
+      "votes": 491,
+      "vote_share_pct": 0.30333545441628007,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SYED GOUSE H P",
+      "party_short": "IND",
+      "votes": 457,
+      "vote_share_pct": 0.2823305553324643,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1250,
+    "vote_share_pct": 0.7722389369049898
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1259,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M P RENUKACHARYA",
+    "party_short": "BJP",
+    "votes": 80624,
+    "margin_votes": 4233,
+    "margin_pct": 2.62
+  }
+}

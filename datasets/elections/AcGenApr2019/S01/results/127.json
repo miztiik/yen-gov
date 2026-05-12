@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 127,
+  "constituency_name": "Kodur",
+  "totals": {
+    "electors": 182772,
+    "votes_polled": 136770,
+    "turnout_pct": 74.83093690499639
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Koramutla Sreenivasulu",
+      "party_short": "YSRCP",
+      "votes": 78312,
+      "vote_share_pct": 57.25817065145865,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Panthagani Narasimha Prasad",
+      "party_short": "TDP",
+      "votes": 43433,
+      "vote_share_pct": 31.756233092052348,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Bonasi Venkata Subbaiah",
+      "party_short": "JnP",
+      "votes": 9964,
+      "vote_share_pct": 7.285223367697595,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Gosala Devi",
+      "party_short": "INC",
+      "votes": 1333,
+      "vote_share_pct": 0.9746289390948306,
+      "gender": "F",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Panathala Suresh",
+      "party_short": "BJP",
+      "votes": 1049,
+      "vote_share_pct": 0.7669810630986328,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1570,
+    "vote_share_pct": 1.147912553922644
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1109,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Koramutla Sreenivasulu",
+    "party_short": "YSRCP",
+    "votes": 78312,
+    "margin_votes": 34879,
+    "margin_pct": 25.5
+  }
+}

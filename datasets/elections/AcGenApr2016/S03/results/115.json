@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "Moran",
+  "totals": {
+    "electors": 121122,
+    "votes_polled": 100811,
+    "turnout_pct": 83.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHAKRADHAR GOGOI",
+      "party_short": "BJP",
+      "votes": 54571,
+      "vote_share_pct": 54.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PABAN SINGH GHATOWAR",
+      "party_short": "INC",
+      "votes": 38340,
+      "vote_share_pct": 38.03,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASHOK KUMAR URANG",
+      "party_short": "IND",
+      "votes": 2322,
+      "vote_share_pct": 2.3,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "HIRANYA BORUAH",
+      "party_short": "CPI",
+      "votes": 1650,
+      "vote_share_pct": 1.64,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SUNIL RAJKONWAR",
+      "party_short": "IND",
+      "votes": 1464,
+      "vote_share_pct": 1.45,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1673,
+    "vote_share_pct": 1.66
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 791,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHAKRADHAR GOGOI",
+    "party_short": "BJP",
+    "votes": 54571,
+    "margin_votes": 16231,
+    "margin_pct": 16.1
+  }
+}

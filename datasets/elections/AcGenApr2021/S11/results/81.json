@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "THRIPUNITHURA",
+  "totals": {
+    "electors": 211714,
+    "votes_polled": 156307,
+    "turnout_pct": 73.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K. Babu",
+      "party_short": "INC",
+      "votes": 65875,
+      "vote_share_pct": 42.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv. M. Swaraj",
+      "party_short": "CPI(M)",
+      "votes": 64883,
+      "vote_share_pct": 41.51,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. K. S. Radhakrishnan",
+      "party_short": "BJP",
+      "votes": 23756,
+      "vote_share_pct": 15.2,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Arun Babu. P. C.",
+      "party_short": "SHS",
+      "votes": 232,
+      "vote_share_pct": 0.15,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rajesh Pairoad",
+      "party_short": "IND",
+      "votes": 201,
+      "vote_share_pct": 0.13,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1099,
+    "vote_share_pct": 0.7
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 261,
+    "vote_share_pct": 0.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K. Babu",
+    "party_short": "INC",
+    "votes": 65875,
+    "margin_votes": 992,
+    "margin_pct": 0.63
+  }
+}

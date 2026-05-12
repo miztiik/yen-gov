@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Raichur Rural  (ST)",
+  "totals": {
+    "electors": 233464,
+    "votes_polled": 161681,
+    "turnout_pct": 69.2530754206216
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BASANAGOUDA DADDAL",
+      "party_short": "INC",
+      "votes": 66656,
+      "vote_share_pct": 41.2268602989838,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "TIPPARAJU HAWALDAR",
+      "party_short": "BJP",
+      "votes": 56692,
+      "vote_share_pct": 35.064107718284774,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "RAVI KUMAR PATIL",
+      "party_short": "JD(S)",
+      "votes": 34250,
+      "vote_share_pct": 21.183688868821935,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "RAMAYYA NAYAKA",
+      "party_short": "AIMEP",
+      "votes": 1273,
+      "vote_share_pct": 0.7873528738689147,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "HULIGEMMA SHIVARAJ GHANTE",
+      "party_short": "IND",
+      "votes": 1004,
+      "vote_share_pct": 0.6209758722422548,
+      "gender": "F",
+      "age": 35,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1806,
+    "vote_share_pct": 1.1170143677983189
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BASANAGOUDA DADDAL",
+    "party_short": "INC",
+    "votes": 66656,
+    "margin_votes": 9964,
+    "margin_pct": 6.16
+  },
+  "others": null
+}

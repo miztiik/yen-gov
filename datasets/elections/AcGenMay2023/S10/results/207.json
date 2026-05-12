@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 207,
+  "constituency_name": "Sullia (SC)",
+  "totals": {
+    "electors": 206210,
+    "votes_polled": 164732,
+    "turnout_pct": 79.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhagirathi Murulya",
+      "party_short": "BJP",
+      "votes": 93911,
+      "vote_share_pct": 57.01,
+      "is_winner": true,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "G. Krishnappa Ramakunja.",
+      "party_short": "INC",
+      "votes": 63037,
+      "vote_share_pct": 38.27,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "H. L. Venkatesh.",
+      "party_short": "JD(S)",
+      "votes": 1850,
+      "vote_share_pct": 1.12,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Sumana Bellarkar",
+      "party_short": "AAAP",
+      "votes": 1587,
+      "vote_share_pct": 0.96,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ramesha Boodu, Sullia",
+      "party_short": "UPJP",
+      "votes": 575,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2562,
+    "vote_share_pct": 1.56
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1210,
+    "vote_share_pct": 0.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhagirathi Murulya",
+    "party_short": "BJP",
+    "votes": 93911,
+    "margin_votes": 30874,
+    "margin_pct": 18.74
+  }
+}

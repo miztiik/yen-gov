@@ -1,16 +1,7 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-  "$schema_version": "3.1",
-  "sources": [
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    },
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    }
-  ],
+  "$schema_version": "3.2",
+  "sources": [],
   "election": "AcGenFeb2025",
   "state": "U05",
   "body": "AC",
@@ -28,37 +19,50 @@
       "party_short": "AAAP",
       "votes": 112991,
       "vote_share_pct": 54.3,
-      "is_winner": true
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
     },
     {
       "rank": 2,
       "name": "NARAYAN DUTT SHARMA",
-      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 87103,
-      "vote_share_pct": 41.86
+      "vote_share_pct": 41.86,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
     },
     {
       "rank": 3,
       "name": "ARJUN SINGH BHADANA",
-      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 3145,
-      "vote_share_pct": 1.51
+      "vote_share_pct": 1.51,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
     },
     {
       "rank": 4,
       "name": "PARDEEP",
       "party_short": "BSP",
       "votes": 1965,
-      "vote_share_pct": 0.94
+      "vote_share_pct": 0.94,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
     },
     {
       "rank": 5,
       "name": "RAHUL RAI",
       "party_short": "SAP",
       "votes": 466,
-      "vote_share_pct": 0.22
+      "vote_share_pct": 0.22,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
     }
   ],
   "nota": {

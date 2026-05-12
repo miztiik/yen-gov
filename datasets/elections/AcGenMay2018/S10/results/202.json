@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 202,
+  "constituency_name": "Mangalore City North",
+  "totals": {
+    "electors": 234856,
+    "votes_polled": 176104,
+    "turnout_pct": 74.9838198726028
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR.BHARATH SHETTY. Y",
+      "party_short": "BJP",
+      "votes": 98648,
+      "vote_share_pct": 56.01689910507427,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "B.A.MOHIUDDIN  BAVA",
+      "party_short": "INC",
+      "votes": 72000,
+      "vote_share_pct": 40.884931631308774,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MUNEER KATIPALLA",
+      "party_short": "CPM",
+      "votes": 2472,
+      "vote_share_pct": 1.403715986008268,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "P.M. AHAMMAD",
+      "party_short": "AIMEP",
+      "votes": 900,
+      "vote_share_pct": 0.5110616453913597,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAXIM PINTO",
+      "party_short": "IND",
+      "votes": 355,
+      "vote_share_pct": 0.20158542679325855,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1166,
+    "vote_share_pct": 0.6621087539181393
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 563,
+    "vote_share_pct": 0.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR.BHARATH SHETTY. Y",
+    "party_short": "BJP",
+    "votes": 98648,
+    "margin_votes": 26648,
+    "margin_pct": 15.13
+  }
+}

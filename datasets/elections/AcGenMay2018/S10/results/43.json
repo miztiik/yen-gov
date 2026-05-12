@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "Gulbarga Rural  (SC)",
+  "totals": {
+    "electors": 250497,
+    "votes_polled": 152495,
+    "turnout_pct": 60.87697657057769
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BASAWARAJ MATTIMUD",
+      "party_short": "BJP",
+      "votes": 61750,
+      "vote_share_pct": 40.49313092232532,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "VIJAYKUMAR G RAMAKRISHNA",
+      "party_short": "INC",
+      "votes": 49364,
+      "vote_share_pct": 32.370897406472345,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "REVU NAIK BELAMAGI",
+      "party_short": "JD(S)",
+      "votes": 29538,
+      "vote_share_pct": 19.36981540378373,
+      "gender": "M",
+      "age": 77,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "AMBALAGA MARUTI MANAPADE",
+      "party_short": "CPM",
+      "votes": 3491,
+      "vote_share_pct": 2.289255385422473,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "GIRISH BAILAPPA KAMBANAVAR",
+      "party_short": "IND",
+      "votes": 2129,
+      "vote_share_pct": 1.3961113479130463,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1612,
+    "vote_share_pct": 1.0570838388143873
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4611,
+    "vote_share_pct": 3.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BASAWARAJ MATTIMUD",
+    "party_short": "BJP",
+    "votes": 61750,
+    "margin_votes": 12386,
+    "margin_pct": 8.12
+  }
+}

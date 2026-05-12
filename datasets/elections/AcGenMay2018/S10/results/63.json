@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 63,
+  "constituency_name": "Yelburga",
+  "totals": {
+    "electors": 207232,
+    "votes_polled": 164667,
+    "turnout_pct": 79.4602184990735
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ACHAR HALAPPA BASAPPA",
+      "party_short": "BJP",
+      "votes": 79072,
+      "vote_share_pct": 48.019335993246976,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BASAVARAJ RAYAREDDI",
+      "party_short": "INC",
+      "votes": 65754,
+      "vote_share_pct": 39.93149811437629,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VEERANAGOUDA POLICE PATIL BALLUTAGI",
+      "party_short": "JD(S)",
+      "votes": 14591,
+      "vote_share_pct": 8.860913237017739,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANNADANARAJA AYYANAGOUDA NADAGOUDA",
+      "party_short": "JAHP",
+      "votes": 913,
+      "vote_share_pct": 0.5544523189224313,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAHAMANSAB S MANGALORE",
+      "party_short": "IND",
+      "votes": 739,
+      "vote_share_pct": 0.4487845166305331,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1510,
+    "vote_share_pct": 0.9170021923032544
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2088,
+    "vote_share_pct": 1.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ACHAR HALAPPA BASAPPA",
+    "party_short": "BJP",
+    "votes": 79072,
+    "margin_votes": 13318,
+    "margin_pct": 8.09
+  }
+}

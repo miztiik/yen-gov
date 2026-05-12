@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 170,
+  "constituency_name": "Basavanagudi",
+  "totals": {
+    "electors": 233600,
+    "votes_polled": 128286,
+    "turnout_pct": 54.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ravi Subramanya L.a.",
+      "party_short": "BJP",
+      "votes": 78854,
+      "vote_share_pct": 61.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "U.b.venkatesh",
+      "party_short": "INC",
+      "votes": 23876,
+      "vote_share_pct": 18.61,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Aramane Shankar",
+      "party_short": "JD(S)",
+      "votes": 19931,
+      "vote_share_pct": 15.54,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dr. Rajini.j",
+      "party_short": "UPJP",
+      "votes": 2192,
+      "vote_share_pct": 1.71,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Satyalaxmi Rao",
+      "party_short": "AAAP",
+      "votes": 767,
+      "vote_share_pct": 0.6,
+      "gender": "F",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1656,
+    "vote_share_pct": 1.29
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1010,
+    "vote_share_pct": 0.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ravi Subramanya L.a.",
+    "party_short": "BJP",
+    "votes": 78854,
+    "margin_votes": 54978,
+    "margin_pct": 42.86
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "SULTHANBATHERY",
+  "totals": {
+    "electors": 218241,
+    "votes_polled": 172004,
+    "turnout_pct": 78.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "I C BALAKRISHNAN",
+      "party_short": "INC",
+      "votes": 75747,
+      "vote_share_pct": 44.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "RUGMINI SUBRAHMANIAN",
+      "party_short": "CPM",
+      "votes": 64549,
+      "vote_share_pct": 37.53,
+      "gender": "F",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "C K JANU",
+      "party_short": "IND",
+      "votes": 27920,
+      "vote_share_pct": 16.23,
+      "gender": "F",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "MUKUNDAN CHEENGERI",
+      "party_short": "BSP",
+      "votes": 791,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 73,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "MADHAVI",
+      "party_short": "CPIM",
+      "votes": 609,
+      "vote_share_pct": 0.35,
+      "gender": "F",
+      "age": 33,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1261,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1127,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "I C BALAKRISHNAN",
+    "party_short": "INC",
+    "votes": 75747,
+    "margin_votes": 11198,
+    "margin_pct": 6.51
+  }
+}

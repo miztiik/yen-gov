@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 126,
+  "constituency_name": "Tarikere",
+  "totals": {
+    "electors": 193745,
+    "votes_polled": 154149,
+    "turnout_pct": 79.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G.h. Srinivasa",
+      "party_short": "INC",
+      "votes": 63086,
+      "vote_share_pct": 40.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "D.s. Suresh",
+      "party_short": "BJP",
+      "votes": 50955,
+      "vote_share_pct": 33.06,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "H.m. Gopikrishna Hunasagatta",
+      "party_short": "IND",
+      "votes": 35468,
+      "vote_share_pct": 23.01,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Doranal Paramesh",
+      "party_short": "IND",
+      "votes": 1338,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "B.p.vikas",
+      "party_short": "UPJP",
+      "votes": 548,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 736,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2018,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G.h. Srinivasa",
+    "party_short": "INC",
+    "votes": 63086,
+    "margin_votes": 12131,
+    "margin_pct": 7.87
+  }
+}

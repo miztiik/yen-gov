@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 168,
+  "constituency_name": "Chamrajpet",
+  "totals": {
+    "electors": 220951,
+    "votes_polled": 120209,
+    "turnout_pct": 54.405275377798695
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B.Z. ZAMEER AHMED KHAN",
+      "party_short": "INC",
+      "votes": 65339,
+      "vote_share_pct": 54.35449924714456,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M LAKSHMINARAYANA",
+      "party_short": "BJP",
+      "votes": 32202,
+      "vote_share_pct": 26.788343634835993,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "B K ALTAF KHAN",
+      "party_short": "JD(S)",
+      "votes": 19393,
+      "vote_share_pct": 16.132735485695747,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SRINIVAS B V",
+      "party_short": "IND",
+      "votes": 418,
+      "vote_share_pct": 0.34772770757597177,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "TABARAK SHARIFF",
+      "party_short": "IND",
+      "votes": 304,
+      "vote_share_pct": 0.25289287823707046,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 726,
+    "vote_share_pct": 0.6039481236845827
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 1827,
+    "vote_share_pct": 1.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B.Z. ZAMEER AHMED KHAN",
+    "party_short": "INC",
+    "votes": 65339,
+    "margin_votes": 33137,
+    "margin_pct": 27.57
+  }
+}

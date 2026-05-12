@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 63,
+  "constituency_name": "Ranchi",
+  "totals": {
+    "electors": 347064,
+    "votes_polled": 170276,
+    "turnout_pct": 49.06184450130235
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chandreshwar Prasad Singh",
+      "party_short": "BJP",
+      "votes": 79646,
+      "vote_share_pct": 46.77464821818694,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mahua Maji",
+      "party_short": "JMM",
+      "votes": 73742,
+      "vote_share_pct": 43.30733632455543,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Pawan Kumar Sharma",
+      "party_short": "IND",
+      "votes": 6479,
+      "vote_share_pct": 3.804998942892716,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Barsha Gari",
+      "party_short": "AJSUP",
+      "votes": 2603,
+      "vote_share_pct": 1.52869458995983,
+      "gender": "F",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Sunil Kumar Gupta",
+      "party_short": "JVM",
+      "votes": 1973,
+      "vote_share_pct": 1.1587070403345157,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1845,
+    "vote_share_pct": 1.0835349667598488
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3988,
+    "vote_share_pct": 2.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chandreshwar Prasad Singh",
+    "party_short": "BJP",
+    "votes": 79646,
+    "margin_votes": 5904,
+    "margin_pct": 3.47
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 156,
+  "constituency_name": "Madakasira",
+  "totals": {
+    "electors": 201881,
+    "votes_polled": 177103,
+    "turnout_pct": 87.72643289858877
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M THIPPESWAMY",
+      "party_short": "YSRCP",
+      "votes": 88527,
+      "vote_share_pct": 49.986166242243215,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "K ERANNA",
+      "party_short": "TDP",
+      "votes": 75391,
+      "vote_share_pct": 42.569013511911145,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "K ASWARTHANARAYANA",
+      "party_short": "INC",
+      "votes": 6495,
+      "vote_share_pct": 3.66735741348255,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MALA SOMANNA",
+      "party_short": "BSP",
+      "votes": 1684,
+      "vote_share_pct": 0.950859104588855,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "N HANUMANTHAPPA",
+      "party_short": "BJP",
+      "votes": 1138,
+      "vote_share_pct": 0.6425639317233475,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2656,
+    "vote_share_pct": 1.4996922694703083
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1212,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M THIPPESWAMY",
+    "party_short": "YSRCP",
+    "votes": 88527,
+    "margin_votes": 13136,
+    "margin_pct": 7.42
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 119,
+  "constituency_name": "KOTTARAKKARA",
+  "totals": {
+    "electors": 201909,
+    "votes_polled": 149552,
+    "turnout_pct": 74.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K N Balagopal",
+      "party_short": "CPI(M)",
+      "votes": 68770,
+      "vote_share_pct": 45.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "R Resmi",
+      "party_short": "INC",
+      "votes": 57956,
+      "vote_share_pct": 38.75,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Adv. Vayakkal Soman",
+      "party_short": "BJP",
+      "votes": 21223,
+      "vote_share_pct": 14.19,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Usha Kottarakkara",
+      "party_short": "ADHRMPI",
+      "votes": 460,
+      "vote_share_pct": 0.31,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Mathews K Lukose",
+      "party_short": "IND",
+      "votes": 136,
+      "vote_share_pct": 0.09,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 574,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 433,
+    "vote_share_pct": 0.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K N Balagopal",
+    "party_short": "CPI(M)",
+    "votes": 68770,
+    "margin_votes": 10814,
+    "margin_pct": 7.23
+  }
+}

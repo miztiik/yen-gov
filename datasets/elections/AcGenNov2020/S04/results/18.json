@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Madhuban",
+  "totals": {
+    "electors": 258042,
+    "votes_polled": 153448,
+    "turnout_pct": 59.46628843366584
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rana Randhir",
+      "party_short": "BJP",
+      "votes": 73179,
+      "vote_share_pct": 47.68977112767843,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Madan Prasad",
+      "party_short": "RJD",
+      "votes": 67301,
+      "vote_share_pct": 43.85915749960898,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Shashi Ranjan Kumar",
+      "party_short": "IND",
+      "votes": 2639,
+      "vote_share_pct": 1.719800844585788,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shivjee Ray",
+      "party_short": "JAPL",
+      "votes": 2082,
+      "vote_share_pct": 1.356811427975601,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Shiv Shankar Ray",
+      "party_short": "BSP",
+      "votes": 1251,
+      "vote_share_pct": 0.8152598926020542,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3732,
+    "vote_share_pct": 2.432094259944737
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3264,
+    "vote_share_pct": 2.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rana Randhir",
+    "party_short": "BJP",
+    "votes": 73179,
+    "margin_votes": 5878,
+    "margin_pct": 3.83
+  }
+}

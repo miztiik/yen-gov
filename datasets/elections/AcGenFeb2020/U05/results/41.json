@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "JANGPURA",
+  "totals": {
+    "electors": 146383,
+    "votes_polled": 88703,
+    "turnout_pct": 60.59651735515737
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRAVEEN KUMAR",
+      "party_short": "AAAP",
+      "votes": 45133,
+      "vote_share_pct": 50.88102995389108,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "IMPREET SINGH BAKSHI",
+      "party_short": "BJP",
+      "votes": 29070,
+      "vote_share_pct": 32.77228504109219,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "TARVINDER SINGH MARWAH",
+      "party_short": "INC",
+      "votes": 13565,
+      "vote_share_pct": 15.2926056615898,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUBHASH",
+      "party_short": "BSP",
+      "votes": 247,
+      "vote_share_pct": 0.27845732387856104,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRASHEKHAR SINGH",
+      "party_short": "IND",
+      "votes": 156,
+      "vote_share_pct": 0.17586778350224908,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 419,
+    "vote_share_pct": 0.47236282876565616
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 113,
+    "vote_share_pct": 0.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRAVEEN KUMAR",
+    "party_short": "AAAP",
+    "votes": 45133,
+    "margin_votes": 16063,
+    "margin_pct": 18.11
+  }
+}

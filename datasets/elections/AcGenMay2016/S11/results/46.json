@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "KOTTAKKAL",
+  "totals": {
+    "electors": 198872,
+    "votes_polled": 148473,
+    "turnout_pct": 74.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABID HUSSAIN THANGAL",
+      "party_short": "IUML",
+      "votes": 71768,
+      "vote_share_pct": 48.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "N.A. MUHAMMED KUTTY (MAMMOOTY)",
+      "party_short": "NCP",
+      "votes": 56726,
+      "vote_share_pct": 38.21,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "V. UNNIKRISHNAN MASTER",
+      "party_short": "BJP",
+      "votes": 13205,
+      "vote_share_pct": 8.89,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NEYYATHOOR KUNHIMOHAMED",
+      "party_short": "PDP",
+      "votes": 2763,
+      "vote_share_pct": 1.86,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K.P.O RAHMATHULLA",
+      "party_short": "SDPI",
+      "votes": 1719,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 806,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1486,
+    "vote_share_pct": 1.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABID HUSSAIN THANGAL",
+    "party_short": "IUML",
+    "votes": 71768,
+    "margin_votes": 15042,
+    "margin_pct": 10.13
+  }
+}

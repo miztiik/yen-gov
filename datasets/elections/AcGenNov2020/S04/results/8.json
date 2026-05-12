@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Bettiah",
+  "totals": {
+    "electors": 284268,
+    "votes_polled": 159932,
+    "turnout_pct": 56.26099314731169
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Renu Devi",
+      "party_short": "BJP",
+      "votes": 84496,
+      "vote_share_pct": 52.83245379286197,
+      "is_winner": true,
+      "gender": "F",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Madan Mohan Tiwari",
+      "party_short": "INC",
+      "votes": 66417,
+      "vote_share_pct": 41.52827451666958,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Avkash Kumar Gupta",
+      "party_short": "TPLRSP",
+      "votes": 1559,
+      "vote_share_pct": 0.9747892854463147,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Parwez Alam",
+      "party_short": "NCP",
+      "votes": 1192,
+      "vote_share_pct": 0.7453167596228396,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sitaram Sahani",
+      "party_short": "RMGP",
+      "votes": 1012,
+      "vote_share_pct": 0.6327689267938874,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2017,
+    "vote_share_pct": 1.2611609934222046
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3239,
+    "vote_share_pct": 2.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Renu Devi",
+    "party_short": "BJP",
+    "votes": 84496,
+    "margin_votes": 18079,
+    "margin_pct": 11.3
+  }
+}

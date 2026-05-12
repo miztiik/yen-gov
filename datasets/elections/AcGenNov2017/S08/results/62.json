@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "Kasumpti",
+  "totals": {
+    "electors": 61183,
+    "votes_polled": 41527,
+    "turnout_pct": 67.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANIRUDH SINGH",
+      "party_short": "INC",
+      "votes": 22061,
+      "vote_share_pct": 53.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIJAY JYOTI",
+      "party_short": "BJP",
+      "votes": 12664,
+      "vote_share_pct": 30.5,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KULDIP SINGH TANWAR",
+      "party_short": "CPM",
+      "votes": 4698,
+      "vote_share_pct": 11.31,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MADAN MOHAN",
+      "party_short": "IND",
+      "votes": 954,
+      "vote_share_pct": 2.3,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "INDER SINGH",
+      "party_short": "IND",
+      "votes": 212,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 404,
+    "vote_share_pct": 0.97
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 225,
+    "vote_share_pct": 0.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANIRUDH SINGH",
+    "party_short": "INC",
+    "votes": 22061,
+    "margin_votes": 9397,
+    "margin_pct": 22.63
+  }
+}

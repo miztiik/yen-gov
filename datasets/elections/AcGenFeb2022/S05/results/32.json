@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "Benaulim",
+  "totals": {
+    "electors": 28959,
+    "votes_polled": 21114,
+    "turnout_pct": 72.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Venzy Viegas",
+      "party_short": "AAAP",
+      "votes": 6411,
+      "vote_share_pct": 30.36,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Churchill Alemao",
+      "party_short": "AITC",
+      "votes": 5140,
+      "vote_share_pct": 24.34,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Antonio Feliciano Dias (Tony)",
+      "party_short": "INC",
+      "votes": 4697,
+      "vote_share_pct": 22.25,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Desmond Fernandes",
+      "party_short": "RVLTGONP",
+      "votes": 3854,
+      "vote_share_pct": 18.25,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Damodar (Samir) Bandodkar",
+      "party_short": "BJP",
+      "votes": 851,
+      "vote_share_pct": 4.03,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 161,
+    "vote_share_pct": 0.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Venzy Viegas",
+    "party_short": "AAAP",
+    "votes": 6411,
+    "margin_votes": 1271,
+    "margin_pct": 6.02
+  },
+  "others": null
+}

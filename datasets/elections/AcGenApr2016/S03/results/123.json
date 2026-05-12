@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 123,
+  "constituency_name": "Digboi",
+  "totals": {
+    "electors": 115654,
+    "votes_polled": 95525,
+    "turnout_pct": 82.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUREN PHUKAN",
+      "party_short": "BJP",
+      "votes": 49167,
+      "vote_share_pct": 51.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GAUTAM DHANOWAR",
+      "party_short": "INC",
+      "votes": 34874,
+      "vote_share_pct": 36.51,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRANAB CHETIA",
+      "party_short": "IND",
+      "votes": 4841,
+      "vote_share_pct": 5.07,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "IMRAN SIDDIQUE",
+      "party_short": "IND",
+      "votes": 1166,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BISWANATH SARMA BORDOLOI",
+      "party_short": "IND",
+      "votes": 977,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2246,
+    "vote_share_pct": 2.35
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2254,
+    "vote_share_pct": 2.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUREN PHUKAN",
+    "party_short": "BJP",
+    "votes": 49167,
+    "margin_votes": 14293,
+    "margin_pct": 14.96
+  }
+}

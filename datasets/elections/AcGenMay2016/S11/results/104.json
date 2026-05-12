@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 104,
+  "constituency_name": "ALAPPUZHA",
+  "totals": {
+    "electors": 193532,
+    "votes_polled": 156150,
+    "turnout_pct": 80.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR.T.M.THOMAS ISAAC",
+      "party_short": "CPM",
+      "votes": 83211,
+      "vote_share_pct": 53.29,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV.LALY VINCENT",
+      "party_short": "INC",
+      "votes": 52179,
+      "vote_share_pct": 33.42,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ADV.RANJITH SREENIVAS",
+      "party_short": "BJP",
+      "votes": 18214,
+      "vote_share_pct": 11.66,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "P.A.SULAIMAN KUNJU",
+      "party_short": "SDPI",
+      "votes": 703,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K.MUJEEB",
+      "party_short": "PDP",
+      "votes": 481,
+      "vote_share_pct": 0.31,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 856,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 506,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR.T.M.THOMAS ISAAC",
+    "party_short": "CPM",
+    "votes": 83211,
+    "margin_votes": 31032,
+    "margin_pct": 19.87
+  }
+}

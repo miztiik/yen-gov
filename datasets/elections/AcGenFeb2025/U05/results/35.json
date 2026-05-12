@@ -1,16 +1,7 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-  "$schema_version": "3.1",
-  "sources": [
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    },
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    }
-  ],
+  "$schema_version": "3.2",
+  "sources": [],
   "election": "AcGenFeb2025",
   "state": "U05",
   "body": "AC",
@@ -25,40 +16,53 @@
     {
       "rank": 1,
       "name": "NEELAM PAHALWAN",
-      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 101708,
       "vote_share_pct": 56.4,
-      "is_winner": true
+      "is_winner": true,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
     },
     {
       "rank": 2,
       "name": "TARUN KUMAR",
       "party_short": "AAAP",
       "votes": 72699,
-      "vote_share_pct": 40.31
+      "vote_share_pct": 40.31,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
     },
     {
       "rank": 3,
       "name": "SUSHMA DEVI YADAV",
-      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 2902,
-      "vote_share_pct": 1.61
+      "vote_share_pct": 1.61,
+      "gender": "F",
+      "age": 56,
+      "category": "GEN"
     },
     {
       "rank": 4,
       "name": "ROHIT",
       "party_short": "BSP",
       "votes": 903,
-      "vote_share_pct": 0.5
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
     },
     {
       "rank": 5,
       "name": "MANGE RAM SANGWAN",
       "party_short": "IND",
       "votes": 225,
-      "vote_share_pct": 0.12
+      "vote_share_pct": 0.12,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
     }
   ],
   "nota": {
@@ -73,7 +77,6 @@
   "top_n_cutoff": 5,
   "winner": {
     "name": "NEELAM PAHALWAN",
-    "party_eci_code": "369",
     "party_short": "BJP",
     "votes": 101708,
     "margin_votes": 29009,

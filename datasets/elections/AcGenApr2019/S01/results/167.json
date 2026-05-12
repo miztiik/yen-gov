@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 167,
+  "constituency_name": "Tirupati",
+  "totals": {
+    "electors": 270847,
+    "votes_polled": 180429,
+    "turnout_pct": 66.61657688658173
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHUMANA KARUNAKAR REDDY",
+      "party_short": "YSRCP",
+      "votes": 80544,
+      "vote_share_pct": 44.640274013600916,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M SUGUNA",
+      "party_short": "TDP",
+      "votes": 79836,
+      "vote_share_pct": 44.24787589578172,
+      "gender": "F",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHADALAWADA KRISHNAMURTHY",
+      "party_short": "JnP",
+      "votes": 12315,
+      "vote_share_pct": 6.825399464609348,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K.PRAMILA",
+      "party_short": "INC",
+      "votes": 2725,
+      "vote_share_pct": 1.5102893659001602,
+      "gender": "F",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BHAVANI SANKAR VALLAMCHETTY",
+      "party_short": "BJP",
+      "votes": 2385,
+      "vote_share_pct": 1.3218495918061952,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1420,
+    "vote_share_pct": 0.7870131741571477
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1204,
+    "vote_share_pct": 0.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHUMANA KARUNAKAR REDDY",
+    "party_short": "YSRCP",
+    "votes": 80544,
+    "margin_votes": 708,
+    "margin_pct": 0.39
+  }
+}

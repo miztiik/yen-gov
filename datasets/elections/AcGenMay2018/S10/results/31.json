@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Nagthan  (SC)",
+  "totals": {
+    "electors": 260452,
+    "votes_polled": 175608,
+    "turnout_pct": 67.42432386773763
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DEVANAND FULASING CHAVAN",
+      "party_short": "JD(S)",
+      "votes": 59709,
+      "vote_share_pct": 34.0012983463168,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "KATAKADOND VITTAL DONDIBA",
+      "party_short": "INC",
+      "votes": 54108,
+      "vote_share_pct": 30.81180811808118,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "GOPAL GOVIND KARJOL",
+      "party_short": "BJP",
+      "votes": 53562,
+      "vote_share_pct": 30.500888342216758,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "IRASUR SAGAR MALLAPPA",
+      "party_short": "BJC",
+      "votes": 1624,
+      "vote_share_pct": 0.9247870256480343,
+      "gender": "M",
+      "age": 27,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAHUL TIPPANNA BHASKAR",
+      "party_short": "IND",
+      "votes": 1276,
+      "vote_share_pct": 0.7266183772948841,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1578,
+    "vote_share_pct": 0.898592319256526
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3751,
+    "vote_share_pct": 2.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DEVANAND FULASING CHAVAN",
+    "party_short": "JD(S)",
+    "votes": 59709,
+    "margin_votes": 5601,
+    "margin_pct": 3.19
+  }
+}

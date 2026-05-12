@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "Haroli",
+  "totals": {
+    "electors": 88951,
+    "votes_polled": 69858,
+    "turnout_pct": 78.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mukesh Agnihotri",
+      "party_short": "INC",
+      "votes": 38652,
+      "vote_share_pct": 55.33,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ram Kumar",
+      "party_short": "BJP",
+      "votes": 29504,
+      "vote_share_pct": 42.23,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Naresh Kumar",
+      "party_short": "BSP",
+      "votes": 636,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Ravinder Mann",
+      "party_short": "AAAP",
+      "votes": 601,
+      "vote_share_pct": 0.86,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ashhwani Kumar Rana",
+      "party_short": "RTRYDVBHMP",
+      "votes": 290,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 175,
+    "vote_share_pct": 0.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mukesh Agnihotri",
+    "party_short": "INC",
+    "votes": 38652,
+    "margin_votes": 9148,
+    "margin_pct": 13.1
+  },
+  "others": null
+}

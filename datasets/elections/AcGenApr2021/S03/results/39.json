@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "JALESWAR",
+  "totals": {
+    "electors": 159967,
+    "votes_polled": 149803,
+    "turnout_pct": 93.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Aftab Uddin Mollah",
+      "party_short": "INC",
+      "votes": 76026,
+      "vote_share_pct": 50.75,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. Reza M A Amin",
+      "party_short": "AIUDF",
+      "votes": 54046,
+      "vote_share_pct": 36.08,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Osman Goni",
+      "party_short": "BJP",
+      "votes": 14053,
+      "vote_share_pct": 9.38,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Khurshid Mirza Ashikur Rahman",
+      "party_short": "AITC",
+      "votes": 1847,
+      "vote_share_pct": 1.23,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Roshidul Hoque",
+      "party_short": "ASMJTYP",
+      "votes": 915,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 970,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1946,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Aftab Uddin Mollah",
+    "party_short": "INC",
+    "votes": 76026,
+    "margin_votes": 21980,
+    "margin_pct": 14.67
+  }
+}

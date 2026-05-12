@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2020",
+  "state": "U05",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "MATIALA",
+  "totals": {
+    "electors": 424924,
+    "votes_polled": 261315,
+    "turnout_pct": 61.4968794419708
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GULAB SINGH",
+      "party_short": "AAAP",
+      "votes": 139010,
+      "vote_share_pct": 53.19633392648719,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJESH GAHLOT",
+      "party_short": "BJP",
+      "votes": 110935,
+      "vote_share_pct": 42.45259552647188,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUMESH SHOKEEN",
+      "party_short": "INC",
+      "votes": 7317,
+      "vote_share_pct": 2.8000688823833304,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANDHYA SINGH",
+      "party_short": "JDNTP",
+      "votes": 887,
+      "vote_share_pct": 0.3394370778562272,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHER SINGH",
+      "party_short": "BSP",
+      "votes": 774,
+      "vote_share_pct": 0.2961942483209919,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1602,
+    "vote_share_pct": 0.6130532116411228
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 790,
+    "vote_share_pct": 0.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GULAB SINGH",
+    "party_short": "AAAP",
+    "votes": 139010,
+    "margin_votes": 28075,
+    "margin_pct": 10.74
+  }
+}

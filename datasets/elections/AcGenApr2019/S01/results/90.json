@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 90,
+  "constituency_name": "Repalle",
+  "totals": {
+    "electors": 223738,
+    "votes_polled": 186123,
+    "turnout_pct": 83.18792516246681
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANAGANI SATYA PRASAD",
+      "party_short": "TDP",
+      "votes": 89975,
+      "vote_share_pct": 48.34168802351134,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VENKATA RAMANA RAO MOPIDEVI",
+      "party_short": "YSRCP",
+      "votes": 78420,
+      "vote_share_pct": 42.133427894456894,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KAMATHAM SAMBASIVARAO",
+      "party_short": "JnP",
+      "votes": 11761,
+      "vote_share_pct": 6.3189396259462836,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOPIDEVI SRINIVASARAO",
+      "party_short": "INC",
+      "votes": 1876,
+      "vote_share_pct": 1.0079356124713228,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HARSHA VARDHAN NAGISETTI",
+      "party_short": "BJP",
+      "votes": 912,
+      "vote_share_pct": 0.48999854934639997,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1329,
+    "vote_share_pct": 0.7140439386857078
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1850,
+    "vote_share_pct": 0.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANAGANI SATYA PRASAD",
+    "party_short": "TDP",
+    "votes": 89975,
+    "margin_votes": 11555,
+    "margin_pct": 6.21
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "NADAPURAM",
+  "totals": {
+    "electors": 201719,
+    "votes_polled": 162929,
+    "turnout_pct": 80.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "E. K. VIJAYAN",
+      "party_short": "CPI",
+      "votes": 74742,
+      "vote_share_pct": 45.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADV. PRAVEENKUMAR",
+      "party_short": "INC",
+      "votes": 69983,
+      "vote_share_pct": 42.95,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M. P. RAJAN",
+      "party_short": "BJP",
+      "votes": 14493,
+      "vote_share_pct": 8.9,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "C. K. ABDUL RAHIM MASTER",
+      "party_short": "SDPI",
+      "votes": 2183,
+      "vote_share_pct": 1.34,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K.K.VASU",
+      "party_short": "BSP",
+      "votes": 377,
+      "vote_share_pct": 0.23,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 446,
+    "vote_share_pct": 0.27
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 705,
+    "vote_share_pct": 0.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "E. K. VIJAYAN",
+    "party_short": "CPI",
+    "votes": 74742,
+    "margin_votes": 4759,
+    "margin_pct": 2.92
+  }
+}

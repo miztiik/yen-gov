@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2022",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "Rohru (SC)",
+  "totals": {
+    "electors": 75253,
+    "votes_polled": 55454,
+    "turnout_pct": 73.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mohan Lal Brakta",
+      "party_short": "INC",
+      "votes": 34327,
+      "vote_share_pct": 61.9,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Shashi Bala",
+      "party_short": "BJP",
+      "votes": 14988,
+      "vote_share_pct": 27.03,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Rajender Singh",
+      "party_short": "IND",
+      "votes": 3597,
+      "vote_share_pct": 6.49,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Ashwani Kumar",
+      "party_short": "AAAP",
+      "votes": 1400,
+      "vote_share_pct": 2.52,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Prakash Andta",
+      "party_short": "BSP",
+      "votes": 520,
+      "vote_share_pct": 0.94,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 413,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 209,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mohan Lal Brakta",
+    "party_short": "INC",
+    "votes": 34327,
+    "margin_votes": 19339,
+    "margin_pct": 34.87
+  }
+}

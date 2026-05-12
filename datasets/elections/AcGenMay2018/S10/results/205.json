@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 205,
+  "constituency_name": "Bantval",
+  "totals": {
+    "electors": 221765,
+    "votes_polled": 182555,
+    "turnout_pct": 82.31912159267694
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJESH NAIK U.",
+      "party_short": "BJP",
+      "votes": 97802,
+      "vote_share_pct": 53.57399139985209,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "B RAMANATHA RAI",
+      "party_short": "INC",
+      "votes": 81831,
+      "vote_share_pct": 44.82539508641231,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHAMEER",
+      "party_short": "AIMEP",
+      "votes": 760,
+      "vote_share_pct": 0.41631289200514915,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BALAKRISHNA POOJARY PANOLIBAIL",
+      "party_short": "LAD",
+      "votes": 713,
+      "vote_share_pct": 0.390567226315357,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "IBRAHIM KAILAR",
+      "party_short": "IND",
+      "votes": 503,
+      "vote_share_pct": 0.2755334008928816,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 946,
+    "vote_share_pct": 0.5181999945221988
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJESH NAIK U.",
+    "party_short": "BJP",
+    "votes": 97802,
+    "margin_votes": 15971,
+    "margin_pct": 8.75
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 231,
+  "constituency_name": "Tikari",
+  "totals": {
+    "electors": 310262,
+    "votes_polled": 186667,
+    "turnout_pct": 60.164312742134065
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anil Kumar",
+      "party_short": "HAMS",
+      "votes": 70359,
+      "vote_share_pct": 37.69225412097478,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sumant Kumar",
+      "party_short": "INC",
+      "votes": 67729,
+      "vote_share_pct": 36.2833280654856,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kamlesh Sharma",
+      "party_short": "LJP",
+      "votes": 16385,
+      "vote_share_pct": 8.777662897030542,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sheo Bachan Yadav",
+      "party_short": "BSP",
+      "votes": 7296,
+      "vote_share_pct": 3.9085644489920552,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ravish Kumar Raj",
+      "party_short": "BJKD",
+      "votes": 2872,
+      "vote_share_pct": 1.5385686811273551,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1171,
+    "vote_share_pct": 0.6273203083565922
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 20855,
+    "vote_share_pct": 11.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anil Kumar",
+    "party_short": "HAMS",
+    "votes": 70359,
+    "margin_votes": 2630,
+    "margin_pct": 1.41
+  }
+}

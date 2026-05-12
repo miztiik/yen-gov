@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2019",
+  "state": "S27",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Nala",
+  "totals": {
+    "electors": 223179,
+    "votes_polled": 175462,
+    "turnout_pct": 78.61940415540889
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RABINDRA NATH MAHATO",
+      "party_short": "JMM",
+      "votes": 61356,
+      "vote_share_pct": 34.96825523475168,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATYANAND JHA",
+      "party_short": "BJP",
+      "votes": 57836,
+      "vote_share_pct": 32.96212285281144,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KANAI CHANDRA MALPAHRIA",
+      "party_short": "CPI",
+      "votes": 21394,
+      "vote_share_pct": 12.192953460008434,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MADHAV CHANDRA MAHTO",
+      "party_short": "AJSUP",
+      "votes": 16778,
+      "vote_share_pct": 9.562184404600426,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PUSHPA SOREN",
+      "party_short": "JVM",
+      "votes": 2592,
+      "vote_share_pct": 1.4772429357923653,
+      "gender": "F",
+      "age": 49,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 601,
+    "vote_share_pct": 0.3425243072574119
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 14905,
+    "vote_share_pct": 8.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RABINDRA NATH MAHATO",
+    "party_short": "JMM",
+    "votes": 61356,
+    "margin_votes": 3520,
+    "margin_pct": 2.01
+  }
+}

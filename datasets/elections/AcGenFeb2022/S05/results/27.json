@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Cortalim",
+  "totals": {
+    "electors": 30782,
+    "votes_polled": 23924,
+    "turnout_pct": 77.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Antonio Vas",
+      "party_short": "IND",
+      "votes": 5522,
+      "vote_share_pct": 23.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Olencio Simoes",
+      "party_short": "INC",
+      "votes": 4344,
+      "vote_share_pct": 18.16,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Girish Pillai",
+      "party_short": "IND",
+      "votes": 4251,
+      "vote_share_pct": 17.77,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Gilbert Mariano Rodrigues",
+      "party_short": "AITC",
+      "votes": 3246,
+      "vote_share_pct": 13.57,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Teotonio Inacio Santana Costa",
+      "party_short": "RVLTGONP",
+      "votes": 2480,
+      "vote_share_pct": 10.37,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 213,
+    "vote_share_pct": 0.89
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3868,
+    "vote_share_pct": 16.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Antonio Vas",
+    "party_short": "IND",
+    "votes": 5522,
+    "margin_votes": 1178,
+    "margin_pct": 4.92
+  }
+}

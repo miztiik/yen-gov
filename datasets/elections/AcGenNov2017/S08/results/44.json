@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2017",
+  "state": "S08",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Una",
+  "totals": {
+    "electors": 79512,
+    "votes_polled": 63213,
+    "turnout_pct": 79.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATPAL SINGH RAIZADA",
+      "party_short": "INC",
+      "votes": 31360,
+      "vote_share_pct": 49.61,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATPAL SINGH SATTI",
+      "party_short": "BJP",
+      "votes": 28164,
+      "vote_share_pct": 44.55,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJIV GAUTAM",
+      "party_short": "IND",
+      "votes": 1723,
+      "vote_share_pct": 2.73,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAVI KUMAR",
+      "party_short": "BSP",
+      "votes": 659,
+      "vote_share_pct": 1.04,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GULZAR SINGH",
+      "party_short": "IND",
+      "votes": 306,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 256,
+    "vote_share_pct": 0.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATPAL SINGH RAIZADA",
+    "party_short": "INC",
+    "votes": 31360,
+    "margin_votes": 3196,
+    "margin_pct": 5.06
+  },
+  "others": null
+}

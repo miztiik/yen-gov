@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 91,
+  "constituency_name": "Kampli (ST)",
+  "totals": {
+    "electors": 214473,
+    "votes_polled": 181884,
+    "turnout_pct": 84.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "J N Ganesh",
+      "party_short": "INC",
+      "votes": 100424,
+      "vote_share_pct": 55.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "T H Suresh Babu",
+      "party_short": "BJP",
+      "votes": 76333,
+      "vote_share_pct": 41.97,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Raju Nayaka",
+      "party_short": "JD(S)",
+      "votes": 1374,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "H Prahlad Nayak",
+      "party_short": "AAAP",
+      "votes": 1001,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Uththanuru Nagaraj",
+      "party_short": "BSP",
+      "votes": 652,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 997,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1103,
+    "vote_share_pct": 0.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "J N Ganesh",
+    "party_short": "INC",
+    "votes": 100424,
+    "margin_votes": 24091,
+    "margin_pct": 13.25
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 100,
+  "constituency_name": "Titabar",
+  "totals": {
+    "electors": 136227,
+    "votes_polled": 113504,
+    "turnout_pct": 83.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TARUN GOGOI",
+      "party_short": "INC",
+      "votes": 62025,
+      "vote_share_pct": 54.65,
+      "is_winner": true,
+      "gender": "M",
+      "age": 79,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAMAKHYA PRASAD TASA",
+      "party_short": "BJP",
+      "votes": 44530,
+      "vote_share_pct": 39.23,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KULA DAS",
+      "party_short": "CPI",
+      "votes": 2413,
+      "vote_share_pct": 2.13,
+      "gender": "M",
+      "age": 70,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "BIREN GOGOI",
+      "party_short": "BVM",
+      "votes": 1332,
+      "vote_share_pct": 1.17,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DILIP GOGOI",
+      "party_short": "IND",
+      "votes": 763,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1726,
+    "vote_share_pct": 1.52
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 715,
+    "vote_share_pct": 0.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TARUN GOGOI",
+    "party_short": "INC",
+    "votes": 62025,
+    "margin_votes": 17495,
+    "margin_pct": 15.41
+  }
+}

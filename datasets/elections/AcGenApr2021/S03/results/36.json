@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 36,
+  "constituency_name": "DUDHNAI",
+  "totals": {
+    "electors": 207571,
+    "votes_polled": 180755,
+    "turnout_pct": 87.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JADAB SWARGIARY",
+      "party_short": "INC",
+      "votes": 78551,
+      "vote_share_pct": 43.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SHYAMJIT RABHA",
+      "party_short": "BJP",
+      "votes": 77275,
+      "vote_share_pct": 42.75,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "DIPAK KUMAR RABHA",
+      "party_short": "IND",
+      "votes": 16487,
+      "vote_share_pct": 9.12,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "BORJIT BORO",
+      "party_short": "VPI",
+      "votes": 2462,
+      "vote_share_pct": 1.36,
+      "gender": "M",
+      "age": 26,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "BATSRANG G. MOMIN",
+      "party_short": "IND",
+      "votes": 1475,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 32,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1367,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3138,
+    "vote_share_pct": 1.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JADAB SWARGIARY",
+    "party_short": "INC",
+    "votes": 78551,
+    "margin_votes": 1276,
+    "margin_pct": 0.71
+  }
+}

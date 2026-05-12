@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "Curtorim",
+  "totals": {
+    "electors": 28187,
+    "votes_polled": 21303,
+    "turnout_pct": 75.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ALEIXO REGINALDO LOURENCO",
+      "party_short": "INC",
+      "votes": 12841,
+      "vote_share_pct": 60.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARTHUR D’SILVA",
+      "party_short": "BJP",
+      "votes": 5144,
+      "vote_share_pct": 24.15,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "EDWIN DOMNIC VAZ",
+      "party_short": "AAAP",
+      "votes": 2711,
+      "vote_share_pct": 12.73,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CONCEICAO DIAS",
+      "party_short": "MAG",
+      "votes": 240,
+      "vote_share_pct": 1.13,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JOSE PAULO FERNANDES",
+      "party_short": "IND",
+      "votes": 118,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 249,
+    "vote_share_pct": 1.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ALEIXO REGINALDO LOURENCO",
+    "party_short": "INC",
+    "votes": 12841,
+    "margin_votes": 7697,
+    "margin_pct": 36.13
+  },
+  "others": null
+}

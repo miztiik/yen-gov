@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Vizianagaram",
+  "totals": {
+    "electors": 232031,
+    "votes_polled": 164420,
+    "turnout_pct": 70.86122112993523
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VEERA BHADRA SWAMY KOLAGATLA",
+      "party_short": "YSRCP",
+      "votes": 78849,
+      "vote_share_pct": 47.95584478773872,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADITI VIJAYALAKSHMI GAJAPATHI RAJU PUSAPATI",
+      "party_short": "TDP",
+      "votes": 72432,
+      "vote_share_pct": 44.05303491059482,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PALAVALASA YASASVI",
+      "party_short": "JnP",
+      "votes": 7190,
+      "vote_share_pct": 4.372947330008515,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KUSUMANCHI SUBBA RAO",
+      "party_short": "BJP",
+      "votes": 1772,
+      "vote_share_pct": 1.0777277703442403,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SATISH KUMAR SUNKARI",
+      "party_short": "INC",
+      "votes": 1114,
+      "vote_share_pct": 0.6775331468191217,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1797,
+    "vote_share_pct": 1.092932733244131
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1266,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VEERA BHADRA SWAMY KOLAGATLA",
+    "party_short": "YSRCP",
+    "votes": 78849,
+    "margin_votes": 6417,
+    "margin_pct": 3.9
+  }
+}

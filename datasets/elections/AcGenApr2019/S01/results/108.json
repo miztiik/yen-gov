@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "Ongole",
+  "totals": {
+    "electors": 229462,
+    "votes_polled": 193971,
+    "turnout_pct": 84.53295098970635
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BALINENI SRINIVASA REDDY (VASU)",
+      "party_short": "YSRCP",
+      "votes": 101022,
+      "vote_share_pct": 52.080981177598716,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DAMACHARLA JANARDHANA RAO",
+      "party_short": "TDP",
+      "votes": 78777,
+      "vote_share_pct": 40.61277201231112,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SK. REYAZ",
+      "party_short": "JnP",
+      "votes": 10304,
+      "vote_share_pct": 5.312134288115234,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Eda Sudhakara Reddy",
+      "party_short": "INC",
+      "votes": 959,
+      "vote_share_pct": 0.4944038026302901,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Bodduluri Anjaneyulu",
+      "party_short": "BJP",
+      "votes": 693,
+      "vote_share_pct": 0.3572699011707936,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1333,
+    "vote_share_pct": 0.6872161302462739
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 883,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BALINENI SRINIVASA REDDY (VASU)",
+    "party_short": "YSRCP",
+    "votes": 101022,
+    "margin_votes": 22245,
+    "margin_pct": 11.47
+  }
+}

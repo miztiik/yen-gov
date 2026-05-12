@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 109,
+  "constituency_name": "MAVELIKARA (SC)",
+  "totals": {
+    "electors": 206012,
+    "votes_polled": 150690,
+    "turnout_pct": 73.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M S Arun Kumar",
+      "party_short": "CPI(M)",
+      "votes": 71743,
+      "vote_share_pct": 47.61,
+      "is_winner": true,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "K K Shaju",
+      "party_short": "INC",
+      "votes": 47026,
+      "vote_share_pct": 31.21,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "K Sanju",
+      "party_short": "BJP",
+      "votes": 30955,
+      "vote_share_pct": 20.54,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Suresh Nooranad",
+      "party_short": "APoI",
+      "votes": 165,
+      "vote_share_pct": 0.11,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "K Sasikumar",
+      "party_short": "SUCI",
+      "votes": 151,
+      "vote_share_pct": 0.1,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 519,
+    "vote_share_pct": 0.34
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 131,
+    "vote_share_pct": 0.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M S Arun Kumar",
+    "party_short": "CPI(M)",
+    "votes": 71743,
+    "margin_votes": 24717,
+    "margin_pct": 16.4
+  }
+}

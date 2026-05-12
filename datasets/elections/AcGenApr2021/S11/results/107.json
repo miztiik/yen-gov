@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "HARIPAD",
+  "totals": {
+    "electors": 197598,
+    "votes_polled": 150623,
+    "turnout_pct": 76.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ramesh Chennithala",
+      "party_short": "INC",
+      "votes": 72768,
+      "vote_share_pct": 48.31,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adv. R. Sajilal",
+      "party_short": "CPI",
+      "votes": 59102,
+      "vote_share_pct": 39.24,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K. Soman",
+      "party_short": "BJP",
+      "votes": 17890,
+      "vote_share_pct": 11.88,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Madhu. T",
+      "party_short": "SUCI",
+      "votes": 204,
+      "vote_share_pct": 0.14,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Adv. Niyaz Bharati",
+      "party_short": "IND",
+      "votes": 123,
+      "vote_share_pct": 0.08,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 536,
+    "vote_share_pct": 0.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ramesh Chennithala",
+    "party_short": "INC",
+    "votes": 72768,
+    "margin_votes": 13666,
+    "margin_pct": 9.07
+  },
+  "others": null
+}

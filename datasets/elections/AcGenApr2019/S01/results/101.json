@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 101,
+  "constituency_name": "Macherla",
+  "totals": {
+    "electors": 250403,
+    "votes_polled": 211900,
+    "turnout_pct": 84.62358677811368
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMAKRISHNAREDDY PINNELLI.",
+      "party_short": "YSRCP",
+      "votes": 110406,
+      "vote_share_pct": 52.10287871637564,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANJI REDDY ANNAPUREDDY",
+      "party_short": "TDP",
+      "votes": 88488,
+      "vote_share_pct": 41.75932043416706,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MULLA SRINIVASA RAO",
+      "party_short": "JnP",
+      "votes": 5331,
+      "vote_share_pct": 2.515809344030203,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "YARAMALA RAMACHANDRAREDDY.",
+      "party_short": "INC",
+      "votes": 2501,
+      "vote_share_pct": 1.1802737140160453,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMARA SAIDARAO KARNA",
+      "party_short": "BJP",
+      "votes": 963,
+      "vote_share_pct": 0.4544596507786692,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1914,
+    "vote_share_pct": 0.9032562529495044
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2297,
+    "vote_share_pct": 1.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMAKRISHNAREDDY PINNELLI.",
+    "party_short": "YSRCP",
+    "votes": 110406,
+    "margin_votes": 21918,
+    "margin_pct": 10.34
+  }
+}

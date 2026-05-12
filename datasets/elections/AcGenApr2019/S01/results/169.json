@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 169,
+  "constituency_name": "Satyavedu",
+  "totals": {
+    "electors": 202843,
+    "votes_polled": 176114,
+    "turnout_pct": 86.8228137032089
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adimulam Koneti",
+      "party_short": "YSRCP",
+      "votes": 103941,
+      "vote_share_pct": 59.01915804535699,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Jadda Rajasekhar",
+      "party_short": "TDP",
+      "votes": 59197,
+      "vote_share_pct": 33.61288710721465,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Chandrasekhar Penubala",
+      "party_short": "INC",
+      "votes": 3908,
+      "vote_share_pct": 2.2190172274776563,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "N. Vijay Kumar",
+      "party_short": "BSP",
+      "votes": 2076,
+      "vote_share_pct": 1.1787819253438114,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Venkataiah . S",
+      "party_short": "BJP",
+      "votes": 1610,
+      "vote_share_pct": 0.9141805875739577,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3347,
+    "vote_share_pct": 1.9004735569006437
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2035,
+    "vote_share_pct": 1.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adimulam Koneti",
+    "party_short": "YSRCP",
+    "votes": 103941,
+    "margin_votes": 44744,
+    "margin_pct": 25.41
+  }
+}

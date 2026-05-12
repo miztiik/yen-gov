@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "Darsi",
+  "totals": {
+    "electors": 214440,
+    "votes_polled": 195348,
+    "turnout_pct": 91.09681029658645
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Maddisetty Venugopal",
+      "party_short": "YSRCP",
+      "votes": 111914,
+      "vote_share_pct": 57.28955505047403,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kadiri Babu Rao",
+      "party_short": "TDP",
+      "votes": 72857,
+      "vote_share_pct": 37.296005078117,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Botuku Ramesh Babu",
+      "party_short": "JnP",
+      "votes": 3828,
+      "vote_share_pct": 1.959579826770686,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Putluri Konda reddy",
+      "party_short": "INC",
+      "votes": 2456,
+      "vote_share_pct": 1.2572434834244528,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Paritala Suresh Rao",
+      "party_short": "IND",
+      "votes": 633,
+      "vote_share_pct": 0.3240371030161558,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2498,
+    "vote_share_pct": 1.2787435755677048
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1162,
+    "vote_share_pct": 0.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Maddisetty Venugopal",
+    "party_short": "YSRCP",
+    "votes": 111914,
+    "margin_votes": 39057,
+    "margin_pct": 19.99
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 121,
+  "constituency_name": "Parsa",
+  "totals": {
+    "electors": 266693,
+    "votes_polled": 153994,
+    "turnout_pct": 57.74204797276269
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHHOTE LAL RAY",
+      "party_short": "RJD",
+      "votes": 68316,
+      "vote_share_pct": 44.3627673805473,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHANDRIKA ROY",
+      "party_short": "JD(U)",
+      "votes": 51023,
+      "vote_share_pct": 33.133109082172034,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAKESH KUMAR SINGH",
+      "party_short": "LJP",
+      "votes": 12186,
+      "vote_share_pct": 7.91329532319441,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANAGER SINGH",
+      "party_short": "IND",
+      "votes": 4558,
+      "vote_share_pct": 2.959855578788784,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAHESH RAY",
+      "party_short": "IND",
+      "votes": 4119,
+      "vote_share_pct": 2.6747795368650724,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 5179,
+    "vote_share_pct": 3.3631180435601387
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 8613,
+    "vote_share_pct": 5.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHHOTE LAL RAY",
+    "party_short": "RJD",
+    "votes": 68316,
+    "margin_votes": 17293,
+    "margin_pct": 11.23
+  }
+}

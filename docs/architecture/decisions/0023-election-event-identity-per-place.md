@@ -1,6 +1,6 @@
 # ADR-0023: Election event identity is per-place, government-timeline is the citizen unit
 
-**Last Updated**: 2026-05-11
+**Last Updated**: 2026-05-13
 **Status**: accepted
 **Sequel to**: [ADR-0022 — Place-first IA with a topic-catalogue contract](0022-place-first-ia-with-topic-catalogue.md)
 
@@ -98,6 +98,18 @@ This doctrine is recorded in [docs/concepts/government-vs-election.md](../../con
 - **B0 hotfix** (route guard that 404s gracefully when no event for state). Rejected because the underlying control is conceptually wrong; a graceful 404 still rewards a misleading interaction.
 - **N=1 disabled dropdown** (current state of `ScopePicker.svelte`). Rejected for the same reason; the dropdown's existence implies "there is a global election to pick", which is false.
 - **Synthesise a "national cycle" event from union of state cohorts.** Rejected as the Federal Falsehood — there is no national assembly election; each state's cycle is its own.
+
+## Addendum 2026-05-13: per-state event picker on `/s/<state>`
+
+Once historical cohorts (2016-2023) landed under [datasets/elections/](../../../datasets/elections/), states like Assam now have three on-disk events (Apr 2016, Apr 2021, May 2026) and the prior shape — "single default event resolved from the catalogue, no in-page selection" — left every event but the latest unreachable from the citizen-facing UI. The data was on disk and validated, but the picker contract said "URL-segment only, no dropdown".
+
+[StateOverview.svelte](../../../frontend/src/routes/StateOverview.svelte) now renders a small `<select>` next to the page header when `listEventsForState(state).length > 1`, switching the page's `event` reactively. This is consistent with the ADR's intent because:
+
+- It is **per-state**, not global. There is no "current election" in the rail or the country/state selectors. The picker has no meaning outside `/s/<state>` and disappears when N=1.
+- It is bounded to the page: navigating to a different state resets the selection (the catalogue is authoritative for the new state's default).
+- It preserves the URL-segment route (`/s/<state>/elections/<event_id>`) for deep-linking; the picker is a UI shortcut on top of that, not a replacement for it.
+
+The "Citizens will not find a picker" cost listed above is therefore narrowed to citizens looking for a *global* picker — which still does not exist.
 
 ## References
 

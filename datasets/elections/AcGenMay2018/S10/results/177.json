@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 177,
+  "constituency_name": "Anekal  (SC)",
+  "totals": {
+    "electors": 359550,
+    "votes_polled": 227677,
+    "turnout_pct": 63.322764566819636
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B.SHIVANNA",
+      "party_short": "INC",
+      "votes": 113894,
+      "vote_share_pct": 50.02437663883484,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "A.NARAYANASWAMY",
+      "party_short": "BJP",
+      "votes": 105267,
+      "vote_share_pct": 46.2352367608498,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "G. SRINIVAS",
+      "party_short": "BSP",
+      "votes": 2932,
+      "vote_share_pct": 1.2877892804279747,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "D.MAHADESH",
+      "party_short": "CPM",
+      "votes": 1425,
+      "vote_share_pct": 0.6258866727864475,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MUNIKRISHNAPPA",
+      "party_short": "AIMEP",
+      "votes": 481,
+      "vote_share_pct": 0.2112642032352851,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2115,
+    "vote_share_pct": 0.9289475880304116
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1563,
+    "vote_share_pct": 0.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B.SHIVANNA",
+    "party_short": "INC",
+    "votes": 113894,
+    "margin_votes": 8627,
+    "margin_pct": 3.79
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "Pileru",
+  "totals": {
+    "electors": 223982,
+    "votes_polled": 178447,
+    "turnout_pct": 79.6702413586806
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHINTHALA RAMACHANDRA REDDY",
+      "party_short": "YSRCP",
+      "votes": 87300,
+      "vote_share_pct": 48.922088911553566,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NALLARI KISHAN KUMAR REDDY",
+      "party_short": "TDP",
+      "votes": 79426,
+      "vote_share_pct": 44.50957427135228,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KHATIB SYED AGHA MOHIUDDIN",
+      "party_short": "INC",
+      "votes": 4182,
+      "vote_share_pct": 2.3435529877218446,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "B DINESH",
+      "party_short": "JnP",
+      "votes": 2374,
+      "vote_share_pct": 1.3303669997254086,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PULI REDDY NARENDRA KUMAR REDDY",
+      "party_short": "BJP",
+      "votes": 1029,
+      "vote_share_pct": 0.5766418040090335,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2145,
+    "vote_share_pct": 1.2020375797855947
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1991,
+    "vote_share_pct": 1.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHINTHALA RAMACHANDRA REDDY",
+    "party_short": "YSRCP",
+    "votes": 87300,
+    "margin_votes": 7874,
+    "margin_pct": 4.41
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2018",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 4,
+  "constituency_name": "Kagwad",
+  "totals": {
+    "electors": 182173,
+    "votes_polled": 145735,
+    "turnout_pct": 79.99813364219726
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHRIMANT BALASAHEB PATIL",
+      "party_short": "INC",
+      "votes": 83060,
+      "vote_share_pct": 56.993858716162904,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BHARAMAGOUDA ALAGOUDA KAGE",
+      "party_short": "BJP",
+      "votes": 50118,
+      "vote_share_pct": 34.38981713383882,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KALLAPPA PARIS MAGENNAVAR",
+      "party_short": "JD(S)",
+      "votes": 7337,
+      "vote_share_pct": 5.034480392493224,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DIVAKAR RAMACHANDRA POTADAR",
+      "party_short": "SJPA",
+      "votes": 1004,
+      "vote_share_pct": 0.6889216728994407,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GANAPATI BHUTALI MOLEKAR",
+      "party_short": "IND",
+      "votes": 784,
+      "vote_share_pct": 0.5379627405907984,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 754,
+    "vote_share_pct": 0.5173774316396199
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2678,
+    "vote_share_pct": 1.84
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHRIMANT BALASAHEB PATIL",
+    "party_short": "INC",
+    "votes": 83060,
+    "margin_votes": 32942,
+    "margin_pct": 22.6
+  }
+}

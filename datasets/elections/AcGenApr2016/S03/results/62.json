@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "Barama",
+  "totals": {
+    "electors": 145645,
+    "votes_polled": 119486,
+    "turnout_pct": 82.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANESWAR BRAHMA",
+      "party_short": "BOPF",
+      "votes": 45289,
+      "vote_share_pct": 37.9,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "REKHA RANI DAS BORO",
+      "party_short": "IND",
+      "votes": 35493,
+      "vote_share_pct": 29.7,
+      "gender": "F",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "KATI RAM BARO",
+      "party_short": "IND",
+      "votes": 20870,
+      "vote_share_pct": 17.47,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "PANI RAM RABHA",
+      "party_short": "INC",
+      "votes": 14373,
+      "vote_share_pct": 12.03,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "BHUPEN DAS",
+      "party_short": "IND",
+      "votes": 1484,
+      "vote_share_pct": 1.24,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1977,
+    "vote_share_pct": 1.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANESWAR BRAHMA",
+    "party_short": "BOPF",
+    "votes": 45289,
+    "margin_votes": 9796,
+    "margin_pct": 8.2
+  },
+  "others": null
+}

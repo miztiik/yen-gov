@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 110,
+  "constituency_name": "Barharia",
+  "totals": {
+    "electors": 301921,
+    "votes_polled": 172508,
+    "turnout_pct": 57.13680068627224
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BACHCHA PANDEY",
+      "party_short": "RJD",
+      "votes": 71793,
+      "vote_share_pct": 41.617200361722354,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHYAMBAHADUR SINGH",
+      "party_short": "JD(U)",
+      "votes": 68234,
+      "vote_share_pct": 39.55410763558792,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BIRBAHADUR SINGH",
+      "party_short": "LJP",
+      "votes": 5065,
+      "vote_share_pct": 2.9360957173000672,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BANDANA DEVI",
+      "party_short": "RLSP",
+      "votes": 4837,
+      "vote_share_pct": 2.8039279337769845,
+      "gender": "F",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUZAFFER IMAM",
+      "party_short": "IND",
+      "votes": 3312,
+      "vote_share_pct": 1.9199109606511005,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4231,
+    "vote_share_pct": 2.4526398775708955
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 15036,
+    "vote_share_pct": 8.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BACHCHA PANDEY",
+    "party_short": "RJD",
+    "votes": 71793,
+    "margin_votes": 3559,
+    "margin_pct": 2.06
+  }
+}

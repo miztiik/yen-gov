@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Amalapuram",
+  "totals": {
+    "electors": 203768,
+    "votes_polled": 169382,
+    "turnout_pct": 83.12492638687135
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VISWARUPU PINIPE",
+      "party_short": "YSRCP",
+      "votes": 72003,
+      "vote_share_pct": 42.509239470545864,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "AITHABATHULA ANANDARAO",
+      "party_short": "TDP",
+      "votes": 46349,
+      "vote_share_pct": 27.363592353378753,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SETTIBATHULA RAJABABU",
+      "party_short": "JnP",
+      "votes": 45200,
+      "vote_share_pct": 26.685244004675823,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "AITHABATHULA SUBHASHINI",
+      "party_short": "INC",
+      "votes": 1438,
+      "vote_share_pct": 0.8489686035115893,
+      "gender": "F",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PEYYALA SYAMPRASAD",
+      "party_short": "BJP",
+      "votes": 1172,
+      "vote_share_pct": 0.6919271233070811,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2006,
+    "vote_share_pct": 1.1843052980836215
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1214,
+    "vote_share_pct": 0.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VISWARUPU PINIPE",
+    "party_short": "YSRCP",
+    "votes": 72003,
+    "margin_votes": 25654,
+    "margin_pct": 15.15
+  }
+}

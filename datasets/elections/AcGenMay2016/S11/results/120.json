@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 120,
+  "constituency_name": "PATHANAPURAM",
+  "totals": {
+    "electors": 189837,
+    "votes_polled": 142058,
+    "turnout_pct": 74.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.B. GANESH KUMAR",
+      "party_short": "KEC(B)",
+      "votes": 74429,
+      "vote_share_pct": 52.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "P.V JAGADISH KUMAR",
+      "party_short": "INC",
+      "votes": 49867,
+      "vote_share_pct": 35.1,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "REGHU DAMODHARAN (BHEEMAN REGHU)",
+      "party_short": "BJP",
+      "votes": 11700,
+      "vote_share_pct": 8.24,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ADV. FAIZY M PASHA",
+      "party_short": "SDPI",
+      "votes": 3843,
+      "vote_share_pct": 2.71,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PERINADU GOPALA KRISHNAN",
+      "party_short": "BSP",
+      "votes": 846,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 454,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 919,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.B. GANESH KUMAR",
+    "party_short": "KEC(B)",
+    "votes": 74429,
+    "margin_votes": 24562,
+    "margin_pct": 17.29
+  }
+}

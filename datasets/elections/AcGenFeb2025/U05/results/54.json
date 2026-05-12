@@ -1,16 +1,7 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-  "$schema_version": "3.1",
-  "sources": [
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    },
-    {
-      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-12T18:39:44Z"
-    }
-  ],
+  "$schema_version": "3.2",
+  "sources": [],
   "election": "AcGenFeb2025",
   "state": "U05",
   "body": "AC",
@@ -28,37 +19,50 @@
       "party_short": "AAAP",
       "votes": 88943,
       "vote_share_pct": 42.45,
-      "is_winner": true
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
     },
     {
       "rank": 2,
       "name": "MANISH CHAUDHARY",
-      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 65304,
-      "vote_share_pct": 31.17
+      "vote_share_pct": 31.17,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
     },
     {
       "rank": 3,
       "name": "SHIFA UR REHMAN KHAN",
       "party_short": "AIMIM",
       "votes": 39558,
-      "vote_share_pct": 18.88
+      "vote_share_pct": 18.88,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
     },
     {
       "rank": 4,
       "name": "ARIBA KHAN",
-      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 12739,
-      "vote_share_pct": 6.08
+      "vote_share_pct": 6.08,
+      "gender": "F",
+      "age": 31,
+      "category": "GEN"
     },
     {
       "rank": 5,
       "name": "SATISH KUMAR",
       "party_short": "BSP",
       "votes": 756,
-      "vote_share_pct": 0.36
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
     }
   ],
   "nota": {

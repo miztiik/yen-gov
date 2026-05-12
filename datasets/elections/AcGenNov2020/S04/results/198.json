@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 198,
+  "constituency_name": "Shahpur",
+  "totals": {
+    "electors": 318874,
+    "votes_polled": 156528,
+    "turnout_pct": 49.08772744093278
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAHUL TIWARY",
+      "party_short": "RJD",
+      "votes": 64393,
+      "vote_share_pct": 41.13832668915466,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHOBHA DEVI",
+      "party_short": "IND",
+      "votes": 41510,
+      "vote_share_pct": 26.519217009097414,
+      "gender": "F",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MUNNI DEVI",
+      "party_short": "BJP",
+      "votes": 21355,
+      "vote_share_pct": 13.642926505162015,
+      "gender": "F",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GANGADHAR PANDEY",
+      "party_short": "IND",
+      "votes": 3836,
+      "vote_share_pct": 2.4506797505877542,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HARENDRA SINGH",
+      "party_short": "RJnJnP",
+      "votes": 3571,
+      "vote_share_pct": 2.2813809669835425,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 978,
+    "vote_share_pct": 0.6248083409996934
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 20885,
+    "vote_share_pct": 13.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAHUL TIWARY",
+    "party_short": "RJD",
+    "votes": 64393,
+    "margin_votes": 22883,
+    "margin_pct": 14.62
+  }
+}

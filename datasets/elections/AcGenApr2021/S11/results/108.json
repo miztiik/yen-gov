@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S11",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "KAYAMKULAM",
+  "totals": {
+    "electors": 214839,
+    "votes_polled": 161257,
+    "turnout_pct": 75.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. U. Prathibha",
+      "party_short": "CPI(M)",
+      "votes": 77348,
+      "vote_share_pct": 47.97,
+      "is_winner": true,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Aritha Babu",
+      "party_short": "INC",
+      "votes": 71050,
+      "vote_share_pct": 44.06,
+      "gender": "F",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Pradeeplal",
+      "party_short": "BDJS",
+      "votes": 11413,
+      "vote_share_pct": 7.08,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Maniyappan Achari",
+      "party_short": "IND",
+      "votes": 372,
+      "vote_share_pct": 0.23,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rajeev R",
+      "party_short": "IND",
+      "votes": 230,
+      "vote_share_pct": 0.14,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 420,
+    "vote_share_pct": 0.26
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 424,
+    "vote_share_pct": 0.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. U. Prathibha",
+    "party_short": "CPI(M)",
+    "votes": 77348,
+    "margin_votes": 6298,
+    "margin_pct": 3.91
+  }
+}

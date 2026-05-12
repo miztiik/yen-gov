@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 116,
+  "constituency_name": "Taraiya",
+  "totals": {
+    "electors": 302679,
+    "votes_polled": 166185,
+    "turnout_pct": 54.904701019892364
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Janak Singh",
+      "party_short": "BJP",
+      "votes": 53430,
+      "vote_share_pct": 32.150916147666756,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sipahi Lal Mahto",
+      "party_short": "RJD",
+      "votes": 42123,
+      "vote_share_pct": 25.34705298312122,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sudhir Kumar Singh",
+      "party_short": "IND",
+      "votes": 15425,
+      "vote_share_pct": 9.281824472726178,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHAILENDRA PRATAP",
+      "party_short": "IND",
+      "votes": 13995,
+      "vote_share_pct": 8.421337665854319,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Saroj Kumar Giri",
+      "party_short": "IND",
+      "votes": 11550,
+      "vote_share_pct": 6.950085747811174,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1229,
+    "vote_share_pct": 0.7395372626891717
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 28433,
+    "vote_share_pct": 17.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Janak Singh",
+    "party_short": "BJP",
+    "votes": 53430,
+    "margin_votes": 11307,
+    "margin_pct": 6.8
+  }
+}

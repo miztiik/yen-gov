@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 182,
+  "constituency_name": "Bankipur",
+  "totals": {
+    "electors": 391775,
+    "votes_polled": 140683,
+    "turnout_pct": 35.9091315168145
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NITIN NABIN",
+      "party_short": "BJP",
+      "votes": 83068,
+      "vote_share_pct": 59.04622449052124,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "LUV SINHA",
+      "party_short": "INC",
+      "votes": 44032,
+      "vote_share_pct": 31.29873545488794,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PUSHPAM PRIYA",
+      "party_short": "TPLRSP",
+      "votes": 5189,
+      "vote_share_pct": 3.688434281327523,
+      "gender": "F",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAURABH SINGH",
+      "party_short": "BHRTSBLP",
+      "votes": 727,
+      "vote_share_pct": 0.5167646410724821,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "USHA DEVI SRIVASTAVA",
+      "party_short": "IND",
+      "votes": 727,
+      "vote_share_pct": 0.5167646410724821,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1213,
+    "vote_share_pct": 0.8622221590384055
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 5727,
+    "vote_share_pct": 4.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NITIN NABIN",
+    "party_short": "BJP",
+    "votes": 83068,
+    "margin_votes": 39036,
+    "margin_pct": 27.75
+  }
+}

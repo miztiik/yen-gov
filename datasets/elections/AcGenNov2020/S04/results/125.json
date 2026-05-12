@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 125,
+  "constituency_name": "Vaishali",
+  "totals": {
+    "electors": 328862,
+    "votes_polled": 194073,
+    "turnout_pct": 59.01350718538475
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SIDDHARTH PATEL",
+      "party_short": "JD(U)",
+      "votes": 69780,
+      "vote_share_pct": 35.955542502048196,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SANJEEV SINGH",
+      "party_short": "INC",
+      "votes": 62367,
+      "vote_share_pct": 32.13584578998624,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AJAY KUMAR KUSHWAHA",
+      "party_short": "LJP",
+      "votes": 33351,
+      "vote_share_pct": 17.18477067907437,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUGANDH KUMAR",
+      "party_short": "IND",
+      "votes": 5582,
+      "vote_share_pct": 2.8762372921529527,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJ NARAYAN KUMAR",
+      "party_short": "IND",
+      "votes": 4386,
+      "vote_share_pct": 2.2599743395526426,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 5155,
+    "vote_share_pct": 2.6562169905138786
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 13452,
+    "vote_share_pct": 6.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SIDDHARTH PATEL",
+    "party_short": "JD(U)",
+    "votes": 69780,
+    "margin_votes": 7413,
+    "margin_pct": 3.82
+  }
+}

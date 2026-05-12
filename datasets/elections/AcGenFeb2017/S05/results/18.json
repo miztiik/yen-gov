@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Poriem",
+  "totals": {
+    "electors": 30694,
+    "votes_polled": 27596,
+    "turnout_pct": 89.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRATAPSINGH R RANE",
+      "party_short": "INC",
+      "votes": 14977,
+      "vote_share_pct": 54.27,
+      "is_winner": true,
+      "gender": "M",
+      "age": 78,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VISHWAJIT KRISHNARAO RANE",
+      "party_short": "BJP",
+      "votes": 10911,
+      "vote_share_pct": 39.54,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUHAS GAJANAN NAIK",
+      "party_short": "MAG",
+      "votes": 469,
+      "vote_share_pct": 1.7,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SITARAM ANANT GAWAS",
+      "party_short": "AAAP",
+      "votes": 403,
+      "vote_share_pct": 1.46,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AJIT SADANAND MHALSHEKAR",
+      "party_short": "IND",
+      "votes": 284,
+      "vote_share_pct": 1.03,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 552,
+    "vote_share_pct": 2.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRATAPSINGH R RANE",
+    "party_short": "INC",
+    "votes": 14977,
+    "margin_votes": 4066,
+    "margin_pct": 14.73
+  },
+  "others": null
+}

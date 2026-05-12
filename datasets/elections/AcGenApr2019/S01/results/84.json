@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2019",
+  "state": "S01",
+  "body": "AC",
+  "eci_no": 84,
+  "constituency_name": "Jaggayyapeta",
+  "totals": {
+    "electors": 195729,
+    "votes_polled": 176115,
+    "turnout_pct": 89.97900157871342
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UDAYABHANU SAMINENI",
+      "party_short": "YSRCP",
+      "votes": 87965,
+      "vote_share_pct": 49.94747750049683,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJAGOPAL SREERAM",
+      "party_short": "TDP",
+      "votes": 83187,
+      "vote_share_pct": 47.23447747210629,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VENKATA RAMANA KUMAR DHARANIKOTA",
+      "party_short": "JnP",
+      "votes": 1316,
+      "vote_share_pct": 0.7472390199585498,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "APPARAO KARNATI",
+      "party_short": "INC",
+      "votes": 1253,
+      "vote_share_pct": 0.7114669392158532,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "A. P. SRIKANTH",
+      "party_short": "BJP",
+      "votes": 578,
+      "vote_share_pct": 0.3281946455441047,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1039,
+    "vote_share_pct": 0.589955426851773
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 777,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UDAYABHANU SAMINENI",
+    "party_short": "YSRCP",
+    "votes": 87965,
+    "margin_votes": 4778,
+    "margin_pct": 2.71
+  }
+}

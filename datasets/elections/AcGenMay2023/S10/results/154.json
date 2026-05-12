@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 154,
+  "constituency_name": "Rajarajeshwarinagar",
+  "totals": {
+    "electors": 485815,
+    "votes_polled": 262701,
+    "turnout_pct": 54.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Munirathna",
+      "party_short": "BJP",
+      "votes": 127980,
+      "vote_share_pct": 48.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kusuma .h",
+      "party_short": "INC",
+      "votes": 116138,
+      "vote_share_pct": 44.21,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. V.narayana Swamy",
+      "party_short": "JD(S)",
+      "votes": 7795,
+      "vote_share_pct": 2.97,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Manjunatha M",
+      "party_short": "UPJP",
+      "votes": 4118,
+      "vote_share_pct": 1.57,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Anantha Subhash Chandra",
+      "party_short": "AAAP",
+      "votes": 1191,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2996,
+    "vote_share_pct": 1.14
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2483,
+    "vote_share_pct": 0.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Munirathna",
+    "party_short": "BJP",
+    "votes": 127980,
+    "margin_votes": 11842,
+    "margin_pct": 4.51
+  }
+}

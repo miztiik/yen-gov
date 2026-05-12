@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2016",
+  "state": "S03",
+  "body": "AC",
+  "eci_no": 82,
+  "constituency_name": "Raha",
+  "totals": {
+    "electors": 189298,
+    "votes_polled": 161627,
+    "turnout_pct": 85.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DIMBESWAR DAS",
+      "party_short": "BJP",
+      "votes": 76941,
+      "vote_share_pct": 47.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SASHI KANTA DAS",
+      "party_short": "INC",
+      "votes": 43867,
+      "vote_share_pct": 27.14,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "GUNESWAR DAS",
+      "party_short": "AIUDF",
+      "votes": 38767,
+      "vote_share_pct": 23.99,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2052,
+    "vote_share_pct": 1.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DIMBESWAR DAS",
+    "party_short": "BJP",
+    "votes": 76941,
+    "margin_votes": 33074,
+    "margin_pct": 20.46
+  },
+  "others": null
+}

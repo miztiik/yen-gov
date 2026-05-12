@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2020",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 102,
+  "constituency_name": "Kuchaikote",
+  "totals": {
+    "electors": 323263,
+    "votes_polled": 180530,
+    "turnout_pct": 55.84616859956135
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMRENDRA KUMAR PANDEY",
+      "party_short": "JD(U)",
+      "votes": 74359,
+      "vote_share_pct": 41.189276020605995,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KALI PRASAD PANDEY",
+      "party_short": "INC",
+      "votes": 53729,
+      "vote_share_pct": 29.76181244114552,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUNITA DEVI",
+      "party_short": "RLSP",
+      "votes": 33533,
+      "vote_share_pct": 18.574752118761424,
+      "gender": "F",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "HARI NARAYAN SINGH",
+      "party_short": "IND",
+      "votes": 2687,
+      "vote_share_pct": 1.4883952805627874,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAVI PANDEY",
+      "party_short": "LJP",
+      "votes": 2226,
+      "vote_share_pct": 1.2330360604885615,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 7656,
+    "vote_share_pct": 4.240846396720767
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6340,
+    "vote_share_pct": 3.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMRENDRA KUMAR PANDEY",
+    "party_short": "JD(U)",
+    "votes": 74359,
+    "margin_votes": 20630,
+    "margin_pct": 11.43
+  }
+}

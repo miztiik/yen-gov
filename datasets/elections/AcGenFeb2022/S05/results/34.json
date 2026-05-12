@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S05",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "Cuncolim",
+  "totals": {
+    "electors": 29526,
+    "votes_polled": 23103,
+    "turnout_pct": 78.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Alemao Yuri",
+      "party_short": "INC",
+      "votes": 9866,
+      "vote_share_pct": 42.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CLAFASIO DIAS",
+      "party_short": "BJP",
+      "votes": 6632,
+      "vote_share_pct": 28.71,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "WILSON PETER CARDOZO",
+      "party_short": "RVLTGONP",
+      "votes": 2430,
+      "vote_share_pct": 10.52,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANTOSH S. FAL DESSAI",
+      "party_short": "IND",
+      "votes": 1326,
+      "vote_share_pct": 5.74,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JORSON PIEDADE FERNANDES",
+      "party_short": "AITC",
+      "votes": 1282,
+      "vote_share_pct": 5.55,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 186,
+    "vote_share_pct": 0.81
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1381,
+    "vote_share_pct": 5.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Alemao Yuri",
+    "party_short": "INC",
+    "votes": 9866,
+    "margin_votes": 3234,
+    "margin_pct": 14.0
+  }
+}

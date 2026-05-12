@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "Jayanagar",
+  "totals": {
+    "electors": 210079,
+    "votes_polled": 120743,
+    "turnout_pct": 57.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C K Ramamurthy",
+      "party_short": "BJP",
+      "votes": 57797,
+      "vote_share_pct": 47.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sowmya Reddy",
+      "party_short": "INC",
+      "votes": 57781,
+      "vote_share_pct": 47.85,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kalegowda",
+      "party_short": "JD(S)",
+      "votes": 1226,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Santhosh B",
+      "party_short": "UPJP",
+      "votes": 652,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mahalakshmi C",
+      "party_short": "AAAP",
+      "votes": 556,
+      "vote_share_pct": 0.46,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1192,
+    "vote_share_pct": 0.99
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1539,
+    "vote_share_pct": 1.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C K Ramamurthy",
+    "party_short": "BJP",
+    "votes": 57797,
+    "margin_votes": 16,
+    "margin_pct": 0.01
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2023",
+  "state": "S10",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "Nargund",
+  "totals": {
+    "electors": 187212,
+    "votes_polled": 150236,
+    "turnout_pct": 80.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C. C. Patil",
+      "party_short": "BJP",
+      "votes": 72835,
+      "vote_share_pct": 48.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "B. R. Yavagal",
+      "party_short": "INC",
+      "votes": 71044,
+      "vote_share_pct": 47.29,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Veeresh Sobaradamath",
+      "party_short": "IND",
+      "votes": 1663,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shivanand. Shiddappa. Mayannavar.",
+      "party_short": "IND",
+      "votes": 1005,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "R. N. Patil",
+      "party_short": "JD(S)",
+      "votes": 653,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1769,
+    "vote_share_pct": 1.18
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1267,
+    "vote_share_pct": 0.84
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C. C. Patil",
+    "party_short": "BJP",
+    "votes": 72835,
+    "margin_votes": 1791,
+    "margin_pct": 1.19
+  }
+}
