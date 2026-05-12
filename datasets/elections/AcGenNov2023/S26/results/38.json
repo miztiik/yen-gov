@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Pamgarh (SC)",
+  "totals": {
+    "electors": 220500,
+    "votes_polled": 149447,
+    "turnout_pct": 67.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sheshraj Harvansh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 63963,
+      "vote_share_pct": 42.8,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Santosh Kumar Lahare",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 47789,
+      "vote_share_pct": 31.98
+    },
+    {
+      "rank": 3,
+      "name": "Indu Banjare",
+      "party_short": "BSP",
+      "votes": 29259,
+      "vote_share_pct": 19.58
+    },
+    {
+      "rank": 4,
+      "name": "Gorelal Barman",
+      "party_short": "JCCJ",
+      "votes": 3189,
+      "vote_share_pct": 2.13
+    },
+    {
+      "rank": 5,
+      "name": "Shyamlal Banjare",
+      "party_short": "AAAP",
+      "votes": 1352,
+      "vote_share_pct": 0.9
+    }
+  ],
+  "nota": {
+    "votes": 1192,
+    "vote_share_pct": 0.8
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2703,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sheshraj Harvansh",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 63963,
+    "margin_votes": 16174,
+    "margin_pct": 10.82
+  }
+}

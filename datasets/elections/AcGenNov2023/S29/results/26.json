@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Karimnagar",
+  "totals": {
+    "electors": 355156,
+    "votes_polled": 229774,
+    "turnout_pct": 64.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gangula Kamalakar",
+      "party_short": "BHRS",
+      "votes": 92179,
+      "vote_share_pct": 40.12,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bandi Sanjay Kumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 89016,
+      "vote_share_pct": 38.74
+    },
+    {
+      "rank": 3,
+      "name": "Purumalla Srinivas",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 40057,
+      "vote_share_pct": 17.43
+    },
+    {
+      "rank": 4,
+      "name": "Nallala Srinivas",
+      "party_short": "BSP",
+      "votes": 1546,
+      "vote_share_pct": 0.67
+    },
+    {
+      "rank": 5,
+      "name": "Gorre Thara",
+      "party_short": "IND",
+      "votes": 986,
+      "vote_share_pct": 0.43
+    }
+  ],
+  "nota": {
+    "votes": 1269,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 22,
+    "votes": 4721,
+    "vote_share_pct": 2.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gangula Kamalakar",
+    "party_short": "BHRS",
+    "votes": 92179,
+    "margin_votes": 3163,
+    "margin_pct": 1.38
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 161,
+  "constituency_name": "Biaora",
+  "totals": {
+    "electors": 241297,
+    "votes_polled": 204564,
+    "turnout_pct": 84.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Narayan Singh Panwar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 117846,
+      "vote_share_pct": 57.61,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Purushottam Dangi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 81635,
+      "vote_share_pct": 39.91
+    },
+    {
+      "rank": 3,
+      "name": "Ritik Yadav",
+      "party_short": "BSP",
+      "votes": 1770,
+      "vote_share_pct": 0.87
+    },
+    {
+      "rank": 4,
+      "name": "Uday Singh Jatav",
+      "party_short": "ASPKR",
+      "votes": 578,
+      "vote_share_pct": 0.28
+    },
+    {
+      "rank": 5,
+      "name": "Hemraj Prajapati",
+      "party_short": "IND",
+      "votes": 380,
+      "vote_share_pct": 0.19
+    }
+  ],
+  "nota": {
+    "votes": 1051,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1304,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Narayan Singh Panwar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 117846,
+    "margin_votes": 36211,
+    "margin_pct": 17.7
+  }
+}

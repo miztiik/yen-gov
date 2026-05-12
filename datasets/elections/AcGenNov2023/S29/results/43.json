@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "Medchal",
+  "totals": {
+    "electors": 637995,
+    "votes_polled": 400516,
+    "turnout_pct": 62.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chamakura Malla Reddy",
+      "party_short": "BHRS",
+      "votes": 186017,
+      "vote_share_pct": 46.44,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Thotakura Vajresh Yadav (jangaiah Yadav)",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 152598,
+      "vote_share_pct": 38.1
+    },
+    {
+      "rank": 3,
+      "name": "Yenugu Sudarsan Reddy",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 50535,
+      "vote_share_pct": 12.62
+    },
+    {
+      "rank": 4,
+      "name": "Mallepogu Vijaya Raju",
+      "party_short": "BSP",
+      "votes": 1885,
+      "vote_share_pct": 0.47
+    },
+    {
+      "rank": 5,
+      "name": "Gaddam Shyam Prasad",
+      "party_short": "IND",
+      "votes": 946,
+      "vote_share_pct": 0.24
+    }
+  ],
+  "nota": {
+    "votes": 3737,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 4798,
+    "vote_share_pct": 1.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chamakura Malla Reddy",
+    "party_short": "BHRS",
+    "votes": 186017,
+    "margin_votes": 33419,
+    "margin_pct": 8.34
+  }
+}

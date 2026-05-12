@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T17:41:08Z"
+      "fetched_at": "2026-05-12T18:39:19Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T17:41:08Z"
+      "fetched_at": "2026-05-12T18:39:20Z"
     }
   ],
   "election": "AcGenJun2024",
@@ -25,6 +25,7 @@
     {
       "rank": 1,
       "name": "Santosh Khatua",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 87928,
       "vote_share_pct": 52.2,
@@ -40,6 +41,7 @@
     {
       "rank": 3,
       "name": "Akshaya Kumar Acharya",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 8210,
       "vote_share_pct": 4.87
@@ -47,6 +49,7 @@
     {
       "rank": 4,
       "name": "Jogananda Dash",
+      "party_eci_code": "547",
       "party_short": "CPI(M)",
       "votes": 1420,
       "vote_share_pct": 0.84
@@ -54,6 +57,7 @@
     {
       "rank": 5,
       "name": "Ajaya Kumar Pattanayak",
+      "party_eci_code": "544",
       "party_short": "CPI",
       "votes": 1358,
       "vote_share_pct": 0.81
@@ -71,6 +75,7 @@
   "top_n_cutoff": 5,
   "winner": {
     "name": "Santosh Khatua",
+    "party_eci_code": "369",
     "party_short": "BJP",
     "votes": 87928,
     "margin_votes": 19839,

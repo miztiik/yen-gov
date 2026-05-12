@@ -1,0 +1,78 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S16",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Saiha (ST)",
+  "totals": {
+    "electors": 24197,
+    "votes_polled": 18810,
+    "turnout_pct": 77.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. K. Beichhua",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 6740,
+      "vote_share_pct": 35.83,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "H.c Lalmalsawma Zasai",
+      "party_short": "MNF",
+      "votes": 6124,
+      "vote_share_pct": 32.56
+    },
+    {
+      "rank": 3,
+      "name": "N. Chakhai",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 3607,
+      "vote_share_pct": 19.18
+    },
+    {
+      "rank": 4,
+      "name": "Kh. Beithie",
+      "party_short": "ZPM",
+      "votes": 2219,
+      "vote_share_pct": 11.8
+    },
+    {
+      "rank": 5,
+      "name": "A. Phirthianga",
+      "party_short": "IND",
+      "votes": 73,
+      "vote_share_pct": 0.39
+    }
+  ],
+  "nota": {
+    "votes": 47,
+    "vote_share_pct": 0.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. K. Beichhua",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 6740,
+    "margin_votes": 616,
+    "margin_pct": 3.27
+  },
+  "others": null
+}

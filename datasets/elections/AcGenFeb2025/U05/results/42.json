@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-11T17:41:37Z"
+      "fetched_at": "2026-05-12T18:39:44Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-11T17:41:38Z"
+      "fetched_at": "2026-05-12T18:39:44Z"
     }
   ],
   "election": "AcGenFeb2025",
@@ -25,6 +25,7 @@
     {
       "rank": 1,
       "name": "NEERAJ BASOYA",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 38067,
       "vote_share_pct": 45.06,
@@ -33,6 +34,7 @@
     {
       "rank": 2,
       "name": "ABHISHEK DUTT",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 27019,
       "vote_share_pct": 31.98
@@ -66,6 +68,7 @@
   "top_n_cutoff": 5,
   "winner": {
     "name": "NEERAJ BASOYA",
+    "party_eci_code": "369",
     "party_short": "BJP",
     "votes": 38067,
     "margin_votes": 11048,

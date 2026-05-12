@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
-      "fetched_at": "2026-05-11T17:41:33Z"
+      "fetched_at": "2026-05-12T18:39:40Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
-      "fetched_at": "2026-05-11T17:41:33Z"
+      "fetched_at": "2026-05-12T18:39:40Z"
     }
   ],
   "election": "AcGenNov2024",
@@ -33,6 +33,7 @@
     {
       "rank": 2,
       "name": "SURESH MURMU",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 70686,
       "vote_share_pct": 43.37
@@ -54,6 +55,7 @@
     {
       "rank": 5,
       "name": "SANATAN DEHRI",
+      "party_eci_code": "547",
       "party_short": "CPI(M)",
       "votes": 1677,
       "vote_share_pct": 1.03

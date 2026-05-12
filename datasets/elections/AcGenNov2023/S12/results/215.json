@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 215,
+  "constituency_name": "Ghatiya (SC)",
+  "totals": {
+    "electors": 222709,
+    "votes_polled": 184098,
+    "turnout_pct": 82.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Satish Malviya",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 96236,
+      "vote_share_pct": 52.27,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ramlal Malviya",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 78570,
+      "vote_share_pct": 42.68
+    },
+    {
+      "rank": 3,
+      "name": "Ravi Gujrati",
+      "party_short": "ASPKR",
+      "votes": 3671,
+      "vote_share_pct": 1.99
+    },
+    {
+      "rank": 4,
+      "name": "Jeevan Singh Dewda",
+      "party_short": "BSP",
+      "votes": 2212,
+      "vote_share_pct": 1.2
+    },
+    {
+      "rank": 5,
+      "name": "Ramesh Pilot",
+      "party_short": "IND",
+      "votes": 1108,
+      "vote_share_pct": 0.6
+    }
+  ],
+  "nota": {
+    "votes": 1257,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1044,
+    "vote_share_pct": 0.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Satish Malviya",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 96236,
+    "margin_votes": 17666,
+    "margin_pct": 9.6
+  }
+}

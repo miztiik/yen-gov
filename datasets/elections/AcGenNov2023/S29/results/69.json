@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 69,
+  "constituency_name": "Bahadurpura",
+  "totals": {
+    "electors": 316675,
+    "votes_polled": 143725,
+    "turnout_pct": 45.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mohammed Mubeen",
+      "party_short": "AIMIM",
+      "votes": 89451,
+      "vote_share_pct": 62.24,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mir Inayath Ali Baqri",
+      "party_short": "BHRS",
+      "votes": 22426,
+      "vote_share_pct": 15.6
+    },
+    {
+      "rank": 3,
+      "name": "Pulipati Rajesh Kumar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 14448,
+      "vote_share_pct": 10.05
+    },
+    {
+      "rank": 4,
+      "name": "Y. Naresh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 11621,
+      "vote_share_pct": 8.09
+    },
+    {
+      "rank": 5,
+      "name": "Sikender Ullah Khan",
+      "party_short": "MBT",
+      "votes": 2862,
+      "vote_share_pct": 1.99
+    }
+  ],
+  "nota": {
+    "votes": 1279,
+    "vote_share_pct": 0.89
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1638,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mohammed Mubeen",
+    "party_short": "AIMIM",
+    "votes": 89451,
+    "margin_votes": 67025,
+    "margin_pct": 46.63
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 176,
+  "constituency_name": "Harsud (ST)",
+  "totals": {
+    "electors": 227056,
+    "votes_polled": 181384,
+    "turnout_pct": 79.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kunwar Vijay Shah",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 116580,
+      "vote_share_pct": 64.27,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sukhram Salve",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 56584,
+      "vote_share_pct": 31.2
+    },
+    {
+      "rank": 3,
+      "name": "Vijaysingh Uike",
+      "party_short": "BSP",
+      "votes": 2192,
+      "vote_share_pct": 1.21
+    },
+    {
+      "rank": 4,
+      "name": "Bindya Bai Gopichand Patel",
+      "party_short": "IND",
+      "votes": 1717,
+      "vote_share_pct": 0.95
+    },
+    {
+      "rank": 5,
+      "name": "Mahendra Kumara Kalu Ram Badai",
+      "party_short": "IND",
+      "votes": 1250,
+      "vote_share_pct": 0.69
+    }
+  ],
+  "nota": {
+    "votes": 3061,
+    "vote_share_pct": 1.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kunwar Vijay Shah",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 116580,
+    "margin_votes": 59996,
+    "margin_pct": 33.08
+  },
+  "others": null
+}

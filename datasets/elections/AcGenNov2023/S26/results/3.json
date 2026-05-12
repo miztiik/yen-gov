@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "Baikunthpur",
+  "totals": {
+    "electors": 168185,
+    "votes_polled": 138706,
+    "turnout_pct": 82.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhaiya Lal Rajwade",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 66866,
+      "vote_share_pct": 48.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ambica Singhdeo",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 41453,
+      "vote_share_pct": 29.89
+    },
+    {
+      "rank": 3,
+      "name": "Engineer Sanjay Singh Kamro",
+      "party_short": "GGP",
+      "votes": 23288,
+      "vote_share_pct": 16.79
+    },
+    {
+      "rank": 4,
+      "name": "Dr. Akash Kumar",
+      "party_short": "AAAP",
+      "votes": 1872,
+      "vote_share_pct": 1.35
+    },
+    {
+      "rank": 5,
+      "name": "Mejor Prasad Yadav",
+      "party_short": "BSCP",
+      "votes": 1426,
+      "vote_share_pct": 1.03
+    }
+  ],
+  "nota": {
+    "votes": 1934,
+    "vote_share_pct": 1.39
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1867,
+    "vote_share_pct": 1.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhaiya Lal Rajwade",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 66866,
+    "margin_votes": 25413,
+    "margin_pct": 18.32
+  }
+}

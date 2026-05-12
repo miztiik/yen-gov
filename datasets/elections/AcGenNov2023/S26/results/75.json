@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 75,
+  "constituency_name": "Rajnandgaon",
+  "totals": {
+    "electors": 211705,
+    "votes_polled": 167463,
+    "turnout_pct": 79.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Raman Singh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 102499,
+      "vote_share_pct": 61.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Girish Dewangan",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 57415,
+      "vote_share_pct": 34.29
+    },
+    {
+      "rank": 3,
+      "name": "Makhan Yadav",
+      "party_short": "IND",
+      "votes": 1039,
+      "vote_share_pct": 0.62
+    },
+    {
+      "rank": 4,
+      "name": "Bindoo Foole",
+      "party_short": "BSP",
+      "votes": 949,
+      "vote_share_pct": 0.57
+    },
+    {
+      "rank": 5,
+      "name": "Dipa Love Ramteke",
+      "party_short": "IND",
+      "votes": 766,
+      "vote_share_pct": 0.46
+    }
+  ],
+  "nota": {
+    "votes": 995,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 24,
+    "votes": 3800,
+    "vote_share_pct": 2.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Raman Singh",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 102499,
+    "margin_votes": 45084,
+    "margin_pct": 26.92
+  }
+}

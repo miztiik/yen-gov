@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 120,
+  "constituency_name": "Tendukheda",
+  "totals": {
+    "electors": 188423,
+    "votes_polled": 162596,
+    "turnout_pct": 86.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vishwanath Singh \"mulam Bhaiya\"",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 83916,
+      "vote_share_pct": 51.61,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sanjay Sharma \"sanju Bhaiya''",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 71569,
+      "vote_share_pct": 44.02
+    },
+    {
+      "rank": 3,
+      "name": "Rama Ashok Bhai Kushwaha",
+      "party_short": "BSP",
+      "votes": 1543,
+      "vote_share_pct": 0.95
+    },
+    {
+      "rank": 4,
+      "name": "Pramod Thakur",
+      "party_short": "IND",
+      "votes": 1486,
+      "vote_share_pct": 0.91
+    },
+    {
+      "rank": 5,
+      "name": "Kishor Bhanu Shah (babuji)",
+      "party_short": "IND",
+      "votes": 1381,
+      "vote_share_pct": 0.85
+    }
+  ],
+  "nota": {
+    "votes": 1389,
+    "vote_share_pct": 0.85
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1312,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vishwanath Singh \"mulam Bhaiya\"",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 83916,
+    "margin_votes": 12347,
+    "margin_pct": 7.59
+  }
+}

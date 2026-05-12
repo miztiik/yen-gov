@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 102,
+  "constituency_name": "Sihora (ST)",
+  "totals": {
+    "electors": 224917,
+    "votes_polled": 181523,
+    "turnout_pct": 80.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Santosh Varkade",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 101777,
+      "vote_share_pct": 56.07,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ekta Thakur",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 59005,
+      "vote_share_pct": 32.51
+    },
+    {
+      "rank": 3,
+      "name": "Engineer Subhash Singh Markam",
+      "party_short": "BSP",
+      "votes": 11101,
+      "vote_share_pct": 6.12
+    },
+    {
+      "rank": 4,
+      "name": "Dr. Sanjiv Warkhede",
+      "party_short": "IND",
+      "votes": 2906,
+      "vote_share_pct": 1.6
+    },
+    {
+      "rank": 5,
+      "name": "Shiv Prasad Dhurve",
+      "party_short": "BSCP",
+      "votes": 2213,
+      "vote_share_pct": 1.22
+    }
+  ],
+  "nota": {
+    "votes": 3033,
+    "vote_share_pct": 1.67
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1488,
+    "vote_share_pct": 0.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Santosh Varkade",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 101777,
+    "margin_votes": 42772,
+    "margin_pct": 23.56
+  }
+}

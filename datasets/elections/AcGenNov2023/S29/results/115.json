@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "Wyra (ST)",
+  "totals": {
+    "electors": 193264,
+    "votes_polled": 169407,
+    "turnout_pct": 87.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ramdas Maloth",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 93913,
+      "vote_share_pct": 55.44,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Madanlal Banoth",
+      "party_short": "BHRS",
+      "votes": 60868,
+      "vote_share_pct": 35.93
+    },
+    {
+      "rank": 3,
+      "name": "Bhukya Veerabhadram",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 4439,
+      "vote_share_pct": 2.62
+    },
+    {
+      "rank": 4,
+      "name": "Sampath Nayak",
+      "party_short": "JnP",
+      "votes": 2712,
+      "vote_share_pct": 1.6
+    },
+    {
+      "rank": 5,
+      "name": "Malothu Syamlal Nayak",
+      "party_short": "AODRP",
+      "votes": 1895,
+      "vote_share_pct": 1.12
+    }
+  ],
+  "nota": {
+    "votes": 1230,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4350,
+    "vote_share_pct": 2.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ramdas Maloth",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 93913,
+    "margin_votes": 33045,
+    "margin_pct": 19.51
+  }
+}

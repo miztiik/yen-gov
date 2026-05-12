@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 216,
+  "constituency_name": "Ujjain Uttar",
+  "totals": {
+    "electors": 227095,
+    "votes_polled": 162071,
+    "turnout_pct": 71.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anil Jain Kaluheda",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 93535,
+      "vote_share_pct": 57.71,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Smt. Maya Rajesh Trivedi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 66022,
+      "vote_share_pct": 40.74
+    },
+    {
+      "rank": 3,
+      "name": "Abdul Rajjak Lala",
+      "party_short": "BSP",
+      "votes": 578,
+      "vote_share_pct": 0.36
+    },
+    {
+      "rank": 4,
+      "name": "Haji Mushtak Ahmed",
+      "party_short": "IND",
+      "votes": 400,
+      "vote_share_pct": 0.25
+    },
+    {
+      "rank": 5,
+      "name": "Mohammad Rafique",
+      "party_short": "IND",
+      "votes": 205,
+      "vote_share_pct": 0.13
+    }
+  ],
+  "nota": {
+    "votes": 1194,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 137,
+    "vote_share_pct": 0.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anil Jain Kaluheda",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 93535,
+    "margin_votes": 27513,
+    "margin_pct": 16.98
+  }
+}

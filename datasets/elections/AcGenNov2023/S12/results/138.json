@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "Sohagpur",
+  "totals": {
+    "electors": 242882,
+    "votes_polled": 211465,
+    "turnout_pct": 87.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vijaypal Singh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 103379,
+      "vote_share_pct": 48.89,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Pushpraj Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 101617,
+      "vote_share_pct": 48.05
+    },
+    {
+      "rank": 3,
+      "name": "Harisingh Kalme",
+      "party_short": "MKRP",
+      "votes": 1605,
+      "vote_share_pct": 0.76
+    },
+    {
+      "rank": 4,
+      "name": "Laxman Singh Gour",
+      "party_short": "IND",
+      "votes": 1152,
+      "vote_share_pct": 0.54
+    },
+    {
+      "rank": 5,
+      "name": "Umesh Kumar Mittal",
+      "party_short": "IND",
+      "votes": 909,
+      "vote_share_pct": 0.43
+    }
+  ],
+  "nota": {
+    "votes": 2362,
+    "vote_share_pct": 1.12
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 441,
+    "vote_share_pct": 0.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vijaypal Singh",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 103379,
+    "margin_votes": 1762,
+    "margin_pct": 0.83
+  }
+}

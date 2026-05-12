@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Armur",
+  "totals": {
+    "electors": 210341,
+    "votes_polled": 161826,
+    "turnout_pct": 76.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Paidi Rakesh Reddy",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 72658,
+      "vote_share_pct": 44.9,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Prodduturi Vinay Kumar Reddy",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 42989,
+      "vote_share_pct": 26.56
+    },
+    {
+      "rank": 3,
+      "name": "Ashannagari Jeevan Reddy",
+      "party_short": "BHRS",
+      "votes": 39395,
+      "vote_share_pct": 24.34
+    },
+    {
+      "rank": 4,
+      "name": "Cheruku Prem Kumar",
+      "party_short": "DHRMSMJP",
+      "votes": 1477,
+      "vote_share_pct": 0.91
+    },
+    {
+      "rank": 5,
+      "name": "Gandikota Rajanna",
+      "party_short": "BSP",
+      "votes": 1390,
+      "vote_share_pct": 0.86
+    }
+  ],
+  "nota": {
+    "votes": 1499,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2418,
+    "vote_share_pct": 1.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Paidi Rakesh Reddy",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 72658,
+    "margin_votes": 29669,
+    "margin_pct": 18.33
+  }
+}

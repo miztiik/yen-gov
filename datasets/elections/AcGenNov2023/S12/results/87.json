@@ -1,0 +1,78 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "Anuppur (ST)",
+  "totals": {
+    "electors": 178516,
+    "votes_polled": 139868,
+    "turnout_pct": 78.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bisahu Lal Singh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 77110,
+      "vote_share_pct": 55.13,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ramesh Kumar Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 56691,
+      "vote_share_pct": 40.53
+    },
+    {
+      "rank": 3,
+      "name": "Sudama Kol",
+      "party_short": "BSP",
+      "votes": 2480,
+      "vote_share_pct": 1.77
+    },
+    {
+      "rank": 4,
+      "name": "Rajendra Prasad Kol",
+      "party_short": "IND",
+      "votes": 865,
+      "vote_share_pct": 0.62
+    },
+    {
+      "rank": 5,
+      "name": "Gunjaansingh",
+      "party_short": "IND",
+      "votes": 560,
+      "vote_share_pct": 0.4
+    }
+  ],
+  "nota": {
+    "votes": 2162,
+    "vote_share_pct": 1.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bisahu Lal Singh",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 77110,
+    "margin_votes": 20419,
+    "margin_pct": 14.6
+  },
+  "others": null
+}

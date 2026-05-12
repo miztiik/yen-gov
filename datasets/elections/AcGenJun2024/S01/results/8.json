@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T15:45:13Z"
+      "fetched_at": "2026-05-12T18:39:05Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T15:45:13Z"
+      "fetched_at": "2026-05-12T18:39:06Z"
     }
   ],
   "election": "AcGenJun2024",
@@ -40,6 +40,7 @@
     {
       "rank": 3,
       "name": "Narasimhamurthy Mantri",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 2225,
       "vote_share_pct": 1.25

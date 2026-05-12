@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Malhara",
+  "totals": {
+    "electors": 232780,
+    "votes_polled": 171115,
+    "turnout_pct": 73.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bahin Ramsiya Bharti",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 89053,
+      "vote_share_pct": 52.04,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kunwar Pradyumna Singh Lodhi",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 67521,
+      "vote_share_pct": 39.46
+    },
+    {
+      "rank": 3,
+      "name": "Karan Singh Lodhi Sunwaha",
+      "party_short": "IND",
+      "votes": 4220,
+      "vote_share_pct": 2.47
+    },
+    {
+      "rank": 4,
+      "name": "Lakhan Ramtoriya",
+      "party_short": "BSP",
+      "votes": 1860,
+      "vote_share_pct": 1.09
+    },
+    {
+      "rank": 5,
+      "name": "Chanda",
+      "party_short": "AAAP",
+      "votes": 1751,
+      "vote_share_pct": 1.02
+    }
+  ],
+  "nota": {
+    "votes": 1118,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5592,
+    "vote_share_pct": 3.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bahin Ramsiya Bharti",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 89053,
+    "margin_votes": 21532,
+    "margin_pct": 12.58
+  }
+}

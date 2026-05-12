@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "Bijawar",
+  "totals": {
+    "electors": 230826,
+    "votes_polled": 167743,
+    "turnout_pct": 72.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bablu Rajesh Shukla",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 88223,
+      "vote_share_pct": 52.59,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Advocate- Charan Singh Yadav",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 55761,
+      "vote_share_pct": 33.24
+    },
+    {
+      "rank": 3,
+      "name": "Mahendra Kumar Gupta",
+      "party_short": "BSP",
+      "votes": 10443,
+      "vote_share_pct": 6.23
+    },
+    {
+      "rank": 4,
+      "name": "Amit Bhatnagar",
+      "party_short": "AAAP",
+      "votes": 4185,
+      "vote_share_pct": 2.49
+    },
+    {
+      "rank": 5,
+      "name": "Chetram Ahirwar",
+      "party_short": "ASPKR",
+      "votes": 1885,
+      "vote_share_pct": 1.12
+    }
+  ],
+  "nota": {
+    "votes": 1433,
+    "vote_share_pct": 0.85
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 5813,
+    "vote_share_pct": 3.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bablu Rajesh Shukla",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 88223,
+    "margin_votes": 32462,
+    "margin_pct": 19.35
+  }
+}

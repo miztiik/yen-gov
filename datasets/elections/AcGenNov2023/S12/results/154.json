@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 154,
+  "constituency_name": "Govindpura",
+  "totals": {
+    "electors": 393637,
+    "votes_polled": 251118,
+    "turnout_pct": 63.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Krishna Gaur",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 173159,
+      "vote_share_pct": 68.96,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ravindra Sahu \"jhoomarwala\"",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 66491,
+      "vote_share_pct": 26.48
+    },
+    {
+      "rank": 3,
+      "name": "Sajjan Singh Parmar",
+      "party_short": "AAAP",
+      "votes": 3602,
+      "vote_share_pct": 1.43
+    },
+    {
+      "rank": 4,
+      "name": "Uma Devi",
+      "party_short": "BSP",
+      "votes": 2552,
+      "vote_share_pct": 1.02
+    },
+    {
+      "rank": 5,
+      "name": "Vishal Bindal",
+      "party_short": "IND",
+      "votes": 514,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 2561,
+    "vote_share_pct": 1.02
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 2239,
+    "vote_share_pct": 0.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Krishna Gaur",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 173159,
+    "margin_votes": 106668,
+    "margin_pct": 42.48
+  }
+}

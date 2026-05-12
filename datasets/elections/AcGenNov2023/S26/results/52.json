@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "Arang (SC)",
+  "totals": {
+    "electors": 231375,
+    "votes_polled": 178822,
+    "turnout_pct": 77.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Guru Khushwant Saheb",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 94039,
+      "vote_share_pct": 52.59,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Shivkumar Dahariya",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 77501,
+      "vote_share_pct": 43.34
+    },
+    {
+      "rank": 3,
+      "name": "Santosh Markandey (advocate)",
+      "party_short": "BSP",
+      "votes": 1397,
+      "vote_share_pct": 0.78
+    },
+    {
+      "rank": 4,
+      "name": "Parmanand Jangade",
+      "party_short": "AAAP",
+      "votes": 1394,
+      "vote_share_pct": 0.78
+    },
+    {
+      "rank": 5,
+      "name": "Advocate Shailendra Banjare (shaktiputra)",
+      "party_short": "SSBD",
+      "votes": 1002,
+      "vote_share_pct": 0.56
+    }
+  ],
+  "nota": {
+    "votes": 2255,
+    "vote_share_pct": 1.26
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1234,
+    "vote_share_pct": 0.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Guru Khushwant Saheb",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 94039,
+    "margin_votes": 16538,
+    "margin_pct": 9.25
+  }
+}

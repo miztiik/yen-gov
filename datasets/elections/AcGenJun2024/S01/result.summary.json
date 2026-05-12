@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T15:45:13Z"
+      "fetched_at": "2026-05-12T18:39:05Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-AP/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T15:45:13Z"
+      "fetched_at": "2026-05-12T18:39:06Z"
     }
   ],
   "election": "AcGenJun2024",
@@ -43,6 +43,7 @@
       "vote_share_pct": 39.38
     },
     {
+      "party_eci_code": "369",
       "party_short": "BJP",
       "seats_contested": 10,
       "seats_won": 8,
@@ -50,6 +51,7 @@
       "vote_share_pct": 2.83
     },
     {
+      "party_eci_code": "742",
       "party_short": "INC",
       "seats_contested": 158,
       "seats_won": 0,
@@ -71,6 +73,7 @@
       "vote_share_pct": 0.6
     },
     {
+      "party_eci_code": "547",
       "party_short": "CPI(M)",
       "seats_contested": 8,
       "seats_won": 0,
@@ -127,6 +130,7 @@
       "vote_share_pct": 0.04
     },
     {
+      "party_eci_code": "544",
       "party_short": "CPI",
       "seats_contested": 8,
       "seats_won": 0,
@@ -281,6 +285,7 @@
       "vote_share_pct": 0.0
     },
     {
+      "party_eci_code": "772",
       "party_short": "IUML",
       "seats_contested": 13,
       "seats_won": 0,
@@ -309,6 +314,7 @@
       "vote_share_pct": 0.0
     },
     {
+      "party_eci_code": "1534",
       "party_short": "RSP",
       "seats_contested": 5,
       "seats_won": 0,
@@ -330,6 +336,7 @@
       "vote_share_pct": 0.0
     },
     {
+      "party_eci_code": "1847",
       "party_short": "VCK",
       "seats_contested": 9,
       "seats_won": 0,
@@ -582,6 +589,7 @@
       "vote_share_pct": 0.0
     },
     {
+      "party_eci_code": "1420",
       "party_short": "RJD",
       "seats_contested": 1,
       "seats_won": 0,

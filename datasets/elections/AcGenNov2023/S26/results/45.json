@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "Baloda Bazar",
+  "totals": {
+    "electors": 280782,
+    "votes_polled": 219644,
+    "turnout_pct": 78.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Tank Ram Verma",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 108381,
+      "vote_share_pct": 49.34,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Shailesh Nitin Trivedi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 93635,
+      "vote_share_pct": 42.63
+    },
+    {
+      "rank": 3,
+      "name": "Rajkumar Patre (vakil)",
+      "party_short": "BSP",
+      "votes": 9719,
+      "vote_share_pct": 4.42
+    },
+    {
+      "rank": 4,
+      "name": "Santosh Yadu",
+      "party_short": "AAAP",
+      "votes": 1724,
+      "vote_share_pct": 0.78
+    },
+    {
+      "rank": 5,
+      "name": "Yogesh Kumar Sahu",
+      "party_short": "JCCJ",
+      "votes": 908,
+      "vote_share_pct": 0.41
+    }
+  ],
+  "nota": {
+    "votes": 2610,
+    "vote_share_pct": 1.19
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2667,
+    "vote_share_pct": 1.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Tank Ram Verma",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 108381,
+    "margin_votes": 14746,
+    "margin_pct": 6.71
+  }
+}

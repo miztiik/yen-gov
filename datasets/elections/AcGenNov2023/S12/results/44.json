@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Jatara (SC)",
+  "totals": {
+    "electors": 220680,
+    "votes_polled": 166169,
+    "turnout_pct": 75.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Khatik Harishankar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 75943,
+      "vote_share_pct": 45.7,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ahirwar Kiran",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 64727,
+      "vote_share_pct": 38.95
+    },
+    {
+      "rank": 3,
+      "name": "R. R. Bansal",
+      "party_short": "SP",
+      "votes": 15060,
+      "vote_share_pct": 9.06
+    },
+    {
+      "rank": 4,
+      "name": "Ahirwar Dharmendra",
+      "party_short": "BSP",
+      "votes": 1878,
+      "vote_share_pct": 1.13
+    },
+    {
+      "rank": 5,
+      "name": "Ahirwar Savithri",
+      "party_short": "BRAPMND",
+      "votes": 1161,
+      "vote_share_pct": 0.7
+    }
+  ],
+  "nota": {
+    "votes": 1077,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 6323,
+    "vote_share_pct": 3.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Khatik Harishankar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 75943,
+    "margin_votes": 11216,
+    "margin_pct": 6.75
+  }
+}

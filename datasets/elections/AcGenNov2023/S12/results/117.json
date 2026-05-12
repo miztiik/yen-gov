@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 117,
+  "constituency_name": "Lakhnadon (ST)",
+  "totals": {
+    "electors": 294731,
+    "votes_polled": 250276,
+    "turnout_pct": 84.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Yogendra Singh Baba",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 114519,
+      "vote_share_pct": 45.76,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vijay Uikey",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 95898,
+      "vote_share_pct": 38.32
+    },
+    {
+      "rank": 3,
+      "name": "Bhai Santar Walari",
+      "party_short": "GGP",
+      "votes": 26692,
+      "vote_share_pct": 10.67
+    },
+    {
+      "rank": 4,
+      "name": "Engineer Santosh Uikey",
+      "party_short": "IND",
+      "votes": 2584,
+      "vote_share_pct": 1.03
+    },
+    {
+      "rank": 5,
+      "name": "Govind Singh",
+      "party_short": "RGOP",
+      "votes": 1596,
+      "vote_share_pct": 0.64
+    }
+  ],
+  "nota": {
+    "votes": 4192,
+    "vote_share_pct": 1.67
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4795,
+    "vote_share_pct": 1.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Yogendra Singh Baba",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 114519,
+    "margin_votes": 18621,
+    "margin_pct": 7.44
+  }
+}

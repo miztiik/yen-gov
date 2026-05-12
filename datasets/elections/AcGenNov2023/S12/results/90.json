@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 90,
+  "constituency_name": "Manpur (ST)",
+  "totals": {
+    "electors": 250377,
+    "votes_polled": 194555,
+    "turnout_pct": 77.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Meena Singh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 86089,
+      "vote_share_pct": 44.25,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Tilak Raj Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 60824,
+      "vote_share_pct": 31.26
+    },
+    {
+      "rank": 3,
+      "name": "Radhe Shyam Kukodiya",
+      "party_short": "GGP",
+      "votes": 28839,
+      "vote_share_pct": 14.82
+    },
+    {
+      "rank": 4,
+      "name": "Smt. Usha Kol",
+      "party_short": "AAAP",
+      "votes": 5936,
+      "vote_share_pct": 3.05
+    },
+    {
+      "rank": 5,
+      "name": "Rajendra Baiga",
+      "party_short": "PPID",
+      "votes": 2323,
+      "vote_share_pct": 1.19
+    }
+  ],
+  "nota": {
+    "votes": 3402,
+    "vote_share_pct": 1.75
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 7142,
+    "vote_share_pct": 3.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Meena Singh",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 86089,
+    "margin_votes": 25265,
+    "margin_pct": 12.99
+  }
+}

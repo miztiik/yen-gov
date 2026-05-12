@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Kurud",
+  "totals": {
+    "electors": 208888,
+    "votes_polled": 189154,
+    "turnout_pct": 90.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ajay Chandrakar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 94712,
+      "vote_share_pct": 50.07,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Tarni Neelam Chandrakar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 86622,
+      "vote_share_pct": 45.79
+    },
+    {
+      "rank": 3,
+      "name": "Sanjay Chandrakar",
+      "party_short": "IND",
+      "votes": 1845,
+      "vote_share_pct": 0.98
+    },
+    {
+      "rank": 4,
+      "name": "Khilawan Prasad Sahu",
+      "party_short": "BSCP",
+      "votes": 660,
+      "vote_share_pct": 0.35
+    },
+    {
+      "rank": 5,
+      "name": "Tejeshwar Kumar Kurre",
+      "party_short": "JCCJ",
+      "votes": 558,
+      "vote_share_pct": 0.29
+    }
+  ],
+  "nota": {
+    "votes": 2756,
+    "vote_share_pct": 1.46
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2001,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ajay Chandrakar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 94712,
+    "margin_votes": 8090,
+    "margin_pct": 4.28
+  }
+}

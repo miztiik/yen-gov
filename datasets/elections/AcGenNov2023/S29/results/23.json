@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Ramagundam",
+  "totals": {
+    "electors": 221251,
+    "votes_polled": 152988,
+    "turnout_pct": 69.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Makkan Singh Raj Thakur",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 92227,
+      "vote_share_pct": 60.28,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Korukanti Chander",
+      "party_short": "BHRS",
+      "votes": 35433,
+      "vote_share_pct": 23.16
+    },
+    {
+      "rank": 3,
+      "name": "Kandula Sandhya Rani",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 12966,
+      "vote_share_pct": 8.48
+    },
+    {
+      "rank": 4,
+      "name": "Somarapu Satyanarayana",
+      "party_short": "IND",
+      "votes": 4048,
+      "vote_share_pct": 2.65
+    },
+    {
+      "rank": 5,
+      "name": "Ambati Naresh Yadav",
+      "party_short": "BSP",
+      "votes": 853,
+      "vote_share_pct": 0.56
+    }
+  ],
+  "nota": {
+    "votes": 1572,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 5889,
+    "vote_share_pct": 3.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Makkan Singh Raj Thakur",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 92227,
+    "margin_votes": 56794,
+    "margin_pct": 37.12
+  }
+}

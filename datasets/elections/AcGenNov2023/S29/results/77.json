@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 77,
+  "constituency_name": "Makthal",
+  "totals": {
+    "electors": 242316,
+    "votes_polled": 187834,
+    "turnout_pct": 77.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vakiti Srihari",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 74917,
+      "vote_share_pct": 39.88,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Chittem Ram Mohan Reddy",
+      "party_short": "BHRS",
+      "votes": 57392,
+      "vote_share_pct": 30.55
+    },
+    {
+      "rank": 3,
+      "name": "Jalander Reddy Madi Reddy",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 45455,
+      "vote_share_pct": 24.2
+    },
+    {
+      "rank": 4,
+      "name": "Jagannath Reddy Varkatam",
+      "party_short": "BSP",
+      "votes": 2454,
+      "vote_share_pct": 1.31
+    },
+    {
+      "rank": 5,
+      "name": "Myathari Dasharath Kumar",
+      "party_short": "DHRMSMJP",
+      "votes": 1154,
+      "vote_share_pct": 0.61
+    }
+  ],
+  "nota": {
+    "votes": 1896,
+    "vote_share_pct": 1.01
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4566,
+    "vote_share_pct": 2.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vakiti Srihari",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 74917,
+    "margin_votes": 17525,
+    "margin_pct": 9.33
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "Khairatabad",
+  "totals": {
+    "electors": 296036,
+    "votes_polled": 154924,
+    "turnout_pct": 52.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Danam Nagender",
+      "party_short": "BHRS",
+      "votes": 67368,
+      "vote_share_pct": 43.48,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "P Vijaya Reddy",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 45358,
+      "vote_share_pct": 29.28
+    },
+    {
+      "rank": 3,
+      "name": "Chintala Rama Chandra Reddy",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 38094,
+      "vote_share_pct": 24.59
+    },
+    {
+      "rank": 4,
+      "name": "Midde Krishna",
+      "party_short": "BSP",
+      "votes": 544,
+      "vote_share_pct": 0.35
+    },
+    {
+      "rank": 5,
+      "name": "Akshay Raghuram Kotian",
+      "party_short": "IND",
+      "votes": 325,
+      "vote_share_pct": 0.21
+    }
+  ],
+  "nota": {
+    "votes": 1194,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 2041,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Danam Nagender",
+    "party_short": "BHRS",
+    "votes": 67368,
+    "margin_votes": 22010,
+    "margin_pct": 14.21
+  }
+}

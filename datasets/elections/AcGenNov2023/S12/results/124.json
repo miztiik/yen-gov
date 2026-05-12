@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 124,
+  "constituency_name": "Churai",
+  "totals": {
+    "electors": 218171,
+    "votes_polled": 192662,
+    "turnout_pct": 88.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Choudhary Sujeet Mersingh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 81613,
+      "vote_share_pct": 42.36,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Lakhan Kumar Varma",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 73024,
+      "vote_share_pct": 37.9
+    },
+    {
+      "rank": 3,
+      "name": "Neeraj Thakur (bunty Patel)",
+      "party_short": "IND",
+      "votes": 19681,
+      "vote_share_pct": 10.22
+    },
+    {
+      "rank": 4,
+      "name": "Pawansha Saryam",
+      "party_short": "IND",
+      "votes": 10751,
+      "vote_share_pct": 5.58
+    },
+    {
+      "rank": 5,
+      "name": "Ishwar Singh Tekam",
+      "party_short": "GGP",
+      "votes": 1811,
+      "vote_share_pct": 0.94
+    }
+  ],
+  "nota": {
+    "votes": 2072,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3710,
+    "vote_share_pct": 1.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Choudhary Sujeet Mersingh",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 81613,
+    "margin_votes": 8589,
+    "margin_pct": 4.46
+  }
+}

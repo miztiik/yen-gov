@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Kamareddy",
+  "totals": {
+    "electors": 252620,
+    "votes_polled": 192889,
+    "turnout_pct": 76.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Katipally Venkata Ramana Reddy",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 66652,
+      "vote_share_pct": 34.55,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kalvakuntla Chandrashekar Rao",
+      "party_short": "BHRS",
+      "votes": 59911,
+      "vote_share_pct": 31.06
+    },
+    {
+      "rank": 3,
+      "name": "Anumula Revanth Reddy",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 54916,
+      "vote_share_pct": 28.47
+    },
+    {
+      "rank": 4,
+      "name": "Ravi Nayak Bhukya",
+      "party_short": "IND",
+      "votes": 1823,
+      "vote_share_pct": 0.95
+    },
+    {
+      "rank": 5,
+      "name": "Udthawar Suresh Goud",
+      "party_short": "BSP",
+      "votes": 1201,
+      "vote_share_pct": 0.62
+    }
+  ],
+  "nota": {
+    "votes": 474,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 34,
+    "votes": 7912,
+    "vote_share_pct": 4.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Katipally Venkata Ramana Reddy",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 66652,
+    "margin_votes": 6741,
+    "margin_pct": 3.49
+  }
+}

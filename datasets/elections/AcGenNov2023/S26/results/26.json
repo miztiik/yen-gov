@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Lormi",
+  "totals": {
+    "electors": 228487,
+    "votes_polled": 157052,
+    "turnout_pct": 68.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Arun Sao",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 75070,
+      "vote_share_pct": 47.8,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Thaneshvar Sahu",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 29179,
+      "vote_share_pct": 18.58
+    },
+    {
+      "rank": 3,
+      "name": "Sanjeet Burman",
+      "party_short": "IND",
+      "votes": 25126,
+      "vote_share_pct": 16.0
+    },
+    {
+      "rank": 4,
+      "name": "Sagar Singh Bais",
+      "party_short": "JCCJ",
+      "votes": 15910,
+      "vote_share_pct": 10.13
+    },
+    {
+      "rank": 5,
+      "name": "Veena Markande",
+      "party_short": "IND",
+      "votes": 3197,
+      "vote_share_pct": 2.04
+    }
+  ],
+  "nota": {
+    "votes": 814,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 7756,
+    "vote_share_pct": 4.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Arun Sao",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 75070,
+    "margin_votes": 45891,
+    "margin_pct": 29.22
+  }
+}

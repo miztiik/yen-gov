@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 95,
+  "constituency_name": "Patan",
+  "totals": {
+    "electors": 257496,
+    "votes_polled": 208863,
+    "turnout_pct": 81.11
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ajay Vishnoi",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 113223,
+      "vote_share_pct": 54.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Neelesh Awasthi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 82968,
+      "vote_share_pct": 39.72
+    },
+    {
+      "rank": 3,
+      "name": "Tan Singh Thakur (tannu Bhaiya)",
+      "party_short": "BSP",
+      "votes": 3236,
+      "vote_share_pct": 1.55
+    },
+    {
+      "rank": 4,
+      "name": "Radheshyam",
+      "party_short": "IND",
+      "votes": 1700,
+      "vote_share_pct": 0.81
+    },
+    {
+      "rank": 5,
+      "name": "Virendra Singh",
+      "party_short": "IND",
+      "votes": 1656,
+      "vote_share_pct": 0.79
+    }
+  ],
+  "nota": {
+    "votes": 541,
+    "vote_share_pct": 0.26
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 5539,
+    "vote_share_pct": 2.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ajay Vishnoi",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 113223,
+    "margin_votes": 30255,
+    "margin_pct": 14.49
+  }
+}

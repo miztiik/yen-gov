@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 7,
+  "constituency_name": "Ramanujganj (ST)",
+  "totals": {
+    "electors": 218543,
+    "votes_polled": 182436,
+    "turnout_pct": 83.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ram Vichar Netam",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 99574,
+      "vote_share_pct": 54.58,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Ajay Kumar Tirkey",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 69911,
+      "vote_share_pct": 38.32
+    },
+    {
+      "rank": 3,
+      "name": "Neelam Didi",
+      "party_short": "AAAP",
+      "votes": 1879,
+      "vote_share_pct": 1.03
+    },
+    {
+      "rank": 4,
+      "name": "Dayashankar Markam",
+      "party_short": "GGP",
+      "votes": 1717,
+      "vote_share_pct": 0.94
+    },
+    {
+      "rank": 5,
+      "name": "Gyani Singh",
+      "party_short": "JCCJ",
+      "votes": 1674,
+      "vote_share_pct": 0.92
+    }
+  ],
+  "nota": {
+    "votes": 3501,
+    "vote_share_pct": 1.92
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4180,
+    "vote_share_pct": 2.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ram Vichar Netam",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 99574,
+    "margin_votes": 29663,
+    "margin_pct": 16.26
+  }
+}

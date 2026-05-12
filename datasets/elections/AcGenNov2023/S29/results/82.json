@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 82,
+  "constituency_name": "Achampet (SC)",
+  "totals": {
+    "electors": 242302,
+    "votes_polled": 195620,
+    "turnout_pct": 80.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chikkudu Vamshi Krishna",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 115337,
+      "vote_share_pct": 58.96,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Guvvala Balaraju",
+      "party_short": "BHRS",
+      "votes": 66011,
+      "vote_share_pct": 33.74
+    },
+    {
+      "rank": 3,
+      "name": "Devani Satish Madiga",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 4267,
+      "vote_share_pct": 2.18
+    },
+    {
+      "rank": 4,
+      "name": "Bejavada Ravikumar",
+      "party_short": "IND",
+      "votes": 2684,
+      "vote_share_pct": 1.37
+    },
+    {
+      "rank": 5,
+      "name": "Mothukuri Nagarjun",
+      "party_short": "BSP",
+      "votes": 1189,
+      "vote_share_pct": 0.61
+    }
+  ],
+  "nota": {
+    "votes": 2833,
+    "vote_share_pct": 1.45
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3299,
+    "vote_share_pct": 1.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chikkudu Vamshi Krishna",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 115337,
+    "margin_votes": 49326,
+    "margin_pct": 25.22
+  }
+}

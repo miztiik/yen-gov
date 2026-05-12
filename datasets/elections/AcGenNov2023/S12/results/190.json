@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 190,
+  "constituency_name": "Badwani (ST)",
+  "totals": {
+    "electors": 275325,
+    "votes_polled": 201271,
+    "turnout_pct": 73.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajan Mandloi",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 101197,
+      "vote_share_pct": 50.28,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Premsingh Patel",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 90025,
+      "vote_share_pct": 44.73
+    },
+    {
+      "rank": 3,
+      "name": "Deepak Devisingh Sengar",
+      "party_short": "BHRTADVSIP",
+      "votes": 2206,
+      "vote_share_pct": 1.1
+    },
+    {
+      "rank": 4,
+      "name": "Sandeep Nargave",
+      "party_short": "IND",
+      "votes": 2190,
+      "vote_share_pct": 1.09
+    },
+    {
+      "rank": 5,
+      "name": "Pandu Solanki",
+      "party_short": "IND",
+      "votes": 1096,
+      "vote_share_pct": 0.54
+    }
+  ],
+  "nota": {
+    "votes": 3717,
+    "vote_share_pct": 1.85
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 840,
+    "vote_share_pct": 0.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajan Mandloi",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 101197,
+    "margin_votes": 11172,
+    "margin_pct": 5.55
+  }
+}

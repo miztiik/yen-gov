@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 93,
+  "constituency_name": "Munugode",
+  "totals": {
+    "electors": 252699,
+    "votes_polled": 233608,
+    "turnout_pct": 92.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Komatireddy Raj Gopal Reddy",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 119624,
+      "vote_share_pct": 51.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Koosukuntla Prabhakar Reddy",
+      "party_short": "BHRS",
+      "votes": 79034,
+      "vote_share_pct": 33.83
+    },
+    {
+      "rank": 3,
+      "name": "Chelamalla Krishna Reddy",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 22319,
+      "vote_share_pct": 9.55
+    },
+    {
+      "rank": 4,
+      "name": "Donuri Narsi Reddy",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 2351,
+      "vote_share_pct": 1.01
+    },
+    {
+      "rank": 5,
+      "name": "Erpula Galaiah",
+      "party_short": "DHRMSMJP",
+      "votes": 1708,
+      "vote_share_pct": 0.73
+    }
+  ],
+  "nota": {
+    "votes": 849,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 34,
+    "votes": 7723,
+    "vote_share_pct": 3.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Komatireddy Raj Gopal Reddy",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 119624,
+    "margin_votes": 40590,
+    "margin_pct": 17.38
+  }
+}

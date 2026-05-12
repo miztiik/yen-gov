@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 189,
+  "constituency_name": "Pansemal (ST)",
+  "totals": {
+    "electors": 256787,
+    "votes_polled": 199800,
+    "turnout_pct": 77.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shyam Barde",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 97181,
+      "vote_share_pct": 48.64,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Chandrabhaga Kirade (buaji )",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 83739,
+      "vote_share_pct": 41.91
+    },
+    {
+      "rank": 3,
+      "name": "Ramesh Bhangi Chouhan",
+      "party_short": "IND",
+      "votes": 12950,
+      "vote_share_pct": 6.48
+    },
+    {
+      "rank": 4,
+      "name": "Dayaram Jamsingh Dawar",
+      "party_short": "AAAP",
+      "votes": 2409,
+      "vote_share_pct": 1.21
+    }
+  ],
+  "nota": {
+    "votes": 3521,
+    "vote_share_pct": 1.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shyam Barde",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 97181,
+    "margin_votes": 13442,
+    "margin_pct": 6.73
+  },
+  "others": null
+}

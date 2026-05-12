@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 119,
+  "constituency_name": "Narsingpur",
+  "totals": {
+    "electors": 232123,
+    "votes_polled": 195667,
+    "turnout_pct": 84.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Prahlad Singh Patel",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 110226,
+      "vote_share_pct": 56.33,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Lakhan Singh Patel",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 78916,
+      "vote_share_pct": 40.33
+    },
+    {
+      "rank": 3,
+      "name": "Mahesh Prasad Choudhary",
+      "party_short": "BSP",
+      "votes": 1331,
+      "vote_share_pct": 0.68
+    },
+    {
+      "rank": 4,
+      "name": "Mastram Lodhi",
+      "party_short": "BSCP",
+      "votes": 924,
+      "vote_share_pct": 0.47
+    },
+    {
+      "rank": 5,
+      "name": "M. Gajanfar",
+      "party_short": "IND",
+      "votes": 819,
+      "vote_share_pct": 0.42
+    }
+  ],
+  "nota": {
+    "votes": 2283,
+    "vote_share_pct": 1.17
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1168,
+    "vote_share_pct": 0.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Prahlad Singh Patel",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 110226,
+    "margin_votes": 31310,
+    "margin_pct": 16.0
+  }
+}

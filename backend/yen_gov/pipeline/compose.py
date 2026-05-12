@@ -13,16 +13,22 @@ the thread.
 
 from __future__ import annotations
 
+import json
 from collections import defaultdict
+from dataclasses import dataclass
+from pathlib import Path
 
 from yen_gov.core.models import (
     ConstituencyResult,
+    PartiesSnapshot,
+    PartyEntry,
     PartyTotals,
     ResultSummary,
     SourceRef,
     SummaryTotals,
 )
 from yen_gov.sources.eci.partywise import PartywiseSnapshot
+from yen_gov.sources.eci.section3 import ParticipatingParty
 from yen_gov.sources.eci.statistical_report_detailed import DetailedResultsRaw
 
 
@@ -299,3 +305,147 @@ def compose_result_summary_from_section_10(
         ),
         party_totals=party_totals,
     )
+
+
+@dataclass(frozen=True)
+class PartyRegistryEntry:
+    """One canonical {short → numeric eci_code, full_name} mapping with provenance.
+
+    The registry is derived purely from already-trusted ``parties.json`` files
+    in this repo (each of which carries its own ``sources[]`` pointing at the
+    ECI live-results partywise page that originally minted the eci_code). It
+    is therefore not a new contract surface — it is an in-memory aggregation
+    used only at ingest time, with the upstream URLs forwarded into the new
+    artifact's ``sources[]`` so chain of custody is preserved.
+    """
+
+    eci_code: str
+    full_name: str
+    source_urls: tuple[str, ...]  # the partywise URLs that minted this entry
+
+
+def load_eci_party_registry(
+    elections_root: Path,
+) -> dict[str, PartyRegistryEntry]:
+    """Aggregate ``{short_name → PartyRegistryEntry}`` from every parties.json on disk.
+
+    Walks ``<elections_root>/<event>/<state>/parties.json`` and builds the
+    union of ``{short → (eci_code, full_name)}`` across cohorts. ECI numeric
+    party codes are stable across elections (the same legal entity carries
+    the same code), so this is the principled way to backfill ``eci_code`` for
+    archived (state, event) slices that have no live partywise page of their
+    own.
+
+    Conflict policy: if the same ``short_name`` appears with two different
+    ``eci_code`` values across files, raise immediately with both filenames.
+    The caller MUST resolve the ambiguity (typically by deleting the wrong
+    upstream artifact) before any downstream emit can use the registry.
+    Silent overwrite would corrupt party identity in the artifacts that
+    consume the registry.
+
+    Returns an empty dict if no ``parties.json`` files exist (e.g. fresh
+    checkout). The downstream emit path is expected to handle that case by
+    skipping ``parties.json`` emit, exactly as before this helper existed.
+    """
+    out: dict[str, PartyRegistryEntry] = {}
+    if not elections_root.exists():
+        return out
+
+    # Track which file each (short → eci_code) came from for the error message.
+    origin: dict[str, Path] = {}
+
+    for event_dir in sorted(p for p in elections_root.iterdir() if p.is_dir()):
+        for state_dir in sorted(p for p in event_dir.iterdir() if p.is_dir()):
+            parties_path = state_dir / "parties.json"
+            if not parties_path.exists():
+                continue
+            doc = json.loads(parties_path.read_text(encoding="utf-8"))
+            urls = tuple(s["url"] for s in doc.get("sources", []))
+            for entry in doc.get("parties", []):
+                short = entry["short_name"]
+                code = entry["eci_code"]
+                full = entry["full_name"]
+                existing = out.get(short)
+                if existing is None:
+                    out[short] = PartyRegistryEntry(
+                        eci_code=code, full_name=full, source_urls=urls,
+                    )
+                    origin[short] = parties_path
+                    continue
+                if existing.eci_code != code:
+                    raise ValueError(
+                        f"eci_code conflict for short {short!r}: "
+                        f"{existing.eci_code} (from {origin[short]}) vs "
+                        f"{code} (from {parties_path}). Reconcile upstream "
+                        "before re-running."
+                    )
+                # Same code — extend the source-url provenance.
+                merged = tuple(dict.fromkeys(existing.source_urls + urls))
+                out[short] = PartyRegistryEntry(
+                    eci_code=existing.eci_code,
+                    full_name=existing.full_name,
+                    source_urls=merged,
+                )
+    return out
+
+
+def parties_snapshot_from_section3(
+    section_3_parties: list[ParticipatingParty],
+    *,
+    election: str,
+    section_3_source: SourceRef,
+    registry: dict[str, PartyRegistryEntry],
+    fetched_at: str,
+) -> tuple[PartiesSnapshot | None, list[str]]:
+    """Build a ``PartiesSnapshot`` for an archived event using Section 3 + the registry.
+
+    Section 3 of the Statistical Report tells us *which* parties participated;
+    the registry tells us their numeric ``eci_code``. Parties present in
+    Section 3 but absent from the registry are returned as the second tuple
+    element so the caller can log them — they are NOT silently dropped at
+    the call site, but they cannot ship in ``parties.json`` either (the
+    schema requires ``eci_code``).
+
+    Returns ``(None, unresolved)`` when zero parties resolve, so the caller
+    can skip the file write rather than emit an empty (and schema-invalid,
+    minItems=1) artifact.
+
+    ``sources[]`` of the returned snapshot is composed per ADR-0002 as an
+    aggregated artifact: Section 3 (the "which parties participated" claim)
+    plus every distinct partywise URL from the registry entries that
+    contributed (the "this is its eci_code" claim). The ``fetched_at`` arg
+    timestamps the registry-merge step so this artifact's provenance is
+    self-contained.
+    """
+    entries: list[PartyEntry] = []
+    contributing_urls: set[str] = set()
+    unresolved: list[str] = []
+    seen_shorts: set[str] = set()
+    for p in section_3_parties:
+        if p.short_name in seen_shorts:
+            continue  # Section 3 is per-event; duplicates would be a parser bug, but be defensive.
+        seen_shorts.add(p.short_name)
+        reg = registry.get(p.short_name)
+        if reg is None:
+            unresolved.append(p.short_name)
+            continue
+        entries.append(PartyEntry(
+            eci_code=reg.eci_code,
+            short_name=p.short_name,
+            full_name=p.full_name,  # Section 3's full_name is the per-event canonical
+        ))
+        contributing_urls.update(reg.source_urls)
+
+    if not entries:
+        return None, unresolved
+
+    sources = [section_3_source] + [
+        SourceRef(url=url, fetched_at=fetched_at)
+        for url in sorted(contributing_urls)
+    ]
+    return PartiesSnapshot(
+        sources=sources,
+        election=election,
+        parties=entries,
+    ), unresolved
+

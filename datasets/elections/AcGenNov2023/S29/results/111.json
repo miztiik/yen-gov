@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 111,
+  "constituency_name": "Yellandu (ST)",
+  "totals": {
+    "electors": 219836,
+    "votes_polled": 178339,
+    "turnout_pct": 81.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Koram Kanakaiah",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 109171,
+      "vote_share_pct": 61.22,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Banoth Hari Priya",
+      "party_short": "BHRS",
+      "votes": 51862,
+      "vote_share_pct": 29.08
+    },
+    {
+      "rank": 3,
+      "name": "Dharavath Ravinder Naik",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 2568,
+      "vote_share_pct": 1.44
+    },
+    {
+      "rank": 4,
+      "name": "Krishna Duggi",
+      "party_eci_code": "547",
+      "party_short": "CPI(M)",
+      "votes": 2137,
+      "vote_share_pct": 1.2
+    },
+    {
+      "rank": 5,
+      "name": "Mokalla Krishna",
+      "party_short": "IND",
+      "votes": 1698,
+      "vote_share_pct": 0.95
+    }
+  ],
+  "nota": {
+    "votes": 1418,
+    "vote_share_pct": 0.8
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 9485,
+    "vote_share_pct": 5.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Koram Kanakaiah",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 109171,
+    "margin_votes": 57309,
+    "margin_pct": 32.13
+  }
+}

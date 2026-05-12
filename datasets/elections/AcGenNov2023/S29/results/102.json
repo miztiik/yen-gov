@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 102,
+  "constituency_name": "Mahabubabad (ST)",
+  "totals": {
+    "electors": 253524,
+    "votes_polled": 210328,
+    "turnout_pct": 82.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Murali Naik Bhukya",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 116644,
+      "vote_share_pct": 55.46,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Banoth Shankar Naik",
+      "party_short": "BHRS",
+      "votes": 66473,
+      "vote_share_pct": 31.6
+    },
+    {
+      "rank": 3,
+      "name": "Hussain Naik Jatothu",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 17038,
+      "vote_share_pct": 8.1
+    },
+    {
+      "rank": 4,
+      "name": "Guguloth Shekar Naik",
+      "party_short": "BSP",
+      "votes": 2016,
+      "vote_share_pct": 0.96
+    },
+    {
+      "rank": 5,
+      "name": "Nunavath Ramesh",
+      "party_short": "IND",
+      "votes": 1498,
+      "vote_share_pct": 0.71
+    }
+  ],
+  "nota": {
+    "votes": 1932,
+    "vote_share_pct": 0.92
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4727,
+    "vote_share_pct": 2.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Murali Naik Bhukya",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 116644,
+    "margin_votes": 50171,
+    "margin_pct": 23.85
+  }
+}

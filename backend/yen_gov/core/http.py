@@ -47,6 +47,13 @@ class Fetcher:
         runtime_root: parent of .runtime/. Defaults to repo root (cwd).
         timeout_seconds, retry_attempts, retry_backoff_seconds, user_agent:
             mirror the fields under fetch in config/processing.json.
+        extra_headers: optional additional request headers merged on top of
+            ``User-Agent``. Used by sources that face Akamai-style WAFs which
+            reject minimalist client fingerprints (e.g. ECI's 2023 static
+            ``/all_files/full-statistical-reports/`` path returns 403 without
+            ``Sec-Fetch-*`` + ``Accept`` + ``Referer``). Keep this scoped to
+            the source's needs — spraying browser headers everywhere makes
+            it harder to debug WAF rejections.
     """
 
     def __init__(
@@ -58,13 +65,17 @@ class Fetcher:
         retry_attempts: int,
         retry_backoff_seconds: float,
         user_agent: str,
+        extra_headers: dict[str, str] | None = None,
     ) -> None:
         if not source or "/" in source or "\\" in source:
             raise ValueError(f"source must be a single path segment, got {source!r}")
         self._source = source
         self._raw_dir = runtime_root / ".runtime" / "raw" / source
+        headers: dict[str, str] = {"User-Agent": user_agent}
+        if extra_headers:
+            headers.update(extra_headers)
         self._client = httpx.Client(
-            headers={"User-Agent": user_agent},
+            headers=headers,
             timeout=timeout_seconds,
             follow_redirects=True,
         )

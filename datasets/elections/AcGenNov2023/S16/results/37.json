@@ -1,0 +1,78 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S16",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "Lawngtlai West (ST)",
+  "totals": {
+    "electors": 29542,
+    "votes_polled": 24937,
+    "turnout_pct": 84.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C. Ngunlianchunga",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 11296,
+      "vote_share_pct": 45.3,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "V. Zirsanga",
+      "party_short": "MNF",
+      "votes": 10864,
+      "vote_share_pct": 43.57
+    },
+    {
+      "rank": 3,
+      "name": "Lalnunsema",
+      "party_short": "ZPM",
+      "votes": 2312,
+      "vote_share_pct": 9.27
+    },
+    {
+      "rank": 4,
+      "name": "J.b. Rualchhinga",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 319,
+      "vote_share_pct": 1.28
+    },
+    {
+      "rank": 5,
+      "name": "C. Biakchhunga",
+      "party_short": "IND",
+      "votes": 65,
+      "vote_share_pct": 0.26
+    }
+  ],
+  "nota": {
+    "votes": 81,
+    "vote_share_pct": 0.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C. Ngunlianchunga",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 11296,
+    "margin_votes": 432,
+    "margin_pct": 1.73
+  },
+  "others": null
+}

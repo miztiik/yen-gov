@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Khanapur (ST)",
+  "totals": {
+    "electors": 220942,
+    "votes_polled": 174239,
+    "turnout_pct": 78.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vedma. Bhojju",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 58870,
+      "vote_share_pct": 33.79,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Johnson Naik Bhukya",
+      "party_short": "BHRS",
+      "votes": 54168,
+      "vote_share_pct": 31.09
+    },
+    {
+      "rank": 3,
+      "name": "Ramesh Rathod",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 52398,
+      "vote_share_pct": 30.07
+    },
+    {
+      "rank": 4,
+      "name": "Bansilal Rathod",
+      "party_short": "BSP",
+      "votes": 1706,
+      "vote_share_pct": 0.98
+    },
+    {
+      "rank": 5,
+      "name": "Nethavath Rajender",
+      "party_short": "IND",
+      "votes": 1294,
+      "vote_share_pct": 0.74
+    }
+  ],
+  "nota": {
+    "votes": 2114,
+    "vote_share_pct": 1.21
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3689,
+    "vote_share_pct": 2.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vedma. Bhojju",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 58870,
+    "margin_votes": 4702,
+    "margin_pct": 2.7
+  }
+}

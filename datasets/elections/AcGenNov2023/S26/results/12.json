@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "Jashpur (ST)",
+  "totals": {
+    "electors": 237786,
+    "votes_polled": 181056,
+    "turnout_pct": 76.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Raymuni Bhagat",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 89103,
+      "vote_share_pct": 49.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vinay Bhagat",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 71458,
+      "vote_share_pct": 39.47
+    },
+    {
+      "rank": 3,
+      "name": "Pradeep Xess",
+      "party_short": "IND",
+      "votes": 7571,
+      "vote_share_pct": 4.18
+    },
+    {
+      "rank": 4,
+      "name": "Prakash Toppo",
+      "party_short": "AAAP",
+      "votes": 2755,
+      "vote_share_pct": 1.52
+    },
+    {
+      "rank": 5,
+      "name": "Sarhul Ram Bhagat",
+      "party_short": "JCCJ",
+      "votes": 1769,
+      "vote_share_pct": 0.98
+    }
+  ],
+  "nota": {
+    "votes": 3324,
+    "vote_share_pct": 1.84
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 5076,
+    "vote_share_pct": 2.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Raymuni Bhagat",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 89103,
+    "margin_votes": 17645,
+    "margin_pct": 9.75
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 136,
+  "constituency_name": "Seoni-Malwa",
+  "totals": {
+    "electors": 245249,
+    "votes_polled": 207866,
+    "turnout_pct": 84.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Premshankar Kunjilal Verma",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 103882,
+      "vote_share_pct": 49.98,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ajay Balram Singh Patel",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 67868,
+      "vote_share_pct": 32.65
+    },
+    {
+      "rank": 3,
+      "name": "\"om Bhaiya\" Omprakash Hajarilal Raghuwanshi",
+      "party_short": "IND",
+      "votes": 18860,
+      "vote_share_pct": 9.07
+    },
+    {
+      "rank": 4,
+      "name": "Sunil Gour",
+      "party_short": "AAAP",
+      "votes": 4565,
+      "vote_share_pct": 2.2
+    },
+    {
+      "rank": 5,
+      "name": "Umed Singh Jat",
+      "party_short": "GGP",
+      "votes": 3829,
+      "vote_share_pct": 1.84
+    }
+  ],
+  "nota": {
+    "votes": 2298,
+    "vote_share_pct": 1.11
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 6564,
+    "vote_share_pct": 3.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Premshankar Kunjilal Verma",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 103882,
+    "margin_votes": 36014,
+    "margin_pct": 17.33
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 85,
+  "constituency_name": "Jaitpur (ST)",
+  "totals": {
+    "electors": 246489,
+    "votes_polled": 200717,
+    "turnout_pct": 81.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jaisingh Maravi",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 107698,
+      "vote_share_pct": 53.66,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Uma Dhurvey",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 75993,
+      "vote_share_pct": 37.86
+    },
+    {
+      "rank": 3,
+      "name": "Bharat Singh Oladi",
+      "party_short": "GGP",
+      "votes": 5090,
+      "vote_share_pct": 2.54
+    },
+    {
+      "rank": 4,
+      "name": "Katahura",
+      "party_short": "ASPKR",
+      "votes": 2098,
+      "vote_share_pct": 1.05
+    },
+    {
+      "rank": 5,
+      "name": "Shivprasad Singh Pavle",
+      "party_short": "IND",
+      "votes": 1431,
+      "vote_share_pct": 0.71
+    }
+  ],
+  "nota": {
+    "votes": 3626,
+    "vote_share_pct": 1.81
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4781,
+    "vote_share_pct": 2.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jaisingh Maravi",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 107698,
+    "margin_votes": 31705,
+    "margin_pct": 15.8
+  }
+}

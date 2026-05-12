@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 89,
+  "constituency_name": "Huzurnagar",
+  "totals": {
+    "electors": 247708,
+    "votes_polled": 215298,
+    "turnout_pct": 86.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Uttam Kumar Reddy Nalamada",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 116707,
+      "vote_share_pct": 54.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Saidi Reddy Shanampudi",
+      "party_short": "BHRS",
+      "votes": 71819,
+      "vote_share_pct": 33.36
+    },
+    {
+      "rank": 3,
+      "name": "Pillutla. Raghu",
+      "party_short": "AIFB",
+      "votes": 8280,
+      "vote_share_pct": 3.85
+    },
+    {
+      "rank": 4,
+      "name": "Challa Srilatha",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 3715,
+      "vote_share_pct": 1.73
+    },
+    {
+      "rank": 5,
+      "name": "Saidireddy. Timmareddi",
+      "party_short": "AODRP",
+      "votes": 2333,
+      "vote_share_pct": 1.08
+    }
+  ],
+  "nota": {
+    "votes": 843,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 11601,
+    "vote_share_pct": 5.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Uttam Kumar Reddy Nalamada",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 116707,
+    "margin_votes": 44888,
+    "margin_pct": 20.85
+  }
+}

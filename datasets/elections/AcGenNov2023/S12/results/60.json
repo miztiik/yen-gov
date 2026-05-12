@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "Panna",
+  "totals": {
+    "electors": 250874,
+    "votes_polled": 188993,
+    "turnout_pct": 75.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Brijendra Pratap Singh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 96668,
+      "vote_share_pct": 51.15,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bharat Milan Pandey",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 78758,
+      "vote_share_pct": 41.67
+    },
+    {
+      "rank": 3,
+      "name": "Lodhi Mahendra Pal Verma",
+      "party_short": "SP",
+      "votes": 2877,
+      "vote_share_pct": 1.52
+    },
+    {
+      "rank": 4,
+      "name": "Vimla Ahirwar",
+      "party_short": "BSP",
+      "votes": 2855,
+      "vote_share_pct": 1.51
+    },
+    {
+      "rank": 5,
+      "name": "Mevalal Ahirwar",
+      "party_short": "ASPKR",
+      "votes": 1138,
+      "vote_share_pct": 0.6
+    }
+  ],
+  "nota": {
+    "votes": 2364,
+    "vote_share_pct": 1.25
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4333,
+    "vote_share_pct": 2.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Brijendra Pratap Singh",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 96668,
+    "margin_votes": 17910,
+    "margin_pct": 9.48
+  }
+}

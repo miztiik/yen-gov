@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T17:41:23Z"
+      "fetched_at": "2026-05-12T18:39:31Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T17:41:23Z"
+      "fetched_at": "2026-05-12T18:39:31Z"
     }
   ],
   "election": "AcGenOct2024",
@@ -29,6 +29,7 @@
       "vote_share_pct": 23.43
     },
     {
+      "party_eci_code": "369",
       "party_short": "BJP",
       "seats_contested": 62,
       "seats_won": 29,
@@ -43,6 +44,7 @@
       "vote_share_pct": 16.64
     },
     {
+      "party_eci_code": "742",
       "party_short": "INC",
       "seats_contested": 39,
       "seats_won": 6,
@@ -64,6 +66,7 @@
       "vote_share_pct": 2.48
     },
     {
+      "party_eci_code": "547",
       "party_short": "CPI(M)",
       "seats_contested": 1,
       "seats_won": 1,

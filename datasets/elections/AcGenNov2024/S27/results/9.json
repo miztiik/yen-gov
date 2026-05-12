@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
-      "fetched_at": "2026-05-11T17:41:33Z"
+      "fetched_at": "2026-05-12T18:39:40Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
-      "fetched_at": "2026-05-11T17:41:33Z"
+      "fetched_at": "2026-05-12T18:39:40Z"
     }
   ],
   "election": "AcGenNov2024",
@@ -25,6 +25,7 @@
     {
       "rank": 1,
       "name": "IRFAN ANSARI",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 133266,
       "vote_share_pct": 54.62,
@@ -33,6 +34,7 @@
     {
       "rank": 2,
       "name": "SITA MURMU",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 89590,
       "vote_share_pct": 36.72
@@ -47,6 +49,7 @@
     {
       "rank": 4,
       "name": "LAKHAN LAL MANDAL",
+      "party_eci_code": "547",
       "party_short": "CPI(M)",
       "votes": 3553,
       "vote_share_pct": 1.46
@@ -71,6 +74,7 @@
   "top_n_cutoff": 5,
   "winner": {
     "name": "IRFAN ANSARI",
+    "party_eci_code": "742",
     "party_short": "INC",
     "votes": 133266,
     "margin_votes": 43676,

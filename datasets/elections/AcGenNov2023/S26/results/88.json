@@ -1,0 +1,83 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 88,
+  "constituency_name": "Dantewada (ST)",
+  "totals": {
+    "electors": 192806,
+    "votes_polled": 134532,
+    "turnout_pct": 69.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chaitram Atami",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 57739,
+      "vote_share_pct": 42.92,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Chhavindra Karma",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 40936,
+      "vote_share_pct": 30.43
+    },
+    {
+      "rank": 3,
+      "name": "Bhimsen Mandavi",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 9217,
+      "vote_share_pct": 6.85
+    },
+    {
+      "rank": 4,
+      "name": "Balloo Ram Bhawani",
+      "party_short": "AAAP",
+      "votes": 7202,
+      "vote_share_pct": 5.35
+    },
+    {
+      "rank": 5,
+      "name": "Keshav Netam",
+      "party_short": "BSP",
+      "votes": 5427,
+      "vote_share_pct": 4.03
+    }
+  ],
+  "nota": {
+    "votes": 8620,
+    "vote_share_pct": 6.41
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 5391,
+    "vote_share_pct": 4.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chaitram Atami",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 57739,
+    "margin_votes": 16803,
+    "margin_pct": 12.49
+  }
+}

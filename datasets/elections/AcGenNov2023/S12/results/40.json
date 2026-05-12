@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 40,
+  "constituency_name": "Naryoli (SC)",
+  "totals": {
+    "electors": 237119,
+    "votes_polled": 169548,
+    "turnout_pct": 71.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Er. Pradeep Lariya",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 88202,
+      "vote_share_pct": 52.02,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Advocate Surendra Choudhary",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 73790,
+      "vote_share_pct": 43.52
+    },
+    {
+      "rank": 3,
+      "name": "Arvind Tomar",
+      "party_short": "AAAP",
+      "votes": 2124,
+      "vote_share_pct": 1.25
+    },
+    {
+      "rank": 4,
+      "name": "Dharmendra Ahirwar",
+      "party_short": "ASPKR",
+      "votes": 1422,
+      "vote_share_pct": 0.84
+    },
+    {
+      "rank": 5,
+      "name": "Latori Prasad Suryavanshi",
+      "party_short": "BSP",
+      "votes": 1301,
+      "vote_share_pct": 0.77
+    }
+  ],
+  "nota": {
+    "votes": 1221,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1488,
+    "vote_share_pct": 0.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Er. Pradeep Lariya",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 88202,
+    "margin_votes": 14412,
+    "margin_pct": 8.5
+  }
+}

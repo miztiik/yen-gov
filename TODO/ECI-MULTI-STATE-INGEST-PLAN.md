@@ -1,7 +1,7 @@
 # ECI Statistical Report — Multi-State Ingest Plan
 
-**Status**: Planning (2026-05-11). Aligns with [IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR](IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) doctrine.
-**Correction Levels**: N1 = L2, N2 = L3, N3 = L4, N4 = N/A (already shipped).
+**Status**: Planning (2026-05-11; updated 2026-05-12 with N5 — 2023 cohort static-catalog path, and N6 — registry-backed `parties.json` for archived cohorts).
+**Correction Levels**: N1 = L2, N2 = L3, N3 = L4, N4 = N/A (already shipped), N5 = L3, N6 = L3.
 
 ## Scope reset
 
@@ -62,7 +62,55 @@ N3 closes that gap. For each missing `(state, year)`:
 
 **Hand-curated URLs and per-cohort metadata are the canonical method, not a workaround.** Past election results are frozen-in-time data: the bytes don't change once polling closes. Upstream URL schemes can and do rot (legacy 2022-2023 portal proves it), but the underlying truth is immutable. So a hand-maintained `events.py` registry + per-cohort `election.json` are the right shape — automation is a convenience for live cohorts only.
 
-**Out of scope**: the 16-state 2022-2023 legacy cohort. Those URLs are gone from the live portal and require either Wayback HTML scraping (with a new parser — the legacy HTML structure differs) or PDF extraction. Both are heavy, and ECI's data export practice may yet republish the cohort under a unified scheme. Defer until someone explicitly wants it.
+**Out of scope**: the remaining 12-state 2022-2023 legacy cohort (UP, Karnataka, etc.) whose Statistical Reports do not have a `www.eci.gov.in/<state>-legislative-election-<year>-statistical-report` landing page. Those URLs require either Wayback HTML scraping (with a new parser — the legacy HTML structure differs) or PDF extraction. Both are heavy, and ECI's data export practice may yet republish the cohort under a unified scheme. Defer until someone explicitly wants it. **The four 2023 states with new-portal landing pages (MP / Chhattisgarh / Mizoram / Telangana) are NO LONGER out of scope** — see N5.
+
+### N5 — Nov-2023 cohort via static-catalog adapter (L3, shipped 2026-05-12)
+
+Reconnaissance on 2026-05-12 found that four of the 16 legacy 2022-2023 cohort states publish their Statistical Report XLSX/PDF bundle under a NEW URL family the original ingest plan didn't account for:
+
+```
+https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/<state-slug>/2023/<Statement>.{xlsx,pdf}
+```
+
+Landing pages: `www.eci.gov.in/{mp,chhattisgarh,mizoram,telangana}-legislative-election-2023-statistical-report`.
+
+Key findings:
+- All 14 statements are present, same names as the 2024+ cohort (modulo two ECI typos preserved as-is in URLs: `Constituency_Data_Summery_Report.xlsx`, `Electors_Data_Summary_Annxure-1.xlsx`).
+- Section 10 Detailed Results uses a **14-column** layout: missing the 2024+ "OVER VALID VOTES + NOTA" / "OVER TOTAL ELECTORS" split, single "% VOTES POLLED" column instead.
+- Akamai WAF returns 403 unless the request includes `Sec-Fetch-*` + `Accept` + `Referer` headers (verified 2026-05-12).
+
+Minimal-surface-area implementation:
+
+1. **Parser (`statistical_report_detailed.py`)**: refactored to header-name-based column resolution. Same parser handles both the 14-col 2023 and 15-col 2024+ layouts; off-by-one is now impossible because nothing reads a fixed index.
+2. **Static catalog (`static_catalog.py`)**: synthesises a `CatalogResponse` from the published URL template, with `BROWSER_HEADERS` constant for the WAF. `resolve_catalog(state, year, *, fetcher)` is the single dispatcher — pinned `(state, year)` win over the static registry, so a future ECI republish under the unified API automatically takes over.
+3. **Fetcher**: gained an optional `extra_headers` parameter; only the static-catalog path uses it.
+4. **Events registry**: 4 new entries under `AcGenNov2023` cohort with `has_partywise=False`.
+5. **Catalogue + event metadata**: `datasets/reference/in/election-events.json` + `datasets/events/in/eci/AcGenNov2023/election.json` added.
+
+**Verified 2026-05-12** end-to-end against all four states with totals matching public records:
+
+| State | Code | ACs | Top result (matches public) |
+| --- | --- | --- | --- |
+| Madhya Pradesh | S12 | 230 | BJP=163 / INC=66 / BAP=1 |
+| Chhattisgarh | S26 | 90 | BJP=54 / INC=35 / GGP=1 |
+| Mizoram | S16 | 40 | ZPM=27 / MNF=10 / BJP=2 / INC=1 |
+| Telangana | S29 | 119 | INC=64 / BRS=39 / BJP=8 / AIMIM=7 / CPI=1 |
+
+Validator clean (139 + 2 new parser tests pass). `parties.json` is skipped (no partywise; same behaviour as the 2024+ archived cohort).
+
+### N6 — Registry-backed `parties.json` for archived cohorts (L3, shipped 2026-05-12)
+
+Follow-up to N2 — the original "`parties.json` skipped for archived events because the schema requires numeric `eci_code` and only the live partywise page publishes it" gap is now closed for parties that exist in *any* live cohort we have on disk.
+
+Approach: ECI numeric party codes are stable across elections (the same legal entity carries the same code), so we treat the existing on-disk `parties.json` files as a derivable canonical registry rather than going to a new upstream. Implementation:
+
+- `pipeline.compose.load_eci_party_registry(elections_root)` walks every `datasets/elections/<event>/<state>/parties.json` and aggregates `{short_name → (eci_code, full_name, source_urls)}`. Conflict (same short, different code) is a fail-loud `ValueError`, not a silent overwrite — party identity must be unambiguous.
+- `pipeline.compose.parties_snapshot_from_section3(...)` joins Section 3's `(short, full)` rows with the registry, returns the resolved subset plus the unresolved `short_name` list. Sources are composed per ADR-0002 as an aggregated artifact: Section 3 URL (the "which parties participated" claim) + every distinct partywise URL from the registry entries that contributed (the "this is its `eci_code`" claim).
+- `cli.eci-statreport-emit` archived branch now (a) feeds `party_eci_codes` into Section-10 mappers so per-AC results AND `result.summary.json` carry numeric codes, and (b) emits `parties.json` for the resolvable subset.
+
+Verified 2026-05-12: all 13 archived `(state, event)` slices now ship `parties.json`. Per-state resolution rate is bounded by what's in the May-2026 cohort (~29 unique shorts today), which covers BJP / INC / BSP / CPI / CPI(M) / NCP variants but misses many regional parties (AAAP, BJD, JMM, AIMIM, ZPM, MNF, BRS, JKN, JKPDP). The dropped shorts are logged on the emit line; consumers see them in `result.summary.json`'s `party_totals` (with `party_eci_code: null`) and via Section 10 candidate rows.
+
+**Why not 100%?** Going beyond the registry requires either (a) scraping `notification.eci.gov.in` for the canonical party-registration notifications (full Indian party universe ~2,800 entries; substantial new adapter), or (b) re-fetching past partywise pages from `results.eci.gov.in` for archived events (the original N2 recon showed `has_partywise=False` for the 10 archived 2024+ events, but a per-event Wayback probe might recover some). Both are out of scope for N6; tracked here for the next person who wants to push coverage to 100%.
 
 ### N4 — Indicator-first IA — ALREADY DONE
 

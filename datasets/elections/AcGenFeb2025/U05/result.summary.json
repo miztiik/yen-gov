@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/10-Detailed_Results_1744913508.xlsx",
-      "fetched_at": "2026-05-11T17:41:37Z"
+      "fetched_at": "2026-05-12T18:39:44Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/NCT_of_Delhi_Legislative_Assembly_Election_2025_2025/3-List_Of_Political_Parties_Participated_1744913224.xlsx",
-      "fetched_at": "2026-05-11T17:41:38Z"
+      "fetched_at": "2026-05-12T18:39:44Z"
     }
   ],
   "election": "AcGenFeb2025",
@@ -22,6 +22,7 @@
   },
   "party_totals": [
     {
+      "party_eci_code": "369",
       "party_short": "BJP",
       "seats_contested": 68,
       "seats_won": 48,
@@ -36,6 +37,7 @@
       "vote_share_pct": 43.57
     },
     {
+      "party_eci_code": "742",
       "party_short": "INC",
       "seats_contested": 70,
       "seats_won": 0,
@@ -113,6 +115,7 @@
       "vote_share_pct": 0.02
     },
     {
+      "party_eci_code": "544",
       "party_short": "CPI",
       "seats_contested": 5,
       "seats_won": 0,
@@ -176,6 +179,7 @@
       "vote_share_pct": 0.01
     },
     {
+      "party_eci_code": "547",
       "party_short": "CPI(M)",
       "seats_contested": 2,
       "seats_won": 0,

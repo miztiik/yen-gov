@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 79,
+  "constituency_name": "Chitrangi (ST)",
+  "totals": {
+    "electors": 250982,
+    "votes_polled": 180313,
+    "turnout_pct": 71.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Radha Ravindra Singh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 105410,
+      "vote_share_pct": 58.46,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Manik Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 45531,
+      "vote_share_pct": 25.25
+    },
+    {
+      "rank": 3,
+      "name": "Shailendra Horil Singh",
+      "party_short": "GGP",
+      "votes": 7813,
+      "vote_share_pct": 4.33
+    },
+    {
+      "rank": 4,
+      "name": "Mahadev Singh",
+      "party_short": "AAAP",
+      "votes": 6230,
+      "vote_share_pct": 3.46
+    },
+    {
+      "rank": 5,
+      "name": "Chh Otelal Singh Paigam",
+      "party_short": "BSCP",
+      "votes": 3327,
+      "vote_share_pct": 1.85
+    }
+  ],
+  "nota": {
+    "votes": 3463,
+    "vote_share_pct": 1.92
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 8539,
+    "vote_share_pct": 4.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Radha Ravindra Singh",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 105410,
+    "margin_votes": 59879,
+    "margin_pct": 33.21
+  }
+}

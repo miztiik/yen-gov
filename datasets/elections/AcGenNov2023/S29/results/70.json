@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 70,
+  "constituency_name": "Secunderabad",
+  "totals": {
+    "electors": 262539,
+    "votes_polled": 141148,
+    "turnout_pct": 53.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Padma Rao.t",
+      "party_short": "BHRS",
+      "votes": 78223,
+      "vote_share_pct": 55.42,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Adam Santhosh Kumar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 32983,
+      "vote_share_pct": 23.37
+    },
+    {
+      "rank": 3,
+      "name": "Mekala Sarangapani",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 25202,
+      "vote_share_pct": 17.86
+    },
+    {
+      "rank": 4,
+      "name": "Prakash Velpula",
+      "party_short": "BSP",
+      "votes": 652,
+      "vote_share_pct": 0.46
+    },
+    {
+      "rank": 5,
+      "name": "Banal Manjula",
+      "party_short": "AODRP",
+      "votes": 470,
+      "vote_share_pct": 0.33
+    }
+  ],
+  "nota": {
+    "votes": 1518,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 2100,
+    "vote_share_pct": 1.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Padma Rao.t",
+    "party_short": "BHRS",
+    "votes": 78223,
+    "margin_votes": 45240,
+    "margin_pct": 32.05
+  }
+}

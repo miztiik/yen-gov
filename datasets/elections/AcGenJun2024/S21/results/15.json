@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-SK/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T17:41:13Z"
+      "fetched_at": "2026-05-12T18:39:24Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-SK/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T17:41:13Z"
+      "fetched_at": "2026-05-12T18:39:24Z"
     }
   ],
   "election": "AcGenJun2024",
@@ -47,6 +47,7 @@
     {
       "rank": 4,
       "name": "Gopi Das Sharma (pokhrel)",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 256,
       "vote_share_pct": 1.99

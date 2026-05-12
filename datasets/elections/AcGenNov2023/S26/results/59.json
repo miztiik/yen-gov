@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Sanjari Balod",
+  "totals": {
+    "electors": 225116,
+    "votes_polled": 191505,
+    "turnout_pct": 85.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sangeeta Sinha",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 84649,
+      "vote_share_pct": 44.2,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rakesh Kumar Yadav",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 67603,
+      "vote_share_pct": 35.3
+    },
+    {
+      "rank": 3,
+      "name": "Meena Satyendra Sahu",
+      "party_short": "IND",
+      "votes": 27169,
+      "vote_share_pct": 14.19
+    },
+    {
+      "rank": 4,
+      "name": "Vinod Kumar Nagwanshi",
+      "party_short": "HMR",
+      "votes": 2777,
+      "vote_share_pct": 1.45
+    },
+    {
+      "rank": 5,
+      "name": "Chovendra Kumar Sahu",
+      "party_short": "AAAP",
+      "votes": 1687,
+      "vote_share_pct": 0.88
+    }
+  ],
+  "nota": {
+    "votes": 1375,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 6245,
+    "vote_share_pct": 3.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sangeeta Sinha",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 84649,
+    "margin_votes": 17046,
+    "margin_pct": 8.9
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "Bilaspur",
+  "totals": {
+    "electors": 251210,
+    "votes_polled": 143300,
+    "turnout_pct": 57.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Amar Agrawal",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 83022,
+      "vote_share_pct": 57.94,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Shailesh Pandey",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 54063,
+      "vote_share_pct": 37.73
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Ujwala Karade",
+      "party_short": "AAAP",
+      "votes": 1801,
+      "vote_share_pct": 1.26
+    },
+    {
+      "rank": 4,
+      "name": "Akhilesh Pandey",
+      "party_short": "JCCJ",
+      "votes": 835,
+      "vote_share_pct": 0.58
+    },
+    {
+      "rank": 5,
+      "name": "Shraddha Semson",
+      "party_short": "BSP",
+      "votes": 746,
+      "vote_share_pct": 0.52
+    }
+  ],
+  "nota": {
+    "votes": 866,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 1967,
+    "vote_share_pct": 1.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Amar Agrawal",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 83022,
+    "margin_votes": 28959,
+    "margin_pct": 20.21
+  }
+}

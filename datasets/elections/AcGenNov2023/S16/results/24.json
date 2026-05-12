@@ -1,0 +1,62 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S16",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Champhai South (ST)",
+  "totals": {
+    "electors": 21531,
+    "votes_polled": 17369,
+    "turnout_pct": 80.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Lt Col. Clement Lalhmingthanga",
+      "party_short": "ZPM",
+      "votes": 7323,
+      "vote_share_pct": 42.16,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "T.j Lalnuntluanga",
+      "party_short": "MNF",
+      "votes": 6994,
+      "vote_share_pct": 40.27
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Lallianchhunga",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 2956,
+      "vote_share_pct": 17.02
+    }
+  ],
+  "nota": {
+    "votes": 96,
+    "vote_share_pct": 0.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Lt Col. Clement Lalhmingthanga",
+    "party_short": "ZPM",
+    "votes": 7323,
+    "margin_votes": 329,
+    "margin_pct": 1.89
+  },
+  "others": null
+}

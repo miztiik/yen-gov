@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "Yakutpura",
+  "totals": {
+    "electors": 353141,
+    "votes_polled": 140434,
+    "turnout_pct": 39.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jaffar Hussain",
+      "party_short": "AIMIM",
+      "votes": 46153,
+      "vote_share_pct": 32.86,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Amjed Ullah Khan",
+      "party_short": "MBT",
+      "votes": 45275,
+      "vote_share_pct": 32.24
+    },
+    {
+      "rank": 3,
+      "name": "N Veerender Babu Yadav",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 22354,
+      "vote_share_pct": 15.92
+    },
+    {
+      "rank": 4,
+      "name": "Sama Sunder Reddy",
+      "party_short": "BHRS",
+      "votes": 15516,
+      "vote_share_pct": 11.05
+    },
+    {
+      "rank": 5,
+      "name": "K. Ravi Raj",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 6954,
+      "vote_share_pct": 4.95
+    }
+  ],
+  "nota": {
+    "votes": 704,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 22,
+    "votes": 3478,
+    "vote_share_pct": 2.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jaffar Hussain",
+    "party_short": "AIMIM",
+    "votes": 46153,
+    "margin_votes": 878,
+    "margin_pct": 0.63
+  }
+}

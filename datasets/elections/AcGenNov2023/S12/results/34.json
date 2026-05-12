@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "Mungaoli",
+  "totals": {
+    "electors": 214485,
+    "votes_polled": 171276,
+    "turnout_pct": 79.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Brajendra Singh Yadav",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 77062,
+      "vote_share_pct": 44.99,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rao Yadvendra Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 71640,
+      "vote_share_pct": 41.83
+    },
+    {
+      "rank": 3,
+      "name": "Mohan Singh Yadav",
+      "party_short": "BSP",
+      "votes": 15340,
+      "vote_share_pct": 8.96
+    },
+    {
+      "rank": 4,
+      "name": "Mukesh Lodhi",
+      "party_short": "ASPKR",
+      "votes": 3300,
+      "vote_share_pct": 1.93
+    },
+    {
+      "rank": 5,
+      "name": "Shreyansh",
+      "party_short": "IND",
+      "votes": 628,
+      "vote_share_pct": 0.37
+    }
+  ],
+  "nota": {
+    "votes": 1268,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2038,
+    "vote_share_pct": 1.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Brajendra Singh Yadav",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 77062,
+    "margin_votes": 5422,
+    "margin_pct": 3.17
+  }
+}

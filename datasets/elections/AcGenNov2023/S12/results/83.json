@@ -1,0 +1,78 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 83,
+  "constituency_name": "Beohari (ST)",
+  "totals": {
+    "electors": 278477,
+    "votes_polled": 209453,
+    "turnout_pct": 75.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sharad Juglal Kol",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 102816,
+      "vote_share_pct": 49.09,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ramlakhan Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 76334,
+      "vote_share_pct": 36.44
+    },
+    {
+      "rank": 3,
+      "name": "Purushottam Singh Maravi",
+      "party_short": "GGP",
+      "votes": 21279,
+      "vote_share_pct": 10.16
+    },
+    {
+      "rank": 4,
+      "name": "Devideen Baiga",
+      "party_short": "SPAKP",
+      "votes": 3231,
+      "vote_share_pct": 1.54
+    },
+    {
+      "rank": 5,
+      "name": "Ramdarash Majhi",
+      "party_short": "PPID",
+      "votes": 1993,
+      "vote_share_pct": 0.95
+    }
+  ],
+  "nota": {
+    "votes": 3800,
+    "vote_share_pct": 1.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sharad Juglal Kol",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 102816,
+    "margin_votes": 26482,
+    "margin_pct": 12.64
+  },
+  "others": null
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 135,
+  "constituency_name": "Harda",
+  "totals": {
+    "electors": 236012,
+    "votes_polled": 196570,
+    "turnout_pct": 83.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Ramkishore Dogne",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 94553,
+      "vote_share_pct": 48.1,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kamal Patel",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 93683,
+      "vote_share_pct": 47.66
+    },
+    {
+      "rank": 3,
+      "name": "Rajesh Karma",
+      "party_short": "IND",
+      "votes": 1520,
+      "vote_share_pct": 0.77
+    },
+    {
+      "rank": 4,
+      "name": "Prhlad Pentar",
+      "party_short": "BSP",
+      "votes": 1166,
+      "vote_share_pct": 0.59
+    },
+    {
+      "rank": 5,
+      "name": "Parashram Hire",
+      "party_short": "JAC",
+      "votes": 887,
+      "vote_share_pct": 0.45
+    }
+  ],
+  "nota": {
+    "votes": 2357,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2404,
+    "vote_share_pct": 1.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Ramkishore Dogne",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 94553,
+    "margin_votes": 870,
+    "margin_pct": 0.44
+  }
+}

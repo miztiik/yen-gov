@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 127,
+  "constituency_name": "Parasia (SC)",
+  "totals": {
+    "electors": 218599,
+    "votes_polled": 184776,
+    "turnout_pct": 84.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sohanlal Balmik",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 88227,
+      "vote_share_pct": 47.75,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Jyoti Dehariya",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 86059,
+      "vote_share_pct": 46.57
+    },
+    {
+      "rank": 3,
+      "name": "''santoshi Dehariya''",
+      "party_short": "IND",
+      "votes": 1706,
+      "vote_share_pct": 0.92
+    },
+    {
+      "rank": 4,
+      "name": "Jyoti Dehariya",
+      "party_short": "RPI(A)",
+      "votes": 1513,
+      "vote_share_pct": 0.82
+    },
+    {
+      "rank": 5,
+      "name": "Suresh Bunkar (satankar)",
+      "party_short": "IND",
+      "votes": 1446,
+      "vote_share_pct": 0.78
+    }
+  ],
+  "nota": {
+    "votes": 3049,
+    "vote_share_pct": 1.65
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2776,
+    "vote_share_pct": 1.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sohanlal Balmik",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 88227,
+    "margin_votes": 2168,
+    "margin_pct": 1.17
+  }
+}

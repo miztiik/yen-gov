@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 49,
+  "constituency_name": "Lal Bahadur Nagar",
+  "totals": {
+    "electors": 593762,
+    "votes_polled": 295131,
+    "turnout_pct": 49.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Devireddy Sudhir Reddy",
+      "party_short": "BHRS",
+      "votes": 111380,
+      "vote_share_pct": 37.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sama Ranga Reddy",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 89075,
+      "vote_share_pct": 30.18
+    },
+    {
+      "rank": 3,
+      "name": "Madhu Yaskhi Goud",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 83273,
+      "vote_share_pct": 28.22
+    },
+    {
+      "rank": 4,
+      "name": "Guvvala Sai Rama Krishna Mudhiraj",
+      "party_short": "BSP",
+      "votes": 1456,
+      "vote_share_pct": 0.49
+    },
+    {
+      "rank": 5,
+      "name": "Devireddy Sudheer Reddy",
+      "party_short": "IND",
+      "votes": 1373,
+      "vote_share_pct": 0.47
+    }
+  ],
+  "nota": {
+    "votes": 2966,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 43,
+    "votes": 5608,
+    "vote_share_pct": 1.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Devireddy Sudhir Reddy",
+    "party_short": "BHRS",
+    "votes": 111380,
+    "margin_votes": 22305,
+    "margin_pct": 7.56
+  }
+}

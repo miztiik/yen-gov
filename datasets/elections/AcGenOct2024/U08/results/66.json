@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T17:41:23Z"
+      "fetched_at": "2026-05-12T18:39:31Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T17:41:23Z"
+      "fetched_at": "2026-05-12T18:39:31Z"
     }
   ],
   "election": "AcGenOct2024",
@@ -25,6 +25,7 @@
     {
       "rank": 1,
       "name": "Rajiv Jasrotia",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 34157,
       "vote_share_pct": 51.94,
@@ -47,6 +48,7 @@
     {
       "rank": 4,
       "name": "Balbir Singh",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 3219,
       "vote_share_pct": 4.89
@@ -71,6 +73,7 @@
   "top_n_cutoff": 5,
   "winner": {
     "name": "Rajiv Jasrotia",
+    "party_eci_code": "369",
     "party_short": "BJP",
     "votes": 34157,
     "margin_votes": 12420,

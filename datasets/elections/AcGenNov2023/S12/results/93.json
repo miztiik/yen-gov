@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 93,
+  "constituency_name": "Murwara",
+  "totals": {
+    "electors": 249888,
+    "votes_polled": 176302,
+    "turnout_pct": 70.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sandeep Shriprasad Jaiswal",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 89652,
+      "vote_share_pct": 50.85,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mithlesh Jain, Advocate",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 64749,
+      "vote_share_pct": 36.73
+    },
+    {
+      "rank": 3,
+      "name": "Jyoti Vinay Dixit",
+      "party_short": "IND",
+      "votes": 8297,
+      "vote_share_pct": 4.71
+    },
+    {
+      "rank": 4,
+      "name": "Sunil Mishra",
+      "party_short": "AAAP",
+      "votes": 2240,
+      "vote_share_pct": 1.27
+    },
+    {
+      "rank": 5,
+      "name": "Santosh Shukla",
+      "party_short": "IND",
+      "votes": 2226,
+      "vote_share_pct": 1.26
+    }
+  ],
+  "nota": {
+    "votes": 969,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 8169,
+    "vote_share_pct": 4.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sandeep Shriprasad Jaiswal",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 89652,
+    "margin_votes": 24903,
+    "margin_pct": 14.13
+  }
+}

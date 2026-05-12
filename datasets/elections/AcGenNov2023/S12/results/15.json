@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Gwalior",
+  "totals": {
+    "electors": 301011,
+    "votes_polled": 197973,
+    "turnout_pct": 65.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pradhuman Singh Tomar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 104775,
+      "vote_share_pct": 52.92,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Sunil Sharma",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 85635,
+      "vote_share_pct": 43.26
+    },
+    {
+      "rank": 3,
+      "name": "Rohit Gupta",
+      "party_short": "AAAP",
+      "votes": 1816,
+      "vote_share_pct": 0.92
+    },
+    {
+      "rank": 4,
+      "name": "Nitin Singh Tomar (monty)",
+      "party_short": "BSP",
+      "votes": 1260,
+      "vote_share_pct": 0.64
+    },
+    {
+      "rank": 5,
+      "name": "Smt. Nidhi Sharma",
+      "party_short": "IND",
+      "votes": 434,
+      "vote_share_pct": 0.22
+    }
+  ],
+  "nota": {
+    "votes": 905,
+    "vote_share_pct": 0.46
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 3148,
+    "vote_share_pct": 1.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pradhuman Singh Tomar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 104775,
+    "margin_votes": 19140,
+    "margin_pct": 9.67
+  }
+}

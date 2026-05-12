@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Sangareddy",
+  "totals": {
+    "electors": 245329,
+    "votes_polled": 187506,
+    "turnout_pct": 76.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chinta Prabhakar",
+      "party_short": "BHRS",
+      "votes": 83112,
+      "vote_share_pct": 44.32,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "T. Jayaprakash Reddy",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 74895,
+      "vote_share_pct": 39.94
+    },
+    {
+      "rank": 3,
+      "name": "Pulimamidi Raju",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 20921,
+      "vote_share_pct": 11.16
+    },
+    {
+      "rank": 4,
+      "name": "Dodla. Venkat",
+      "party_short": "TPSP",
+      "votes": 2094,
+      "vote_share_pct": 1.12
+    },
+    {
+      "rank": 5,
+      "name": "Kyasaram Pravin Kumar",
+      "party_short": "BSP",
+      "votes": 1051,
+      "vote_share_pct": 0.56
+    }
+  ],
+  "nota": {
+    "votes": 811,
+    "vote_share_pct": 0.43
+  },
+  "others": {
+    "candidate_count": 23,
+    "votes": 4622,
+    "vote_share_pct": 2.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chinta Prabhakar",
+    "party_short": "BHRS",
+    "votes": 83112,
+    "margin_votes": 8217,
+    "margin_pct": 4.38
+  }
+}

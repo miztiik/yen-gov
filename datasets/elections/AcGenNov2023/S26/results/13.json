@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "Kunkuri (ST)",
+  "totals": {
+    "electors": 205625,
+    "votes_polled": 159560,
+    "turnout_pct": 77.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vishnu Deo Sai",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 87604,
+      "vote_share_pct": 54.9,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "U.d. Minj",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 62063,
+      "vote_share_pct": 38.9
+    },
+    {
+      "rank": 3,
+      "name": "Leos Minj",
+      "party_short": "AAAP",
+      "votes": 1945,
+      "vote_share_pct": 1.22
+    },
+    {
+      "rank": 4,
+      "name": "Albert Minj",
+      "party_short": "HMR",
+      "votes": 1749,
+      "vote_share_pct": 1.1
+    },
+    {
+      "rank": 5,
+      "name": "Kaushal Kumar Ohdar",
+      "party_short": "IND",
+      "votes": 842,
+      "vote_share_pct": 0.53
+    }
+  ],
+  "nota": {
+    "votes": 2531,
+    "vote_share_pct": 1.59
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2826,
+    "vote_share_pct": 1.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vishnu Deo Sai",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 87604,
+    "margin_votes": 25541,
+    "margin_pct": 16.01
+  }
+}

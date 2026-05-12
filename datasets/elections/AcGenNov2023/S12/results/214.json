@@ -1,0 +1,78 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 214,
+  "constituency_name": "Tarana (SC)",
+  "totals": {
+    "electors": 187690,
+    "votes_polled": 153953,
+    "turnout_pct": 82.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mahesh Parmar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 75819,
+      "vote_share_pct": 49.25,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Tarachand Goyal",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 73636,
+      "vote_share_pct": 47.83
+    },
+    {
+      "rank": 3,
+      "name": "Jagdish Chouhan",
+      "party_short": "BSP",
+      "votes": 1738,
+      "vote_share_pct": 1.13
+    },
+    {
+      "rank": 4,
+      "name": "Mahesh Parmar",
+      "party_short": "IND",
+      "votes": 1259,
+      "vote_share_pct": 0.82
+    },
+    {
+      "rank": 5,
+      "name": "Ramchandra Rathor",
+      "party_short": "IND",
+      "votes": 588,
+      "vote_share_pct": 0.38
+    }
+  ],
+  "nota": {
+    "votes": 913,
+    "vote_share_pct": 0.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mahesh Parmar",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 75819,
+    "margin_votes": 2183,
+    "margin_pct": 1.42
+  },
+  "others": null
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 83,
+  "constituency_name": "Kalwakurthy",
+  "totals": {
+    "electors": 241897,
+    "votes_polled": 202752,
+    "turnout_pct": 83.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kasireddy Narayan Reddy",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 75858,
+      "vote_share_pct": 37.41,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Achari Thalloju",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 70448,
+      "vote_share_pct": 34.75
+    },
+    {
+      "rank": 3,
+      "name": "Gurka Jaipal Yadav",
+      "party_short": "BHRS",
+      "votes": 42847,
+      "vote_share_pct": 21.13
+    },
+    {
+      "rank": 4,
+      "name": "Kommu Srinivasulu",
+      "party_short": "BSP",
+      "votes": 2667,
+      "vote_share_pct": 1.32
+    },
+    {
+      "rank": 5,
+      "name": "Adula Srinu",
+      "party_short": "AODRP",
+      "votes": 1941,
+      "vote_share_pct": 0.96
+    }
+  ],
+  "nota": {
+    "votes": 661,
+    "vote_share_pct": 0.33
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 8330,
+    "vote_share_pct": 4.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kasireddy Narayan Reddy",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 75858,
+    "margin_votes": 5410,
+    "margin_pct": 2.67
+  }
+}

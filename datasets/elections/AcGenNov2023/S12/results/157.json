@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 157,
+  "constituency_name": "Ashta (SC)",
+  "totals": {
+    "electors": 277494,
+    "votes_polled": 235425,
+    "turnout_pct": 84.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gopal Singh Engineer",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 118750,
+      "vote_share_pct": 50.44,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Kamal Singh Chauhan",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 110847,
+      "vote_share_pct": 47.08
+    },
+    {
+      "rank": 3,
+      "name": "Badrilal Kataria",
+      "party_short": "BSP",
+      "votes": 1854,
+      "vote_share_pct": 0.79
+    },
+    {
+      "rank": 4,
+      "name": "Ajay Parmar",
+      "party_short": "ASPKR",
+      "votes": 887,
+      "vote_share_pct": 0.38
+    },
+    {
+      "rank": 5,
+      "name": "Santosh Kumar Damdiya",
+      "party_short": "IND",
+      "votes": 474,
+      "vote_share_pct": 0.2
+    }
+  ],
+  "nota": {
+    "votes": 1467,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1146,
+    "vote_share_pct": 0.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gopal Singh Engineer",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 118750,
+    "margin_votes": 7903,
+    "margin_pct": 3.36
+  }
+}

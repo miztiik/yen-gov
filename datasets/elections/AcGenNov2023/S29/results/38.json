@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S29",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Zahirabad (SC)",
+  "totals": {
+    "electors": 270889,
+    "votes_polled": 209089,
+    "turnout_pct": 77.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Koninty Manik Rao",
+      "party_short": "BHRS",
+      "votes": 97205,
+      "vote_share_pct": 46.49,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "A.chandrasekhar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 84415,
+      "vote_share_pct": 40.37
+    },
+    {
+      "rank": 3,
+      "name": "Ramchander Rajanarsimha Cilarapu",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 13645,
+      "vote_share_pct": 6.53
+    },
+    {
+      "rank": 4,
+      "name": "Jangam Gopi",
+      "party_short": "BSP",
+      "votes": 5251,
+      "vote_share_pct": 2.51
+    },
+    {
+      "rank": 5,
+      "name": "Digwal Ramesh",
+      "party_short": "IND",
+      "votes": 1630,
+      "vote_share_pct": 0.78
+    }
+  ],
+  "nota": {
+    "votes": 613,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 6330,
+    "vote_share_pct": 3.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Koninty Manik Rao",
+    "party_short": "BHRS",
+    "votes": 97205,
+    "margin_votes": 12790,
+    "margin_pct": 6.12
+  }
+}

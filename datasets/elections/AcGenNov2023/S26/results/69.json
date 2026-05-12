@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 69,
+  "constituency_name": "Bemetara",
+  "totals": {
+    "electors": 247204,
+    "votes_polled": 197031,
+    "turnout_pct": 79.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dipesh Sahu",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 97731,
+      "vote_share_pct": 49.6,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ashish Chhabda",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 88597,
+      "vote_share_pct": 44.97
+    },
+    {
+      "rank": 3,
+      "name": "Rohit Sinha",
+      "party_short": "IND",
+      "votes": 2880,
+      "vote_share_pct": 1.46
+    },
+    {
+      "rank": 4,
+      "name": "Jitendra Navrange",
+      "party_short": "IND",
+      "votes": 2165,
+      "vote_share_pct": 1.1
+    },
+    {
+      "rank": 5,
+      "name": "Sushil Koshle",
+      "party_short": "IND",
+      "votes": 1040,
+      "vote_share_pct": 0.53
+    }
+  ],
+  "nota": {
+    "votes": 498,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 4120,
+    "vote_share_pct": 2.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dipesh Sahu",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 97731,
+    "margin_votes": 9134,
+    "margin_pct": 4.64
+  }
+}

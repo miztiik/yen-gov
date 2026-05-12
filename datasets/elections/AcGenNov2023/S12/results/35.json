@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 35,
+  "constituency_name": "Bina (SC)",
+  "totals": {
+    "electors": 190652,
+    "votes_polled": 143679,
+    "turnout_pct": 75.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Adv. Nirmla Sapre",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 72458,
+      "vote_share_pct": 50.43,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mahesh Rai",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 66303,
+      "vote_share_pct": 46.15
+    },
+    {
+      "rank": 3,
+      "name": "Ramendra Ahirwar",
+      "party_short": "BSP",
+      "votes": 2072,
+      "vote_share_pct": 1.44
+    },
+    {
+      "rank": 4,
+      "name": "Ramsingh Chadar",
+      "party_short": "IND",
+      "votes": 605,
+      "vote_share_pct": 0.42
+    },
+    {
+      "rank": 5,
+      "name": "Ahirwar Deepak Kumar",
+      "party_short": "SP",
+      "votes": 402,
+      "vote_share_pct": 0.28
+    }
+  ],
+  "nota": {
+    "votes": 1239,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 600,
+    "vote_share_pct": 0.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Adv. Nirmla Sapre",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 72458,
+    "margin_votes": 6155,
+    "margin_pct": 4.28
+  }
+}

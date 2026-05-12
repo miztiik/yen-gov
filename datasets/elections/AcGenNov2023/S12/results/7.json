@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 7,
+  "constituency_name": "Dimani",
+  "totals": {
+    "electors": 231809,
+    "votes_polled": 161714,
+    "turnout_pct": 69.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Narendra Singh Tomar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 79137,
+      "vote_share_pct": 48.94,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Balveer Singh Dandotiya",
+      "party_short": "BSP",
+      "votes": 54676,
+      "vote_share_pct": 33.81
+    },
+    {
+      "rank": 3,
+      "name": "Ravindra Singh Tomar Bhidosa",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 24006,
+      "vote_share_pct": 14.84
+    },
+    {
+      "rank": 4,
+      "name": "Mahesh Agrwal Mama",
+      "party_short": "SP",
+      "votes": 748,
+      "vote_share_pct": 0.46
+    },
+    {
+      "rank": 5,
+      "name": "Surendra Singh Tomar",
+      "party_short": "AAAP",
+      "votes": 675,
+      "vote_share_pct": 0.42
+    }
+  ],
+  "nota": {
+    "votes": 778,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1694,
+    "vote_share_pct": 1.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Narendra Singh Tomar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 79137,
+    "margin_votes": 24461,
+    "margin_pct": 15.13
+  }
+}

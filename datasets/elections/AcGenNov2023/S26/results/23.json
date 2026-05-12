@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Pali-Tanakhar (ST)",
+  "totals": {
+    "electors": 228459,
+    "votes_polled": 185163,
+    "turnout_pct": 81.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Tuleshwar Hira Singh Markam",
+      "party_short": "GGP",
+      "votes": 60862,
+      "vote_share_pct": 32.87,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Duleshwari Sidar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 60148,
+      "vote_share_pct": 32.48
+    },
+    {
+      "rank": 3,
+      "name": "Uike Ramdyal",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 46522,
+      "vote_share_pct": 25.12
+    },
+    {
+      "rank": 4,
+      "name": "Chhatrapal Singh Kanwar",
+      "party_short": "JCCJ",
+      "votes": 5053,
+      "vote_share_pct": 2.73
+    },
+    {
+      "rank": 5,
+      "name": "Chhavi Raj",
+      "party_short": "IND",
+      "votes": 3927,
+      "vote_share_pct": 2.12
+    }
+  ],
+  "nota": {
+    "votes": 3557,
+    "vote_share_pct": 1.92
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 5094,
+    "vote_share_pct": 2.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Tuleshwar Hira Singh Markam",
+    "party_short": "GGP",
+    "votes": 60862,
+    "margin_votes": 714,
+    "margin_pct": 0.39
+  }
+}

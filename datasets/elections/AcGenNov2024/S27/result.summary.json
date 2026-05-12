@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/10-Detailed_Results_1744892172.xlsx",
-      "fetched_at": "2026-05-11T17:41:33Z"
+      "fetched_at": "2026-05-12T18:39:40Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/Jharkhand_Legislative_Assembly_Election__2024_2024/3-List_Of_Political_Parties_Participated_1744890626.xlsx",
-      "fetched_at": "2026-05-11T17:41:33Z"
+      "fetched_at": "2026-05-12T18:39:40Z"
     }
   ],
   "election": "AcGenNov2024",
@@ -29,6 +29,7 @@
       "vote_share_pct": 23.44
     },
     {
+      "party_eci_code": "369",
       "party_short": "BJP",
       "seats_contested": 68,
       "seats_won": 21,
@@ -36,6 +37,7 @@
       "vote_share_pct": 33.18
     },
     {
+      "party_eci_code": "742",
       "party_short": "INC",
       "seats_contested": 30,
       "seats_won": 16,
@@ -43,6 +45,7 @@
       "vote_share_pct": 15.56
     },
     {
+      "party_eci_code": "1420",
       "party_short": "RJD",
       "seats_contested": 7,
       "seats_won": 4,
@@ -120,6 +123,7 @@
       "vote_share_pct": 0.27
     },
     {
+      "party_eci_code": "544",
       "party_short": "CPI",
       "seats_contested": 11,
       "seats_won": 0,
@@ -127,6 +131,7 @@
       "vote_share_pct": 0.2
     },
     {
+      "party_eci_code": "547",
       "party_short": "CPI(M)",
       "seats_contested": 9,
       "seats_won": 0,

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 167,
+  "constituency_name": "Shajapur",
+  "totals": {
+    "electors": 244174,
+    "votes_polled": 209087,
+    "turnout_pct": 85.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Arun Bhimawad",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 98960,
+      "vote_share_pct": 47.33,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Karada Hukumsingh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 98932,
+      "vote_share_pct": 47.32
+    },
+    {
+      "rank": 3,
+      "name": "Kantilal",
+      "party_short": "ASPKR",
+      "votes": 5689,
+      "vote_share_pct": 2.72
+    },
+    {
+      "rank": 4,
+      "name": "Bhagirath Bagaaniya",
+      "party_short": "BSP",
+      "votes": 1411,
+      "vote_share_pct": 0.67
+    },
+    {
+      "rank": 5,
+      "name": "Sunil",
+      "party_short": "IND",
+      "votes": 897,
+      "vote_share_pct": 0.43
+    }
+  ],
+  "nota": {
+    "votes": 1534,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1664,
+    "vote_share_pct": 0.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Arun Bhimawad",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 98960,
+    "margin_votes": 28,
+    "margin_pct": 0.01
+  }
+}

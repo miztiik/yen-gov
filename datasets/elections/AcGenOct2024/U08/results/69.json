@@ -4,11 +4,11 @@
   "sources": [
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/10-Detailed-Results.xlsx",
-      "fetched_at": "2026-05-11T17:41:23Z"
+      "fetched_at": "2026-05-12T18:39:31Z"
     },
     {
       "url": "https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-JK/3-List-Of-Political-Parties-Participated.xlsx",
-      "fetched_at": "2026-05-11T17:41:23Z"
+      "fetched_at": "2026-05-12T18:39:31Z"
     }
   ],
   "election": "AcGenOct2024",
@@ -25,6 +25,7 @@
     {
       "rank": 1,
       "name": "Dr Devinder Kumar Manyal",
+      "party_eci_code": "369",
       "party_short": "BJP",
       "votes": 35672,
       "vote_share_pct": 51.53,
@@ -33,6 +34,7 @@
     {
       "rank": 2,
       "name": "Yash Paul Kundal",
+      "party_eci_code": "742",
       "party_short": "INC",
       "votes": 21470,
       "vote_share_pct": 31.02
@@ -71,6 +73,7 @@
   "top_n_cutoff": 5,
   "winner": {
     "name": "Dr Devinder Kumar Manyal",
+    "party_eci_code": "369",
     "party_short": "BJP",
     "votes": 35672,
     "margin_votes": 14202,

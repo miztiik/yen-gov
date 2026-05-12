@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 137,
+  "constituency_name": "Hoshangabad",
+  "totals": {
+    "electors": 221218,
+    "votes_polled": 170657,
+    "turnout_pct": 77.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Sita Saran Sharma",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 73161,
+      "vote_share_pct": 42.87,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bhagvati Prasad Chourey",
+      "party_short": "IND",
+      "votes": 57655,
+      "vote_share_pct": 33.78
+    },
+    {
+      "rank": 3,
+      "name": "Girijashanker Sharma",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 33639,
+      "vote_share_pct": 19.71
+    },
+    {
+      "rank": 4,
+      "name": "Pradeep Manjhi",
+      "party_short": "BSP",
+      "votes": 1997,
+      "vote_share_pct": 1.17
+    },
+    {
+      "rank": 5,
+      "name": "Ajay Shukla",
+      "party_short": "IND",
+      "votes": 1024,
+      "vote_share_pct": 0.6
+    }
+  ],
+  "nota": {
+    "votes": 1444,
+    "vote_share_pct": 0.85
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1737,
+    "vote_share_pct": 1.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Sita Saran Sharma",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 73161,
+    "margin_votes": 15506,
+    "margin_pct": 9.09
+  }
+}

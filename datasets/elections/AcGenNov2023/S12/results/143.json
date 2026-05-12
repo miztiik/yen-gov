@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 143,
+  "constituency_name": "Silwani",
+  "totals": {
+    "electors": 225073,
+    "votes_polled": 186668,
+    "turnout_pct": 82.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Devendra Patel",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 95935,
+      "vote_share_pct": 51.39,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rampal Singh",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 84481,
+      "vote_share_pct": 45.26
+    },
+    {
+      "rank": 3,
+      "name": "Mohd Talat Khan",
+      "party_short": "ASPKR",
+      "votes": 1929,
+      "vote_share_pct": 1.03
+    },
+    {
+      "rank": 4,
+      "name": "Mueen Uddin",
+      "party_short": "IND",
+      "votes": 718,
+      "vote_share_pct": 0.38
+    },
+    {
+      "rank": 5,
+      "name": "Narendra Singh",
+      "party_short": "GGP",
+      "votes": 651,
+      "vote_share_pct": 0.35
+    }
+  ],
+  "nota": {
+    "votes": 2022,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 932,
+    "vote_share_pct": 0.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Devendra Patel",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 95935,
+    "margin_votes": 11454,
+    "margin_pct": 6.14
+  }
+}

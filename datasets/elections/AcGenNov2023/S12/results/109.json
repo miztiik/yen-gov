@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:09Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S12",
+  "body": "AC",
+  "eci_no": 109,
+  "constituency_name": "Lanji",
+  "totals": {
+    "electors": 248829,
+    "votes_polled": 212144,
+    "turnout_pct": 85.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajkumar Karrahe",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 101005,
+      "vote_share_pct": 47.61,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Hina Likhiram Kawre",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 98232,
+      "vote_share_pct": 46.3
+    },
+    {
+      "rank": 3,
+      "name": "Ashok Marathe",
+      "party_short": "BSP",
+      "votes": 3556,
+      "vote_share_pct": 1.68
+    },
+    {
+      "rank": 4,
+      "name": "Jyoti Ishwar Umre",
+      "party_short": "IND",
+      "votes": 1721,
+      "vote_share_pct": 0.81
+    },
+    {
+      "rank": 5,
+      "name": "Chunnelal Hardhe",
+      "party_short": "IND",
+      "votes": 1448,
+      "vote_share_pct": 0.68
+    }
+  ],
+  "nota": {
+    "votes": 1767,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4415,
+    "vote_share_pct": 2.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajkumar Karrahe",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 101005,
+    "margin_votes": 2773,
+    "margin_pct": 1.31
+  }
+}

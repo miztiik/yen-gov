@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:56Z"
+    }
+  ],
+  "election": "AcGenNov2023",
+  "state": "S26",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "Patan",
+  "totals": {
+    "electors": 217319,
+    "votes_polled": 183865,
+    "turnout_pct": 84.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhupesh Baghel",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 95438,
+      "vote_share_pct": 51.91,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vijay Baghel (sansad)",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 75715,
+      "vote_share_pct": 41.18
+    },
+    {
+      "rank": 3,
+      "name": "Amit Ajit Jogi",
+      "party_short": "JCCJ",
+      "votes": 4822,
+      "vote_share_pct": 2.62
+    },
+    {
+      "rank": 4,
+      "name": "Ramcharan Yadav",
+      "party_short": "IND",
+      "votes": 1276,
+      "vote_share_pct": 0.69
+    },
+    {
+      "rank": 5,
+      "name": "Ramchand Jangde",
+      "party_short": "IND",
+      "votes": 1250,
+      "vote_share_pct": 0.68
+    }
+  ],
+  "nota": {
+    "votes": 641,
+    "vote_share_pct": 0.35
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 4723,
+    "vote_share_pct": 2.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhupesh Baghel",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 95438,
+    "margin_votes": 19723,
+    "margin_pct": 10.73
+  }
+}
