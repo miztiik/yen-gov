@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { fileURLToPath } from "node:url";
@@ -102,6 +103,13 @@ export default defineConfig({
   },
   server: {
     fs: { allow: [repoRoot] },
+  },
+  // Vitest config — keep the unit-test runner away from Playwright's
+  // e2e/*.spec.ts files (they call test.describe() from @playwright/test,
+  // which throws when collected by vitest).
+  test: {
+    include: ["src/**/*.{test,spec}.{ts,js}"],
+    exclude: ["node_modules/**", "dist/**", "e2e/**"],
   },
   build: {
     outDir: "dist",
