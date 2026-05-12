@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 202,
+  "constituency_name": "RAJPUR (SC)",
+  "totals": {
+    "electors": 336695,
+    "votes_polled": 211325,
+    "turnout_pct": 62.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Santosh Kumar Nirala",
+      "party_short": "JD(U)",
+      "votes": 80701,
+      "vote_share_pct": 38.19,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vishwanath Ram",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 71565,
+      "vote_share_pct": 33.86
+    },
+    {
+      "rank": 3,
+      "name": "Lal Jee Ram",
+      "party_short": "BSP",
+      "votes": 20498,
+      "vote_share_pct": 9.7
+    },
+    {
+      "rank": 4,
+      "name": "Dhananjay Kumar",
+      "party_short": "JNSRJP",
+      "votes": 12491,
+      "vote_share_pct": 5.91
+    },
+    {
+      "rank": 5,
+      "name": "Shiv Kumar Ram",
+      "party_short": "SBSP",
+      "votes": 6749,
+      "vote_share_pct": 3.19
+    }
+  ],
+  "nota": {
+    "votes": 2778,
+    "vote_share_pct": 1.31
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 16543,
+    "vote_share_pct": 7.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Santosh Kumar Nirala",
+    "party_short": "JD(U)",
+    "votes": 80701,
+    "margin_votes": 9136,
+    "margin_pct": 4.32
+  }
+}

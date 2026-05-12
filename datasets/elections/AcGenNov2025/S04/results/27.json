@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "BAJPATTI",
+  "totals": {
+    "electors": 333004,
+    "votes_polled": 220241,
+    "turnout_pct": 66.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rameshwar Kumar Mehto",
+      "party_short": "RSHTLKM",
+      "votes": 99144,
+      "vote_share_pct": 45.02,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Mukesh Kumar Yadav",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 95749,
+      "vote_share_pct": 43.47
+    },
+    {
+      "rank": 3,
+      "name": "Aajam Khan",
+      "party_short": "JNSRJP",
+      "votes": 6174,
+      "vote_share_pct": 2.8
+    },
+    {
+      "rank": 4,
+      "name": "Md. Munna Mansuri",
+      "party_short": "IND",
+      "votes": 3105,
+      "vote_share_pct": 1.41
+    },
+    {
+      "rank": 5,
+      "name": "Rakesh Kumar",
+      "party_short": "TPLRSP",
+      "votes": 3080,
+      "vote_share_pct": 1.4
+    }
+  ],
+  "nota": {
+    "votes": 2303,
+    "vote_share_pct": 1.05
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 10686,
+    "vote_share_pct": 4.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rameshwar Kumar Mehto",
+    "party_short": "RSHTLKM",
+    "votes": 99144,
+    "margin_votes": 3395,
+    "margin_pct": 1.54
+  }
+}

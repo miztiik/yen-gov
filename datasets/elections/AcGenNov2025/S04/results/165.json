@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 165,
+  "constituency_name": "MUNGER",
+  "totals": {
+    "electors": 341931,
+    "votes_polled": 211307,
+    "turnout_pct": 61.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kumar Pranay",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 108028,
+      "vote_share_pct": 51.12,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Avinash Kumar Vidyarthi",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 89278,
+      "vote_share_pct": 42.25
+    },
+    {
+      "rank": 3,
+      "name": "Monazir Hassan",
+      "party_short": "AIMIM",
+      "votes": 3598,
+      "vote_share_pct": 1.7
+    },
+    {
+      "rank": 4,
+      "name": "Santosh Kumar Mandal",
+      "party_short": "IND",
+      "votes": 2035,
+      "vote_share_pct": 0.96
+    },
+    {
+      "rank": 5,
+      "name": "Sanjay Kumar Singh",
+      "party_short": "JNSRJP",
+      "votes": 1809,
+      "vote_share_pct": 0.86
+    }
+  ],
+  "nota": {
+    "votes": 3075,
+    "vote_share_pct": 1.46
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3484,
+    "vote_share_pct": 1.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kumar Pranay",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 108028,
+    "margin_votes": 18750,
+    "margin_pct": 8.87
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 75,
+  "constituency_name": "SAHARSA",
+  "totals": {
+    "electors": 370709,
+    "votes_polled": 259763,
+    "turnout_pct": 70.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Indrajeet Prasad Gupta",
+      "party_short": "IIP",
+      "votes": 115036,
+      "vote_share_pct": 44.28,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Alok Ranjan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 112998,
+      "vote_share_pct": 43.5
+    },
+    {
+      "rank": 3,
+      "name": "Kishor Kumar",
+      "party_short": "JNSRJP",
+      "votes": 12786,
+      "vote_share_pct": 4.92
+    },
+    {
+      "rank": 4,
+      "name": "Devchandra Yadav",
+      "party_short": "IND",
+      "votes": 4353,
+      "vote_share_pct": 1.68
+    },
+    {
+      "rank": 5,
+      "name": "Amar Shankar",
+      "party_short": "SWDP",
+      "votes": 2964,
+      "vote_share_pct": 1.14
+    }
+  ],
+  "nota": {
+    "votes": 2607,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 9019,
+    "vote_share_pct": 3.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Indrajeet Prasad Gupta",
+    "party_short": "IIP",
+    "votes": 115036,
+    "margin_votes": 2038,
+    "margin_pct": 0.78
+  }
+}

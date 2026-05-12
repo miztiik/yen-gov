@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 79,
+  "constituency_name": "GAURA BAURAM",
+  "totals": {
+    "electors": 261738,
+    "votes_polled": 168223,
+    "turnout_pct": 64.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sujit Kumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 77682,
+      "vote_share_pct": 46.18,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Afzal Ali Khan",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 72013,
+      "vote_share_pct": 42.81
+    },
+    {
+      "rank": 3,
+      "name": "Shyam Sundar Choudhary",
+      "party_short": "IND",
+      "votes": 6549,
+      "vote_share_pct": 3.89
+    },
+    {
+      "rank": 4,
+      "name": "Akhtar Shahansha",
+      "party_short": "AIMIM",
+      "votes": 3243,
+      "vote_share_pct": 1.93
+    },
+    {
+      "rank": 5,
+      "name": "Dr Md Iftekhar Alam",
+      "party_short": "JNSRJP",
+      "votes": 2506,
+      "vote_share_pct": 1.49
+    }
+  ],
+  "nota": {
+    "votes": 3663,
+    "vote_share_pct": 2.18
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2567,
+    "vote_share_pct": 1.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sujit Kumar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 77682,
+    "margin_votes": 5669,
+    "margin_pct": 3.37
+  }
+}

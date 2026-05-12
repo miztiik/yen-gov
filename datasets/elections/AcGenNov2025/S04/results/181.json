@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 181,
+  "constituency_name": "DIGHA",
+  "totals": {
+    "electors": 458367,
+    "votes_polled": 196142,
+    "turnout_pct": 42.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sanjiv Chaurasia",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 111001,
+      "vote_share_pct": 56.59,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Divya Gautam",
+      "party_short": "CPI(ML)(L)",
+      "votes": 51922,
+      "vote_share_pct": 26.47
+    },
+    {
+      "rank": 3,
+      "name": "Ritesh Ranjan Singh Alias Bittu Singh",
+      "party_short": "JNSRJP",
+      "votes": 22071,
+      "vote_share_pct": 11.25
+    },
+    {
+      "rank": 4,
+      "name": "Prabhakar Kr. Singh",
+      "party_short": "BSP",
+      "votes": 1930,
+      "vote_share_pct": 0.98
+    },
+    {
+      "rank": 5,
+      "name": "Indu Devi",
+      "party_short": "BMF",
+      "votes": 1732,
+      "vote_share_pct": 0.88
+    }
+  ],
+  "nota": {
+    "votes": 3102,
+    "vote_share_pct": 1.58
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4384,
+    "vote_share_pct": 2.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sanjiv Chaurasia",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 111001,
+    "margin_votes": 59079,
+    "margin_pct": 30.12
+  }
+}

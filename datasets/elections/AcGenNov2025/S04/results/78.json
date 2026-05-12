@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 78,
+  "constituency_name": "KUSHESHWAR ASTHAN (SC)",
+  "totals": {
+    "electors": 259912,
+    "votes_polled": 163976,
+    "turnout_pct": 63.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Atirek Kumar",
+      "party_short": "JD(U)",
+      "votes": 85685,
+      "vote_share_pct": 52.25,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ganesh Bharti",
+      "party_short": "IND",
+      "votes": 49244,
+      "vote_share_pct": 30.03
+    },
+    {
+      "rank": 3,
+      "name": "Shatrudhan Paswan",
+      "party_short": "JNSRJP",
+      "votes": 6488,
+      "vote_share_pct": 3.96
+    },
+    {
+      "rank": 4,
+      "name": "Satya Narayan Paswan",
+      "party_short": "MZEKP",
+      "votes": 5127,
+      "vote_share_pct": 3.13
+    },
+    {
+      "rank": 5,
+      "name": "Yogi Chaupal",
+      "party_short": "AAAP",
+      "votes": 3464,
+      "vote_share_pct": 2.11
+    }
+  ],
+  "nota": {
+    "votes": 6451,
+    "vote_share_pct": 3.93
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 7517,
+    "vote_share_pct": 4.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Atirek Kumar",
+    "party_short": "JD(U)",
+    "votes": 85685,
+    "margin_votes": 36441,
+    "margin_pct": 22.22
+  }
+}

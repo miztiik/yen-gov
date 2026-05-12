@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "HARSIDHI (SC)",
+  "totals": {
+    "electors": 274415,
+    "votes_polled": 202899,
+    "turnout_pct": 73.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Krishnanandan Paswan",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 96864,
+      "vote_share_pct": 47.74,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rajendra Kumar",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 89769,
+      "vote_share_pct": 44.24
+    },
+    {
+      "rank": 3,
+      "name": "Awadhesh Kumar",
+      "party_short": "JNSRJP",
+      "votes": 9568,
+      "vote_share_pct": 4.72
+    },
+    {
+      "rank": 4,
+      "name": "Rajendra Paswan",
+      "party_short": "IND",
+      "votes": 2100,
+      "vote_share_pct": 1.03
+    },
+    {
+      "rank": 5,
+      "name": "Jagdish Ram",
+      "party_short": "IND",
+      "votes": 800,
+      "vote_share_pct": 0.39
+    }
+  ],
+  "nota": {
+    "votes": 3146,
+    "vote_share_pct": 1.55
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 652,
+    "vote_share_pct": 0.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Krishnanandan Paswan",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 96864,
+    "margin_votes": 7095,
+    "margin_pct": 3.5
+  }
+}

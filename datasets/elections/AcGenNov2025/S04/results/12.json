@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "NARKATIA",
+  "totals": {
+    "electors": 301320,
+    "votes_polled": 223643,
+    "turnout_pct": 74.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vishal Kumar",
+      "party_short": "JD(U)",
+      "votes": 104450,
+      "vote_share_pct": 46.7,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Shamim Ahmad",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 103007,
+      "vote_share_pct": 46.06
+    },
+    {
+      "rank": 3,
+      "name": "Lal Babu Prasad",
+      "party_short": "JNSRJP",
+      "votes": 7002,
+      "vote_share_pct": 3.13
+    },
+    {
+      "rank": 4,
+      "name": "Md Harun Rashid",
+      "party_short": "IND",
+      "votes": 1937,
+      "vote_share_pct": 0.87
+    },
+    {
+      "rank": 5,
+      "name": "Washishth Prasad",
+      "party_short": "IND",
+      "votes": 1006,
+      "vote_share_pct": 0.45
+    }
+  ],
+  "nota": {
+    "votes": 5425,
+    "vote_share_pct": 2.43
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 816,
+    "vote_share_pct": 0.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vishal Kumar",
+    "party_short": "JD(U)",
+    "votes": 104450,
+    "margin_votes": 1443,
+    "margin_pct": 0.65
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "RAJGIR (SC)",
+  "totals": {
+    "electors": 299852,
+    "votes_polled": 186290,
+    "turnout_pct": 62.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kaushal Kishore",
+      "party_short": "JD(U)",
+      "votes": 107811,
+      "vote_share_pct": 57.87,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Bishwanath Chaudhary",
+      "party_short": "CPI(ML)(L)",
+      "votes": 52383,
+      "vote_share_pct": 28.12
+    },
+    {
+      "rank": 3,
+      "name": "Satyendra Kumar",
+      "party_short": "JNSRJP",
+      "votes": 9916,
+      "vote_share_pct": 5.32
+    },
+    {
+      "rank": 4,
+      "name": "Vijay Paswan",
+      "party_short": "IND",
+      "votes": 3249,
+      "vote_share_pct": 1.74
+    },
+    {
+      "rank": 5,
+      "name": "Mano Devi",
+      "party_short": "MOSP",
+      "votes": 2891,
+      "vote_share_pct": 1.55
+    }
+  ],
+  "nota": {
+    "votes": 6870,
+    "vote_share_pct": 3.69
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 3170,
+    "vote_share_pct": 1.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kaushal Kishore",
+    "party_short": "JD(U)",
+    "votes": 107811,
+    "margin_votes": 55428,
+    "margin_pct": 29.75
+  }
+}

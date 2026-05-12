@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 229,
+  "constituency_name": "BODH GAYA (SC)",
+  "totals": {
+    "electors": 329813,
+    "votes_polled": 231073,
+    "turnout_pct": 70.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kumar Sarvjeet",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 100236,
+      "vote_share_pct": 43.38,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Shyamdeo Paswan",
+      "party_short": "LJPRV",
+      "votes": 99355,
+      "vote_share_pct": 43.0
+    },
+    {
+      "rank": 3,
+      "name": "Nandlal Kumar",
+      "party_short": "IND",
+      "votes": 10181,
+      "vote_share_pct": 4.41
+    },
+    {
+      "rank": 4,
+      "name": "Lakshman Manjhi",
+      "party_short": "JNSRJP",
+      "votes": 4024,
+      "vote_share_pct": 1.74
+    },
+    {
+      "rank": 5,
+      "name": "Ashok Kumar Paswan",
+      "party_short": "VVCIP",
+      "votes": 3675,
+      "vote_share_pct": 1.59
+    }
+  ],
+  "nota": {
+    "votes": 5960,
+    "vote_share_pct": 2.58
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 7642,
+    "vote_share_pct": 3.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kumar Sarvjeet",
+    "party_eci_code": "1420",
+    "party_short": "RJD",
+    "votes": 100236,
+    "margin_votes": 881,
+    "margin_pct": 0.38
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 88,
+  "constituency_name": "GAIGHAT",
+  "totals": {
+    "electors": 322326,
+    "votes_polled": 223779,
+    "turnout_pct": 69.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Komal Singh",
+      "party_short": "JD(U)",
+      "votes": 108104,
+      "vote_share_pct": 48.31,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Niranjan Roy",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 84687,
+      "vote_share_pct": 37.84
+    },
+    {
+      "rank": 3,
+      "name": "Ashok Kumar Singh",
+      "party_short": "JNSRJP",
+      "votes": 10790,
+      "vote_share_pct": 4.82
+    },
+    {
+      "rank": 4,
+      "name": "Subodh Kumar Singh",
+      "party_short": "IND",
+      "votes": 6157,
+      "vote_share_pct": 2.75
+    },
+    {
+      "rank": 5,
+      "name": "Mithilesh Manjhi",
+      "party_short": "IND",
+      "votes": 3264,
+      "vote_share_pct": 1.46
+    }
+  ],
+  "nota": {
+    "votes": 3788,
+    "vote_share_pct": 1.69
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 6989,
+    "vote_share_pct": 3.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Komal Singh",
+    "party_short": "JD(U)",
+    "votes": 108104,
+    "margin_votes": 23417,
+    "margin_pct": 10.46
+  }
+}

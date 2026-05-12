@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 168,
+  "constituency_name": "LAKHISARAI",
+  "totals": {
+    "electors": 391944,
+    "votes_polled": 248820,
+    "turnout_pct": 63.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vijay Kumar Sinha",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 122408,
+      "vote_share_pct": 49.2,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Amaresh Kumar",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 97468,
+      "vote_share_pct": 39.17
+    },
+    {
+      "rank": 3,
+      "name": "Suraj Kumar",
+      "party_short": "JNSRJP",
+      "votes": 8722,
+      "vote_share_pct": 3.51
+    },
+    {
+      "rank": 4,
+      "name": "Vijay Kumar",
+      "party_short": "IND",
+      "votes": 4045,
+      "vote_share_pct": 1.63
+    },
+    {
+      "rank": 5,
+      "name": "Vikash Kumar Jagnani",
+      "party_short": "IND",
+      "votes": 2030,
+      "vote_share_pct": 0.82
+    }
+  ],
+  "nota": {
+    "votes": 5731,
+    "vote_share_pct": 2.3
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 8416,
+    "vote_share_pct": 3.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vijay Kumar Sinha",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 122408,
+    "margin_votes": 24940,
+    "margin_pct": 10.02
+  }
+}

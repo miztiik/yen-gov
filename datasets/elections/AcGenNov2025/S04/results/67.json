@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "MANIHARI (ST)",
+  "totals": {
+    "electors": 297676,
+    "votes_polled": 238259,
+    "turnout_pct": 80.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manohar Prasad Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 114754,
+      "vote_share_pct": 48.16,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Shambhu Kumar Suman",
+      "party_short": "JD(U)",
+      "votes": 99586,
+      "vote_share_pct": 41.8
+    },
+    {
+      "rank": 3,
+      "name": "Bablu Soren",
+      "party_short": "JNSRJP",
+      "votes": 7647,
+      "vote_share_pct": 3.21
+    },
+    {
+      "rank": 4,
+      "name": "Saif Ali Khan",
+      "party_short": "NCP",
+      "votes": 4865,
+      "vote_share_pct": 2.04
+    },
+    {
+      "rank": 5,
+      "name": "Ram Ratan Prasad",
+      "party_short": "RASLJP",
+      "votes": 3761,
+      "vote_share_pct": 1.58
+    }
+  ],
+  "nota": {
+    "votes": 2941,
+    "vote_share_pct": 1.23
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 4705,
+    "vote_share_pct": 1.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manohar Prasad Singh",
+    "party_eci_code": "742",
+    "party_short": "INC",
+    "votes": 114754,
+    "margin_votes": 15168,
+    "margin_pct": 6.37
+  }
+}

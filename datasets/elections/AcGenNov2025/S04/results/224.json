@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 224,
+  "constituency_name": "RAFIGANJ",
+  "totals": {
+    "electors": 333900,
+    "votes_polled": 224239,
+    "turnout_pct": 67.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pramod Kumar Singh",
+      "party_short": "JD(U)",
+      "votes": 107515,
+      "vote_share_pct": 47.95,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Ghulam Shahid",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 95559,
+      "vote_share_pct": 42.61
+    },
+    {
+      "rank": 3,
+      "name": "Suman Kumari",
+      "party_short": "BSP",
+      "votes": 4432,
+      "vote_share_pct": 1.98
+    },
+    {
+      "rank": 4,
+      "name": "Suryadeep Singh",
+      "party_short": "IND",
+      "votes": 4215,
+      "vote_share_pct": 1.88
+    },
+    {
+      "rank": 5,
+      "name": "Vikash Kumar Singh",
+      "party_short": "JNSRJP",
+      "votes": 3029,
+      "vote_share_pct": 1.35
+    }
+  ],
+  "nota": {
+    "votes": 4958,
+    "vote_share_pct": 2.21
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4531,
+    "vote_share_pct": 2.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pramod Kumar Singh",
+    "party_short": "JD(U)",
+    "votes": 107515,
+    "margin_votes": 11956,
+    "margin_pct": 5.33
+  }
+}

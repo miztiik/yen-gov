@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 135,
+  "constituency_name": "MORWA",
+  "totals": {
+    "electors": 269034,
+    "votes_polled": 196721,
+    "turnout_pct": 73.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ranvijay Sahu",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 77770,
+      "vote_share_pct": 39.53,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Vidya Sagar Singh Nishad",
+      "party_short": "JD(U)",
+      "votes": 69099,
+      "vote_share_pct": 35.13
+    },
+    {
+      "rank": 3,
+      "name": "Abhay Kumar Singh",
+      "party_short": "IND",
+      "votes": 30046,
+      "vote_share_pct": 15.27
+    },
+    {
+      "rank": 4,
+      "name": "Jagriti",
+      "party_short": "JNSRJP",
+      "votes": 4131,
+      "vote_share_pct": 2.1
+    },
+    {
+      "rank": 5,
+      "name": "Ranjeet Kumar",
+      "party_short": "APKSP",
+      "votes": 3259,
+      "vote_share_pct": 1.66
+    }
+  ],
+  "nota": {
+    "votes": 3571,
+    "vote_share_pct": 1.82
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 8845,
+    "vote_share_pct": 4.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ranvijay Sahu",
+    "party_eci_code": "1420",
+    "party_short": "RJD",
+    "votes": 77770,
+    "margin_votes": 8671,
+    "margin_pct": 4.41
+  }
+}

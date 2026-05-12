@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 172,
+  "constituency_name": "BIHARSHARIF",
+  "totals": {
+    "electors": 389706,
+    "votes_polled": 215019,
+    "turnout_pct": 55.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Sunil Kumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 109304,
+      "vote_share_pct": 50.83,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Omair Khan",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 80136,
+      "vote_share_pct": 37.27
+    },
+    {
+      "rank": 3,
+      "name": "Manoj Kumar Tanti",
+      "party_short": "IND",
+      "votes": 6315,
+      "vote_share_pct": 2.94
+    },
+    {
+      "rank": 4,
+      "name": "Dinesh Kumar",
+      "party_short": "JNSRJP",
+      "votes": 6044,
+      "vote_share_pct": 2.81
+    },
+    {
+      "rank": 5,
+      "name": "Mohit Kumar Alias Kundan Kumar",
+      "party_short": "IND",
+      "votes": 3405,
+      "vote_share_pct": 1.58
+    }
+  ],
+  "nota": {
+    "votes": 3524,
+    "vote_share_pct": 1.64
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 6291,
+    "vote_share_pct": 2.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Sunil Kumar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 109304,
+    "margin_votes": 29168,
+    "margin_pct": 13.57
+  }
+}

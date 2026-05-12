@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 102,
+  "constituency_name": "KUCHAIKOTE",
+  "totals": {
+    "electors": 300132,
+    "votes_polled": 202020,
+    "turnout_pct": 67.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Amrendra Kumar Pandey",
+      "party_short": "JD(U)",
+      "votes": 101425,
+      "vote_share_pct": 50.21,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Harinarayan Singh",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 76934,
+      "vote_share_pct": 38.08
+    },
+    {
+      "rank": 3,
+      "name": "Vijay Kumar Choubey",
+      "party_short": "JNSRJP",
+      "votes": 6077,
+      "vote_share_pct": 3.01
+    },
+    {
+      "rank": 4,
+      "name": "Baliram Singh",
+      "party_short": "BSP",
+      "votes": 5542,
+      "vote_share_pct": 2.74
+    },
+    {
+      "rank": 5,
+      "name": "Vishwakarma Sharma",
+      "party_short": "JRJP",
+      "votes": 2646,
+      "vote_share_pct": 1.31
+    }
+  ],
+  "nota": {
+    "votes": 5783,
+    "vote_share_pct": 2.86
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 3613,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Amrendra Kumar Pandey",
+    "party_short": "JD(U)",
+    "votes": 101425,
+    "margin_votes": 24491,
+    "margin_pct": 12.12
+  }
+}

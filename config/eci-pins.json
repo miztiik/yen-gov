@@ -78,10 +78,10 @@
     {
       "state": "S04",
       "year": 2025,
-      "category_id": 15,
+      "category_id": 16,
       "cat_name": "General Election to the Legislative Assembly of Bihar October to November 2025",
-      "confirmed_at": "2026-05-11T13:51:40.385239Z",
-      "notes": "243 documents in catalog. Bihar Oct-Nov 2025. ECI catalogue lists ids 15 and 16 with the same cat_name; 16 has suffix 'S' (likely supplementary). Pinned 15 as the primary."
+      "confirmed_at": "2026-05-12T20:15:00Z",
+      "notes": "14 documents in catalog (Statistical Report). ECI catalogue lists ids 15 and 16 with the same cat_name; 15 is the per-AC live-results catalogue (243 documents = 1 per AC), 16 is the Statement-level Statistical Report. We pin 16 because the Statement 10 (Detailed Results) XLSX is what our parser consumes. UI URL: https://www.eci.gov.in/statistical-report/ae/2025/16."
     },
     {
       "state": "S03",

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 127,
+  "constituency_name": "RAJA PAKAR (SC)",
+  "totals": {
+    "electors": 281602,
+    "votes_polled": 184018,
+    "turnout_pct": 65.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mahendra Ram",
+      "party_short": "JD(U)",
+      "votes": 96258,
+      "vote_share_pct": 52.31,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Pratima Kumari",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 48069,
+      "vote_share_pct": 26.12
+    },
+    {
+      "rank": 3,
+      "name": "Mohit Paswan",
+      "party_eci_code": "544",
+      "party_short": "CPI",
+      "votes": 12990,
+      "vote_share_pct": 7.06
+    },
+    {
+      "rank": 4,
+      "name": "Ajay Kumar Paswan",
+      "party_short": "IND",
+      "votes": 5748,
+      "vote_share_pct": 3.12
+    },
+    {
+      "rank": 5,
+      "name": "Mukesh Kumar",
+      "party_short": "JNSRJP",
+      "votes": 4701,
+      "vote_share_pct": 2.55
+    }
+  ],
+  "nota": {
+    "votes": 2137,
+    "vote_share_pct": 1.16
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 14115,
+    "vote_share_pct": 7.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mahendra Ram",
+    "party_short": "JD(U)",
+    "votes": 96258,
+    "margin_votes": 48189,
+    "margin_pct": 26.19
+  }
+}

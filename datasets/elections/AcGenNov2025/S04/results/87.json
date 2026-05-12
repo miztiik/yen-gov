@@ -1,0 +1,82 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "JALE",
+  "totals": {
+    "electors": 314779,
+    "votes_polled": 200365,
+    "turnout_pct": 63.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jibesh Kumar",
+      "party_eci_code": "369",
+      "party_short": "BJP",
+      "votes": 100496,
+      "vote_share_pct": 50.16,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Rishi Mishra",
+      "party_eci_code": "742",
+      "party_short": "INC",
+      "votes": 78634,
+      "vote_share_pct": 39.25
+    },
+    {
+      "rank": 3,
+      "name": "Ranjit Sharma",
+      "party_short": "JNSRJP",
+      "votes": 5150,
+      "vote_share_pct": 2.57
+    },
+    {
+      "rank": 4,
+      "name": "Faishal Rahman",
+      "party_short": "AIMIM",
+      "votes": 4666,
+      "vote_share_pct": 2.33
+    },
+    {
+      "rank": 5,
+      "name": "Maskoor Ahmad Usmani",
+      "party_short": "IND",
+      "votes": 4605,
+      "vote_share_pct": 2.3
+    }
+  ],
+  "nota": {
+    "votes": 2808,
+    "vote_share_pct": 1.4
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4006,
+    "vote_share_pct": 2.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jibesh Kumar",
+    "party_eci_code": "369",
+    "party_short": "BJP",
+    "votes": 100496,
+    "margin_votes": 21862,
+    "margin_pct": 10.91
+  }
+}

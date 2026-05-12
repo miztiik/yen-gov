@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 233,
+  "constituency_name": "ATRI",
+  "totals": {
+    "electors": 308538,
+    "votes_polled": 197645,
+    "turnout_pct": 64.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Romit Kumar",
+      "party_short": "HAMS",
+      "votes": 102102,
+      "vote_share_pct": 51.66,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Baijayanti Devi",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 76325,
+      "vote_share_pct": 38.62
+    },
+    {
+      "rank": 3,
+      "name": "Shailendra Kumar",
+      "party_short": "JNSRJP",
+      "votes": 3177,
+      "vote_share_pct": 1.61
+    },
+    {
+      "rank": 4,
+      "name": "Md. Vakil Varish",
+      "party_short": "BSP",
+      "votes": 2817,
+      "vote_share_pct": 1.43
+    },
+    {
+      "rank": 5,
+      "name": "Chandan",
+      "party_short": "IND",
+      "votes": 2112,
+      "vote_share_pct": 1.07
+    }
+  ],
+  "nota": {
+    "votes": 3516,
+    "vote_share_pct": 1.78
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 7596,
+    "vote_share_pct": 3.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Romit Kumar",
+    "party_short": "HAMS",
+    "votes": 102102,
+    "margin_votes": 25777,
+    "margin_pct": 13.04
+  }
+}

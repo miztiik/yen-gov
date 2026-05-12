@@ -46,8 +46,8 @@
         "polled_on": "2025-11-11",
         "term_end_estimated": "2030-11-10",
         "default": true,
-        "data_status": "pending_upstream",
-        "notes": "ECI has not yet published the Statistical Report Section 10 for this election (typical 6-18 month publication lag)."
+        "data_status": "complete",
+        "notes": "Statistical Report Section 10 ingested 2026-05-12 from category_id=16 (UI: https://www.eci.gov.in/statistical-report/ae/2025/16). 243 ACs."
       }
     ],
     "S07": [

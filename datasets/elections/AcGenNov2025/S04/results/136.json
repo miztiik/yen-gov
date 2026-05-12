@@ -1,0 +1,80 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "election": "AcGenNov2025",
+  "state": "S04",
+  "body": "AC",
+  "eci_no": 136,
+  "constituency_name": "SARAIRANJAN",
+  "totals": {
+    "electors": 283203,
+    "votes_polled": 208189,
+    "turnout_pct": 73.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vijay Kumar Choudhary",
+      "party_short": "JD(U)",
+      "votes": 102792,
+      "vote_share_pct": 49.37,
+      "is_winner": true
+    },
+    {
+      "rank": 2,
+      "name": "Arbind Kumar Sahani",
+      "party_eci_code": "1420",
+      "party_short": "RJD",
+      "votes": 81994,
+      "vote_share_pct": 39.38
+    },
+    {
+      "rank": 3,
+      "name": "Kunal Kumar",
+      "party_short": "IND",
+      "votes": 6182,
+      "vote_share_pct": 2.97
+    },
+    {
+      "rank": 4,
+      "name": "Sajan Kumar Mishra",
+      "party_short": "JNSRJP",
+      "votes": 5493,
+      "vote_share_pct": 2.64
+    },
+    {
+      "rank": 5,
+      "name": "Ranjit Kumar Pandit",
+      "party_short": "IND",
+      "votes": 4059,
+      "vote_share_pct": 1.95
+    }
+  ],
+  "nota": {
+    "votes": 4428,
+    "vote_share_pct": 2.13
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3241,
+    "vote_share_pct": 1.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vijay Kumar Choudhary",
+    "party_short": "JD(U)",
+    "votes": 102792,
+    "margin_votes": 20798,
+    "margin_pct": 9.99
+  }
+}
