@@ -9,10 +9,26 @@
 // Selectors prefer semantic queries (role, text) over CSS classes so the
 // tests survive a Tailwind refactor. The map components are NOT asserted
 // pixel-by-pixel — we just check the surrounding header copy is there,
-// because canvas content is not addressable through ARIA and the rest of
-// the page failing-fast is the real signal.
+// because canvas content is not addressable through the DOM and the rest
+// of the page failing-fast is the real signal.
+//
+// Every test attaches `attachPageErrorTrap` via beforeEach (CLAUDE.md §15:
+// "no `pageerror`" is non-negotiable for any citizen-visible route).
+// SourceList provenance is asserted on data-bearing routes.
 
 import { test, expect } from "@playwright/test";
+import { attachPageErrorTrap, SOURCE_LIST_TEXT } from "./_helpers";
+
+let trap: { getErrors: () => string[] };
+
+test.beforeEach(({ page }) => {
+  trap = attachPageErrorTrap(page);
+});
+
+test.afterEach(() => {
+  const errors = trap.getErrors();
+  expect(errors, `Page emitted runtime errors:\n${errors.join("\n")}`).toEqual([]);
+});
 
 test.describe("golden path", () => {
   test("home renders India map and Tamil Nadu link", async ({ page }) => {
@@ -32,6 +48,8 @@ test.describe("golden path", () => {
     // by href shape — name-based queries are brittle here because the
     // visible text concatenates eci_no + AC name + reservation tag.
     await expect(page.locator('a[href*="/ac/"]').first()).toBeVisible({ timeout: 15_000 });
+    // Provenance: SourceList renders "Sources (N)" once result.summary loads.
+    await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeVisible({ timeout: 15_000 });
   });
 
   test("constituency page renders top-N candidates", async ({ page }) => {
@@ -48,13 +66,10 @@ test.describe("golden path", () => {
 
   test("explore page lazy-loads sqlite without error", async ({ page }) => {
     // The /explore route mounts sql.js (sqlite-wasm). If the chunk fails
-    // to load, the route shows an error banner rather than crashing.
+    // to load, the route shows an error banner rather than crashing. The
+    // beforeEach pageerror trap covers the failure mode; here we just
+    // wait for network idle to confirm the wasm chunk + db both fetched.
     await page.goto("/s/tamil-nadu/explore");
-    // Either the editor heading or any visible content — we just want to
-    // confirm the route mounted without a runtime error.
-    const errors: string[] = [];
-    page.on("pageerror", e => errors.push(String(e)));
     await page.waitForLoadState("networkidle", { timeout: 30_000 });
-    expect(errors, errors.join("\n")).toEqual([]);
   });
 });

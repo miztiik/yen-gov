@@ -6,6 +6,13 @@ This file is the non-negotiable contract for any human or AI agent working in th
 
 > Project description: Indian election data — schema-first ingestion, processing, and static visualization. First slice: Tamil Nadu Legislative Assembly election, May 2026.
 
+## 0. Non-Goals (Project-Level Descopes)
+
+Explicit non-goals for yen-gov. Anything in this list is **out of scope** — do not add tests, lint rules, dependencies, agent doctrine, or design constraints for it. Revisiting requires an explicit user decision logged here as a removal.
+
+- **Accessibility (a11y / ARIA / WCAG / axe-core).** Descoped 2026-05-12 by user direction. No `axe-core`, `@axe-core/playwright`, contrast-ratio assertions, screen-reader spec, keyboard-nav spec, or `aria-*` enforcement at project level. The legend-has-numbers / colour-is-one-signal patterns remain in the design system because they aid **visual clarity for sighted citizens**, not because they satisfy a WCAG criterion. Agents (UI/UX Lead, Citizen User) MUST NOT raise a11y as a blocker, MUST NOT add a11y checklists to specs, and MUST NOT propose `aria-*` attributes as required work. If a future commit chooses to add an `aria-label` for clarity, that is fine; framing it as compliance is not. To re-scope a11y, edit this entry.
+- **Production backend.** See Holy Law #1 — listed here as a reminder, not a duplicate.
+
 ## 1. Holy Laws (Read First, Every Session)
 
 1. **Static-first production.** The deployed app is a static bundle on GitHub Pages. There is **no production backend**. Anything the UI needs at runtime ships in the bundle.
@@ -239,4 +246,4 @@ Non-negotiables:
 - Mocks remain forbidden (Holy Law #7) except: (a) `fetch` in unit tests of loaders — the loader's contract IS the fetch boundary, mocking it is testing the contract; (b) explicit user request.
 - A red test at commit time blocks the commit. "Skip this for now" is a structural fix request (§5), not a casual override.
 
-New tiers (component, accessibility, mobile, visual regression) tracked under §14 Open Questions until they ship; once shipped they get a row in the table above.
+New tiers (component, mobile, visual regression) tracked under §14 Open Questions until they ship; once shipped they get a row in the table above. Accessibility is a project-level non-goal per §0 and is intentionally absent from this table.
