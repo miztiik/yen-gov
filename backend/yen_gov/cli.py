@@ -1046,3 +1046,36 @@ def ingest_fiscal_datagovin(
         typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
 
 
+@app.command("ingest-fiscal-rbi-appendix")
+def ingest_fiscal_rbi_appendix(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+) -> None:
+    """Ingest RBI State Finances Appendix Tables → national fiscal indicators.
+
+    No network — reads the cached workbook from
+    .runtime/raw/rbi/state_finances/02_APP_devolution_transfers.xlsx
+    (operator drops it once after the annual RBI publication). Emits
+    national-aggregate time series complementing the per-state
+    indicators from `ingest-fiscal-rbi`. See
+    backend/yen_gov/sources/rbi_appendix_national/parsers.py for the
+    item → indicator mapping.
+    """
+    from yen_gov.sources.rbi_appendix_national import ingest as rbi_app_mod
+
+    schema_dir = root / "datasets" / "schemas"
+    result = rbi_app_mod.ingest(repo_root=root, schema_dir=schema_dir)
+
+    typer.echo("ingest-fiscal-rbi-appendix: OK")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    cache mtime:  {r.workbook_fetched_at.isoformat()}")
+        typer.echo(f"    sheets:       {r.sheet_count}")
+        typer.echo(f"    period cells: {r.period_count}")
+        typer.echo(f"    rows written: {r.row_count}")
+        typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
+
+

@@ -35,9 +35,16 @@
           "featured": false,
           "scope": "national",
           "peer_set_default": "all"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/national_centre_transfers_total",
+          "default": false,
+          "featured": false,
+          "scope": "national"
         }
       ],
-      "notes": "Debt and deficit are co-determined by central transfers \u2014 the transfers indicators (RBI Net via `fiscal/net_transfers_from_centre`, Rajya Sabha Gross via `fiscal/centre_transfers_gross`) are the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. RBI Net covers FY24 Accounts + FY25 RE + FY26 BE; Rajya Sabha Gross covers FY17\u2013FY23 (longer historical run, devolution + grants pre-adjustments)."
+      "notes": "Debt and deficit are co-determined by central transfers \u2014 the transfers indicators (RBI Net via `fiscal/net_transfers_from_centre`, Rajya Sabha Gross via `fiscal/centre_transfers_gross`) are the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. RBI Net covers FY24 Accounts + FY25 RE + FY26 BE; Rajya Sabha Gross covers FY17\u2013FY23 (longer historical run, devolution + grants pre-adjustments). The all-India aggregate equivalent (RBI Net Centre→States transfers, FY08\u2013FY26, 19y) is `fiscal/national_centre_transfers_total` \u2014 a country-entity series for the macro envelope view; its data shape is incompatible with the per-state choropleth (it carries one row per FY for `entity_id=\"IN\"`)."
     },
     {
       "id": "energy",

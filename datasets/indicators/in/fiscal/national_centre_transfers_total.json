@@ -1,0 +1,140 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.1",
+  "sources": [
+    {
+      "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
+      "fetched_at": "2026-05-11T14:50:50Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (national aggregate)",
+    "temporal": "2007-04..2025-04",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "fiscal/national_centre_transfers_total",
+    "title": "Net Centre-to-States transfers (all-India)",
+    "description": "Total resources transferred from the Central Government to all State governments combined in each fiscal year, net of loan repayments and interest payments back to the Centre. The all-India aggregate equivalent of the per-state transfers indicators — useful for the macro question 'how big is the Centre's transfer envelope, and how has it grown?'. The number RBI publishes is Item VI of Appendix Table 2 ('Net Transfer of Resources from the Centre = Gross Transfer minus Repayments and Interest Liabilities').",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "INR (crore)",
+    "icon": "landmark",
+    "attribution_geography": "where_administered",
+    "comparability": "comparable_with_normalisation",
+    "funding_split": {
+      "centre_pct": 100,
+      "state_pct": 0,
+      "source": "definition (own vs centrally-transferred)"
+    },
+    "implementing_authority": "centre",
+    "methodology_vintage": "RBI State Finances: A Study of Budgets, Appendix Table 2; cached file mtime 2026-05-11T14:50:50Z",
+    "notes": "Source: RBI 'State Finances: A Study of Budgets', Appendix Table 2 ('Devolution and Transfer of Resources from the Centre'), Item VI 'Net Transfer of Resources from the Centre'. Values are in nominal ₹ Crore (1 Crore = 10 million); they are NOT inflation-adjusted, so the historical curve reflects price level changes as much as real flows. For fiscal years that appear in the workbook with multiple qualifiers (e.g. 2023-24 ships as both 'Accounts' and 'Budget Estimates'), the Accounts (actual) figure is preferred. The latest two years are RE / BE only. From 2017-18 onwards the figures include Delhi and Puducherry."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 247299.2
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 279124.2
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 303011.4
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 373806.1
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 432544.4
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 472178.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 515965.8
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 661319.1
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 824918.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 961783.9
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1005533.8
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1184931.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1185856.7
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1365435.2
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1675003.9
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1688431.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1735685.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 2080701.7
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 2270812.3
+    }
+  ]
+}
