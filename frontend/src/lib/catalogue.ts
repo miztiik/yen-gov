@@ -29,6 +29,36 @@ export type PeerSet =
   | "landlocked_states"
   | "art_371_states";
 
+/**
+ * Runtime list of every valid `PeerSet` value, in the same order as the
+ * type union above. Used by query-string parsers and validators that
+ * need to check a string at runtime (TypeScript's union types disappear
+ * at runtime, so we maintain the list here in lockstep).
+ *
+ * If you add a new PeerSet variant, add it here AND to the type union AND
+ * to `state-tiers.json`'s tier list — `nonEmptyTierIds()` and the topic
+ * catalogue's `peer_set_default` constraints both depend on this set.
+ */
+export const PEER_SET_VALUES: readonly PeerSet[] = [
+  "all",
+  "general_category",
+  "special_category",
+  "neh",
+  "himalayan",
+  "ut_legislature",
+  "ut_no_legislature",
+  "nct_delhi",
+  "fc_horizontal_devolution_share_quintile",
+  "coastal_states",
+  "landlocked_states",
+  "art_371_states",
+] as const;
+
+/** Type guard: true when `s` is a valid PeerSet value. */
+export function isPeerSet(s: string): s is PeerSet {
+  return (PEER_SET_VALUES as readonly string[]).includes(s);
+}
+
 export interface CatalogueArtifact {
   kind: ArtifactKind;
   id: string;

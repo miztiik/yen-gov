@@ -35,6 +35,7 @@
     type StateTiersFile,
   } from "../lib/state-tiers";
   import { url } from "../lib/url";
+  import { parseTopicQuery, serializeTopicQuery } from "../lib/topic-query";
 
   interface Props {
     params: { topic: string };
@@ -64,12 +65,54 @@
   );
 
   // Per-artifact peer-set state, identical pattern to StateOverview.
+  // Initial values come from `?peer=<id>` (P3.3d) when present — it
+  // overrides the catalogue's per-artifact default for EVERY artifact on
+  // the page so a shared URL produces the same view for the recipient.
+  // User-driven changes write back to `?peer=` via `history.replaceState`
+  // (no new history entry — the back button still navigates to /t).
   let peer_set_overrides = $state<Record<string, PeerSet>>({});
+
+  function read_query_peer(): PeerSet | null {
+    if (typeof window === "undefined") return null;
+    return parseTopicQuery(window.location.search).peer;
+  }
+
+  function apply_query_peer(): void {
+    const p = read_query_peer();
+    // Replace overrides wholesale: an absent `?peer=` clears any
+    // user-set overrides on back/forward navigation.
+    peer_set_overrides = p ? { __global: p } : {};
+  }
+
+  // Initial read on mount + re-read on back/forward navigation. The
+  // router fires `popstate` for every internal navigation, so this also
+  // covers the case where the user clicks a topic link that shares this
+  // route component but with a different `?peer=`.
+  if (typeof window !== "undefined") {
+    apply_query_peer();
+    window.addEventListener("popstate", apply_query_peer);
+  }
+
   function peer_set_for(t: CatalogueTopic, a: CatalogueArtifact): PeerSet {
-    return peer_set_overrides[a.id] ?? resolvePeerSetDefault(t, a);
+    // Order: per-artifact override > global ?peer= > catalogue default.
+    return (
+      peer_set_overrides[a.id]
+      ?? peer_set_overrides.__global
+      ?? resolvePeerSetDefault(t, a)
+    );
   }
   function set_peer_set(_t: CatalogueTopic, a: CatalogueArtifact, next: PeerSet) {
     peer_set_overrides = { ...peer_set_overrides, [a.id]: next };
+    // Mirror the most-recently-set value to `?peer=` so the URL stays
+    // shareable. v0 limitation documented in lib/topic-query.ts: a
+    // single `?peer` slot means the URL captures the last-set value, not
+    // per-artifact fidelity. `replaceState` so the back button still
+    // takes the user to /t, not to a stack of intermediate filter steps.
+    if (typeof window !== "undefined") {
+      const search = serializeTopicQuery({ peer: next });
+      const target = window.location.pathname + search + window.location.hash;
+      history.replaceState(null, "", target);
+    }
   }
 </script>
 
@@ -94,9 +137,13 @@
     </div>
   {:else}
     <header class="space-y-2">
-      <p class="text-sm">
-        <a href={url.topics()} class="text-sky-700 hover:underline">← All topics</a>
-      </p>
+      <nav aria-label="Breadcrumb" class="text-xs text-slate-500">
+        <ol class="flex items-center gap-1 list-none p-0 m-0">
+          <li><a href={url.topics()} class="hover:text-sky-700 hover:underline">Topics</a></li>
+          <li aria-hidden="true" class="text-slate-400">›</li>
+          <li class="text-slate-700" aria-current="page">{topic.title}</li>
+        </ol>
+      </nav>
       <div class="flex items-baseline gap-3 flex-wrap">
         <h1 class="text-2xl font-semibold">{topic.title}</h1>
         <ListBadge list={topic.list} />
