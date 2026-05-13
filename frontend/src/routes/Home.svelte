@@ -1,27 +1,84 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
   import { fetchStates, type StateEntry } from "../lib/data";
   import { fetchTopicCatalogue, type TopicCatalogue } from "../lib/catalogue";
   import IndiaMap from "../lib/maplibre/IndiaMap.svelte";
+  import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import { STATE_NAME_TO_ECI } from "../lib/maplibre/sources";
   import { url } from "../lib/url";
+  import {
+    defaultHomeTheme,
+    homeThemeOptions,
+    parseHomeTheme,
+    sameTheme,
+    serializeHomeTheme,
+    themeCaption,
+    type HomeTheme,
+  } from "../lib/home-theme";
 
   // The IndiaMap colours each state by its leading party in that state's
   // *own* default election event (resolved from
   // datasets/reference/in/election-events.json), so states from different
   // cohorts (May-2026, Nov-2024, Nov-2023, ...) all show up together.
   // No global "current election" — per ADR-0023 / ADR-0022.
+  //
+  // P5 of the IA reset adds a theme switch on top: the same India outline
+  // can be re-coloured by any national-scope indicator from the catalogue
+  // (`?theme=indicator/<id>`). The election theme stays default because
+  // every event in election-events.json is currently `data_status: complete`
+  // — see frontend/src/lib/home-theme.ts for the default-theme logic.
 
   let states = $state<StateEntry[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
   let error = $state<string | null>(null);
+  // Tracked separately from the parsed theme so the UI can mount in
+  // election mode immediately and re-derive once the catalogue arrives
+  // (which is when ?theme=indicator/<id> validation can run).
+  let theme = $state<HomeTheme>({ kind: "election" });
 
   fetchStates()
     .then(s => (states = s.states))
     .catch(e => (error = String(e)));
 
   fetchTopicCatalogue()
-    .then(c => (catalogue = c))
+    .then(c => {
+      catalogue = c;
+      // Re-parse now that we can validate indicator ids.
+      sync_theme_from_url();
+    })
     .catch(e => (error = String(e)));
+
+  function sync_theme_from_url(): void {
+    const parsed = parseHomeTheme(window.location.search, catalogue);
+    const next = parsed ?? defaultHomeTheme(catalogue);
+    if (!sameTheme(theme, next)) theme = next;
+  }
+
+  function on_theme_change(value: string): void {
+    const opt = options.find(o => o.value === value);
+    if (!opt) return;
+    if (sameTheme(theme, opt.theme)) return;
+    theme = opt.theme;
+    const search = serializeHomeTheme(opt.theme);
+    const next = search ? `${window.location.pathname}?theme=${search}` : window.location.pathname;
+    window.history.replaceState(null, "", next);
+  }
+
+  onMount(() => {
+    sync_theme_from_url();
+    window.addEventListener("popstate", sync_theme_from_url);
+    return () => window.removeEventListener("popstate", sync_theme_from_url);
+  });
+
+  const options = $derived(homeThemeOptions(catalogue));
+  const caption = $derived(themeCaption(theme, catalogue));
+  const current_value = $derived(
+    theme.kind === "election" ? "election" : `indicator/${theme.id}`,
+  );
+  const indicator_path = $derived(
+    theme.kind === "indicator" ? `/indicators/in/${theme.id}.json` : null,
+  );
 
   // Availability is decoupled from election-data presence (ADR-0022, P2.3 of
   // IA reset). When the catalogue has any national-scope indicator artifact,
@@ -56,9 +113,46 @@
     </p>
   </header>
 
-  <section class="bg-white rounded-lg shadow-sm p-4">
-    <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">India — leading party by state</h2>
-    <IndiaMap />
+  <section class="bg-white rounded-lg shadow-sm p-4 space-y-3">
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-sm font-semibold uppercase text-slate-500">
+        India —
+        {#key caption}
+          <span
+            in:fade={{ duration: 180 }}
+            out:fade={{ duration: 120 }}
+            class="inline-block normal-case font-semibold text-slate-700"
+          >{caption}</span>
+        {/key}
+      </h2>
+      {#if options.length > 1}
+        <label class="flex items-center gap-2 text-xs text-slate-600">
+          <span class="uppercase tracking-wide text-[10px] text-slate-500">Theme</span>
+          <select
+            class="border border-slate-300 rounded px-2 py-1 text-sm bg-white"
+            value={current_value}
+            onchange={(e) => on_theme_change((e.currentTarget as HTMLSelectElement).value)}
+          >
+            {#each Array.from(new Set(options.map(o => o.group))) as group}
+              <optgroup label={group}>
+                {#each options.filter(o => o.group === group) as opt}
+                  <option value={opt.value}>{opt.label}</option>
+                {/each}
+              </optgroup>
+            {/each}
+          </select>
+        </label>
+      {/if}
+    </div>
+    {#key current_value}
+      <div in:fade={{ duration: 200 }}>
+        {#if theme.kind === "election"}
+          <IndiaMap />
+        {:else if indicator_path}
+          <IndicatorChoropleth indicator_path={indicator_path} height="520px" />
+        {/if}
+      </div>
+    {/key}
   </section>
 
   {#if error}
