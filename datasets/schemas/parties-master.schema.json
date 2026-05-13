@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/parties-master.schema.json",
+  "title": "Parties master registry (national + state recognised)",
+  "description": "Centralized, hand-curated registry of political parties in India that are currently or historically recognised by the Election Commission of India (national or state). Per-event parties.json snapshots reference this registry rather than duplicating curation. Companion file parties-discovered.json (parties-discovered.schema.json) carries the auto-extended overlay for parties seen in election results that are not (yet) in this master.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-12",
+      "description": "Initial schema. Single central registry keyed on (eci_code when known, else short_name). Recognition limited to recognised statuses; the discovered/unknown overlay lives in parties-discovered.schema.json."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "parties"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. Empty array signals hand-authored content.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+    "parties": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["short_name", "full_name", "recognition"],
+        "additionalProperties": false,
+        "properties": {
+          "eci_code": {
+            "type": ["string", "null"],
+            "pattern": "^\\d+$",
+            "description": "ECI numeric party code (string to preserve any leading zeros). Null when ECI's code has not yet been observed in any ingested partywise result. Treated as the primary join key when present."
+          },
+          "short_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Canonical abbreviation (e.g. INC, BJP, DMK, CPI(M)). Used as the secondary join key when eci_code is null. Must be unique within this file (case-insensitive)."
+          },
+          "full_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "recognition": {
+            "enum": ["national", "state", "registered_unrecognised"],
+            "description": "ECI recognition status. 'national' = national party (currently 6); 'state' = recognised state party in at least one state; 'registered_unrecognised' = registered but not recognised. The 'unknown' bucket lives in the parties-discovered overlay, not here."
+          },
+          "recognized_in_states": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[SU]\\d{2}$" },
+            "description": "ECI state codes (S01..S30, U01..U08) where the party currently holds 'state party' recognition. Empty for national parties (already recognised across the country) and for registered_unrecognised."
+          },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "description": "Alternative short_names that should resolve to this entry during lookup (e.g. AIADMK ↔ ADMK, TMC ↔ AITC, CPM ↔ CPI(M))."
+          }
+        }
+      }
+    }
+  }
+}
