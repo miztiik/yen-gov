@@ -28,6 +28,11 @@ ELECTION_EVENTS_PATH = DATASETS / "reference" / "in" / "election-events.json"
 # winner record (countermanded/postponed constituency).
 ALLOWED_MISSING_RESULTS: dict[tuple[str, str], set[int]] = {
     ("AcGenMay2026", "S25"): {144},
+    # Karnataka 2018: AC 173 Jayanagar was countermanded after a candidate's
+    # death and the result was declared in a 2018 by-election rather than
+    # the general election. Bootstrap pulled S10 reference from AcGenMay2023
+    # (which has all 224), so the AcGenMay2018 results legitimately miss 173.
+    ("AcGenMay2018", "S10"): {173},
 }
 
 
@@ -234,4 +239,111 @@ def test_election_events_default_uniqueness_and_data_status_alignment():
                     f"{state_code}/{event_id}: data_status=pending_upstream "
                     f"but {summary_path.relative_to(REPO).as_posix()} exists "
                     f"— flip status to 'complete'."
+                )
+
+
+# ---------------------------------------------------------------------------
+# state-tiers.json contract tests (P3.1 IA reset)
+# ---------------------------------------------------------------------------
+
+STATE_TIERS_PATH = DATASETS / "reference" / "in" / "state-tiers.json"
+STATES_REGISTRY_PATH = DATASETS / "reference" / "in" / "states.json"
+TOPIC_CATALOGUE_PATH = DATASETS / "reference" / "in" / "topic-catalogue.json"
+
+
+def _known_state_codes() -> set[str]:
+    states_doc = _load_json(STATES_REGISTRY_PATH)
+    return {s["eci_code"] for s in states_doc["states"]}
+
+
+def _known_tier_ids() -> set[str]:
+    tiers_doc = _load_json(STATE_TIERS_PATH)
+    return {t["id"] for t in tiers_doc["tiers"]}
+
+
+def test_state_tiers_codes_are_known_states():
+    """Every member of every tier must be a real ECI code in states.json.
+    Catches typos (S30, U10) and stale memberships after a state split."""
+    known = _known_state_codes()
+    tiers_doc = _load_json(STATE_TIERS_PATH)
+    for tier in tiers_doc["tiers"]:
+        unknown = set(tier["members"]) - known
+        assert not unknown, (
+            f"tier {tier['id']} references unknown ECI codes: {sorted(unknown)}"
+        )
+
+
+def test_state_tiers_ut_partition():
+    """The three UT tiers must partition the UT space exactly once each.
+    ut_legislature and ut_no_legislature are disjoint and union to
+    every UT EXCEPT U05 (NCT-Delhi, which has its own singleton tier
+    because Article 239AA is sui generis)."""
+    tiers = {t["id"]: set(t["members"]) for t in _load_json(STATE_TIERS_PATH)["tiers"]}
+    ut_with = tiers.get("ut_legislature", set())
+    ut_without = tiers.get("ut_no_legislature", set())
+    nct = tiers.get("nct_delhi", set())
+
+    assert ut_with & ut_without == set(), (
+        f"ut_legislature and ut_no_legislature overlap: {ut_with & ut_without}"
+    )
+    assert nct == {"U05"}, f"nct_delhi must be exactly {{'U05'}}, got {nct}"
+
+    all_uts = {c for c in _known_state_codes() if c.startswith("U")}
+    covered = ut_with | ut_without | nct
+    assert covered == all_uts, (
+        f"UT tiers do not cover every UT exactly once. "
+        f"Missing: {all_uts - covered}; extra: {covered - all_uts}"
+    )
+
+
+def test_state_tiers_full_coverage():
+    """Union of every tier with non-empty membership must cover every
+    state and UT in states.json. Empty tiers (e.g. fc_horizontal_devolution
+    awaiting recon) are skipped — their absence is honest signal, not
+    failure."""
+    known = _known_state_codes()
+    union: set[str] = set()
+    for tier in _load_json(STATE_TIERS_PATH)["tiers"]:
+        if tier["members"]:
+            union.update(tier["members"])
+    missing = known - union
+    assert not missing, (
+        f"states/UTs not in any tier (would be invisible to peer-set filters): "
+        f"{sorted(missing)}"
+    )
+
+
+def test_state_tiers_nct_delhi_singleton():
+    """NCT-Delhi tier is intentionally a singleton (Article 239AA sui
+    generis); regression-protect against accidental membership churn."""
+    tiers = {t["id"]: t for t in _load_json(STATE_TIERS_PATH)["tiers"]}
+    nct = tiers["nct_delhi"]
+    assert nct["members"] == ["U05"], (
+        f"nct_delhi must remain a singleton == ['U05']; got {nct['members']}"
+    )
+    assert nct["definition_kind"] == "constitutional"
+
+
+def test_topic_catalogue_peer_set_default_resolves():
+    """Every topic-level and artifact-level peer_set_default in the
+    topic catalogue must resolve to a known tier id or ll. This is the
+    contract that lets the resolver always return a valid PeerSet without
+    runtime guards."""
+    valid = _known_tier_ids() | {"all"}
+    catalogue = _load_json(TOPIC_CATALOGUE_PATH)
+
+    for topic in catalogue["topics"]:
+        topic_default = topic.get("peer_set_default")
+        if topic_default is not None:
+            assert topic_default in valid, (
+                f"topic {topic['id']} declares unknown peer_set_default "
+                f"{topic_default}; valid: {sorted(valid)}"
+            )
+        for art in topic.get("artifacts", []):
+            art_default = art.get("peer_set_default")
+            if art_default is not None:
+                assert art_default in valid, (
+                    f"topic {topic['id']} artifact {art.get('id')} "
+                    f"declares unknown peer_set_default {art_default}; "
+                    f"valid: {sorted(valid)}"
                 )

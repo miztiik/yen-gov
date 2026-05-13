@@ -1,0 +1,210 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [],
+  "state": "S05",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Mandrem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Pernem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Bicholim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Tivim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Mapusa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Siolim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Saligao",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Calangute",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Porvorim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Aldona",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Panaji",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Taleigao",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "St.Cruz",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "St. Andre",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Cumbarjua",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Maem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Sanquelim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Poriem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Valpoi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Priol",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Ponda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Siroda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Marcaim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Mormugao",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Vasco-Da-Gama",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Dabolim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Cortalim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Nuvem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Curtorim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Fatorda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Margao",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Benaulim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Navelim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Cuncolim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Velim",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Quepem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Curchorem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Sanvordem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Sanguem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Canacona",
+      "reservation": "GEN"
+    }
+  ]
+}

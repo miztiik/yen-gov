@@ -1,0 +1,614 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:39:00Z"
+    }
+  ],
+  "state": "S29",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Sirpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Chennur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 3,
+      "name": "Bellampalli",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 4,
+      "name": "Mancherial",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Asifabad",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 6,
+      "name": "Khanapur",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 7,
+      "name": "Adilabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Boath",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 9,
+      "name": "Nirmal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Mudhole",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Armur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Bodhan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Jukkal",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 14,
+      "name": "Banswada",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Yellareddy",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Kamareddy",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Nizamabad (Urban)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Nizamabad (Rural)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Balkonda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Koratla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Jagtial",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Dharmapuri",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 23,
+      "name": "Ramagundam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Manthani",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Peddapalle",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Karimnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Choppadandi",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 28,
+      "name": "Vemulawada",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Sircilla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Manakondur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 31,
+      "name": "Huzurabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Husnabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Siddipet",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Medak",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Narayankhed",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Andole",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 37,
+      "name": "Narsapur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Zahirabad",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 39,
+      "name": "Sangareddy",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Patancheru",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Dubbak",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "Gajwel",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Medchal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Malkajgiri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Quthbullapur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Kukatpalle",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Uppal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Ibrahimpatnam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Lal Bahadur Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Maheswaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Rajendranagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Serilingampally",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Chevella",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 54,
+      "name": "Pargi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Vicarabad",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 56,
+      "name": "Tandur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Musheerabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Malakpet",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Amberpet",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Khairatabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Jubilee Hills",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 62,
+      "name": "Sanathnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 63,
+      "name": "Nampally",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 64,
+      "name": "Karwan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Goshamahal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 66,
+      "name": "Charminar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 67,
+      "name": "Chandrayangutta",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 68,
+      "name": "Yakutpura",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 69,
+      "name": "Bahadurpura",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 70,
+      "name": "Secunderabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 71,
+      "name": "Secunderabad Cantt.",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 72,
+      "name": "Kodangal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 73,
+      "name": "Narayanpet",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 74,
+      "name": "Mahbubnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 75,
+      "name": "Jadcherla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 76,
+      "name": "Devarkadra",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 77,
+      "name": "Makthal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 78,
+      "name": "Wanaparthy",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 79,
+      "name": "Gadwal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 80,
+      "name": "Alampur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 81,
+      "name": "Nagarkurnool",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 82,
+      "name": "Achampet",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 83,
+      "name": "Kalwakurthy",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 84,
+      "name": "Shadnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 85,
+      "name": "Kollapur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 86,
+      "name": "Devarakonda",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 87,
+      "name": "Nagarjuna Sagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 88,
+      "name": "Miryalaguda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 89,
+      "name": "Huzurnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 90,
+      "name": "Kodad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 91,
+      "name": "Suryapet",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 92,
+      "name": "Nalgonda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 93,
+      "name": "Munugode",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 94,
+      "name": "Bhongir",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 95,
+      "name": "Nakrekal",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 96,
+      "name": "Thungathurthi",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 97,
+      "name": "Alair",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 98,
+      "name": "Jangoan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 99,
+      "name": "Ghanpur (Station)",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 100,
+      "name": "Palakurthi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 101,
+      "name": "Dornakal",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 102,
+      "name": "Mahabubabad",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 103,
+      "name": "Narsampet",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 104,
+      "name": "Parkal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 105,
+      "name": "Warangal West",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 106,
+      "name": "Warangal East",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 107,
+      "name": "Waradhanapet",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 108,
+      "name": "Bhupalpalle",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 109,
+      "name": "Mulug",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 110,
+      "name": "Pinapaka",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 111,
+      "name": "Yellandu",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 112,
+      "name": "Khammam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 113,
+      "name": "Palair",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 114,
+      "name": "Madhira",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 115,
+      "name": "Wyra",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 116,
+      "name": "Sathupalle",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 117,
+      "name": "Kothagudem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 118,
+      "name": "Aswaraopeta",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 119,
+      "name": "Bhadrachalam",
+      "reservation": "ST"
+    }
+  ]
+}

@@ -1,0 +1,1234 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx",
+      "fetched_at": "2026-05-12T20:10:33Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/3-List_Of_Political_Parties_Participated_1763549416.xlsx",
+      "fetched_at": "2026-05-12T20:10:35Z"
+    }
+  ],
+  "state": "S04",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Valmiki Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Ramnagar",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 3,
+      "name": "Narkatiaganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Bagaha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Lauriya",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Nautan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Chanpatia",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Bettiah",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Sikta",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Raxaul",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Sugauli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Narkatia",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Harsidhi",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 14,
+      "name": "Govindganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Kesaria",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Kalyanpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Pipra",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Madhuban",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Motihari",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Chiraia",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Dhaka",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Sheohar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Riga",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Bathnaha",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 25,
+      "name": "Parihar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Sursand",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Bajpatti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Sitamarhi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Runnisaidpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Belsand",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Harlakhi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Benipatti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Khajauli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Babubarhi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Bisfi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Madhubani",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Rajnagar",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 38,
+      "name": "Jhanjharpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Phulparas",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Laukaha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Nirmali",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "Pipra",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Supaul",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Triveniganj",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 45,
+      "name": "Chhatapur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Narpatganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Raniganj",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 48,
+      "name": "Forbesganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Araria",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Jokihat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Sikti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Bahadurganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Thakurganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "Kishanganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Kochadhaman",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Amour",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Baisi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Kasba",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Banmankhi",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 60,
+      "name": "Rupauli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Dhamdaha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 62,
+      "name": "Purnia",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 63,
+      "name": "Katihar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 64,
+      "name": "Kadwa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Balrampur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 66,
+      "name": "Pranpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 67,
+      "name": "Manihari",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 68,
+      "name": "Barari",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 69,
+      "name": "Korha",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 70,
+      "name": "Alamnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 71,
+      "name": "Bihariganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 72,
+      "name": "Singheshwar",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 73,
+      "name": "Madhepura",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 74,
+      "name": "Sonbarsha",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 75,
+      "name": "Saharsa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 76,
+      "name": "Simri Bakhtiarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 77,
+      "name": "Mahishi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 78,
+      "name": "Kusheshwar Asthan",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 79,
+      "name": "Gaura Bauram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 80,
+      "name": "Benipur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 81,
+      "name": "Alinagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 82,
+      "name": "Darbhanga Rural",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 83,
+      "name": "Darbhanga",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 84,
+      "name": "Hayaghat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 85,
+      "name": "Bahadurpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 86,
+      "name": "Keoti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 87,
+      "name": "Jale",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 88,
+      "name": "Gaighat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 89,
+      "name": "Aurai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 90,
+      "name": "Minapur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 91,
+      "name": "Bochahan",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 92,
+      "name": "Sakra",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 93,
+      "name": "Kurhani",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 94,
+      "name": "Muzaffarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 95,
+      "name": "Kanti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 96,
+      "name": "Baruraj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 97,
+      "name": "Paroo",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 98,
+      "name": "Sahebganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 99,
+      "name": "Baikunthpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 100,
+      "name": "Barauli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 101,
+      "name": "Gopalganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 102,
+      "name": "Kuchaikote",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 103,
+      "name": "Bhorey",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 104,
+      "name": "Hathua",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 105,
+      "name": "Siwan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 106,
+      "name": "Ziradei",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 107,
+      "name": "Darauli",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 108,
+      "name": "Raghunathpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 109,
+      "name": "Daraunda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 110,
+      "name": "Barharia",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 111,
+      "name": "Goriakothi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 112,
+      "name": "Maharajganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 113,
+      "name": "Ekma",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 114,
+      "name": "Manjhi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 115,
+      "name": "Baniapur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 116,
+      "name": "Taraiya",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 117,
+      "name": "Marhaura",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 118,
+      "name": "Chapra",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 119,
+      "name": "Garkha",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 120,
+      "name": "Amnour",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 121,
+      "name": "Parsa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 122,
+      "name": "Sonepur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 123,
+      "name": "Hajipur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 124,
+      "name": "Lalganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 125,
+      "name": "Vaishali",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 126,
+      "name": "Mahua",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 127,
+      "name": "Raja Pakar",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 128,
+      "name": "Raghopur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 129,
+      "name": "Mahnar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 130,
+      "name": "Patepur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 131,
+      "name": "Kalyanpur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 132,
+      "name": "Warisnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 133,
+      "name": "Samastipur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 134,
+      "name": "Ujiarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 135,
+      "name": "Morwa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 136,
+      "name": "Sarairanjan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 137,
+      "name": "Mohiuddinnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 138,
+      "name": "Bibhutipur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 139,
+      "name": "Rosera",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 140,
+      "name": "Hasanpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 141,
+      "name": "Cheria - Bariarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 142,
+      "name": "Bachhwara",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 143,
+      "name": "Teghra",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 144,
+      "name": "Matihani",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 145,
+      "name": "Sahebpur Kamal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 146,
+      "name": "Begusarai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 147,
+      "name": "Bakhri",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 148,
+      "name": "Alauli",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 149,
+      "name": "Khagaria",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 150,
+      "name": "Beldaur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 151,
+      "name": "Parbatta",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 152,
+      "name": "Bihpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 153,
+      "name": "Gopalpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 154,
+      "name": "Pirpainti",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 155,
+      "name": "Kahalgaon",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 156,
+      "name": "Bhagalpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 157,
+      "name": "Sultanganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 158,
+      "name": "Nathnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 159,
+      "name": "Amarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 160,
+      "name": "Dhoraiya",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 161,
+      "name": "Banka",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 162,
+      "name": "Katoria",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 163,
+      "name": "Belhar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 164,
+      "name": "Tarapur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 165,
+      "name": "Munger",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 166,
+      "name": "Jamalpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 167,
+      "name": "Suryagarha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 168,
+      "name": "Lakhisarai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 169,
+      "name": "Sheikhpura",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 170,
+      "name": "Barbigha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 171,
+      "name": "Asthawan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 172,
+      "name": "Biharsharif",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 173,
+      "name": "Rajgir",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 174,
+      "name": "Islampur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 175,
+      "name": "Hilsa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 176,
+      "name": "Nalanda",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 177,
+      "name": "Harnaut",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 178,
+      "name": "Mokama",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 179,
+      "name": "Barh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 180,
+      "name": "Bakhtiarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 181,
+      "name": "Digha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 182,
+      "name": "Bankipur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 183,
+      "name": "Kumhrar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 184,
+      "name": "Patna Sahib",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 185,
+      "name": "Fatuha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 186,
+      "name": "Danapur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 187,
+      "name": "Maner",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 188,
+      "name": "Phulwari",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 189,
+      "name": "Masaurhi",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 190,
+      "name": "Paliganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 191,
+      "name": "Bikram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 192,
+      "name": "Sandesh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 193,
+      "name": "Barhara",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 194,
+      "name": "Arrah",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 195,
+      "name": "Agiaon",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 196,
+      "name": "Tarari",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 197,
+      "name": "Jagdishpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 198,
+      "name": "Shahpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 199,
+      "name": "Brahampur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 200,
+      "name": "Buxar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 201,
+      "name": "Dumraon",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 202,
+      "name": "Rajpur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 203,
+      "name": "Ramgarh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 204,
+      "name": "Mohania",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 205,
+      "name": "Bhabua",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 206,
+      "name": "Chainpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 207,
+      "name": "Chenari",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 208,
+      "name": "Sasaram",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 209,
+      "name": "Kargahar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 210,
+      "name": "Dinara",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 211,
+      "name": "Nokha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 212,
+      "name": "Dehri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 213,
+      "name": "Karakat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 214,
+      "name": "Arwal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 215,
+      "name": "Kurtha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 216,
+      "name": "Jehanabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 217,
+      "name": "Ghosi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 218,
+      "name": "Makhdumpur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 219,
+      "name": "Goh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 220,
+      "name": "Obra",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 221,
+      "name": "Nabinagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 222,
+      "name": "Kutumba",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 223,
+      "name": "Aurangabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 224,
+      "name": "Rafiganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 225,
+      "name": "Gurua",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 226,
+      "name": "Sherghati",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 227,
+      "name": "Imamganj",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 228,
+      "name": "Barachatti",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 229,
+      "name": "Bodh Gaya",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 230,
+      "name": "Gaya Town",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 231,
+      "name": "Tikari",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 232,
+      "name": "Belaganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 233,
+      "name": "Atri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 234,
+      "name": "Wazirganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 235,
+      "name": "Rajauli",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 236,
+      "name": "Hisua",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 237,
+      "name": "Nawada",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 238,
+      "name": "Gobindpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 239,
+      "name": "Warsaliganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 240,
+      "name": "Sikandra",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 241,
+      "name": "Jamui",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 242,
+      "name": "Jhajha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 243,
+      "name": "Chakai",
+      "reservation": "GEN"
+    }
+  ]
+}

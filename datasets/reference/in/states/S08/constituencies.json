@@ -1,0 +1,350 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [],
+  "state": "S08",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Churah",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 2,
+      "name": "Bharmour",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 3,
+      "name": "Chamba",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Dalhousie",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Bhattiyat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Nurpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Indora",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 8,
+      "name": "Fatehpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Jawali",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Dehra",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Jaswan-Pragpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Jawalamukhi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Jaisinghpur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 14,
+      "name": "Sullah",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Nagrota",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Kangra",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Shahpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Dharamshala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Palampur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Baijnath",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 21,
+      "name": "Lahaul & Spiti",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 22,
+      "name": "Manali",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Kullu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Banjar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Anni",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 26,
+      "name": "Karsog",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 27,
+      "name": "Sundernagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Nachan",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 29,
+      "name": "Seraj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Darang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Jogindernagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Dharampur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Mandi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Balh",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 35,
+      "name": "Sarkaghat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Bhoranj",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 37,
+      "name": "Sujanpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Hamirpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Barsar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Nadaun",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Chintpurni",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 42,
+      "name": "Gagret",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Haroli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Una",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Kutlehar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Jhanduta",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 47,
+      "name": "Ghumarwin",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Bilaspur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Sri Naina Deviji",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Arki",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Nalagarh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Doon",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Solan",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 54,
+      "name": "Kasauli",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 55,
+      "name": "Pachhad",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 56,
+      "name": "Nahan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Sri Renukaji",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 58,
+      "name": "Paonta Sahib",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Shillai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Chopal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Theog",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 62,
+      "name": "Kasumpti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 63,
+      "name": "Shimla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 64,
+      "name": "Shimla Rural",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Jubbal-Kotkhai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 66,
+      "name": "Rampur",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 67,
+      "name": "Rohru",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 68,
+      "name": "Kinnaur",
+      "reservation": "ST"
+    }
+  ]
+}

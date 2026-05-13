@@ -1,0 +1,219 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/Detailed_Results.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    },
+    {
+      "url": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/List_Of_Political_Parties_Participated.xlsx",
+      "fetched_at": "2026-05-12T18:38:52Z"
+    }
+  ],
+  "state": "S16",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Hachhek",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 2,
+      "name": "Dampa",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 3,
+      "name": "Mamit",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 4,
+      "name": "Tuirial",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 5,
+      "name": "Kolasib",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 6,
+      "name": "Serlui",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 7,
+      "name": "Tuivawl",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 8,
+      "name": "Chalfilh",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 9,
+      "name": "Tawi",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 10,
+      "name": "Aizawl North-I",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 11,
+      "name": "Aizawl North-II",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 12,
+      "name": "Aizawl North-III",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 13,
+      "name": "Aizawl East-I",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Aizawl East-II",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 15,
+      "name": "Aizawl West-I",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 16,
+      "name": "Aizawl West-II",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 17,
+      "name": "Aizawl West-III",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 18,
+      "name": "Aizawl South-I",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 19,
+      "name": "Aizawl South-II",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 20,
+      "name": "Aizawl South-III",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 21,
+      "name": "Lengteng",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 22,
+      "name": "Tuichang",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 23,
+      "name": "Champhai North",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 24,
+      "name": "Champhai South",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 25,
+      "name": "East Tuipui",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 26,
+      "name": "Serchhip",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 27,
+      "name": "Tuikum",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 28,
+      "name": "Hrangturzo",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 29,
+      "name": "South Tuipui",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 30,
+      "name": "Lunglei North",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 31,
+      "name": "Lunglei East",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 32,
+      "name": "Lunglei West",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 33,
+      "name": "Lunglei South",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 34,
+      "name": "Thorang",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 35,
+      "name": "West Tuipui",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 36,
+      "name": "Tuichawng",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 37,
+      "name": "Lawngtlai West",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 38,
+      "name": "Lawngtlai East",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 39,
+      "name": "Saiha",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 40,
+      "name": "Palak",
+      "reservation": "ST"
+    }
+  ]
+}
