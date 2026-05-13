@@ -470,7 +470,7 @@
     <!-- Top row: map (3fr) + donut + key totals (2fr).
          At <lg the donut wraps below the map (single column). -->
     <section class="grid lg:grid-cols-[3fr_2fr] gap-6 items-start">
-      {#if STATE_AC[state_code]}
+      {#if event && STATE_AC[state_code]}
         <div class="bg-white rounded-lg shadow-sm p-4 min-w-0">
           <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Constituency map</h2>
           <StateAcMap {event} state={state_code} />
@@ -556,20 +556,22 @@
       />
     </section>
 
-    <section class="bg-white rounded-lg shadow-sm p-5">
-      <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Margin of victory</h2>
-      <MarginHistogram {event} state={state_code} />
-    </section>
+    {#if event}
+      <section class="bg-white rounded-lg shadow-sm p-5">
+        <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Margin of victory</h2>
+        <MarginHistogram {event} state={state_code} />
+      </section>
 
-    <!-- Races by competitiveness. Same per-AC margin data as the
-         histogram, viewed as a NYT-style "All races" board: one column
-         per top-3 winning party (their easy wins), then narrow wins,
-         smaller-party wins, and a most-competitive column. The relative
-         column heights are themselves the headline. -->
-    <section class="bg-white rounded-lg shadow-sm p-5">
-      <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Races by competitiveness</h2>
-      <RacesBoard {event} state={state_code} />
-    </section>
+      <!-- Races by competitiveness. Same per-AC margin data as the
+           histogram, viewed as a NYT-style "All races" board: one column
+           per top-3 winning party (their easy wins), then narrow wins,
+           smaller-party wins, and a most-competitive column. The relative
+           column heights are themselves the headline. -->
+      <section class="bg-white rounded-lg shadow-sm p-5">
+        <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Races by competitiveness</h2>
+        <RacesBoard {event} state={state_code} />
+      </section>
+    {/if}
 
     <section class="bg-white rounded-lg shadow-sm p-5">
       <div class="flex justify-between items-baseline mb-1 gap-3 flex-wrap">

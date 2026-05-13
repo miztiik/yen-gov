@@ -98,7 +98,7 @@
       </div>
     </section>
 
-    {#if state_code && STATE_AC[state_code]}
+    {#if event && state_code && STATE_AC[state_code]}
       <section class="bg-white rounded-lg shadow-sm p-4">
         <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Location in {states.name(state_code)}</h2>
         <StateAcMap {event} state={state_code} highlight_eci_no={params.eci_no} height="360px" />
