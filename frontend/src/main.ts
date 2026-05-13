@@ -12,6 +12,7 @@ import Settings from "./routes/Settings.svelte";
 import Psephlab from "./routes/Psephlab.svelte";
 import Compare from "./routes/Compare.svelte";
 import About from "./routes/About.svelte";
+import TopicIndex from "./routes/TopicIndex.svelte";
 import TopicLanding from "./routes/TopicLanding.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
@@ -59,7 +60,8 @@ startRouter({
     { pattern: "/compare/:state/:event", component: Compare },
     { pattern: "/settings", component: Settings },
     { pattern: "/about", component: About },
-    // Topic Front Door (P3.3, ADR-0022). /t (index) ships in P3.3b.
+    // Topic Front Door (P3.3, ADR-0022).
+    { pattern: "/t", component: TopicIndex },
     { pattern: "/t/:topic", component: TopicLanding },
   ],
   notFound: { pattern: "*", component: NotFound },
