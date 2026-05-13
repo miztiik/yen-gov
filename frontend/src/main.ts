@@ -12,6 +12,7 @@ import Settings from "./routes/Settings.svelte";
 import Psephlab from "./routes/Psephlab.svelte";
 import Compare from "./routes/Compare.svelte";
 import About from "./routes/About.svelte";
+import TopicLanding from "./routes/TopicLanding.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -58,6 +59,8 @@ startRouter({
     { pattern: "/compare/:state/:event", component: Compare },
     { pattern: "/settings", component: Settings },
     { pattern: "/about", component: About },
+    // Topic Front Door (P3.3, ADR-0022). /t (index) ships in P3.3b.
+    { pattern: "/t/:topic", component: TopicLanding },
   ],
   notFound: { pattern: "*", component: NotFound },
 });
