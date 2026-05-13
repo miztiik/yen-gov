@@ -12,6 +12,7 @@ from yen_gov.core.http import Fetcher
 from yen_gov.core.io import write_artifact
 from yen_gov.core.models import PartyEntry, PartiesSnapshot, ProcessingConfig, SourceRef
 from yen_gov.pipeline.compose import (
+    append_to_discovered_overlay,
     compose_result_summary_from_section_10,
     eci_code_by_short_from_partywise,
     load_eci_party_registry,
@@ -607,6 +608,33 @@ def eci_statreport_emit(
                 + ("…" if len(unresolved) > 10 else "")
                 + ")"
             )
+
+        # Auto-extend the central discovered overlay with whatever Section 3
+        # surfaced that the registry could not name. This keeps the pipeline
+        # non-blocking on first sighting of new/regional parties (Policy 3 in
+        # TODO/PARTY-COLORS-REWORK.md). Per-event parties.json still requires
+        # eci_code per its schema, so the overlay is the only landing place
+        # until an operator promotes the entry to the master with a verified
+        # ECI code.
+        if unresolved:
+            unresolved_set = set(unresolved)
+            unknown_parties = [
+                p for p in section_3_parties if p.short_name in unresolved_set
+            ]
+            appended = append_to_discovered_overlay(
+                root / "datasets" / "reference" / "in" / "parties-discovered.json",
+                parties=unknown_parties,
+                election_id=event,
+                state_code=state,
+                source_url=section_3_fetched.url,
+                fetched_at=section_3_fetched.fetched_at,
+            )
+            if appended:
+                typer.echo(
+                    f"discovered: appended {appended} new parties to "
+                    "parties-discovered.json (recognition: unknown — triage by "
+                    "promoting verified entries to datasets/reference/in/parties.json)"
+                )
 
     if parties_snapshot is not None:
         write_artifact(

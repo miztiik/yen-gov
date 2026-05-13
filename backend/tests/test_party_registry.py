@@ -10,6 +10,7 @@ import pytest
 from yen_gov.core.models import SourceRef
 from yen_gov.pipeline.compose import (
     PartyRegistryEntry,
+    append_to_discovered_overlay,
     load_eci_party_registry,
     parties_snapshot_from_section3,
 )
@@ -124,3 +125,151 @@ def test_section3_snapshot_returns_none_when_nothing_resolves() -> None:
     )
     assert snapshot is None
     assert unresolved == ["OBSCURE"]
+
+
+# --- Combined master + discovered + per-event registry --------------------
+
+def _write_master(path: Path, *, parties: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps({
+            "$schema": "https://yen-gov.github.io/schemas/parties-master.schema.json",
+            "$schema_version": "1.0",
+            "sources": [{
+                "url": "https://en.wikipedia.org/wiki/List_of_political_parties_in_India",
+                "fetched_at": "2026-05-13T00:00:00Z",
+            }],
+            "parties": parties,
+        }, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def _write_discovered(path: Path, *, parties: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps({
+            "$schema": "https://yen-gov.github.io/schemas/parties-discovered.schema.json",
+            "$schema_version": "1.0",
+            "sources": [],
+            "parties": parties,
+        }, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def test_combined_registry_master_wins_for_full_name(tmp_path: Path) -> None:
+    """Master full_name overrides per-event spelling (canonical naming)."""
+    elections = tmp_path / "elections"
+    _write_parties_json(
+        elections / "AcGenMay2026/S22/parties.json",
+        sources=[{"url": "https://x/p.htm", "fetched_at": "2026-05-09T12:00:00Z"}],
+        parties=[
+            {"eci_code": "742", "short_name": "INC", "full_name": "INDIAN NATIONAL CONGRESS"},
+        ],
+    )
+    _write_master(
+        tmp_path / "reference/in/parties.json",
+        parties=[{
+            "short_name": "INC",
+            "full_name": "Indian National Congress",
+            "eci_code": "742",
+            "recognition": "national",
+        }],
+    )
+    registry = load_eci_party_registry(elections)
+    assert registry["INC"].full_name == "Indian National Congress"
+    assert registry["INC"].eci_code == "742"
+
+
+def test_combined_registry_alias_resolves_to_canonical(tmp_path: Path) -> None:
+    """Aliases declared in the master point to the same PartyRegistryEntry."""
+    elections = tmp_path / "elections"
+    elections.mkdir()
+    _write_master(
+        tmp_path / "reference/in/parties.json",
+        parties=[{
+            "short_name": "AIADMK",
+            "full_name": "All India Anna Dravida Munnetra Kazhagam",
+            "eci_code": "201",
+            "recognition": "state",
+            "recognized_in_states": ["S22"],
+            "aliases": ["ADMK"],
+        }],
+    )
+    registry = load_eci_party_registry(elections)
+    assert "AIADMK" in registry and "ADMK" in registry
+    assert registry["AIADMK"] is registry["ADMK"]
+    assert registry["ADMK"].eci_code == "201"
+
+
+def test_combined_registry_master_fills_null_eci_code_from_per_event(tmp_path: Path) -> None:
+    """Master entry with null eci_code inherits the code observed in per-event data."""
+    elections = tmp_path / "elections"
+    _write_parties_json(
+        elections / "AcGenMay2026/S22/parties.json",
+        sources=[{"url": "https://x/p.htm", "fetched_at": "2026-05-09T12:00:00Z"}],
+        parties=[
+            {"eci_code": "1847", "short_name": "NTK", "full_name": "Naam Tamilar Katchi"},
+        ],
+    )
+    _write_master(
+        tmp_path / "reference/in/parties.json",
+        parties=[{
+            "short_name": "NTK",
+            "full_name": "Naam Tamilar Katchi",
+            "eci_code": None,
+            "recognition": "registered_unrecognised",
+        }],
+    )
+    registry = load_eci_party_registry(elections)
+    assert registry["NTK"].eci_code == "1847"
+
+
+def test_append_to_discovered_overlay_idempotent(tmp_path: Path) -> None:
+    """Appending the same party twice only writes once."""
+    discovered = tmp_path / "parties-discovered.json"
+    parties = [
+        ParticipatingParty(party_type="STATE PARTIES", short_name="ZPM",
+                           full_name="Zoram People's Movement"),
+    ]
+    first = append_to_discovered_overlay(
+        discovered,
+        parties=parties,
+        election_id="AcGenNov2023",
+        state_code="S17",
+        source_url="https://results.eci.gov.in/x/s3.xlsx",
+        fetched_at="2026-05-12T10:00:00Z",
+    )
+    second = append_to_discovered_overlay(
+        discovered,
+        parties=parties,
+        election_id="AcGenNov2023",
+        state_code="S17",
+        source_url="https://results.eci.gov.in/x/s3.xlsx",
+        fetched_at="2026-05-12T10:00:00Z",
+    )
+    assert first == 1
+    assert second == 0
+    doc = json.loads(discovered.read_text(encoding="utf-8"))
+    assert [p["short_name"] for p in doc["parties"]] == ["ZPM"]
+    assert doc["parties"][0]["recognition"] == "unknown"
+    assert doc["parties"][0]["first_seen"] == {"election_id": "AcGenNov2023", "state_code": "S17"}
+
+
+def test_append_to_discovered_overlay_creates_skeleton(tmp_path: Path) -> None:
+    """Helper creates the overlay file with the expected $schema header on first write."""
+    discovered = tmp_path / "nested/parties-discovered.json"
+    appended = append_to_discovered_overlay(
+        discovered,
+        parties=[ParticipatingParty(party_type="X", short_name="NEW", full_name="New Party")],
+        election_id="AcGenMay2026",
+        state_code="S22",
+        source_url="https://results.eci.gov.in/x/s3.xlsx",
+        fetched_at="2026-05-12T10:00:00Z",
+    )
+    assert appended == 1
+    doc = json.loads(discovered.read_text(encoding="utf-8"))
+    assert doc["$schema"].endswith("parties-discovered.schema.json")
+    assert doc["$schema_version"] == "1.0"
+

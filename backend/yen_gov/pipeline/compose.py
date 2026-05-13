@@ -311,82 +311,194 @@ def compose_result_summary_from_section_10(
 class PartyRegistryEntry:
     """One canonical {short → numeric eci_code, full_name} mapping with provenance.
 
-    The registry is derived purely from already-trusted ``parties.json`` files
-    in this repo (each of which carries its own ``sources[]`` pointing at the
-    ECI live-results partywise page that originally minted the eci_code). It
-    is therefore not a new contract surface — it is an in-memory aggregation
-    used only at ingest time, with the upstream URLs forwarded into the new
-    artifact's ``sources[]`` so chain of custody is preserved.
+    Source priority (highest to lowest): the central hand-curated master
+    registry at ``datasets/reference/in/parties.json``, then the auto-extended
+    overlay at ``datasets/reference/in/parties-discovered.json``, then the
+    union of every per-event ``parties.json`` already on disk. Master+overlay
+    let us name parties that have never appeared in a partywise upstream;
+    per-event aggregation backfills ``eci_code`` for events that pre-date the
+    master file. All three layers' upstream URLs are forwarded into the
+    composed artifact's ``sources[]`` so chain of custody is preserved.
+
+    ``eci_code`` may be ``None`` for entries that come from the master with
+    no ECI code observed yet (the party exists in ECI's recognised list but
+    has not yet appeared in any partywise URL we have ingested). The downstream
+    emit path treats such entries as unresolved for purposes of writing
+    per-event ``parties.json`` (which schema-requires a non-null code).
     """
 
-    eci_code: str
+    eci_code: str | None
     full_name: str
-    source_urls: tuple[str, ...]  # the partywise URLs that minted this entry
+    source_urls: tuple[str, ...]
+
+
+def _master_aliases(entry: dict) -> list[str]:
+    """Pull the alias list off a master-registry entry, defensive about absence."""
+    raw = entry.get("aliases") or []
+    return [a for a in raw if isinstance(a, str) and a]
 
 
 def load_eci_party_registry(
     elections_root: Path,
 ) -> dict[str, PartyRegistryEntry]:
-    """Aggregate ``{short_name → PartyRegistryEntry}`` from every parties.json on disk.
+    """Aggregate ``{short_name → PartyRegistryEntry}`` across master + overlay + per-event files.
 
-    Walks ``<elections_root>/<event>/<state>/parties.json`` and builds the
-    union of ``{short → (eci_code, full_name)}`` across cohorts. ECI numeric
-    party codes are stable across elections (the same legal entity carries
-    the same code), so this is the principled way to backfill ``eci_code`` for
-    archived (state, event) slices that have no live partywise page of their
-    own.
+    Lookup order, lowest priority first (later layers overwrite earlier):
 
-    Conflict policy: if the same ``short_name`` appears with two different
-    ``eci_code`` values across files, raise immediately with both filenames.
-    The caller MUST resolve the ambiguity (typically by deleting the wrong
-    upstream artifact) before any downstream emit can use the registry.
-    Silent overwrite would corrupt party identity in the artifacts that
-    consume the registry.
+    1. Per-event parties.json under ``<elections_root>/<event>/<state>/``
+       (legacy aggregation; eci_code conflict between two events for the
+       same short_name still raises).
+    2. Auto-extended overlay at ``<elections_root>/../reference/in/
+       parties-discovered.json`` (entries with ``recognition: unknown``).
+    3. Hand-curated master at ``<elections_root>/../reference/in/parties.json``
+       (national + state recognised + observed RUPP). Each master entry's
+       ``aliases[]`` resolves to the same canonical PartyRegistryEntry so
+       upstream variants like AIADMK / TMC also hit.
 
-    Returns an empty dict if no ``parties.json`` files exist (e.g. fresh
-    checkout). The downstream emit path is expected to handle that case by
-    skipping ``parties.json`` emit, exactly as before this helper existed.
+    Returns an empty dict if no source has any parties (fresh checkout). The
+    downstream emit path is expected to handle that case by skipping
+    ``parties.json`` emit, exactly as before this helper existed.
     """
     out: dict[str, PartyRegistryEntry] = {}
-    if not elections_root.exists():
-        return out
-
-    # Track which file each (short → eci_code) came from for the error message.
     origin: dict[str, Path] = {}
 
-    for event_dir in sorted(p for p in elections_root.iterdir() if p.is_dir()):
-        for state_dir in sorted(p for p in event_dir.iterdir() if p.is_dir()):
-            parties_path = state_dir / "parties.json"
-            if not parties_path.exists():
-                continue
-            doc = json.loads(parties_path.read_text(encoding="utf-8"))
-            urls = tuple(s["url"] for s in doc.get("sources", []))
-            for entry in doc.get("parties", []):
-                short = entry["short_name"]
-                code = entry["eci_code"]
-                full = entry["full_name"]
-                existing = out.get(short)
-                if existing is None:
-                    out[short] = PartyRegistryEntry(
-                        eci_code=code, full_name=full, source_urls=urls,
-                    )
-                    origin[short] = parties_path
+    # --- Layer 1: per-event aggregation (legacy behaviour). ---
+    if elections_root.exists():
+        for event_dir in sorted(p for p in elections_root.iterdir() if p.is_dir()):
+            for state_dir in sorted(p for p in event_dir.iterdir() if p.is_dir()):
+                parties_path = state_dir / "parties.json"
+                if not parties_path.exists():
                     continue
-                if existing.eci_code != code:
-                    raise ValueError(
-                        f"eci_code conflict for short {short!r}: "
-                        f"{existing.eci_code} (from {origin[short]}) vs "
-                        f"{code} (from {parties_path}). Reconcile upstream "
-                        "before re-running."
+                doc = json.loads(parties_path.read_text(encoding="utf-8"))
+                urls = tuple(s["url"] for s in doc.get("sources", []))
+                for entry in doc.get("parties", []):
+                    short = entry["short_name"]
+                    code = entry["eci_code"]
+                    full = entry["full_name"]
+                    existing = out.get(short)
+                    if existing is None:
+                        out[short] = PartyRegistryEntry(
+                            eci_code=code, full_name=full, source_urls=urls,
+                        )
+                        origin[short] = parties_path
+                        continue
+                    if existing.eci_code is not None and existing.eci_code != code:
+                        raise ValueError(
+                            f"eci_code conflict for short {short!r}: "
+                            f"{existing.eci_code} (from {origin[short]}) vs "
+                            f"{code} (from {parties_path}). Reconcile upstream "
+                            "before re-running."
+                        )
+                    merged = tuple(dict.fromkeys(existing.source_urls + urls))
+                    out[short] = PartyRegistryEntry(
+                        eci_code=existing.eci_code or code,
+                        full_name=existing.full_name,
+                        source_urls=merged,
                     )
-                # Same code — extend the source-url provenance.
-                merged = tuple(dict.fromkeys(existing.source_urls + urls))
-                out[short] = PartyRegistryEntry(
-                    eci_code=existing.eci_code,
-                    full_name=existing.full_name,
-                    source_urls=merged,
+
+    # --- Layer 2 + 3: central master + discovered overlay. ---
+    reference_dir = elections_root.parent / "reference" / "in"
+    discovered_path = reference_dir / "parties-discovered.json"
+    master_path = reference_dir / "parties.json"
+
+    def _ingest_central(path: Path) -> None:
+        if not path.exists():
+            return
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        file_urls = tuple(s["url"] for s in doc.get("sources", []))
+        for entry in doc.get("parties", []):
+            short = entry["short_name"]
+            code = entry.get("eci_code")  # may be None
+            full = entry["full_name"]
+            entry_urls = tuple(s["url"] for s in entry.get("sources", []))
+            urls = tuple(dict.fromkeys(file_urls + entry_urls))
+            existing = out.get(short)
+            if existing is not None and existing.eci_code is not None and code is not None and existing.eci_code != code:
+                raise ValueError(
+                    f"eci_code conflict for short {short!r}: "
+                    f"{existing.eci_code} (per-event) vs {code} (in {path.name}). "
+                    "Reconcile by editing the central master or the per-event file."
                 )
+            # Central layer wins for full_name; eci_code prefers any known value.
+            resolved_code = existing.eci_code if (existing and existing.eci_code) else code
+            merged_urls = tuple(dict.fromkeys((existing.source_urls if existing else ()) + urls))
+            out[short] = PartyRegistryEntry(
+                eci_code=resolved_code, full_name=full, source_urls=merged_urls,
+            )
+            origin[short] = path
+            # Aliases: resolve to the same entry. Aliases never override an
+            # already-resolved short_name from a higher-priority layer.
+            for alias in _master_aliases(entry):
+                if alias not in out:
+                    out[alias] = out[short]
+
+    _ingest_central(discovered_path)
+    _ingest_central(master_path)
+
     return out
+
+
+def append_to_discovered_overlay(
+    discovered_path: Path,
+    *,
+    parties: list["ParticipatingParty"],
+    election_id: str,
+    state_code: str,
+    source_url: str,
+    fetched_at: str,
+) -> int:
+    """Append the given (Section 3 / partywise) parties to the discovered overlay.
+
+    Idempotent: parties already present in the overlay (matched by short_name)
+    are not re-added. Returns the count of newly-appended entries. The overlay
+    file is created with an empty skeleton if missing — never assumed to exist,
+    so a fresh checkout still works.
+
+    The parties.json schema for per-event files still requires a non-null
+    eci_code, so unknown parties cannot land there. The overlay is the
+    single triage queue: operators promote entries from here to the master
+    after verifying full_name + ECI recognition status.
+    """
+    if discovered_path.exists():
+        doc = json.loads(discovered_path.read_text(encoding="utf-8"))
+    else:
+        doc = {
+            "$schema": "https://yen-gov.github.io/schemas/parties-discovered.schema.json",
+            "$schema_version": "1.0",
+            "sources": [],
+            "parties": [],
+        }
+
+    existing_shorts = {p["short_name"] for p in doc.get("parties", [])}
+    appended = 0
+    for p in parties:
+        if p.short_name in existing_shorts:
+            continue
+        doc["parties"].append({
+            "eci_code": None,
+            "short_name": p.short_name,
+            "full_name": p.full_name,
+            "recognition": "unknown",
+            "first_seen": {
+                "election_id": election_id,
+                "state_code": state_code,
+            },
+            "sources": [{
+                "url": source_url,
+                "fetched_at": fetched_at,
+            }],
+        })
+        existing_shorts.add(p.short_name)
+        appended += 1
+
+    if appended:
+        # Compact serialisation matches the existing reference files' shape.
+        discovered_path.parent.mkdir(parents=True, exist_ok=True)
+        discovered_path.write_text(
+            json.dumps(doc, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    return appended
 
 
 def parties_snapshot_from_section3(
@@ -426,7 +538,13 @@ def parties_snapshot_from_section3(
             continue  # Section 3 is per-event; duplicates would be a parser bug, but be defensive.
         seen_shorts.add(p.short_name)
         reg = registry.get(p.short_name)
-        if reg is None:
+        if reg is None or reg.eci_code is None:
+            # Either short is wholly unknown OR it is in the central master
+            # but we have no observed eci_code yet — both are "unresolved"
+            # from the per-event parties.json schema's perspective (it
+            # requires a non-null eci_code). The caller should append these
+            # to parties-discovered.json via append_to_discovered_overlay so
+            # the frontend's combined-registry lookup can still name them.
             unresolved.append(p.short_name)
             continue
         entries.append(PartyEntry(
