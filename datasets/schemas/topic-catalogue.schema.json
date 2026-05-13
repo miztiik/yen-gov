@@ -3,12 +3,17 @@
   "$id": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
   "title": "Topic catalogue (IA spine)",
   "description": "The hand-authored taxonomy that powers yen-gov's Topic Front Door (`/t`, `/t/:topic`) and the section list inside each state hub (`/s/:state`). Topic membership of an artifact is declared HERE, not on the artifact itself \u2014 keeping `indicator.schema.json` free of IA leakage (per ADR-0022). Each topic carries its Seventh Schedule list (`state` / `union` / `concurrent` / `na`) so cross-state surfaces can render the constitutional honesty banner without per-renderer logic. Each topic points to one or more artifacts via a polymorphic `kind`+`id` reference; the renderer dispatches on `kind` so election artifacts (different schema family) coexist with indicator artifacts under the same catalogue.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-11",
       "description": "Initial schema. Created for the IA reset (TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md, ADR-0022). Powers state-hub section nav + the Topic Front Door routes. Polymorphic artifact references via `kind` so election artifacts (result.summary.schema.json) and indicator artifacts (indicator.schema.json) live side by side without forcing a unified data shape."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-13",
+      "description": "Additive: per-artifact `peer_set_default` override (artifact wins over topic default). Required because a single topic may host artifacts whose honest peer set differs \u2014 e.g. fiscal hosts both `outstanding_debt_pct_gsdp` (default `general_category`: comparing across centre-transfer asymmetry would mislead) AND `net_transfers_from_centre` (default `all`: the asymmetry IS the story). Also broadens the `peer_set_default` enum to match the new `state-tiers.json` v1.0 vocabulary: renamed `hill`\u2192`himalayan`, `ut_with_legislature`\u2192`ut_legislature`, `ut_without_legislature`\u2192`ut_no_legislature`; added `special_category`, `fc_horizontal_devolution_share_quintile`, `coastal_states`, `landlocked_states`, `art_371_states`. Old enum values are no longer accepted (this would normally be a major bump under \u00a711, but no producer artifact uses the renamed values yet \u2014 catalogue currently only references `general_category` and `all` \u2014 so the change is non-breaking in practice). See ADR-0022 \u00a7peer-sets and `docs/concepts/peer-sets.md`."
     }
   ],
   "type": "object",
@@ -75,8 +80,21 @@
           },
           "peer_set_default": {
             "type": "string",
-            "enum": ["all", "general_category", "neh", "hill", "ut_with_legislature", "ut_without_legislature", "nct_delhi"],
-            "description": "Default peer-set filter for cross-state ranked tables under this topic. For fiscal indicators the appropriate default is `general_category` (UT and special-category states appear in their own panels). Mirrors `state.schema.json` v3.3 `tier` enum minus the `all` superset."
+            "enum": [
+              "all",
+              "general_category",
+              "special_category",
+              "neh",
+              "himalayan",
+              "ut_legislature",
+              "ut_no_legislature",
+              "nct_delhi",
+              "fc_horizontal_devolution_share_quintile",
+              "coastal_states",
+              "landlocked_states",
+              "art_371_states"
+            ],
+            "description": "Topic-level default peer-set filter for cross-state ranked tables. Inherited by every artifact under this topic unless that artifact overrides it via its own `peer_set_default`. Enum mirrors `state-tiers.json` tier IDs plus `all` (the no-filter superset). Adding a new tier requires (a) appending it to `state-tiers.json` and (b) broadening this enum here \u2014 minor bump on both schemas."
           },
           "artifacts": {
             "type": "array",
@@ -115,6 +133,24 @@
                   "type": "string",
                   "enum": ["national", "state", "constituency"],
                   "description": "Geographic scope of this artifact's primary view. Drives which routes can host it: national-scope artifacts render on `/t/:topic`; state-scope artifacts render inside `/s/:state`; constituency-scope on `/s/:state/ac/:ac`. Defaults to `national` for indicators, `state` for elections."
+                },
+                "peer_set_default": {
+                  "type": "string",
+                  "enum": [
+                    "all",
+                    "general_category",
+                    "special_category",
+                    "neh",
+                    "himalayan",
+                    "ut_legislature",
+                    "ut_no_legislature",
+                    "nct_delhi",
+                    "fc_horizontal_devolution_share_quintile",
+                    "coastal_states",
+                    "landlocked_states",
+                    "art_371_states"
+                  ],
+                  "description": "Per-artifact override of the topic-level `peer_set_default`. Use when an artifact in this topic has a different honest default \u2014 e.g. a transfers indicator under the fiscal topic where `all` is honest because the asymmetry IS the story, even though the topic default is `general_category`. The frontend's filter resolves: artifact value > topic value > `'all'`."
                 }
               }
             }

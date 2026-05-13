@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "1.1",
   "$comment": "Hand-authored taxonomy. Powers the Topic Front Door (/t, /t/:topic) and the section list inside each state hub (/s/:state). See ADR-0022 and TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md. DOCTRINE (user-mandated 2026-05-11): elections are ONE indicator family among many. Social-welfare topics (fiscal, education, health, livelihood) are first-class; elections are not the spine and not the default theme. Order in this array IS the rendering order on /t and inside the state hub.",
   "sources": [],
   "topics": [
@@ -25,7 +25,8 @@
           "id": "fiscal/net_transfers_from_centre",
           "default": false,
           "featured": true,
-          "scope": "national"
+          "scope": "national",
+          "peer_set_default": "all"
         }
       ],
       "notes": "Debt and deficit are co-determined by central transfers \u2014 the transfers indicator (`fiscal/net_transfers_from_centre`) is the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. Currently 3 fiscal years of transfers data (2023-24 Accounts, 2024-25 RE, 2025-26 BE); historical extension is a follow-up."

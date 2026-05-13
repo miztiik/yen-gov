@@ -18,11 +18,16 @@ export type SeventhScheduleList = "state" | "union" | "concurrent" | "na";
 export type PeerSet =
   | "all"
   | "general_category"
+  | "special_category"
   | "neh"
-  | "hill"
-  | "ut_with_legislature"
-  | "ut_without_legislature"
-  | "nct_delhi";
+  | "himalayan"
+  | "ut_legislature"
+  | "ut_no_legislature"
+  | "nct_delhi"
+  | "fc_horizontal_devolution_share_quintile"
+  | "coastal_states"
+  | "landlocked_states"
+  | "art_371_states";
 
 export interface CatalogueArtifact {
   kind: ArtifactKind;
@@ -31,6 +36,8 @@ export interface CatalogueArtifact {
   default?: boolean;
   featured?: boolean;
   scope?: ArtifactScope;
+  /** Per-artifact override of the topic-level peer_set_default (catalogue v1.1). */
+  peer_set_default?: PeerSet;
 }
 
 export interface CatalogueTopic {
@@ -83,4 +90,17 @@ export function displayForArtifact(a: CatalogueArtifact): string {
 export function indicatorPathForArtifact(a: CatalogueArtifact): string | null {
   if (a.kind !== "indicator") return null;
   return `/indicators/in/${a.id}.json`;
+}
+
+/**
+ * Resolve the effective peer-set selector for an artifact under a topic:
+ * artifact override > topic default > `"all"`. The result is always a
+ * defined PeerSet; the caller passes it to resolvePeerSet() to get the
+ * actual member list (or null for the no-filter case).
+ */
+export function resolvePeerSetDefault(
+  topic: CatalogueTopic,
+  artifact: CatalogueArtifact,
+): PeerSet {
+  return artifact.peer_set_default ?? topic.peer_set_default ?? "all";
 }

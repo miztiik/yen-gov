@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/state-tiers.schema.json",
+  "title": "State peer-set tiers",
+  "description": "Reference taxonomy mapping ECI state/UT codes into peer sets used by IndicatorRanked / IndicatorChoropleth filters. A state may belong to multiple tiers (Sikkim is both `special_category` and `neh`); tiers are NOT a partition. Tier identity is defined by what cites it (different policy documents use different groupings) — set equality is not a reason to merge. The catalogue (`topic-catalogue.json`) is the binding contract for which tier IDs may be used as `peer_set_default`; this file binds membership to those IDs. See ADR-0022 §peer-sets and `docs/concepts/peer-sets.md`.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-13",
+      "description": "Initial schema. Tier-keyed with rich tier objects (id, label, definition_kind, definition, optional authority + authority_url, members[]). Hand-authored taxonomy per panel decision 2026-05-13 (Hohpe + Governance Strategist + Data Architect personas); empty `sources[]` at file level because tier classifications are constitutional/statutory FACTS, not fetched artifacts (legal citations live in per-tier `authority` instead). Membership overlap is allowed by construction; UT tiers must partition. See TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md P3.1."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "tiers"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+
+    "sources": {
+      "type": "array",
+      "description": "Per CLAUDE.md §12 / ADR-0002. For this file the canonical shape is `[]` (hand-authored) — tier classifications are constitutional facts (Articles 371, 239, 239AA), statutory facts (NEHC Act 1971, FC reports), or editorial residuals; we did not 'fetch' them. Per-tier `authority` carries the legal citation.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+
+    "tiers": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Open list of tiers. Adding a new tier is additive (no schema bump here); broadening the catalogue's `peer_set_default` enum to reference it is a minor bump on `topic-catalogue.schema.json`.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "definition_kind", "definition", "members"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "description": "Stable identifier. Referenced by `topic-catalogue.json` artifacts' `peer_set_default`. Renames cascade and are major bumps."
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Short human-facing label, shown next to the filter chip."
+          },
+          "definition_kind": {
+            "enum": ["constitutional", "statutory", "fc_derived", "geographic", "editorial", "residual", "research"],
+            "description": "What KIND of authority defines this tier. Drives provenance discipline: constitutional/statutory tiers carry an `authority`; editorial/residual tiers may not."
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1,
+            "description": "One-paragraph definition explaining what makes a state a member. Shown as tooltip / methodology copy."
+          },
+          "authority": {
+            "type": "string",
+            "description": "Free-text legal citation (e.g. 'Article 371-A; NEHC Act 1971'). Required by convention for constitutional/statutory/fc_derived tiers; omitted for editorial/residual tiers."
+          },
+          "authority_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://",
+            "description": "Optional URL pointing at the authority (e.g. India Code page for an Article, fincomindia.nic.in for an FC report). Recon required — never invent."
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[SU]\\d{2}$"
+            },
+            "uniqueItems": true,
+            "description": "ECI state/UT codes that belong to this tier. May be empty for `research` tiers awaiting recon (e.g. FC quintile bins) — populated in a follow-up."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Maintainer notes (recon TODOs, refresh cadence reminders, dual-membership rationale)."
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": { "definition_kind": { "enum": ["constitutional", "statutory", "fc_derived"] } }
+            },
+            "then": {
+              "required": ["authority"]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

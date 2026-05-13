@@ -18,6 +18,7 @@
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import IndicatorRanked from "../lib/IndicatorRanked.svelte";
   import IndicatorSmallMultiples from "../lib/IndicatorSmallMultiples.svelte";
+  import ListBadge from "../lib/ListBadge.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { getDb } from "../lib/sql";
@@ -427,7 +428,10 @@
         {@const path = indicatorPathForArtifact(artifact)}
         {#if path}
           <section class="space-y-3">
-            <h2 class="text-sm font-semibold uppercase text-slate-500">{topic.title}</h2>
+            <div class="flex items-center gap-2">
+              <h2 class="text-sm font-semibold uppercase text-slate-500">{topic.title}</h2>
+              <ListBadge list={topic.list} compact />
+            </div>
             <IndicatorChoropleth indicator_path={path} highlight_state={state_code} />
             <IndicatorRanked indicator_path={path} home_state={state_code} />
             <IndicatorSmallMultiples indicator_path={path} home_state={state_code} />
