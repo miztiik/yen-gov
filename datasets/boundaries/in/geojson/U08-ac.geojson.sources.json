@@ -1,0 +1,12 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/boundary.sources.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "Post-2022 J&K Delimitation Commission AC boundaries (90 ACs + 1 PoK feature, seat_id 9999). Source repo (shijithpk/2024_maps_supplement, Unlicense) georeferenced these from the J&K CEO official AC map PDF (https://ceojk.nic.in/pdf/J%26K%20AC%20map%20new.pdf) and an NIC ArcGIS map server (https://webgis1.nic.in/publishing/rest/services/election/election/MapServer/3). The 90 seat_id values match datasets/reference/in/states/U08/constituencies.json (cross-checked 2026-05-13: all 90 IDs align; 21 names differ only in whitespace/punctuation). Property schema is non-HTL: seat_id/seat_name_en/seat_district_en/sc_st_gen — see tools/boundaries/pipeline.json U08 entry for the property mapping the frontend reads. CLAUDE.md \u00a712 provenance sidecar.",
+  "for": "U08-ac.geojson",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/shijithpk/2024_maps_supplement/main/j_and_k_assembly_new_borders.geojson",
+      "fetched_at": "2026-05-13T16:22:45Z"
+    }
+  ]
+}

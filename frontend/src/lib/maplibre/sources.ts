@@ -108,6 +108,24 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     attribution:
       '<a href="https://github.com/HindustanTimesLabs/shapefiles" target="_blank" rel="noreferrer">HTL shapefiles</a> (MIT)',
   },
+  // J&K post-2022 delimitation (90 ACs). HTL/datameet still ship the
+  // pre-delimitation 87-AC layer for J&K; shijithpk/2024_maps_supplement
+  // georeferenced the J&K CEO official AC map PDF + an NIC map server into
+  // a fresh GeoJSON. Property schema is non-HTL: join key is `seat_id`
+  // (matches eci_no in datasets/reference/in/states/U08/constituencies.json,
+  // cross-validated 2026-05-13). The file also contains one extra feature
+  // with seat_id 9999 for PoK areas; renderers should ignore it for the
+  // 90-AC choropleth.
+  U08: {
+    id: "U08-ac",
+    label: "Jammu & Kashmir — Assembly constituencies (post-2022 delimitation)",
+    geojson_local_path: "boundaries/in/geojson/U08-ac.geojson",
+    geojson_url:
+      "https://raw.githubusercontent.com/shijithpk/2024_maps_supplement/main/j_and_k_assembly_new_borders.geojson",
+    join_property: "seat_id",
+    attribution:
+      '<a href="https://github.com/shijithpk/2024_maps_supplement" target="_blank" rel="noreferrer">shijithpk/2024_maps_supplement</a> (Unlicense), georeferenced from the <a href="https://ceojk.nic.in/pdf/J&K%20AC%20map%20new.pdf" target="_blank" rel="noreferrer">J&K CEO official AC map PDF</a>',
+  },
 };
 
 // datameet ST_NM → ECI state code. Covers all 36 states/UTs so the India

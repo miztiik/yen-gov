@@ -139,6 +139,28 @@
     {
       "kind": "ac",
       "country": "IN",
+      "state": "U08",
+      "out": "ac/U08-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/shijithpk/2024_maps_supplement/main/j_and_k_assembly_new_borders.geojson"
+        ]
+      },
+      "license": "Unlicense",
+      "license_url": "https://github.com/shijithpk/2024_maps_supplement/blob/main/LICENSE",
+      "ac_no_property": "seat_id",
+      "name_property": "seat_name_en",
+      "delimitation_warning": "Post-2022 J&K Delimitation Commission boundaries (90 ACs). Source is shijithpk/2024_maps_supplement, georeferenced from the J&K CEO official AC map PDF (https://ceojk.nic.in/pdf/J&K%20AC%20map%20new.pdf) and an NIC map server (https://webgis1.nic.in/publishing/rest/services/election/election/MapServer/3). Property schema differs from HTL: uses seat_id/seat_name_en/seat_district_en/sc_st_gen instead of AC_NO/AC_NAME/DIST_NAME. Includes one extra feature (seat_id 9999) covering PoK areas claimed by India but administered by others — frontend should filter or render distinctly. Author note: 'maps may not be research quality, but good enough for visualising on websites'; international borders may be slightly off due to QGIS georeferencing.",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
       "state": "S01",
       "out": "ac/S01-ac.pmtiles",
       "source": {
