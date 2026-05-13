@@ -6,6 +6,7 @@ import {
   fetchConstituencies,
   fetchDistricts,
   fetchConstituencyResult,
+  fetchPartyRegistry,
 } from "./data";
 
 // All loaders go through `${DATA_BASE}<path>` where DATA_BASE = `${BASE_URL}data`.
@@ -102,3 +103,102 @@ describe("fetchConstituencyResult — the 404-as-null contract", () => {
     await expect(fetchConstituencyResult("AcGenMay2026", "S22", 1)).rejects.toThrow(/failed: 500/);
   });
 });
+
+describe("fetchPartyRegistry — master + discovered merge", () => {
+  function masterFile(parties: unknown[]): unknown {
+    return {
+      $schema: "https://yen-gov.github.io/schemas/parties-master.schema.json",
+      $schema_version: "1.0",
+      sources: [],
+      parties,
+    };
+  }
+  function discoveredFile(parties: unknown[]): unknown {
+    return {
+      $schema: "https://yen-gov.github.io/schemas/parties-discovered.schema.json",
+      $schema_version: "1.0",
+      sources: [],
+      parties,
+    };
+  }
+
+  it("hits both reference paths in parallel", async () => {
+    fetchSpy.mockImplementation(() => Promise.resolve(jsonResponse(masterFile([]))));
+    await fetchPartyRegistry();
+    const calls = fetchSpy.mock.calls.map(c => c[0]);
+    expect(calls).toContain(`${BASE}/reference/in/parties.json`);
+    expect(calls).toContain(`${BASE}/reference/in/parties-discovered.json`);
+  });
+
+  it("master wins over discovered for the same short_name", async () => {
+    fetchSpy
+      .mockImplementationOnce(() => Promise.resolve(jsonResponse(masterFile([
+        { short_name: "INC", full_name: "Indian National Congress", eci_code: "742", recognition: "national" },
+      ]))))
+      .mockImplementationOnce(() => Promise.resolve(jsonResponse(discoveredFile([
+        { short_name: "INC", full_name: "INDIAN NATIONAL CONGRESS", eci_code: null,
+          recognition: "unknown",
+          first_seen: { election_id: "AcGenMay2026", state_code: "S22" },
+          sources: [{ url: "https://x/y", fetched_at: "2026-05-12T10:00:00Z" }] },
+      ]))));
+    const reg = await fetchPartyRegistry();
+    expect(reg.byShort.INC.source).toBe("master");
+    expect(reg.byShort.INC.full_name).toBe("Indian National Congress");
+    expect(reg.byShort.INC.recognition).toBe("national");
+    expect(reg.byEciCode["742"].short_name).toBe("INC");
+  });
+
+  it("master aliases resolve to the canonical entry", async () => {
+    fetchSpy
+      .mockImplementationOnce(() => Promise.resolve(jsonResponse(masterFile([
+        { short_name: "AIADMK", full_name: "All India Anna Dravida Munnetra Kazhagam",
+          eci_code: "201", recognition: "state", recognized_in_states: ["S22"],
+          aliases: ["ADMK"] },
+      ]))))
+      .mockImplementationOnce(() => Promise.resolve(jsonResponse(discoveredFile([]))));
+    const reg = await fetchPartyRegistry();
+    expect(reg.byShort.AIADMK).toBe(reg.byShort.ADMK);
+    expect(reg.byShort.ADMK.eci_code).toBe("201");
+  });
+
+  it("discovered-only entries surface with recognition='unknown' and source='discovered'", async () => {
+    fetchSpy
+      .mockImplementationOnce(() => Promise.resolve(jsonResponse(masterFile([]))))
+      .mockImplementationOnce(() => Promise.resolve(jsonResponse(discoveredFile([
+        { short_name: "ZPM", full_name: "Zoram People's Movement", eci_code: null,
+          recognition: "unknown",
+          first_seen: { election_id: "AcGenNov2023", state_code: "S17" },
+          sources: [{ url: "https://x/s3.xlsx", fetched_at: "2026-05-12T10:00:00Z" }] },
+      ]))));
+    const reg = await fetchPartyRegistry();
+    expect(reg.byShort.ZPM.source).toBe("discovered");
+    expect(reg.byShort.ZPM.recognition).toBe("unknown");
+    expect(reg.byShort.ZPM.eci_code).toBeNull();
+  });
+
+  it("404 on either file degrades gracefully", async () => {
+    fetchSpy
+      .mockImplementationOnce(() => Promise.resolve(jsonResponse(masterFile([
+        { short_name: "INC", full_name: "Indian National Congress", eci_code: "742", recognition: "national" },
+      ]))))
+      .mockImplementationOnce(() => Promise.resolve(new Response("nope", { status: 404 })));
+    const reg = await fetchPartyRegistry();
+    expect(reg.byShort.INC.short_name).toBe("INC");
+  });
+
+  it("alias does not overwrite an existing real short_name", async () => {
+    // If two master entries collide via an alias, the real short_name wins.
+    fetchSpy
+      .mockImplementationOnce(() => Promise.resolve(jsonResponse(masterFile([
+        { short_name: "DMK", full_name: "Dravida Munnetra Kazhagam", eci_code: "582",
+          recognition: "state", recognized_in_states: ["S22"] },
+        { short_name: "AIADMK", full_name: "AIADMK Full",
+          eci_code: "201", recognition: "state", recognized_in_states: ["S22"],
+          aliases: ["DMK"] }, // pathological but possible
+      ]))))
+      .mockImplementationOnce(() => Promise.resolve(jsonResponse(discoveredFile([]))));
+    const reg = await fetchPartyRegistry();
+    expect(reg.byShort.DMK.eci_code).toBe("582"); // canonical, not the alias hijack
+  });
+});
+
