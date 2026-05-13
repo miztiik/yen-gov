@@ -1013,3 +1013,36 @@ def ingest_fiscal_rbi(
         typer.echo(f"    artifact:      {r.artifact_path.relative_to(root).as_posix()}")
 
 
+@app.command("ingest-fiscal-datagovin")
+def ingest_fiscal_datagovin(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+) -> None:
+    """Ingest data.gov.in OGD CSV downloads → fiscal indicator artifacts.
+
+    No network — reads operator-cached CSVs from
+    .runtime/raw/datagovin/<indicator-leaf>.csv. The OGD JSON API
+    requires a registered key (SMS-OTP) and rate-limits the public
+    demo key heavily; CSV downloads via the resource page are the
+    portable path. See backend/yen_gov/sources/datagovin_ogd/urls.py
+    for the indicator → resource mapping. If a CSV is missing the
+    command fails with a one-time download recipe for the operator.
+    """
+    from yen_gov.sources.datagovin_ogd import ingest as datagovin_ingest_mod
+
+    schema_dir = root / "datasets" / "schemas"
+    result = datagovin_ingest_mod.ingest(repo_root=root, schema_dir=schema_dir)
+
+    typer.echo("ingest-fiscal-datagovin: OK")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    csv cache:    {r.csv_cache_path.relative_to(root).as_posix()}")
+        typer.echo(f"    cache mtime:  {r.fetched_at.isoformat()}")
+        typer.echo(f"    raw records:  {r.record_count}")
+        typer.echo(f"    rows written: {r.row_count}")
+        typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
+
+
