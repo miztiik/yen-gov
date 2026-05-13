@@ -1,0 +1,602 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/punjab/assembly/punjab_AC.json",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "HindustanTimesLabs shapefiles — Punjab 2008 Delimitation Assembly Constituencies",
+      "authority": "HindustanTimesLabs (MIT)"
+    }
+  ],
+  "state": "S19",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Sujanpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Bhoa (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Pathankot",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Gurdaspur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Dina Nagar (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Qadian",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Batala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Sri Hargobindpur (S",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Fatehgarh Churian",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Dera Baba Nanak",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Ajnala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Raja Sansi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Majitha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Jandiala (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Amritsar North",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Amritsar West (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Amritsar Central",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Amritsar East",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Amritsar South",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Attari (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Tarn Taran",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Khem Karan",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Patti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Khadoor Sahib",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Baba Bakala (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Bholath",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Kapurthala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Sultanpur Lodhi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Phagwara (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Phillaur (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Nakodar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Shahkot",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Kartarpur (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Jalandhar West (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Jalandhar Central",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Jalandhar North",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Jalandhar Cantt.",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Adampur (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Mukerian",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Dasuya",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Urmar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "Sham Chaurasi (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Hoshiarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Chabbewal (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Garhshankar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Banga (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Nawan Shahr",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Balachaur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Anandpur Sahib",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Rupnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Chamkaur Sahib (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Kharar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "S.A.S.Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "Bassi Pathana (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Fatehgarh Sahib",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Amloh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Khanna",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Samrala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Sahnewal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Ludhiana East",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Ludhiana South",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 62,
+      "name": "Atam Nagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 63,
+      "name": "Ludhiana Central",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 64,
+      "name": "Ludhiana West",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Ludhiana North",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 66,
+      "name": "Gill (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 67,
+      "name": "Payal (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 68,
+      "name": "Dakha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 69,
+      "name": "Raikot (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 70,
+      "name": "Jagraon (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 71,
+      "name": "Nihal Singhwala (SC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 72,
+      "name": "Bhagha Purana",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 73,
+      "name": "Moga",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 74,
+      "name": "Dharamkot",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 75,
+      "name": "Zira",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 76,
+      "name": "Firozpur City",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 77,
+      "name": "Firozpur Rural (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 78,
+      "name": "Guru Har Sahai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 79,
+      "name": "Jalalabad",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 80,
+      "name": "Fazilka",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 81,
+      "name": "Abohar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 82,
+      "name": "Balluana (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 83,
+      "name": "Lambi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 84,
+      "name": "Gidderbaha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 85,
+      "name": "Malout (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 86,
+      "name": "Muktsar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 87,
+      "name": "Faridkot",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 88,
+      "name": "Kotkapura",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 89,
+      "name": "Jaitu (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 90,
+      "name": "Rampura Phul",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 91,
+      "name": "Bhucho Mandi (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 92,
+      "name": "Bathinda Urban",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 93,
+      "name": "Bathinda Rural (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 94,
+      "name": "Talwandi Sabo",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 95,
+      "name": "Maur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 96,
+      "name": "Mansa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 97,
+      "name": "Sardulgarh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 98,
+      "name": "Budhlada (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 99,
+      "name": "Lehra",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 100,
+      "name": "Dirba (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 101,
+      "name": "Sunam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 102,
+      "name": "Bhadaur (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 103,
+      "name": "Barnala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 104,
+      "name": "Mehal Kalan (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 105,
+      "name": "Malerkotla",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 106,
+      "name": "Amargarh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 107,
+      "name": "Dhuri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 108,
+      "name": "Sangrur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 109,
+      "name": "Nabha (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 110,
+      "name": "Patiala Rural",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 111,
+      "name": "Rajpura",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 112,
+      "name": "Dera Bassi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 113,
+      "name": "Ghanaur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 114,
+      "name": "Sanour",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 115,
+      "name": "Patiala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 116,
+      "name": "Samana",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 117,
+      "name": "Shutrana (SC)",
+      "reservation": "GEN"
+    }
+  ]
+}

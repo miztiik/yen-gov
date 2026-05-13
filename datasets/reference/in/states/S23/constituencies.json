@@ -1,0 +1,317 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/tripura/assembly/tripura_AC.json",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "HindustanTimesLabs shapefiles — Tripura 2008 Delimitation Assembly Constituencies",
+      "authority": "HindustanTimesLabs (MIT)"
+    }
+  ],
+  "state": "S23",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "SIMNA (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "MOHANPUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "BAMUTIA (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "BARJALA (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "KHAYERPUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "AGARTALA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "RAMNAGAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "TOWN BORDOWALI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "BANAMALIPUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "MAJLISHPUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "MANDAIBAZAR(ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "TAKARJALA (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "PRATAPGARH (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "BADHARGHAT (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "KAMALASAGAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "BISHALGARH",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "GOLAGHATI (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "SURYAMANINAGAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "CHARILAM (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "BOXANAGAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "NALCHAR (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "SONAMURA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "DHANPUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "RAMCHANDRAGHAT(ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "KHOWAI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "ASHARAMBARI (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "KALYANPUR-PRAMODENAGAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "TELIAMURA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "KRISHNAPUR (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "BAGMA (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "RADHAKISHOREPUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "MATARBARI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "KAKRABAN-SALGARAH(SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "RAJNAGAR (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "BELONIA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "SANTIRBAZAR (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "HRISHYAMUKH",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "JOLAIBARI (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "MANU (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "SABROOM",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "AMPINAGAR (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "AMARPUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "KARBOOK (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "RAIMA VALLEY (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "KAMALPUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "SURMA (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "AMBASSA (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "KARAMCHHARA (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "CHHAWMANU (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "PABIACHHARA (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "FATIKROY (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "CHANDIPUR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "KAILASAHAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "KADAMTALA - KURTI",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "BAGBASSA",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "DHARMANAGAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "JUBARAJNAGAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "PANISAGAR",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "PENCHARTHAL (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "KANCHANPUR (ST)",
+      "reservation": "GEN"
+    }
+  ]
+}

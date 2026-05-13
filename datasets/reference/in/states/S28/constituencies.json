@@ -1,0 +1,367 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/uttarakhand/assembly/uttarakhand_AC.json",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "HindustanTimesLabs shapefiles — Uttarakhand 2008 Delimitation Assembly Constituencies",
+      "authority": "HindustanTimesLabs (MIT)"
+    }
+  ],
+  "state": "S28",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Purola (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Yamunotri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Gangotri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Badrinath",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Tharali (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Karnprayag",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Kedarnath",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Rudraprayag",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Ghanshali (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Deoprayag",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Narendranagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Pratapnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Tehri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Dhanolti",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Chakrata (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Vikasnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Sahaspur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Dharampur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Raipur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Rajpur Road (SC",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Dehradun Cantt.",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Mussoorie",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Doiwala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Rishikesh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Hardwar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "B.H.E.L. Ranipu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Jwalapur (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Bhagwanpur (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Jhabrera (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Pirankaliyar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Roorkee",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Khanpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Manglaur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Laksar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Hardwar Rural",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Yamkeshwar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Pauri (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Srinagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Chaubattakhal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Lansdowne",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Kotdwar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "Dharchula",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Didihat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Pithoragarh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Gangolihat (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Kapkote",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Bageshwar (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Dwarahat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Salt",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Ranikhet",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Someshwar (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Almora",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Jageshwar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "Lohaghat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Champawat",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Lalkuwa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Bhimtal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Nainital (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Haldwani",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Kaladhungi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 61,
+      "name": "Ramnagar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 62,
+      "name": "Jaspur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 63,
+      "name": "Kashipur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 64,
+      "name": "Bajpur (SC)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 65,
+      "name": "Gadarpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 66,
+      "name": "Rudrapur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 67,
+      "name": "Kichha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 68,
+      "name": "Sitarganj",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 69,
+      "name": "Nanak Matta (ST",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 70,
+      "name": "Khatima",
+      "reservation": "GEN"
+    }
+  ]
+}

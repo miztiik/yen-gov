@@ -1,0 +1,317 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_constituencies_of_the_Manipur_Legislative_Assembly",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of constituencies of the Manipur Legislative Assembly",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S14",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Khundrakpam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Heingang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Khurai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Kshetrigao",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Thongju",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Keirao",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Andro",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Lamlai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Thangmeiband",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Uripok",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Sagolband",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Keishamthong",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Singjamei",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Yaiskul",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Wangkhei",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Sekmai",
+      "reservation": "SC"
+    },
+    {
+      "eci_no": 17,
+      "name": "Lamsang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Konthoujam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Patsoi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Langthabal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Naoriya Pakhanglakpa",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Wangoi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Mayang Imphal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Nambol",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Oinam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Bishnupur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Moirang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Thanga",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Kumbi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Lilong",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Thoubal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Wangkhem",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Heirok",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Wangjing Tentha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Khangabok",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Wabgai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Kakching",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Hiyanglam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Sugnu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Jiribam",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Chandel",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 42,
+      "name": "Tengnoupal",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Phungyar",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Ukhrul",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Chingai",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Saikul",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Karong",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Mao",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Tadubi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Kangpokpi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Saitu",
+      "reservation": "ST"
+    },
+    {
+      "eci_no": 52,
+      "name": "Tamei",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Tamenglong",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "Nungba",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Tipaimukh",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Thanlon",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Henglep",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Churachandpur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Saikot",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Singhat",
+      "reservation": "GEN"
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/meghalaya/assembly/meghalaya_AC.json",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "HindustanTimesLabs shapefiles — Meghalaya 2008 Delimitation Assembly Constituencies",
+      "authority": "HindustanTimesLabs (MIT)"
+    }
+  ],
+  "state": "S15",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Nartiang (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Jowai (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Raliang (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Mowkaiaw (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Sutnga-Saipung (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Khliehriat (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Amlarem (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Mawhati (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Nongpoh (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Jirang (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Umsning (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Umroi (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Mawryngkneng(ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Pynthorumkhrah",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Mawlai (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "East Shillong (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "North Shillong (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "West Shillong",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "South Shillong",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Mylliem (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Nongthymmai (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Nongkrem (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Sohing (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Mawphlang (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Mawsynram (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Shella (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Pynursla (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Sohra (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Mawkynrew (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Mairang (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Mawthadraishan (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Nongstoin (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Rambrai Jyrngam (ST",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Mawshynrut (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Ranikor (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Mawkyrwat (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Kharkutta (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Mendipathar (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Resubelpara (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Bajengdoba (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Songsak (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "Rongjeng (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "William Nagar (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Raksamgre (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Tikrikila (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Phulbari",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Rajabala",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Selsella (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Dadenggre (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "North Tura (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "SouthTura (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Rangsakona (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Ampathi (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "Mahendraganj (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Salmanpara (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Gambegre (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Dalu (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Rongara-Siju (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Chokpot (ST)",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Baghmara (ST)",
+      "reservation": "GEN"
+    }
+  ]
+}

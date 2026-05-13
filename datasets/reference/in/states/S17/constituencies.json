@@ -1,0 +1,317 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/constituency.schema.json",
+  "$schema_version": "4.1",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/nagaland/assembly/nagaland_AC.json",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "HindustanTimesLabs shapefiles — Nagaland 2008 Delimitation Assembly Constituencies",
+      "authority": "HindustanTimesLabs (MIT)"
+    }
+  ],
+  "state": "S17",
+  "body": "AC",
+  "status": "provisional",
+  "constituencies": [
+    {
+      "eci_no": 1,
+      "name": "Dimapur-I",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 2,
+      "name": "Dimapur-II",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 3,
+      "name": "Dimapur-III",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 4,
+      "name": "Ghaspani-I",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 5,
+      "name": "Ghaspani-II",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 6,
+      "name": "Tenning",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 7,
+      "name": "Peren",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 8,
+      "name": "Western Angami",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 9,
+      "name": "Kohima Town",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 10,
+      "name": "Northern Angami - I",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 11,
+      "name": "Northern Angami -II",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 12,
+      "name": "Tseminyu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 13,
+      "name": "Pughoboto",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 14,
+      "name": "Southern Angami-I",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 15,
+      "name": "Southern Angami-II",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 16,
+      "name": "Pfutsero",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 17,
+      "name": "Chizami",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 18,
+      "name": "Chazouba",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 19,
+      "name": "Phek",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 20,
+      "name": "Meluri",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 21,
+      "name": "Tuli",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 22,
+      "name": "Arkakong",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 23,
+      "name": "Impur",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 24,
+      "name": "Angetyongpang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 25,
+      "name": "Monguya",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 26,
+      "name": "Aonglenden",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 27,
+      "name": "Mokokchung Town",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 28,
+      "name": "Koridang",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 29,
+      "name": "Jangpetkong",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 30,
+      "name": "Alungtaki",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 31,
+      "name": "Akuluto",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 32,
+      "name": "Atoizu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 33,
+      "name": "Suruhuto",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 34,
+      "name": "Aghunato",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 35,
+      "name": "Zunheboto",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 36,
+      "name": "Satakha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 37,
+      "name": "Tyui",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 38,
+      "name": "Wokha",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 39,
+      "name": "Sanis",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 40,
+      "name": "Bhandari",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 41,
+      "name": "Tizit",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 42,
+      "name": "Wakching",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 43,
+      "name": "Tapi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 44,
+      "name": "Phomching",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 45,
+      "name": "Tehok",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 46,
+      "name": "Mon Town",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 47,
+      "name": "Aboi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 48,
+      "name": "Moka",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 49,
+      "name": "Tamlu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 50,
+      "name": "Longleng",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 51,
+      "name": "Noksen",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 52,
+      "name": "Longkhim Chare",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 53,
+      "name": "Tuensang Sadar-I",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 54,
+      "name": "Tuensang Sadar-II",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 55,
+      "name": "Tobu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 56,
+      "name": "Noklak",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 57,
+      "name": "Thonoknyu",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 58,
+      "name": "Shamtorr-Chessore",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 59,
+      "name": "Siyuchong-Sitimi",
+      "reservation": "GEN"
+    },
+    {
+      "eci_no": 60,
+      "name": "Pungro-Kiphire",
+      "reservation": "GEN"
+    }
+  ]
+}
