@@ -135,6 +135,556 @@
         "maxzoom": 10,
         "layer": "ac"
       }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S01",
+      "out": "ac/S01-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/andhrapradesh/assembly/andhrapradesh_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S01/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S02",
+      "out": "ac/S02-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/arunachalpradesh/assembly/arunachalpradesh_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S02/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S04",
+      "out": "ac/S04-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/bihar/assembly/bihar_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S04/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S05",
+      "out": "ac/S05-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/goa/assembly/goa_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S05/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S06",
+      "out": "ac/S06-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/gujarat/assembly/gujarat_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S06/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S07",
+      "out": "ac/S07-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/haryana/assembly/haryana_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S07/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S08",
+      "out": "ac/S08-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/himachalpradesh/assembly/himachalpradesh_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S08/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S10",
+      "out": "ac/S10-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/karnataka/assembly/karnataka_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S10/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S12",
+      "out": "ac/S12-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/madhyapradesh/assembly/madhyapradesh_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S12/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S13",
+      "out": "ac/S13-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/maharashtra/assembly/maharashtra_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S13/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S14",
+      "out": "ac/S14-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/manipur/assembly/manipur_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S14/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S15",
+      "out": "ac/S15-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/meghalaya/assembly/meghalaya_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S15/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S16",
+      "out": "ac/S16-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/mizoram/assembly/mizoram_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S16/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S17",
+      "out": "ac/S17-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/nagaland/assembly/nagaland_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S17/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S18",
+      "out": "ac/S18-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/odisha/assembly/odisha_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S18/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S19",
+      "out": "ac/S19-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/punjab/assembly/punjab_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S19/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S20",
+      "out": "ac/S20-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/rajasthan/assembly/rajasthan_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S20/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S21",
+      "out": "ac/S21-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/sikkim/assembly/sikkim_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S21/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S23",
+      "out": "ac/S23-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/tripura/assembly/tripura_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S23/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S24",
+      "out": "ac/S24-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/uttarpradesh/assembly/uttarpradesh_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S24/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S26",
+      "out": "ac/S26-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/chhattisgarh/assembly/chhattisgarh_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S26/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S27",
+      "out": "ac/S27-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/jharkhand/assembly/jharkhand_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S27/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S28",
+      "out": "ac/S28-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/uttarakhand/assembly/uttarakhand_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S28/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "S29",
+      "out": "ac/S29-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/telangana/assembly/telangana_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/S29/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "kind": "ac",
+      "country": "IN",
+      "state": "U05",
+      "out": "ac/U05-ac.pmtiles",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/delhi/assembly/delhi_AC.json"
+        ]
+      },
+      "license": "MIT",
+      "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
+      "ac_no_property": "AC_NO",
+      "name_property": "AC_NAME",
+      "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/U05/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
     }
   ],
   "simplify": {

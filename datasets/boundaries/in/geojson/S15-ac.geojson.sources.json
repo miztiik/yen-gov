@@ -2,11 +2,11 @@
   "$schema": "https://yen-gov.github.io/schemas/boundary.sources.schema.json",
   "$schema_version": "1.0",
   "$comment": "CLAUDE.md §12 provenance sidecar for the GeoJSON of the same name. GeoJSON has no native top-level metadata slot; this file carries the required `sources` array on its behalf.",
-  "for": "U07-ac.geojson",
+  "for": "S15-ac.geojson",
   "sources": [
     {
-      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/puducherry/assembly/puducherry_AC.json",
-      "fetched_at": "2026-05-13T08:59:25Z"
+      "url": "https://raw.githubusercontent.com/HindustanTimesLabs/shapefiles/master/state_ut/meghalaya/assembly/meghalaya_AC.json",
+      "fetched_at": "2026-05-13T08:59:27Z"
     }
   ]
 }
