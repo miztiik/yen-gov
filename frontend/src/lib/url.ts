@@ -94,4 +94,12 @@ export const url = {
   compare(stateCode: string, event: string): string {
     return withBase(`/compare/${states.slug(stateCode) || stateCode.toLowerCase()}/${event}`);
   },
+  /** Topic Front Door index — `/t`. (P3.3b, ADR-0022.) */
+  topics(): string {
+    return withBase("/t");
+  },
+  /** Topic landing — `/t/<topic-id>`. (P3.3a, ADR-0022.) */
+  topic(topicId: string): string {
+    return withBase(`/t/${topicId}`);
+  },
 };

@@ -1,38 +1,46 @@
 <script lang="ts">
-  // Left rail: scope picker on top, tool list below. Replaces the previous
-  // top-only nav per docs/architecture/frontend/overview.md.
+  // Left rail: pinned StatePill on top, grouped IA below (P3.3c).
   //
-  // Tool availability depends on scope (overview.md > IA table). Tools that
-  // require a chosen state render disabled when none is picked, so the user
-  // sees the affordance and learns the rule, rather than having entries
-  // appear and disappear.
+  // The previous flat tools list ("Explore / Analyze Trends / Psephlab /
+  // Compare / Settings") with three "Pick a state first" greyed stubs has
+  // been replaced — see TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md
+  // §"P3.3c" and ADR-0022. The structure is now four groups:
+  //
+  //     My state · How states compare · Centre and states · Settings
+  //
+  // Group/item construction is a pure function (`buildRailGroups`) so
+  // the IA shape is unit-testable separately from the view. This file is
+  // a render-only consumer — there is NO conditional logic on tools or
+  // greyed-out items here.
+  //
+  // Verbs that used to be rail entries:
+  //   - "Explore" (the country-level one) → killed; brand wordmark goes home.
+  //   - "Analyze Trends" → renamed "Explore trends" under My state.
+  //   - "Psephlab" → killed entirely (reachable from election artifacts).
+  //   - "Compare" → renamed "Side by side" under How states compare,
+  //     emitted only when scope+event are both available (no greyed stub).
+  //
+  // The pinned `StatePill` replaces the always-open `ScopePicker`; clicking
+  // the pill opens the same dropdown.
+  //
+  // CLAUDE.md §13: any change here must be smoke-tested on /, /t, /about,
+  // and /s/tamil-nadu.
 
   import { route } from "./router.svelte";
   import { scope } from "./scope.svelte";
   import { url } from "./url";
   import { REPO_URL } from "./repo";
-  import ScopePicker from "./ScopePicker.svelte";
+  import StatePill from "./StatePill.svelte";
+  import { buildRailGroups } from "./rail-groups";
   import {
     fetchElectionEvents,
     defaultEventForState,
     type ElectionEventsCatalogue,
   } from "./election-events";
 
-  interface Tool {
-    label: string;
-    icon: string;
-    /** href as a function of current scope so "Explore" goes to #/ vs #/s/<S>. */
-    href: () => string;
-    /** Active when the current path matches this predicate. */
-    match: (path: string) => boolean;
-    /** Disabled reason — when set, the tool renders as a non-link with tooltip. */
-    disabled_reason?: () => string | null;
-  }
-
-  // Per-state election event resolution (ADR-0023). Psephlab and Compare
-  // need a specific event_id in the URL; we use the state's default. When
-  // the state has no election data on disk, the tool is disabled with a
-  // contextual reason rather than linking into a 404.
+  // Per-state default election event for "Side by side". Resolves to null
+  // when the state has no election data on disk; in that case the
+  // Side-by-side item is omitted from the rail rather than greyed.
   let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
   fetchElectionEvents()
     .then(c => (election_catalogue = c))
@@ -42,55 +50,13 @@
     defaultEventForState(election_catalogue, scope.state)?.event_id ?? null,
   );
 
-  const tools: Tool[] = [
-    {
-      label: "Explore",
-      icon: "🗺",
-      href: () => (scope.state ? url.state(scope.state) : url.home()),
-      match: p => p === "/" || (p.startsWith("/s/") && !p.endsWith("/explore")),
-    },
-    {
-      label: "Analyze Trends",
-      icon: "⌘",
-      href: () => (scope.state ? url.explore(scope.state) : url.home()),
-      match: p => p.endsWith("/explore"),
-      disabled_reason: () => (scope.state ? null : "Pick a state first"),
-    },
-    {
-      label: "Psephlab",
-      icon: "🧪",
-      href: () =>
-        scope.state && default_event
-          ? url.lab(scope.state, default_event)
-          : url.home(),
-      match: p => p.startsWith("/lab/"),
-      disabled_reason: () => {
-        if (!scope.state) return "Pick a state first";
-        if (!default_event) return "No election data ingested for this state";
-        return null;
-      },
-    },
-    {
-      label: "Compare",
-      icon: "⇄",
-      href: () =>
-        scope.state && default_event
-          ? url.compare(scope.state, default_event)
-          : url.home(),
-      match: p => p.startsWith("/compare/"),
-      disabled_reason: () => {
-        if (!scope.state) return "Pick a state first";
-        if (!default_event) return "No election data ingested for this state";
-        return null;
-      },
-    },
-    {
-      label: "Settings",
-      icon: "⚙",
-      href: () => url.settings(),
-      match: p => p === "/settings",
-    },
-  ];
+  const groups = $derived(
+    buildRailGroups({
+      state: scope.state,
+      defaultEvent: default_event,
+      repoUrl: REPO_URL,
+    }),
+  );
 
   let mobile_open = $state(false);
   const current_path = $derived(route.path);
@@ -203,50 +169,52 @@
     <span class="brand-yen">Yen</span><span class="brand-chakra" aria-hidden="true">{@html chakraSvg}</span><span class="brand-gov">Gov</span>
   </a>
 
-  <ScopePicker />
+  <StatePill />
 
-  <nav class="flex-1 overflow-y-auto py-2">
-    <ul class="space-y-0.5 px-2 text-sm">
-      {#each tools as t}
-        {@const reason = t.disabled_reason?.() ?? null}
-        {@const active = t.match(current_path)}
-        <li>
-          {#if reason}
-            <span
-              class="flex items-center gap-3 px-3 py-2 rounded text-slate-400 cursor-not-allowed"
-              title={reason}
-            >
-              <span class="w-5 text-center">{t.icon}</span>
-              <span>{t.label}</span>
-              <span class="ml-auto text-[10px] uppercase tracking-wide truncate max-w-[7rem]">{reason}</span>
-            </span>
-          {:else}
-            <a
-              href={t.href()}
-              class="flex items-center gap-3 px-3 py-2 rounded transition-colors"
-              class:bg-slate-100={active}
-              class:text-slate-900={active}
-              class:font-medium={active}
-              class:text-slate-600={!active}
-              class:hover:bg-slate-50={!active}
-              class:hover:text-slate-900={!active}
-            >
-              <span class="w-5 text-center">{t.icon}</span>
-              <span>{t.label}</span>
-            </a>
-          {/if}
-        </li>
-      {/each}
-    </ul>
+  <nav class="flex-1 overflow-y-auto py-2" aria-label="Sections">
+    {#each groups as g (g.id)}
+      <section class="px-2 pb-3" data-rail-group={g.id}>
+        <h3 class="px-3 pt-2 pb-1 text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+          {g.label}
+        </h3>
+
+        {#if g.items.length > 0}
+          <ul class="space-y-0.5 text-sm list-none p-0 m-0">
+            {#each g.items as item (item.id)}
+              {@const active = item.match(current_path)}
+              <li>
+                <a
+                  href={item.href}
+                  data-rail-item={item.id}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noreferrer" : undefined}
+                  class="flex items-center gap-2 px-3 py-2 rounded transition-colors"
+                  class:bg-slate-100={active}
+                  class:text-slate-900={active}
+                  class:font-medium={active}
+                  class:text-slate-600={!active}
+                  class:hover:bg-slate-50={!active}
+                  class:hover:text-slate-900={!active}
+                >
+                  <span class="truncate">{item.label}</span>
+                  {#if item.external}
+                    <span aria-hidden="true" class="ml-auto text-[10px] text-slate-400">↗</span>
+                  {/if}
+                </a>
+              </li>
+            {/each}
+          </ul>
+        {/if}
+
+        {#if g.hint}
+          <p class="px-3 pt-1 text-[11px] italic text-slate-400">{g.hint}</p>
+        {/if}
+      </section>
+    {/each}
   </nav>
 
-  <footer class="px-4 py-2 text-[10px] text-slate-400 border-t border-slate-200 space-y-1">
-    <a href={url.about()} class="block hover:text-slate-600">
-      About &amp; disclaimer
-    </a>
-    <a href={REPO_URL} target="_blank" rel="noreferrer" class="block hover:text-slate-600">
-      Yen Gov · For an informed India
-    </a>
+  <footer class="px-4 py-2 text-[10px] text-slate-400 border-t border-slate-200">
+    <p>Yen Gov · For an informed India</p>
   </footer>
 </aside>
 

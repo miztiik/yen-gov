@@ -1,6 +1,6 @@
 # IA Reset — Atlas of Places, with a Topic Front Door
 
-**Status**: P1 + P2 + P2.5 + P3.1 + P3.2 + P3.3a + P3.3b complete (2026-05-13). Topic Front Door is live (`/t` and `/t/:topic`). **P3.3c (LeftRail rewrite) is BLOCKED on user IA decision** — see §"P3.3c — IA decision pending" below. Validator green; vitest 9357/9357; svelte-check 0 errors (4 a11y warnings ignored per CLAUDE.md §0).
+**Status**: P1 + P2 + P2.5 + P3.1 + P3.2 + P3.3a + P3.3b + P3.3c complete (2026-05-13). Topic Front Door is live (`/t` and `/t/:topic`); LeftRail rewritten with grouped IA + StatePill (P3.3c). Validator green; vitest 9446/9446; svelte-check 0 errors (4 a11y warnings ignored per CLAUDE.md §0).
 **Correction Level**: 5 (design consultation) for the spine choice; subsequent phases are L2/L3.
 **Supersedes**: the IA portion of [TODO/SOCIO-ECONOMIC-EXPANSION.md](SOCIO-ECONOMIC-EXPANSION.md) §6 — this doc closes the spatial-first vs indicator-first question.
 **ADR**: [ADR-0022](../docs/architecture/decisions/0022-place-first-ia-with-topic-catalogue.md). **Guardrail**: [docs/concepts/schema-is-the-design-system.md](../docs/concepts/schema-is-the-design-system.md).
@@ -57,7 +57,7 @@ Four persona reviews ran in parallel. Dissents surfaced:
 | **P3.2 — PeerSetFilter wired** ✅ | L2 | `PeerSetFilter.svelte` (controlled component); `IndicatorRanked` + `IndicatorChoropleth` accept optional `peer_set_members?: string[] \| null`; `StateOverview.svelte` per-section overrides keyed `${topic.id}::${artifact.id}`; home_state always admitted to ranked even when not in peer set. **Done 2026-05-12 (commit `abe0087`).** | No route changes. |
 | **P3.3a — TopicLanding** ✅ | L3 | `/t/:topic` route (`frontend/src/routes/TopicLanding.svelte`). National-scope view of one topic; closed renderer set; ListBadge + UnionListBanner + per-artifact PeerSetFilter; clear 404 panel for unknown topic id. **Done 2026-05-13 (commit `9d6b717`).** | LeftRail unchanged. |
 | **P3.3b — TopicIndex** ✅ | L3 | `/t` route (`frontend/src/routes/TopicIndex.svelte`). Topics grouped by Seventh Schedule list (State / Concurrent / Union / Process); empty groups skipped; cards link to `/t/:topic`. **Done 2026-05-13 (commit `de5c007`).** | LeftRail unchanged. |
-| **P3.3c — LeftRail rewrite** 🟡 BLOCKED | L4 | Replace flat tool list with groups + sub-items. **Pending user decision on IA shape** — see "P3.3c — IA decision pending" below. | Renderer set + routes from P3.3a/b stay. |
+| **P3.3c — LeftRail rewrite** ✅ | L3 | Pure `rail-groups.ts` builder + 15-test vitest suite; `StatePill.svelte` replaces always-open `ScopePicker` (popover wraps the same picker); `LeftRail.svelte` renders four groups: My state / How states compare / Centre and states / Settings. Killed verbs (Explore, Analyze Trends, Psephlab, Compare-as-verb) documented in `docs/architecture/frontend/overview.md` rev 3. NO greyed dead links — "Side by side" is emitted only when scope+event both present. `url.topics()` / `url.topic(id)` builders added; TopicIndex/TopicLanding hrefs migrated. **Done 2026-05-13.** | Routes unchanged (no `/s` index added). Renderer set + P3.3a/b routes intact. |
 | **P3.3d — polish** ⏸ | L2 | `?peer=…` deep-link state on `/t/:topic`; breadcrumbs; keyboard polish. | — |
 | **P4 — Generic Compare** ⏸ | L3 | `/compare?i=…&states=…` route using existing renderers. | Election Compare stays at `/compare/:state/:event`. |
 | **P5 — Home theme switch** ⏸ | L2 | Animated legend swap, captioned theme chip, URL-param theme. | Map engine unchanged. |
@@ -149,6 +149,15 @@ Full audit lives in conversation history (2026-05-11 IA reset session); migrate 
 ---
 
 ## P3.3c — IA decision pending (BLOCKER, 2026-05-13)
+
+> **RESOLVED 2026-05-13.** Decisions taken (see also commit message and `docs/architecture/frontend/overview.md` rev 3):
+> 1. Group set → **Citizen-pure** (My state / How states compare / Centre and states / Settings).
+> 2. State pill at top → **yes** (`StatePill.svelte`, popover wraps existing `ScopePicker.svelte`).
+> 3. Side by side → **sub-item under "How states compare"**, emitted only when scope+event present (no greyed stub). Demoted from a top-level group because its only entry today (`/compare/:state/:event`) needs both.
+> 4. Election Analytics / Psephlab → **killed from rail entirely**; reachable only from election artifacts on the state hub.
+>
+> Implementation: pure `rail-groups.ts` builder (15 tests) + `StatePill.svelte` + `LeftRail.svelte` rewrite. Original analysis kept below for memory.
+
 
 The flat tool list (Explore / Analyze Trends / Psephlab / Compare / Settings) with three "Pick a state first" greyed stubs has to go. User direction (verbatim 2026-05-13):
 

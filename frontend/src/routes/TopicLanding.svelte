@@ -34,6 +34,7 @@
     resolvePeerSet,
     type StateTiersFile,
   } from "../lib/state-tiers";
+  import { url } from "../lib/url";
 
   interface Props {
     params: { topic: string };
@@ -82,19 +83,19 @@
   {:else if !topic}
     <div class="space-y-2">
       <p class="text-sm">
-        <a href="/t" class="text-sky-700 hover:underline">← All topics</a>
+        <a href={url.topics()} class="text-sky-700 hover:underline">← All topics</a>
       </p>
       <h1 class="text-2xl font-semibold">Topic not found</h1>
       <p class="text-sm text-slate-600">
         No topic with id <code class="rounded bg-slate-100 px-1">{params.topic}</code> in the catalogue.
-        See the <a href="/t" class="text-sky-700 hover:underline">topic index</a> for the
+        See the <a href={url.topics()} class="text-sky-700 hover:underline">topic index</a> for the
         full list.
       </p>
     </div>
   {:else}
     <header class="space-y-2">
       <p class="text-sm">
-        <a href="/t" class="text-sky-700 hover:underline">← All topics</a>
+        <a href={url.topics()} class="text-sky-700 hover:underline">← All topics</a>
       </p>
       <div class="flex items-baseline gap-3 flex-wrap">
         <h1 class="text-2xl font-semibold">{topic.title}</h1>

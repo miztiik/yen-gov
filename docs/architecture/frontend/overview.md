@@ -1,6 +1,6 @@
 # Frontend Overview
 
-**Last Updated**: 2026-05-10 (revision 2: shared `electoral.ts`, `ChartTooltip`, donut min-visual-angle, ColorBrewer map legend, MarginHistogram polish)
+**Last Updated**: 2026-05-13 (revision 3: P3.3c — grouped IA in LeftRail, StatePill replaces always-open ScopePicker, killed verbs documented)
 
 The frontend is a static Svelte 5 + Vite + Tailwind + d3 bundle that renders election artifacts from [`datasets/`](../../../datasets/). It has no production backend (CLAUDE.md Holy Law #1) and never commits data files (§4). Built with `bun`. Routed with a tiny custom hash router.
 
@@ -28,42 +28,68 @@ Default landing is the **Citizen** path: India choropleth at `#/`, with a toolti
 
 ## Information architecture
 
-Layout is **tools-in-rail + scope picker on top** (Azure DevOps style). The left rail holds tools; the scope picker pinned at the top of the rail holds the current `Country → State → Election` selection and persists when the user switches tools.
+Layout is **pinned scope pill on top + four IA groups below**, in the left rail. Replaces the previous "tools-in-rail" model on 2026-05-13 (P3.3c, see TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md). The pill collapses the scope selector to a single line ("You're looking at: <State> ▾" / "Pick your state ▾") so the rail's visual weight goes to the IA groups.
 
 ```
-┌─────────────────┬───────────────────────────────────────────┐
-│ ◯ India ▾       │                                           │
-│   ◯ TN  ▾       │                                           │
-│   ◯ AcGen 2026 ▾│                                           │
-├─────────────────┤             <active tool canvas>          │
-│ ▣ Explore       │                                           │
-│ ▣ Psephlab      │                                           │
-│ ▣ Compare       │                                           │
-│ ▣ Settings      │                                           │
-└─────────────────┴───────────────────────────────────────────┘
+┌───────────────────────┬───────────────────────────────────────┐
+│ You're looking at: TN ▾                                       │
+├───────────────────────┤                                       │
+│ MY STATE              │                                       │
+│   Overview            │                                       │
+│   Explore trends      │                                       │
+│                       │       <route content>                 │
+│ HOW STATES COMPARE    │                                       │
+│   All topics          │                                       │
+│   Money & debt        │                                       │
+│   Power & energy      │                                       │
+│   Elections           │                                       │
+│   Side by side        │  ← only when scope+event both present │
+│                       │                                       │
+│ CENTRE AND STATES     │                                       │
+│   Money & debt        │                                       │
+│   (more coming soon)  │                                       │
+│                       │                                       │
+│ SETTINGS              │                                       │
+│   Settings · About · Repo↗                                    │
+└───────────────────────┴───────────────────────────────────────┘
 ```
 
-Tools available depend on the scope:
+Rules:
 
-| Scope | Explore | Psephlab | Compare |
-| --- | :---: | :---: | :---: |
-| Country (no state chosen) | ✓ (India choropleth) | – | ✓ (state-vs-state seat tallies) |
-| State + Election | ✓ (state map + party totals) | ✓ | ✓ (this election vs previous) |
-| State + Election + AC | ✓ (per-AC top-N + NOTA) | ✓ (single-AC mode) | ✓ |
+- **No greyed dead links.** Items that need a prerequisite (e.g. "Side by side" needs both scope and a default election event) are emitted ONLY when the prerequisite is satisfied. The previous "Pick a state first" greyed stubs are gone — they were universally judged broken UX.
+- **My state** is hint-only when no state is picked: a single neutral line ("Pick a state above to see your data.") replaces the disabled list.
+- **Centre and states** has only one entry today (`/t/fiscal`) plus a "more topics coming" hint. It will fill out as Union-list topics ship to the catalogue (no rail change needed — the group's contents come from data).
+- **The rail's structure is data**, not view. `frontend/src/lib/rail-groups.ts` returns the groups; `LeftRail.svelte` is a render-only consumer; the function is unit-tested in `rail-groups.test.ts`.
 
-The mobile breakpoint collapses the rail to a hamburger; the scope picker becomes a sticky header.
+Killed verbs (not in the rail anymore):
+
+| Old rail entry | Why killed | Where it lives now |
+| --- | --- | --- |
+| Explore (country) | Was just "go home"; the brand wordmark already does that. | Brand wordmark → `/`. |
+| Analyze Trends | Was a verb; users want a topic, not a verb. | "Explore trends" under My state when scoped; otherwise `IndicatorSmallMultiples` is embedded inside every artifact. |
+| Psephlab | Jargon; not a top-level mental model for citizens. | Reachable from election artifacts on the state hub; URL still works (`/lab/:state/:event`). |
+| Compare | Unanchored ("compare what?"). | Renamed "Side by side" under How states compare; emitted only with scope+event. |
 
 ### IA rationale
 
-- **Why tools-in-rail, not geography-in-rail.** A strategist switching from "explore actuals" to "run a swing" should not lose their scope. Putting tools in the rail and scope at the top makes scope a property of the session, not a property of the navigation.
-- **Why a scope picker, not URL-only navigation.** The hash router (below) already encodes scope, but a visible picker is needed because Psephlab and Compare both *operate on a chosen scope* — the user needs to see and change it without typing in the address bar.
-- **Why no separate Citizen / Strategist / Admin "modes".** Modes hide features and force a choice the user shouldn't have to make. Admin is split out because it ships in a separate bundle (different deployment story); Citizen vs Strategist is just "which tool did you click first".
+- **Why grouped, not flat.** A flat list of verbs forces the user to think in software actions ("Explore", "Analyze"). Groups by audience-mental-model ("My state", "How states compare", "Centre and states") match how a citizen actually reads government data.
+- **Why a pill, not an always-open scope picker.** The picker was visually dominant for a control most users touch once per session. Collapsing it to a pill lets the IA groups hold the rail's attention, while the scope is still a click away.
+- **Why no dead/greyed items.** The previous pattern advertised features the user couldn't reach without a tooltip explaining why. We tested four custom-agent IA proposals and all four said the same thing: emit the link only when it works.
 
-### IA — alternatives considered
+### IA — alternatives considered (P3.3c, 2026-05-13)
 
-- **Geography-first rail with contextual tools.** Cleaner mental model for the Citizen, but penalises the Strategist who switches scopes constantly. Rejected.
-- **Two-rail layout (geography left, tools top).** Used by some BI tools. Rejected: too much chrome for what is fundamentally a focused analysis app.
-- **Single-mode landing with hidden Psephlab.** Rejected — Psephlab is a flagship feature, not a hidden one.
+Four custom-agent proposals were evaluated before settling on the citizen-pure group set:
+
+- **Hohpe (Architect):** Topics / Places / About; verbs killed entirely; ScopePicker contextual on `/t/:topic` only. *Rejected:* "Places" reads as cartographic, not as "my state".
+- **UI/UX Lead:** Browse / Analyze / About; verbs preserved as Analyze sub-items, never greyed. *Rejected:* keeping the verbs as IA nouns repeats the original mistake.
+- **Citizen User:** My state / How states compare / Centre and states / Side by side / Settings; pinned state pill. *Selected (with one tweak):* "Side by side" demoted from a top-level group to a sub-item under "How states compare", because its only entry today (`/compare/:state/:event`) requires scope+event and would leave the group empty most of the time.
+- **Governance Strategist:** The Union / The States / The Process / Workspace; polity-shaped. *Rejected for v1:* polity vocabulary needs Union-list data we don't have yet; revisit when Statement-8 / `governments/in/union/...` ships.
+
+Older alternatives (kept here for memory):
+
+- Geography-first rail with contextual tools — penalises strategists; rejected.
+- Two-rail layout (geography left, tools top) — too much chrome.
+- Single-mode landing with hidden Psephlab — Psephlab isn't hidden, just no longer a top-level entry.
 
 ## Visualization catalog
 
