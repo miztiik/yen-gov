@@ -1110,3 +1110,35 @@ def ingest_energy_cea(
         typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
 
 
+@app.command("ingest-fiscal-rbi-appt1")
+def ingest_fiscal_rbi_appt1(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+) -> None:
+    """Ingest RBI Appendix Table 1 (deficits) → 4 national fiscal indicators.
+
+    No network — reads the cached XLSX from
+    .runtime/raw/rbi/state_finances/AppT1_MajorDeficitIndicators_<YYYY>.xlsx
+    (operator drops it once per RBI annual edition). Emits all-states
+    aggregate time series for gross fiscal / revenue / primary /
+    primary-revenue deficits. See
+    backend/yen_gov/sources/rbi_appendix_deficits/parsers.py for the
+    column -> indicator mapping.
+    """
+    from yen_gov.sources.rbi_appendix_deficits import ingest as appt1_mod
+
+    schema_dir = root / "datasets" / "schemas"
+    result = appt1_mod.ingest(repo_root=root, schema_dir=schema_dir)
+
+    typer.echo("ingest-fiscal-rbi-appt1: OK")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    cache mtime:  {r.workbook_fetched_at.isoformat()}")
+        typer.echo(f"    period cells: {r.period_count}")
+        typer.echo(f"    rows written: {r.row_count}")
+        typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
+
+
