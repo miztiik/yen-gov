@@ -32,7 +32,7 @@ https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm
 The ISO online browsing platform is authoritative: `https://www.iso.org/obp/ui/#iso:code:3166:IN`. These codes change rarely; the values committed here should match a current ISO publication.
 
 ### LGD district codes
-Local Government Directory at `https://lgdirectory.gov.in/`. LGD assigns numeric codes to districts. Where LGD data is not accessible, fall back to a Wikipedia URL slug and set `id_source: "wikipedia"`. Never mix the two formats in a single id without recording the source.
+Local Government Directory at `https://lgdirectory.gov.in/`. LGD assigns numeric codes to districts. Where LGD data is not accessible, fall back to a Wikipedia URL slug and set `id_source: "wikipedia"`. Never mix the two formats in a single id without recording the source. Catalogue of the LGD mirror yen-gov ingests from — 37 daily-refreshed entity tables, URL pattern, per-component adoption verdict — in [`lgd-opendata.md`](lgd-opendata.md).
 
 ### ECI constituency numbers
 Constituency numbers appear in result URLs:
@@ -96,5 +96,6 @@ When the LGD code is not yet known for a district, fall back to `district_id` (`
 
 - [`docs/architecture/data-model.md`](../architecture/data-model.md) — entities the IDs key into.
 - [`docs/reference/schemas.md`](schemas.md) — schemas that enforce the patterns above.
+- [`docs/reference/lgd-opendata.md`](lgd-opendata.md) — LGD source catalogue (the upstream that issues `district_lgd_code`).
 - [ADR-0019: dataset topology and column discipline](../architecture/decisions/0019-dataset-topology-and-column-discipline.md) — why these column names are locked.
 - `CLAUDE.md` §3 (identifier convention paragraph).
