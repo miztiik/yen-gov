@@ -1,6 +1,6 @@
 # IA Reset — Atlas of Places, with a Topic Front Door
 
-**Status**: Strategy approved (2026-05-11). **P1 + P2 complete (2026-05-11)** — catalogue contract shipped; state hub reads sections from catalogue; AcGenMay2026 no longer leaks into citizen-visible chrome; state list decoupled from election-data availability. Validator green, 39 vitest + 144 backend pytest pass.
+**Status**: P1 + P2 + P2.5 + P3.1 + P3.2 + P3.3a + P3.3b complete (2026-05-13). Topic Front Door is live (`/t` and `/t/:topic`). **P3.3c (LeftRail rewrite) is BLOCKED on user IA decision** — see §"P3.3c — IA decision pending" below. Validator green; vitest 9357/9357; svelte-check 0 errors (4 a11y warnings ignored per CLAUDE.md §0).
 **Correction Level**: 5 (design consultation) for the spine choice; subsequent phases are L2/L3.
 **Supersedes**: the IA portion of [TODO/SOCIO-ECONOMIC-EXPANSION.md](SOCIO-ECONOMIC-EXPANSION.md) §6 — this doc closes the spatial-first vs indicator-first question.
 **ADR**: [ADR-0022](../docs/architecture/decisions/0022-place-first-ia-with-topic-catalogue.md). **Guardrail**: [docs/concepts/schema-is-the-design-system.md](../docs/concepts/schema-is-the-design-system.md).
@@ -52,10 +52,15 @@ Four persona reviews ran in parallel. Dissents surfaced:
 | **P1 — Catalogue contract** ✅ | L3 | `topic-catalogue.schema.json` v1.0; `topic-catalogue.json` populated; ADR-0022; guardrail doc `docs/concepts/schema-is-the-design-system.md`. **Done 2026-05-11.** | No UI changes. Validator green. |
 | **P2 — De-jargon and de-couple** ✅ | L2 | `frontend/src/lib/catalogue.ts` (typed loader). `Home.svelte` header no longer says "showing event AcGenMay2026". `Home.svelte` + `ScopePicker.svelte` use catalogue-aware state availability (any national-scope indicator → all states available). `StateOverview.svelte` indicator sections come from the catalogue in catalogue order (fiscal first). **Done 2026-05-11.** | Routes unchanged. Election sections in StateOverview unchanged. Home India-map theme still election (P5 work). |
 | **P2.5 — Per-state event identity + government as primary anchor** ✅ | L4 | `election-events.schema.json` v1.0 + `election-events.json` (15 states); `governments.ts` + `election-events.ts` loaders; deletion of global Election dropdown from `ScopePicker`/`scope.svelte.ts`; per-state `defaultEventForState(state)` resolution at every routes-side site that previously hardcoded `AcGenMay2026` (Constituency, Party, Explore, StateOverview, LeftRail); "Your government" card with President's Rule / Governor's Rule / interim regimes; recency banner (<90 days post-poll); `data_status: pending_upstream` honest copy for Bihar 2025; CI consistency tests (`test_election_events_catalogue_matches_backend_registry`, `test_election_events_default_uniqueness_and_data_status_alignment`). ADR-0023 + `docs/concepts/government-vs-election.md`. **Done 2026-05-11.** | Routes unchanged. Election Compare/Psephlab routes unchanged (already took `:event`). Home India-map theme still election (P5 work). 10 of 15 states still need `cm_terms.json` files (graceful degradation in place). |
-| **Ingest gate** | — | Central transfers to states (FC devolution + GST compensation + CSS releases), FY15–FY26 (RBI State Finances Statement 8 + Union Budget transfers statement). **Blocks P3.** | — |
-| **P3 — Topic Front Door** | L3 | New routes `/t` and `/t/:topic`. Top-nav becomes 3 peers (Atlas · Topics · About). List-badge component. Peer-set filter on Ranked + Choropleth. Union-list banner. | State hub layout unchanged. Election routes unchanged. |
-| **P4 — Generic Compare** | L3 | `/compare?i=…&states=…` route using existing renderers. | Election Compare stays at `/compare/:state/:event`. |
-| **P5 — Home theme switch** | L2 | Animated legend swap, captioned theme chip, URL-param theme. | Map engine unchanged. |
+| **Ingest gate** | — | Central transfers to states (FC devolution + GST compensation + CSS releases), FY15–FY26 (RBI State Finances Statement 8 + Union Budget transfers statement). **Partial: 3 fiscal years (2023-24 Accounts, 2024-25 RE, 2025-26 BE) shipped as `fiscal/net_transfers_from_centre`. FY15+ historical extension still pending (backlog).** | — |
+| **P3.1 — state-tiers reference + chrome** ✅ | L3 | `state-tiers.schema.json` v1.0 + `state-tiers.json` (11 tiers, 9 populated); `ListBadge.svelte`, `UnionListBanner.svelte`; `state-tiers.ts` loader (`fetchStateTiers`, `tierMembers`, `resolvePeerSet`, `nonEmptyTierIds`, `tiersForState`); `topic-catalogue.schema.json` bumped to v1.1 (per-artifact `peer_set_default`); `docs/concepts/peer-sets.md`; 5 contract tests in `test_datasets_integrity.py`. **Done 2026-05-12 (commit `7417743`).** | No route changes. |
+| **P3.2 — PeerSetFilter wired** ✅ | L2 | `PeerSetFilter.svelte` (controlled component); `IndicatorRanked` + `IndicatorChoropleth` accept optional `peer_set_members?: string[] \| null`; `StateOverview.svelte` per-section overrides keyed `${topic.id}::${artifact.id}`; home_state always admitted to ranked even when not in peer set. **Done 2026-05-12 (commit `abe0087`).** | No route changes. |
+| **P3.3a — TopicLanding** ✅ | L3 | `/t/:topic` route (`frontend/src/routes/TopicLanding.svelte`). National-scope view of one topic; closed renderer set; ListBadge + UnionListBanner + per-artifact PeerSetFilter; clear 404 panel for unknown topic id. **Done 2026-05-13 (commit `9d6b717`).** | LeftRail unchanged. |
+| **P3.3b — TopicIndex** ✅ | L3 | `/t` route (`frontend/src/routes/TopicIndex.svelte`). Topics grouped by Seventh Schedule list (State / Concurrent / Union / Process); empty groups skipped; cards link to `/t/:topic`. **Done 2026-05-13 (commit `de5c007`).** | LeftRail unchanged. |
+| **P3.3c — LeftRail rewrite** 🟡 BLOCKED | L4 | Replace flat tool list with groups + sub-items. **Pending user decision on IA shape** — see "P3.3c — IA decision pending" below. | Renderer set + routes from P3.3a/b stay. |
+| **P3.3d — polish** ⏸ | L2 | `?peer=…` deep-link state on `/t/:topic`; breadcrumbs; keyboard polish. | — |
+| **P4 — Generic Compare** ⏸ | L3 | `/compare?i=…&states=…` route using existing renderers. | Election Compare stays at `/compare/:state/:event`. |
+| **P5 — Home theme switch** ⏸ | L2 | Animated legend swap, captioned theme chip, URL-param theme. | Map engine unchanged. |
 
 **P1 alone is the option-preserving move** — it ships the contract before any pivot is forced. If the team later disagrees and wants Spine 2 (topic-first), P1 makes it a route-generation change, not a re-architecture.
 
@@ -138,3 +143,106 @@ Already generic and reusable: `MapChoropleth`, `IndicatorChoropleth`, `Indicator
 Generic indicator artifacts shipped: `energy/installed_mw_by_state`, `fiscal/outstanding_debt_pct_gsdp` (35 states × 19 fiscal years).
 
 Full audit lives in conversation history (2026-05-11 IA reset session); migrate into `docs/architecture/frontend/information-architecture.md` as part of P1.
+
+---
+
+---
+
+## P3.3c — IA decision pending (BLOCKER, 2026-05-13)
+
+The flat tool list (Explore / Analyze Trends / Psephlab / Compare / Settings) with three "Pick a state first" greyed stubs has to go. User direction (verbatim 2026-05-13):
+
+> "this has to be reimagined - work with custom agents (as an example for different domain - dashboard - economic indicators, settings as major groups in the left and then sub items, but come with your own option)"
+
+Four custom agents proposed shapes (full proposals captured in session transcript `81f198f8-dbce-4a7f-b6df-b27838d0f980.jsonl`). Summary:
+
+| Proposer | Top-level groups | Verbs (Analyze/Psephlab/Compare) | ScopePicker |
+|---|---|---|---|
+| **Hohpe (Architect)** | Topics / Places / About | Killed — verbs are renderer choices, not nav nouns | Removed from shell, contextual on `/t/:topic` only |
+| **UI/UX Lead** | Browse / Analyze / About | Kept as Analyze sub-items, never greyed (page prompts for scope) | Contextual sub-header, hidden on index pages |
+| **Citizen User** | My State (pinned) / How states compare / Centre and states / Side by side / Settings | "Trends" inline per topic; "Psephlab" rename to Elections; "Compare"→"Side by side" top-level | Pinned "You're looking at: <State>" pill at top of rail |
+| **Governance Strategist** | The Union / The States / The Process / Workspace | Compare→"Benchmark against peers"; Psephlab→"Election Analytics" | Contextual on States routes; hidden on Union routes; EventPicker on Process routes |
+
+**Strong agreement across all four:**
+1. Kill the global ScopePicker (root cause of "Pick a state first" tollgate).
+2. Kill the greyed-out tool stubs (universally judged broken UX).
+3. Vocabulary surgery: "Psephlab" is jargon; "Compare" is unanchored.
+4. Groups + sub-items, not a flat list (matches user direction).
+
+**Recommended hybrid (for user approval — NOT yet implemented):**
+
+Rail:
+- **You're looking at: <State> ▾** — contextual pill at top (Citizen #3). Empty state: "Pick your state".
+- **Topics** group: All topics → `/t`; Money & debt → `/t/fiscal`; Power & electricity → `/t/energy`; Elections → `/t/elections`.
+- **States** group: All states → `/s` (NEW); My state → `/s/<current>`; Side by side → `/compare/...` (no longer greyed).
+- **About** group: About → `/about`; Settings → `/settings`; Repo → external.
+
+ScopePicker: removed from the shell, surfaced inline as the "You're looking at:" pill.
+
+Verbs:
+- "Analyze Trends" → killed (already surfaced by `IndicatorSmallMultiples` inside every artifact).
+- "Psephlab" → killed from rail; reachable from election artifacts as a contextual link.
+- "Compare" → renamed "Side by side", under States group, no scope prerequisite.
+
+### Decisions needed before P3.3c can start
+
+1. **Group set** — accept hybrid (Topics / States / About) OR pick one of the four pure proposals?
+2. **State pill at top** — yes (Citizen-style pinned context) OR remove entirely (Hohpe-pure)?
+3. **Side by side / Compare** — keep as navigable sub-item OR kill until `/compare` lands in P4?
+4. **Election Analytics / Psephlab** — kill from rail entirely (reachable only from election artifacts) OR keep as a sub-item under Topics → Elections?
+
+Once decided, P3.3c becomes a contained Level-3 rewrite: one component (`frontend/src/lib/LeftRail.svelte`), no schema changes, optional new routes (`/s` index if Side-by-side stays).
+
+---
+
+## Session handoff (2026-05-13)
+
+### Done this session
+- **P3.1** shipped `7417743 feat(ia): P3.1 state-tiers reference data + ListBadge + UnionListBanner`.
+- **P3.2** shipped `abe0087 feat(ia): P3.2 PeerSetFilter wired into IndicatorRanked + IndicatorChoropleth`.
+- **P3.3a** shipped `9d6b717 feat(ia): P3.3a TopicLanding route at /t/:topic`.
+- **P3.3b** shipped `de5c007 feat(ia): P3.3b TopicIndex at /t (Topic Front Door)`.
+- 4 parallel custom-agent IA proposals collected for P3.3c (full text in session transcript).
+
+### Files touched (this session)
+- `datasets/schemas/state-tiers.schema.json` (NEW v1.0)
+- `datasets/schemas/topic-catalogue.schema.json` (bumped 1.0→1.1, per-artifact `peer_set_default`)
+- `datasets/reference/in/state-tiers.json` (NEW; 11 tiers, 9 populated)
+- `datasets/reference/in/topic-catalogue.json` ($schema_version 1.1; `fiscal/net_transfers_from_centre` peer_set_default)
+- `frontend/src/lib/state-tiers.ts` + `state-tiers.test.ts` (NEW; 12 cases)
+- `frontend/src/lib/catalogue.ts` (PeerSet union widened, `resolvePeerSetDefault`, `displayForArtifact`, `indicatorPathForArtifact`)
+- `frontend/src/lib/catalogue.test.ts` (+3 tests)
+- `frontend/src/lib/ListBadge.svelte` (NEW)
+- `frontend/src/lib/UnionListBanner.svelte` (NEW)
+- `frontend/src/lib/PeerSetFilter.svelte` (NEW)
+- `frontend/src/lib/IndicatorRanked.svelte` + `IndicatorChoropleth.svelte` (added optional `peer_set_members`)
+- `frontend/src/routes/StateOverview.svelte` (per-section PeerSetFilter wiring)
+- `frontend/src/routes/TopicLanding.svelte` (NEW — P3.3a)
+- `frontend/src/routes/TopicIndex.svelte` (NEW — P3.3b)
+- `frontend/src/main.ts` (registered `/t` + `/t/:topic`)
+- `backend/tests/test_datasets_integrity.py` (+5 contract tests; module constants added)
+- `docs/concepts/peer-sets.md` (NEW)
+
+### Verified outcomes (last green run)
+- `cd frontend; npm test` → 9357 / 9357 pass.
+- `cd frontend; npm run check` → 0 errors, 4 a11y warnings (ignored per CLAUDE.md §0).
+- `cd backend; python -m yen_gov validate` → green.
+- Browser smoke: `/t` renders 3 groups; `/t/fiscal` renders artifacts with PeerSetFilter; `/t/no-such-topic` renders the 404 panel.
+
+### Pending — clear next steps for new session
+
+**Immediate (must answer before any code is written):**
+1. Answer the 4 P3.3c IA decisions above.
+
+**Then in order:**
+1. **P3.3c** — implement chosen IA in `frontend/src/lib/LeftRail.svelte`. CLAUDE.md §13 mandates browser smoke on `/`, `/t`, `/about`, `/s/tamil-nadu` after the rewrite.
+2. **P3.3d** — `?peer=…` deep-link state on `/t/:topic`; breadcrumbs.
+3. **P4** — generic `/compare` route.
+4. **P5** — home theme switch.
+5. **Backlog** — P2.6 / P2.7 / P2.8 (see "Deferred" section above) + RBI transfers FY15+ historical extension.
+
+### Important context for next session
+- Custom agent registry (only valid names for `runSubagent`): `Gregor Hohpe (Architect)`, `Governance Strategist`, `Citizen User`, `UI/UX Lead`, `Explore`. NOT registered: Election Strategist, Data Architect.
+- `state-tiers.json` has one intentionally empty tier (`fc_horizontal_devolution_share_quintile`) pending RBI Statement 8 ingest. `nonEmptyTierIds()` filters it out so it won't appear in PeerSetFilter dropdowns.
+- `topic-catalogue.json` currently has 3 topics (fiscal/State, energy/Concurrent, elections/Process). No Union-list topic yet → `UnionListBanner` code path is unexercised in browser smoke (component-tested only).
+- "Pick a state first" greyed stubs in current LeftRail are the explicit anti-pattern P3.3c must remove.
