@@ -48,6 +48,15 @@ describe("buildRailGroups (no scope)", () => {
     expect(ids).not.toContain("compare.side-by-side");
   });
 
+  it("How states compare always exposes the generic Compare states tool (P4)", () => {
+    const cmp = find(groups, "how-states-compare");
+    const ci = cmp.items.find(i => i.id === "compare.indicator");
+    expect(ci).toBeDefined();
+    // Bare /compare URL — friendly empty state, no precondition.
+    expect(ci!.href).toMatch(/\/compare$/);
+    expect(ci!.label).toBe("Compare states");
+  });
+
   it("Centre and states has fiscal + a 'more coming' hint", () => {
     const cs = find(groups, "centre-and-states");
     expect(cs.items.map(i => i.id)).toEqual(["centre.fiscal"]);

@@ -102,4 +102,21 @@ export const url = {
   topic(topicId: string): string {
     return withBase(`/t/${topicId}`);
   },
+  /**
+   * Generic indicator Compare — `/compare?i=<id>&states=<csv>&peer=<peer>`.
+   * (P4, ADR-0022.) Distinct from `compare(state, event)` which is the
+   * election-results compare under `/compare/:state/:event`. All three
+   * fields are optional; the page renders a friendly chooser when `i` is
+   * absent. The `?` is omitted when every field is empty.
+   */
+  compareIndicator(
+    opts: { indicator?: string | null; states?: string[]; peer?: string | null } = {},
+  ): string {
+    const params = new URLSearchParams();
+    if (opts.indicator) params.set("i", opts.indicator);
+    if (opts.states && opts.states.length > 0) params.set("states", opts.states.join(","));
+    if (opts.peer) params.set("peer", opts.peer);
+    const s = params.toString();
+    return withBase(s ? `/compare?${s}` : "/compare");
+  },
 };

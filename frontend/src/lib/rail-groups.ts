@@ -118,6 +118,15 @@ export function buildRailGroups(args: BuildRailGroupsArgs): RailGroup[] {
       href: url.topic("elections"),
       match: p => p === "/t/elections",
     },
+    // Generic indicator Compare (P4) — always available, friendly empty
+    // state when no indicator is selected so it doesn't violate the
+    // "no greyed dead links" rule.
+    {
+      id: "compare.indicator",
+      label: "Compare states",
+      href: url.compareIndicator(),
+      match: p => p === "/compare",
+    },
   ];
   // Side-by-side requires both a chosen state AND an event — otherwise
   // hidden (per P3.3c "no greyed stubs" rule).

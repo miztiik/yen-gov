@@ -11,6 +11,7 @@ import Explore from "./routes/Explore.svelte";
 import Settings from "./routes/Settings.svelte";
 import Psephlab from "./routes/Psephlab.svelte";
 import Compare from "./routes/Compare.svelte";
+import CompareIndicator from "./routes/CompareIndicator.svelte";
 import About from "./routes/About.svelte";
 import TopicIndex from "./routes/TopicIndex.svelte";
 import TopicLanding from "./routes/TopicLanding.svelte";
@@ -58,6 +59,9 @@ startRouter({
     { pattern: "/s/:state/explore", component: Explore },
     { pattern: "/lab/:state/:event", component: Psephlab },
     { pattern: "/compare/:state/:event", component: Compare },
+    // Generic indicator Compare (P4) — sits alongside the more-specific
+    // election Compare above; the two patterns don't overlap.
+    { pattern: "/compare", component: CompareIndicator },
     { pattern: "/settings", component: Settings },
     { pattern: "/about", component: About },
     // Topic Front Door (P3.3, ADR-0022).

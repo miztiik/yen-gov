@@ -41,6 +41,18 @@
      * all states), which is the legacy behaviour.
      */
     peer_set_members?: string[] | null;
+    /**
+     * P4 / generic Compare: optional explicit list of ECI codes to pin
+     * at the top, in the given order. Each pinned state gets the same
+     * "compare" visual treatment (emerald). When non-null:
+     *   • the in-row "Compare with" single-state picker is hidden
+     *     (the URL is the source of truth for pin set on Compare),
+     *   • every pinned state is admitted past `peer_set_members`
+     *     (citizen never loses a state they explicitly asked for),
+     *   • ordering follows the array order, not rank.
+     * Null = legacy mode (home_state + compare_state picker drive pinning).
+     */
+    pinned_states?: string[] | null;
   }
 
   let {
@@ -48,6 +60,7 @@
     home_state,
     initial_rows = 10,
     peer_set_members = null,
+    pinned_states = null,
   }: Props = $props();
 
   let artifact = $state<IndicatorArtifact | null>(null);
@@ -101,6 +114,8 @@
     rank: number | null;
     is_home: boolean;
     is_compare: boolean;
+    /** Position in `pinned_states` (P4); -1 when not in the list / list is null. */
+    pin_index: number;
   };
 
   // Build the row list. Keep ALL states (including those with null values)
@@ -112,22 +127,43 @@
   // states.json is populated we'll wire `include_special` to that.
   const rows: Row[] = $derived.by(() => {
     if (!artifact) return [];
-    // Resolve membership filter once; null = no filter. Home state is
-    // always admitted so the citizen never loses their state.
+    // Pinned-states map for O(1) lookup + index recovery during sort.
+    // P4 contract: a state in `pinned_states` is ALWAYS admitted past
+    // the peer filter (citizen never loses a state they explicitly
+    // asked for, same rule as `home_state`).
+    const pin_index_by_code = new Map<string, number>();
+    if (pinned_states) {
+      pinned_states.forEach((c, i) => pin_index_by_code.set(c, i));
+    }
+    // Resolve membership filter once; null = no filter. Home state and
+    // every explicitly-pinned state are always admitted.
     const member_set = peer_set_members
-      ? new Set([...peer_set_members, ...(home_state ? [home_state] : [])])
+      ? new Set([
+          ...peer_set_members,
+          ...(home_state ? [home_state] : []),
+          ...pin_index_by_code.keys(),
+        ])
       : null;
     const all: Row[] = [];
     for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
       if (member_set && !member_set.has(code)) continue;
       const v = values.get(code);
+      const pin_idx = pin_index_by_code.has(code)
+        ? (pin_index_by_code.get(code) as number)
+        : -1;
       all.push({
         code,
         name,
         value: v ?? null,
         rank: null,
         is_home: code === home_state,
-        is_compare: !!compare_state && code === compare_state && code !== home_state,
+        // A pinned state (P4) is visually treated as a compare row. The
+        // legacy single-state `compare_state` picker still works in
+        // legacy mode (when pinned_states is null).
+        is_compare:
+          pin_idx >= 0
+          || (!!compare_state && code === compare_state && code !== home_state),
+        pin_index: pin_idx,
       });
     }
     // Suppress rank when not comparable across states.
@@ -144,10 +180,16 @@
         );
       ranked.forEach((r, i) => (r.rank = i + 1));
     }
-    // Sort: home state first, then by rank (when ranked), then by value
-    // descending, then by name. Rows with no data go last.
+    // Sort: home state first, then pinned (P4) in their list order, then
+    // legacy single compare row, then by rank (when ranked), then by
+    // value descending, then by name. Rows with no data go last.
     return all.sort((a, b) => {
       if (a.is_home !== b.is_home) return a.is_home ? -1 : 1;
+      // Pinned states (pin_index >= 0) sort by their position in the URL.
+      const a_pinned = a.pin_index >= 0;
+      const b_pinned = b.pin_index >= 0;
+      if (a_pinned !== b_pinned) return a_pinned ? -1 : 1;
+      if (a_pinned && b_pinned) return a.pin_index - b.pin_index;
       if (a.is_compare !== b.is_compare) return a.is_compare ? -1 : 1;
       const a_has = a.value !== null;
       const b_has = b.value !== null;
@@ -215,7 +257,7 @@
           <span class="text-xs font-normal text-slate-500">· ranked</span>
         </h3>
         <div class="flex items-center gap-3 flex-wrap">
-          {#if home_state}
+          {#if home_state && pinned_states === null}
             <div class="flex items-center gap-2">
               <label class="text-xs text-slate-500" for="ranked-compare-select">Compare with</label>
               <select
