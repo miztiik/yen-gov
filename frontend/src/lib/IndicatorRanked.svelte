@@ -32,9 +32,23 @@
     home_state?: string;
     /** Max rows to show before "show all" (default 10). */
     initial_rows?: number;
+    /**
+     * Optional peer-set restriction. When non-null, only rows whose ECI
+     * code is in this list are shown AND ranked (rank is computed within
+     * the peer set, not against all India). The `home_state` is always
+     * pinned even when it's not a peer-set member — the citizen must
+     * never lose visibility of their own state. Null = no filter (show
+     * all states), which is the legacy behaviour.
+     */
+    peer_set_members?: string[] | null;
   }
 
-  let { indicator_path, home_state, initial_rows = 10 }: Props = $props();
+  let {
+    indicator_path,
+    home_state,
+    initial_rows = 10,
+    peer_set_members = null,
+  }: Props = $props();
 
   let artifact = $state<IndicatorArtifact | null>(null);
   let load_error = $state<string | null>(null);
@@ -98,8 +112,14 @@
   // states.json is populated we'll wire `include_special` to that.
   const rows: Row[] = $derived.by(() => {
     if (!artifact) return [];
+    // Resolve membership filter once; null = no filter. Home state is
+    // always admitted so the citizen never loses their state.
+    const member_set = peer_set_members
+      ? new Set([...peer_set_members, ...(home_state ? [home_state] : [])])
+      : null;
     const all: Row[] = [];
     for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
+      if (member_set && !member_set.has(code)) continue;
       const v = values.get(code);
       all.push({
         code,

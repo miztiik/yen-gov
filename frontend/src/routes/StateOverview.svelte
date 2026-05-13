@@ -6,8 +6,11 @@
   import {
     fetchTopicCatalogue,
     indicatorPathForArtifact,
+    resolvePeerSetDefault,
     type TopicCatalogue,
     type CatalogueTopic,
+    type CatalogueArtifact,
+    type PeerSet,
   } from "../lib/catalogue";
   import PartyBar from "../lib/PartyBar.svelte";
   import SeatDonut from "../lib/SeatDonut.svelte";
@@ -19,6 +22,12 @@
   import IndicatorRanked from "../lib/IndicatorRanked.svelte";
   import IndicatorSmallMultiples from "../lib/IndicatorSmallMultiples.svelte";
   import ListBadge from "../lib/ListBadge.svelte";
+  import PeerSetFilter from "../lib/PeerSetFilter.svelte";
+  import {
+    fetchStateTiers,
+    resolvePeerSet,
+    type StateTiersFile,
+  } from "../lib/state-tiers";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { getDb } from "../lib/sql";
@@ -108,6 +117,27 @@
   let districts = $state<DistrictEntry[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
   let error = $state<string | null>(null);
+
+  // State-tier reference for the per-section peer-set picker (P3.1/P3.2).
+  // Loaded once per page; null while loading or on error (degrades to
+  // "all" for every artifact, which is the safe fallback).
+  let state_tiers = $state<StateTiersFile | null>(null);
+  fetchStateTiers()
+    .then(t => (state_tiers = t))
+    .catch(() => (state_tiers = null));
+
+  // Per-artifact peer-set selection. Key is `${topic.id}::${artifact.id}`
+  // so two artifacts under the same topic carry independent state. Null
+  // value = use the catalogue default (artifact > topic > "all"); a
+  // non-null value = the citizen has overridden it via the picker.
+  let peer_set_overrides = $state<Record<string, PeerSet>>({});
+  function peer_set_for(topic: CatalogueTopic, artifact: CatalogueArtifact): PeerSet {
+    const key = `${topic.id}::${artifact.id}`;
+    return peer_set_overrides[key] ?? resolvePeerSetDefault(topic, artifact);
+  }
+  function set_peer_set(topic: CatalogueTopic, artifact: CatalogueArtifact, next: PeerSet) {
+    peer_set_overrides = { ...peer_set_overrides, [`${topic.id}::${artifact.id}`]: next };
+  }
 
   // Indicator sections on the state hub are now data-driven (P2.4 of the
   // IA reset, ADR-0022): each topic in the catalogue that ships at least
@@ -427,13 +457,31 @@
       {#each topic.artifacts.filter(a => a.kind === "indicator") as artifact (artifact.id)}
         {@const path = indicatorPathForArtifact(artifact)}
         {#if path}
+          {@const current_peer_set = peer_set_for(topic, artifact)}
+          {@const peer_members = resolvePeerSet(state_tiers, current_peer_set)}
           <section class="space-y-3">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
               <h2 class="text-sm font-semibold uppercase text-slate-500">{topic.title}</h2>
               <ListBadge list={topic.list} compact />
+              <span class="ml-auto">
+                <PeerSetFilter
+                  value={current_peer_set}
+                  tiers={state_tiers}
+                  onChange={(next) => set_peer_set(topic, artifact, next)}
+                  id_prefix={`peerset-${topic.id}-${artifact.id}`}
+                />
+              </span>
             </div>
-            <IndicatorChoropleth indicator_path={path} highlight_state={state_code} />
-            <IndicatorRanked indicator_path={path} home_state={state_code} />
+            <IndicatorChoropleth
+              indicator_path={path}
+              highlight_state={state_code}
+              peer_set_members={peer_members}
+            />
+            <IndicatorRanked
+              indicator_path={path}
+              home_state={state_code}
+              peer_set_members={peer_members}
+            />
             <IndicatorSmallMultiples indicator_path={path} home_state={state_code} />
           </section>
         {/if}

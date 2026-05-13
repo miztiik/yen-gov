@@ -35,9 +35,23 @@
     highlight_state?: string;
     /** CSS height for the map. */
     height?: string;
+    /**
+     * Optional peer-set restriction. When non-null, ONLY states whose
+     * ECI code is in this list receive a colour fill; non-members fall
+     * through to MapChoropleth's default grey. The `highlight_state` is
+     * always outlined regardless. Domain (min/max for the colour scale)
+     * is computed over the peer set only — a peer-restricted choropleth
+     * tells an honest within-peer story, not a softly-clipped national one.
+     */
+    peer_set_members?: string[] | null;
   }
 
-  let { indicator_path, highlight_state, height = "440px" }: Props = $props();
+  let {
+    indicator_path,
+    highlight_state,
+    height = "440px",
+    peer_set_members = null,
+  }: Props = $props();
 
   let artifact = $state<IndicatorArtifact | null>(null);
   let load_error = $state<string | null>(null);
@@ -82,7 +96,9 @@
   const domain = $derived.by(() => {
     let min = Infinity;
     let max = -Infinity;
-    for (const v of values.values()) {
+    const member_set = peer_set_members ? new Set(peer_set_members) : null;
+    for (const [code, v] of values) {
+      if (member_set && !member_set.has(code)) continue;
       if (v < min) min = v;
       if (v > max) max = v;
     }
@@ -92,12 +108,15 @@
 
   // join-property (state-name) -> fill hex. Only states in STATE_NAME_TO_ECI
   // get a colour; the rest fall through to MapChoropleth's default grey.
+  // When peer_set_members is set, non-members also fall through (greyed).
   const fills = $derived.by(() => {
     const out: Record<string, string> = {};
     if (!artifact) return out;
     const dir = artifact.indicator.direction;
     const scale = artifact.indicator.scale_hint ?? "linear";
+    const member_set = peer_set_members ? new Set(peer_set_members) : null;
     for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
+      if (member_set && !member_set.has(code)) continue;
       const v = values.get(code);
       if (v === undefined) continue;
       out[name] = fillForValue(v, domain.min, domain.max, dir, scale);
@@ -172,11 +191,20 @@
   });
 
   // Coverage caption (Citizen P0 + UX P0-2): make "4 of 35 states" first-class
-  // info above the map, not a footnote.
+  // info above the map, not a footnote. Honours the peer-set restriction:
+  // when active, both numerator and denominator are computed within the
+  // peer set (otherwise the caption would mislead — e.g. "31 of 36" makes
+  // no sense when only 18 general-category states are on the map).
   const coverage_summary = $derived.by(() => {
     if (!artifact) return null;
-    const total = Object.keys(STATE_NAME_TO_ECI).length;
-    const covered = values.size;
+    const member_set = peer_set_members ? new Set(peer_set_members) : null;
+    const all_codes = Object.values(STATE_NAME_TO_ECI);
+    const peer_codes = member_set
+      ? all_codes.filter(c => member_set.has(c))
+      : all_codes;
+    const total = peer_codes.length;
+    let covered = 0;
+    for (const c of peer_codes) if (values.has(c)) covered++;
     if (covered === total) return null;
     return { covered, total };
   });
