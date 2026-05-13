@@ -38,7 +38,14 @@ Ship socio-economic indicators with **as much historical coverage as the source 
 | `fiscal/national_devolution_central_taxes` | fiscal | FY08–FY26 (19y, all-India) | RBI App T2 Item I | `rbi_appendix_national` | sources-rbi-appendix-national.md |
 | `fiscal/national_grants_from_centre` | fiscal | FY08–FY26 (19y, all-India) | RBI App T2 Item II | `rbi_appendix_national` | sources-rbi-appendix-national.md |
 | `fiscal/national_gross_transfers` | fiscal | FY08–FY26 (19y, all-India) | RBI App T2 Item IV | `rbi_appendix_national` | sources-rbi-appendix-national.md |
-| `energy/installed_mw_by_state` | energy | 2019, 4 states (TN/KL/AS/WB) | Wikipedia geodata | `india_geodata_power_plants` | (stub — to be replaced by CEA-sourced version) |
+| `energy/installed_mw_by_state` | energy | 2019, 4 states (TN/KL/AS/WB) | Wikipedia geodata | `india_geodata_power_plants` | Legacy stub. Superseded by `energy/installed_capacity_*_mw` (CEA family) for new UI consumers; kept for back-compat. |
+| `energy/installed_capacity_total_mw` | energy | snapshot 2026-03; 35 states/UTs | CEA monthly Executive Summary (As on 31.03.2026) | [`cea_installed_capacity`](../architecture/backend/sources-cea-installed-capacity.md) | sources-cea-installed-capacity.md |
+| `energy/installed_capacity_thermal_mw` | energy | snapshot 2026-03; 35 states/UTs | CEA monthly Executive Summary | `cea_installed_capacity` | Coal+lignite+gas+diesel rollup. |
+| `energy/installed_capacity_coal_mw` | energy | snapshot 2026-03; 35 states/UTs | CEA monthly Executive Summary | `cea_installed_capacity` | Largest single fuel mode. |
+| `energy/installed_capacity_gas_mw` | energy | snapshot 2026-03; 35 states/UTs | CEA monthly Executive Summary | `cea_installed_capacity` | |
+| `energy/installed_capacity_nuclear_mw` | energy | snapshot 2026-03; 35 states/UTs | CEA monthly Executive Summary | `cea_installed_capacity` | Per-state only — central-unallocated nuclear (~1,230 MW) dropped. |
+| `energy/installed_capacity_hydro_mw` | energy | snapshot 2026-03; 35 states/UTs | CEA monthly Executive Summary | `cea_installed_capacity` | Large hydro only; small hydro counts in renewable. |
+| `energy/installed_capacity_renewable_mw` | energy | snapshot 2026-03; 35 states/UTs | CEA monthly Executive Summary | `cea_installed_capacity` | Hydro + RES-MNRE (solar/wind/biomass/small-hydro). |
 
 ## Wave 3 — In-progress / next
 
@@ -46,7 +53,7 @@ Each row is a single ship cycle: recon → download → adapter → tests → va
 
 | # | Indicator | Topic | Target coverage | Source | Status | Notes |
 | - | --------- | ----- | --------------- | ------ | ------ | ----- |
-| 1 | `energy/installed_capacity_by_fuel` | energy | latest snapshot per state × fuel; 35 states/UTs × 6+ fuel types | CEA monthly Executive Summary (`cea.nic.in`) | 🔍 recon | Replaces the 4-state Wikipedia stub. Multi-decade history possible via CEA archives if monthly summaries are downloadable. |
+| 1 | `energy/installed_capacity_*_mw` (7 indicators) | energy | snapshot 2026-03; 35 states/UTs × 7 fuel categories | CEA monthly Executive Summary (`cea.nic.in`) | ✅ shipped | Replaced 4-state Wikipedia stub. Single-snapshot only; multi-decade history via CEA monthly archives (~360 workbooks for 30y) deferred to a separate ship cycle. See [sources-cea-installed-capacity.md](../architecture/backend/sources-cea-installed-capacity.md). |
 | 2 | `fiscal/national_gross_fiscal_deficit` | fiscal | FY08–present (~17y, all-India) | RBI AppT1 Major Deficit Indicators (cached) | 🔄 cached | Two-row-per-year layout (₹ Crore + % GDP interleaved). Requires a small parser variant or per-spec layout flag. |
 | 3 | `fiscal/national_revenue_deficit` | fiscal | FY08–present (~17y) | RBI AppT1 (cached) | 🔄 cached | Same workbook as #2. |
 | 4 | `fiscal/national_primary_deficit` | fiscal | FY08–present (~17y) | RBI AppT1 (cached) | 🔄 cached | Same workbook as #2. |

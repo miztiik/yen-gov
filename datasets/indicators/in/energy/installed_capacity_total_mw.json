@@ -1,0 +1,215 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.1",
+  "sources": [
+    {
+      "url": "https://cea.nic.in/installed-capacity-report/?lang=en",
+      "fetched_at": "2026-05-13T21:54:16Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "35 states/UTs (all CEA-reported per-state entities)",
+    "temporal": "2026-03",
+    "admin_level": "state"
+  },
+  "indicator": {
+    "id": "energy/installed_capacity_total_mw",
+    "title": "Installed power-generation capacity (all fuels)",
+    "description": "Total nameplate generation capacity physically located in (or allocated to) each state, in megawatts, from CEA's monthly Installed Capacity report. Sum of thermal + nuclear + hydro + renewable across all ownership tiers (state, private, central, and allocated shares from joint / central-sector utilities). Read this as 'how much grid-connected generation gets billed to this state', not 'how much electricity citizens here consume' — a state can have large central-sector plants whose output flows to the regional grid.",
+    "entity_kind": "state",
+    "time_grain": "month",
+    "value_kind": "raw",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "MW",
+    "icon": "zap",
+    "attribution_geography": "where_produced",
+    "comparability": "comparable_with_normalisation",
+    "implementing_authority": "joint",
+    "methodology_vintage": "CEA Monthly Executive Summary, IC sheet, snapshot 2026-03; cached file mtime 2026-05-13T21:54:16Z",
+    "notes": "The headline 'how big is each state's power footprint' indicator. Source: CEA monthly Executive Summary, 'IC' sheet, per-state Sub-Total row (sum of State + Private + Central ownership tiers, including allocated shares from joint and central-sector utilities). Snapshot is point-in-time as of the last day of the report month — NOT a year-average. Capacity is **nameplate** MW, not generation; a state with high coal capacity isn't necessarily a high coal-generation state if those plants run at low PLF. Two CEA-reported entities are intentionally dropped: 'NLC' (a central PSU on the Tamil Nadu list) and 'DVC' (a central corporation on the West Bengal list) — their capacity is not state-attributable. 'Central - Unallocated' shares are also dropped for the same reason. CEA bundles 'Jammu & Kashmir and Ladakh' into a single row; the combined capacity is attributed to U08 (J&K UT) — the alternative would require a fabrication split. The Andaman & Nicobar (U01) and Lakshadweep (U04) entries in the Islands region are tiny but real."
+  },
+  "rows": [
+    {
+      "entity_id": "U05",
+      "time": "2026-03",
+      "value": 7390.693794
+    },
+    {
+      "entity_id": "S07",
+      "time": "2026-03",
+      "value": 14845.562539999999
+    },
+    {
+      "entity_id": "S08",
+      "time": "2026-03",
+      "value": 5275.706862000001
+    },
+    {
+      "entity_id": "U08",
+      "time": "2026-03",
+      "value": 3479.4462940000003
+    },
+    {
+      "entity_id": "S19",
+      "time": "2026-03",
+      "value": 14764.158354
+    },
+    {
+      "entity_id": "S20",
+      "time": "2026-03",
+      "value": 64309.195577000006
+    },
+    {
+      "entity_id": "S24",
+      "time": "2026-03",
+      "value": 37106.719669
+    },
+    {
+      "entity_id": "S28",
+      "time": "2026-03",
+      "value": 4991.834235
+    },
+    {
+      "entity_id": "U02",
+      "time": "2026-03",
+      "value": 254.72315500000002
+    },
+    {
+      "entity_id": "S05",
+      "time": "2026-03",
+      "value": 642.108
+    },
+    {
+      "entity_id": "S06",
+      "time": "2026-03",
+      "value": 70945.38199999998
+    },
+    {
+      "entity_id": "S12",
+      "time": "2026-03",
+      "value": 29535.280000000002
+    },
+    {
+      "entity_id": "S26",
+      "time": "2026-03",
+      "value": 15373.096000000001
+    },
+    {
+      "entity_id": "S13",
+      "time": "2026-03",
+      "value": 61241.698000000004
+    },
+    {
+      "entity_id": "U03",
+      "time": "2026-03",
+      "value": 864.698
+    },
+    {
+      "entity_id": "S01",
+      "time": "2026-03",
+      "value": 30419.54006
+    },
+    {
+      "entity_id": "S29",
+      "time": "2026-03",
+      "value": 21852.443939999997
+    },
+    {
+      "entity_id": "S10",
+      "time": "2026-03",
+      "value": 38178.11
+    },
+    {
+      "entity_id": "S11",
+      "time": "2026-03",
+      "value": 8005.835999999999
+    },
+    {
+      "entity_id": "S22",
+      "time": "2026-03",
+      "value": 47618.831
+    },
+    {
+      "entity_id": "U07",
+      "time": "2026-03",
+      "value": 452.61
+    },
+    {
+      "entity_id": "S04",
+      "time": "2026-03",
+      "value": 8698.922
+    },
+    {
+      "entity_id": "S27",
+      "time": "2026-03",
+      "value": 3877.8541999999998
+    },
+    {
+      "entity_id": "S25",
+      "time": "2026-03",
+      "value": 11453.6158
+    },
+    {
+      "entity_id": "S18",
+      "time": "2026-03",
+      "value": 9239.985
+    },
+    {
+      "entity_id": "S21",
+      "time": "2026-03",
+      "value": 795.1532000000001
+    },
+    {
+      "entity_id": "S03",
+      "time": "2026-03",
+      "value": 2655.311
+    },
+    {
+      "entity_id": "S02",
+      "time": "2026-03",
+      "value": 910.9100000000001
+    },
+    {
+      "entity_id": "S15",
+      "time": "2026-03",
+      "value": 669.8
+    },
+    {
+      "entity_id": "S23",
+      "time": "2026-03",
+      "value": 680.96
+    },
+    {
+      "entity_id": "S14",
+      "time": "2026-03",
+      "value": 290.97
+    },
+    {
+      "entity_id": "S17",
+      "time": "2026-03",
+      "value": 219.03000000000003
+    },
+    {
+      "entity_id": "S16",
+      "time": "2026-03",
+      "value": 279.01
+    },
+    {
+      "entity_id": "U01",
+      "time": "2026-03",
+      "value": 130.083
+    },
+    {
+      "entity_id": "U04",
+      "time": "2026-03",
+      "value": 33.4
+    }
+  ]
+}

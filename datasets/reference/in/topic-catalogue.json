@@ -78,13 +78,62 @@
       "artifacts": [
         {
           "kind": "indicator",
-          "id": "energy/installed_mw_by_state",
+          "id": "energy/installed_capacity_total_mw",
           "default": true,
           "featured": true,
           "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_thermal_mw",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_coal_mw",
+          "default": false,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_gas_mw",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_nuclear_mw",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_hydro_mw",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_renewable_mw",
+          "default": false,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_mw_by_state",
+          "default": false,
+          "featured": false,
+          "scope": "national"
         }
       ],
-      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic \u2014 the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer."
+      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic \u2014 the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer. The `installed_capacity_*` family is from CEA's monthly Executive Summary (March 2026 snapshot) and covers all 35 CEA-reported state/UT entities across 7 fuel categories (total, thermal, coal, gas, nuclear, hydro, renewable). The legacy `installed_mw_by_state` indicator (Wikipedia-derived, 4 states only) is retained for back-compat but no longer the default."
     },
     {
       "id": "elections",

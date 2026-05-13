@@ -1079,3 +1079,34 @@ def ingest_fiscal_rbi_appendix(
         typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
 
 
+@app.command("ingest-energy-cea")
+def ingest_energy_cea(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+) -> None:
+    """Ingest CEA Installed Capacity → per-state energy indicators.
+
+    No network — reads the cached XLSX from
+    .runtime/raw/cea/installed_capacity_YYYY_MM.xlsx (operator drops
+    the latest month once; CEA publishes monthly). Emits one indicator
+    per fuel column (total, thermal, coal, gas, nuclear, hydro,
+    renewable). See backend/yen_gov/sources/cea_installed_capacity/
+    parsers.py for the column → indicator mapping.
+    """
+    from yen_gov.sources.cea_installed_capacity import ingest as cea_mod
+
+    schema_dir = root / "datasets" / "schemas"
+    result = cea_mod.ingest(repo_root=root, schema_dir=schema_dir)
+
+    typer.echo("ingest-energy-cea: OK")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    cache mtime:  {r.workbook_fetched_at.isoformat()}")
+        typer.echo(f"    snapshot:     {r.snapshot_period}")
+        typer.echo(f"    rows written: {r.row_count}")
+        typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
+
+

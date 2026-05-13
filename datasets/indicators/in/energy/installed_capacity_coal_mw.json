@@ -1,0 +1,215 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.1",
+  "sources": [
+    {
+      "url": "https://cea.nic.in/installed-capacity-report/?lang=en",
+      "fetched_at": "2026-05-13T21:54:16Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "35 states/UTs (all CEA-reported per-state entities)",
+    "temporal": "2026-03",
+    "admin_level": "state"
+  },
+  "indicator": {
+    "id": "energy/installed_capacity_coal_mw",
+    "title": "Installed coal-fired capacity",
+    "description": "Coal-fired thermal generation capacity in megawatts, per state. The single largest fuel category nationally — about 42% of all-India installed capacity as of FY26. States with captive coal (Chhattisgarh, Odisha, Jharkhand, MP) and the central-sector NTPC plants in UP / Bihar / WB dominate.",
+    "entity_kind": "state",
+    "time_grain": "month",
+    "value_kind": "raw",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "MW",
+    "icon": "flame",
+    "attribution_geography": "where_produced",
+    "comparability": "comparable_with_normalisation",
+    "implementing_authority": "joint",
+    "methodology_vintage": "CEA Monthly Executive Summary, IC sheet, snapshot 2026-03; cached file mtime 2026-05-13T21:54:16Z",
+    "notes": "Excludes lignite (which CEA lists as a separate column — see energy/installed_capacity_thermal_mw for coal+lignite combined). Source: CEA monthly Executive Summary, 'IC' sheet, per-state Sub-Total row (sum of State + Private + Central ownership tiers, including allocated shares from joint and central-sector utilities). Snapshot is point-in-time as of the last day of the report month — NOT a year-average. Capacity is **nameplate** MW, not generation; a state with high coal capacity isn't necessarily a high coal-generation state if those plants run at low PLF. Two CEA-reported entities are intentionally dropped: 'NLC' (a central PSU on the Tamil Nadu list) and 'DVC' (a central corporation on the West Bengal list) — their capacity is not state-attributable. 'Central - Unallocated' shares are also dropped for the same reason. CEA bundles 'Jammu & Kashmir and Ladakh' into a single row; the combined capacity is attributed to U08 (J&K UT) — the alternative would require a fabrication split. The Andaman & Nicobar (U01) and Lakshadweep (U04) entries in the Islands region are tiny but real."
+  },
+  "rows": [
+    {
+      "entity_id": "U05",
+      "time": "2026-03",
+      "value": 3649.4929999999995
+    },
+    {
+      "entity_id": "S07",
+      "time": "2026-03",
+      "value": 8638.384
+    },
+    {
+      "entity_id": "S08",
+      "time": "2026-03",
+      "value": 144.673
+    },
+    {
+      "entity_id": "U08",
+      "time": "2026-03",
+      "value": 577.143
+    },
+    {
+      "entity_id": "S19",
+      "time": "2026-03",
+      "value": 8214.004
+    },
+    {
+      "entity_id": "S20",
+      "time": "2026-03",
+      "value": 12372.719000000001
+    },
+    {
+      "entity_id": "S24",
+      "time": "2026-03",
+      "value": 25550.906000000003
+    },
+    {
+      "entity_id": "S28",
+      "time": "2026-03",
+      "value": 653.575
+    },
+    {
+      "entity_id": "U02",
+      "time": "2026-03",
+      "value": 44.83
+    },
+    {
+      "entity_id": "S05",
+      "time": "2026-03",
+      "value": 492.268
+    },
+    {
+      "entity_id": "S06",
+      "time": "2026-03",
+      "value": 16735.582000000002
+    },
+    {
+      "entity_id": "S12",
+      "time": "2026-03",
+      "value": 15500.599999999999
+    },
+    {
+      "entity_id": "S26",
+      "time": "2026-03",
+      "value": 12701.866
+    },
+    {
+      "entity_id": "S13",
+      "time": "2026-03",
+      "value": 24714.238
+    },
+    {
+      "entity_id": "U03",
+      "time": "2026-03",
+      "value": 587.1479999999999
+    },
+    {
+      "entity_id": "S01",
+      "time": "2026-03",
+      "value": 12730.826060000001
+    },
+    {
+      "entity_id": "S29",
+      "time": "2026-03",
+      "value": 13198.803940000002
+    },
+    {
+      "entity_id": "S10",
+      "time": "2026-03",
+      "value": 9947.8
+    },
+    {
+      "entity_id": "S11",
+      "time": "2026-03",
+      "value": 2235.816
+    },
+    {
+      "entity_id": "S22",
+      "time": "2026-03",
+      "value": 14040.4
+    },
+    {
+      "entity_id": "U07",
+      "time": "2026-03",
+      "value": 140.8
+    },
+    {
+      "entity_id": "S04",
+      "time": "2026-03",
+      "value": 7974.786
+    },
+    {
+      "entity_id": "S27",
+      "time": "2026-03",
+      "value": 3421.2799999999997
+    },
+    {
+      "entity_id": "S25",
+      "time": "2026-03",
+      "value": 9199.338
+    },
+    {
+      "entity_id": "S18",
+      "time": "2026-03",
+      "value": 5972.466
+    },
+    {
+      "entity_id": "S21",
+      "time": "2026-03",
+      "value": 89.214
+    },
+    {
+      "entity_id": "S03",
+      "time": "2026-03",
+      "value": 695.516
+    },
+    {
+      "entity_id": "S02",
+      "time": "2026-03",
+      "value": 37.05
+    },
+    {
+      "entity_id": "S15",
+      "time": "2026-03",
+      "value": 51.6
+    },
+    {
+      "entity_id": "S23",
+      "time": "2026-03",
+      "value": 56.0
+    },
+    {
+      "entity_id": "S14",
+      "time": "2026-03",
+      "value": 47.1
+    },
+    {
+      "entity_id": "S17",
+      "time": "2026-03",
+      "value": 32.1
+    },
+    {
+      "entity_id": "S16",
+      "time": "2026-03",
+      "value": 31.05
+    },
+    {
+      "entity_id": "U01",
+      "time": "2026-03",
+      "value": 0.0
+    },
+    {
+      "entity_id": "U04",
+      "time": "2026-03",
+      "value": 0.0
+    }
+  ]
+}
