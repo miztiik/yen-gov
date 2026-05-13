@@ -1,0 +1,129 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Uttarakhand",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Uttarakhand",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S28",
+  "terms": [
+    {
+      "start": "2000-11-09",
+      "end": "2001-10-29",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Nityanand Swami",
+      "notes": "BJP. First CM of Uttarakhand."
+    },
+    {
+      "start": "2001-10-30",
+      "end": "2002-03-01",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Bhagat Singh Koshyari",
+      "notes": "BJP."
+    },
+    {
+      "start": "2002-03-02",
+      "end": "2007-03-07",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Narayan Datt Tiwari",
+      "notes": "INC. Only CM in state's history to complete a full five-year term until that point."
+    },
+    {
+      "start": "2007-03-08",
+      "end": "2009-06-23",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Bhuvan Chandra Khanduri",
+      "notes": "BJP."
+    },
+    {
+      "start": "2009-06-23",
+      "end": "2011-09-10",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Ramesh Pokhriyal",
+      "notes": "BJP."
+    },
+    {
+      "start": "2011-09-11",
+      "end": "2012-03-13",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Bhuvan Chandra Khanduri",
+      "notes": "BJP. Brief return."
+    },
+    {
+      "start": "2012-03-13",
+      "end": "2014-01-31",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Vijay Bahuguna",
+      "notes": "INC. Resigned over response to 2013 Uttarakhand floods."
+    },
+    {
+      "start": "2014-02-01",
+      "end": "2017-03-18",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Harish Rawat",
+      "notes": "INC. Brief 2016 PR spell during Article 356 dispute."
+    },
+    {
+      "start": "2016-03-27",
+      "end": "2016-05-11",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Imposed amid Congress defections; Supreme Court later restored Harish Rawat."
+    },
+    {
+      "start": "2017-03-18",
+      "end": "2021-03-10",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Trivendra Singh Rawat",
+      "notes": "BJP."
+    },
+    {
+      "start": "2021-03-10",
+      "end": "2021-07-04",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Tirath Singh Rawat",
+      "notes": "BJP. Resigned over not being a sitting MLA within 6 months."
+    },
+    {
+      "start": "2021-07-04",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Pushkar Singh Dhami",
+      "notes": "BJP. Re-elected 2022. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S28.htm",
+          "note": "2022 result."
+        }
+      ]
+    }
+  ]
+}

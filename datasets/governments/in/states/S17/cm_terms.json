@@ -1,0 +1,129 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Nagaland",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Nagaland",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S17",
+  "terms": [
+    {
+      "start": "1988-01-25",
+      "end": "1990-05-10",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "S. C. Jamir",
+      "notes": "INC."
+    },
+    {
+      "start": "1990-05-16",
+      "end": "1990-06-19",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "K. L. Chishi",
+      "notes": "INC. Brief."
+    },
+    {
+      "start": "1990-06-19",
+      "end": "1992-04-02",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Vamuzo Phesao",
+      "notes": "Nagaland People's Council (NPC)."
+    },
+    {
+      "start": "1992-04-02",
+      "end": "1993-02-22",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Coalition collapse and insurgency."
+    },
+    {
+      "start": "1993-02-22",
+      "end": "2003-03-06",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "S. C. Jamir",
+      "notes": "INC. Two consecutive terms (1993, 1998)."
+    },
+    {
+      "start": "2003-03-06",
+      "end": "2008-01-03",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Neiphiu Rio",
+      "notes": "Nagaland People's Front (NPF) in Democratic Alliance of Nagaland with BJP."
+    },
+    {
+      "start": "2008-01-03",
+      "end": "2008-03-12",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Brief, before March 2008 election."
+    },
+    {
+      "start": "2008-03-12",
+      "end": "2014-05-24",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Neiphiu Rio",
+      "notes": "NPF. Resigned to contest Lok Sabha."
+    },
+    {
+      "start": "2014-05-24",
+      "end": "2017-02-22",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "T. R. Zeliang",
+      "notes": "NPF."
+    },
+    {
+      "start": "2017-02-22",
+      "end": "2017-07-19",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Shurhozelie Liezietsu",
+      "notes": "NPF."
+    },
+    {
+      "start": "2017-07-19",
+      "end": "2018-03-08",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "T. R. Zeliang",
+      "notes": "NPF."
+    },
+    {
+      "start": "2018-03-08",
+      "end": null,
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Neiphiu Rio",
+      "notes": "Nationalist Democratic Progressive Party (NDPP) in alliance with BJP. Re-elected 2023. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S17.htm",
+          "note": "2023 result."
+        }
+      ]
+    }
+  ]
+}

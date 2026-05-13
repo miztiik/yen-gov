@@ -1,0 +1,102 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Rajasthan",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Rajasthan",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S20",
+  "terms": [
+    {
+      "start": "1990-03-04",
+      "end": "1992-12-15",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Bhairon Singh Shekhawat",
+      "notes": "BJP. Dismissed when Article 356 was invoked post-Babri."
+    },
+    {
+      "start": "1992-12-15",
+      "end": "1993-12-04",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule following the demolition of the Babri Masjid."
+    },
+    {
+      "start": "1993-12-04",
+      "end": "1998-11-29",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Bhairon Singh Shekhawat",
+      "notes": "BJP."
+    },
+    {
+      "start": "1998-12-01",
+      "end": "2003-12-08",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Ashok Gehlot",
+      "notes": "INC. First term."
+    },
+    {
+      "start": "2003-12-08",
+      "end": "2008-12-12",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Vasundhara Raje",
+      "notes": "BJP. First woman CM of Rajasthan."
+    },
+    {
+      "start": "2008-12-12",
+      "end": "2013-12-13",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Ashok Gehlot",
+      "notes": "INC. Second term."
+    },
+    {
+      "start": "2013-12-13",
+      "end": "2018-12-17",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Vasundhara Raje",
+      "notes": "BJP. Second term."
+    },
+    {
+      "start": "2018-12-17",
+      "end": "2023-12-15",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Ashok Gehlot",
+      "notes": "INC. Third term. Survived the 2020 Sachin Pilot revolt."
+    },
+    {
+      "start": "2023-12-15",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Bhajan Lal Sharma",
+      "notes": "BJP. Surprise pick. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S20.htm",
+          "note": "2023 result."
+        }
+      ]
+    }
+  ]
+}

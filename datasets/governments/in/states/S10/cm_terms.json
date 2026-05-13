@@ -1,0 +1,201 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Karnataka",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Karnataka",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S10",
+  "terms": [
+    {
+      "start": "1989-11-30",
+      "end": "1990-10-10",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Veerendra Patil",
+      "notes": "INC. Removed by Rajiv Gandhi after communal riots."
+    },
+    {
+      "start": "1990-10-17",
+      "end": "1992-11-19",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "S. Bangarappa",
+      "notes": "INC. Replaced after corruption charges."
+    },
+    {
+      "start": "1992-11-19",
+      "end": "1994-12-11",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "M. Veerappa Moily",
+      "notes": "INC."
+    },
+    {
+      "start": "1994-12-11",
+      "end": "1996-05-31",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "H. D. Deve Gowda",
+      "notes": "Janata Dal. Resigned to become Prime Minister."
+    },
+    {
+      "start": "1996-05-31",
+      "end": "1999-10-07",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "J. H. Patel",
+      "notes": "Janata Dal (later JD-U). Coalition with BJP from 1998."
+    },
+    {
+      "start": "1999-10-11",
+      "end": "2004-05-28",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "S. M. Krishna",
+      "notes": "INC."
+    },
+    {
+      "start": "2004-05-28",
+      "end": "2006-01-28",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Dharam Singh",
+      "notes": "INC + JD(S) coalition. Collapsed when JD(S) switched to BJP."
+    },
+    {
+      "start": "2006-02-03",
+      "end": "2007-10-08",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "H. D. Kumaraswamy",
+      "notes": "JD(S) in coalition with BJP. Refused to honour rotation; coalition collapsed."
+    },
+    {
+      "start": "2007-10-09",
+      "end": "2007-11-12",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Coalition collapse."
+    },
+    {
+      "start": "2007-11-12",
+      "end": "2007-11-19",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "B. S. Yediyurappa",
+      "notes": "BJP. Seven-day term; resigned without seeking confidence vote."
+    },
+    {
+      "start": "2007-11-19",
+      "end": "2008-05-30",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule before May 2008 election."
+    },
+    {
+      "start": "2008-05-30",
+      "end": "2011-08-04",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "B. S. Yediyurappa",
+      "notes": "BJP. First full BJP government in any south Indian state. Resigned over Lokayukta indictment."
+    },
+    {
+      "start": "2011-08-04",
+      "end": "2012-07-12",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "D. V. Sadananda Gowda",
+      "notes": "BJP."
+    },
+    {
+      "start": "2012-07-12",
+      "end": "2013-05-12",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Jagadish Shettar",
+      "notes": "BJP."
+    },
+    {
+      "start": "2013-05-13",
+      "end": "2018-05-17",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Siddaramaiah",
+      "notes": "INC. First full term."
+    },
+    {
+      "start": "2018-05-17",
+      "end": "2018-05-19",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "B. S. Yediyurappa",
+      "notes": "BJP. Two-day term; resigned before floor test."
+    },
+    {
+      "start": "2018-05-23",
+      "end": "2019-07-23",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "H. D. Kumaraswamy",
+      "notes": "JD(S)-INC coalition. Collapsed after defections (Operation Kamala)."
+    },
+    {
+      "start": "2019-07-26",
+      "end": "2021-07-28",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "B. S. Yediyurappa",
+      "notes": "BJP. Fourth term. Resigned over central party pressure."
+    },
+    {
+      "start": "2021-07-28",
+      "end": "2023-05-13",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Basavaraj Bommai",
+      "notes": "BJP."
+    },
+    {
+      "start": "2023-05-20",
+      "end": null,
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Siddaramaiah",
+      "notes": "INC. Second term. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S10.htm",
+          "note": "2023 result."
+        }
+      ]
+    }
+  ]
+}

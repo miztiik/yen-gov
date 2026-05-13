@@ -1,0 +1,135 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Arunachal_Pradesh",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Arunachal Pradesh",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    },
+    {
+      "url": "https://www.eci.gov.in/statistical-report/ae/2024/3",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "Arunachal Pradesh Legislative Assembly Election - 2024",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S02",
+  "terms": [
+    {
+      "start": "1980-01-18",
+      "end": "1995-01-22",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Gegong Apang",
+      "notes": "INC. Long-running term spanning the 1980s and early 1990s; re-elected 1990. (Pre-1990 portion retained for context.)"
+    },
+    {
+      "start": "1995-01-22",
+      "end": "1999-01-19",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Gegong Apang",
+      "notes": "Switched from INC to Arunachal Congress (Mithi). Coalition governments through this period."
+    },
+    {
+      "start": "1999-01-19",
+      "end": "2003-08-03",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Mukut Mithi",
+      "notes": "Arunachal Congress (Mithi); merged with INC. Replaced by Apang."
+    },
+    {
+      "start": "2003-08-03",
+      "end": "2007-04-09",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Gegong Apang",
+      "notes": "Re-took office; switched to BJP and then to INC. Replaced by Dorjee Khandu after corruption allegations."
+    },
+    {
+      "start": "2007-04-09",
+      "end": "2011-04-30",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Dorjee Khandu",
+      "notes": "INC. Died in office on 30 April 2011 in a helicopter crash."
+    },
+    {
+      "start": "2011-05-05",
+      "end": "2011-11-01",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Jarbom Gamlin",
+      "notes": "INC. Caretaker after Khandu's death; replaced by Nabam Tuki within months."
+    },
+    {
+      "start": "2011-11-01",
+      "end": "2016-01-26",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Nabam Tuki",
+      "notes": "INC. Continued through the 2014 election. Removed during the 2016 constitutional crisis."
+    },
+    {
+      "start": "2016-01-26",
+      "end": "2016-02-19",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule imposed amid the Arunachal Pradesh constitutional crisis after defections in the INC legislature party. Lifted by Supreme Court intervention."
+    },
+    {
+      "start": "2016-02-19",
+      "end": "2016-07-13",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Kalikho Pul",
+      "notes": "People's Party of Arunachal (PPA) faction. Removed after the Supreme Court restored Nabam Tuki on 13 July 2016."
+    },
+    {
+      "start": "2016-07-13",
+      "end": "2016-07-17",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Nabam Tuki",
+      "notes": "INC. Restored by Supreme Court but lost majority within days."
+    },
+    {
+      "start": "2016-07-17",
+      "end": "2016-12-31",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Pema Khandu",
+      "notes": "People's Party of Arunachal (PPA), then defected to BJP in December 2016."
+    },
+    {
+      "start": "2016-12-31",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Pema Khandu",
+      "notes": "BJP. Re-elected 2019 and 2024. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenJune2024/partywiseresult-S02.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Jammu_and_Kashmir",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Jammu and Kashmir",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    },
+    {
+      "url": "https://www.eci.gov.in/statistical-report/ae/2024/7",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "Jammu and Kashmir Legislative Assembly Election - 2024",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "U08",
+  "terms": [
+    {
+      "start": "1990-01-19",
+      "end": "1996-10-09",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Governor's Rule (later President's Rule from 18 July 1990) at the height of the Kashmir insurgency. Lasted nearly seven years until restoration of elected government after September 1996 elections."
+    },
+    {
+      "start": "1996-10-09",
+      "end": "2002-10-18",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Farooq Abdullah",
+      "notes": "JKN (Jammu & Kashmir National Conference). Aligned with NDA from 1999."
+    },
+    {
+      "start": "2002-10-18",
+      "end": "2002-11-02",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Governor's Rule between elections."
+    },
+    {
+      "start": "2002-11-02",
+      "end": "2005-11-02",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Mufti Mohammad Sayeed",
+      "notes": "JKPDP (Jammu & Kashmir People's Democratic Party) - INC coalition. Rotation arrangement."
+    },
+    {
+      "start": "2005-11-02",
+      "end": "2008-07-11",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Ghulam Nabi Azad",
+      "notes": "INC. Coalition collapsed over Amarnath land transfer protests."
+    },
+    {
+      "start": "2008-07-11",
+      "end": "2009-01-05",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Governor's Rule following Azad's resignation."
+    },
+    {
+      "start": "2009-01-05",
+      "end": "2014-12-23",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Omar Abdullah",
+      "notes": "JKN-INC coalition."
+    },
+    {
+      "start": "2014-12-23",
+      "end": "2015-03-01",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Governor's Rule before government formation."
+    },
+    {
+      "start": "2015-03-01",
+      "end": "2016-01-07",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Mufti Mohammad Sayeed",
+      "notes": "JKPDP-BJP coalition. Died in office."
+    },
+    {
+      "start": "2016-01-08",
+      "end": "2016-04-04",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Governor's Rule following Mufti's death."
+    },
+    {
+      "start": "2016-04-04",
+      "end": "2018-06-19",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Mehbooba Mufti",
+      "notes": "JKPDP-BJP coalition. BJP withdrew support; coalition collapsed."
+    },
+    {
+      "start": "2018-06-19",
+      "end": "2024-10-16",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "Governor's Rule (then President's Rule from 19 December 2018). Special status (Article 370) abrogated 5 August 2019; J&K reorganised as a Union Territory effective 31 October 2019. No elected legislative assembly until October 2024."
+    },
+    {
+      "start": "2024-10-16",
+      "end": null,
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Omar Abdullah",
+      "notes": "JKN-INC alliance. First elected CM of J&K UT under post-2019 arrangement; UT-CM has reduced powers vs the prior state arrangement. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenOct2024/partywiseresult-U08.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    }
+  ]
+}

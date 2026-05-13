@@ -1,0 +1,192 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Goa",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Goa",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S05",
+  "terms": [
+    {
+      "start": "1990-01-25",
+      "end": "1990-04-14",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Churchill Alemao",
+      "notes": "Progressive Democratic Front. Brief term."
+    },
+    {
+      "start": "1990-04-14",
+      "end": "1990-12-14",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Luis Proto Barbosa",
+      "notes": "Goan People's Party."
+    },
+    {
+      "start": "1990-12-14",
+      "end": "1991-01-25",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Coalition collapse."
+    },
+    {
+      "start": "1991-01-25",
+      "end": "1993-05-18",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Ravi S. Naik",
+      "notes": "INC. Replaced by Wilfred de Souza."
+    },
+    {
+      "start": "1993-05-18",
+      "end": "1994-04-02",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Wilfred de Souza",
+      "notes": "INC."
+    },
+    {
+      "start": "1994-04-02",
+      "end": "1994-12-16",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Ravi S. Naik",
+      "notes": "INC. Brief return."
+    },
+    {
+      "start": "1994-12-16",
+      "end": "1998-07-29",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Pratapsingh Rane",
+      "notes": "INC. Won 1994 election."
+    },
+    {
+      "start": "1998-07-29",
+      "end": "1998-11-26",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Wilfred de Souza",
+      "notes": "INC."
+    },
+    {
+      "start": "1998-11-26",
+      "end": "1999-02-09",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Luizinho Faleiro",
+      "notes": "INC (Goa Rajiv Congress)."
+    },
+    {
+      "start": "1999-02-09",
+      "end": "1999-06-09",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Hung assembly."
+    },
+    {
+      "start": "1999-06-09",
+      "end": "1999-11-24",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Luizinho Faleiro",
+      "notes": "INC."
+    },
+    {
+      "start": "1999-11-24",
+      "end": "2000-10-23",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Francisco Sardinha",
+      "notes": "Goa People's Congress / INC."
+    },
+    {
+      "start": "2000-10-24",
+      "end": "2005-02-02",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Manohar Parrikar",
+      "notes": "BJP. First term. Replaced after defections in 2005."
+    },
+    {
+      "start": "2005-02-02",
+      "end": "2007-06-07",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Pratapsingh Rane",
+      "notes": "INC."
+    },
+    {
+      "start": "2007-06-08",
+      "end": "2012-03-09",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Digambar Kamat",
+      "notes": "INC."
+    },
+    {
+      "start": "2012-03-09",
+      "end": "2014-11-08",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Manohar Parrikar",
+      "notes": "BJP. Resigned to become Union Defence Minister."
+    },
+    {
+      "start": "2014-11-08",
+      "end": "2017-03-13",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Laxmikant Parsekar",
+      "notes": "BJP."
+    },
+    {
+      "start": "2017-03-14",
+      "end": "2019-03-17",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Manohar Parrikar",
+      "notes": "BJP. Returned from Union cabinet. Died in office (pancreatic cancer)."
+    },
+    {
+      "start": "2019-03-19",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Pramod Sawant",
+      "notes": "BJP. Sworn in after Parrikar's death; re-elected 2022. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S05.htm",
+          "note": "2022 result."
+        }
+      ]
+    }
+  ]
+}

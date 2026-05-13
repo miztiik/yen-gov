@@ -1,0 +1,135 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Haryana",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Haryana",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    },
+    {
+      "url": "https://www.eci.gov.in/statistical-report/ae/2024/6",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "Haryana Legislative Assembly Election - 2024",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S07",
+  "terms": [
+    {
+      "start": "1987-06-20",
+      "end": "1990-04-02",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Devi Lal",
+      "notes": "Lok Dal (B). Resigned to become Deputy PM in V. P. Singh government."
+    },
+    {
+      "start": "1990-04-02",
+      "end": "1990-07-06",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Om Prakash Chautala",
+      "notes": "Janata Dal. First brief term."
+    },
+    {
+      "start": "1990-07-06",
+      "end": "1990-07-17",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Banarsi Das Gupta",
+      "notes": "Janata Dal. Brief."
+    },
+    {
+      "start": "1990-07-17",
+      "end": "1991-03-22",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Om Prakash Chautala",
+      "notes": "Janata Dal."
+    },
+    {
+      "start": "1991-03-22",
+      "end": "1991-04-06",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Hukam Singh",
+      "notes": "Janata Dal."
+    },
+    {
+      "start": "1991-04-06",
+      "end": "1991-07-23",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule before the May 1991 elections."
+    },
+    {
+      "start": "1991-07-23",
+      "end": "1996-05-09",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Bhajan Lal",
+      "notes": "INC."
+    },
+    {
+      "start": "1996-05-11",
+      "end": "1999-07-23",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Bansi Lal",
+      "notes": "Haryana Vikas Party (HVP) with BJP support."
+    },
+    {
+      "start": "1999-07-24",
+      "end": "2005-03-05",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Om Prakash Chautala",
+      "notes": "Indian National Lok Dal (INLD) in alliance with BJP."
+    },
+    {
+      "start": "2005-03-05",
+      "end": "2014-10-26",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Bhupinder Singh Hooda",
+      "notes": "INC. Two terms (2005, 2009)."
+    },
+    {
+      "start": "2014-10-26",
+      "end": "2024-03-12",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Manohar Lal Khattar",
+      "notes": "BJP. Two terms (2014, 2019). Resigned in March 2024 leadership change ahead of LS election."
+    },
+    {
+      "start": "2024-03-12",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Nayab Singh Saini",
+      "notes": "BJP. Continued after the October 2024 election win. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenOct2024/partywiseresult-S07.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    }
+  ]
+}

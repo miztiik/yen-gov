@@ -1,0 +1,108 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Delhi",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Delhi",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    },
+    {
+      "url": "https://www.eci.gov.in/statistical-report/ae/2025/10",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "NCT of Delhi Legislative Assembly Election 2025",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "U05",
+  "terms": [
+    {
+      "start": "1993-12-02",
+      "end": "1996-02-26",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Madan Lal Khurana",
+      "notes": "BJP. First CM of NCT of Delhi under the 1991 constitutional arrangement. Resigned over Jain hawala case."
+    },
+    {
+      "start": "1996-02-26",
+      "end": "1998-10-12",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Sahib Singh Verma",
+      "notes": "BJP. Resigned ahead of November 1998 election after onion-price crisis."
+    },
+    {
+      "start": "1998-10-12",
+      "end": "1998-12-03",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Sushma Swaraj",
+      "notes": "BJP. Brief term ahead of election; lost it."
+    },
+    {
+      "start": "1998-12-03",
+      "end": "2013-12-28",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Sheila Dikshit",
+      "notes": "INC. Three consecutive terms (1998, 2003, 2008)."
+    },
+    {
+      "start": "2013-12-28",
+      "end": "2014-02-14",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Arvind Kejriwal",
+      "notes": "AAP (Aam Aadmi Party). 49-day first term; resigned over Jan Lokpal Bill."
+    },
+    {
+      "start": "2014-02-14",
+      "end": "2015-02-14",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. After Kejriwal's resignation, no party formed government; lasted until February 2015 election."
+    },
+    {
+      "start": "2015-02-14",
+      "end": "2024-09-21",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Arvind Kejriwal",
+      "notes": "AAP. Two consecutive terms (2015, 2020). Resigned 21 September 2024 after release on bail in liquor-policy case."
+    },
+    {
+      "start": "2024-09-21",
+      "end": "2025-02-20",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Atishi",
+      "notes": "AAP. Caretaker until February 2025 election."
+    },
+    {
+      "start": "2025-02-20",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Rekha Gupta",
+      "notes": "BJP. First BJP CM of Delhi in 27 years. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenFeb2025/partywiseresult-U05.htm",
+          "note": "2025 partywise result."
+        }
+      ]
+    }
+  ]
+}

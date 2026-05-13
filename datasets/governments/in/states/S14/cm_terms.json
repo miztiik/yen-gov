@@ -1,0 +1,123 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Manipur",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Manipur",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S14",
+  "terms": [
+    {
+      "start": "1990-02-23",
+      "end": "1992-04-07",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "R. K. Ranbir Singh",
+      "notes": "Manipur People's Party. Coalition collapsed."
+    },
+    {
+      "start": "1992-01-07",
+      "end": "1992-04-08",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Coalition collapse and law-and-order issues."
+    },
+    {
+      "start": "1992-04-08",
+      "end": "1993-12-10",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "R. K. Dorendro Singh",
+      "notes": "INC."
+    },
+    {
+      "start": "1993-12-31",
+      "end": "1994-12-13",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Insurgency and political instability."
+    },
+    {
+      "start": "1994-12-14",
+      "end": "1997-12-15",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Rishang Keishing",
+      "notes": "INC."
+    },
+    {
+      "start": "1997-12-15",
+      "end": "2001-02-15",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "W. Nipamacha Singh",
+      "notes": "Manipur State Congress Party."
+    },
+    {
+      "start": "2001-02-15",
+      "end": "2001-06-02",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Radhabinod Koijam",
+      "notes": "Samata Party. Coalition collapsed."
+    },
+    {
+      "start": "2001-06-02",
+      "end": "2002-03-06",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Coalition instability."
+    },
+    {
+      "start": "2002-03-07",
+      "end": "2017-03-15",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Okram Ibobi Singh",
+      "notes": "INC. Three consecutive terms (2002, 2007, 2012)."
+    },
+    {
+      "start": "2017-03-15",
+      "end": "2022-03-21",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "N. Biren Singh",
+      "notes": "BJP."
+    },
+    {
+      "start": "2022-03-21",
+      "end": "2025-02-13",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "N. Biren Singh",
+      "notes": "BJP. Second term. Resigned amid the ongoing Meitei-Kuki ethnic conflict."
+    },
+    {
+      "start": "2025-02-13",
+      "end": null,
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule following N. Biren Singh's resignation; BJP unable to find a consensus replacement amid the ongoing ethnic conflict. Ongoing."
+    }
+  ]
+}

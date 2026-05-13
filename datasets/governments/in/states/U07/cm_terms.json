@@ -1,0 +1,120 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Puducherry",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Puducherry",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "U07",
+  "terms": [
+    {
+      "start": "1990-03-04",
+      "end": "1991-03-03",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "D. Ramachandran",
+      "notes": "DMK + INC coalition."
+    },
+    {
+      "start": "1991-03-04",
+      "end": "1991-07-04",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule before June 1991 election."
+    },
+    {
+      "start": "1991-07-04",
+      "end": "1996-05-13",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "V. Vaithilingam",
+      "notes": "INC."
+    },
+    {
+      "start": "1996-05-26",
+      "end": "2000-03-22",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "R. V. Janakiraman",
+      "notes": "DMK in alliance with INC and TMC(M)."
+    },
+    {
+      "start": "2000-03-22",
+      "end": "2001-05-14",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "P. Shanmugam",
+      "notes": "DMK."
+    },
+    {
+      "start": "2001-05-14",
+      "end": "2008-09-04",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "N. Rangaswamy",
+      "notes": "INC, then All India N.R. Congress (AINRC) from 2011. Won 2006 as INC."
+    },
+    {
+      "start": "2008-09-04",
+      "end": "2011-05-16",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "V. Vaithilingam",
+      "notes": "INC."
+    },
+    {
+      "start": "2011-05-16",
+      "end": "2016-06-06",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "N. Rangaswamy",
+      "notes": "AINRC (All India N.R. Congress) in alliance with AIADMK and BJP."
+    },
+    {
+      "start": "2016-06-06",
+      "end": "2021-02-22",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "V. Narayanasamy",
+      "notes": "INC. Lost majority after defections; resigned before floor test."
+    },
+    {
+      "start": "2021-02-25",
+      "end": "2021-05-07",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Hung assembly after Narayanasamy's resignation; held until April 2021 election."
+    },
+    {
+      "start": "2021-05-07",
+      "end": null,
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "N. Rangaswamy",
+      "notes": "AINRC in alliance with BJP. Continuing through May 2026 election cycle. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-U07.htm",
+          "note": "2026 partywise result."
+        }
+      ]
+    }
+  ]
+}

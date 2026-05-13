@@ -1,0 +1,111 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Punjab,_India",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Punjab, India",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S19",
+  "terms": [
+    {
+      "start": "1987-06-11",
+      "end": "1992-02-25",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule throughout the Punjab insurgency. Repeatedly extended; lifted only for the February 1992 election."
+    },
+    {
+      "start": "1992-02-25",
+      "end": "1995-08-31",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Beant Singh",
+      "notes": "INC. Assassinated by Babbar Khalsa suicide bomb on 31 August 1995."
+    },
+    {
+      "start": "1995-08-31",
+      "end": "1996-11-21",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Harcharan Singh Brar",
+      "notes": "INC."
+    },
+    {
+      "start": "1996-11-21",
+      "end": "1997-02-12",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Rajinder Kaur Bhattal",
+      "notes": "INC. First woman CM of Punjab."
+    },
+    {
+      "start": "1997-02-12",
+      "end": "2002-02-26",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Parkash Singh Badal",
+      "notes": "Shiromani Akali Dal (SAD) in NDA with BJP."
+    },
+    {
+      "start": "2002-02-26",
+      "end": "2007-03-01",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Amarinder Singh",
+      "notes": "INC."
+    },
+    {
+      "start": "2007-03-01",
+      "end": "2017-03-16",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Parkash Singh Badal",
+      "notes": "SAD in NDA with BJP. Two consecutive terms (2007, 2012)."
+    },
+    {
+      "start": "2017-03-16",
+      "end": "2021-09-18",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Amarinder Singh",
+      "notes": "INC. Resigned amid intra-party feud."
+    },
+    {
+      "start": "2021-09-20",
+      "end": "2022-03-16",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Charanjit Singh Channi",
+      "notes": "INC. First Dalit CM of Punjab."
+    },
+    {
+      "start": "2022-03-16",
+      "end": null,
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Bhagwant Mann",
+      "notes": "Aam Aadmi Party (AAP). First non-Congress non-Akali government in decades. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S19.htm",
+          "note": "2022 result."
+        }
+      ]
+    }
+  ]
+}

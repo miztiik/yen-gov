@@ -1,0 +1,138 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Gujarat",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Gujarat",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S06",
+  "terms": [
+    {
+      "start": "1990-03-04",
+      "end": "1990-10-25",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Chimanbhai Patel",
+      "notes": "Janata Dal (Gujarat) initially in coalition with BJP; switched to INC support October 1990."
+    },
+    {
+      "start": "1990-10-25",
+      "end": "1994-02-17",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Chimanbhai Patel",
+      "notes": "INC (Patel merged his Janata Dal Gujarat into INC). Died in office."
+    },
+    {
+      "start": "1994-02-17",
+      "end": "1995-03-14",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Chhabildas Mehta",
+      "notes": "INC. Caretaker after Chimanbhai Patel's death."
+    },
+    {
+      "start": "1995-03-14",
+      "end": "1995-10-21",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Keshubhai Patel",
+      "notes": "BJP first term. Forced to resign after Shankersinh Vaghela's rebellion."
+    },
+    {
+      "start": "1995-10-21",
+      "end": "1996-09-19",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Suresh Mehta",
+      "notes": "BJP. Replaced by Vaghela's RJP-INC government."
+    },
+    {
+      "start": "1996-09-19",
+      "end": "1996-10-23",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Brief; followed Vaghela's revolt against the BJP government."
+    },
+    {
+      "start": "1996-10-23",
+      "end": "1997-10-27",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Shankersinh Vaghela",
+      "notes": "Rashtriya Janata Party (RJP) with INC support."
+    },
+    {
+      "start": "1997-10-28",
+      "end": "1998-03-04",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Dilip Parikh",
+      "notes": "RJP with INC support."
+    },
+    {
+      "start": "1998-03-04",
+      "end": "2001-10-06",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Keshubhai Patel",
+      "notes": "BJP. Replaced by Narendra Modi after Bhuj earthquake handling and intra-party pressure."
+    },
+    {
+      "start": "2001-10-07",
+      "end": "2014-05-22",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Narendra Modi",
+      "notes": "BJP. Three full terms (2002, 2007, 2012). Resigned to become Prime Minister."
+    },
+    {
+      "start": "2014-05-22",
+      "end": "2016-08-03",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Anandiben Patel",
+      "notes": "BJP. First woman CM of Gujarat."
+    },
+    {
+      "start": "2016-08-07",
+      "end": "2021-09-12",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Vijay Rupani",
+      "notes": "BJP. Re-elected 2017. Resigned in 2021 leadership change."
+    },
+    {
+      "start": "2021-09-13",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Bhupendra Patel",
+      "notes": "BJP. Re-elected with record majority in 2022. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S06.htm",
+          "note": "2022 result."
+        }
+      ]
+    }
+  ]
+}

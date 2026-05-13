@@ -1,0 +1,171 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Jharkhand",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Jharkhand",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    },
+    {
+      "url": "https://www.eci.gov.in/statistical-report/ae/2024/9",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "Jharkhand Legislative Assembly Election 2024",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S27",
+  "terms": [
+    {
+      "start": "2000-11-15",
+      "end": "2003-03-18",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Babulal Marandi",
+      "notes": "BJP. First CM of Jharkhand; appointed at state formation."
+    },
+    {
+      "start": "2003-03-18",
+      "end": "2005-03-02",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Arjun Munda",
+      "notes": "BJP."
+    },
+    {
+      "start": "2005-03-02",
+      "end": "2005-03-12",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Shibu Soren",
+      "notes": "JMM (Jharkhand Mukti Morcha). Brief; failed to prove majority."
+    },
+    {
+      "start": "2005-03-12",
+      "end": "2006-09-18",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Arjun Munda",
+      "notes": "BJP."
+    },
+    {
+      "start": "2006-09-18",
+      "end": "2008-08-27",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Madhu Koda",
+      "notes": "Independent + UPA-supported. Later jailed for corruption."
+    },
+    {
+      "start": "2008-08-27",
+      "end": "2009-01-18",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Shibu Soren",
+      "notes": "JMM."
+    },
+    {
+      "start": "2009-01-19",
+      "end": "2009-12-29",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Government collapse."
+    },
+    {
+      "start": "2009-12-30",
+      "end": "2010-05-31",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Shibu Soren",
+      "notes": "JMM in coalition with BJP. Coalition collapsed."
+    },
+    {
+      "start": "2010-06-01",
+      "end": "2010-09-11",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Coalition collapse."
+    },
+    {
+      "start": "2010-09-11",
+      "end": "2013-01-18",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Arjun Munda",
+      "notes": "BJP. JMM withdrew support."
+    },
+    {
+      "start": "2013-01-18",
+      "end": "2013-07-13",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Coalition collapse."
+    },
+    {
+      "start": "2013-07-13",
+      "end": "2014-12-28",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Hemant Soren",
+      "notes": "JMM."
+    },
+    {
+      "start": "2014-12-28",
+      "end": "2019-12-29",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Raghubar Das",
+      "notes": "BJP. First non-tribal CM of Jharkhand."
+    },
+    {
+      "start": "2019-12-29",
+      "end": "2024-01-31",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Hemant Soren",
+      "notes": "JMM-INC-RJD alliance. Resigned 31 January 2024 ahead of arrest by Enforcement Directorate."
+    },
+    {
+      "start": "2024-02-02",
+      "end": "2024-07-04",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Champai Soren",
+      "notes": "JMM. Caretaker after Hemant Soren's resignation."
+    },
+    {
+      "start": "2024-07-04",
+      "end": null,
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Hemant Soren",
+      "notes": "JMM-INC alliance. Returned after bail. Continued after November 2024 election win. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenNov2024/partywiseresult-S27.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    }
+  ]
+}

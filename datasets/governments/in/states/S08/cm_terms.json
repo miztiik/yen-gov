@@ -1,0 +1,102 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Himachal_Pradesh",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Himachal Pradesh",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S08",
+  "terms": [
+    {
+      "start": "1990-03-05",
+      "end": "1992-12-15",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Shanta Kumar",
+      "notes": "BJP. Dismissed when Article 356 was invoked post-Babri."
+    },
+    {
+      "start": "1992-12-15",
+      "end": "1993-12-03",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule following the demolition of the Babri Masjid; all four BJP-ruled states dismissed."
+    },
+    {
+      "start": "1993-12-03",
+      "end": "1998-03-23",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Virbhadra Singh",
+      "notes": "INC."
+    },
+    {
+      "start": "1998-03-24",
+      "end": "2003-03-05",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Prem Kumar Dhumal",
+      "notes": "BJP."
+    },
+    {
+      "start": "2003-03-06",
+      "end": "2007-12-30",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Virbhadra Singh",
+      "notes": "INC."
+    },
+    {
+      "start": "2007-12-30",
+      "end": "2012-12-25",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Prem Kumar Dhumal",
+      "notes": "BJP."
+    },
+    {
+      "start": "2012-12-25",
+      "end": "2017-12-27",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Virbhadra Singh",
+      "notes": "INC. Final term."
+    },
+    {
+      "start": "2017-12-27",
+      "end": "2022-12-11",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Jai Ram Thakur",
+      "notes": "BJP."
+    },
+    {
+      "start": "2022-12-11",
+      "end": null,
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Sukhvinder Singh Sukhu",
+      "notes": "INC. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S08.htm",
+          "note": "2022 result."
+        }
+      ]
+    }
+  ]
+}

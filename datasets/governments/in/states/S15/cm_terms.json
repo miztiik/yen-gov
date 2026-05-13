@@ -1,0 +1,165 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Meghalaya",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Meghalaya",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S15",
+  "terms": [
+    {
+      "start": "1990-02-08",
+      "end": "1991-10-08",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "B. B. Lyngdoh",
+      "notes": "Hill People's Union (HPU)."
+    },
+    {
+      "start": "1991-10-11",
+      "end": "1992-02-05",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Coalition instability."
+    },
+    {
+      "start": "1992-02-05",
+      "end": "1993-02-19",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "D. D. Lapang",
+      "notes": "INC. Brief."
+    },
+    {
+      "start": "1993-02-19",
+      "end": "1998-02-27",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "S. C. Marak",
+      "notes": "INC."
+    },
+    {
+      "start": "1998-02-27",
+      "end": "2000-03-08",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "B. B. Lyngdoh",
+      "notes": "United Democratic Party (UDP) in Meghalaya Democratic Alliance."
+    },
+    {
+      "start": "2000-03-08",
+      "end": "2001-12-08",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "E. K. Mawlong",
+      "notes": "UDP-led alliance."
+    },
+    {
+      "start": "2001-12-08",
+      "end": "2003-03-04",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Flinder Anderson Khonglam",
+      "notes": "Independent backed by various parties."
+    },
+    {
+      "start": "2003-03-04",
+      "end": "2006-06-10",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "D. D. Lapang",
+      "notes": "INC."
+    },
+    {
+      "start": "2006-06-15",
+      "end": "2007-03-10",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "J. D. Rymbai",
+      "notes": "INC. Caretaker arrangements."
+    },
+    {
+      "start": "2007-03-10",
+      "end": "2008-03-04",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "D. D. Lapang",
+      "notes": "INC."
+    },
+    {
+      "start": "2008-03-04",
+      "end": "2008-03-19",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Donkupar Roy",
+      "notes": "UDP-led Meghalaya Progressive Alliance. Brief; lost confidence vote."
+    },
+    {
+      "start": "2009-03-18",
+      "end": "2009-05-13",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Coalition collapse."
+    },
+    {
+      "start": "2009-05-13",
+      "end": "2010-04-19",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "D. D. Lapang",
+      "notes": "INC."
+    },
+    {
+      "start": "2010-04-19",
+      "end": "2013-03-05",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Mukul Sangma",
+      "notes": "INC."
+    },
+    {
+      "start": "2013-03-05",
+      "end": "2018-03-06",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Mukul Sangma",
+      "notes": "INC. Second term."
+    },
+    {
+      "start": "2018-03-06",
+      "end": null,
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Conrad Sangma",
+      "notes": "National People's Party (NPP) in NDA-allied Meghalaya Democratic Alliance with BJP, UDP and others. Re-elected 2023. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S15.htm",
+          "note": "2023 result."
+        }
+      ]
+    }
+  ]
+}

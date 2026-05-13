@@ -1,0 +1,129 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Telangana",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Telangana",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S29",
+  "terms": [
+    {
+      "start": "1989-12-03",
+      "end": "1990-12-17",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Marri Chenna Reddy",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Replaced by N. Janardhan Reddy after intra-party leadership change."
+    },
+    {
+      "start": "1990-12-17",
+      "end": "1992-10-09",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "N. Janardhan Reddy",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC."
+    },
+    {
+      "start": "1992-10-09",
+      "end": "1994-12-12",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Kotla Vijaya Bhaskara Reddy",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Lost the 1994 Assembly election."
+    },
+    {
+      "start": "1994-12-12",
+      "end": "1995-09-01",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "N. T. Rama Rao",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. TDP (Telugu Desam Party). NTR's third term; deposed by son-in-law N. Chandrababu Naidu in an intra-party coup."
+    },
+    {
+      "start": "1995-09-01",
+      "end": "2004-05-14",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "N. Chandrababu Naidu",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. TDP (Telugu Desam Party). Two terms (1995-1999, 1999-2004). NDA partner from 1998."
+    },
+    {
+      "start": "2004-05-14",
+      "end": "2009-09-02",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Y. S. Rajasekhara Reddy",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Died in office (helicopter crash, 2 Sep 2009)."
+    },
+    {
+      "start": "2009-09-03",
+      "end": "2010-11-25",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "K. Rosaiah",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Caretaker after YSR's death; resigned amid Telangana agitation."
+    },
+    {
+      "start": "2010-11-25",
+      "end": "2014-03-01",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "N. Kiran Kumar Reddy",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Resigned in protest against the Andhra Pradesh Reorganisation Act 2014."
+    },
+    {
+      "start": "2014-03-01",
+      "end": "2014-06-08",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule imposed during the bifurcation transition (1 March 2014 – 8 June 2014). State formally bifurcated on 2 June 2014; new Andhra Pradesh and Telangana governments sworn in 8 June 2014."
+    },
+    {
+      "start": "2014-06-02",
+      "end": "2018-12-13",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "K. Chandrashekar Rao",
+      "notes": "Telangana Rashtra Samithi (TRS); renamed Bharat Rashtra Samithi (BRS) in 2022. First CM of Telangana state."
+    },
+    {
+      "start": "2018-12-13",
+      "end": "2023-12-07",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "K. Chandrashekar Rao",
+      "notes": "TRS / BRS. Second term."
+    },
+    {
+      "start": "2023-12-07",
+      "end": null,
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "A. Revanth Reddy",
+      "notes": "INC. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S29.htm",
+          "note": "2023 result."
+        }
+      ]
+    }
+  ]
+}

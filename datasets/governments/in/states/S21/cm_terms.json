@@ -1,0 +1,63 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Sikkim",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Sikkim",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    },
+    {
+      "url": "https://www.eci.gov.in/statistical-report/ae/2024/5",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "Sikkim Legislative Assembly Election - 2024",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S21",
+  "terms": [
+    {
+      "start": "1989-03-11",
+      "end": "1994-05-17",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Nar Bahadur Bhandari",
+      "notes": "Sikkim Sangram Parishad. Multiple terms; lost majority in 1994."
+    },
+    {
+      "start": "1994-05-18",
+      "end": "1994-12-12",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Sanchaman Limboo",
+      "notes": "Sikkim Sangram Parishad."
+    },
+    {
+      "start": "1994-12-12",
+      "end": "2019-05-27",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Pawan Kumar Chamling",
+      "notes": "Sikkim Democratic Front (SDF). Five consecutive terms; longest-serving CM in Indian history at time of exit. NDA partner from late 1990s."
+    },
+    {
+      "start": "2019-05-27",
+      "end": null,
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Prem Singh Tamang",
+      "notes": "Sikkim Krantikari Morcha (SKM) in NDA. Re-elected 2024. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenJune2024/partywiseresult-S21.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    }
+  ]
+}

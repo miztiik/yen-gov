@@ -1,0 +1,153 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Bihar",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Bihar",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    },
+    {
+      "url": "https://www.eci.gov.in/statistical-report/ae/2025/16",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "Bihar Legislative Assembly Election Statistical Report 2025",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S04",
+  "terms": [
+    {
+      "start": "1990-03-10",
+      "end": "1995-03-28",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Lalu Prasad Yadav",
+      "notes": "Janata Dal. First term."
+    },
+    {
+      "start": "1995-04-04",
+      "end": "1997-07-25",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Lalu Prasad Yadav",
+      "notes": "Janata Dal (later RJD from July 1997). Resigned over the fodder scam case."
+    },
+    {
+      "start": "1997-07-25",
+      "end": "1999-02-11",
+      "regime": "elected",
+      "party_code": "1420",
+      "alliance": null,
+      "cm_name": "Rabri Devi",
+      "notes": "RJD (Rashtriya Janata Dal). Lalu's wife; took over after his resignation."
+    },
+    {
+      "start": "1999-02-12",
+      "end": "1999-03-09",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule imposed amid the Senari massacre and law-and-order collapse. Revoked when Rabri was reinstated."
+    },
+    {
+      "start": "1999-03-09",
+      "end": "2000-03-02",
+      "regime": "elected",
+      "party_code": "1420",
+      "alliance": null,
+      "cm_name": "Rabri Devi",
+      "notes": "RJD."
+    },
+    {
+      "start": "2000-03-03",
+      "end": "2000-03-10",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Nitish Kumar",
+      "notes": "JD(U) / Samata Party. First, very brief NDA-backed term; resigned within a week unable to prove majority."
+    },
+    {
+      "start": "2000-03-11",
+      "end": "2005-03-06",
+      "regime": "elected",
+      "party_code": "1420",
+      "alliance": "UPA",
+      "cm_name": "Rabri Devi",
+      "notes": "RJD. Resumed office after Nitish's brief tenure."
+    },
+    {
+      "start": "2005-03-07",
+      "end": "2005-11-24",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. February 2005 election produced a hung assembly; centre dismissed the assembly. Re-election held in October-November 2005."
+    },
+    {
+      "start": "2005-11-24",
+      "end": "2014-05-17",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Nitish Kumar",
+      "notes": "JD(U) in NDA. Two terms (2005-2010, 2010-2014). Resigned after the BJP-JDU split in June 2013 and BJP's poor 2014 LS show."
+    },
+    {
+      "start": "2014-05-20",
+      "end": "2015-02-22",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Jitan Ram Manjhi",
+      "notes": "JD(U). Hand-picked by Nitish; later expelled. Briefly resigned amid intra-party turmoil."
+    },
+    {
+      "start": "2015-02-22",
+      "end": "2017-07-26",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "Mahagathbandhan",
+      "cm_name": "Nitish Kumar",
+      "notes": "JD(U) in Mahagathbandhan with RJD + INC. Resigned 26 July 2017 over CBI cases against Tejashwi Yadav."
+    },
+    {
+      "start": "2017-07-27",
+      "end": "2022-08-09",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Nitish Kumar",
+      "notes": "JD(U) back in NDA with BJP. Continued through the 2020 election. Resigned 9 August 2022 to break with BJP."
+    },
+    {
+      "start": "2022-08-10",
+      "end": "2024-01-28",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "Mahagathbandhan",
+      "cm_name": "Nitish Kumar",
+      "notes": "JD(U) again with RJD + INC + Left in Mahagathbandhan. Resigned 28 January 2024 to switch back to NDA."
+    },
+    {
+      "start": "2024-01-28",
+      "end": null,
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "NDA",
+      "cm_name": "Nitish Kumar",
+      "notes": "JD(U) in NDA. Ninth term as CM. Continued after Bihar Assembly Election November 2025. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenNov2025/partywiseresult-S04.htm",
+          "note": "2025 partywise result."
+        }
+      ]
+    }
+  ]
+}

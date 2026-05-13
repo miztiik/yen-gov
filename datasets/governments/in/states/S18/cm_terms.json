@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Odisha",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Odisha",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    },
+    {
+      "url": "https://www.eci.gov.in/statistical-report/ae/2024/4",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "Odisha Legislative Assembly Election - 2024",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S18",
+  "terms": [
+    {
+      "start": "1990-03-05",
+      "end": "1995-03-15",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Biju Patnaik",
+      "notes": "Janata Dal."
+    },
+    {
+      "start": "1995-03-15",
+      "end": "1999-02-17",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "J. B. Patnaik",
+      "notes": "INC. Resigned after the supercyclone response and party-internal pressure."
+    },
+    {
+      "start": "1999-02-17",
+      "end": "1999-12-06",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Giridhar Gamang",
+      "notes": "INC. His vote brought down the Vajpayee government in 1999."
+    },
+    {
+      "start": "1999-12-06",
+      "end": "2000-03-05",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Hemananda Biswal",
+      "notes": "INC."
+    },
+    {
+      "start": "2000-03-05",
+      "end": "2024-06-12",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Naveen Patnaik",
+      "notes": "Biju Janata Dal (BJD). Five consecutive terms. NDA partner 2000-2009; non-aligned thereafter. Lost 2024 election."
+    },
+    {
+      "start": "2024-06-12",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Mohan Charan Majhi",
+      "notes": "BJP. First BJP CM of Odisha. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenJune2024/partywiseresult-S18.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    }
+  ]
+}

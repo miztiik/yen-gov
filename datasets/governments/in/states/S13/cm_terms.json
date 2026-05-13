@@ -1,0 +1,171 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Maharashtra",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Maharashtra",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    },
+    {
+      "url": "https://www.eci.gov.in/statistical-report/ae/2024/8",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "Maharashtra Legislative Assembly Election 2024",
+      "authority": "Election Commission of India"
+    }
+  ],
+  "state": "S13",
+  "terms": [
+    {
+      "start": "1988-06-26",
+      "end": "1991-06-25",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Sharad Pawar",
+      "notes": "INC."
+    },
+    {
+      "start": "1991-06-25",
+      "end": "1993-02-22",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Sudhakarrao Naik",
+      "notes": "INC. Resigned after Bombay riots."
+    },
+    {
+      "start": "1993-03-06",
+      "end": "1995-03-14",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Sharad Pawar",
+      "notes": "INC. Tenure included the Bombay serial blasts (March 1993)."
+    },
+    {
+      "start": "1995-03-14",
+      "end": "1999-01-31",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Manohar Joshi",
+      "notes": "Shiv Sena (undivided) in alliance with BJP."
+    },
+    {
+      "start": "1999-02-01",
+      "end": "1999-10-17",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Narayan Rane",
+      "notes": "Shiv Sena (undivided) in alliance with BJP."
+    },
+    {
+      "start": "1999-10-18",
+      "end": "2003-01-18",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Vilasrao Deshmukh",
+      "notes": "INC + NCP coalition (Democratic Front)."
+    },
+    {
+      "start": "2003-01-18",
+      "end": "2004-10-30",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Sushil Kumar Shinde",
+      "notes": "INC."
+    },
+    {
+      "start": "2004-11-01",
+      "end": "2008-12-04",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Vilasrao Deshmukh",
+      "notes": "INC. Resigned after 26/11 Mumbai attacks."
+    },
+    {
+      "start": "2008-12-08",
+      "end": "2010-11-09",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Ashok Chavan",
+      "notes": "INC. Resigned over Adarsh housing scam."
+    },
+    {
+      "start": "2010-11-11",
+      "end": "2014-09-28",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": "UPA",
+      "cm_name": "Prithviraj Chavan",
+      "notes": "INC."
+    },
+    {
+      "start": "2014-09-28",
+      "end": "2014-10-31",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule before October 2014 election."
+    },
+    {
+      "start": "2014-10-31",
+      "end": "2019-11-08",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Devendra Fadnavis",
+      "notes": "BJP. First Brahmin CM in 4 decades; first BJP CM. NDA with Shiv Sena (undivided)."
+    },
+    {
+      "start": "2019-11-23",
+      "end": "2019-11-26",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Devendra Fadnavis",
+      "notes": "BJP. 80-hour term with NCP's Ajit Pawar; collapsed when Ajit returned to NCP."
+    },
+    {
+      "start": "2019-11-28",
+      "end": "2022-06-29",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "Maha Vikas Aghadi",
+      "cm_name": "Uddhav Thackeray",
+      "notes": "Shiv Sena (undivided) in MVA with NCP + INC. Resigned after Eknath Shinde's rebellion."
+    },
+    {
+      "start": "2022-06-30",
+      "end": "2024-12-05",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": "Mahayuti",
+      "cm_name": "Eknath Shinde",
+      "notes": "Shiv Sena (Shinde faction; later allotted bow-and-arrow symbol). Mahayuti with BJP and Ajit Pawar's NCP."
+    },
+    {
+      "start": "2024-12-05",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "Mahayuti",
+      "cm_name": "Devendra Fadnavis",
+      "notes": "BJP. Mahayuti. Sworn in after the November 2024 election. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenNov2024/partywiseresult-S13.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Chhattisgarh",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Chhattisgarh",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S26",
+  "terms": [
+    {
+      "start": "2000-11-01",
+      "end": "2003-12-07",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Ajit Jogi",
+      "notes": "INC. First CM of Chhattisgarh; appointed at state formation."
+    },
+    {
+      "start": "2003-12-07",
+      "end": "2018-12-17",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Raman Singh",
+      "notes": "BJP. Three consecutive terms (2003, 2008, 2013)."
+    },
+    {
+      "start": "2018-12-17",
+      "end": "2023-12-13",
+      "regime": "elected",
+      "party_code": "742",
+      "alliance": null,
+      "cm_name": "Bhupesh Baghel",
+      "notes": "INC."
+    },
+    {
+      "start": "2023-12-13",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Vishnu Deo Sai",
+      "notes": "BJP. First Adivasi CM of Chhattisgarh. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S26.htm",
+          "note": "2023 result."
+        }
+      ]
+    }
+  ]
+}

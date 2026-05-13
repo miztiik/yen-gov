@@ -1,0 +1,201 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/state_government.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Uttar_Pradesh",
+      "fetched_at": "2026-05-13T00:00:00Z",
+      "name": "List of chief ministers of Uttar Pradesh",
+      "authority": "Wikipedia (CC BY-SA 4.0)"
+    }
+  ],
+  "state": "S24",
+  "terms": [
+    {
+      "start": "1989-12-05",
+      "end": "1991-06-24",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Mulayam Singh Yadav",
+      "notes": "Janata Dal. Includes Uttarakhand until 9 November 2000 bifurcation."
+    },
+    {
+      "start": "1991-06-24",
+      "end": "1992-12-06",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Kalyan Singh",
+      "notes": "BJP. Resigned after the demolition of the Babri Masjid on 6 December 1992."
+    },
+    {
+      "start": "1992-12-06",
+      "end": "1993-12-04",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule following the demolition of the Babri Masjid."
+    },
+    {
+      "start": "1993-12-04",
+      "end": "1995-06-03",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Mulayam Singh Yadav",
+      "notes": "Samajwadi Party (SP) + BSP coalition. Coalition collapsed in the Guest House Episode of 2 June 1995."
+    },
+    {
+      "start": "1995-06-03",
+      "end": "1995-10-18",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Mayawati",
+      "notes": "BSP (Bahujan Samaj Party). First Dalit woman CM of UP. BJP withdrew support."
+    },
+    {
+      "start": "1995-10-18",
+      "end": "1996-10-21",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Hung assembly."
+    },
+    {
+      "start": "1996-10-21",
+      "end": "1997-03-21",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule continued during attempts to form a government after the 1996 election."
+    },
+    {
+      "start": "1997-03-21",
+      "end": "1997-09-21",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Mayawati",
+      "notes": "BSP-BJP rotation arrangement. Stepped aside per agreement."
+    },
+    {
+      "start": "1997-09-21",
+      "end": "1998-02-21",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Kalyan Singh",
+      "notes": "BJP. Coalition unstable."
+    },
+    {
+      "start": "1998-02-21",
+      "end": "1998-02-23",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Jagdambika Pal",
+      "notes": "INC. 48-hour 'midnight CM' episode; Supreme Court restored Kalyan Singh."
+    },
+    {
+      "start": "1998-02-23",
+      "end": "1999-11-12",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Kalyan Singh",
+      "notes": "BJP."
+    },
+    {
+      "start": "1999-11-12",
+      "end": "2000-10-28",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": null,
+      "cm_name": "Ram Prakash Gupta",
+      "notes": "BJP."
+    },
+    {
+      "start": "2000-10-28",
+      "end": "2002-03-08",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Rajnath Singh",
+      "notes": "BJP."
+    },
+    {
+      "start": "2002-03-08",
+      "end": "2002-05-03",
+      "regime": "presidents_rule",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": null,
+      "notes": "President's Rule. Hung assembly after February 2002 election."
+    },
+    {
+      "start": "2002-05-03",
+      "end": "2003-08-29",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Mayawati",
+      "notes": "BSP-BJP coalition. Withdrawn by BSP."
+    },
+    {
+      "start": "2003-08-29",
+      "end": "2007-05-13",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Mulayam Singh Yadav",
+      "notes": "SP."
+    },
+    {
+      "start": "2007-05-13",
+      "end": "2012-03-15",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Mayawati",
+      "notes": "BSP. First single-party majority government in UP since the 1980s."
+    },
+    {
+      "start": "2012-03-15",
+      "end": "2017-03-19",
+      "regime": "elected",
+      "party_code": null,
+      "alliance": null,
+      "cm_name": "Akhilesh Yadav",
+      "notes": "SP."
+    },
+    {
+      "start": "2017-03-19",
+      "end": "2022-03-25",
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Yogi Adityanath",
+      "notes": "BJP."
+    },
+    {
+      "start": "2022-03-25",
+      "end": null,
+      "regime": "elected",
+      "party_code": "369",
+      "alliance": "NDA",
+      "cm_name": "Yogi Adityanath",
+      "notes": "BJP. Second consecutive term — first UP CM in 37 years to be re-elected. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S24.htm",
+          "note": "2022 result."
+        }
+      ]
+    }
+  ]
+}
