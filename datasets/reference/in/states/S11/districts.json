@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
-  "$schema_version": "3.1",
+  "$schema_version": "3.2",
   "sources": [
     {
       "url": "https://en.wikipedia.org/wiki/List_of_districts_of_Kerala",
@@ -13,86 +13,100 @@
       "id": "ALA",
       "id_source": "wikipedia",
       "name": "Alappuzha",
-      "headquarters": "Alappuzha"
+      "headquarters": "Alappuzha",
+      "lgd_code": "554"
     },
     {
       "id": "ERN",
       "id_source": "wikipedia",
       "name": "Ernakulam",
-      "headquarters": "Kakkanad"
+      "headquarters": "Kakkanad",
+      "lgd_code": "555"
     },
     {
       "id": "IDU",
       "id_source": "wikipedia",
       "name": "Idukki",
-      "headquarters": "Painavu"
+      "headquarters": "Painavu",
+      "lgd_code": "556"
     },
     {
       "id": "KAN",
       "id_source": "wikipedia",
       "name": "Kannur",
-      "headquarters": "Kannur"
+      "headquarters": "Kannur",
+      "lgd_code": "557"
     },
     {
       "id": "KAS",
       "id_source": "wikipedia",
       "name": "Kasaragod",
       "headquarters": "Kasaragod",
-      "created_on": "1984-05-24"
+      "created_on": "1984-05-24",
+      "lgd_code": "558"
     },
     {
       "id": "KOL",
       "id_source": "wikipedia",
       "name": "Kollam",
-      "headquarters": "Kollam"
+      "headquarters": "Kollam",
+      "lgd_code": "559"
     },
     {
       "id": "KOT",
       "id_source": "wikipedia",
       "name": "Kottayam",
-      "headquarters": "Kottayam"
+      "headquarters": "Kottayam",
+      "lgd_code": "560"
     },
     {
       "id": "KOZ",
       "id_source": "wikipedia",
       "name": "Kozhikode",
-      "headquarters": "Kozhikode"
+      "headquarters": "Kozhikode",
+      "lgd_code": "561"
     },
     {
       "id": "MAL",
       "id_source": "wikipedia",
       "name": "Malappuram",
-      "headquarters": "Malappuram"
+      "headquarters": "Malappuram",
+      "lgd_code": "562"
     },
     {
       "id": "PAL",
       "id_source": "wikipedia",
       "name": "Palakkad",
-      "headquarters": "Palakkad"
+      "headquarters": "Palakkad",
+      "lgd_code": "563"
     },
     {
       "id": "PAT",
       "id_source": "wikipedia",
       "name": "Pathanamthitta",
-      "headquarters": "Pathanamthitta"
+      "headquarters": "Pathanamthitta",
+      "lgd_code": "564"
     },
     {
       "id": "THI",
       "id_source": "wikipedia",
       "name": "Thiruvananthapuram",
-      "headquarters": "Thiruvananthapuram"
+      "headquarters": "Thiruvananthapuram",
+      "lgd_code": "565"
     },
     {
       "id": "THR",
       "id_source": "wikipedia",
       "name": "Thrissur",
-      "headquarters": "Thrissur"
+      "headquarters": "Thrissur",
+      "lgd_code": "566"
     },
     {
       "id": "WAY",
       "id_source": "wikipedia",
       "name": "Wayanad",
-      "headquarters": "Kalpetta"
+      "headquarters": "Kalpetta",
+      "lgd_code": "567"
     }
   ]
 }

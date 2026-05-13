@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
-  "$schema_version": "3.1",
+  "$schema_version": "3.2",
   "sources": [
     {
       "url": "https://en.wikipedia.org/wiki/List_of_districts_of_Assam",
@@ -13,210 +13,245 @@
       "id": "KOK",
       "id_source": "wikipedia",
       "name": "Kokrajhar",
-      "headquarters": "Kokrajhar"
+      "headquarters": "Kokrajhar",
+      "lgd_code": "294"
     },
     {
       "id": "DHU",
       "id_source": "wikipedia",
       "name": "Dhubri",
-      "headquarters": "Dhubri"
+      "headquarters": "Dhubri",
+      "lgd_code": "285"
     },
     {
       "id": "SSM",
       "id_source": "wikipedia",
       "name": "South Salmara-Mankachar",
-      "headquarters": "Hatsingimari"
+      "headquarters": "Hatsingimari",
+      "lgd_code": "707"
     },
     {
       "id": "GLP",
       "id_source": "wikipedia",
       "name": "Goalpara",
-      "headquarters": "Goalpara"
+      "headquarters": "Goalpara",
+      "lgd_code": "287"
     },
     {
       "id": "BNG",
       "id_source": "wikipedia",
       "name": "Bongaigaon",
-      "headquarters": "Bongaigaon"
+      "headquarters": "Bongaigaon",
+      "lgd_code": "281"
     },
     {
       "id": "CHR",
       "id_source": "wikipedia",
       "name": "Chirang",
-      "headquarters": "Kajalgaon"
+      "headquarters": "Kajalgaon",
+      "lgd_code": "612"
     },
     {
       "id": "BJL",
       "id_source": "wikipedia",
       "name": "Bajali",
-      "headquarters": "Pathsala"
+      "headquarters": "Pathsala",
+      "lgd_code": "739"
     },
     {
       "id": "BPT",
       "id_source": "wikipedia",
       "name": "Barpeta",
-      "headquarters": "Barpeta"
+      "headquarters": "Barpeta",
+      "lgd_code": "280"
     },
     {
       "id": "KAM",
       "id_source": "wikipedia",
       "name": "Kamrup",
-      "headquarters": "Amingaon"
+      "headquarters": "Amingaon",
+      "lgd_code": "291"
     },
     {
       "id": "KMM",
       "id_source": "wikipedia",
       "name": "Kamrup Metropolitan",
-      "headquarters": "Guwahati"
+      "headquarters": "Guwahati",
+      "lgd_code": "618"
     },
     {
       "id": "NAL",
       "id_source": "wikipedia",
       "name": "Nalbari",
-      "headquarters": "Nalbari"
+      "headquarters": "Nalbari",
+      "lgd_code": "298"
     },
     {
       "id": "BAK",
       "id_source": "wikipedia",
       "name": "Baksa",
-      "headquarters": "Mushalpur"
+      "headquarters": "Mushalpur",
+      "lgd_code": "616"
     },
     {
       "id": "TAM",
       "id_source": "wikipedia",
       "name": "Tamulpur",
-      "headquarters": "Tamulpur"
+      "headquarters": "Tamulpur",
+      "lgd_code": "756"
     },
     {
       "id": "UDA",
       "id_source": "wikipedia",
       "name": "Udalguri",
-      "headquarters": "Udalguri"
+      "headquarters": "Udalguri",
+      "lgd_code": "617"
     },
     {
       "id": "DAR",
       "id_source": "wikipedia",
       "name": "Darrang",
-      "headquarters": "Mangaldai"
+      "headquarters": "Mangaldai",
+      "lgd_code": "283"
     },
     {
       "id": "MOR",
       "id_source": "wikipedia",
       "name": "Morigaon",
-      "headquarters": "Morigaon"
+      "headquarters": "Morigaon",
+      "lgd_code": "296"
     },
     {
       "id": "NGN",
       "id_source": "wikipedia",
       "name": "Nagaon",
-      "headquarters": "Nagaon"
+      "headquarters": "Nagaon",
+      "lgd_code": "297"
     },
     {
       "id": "HOJ",
       "id_source": "wikipedia",
       "name": "Hojai",
-      "headquarters": "Sankardev Nagar"
+      "headquarters": "Sankardev Nagar",
+      "lgd_code": "709"
     },
     {
       "id": "SON",
       "id_source": "wikipedia",
       "name": "Sonitpur",
-      "headquarters": "Tezpur"
+      "headquarters": "Tezpur",
+      "lgd_code": "301"
     },
     {
       "id": "BSW",
       "id_source": "wikipedia",
       "name": "Biswanath",
-      "headquarters": "Biswanath Chariali"
+      "headquarters": "Biswanath Chariali",
+      "lgd_code": "705"
     },
     {
       "id": "LAK",
       "id_source": "wikipedia",
       "name": "Lakhimpur",
-      "headquarters": "North Lakhimpur"
+      "headquarters": "North Lakhimpur",
+      "lgd_code": "295"
     },
     {
       "id": "DHE",
       "id_source": "wikipedia",
       "name": "Dhemaji",
-      "headquarters": "Dhemaji"
+      "headquarters": "Dhemaji",
+      "lgd_code": "284"
     },
     {
       "id": "TIN",
       "id_source": "wikipedia",
       "name": "Tinsukia",
-      "headquarters": "Tinsukia"
+      "headquarters": "Tinsukia",
+      "lgd_code": "302"
     },
     {
       "id": "DBR",
       "id_source": "wikipedia",
       "name": "Dibrugarh",
-      "headquarters": "Dibrugarh"
+      "headquarters": "Dibrugarh",
+      "lgd_code": "286"
     },
     {
       "id": "CHA",
       "id_source": "wikipedia",
       "name": "Charaideo",
-      "headquarters": "Sonari"
+      "headquarters": "Sonari",
+      "lgd_code": "708"
     },
     {
       "id": "SIV",
       "id_source": "wikipedia",
-      "name": "Sibsagar"
+      "name": "Sibsagar",
+      "lgd_code": "300"
     },
     {
       "id": "MAJ",
       "id_source": "wikipedia",
       "name": "Majuli",
-      "headquarters": "Garamur"
+      "headquarters": "Garamur",
+      "lgd_code": "706"
     },
     {
       "id": "JOR",
       "id_source": "wikipedia",
       "name": "Jorhat",
-      "headquarters": "Jorhat"
+      "headquarters": "Jorhat",
+      "lgd_code": "290"
     },
     {
       "id": "GOL",
       "id_source": "wikipedia",
       "name": "Golaghat",
-      "headquarters": "Golaghat"
+      "headquarters": "Golaghat",
+      "lgd_code": "288"
     },
     {
       "id": "KAR",
       "id_source": "wikipedia",
       "name": "Karbi Anglong",
-      "headquarters": "Diphu"
+      "headquarters": "Diphu",
+      "lgd_code": "292"
     },
     {
       "id": "WKA",
       "id_source": "wikipedia",
       "name": "West Karbi Anglong",
-      "headquarters": "Hamren"
+      "headquarters": "Hamren",
+      "lgd_code": "710"
     },
     {
       "id": "DHA",
       "id_source": "wikipedia",
       "name": "Dima Hasao",
-      "headquarters": "Haflong"
+      "headquarters": "Haflong",
+      "lgd_code": "299"
     },
     {
       "id": "CAC",
       "id_source": "wikipedia",
       "name": "Cachar",
-      "headquarters": "Silchar"
+      "headquarters": "Silchar",
+      "lgd_code": "282"
     },
     {
       "id": "HAI",
       "id_source": "wikipedia",
       "name": "Hailakandi",
-      "headquarters": "Hailakandi"
+      "headquarters": "Hailakandi",
+      "lgd_code": "289"
     },
     {
       "id": "SRI",
       "id_source": "wikipedia",
       "name": "Sribhumi",
-      "headquarters": "Karimganj"
+      "headquarters": "Karimganj",
+      "lgd_code": "293"
     }
   ]
 }

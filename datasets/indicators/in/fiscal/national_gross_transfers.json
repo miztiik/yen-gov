@@ -1,0 +1,140 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.1",
+  "sources": [
+    {
+      "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
+      "fetched_at": "2026-05-11T14:50:50Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (national aggregate)",
+    "temporal": "2007-04..2025-04",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "fiscal/national_gross_transfers",
+    "title": "Gross transfers from Centre to states (all-India)",
+    "description": "Total gross flow of resources from the Centre to all states before the Centre claws back loan repayments and interest (Item IV = Item I devolution + Item II grants + Item III gross loans). The 'headline' transfer figure citizens encounter in budget commentary. Net transfer (`fiscal/national_centre_transfers_total`) is gross minus repayments / interest.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "INR (crore)",
+    "icon": "landmark",
+    "attribution_geography": "where_administered",
+    "comparability": "comparable_with_normalisation",
+    "funding_split": {
+      "centre_pct": 100,
+      "state_pct": 0,
+      "source": "definition (own vs centrally-transferred)"
+    },
+    "implementing_authority": "centre",
+    "methodology_vintage": "RBI State Finances: A Study of Budgets, Appendix Table 2; cached file mtime 2026-05-11T14:50:50Z",
+    "notes": "Source: RBI 'State Finances: A Study of Budgets', Appendix Table 2, Item IV 'Gross Transfer (I+II+III)'. Nominal ₹ Crore. Same dedupe and qualifier rules as the other national_centre_* indicators."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 267275.9
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 297980.5
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 324092.7
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 392463.9
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 451910.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 491416.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 535095.9
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 680520.6
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 844601.1
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 981709.8
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1030653.7
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1213484.9
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1214702.2
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1394251.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1705162.4
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1723111.2
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1770365.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 2125145.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 2313664.1
+    }
+  ]
+}

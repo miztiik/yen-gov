@@ -302,3 +302,36 @@ def test_shipped_specs_match_id_pattern():
     pat = re.compile(r"^[a-z][a-z0-9_]*(/[a-z][a-z0-9_]*)*$")
     for s in SHIPPED_SPECS:
         assert pat.match(s.indicator_id), s.indicator_id
+
+
+def test_shipped_specs_each_resolves_distinct_item():
+    """Every shipped spec must locate a distinct row in the canonical workbook.
+
+    Guards against the 'two specs accidentally match the same item'
+    failure mode, which would emit duplicate-looking indicators.
+    """
+    wb_bytes = _build_workbook([
+        ("APPT_1", [
+            [_TITLE],
+            [_UNIT],
+            ["Item", "2007-08", "2008-09"],
+            [None, 1, 2],
+            ["I. States' Share in Central Taxes", 151, 161],
+            ["II. Grants from the Centre (1 to 5)", 108, 129],
+            ["III. Gross Loans from the Centre", 7, 7],
+            ["IV. Gross Transfer (I+II+III)", 267, 297],
+            ["V. Repayment of Loans and Interest Payments", 19, 18],
+            ["VI. Net Transfer of Resources from the Centre (IV-V)", 247, 279],
+        ]),
+    ])
+    seen_first_values: set[float] = set()
+    for spec in SHIPPED_SPECS:
+        parsed = parse_workbook(wb_bytes, spec)
+        assert parsed.rows, spec.indicator_id
+        first = parsed.rows[0].value
+        assert first is not None, spec.indicator_id
+        assert first not in seen_first_values, (
+            f"{spec.indicator_id}: first-row value {first} collides with another "
+            f"spec — needles probably overlap"
+        )
+        seen_first_values.add(first)

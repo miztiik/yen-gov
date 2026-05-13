@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/district.schema.json",
   "title": "Districts collection (per state)",
   "description": "All districts within a single state, keyed by LGD (Local Government Directory) code where available, falling back to a Wikipedia-derived slug. Each file covers exactly one state.",
-  "x-version": "3.1",
+  "x-version": "3.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -24,6 +24,11 @@
       "version": "3.1",
       "date": "2026-05-11",
       "description": "Additive: optional name (human-readable upstream name) and authority (issuing body) fields on each sources[] entry. Aligns with Phase A schemas (feature_collection.metadata, indicator) so attribution can be uniform across electoral and socio-economic data. Per TODO/SOCIO-ECONOMIC-EXPANSION.md §6 D3."
+    },
+    {
+      "version": "3.2",
+      "date": "2026-05-13",
+      "description": "Additive: optional lgd_code (LGD numeric district code, string) on each district item. Set during backfill from datasets/reference/in/lgd/districts-latest.csv (ramSeraph opendata mirror). Independent of id/id_source so wikipedia-slug ids stay stable for cross-file references in constituencies.json. lgd_code is the join key against datasets/boundaries/in/geojson/india-districts.geojson where features carry dist_lgd. Per ADR-0015 (LGD as district authority) and ADR-0019 (district_lgd_code dataset column)."
     }
   ],
   "type": "object",
@@ -103,6 +108,11 @@
               "wikipedia"
             ],
             "description": "Which authority issued the id."
+          },
+          "lgd_code": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$",
+            "description": "LGD numeric district code (Local Government Directory, Ministry of Panchayati Raj). Optional. Join key against datasets/boundaries/in/geojson/india-districts.geojson features (`dist_lgd` property). When id_source=lgd this duplicates id; when id_source=wikipedia this is the LGD bridge added by tools/lgd/backfill_lgd_codes.py."
           },
           "name": {
             "type": "string",

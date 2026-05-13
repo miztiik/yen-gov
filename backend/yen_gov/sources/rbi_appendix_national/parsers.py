@@ -265,4 +265,30 @@ SHIPPED_SPECS: tuple[AppendixSpec, ...] = (
         item_label_match="net transfer of resources",
         prefer_qualifier=("accounts",),
     ),
+    AppendixSpec(
+        indicator_id="fiscal/national_devolution_central_taxes",
+        # Item I: "States' Share in Central Taxes". Note: the workbook
+        # uses a curly apostrophe (U+2019). The needle deliberately
+        # omits the apostrophe so it matches both straight and curly
+        # variants regardless of encoding round-trips.
+        item_label_match="share in central taxes",
+        prefer_qualifier=("accounts",),
+    ),
+    AppendixSpec(
+        indicator_id="fiscal/national_grants_from_centre",
+        # Item II: "Grants from the Centre".
+        # The discretionary / scheme stream (Centrally Sponsored
+        # Schemes, Finance Commission grants, etc.).
+        item_label_match="grants from the centre",
+        prefer_qualifier=("accounts",),
+    ),
+    AppendixSpec(
+        indicator_id="fiscal/national_gross_transfers",
+        # Item IV: "Gross Transfer (I+II+III)".
+        # Total gross flow before the Centre claws back loan
+        # repayments and interest. Useful as the headline "total
+        # central money moving to states" figure for citizens.
+        item_label_match="gross transfer",
+        prefer_qualifier=("accounts",),
+    ),
 )

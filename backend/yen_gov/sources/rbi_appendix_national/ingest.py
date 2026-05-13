@@ -110,6 +110,83 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "2017-18 onwards the figures include Delhi and Puducherry."
         ),
     ),
+    "fiscal/national_devolution_central_taxes": IndicatorMeta(
+        indicator_id="fiscal/national_devolution_central_taxes",
+        title="Devolution of central taxes to states (all-India)",
+        description=(
+            "States' share in the divisible pool of central taxes — the "
+            "constitutional, Finance-Commission-driven stream that the "
+            "Centre is obligated to pass on to the states. This is Item I "
+            "of RBI Appendix Table 2 and is the single largest component "
+            "of Centre-to-State transfers. Per the 15th Finance "
+            "Commission, states currently receive 41% of the divisible "
+            "pool (down from 42% pre-J&K-bifurcation)."
+        ),
+        direction="neutral",
+        comparability="comparable_with_normalisation",
+        attribution_geography="where_administered",
+        icon="landmark",
+        funding_split_state_pct=0,
+        notes=(
+            "Source: RBI 'State Finances: A Study of Budgets', Appendix "
+            "Table 2, Item I 'States' Share in Central Taxes'. Nominal "
+            "₹ Crore. Year qualifiers (Accounts / RE / BE) follow the "
+            "same dedupe rule as fiscal/national_centre_transfers_total."
+        ),
+    ),
+    "fiscal/national_grants_from_centre": IndicatorMeta(
+        indicator_id="fiscal/national_grants_from_centre",
+        title="Grants from Centre to states (all-India)",
+        description=(
+            "Discretionary grants from the Centre to all states combined: "
+            "Centrally Sponsored Schemes, Finance Commission grants "
+            "(post-devolution revenue deficit, local body, SDRF, health), "
+            "State Plan Schemes (legacy), and other statutory grants. "
+            "Item II of RBI Appendix Table 2. Together with devolution "
+            "(Item I) this makes up the bulk of Centre-to-State resource "
+            "flow before the loan/repayment netting in Items III–V."
+        ),
+        direction="neutral",
+        comparability="comparable_with_normalisation",
+        attribution_geography="where_administered",
+        icon="landmark",
+        funding_split_state_pct=0,
+        notes=(
+            "Source: RBI 'State Finances: A Study of Budgets', Appendix "
+            "Table 2, Item II 'Grants from the Centre'. Nominal ₹ Crore. "
+            "The composition shifts over time (e.g. State Plan Schemes "
+            "collapsed after FY15 with the abolition of the Planning "
+            "Commission; CSS share rose; Finance Commission Grants "
+            "broken out as a separate sub-line from FY21 onwards) — the "
+            "totals remain comparable but the sub-categorisation is not. "
+            "Year qualifiers follow the same dedupe rule as the other "
+            "national_centre_* indicators."
+        ),
+    ),
+    "fiscal/national_gross_transfers": IndicatorMeta(
+        indicator_id="fiscal/national_gross_transfers",
+        title="Gross transfers from Centre to states (all-India)",
+        description=(
+            "Total gross flow of resources from the Centre to all states "
+            "before the Centre claws back loan repayments and interest "
+            "(Item IV = Item I devolution + Item II grants + Item III "
+            "gross loans). The 'headline' transfer figure citizens "
+            "encounter in budget commentary. Net transfer "
+            "(`fiscal/national_centre_transfers_total`) is gross minus "
+            "repayments / interest."
+        ),
+        direction="neutral",
+        comparability="comparable_with_normalisation",
+        attribution_geography="where_administered",
+        icon="landmark",
+        funding_split_state_pct=0,
+        notes=(
+            "Source: RBI 'State Finances: A Study of Budgets', Appendix "
+            "Table 2, Item IV 'Gross Transfer (I+II+III)'. Nominal "
+            "₹ Crore. Same dedupe and qualifier rules as the other "
+            "national_centre_* indicators."
+        ),
+    ),
 }
 
 
