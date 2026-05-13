@@ -126,6 +126,7 @@ A change is not done until ALL hold:
 - [ ] No `[DEBUG]` markers left in code.
 - [ ] No new hardcoded values.
 - [ ] No new mocks unless explicitly requested.
+- [ ] **Lockfiles in sync with manifests.** If the commit touches `frontend/package.json` or `admin/package.json`, the matching `bun.lock` MUST be regenerated (`bun install` in that directory) and staged in the SAME commit. The Pages workflow runs `bun install --frozen-lockfile` and will reject any desync with `error: lockfile had changes, but lockfile is frozen`, breaking the public site until fixed. Verify with `git status --porcelain <dir>/package.json <dir>/bun.lock` — both must be staged together, or neither.
 
 ## 10. Anti-Patterns (Do NOT)
 
@@ -139,6 +140,7 @@ A change is not done until ALL hold:
 - Let `TODO/` or chat logs become the source of truth for architecture.
 - Pre-create empty modules "for later".
 - Skip the docs update.
+- Edit a `package.json` without running `bun install` and staging the resulting `bun.lock` in the same commit. The deploy workflow uses `--frozen-lockfile`; a desync silently stops the site from updating until someone notices and pushes a lockfile-only commit.
 
 ## 11. Schema Versioning (Mandatory)
 
