@@ -40,10 +40,10 @@ All entries below: `entity_kind=country`, `entity_id="IN"`, `time_grain=fiscal_y
 
 | Indicator id | Workbook source | Coverage | Notes |
 | --- | --- | --- | --- |
-| `fiscal/national_centre_transfers_total` | App T2 Item VI ("Net Transfer of Resources from the Centre = IV-V") | FY08–FY26 (19 rows) | Headline net transfers — gross minus loan repayments and interest. Macro envelope view. |
-| `fiscal/national_devolution_central_taxes` | App T2 Item I ("States' Share in Central Taxes") | FY08–FY26 (19 rows) | Constitutional Finance-Commission devolution stream. 41% share post-15thFC. |
-| `fiscal/national_grants_from_centre` | App T2 Item II ("Grants from the Centre") | FY08–FY26 (19 rows) | Discretionary stream — CSS, Finance Commission grants, statutory grants. |
-| `fiscal/national_gross_transfers` | App T2 Item IV ("Gross Transfer = I+II+III") | FY08–FY26 (19 rows) | Headline gross transfers, before loan netting. |
+| `fiscal/centre_transfers_to_states_net` | App T2 Item VI ("Net Transfer of Resources from the Centre = IV-V") | FY08–FY26 (19 rows) | Headline net transfers — gross minus loan repayments and interest. Macro envelope view. |
+| `fiscal/centre_transfers_to_states_tax_devolution` | App T2 Item I ("States' Share in Central Taxes") | FY08–FY26 (19 rows) | Constitutional Finance-Commission devolution stream. 41% share post-15thFC. |
+| `fiscal/centre_transfers_to_states_grants` | App T2 Item II ("Grants from the Centre") | FY08–FY26 (19 rows) | Discretionary stream — CSS, Finance Commission grants, statutory grants. |
+| `fiscal/centre_transfers_to_states_gross` | App T2 Item IV ("Gross Transfer = I+II+III") | FY08–FY26 (19 rows) | Headline gross transfers, before loan netting. |
 
 Sub-component sub-totals (e.g. State Plan Schemes, Centrally Sponsored Schemes, Finance Commission Grants) are **not** shipped as separate indicators because the sub-categorisation is not stable across years (e.g. State Plan Schemes collapsed after FY15). Add them as new `AppendixSpec` entries only if comparability is acceptable for the user-facing question.
 
@@ -66,7 +66,7 @@ Each artifact validates against [`indicator.schema.json`](../../../datasets/sche
     "admin_level": "national"
   },
   "indicator": {
-    "id": "fiscal/national_centre_transfers_total",
+    "id": "fiscal/centre_transfers_to_states_net",
     "title": "Net Centre-to-States transfers (all-India)",
     "entity_kind": "country",
     "time_grain": "fiscal_year",
@@ -100,7 +100,7 @@ The latest two years RBI publishes are RE / BE only (no Accounts yet); those are
 
 ## Inflation caveat
 
-All values are **nominal ₹ Crore** as RBI publishes them. They are NOT deflated to constant prices. A 3× rise from FY08 to FY26 reflects price level changes as much as real flow changes — citizens reading the chart should hold an inflation context (CPI roughly doubled in this window). A future indicator `fiscal/national_centre_transfers_total_constant_2011_12` (deflated) is in the backlog ([long-coverage backlog](../../concepts/long-coverage-indicators.md)).
+All values are **nominal ₹ Crore** as RBI publishes them. They are NOT deflated to constant prices. A 3× rise from FY08 to FY26 reflects price level changes as much as real flow changes — citizens reading the chart should hold an inflation context (CPI roughly doubled in this window). A future indicator `fiscal/centre_transfers_to_states_net_constant_2011_12` (deflated) is in the backlog ([long-coverage backlog](../../concepts/long-coverage-indicators.md)).
 
 ## Tests
 

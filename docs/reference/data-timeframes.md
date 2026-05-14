@@ -43,7 +43,8 @@ These are the spine of any longitudinal "did governance work?" comparison.
 | `health/state_total_fertility_rate` | CY03–CY23 | 21 | annual | RBI (SRS) |
 | `fiscal/state_pension_expenditure_inr_crore` | FY05–FY25 | 21 | annual | RBI |
 | `fiscal/outstanding_debt_pct_gsdp` | FY08–FY26 | 19 | annual | RBI |
-| `fiscal/national_*` (8 RBI fiscal aggregates) | FY07–FY25 | 19 | annual | RBI |
+| `fiscal/centre_transfers_to_states_*` (4 transfer flows: net, gross, tax_devolution, grants) | FY07–FY25 | 19 | annual | RBI |
+| `fiscal/states_combined_*_deficit` (4 deficit indicators: gross_fiscal, revenue, primary, primary_revenue) | FY07–FY25 | 19 | annual | RBI |
 
 ## Mid-length series (10–19 years)
 

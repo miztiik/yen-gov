@@ -73,8 +73,8 @@ class IndicatorMeta:
 
 
 INDICATOR_META: dict[str, IndicatorMeta] = {
-    "fiscal/national_centre_transfers_total": IndicatorMeta(
-        indicator_id="fiscal/national_centre_transfers_total",
+    "fiscal/centre_transfers_to_states_net": IndicatorMeta(
+        indicator_id="fiscal/centre_transfers_to_states_net",
         title="Net Centre-to-States transfers (all-India)",
         description=(
             "Total resources transferred from the Central Government to all "
@@ -110,8 +110,8 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "2017-18 onwards the figures include Delhi and Puducherry."
         ),
     ),
-    "fiscal/national_devolution_central_taxes": IndicatorMeta(
-        indicator_id="fiscal/national_devolution_central_taxes",
+    "fiscal/centre_transfers_to_states_tax_devolution": IndicatorMeta(
+        indicator_id="fiscal/centre_transfers_to_states_tax_devolution",
         title="Devolution of central taxes to states (all-India)",
         description=(
             "States' share in the divisible pool of central taxes — the "
@@ -131,11 +131,11 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "Source: RBI 'State Finances: A Study of Budgets', Appendix "
             "Table 2, Item I 'States' Share in Central Taxes'. Nominal "
             "₹ Crore. Year qualifiers (Accounts / RE / BE) follow the "
-            "same dedupe rule as fiscal/national_centre_transfers_total."
+            "same dedupe rule as fiscal/centre_transfers_to_states_net."
         ),
     ),
-    "fiscal/national_grants_from_centre": IndicatorMeta(
-        indicator_id="fiscal/national_grants_from_centre",
+    "fiscal/centre_transfers_to_states_grants": IndicatorMeta(
+        indicator_id="fiscal/centre_transfers_to_states_grants",
         title="Grants from Centre to states (all-India)",
         description=(
             "Discretionary grants from the Centre to all states combined: "
@@ -160,11 +160,11 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "broken out as a separate sub-line from FY21 onwards) — the "
             "totals remain comparable but the sub-categorisation is not. "
             "Year qualifiers follow the same dedupe rule as the other "
-            "national_centre_* indicators."
+            "centre_transfers_to_states_* indicators."
         ),
     ),
-    "fiscal/national_gross_transfers": IndicatorMeta(
-        indicator_id="fiscal/national_gross_transfers",
+    "fiscal/centre_transfers_to_states_gross": IndicatorMeta(
+        indicator_id="fiscal/centre_transfers_to_states_gross",
         title="Gross transfers from Centre to states (all-India)",
         description=(
             "Total gross flow of resources from the Centre to all states "
@@ -172,7 +172,7 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "(Item IV = Item I devolution + Item II grants + Item III "
             "gross loans). The 'headline' transfer figure citizens "
             "encounter in budget commentary. Net transfer "
-            "(`fiscal/national_centre_transfers_total`) is gross minus "
+            "(`fiscal/centre_transfers_to_states_net`) is gross minus "
             "repayments / interest."
         ),
         direction="neutral",
@@ -184,7 +184,7 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "Source: RBI 'State Finances: A Study of Budgets', Appendix "
             "Table 2, Item IV 'Gross Transfer (I+II+III)'. Nominal "
             "₹ Crore. Same dedupe and qualifier rules as the other "
-            "national_centre_* indicators."
+            "centre_transfers_to_states_* indicators."
         ),
     ),
 }

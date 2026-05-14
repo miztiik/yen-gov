@@ -229,6 +229,45 @@ A new `docs/research/` tier captures one note per upstream/topic so future work 
 - `docs/research/state-government-history.md` — verification sources for the ruling-party timeline.
 - `docs/research/license-handling.md` — how D9 is implemented end-to-end.
 
+---
+
+## Open gap — Union (Centre's own) deficit indicators
+
+**Raised by**: Hans (Governance) on 2026-05-14 during the Step B fiscal-actor rename review (ADR-0025). **Status**: source identified, ingest deferred to a follow-up commit on the same branch (or its own PR).
+
+**The asymmetry to fix.** After Step B (ADR-0025) yen-gov ships:
+
+- Four `fiscal/centre_transfers_to_states_*` indicators — Centre as benefactor (resources flowing OUT to states).
+- Four `fiscal/states_combined_*_deficit` indicators — states as the borrowing actor.
+
+**Nothing about the Centre's OWN borrowing.** A citizen looking at our pages right now concludes: states run deficits; Centre sends money. That's the Factfulness "Blame instinct" failure mode — the data architecture itself misframes responsibility. In FY24 the Union Government's gross fiscal deficit was ~5.6% of GDP; states-combined was ~3.2%. The Centre's deficit was nearly double the states-combined and we don't show it.
+
+**Source identified — RBI HBS-IE 2024-25, Table 89: "Key Deficit Indicators of the Central Government"**.
+
+- Landing page: `https://rbi.org.in/Scripts/PublicationsView.aspx?id=23263`
+- Direct XLSX (12 kb): `https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/89T_29082025E8B3FAE53E854131998A98825CE0DAEA.XLSX`
+- Sister table (states): Table 96 "Key Deficit Indicators of the State Governments" — same publication, parallel structure. T96 is the HBS-IE-vintage equivalent of the RBI Appendix T1 our `rbi_appendix_deficits` adapter already parses.
+
+**Proposed indicators (Step C scope, four artifacts):**
+
+- `fiscal/union_gross_fiscal_deficit`
+- `fiscal/union_revenue_deficit`
+- `fiscal/union_primary_deficit`
+- `fiscal/union_primary_revenue_deficit` *(verify column exists in T89 before committing)*
+
+**Adapter strategy.** New `backend/yen_gov/sources/rbi_hbs_ie_centre_deficits/` adapter, structured as a sibling of `rbi_appendix_deficits`:
+
+- Same XLSX shape pattern (Statement-style sheet with FY columns, deficit-indicator rows).
+- Same Accounts/RE/BE qualifier-preference logic; can likely reuse the existing `parse_workbook` from `rbi_appendix_deficits.parsers` with an indicator-id remap.
+- Independent download URL pinning (HBS-IE editions ship annually; the document hash in the URL changes per edition).
+- Coverage: HBS-IE typically publishes from FY51 onwards (much deeper than App T1's FY08 start). If true this also unlocks an optional Step C+ to extend states-combined deficits backward via T96.
+
+**Why deferred from the rename branch.** The rename branch (ADR-0025) is mechanical and atomic — eight name changes + their references. Adding a new adapter, four new dataset artifacts, schema-validation pass, and frontend wiring is a separate concern. ADR-0025 names this gap and points here; the next branch closes it.
+
+**Caveat copy that should land on any page surfacing the existing four `states_combined_*_deficit` indicators until Step C ships:**
+
+> "Shows states-combined fiscal stress only. The Union Government's own fiscal deficit (currently ~5.6% of GDP, larger than the states-combined ~3.2%) will be added in a future update. See [TODO/SOCIO-ECONOMIC-EXPANSION.md](TODO/SOCIO-ECONOMIC-EXPANSION.md) §Open gap."
+
 
 
 ## 7. Phased work (only after §6 sign-off)

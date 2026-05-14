@@ -19,7 +19,7 @@
     "admin_level": "national"
   },
   "indicator": {
-    "id": "fiscal/national_centre_transfers_total",
+    "id": "fiscal/centre_transfers_to_states_net",
     "title": "Net Centre-to-States transfers (all-India)",
     "description": "Total resources transferred from the Central Government to all State governments combined in each fiscal year, net of loan repayments and interest payments back to the Centre. The all-India aggregate equivalent of the per-state transfers indicators — useful for the macro question 'how big is the Centre's transfer envelope, and how has it grown?'. The number RBI publishes is Item VI of Appendix Table 2 ('Net Transfer of Resources from the Centre = Gross Transfer minus Repayments and Interest Liabilities').",
     "entity_kind": "country",

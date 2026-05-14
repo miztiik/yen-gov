@@ -19,7 +19,7 @@
     "admin_level": "national"
   },
   "indicator": {
-    "id": "fiscal/national_revenue_deficit",
+    "id": "fiscal/states_combined_revenue_deficit",
     "title": "Revenue deficit (all states, all-India)",
     "description": "Revenue expenditure minus revenue receipts for all states combined. Positive = the states are borrowing to fund current consumption (salaries, subsidies, interest), which is widely considered the most worrying form of deficit. Negative = revenue *surplus* — current receipts exceed current spending, freeing borrowed funds for genuine capital formation. RBI Appendix Table 1, column 3.",
     "entity_kind": "country",

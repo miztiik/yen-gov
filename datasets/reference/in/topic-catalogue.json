@@ -38,62 +38,62 @@
         },
         {
           "kind": "indicator",
-          "id": "fiscal/national_centre_transfers_total",
+          "id": "fiscal/centre_transfers_to_states_net",
           "default": false,
           "featured": false,
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "fiscal/national_devolution_central_taxes",
+          "id": "fiscal/centre_transfers_to_states_tax_devolution",
           "default": false,
           "featured": false,
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "fiscal/national_grants_from_centre",
+          "id": "fiscal/centre_transfers_to_states_grants",
           "default": false,
           "featured": false,
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "fiscal/national_gross_transfers",
+          "id": "fiscal/centre_transfers_to_states_gross",
           "default": false,
           "featured": false,
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "fiscal/national_gross_fiscal_deficit",
+          "id": "fiscal/states_combined_gross_fiscal_deficit",
           "default": false,
           "featured": true,
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "fiscal/national_revenue_deficit",
+          "id": "fiscal/states_combined_revenue_deficit",
           "default": false,
           "featured": false,
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "fiscal/national_primary_deficit",
+          "id": "fiscal/states_combined_primary_deficit",
           "default": false,
           "featured": false,
           "scope": "national"
         },
         {
           "kind": "indicator",
-          "id": "fiscal/national_primary_revenue_deficit",
+          "id": "fiscal/states_combined_primary_revenue_deficit",
           "default": false,
           "featured": false,
           "scope": "national"
         }
       ],
-      "notes": "Debt and deficit are co-determined by central transfers — the transfers indicators (RBI Net via `fiscal/net_transfers_from_centre`, Rajya Sabha Gross via `fiscal/centre_transfers_gross`) are the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. RBI Net covers FY24 Accounts + FY25 RE + FY26 BE; Rajya Sabha Gross covers FY17–FY23 (longer historical run, devolution + grants pre-adjustments). The all-India aggregate equivalent (RBI Net Centre→States transfers, FY08–FY26, 19y) is `fiscal/national_centre_transfers_total` — a country-entity series for the macro envelope view; its data shape is incompatible with the per-state choropleth (it carries one row per FY for `entity_id=\"IN\"`). The four `fiscal/national_*_deficit` indicators (gross fiscal, revenue, primary, primary revenue) come from RBI Appendix Table 1 (Major Deficit Indicators) — same publication as the transfers, all-states aggregate, FY08–FY26 (20y including RE/BE). They answer the macro question 'how much are the states collectively borrowing each year, and what kind of borrowing is it?'."
+      "notes": "Debt and deficit are co-determined by central transfers — the transfers indicators (RBI Net via `fiscal/net_transfers_from_centre`, Rajya Sabha Gross via `fiscal/centre_transfers_gross`) are the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. RBI Net covers FY24 Accounts + FY25 RE + FY26 BE; Rajya Sabha Gross covers FY17–FY23 (longer historical run, devolution + grants pre-adjustments). The all-India aggregate equivalent (RBI Net Centre→States transfers, FY08–FY26, 19y) is `fiscal/centre_transfers_to_states_net` — a country-entity series for the macro envelope view; its data shape is incompatible with the per-state choropleth (it carries one row per FY for `entity_id=\"IN\"`). The four `fiscal/states_combined_*_deficit` indicators (gross fiscal, revenue, primary, primary revenue) come from RBI Appendix Table 1 (Major Deficit Indicators) — same publication as the transfers, all-states aggregate, FY08–FY26 (20y including RE/BE). They answer the macro question 'how much are the states collectively borrowing each year, and what kind of borrowing is it?'."
     },
     {
       "id": "energy",

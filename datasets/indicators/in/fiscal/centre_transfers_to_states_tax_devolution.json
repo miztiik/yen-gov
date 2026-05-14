@@ -4,7 +4,7 @@
   "sources": [
     {
       "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
-      "fetched_at": "2026-05-11T06:28:31Z"
+      "fetched_at": "2026-05-11T14:50:50Z"
     }
   ],
   "license": {
@@ -14,132 +14,127 @@
     "redistributable": true
   },
   "coverage": {
-    "spatial": "India (all-states aggregate)",
+    "spatial": "India (national aggregate)",
     "temporal": "2007-04..2025-04",
     "admin_level": "national"
   },
   "indicator": {
-    "id": "fiscal/national_primary_deficit",
-    "title": "Primary deficit (all states, all-India)",
-    "description": "Gross fiscal deficit minus interest payments. Strips out the legacy interest burden from past borrowing to show whether *this year's* spending decisions are themselves adding to or subtracting from debt. Positive = this year's policy choices are widening the debt; negative = this year is running a primary surplus that pays down some inherited interest. RBI Appendix Table 1, column 4.",
+    "id": "fiscal/centre_transfers_to_states_tax_devolution",
+    "title": "Devolution of central taxes to states (all-India)",
+    "description": "States' share in the divisible pool of central taxes — the constitutional, Finance-Commission-driven stream that the Centre is obligated to pass on to the states. This is Item I of RBI Appendix Table 2 and is the single largest component of Centre-to-State transfers. Per the 15th Finance Commission, states currently receive 41% of the divisible pool (down from 42% pre-J&K-bifurcation).",
     "entity_kind": "country",
     "time_grain": "fiscal_year",
     "value_kind": "currency",
-    "direction": "lower_is_better",
+    "direction": "neutral",
     "scale_hint": "linear",
     "unit": "INR (crore)",
-    "icon": "trending-down",
+    "icon": "landmark",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",
     "funding_split": {
-      "centre_pct": 0,
-      "state_pct": 100,
-      "source": "definition (states' own budgetary deficits)"
+      "centre_pct": 100,
+      "state_pct": 0,
+      "source": "definition (own vs centrally-transferred)"
     },
-    "implementing_authority": "state",
-    "methodology_vintage": "RBI State Finances: A Study of Budgets, Appendix Table 1 (Major Deficit Indicators); cached file mtime 2026-05-11T06:28:31Z",
-    "notes": "Source: RBI 'State Finances: A Study of Budgets', Appendix Table 1, column 'Primary Deficit'. Same caveats as the gross fiscal deficit indicator."
+    "implementing_authority": "centre",
+    "methodology_vintage": "RBI State Finances: A Study of Budgets, Appendix Table 2; cached file mtime 2026-05-11T14:50:50Z",
+    "notes": "Source: RBI 'State Finances: A Study of Budgets', Appendix Table 2, Item I 'States' Share in Central Taxes'. Nominal ₹ Crore. Year qualifiers (Accounts / RE / BE) follow the same dedupe rule as fiscal/centre_transfers_to_states_net."
   },
   "rows": [
     {
       "entity_id": "IN",
       "time": "2007-04",
-      "value": -24375.9
+      "value": 151402.5
     },
     {
       "entity_id": "IN",
       "time": "2008-04",
-      "value": 31634.5
+      "value": 161052.4
     },
     {
       "entity_id": "IN",
       "time": "2009-04",
-      "value": 76011.7
+      "value": 165013.5
     },
     {
       "entity_id": "IN",
       "time": "2010-04",
-      "value": 36640.7
+      "value": 219489.4
     },
     {
       "entity_id": "IN",
       "time": "2011-04",
-      "value": 31536.0
+      "value": 255591.7
     },
     {
       "entity_id": "IN",
       "time": "2012-04",
-      "value": 44998.1
+      "value": 291530.1
     },
     {
       "entity_id": "IN",
       "time": "2013-04",
-      "value": 78954.7
+      "value": 318273.5
     },
     {
       "entity_id": "IN",
       "time": "2014-04",
-      "value": 136775.5
+      "value": 337835.3
     },
     {
       "entity_id": "IN",
       "time": "2015-04",
-      "value": 206423.6
+      "value": 506191.3
     },
     {
       "entity_id": "IN",
       "time": "2016-04",
-      "value": 283028.5
+      "value": 607861.4
     },
     {
       "entity_id": "IN",
       "time": "2017-04",
-      "value": 117373.7
+      "value": 605186.0
     },
     {
       "entity_id": "IN",
       "time": "2018-04",
-      "value": 143535.2
+      "value": 746894.2
     },
     {
       "entity_id": "IN",
       "time": "2019-04",
-      "value": 173321.2
+      "value": 650686.7
     },
     {
       "entity_id": "IN",
       "time": "2020-04",
-      "value": 417546.1
+      "value": 595226.9
     },
     {
       "entity_id": "IN",
       "time": "2021-04",
-      "value": 227269.2
+      "value": 883099.8
     },
     {
       "entity_id": "IN",
       "time": "2022-04",
-      "value": 262884.3
+      "value": 948981.6
     },
     {
       "entity_id": "IN",
       "time": "2023-04",
-      "value": 370019.2
+      "value": 1129761.5
     },
     {
       "entity_id": "IN",
       "time": "2024-04",
-      "value": 475606.6
-    },
-    {
-      "entity_id": "IN",
-      "time": "2024-04",
-      "value": 599615.9
+      "value": 1288534.3
     },
     {
       "entity_id": "IN",
       "time": "2025-04",
-      "value": 550337.1
+      "value": 1422118.9
     }
   ]
 }
