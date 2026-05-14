@@ -190,6 +190,7 @@ Currently shipped: `fiscal/centre_transfers_gross` (RS Q1323/2023, FY17–FY23 a
 
 ## See also
 
+- [data-coverage-report.md](data-coverage-report.md) — what's actually loaded today, per indicator, with time spans, gaps, and next-step hints. Read this when you want to know *"have we got X yet, and how deep does it go?"*
 - [`datasets/reference/in/upstream-sources.json`](../../datasets/reference/in/upstream-sources.json) — machine-readable peer of this doc; the canonical registry.
 - [`datasets/schemas/upstream-sources.schema.json`](../../datasets/schemas/upstream-sources.schema.json) — registry schema (v1.0).
 - [`docs/concepts/disclaimer.md`](../concepts/disclaimer.md) — user-facing disclaimer wording (boundaries are community-contributed, data is best-effort, etc.); rendered by the app's About page.
