@@ -1,6 +1,6 @@
 # Colour system
 
-> **Status**: live as of 2026-05-08 (party colours), 2026-05-11 (indicator ramps). Module: [`frontend/src/lib/colors/`](../../../frontend/src/lib/colors/). 15 vitest cases across `party-colour.test.ts`.
+> **Status**: live as of 2026-05-08 (party colours), 2026-05-11 (indicator ramps), 2026-05-14 (generic dimension anchors). Module: [`frontend/src/lib/colors/`](../../../frontend/src/lib/colors/). 22 vitest cases across `party-colour.test.ts` (15) + `category-colour.test.ts` (7).
 
 ## Why this exists
 
@@ -115,10 +115,15 @@ Tempting answer: "just hand-pick a Tableau-style palette of 30 distinct hex code
 | [`oklch.ts`](../../../frontend/src/lib/colors/oklch.ts) | OkLCh ↔ hex conversions (Ottosson coefficients). |
 | [`anchors.ts`](../../../frontend/src/lib/colors/anchors.ts) | The hand-tuned anchor table. |
 | [`party-colour.ts`](../../../frontend/src/lib/colors/party-colour.ts) | Three-layer resolver; `for` and `forSet`. |
+| [`anchors-domain.ts`](../../../frontend/src/lib/colors/anchors-domain.ts) | Per-dimension anchor tables (e.g. `POWER_SOURCE_ANCHORS`: coal=slate, gas=cyan, hydro=indigo, nuclear=violet, renewable=emerald, other_thermal=amber). Late registration via `registerDimensionAnchors(dim, table)`. |
+| [`category-colour.ts`](../../../frontend/src/lib/colors/category-colour.ts) | Generic dimension-aware resolver: `categoryColour(code, inUse, dimension, overrides)`. Delegates `dimension="party"` to `partyColour` so the existing 15-case test surface is untouched; for any other dimension it consults `dimensionAnchors(dim)` then falls back to the deterministic OkLCh palette. Used by `StackedTrend.svelte` and the stacked-trend indicator adapter. |
 | [`store.svelte.ts`](../../../frontend/src/lib/colors/store.svelte.ts) | Svelte 5 rune wrapper exposed as `colors` to components. |
-| [`party-colour.test.ts`](../../../frontend/src/lib/colors/party-colour.test.ts) | 15 vitest cases. |
+| [`party-colour.test.ts`](../../../frontend/src/lib/colors/party-colour.test.ts) | 15 vitest cases (party path). |
+| [`category-colour.test.ts`](../../../frontend/src/lib/colors/category-colour.test.ts) | 7 vitest cases (generic path: anchor hit, algorithmic fallback determinism, overrides, party-delegate, late registration, unknown dimension). |
 
 ## Decisions log
+
+- **2026-05-14 — Generic dimension anchors layered above the party path.** New facetted indicators (energy by fuel, expenditure by head, …) need mnemonic colours that are NOT party hex (coal=slate, renewable=emerald). Rather than fork the resolver, we keep `partyColour` untouched (its 15 vitest cases stay green) and add a thin layer: `categoryColour(code, inUse, dimension, overrides)` delegates `dimension==="party"` to `partyColour` and otherwise consults `dimensionAnchors(dim)` → algorithmic OkLCh fallback. The dimension table is registry-style (`registerDimensionAnchors`) so late-loading dimensions can plug in without editing the resolver. Wired into `StackedTrend.svelte` via the `dimension` prop carried on the catalogue v1.2 artifact entry. Why dimension-anchored, not arbitrary? — citizens reading "coal" and "renewable" expect specific colour associations; algorithmic palette would shuffle them across pages.
 
 - **2026-05-08 — OkLCh adopted over HSL.** HSL's "saturation" is non-perceptual (HSL-pure-blue and HSL-pure-yellow have wildly different luminance and chroma). OkLCh's L is genuinely linear; this is what lets us share the same module between party colours and indicator ramps without two different lightness conventions.
 - **2026-05-08 — Three-layer resolver, not "all hand-picked" or "all algorithmic".** Hand-picked-only doesn't scale to 80+ parties; algorithmic-only insults BJP/INC/DMK voters who recognise their party by colour at a glance.

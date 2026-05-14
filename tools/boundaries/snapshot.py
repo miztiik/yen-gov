@@ -123,6 +123,11 @@ def derive_output_basename(entry: dict[str, Any]) -> str:
         return "india-states.geojson"
     if kind == "ac" and state:
         return f"{state}-ac.geojson"
+    if kind == "districts" and not state:
+        # All-India district layer (one file, ~800 features). Per-state
+        # district carve-outs would use kind='districts' with state=<S22>;
+        # add that branch when the first per-state district consumer ships.
+        return "india-districts.geojson"
     msg = f"unknown entry shape: kind={kind} state={state}"
     raise ValueError(msg)
 
@@ -245,6 +250,126 @@ def fetch_shp_bundle(
     return sources
 
 
+def _round_coords_geom(geom: Any, coord_precision: int | None) -> Any:
+    """Coordinate rounder shared by shp_bundle and geojsonl_7z paths.
+
+    Recursively rounds coordinate tuples to `coord_precision` decimal places
+    and drops consecutive duplicates inside any ring/line. Pure-python,
+    dependency-free; not topology-aware (won't merge shared borders) — for
+    that, run tools/boundaries/build.py with mapshaper. Returns geom
+    unchanged when coord_precision is None.
+    """
+    if coord_precision is None:
+        return geom
+    p = coord_precision
+
+    def _is_pair(node: Any) -> bool:
+        return (
+            isinstance(node, (list, tuple))
+            and len(node) >= 2
+            and all(isinstance(c, (int, float)) for c in node)
+        )
+
+    def _round_pair(node: Any) -> list[float]:
+        return [round(float(c), p) for c in node]
+
+    def _walk(node: Any) -> Any:
+        if _is_pair(node):
+            return _round_pair(node)
+        if isinstance(node, (list, tuple)):
+            if node and all(_is_pair(c) for c in node):
+                out: list[list[float]] = []
+                for c in node:
+                    rc = _round_pair(c)
+                    if not out or out[-1] != rc:
+                        out.append(rc)
+                return out
+            return [_walk(c) for c in node]
+        return node
+
+    return {**geom, "coordinates": _walk(geom.get("coordinates"))}
+
+
+def fetch_geojsonl_7z(
+    urls: list[str],
+    out_path: Path,
+    raw_dir: Path,
+    coord_precision: int | None = None,
+) -> list[dict[str, str]]:
+    """Download a 7z archive containing newline-delimited GeoJSON, extract it,
+    and emit a wrapped FeatureCollection at out_path.
+
+    Used by the ramSeraph/indian_admin_boundaries layers — every release ships
+    one `*.geojsonl.7z` file holding one feature per line. We unpack to
+    raw_dir (per ADR-0003 — intermediate artifacts under .runtime/, never
+    datasets/), parse line-by-line, optionally round coordinates, and write
+    the conventional FeatureCollection that the rest of the pipeline expects.
+
+    Returns the per-URL [{url, fetched_at}] sources list. py7zr is required
+    (pure-python, works on Windows without the Linux build toolchain).
+    """
+    try:
+        import py7zr  # type: ignore[import-not-found]
+    except ImportError as e:  # pragma: no cover — explicit failure mode
+        msg = (
+            "format=geojsonl_7z requires the `py7zr` package "
+            "(`pip install py7zr`); see tools/boundaries/README.md"
+        )
+        raise RuntimeError(msg) from e
+
+    if len(urls) != 1:
+        msg = f"format=geojsonl_7z expects exactly 1 url, got {len(urls)}"
+        raise ValueError(msg)
+
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    url = urls[0]
+    archive_name = url.rsplit("/", 1)[-1]
+    archive_path = raw_dir / archive_name
+    fetched_at = utc_now()
+    stream_to_disk(url, archive_path)
+
+    extract_dir = raw_dir / "_extracted"
+    if extract_dir.exists():
+        shutil.rmtree(extract_dir)
+    extract_dir.mkdir(parents=True, exist_ok=True)
+    with py7zr.SevenZipFile(archive_path, mode="r") as zf:
+        zf.extractall(path=extract_dir)
+
+    # Find the .geojsonl member. ramSeraph archives ship a single payload
+    # file at the archive root; if that ever changes (multiple per archive,
+    # nested directories) we surface the ambiguity rather than guess.
+    candidates = sorted(extract_dir.rglob("*.geojsonl"))
+    if not candidates:
+        msg = f"no .geojsonl file inside archive {archive_name}"
+        raise ValueError(msg)
+    if len(candidates) > 1:
+        msg = (
+            f"ambiguous archive {archive_name}: expected 1 .geojsonl member, "
+            f"found {len(candidates)}: {[c.name for c in candidates]}"
+        )
+        raise ValueError(msg)
+    payload = candidates[0]
+
+    features: list[dict[str, Any]] = []
+    with payload.open(encoding="utf-8") as fh:
+        for raw in fh:
+            line = raw.strip()
+            if not line:
+                continue
+            feat = json.loads(line)
+            if coord_precision is not None and "geometry" in feat and feat["geometry"]:
+                feat["geometry"] = _round_coords_geom(feat["geometry"], coord_precision)
+            features.append(feat)
+
+    geojson = {"type": "FeatureCollection", "features": features}
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w", encoding="utf-8", newline="\n") as fh:
+        json.dump(geojson, fh, ensure_ascii=False)
+        fh.write("\n")
+
+    return [{"url": url, "fetched_at": fetched_at}]
+
+
 # -----------------------------------------------------------------------------
 # Per-entry orchestration
 # -----------------------------------------------------------------------------
@@ -275,6 +400,14 @@ def snapshot_one(
     elif fmt == "shp_bundle":
         bundle_dir = raw_root / "snapshot" / basename.removesuffix(".geojson")
         sources = fetch_shp_bundle(
+            urls,
+            out_path,
+            bundle_dir,
+            coord_precision=source.get("coord_precision"),
+        )
+    elif fmt == "geojsonl_7z":
+        bundle_dir = raw_root / "snapshot" / basename.removesuffix(".geojson")
+        sources = fetch_geojsonl_7z(
             urls,
             out_path,
             bundle_dir,

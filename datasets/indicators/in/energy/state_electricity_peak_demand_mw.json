@@ -1,0 +1,1565 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.2",
+  "sources": [
+    {
+      "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
+      "fetched_at": "2026-05-14T07:51:49Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication (NITI Aayog ICED)",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "All-India aggregate; 28 states; 5 UTs",
+    "temporal": "2017-04..2025-04",
+    "admin_level": "state"
+  },
+  "indicator": {
+    "id": "energy/state_electricity_peak_demand_mw",
+    "title": "Annual peak electricity demand (by state)",
+    "description": "The single highest 15-minute system demand the state's grid served at any moment during the fiscal year. The companion API field 'Peak Demand Date' tells you when it occurred — almost always a hot afternoon for southern/western states and a cold morning for northern/north-eastern states.",
+    "entity_kind": "state",
+    "time_grain": "fiscal_year",
+    "value_kind": "raw",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "MW",
+    "icon": "activity",
+    "attribution_geography": "where_administered",
+    "comparability": "comparable_with_normalisation",
+    "implementing_authority": "state",
+    "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API; payload fetched 2026-05-14T07:51:49Z; 9 fiscal years, 305 rows.",
+    "notes": "Source: NITI Aayog ICED dashboard, row 'Peak Demand'. Underlying figures published by CEA. The accompanying 'Peak Demand Date' string is not ingested as a separate indicator (it would need value_kind=raw and date semantics)."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 175590.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 182610.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 189644.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 200570.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 211856.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 239978.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 250070.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 245416.0
+    },
+    {
+      "entity_id": "S01",
+      "time": "2017-04",
+      "value": 8983.0
+    },
+    {
+      "entity_id": "S01",
+      "time": "2018-04",
+      "value": 9453.0
+    },
+    {
+      "entity_id": "S01",
+      "time": "2019-04",
+      "value": 10207.0
+    },
+    {
+      "entity_id": "S01",
+      "time": "2020-04",
+      "value": 11193.0
+    },
+    {
+      "entity_id": "S01",
+      "time": "2021-04",
+      "value": 12032.0
+    },
+    {
+      "entity_id": "S01",
+      "time": "2022-04",
+      "value": 12293.0
+    },
+    {
+      "entity_id": "S01",
+      "time": "2023-04",
+      "value": 13255.0
+    },
+    {
+      "entity_id": "S01",
+      "time": "2024-04",
+      "value": 13712.0
+    },
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 14011.0
+    },
+    {
+      "entity_id": "S02",
+      "time": "2017-04",
+      "value": 145.0
+    },
+    {
+      "entity_id": "S02",
+      "time": "2018-04",
+      "value": 148.0
+    },
+    {
+      "entity_id": "S02",
+      "time": "2019-04",
+      "value": 165.0
+    },
+    {
+      "entity_id": "S02",
+      "time": "2020-04",
+      "value": 210.0
+    },
+    {
+      "entity_id": "S02",
+      "time": "2021-04",
+      "value": 215.0
+    },
+    {
+      "entity_id": "S02",
+      "time": "2022-04",
+      "value": 167.0
+    },
+    {
+      "entity_id": "S02",
+      "time": "2023-04",
+      "value": 189.0
+    },
+    {
+      "entity_id": "S02",
+      "time": "2024-04",
+      "value": 208.0
+    },
+    {
+      "entity_id": "S02",
+      "time": "2025-04",
+      "value": 228.0
+    },
+    {
+      "entity_id": "S03",
+      "time": "2017-04",
+      "value": 1750.0
+    },
+    {
+      "entity_id": "S03",
+      "time": "2018-04",
+      "value": 1829.0
+    },
+    {
+      "entity_id": "S03",
+      "time": "2019-04",
+      "value": 1968.0
+    },
+    {
+      "entity_id": "S03",
+      "time": "2020-04",
+      "value": 2028.0
+    },
+    {
+      "entity_id": "S03",
+      "time": "2021-04",
+      "value": 2132.0
+    },
+    {
+      "entity_id": "S03",
+      "time": "2022-04",
+      "value": 2376.0
+    },
+    {
+      "entity_id": "S03",
+      "time": "2023-04",
+      "value": 2498.0
+    },
+    {
+      "entity_id": "S03",
+      "time": "2024-04",
+      "value": 2687.0
+    },
+    {
+      "entity_id": "S03",
+      "time": "2025-04",
+      "value": 2814.0
+    },
+    {
+      "entity_id": "S04",
+      "time": "2017-04",
+      "value": 4698.0
+    },
+    {
+      "entity_id": "S04",
+      "time": "2018-04",
+      "value": 5605.0
+    },
+    {
+      "entity_id": "S04",
+      "time": "2019-04",
+      "value": 5972.0
+    },
+    {
+      "entity_id": "S04",
+      "time": "2020-04",
+      "value": 6189.0
+    },
+    {
+      "entity_id": "S04",
+      "time": "2021-04",
+      "value": 6868.0
+    },
+    {
+      "entity_id": "S04",
+      "time": "2022-04",
+      "value": 6990.0
+    },
+    {
+      "entity_id": "S04",
+      "time": "2023-04",
+      "value": 7578.0
+    },
+    {
+      "entity_id": "S04",
+      "time": "2024-04",
+      "value": 8001.0
+    },
+    {
+      "entity_id": "S04",
+      "time": "2025-04",
+      "value": 8741.0
+    },
+    {
+      "entity_id": "S05",
+      "time": "2017-04",
+      "value": 567.0
+    },
+    {
+      "entity_id": "S05",
+      "time": "2018-04",
+      "value": 603.0
+    },
+    {
+      "entity_id": "S05",
+      "time": "2019-04",
+      "value": 613.0
+    },
+    {
+      "entity_id": "S05",
+      "time": "2020-04",
+      "value": 599.0
+    },
+    {
+      "entity_id": "S05",
+      "time": "2021-04",
+      "value": 701.0
+    },
+    {
+      "entity_id": "S05",
+      "time": "2022-04",
+      "value": 718.0
+    },
+    {
+      "entity_id": "S05",
+      "time": "2023-04",
+      "value": 776.0
+    },
+    {
+      "entity_id": "S05",
+      "time": "2024-04",
+      "value": 810.0
+    },
+    {
+      "entity_id": "S05",
+      "time": "2025-04",
+      "value": 864.0
+    },
+    {
+      "entity_id": "S06",
+      "time": "2017-04",
+      "value": 17097.0
+    },
+    {
+      "entity_id": "S06",
+      "time": "2018-04",
+      "value": 18221.0
+    },
+    {
+      "entity_id": "S06",
+      "time": "2019-04",
+      "value": 18305.0
+    },
+    {
+      "entity_id": "S06",
+      "time": "2020-04",
+      "value": 18483.0
+    },
+    {
+      "entity_id": "S06",
+      "time": "2021-04",
+      "value": 19431.0
+    },
+    {
+      "entity_id": "S06",
+      "time": "2022-04",
+      "value": 21382.0
+    },
+    {
+      "entity_id": "S06",
+      "time": "2023-04",
+      "value": 24544.0
+    },
+    {
+      "entity_id": "S06",
+      "time": "2024-04",
+      "value": 25502.0
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 26457.0
+    },
+    {
+      "entity_id": "S07",
+      "time": "2017-04",
+      "value": 9489.0
+    },
+    {
+      "entity_id": "S07",
+      "time": "2018-04",
+      "value": 10163.0
+    },
+    {
+      "entity_id": "S07",
+      "time": "2019-04",
+      "value": 10850.0
+    },
+    {
+      "entity_id": "S07",
+      "time": "2020-04",
+      "value": 10877.0
+    },
+    {
+      "entity_id": "S07",
+      "time": "2021-04",
+      "value": 12670.0
+    },
+    {
+      "entity_id": "S07",
+      "time": "2022-04",
+      "value": 12540.0
+    },
+    {
+      "entity_id": "S07",
+      "time": "2023-04",
+      "value": 12692.0
+    },
+    {
+      "entity_id": "S07",
+      "time": "2024-04",
+      "value": 14524.0
+    },
+    {
+      "entity_id": "S07",
+      "time": "2025-04",
+      "value": 13998.0
+    },
+    {
+      "entity_id": "S08",
+      "time": "2017-04",
+      "value": 1594.0
+    },
+    {
+      "entity_id": "S08",
+      "time": "2018-04",
+      "value": 1700.0
+    },
+    {
+      "entity_id": "S08",
+      "time": "2019-04",
+      "value": 1786.0
+    },
+    {
+      "entity_id": "S08",
+      "time": "2020-04",
+      "value": 1954.0
+    },
+    {
+      "entity_id": "S08",
+      "time": "2021-04",
+      "value": 2030.0
+    },
+    {
+      "entity_id": "S08",
+      "time": "2022-04",
+      "value": 2071.0
+    },
+    {
+      "entity_id": "S08",
+      "time": "2023-04",
+      "value": 2235.0
+    },
+    {
+      "entity_id": "S08",
+      "time": "2024-04",
+      "value": 4309.0
+    },
+    {
+      "entity_id": "S08",
+      "time": "2025-04",
+      "value": 2302.0
+    },
+    {
+      "entity_id": "S10",
+      "time": "2017-04",
+      "value": 10802.0
+    },
+    {
+      "entity_id": "S10",
+      "time": "2018-04",
+      "value": 12881.0
+    },
+    {
+      "entity_id": "S10",
+      "time": "2019-04",
+      "value": 13258.0
+    },
+    {
+      "entity_id": "S10",
+      "time": "2020-04",
+      "value": 14367.0
+    },
+    {
+      "entity_id": "S10",
+      "time": "2021-04",
+      "value": 14818.0
+    },
+    {
+      "entity_id": "S10",
+      "time": "2022-04",
+      "value": 15828.0
+    },
+    {
+      "entity_id": "S10",
+      "time": "2023-04",
+      "value": 17220.0
+    },
+    {
+      "entity_id": "S10",
+      "time": "2024-04",
+      "value": 18395.0
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 18655.0
+    },
+    {
+      "entity_id": "S11",
+      "time": "2017-04",
+      "value": 7214.0
+    },
+    {
+      "entity_id": "S11",
+      "time": "2018-04",
+      "value": 4242.0
+    },
+    {
+      "entity_id": "S11",
+      "time": "2019-04",
+      "value": 4316.0
+    },
+    {
+      "entity_id": "S11",
+      "time": "2020-04",
+      "value": 4284.0
+    },
+    {
+      "entity_id": "S11",
+      "time": "2021-04",
+      "value": 4380.0
+    },
+    {
+      "entity_id": "S11",
+      "time": "2022-04",
+      "value": 4517.0
+    },
+    {
+      "entity_id": "S11",
+      "time": "2023-04",
+      "value": 5301.0
+    },
+    {
+      "entity_id": "S11",
+      "time": "2024-04",
+      "value": 5797.0
+    },
+    {
+      "entity_id": "S11",
+      "time": "2025-04",
+      "value": 5861.0
+    },
+    {
+      "entity_id": "S12",
+      "time": "2017-04",
+      "value": 12447.0
+    },
+    {
+      "entity_id": "S12",
+      "time": "2018-04",
+      "value": 14362.0
+    },
+    {
+      "entity_id": "S12",
+      "time": "2019-04",
+      "value": 14785.0
+    },
+    {
+      "entity_id": "S12",
+      "time": "2020-04",
+      "value": 15547.0
+    },
+    {
+      "entity_id": "S12",
+      "time": "2021-04",
+      "value": 15917.0
+    },
+    {
+      "entity_id": "S12",
+      "time": "2022-04",
+      "value": 17238.0
+    },
+    {
+      "entity_id": "S12",
+      "time": "2023-04",
+      "value": 17819.0
+    },
+    {
+      "entity_id": "S12",
+      "time": "2024-04",
+      "value": 18888.0
+    },
+    {
+      "entity_id": "S12",
+      "time": "2025-04",
+      "value": 19895.0
+    },
+    {
+      "entity_id": "S13",
+      "time": "2017-04",
+      "value": 22994.0
+    },
+    {
+      "entity_id": "S13",
+      "time": "2018-04",
+      "value": 24962.0
+    },
+    {
+      "entity_id": "S13",
+      "time": "2019-04",
+      "value": 24550.0
+    },
+    {
+      "entity_id": "S13",
+      "time": "2020-04",
+      "value": 25513.0
+    },
+    {
+      "entity_id": "S13",
+      "time": "2021-04",
+      "value": 28016.0
+    },
+    {
+      "entity_id": "S13",
+      "time": "2022-04",
+      "value": 28914.0
+    },
+    {
+      "entity_id": "S13",
+      "time": "2023-04",
+      "value": 28969.0
+    },
+    {
+      "entity_id": "S13",
+      "time": "2024-04",
+      "value": 30675.0
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 32419.0
+    },
+    {
+      "entity_id": "S14",
+      "time": "2017-04",
+      "value": 199.0
+    },
+    {
+      "entity_id": "S14",
+      "time": "2018-04",
+      "value": 213.0
+    },
+    {
+      "entity_id": "S14",
+      "time": "2019-04",
+      "value": 220.0
+    },
+    {
+      "entity_id": "S14",
+      "time": "2020-04",
+      "value": 248.0
+    },
+    {
+      "entity_id": "S14",
+      "time": "2021-04",
+      "value": 258.0
+    },
+    {
+      "entity_id": "S14",
+      "time": "2022-04",
+      "value": 253.0
+    },
+    {
+      "entity_id": "S14",
+      "time": "2023-04",
+      "value": 248.0
+    },
+    {
+      "entity_id": "S14",
+      "time": "2024-04",
+      "value": 388.0
+    },
+    {
+      "entity_id": "S14",
+      "time": "2025-04",
+      "value": 280.0
+    },
+    {
+      "entity_id": "S15",
+      "time": "2017-04",
+      "value": 333.0
+    },
+    {
+      "entity_id": "S15",
+      "time": "2018-04",
+      "value": 393.0
+    },
+    {
+      "entity_id": "S15",
+      "time": "2019-04",
+      "value": 394.0
+    },
+    {
+      "entity_id": "S15",
+      "time": "2020-04",
+      "value": 440.0
+    },
+    {
+      "entity_id": "S15",
+      "time": "2021-04",
+      "value": 415.0
+    },
+    {
+      "entity_id": "S15",
+      "time": "2022-04",
+      "value": 410.0
+    },
+    {
+      "entity_id": "S15",
+      "time": "2023-04",
+      "value": 405.0
+    },
+    {
+      "entity_id": "S15",
+      "time": "2024-04",
+      "value": 424.0
+    },
+    {
+      "entity_id": "S15",
+      "time": "2025-04",
+      "value": 397.0
+    },
+    {
+      "entity_id": "S16",
+      "time": "2017-04",
+      "value": 109.0
+    },
+    {
+      "entity_id": "S16",
+      "time": "2018-04",
+      "value": 112.0
+    },
+    {
+      "entity_id": "S16",
+      "time": "2019-04",
+      "value": 126.0
+    },
+    {
+      "entity_id": "S16",
+      "time": "2020-04",
+      "value": 133.0
+    },
+    {
+      "entity_id": "S16",
+      "time": "2021-04",
+      "value": 147.0
+    },
+    {
+      "entity_id": "S16",
+      "time": "2022-04",
+      "value": 157.0
+    },
+    {
+      "entity_id": "S16",
+      "time": "2023-04",
+      "value": 162.0
+    },
+    {
+      "entity_id": "S16",
+      "time": "2024-04",
+      "value": 175.0
+    },
+    {
+      "entity_id": "S16",
+      "time": "2025-04",
+      "value": 218.0
+    },
+    {
+      "entity_id": "S17",
+      "time": "2017-04",
+      "value": 143.0
+    },
+    {
+      "entity_id": "S17",
+      "time": "2018-04",
+      "value": 151.0
+    },
+    {
+      "entity_id": "S17",
+      "time": "2019-04",
+      "value": 170.0
+    },
+    {
+      "entity_id": "S17",
+      "time": "2020-04",
+      "value": 166.0
+    },
+    {
+      "entity_id": "S17",
+      "time": "2021-04",
+      "value": 166.0
+    },
+    {
+      "entity_id": "S17",
+      "time": "2022-04",
+      "value": 168.0
+    },
+    {
+      "entity_id": "S17",
+      "time": "2023-04",
+      "value": 179.0
+    },
+    {
+      "entity_id": "S17",
+      "time": "2024-04",
+      "value": 188.0
+    },
+    {
+      "entity_id": "S17",
+      "time": "2025-04",
+      "value": 210.0
+    },
+    {
+      "entity_id": "S18",
+      "time": "2017-04",
+      "value": 4937.0
+    },
+    {
+      "entity_id": "S18",
+      "time": "2018-04",
+      "value": 5679.0
+    },
+    {
+      "entity_id": "S18",
+      "time": "2019-04",
+      "value": 5444.0
+    },
+    {
+      "entity_id": "S18",
+      "time": "2020-04",
+      "value": 5223.0
+    },
+    {
+      "entity_id": "S18",
+      "time": "2021-04",
+      "value": 6008.0
+    },
+    {
+      "entity_id": "S18",
+      "time": "2022-04",
+      "value": 6687.0
+    },
+    {
+      "entity_id": "S18",
+      "time": "2023-04",
+      "value": 7192.0
+    },
+    {
+      "entity_id": "S18",
+      "time": "2024-04",
+      "value": 7156.0
+    },
+    {
+      "entity_id": "S18",
+      "time": "2025-04",
+      "value": 7302.0
+    },
+    {
+      "entity_id": "S19",
+      "time": "2017-04",
+      "value": 11400.0
+    },
+    {
+      "entity_id": "S19",
+      "time": "2018-04",
+      "value": 12341.0
+    },
+    {
+      "entity_id": "S19",
+      "time": "2019-04",
+      "value": 13041.0
+    },
+    {
+      "entity_id": "S19",
+      "time": "2020-04",
+      "value": 13087.0
+    },
+    {
+      "entity_id": "S19",
+      "time": "2021-04",
+      "value": 13361.0
+    },
+    {
+      "entity_id": "S19",
+      "time": "2022-04",
+      "value": 14267.0
+    },
+    {
+      "entity_id": "S19",
+      "time": "2023-04",
+      "value": 15256.0
+    },
+    {
+      "entity_id": "S19",
+      "time": "2024-04",
+      "value": 15980.0
+    },
+    {
+      "entity_id": "S19",
+      "time": "2025-04",
+      "value": 17171.0
+    },
+    {
+      "entity_id": "S20",
+      "time": "2017-04",
+      "value": 11391.0
+    },
+    {
+      "entity_id": "S20",
+      "time": "2018-04",
+      "value": 13030.0
+    },
+    {
+      "entity_id": "S20",
+      "time": "2019-04",
+      "value": 14209.0
+    },
+    {
+      "entity_id": "S20",
+      "time": "2020-04",
+      "value": 14319.0
+    },
+    {
+      "entity_id": "S20",
+      "time": "2021-04",
+      "value": 15696.0
+    },
+    {
+      "entity_id": "S20",
+      "time": "2022-04",
+      "value": 17097.0
+    },
+    {
+      "entity_id": "S20",
+      "time": "2023-04",
+      "value": 17949.0
+    },
+    {
+      "entity_id": "S20",
+      "time": "2024-04",
+      "value": 18985.0
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 19282.0
+    },
+    {
+      "entity_id": "S21",
+      "time": "2017-04",
+      "value": 199.0
+    },
+    {
+      "entity_id": "S21",
+      "time": "2018-04",
+      "value": 112.0
+    },
+    {
+      "entity_id": "S21",
+      "time": "2019-04",
+      "value": 193.0
+    },
+    {
+      "entity_id": "S21",
+      "time": "2020-04",
+      "value": 147.0
+    },
+    {
+      "entity_id": "S21",
+      "time": "2021-04",
+      "value": 138.0
+    },
+    {
+      "entity_id": "S21",
+      "time": "2022-04",
+      "value": 132.0
+    },
+    {
+      "entity_id": "S21",
+      "time": "2023-04",
+      "value": 137.0
+    },
+    {
+      "entity_id": "S21",
+      "time": "2024-04",
+      "value": 139.0
+    },
+    {
+      "entity_id": "S21",
+      "time": "2025-04",
+      "value": 125.0
+    },
+    {
+      "entity_id": "S22",
+      "time": "2017-04",
+      "value": 15361.0
+    },
+    {
+      "entity_id": "S22",
+      "time": "2018-04",
+      "value": 16129.0
+    },
+    {
+      "entity_id": "S22",
+      "time": "2019-04",
+      "value": 16386.0
+    },
+    {
+      "entity_id": "S22",
+      "time": "2020-04",
+      "value": 16481.0
+    },
+    {
+      "entity_id": "S22",
+      "time": "2021-04",
+      "value": 17196.0
+    },
+    {
+      "entity_id": "S22",
+      "time": "2022-04",
+      "value": 18048.0
+    },
+    {
+      "entity_id": "S22",
+      "time": "2023-04",
+      "value": 19409.0
+    },
+    {
+      "entity_id": "S22",
+      "time": "2024-04",
+      "value": 20830.0
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 20211.0
+    },
+    {
+      "entity_id": "S23",
+      "time": "2017-04",
+      "value": 304.0
+    },
+    {
+      "entity_id": "S23",
+      "time": "2018-04",
+      "value": 296.0
+    },
+    {
+      "entity_id": "S23",
+      "time": "2019-04",
+      "value": 340.0
+    },
+    {
+      "entity_id": "S23",
+      "time": "2020-04",
+      "value": 330.0
+    },
+    {
+      "entity_id": "S23",
+      "time": "2021-04",
+      "value": 339.0
+    },
+    {
+      "entity_id": "S23",
+      "time": "2022-04",
+      "value": 330.0
+    },
+    {
+      "entity_id": "S23",
+      "time": "2023-04",
+      "value": 370.0
+    },
+    {
+      "entity_id": "S23",
+      "time": "2024-04",
+      "value": 460.0
+    },
+    {
+      "entity_id": "S23",
+      "time": "2025-04",
+      "value": 3281.0
+    },
+    {
+      "entity_id": "S24",
+      "time": "2017-04",
+      "value": 21504.0
+    },
+    {
+      "entity_id": "S24",
+      "time": "2018-04",
+      "value": 20254.0
+    },
+    {
+      "entity_id": "S24",
+      "time": "2019-04",
+      "value": 22057.0
+    },
+    {
+      "entity_id": "S24",
+      "time": "2020-04",
+      "value": 33137.0
+    },
+    {
+      "entity_id": "S24",
+      "time": "2021-04",
+      "value": 24795.0
+    },
+    {
+      "entity_id": "S24",
+      "time": "2022-04",
+      "value": 26002.0
+    },
+    {
+      "entity_id": "S24",
+      "time": "2023-04",
+      "value": 28553.0
+    },
+    {
+      "entity_id": "S24",
+      "time": "2024-04",
+      "value": 30032.0
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 30632.0
+    },
+    {
+      "entity_id": "S25",
+      "time": "2017-04",
+      "value": 8898.0
+    },
+    {
+      "entity_id": "S25",
+      "time": "2018-04",
+      "value": 9143.0
+    },
+    {
+      "entity_id": "S25",
+      "time": "2019-04",
+      "value": 9989.0
+    },
+    {
+      "entity_id": "S25",
+      "time": "2020-04",
+      "value": 9161.0
+    },
+    {
+      "entity_id": "S25",
+      "time": "2021-04",
+      "value": 9316.0
+    },
+    {
+      "entity_id": "S25",
+      "time": "2022-04",
+      "value": 9880.0
+    },
+    {
+      "entity_id": "S25",
+      "time": "2023-04",
+      "value": 11868.0
+    },
+    {
+      "entity_id": "S25",
+      "time": "2024-04",
+      "value": 12756.0
+    },
+    {
+      "entity_id": "S25",
+      "time": "2025-04",
+      "value": 13108.0
+    },
+    {
+      "entity_id": "S26",
+      "time": "2017-04",
+      "value": 4074.0
+    },
+    {
+      "entity_id": "S26",
+      "time": "2018-04",
+      "value": 4504.0
+    },
+    {
+      "entity_id": "S26",
+      "time": "2019-04",
+      "value": 4736.0
+    },
+    {
+      "entity_id": "S26",
+      "time": "2020-04",
+      "value": 4682.0
+    },
+    {
+      "entity_id": "S26",
+      "time": "2021-04",
+      "value": 5014.0
+    },
+    {
+      "entity_id": "S26",
+      "time": "2022-04",
+      "value": 5399.0
+    },
+    {
+      "entity_id": "S26",
+      "time": "2023-04",
+      "value": 6148.0
+    },
+    {
+      "entity_id": "S26",
+      "time": "2024-04",
+      "value": 6511.0
+    },
+    {
+      "entity_id": "S26",
+      "time": "2025-04",
+      "value": 6798.0
+    },
+    {
+      "entity_id": "S27",
+      "time": "2017-04",
+      "value": 2753.0
+    },
+    {
+      "entity_id": "S27",
+      "time": "2018-04",
+      "value": 1362.0
+    },
+    {
+      "entity_id": "S27",
+      "time": "2019-04",
+      "value": 1408.0
+    },
+    {
+      "entity_id": "S27",
+      "time": "2020-04",
+      "value": 1870.0
+    },
+    {
+      "entity_id": "S27",
+      "time": "2021-04",
+      "value": 1731.0
+    },
+    {
+      "entity_id": "S27",
+      "time": "2022-04",
+      "value": 1830.0
+    },
+    {
+      "entity_id": "S27",
+      "time": "2023-04",
+      "value": 1929.0
+    },
+    {
+      "entity_id": "S27",
+      "time": "2024-04",
+      "value": 2495.0
+    },
+    {
+      "entity_id": "S27",
+      "time": "2025-04",
+      "value": 2406.0
+    },
+    {
+      "entity_id": "S28",
+      "time": "2017-04",
+      "value": 2260.0
+    },
+    {
+      "entity_id": "S28",
+      "time": "2018-04",
+      "value": 2753.0
+    },
+    {
+      "entity_id": "S28",
+      "time": "2019-04",
+      "value": 2246.0
+    },
+    {
+      "entity_id": "S28",
+      "time": "2020-04",
+      "value": 2372.0
+    },
+    {
+      "entity_id": "S28",
+      "time": "2021-04",
+      "value": 2468.0
+    },
+    {
+      "entity_id": "S28",
+      "time": "2022-04",
+      "value": 2594.0
+    },
+    {
+      "entity_id": "S28",
+      "time": "2023-04",
+      "value": 2536.0
+    },
+    {
+      "entity_id": "S28",
+      "time": "2024-04",
+      "value": 2863.0
+    },
+    {
+      "entity_id": "S28",
+      "time": "2025-04",
+      "value": 2910.0
+    },
+    {
+      "entity_id": "S29",
+      "time": "2017-04",
+      "value": 10284.0
+    },
+    {
+      "entity_id": "S29",
+      "time": "2018-04",
+      "value": 10818.0
+    },
+    {
+      "entity_id": "S29",
+      "time": "2019-04",
+      "value": 13168.0
+    },
+    {
+      "entity_id": "S29",
+      "time": "2020-04",
+      "value": 13688.0
+    },
+    {
+      "entity_id": "S29",
+      "time": "2021-04",
+      "value": 14160.0
+    },
+    {
+      "entity_id": "S29",
+      "time": "2022-04",
+      "value": 15497.0
+    },
+    {
+      "entity_id": "S29",
+      "time": "2023-04",
+      "value": 15623.0
+    },
+    {
+      "entity_id": "S29",
+      "time": "2024-04",
+      "value": 17162.0
+    },
+    {
+      "entity_id": "S29",
+      "time": "2025-04",
+      "value": 18548.0
+    },
+    {
+      "entity_id": "U02",
+      "time": "2017-04",
+      "value": 363.0
+    },
+    {
+      "entity_id": "U02",
+      "time": "2018-04",
+      "value": 611.0
+    },
+    {
+      "entity_id": "U02",
+      "time": "2019-04",
+      "value": 380.0
+    },
+    {
+      "entity_id": "U02",
+      "time": "2020-04",
+      "value": 374.0
+    },
+    {
+      "entity_id": "U02",
+      "time": "2021-04",
+      "value": 426.0
+    },
+    {
+      "entity_id": "U02",
+      "time": "2022-04",
+      "value": 407.0
+    },
+    {
+      "entity_id": "U02",
+      "time": "2023-04",
+      "value": 412.0
+    },
+    {
+      "entity_id": "U02",
+      "time": "2024-04",
+      "value": 443.0
+    },
+    {
+      "entity_id": "U02",
+      "time": "2025-04",
+      "value": 460.0
+    },
+    {
+      "entity_id": "U03",
+      "time": "2017-04",
+      "value": 1112.0
+    },
+    {
+      "entity_id": "U03",
+      "time": "2018-04",
+      "value": 1432.0
+    },
+    {
+      "entity_id": "U03",
+      "time": "2019-04",
+      "value": 1171.0
+    },
+    {
+      "entity_id": "U03",
+      "time": "2020-04",
+      "value": 1243.0
+    },
+    {
+      "entity_id": "U03",
+      "time": "2021-04",
+      "value": 1253.0
+    },
+    {
+      "entity_id": "U03",
+      "time": "2022-04",
+      "value": 1278.0
+    },
+    {
+      "entity_id": "U03",
+      "time": "2023-04",
+      "value": 1327.0
+    },
+    {
+      "entity_id": "U03",
+      "time": "2024-04",
+      "value": 1390.0
+    },
+    {
+      "entity_id": "U03",
+      "time": "2025-04",
+      "value": 1416.0
+    },
+    {
+      "entity_id": "U05",
+      "time": "2017-04",
+      "value": 6441.0
+    },
+    {
+      "entity_id": "U05",
+      "time": "2018-04",
+      "value": 6924.0
+    },
+    {
+      "entity_id": "U05",
+      "time": "2019-04",
+      "value": 7254.0
+    },
+    {
+      "entity_id": "U05",
+      "time": "2020-04",
+      "value": 6291.0
+    },
+    {
+      "entity_id": "U05",
+      "time": "2021-04",
+      "value": 7244.0
+    },
+    {
+      "entity_id": "U05",
+      "time": "2022-04",
+      "value": 7770.0
+    },
+    {
+      "entity_id": "U05",
+      "time": "2023-04",
+      "value": 7344.0
+    },
+    {
+      "entity_id": "U05",
+      "time": "2024-04",
+      "value": 8568.0
+    },
+    {
+      "entity_id": "U05",
+      "time": "2025-04",
+      "value": 8408.0
+    },
+    {
+      "entity_id": "U07",
+      "time": "2017-04",
+      "value": 8197.0
+    },
+    {
+      "entity_id": "U07",
+      "time": "2018-04",
+      "value": 412.0
+    },
+    {
+      "entity_id": "U07",
+      "time": "2019-04",
+      "value": 480.0
+    },
+    {
+      "entity_id": "U07",
+      "time": "2020-04",
+      "value": 423.0
+    },
+    {
+      "entity_id": "U07",
+      "time": "2021-04",
+      "value": 458.0
+    },
+    {
+      "entity_id": "U07",
+      "time": "2022-04",
+      "value": 485.0
+    },
+    {
+      "entity_id": "U07",
+      "time": "2023-04",
+      "value": 512.0
+    },
+    {
+      "entity_id": "U07",
+      "time": "2024-04",
+      "value": 530.0
+    },
+    {
+      "entity_id": "U07",
+      "time": "2025-04",
+      "value": 548.0
+    },
+    {
+      "entity_id": "U08",
+      "time": "2017-04",
+      "value": 2831.0
+    },
+    {
+      "entity_id": "U08",
+      "time": "2018-04",
+      "value": 4401.0
+    },
+    {
+      "entity_id": "U08",
+      "time": "2019-04",
+      "value": 2934.0
+    },
+    {
+      "entity_id": "U08",
+      "time": "2020-04",
+      "value": 3186.0
+    },
+    {
+      "entity_id": "U08",
+      "time": "2021-04",
+      "value": 3537.0
+    },
+    {
+      "entity_id": "U08",
+      "time": "2022-04",
+      "value": 3145.0
+    },
+    {
+      "entity_id": "U08",
+      "time": "2023-04",
+      "value": 3636.0
+    },
+    {
+      "entity_id": "U08",
+      "time": "2024-04",
+      "value": 5197.0
+    },
+    {
+      "entity_id": "U08",
+      "time": "2025-04",
+      "value": 5050.0
+    }
+  ]
+}

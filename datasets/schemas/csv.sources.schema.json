@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/csv.sources.schema.json",
+  "title": "CSV provenance sidecar",
+  "description": "CLAUDE.md §12 provenance sidecar for a sibling CSV file. CSV has no native top-level metadata slot; a sibling `<file>.csv.sources.json` carries the required `sources` array on its behalf. Mirrors boundary.sources.schema.json but for CSVs (the `for` pattern is `\\.csv$`).",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-13",
+      "description": "Initial schema. Introduced for tools/lgd/snapshot.py outputs (LGD States/Districts CSV mirrors); reusable by any future CSV ingest that materialises a sibling reference dataset."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "for", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+    "for": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\.csv$",
+      "description": "Basename of the sibling CSV this sidecar describes (e.g. \"districts-latest.csv\")."
+    },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. Optional `name` and `authority` fields align with district.schema.json v3.1 and feature_collection.metadata for uniform attribution.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    }
+  }
+}

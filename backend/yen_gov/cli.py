@@ -12,6 +12,7 @@ from yen_gov.core.http import Fetcher
 from yen_gov.core.io import write_artifact
 from yen_gov.core.models import PartyEntry, PartiesSnapshot, ProcessingConfig, SourceRef
 from yen_gov.pipeline.compose import (
+    append_to_discovered_overlay,
     compose_result_summary_from_section_10,
     eci_code_by_short_from_partywise,
     load_eci_party_registry,
@@ -608,6 +609,33 @@ def eci_statreport_emit(
                 + ")"
             )
 
+        # Auto-extend the central discovered overlay with whatever Section 3
+        # surfaced that the registry could not name. This keeps the pipeline
+        # non-blocking on first sighting of new/regional parties (Policy 3 in
+        # TODO/PARTY-COLORS-REWORK.md). Per-event parties.json still requires
+        # eci_code per its schema, so the overlay is the only landing place
+        # until an operator promotes the entry to the master with a verified
+        # ECI code.
+        if unresolved:
+            unresolved_set = set(unresolved)
+            unknown_parties = [
+                p for p in section_3_parties if p.short_name in unresolved_set
+            ]
+            appended = append_to_discovered_overlay(
+                root / "datasets" / "reference" / "in" / "parties-discovered.json",
+                parties=unknown_parties,
+                election_id=event,
+                state_code=state,
+                source_url=section_3_fetched.url,
+                fetched_at=section_3_fetched.fetched_at,
+            )
+            if appended:
+                typer.echo(
+                    f"discovered: appended {appended} new parties to "
+                    "parties-discovered.json (recognition: unknown — triage by "
+                    "promoting verified entries to datasets/reference/in/parties.json)"
+                )
+
     if parties_snapshot is not None:
         write_artifact(
             path=parties_path,
@@ -984,4 +1012,181 @@ def ingest_fiscal_rbi(
         typer.echo(f"    rows written:  {r.row_count}")
         typer.echo(f"    artifact:      {r.artifact_path.relative_to(root).as_posix()}")
 
+
+@app.command("ingest-fiscal-datagovin")
+def ingest_fiscal_datagovin(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+) -> None:
+    """Ingest data.gov.in OGD CSV downloads → fiscal indicator artifacts.
+
+    No network — reads operator-cached CSVs from
+    .runtime/raw/datagovin/<indicator-leaf>.csv. The OGD JSON API
+    requires a registered key (SMS-OTP) and rate-limits the public
+    demo key heavily; CSV downloads via the resource page are the
+    portable path. See backend/yen_gov/sources/datagovin_ogd/urls.py
+    for the indicator → resource mapping. If a CSV is missing the
+    command fails with a one-time download recipe for the operator.
+    """
+    from yen_gov.sources.datagovin_ogd import ingest as datagovin_ingest_mod
+
+    schema_dir = root / "datasets" / "schemas"
+    result = datagovin_ingest_mod.ingest(repo_root=root, schema_dir=schema_dir)
+
+    typer.echo("ingest-fiscal-datagovin: OK")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    csv cache:    {r.csv_cache_path.relative_to(root).as_posix()}")
+        typer.echo(f"    cache mtime:  {r.fetched_at.isoformat()}")
+        typer.echo(f"    raw records:  {r.record_count}")
+        typer.echo(f"    rows written: {r.row_count}")
+        typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
+
+
+@app.command("ingest-fiscal-rbi-appendix")
+def ingest_fiscal_rbi_appendix(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+) -> None:
+    """Ingest RBI State Finances Appendix Tables → national fiscal indicators.
+
+    No network — reads the cached workbook from
+    .runtime/raw/rbi/state_finances/02_APP_devolution_transfers.xlsx
+    (operator drops it once after the annual RBI publication). Emits
+    national-aggregate time series complementing the per-state
+    indicators from `ingest-fiscal-rbi`. See
+    backend/yen_gov/sources/rbi_appendix_national/parsers.py for the
+    item → indicator mapping.
+    """
+    from yen_gov.sources.rbi_appendix_national import ingest as rbi_app_mod
+
+    schema_dir = root / "datasets" / "schemas"
+    result = rbi_app_mod.ingest(repo_root=root, schema_dir=schema_dir)
+
+    typer.echo("ingest-fiscal-rbi-appendix: OK")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    cache mtime:  {r.workbook_fetched_at.isoformat()}")
+        typer.echo(f"    sheets:       {r.sheet_count}")
+        typer.echo(f"    period cells: {r.period_count}")
+        typer.echo(f"    rows written: {r.row_count}")
+        typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
+
+
+@app.command("ingest-energy-cea")
+def ingest_energy_cea(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+) -> None:
+    """Ingest CEA Installed Capacity → per-state energy indicators.
+
+    No network — reads the cached XLSX from
+    .runtime/raw/cea/installed_capacity_YYYY_MM.xlsx (operator drops
+    the latest month once; CEA publishes monthly). Emits one indicator
+    per fuel column (total, thermal, coal, gas, nuclear, hydro,
+    renewable). See backend/yen_gov/sources/cea_installed_capacity/
+    parsers.py for the column → indicator mapping.
+    """
+    from yen_gov.sources.cea_installed_capacity import ingest as cea_mod
+
+    schema_dir = root / "datasets" / "schemas"
+    result = cea_mod.ingest(repo_root=root, schema_dir=schema_dir)
+
+    typer.echo("ingest-energy-cea: OK")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    cache mtime:  {r.workbook_fetched_at.isoformat()}")
+        typer.echo(f"    snapshot:     {r.snapshot_period}")
+        typer.echo(f"    rows written: {r.row_count}")
+        typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
+
+
+@app.command("ingest-fiscal-rbi-appt1")
+def ingest_fiscal_rbi_appt1(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+) -> None:
+    """Ingest RBI Appendix Table 1 (deficits) → 4 national fiscal indicators.
+
+    No network — reads the cached XLSX from
+    .runtime/raw/rbi/state_finances/AppT1_MajorDeficitIndicators_<YYYY>.xlsx
+    (operator drops it once per RBI annual edition). Emits all-states
+    aggregate time series for gross fiscal / revenue / primary /
+    primary-revenue deficits. See
+    backend/yen_gov/sources/rbi_appendix_deficits/parsers.py for the
+    column -> indicator mapping.
+    """
+    from yen_gov.sources.rbi_appendix_deficits import ingest as appt1_mod
+
+    schema_dir = root / "datasets" / "schemas"
+    result = appt1_mod.ingest(repo_root=root, schema_dir=schema_dir)
+
+    typer.echo("ingest-fiscal-rbi-appt1: OK")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    cache mtime:  {r.workbook_fetched_at.isoformat()}")
+        typer.echo(f"    period cells: {r.period_count}")
+        typer.echo(f"    rows written: {r.row_count}")
+        typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
+
+
+@app.command("ingest-iced-state-wise")
+def ingest_iced_state_wise(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+    refresh: bool = typer.Option(
+        False, "--refresh",
+        help=(
+            "Re-fetch every fiscal year from the live API even if cached "
+            "ciphertext already exists at .runtime/raw/iced/. Default: "
+            "use cache when present."
+        ),
+    ),
+    fy: list[str] = typer.Option(
+        None, "--fy",
+        help=(
+            "Restrict to specific fiscal year labels (e.g. --fy 2024-25 "
+            "--fy 2023-24). Default: all 11 FYs from 2015-16 onward."
+        ),
+    ),
+) -> None:
+    """Ingest NITI Aayog ICED state-wise deep-dive -> 13 per-state indicators.
+
+    Hits https://icedapi.niti.gov.in/analytics/stateWiseDeepDive once
+    per fiscal year (11 GETs to cover 2015-16 .. 2025-26). The API
+    returns CryptoJS-encrypted JSON; decryption + parsing live in
+    backend/yen_gov/sources/iced_state_wise. Writes per-state-per-FY
+    fact rows into datasets/indicators/in/{energy,economy,demography}/.
+    """
+    from yen_gov.sources.iced_state_wise import ingest as iced_mod
+
+    schema_dir = root / "datasets" / "schemas"
+    only = tuple(fy) if fy else None
+    result = iced_mod.ingest(
+        repo_root=root, schema_dir=schema_dir, refresh=refresh, only_fys=only,
+    )
+
+    typer.echo("ingest-iced-state-wise: OK")
+    typer.echo(f"  fetched_at: {result.fetched_at.isoformat()}")
+    typer.echo(f"  fiscal years: {', '.join(result.fy_labels)}")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    fys covered:  {r.fy_count}")
+        typer.echo(f"    rows written: {r.row_count}")
+        typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
 

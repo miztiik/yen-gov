@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
-  "$schema_version": "3.1",
+  "$schema_version": "3.2",
   "sources": [
     {
       "url": "https://en.wikipedia.org/wiki/List_of_districts_of_Tamil_Nadu",
@@ -17,7 +17,8 @@
       "created_on": "2007-11-23",
       "split_from": [
         "PER"
-      ]
+      ],
+      "lgd_code": "610"
     },
     {
       "id": "CHG",
@@ -25,21 +26,24 @@
       "name": "Chengalpattu",
       "headquarters": "Chengalpattu",
       "created_on": "2019-11-29",
-      "notes": "split_from predecessors not in current district list: Kanchipuram"
+      "notes": "split_from predecessors not in current district list: Kanchipuram",
+      "lgd_code": "730"
     },
     {
       "id": "CHN",
       "id_source": "wikipedia",
       "name": "Chennai (formerly Madras)",
       "headquarters": "Chennai",
-      "created_on": "1956-11-01"
+      "created_on": "1956-11-01",
+      "lgd_code": "568"
     },
     {
       "id": "COI",
       "id_source": "wikipedia",
       "name": "Coimbatore",
       "headquarters": "Coimbatore",
-      "created_on": "1956-11-01"
+      "created_on": "1956-11-01",
+      "lgd_code": "569"
     },
     {
       "id": "CUD",
@@ -47,7 +51,8 @@
       "name": "Cuddalore",
       "headquarters": "Cuddalore",
       "created_on": "1993-09-30",
-      "notes": "split_from predecessors not in current district list: South Arcot District"
+      "notes": "split_from predecessors not in current district list: South Arcot District",
+      "lgd_code": "570"
     },
     {
       "id": "DHA",
@@ -57,7 +62,8 @@
       "created_on": "1965-10-02",
       "split_from": [
         "SAL"
-      ]
+      ],
+      "lgd_code": "571"
     },
     {
       "id": "DIN",
@@ -67,7 +73,8 @@
       "created_on": "1985-09-15",
       "split_from": [
         "MAD"
-      ]
+      ],
+      "lgd_code": "572"
     },
     {
       "id": "ERO",
@@ -77,7 +84,8 @@
       "created_on": "1979-08-31",
       "split_from": [
         "COI"
-      ]
+      ],
+      "lgd_code": "573"
     },
     {
       "id": "KAL",
@@ -87,7 +95,8 @@
       "created_on": "2019-11-26",
       "split_from": [
         "VIL"
-      ]
+      ],
+      "lgd_code": "729"
     },
     {
       "id": "KAC",
@@ -95,14 +104,16 @@
       "name": "Kancheepuram",
       "headquarters": "Kancheepuram",
       "created_on": "1997-07-01",
-      "notes": "split_from predecessors not in current district list: Chingleput"
+      "notes": "split_from predecessors not in current district list: Chingleput",
+      "lgd_code": "574"
     },
     {
       "id": "KAY",
       "id_source": "wikipedia",
       "name": "Kanyakumari",
       "headquarters": "Nagercoil",
-      "created_on": "1956-11-01"
+      "created_on": "1956-11-01",
+      "lgd_code": "575"
     },
     {
       "id": "KAR",
@@ -112,7 +123,8 @@
       "created_on": "1995-09-30",
       "split_from": [
         "TIC"
-      ]
+      ],
+      "lgd_code": "576"
     },
     {
       "id": "KRI",
@@ -122,14 +134,16 @@
       "created_on": "2004-02-09",
       "split_from": [
         "DHA"
-      ]
+      ],
+      "lgd_code": "577"
     },
     {
       "id": "MAD",
       "id_source": "wikipedia",
       "name": "Madurai",
       "headquarters": "Madurai",
-      "created_on": "1956-11-01"
+      "created_on": "1956-11-01",
+      "lgd_code": "578"
     },
     {
       "id": "MAY",
@@ -139,7 +153,8 @@
       "created_on": "2020-12-28",
       "split_from": [
         "NAG"
-      ]
+      ],
+      "lgd_code": "735"
     },
     {
       "id": "NAG",
@@ -149,7 +164,8 @@
       "created_on": "1991-10-18",
       "split_from": [
         "THA"
-      ]
+      ],
+      "lgd_code": "579"
     },
     {
       "id": "NAM",
@@ -159,14 +175,16 @@
       "created_on": "1997-01-01",
       "split_from": [
         "SAL"
-      ]
+      ],
+      "lgd_code": "580"
     },
     {
       "id": "NIL",
       "id_source": "wikipedia",
       "name": "Nilgiris",
       "headquarters": "Ooty",
-      "created_on": "1956-11-01"
+      "created_on": "1956-11-01",
+      "lgd_code": "587"
     },
     {
       "id": "PER",
@@ -176,7 +194,8 @@
       "created_on": "1995-09-30",
       "split_from": [
         "TIC"
-      ]
+      ],
+      "lgd_code": "581"
     },
     {
       "id": "PUD",
@@ -184,14 +203,16 @@
       "name": "Pudukkottai",
       "headquarters": "Pudukkottai",
       "created_on": "1974-01-14",
-      "notes": "split_from predecessors not in current district list: Thanjavur and Tiruchirappalli"
+      "notes": "split_from predecessors not in current district list: Thanjavur and Tiruchirappalli",
+      "lgd_code": "582"
     },
     {
       "id": "RAM",
       "id_source": "wikipedia",
       "name": "Ramanathapuram",
       "headquarters": "Ramanathapuram",
-      "created_on": "1956-11-01"
+      "created_on": "1956-11-01",
+      "lgd_code": "583"
     },
     {
       "id": "RAN",
@@ -201,14 +222,16 @@
       "created_on": "2019-11-28",
       "split_from": [
         "VEL"
-      ]
+      ],
+      "lgd_code": "731"
     },
     {
       "id": "SAL",
       "id_source": "wikipedia",
       "name": "Salem",
       "headquarters": "Salem",
-      "created_on": "1956-11-01"
+      "created_on": "1956-11-01",
+      "lgd_code": "584"
     },
     {
       "id": "SIV",
@@ -218,7 +241,8 @@
       "created_on": "1985-03-15",
       "split_from": [
         "RAM"
-      ]
+      ],
+      "lgd_code": "585"
     },
     {
       "id": "TEN",
@@ -228,14 +252,16 @@
       "created_on": "2019-11-22",
       "split_from": [
         "TIN"
-      ]
+      ],
+      "lgd_code": "733"
     },
     {
       "id": "THA",
       "id_source": "wikipedia",
       "name": "Thanjavur",
       "headquarters": "Thanjavur",
-      "created_on": "1956-11-01"
+      "created_on": "1956-11-01",
+      "lgd_code": "586"
     },
     {
       "id": "THE",
@@ -245,7 +271,8 @@
       "created_on": "1996-07-25",
       "split_from": [
         "MAD"
-      ]
+      ],
+      "lgd_code": "588"
     },
     {
       "id": "THO",
@@ -255,21 +282,24 @@
       "created_on": "1986-10-20",
       "split_from": [
         "TIN"
-      ]
+      ],
+      "lgd_code": "594"
     },
     {
       "id": "TIC",
       "id_source": "wikipedia",
       "name": "Tiruchirappalli",
       "headquarters": "Tiruchirappalli",
-      "created_on": "1956-11-01"
+      "created_on": "1956-11-01",
+      "lgd_code": "591"
     },
     {
       "id": "TIN",
       "id_source": "wikipedia",
       "name": "Tirunelveli",
       "headquarters": "Tirunelveli",
-      "created_on": "1956-11-01"
+      "created_on": "1956-11-01",
+      "lgd_code": "592"
     },
     {
       "id": "TIA",
@@ -279,7 +309,8 @@
       "created_on": "2019-11-28",
       "split_from": [
         "VEL"
-      ]
+      ],
+      "lgd_code": "732"
     },
     {
       "id": "TIP",
@@ -287,7 +318,8 @@
       "name": "Tiruppur",
       "headquarters": "Tiruppur",
       "created_on": "2009-02-22",
-      "notes": "split_from predecessors not in current district list: Coimbatore and Erode"
+      "notes": "split_from predecessors not in current district list: Coimbatore and Erode",
+      "lgd_code": "634"
     },
     {
       "id": "TAL",
@@ -295,7 +327,8 @@
       "name": "Tiruvallur",
       "headquarters": "Tiruvallur",
       "created_on": "1997-07-01",
-      "notes": "split_from predecessors not in current district list: Chingleput"
+      "notes": "split_from predecessors not in current district list: Chingleput",
+      "lgd_code": "589"
     },
     {
       "id": "TAN",
@@ -303,7 +336,8 @@
       "name": "Tiruvannamalai",
       "headquarters": "Tiruvannamalai",
       "created_on": "1989-09-30",
-      "notes": "split_from predecessors not in current district list: North Arcot"
+      "notes": "split_from predecessors not in current district list: North Arcot",
+      "lgd_code": "593"
     },
     {
       "id": "TAR",
@@ -311,7 +345,8 @@
       "name": "Tiruvarur",
       "headquarters": "Thiruvarur",
       "created_on": "1997-01-01",
-      "notes": "split_from predecessors not in current district list: Nagapattinam and Thanjavur"
+      "notes": "split_from predecessors not in current district list: Nagapattinam and Thanjavur",
+      "lgd_code": "590"
     },
     {
       "id": "VEL",
@@ -319,7 +354,8 @@
       "name": "Vellore",
       "headquarters": "Vellore",
       "created_on": "1989-09-30",
-      "notes": "split_from predecessors not in current district list: North Arcot"
+      "notes": "split_from predecessors not in current district list: North Arcot",
+      "lgd_code": "595"
     },
     {
       "id": "VIL",
@@ -327,7 +363,8 @@
       "name": "Viluppuram",
       "headquarters": "Viluppuram",
       "created_on": "1993-09-30",
-      "notes": "split_from predecessors not in current district list: South Arcot"
+      "notes": "split_from predecessors not in current district list: South Arcot",
+      "lgd_code": "596"
     },
     {
       "id": "VIR",
@@ -337,7 +374,8 @@
       "created_on": "1985-03-15",
       "split_from": [
         "RAM"
-      ]
+      ],
+      "lgd_code": "597"
     }
   ]
 }

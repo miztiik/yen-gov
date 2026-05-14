@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/upstream-sources.schema.json",
+  "title": "Upstream sources registry",
+  "description": "The hand-authored catalogue of every external place yen-gov pulls — or has reconned — data from. Machine-readable peer of `docs/reference/data-sources.md`. Shape is one row per upstream entry: an authority (RBI, ECI, ICED, CEA, MoSPI, Wikipedia, data.gov.in resource, …), the URL we land on, the URL pattern of the actual asset (when stable), the format, the coverage we observed, our ingest status, and (when ingested) the backend adapter module + the indicator artifacts it ships. Acts as the bridge between recon notes and `backend/yen_gov/sources/` modules: a citizen / future operator can answer 'where does this number come from?' and 'what else has this authority published that we have NOT yet ingested?' from one place. NOT used at runtime by the frontend; this is operator-facing memory. Hand-authored therefore `sources` array is empty per CLAUDE.md §12.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-14",
+      "description": "Initial schema. Created to discharge the user-mandated 'track all the URLs in some kind of reference in the docs so that we can go back to them when needed' (2026-05-14). Captures the ingest-status lifecycle (candidate → recon_done → ingested | skipped) so unattempted upstream sources don't slip out of memory between sessions."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "upstreams"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+
+    "sources": {
+      "type": "array",
+      "description": "Per CLAUDE.md §12 / ADR-0002. This is hand-authored taxonomy of upstreams, so the canonical shape is an empty array. The commit message records rationale and the URLs the maintainer consulted.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+
+    "upstreams": {
+      "type": "array",
+      "minItems": 1,
+      "description": "One entry per discrete upstream source we know about. Order is by authority, then alphabetical — re-ordering is a deliberate editorial act (commit it).",
+      "items": {
+        "type": "object",
+        "required": ["id", "authority", "title", "landing_url", "format", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)+$",
+            "description": "Stable dotted identifier: `<authority_slug>.<source_slug>`. Examples: `rbi.appendix_t1_deficits`, `iced.state_wise_deep_dive`, `data_gov_in.centre_transfers_gross`. Used for cross-references."
+          },
+          "authority": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Human name of the issuing body. Examples: 'Reserve Bank of India', 'Election Commission of India', 'NITI Aayog (ICED dashboard)', 'Central Electricity Authority', 'Open Government Data Platform (data.gov.in)'."
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Human display title of the dataset / publication / page."
+          },
+          "landing_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://",
+            "description": "The page a maintainer lands on to discover this source. May be a dashboard, a publication index, a search result page, or a single resource page. NOT the file URL — that goes in `asset_url_pattern`."
+          },
+          "asset_url_pattern": {
+            "type": "string",
+            "description": "Optional. The URL (or URL template with `<placeholders>`) of the actual file the pipeline fetches. Empty when the asset URL changes per edition (e.g. RBI's hex-stamped XLSX names) — in that case the per-edition pinned URLs live in the adapter module under `backend/yen_gov/sources/<adapter>/urls.py`."
+          },
+          "format": {
+            "enum": ["xlsx", "csv", "json", "geojson", "html", "pdf", "encrypted_json", "rss", "api"],
+            "description": "What the asset ships as. `encrypted_json` = JSON body that requires per-source decryption (e.g. ICED's CryptoJS-OpenSSL AES blob). `api` = parameterised endpoint we hit programmatically rather than a static file."
+          },
+          "coverage": {
+            "type": "string",
+            "description": "One-line coverage summary: spatial scope + temporal scope. Example: 'All-India national, FY51–FY26 annual'; '28 states + 8 UTs + All-India, FY16–FY26 annual'."
+          },
+          "status": {
+            "enum": ["ingested", "recon_done", "candidate", "skipped"],
+            "description": "Lifecycle. `candidate` = noted but not opened; `recon_done` = inspected, value/effort assessed; `ingested` = adapter shipped + artifact emitted; `skipped` = consciously not shipping (record `skip_reason`)."
+          },
+          "adapter": {
+            "type": "string",
+            "description": "When `status=ingested`: the backend adapter module slug (matches a directory under `backend/yen_gov/sources/`). Empty otherwise."
+          },
+          "indicator_ids": {
+            "type": "array",
+            "description": "When `status=ingested`: the indicator (or other artifact) ids this upstream contributes to. Each id matches `indicator.id` in the corresponding `datasets/indicators/...` artifact (or the `id`/`event` field of an election artifact).",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "license": {
+            "type": "string",
+            "description": "License id if known. Most GoI datasets are 'GoI-Open' (https://data.gov.in/government-open-data-license-india)."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Maintainer notes: known gotchas, network quirks, decryption details, recon recipe pointers, data-quality caveats. Citizens never read this; future operators do."
+          },
+          "skip_reason": {
+            "type": "string",
+            "description": "When `status=skipped`: WHY we are not shipping. Examples: 'low-value parliamentary snapshot, duplicates RBI canonical series with shorter window'; 'requires registered API key (PII tradeoff)'."
+          }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "status": { "const": "ingested" } } },
+            "then": { "required": ["adapter"] }
+          },
+          {
+            "if": { "properties": { "status": { "const": "skipped" } } },
+            "then": { "required": ["skip_reason"] }
+          }
+        ]
+      }
+    }
+  }
+}

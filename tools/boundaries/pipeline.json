@@ -1,5 +1,5 @@
 {
-  "$comment": "Pipeline config for tools/boundaries/{snapshot,build}.py. Each entry under 'inputs' is one logical boundary layer. The `source` block separates *where the bytes come from* (urls, format) from *what we publish* (a GeoJSON at datasets/boundaries/in/geojson/<id>.geojson plus a sidecar). Adding a new upstream format (shapefile zip, GeoPackage, GeoParquet) is now an additive change to source.format, not a rewrite of the scripts. See tools/boundaries/README.md for the rationale.",
+  "$comment": "Pipeline config for tools/boundaries/{snapshot,build}.py. Each entry under 'inputs' is one logical boundary layer the build runs today; entries under 'staged_inputs' are catalogued gap-fills (per docs/reference/boundary-data-sources.md §'gap-fill, not bulk-swap') that are NOT yet built — build.py and snapshot.py iterate 'inputs' only, so staged entries are inert until promoted. The `source` block separates *where the bytes come from* (urls, format) from *what we publish* (a GeoJSON at datasets/boundaries/in/geojson/<id>.geojson plus a sidecar). Adding a new upstream format (shapefile zip, geojsonl_7z, GeoPackage, GeoParquet) is an additive change to source.format, not a rewrite of the scripts. See tools/boundaries/README.md for the rationale.",
   "outputs_dir": "datasets/boundaries/in",
   "raw_dir": ".runtime/raw/boundaries",
   "inputs": [
@@ -702,6 +702,58 @@
       "ac_no_property": "AC_NO",
       "name_property": "AC_NAME",
       "delimitation_warning": "HindustanTimesLabs shapefiles reflect the 2008 Delimitation Commission boundaries. Validate AC_NO sequence against datasets/reference/in/states/U05/constituencies.json before publishing if a state has been redelimited (presently only Assam 2023 and J&K 2022 are post-2008-delim redraws; this state is not, but check before each release).",
+      "tippecanoe": {
+        "minzoom": 4,
+        "maxzoom": 10,
+        "layer": "ac"
+      }
+    },
+    {
+      "$comment": "GAP-FILL (active): India district polygons keyed by LGD code. Sourced from ramSeraph's LGD_Districts release (BharatMaps/LGD lineage), shipped as 7z-compressed GeoJSONL. snapshot.py handles source.format='geojsonl_7z' (py7zr extraction, NDJSON->FeatureCollection wrap). Frontend join target: district.lgd_code field per ADR-0015. Source catalogue + per-component verdict: docs/reference/lgd-opendata.md and docs/reference/boundary-data-sources.md.",
+      "kind": "districts",
+      "country": "IN",
+      "out": "districts/india-districts.pmtiles",
+      "source": {
+        "format": "geojsonl_7z",
+        "urls": [
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/districts/LGD_Districts.geojsonl.7z"
+        ],
+        "coord_precision": 2
+      },
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/Bharatmaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/Admin_Boundary_Village/MapServer/1",
+      "id_property": "dist_lgd",
+      "name_property": "dtname",
+      "id_property_note": "Confirmed via first snapshot 2026-05-13. dist_lgd is the LGD numeric district code (joins to district.lgd_code per ADR-0015); dtname is the canonical district name. Upstream also ships stname/state_lgd (state context), stcode11/dtcode11 (Census 2011), and topology cruft (OBJECTID, SHAPE_Length, SHAPE_Area, etc.) kept verbatim — inert for our consumers.",
+      "tippecanoe": {
+        "minzoom": 3,
+        "maxzoom": 9,
+        "layer": "districts",
+        "drop_densest_as_needed": true
+      },
+      "coord_precision_note": "coord_precision=2 (~1.1 km). At precision=3 the file is 39 MB (over the 12 MB SNAPSHOT_BYTE_BUDGET); at 2 it lands ~6.5 MB. 1.1 km is well below typical district width (10-50 km) so choropleth rendering at zoom 3-9 is visually unaffected."
+    }
+  ],
+  "staged_inputs": [
+    {
+      "$comment": "TIEBREAKER (Assam): post-2023-delim AC layer from BharatMaps/LGD. Use ONLY when promoting to replace ac/S03-ac.* if the HTL S03 file fails the cross-check against datasets/reference/in/states/S03/constituencies.json (see Assam delimitation note in docs/reference/boundary-data-sources.md). Same format-handler dependency as the districts entry above.",
+      "kind": "ac",
+      "country": "IN",
+      "state": "S03",
+      "out": "ac/S03-ac.pmtiles",
+      "source": {
+        "format": "geojsonl_7z",
+        "urls": [
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z"
+        ]
+      },
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/Bharatmaps). Underlying upstream service: https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+      "id_property": "TBD_lgd_ac_code",
+      "name_property": "TBD_ac_name",
+      "id_property_note": "National AC release — filter to state_lgd_code corresponding to S03 (Assam) before tippecanoe. Confirm exact property names and the AC_NO/eci_no ↔ lgd_ac_code mapping on first snapshot.",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,

@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
-  "$schema_version": "1.1",
+  "$schema_version": "1.2",
   "$comment": "Hand-authored taxonomy. Powers the Topic Front Door (/t, /t/:topic) and the section list inside each state hub (/s/:state). See ADR-0022 and TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md. DOCTRINE (user-mandated 2026-05-11): elections are ONE indicator family among many. Social-welfare topics (fiscal, education, health, livelihood) are first-class; elections are not the spine and not the default theme. Order in this array IS the rendering order on /t and inside the state hub.",
   "sources": [],
   "topics": [
@@ -27,9 +27,73 @@
           "featured": true,
           "scope": "national",
           "peer_set_default": "all"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/centre_transfers_gross",
+          "default": false,
+          "featured": false,
+          "scope": "national",
+          "peer_set_default": "all"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/national_centre_transfers_total",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/national_devolution_central_taxes",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/national_grants_from_centre",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/national_gross_transfers",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/national_gross_fiscal_deficit",
+          "default": false,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/national_revenue_deficit",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/national_primary_deficit",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/national_primary_revenue_deficit",
+          "default": false,
+          "featured": false,
+          "scope": "national"
         }
       ],
-      "notes": "Debt and deficit are co-determined by central transfers \u2014 the transfers indicator (`fiscal/net_transfers_from_centre`) is the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. Currently 3 fiscal years of transfers data (2023-24 Accounts, 2024-25 RE, 2025-26 BE); historical extension is a follow-up."
+      "notes": "Debt and deficit are co-determined by central transfers — the transfers indicators (RBI Net via `fiscal/net_transfers_from_centre`, Rajya Sabha Gross via `fiscal/centre_transfers_gross`) are the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. RBI Net covers FY24 Accounts + FY25 RE + FY26 BE; Rajya Sabha Gross covers FY17–FY23 (longer historical run, devolution + grants pre-adjustments). The all-India aggregate equivalent (RBI Net Centre→States transfers, FY08–FY26, 19y) is `fiscal/national_centre_transfers_total` — a country-entity series for the macro envelope view; its data shape is incompatible with the per-state choropleth (it carries one row per FY for `entity_id=\"IN\"`). The four `fiscal/national_*_deficit` indicators (gross fiscal, revenue, primary, primary revenue) come from RBI Appendix Table 1 (Major Deficit Indicators) — same publication as the transfers, all-states aggregate, FY08–FY26 (20y including RE/BE). They answer the macro question 'how much are the states collectively borrowing each year, and what kind of borrowing is it?'."
     },
     {
       "id": "energy",
@@ -42,32 +106,205 @@
       "artifacts": [
         {
           "kind": "indicator",
-          "id": "energy/installed_mw_by_state",
+          "id": "energy/installed_capacity_by_source_mw",
           "default": true,
           "featured": true,
+          "scope": "national",
+          "chart_type": "stacked-trend",
+          "dimension": "power_source"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_total_mw",
+          "default": false,
+          "featured": true,
           "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_thermal_mw",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_coal_mw",
+          "default": false,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_gas_mw",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_nuclear_mw",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_hydro_mw",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_renewable_mw",
+          "default": false,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_mw_by_state",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_installed_capacity_geographical_mw",
+          "default": false,
+          "featured": true,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_installed_capacity_with_alloc_mw",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_rooftop_solar_capacity_mw",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_electricity_generation_mu",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_electricity_peak_demand_mw",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_electricity_sales_mu",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_atc_losses_pct",
+          "default": false,
+          "featured": true,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_acs_arr_gap_inr_per_kwh",
+          "default": false,
+          "featured": false,
+          "scope": "state"
         }
       ],
-      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic \u2014 the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer."
+      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic — the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer. The `installed_capacity_*` family is from CEA's monthly Executive Summary (March 2026 snapshot) and covers all 35 CEA-reported state/UT entities across 7 fuel categories (total, thermal, coal, gas, nuclear, hydro, renewable). The legacy `installed_mw_by_state` indicator (Wikipedia-derived, 4 states only) is retained for back-compat but no longer the default. The state-level family (`state_installed_capacity_*`, `state_electricity_*`, `state_rooftop_solar_capacity_mw`, `state_atc_losses_pct`, `state_acs_arr_gap_inr_per_kwh`) is from the NITI Aayog ICED state-wise deep-dive API and covers 9-11 fiscal years (FY16-FY26) per indicator across all 36 states/UTs plus the All-India aggregate. ICED publishes both 'geographical-location' (where the plant sits) and 'with-allocated-shares' (who has rights to the output) capacity series; we ship both so the analyst can pick the one that matches the question being asked."
     },
     {
       "id": "elections",
       "title": "Elections",
       "list": "na",
-      "summary": "Who governs. State Assembly and Lok Sabha results, candidate-level detail, party totals, margins. One indicator family among many \u2014 not the spine of the site.",
+      "summary": "Who governs. State Assembly and Lok Sabha results, candidate-level detail, party totals, margins. One indicator family among many — not the spine of the site.",
       "icon": "vote",
       "featured": false,
       "artifacts": [
         {
           "kind": "election",
           "id": "AcGenMay2026",
-          "display": "Tamil Nadu Assembly \u00b7 May 2026",
+          "display": "Tamil Nadu Assembly · May 2026",
           "default": true,
           "featured": false,
           "scope": "state"
         }
       ],
-      "notes": "Per ADR-0022 doctrine: elections are NOT the default home-page theme and NOT a featured topic. Social-welfare topics (fiscal, future: education, health, livelihood) are first-class; elections are one of many. Election artifacts have a different schema family (result.summary.schema.json) than indicators \u2014 the catalogue's polymorphic `kind` lets them coexist without being demoted in capability or promoted in IA prominence."
+      "notes": "Per ADR-0022 doctrine: elections are NOT the default home-page theme and NOT a featured topic. Social-welfare topics (fiscal, future: education, health, livelihood) are first-class; elections are one of many. Election artifacts have a different schema family (result.summary.schema.json) than indicators — the catalogue's polymorphic `kind` lets them coexist without being demoted in capability or promoted in IA prominence."
+    },
+    {
+      "id": "economy",
+      "title": "Economy",
+      "list": "state",
+      "summary": "How big is each state's economy, in real and nominal terms. GDP and sectoral GVA at constant and current prices, in Lakh Crore Rupees.",
+      "icon": "trending-up",
+      "featured": false,
+      "peer_set_default": "all",
+      "artifacts": [
+        {
+          "kind": "indicator",
+          "id": "economy/state_gdp_constant_2011_12_inr_lakh_crore",
+          "default": true,
+          "featured": true,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/state_gdp_current_inr_lakh_crore",
+          "default": false,
+          "featured": true,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/state_sectoral_gva_current_inr_lakh_crore",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        }
+      ],
+      "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."
+    },
+    {
+      "id": "demography",
+      "title": "Demography",
+      "list": "state",
+      "summary": "How many people live where. State population (inter-censal estimates) until the next decadal Census resets the baseline.",
+      "icon": "users",
+      "featured": false,
+      "peer_set_default": "all",
+      "artifacts": [
+        {
+          "kind": "indicator",
+          "id": "demography/state_population_lakhs",
+          "default": true,
+          "featured": true,
+          "scope": "state"
+        }
+      ],
+      "notes": "Source: NITI Aayog ICED state-wise deep-dive API; underlying figures from MoSPI inter-censal estimates. The most recent Census of India was 2011; the 2021 round was deferred. Per-year deltas in this indicator are projections, not measured population change. Topic is featured=false pending the next Census release; until then this is the denominator for per-capita normalisations on other indicators rather than a headline series in its own right."
     }
   ]
 }

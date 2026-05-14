@@ -1,0 +1,145 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.2",
+  "sources": [
+    {
+      "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
+      "fetched_at": "2026-05-11T06:28:31Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (all-states aggregate)",
+    "temporal": "2007-04..2025-04",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "fiscal/national_primary_revenue_deficit",
+    "title": "Primary revenue deficit (all states, all-India)",
+    "description": "Revenue deficit minus interest payments — the strictest fiscal-discipline indicator. Negative values (which is the norm in Indian state finances) mean that, after stripping out legacy interest payments, the states' current receipts do cover their current expenditure. Positive values would indicate genuinely unsustainable consumption-borrowing. RBI Appendix Table 1, column 5.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "lower_is_better",
+    "scale_hint": "linear",
+    "unit": "INR (crore)",
+    "icon": "trending-down",
+    "attribution_geography": "where_administered",
+    "comparability": "comparable_with_normalisation",
+    "funding_split": {
+      "centre_pct": 0,
+      "state_pct": 100,
+      "source": "definition (states' own budgetary deficits)"
+    },
+    "implementing_authority": "state",
+    "methodology_vintage": "RBI State Finances: A Study of Budgets, Appendix Table 1 (Major Deficit Indicators); cached file mtime 2026-05-11T06:28:31Z",
+    "notes": "Source: RBI 'State Finances: A Study of Budgets', Appendix Table 1, column 'Primary Revenue Deficit'. Indian state finances have historically run a primary revenue *surplus* (negative deficit) for most years in the series; that is the headline that revenue and primary deficits taken in isolation can obscure."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": -142773.4
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": -115627.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": -81789.6
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": -127870.9
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": -160777.9
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": -170794.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": -158334.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": -144710.8
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": -208865.2
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": -210812.1
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": -274281.2
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": -301465.4
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": -229894.2
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": -15806.1
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": -325377.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": -397205.4
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": -413738.5
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": -483412.1
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": -371324.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": -543163.7
+    }
+  ]
+}

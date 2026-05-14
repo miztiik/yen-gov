@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
-  "$schema_version": "3.1",
+  "$schema_version": "3.2",
   "sources": [
     {
       "url": "https://en.wikipedia.org/wiki/List_of_districts_of_Gujarat",
@@ -14,231 +14,264 @@
       "id_source": "wikipedia",
       "name": "Banaskantha",
       "headquarters": "Palanpur",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "441"
     },
     {
       "id": "AR",
       "id_source": "wikipedia",
       "name": "Aravalli",
       "headquarters": "Modasa",
-      "created_on": "2013-08-15"
+      "created_on": "2013-08-15",
+      "lgd_code": "672"
     },
     {
       "id": "PA",
       "id_source": "wikipedia",
       "name": "Patan",
       "headquarters": "Patan",
-      "created_on": "2000-10-02"
+      "created_on": "2000-10-02",
+      "lgd_code": "455"
     },
     {
       "id": "GA",
       "id_source": "wikipedia",
       "name": "Gandhinagar",
       "headquarters": "Gandhinagar",
-      "created_on": "1964-05-01"
+      "created_on": "1964-05-01",
+      "lgd_code": "446"
     },
     {
       "id": "MA",
       "id_source": "wikipedia",
       "name": "Mehsana",
       "headquarters": "Mehsana",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "451"
     },
     {
       "id": "SK",
       "id_source": "wikipedia",
       "name": "Sabarkantha",
       "headquarters": "Himmatnagar",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "458"
     },
     {
       "id": "AH",
       "id_source": "wikipedia",
       "name": "Ahmedabad",
       "headquarters": "Ahmedabad",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "438"
     },
     {
       "id": "AN",
       "id_source": "wikipedia",
       "name": "Anand",
       "headquarters": "Anand",
-      "created_on": "1997-10-02"
+      "created_on": "1997-10-02",
+      "lgd_code": "440"
     },
     {
       "id": "CU",
       "id_source": "wikipedia",
       "name": "Chhota Udaipur",
       "headquarters": "Chhota Udaipur",
-      "created_on": "2013-08-15"
+      "created_on": "2013-08-15",
+      "lgd_code": "668"
     },
     {
       "id": "DA",
       "id_source": "wikipedia",
       "name": "Dahod",
       "headquarters": "Dahod",
-      "created_on": "1997-10-02"
+      "created_on": "1997-10-02",
+      "lgd_code": "445"
     },
     {
       "id": "KH",
       "id_source": "wikipedia",
       "name": "Kheda",
       "headquarters": "Nadiad",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "450"
     },
     {
       "id": "MH",
       "id_source": "wikipedia",
       "name": "Mahisagar",
       "headquarters": "Lunawada",
-      "created_on": "2013-08-15"
+      "created_on": "2013-08-15",
+      "lgd_code": "669"
     },
     {
       "id": "PM",
       "id_source": "wikipedia",
       "name": "Panchmahal",
       "headquarters": "Godhra",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "454"
     },
     {
       "id": "VD",
       "id_source": "wikipedia",
       "name": "Vadodara",
       "headquarters": "Vadodara",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "461"
     },
     {
       "id": "ST",
       "id_source": "wikipedia",
       "name": "Surat",
       "headquarters": "Surat",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "459"
     },
     {
       "id": "BR",
       "id_source": "wikipedia",
       "name": "Bharuch",
       "headquarters": "Bharuch",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "442"
     },
     {
       "id": "DG",
       "id_source": "wikipedia",
       "name": "Dang",
       "headquarters": "Ahwa",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "444"
     },
     {
       "id": "NR",
       "id_source": "wikipedia",
       "name": "Narmada",
       "headquarters": "Rajpipla",
-      "created_on": "1997-10-02"
+      "created_on": "1997-10-02",
+      "lgd_code": "452"
     },
     {
       "id": "NV",
       "id_source": "wikipedia",
       "name": "Navsari",
       "headquarters": "Navsari",
-      "created_on": "1997-10-02"
+      "created_on": "1997-10-02",
+      "lgd_code": "453"
     },
     {
       "id": "TA",
       "id_source": "wikipedia",
       "name": "Tapi",
       "headquarters": "Vyara",
-      "created_on": "2007-10-02"
+      "created_on": "2007-10-02",
+      "lgd_code": "641"
     },
     {
       "id": "VL",
       "id_source": "wikipedia",
       "name": "Valsad",
       "headquarters": "Valsad",
-      "created_on": "1966-06-01"
+      "created_on": "1966-06-01",
+      "lgd_code": "462"
     },
     {
       "id": "RA",
       "id_source": "wikipedia",
       "name": "Rajkot",
       "headquarters": "Rajkot",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "457"
     },
     {
       "id": "AM",
       "id_source": "wikipedia",
       "name": "Amreli",
       "headquarters": "Amreli",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "439"
     },
     {
       "id": "BV",
       "id_source": "wikipedia",
       "name": "Bhavnagar",
       "headquarters": "Bhavnagar",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "443"
     },
     {
       "id": "BT",
       "id_source": "wikipedia",
       "name": "Botad",
       "headquarters": "Botad",
-      "created_on": "2013-08-15"
+      "created_on": "2013-08-15",
+      "lgd_code": "676"
     },
     {
       "id": "DD",
       "id_source": "wikipedia",
       "name": "Devbhoomi Dwarka",
       "headquarters": "Khambhaliya",
-      "created_on": "2013-08-15"
+      "created_on": "2013-08-15",
+      "lgd_code": "674"
     },
     {
       "id": "GS",
       "id_source": "wikipedia",
       "name": "Gir Somnath",
       "headquarters": "Veraval",
-      "created_on": "2013-08-15"
+      "created_on": "2013-08-15",
+      "lgd_code": "675"
     },
     {
       "id": "JA",
       "id_source": "wikipedia",
       "name": "Jamnagar",
       "headquarters": "Jamnagar",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "447"
     },
     {
       "id": "JU",
       "id_source": "wikipedia",
       "name": "Junagadh",
       "headquarters": "Junagadh",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "448"
     },
     {
       "id": "KA",
       "id_source": "wikipedia",
       "name": "Kutch",
       "headquarters": "Bhuj",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "449"
     },
     {
       "id": "MB",
       "id_source": "wikipedia",
       "name": "Morbi",
       "headquarters": "Morbi",
-      "created_on": "2013-08-15"
+      "created_on": "2013-08-15",
+      "lgd_code": "673"
     },
     {
       "id": "PO",
       "id_source": "wikipedia",
       "name": "Porbandar",
       "headquarters": "Porbandar",
-      "created_on": "1997-10-02"
+      "created_on": "1997-10-02",
+      "lgd_code": "456"
     },
     {
       "id": "SN",
       "id_source": "wikipedia",
       "name": "Surendranagar",
       "headquarters": "Surendranagar",
-      "created_on": "1960-05-01"
+      "created_on": "1960-05-01",
+      "lgd_code": "460"
     }
   ]
 }

@@ -1,0 +1,145 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.2",
+  "sources": [
+    {
+      "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
+      "fetched_at": "2026-05-11T06:28:31Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (all-states aggregate)",
+    "temporal": "2007-04..2025-04",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "fiscal/national_gross_fiscal_deficit",
+    "title": "Gross fiscal deficit (all states, all-India)",
+    "description": "The consolidated borrowing requirement of all State governments combined in each fiscal year. Defined as total expenditure minus total non-debt receipts. A positive value means the states collectively had to borrow this much to fund the gap between their spending and their revenue + non-debt capital receipts. The single most-cited 'how much are states borrowing this year' indicator. RBI's Appendix Table 1, column 2 (Major Deficit Indicators of State Governments).",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "lower_is_better",
+    "scale_hint": "linear",
+    "unit": "INR (crore)",
+    "icon": "trending-down",
+    "attribution_geography": "where_administered",
+    "comparability": "comparable_with_normalisation",
+    "funding_split": {
+      "centre_pct": 0,
+      "state_pct": 100,
+      "source": "definition (states' own budgetary deficits)"
+    },
+    "implementing_authority": "state",
+    "methodology_vintage": "RBI State Finances: A Study of Budgets, Appendix Table 1 (Major Deficit Indicators); cached file mtime 2026-05-11T06:28:31Z",
+    "notes": "Source: RBI 'State Finances: A Study of Budgets', Appendix Table 1 (Major Deficit Indicators of State Governments), column 'Gross Fiscal Deficit'. Values are nominal Rs Crore (1 Crore = 10 million); they are NOT inflation-adjusted, so the historical curve reflects price level changes as much as real fiscal stress. The latest two fiscal years are typically RE (Revised Estimate) / BE (Budget Estimate) — read with appropriate caution. From 2017-18 the figures include Delhi and Puducherry. The RBI publication also reports each indicator as % of GDP on alternating rows; that companion series is intentionally not ingested here (would need its own indicator family with value_kind=percent)."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 75454.7
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 134589.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 188818.7
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 161461.1
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 168353.4
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 195470.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 247852.2
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 327190.8
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 420670.4
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 534331.8
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 410494.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 462769.8
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 524710.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 804574.3
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 654678.2
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 721631.9
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 877194.6
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 1039138.1
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 1161160.6
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 1175074.7
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
-  "$schema_version": "3.1",
+  "$schema_version": "3.2",
   "sources": [
     {
       "url": "https://en.wikipedia.org/wiki/List_of_districts_of_West_Bengal",
@@ -13,139 +13,162 @@
       "id": "COB",
       "id_source": "wikipedia",
       "name": "Cooch Behar",
-      "headquarters": "Cooch Behar"
+      "headquarters": "Cooch Behar",
+      "lgd_code": "308"
     },
     {
       "id": "ALI",
       "id_source": "wikipedia",
       "name": "Alipurduar",
-      "headquarters": "Alipurduar"
+      "headquarters": "Alipurduar",
+      "lgd_code": "664"
     },
     {
       "id": "JAL",
       "id_source": "wikipedia",
       "name": "Jalpaiguri",
-      "headquarters": "Jalpaiguri"
+      "headquarters": "Jalpaiguri",
+      "lgd_code": "314"
     },
     {
       "id": "KAL",
       "id_source": "wikipedia",
       "name": "Kalimpong",
-      "headquarters": "Kalimpong"
+      "headquarters": "Kalimpong",
+      "lgd_code": "702"
     },
     {
       "id": "DAR",
       "id_source": "wikipedia",
       "name": "Darjeeling",
-      "headquarters": "Darjeeling"
+      "headquarters": "Darjeeling",
+      "lgd_code": "309"
     },
     {
       "id": "UDP",
       "id_source": "wikipedia",
       "name": "Uttar Dinajpur",
-      "headquarters": "Raiganj"
+      "headquarters": "Raiganj",
+      "lgd_code": "311"
     },
     {
       "id": "DDP",
       "id_source": "wikipedia",
       "name": "Dakshin Dinajpur",
-      "headquarters": "Balurghat"
+      "headquarters": "Balurghat",
+      "lgd_code": "310"
     },
     {
       "id": "MLD",
       "id_source": "wikipedia",
       "name": "Maldah",
-      "headquarters": "English Bazar"
+      "headquarters": "English Bazar",
+      "lgd_code": "316"
     },
     {
       "id": "MUR",
       "id_source": "wikipedia",
       "name": "Murshidabad",
-      "headquarters": "Baharampur"
+      "headquarters": "Baharampur",
+      "lgd_code": "319"
     },
     {
       "id": "NAD",
       "id_source": "wikipedia",
       "name": "Nadia",
-      "headquarters": "Krishnanagar"
+      "headquarters": "Krishnanagar",
+      "lgd_code": "320"
     },
     {
       "id": "N24",
       "id_source": "wikipedia",
       "name": "North 24 Parganas",
-      "headquarters": "Barasat"
+      "headquarters": "Barasat",
+      "lgd_code": "303"
     },
     {
       "id": "S24",
       "id_source": "wikipedia",
       "name": "South 24 Parganas",
-      "headquarters": "Alipore"
+      "headquarters": "Alipore",
+      "lgd_code": "304"
     },
     {
       "id": "KOL",
       "id_source": "wikipedia",
       "name": "Kolkata",
-      "headquarters": "Kolkata"
+      "headquarters": "Kolkata",
+      "lgd_code": "315"
     },
     {
       "id": "HOW",
       "id_source": "wikipedia",
       "name": "Howrah",
-      "headquarters": "Howrah"
+      "headquarters": "Howrah",
+      "lgd_code": "313"
     },
     {
       "id": "HOG",
       "id_source": "wikipedia",
       "name": "Hooghly",
-      "headquarters": "Chinsura"
+      "headquarters": "Chinsura",
+      "lgd_code": "312"
     },
     {
       "id": "PME",
       "id_source": "wikipedia",
       "name": "Purba Medinipur",
-      "headquarters": "Tamluk"
+      "headquarters": "Tamluk",
+      "lgd_code": "317"
     },
     {
       "id": "PSM",
       "id_source": "wikipedia",
       "name": "Paschim Medinipur",
-      "headquarters": "Medinipur"
+      "headquarters": "Medinipur",
+      "lgd_code": "318"
     },
     {
       "id": "JHA",
       "id_source": "wikipedia",
       "name": "Jhargram",
-      "headquarters": "Jhargram"
+      "headquarters": "Jhargram",
+      "lgd_code": "703"
     },
     {
       "id": "PUR",
       "id_source": "wikipedia",
       "name": "Purulia",
-      "headquarters": "Purulia"
+      "headquarters": "Purulia",
+      "lgd_code": "321"
     },
     {
       "id": "BAN",
       "id_source": "wikipedia",
       "name": "Bankura",
-      "headquarters": "Bankura"
+      "headquarters": "Bankura",
+      "lgd_code": "305"
     },
     {
       "id": "PBD",
       "id_source": "wikipedia",
       "name": "Purba Bardhaman",
-      "headquarters": "Bardhaman"
+      "headquarters": "Bardhaman",
+      "lgd_code": "306"
     },
     {
       "id": "PSB",
       "id_source": "wikipedia",
       "name": "Paschim Bardhaman",
-      "headquarters": "Asansol"
+      "headquarters": "Asansol",
+      "lgd_code": "704"
     },
     {
       "id": "BIR",
       "id_source": "wikipedia",
       "name": "Birbhum",
-      "headquarters": "Suri"
+      "headquarters": "Suri",
+      "lgd_code": "307"
     }
   ]
 }

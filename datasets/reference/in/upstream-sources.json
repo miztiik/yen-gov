@@ -1,0 +1,285 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/upstream-sources.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "Hand-authored upstream registry. Bridge between recon notes (free-form), source adapters (code), and shipped artifacts (data). Updated whenever a new upstream is reconned or an existing one ships, regardless of whether the adapter lands in the same commit.",
+  "sources": [],
+  "upstreams": [
+    {
+      "id": "eci.statistical_reports",
+      "authority": "Election Commission of India",
+      "title": "Statistical Reports — official tabulated post-election results",
+      "landing_url": "https://www.eci.gov.in/statistical-reports",
+      "asset_url_pattern": "https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/<state-slug>/<year>/<Statement>.{xlsx,pdf}",
+      "format": "xlsx",
+      "coverage": "Per state-year-body, 14 statements per Assembly election; 1962-present where digitised",
+      "status": "ingested",
+      "adapter": "eci",
+      "license": "GoI-Open",
+      "notes": "Canonical for past elections. Per-election landing grammar: /statistical-report/{body}/{year}/{state-display-code}. ECI's signed download URLs (/eci-backend/public/api/download?url=<base64>) are time-limited and MUST NOT be persisted in sources[]. Per-state-year pinned catalogue lives in `config/eci-pins.json`. See docs/architecture/backend/sources-eci.md."
+    },
+    {
+      "id": "eci.results_portal",
+      "authority": "Election Commission of India",
+      "title": "Live and post-poll constituency results portal",
+      "landing_url": "https://results.eci.gov.in/",
+      "asset_url_pattern": "https://results.eci.gov.in/Result<EventSlug>/Constituencywise<StateCode><ConstNo:03d>.htm",
+      "format": "html",
+      "coverage": "Per constituency per election event (e.g. AcGenMay2026, LSGenJun2024); current cycle + a few past",
+      "status": "ingested",
+      "adapter": "eci",
+      "license": "GoI-Open",
+      "notes": "Canonical for ECI numbering, party affiliations, current-cycle results."
+    },
+    {
+      "id": "eci.term_of_houses",
+      "authority": "Election Commission of India",
+      "title": "Term of the Houses (assembly + Lok Sabha constitution / dissolution dates)",
+      "landing_url": "https://www.eci.gov.in/term-of-the-houses/",
+      "format": "html",
+      "coverage": "All India + 28 state assemblies, current and historical",
+      "status": "recon_done",
+      "notes": "Used by maintainers to confirm election event naming (when did the 2021 TN assembly's term end). Not auto-ingested."
+    },
+    {
+      "id": "rbi.state_finances_publication",
+      "authority": "Reserve Bank of India",
+      "title": "State Finances: A Study of Budgets — annual publication index",
+      "landing_url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
+      "format": "xlsx",
+      "coverage": "All 28 states + Delhi + Puducherry; current edition covers FY25 actuals + FY26 BE; per-edition only ~3 years of comparable data",
+      "status": "ingested",
+      "adapter": "rbi_xlsx",
+      "indicator_ids": [
+        "fiscal/outstanding_debt_pct_gsdp",
+        "fiscal/net_transfers_from_centre"
+      ],
+      "license": "GoI-Open",
+      "notes": "Per-Statement XLSX shipped on the listing page; URLs include DDMMYYYY date stamp + opaque hex hash, change wholesale every edition. Per-edition pinned URLs live in `backend/yen_gov/sources/rbi_xlsx/urls.py`. RBI CDN (rbidocs.rbi.org.in) rejects non-browser UA — adapter passes Chrome-style UA at this call site only. See docs/architecture/backend/sources-rbi.md."
+    },
+    {
+      "id": "rbi.appendix_t1_deficits",
+      "authority": "Reserve Bank of India",
+      "title": "Handbook of Statistics on Indian Economy — Appendix Table 1 (national fiscal deficits)",
+      "landing_url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx",
+      "format": "xlsx",
+      "coverage": "All India national, FY80–FY26 annual (~46 years)",
+      "status": "ingested",
+      "adapter": "rbi_appendix_deficits",
+      "indicator_ids": [
+        "fiscal/national_gross_fiscal_deficit",
+        "fiscal/national_revenue_deficit",
+        "fiscal/national_primary_deficit",
+        "fiscal/national_primary_revenue_deficit"
+      ],
+      "license": "GoI-Open",
+      "notes": "₹ Crore series only; the % GDP companion rows interleaved on alternating rows in the same workbook are NOT shipped (would need a separate value_kind=percent indicator family). See docs/architecture/backend/sources-rbi-appendix-deficits.md."
+    },
+    {
+      "id": "rbi.appendix_t2_central_transfers",
+      "authority": "Reserve Bank of India",
+      "title": "Handbook of Statistics on Indian Economy — Appendix Table 2 (Central transfers to States)",
+      "landing_url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx",
+      "format": "xlsx",
+      "coverage": "All India national aggregate, FY08–FY26 annual",
+      "status": "ingested",
+      "adapter": "rbi_appendix_national",
+      "indicator_ids": [
+        "fiscal/national_centre_transfers_total",
+        "fiscal/national_devolution_central_taxes",
+        "fiscal/national_grants_from_centre",
+        "fiscal/national_gross_transfers"
+      ],
+      "license": "GoI-Open",
+      "notes": "Nominal ₹ Crore as RBI publishes; NOT deflated to constant prices. Future indicator `fiscal/national_centre_transfers_total_constant_2011_12` deflated is in the long-coverage backlog. See docs/architecture/backend/sources-rbi-appendix-national.md."
+    },
+    {
+      "id": "rbi.handbook_state_macro",
+      "authority": "Reserve Bank of India",
+      "title": "Handbook of Statistics on Indian Economy — state-level macro tables (GSDP series, debt long series)",
+      "landing_url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy",
+      "format": "xlsx",
+      "coverage": "All states, FY12+ for constant-prices GSDP, FY51+ for current-prices national GDP",
+      "status": "candidate",
+      "notes": "Wave-3 backlog #5–#6 (national GDP constant + current). Same family as appendix_t1/t2 — same fetch path through the AnnualPublications listing."
+    },
+    {
+      "id": "rbi.weekly_statistical_supplement_gold",
+      "authority": "Reserve Bank of India",
+      "title": "Weekly Statistical Supplement / Handbook — RBI gold reserves",
+      "landing_url": "https://www.rbi.org.in/Scripts/WSSView.aspx",
+      "format": "xlsx",
+      "coverage": "All India, monthly (and weekly), 35+ years",
+      "status": "candidate",
+      "notes": "Wave-3 backlog #14 (national gold reserves long series). Lives under the Handbook on Indian Economy, Statement 'Foreign Exchange Reserves'."
+    },
+    {
+      "id": "rbi.state_finances_statement_8_long_series",
+      "authority": "Reserve Bank of India",
+      "title": "State Finances Statement 8 (outstanding liabilities) — multi-edition stitched long series",
+      "landing_url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
+      "format": "xlsx",
+      "coverage": "All states, FY91+ when stitched across multiple editions",
+      "status": "candidate",
+      "notes": "Wave-3 backlog #15. Higher-complexity ingest because edition-to-edition column shapes differ; needs a multi-edition stitcher per state."
+    },
+    {
+      "id": "iced.state_wise_deep_dive",
+      "authority": "NITI Aayog (ICED dashboard)",
+      "title": "State-wise Deep Dive — energy, economy, demography state series",
+      "landing_url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
+      "asset_url_pattern": "https://icedapi.niti.gov.in/analytics/stateWiseDeepDive",
+      "format": "encrypted_json",
+      "coverage": "28 states + 8 UTs + All-India, FY16–FY26 annual (11 fiscal years), 13 indicators per state-year",
+      "status": "ingested",
+      "adapter": "iced_state_wise",
+      "indicator_ids": [
+        "energy/state_installed_capacity_geographical_mw",
+        "energy/state_installed_capacity_with_alloc_mw",
+        "energy/state_rooftop_solar_capacity_mw",
+        "energy/state_electricity_generation_mu",
+        "energy/state_electricity_peak_demand_mw",
+        "energy/state_electricity_sales_mu",
+        "energy/state_atc_losses_pct",
+        "energy/state_acs_arr_gap_inr_per_kwh",
+        "economy/state_gdp_constant_2011_12_inr_lakh_crore",
+        "economy/state_gdp_current_inr_lakh_crore",
+        "economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore",
+        "economy/state_sectoral_gva_current_inr_lakh_crore",
+        "demography/state_population_lakhs"
+      ],
+      "license": "GoI-Open",
+      "notes": "Encrypted JSON: CryptoJS-OpenSSL AES-256-CBC, passphrase extracted from SPA bundle. Uses urllib (not httpx) on Windows because httpx + certifi rejects icedapi cert chain. Unit caveat: ICED's metadata says GDP/GVA in 'Crores' but actual values are Lakh Crore — adapter overrides. See docs/architecture/backend/sources-iced-state-wise.md."
+    },
+    {
+      "id": "cea.installed_capacity_monthly",
+      "authority": "Central Electricity Authority",
+      "title": "Monthly Installed Capacity Report — All-India + per-state, per-fuel nameplate MW",
+      "landing_url": "https://cea.nic.in/installed-capacity-report/?lang=en",
+      "asset_url_pattern": "https://cea.nic.in/wp-content/uploads/installed/<YYYY>/<MM>/Website.xlsx",
+      "format": "xlsx",
+      "coverage": "All-India + per-state, snapshot at end of report month, monthly cadence; archive available",
+      "status": "ingested",
+      "adapter": "cea_installed_capacity",
+      "indicator_ids": [
+        "energy/installed_capacity_coal_mw",
+        "energy/installed_capacity_gas_mw",
+        "energy/installed_capacity_hydro_mw",
+        "energy/installed_capacity_nuclear_mw",
+        "energy/installed_capacity_renewable_mw",
+        "energy/installed_capacity_thermal_mw",
+        "energy/installed_capacity_total_mw"
+      ],
+      "license": "GoI-Open",
+      "notes": "Operator-fetched XLSX pattern: cea.nic.in TLS chain not in standard CA bundle on Windows / many CI images, so no in-adapter network. Operator runs `Invoke-WebRequest` once per month into .runtime/raw/cea/installed_capacity_<YYYY>_<MM>.xlsx; adapter parses. Archive listing at https://cea.nic.in/archives/?lang=en. See docs/architecture/backend/sources-cea-installed-capacity.md."
+    },
+    {
+      "id": "cea.archive_long_history",
+      "authority": "Central Electricity Authority",
+      "title": "CEA monthly Executive Summary archive (per-state long history)",
+      "landing_url": "https://cea.nic.in/archives/?lang=en",
+      "format": "xlsx",
+      "coverage": "Per-state monthly snapshots, multi-year archive",
+      "status": "skipped",
+      "skip_reason": "Windows TLS / certifi rejects cea.nic.in CDN cert chain for direct httpx fetch. Operator-fetch pattern works for current month (see cea.installed_capacity_monthly) but mass-backfill of the archive is high-effort. Workaround: ICED state_wise already provides 11 years of CEA-published values for the same indicators — use that."
+    },
+    {
+      "id": "data_gov_in.platform",
+      "authority": "Open Government Data Platform (data.gov.in)",
+      "title": "OGD platform — aggregated cross-ministry datasets",
+      "landing_url": "https://www.data.gov.in/",
+      "format": "csv",
+      "coverage": "Cross-ministry, mostly Rajya Sabha question driven snapshots; small fraction is canonical ministry data",
+      "status": "recon_done",
+      "license": "GoI-Open",
+      "notes": "Public demo API key (579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b) caps records at 10/request and 429s after a few pages; production key requires SMS-OTP registration with PII (declined per user direction 2026-05-14). Operator-fetched CSV pattern: solve captcha on resource page, drop CSV into .runtime/raw/datagovin/<leaf>.csv. See docs/architecture/backend/sources-datagovin-ogd.md."
+    },
+    {
+      "id": "data_gov_in.centre_transfers_gross",
+      "authority": "Open Government Data Platform (data.gov.in)",
+      "title": "State-wise Total Revenue Receipts, Own Receipts and Centre Transfers (FY17–FY23 Actuals, RS Q1323/2023)",
+      "landing_url": "https://www.data.gov.in/resource/state-wise-details-total-revenue-receipts-own-receipts-and-centre-transfers-available",
+      "format": "csv",
+      "coverage": "28 states + Delhi + Puducherry, FY17–FY23 (7 years actuals)",
+      "status": "ingested",
+      "adapter": "datagovin_ogd",
+      "indicator_ids": ["fiscal/centre_transfers_gross"],
+      "license": "GoI-Open",
+      "notes": "Resource UUID 1f2e77f0-6742-4671-ae29-8836d2110a5c. Computed as Col.(4) Share in Central Taxes + Col.(5) Grants-in-Aid. *Gross* — distinct from RBI's Net (RBI subtracts loan repayments). Underlying authority: Rajya Sabha Session 260 Unstarred Question 1323 (1 Aug 2023)."
+    },
+    {
+      "id": "data_gov_in.rbi_search_results",
+      "authority": "Open Government Data Platform (data.gov.in)",
+      "title": "Search results for title=rbi (banking, payments, ombudsman, frauds — Rajya Sabha snapshot family)",
+      "landing_url": "https://www.data.gov.in/search?title=rbi&type=resources&sortby=_score",
+      "format": "csv",
+      "coverage": "Mostly Ministry of Finance answers tabulating RBI-reported counts (bank frauds, ombudsman complaints, demonetised note recovery, internal-debt snapshots). Each resource is a 3–7 year window; few qualify as long series",
+      "status": "skipped",
+      "skip_reason": "Mostly low-value parliamentary snapshots that do NOT duplicate the canonical RBI long-series we want for wave-3 (Handbook macro, gold reserves, State Finances Statement 8). The actual RBI long series live on rbi.org.in directly; data.gov.in's RBI surface is parliamentary derivative. Reconned 2026-05-14; future targeted picks (e.g. internal-debt snapshot if it complements Statement 8) can be promoted to candidate one resource at a time."
+    },
+    {
+      "id": "data_gov_in.aishe_education",
+      "authority": "Open Government Data Platform (data.gov.in)",
+      "title": "All India Survey on Higher Education (AISHE) — institutions / enrolments by state",
+      "landing_url": "https://www.data.gov.in/search?title=aishe",
+      "format": "csv",
+      "coverage": "All states, ~13y per state",
+      "status": "candidate",
+      "notes": "Wave-3 backlog #7. Recon needed: confirm whether the data.gov.in AISHE resources cover the full AISHE series or only Rajya Sabha question subsets. Authority page: https://aishe.gov.in/aishe/aisheReport"
+    },
+    {
+      "id": "wikipedia.constituencies_districts",
+      "authority": "Wikipedia (English)",
+      "title": "Constituency lists, district lists, election summary tables",
+      "landing_url": "https://en.wikipedia.org/wiki",
+      "asset_url_pattern": "https://en.wikipedia.org/wiki/<List_of_constituencies_of_…|List_of_districts_of_…|<Year>_<State>_…_election>",
+      "format": "html",
+      "coverage": "All states; quality varies by article",
+      "status": "ingested",
+      "adapter": "wikipedia",
+      "license": "CC-BY-SA-3.0",
+      "notes": "Bootstrap source only — never sufficient alone for `status: complete` per CLAUDE.md §10 / docs/architecture/backend/sources-wikipedia.md."
+    },
+    {
+      "id": "india_geodata.boundaries_power_plants",
+      "authority": "Datameet / community geodata",
+      "title": "India administrative boundaries (states/districts/AC/PC) and power plant locations",
+      "landing_url": "https://github.com/datameet",
+      "format": "geojson",
+      "coverage": "All India",
+      "status": "ingested",
+      "adapter": "india_geodata",
+      "notes": "Community-maintained, not authoritative for legal boundaries. Surfaces a citizen-facing disclaimer per docs/concepts/disclaimer.md."
+    },
+    {
+      "id": "ceo.state_portals",
+      "authority": "Chief Electoral Officer (per state)",
+      "title": "State CEO portals — electoral roll counts, polling-station-level data",
+      "landing_url": "https://www.elections.tn.gov.in/",
+      "format": "pdf",
+      "coverage": "Per state; format varies wildly (PDF, occasional XLSX)",
+      "status": "candidate",
+      "notes": "Per-state landing URLs documented in docs/reference/data-sources.md. Not yet ingested — current pipeline relies on ECI Statistical Reports for AC-level numbers."
+    },
+    {
+      "id": "myneta.candidate_affidavits",
+      "authority": "Association for Democratic Reforms (MyNeta)",
+      "title": "Candidate affidavits — declared assets, criminal cases, education, expense filings",
+      "landing_url": "https://www.myneta.info/",
+      "format": "html",
+      "coverage": "Per election event; manual scraping needed",
+      "status": "candidate",
+      "notes": "Use for candidate-level enrichment ONLY; never as a vote-count source. Cross-check vote counts with ECI before persisting."
+    },
+    {
+      "id": "lgd.local_government_directory",
+      "authority": "Ministry of Panchayati Raj (LGD)",
+      "title": "Local Government Directory — district / subdistrict / village codes",
+      "landing_url": "https://lgdirectory.gov.in/",
+      "format": "json",
+      "coverage": "All India administrative hierarchy with stable LGD codes",
+      "status": "ingested",
+      "adapter": "wikipedia",
+      "notes": "Currently consumed via the wikipedia district resolver (LGD codes are the canonical district identifier per CLAUDE.md §3). Direct LGD ingest is on the feat/lgd-districts-pipeline branch (in progress)."
+    }
+  ]
+}

@@ -195,14 +195,26 @@ When a hand-import lands a *new* layout (rare — three exist today) the gate ex
 | Cohort kind | `has_partywise` | Source of `eci_code` | `parties.json` |
 | --- | :---: | --- | --- |
 | **Live** (May-2026 today; any future event for which the live-results portal still serves `partywiseresult-<state>.htm`) | `True` | The partywise HTML page is the authority — it carries `(eci_code, short, full)` directly. | Full roster, one entry per party in the partywise table. |
-| **Archived with on-disk registry hits** (every cohort ingested via Statistical Reports today: 2023 cohort + the 10 archived 2024+ pins + Delhi 2025) | `False` | Section 3 (List of Political Parties Participated) gives `(short, full)` only; numeric codes come from `pipeline.compose.load_eci_party_registry()` which aggregates every existing `parties.json` on disk. ECI numeric party codes are stable across elections, so a code minted by any live cohort is the same code in every other cohort. | Resolved subset only — Section 3 parties whose `short_name` exists in the registry. Dropped `short_name`s are logged on the emit line and remain visible in `result.summary.json` with `party_eci_code: null`. |
-| **Archived with zero registry hits** (transitional — would only happen on a fresh checkout with no live cohort yet ingested) | `False` | Nothing. | Skipped. The emit line says `parties.json: SKIPPED`. The slice still ships per-AC results + `result.summary.json` with `party_eci_code: null` everywhere. |
+| **Archived with on-disk registry hits** (every cohort ingested via Statistical Reports today: 2023 cohort + the 10 archived 2024+ pins + Delhi 2025) | `False` | Section 3 (List of Political Parties Participated) gives `(short, full)` only; numeric codes come from `pipeline.compose.load_eci_party_registry()` (see "Central party registry" below). | Resolved subset only — Section 3 parties whose `short_name` exists in the registry. Dropped `short_name`s are logged on the emit line, surface in `result.summary.json` with `party_eci_code: null`, AND are auto-appended to [`datasets/reference/in/parties-discovered.json`](../../../datasets/reference/in/parties-discovered.json) so the operator has a triage queue. |
+| **Archived with zero registry hits** (transitional — would only happen on a fresh checkout with no central master and no live cohort yet ingested) | `False` | Nothing. | Skipped. The emit line says `parties.json: SKIPPED`. The slice still ships per-AC results + `result.summary.json` with `party_eci_code: null` everywhere. |
+
+#### Central party registry
+
+`load_eci_party_registry(elections_root)` is a three-layer merge that produces `{short_name → PartyRegistryEntry}`:
+
+1. **Per-event aggregation** — every existing `datasets/elections/<event>/<state>/parties.json` on disk. ECI numeric party codes are stable across elections, so a code minted by any live cohort is the same code in every other cohort. Conflict on `eci_code` for the same short between two events raises (data-integrity guard); a `null` from one side does not block the other.
+2. **Discovered overlay** at [`datasets/reference/in/parties-discovered.json`](../../../datasets/reference/in/parties-discovered.json) — auto-extended by the pipeline whenever Section 3 surfaces a `short_name` that no upper layer can resolve. `recognition: "unknown"`. Per-entry `first_seen` + `sources[]` records which event / URL first surfaced the label so an operator can triage.
+3. **Hand-curated master** at [`datasets/reference/in/parties.json`](../../../datasets/reference/in/parties.json) — national + state recognised + observed RUPP. Master wins for `full_name` (canonical naming) and contributes `aliases[]` that resolve to the same canonical entry (e.g. `ADMK → AIADMK`, `CPM → CPI(M)`).
+
+The per-event `parties.json` schema still requires a non-null `eci_code`, so unknown / unresolved parties never land there — they go to the discovered overlay instead. The frontend reads master + discovered + per-event together via [`fetchPartyRegistry()`](../../../frontend/src/lib/data.ts) so unresolved labels still get a proper `full_name` + `recognition: "unknown"` badge in the UI.
 
 Concretely, what the emit log tells you:
 
 ```
 parties.json: 4 parties (102 dropped — short_names absent from registry: AAAP, ...)
   └─ archived path; 4 of 106 Section-3 parties resolved against registry
+discovered: appended 102 new parties to parties-discovered.json (recognition: unknown — triage by promoting verified entries to datasets/reference/in/parties.json)
+  └─ same run; the 102 dropped shorts now sit in the central overlay awaiting curation
 parties.json: SKIPPED (no partywise snapshot and no Section 3)
   └─ very unusual; means the catalog had no Section 3 either
 (no parties.json line)

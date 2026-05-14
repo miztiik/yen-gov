@@ -1,6 +1,6 @@
 # Schemas
 
-**Last Updated**: 2026-05-11
+**Last Updated**: 2026-05-14
 
 All schemas live in [`datasets/schemas/`](../../datasets/schemas/). Each is a JSON Schema 2020-12 document carrying its own version and changelog (CLAUDE.md §11).
 
@@ -27,7 +27,7 @@ Introduced by [`TODO/SOCIO-ECONOMIC-EXPANSION.md`](../../TODO/SOCIO-ECONOMIC-EXP
 | File                                              | Title                                 | x-version | Describes                                                                                                              |
 | ------------------------------------------------- | ------------------------------------- | :-------: | ---------------------------------------------------------------------------------------------------------------------- |
 | `feature_collection.metadata.schema.json`         | Feature collection metadata sidecar   | 1.0       | `<file>.metadata.json` for non-electoral GeoJSON FeatureCollections (power plants, hospitals, etc.). Carries `sources`, `license`, `coverage`, `coordinate_system`. |
-| `indicator.schema.json`                           | Indicator (long-form fact table)      | 1.1       | One indicator (e.g. installed MW per state per year) as long-form `(entity_id, time, value)` rows with semantic hints (`value_kind`, `direction`, `unit`). v1.1 (2026-05-11) adds optional honesty fields: `attribution_geography`, `comparability`, `funding_split`, `implementing_authority`, `methodology_vintage`, `series_breaks[]`, `icon`. See [ADR-0020](../architecture/decisions/0020-indicator-artifact-as-data-contract.md). |
+| `indicator.schema.json`                           | Indicator (long-form fact table)      | 1.2       | One indicator (e.g. installed MW per state per year) as long-form `(entity_id, time, value)` rows with semantic hints (`value_kind`, `direction`, `unit`). v1.2 (2026-05-14) adds optional renderer hints `chart_type` (choropleth / ranked / stacked-trend) and `default_mode` (absolute / percent) so facetted artifacts can declare their preferred visualisation without per-page string matching — see [ADR-0024](../architecture/decisions/0024-backend-aggregator-for-facetted-indicators.md) and [`docs/architecture/frontend/charts/stacked-trend.md`](../architecture/frontend/charts/stacked-trend.md). v1.1 (2026-05-11) added the honesty fields: `attribution_geography`, `comparability`, `funding_split`, `implementing_authority`, `methodology_vintage`, `series_breaks[]`, `icon`. See [ADR-0020](../architecture/decisions/0020-indicator-artifact-as-data-contract.md). |
 | `state_government.schema.json`                    | State government history (CM terms)   | 1.0       | Per-state CM term timeline (start/end dates, party_code, alliance, regime). Drives the colour-by-government overlay. |
 
 To regenerate this table after a schema bump, run `python -m yen_gov validate` and update the row by hand. (Auto-generation is a Phase 4 nice-to-have, not a blocker.)

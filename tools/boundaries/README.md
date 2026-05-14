@@ -1,6 +1,6 @@
 # tools/boundaries
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-13
 
 Builds vector-tile boundary files (`datasets/boundaries/in/*.pmtiles`) consumed by the frontend [map](../../docs/architecture/frontend/map.md). The pipeline downloads upstream GeoJSON, simplifies with [mapshaper](https://github.com/mbloch/mapshaper), and packs to [PMTiles](https://github.com/protomaps/PMTiles) with [tippecanoe](https://github.com/felt/tippecanoe).
 
@@ -37,6 +37,7 @@ datasets/boundaries/in/
 | WB (S25) | same repo, `state_ut/westbengal/assembly/westbengal_AC.json` | MIT | `AC_NO` 1–294 |
 | AS (S03) | same repo, `state_ut/assam/assembly/assam_AC.json` | MIT | ⚠️ may not match post-2008 delimitation; verify (see below) |
 | India states | [datameet/maps](https://github.com/datameet/maps) `States/Admin2.{shp,dbf,shx,prj,cpg}` | CC-BY 4.0 | 36 features; joins on `ST_NM`. Includes the post-2014 Telangana split, post-2019 Ladakh split (PR #73), and merged DNH-DD UT. Replaces the GADM v2 layer that pre-dated all three reorganizations. |
+| India districts | [ramSeraph/indian_admin_boundaries](https://github.com/ramSeraph/indian_admin_boundaries) `LGD_Districts.geojsonl.7z` | CC0-1.0 (datameet attribution requested) | 785 features; joins on `dist_lgd` (LGD numeric district code). `coord_precision: 2` (≈1.1 km) keeps the file under the 12 MB snapshot budget. |
 
 For the full catalogue — including alternatives evaluated (yashveeeeeeer/india-geodata, datta07/INDIAN-SHAPEFILES, datameet's national `India_AC.shp`), what "LGD release" means, and the bar a new boundary source has to clear before being added — see [`docs/reference/boundary-data-sources.md`](../../docs/reference/boundary-data-sources.md).
 
@@ -50,7 +51,7 @@ Each `inputs[]` entry in [pipeline.json](pipeline.json) carries a `source` block
 
 ```json
 "source": {
-  "format": "geojson" | "shp_bundle",
+  "format": "geojson" | "shp_bundle" | "geojsonl_7z",
   "urls":   [ "...", ... ],
   "coord_precision": 3
 }
@@ -60,10 +61,20 @@ Each `inputs[]` entry in [pipeline.json](pipeline.json) carries a `source` block
 | --- | --- | --- |
 | `geojson` | Single-element list with the `.geojson` URL | Streamed verbatim. |
 | `shp_bundle` | Every sibling shapefile component (`.shp`, `.dbf`, `.shx`, `.prj`, `.cpg`) | Downloaded into `.runtime/raw/boundaries/`, then converted to GeoJSON via [pyshp](https://pypi.org/project/pyshp/). `coord_precision` rounds coordinates (3 decimals ≈ 110 m) and drops consecutive duplicate vertices, which is enough for state-level choropleth rendering at z≤6. |
+| `geojsonl_7z` | Single URL to a `.geojsonl.7z` archive (newline-delimited GeoJSON inside a 7z) | Downloaded into `.runtime/raw/boundaries/`, extracted with [py7zr](https://pypi.org/project/py7zr/), parsed line-by-line, wrapped as `FeatureCollection`. Same `coord_precision` knob as `shp_bundle`. Used by ramSeraph releases (BharatMaps/LGD lineage). |
 
-This split exists so adding a future format (zip+geojson, GeoPackage, GeoParquet) is a new `format` value plus a new branch in `materialize_input()` / `fetch_*` — not a rewrite of existing entries. The frontend resolver and the sidecar schema are format-agnostic.
+This split exists so adding a future format (zip+geojson, GeoPackage, GeoParquet) is a new `format` value plus a new branch in `snapshot.py` `fetch_*` — not a rewrite of existing entries. The frontend resolver and the sidecar schema are format-agnostic.
 
-For `format: shp_bundle`, install pyshp once: `pip install pyshp`.
+For `format: shp_bundle`, install pyshp once: `pip install pyshp`. For `format: geojsonl_7z`, install py7zr once: `pip install py7zr`.
+
+## `inputs` vs `staged_inputs`
+
+[pipeline.json](pipeline.json) has two top-level arrays:
+
+- **`inputs`** — what the build runs today. Every entry produces a sibling GeoJSON + sidecar in `datasets/boundaries/in/` and a PMTiles file when `build.py` runs.
+- **`staged_inputs`** — catalogued gap-fill entries that are **inert**. `snapshot.py` and `build.py` only iterate `inputs`, so these neither fetch nor build. They exist so the entry is concrete (URL pinned, license recorded, join-key documented) and ready to drop into `inputs` in the same PR as the consuming feature.
+
+The gap-fill-only adoption rule (do not bulk-swap third-party catalogues for sources we already have working) is documented in [`docs/reference/boundary-data-sources.md`](../../docs/reference/boundary-data-sources.md#source-selection-policy-gap-fill-not-bulk-swap).
 
 ## Running
 

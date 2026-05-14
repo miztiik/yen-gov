@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
-  "$schema_version": "3.1",
+  "$schema_version": "3.2",
   "sources": [],
   "state": "U07",
   "districts": [
@@ -8,13 +8,15 @@
       "id": "puducherry",
       "id_source": "wikipedia",
       "name": "Puducherry",
-      "headquarters": "Puducherry"
+      "headquarters": "Puducherry",
+      "lgd_code": "600"
     },
     {
       "id": "karaikal",
       "id_source": "wikipedia",
       "name": "Karaikal",
-      "headquarters": "Karaikal"
+      "headquarters": "Karaikal",
+      "lgd_code": "598"
     },
     {
       "id": "mahe",
