@@ -207,9 +207,11 @@ The user requested specialist agents for the cross-disciplinary discussions this
 | Agent                | File                                       | Role                                                                                  |
 | -------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------- |
 | Gregor Hohpe         | `.github/agents/gregor-hohpe.agent.md`     | Software architecture, integration patterns, contracts-before-logic.                  |
-| UI/UX Lead           | `.github/agents/ux-lead.agent.md`          | Information architecture, layered map UX, accessibility.                              |
+| Fowler (Engineering) | `.github/agents/fowler.agent.md`           | Code-craft and evolutionary engineering — refactoring, TDD, tidy-first, expand–migrate–contract (Fowler + Beck). |
+| Jony (UI/UX)         | `.github/agents/jony.agent.md`             | Information architecture, layered map UX, gesture/interaction craft (Ive + Brichter). |
 | Citizen User         | `.github/agents/citizen-user.agent.md`     | The non-technical Indian citizen who actually uses yen-gov to make sense of governance.|
-| Governance Strategist| `.github/agents/governance-strategist.agent.md` | Indian public-administration, IAS-style framing of socio-economic metrics. |
+| Hans (Governance)    | `.github/agents/hans.agent.md`             | Indian fiscal federalism + global data-communication discipline (Rosling + Roy + Bhattacharya). |
+| Max (Indicator Scout)| `.github/agents/max.agent.md`              | OWID-style coverage strategy — what indicators to acquire, from where, why (Roser + Ritchie). Upstream of Hans. |
 
 These can be invoked from the Governance panel (or directly via `@<agent>`) for any ongoing dataset or design question.
 

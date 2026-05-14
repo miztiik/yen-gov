@@ -251,7 +251,7 @@ Once decided, P3.3c becomes a contained Level-3 rewrite: one component (`fronten
 5. **Backlog** — P2.6 / P2.7 / P2.8 (see "Deferred" section above) + RBI transfers FY15+ historical extension.
 
 ### Important context for next session
-- Custom agent registry (only valid names for `runSubagent`): `Gregor Hohpe (Architect)`, `Governance Strategist`, `Citizen User`, `UI/UX Lead`, `Explore`. NOT registered: Election Strategist, Data Architect.
+- Custom agent registry (only valid names for `runSubagent`): `Gregor Hohpe (Architect)`, `Fowler (Engineering)` (added 2026-05-14 — Fowler + Beck combined persona, code-craft / evolutionary-engineering complement to Gregor, voice-friendly invocation token "Fowler"), `Hans (Governance)` (formerly `Governance Strategist`, renamed 2026-05-14 — Rosling + Roy + Bhattacharya combined persona, voice-friendly invocation token "Hans"), `Max (Indicator Scout)` (added 2026-05-14 — Roser + Ritchie OWID-style coverage strategist, upstream of Hans, voice-friendly invocation token "Max"), `Citizen User`, `Jony (UI/UX)` (formerly `UI/UX Lead`, renamed 2026-05-14 — Ive + Brichter combined persona, voice-friendly invocation token "Jony"), `Explore`. NOT registered: Election Strategist, Data Architect.
 - `state-tiers.json` has one intentionally empty tier (`fc_horizontal_devolution_share_quintile`) pending RBI Statement 8 ingest. `nonEmptyTierIds()` filters it out so it won't appear in PeerSetFilter dropdowns.
 - `topic-catalogue.json` currently has 3 topics (fiscal/State, energy/Concurrent, elections/Process). No Union-list topic yet → `UnionListBanner` code path is unexercised in browser smoke (component-tested only).
 - "Pick a state first" greyed stubs in current LeftRail are the explicit anti-pattern P3.3c must remove.
