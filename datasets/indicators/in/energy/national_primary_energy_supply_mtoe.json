@@ -1,0 +1,883 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
+      "fetched_at": "2026-05-14T12:20:42Z",
+      "name": "ICED — State-wise Deep Dive (NITI Aayog)",
+      "authority": "NITI Aayog (India Climate & Energy Dashboard)"
+    }
+  ],
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (national)",
+    "temporal": "2005-04..2024-04",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "energy/national_primary_energy_supply_mtoe",
+    "title": "National primary energy supply by source",
+    "description": "Total primary energy supply (TPES) for India, broken down by source (coal, oil, gas, nuclear, hydro, renewables). Measured in million tonnes of oil equivalent (mtoe). From NITI Aayog ICED dashboard, sourced from MoSPI Energy Statistics India.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "count",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "mtoe",
+    "icon": "flame",
+    "attribution_geography": "where_consumed",
+    "comparability": "comparable_across_states",
+    "implementing_authority": "centre",
+    "methodology_vintage": "MoSPI Energy Statistics India series (composed by ICED)",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute"
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 38.35,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 8.86,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 205.63,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 4.49,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 0.59,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 121.95,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 380.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 40.01,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 9.8,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 216.97,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 4.85,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 0.87,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 128.71,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 401.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 42.17,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 10.67,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 233.52,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 4.37,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 2.28,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 136.35,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 429.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 42.26,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 9.74,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 252.93,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 3.83,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 2.68,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 143.02,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 454.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 57.81,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 9.19,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 280.9,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 4.86,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 3.12,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 155.79,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 512.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 62.72,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 9.84,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 279.3,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 6.85,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 3.71,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 159.6,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 522.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 63.67,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 11.24,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 304.78,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 8.41,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 4.56,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 165.63,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 558.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 56.37,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 9.79,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 326.34,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 8.57,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 5.17,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 177.54,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 584.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 50.94,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 11.61,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 340.19,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 8.92,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 5.8,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 177.7,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 595.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 49.48,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 11.13,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 384.39,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 9.41,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 7.02,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 188.12,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 650.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 49.4,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 10.45,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 387.66,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 9.75,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 7.65,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 209.43,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 674.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 53.22,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 10.54,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 385.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 9.88,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 7.21,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 226.09,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 692.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 56.92,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 10.86,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 396.19,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 9.99,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 8.96,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 230.25,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 713.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 58.82,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 11.62,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 431.03,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 9.85,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 11.22,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 238.57,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 761.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 60.63,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 13.43,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 435.13,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 12.11,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 12.44,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 237.81,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 772.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 58.93,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 12.95,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 407.81,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 11.21,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 13.28,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 213.99,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 718.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 62.28,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 13.07,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 429.88,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 12.28,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 15.28,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 218.87,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 752.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 58.36,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 13.97,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 490.3,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 11.95,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 18.25,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 252.91,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 846.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 65.43,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 11.55,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 547.43,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 12.49,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 20.17,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 257.06,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 914.0,
+      "facet": "total"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 68.75,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 12.82,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 554.25,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 14.77,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 23.03,
+      "facet": "renewables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 262.88,
+      "facet": "oil"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 936.0,
+      "facet": "total"
+    }
+  ]
+}

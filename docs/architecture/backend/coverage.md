@@ -76,6 +76,14 @@ align election cells to year buckets:
 - The event-first cohort tables (`## 2b`) preserve the date dimension; §2a
   and §2b answer different questions on the same data and both ship.
 
+The §2a row also lists every on-disk `event_id` for that state (newest →
+oldest) in a single "On-disk event_ids" column, instead of separate
+"Most recent" / "Oldest" columns. Reason: when a state has 3 of N possible
+cycles ingested, the operator needs to see *which* cycles are present to
+chase the missing ones — endpoints alone don't reveal interior gaps. The
+column is for human triage, not for downstream consumers (no parser depends
+on it).
+
 ## What the report does NOT do
 
 - **It does not validate schemas.** That's `python -m yen_gov validate`. A

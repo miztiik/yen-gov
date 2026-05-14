@@ -1,0 +1,104 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
+      "fetched_at": "2026-05-14T12:20:42Z",
+      "name": "ICED — State-wise Deep Dive (NITI Aayog)",
+      "authority": "NITI Aayog (India Climate & Energy Dashboard)"
+    }
+  ],
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (national)",
+    "temporal": "2026-05-14",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "energy/national_renewable_potential_vs_installed_mw",
+    "title": "Renewable energy: installed vs potential capacity (national)",
+    "description": "India's installed renewable capacity compared with assessed potential, by source (Hydro, Wind, Solar, Small-Hydro, Biomass). The `facet` field encodes 'source | capacity_type' where capacity_type is 'installed capacity' or 'potential capacity'. Potential figures are MNRE/CEA assessed estimates (resource potential at typical conditions). Snapshot ingested from NITI Aayog ICED.",
+    "entity_kind": "country",
+    "time_grain": "date",
+    "value_kind": "count",
+    "direction": "higher_is_better",
+    "scale_hint": "log",
+    "unit": "MW",
+    "icon": "leaf",
+    "attribution_geography": "where_produced",
+    "comparability": "comparable_across_states",
+    "implementing_authority": "centre",
+    "methodology_vintage": "MNRE potential assessments + CEA installed capacity (composed by ICED). Reference date approximated to file ingest date.",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute",
+    "notes": "Snapshot."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2026-05-14",
+      "value": 309690.0,
+      "facet": "hydro | potential capacity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2026-05-14",
+      "value": 51414.66,
+      "facet": "hydro | installed capacity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2026-05-14",
+      "value": 1163856.0,
+      "facet": "wind | potential capacity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2026-05-14",
+      "value": 56094.84,
+      "facet": "wind | installed capacity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2026-05-14",
+      "value": 3343350.0,
+      "facet": "solar | potential capacity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2026-05-14",
+      "value": 150260.7,
+      "facet": "solar | installed capacity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2026-05-14",
+      "value": 42263.0,
+      "facet": "bio power | potential capacity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2026-05-14",
+      "value": 11746.53,
+      "facet": "bio power | installed capacity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2026-05-14",
+      "value": 21133.61,
+      "facet": "small-hydro | potential capacity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2026-05-14",
+      "value": 5171.36,
+      "facet": "small-hydro | installed capacity"
+    }
+  ]
+}

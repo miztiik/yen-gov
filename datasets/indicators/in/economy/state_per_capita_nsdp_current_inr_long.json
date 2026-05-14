@@ -1,0 +1,5061 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/09T_2908202582956A1D380840F5870B18841EEEF815.XLSX",
+      "fetched_at": "2026-05-14T18:00:00Z",
+      "name": "RBI Handbook of Statistics on Indian Economy 2024-25 - Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices)",
+      "authority": "Reserve Bank of India (compiled from National Statistics Office, MoSPI)"
+    },
+    {
+      "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy",
+      "fetched_at": "2026-05-14T18:00:00Z",
+      "name": "RBI Handbook of Statistics on Indian Economy - landing page",
+      "authority": "Reserve Bank of India"
+    }
+  ],
+  "license": {
+    "id": "RBI-publication",
+    "name": "Reserve Bank of India publication (open for non-commercial use with attribution)",
+    "url": "https://www.rbi.org.in/Scripts/Disclaimer.aspx",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (states + UTs); 34 entities",
+    "temporal": "2000-04..2024-04",
+    "admin_level": "state"
+  },
+  "indicator": {
+    "id": "economy/state_per_capita_nsdp_current_inr_long",
+    "title": "State per-capita NSDP (current prices, long series)",
+    "description": "Per-capita Net State Domestic Product (current prices), 2000-01 -> 2024-25 (25 fiscal years), spliced across MoSPI's 1999-2000, 2004-05, and 2011-12 base years. Long-history sibling of `economy/state_per_capita_nsdp_current_inr` (which covers 2004-05 -> 2023-24 from ICED at the 2011-12 base only). Use this artifact when you need depth; use the ICED sibling when you need single-base purity.",
+    "entity_kind": "state",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "higher_is_better",
+    "scale_hint": "linear",
+    "unit": "INR",
+    "icon": "trending-up",
+    "attribution_geography": "where_resident",
+    "comparability": "comparable_with_normalisation",
+    "implementing_authority": "state",
+    "methodology_vintage": "MoSPI multi-base spliced (1993-94 / 1999-2000 / 2004-05 / 2011-12); RBI Handbook 2024-25 edition",
+    "notes": "Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 9. RBI's per-capita series begins in 2000-01 (no 1993-94 base section here). All-India per-capita NNI (IN) included as the national reference line.",
+    "series_breaks": [
+      {
+        "at_time": "1999-04",
+        "kind": "rebase",
+        "note": "MoSPI rebase: 1993-94 -> 1999-2000 base."
+      },
+      {
+        "at_time": "2004-04",
+        "kind": "rebase",
+        "note": "MoSPI rebase: 1999-2000 -> 2004-05 base."
+      },
+      {
+        "at_time": "2011-04",
+        "kind": "definition_change",
+        "note": "MoSPI rebase to 2011-12 base AND switched headline aggregate from 'NSDP at factor cost' (pre-2011-12) to 'NSDP at basic prices' (2011-12 onwards). Growth rates spanning 2010-11 -> 2011-12 are not strictly comparable."
+      },
+      {
+        "at_time": "2014-04",
+        "kind": "coverage_change",
+        "note": "Telangana carved out of Andhra Pradesh on 2 June 2014. RBI back-projects S29 (Telangana) to 2011-12 by carving from undivided AP; pre-2014-15 S29 values are MoSPI back-estimates, not original state DES figures. S01 (residual Andhra Pradesh) is reported on the post-bifurcation footprint from 2011-12 too."
+      },
+      {
+        "at_time": "2019-04",
+        "kind": "coverage_change",
+        "note": "J&K reorganisation (Aug 2019): U08 series from 2019-20 onwards covers UT of Jammu & Kashmir only (Ladakh not separately reported in this RBI table)."
+      }
+    ]
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": 16688.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2001-04",
+      "value": 17782.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2002-04",
+      "value": 18885.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2003-04",
+      "value": 20871.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2004-04",
+      "value": 24143.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 27131.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 31206.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 35825.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 40775.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 46249.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 54021.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 63462.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 70983.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 79118.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 86647.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 94797.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 104880.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 115224.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 125946.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 132341.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 127244.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 150906.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 169145.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 188892.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 205324.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2000-04",
+      "value": 17195.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2001-04",
+      "value": 18573.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2002-04",
+      "value": 19434.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2003-04",
+      "value": 21931.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2004-04",
+      "value": 25959.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2005-04",
+      "value": 28223.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2006-04",
+      "value": 32961.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2007-04",
+      "value": 39780.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2008-04",
+      "value": 44376.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2009-04",
+      "value": 50515.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2010-04",
+      "value": 58733.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2011-04",
+      "value": 69000.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2012-04",
+      "value": 74687.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2013-04",
+      "value": 82870.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2014-04",
+      "value": 93903.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2015-04",
+      "value": 108002.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2016-04",
+      "value": 120676.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2017-04",
+      "value": 138299.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2018-04",
+      "value": 154031.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2019-04",
+      "value": 160341.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2020-04",
+      "value": 168063.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2021-04",
+      "value": 193703.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2022-04",
+      "value": 219917.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2023-04",
+      "value": 237951.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2024-04",
+      "value": 266240.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2000-04",
+      "value": 15260.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2001-04",
+      "value": 17664.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2002-04",
+      "value": 17124.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2003-04",
+      "value": 19322.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2004-04",
+      "value": 26721.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2005-04",
+      "value": 28171.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2006-04",
+      "value": 30132.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2007-04",
+      "value": 34466.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2008-04",
+      "value": 39726.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2009-04",
+      "value": 51068.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2010-04",
+      "value": 60961.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2011-04",
+      "value": 73540.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2012-04",
+      "value": 82626.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2013-04",
+      "value": 94135.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2014-04",
+      "value": 114789.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2015-04",
+      "value": 116985.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2016-04",
+      "value": 124129.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2017-04",
+      "value": 138836.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2018-04",
+      "value": 155103.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2019-04",
+      "value": 182171.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2020-04",
+      "value": 181537.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2021-04",
+      "value": 190851.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2022-04",
+      "value": 199543.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2023-04",
+      "value": 220209.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2000-04",
+      "value": 12803.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2001-04",
+      "value": 13059.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2002-04",
+      "value": 14421.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2003-04",
+      "value": 15487.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2004-04",
+      "value": 16782.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2005-04",
+      "value": 18396.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2006-04",
+      "value": 19737.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2007-04",
+      "value": 21290.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2008-04",
+      "value": 24099.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2009-04",
+      "value": 28383.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2010-04",
+      "value": 33087.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2011-04",
+      "value": 41142.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2012-04",
+      "value": 44599.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2013-04",
+      "value": 49734.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2014-04",
+      "value": 52895.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2015-04",
+      "value": 60817.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2016-04",
+      "value": 66330.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2017-04",
+      "value": 75151.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2018-04",
+      "value": 81034.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2019-04",
+      "value": 90123.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2020-04",
+      "value": 86947.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2021-04",
+      "value": 103371.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2022-04",
+      "value": 119192.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2023-04",
+      "value": 139783.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2024-04",
+      "value": 154222.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2000-04",
+      "value": 6415.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2001-04",
+      "value": 6200.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2002-04",
+      "value": 6930.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2003-04",
+      "value": 6852.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2004-04",
+      "value": 7914.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2005-04",
+      "value": 8223.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2006-04",
+      "value": 9967.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2007-04",
+      "value": 11051.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2008-04",
+      "value": 13728.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2009-04",
+      "value": 15457.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2010-04",
+      "value": 19111.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2011-04",
+      "value": 21750.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2012-04",
+      "value": 24487.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2013-04",
+      "value": 26948.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2014-04",
+      "value": 28671.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2015-04",
+      "value": 30404.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2016-04",
+      "value": 34045.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2017-04",
+      "value": 36850.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2018-04",
+      "value": 40715.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2019-04",
+      "value": 44175.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2020-04",
+      "value": 42128.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2021-04",
+      "value": 47296.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2022-04",
+      "value": 53401.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2023-04",
+      "value": 60180.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2000-04",
+      "value": 43735.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2001-04",
+      "value": 44110.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2002-04",
+      "value": 48839.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2003-04",
+      "value": 54577.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2004-04",
+      "value": 76968.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2005-04",
+      "value": 84721.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2006-04",
+      "value": 94882.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2007-04",
+      "value": 108708.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2008-04",
+      "value": 135966.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2009-04",
+      "value": 149164.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2010-04",
+      "value": 168024.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2011-04",
+      "value": 259444.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2012-04",
+      "value": 234354.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2013-04",
+      "value": 215776.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2014-04",
+      "value": 289185.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2015-04",
+      "value": 334576.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2016-04",
+      "value": 378953.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2017-04",
+      "value": 411740.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2018-04",
+      "value": 423716.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2019-04",
+      "value": 435949.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2020-04",
+      "value": 423047.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2021-04",
+      "value": 459094.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2022-04",
+      "value": 532854.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2023-04",
+      "value": 585953.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2000-04",
+      "value": 18392.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2001-04",
+      "value": 19823.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2002-04",
+      "value": 22683.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2003-04",
+      "value": 26922.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2004-04",
+      "value": 32021.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2005-04",
+      "value": 37780.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2006-04",
+      "value": 43395.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2007-04",
+      "value": 50016.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2008-04",
+      "value": 55068.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2009-04",
+      "value": 64097.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2010-04",
+      "value": 77485.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2011-04",
+      "value": 87481.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2012-04",
+      "value": 102826.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2013-04",
+      "value": 113139.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2014-04",
+      "value": 127017.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2015-04",
+      "value": 139254.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2016-04",
+      "value": 156295.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2017-04",
+      "value": 176961.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2018-04",
+      "value": 197457.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2019-04",
+      "value": 212428.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2020-04",
+      "value": 207324.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2021-04",
+      "value": 241584.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2022-04",
+      "value": 272451.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2023-04",
+      "value": 297722.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2000-04",
+      "value": 25583.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2001-04",
+      "value": 28022.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2002-04",
+      "value": 30433.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2003-04",
+      "value": 34085.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2004-04",
+      "value": 37972.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2005-04",
+      "value": 42309.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2006-04",
+      "value": 49261.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2007-04",
+      "value": 56917.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2008-04",
+      "value": 67405.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2009-04",
+      "value": 82037.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2010-04",
+      "value": 93852.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2011-04",
+      "value": 106085.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2012-04",
+      "value": 121269.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2013-04",
+      "value": 137770.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2014-04",
+      "value": 147382.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2015-04",
+      "value": 164963.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2016-04",
+      "value": 184982.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2017-04",
+      "value": 208437.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2018-04",
+      "value": 223022.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2019-04",
+      "value": 232530.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2020-04",
+      "value": 225137.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2021-04",
+      "value": 265163.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2022-04",
+      "value": 289213.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2023-04",
+      "value": 319363.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2024-04",
+      "value": 353182.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2000-04",
+      "value": 22795.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2001-04",
+      "value": 24608.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2002-04",
+      "value": 26627.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2003-04",
+      "value": 28333.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2004-04",
+      "value": 33348.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2005-04",
+      "value": 36949.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2006-04",
+      "value": 40393.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2007-04",
+      "value": 43966.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2008-04",
+      "value": 49903.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2009-04",
+      "value": 58402.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2010-04",
+      "value": 68297.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2011-04",
+      "value": 87721.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2012-04",
+      "value": 99730.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2013-04",
+      "value": 114095.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2014-04",
+      "value": 123299.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2015-04",
+      "value": 135512.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2016-04",
+      "value": 150290.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2017-04",
+      "value": 165497.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2018-04",
+      "value": 174804.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2019-04",
+      "value": 186559.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2020-04",
+      "value": 173565.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2021-04",
+      "value": 193392.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2022-04",
+      "value": 214489.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2023-04",
+      "value": 234782.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2024-04",
+      "value": 257212.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2000-04",
+      "value": 18344.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2001-04",
+      "value": 18547.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2002-04",
+      "value": 19621.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2003-04",
+      "value": 20901.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2004-04",
+      "value": 26882.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2005-04",
+      "value": 31239.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2006-04",
+      "value": 35981.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2007-04",
+      "value": 42419.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2008-04",
+      "value": 48084.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2009-04",
+      "value": 51364.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2010-04",
+      "value": 62251.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2011-04",
+      "value": 90263.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2012-04",
+      "value": 102319.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2013-04",
+      "value": 118829.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2014-04",
+      "value": 130024.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2015-04",
+      "value": 148108.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2016-04",
+      "value": 169898.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2017-04",
+      "value": 185840.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2018-04",
+      "value": 205245.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2019-04",
+      "value": 222141.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2020-04",
+      "value": 221683.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2021-04",
+      "value": 268963.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2022-04",
+      "value": 310325.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2023-04",
+      "value": 339813.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2024-04",
+      "value": 380906.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2000-04",
+      "value": 20094.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2001-04",
+      "value": 21257.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2002-04",
+      "value": 23484.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2003-04",
+      "value": 25999.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2004-04",
+      "value": 32351.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2005-04",
+      "value": 36958.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2006-04",
+      "value": 41318.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2007-04",
+      "value": 46865.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2008-04",
+      "value": 54560.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2009-04",
+      "value": 62114.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2010-04",
+      "value": 69943.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2011-04",
+      "value": 97912.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2012-04",
+      "value": 110314.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2013-04",
+      "value": 123388.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2014-04",
+      "value": 135537.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2015-04",
+      "value": 148133.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2016-04",
+      "value": 166246.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2017-04",
+      "value": 183252.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2018-04",
+      "value": 205437.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2019-04",
+      "value": 208879.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2020-04",
+      "value": 194432.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2021-04",
+      "value": 230280.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2022-04",
+      "value": 252338.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2023-04",
+      "value": 279751.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2000-04",
+      "value": 11862.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2001-04",
+      "value": 12697.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2002-04",
+      "value": 12303.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2003-04",
+      "value": 14306.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2004-04",
+      "value": 15442.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2005-04",
+      "value": 16631.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2006-04",
+      "value": 19028.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2007-04",
+      "value": 20935.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2008-04",
+      "value": 25278.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2009-04",
+      "value": 28651.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2010-04",
+      "value": 32453.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2011-04",
+      "value": 38497.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2012-04",
+      "value": 44773.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2013-04",
+      "value": 51849.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2014-04",
+      "value": 55678.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2015-04",
+      "value": 62080.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2016-04",
+      "value": 74324.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2017-04",
+      "value": 81966.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2018-04",
+      "value": 92337.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2019-04",
+      "value": 101909.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2020-04",
+      "value": 101958.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2021-04",
+      "value": 117402.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2022-04",
+      "value": 127947.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2023-04",
+      "value": 139713.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2024-04",
+      "value": 152615.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2000-04",
+      "value": 22777.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2001-04",
+      "value": 24035.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2002-04",
+      "value": 26015.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2003-04",
+      "value": 29139.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2004-04",
+      "value": 36077.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2005-04",
+      "value": 41965.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2006-04",
+      "value": 49831.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2007-04",
+      "value": 57760.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2008-04",
+      "value": 62234.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2009-04",
+      "value": 69765.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2010-04",
+      "value": 84858.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2011-04",
+      "value": 99597.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2012-04",
+      "value": 112092.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2013-04",
+      "value": 125261.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2014-04",
+      "value": 132836.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2015-04",
+      "value": 146815.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2016-04",
+      "value": 163726.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2017-04",
+      "value": 172663.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2018-04",
+      "value": 182865.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2019-04",
+      "value": 189843.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2020-04",
+      "value": 182454.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2021-04",
+      "value": 219620.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2022-04",
+      "value": 252289.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2023-04",
+      "value": 278681.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2024-04",
+      "value": 309340.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2000-04",
+      "value": 12369.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2001-04",
+      "value": 12970.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2002-04",
+      "value": 13250.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2003-04",
+      "value": 14728.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2004-04",
+      "value": 18547.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2005-04",
+      "value": 20251.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2006-04",
+      "value": 21220.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2007-04",
+      "value": 22820.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2008-04",
+      "value": 24413.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2009-04",
+      "value": 26621.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2010-04",
+      "value": 28336.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2011-04",
+      "value": 39762.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2012-04",
+      "value": 41230.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2013-04",
+      "value": 47798.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2014-04",
+      "value": 52717.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2015-04",
+      "value": 55447.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2016-04",
+      "value": 59345.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2017-04",
+      "value": 71507.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2018-04",
+      "value": 73795.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2019-04",
+      "value": 78574.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2020-04",
+      "value": 75784.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2021-04",
+      "value": 98826.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2022-04",
+      "value": 111730.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2023-04",
+      "value": 128925.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2000-04",
+      "value": 15657.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2001-04",
+      "value": 17241.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2002-04",
+      "value": 18208.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2003-04",
+      "value": 19702.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2004-04",
+      "value": 23079.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2005-04",
+      "value": 24885.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2006-04",
+      "value": 28940.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2007-04",
+      "value": 31602.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2008-04",
+      "value": 36992.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2009-04",
+      "value": 38819.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2010-04",
+      "value": 43766.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2011-04",
+      "value": 59794.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2012-04",
+      "value": 64477.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2013-04",
+      "value": 66281.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2014-04",
+      "value": 66485.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2015-04",
+      "value": 71594.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2016-04",
+      "value": 77585.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2017-04",
+      "value": 82457.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2018-04",
+      "value": 88954.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2019-04",
+      "value": 95422.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2020-04",
+      "value": 90751.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2021-04",
+      "value": 107971.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2022-04",
+      "value": 123896.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2023-04",
+      "value": 136948.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2024-04",
+      "value": 149891.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2000-04",
+      "value": 17826.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2001-04",
+      "value": 19430.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2002-04",
+      "value": 20896.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2003-04",
+      "value": 21963.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2004-04",
+      "value": 24662.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2005-04",
+      "value": 26698.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2006-04",
+      "value": 28764.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2007-04",
+      "value": 32488.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2008-04",
+      "value": 38582.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2009-04",
+      "value": 42715.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2010-04",
+      "value": 50956.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2011-04",
+      "value": 57654.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2012-04",
+      "value": 65013.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2013-04",
+      "value": 77584.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2014-04",
+      "value": 103049.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2015-04",
+      "value": 114055.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2016-04",
+      "value": 127107.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2017-04",
+      "value": 155222.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2018-04",
+      "value": 164708.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2019-04",
+      "value": 195365.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2020-04",
+      "value": 173521.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2021-04",
+      "value": 190965.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2022-04",
+      "value": 215227.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2023-04",
+      "value": 235823.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2000-04",
+      "value": 16253.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2001-04",
+      "value": 18077.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2002-04",
+      "value": 19413.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2003-04",
+      "value": 19806.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2004-04",
+      "value": 30441.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2005-04",
+      "value": 33792.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2006-04",
+      "value": 36568.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2007-04",
+      "value": 39985.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2008-04",
+      "value": 46207.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2009-04",
+      "value": 50263.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2010-04",
+      "value": 55582.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2011-04",
+      "value": 53010.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2012-04",
+      "value": 61225.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2013-04",
+      "value": 71510.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2014-04",
+      "value": 78367.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2015-04",
+      "value": 82466.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2016-04",
+      "value": 91347.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2017-04",
+      "value": 102003.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2018-04",
+      "value": 109198.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2019-04",
+      "value": 122759.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2020-04",
+      "value": 119781.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2021-04",
+      "value": 127225.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2022-04",
+      "value": 140673.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2023-04",
+      "value": 158730.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2000-04",
+      "value": 10453.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2001-04",
+      "value": 11059.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2002-04",
+      "value": 11688.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2003-04",
+      "value": 14169.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2004-04",
+      "value": 17650.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2005-04",
+      "value": 18846.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2006-04",
+      "value": 22237.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2007-04",
+      "value": 27735.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2008-04",
+      "value": 31416.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2009-04",
+      "value": 33029.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2010-04",
+      "value": 39537.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2011-04",
+      "value": 48387.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2012-04",
+      "value": 54762.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2013-04",
+      "value": 60687.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2014-04",
+      "value": 63345.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2015-04",
+      "value": 64835.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2016-04",
+      "value": 77507.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2017-04",
+      "value": 87055.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2018-04",
+      "value": 98005.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2019-04",
+      "value": 104633.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2020-04",
+      "value": 103211.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2021-04",
+      "value": 133768.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2022-04",
+      "value": 143059.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2023-04",
+      "value": 165068.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2024-04",
+      "value": 182548.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2000-04",
+      "value": 27881.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2001-04",
+      "value": 28943.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2002-04",
+      "value": 29309.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2003-04",
+      "value": 31261.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2004-04",
+      "value": 33103.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2005-04",
+      "value": 36199.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2006-04",
+      "value": 41883.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2007-04",
+      "value": 49380.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2008-04",
+      "value": 55315.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2009-04",
+      "value": 61805.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2010-04",
+      "value": 69582.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2011-04",
+      "value": 85577.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2012-04",
+      "value": 94318.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2013-04",
+      "value": 103831.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2014-04",
+      "value": 108970.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2015-04",
+      "value": 118858.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2016-04",
+      "value": 128780.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2017-04",
+      "value": 139835.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2018-04",
+      "value": 149974.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2019-04",
+      "value": 154385.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2020-04",
+      "value": 150620.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2021-04",
+      "value": 170276.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2022-04",
+      "value": 182645.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2023-04",
+      "value": 195031.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2024-04",
+      "value": 209452.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2000-04",
+      "value": 13020.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2001-04",
+      "value": 14098.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2002-04",
+      "value": 13128.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2003-04",
+      "value": 16507.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2004-04",
+      "value": 18565.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2005-04",
+      "value": 20275.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2006-04",
+      "value": 24055.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2007-04",
+      "value": 26882.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2008-04",
+      "value": 31279.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2009-04",
+      "value": 35254.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2010-04",
+      "value": 44644.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2011-04",
+      "value": 57192.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2012-04",
+      "value": 63658.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2013-04",
+      "value": 69480.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2014-04",
+      "value": 76429.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2015-04",
+      "value": 83426.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2016-04",
+      "value": 91924.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2017-04",
+      "value": 98698.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2018-04",
+      "value": 106604.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2019-04",
+      "value": 115534.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2020-04",
+      "value": 114925.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2021-04",
+      "value": 134143.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2022-04",
+      "value": 150020.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2023-04",
+      "value": 166647.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2024-04",
+      "value": 185053.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2000-04",
+      "value": 16077.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2001-04",
+      "value": 17324.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2002-04",
+      "value": 19428.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2003-04",
+      "value": 21476.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2004-04",
+      "value": 26690.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2005-04",
+      "value": 30252.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2006-04",
+      "value": 32199.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2007-04",
+      "value": 36448.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2008-04",
+      "value": 46983.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2009-04",
+      "value": 90749.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2010-04",
+      "value": 108972.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2011-04",
+      "value": 158667.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2012-04",
+      "value": 174183.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2013-04",
+      "value": 194624.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2014-04",
+      "value": 214148.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2015-04",
+      "value": 245987.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2016-04",
+      "value": 280729.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2017-04",
+      "value": 349163.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2018-04",
+      "value": 375773.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2019-04",
+      "value": 412627.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2020-04",
+      "value": 415045.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2021-04",
+      "value": 466518.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2022-04",
+      "value": 520466.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2023-04",
+      "value": 587743.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2000-04",
+      "value": 20972.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2001-04",
+      "value": 20942.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2002-04",
+      "value": 21830.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2003-04",
+      "value": 24087.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2004-04",
+      "value": 30062.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2005-04",
+      "value": 35243.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2006-04",
+      "value": 42288.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2007-04",
+      "value": 47606.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2008-04",
+      "value": 54137.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2009-04",
+      "value": 64338.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2010-04",
+      "value": 78473.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2011-04",
+      "value": 93112.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2012-04",
+      "value": 105340.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2013-04",
+      "value": 116960.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2014-04",
+      "value": 129494.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2015-04",
+      "value": 142028.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2016-04",
+      "value": 156595.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2017-04",
+      "value": 175276.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2018-04",
+      "value": 194373.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2019-04",
+      "value": 206165.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2020-04",
+      "value": 209628.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2021-04",
+      "value": 242339.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2022-04",
+      "value": 277802.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2023-04",
+      "value": 315220.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2024-04",
+      "value": 358027.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2000-04",
+      "value": 15983.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2001-04",
+      "value": 18368.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2002-04",
+      "value": 19059.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2003-04",
+      "value": 21138.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2004-04",
+      "value": 24394.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2005-04",
+      "value": 26668.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2006-04",
+      "value": 29081.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2007-04",
+      "value": 31111.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2008-04",
+      "value": 35587.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2009-04",
+      "value": 39815.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2010-04",
+      "value": 46050.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2011-04",
+      "value": 47155.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2012-04",
+      "value": 52574.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2013-04",
+      "value": 61815.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2014-04",
+      "value": 69857.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2015-04",
+      "value": 84267.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2016-04",
+      "value": 91596.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2017-04",
+      "value": 100444.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2018-04",
+      "value": 113016.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2019-04",
+      "value": 121456.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2020-04",
+      "value": 118401.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2021-04",
+      "value": 137032.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2022-04",
+      "value": 154256.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2023-04",
+      "value": 176943.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2000-04",
+      "value": 9828.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2001-04",
+      "value": 9995.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2002-04",
+      "value": 10648.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2003-04",
+      "value": 11458.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2004-04",
+      "value": 12950.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2005-04",
+      "value": 14221.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2006-04",
+      "value": 16013.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2007-04",
+      "value": 17785.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2008-04",
+      "value": 20422.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2009-04",
+      "value": 23671.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2010-04",
+      "value": 26698.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2011-04",
+      "value": 32002.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2012-04",
+      "value": 35812.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2013-04",
+      "value": 40124.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2014-04",
+      "value": 42267.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2015-04",
+      "value": 47118.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2016-04",
+      "value": 52671.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2017-04",
+      "value": 57944.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2018-04",
+      "value": 62350.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2019-04",
+      "value": 65660.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2020-04",
+      "value": 61598.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2021-04",
+      "value": 74055.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2022-04",
+      "value": 83057.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2023-04",
+      "value": 93422.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2000-04",
+      "value": 16583.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2001-04",
+      "value": 17862.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2002-04",
+      "value": 18777.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2003-04",
+      "value": 20873.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2004-04",
+      "value": 22649.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2005-04",
+      "value": 24720.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2006-04",
+      "value": 27823.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2007-04",
+      "value": 31567.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2008-04",
+      "value": 35487.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2009-04",
+      "value": 41039.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2010-04",
+      "value": 47245.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2011-04",
+      "value": 51543.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2012-04",
+      "value": 58195.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2013-04",
+      "value": 65932.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2014-04",
+      "value": 68876.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2015-04",
+      "value": 75992.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2016-04",
+      "value": 82291.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2017-04",
+      "value": 91401.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2018-04",
+      "value": 103920.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2019-04",
+      "value": 110316.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2020-04",
+      "value": 105108.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2021-04",
+      "value": 122883.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2022-04",
+      "value": 137909.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2023-04",
+      "value": 149515.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2024-04",
+      "value": 163467.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2000-04",
+      "value": 10744.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2001-04",
+      "value": 12170.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2002-04",
+      "value": 13002.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2003-04",
+      "value": 15515.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2004-04",
+      "value": 18559.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2005-04",
+      "value": 20117.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2006-04",
+      "value": 24800.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2007-04",
+      "value": 29385.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2008-04",
+      "value": 34360.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2009-04",
+      "value": 34366.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2010-04",
+      "value": 41165.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2011-04",
+      "value": 55177.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2012-04",
+      "value": 60849.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2013-04",
+      "value": 69880.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2014-04",
+      "value": 72936.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2015-04",
+      "value": 72991.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2016-04",
+      "value": 83285.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2017-04",
+      "value": 88793.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2018-04",
+      "value": 102024.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2019-04",
+      "value": 106611.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2020-04",
+      "value": 106117.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2021-04",
+      "value": 123493.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2022-04",
+      "value": 134996.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2023-04",
+      "value": 148922.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2024-04",
+      "value": 162870.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2000-04",
+      "value": 10345.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2001-04",
+      "value": 11034.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2002-04",
+      "value": 11835.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2003-04",
+      "value": 12951.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2004-04",
+      "value": 18510.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2005-04",
+      "value": 18326.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2006-04",
+      "value": 19789.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2007-04",
+      "value": 24789.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2008-04",
+      "value": 25046.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2009-04",
+      "value": 28223.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2010-04",
+      "value": 34721.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2011-04",
+      "value": 41254.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2012-04",
+      "value": 47360.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2013-04",
+      "value": 50006.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2014-04",
+      "value": 57301.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2015-04",
+      "value": 52754.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2016-04",
+      "value": 60018.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2017-04",
+      "value": 67484.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2018-04",
+      "value": 75421.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2019-04",
+      "value": 75016.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2020-04",
+      "value": 69963.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2021-04",
+      "value": 88500.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2022-04",
+      "value": 96449.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2023-04",
+      "value": 105274.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2000-04",
+      "value": 15285.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2001-04",
+      "value": 16232.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2002-04",
+      "value": 18636.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2003-04",
+      "value": 20312.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2004-04",
+      "value": 24726.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2005-04",
+      "value": 29441.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2006-04",
+      "value": 35111.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2007-04",
+      "value": 42619.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2008-04",
+      "value": 50657.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2009-04",
+      "value": 62757.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2010-04",
+      "value": 73819.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2011-04",
+      "value": 100314.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2012-04",
+      "value": 113654.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2013-04",
+      "value": 126356.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2014-04",
+      "value": 136099.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2015-04",
+      "value": 147936.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2016-04",
+      "value": 161752.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2017-04",
+      "value": 180858.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2018-04",
+      "value": 186207.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2019-04",
+      "value": 190558.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2020-04",
+      "value": 174526.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2021-04",
+      "value": 194670.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2022-04",
+      "value": 219850.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2023-04",
+      "value": 246178.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2024-04",
+      "value": 274064.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2004-04",
+      "value": 24409.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2005-04",
+      "value": 28987.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2006-04",
+      "value": 33381.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2007-04",
+      "value": 39652.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2008-04",
+      "value": 49114.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2009-04",
+      "value": 51955.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2010-04",
+      "value": 66951.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2011-04",
+      "value": 91121.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2012-04",
+      "value": 101007.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2013-04",
+      "value": 112162.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2014-04",
+      "value": 124104.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2015-04",
+      "value": 140840.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2016-04",
+      "value": 159395.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2017-04",
+      "value": 179358.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2018-04",
+      "value": 209848.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2019-04",
+      "value": 231326.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2020-04",
+      "value": 225734.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2021-04",
+      "value": 269000.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2022-04",
+      "value": 314066.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2023-04",
+      "value": 346457.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2024-04",
+      "value": 379751.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2000-04",
+      "value": 25047.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2001-04",
+      "value": 26910.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2002-04",
+      "value": 29830.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2003-04",
+      "value": 32670.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2004-04",
+      "value": 40921.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2005-04",
+      "value": 44754.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2006-04",
+      "value": 53778.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2007-04",
+      "value": 61430.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2008-04",
+      "value": 69177.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2009-04",
+      "value": 78936.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2010-04",
+      "value": 80558.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2011-04",
+      "value": 89100.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2012-04",
+      "value": 98777.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2013-04",
+      "value": 111087.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2014-04",
+      "value": 126344.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2015-04",
+      "value": 137064.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2016-04",
+      "value": 153904.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2017-04",
+      "value": 178709.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2018-04",
+      "value": 204254.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2019-04",
+      "value": 219653.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2020-04",
+      "value": 205368.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2021-04",
+      "value": 229570.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2022-04",
+      "value": 258142.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2023-04",
+      "value": 275758.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2000-04",
+      "value": 49771.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2001-04",
+      "value": 54836.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2002-04",
+      "value": 63840.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2003-04",
+      "value": 70434.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2004-04",
+      "value": 74173.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2005-04",
+      "value": 84993.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2006-04",
+      "value": 97568.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2007-04",
+      "value": 102980.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2008-04",
+      "value": 108486.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2009-04",
+      "value": 117371.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2010-04",
+      "value": 126651.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2011-04",
+      "value": 158967.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2012-04",
+      "value": 180457.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2013-04",
+      "value": 203356.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2014-04",
+      "value": 212594.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2015-04",
+      "value": 230009.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2016-04",
+      "value": 252236.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2017-04",
+      "value": 280512.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2018-04",
+      "value": 307812.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2019-04",
+      "value": 330703.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2020-04",
+      "value": 290417.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2021-04",
+      "value": 337406.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2022-04",
+      "value": 393384.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2023-04",
+      "value": 430119.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2000-04",
+      "value": 40678.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2001-04",
+      "value": 42375.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2002-04",
+      "value": 45337.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2003-04",
+      "value": 49004.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2004-04",
+      "value": 63877.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2005-04",
+      "value": 72208.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2006-04",
+      "value": 83275.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2007-04",
+      "value": 95241.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2008-04",
+      "value": 111756.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2009-04",
+      "value": 125936.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2010-04",
+      "value": 145129.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2011-04",
+      "value": 185001.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2012-04",
+      "value": 205568.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2013-04",
+      "value": 227900.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2014-04",
+      "value": 247209.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2015-04",
+      "value": 270261.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2016-04",
+      "value": 295558.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2017-04",
+      "value": 318323.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2018-04",
+      "value": 338730.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2019-04",
+      "value": 355798.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2020-04",
+      "value": 322311.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2021-04",
+      "value": 370824.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2022-04",
+      "value": 417217.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2023-04",
+      "value": 459408.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2000-04",
+      "value": 35994.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2001-04",
+      "value": 38704.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2002-04",
+      "value": 44331.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2003-04",
+      "value": 47778.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2004-04",
+      "value": 48302.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2005-04",
+      "value": 67205.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2006-04",
+      "value": 68673.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2007-04",
+      "value": 74201.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2008-04",
+      "value": 79306.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2009-04",
+      "value": 96860.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2010-04",
+      "value": 101072.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2011-04",
+      "value": 119649.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2012-04",
+      "value": 130548.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2013-04",
+      "value": 148147.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2014-04",
+      "value": 146921.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2015-04",
+      "value": 172727.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2016-04",
+      "value": 187356.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2017-04",
+      "value": 198358.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2018-04",
+      "value": 204140.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2019-04",
+      "value": 217937.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2020-04",
+      "value": 208862.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2021-04",
+      "value": 231557.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2022-04",
+      "value": 245759.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2023-04",
+      "value": 267124.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2024-04",
+      "value": 285072.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2000-04",
+      "value": 14268.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2001-04",
+      "value": 15019.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2002-04",
+      "value": 16739.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2003-04",
+      "value": 17991.0,
+      "vintage": "Base 1999-2000"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2004-04",
+      "value": 21734.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2005-04",
+      "value": 23240.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2006-04",
+      "value": 25059.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2007-04",
+      "value": 27448.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2008-04",
+      "value": 30212.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2009-04",
+      "value": 33650.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2010-04",
+      "value": 40089.0,
+      "vintage": "Base 2004-05"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2011-04",
+      "value": 51775.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2012-04",
+      "value": 57279.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2013-04",
+      "value": 61907.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2014-04",
+      "value": 62327.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2015-04",
+      "value": 74950.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2016-04",
+      "value": 78960.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2017-04",
+      "value": 87710.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2018-04",
+      "value": 98738.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2019-04",
+      "value": 101868.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2020-04",
+      "value": 101645.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2021-04",
+      "value": 112898.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2022-04",
+      "value": 126301.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2023-04",
+      "value": 139880.0,
+      "vintage": "Base 2011-12"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2024-04",
+      "value": 154703.0,
+      "vintage": "Base 2011-12"
+    }
+  ]
+}

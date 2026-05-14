@@ -1,0 +1,222 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
+      "fetched_at": "2026-05-14T12:20:42Z",
+      "name": "ICED — State-wise Deep Dive (NITI Aayog)",
+      "authority": "NITI Aayog (India Climate & Energy Dashboard)"
+    }
+  ],
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (states + UTs)",
+    "temporal": "2026-05-14",
+    "admin_level": "state"
+  },
+  "indicator": {
+    "id": "human_development/state_hdi",
+    "title": "Human Development Index (state)",
+    "description": "Sub-national Human Development Index (HDI) by state — a composite of life expectancy, education (mean & expected years of schooling) and per-capita GNI. Snapshot from NITI Aayog ICED dashboard. HDI is a composite index by design; users should consult the underlying components (life expectancy, education attainment, income) when ranking — composite indices necessarily hide trade-offs between dimensions.",
+    "entity_kind": "state",
+    "time_grain": "date",
+    "value_kind": "index",
+    "direction": "higher_is_better",
+    "scale_hint": "linear",
+    "unit": "index (0..1)",
+    "icon": "users",
+    "attribution_geography": "where_resident",
+    "comparability": "comparable_across_states",
+    "implementing_authority": "joint",
+    "methodology_vintage": "UNDP HDR methodology, sub-national application. Snapshot from ICED; reference year not stated in source file (likely 2018-2022 vintage).",
+    "notes": "Reference year not embedded in source file. Treat as a recent-vintage snapshot; do NOT chart growth across two HDI snapshots without confirming both use the same UNDP methodology revision."
+  },
+  "rows": [
+    {
+      "entity_id": "U01",
+      "time": "2026-05-14",
+      "value": 0.707
+    },
+    {
+      "entity_id": "S01",
+      "time": "2026-05-14",
+      "value": 0.648
+    },
+    {
+      "entity_id": "S02",
+      "time": "2026-05-14",
+      "value": 0.684
+    },
+    {
+      "entity_id": "S03",
+      "time": "2026-05-14",
+      "value": 0.651
+    },
+    {
+      "entity_id": "S04",
+      "time": "2026-05-14",
+      "value": 0.551
+    },
+    {
+      "entity_id": "U02",
+      "time": "2026-05-14",
+      "value": 0.827
+    },
+    {
+      "entity_id": "S26",
+      "time": "2026-05-14",
+      "value": 0.629
+    },
+    {
+      "entity_id": "U03",
+      "time": "2026-05-14",
+      "value": 0.662
+    },
+    {
+      "entity_id": "U03",
+      "time": "2026-05-14",
+      "value": 0.695
+    },
+    {
+      "entity_id": "U05",
+      "time": "2026-05-14",
+      "value": 0.839
+    },
+    {
+      "entity_id": "S05",
+      "time": "2026-05-14",
+      "value": 0.806
+    },
+    {
+      "entity_id": "S06",
+      "time": "2026-05-14",
+      "value": 0.698
+    },
+    {
+      "entity_id": "S07",
+      "time": "2026-05-14",
+      "value": 0.724
+    },
+    {
+      "entity_id": "S08",
+      "time": "2026-05-14",
+      "value": 0.761
+    },
+    {
+      "entity_id": "U08",
+      "time": "2026-05-14",
+      "value": 0.663
+    },
+    {
+      "entity_id": "S27",
+      "time": "2026-05-14",
+      "value": 0.618
+    },
+    {
+      "entity_id": "S10",
+      "time": "2026-05-14",
+      "value": 0.706
+    },
+    {
+      "entity_id": "S11",
+      "time": "2026-05-14",
+      "value": 0.775
+    },
+    {
+      "entity_id": "U04",
+      "time": "2026-05-14",
+      "value": 0.687
+    },
+    {
+      "entity_id": "S12",
+      "time": "2026-05-14",
+      "value": 0.616
+    },
+    {
+      "entity_id": "S13",
+      "time": "2026-05-14",
+      "value": 0.75
+    },
+    {
+      "entity_id": "S14",
+      "time": "2026-05-14",
+      "value": 0.686
+    },
+    {
+      "entity_id": "S15",
+      "time": "2026-05-14",
+      "value": 0.704
+    },
+    {
+      "entity_id": "S16",
+      "time": "2026-05-14",
+      "value": 0.747
+    },
+    {
+      "entity_id": "S17",
+      "time": "2026-05-14",
+      "value": 0.678
+    },
+    {
+      "entity_id": "S18",
+      "time": "2026-05-14",
+      "value": 0.649
+    },
+    {
+      "entity_id": "U07",
+      "time": "2026-05-14",
+      "value": 0.752
+    },
+    {
+      "entity_id": "S19",
+      "time": "2026-05-14",
+      "value": 0.738
+    },
+    {
+      "entity_id": "S20",
+      "time": "2026-05-14",
+      "value": 0.638
+    },
+    {
+      "entity_id": "S21",
+      "time": "2026-05-14",
+      "value": 0.764
+    },
+    {
+      "entity_id": "S22",
+      "time": "2026-05-14",
+      "value": 0.738
+    },
+    {
+      "entity_id": "S29",
+      "time": "2026-05-14",
+      "value": 0.705
+    },
+    {
+      "entity_id": "S23",
+      "time": "2026-05-14",
+      "value": 0.667
+    },
+    {
+      "entity_id": "S24",
+      "time": "2026-05-14",
+      "value": 0.592
+    },
+    {
+      "entity_id": "S28",
+      "time": "2026-05-14",
+      "value": 0.758
+    },
+    {
+      "entity_id": "S25",
+      "time": "2026-05-14",
+      "value": 0.674
+    }
+  ]
+}
