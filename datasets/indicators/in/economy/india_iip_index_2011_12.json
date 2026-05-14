@@ -1,0 +1,822 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/industrial-production",
+      "fetched_at": "2026-05-14T23:24:22Z"
+    }
+  ],
+  "coverage": {
+    "spatial": "India (national)",
+    "temporal": "2012-04..2024-04",
+    "admin_level": null
+  },
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "indicator": {
+    "id": "economy/india_iip_index_2011_12",
+    "title": "Index of Industrial Production (IIP), base 2011-12 = 100",
+    "description": "National Index of Industrial Production, faceted by category (sectoral: Mining/Manufacturing/Electricity, plus the General all-industry index, plus use-based: Capital, Consumer durables, Consumer non-durables, Intermediate, Infrastructure, Primary). All values relative to 2011-12 = 100. Annual 2012-13 to 2024-25.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "index",
+    "direction": "higher_is_better",
+    "scale_hint": "linear",
+    "unit": "index (2011-12=100)",
+    "icon": "factory",
+    "attribution_geography": "where_produced",
+    "comparability": "not_comparable_across_states",
+    "implementing_authority": "centre",
+    "methodology_vintage": "MoSPI Central Statistics Office, base 2011-12.",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute",
+    "notes": "Mixed sectoral + use-based facets in one indicator — ICED ships them in the same payload. Renderers should let the user pick which classification (sectoral vs use-based) to compare within."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 100.3,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 104.9,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 106.1,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 104.0,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 103.3,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 105.4,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 105.1,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 104.8,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 94.7,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 100.5,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 96.6,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 110.8,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 110.0,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 110.3,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 106.7,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 111.4,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 109.9,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 108.6,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 94.6,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 102.8,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 95.5,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 115.2,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 114.2,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 126.6,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 111.0,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 117.0,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 116.6,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 112.7,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 93.3,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 106.7,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 98.4,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 119.1,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 117.2,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 133.8,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 114.7,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 120.3,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 118.4,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 115.9,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 97.3,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 112.0,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 101.5,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 122.6,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 126.5,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 141.6,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 120.0,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 125.0,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 122.3,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 121.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 102.5,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 117.5,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 105.6,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 123.6,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 139.9,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 149.2,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 125.3,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 132.0,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 125.1,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 126.6,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 104.9,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 121.8,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 108.4,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 130.4,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 145.5,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 156.9,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 130.1,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 141.7,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 126.2,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 131.5,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 107.9,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 126.1,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 93.3,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 119.0,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 145.3,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 158.4,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 129.0,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 136.6,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 137.7,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 129.6,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 109.6,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 127.0,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 75.9,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 101.2,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 142.1,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 157.6,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 118.1,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 124.7,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 124.7,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 117.2,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 101.0,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 118.1,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 88.7,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 113.8,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 146.7,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 170.1,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 131.6,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 148.2,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 143.9,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 131.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 113.3,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 129.5,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 100.3,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 114.5,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 147.7,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 185.2,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 138.5,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 160.7,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 149.4,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 137.1,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 119.9,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 139.2,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 106.5,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 118.6,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 153.8,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 198.3,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 146.7,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 176.3,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 157.2,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 144.6,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 128.9,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 147.7,
+      "facet": "Primary goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 112.6,
+      "facet": "Capital goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 128.0,
+      "facet": "Consumer durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 151.4,
+      "facet": "Consumer non-durables"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 208.6,
+      "facet": "Electricity"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 152.6,
+      "facet": "General"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 188.2,
+      "facet": "Infrastructure/ construction goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 164.0,
+      "facet": "Intermediate goods"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 150.6,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 132.8,
+      "facet": "Mining & Quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 153.5,
+      "facet": "Primary goods"
+    }
+  ]
+}
