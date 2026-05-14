@@ -1,6 +1,6 @@
 # Long-coverage indicator backlog
 
-**Last Updated**: 2026-05-13
+**Last Updated**: 2026-05-14
 **See also**: [data-provenance](data-provenance.md), [dataset-shapes](dataset-shapes.md), [Holy Law #4](../../CLAUDE.md), per-source docs under [`docs/architecture/backend/`](../architecture/backend/)
 
 This is the **resumability ledger** for the citizen-facing indicator expansion. If work pauses for any reason, this doc plus the per-source subsystem docs are sufficient to resume without rediscovery.
@@ -46,6 +46,19 @@ Ship socio-economic indicators with **as much historical coverage as the source 
 | `energy/installed_capacity_nuclear_mw` | energy | snapshot 2026-03; 35 states/UTs | CEA monthly Executive Summary | `cea_installed_capacity` | Per-state only — central-unallocated nuclear (~1,230 MW) dropped. |
 | `energy/installed_capacity_hydro_mw` | energy | snapshot 2026-03; 35 states/UTs | CEA monthly Executive Summary | `cea_installed_capacity` | Large hydro only; small hydro counts in renewable. |
 | `energy/installed_capacity_renewable_mw` | energy | snapshot 2026-03; 35 states/UTs | CEA monthly Executive Summary | `cea_installed_capacity` | Hydro + RES-MNRE (solar/wind/biomass/small-hydro). |
+| `energy/state_installed_capacity_geographical_mw` | energy | FY16–FY26 (11y) per state, 36 states/UTs + IN | NITI Aayog ICED state-wise deep-dive API | [`iced_state_wise`](../architecture/backend/sources-iced-state-wise.md) | sources-iced-state-wise.md. CryptoJS-encrypted JSON; 11 GETs total. |
+| `energy/state_installed_capacity_with_alloc_mw` | energy | FY16–FY26 (11y) per state | NITI Aayog ICED | `iced_state_wise` | Allocated-shares variant. |
+| `energy/state_rooftop_solar_capacity_mw` | energy | FY18–FY26 (9y) per state | NITI Aayog ICED (← MNRE) | `iced_state_wise` | |
+| `energy/state_electricity_generation_mu` | energy | FY16–FY26 (11y) per state | NITI Aayog ICED (← CEA) | `iced_state_wise` | |
+| `energy/state_electricity_peak_demand_mw` | energy | FY18–FY26 (9y) per state | NITI Aayog ICED (← CEA) | `iced_state_wise` | |
+| `energy/state_electricity_sales_mu` | energy | FY17–FY26 (10y) per state | NITI Aayog ICED (← PFC) | `iced_state_wise` | |
+| `energy/state_atc_losses_pct` | energy | FY17–FY26 (10y) per state | NITI Aayog ICED (← PFC) | `iced_state_wise` | UDAY/RDSS headline distribution-utility metric. |
+| `energy/state_acs_arr_gap_inr_per_kwh` | energy | FY17–FY26 (10y) per state | NITI Aayog ICED (← PFC) | `iced_state_wise` | Negative = surplus. |
+| `economy/state_gdp_constant_2011_12_inr_lakh_crore` | economy | FY16–FY25 (10y) per state | NITI Aayog ICED (← MoSPI) | `iced_state_wise` | New `economy` topic. |
+| `economy/state_gdp_current_inr_lakh_crore` | economy | FY16–FY25 (10y) per state | NITI Aayog ICED (← MoSPI) | `iced_state_wise` | |
+| `economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore` | economy | FY16–FY25 (10y) per state | NITI Aayog ICED (← MoSPI) | `iced_state_wise` | |
+| `economy/state_sectoral_gva_current_inr_lakh_crore` | economy | FY16–FY25 (10y) per state | NITI Aayog ICED (← MoSPI) | `iced_state_wise` | |
+| `demography/state_population_lakhs` | demography | FY16–FY26 (11y) per state | NITI Aayog ICED (← MoSPI inter-censal) | `iced_state_wise` | New `demography` topic. Inter-censal estimates pending next Census. |
 
 ## Wave 3 — In-progress / next
 
@@ -94,3 +107,5 @@ If work pauses:
 - **2026-05-13** Two parsers in the `rbi_*` family by intent — per-state-wide (`rbi_xlsx`) and national-time-series (`rbi_appendix_national`). Folding them would require a layout-mode flag inside every helper. Two modules, one each, costs nothing.
 - **2026-05-13** Same logic applied to a third RBI appendix shape: AppT1 (Major Deficit Indicators) is rows=year + cols=indicator, the transpose of App T2's row=item layout, with %GDP interleaved on alternating rows. It got its own sibling module `rbi_appendix_deficits` rather than a layout-flag matrix on the existing `AppendixSpec`. The bar for a new sibling is "different walking algorithm" (not "different RBI publication").
 - **2026-05-13** Per-state long-history capacity is bounded by what the **publisher** publishes, not by what we choose to ingest. CEA's per-state granularity exists only as monthly snapshots — there is no canonical per-state time-series workbook upstream. "As much history as the source naturally provides" therefore = one snapshot per state for the per-state slice; the long-history macro slice belongs to the RBI Handbook all-India series (Wave 3 #5–#6). The user-stated "~35y target" applies per-source-natural-grain, not per-indicator-id.
+- **2026-05-14** Aggregator dashboards (NITI Aayog ICED) can give the per-state long-history that the original publisher (CEA / MoSPI / PFC) does not publish in time-series form. ICED's state-wise deep-dive returns 9–11 fiscal years × 36 entities × ~13 indicators in a *single* JSON object (post-decryption); the entire archive ships in 11 GETs. This is the cleanest per-state long-coverage source we've found and supersedes the abandoned attempt to stitch ~360 monthly CEA Executive Summary workbooks. New `economy` and `demography` topics were created in the topic catalogue (both `featured: false` pending IA review) to host the GDP/GVA/Population indicators that don't fit `energy` or `fiscal`. See [sources-iced-state-wise.md](../architecture/backend/sources-iced-state-wise.md).
+- **2026-05-14** Client-side AES obfuscation (CryptoJS OpenSSL format with hardcoded passphrase shipped in the SPA bundle) is treated as a recon constant, not a security control: we extract the passphrase from the deobfuscated bundle once and decrypt server-side. The dashboard ships the same key to every browser, the data is GoI-Open-licensed, and our usage is functionally identical to a user opening the dashboard. If the passphrase rotates we re-extract.

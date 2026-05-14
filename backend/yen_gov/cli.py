@@ -1142,3 +1142,51 @@ def ingest_fiscal_rbi_appt1(
         typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
 
 
+@app.command("ingest-iced-state-wise")
+def ingest_iced_state_wise(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+    refresh: bool = typer.Option(
+        False, "--refresh",
+        help=(
+            "Re-fetch every fiscal year from the live API even if cached "
+            "ciphertext already exists at .runtime/raw/iced/. Default: "
+            "use cache when present."
+        ),
+    ),
+    fy: list[str] = typer.Option(
+        None, "--fy",
+        help=(
+            "Restrict to specific fiscal year labels (e.g. --fy 2024-25 "
+            "--fy 2023-24). Default: all 11 FYs from 2015-16 onward."
+        ),
+    ),
+) -> None:
+    """Ingest NITI Aayog ICED state-wise deep-dive -> 13 per-state indicators.
+
+    Hits https://icedapi.niti.gov.in/analytics/stateWiseDeepDive once
+    per fiscal year (11 GETs to cover 2015-16 .. 2025-26). The API
+    returns CryptoJS-encrypted JSON; decryption + parsing live in
+    backend/yen_gov/sources/iced_state_wise. Writes per-state-per-FY
+    fact rows into datasets/indicators/in/{energy,economy,demography}/.
+    """
+    from yen_gov.sources.iced_state_wise import ingest as iced_mod
+
+    schema_dir = root / "datasets" / "schemas"
+    only = tuple(fy) if fy else None
+    result = iced_mod.ingest(
+        repo_root=root, schema_dir=schema_dir, refresh=refresh, only_fys=only,
+    )
+
+    typer.echo("ingest-iced-state-wise: OK")
+    typer.echo(f"  fetched_at: {result.fetched_at.isoformat()}")
+    typer.echo(f"  fiscal years: {', '.join(result.fy_labels)}")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    fys covered:  {r.fy_count}")
+        typer.echo(f"    rows written: {r.row_count}")
+        typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
+
