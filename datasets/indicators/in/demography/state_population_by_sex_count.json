@@ -1,0 +1,3157 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://icedapi.niti.gov.in/economy-demography/demography/demographyActual",
+      "fetched_at": "2026-05-14T22:00:51Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (states + UTs)",
+    "temporal": "1961..2011",
+    "admin_level": "state"
+  },
+  "indicator": {
+    "id": "demography/state_population_by_sex_count",
+    "title": "State population by sex, decennial Census (number of people)",
+    "description": "State-level resident population at each decennial Census, faceted into Male and Female. Six Census points 1961, 1971, 1981, 1991, 2001, 2011. India has not conducted a Census since 2011, so the series stops there — no projected values are mixed in. Lets the chart compute sex-ratio (females per 1000 males) downstream, one of the few governance outcomes that is unambiguous, sub-national, and culturally diagnostic.",
+    "entity_kind": "state",
+    "time_grain": "year",
+    "value_kind": "count",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "people",
+    "icon": "users",
+    "attribution_geography": "where_resident",
+    "comparability": "comparable_across_states",
+    "implementing_authority": "centre",
+    "methodology_vintage": "Census of India (decennial enumeration)",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute",
+    "notes": "Decennial Census enumerations only — no inter- or post-censal projections in this series. Census 2021 was postponed and has not yet been conducted, so the most recent point is 2011 — over a decade old. Pre-2014 Andhra Pradesh rows include the area now in Telangana; pre-2019 J&K rows include Ladakh.",
+    "series_breaks": [
+      {
+        "at_time": "2011",
+        "kind": "frame_change",
+        "note": "Last completed Census of India was 2011; Census 2021 was postponed."
+      }
+    ]
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "1961",
+      "value": 212941570.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1961",
+      "value": 226293201.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1971",
+      "value": 264110376.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1971",
+      "value": 284049276.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1981",
+      "value": 329954637.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1981",
+      "value": 353374460.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1991",
+      "value": 407062599.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1991",
+      "value": 439358440.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2001",
+      "value": 496514346.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2001",
+      "value": 532223090.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011",
+      "value": 587584719.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011",
+      "value": 623270258.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "1961",
+      "value": 10693066.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "1961",
+      "value": 10897003.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "1971",
+      "value": 12896427.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "1971",
+      "value": 13205198.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "1981",
+      "value": 15864846.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "1981",
+      "value": 16265770.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "1991",
+      "value": 19670056.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "1991",
+      "value": 20234749.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2001",
+      "value": 22609556.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2001",
+      "value": 23116448.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2011",
+      "value": 24747000.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2011",
+      "value": 24831000.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "1961",
+      "value": 158878.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "1961",
+      "value": 177680.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "1971",
+      "value": 216280.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "1971",
+      "value": 251231.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "1981",
+      "value": 292517.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "1981",
+      "value": 339322.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "1991",
+      "value": 399554.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "1991",
+      "value": 465004.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2001",
+      "value": 518027.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2001",
+      "value": 579941.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2011",
+      "value": 669815.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2011",
+      "value": 713912.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "1961",
+      "value": 5038953.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "1961",
+      "value": 5798376.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "1971",
+      "value": 691912.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "1971",
+      "value": 7714240.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "1981",
+      "value": 8597211.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "1981",
+      "value": 9444037.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "1991",
+      "value": 10756333.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "1991",
+      "value": 11657989.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2001",
+      "value": 12878491.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2001",
+      "value": 13777037.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2011",
+      "value": 15266133.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2011",
+      "value": 15939443.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "1961",
+      "value": 17465526.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "1961",
+      "value": 17375442.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "1971",
+      "value": 20595512.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "1971",
+      "value": 21530724.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "1981",
+      "value": 25452549.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "1981",
+      "value": 26850116.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "1991",
+      "value": 30692316.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "1991",
+      "value": 33838238.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2001",
+      "value": 39754714.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2001",
+      "value": 43243795.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2011",
+      "value": 49821295.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2011",
+      "value": 54278157.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "1961",
+      "value": 304372.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "1961",
+      "value": 285625.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "1971",
+      "value": 393758.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "1971",
+      "value": 401362.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "1981",
+      "value": 497597.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "1981",
+      "value": 510152.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "1991",
+      "value": 575003.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "1991",
+      "value": 594790.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2001",
+      "value": 660420.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2001",
+      "value": 687248.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2011",
+      "value": 719405.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2011",
+      "value": 739140.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "1961",
+      "value": 9999448.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "1961",
+      "value": 10633902.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "1971",
+      "value": 12894981.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "1971",
+      "value": 13802494.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "1981",
+      "value": 16533159.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "1981",
+      "value": 17552640.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "1991",
+      "value": 19954373.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "1991",
+      "value": 21355209.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2001",
+      "value": 24285440.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2001",
+      "value": 26385577.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2011",
+      "value": 28948432.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2011",
+      "value": 31491260.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "1961",
+      "value": 3527737.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "1961",
+      "value": 4062787.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "1971",
+      "value": 4659387.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "1971",
+      "value": 5377044.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "1981",
+      "value": 6012440.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "1981",
+      "value": 6909679.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "1991",
+      "value": 7636174.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "1991",
+      "value": 8827474.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2001",
+      "value": 9780611.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2001",
+      "value": 11363953.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2011",
+      "value": 11856728.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2011",
+      "value": 13494734.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "1961",
+      "value": 1361129.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "1961",
+      "value": 1451334.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "1971",
+      "value": 1693477.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "1971",
+      "value": 1766957.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "1981",
+      "value": 2110887.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "1981",
+      "value": 2169931.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "1991",
+      "value": 2553410.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "1991",
+      "value": 2617467.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2001",
+      "value": 2989960.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2001",
+      "value": 3087940.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2011",
+      "value": 3382729.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2011",
+      "value": 3481873.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "1961",
+      "value": 11545849.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "1961",
+      "value": 12040923.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "1971",
+      "value": 14327114.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "1971",
+      "value": 14971900.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "1981",
+      "value": 18213087.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "1981",
+      "value": 18922627.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "1991",
+      "value": 22025284.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "1991",
+      "value": 22951917.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2001",
+      "value": 25951644.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2001",
+      "value": 26898918.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2011",
+      "value": 30128640.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2011",
+      "value": 30966657.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "1961",
+      "value": 8541788.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "1961",
+      "value": 8361927.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "1971",
+      "value": 10759524.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "1971",
+      "value": 10587851.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "1981",
+      "value": 12925913.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "1981",
+      "value": 12527767.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "1991",
+      "value": 14809523.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "1991",
+      "value": 14288995.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2001",
+      "value": 16372760.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2001",
+      "value": 15468614.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2011",
+      "value": 17378649.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2011",
+      "value": 16027412.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "1961",
+      "value": 11197804.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "1961",
+      "value": 12020106.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "1971",
+      "value": 14386375.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "1971",
+      "value": 15630250.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "1981",
+      "value": 18301900.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "1981",
+      "value": 19866607.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "1991",
+      "value": 23171569.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "1991",
+      "value": 25394673.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2001",
+      "value": 28904371.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2001",
+      "value": 31443652.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2011",
+      "value": 35014503.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2011",
+      "value": 37612306.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "1961",
+      "value": 19124836.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "1961",
+      "value": 20428882.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "1971",
+      "value": 24295884.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "1971",
+      "value": 26116351.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "1981",
+      "value": 30368386.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "1981",
+      "value": 32414432.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "1991",
+      "value": 38111569.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "1991",
+      "value": 40825618.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2001",
+      "value": 46478031.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2001",
+      "value": 50400596.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2011",
+      "value": 54131277.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2011",
+      "value": 58243056.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "1961",
+      "value": 392979.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "1961",
+      "value": 387058.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "1971",
+      "value": 531078.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "1971",
+      "value": 541675.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "1981",
+      "value": 699947.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "1981",
+      "value": 721006.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "1991",
+      "value": 898790.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "1991",
+      "value": 938359.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2001",
+      "value": 1131944.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2001",
+      "value": 1161952.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2011",
+      "value": 1417208.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2011",
+      "value": 1438586.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "1961",
+      "value": 372092.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "1961",
+      "value": 397288.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "1971",
+      "value": 490732.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "1971",
+      "value": 520967.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "1981",
+      "value": 652109.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "1981",
+      "value": 683710.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "1991",
+      "value": 867091.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "1991",
+      "value": 907687.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2001",
+      "value": 1142735.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2001",
+      "value": 1176087.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2011",
+      "value": 1475057.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2011",
+      "value": 1491832.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "1961",
+      "value": 133598.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "1961",
+      "value": 132465.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "1971",
+      "value": 161566.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "1971",
+      "value": 170824.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "1981",
+      "value": 236518.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "1981",
+      "value": 257239.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "1991",
+      "value": 330778.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "1991",
+      "value": 358978.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2001",
+      "value": 429464.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2001",
+      "value": 459109.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2011",
+      "value": 541867.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2011",
+      "value": 555339.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "1961",
+      "value": 178173.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "1961",
+      "value": 191027.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "1971",
+      "value": 240365.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "1971",
+      "value": 276084.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "1981",
+      "value": 359020.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "1981",
+      "value": 415910.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "1991",
+      "value": 568264.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "1991",
+      "value": 641282.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2001",
+      "value": 942895.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2001",
+      "value": 1047141.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2011",
+      "value": 953853.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2011",
+      "value": 1024649.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "1961",
+      "value": 8778260.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "1961",
+      "value": 8770586.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "1971",
+      "value": 10903532.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "1971",
+      "value": 11041083.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "1981",
+      "value": 13060485.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "1981",
+      "value": 13309786.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "1991",
+      "value": 15595590.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "1991",
+      "value": 16064146.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2001",
+      "value": 18144090.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2001",
+      "value": 18660570.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2011",
+      "value": 20762082.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2011",
+      "value": 21212136.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "1961",
+      "value": 5127503.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "1961",
+      "value": 6007566.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "1971",
+      "value": 6284545.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "1971",
+      "value": 7266515.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "1981",
+      "value": 7851705.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "1981",
+      "value": 8937210.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "1991",
+      "value": 9503935.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "1991",
+      "value": 10778034.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2001",
+      "value": 11373954.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2001",
+      "value": 12985045.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2011",
+      "value": 13103873.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2011",
+      "value": 14639465.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "1961",
+      "value": 9591520.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "1961",
+      "value": 10564082.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "1971",
+      "value": 12281423.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "1971",
+      "value": 13484383.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "1981",
+      "value": 16407708.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "1981",
+      "value": 17854154.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "1991",
+      "value": 20963210.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "1991",
+      "value": 23042780.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2001",
+      "value": 27087177.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2001",
+      "value": 29420011.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2011",
+      "value": 32997440.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2011",
+      "value": 35550997.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "1961",
+      "value": 76996.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "1961",
+      "value": 85193.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "1971",
+      "value": 97181.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "1971",
+      "value": 112662.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "1981",
+      "value": 143945.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "1981",
+      "value": 172440.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "1991",
+      "value": 190030.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "1991",
+      "value": 216427.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2001",
+      "value": 252367.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2001",
+      "value": 288484.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2011",
+      "value": 287507.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2011",
+      "value": 323070.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "1961",
+      "value": 16775975.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "1961",
+      "value": 16910978.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "1971",
+      "value": 20371147.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "1971",
+      "value": 20828021.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "1981",
+      "value": 23920453.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "1981",
+      "value": 24487624.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "1991",
+      "value": 27559971.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "1991",
+      "value": 28298975.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2001",
+      "value": 31004770.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2001",
+      "value": 31400909.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2011",
+      "value": 36009055.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2011",
+      "value": 36137975.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "1961",
+      "value": 550768.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "1961",
+      "value": 591237.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "1971",
+      "value": 755216.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "1971",
+      "value": 801126.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "1981",
+      "value": 998212.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "1981",
+      "value": 1054846.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "1991",
+      "value": 1339275.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "1991",
+      "value": 1417930.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2001",
+      "value": 1556978.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2001",
+      "value": 1642225.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2011",
+      "value": 1799541.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2011",
+      "value": 1874376.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "1961",
+      "value": 33359587.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "1961",
+      "value": 36784048.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "1971",
+      "value": 39147615.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "1971",
+      "value": 44701182.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "1981",
+      "value": 49274852.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "1981",
+      "value": 55861688.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "1991",
+      "value": 61665591.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "1991",
+      "value": 70396062.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2001",
+      "value": 78632552.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2001",
+      "value": 87565369.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2011",
+      "value": 95331831.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2011",
+      "value": 104480510.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "1961",
+      "value": 16327135.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "1961",
+      "value": 18599144.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "1971",
+      "value": 20876024.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "1971",
+      "value": 23435987.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "1981",
+      "value": 26019746.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "1981",
+      "value": 28560901.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "1991",
+      "value": 32567332.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "1991",
+      "value": 35510633.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2001",
+      "value": 38710212.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2001",
+      "value": 41465985.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2011",
+      "value": 44467088.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2011",
+      "value": 46809027.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "1961",
+      "value": 4596400.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "1961",
+      "value": 4558098.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "1971",
+      "value": 5812410.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "1971",
+      "value": 5825084.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "1981",
+      "value": 6990639.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "1981",
+      "value": 7019698.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "1991",
+      "value": 8742308.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "1991",
+      "value": 8872620.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2001",
+      "value": 10359585.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2001",
+      "value": 10474218.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2011",
+      "value": 12712303.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2011",
+      "value": 12832895.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "1961",
+      "value": 5684588.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "1961",
+      "value": 5921901.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "1971",
+      "value": 6910913.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "1971",
+      "value": 7316220.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "1981",
+      "value": 8531625.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "1981",
+      "value": 9080444.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "1991",
+      "value": 10480058.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "1991",
+      "value": 11363853.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2001",
+      "value": 13060792.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2001",
+      "value": 13885037.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2011",
+      "value": 16057819.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2011",
+      "value": 16930315.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "1961",
+      "value": 1756669.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "1961",
+      "value": 1854269.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "1971",
+      "value": 2177271.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "1971",
+      "value": 2315453.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "1981",
+      "value": 2768125.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "1981",
+      "value": 2957847.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "1991",
+      "value": 3409739.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "1991",
+      "value": 3640895.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2001",
+      "value": 4163425.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2001",
+      "value": 4325924.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2011",
+      "value": 4948519.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2011",
+      "value": 5137773.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "1961",
+      "value": 7128710.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "1961",
+      "value": 7264668.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "1971",
+      "value": 8597618.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "1971",
+      "value": 8803465.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "1981",
+      "value": 10576564.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "1981",
+      "value": 10843846.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "1991",
+      "value": 13113370.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "1991",
+      "value": 13489832.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2001",
+      "value": 15073037.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2001",
+      "value": 15410965.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2011",
+      "value": 17392000.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2011",
+      "value": 17612000.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "1961",
+      "value": 24244.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "1961",
+      "value": 39304.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "1971",
+      "value": 45106.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "1971",
+      "value": 70027.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "1981",
+      "value": 81480.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "1981",
+      "value": 107261.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "1991",
+      "value": 126292.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "1991",
+      "value": 154369.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2001",
+      "value": 163180.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2001",
+      "value": 192972.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2011",
+      "value": 177710.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2011",
+      "value": 202871.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "1961",
+      "value": 47305.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "1961",
+      "value": 72576.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "1971",
+      "value": 110171.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "1971",
+      "value": 147080.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "1981",
+      "value": 196332.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "1981",
+      "value": 255278.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "1991",
+      "value": 283401.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "1991",
+      "value": 358614.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2001",
+      "value": 393697.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2001",
+      "value": 506938.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2011",
+      "value": 474787.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2011",
+      "value": 580663.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "1961",
+      "value": 48200.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "1961",
+      "value": 46433.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "1971",
+      "value": 70005.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "1971",
+      "value": 66816.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "1981",
+      "value": 91844.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "1981",
+      "value": 90813.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "1991",
+      "value": 117515.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "1991",
+      "value": 122548.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2001",
+      "value": 164516.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2001",
+      "value": 214178.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2011",
+      "value": 242895.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2011",
+      "value": 344061.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "1961",
+      "value": 12173.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "1961",
+      "value": 11935.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "1971",
+      "value": 15732.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "1971",
+      "value": 16078.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "1981",
+      "value": 19872.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "1981",
+      "value": 20377.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "1991",
+      "value": 25089.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "1991",
+      "value": 26618.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "2001",
+      "value": 29519.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "2001",
+      "value": 31131.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "2011",
+      "value": 31350.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U04",
+      "time": "2011",
+      "value": 33123.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "1961",
+      "value": 1169234.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "1961",
+      "value": 1489378.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "1971",
+      "value": 1808183.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "1971",
+      "value": 2257515.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "1981",
+      "value": 2780325.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "1981",
+      "value": 3440081.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "1991",
+      "value": 4265132.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "1991",
+      "value": 5155512.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2001",
+      "value": 6243273.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2001",
+      "value": 7607234.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2011",
+      "value": 7800615.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2011",
+      "value": 8987326.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "1961",
+      "value": 185732.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "1961",
+      "value": 183347.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "1971",
+      "value": 234595.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "1971",
+      "value": 237112.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "1981",
+      "value": 299910.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "1981",
+      "value": 304561.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "1991",
+      "value": 399704.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "1991",
+      "value": 408081.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2001",
+      "value": 487384.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2001",
+      "value": 486961.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2011",
+      "value": 635442.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2011",
+      "value": 612511.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "1961",
+      "value": 1620664.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "1961",
+      "value": 1851661.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "1971",
+      "value": 2106341.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "1971",
+      "value": 2405000.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "1981",
+      "value": 2760214.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "1981",
+      "value": 3092803.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "1991",
+      "value": 3654054.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "1991",
+      "value": 4093663.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2001",
+      "value": 4675496.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2001",
+      "value": 5231665.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2011",
+      "value": 5782640.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2011",
+      "value": 6483662.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "1961",
+      "value": 43679.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "1961",
+      "value": 44972.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "1971",
+      "value": 51976.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "1971",
+      "value": 53315.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "1981",
+      "value": 62515.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "1981",
+      "value": 71857.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "1991",
+      "value": 82399.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "1991",
+      "value": 97011.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "2001",
+      "value": 107278.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "2001",
+      "value": 129261.0,
+      "facet": "Male",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "2011",
+      "value": 118000.0,
+      "facet": "Female",
+      "vintage": "actual"
+    },
+    {
+      "entity_id": "U09",
+      "time": "2011",
+      "value": 157000.0,
+      "facet": "Male",
+      "vintage": "actual"
+    }
+  ]
+}
