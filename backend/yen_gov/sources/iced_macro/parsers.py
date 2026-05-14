@@ -176,3 +176,106 @@ def parse_population_by_residence(decrypted: Any) -> tuple[list[dict[str, Any]],
             "facet": category, "vintage": "actual",
         }
     return _dedup_sort(rows), skipped
+
+
+# ---------------------------------------------------------------------------
+# parse_gva_trend  (national, constant-price by industry)
+# ---------------------------------------------------------------------------
+
+
+def parse_gva_trend_national_constant(decrypted: Any) -> list[dict[str, Any]]:
+    """National GVA at constant 2011-12 prices, faceted by industry.
+
+    The state series (14k rows) crosses industries with sector groups
+    (Primary/Secondary/Tertiary) and a separate per-state aggregate row
+    — too dense for one artifact. We ship only the national constant-
+    price series here (10 industries × 14 fiscal years).
+    """
+    data = _data_list(decrypted, "gva-trend")
+
+    rows: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for raw in data:
+        if not isinstance(raw, dict):
+            continue
+        if (raw.get("trendType") or "").strip().lower() != "national":
+            continue
+        if (raw.get("priceType") or "").strip().lower() != "constant":
+            continue
+        industry = (raw.get("industryItem") or "").strip()
+        if not industry:
+            continue
+        try:
+            period = fy_to_period(str(raw.get("year") or ""))
+        except ValueError:
+            continue
+        value = coerce_numeric(raw.get("price"))
+        if value is None:
+            continue
+        key = ("IN", period, industry)
+        rows[key] = {
+            "entity_id": "IN", "time": period, "value": value, "facet": industry,
+        }
+    return _dedup_sort(rows)
+
+
+# ---------------------------------------------------------------------------
+# parse_balance_trendline  (national external-sector balances)
+# ---------------------------------------------------------------------------
+
+
+def _normalise_bop_year(raw_year: str) -> tuple[str, str | None] | None:
+    """Return (period, vintage) for a BoP year string, or None to skip.
+
+    Upstream year shapes:
+        "2010-11"                        → ("2010-04", None)
+        "2021-22 "                       → ("2021-04", None)            (trailing space)
+        "2023-24 (Preliminary)"          → ("2023-04", "preliminary")
+        "2024-25  (Apr-Sep) (Preliminary)" → None  (partial-year — skip)
+    """
+    if not isinstance(raw_year, str):
+        return None
+    cleaned = raw_year.strip()
+    if "(Apr-" in cleaned or "(Jul-" in cleaned or "(Oct-" in cleaned or "(Jan-" in cleaned:
+        return None
+    vintage: str | None = None
+    if "(Preliminary)" in cleaned:
+        vintage = "preliminary"
+        cleaned = cleaned.replace("(Preliminary)", "").strip()
+    try:
+        period = fy_to_period(cleaned)
+    except ValueError:
+        return None
+    return period, vintage
+
+
+def parse_balance_trendline(decrypted: Any) -> list[dict[str, Any]]:
+    """India's external-balance items (Trade Balance, Current Account, etc).
+
+    All values are national (no state breakdown). Vintage marks the
+    Preliminary full-year rows so the renderer can flag them; partial-
+    year (Apr-Sep) rows are dropped to keep the series annual-comparable.
+    """
+    data = _data_list(decrypted, "balance-trendline")
+
+    rows: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for raw in data:
+        if not isinstance(raw, dict):
+            continue
+        item = (raw.get("item") or "").strip()
+        if not item:
+            continue
+        normalised = _normalise_bop_year(str(raw.get("year") or ""))
+        if normalised is None:
+            continue
+        period, vintage = normalised
+        value = coerce_numeric(raw.get("price"))
+        if value is None:
+            continue
+        key = ("IN", period, item)
+        row: dict[str, Any] = {
+            "entity_id": "IN", "time": period, "value": value, "facet": item,
+        }
+        if vintage:
+            row["vintage"] = vintage
+        rows[key] = row
+    return _dedup_sort(rows)

@@ -15,7 +15,9 @@ from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.iced_common import IcedClient
 
 from .parsers import (
+    parse_balance_trendline,
     parse_gdp_trend,
+    parse_gva_trend_national_constant,
     parse_industrial_production,
     parse_population_by_residence,
 )
@@ -224,6 +226,87 @@ def _indicator_population_residence() -> dict[str, Any]:
     }
 
 
+def _indicator_india_gva_constant() -> dict[str, Any]:
+    return {
+        "id": "economy/india_gva_by_industry_constant_inr_crore",
+        "title": "India GVA by industry (constant 2011-12 prices, ₹ crore)",
+        "description": (
+            "National Gross Value Added at constant 2011-12 prices, ₹ crore, "
+            "faceted by industry. Includes the 'GVA at basic prices' and "
+            "'NVA at basic prices' rollups alongside eight production-side "
+            "sectors (agriculture, mining, manufacturing, electricity & "
+            "utilities, construction, trade-hotels-transport-comms, "
+            "financial-real-estate-services, public-admin-and-other-services). "
+            "Annual 2011-12 to 2024-25."
+        ),
+        "entity_kind": "country",
+        "time_grain": "fiscal_year",
+        "value_kind": "raw",
+        "direction": "neutral",
+        "scale_hint": "linear",
+        "unit": "INR crore",
+        "icon": "trending-up",
+        "attribution_geography": "where_produced",
+        "comparability": "not_comparable_across_states",
+        "implementing_authority": "centre",
+        "methodology_vintage": (
+            "MoSPI / NSO national accounts, constant prices base 2011-12. "
+            "GVA = GDP minus net product taxes; NVA = GVA minus consumption "
+            "of fixed capital."
+        ),
+        "chart_type": "stacked-trend",
+        "default_mode": "absolute",
+        "notes": (
+            "Only the constant-price series ships in this artifact; the "
+            "current-price companion can be added later if needed. State-"
+            "level GVA is not shipped — the upstream payload mixes "
+            "sector-group rollups (Primary/Secondary/Tertiary) with "
+            "per-industry rows in a denser shape that needs its own design."
+        ),
+    }
+
+
+def _indicator_india_external_balance() -> dict[str, Any]:
+    return {
+        "id": "economy/india_external_balance_inr_crore",
+        "title": "India external-sector balance (₹ crore)",
+        "description": (
+            "India's balance-of-payments headline items — Trade Balance, "
+            "Invisibles (Net), Current Account Balance, Loans (Net), Total "
+            "Foreign Investment, Overall Balance — in ₹ crore. Negative "
+            "values indicate a deficit / net outflow. Annual fiscal year, "
+            "sparse early years (2000-01, 2010-11) then continuous from "
+            "2011-12 onward."
+        ),
+        "entity_kind": "country",
+        "time_grain": "fiscal_year",
+        "value_kind": "raw",
+        "direction": "neutral",
+        "scale_hint": "linear",
+        "unit": "INR crore",
+        "icon": "globe",
+        "attribution_geography": "where_produced",
+        "comparability": "not_comparable_across_states",
+        "implementing_authority": "centre",
+        "methodology_vintage": (
+            "RBI Balance of Payments statistics, republished by NITI Aayog "
+            "ICED. Most-recent two fiscal years are typically 'Preliminary' "
+            "and subject to revision — surfaced via vintage='preliminary' "
+            "on those rows. Partial-year rows (Apr-Sep) are dropped to keep "
+            "the series annual-comparable."
+        ),
+        "chart_type": "stacked-trend",
+        "default_mode": "absolute",
+        "notes": (
+            "Trade Balance + Invisibles (Net) ≈ Current Account Balance; "
+            "Current Account + Capital Account ≈ Overall Balance. Don't "
+            "sum the facets blindly — Loans (Net) and Total Foreign "
+            "Investment are sub-components of the capital account, already "
+            "folded into Overall Balance."
+        ),
+    }
+
+
 def _emit(
     *,
     repo_root: Path,
@@ -318,6 +401,30 @@ def ingest_iced_macro(*, repo_root: Path, client: IcedClient | None = None) -> I
         sources=[Source(url=dem_resp.url, fetched_at=dem_resp.fetched_at)],
         out_rel="datasets/indicators/in/demography/state_population_by_residence_count.json",
         spatial="India (states + UTs)", skipped_unmapped=pop_skipped,
+    ))
+
+    # GVA national constant
+    gva_resp = client.get("/economy-demography/key-economic-indicators/gva-trend")
+    gva_rows = parse_gva_trend_national_constant(gva_resp.decrypted)
+    results.append(_emit(
+        repo_root=repo_root, schema_for_validation=schema_for_validation,
+        schema_id_str=sid, schema_version_str=sver,
+        indicator_meta=_indicator_india_gva_constant(), rows=gva_rows,
+        sources=[Source(url=gva_resp.url, fetched_at=gva_resp.fetched_at)],
+        out_rel="datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json",
+        spatial="India (national)",
+    ))
+
+    # External-sector balance (BoP)
+    bop_resp = client.get("/economy-demography/key-economic-indicators/balance-trendline")
+    bop_rows = parse_balance_trendline(bop_resp.decrypted)
+    results.append(_emit(
+        repo_root=repo_root, schema_for_validation=schema_for_validation,
+        schema_id_str=sid, schema_version_str=sver,
+        indicator_meta=_indicator_india_external_balance(), rows=bop_rows,
+        sources=[Source(url=bop_resp.url, fetched_at=bop_resp.fetched_at)],
+        out_rel="datasets/indicators/in/economy/india_external_balance_inr_crore.json",
+        spatial="India (national)",
     ))
 
     return IngestSummary(

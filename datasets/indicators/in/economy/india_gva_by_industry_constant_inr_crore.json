@@ -1,0 +1,882 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/gva-trend",
+      "fetched_at": "2026-05-14T23:40:40Z"
+    }
+  ],
+  "coverage": {
+    "spatial": "India (national)",
+    "temporal": "2011-04..2024-04",
+    "admin_level": null
+  },
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "indicator": {
+    "id": "economy/india_gva_by_industry_constant_inr_crore",
+    "title": "India GVA by industry (constant 2011-12 prices, ₹ crore)",
+    "description": "National Gross Value Added at constant 2011-12 prices, ₹ crore, faceted by industry. Includes the 'GVA at basic prices' and 'NVA at basic prices' rollups alongside eight production-side sectors (agriculture, mining, manufacturing, electricity & utilities, construction, trade-hotels-transport-comms, financial-real-estate-services, public-admin-and-other-services). Annual 2011-12 to 2024-25.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "raw",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "INR crore",
+    "icon": "trending-up",
+    "attribution_geography": "where_produced",
+    "comparability": "not_comparable_across_states",
+    "implementing_authority": "centre",
+    "methodology_vintage": "MoSPI / NSO national accounts, constant prices base 2011-12. GVA = GDP minus net product taxes; NVA = GVA minus consumption of fixed capital.",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute",
+    "notes": "Only the constant-price series ships in this artifact; the current-price companion can be added later if needed. State-level GVA is not shipped — the upstream payload mixes sector-group rollups (Primary/Secondary/Tertiary) with per-industry rows in a denser shape that needs its own design."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 1501947.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 777334.5,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 186668.0,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 1530877.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 8106946.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 1409986.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 261035.4,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 7189771.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 1025982.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 1413116.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 1524288.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 780050.1,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 191635.0,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 1680031.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 8546275.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 1486873.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 262608.8,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 7535614.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 1069646.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 1551143.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1609198.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 800770.9,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 199601.0,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1867407.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 9063649.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1560709.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 263106.6,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 7963039.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1110794.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1652062.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1605715.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 835228.6,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 214047.0,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 2073714.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 9712133.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1683938.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 288685.5,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 8533489.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1203115.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1807689.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1616146.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 865334.9,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 224158.0,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 2294787.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 10491870.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1903850.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 317973.8,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 9220980.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1276797.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1992825.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 1726004.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 916444.7,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 246496.0,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 2492967.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 11328285.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 2054764.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 349247.7,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 9946758.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 1395982.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 2146379.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1840023.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 964305.7,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 272650.0,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 2537190.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 12034171.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 2209428.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 329612.1,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 10544250.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1512542.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 2368419.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1878598.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1026789.0,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 294147.0,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 2714222.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 12733798.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 2328992.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 326814.6,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 11119343.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1625477.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 2538757.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1994326.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1043429.0,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 300798.0,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 2898243.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 13236100.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 2259706.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 317134.3,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 11504922.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1732404.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 2690060.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2074212.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 995370.6,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 288213.1,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2954130.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 12687345.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2329160.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 291075.2,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 10854586.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1601295.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2153888.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 2170106.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1193532.0,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 317966.2,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 3122847.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 13876840.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 2561033.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 309276.1,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 11921052.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1721699.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 2480380.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 2305978.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1302245.0,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 352331.1,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 3459277.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 14878028.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 2516364.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 319733.5,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 12790065.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1836360.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 2785740.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 2367287.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1437788.0,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 382775.9,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 3814586.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 16151477.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 2825935.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 330007.4,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 13922510.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1998561.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 2994536.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 2476805.0,
+      "facet": "Agriculture, forestry and fishing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 1572285.0,
+      "facet": "Construction"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 405295.9,
+      "facet": "Electricity, gas, water supply and other utility services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 4088072.0,
+      "facet": "Financial, real estate and professional services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 17187446.0,
+      "facet": "GVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 2953647.0,
+      "facet": "Manufacturing"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 338884.0,
+      "facet": "Mining and quarrying"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 14815512.0,
+      "facet": "NVA at basic prices"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 2175628.0,
+      "facet": "Public Administration, defence and other services"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 3176830.0,
+      "facet": "Trade, hotels, transport, communication and Broadcasting services"
+    }
+  ]
+}

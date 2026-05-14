@@ -119,9 +119,58 @@
           "default": false,
           "featured": false,
           "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/state_own_tax_revenue_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/state_non_tax_revenue_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/state_share_central_taxes_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/state_grants_in_aid_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/state_revenue_expenditure_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/state_pension_expenditure_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "fiscal/state_external_debt_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "national"
         }
       ],
-      "notes": "Debt and deficit are co-determined by central transfers — the transfers indicators (RBI Net via `fiscal/net_transfers_from_centre`, Rajya Sabha Gross via `fiscal/centre_transfers_gross`) are the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. RBI Net covers FY24 Accounts + FY25 RE + FY26 BE; Rajya Sabha Gross covers FY17–FY23 (longer historical run, devolution + grants pre-adjustments). The all-India aggregate equivalent (RBI Net Centre→States transfers, FY08–FY26, 19y) is `fiscal/centre_transfers_to_states_net` — a country-entity series for the macro envelope view; its data shape is incompatible with the per-state choropleth (it carries one row per FY for `entity_id=\"IN\"`). The four `fiscal/states_combined_*_deficit` indicators (gross fiscal, revenue, primary, primary revenue) come from RBI Appendix Table 1 (Major Deficit Indicators) — same publication as the transfers, all-states aggregate, FY08–FY26 (20y including RE/BE). They answer the macro question 'how much are the states collectively borrowing each year, and what kind of borrowing is it?'. The matching `fiscal/union_*_deficit` quartet (RBI Handbook of Statistics on Indian Economy, Table 89, FY87–FY26 / 40y) ships the Centre's own borrowing as a peer family — without it, ranked deficit tables silently misframe responsibility (cf. Hans's chart-trap warning in docs/concepts/fiscal-actor-naming.md: states-combined GFD ~3% of GDP looks alarming until placed beside the Centre's ~6%)."
+      "notes": "Debt and deficit are co-determined by central transfers — the transfers indicators (RBI Net via `fiscal/net_transfers_from_centre`, Rajya Sabha Gross via `fiscal/centre_transfers_gross`) are the contextualisation that makes ranked debt/deficit tables honest. Per ADR-0022 ingest gate. RBI Net covers FY24 Accounts + FY25 RE + FY26 BE; Rajya Sabha Gross covers FY17–FY23 (longer historical run, devolution + grants pre-adjustments). The all-India aggregate equivalent (RBI Net Centre→States transfers, FY08–FY26, 19y) is `fiscal/centre_transfers_to_states_net` — a country-entity series for the macro envelope view; its data shape is incompatible with the per-state choropleth (it carries one row per FY for `entity_id=\"IN\"`). The four `fiscal/states_combined_*_deficit` indicators (gross fiscal, revenue, primary, primary revenue) come from RBI Appendix Table 1 (Major Deficit Indicators) — same publication as the transfers, all-states aggregate, FY08–FY26 (20y including RE/BE). They answer the macro question 'how much are the states collectively borrowing each year, and what kind of borrowing is it?'. The matching `fiscal/union_*_deficit` quartet (RBI Handbook of Statistics on Indian Economy, Table 89, FY87–FY26 / 40y) ships the Centre's own borrowing as a peer family — without it, ranked deficit tables silently misframe responsibility (cf. Hans's chart-trap warning in docs/concepts/fiscal-actor-naming.md: states-combined GFD ~3% of GDP looks alarming until placed beside the Centre's ~6%). The seven per-state component indicators (`state_own_tax_revenue`, `state_non_tax_revenue`, `state_share_central_taxes`, `state_grants_in_aid`, `state_revenue_expenditure`, `state_pension_expenditure`, `state_external_debt`) are absolute ₹Cr — large states will dominate the table by sheer size. The renderer's existing comparability banner ('Per-capita / per-area normalisation is recommended for cross-state comparison') surfaces this; treat the rankings as 'how big is this stream' not 'how well is the state managing'. The own-tax-revenue / GSDP and pension / revenue-expenditure derived ratios (Phase 5) are the citizen-facing performance reads — these absolute components ship now so the build pipeline + drift detector cover them and so the per-state hubs can show them in context."
     },
     {
       "id": "energy",
@@ -395,6 +444,24 @@
           "scope": "national",
           "chart_type": "stacked-trend",
           "dimension": "iip_category"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/india_gva_by_industry_constant_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "national",
+          "chart_type": "stacked-trend",
+          "dimension": "industry"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/india_external_balance_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "national",
+          "chart_type": "stacked-trend",
+          "dimension": "bop_item"
         }
       ],
       "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. The per-capita NSDP and per-capita consumption indicators come from the ICED key-economic-indicators API (a separate endpoint family from state-wise deep-dive); they go back to 2004-05 and 2009-10 respectively, longer than the GDP series, because the source publisher provides a longer back-run of those particular metrics. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."

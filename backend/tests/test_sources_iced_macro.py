@@ -5,7 +5,9 @@ import pytest
 
 from yen_gov.sources.iced_common import ICEDShapeError
 from yen_gov.sources.iced_macro.parsers import (
+    parse_balance_trendline,
     parse_gdp_trend,
+    parse_gva_trend_national_constant,
     parse_industrial_production,
     parse_population_by_residence,
 )
@@ -125,3 +127,71 @@ def test_population_residence_skips_unmapped_state():
     rows, skipped = parse_population_by_residence(decrypted)
     assert rows == []
     assert skipped == 1
+
+
+# ---------------------------------------------------------------------------
+# parse_gva_trend_national_constant
+# ---------------------------------------------------------------------------
+
+
+def test_gva_keeps_only_national_constant():
+    decrypted = {"data": [
+        {"trendType": "national", "priceType": "constant", "industryItem": "Manufacturing",
+         "year": "2020-21", "price": 2500000},
+        {"trendType": "national", "priceType": "current",  "industryItem": "Manufacturing",
+         "year": "2020-21", "price": 9999},
+        {"trendType": "state", "priceType": "constant", "industryItem": "Manufacturing",
+         "state": "Tamil Nadu", "year": "2020-21", "price": 1},
+        {"trendType": "national", "priceType": "constant", "industryItem": "",
+         "year": "2020-21", "price": 100},  # missing industry — drop
+    ]}
+    rows = parse_gva_trend_national_constant(decrypted)
+    assert {(r["facet"], r["value"]) for r in rows} == {("Manufacturing", 2500000)}
+    assert all(r["entity_id"] == "IN" for r in rows)
+
+
+def test_gva_skips_unparseable_year():
+    decrypted = {"data": [
+        {"trendType": "national", "priceType": "constant", "industryItem": "Manufacturing",
+         "year": "garbage", "price": 100},
+    ]}
+    assert parse_gva_trend_national_constant(decrypted) == []
+
+
+# ---------------------------------------------------------------------------
+# parse_balance_trendline
+# ---------------------------------------------------------------------------
+
+
+def test_bop_normalises_year_strings_and_marks_preliminary():
+    decrypted = {"data": [
+        {"item": "Trade Balance", "year": "2010-11", "price": -100},
+        {"item": "Trade Balance", "year": "2021-22 ", "price": -200},  # trailing space
+        {"item": "Trade Balance", "year": "2023-24 (Preliminary)", "price": -300},
+    ]}
+    rows = parse_balance_trendline(decrypted)
+    by_time = {r["time"]: r for r in rows}
+    assert set(by_time) == {"2010-04", "2021-04", "2023-04"}
+    assert by_time["2010-04"].get("vintage") is None
+    assert by_time["2021-04"].get("vintage") is None
+    assert by_time["2023-04"]["vintage"] == "preliminary"
+
+
+def test_bop_drops_partial_year_rows():
+    decrypted = {"data": [
+        {"item": "Trade Balance", "year": "2024-25  (Apr-Sep) (Preliminary)", "price": 1},
+        {"item": "Trade Balance", "year": "2024-25  (Jul-Dec)", "price": 2},
+    ]}
+    assert parse_balance_trendline(decrypted) == []
+
+
+def test_bop_preserves_facet_per_item():
+    decrypted = {"data": [
+        {"item": "Trade Balance",           "year": "2020-21", "price": -100},
+        {"item": "Current Account Balance", "year": "2020-21", "price": -50},
+        {"item": "",                        "year": "2020-21", "price": 999},  # drop
+    ]}
+    rows = parse_balance_trendline(decrypted)
+    assert {(r["facet"], r["value"]) for r in rows} == {
+        ("Trade Balance", -100), ("Current Account Balance", -50),
+    }

@@ -1,0 +1,588 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/balance-trendline",
+      "fetched_at": "2026-05-14T23:40:41Z"
+    }
+  ],
+  "coverage": {
+    "spatial": "India (national)",
+    "temporal": "2000-04..2023-04",
+    "admin_level": null
+  },
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "indicator": {
+    "id": "economy/india_external_balance_inr_crore",
+    "title": "India external-sector balance (₹ crore)",
+    "description": "India's balance-of-payments headline items — Trade Balance, Invisibles (Net), Current Account Balance, Loans (Net), Total Foreign Investment, Overall Balance — in ₹ crore. Negative values indicate a deficit / net outflow. Annual fiscal year, sparse early years (2000-01, 2010-11) then continuous from 2011-12 onward.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "raw",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "INR crore",
+    "icon": "globe",
+    "attribution_geography": "where_produced",
+    "comparability": "not_comparable_across_states",
+    "implementing_authority": "centre",
+    "methodology_vintage": "RBI Balance of Payments statistics, republished by NITI Aayog ICED. Most-recent two fiscal years are typically 'Preliminary' and subject to revision — surfaced via vintage='preliminary' on those rows. Partial-year rows (Apr-Sep) are dropped to keep the series annual-comparable.",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute",
+    "notes": "Trade Balance + Invisibles (Net) ≈ Current Account Balance; Current Account + Capital Account ≈ Overall Balance. Don't sum the facets blindly — Loans (Net) and Total Foreign Investment are sub-components of the capital account, already folded into Overall Balance."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": -11598.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": 45139.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": 24459.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": 27643.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": 26744.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": -56737.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": -219654.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 360817.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 132714.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 59451.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 193482.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": -580470.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": -375973.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 536157.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 89748.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": -68503.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 188738.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": -912129.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": -479610.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 584846.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 169073.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 20702.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 254653.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": -1064456.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": -187136.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 697709.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 45901.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 96054.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 159650.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": -884845.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": -163313.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 722549.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 19733.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 377925.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 449072.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": -885862.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": -143762.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 705769.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": -29767.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 115830.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 208579.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": -849531.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": -96916.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 657536.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 16038.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 144234.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 289394.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": -754452.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": -314126.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 717601.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 107422.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 280816.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 337684.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": -1031727.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": -400227.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 860633.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 113441.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": -20204.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 212179.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": -1260861.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": -172429.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 942474.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 182248.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 423206.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 312215.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": -1114902.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 182070.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 935135.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 50583.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 649681.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 591856.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": -753065.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": -290816.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1123118.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 251203.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 349119.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 160928.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": -1413934.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": -534774.0,
+      "facet": "Current Account Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1595865.0,
+      "facet": "Invisibles (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 65814.0,
+      "facet": "Loans (Net)"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": -70049.0,
+      "facet": "Overall Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 185291.0,
+      "facet": "Total Foreign Investment"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": -2130639.0,
+      "facet": "Trade Balance"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": -215929.0,
+      "facet": "Current Account Balance",
+      "vintage": "preliminary"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1812062.0,
+      "facet": "Invisibles (Net)",
+      "vintage": "preliminary"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 54552.0,
+      "facet": "Loans (Net)",
+      "vintage": "preliminary"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 526931.0,
+      "facet": "Overall Balance",
+      "vintage": "preliminary"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 448639.0,
+      "facet": "Total Foreign Investment",
+      "vintage": "preliminary"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": -2027992.0,
+      "facet": "Trade Balance",
+      "vintage": "preliminary"
+    }
+  ]
+}
