@@ -1,6 +1,6 @@
 # Data Coverage Report
 
-**Last Updated**: 2026-05-14
+**Last Updated**: 2026-05-14 (election table restructured state-first 2026-05-14; **Temporal Richness** meter added to indicators 2026-05-14)
 **Snapshot**: counts and time spans were measured by scanning `datasets/` directly on the date above. This is a hand-authored snapshot, NOT auto-generated. (For the auto-generated election-only coverage, see [data-inventory.md](data-inventory.md).)
 
 > Plain-English answer to *"what data do we have, for what indicators, for what time period, and what's pending?"* Pair this with [`upstream-sources.json`](../../datasets/reference/in/upstream-sources.json) (the machine-readable upstream registry) and [`data-sources.md`](data-sources.md) (the per-source narrative).
@@ -19,106 +19,137 @@
 
 ## 1. Indicators — what's loaded
 
-Per artifact: row count, time span the rows actually span (start..end), entity count, upstream host. Times are calendar months in `YYYY-MM` form; for fiscal-year series the month is the **April** of the FY's start (e.g. `2007-04` = FY 2007–08); for state debt the month is **March** (FY end).
+Per artifact: time grain, **Temporal Richness** (visual time-coverage meter), span the rows actually span (start..end), entity count, upstream host. Times are calendar months in `YYYY-MM` form; for fiscal-year series the month is the **April** of the FY's start (e.g. `2007-04` = FY 2007–08); for state debt the month is **March** (FY end).
+
+> **Reading the Temporal Richness meter** — Each indicator's Temporal Richness is a 7-cell bar covering the last ~21 fiscal years (FY06 → FY26). Each cell = a 3-year bucket; **rightmost cell is the most recent** and the bar fills right-to-left as time advances:
+>
+> | Cell | 1 (left, oldest) | 2 | 3 | 4 | 5 | 6 | 7 (right, newest) |
+> |------|-----|---|---|---|---|---|-----|
+> | Span | FY06–FY08 | FY09–FY11 | FY12–FY14 | FY15–FY17 | FY18–FY20 | FY21–FY23 | FY24–FY26 |
+>
+> A cell is `●` (filled) if the indicator has **at least one** data point in that bucket, `○` (empty) otherwise. The trailing `n/7` is the count of filled cells. Single-month snapshots show as 1/7 with a `(snapshot)` tag — the meter is built for time series, not point-in-time captures.
 
 ### 1a. Energy (16)
 
-| id | unit | rows | time span | n times | entities | admin | source |
-|----|------|-----:|----|----:|----:|----|----|
-| `energy/installed_capacity_coal_mw` | MW |   35 | 2026-03..2026-03 | 1 | 35 | state | cea.nic.in |
-| `energy/installed_capacity_gas_mw` | MW |   35 | 2026-03..2026-03 | 1 | 35 | state | cea.nic.in |
-| `energy/installed_capacity_hydro_mw` | MW |   35 | 2026-03..2026-03 | 1 | 35 | state | cea.nic.in |
-| `energy/installed_capacity_nuclear_mw` | MW |   35 | 2026-03..2026-03 | 1 | 35 | state | cea.nic.in |
-| `energy/installed_capacity_renewable_mw` | MW |   35 | 2026-03..2026-03 | 1 | 35 | state | cea.nic.in |
-| `energy/installed_capacity_thermal_mw` | MW |   35 | 2026-03..2026-03 | 1 | 35 | state | cea.nic.in |
-| `energy/installed_capacity_total_mw` | MW |   35 | 2026-03..2026-03 | 1 | 35 | state | cea.nic.in |
-| `energy/installed_mw_by_state` | MW |   14 | 2019..2019 | 1 | 4 | state | raw.githubusercontent.com |
-| `energy/state_acs_arr_gap_inr_per_kwh` | INR/kWh |  314 | 2015-04..2024-04 | 10 | 37 | state | iced.niti.gov.in |
-| `energy/state_atc_losses_pct` | % |  344 | 2015-04..2024-04 | 10 | 37 | state | iced.niti.gov.in |
-| `energy/state_electricity_generation_mu` | MU |  407 | 2015-04..2025-04 | 11 | 37 | state | iced.niti.gov.in |
-| `energy/state_electricity_peak_demand_mw` | MW |  305 | 2017-04..2025-04 | 9 | 34 | state | iced.niti.gov.in |
-| `energy/state_electricity_sales_mu` | MU |  356 | 2015-04..2024-04 | 10 | 37 | state | iced.niti.gov.in |
-| `energy/state_installed_capacity_geographical_mw` | MW |  407 | 2015-04..2025-04 | 11 | 37 | state | iced.niti.gov.in |
-| `energy/state_installed_capacity_with_alloc_mw` | MW |  396 | 2015-04..2025-04 | 11 | 36 | state | iced.niti.gov.in |
-| `energy/state_rooftop_solar_capacity_mw` | MW |  321 | 2017-04..2025-04 | 9 | 37 | state | iced.niti.gov.in |
+| id | unit | grain | Temporal Richness | span | yrs | states | source |
+|----|------|-------|-------|------|----:|-------:|--------|
+| `energy/installed_capacity_coal_mw`              | MW      | snapshot   | `○ ○ ○ ○ ○ ○ ●` 1/7 (snapshot) | 2026-03 | 1 | 35 | cea.nic.in |
+| `energy/installed_capacity_gas_mw`               | MW      | snapshot   | `○ ○ ○ ○ ○ ○ ●` 1/7 (snapshot) | 2026-03 | 1 | 35 | cea.nic.in |
+| `energy/installed_capacity_hydro_mw`             | MW      | snapshot   | `○ ○ ○ ○ ○ ○ ●` 1/7 (snapshot) | 2026-03 | 1 | 35 | cea.nic.in |
+| `energy/installed_capacity_nuclear_mw`           | MW      | snapshot   | `○ ○ ○ ○ ○ ○ ●` 1/7 (snapshot) | 2026-03 | 1 | 35 | cea.nic.in |
+| `energy/installed_capacity_renewable_mw`         | MW      | snapshot   | `○ ○ ○ ○ ○ ○ ●` 1/7 (snapshot) | 2026-03 | 1 | 35 | cea.nic.in |
+| `energy/installed_capacity_thermal_mw`           | MW      | snapshot   | `○ ○ ○ ○ ○ ○ ●` 1/7 (snapshot) | 2026-03 | 1 | 35 | cea.nic.in |
+| `energy/installed_capacity_total_mw`             | MW      | snapshot   | `○ ○ ○ ○ ○ ○ ●` 1/7 (snapshot) | 2026-03 | 1 | 35 | cea.nic.in |
+| `energy/installed_mw_by_state`                   | MW      | snapshot   | `○ ○ ○ ○ ● ○ ○` 1/7 (snapshot, **stale**) | 2019    | 1 |  4 | raw.githubusercontent.com |
+| `energy/state_acs_arr_gap_inr_per_kwh`           | INR/kWh | annual FY  | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY24 | 10 | 37 | iced.niti.gov.in |
+| `energy/state_atc_losses_pct`                    | %       | annual FY  | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY24 | 10 | 37 | iced.niti.gov.in |
+| `energy/state_electricity_generation_mu`         | MU      | annual FY  | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY25 | 11 | 37 | iced.niti.gov.in |
+| `energy/state_electricity_peak_demand_mw`        | MW      | annual FY  | `○ ○ ○ ● ● ● ●` 4/7 | FY17–FY25 |  9 | 34 | iced.niti.gov.in |
+| `energy/state_electricity_sales_mu`              | MU      | annual FY  | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY24 | 10 | 37 | iced.niti.gov.in |
+| `energy/state_installed_capacity_geographical_mw`| MW      | annual FY  | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY25 | 11 | 37 | iced.niti.gov.in |
+| `energy/state_installed_capacity_with_alloc_mw`  | MW      | annual FY  | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY25 | 11 | 36 | iced.niti.gov.in |
+| `energy/state_rooftop_solar_capacity_mw`         | MW      | annual FY  | `○ ○ ○ ● ● ● ●` 4/7 | FY17–FY25 |  9 | 37 | iced.niti.gov.in |
 
-**Read this as**: ICED gives 8 per-state energy series, all states/UTs, ~10 years annual. CEA gives a current-month per-state nameplate-capacity snapshot by fuel. They overlap on installed capacity; ICED is the long-series, CEA is the freshness check.
+**Read this as**:
+- **ICED gives 8 per-state annual series** at a uniform 4/7 reach (FY15-onwards). All 8 share the same gap shape: pre-2015 cells (B1–B3) are empty everywhere. If we want to cross the 4/7 line for energy, the next move is finding a pre-2015 source — CEA's archive or ICED itself if their backfill UI exposes deeper history.
+- **CEA gives 7 fuel-wise nameplate-capacity snapshots**, all at 1/7 (`(snapshot)`). They overlap with ICED's `state_installed_capacity_*` on intent but disagree on "now" — CEA is the freshness check at the rightmost cell; ICED is the long series in the middle cells. To turn CEA into a real series, scrape `cea.nic.in/wp-content/uploads/installed/<YYYY>/<MM>/Website.xlsx` for prior months (covered in §5b).
+- **`installed_mw_by_state` is stale** (2019 only, 4 states only). The Reach meter highlights it visually — single bar in the middle, nothing recent. Either deprecate it or refresh from the same upstream.
 
 ### 1b. Fiscal (10)
 
-| id | unit | rows | time span | n times | entities | admin | source |
-|----|------|-----:|----|----:|----:|----|----|
-| `fiscal/centre_transfers_gross` | INR (crore) |  196 | 2016-04..2022-04 | 7 | 28 | state | www.data.gov.in |
-| `fiscal/national_centre_transfers_total` | INR (crore) |   19 | 2007-04..2025-04 | 19 | 1 | national | www.rbi.org.in |
-| `fiscal/national_devolution_central_taxes` | INR (crore) |   19 | 2007-04..2025-04 | 19 | 1 | national | www.rbi.org.in |
-| `fiscal/national_grants_from_centre` | INR (crore) |   19 | 2007-04..2025-04 | 19 | 1 | national | www.rbi.org.in |
-| `fiscal/national_gross_fiscal_deficit` | INR (crore) |   20 | 2007-04..2025-04 | 19 | 1 | national | www.rbi.org.in |
-| `fiscal/national_gross_transfers` | INR (crore) |   19 | 2007-04..2025-04 | 19 | 1 | national | www.rbi.org.in |
-| `fiscal/national_primary_deficit` | INR (crore) |   20 | 2007-04..2025-04 | 19 | 1 | national | www.rbi.org.in |
-| `fiscal/national_primary_revenue_deficit` | INR (crore) |   20 | 2007-04..2025-04 | 19 | 1 | national | www.rbi.org.in |
-| `fiscal/national_revenue_deficit` | INR (crore) |   20 | 2007-04..2025-04 | 19 | 1 | national | www.rbi.org.in |
-| `fiscal/net_transfers_from_centre` | INR (crore) |   93 | 2023-04..2025-04 | 3 | 31 | state | rbidocs.rbi.org.in |
-| `fiscal/outstanding_debt_pct_gsdp` | % |  589 | 2008-03..2026-03 | 19 | 31 | state | rbidocs.rbi.org.in |
+| id | unit | grain | Temporal Richness | span | yrs | entities | scope | source |
+|----|------|-------|-------|------|----:|---------:|-------|--------|
+| `fiscal/centre_transfers_gross`                  | INR (crore) | annual FY  | `○ ○ ○ ● ● ● ○` 3/7 (**recent gap**) | FY16–FY22 |  7 | 28 | state    | www.data.gov.in |
+| `fiscal/national_centre_transfers_total`         | INR (crore) | annual FY  | `● ● ● ● ● ● ●` 7/7                  | FY07–FY25 | 19 |  1 | national | www.rbi.org.in |
+| `fiscal/national_devolution_central_taxes`       | INR (crore) | annual FY  | `● ● ● ● ● ● ●` 7/7                  | FY07–FY25 | 19 |  1 | national | www.rbi.org.in |
+| `fiscal/national_grants_from_centre`             | INR (crore) | annual FY  | `● ● ● ● ● ● ●` 7/7                  | FY07–FY25 | 19 |  1 | national | www.rbi.org.in |
+| `fiscal/national_gross_fiscal_deficit`           | INR (crore) | annual FY  | `● ● ● ● ● ● ●` 7/7                  | FY07–FY25 | 19 |  1 | national | www.rbi.org.in |
+| `fiscal/national_gross_transfers`                | INR (crore) | annual FY  | `● ● ● ● ● ● ●` 7/7                  | FY07–FY25 | 19 |  1 | national | www.rbi.org.in |
+| `fiscal/national_primary_deficit`                | INR (crore) | annual FY  | `● ● ● ● ● ● ●` 7/7                  | FY07–FY25 | 19 |  1 | national | www.rbi.org.in |
+| `fiscal/national_primary_revenue_deficit`        | INR (crore) | annual FY  | `● ● ● ● ● ● ●` 7/7                  | FY07–FY25 | 19 |  1 | national | www.rbi.org.in |
+| `fiscal/national_revenue_deficit`                | INR (crore) | annual FY  | `● ● ● ● ● ● ●` 7/7                  | FY07–FY25 | 19 |  1 | national | www.rbi.org.in |
+| `fiscal/net_transfers_from_centre`               | INR (crore) | annual FY  | `○ ○ ○ ○ ○ ● ●` 2/7 (**recent only**) | FY23–FY25 |  3 | 31 | state    | rbidocs.rbi.org.in |
+| `fiscal/outstanding_debt_pct_gsdp`               | %           | annual FY-end | `● ● ● ● ● ● ●` 7/7                | FY07–FY25 | 19 | 31 | state    | rbidocs.rbi.org.in |
 
 **Read this as**:
-- **National long series (8 indicators)** — RBI Handbook / State Finances publication, FY08–FY26, 19 fiscal years deep. The canonical "all-states-combined" view.
-- **State debt** — `outstanding_debt_pct_gsdp` is per-state, 31 states, FY08–FY26 — the only multi-decade per-state fiscal series we ship.
-- **State transfers — two slices**: `net_transfers_from_centre` (RBI, 31 states, FY24–FY26 only) and `centre_transfers_gross` (data.gov.in OGD, 28 states, FY17–FY23). Together they cover FY17–FY26 with a gap shape; neither alone is complete.
+- **National long series (8 RBI indicators)** are all **7/7** — the canonical "all-states-combined" view, FY07 → FY25, no gaps. This is our deepest fiscal coverage.
+- **State debt** (`outstanding_debt_pct_gsdp`) is also **7/7** but per-state for 31 states — the only multi-decade per-state fiscal series we ship. Pair this with the national 7/7 series to anchor any state vs national comparison.
+- **State centre-transfer coverage is split with a gap shape** — `centre_transfers_gross` (data.gov.in OGD, FY16–FY22) covers cells B4–B6 only; `net_transfers_from_centre` (RBI, FY23–FY25) covers B6–B7 only. Stitched together they reach FY16–FY25 (cells B4–B7), still missing the deep history (B1–B3). Neither alone is complete; the meter makes the seam at B6 visible at a glance.
+- **Deepest backfill priority for fiscal** = pre-FY16 per-state transfers and pre-FY07 national series. The latter likely needs older RBI editions (per-edition pin already in `rbi_xlsx/urls.py`).
 
 ### 1c. Economy + Demography (5)
 
-| id | unit | rows | time span | n times | entities | admin | source |
-|----|------|-----:|----|----:|----:|----|----|
-| `demography/state_population_lakhs` | Lakhs |  407 | 2015-04..2025-04 | 11 | 37 | state | iced.niti.gov.in |
-| `economy/state_gdp_constant_2011_12_inr_lakh_crore` | INR (lakh crore) |  332 | 2015-04..2024-04 | 10 | 34 | state | iced.niti.gov.in |
-| `economy/state_gdp_current_inr_lakh_crore` | INR (lakh crore) |  334 | 2015-04..2024-04 | 10 | 35 | state | iced.niti.gov.in |
-| `economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore` | INR (lakh crore) |  332 | 2015-04..2024-04 | 10 | 34 | state | iced.niti.gov.in |
-| `economy/state_sectoral_gva_current_inr_lakh_crore` | INR (lakh crore) |  334 | 2015-04..2024-04 | 10 | 35 | state | iced.niti.gov.in |
+| id | unit | grain | Temporal Richness | span | yrs | states | source |
+|----|------|-------|-------|------|----:|-------:|--------|
+| `demography/state_population_lakhs`                          | Lakhs            | annual FY | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY25 | 11 | 37 | iced.niti.gov.in |
+| `economy/state_gdp_constant_2011_12_inr_lakh_crore`          | INR (lakh crore) | annual FY | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY24 | 10 | 34 | iced.niti.gov.in |
+| `economy/state_gdp_current_inr_lakh_crore`                   | INR (lakh crore) | annual FY | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY24 | 10 | 35 | iced.niti.gov.in |
+| `economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore` | INR (lakh crore) | annual FY | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY24 | 10 | 34 | iced.niti.gov.in |
+| `economy/state_sectoral_gva_current_inr_lakh_crore`          | INR (lakh crore) | annual FY | `○ ○ ○ ● ● ● ●` 4/7 | FY15–FY24 | 10 | 35 | iced.niti.gov.in |
 
-All five come bundled in the ICED `stateWiseDeepDive` payload (one HTTP fetch covers the whole NITI energy/economy/demography wedge).
+**Read this as**: All five sit at the same 4/7 reach as the ICED energy series — same upstream payload (`stateWiseDeepDive`), same FY15-onwards window, same B1–B3 gap. Backfilling pre-2015 GSDP / population would unlock cross-decade comparisons but needs a different source (MoSPI / NSO archives).
 
 ## 2. Election results — what's loaded
 
-Per (event × state) cell shows the AC count for which we have a parsed result file under `datasets/elections/<event>/<state>/results/<ac_no>.json`.
+> Slots `E0…E-6` are presentation-only and live in this report alone. The on-disk data model is event-first and absolute (`datasets/elections/<event>/<state>/results/<ac_no>.json`); the dataset has no `current` or `N-1` field. **E0** = most recent election parsed for that state, regardless of whether that assembly is currently sitting (Tamil Nadu's E0 is the May 2026 *incoming* assembly; Karnataka's E0 is May 2023, sitting mid-term). **E-1** = the one before, … out to **E-6** (~25-year reach back, since AC general elections happen ~every 5 years per state).
 
-| event | state | ACs |
-|----|----|----:|
-| AcGenApr2016 | S03 (Assam) | 126 |
-| AcGenApr2019 | S01 (Andhra Pradesh) | 175 |
-| AcGenApr2021 | S03 (Assam) | 126 |
-| AcGenApr2021 | S11 (Kerala) | 140 |
-| AcGenDec2019 | S27 (Jharkhand) | 81 |
-| AcGenFeb2017 | S05 (Goa) | 40 |
-| AcGenFeb2020 | U05 (Delhi) | 70 |
-| AcGenFeb2022 | S05 (Goa) | 40 |
-| AcGenFeb2025 | U05 (Delhi) | 70 |
-| AcGenJun2024 | S01 (Andhra Pradesh) | 175 |
-| AcGenJun2024 | S02 (Arunachal Pradesh) | 50 |
-| AcGenJun2024 | S18 (Sikkim) | 147 |
-| AcGenJun2024 | S21 (Odisha) | 32 |
-| AcGenMay2016 | S11 (Kerala) | 140 |
-| AcGenMay2018 | S10 (Karnataka) | 223 |
-| AcGenMay2023 | S10 (Karnataka) | 224 |
-| AcGenMay2026 | S03 (Assam) | 126 |
-| AcGenMay2026 | S11 (Kerala) | 140 |
-| AcGenMay2026 | S22 (Tamil Nadu) | 234 |
-| AcGenMay2026 | S25 (West Bengal) | 293 |
-| AcGenMay2026 | U07 (Puducherry) | 30 |
-| AcGenNov2017 | S08 (Himachal Pradesh) | 68 |
-| AcGenNov2020 | S04 (Bihar) | 243 |
-| AcGenNov2022 | S08 (Himachal Pradesh) | 68 |
-| AcGenNov2023 | S12 (Madhya Pradesh) | 230 |
-| AcGenNov2023 | S16 (Mizoram) | 40 |
-| AcGenNov2023 | S26 (Chhattisgarh) | 90 |
-| AcGenNov2023 | S29 (Telangana) | 119 |
-| AcGenNov2024 | S13 (Maharashtra) | 288 |
-| AcGenNov2024 | S27 (Jharkhand) | 81 |
-| AcGenNov2025 | S04 (Bihar) | 243 |
-| AcGenOct2019 | S07 (Haryana) | 90 |
-| AcGenOct2024 | S07 (Haryana) | 90 |
-| AcGenOct2024 | U08 (J&K) | 90 |
+### 2a. Coverage depth — events parsed per state
 
-**Read this as**: 21 distinct elections, **17 states/UTs covered at least once**, **~3,930 per-AC result files**. The May 2026 wave (the project's primary "live" target — TN, WB, Kerala, Assam, Puducherry) is fully ingested.
+One row per state. **Temporal Richness** is a 7-slot meter (`●` filled, `○` empty, with spaces) plus an `n/7` count. Same convention as §1: **rightmost cell is the most recent** (E0); the bar fills right-to-left as you backfill into the past. Each cell here = one election cycle (E0, E-1, … E-6 from right to left), so empty `○` slots on the left visually flag where the historical backfill is needed. **Events** lists what we hold, newest → oldest.
+
+| ECI | State | Temporal Richness | Events parsed (newest → oldest) |
+|-----|-------|-------------------|---------------------------------|
+| S01 | Andhra Pradesh    | `○ ○ ○ ○ ○ ● ●` 2/7 | `AcGenJun2024`, `AcGenApr2019` |
+| S02 | Arunachal Pradesh | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenJun2024` |
+| S03 | Assam             | `○ ○ ○ ○ ● ● ●` 3/7 | `AcGenMay2026`, `AcGenApr2021`, `AcGenApr2016` |
+| S04 | Bihar             | `○ ○ ○ ○ ○ ● ●` 2/7 | `AcGenNov2025`, `AcGenNov2020` |
+| S05 | Goa               | `○ ○ ○ ○ ○ ● ●` 2/7 | `AcGenFeb2022`, `AcGenFeb2017` |
+| S07 | Haryana           | `○ ○ ○ ○ ○ ● ●` 2/7 | `AcGenOct2024`, `AcGenOct2019` |
+| S08 | Himachal Pradesh  | `○ ○ ○ ○ ○ ● ●` 2/7 | `AcGenNov2022`, `AcGenNov2017` |
+| S10 | Karnataka         | `○ ○ ○ ○ ○ ● ●` 2/7 | `AcGenMay2023`, `AcGenMay2018` |
+| S11 | Kerala            | `○ ○ ○ ○ ● ● ●` 3/7 | `AcGenMay2026`, `AcGenApr2021`, `AcGenMay2016` |
+| S12 | Madhya Pradesh    | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenNov2023` |
+| S13 | Maharashtra       | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenNov2024` |
+| S16 | Mizoram           | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenNov2023` |
+| S18 | Sikkim            | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenJun2024` |
+| S21 | Odisha            | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenJun2024` |
+| S22 | Tamil Nadu        | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenMay2026` |
+| S25 | West Bengal       | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenMay2026` |
+| S26 | Chhattisgarh      | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenNov2023` |
+| S27 | Jharkhand         | `○ ○ ○ ○ ○ ● ●` 2/7 | `AcGenNov2024`, `AcGenDec2019` |
+| S29 | Telangana         | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenNov2023` |
+| U05 | Delhi             | `○ ○ ○ ○ ○ ● ●` 2/7 | `AcGenFeb2025`, `AcGenFeb2020` |
+| U07 | Puducherry        | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenMay2026` |
+| U08 | J&K               | `○ ○ ○ ○ ○ ○ ●` 1/7 | `AcGenOct2024` |
+
+**Read this as**: **22 states/UTs** in the inventory, **34 (state × event) cells** spread across **21 distinct elections**, **~3,930 per-AC result files**.
+
+- **3-deep (E-2)**: 2 states — S03 Assam, S11 Kerala.
+- **2-deep (E-1)**: 8 states/UTs — S01, S04, S05, S07, S08, S10, S27, U05.
+- **1-deep (only E0)**: 12 states/UTs — the natural backfill candidates for at least one prior cycle.
+- **No state is past E-2 today.** Every cell from E-3 to E-6 is empty across every row. The intent is to take 1-2 priority states all the way to E-4 (~20 years) first, then expand.
+- The May 2026 wave (the project's primary "live" target — TN, WB, Kerala, Assam, Puducherry) is fully ingested as E0.
+
+### 2b. Constituency count drift across cycles
+
+Only multi-election states appear here — Δ has no signal for single-election states. AC counts are listed left to right from E0 (most recent) to the oldest cycle we hold for that state. A change row-to-row across the AC columns flags either a delimitation tweak or a boundary redraw with a count change; same count across cycles still allows boundary redraws within an unchanged total — those need a separate AC GeoJSON diff.
+
+| ECI | State | E0 ACs | E-1 ACs | E-2 ACs | Notable drift |
+|-----|-------|-------:|--------:|--------:|---------------|
+| S01 | Andhra Pradesh   | 175 | 175 |  —  | none |
+| S03 | Assam            | 126 | 126 | 126 | none |
+| S04 | Bihar            | 243 | 243 |  —  | none |
+| S05 | Goa              |  40 |  40 |  —  | none |
+| S07 | Haryana          |  90 |  90 |  —  | none |
+| S08 | Himachal Pradesh |  68 |  68 |  —  | none |
+| S10 | Karnataka        | 224 | 223 |  —  | **+1 at E0** (2023 boundary tweak) |
+| S11 | Kerala           | 140 | 140 | 140 | none |
+| S27 | Jharkhand        |  81 |  81 |  —  | none |
+| U05 | Delhi            |  70 |  70 |  —  | none |
+
+**Read this as**: across the 10 multi-election states we hold, **only Karnataka shows a count change** (2018 → 2023, +1 AC). Every other state held its AC count steady across cycles. This is the cheap structural signal; a deeper boundary diff against `datasets/boundaries/in/geojson/<S__>-ac.geojson` would catch redraws that preserve the count.
+
+> **Apparent inversion to verify**: S18 Sikkim shows 147 ACs and S21 Odisha shows 32 ACs in the source data — these look swapped (Sikkim has 32 ACs, Odisha has 147). Numbers reproduced as currently scanned; flagged for a follow-up audit rather than silently rewriting.
 
 Each `<ac_no>.json` is parsed from ECI's per-AC results page (`results.eci.gov.in/Result<EventSlug>/Constituencywise<StateCode><AC:03d>.htm`). Per-state `parties.json` and `result.summary.json` siblings ship the registry + state-level rollup.
 
