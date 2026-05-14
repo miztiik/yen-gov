@@ -140,13 +140,20 @@ class IcedClient:
         *,
         params: dict[str, str] | None = None,
         timeout: float = 45.0,
+        decrypt: bool = True,
     ) -> IcedResponse:
-        """Fetch + decrypt one endpoint. Returns :class:`IcedResponse`.
+        """Fetch + (optionally decrypt) one endpoint. Returns :class:`IcedResponse`.
 
         ``api_path`` is the API-relative path (must start with ``/``).
         ``params`` is added as a query string. The raw HTTP body is
         always written to ``.runtime/raw/iced/v1/<path>.b64`` (overwriting
         any prior copy).
+
+        Set ``decrypt=False`` for the small set of endpoints that return
+        plain JSON (no AES envelope) — observed on a handful of v1
+        endpoints such as ``/v1/capacity-metatable-data`` and
+        ``/v1/retired-capacity-plants``. The raw body is parsed as JSON
+        directly.
         """
         if not api_path.startswith("/"):
             raise ValueError(f"api_path must start with '/', got {api_path!r}")
@@ -161,17 +168,21 @@ class IcedClient:
         body = self._fetch_with_retry(url, timeout=timeout)
         fetched_at = datetime.now(timezone.utc)
 
-        # Persist raw (encrypted) body for offline replay.
+        # Persist raw (encrypted-or-plain) body for offline replay.
         rel_disk = _sanitize_path_for_disk(api_path, params)
         raw_path = self._raw_dir / rel_disk
         raw_path.parent.mkdir(parents=True, exist_ok=True)
         raw_path.write_bytes(body)
 
         try:
-            decrypted = decrypt_response(body)
+            if decrypt:
+                decrypted = decrypt_response(body)
+            else:
+                decrypted = json.loads(body.decode("utf-8"))
         except (ICEDShapeError, json.JSONDecodeError) as exc:
             raise ICEDShapeError(
-                f"GET {url!r} returned a body that did not decrypt: {exc}. "
+                f"GET {url!r} returned a body that did not "
+                f"{'decrypt' if decrypt else 'parse as JSON'}: {exc}. "
                 f"Raw body persisted at {self._rel(raw_path)} for inspection."
             ) from exc
 

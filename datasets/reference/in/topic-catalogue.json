@@ -252,9 +252,52 @@
           "default": false,
           "featured": false,
           "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_installed_capacity_by_source_mw",
+          "default": false,
+          "featured": true,
+          "scope": "state",
+          "chart_type": "stacked-trend",
+          "dimension": "power_source"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_electricity_generation_by_source_gwh",
+          "default": false,
+          "featured": true,
+          "scope": "state",
+          "chart_type": "ranked",
+          "dimension": "power_source"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_peak_electricity_demand_mw",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/india_thermal_capacity_retired_mw",
+          "default": false,
+          "featured": false,
+          "scope": "national",
+          "chart_type": "stacked-trend",
+          "dimension": "power_source"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/india_capacity_pipeline_gw",
+          "default": false,
+          "featured": false,
+          "scope": "national",
+          "chart_type": "stacked-trend",
+          "dimension": "pipeline_status"
         }
       ],
-      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic — the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer. The `installed_capacity_*` family is from CEA's monthly Executive Summary (March 2026 snapshot) and covers all 35 CEA-reported state/UT entities across 7 fuel categories (total, thermal, coal, gas, nuclear, hydro, renewable). The legacy `installed_mw_by_state` indicator (Wikipedia-derived, 4 states only) is retained for back-compat but no longer the default. The state-level family (`state_installed_capacity_*`, `state_electricity_*`, `state_rooftop_solar_capacity_mw`, `state_atc_losses_pct`, `state_acs_arr_gap_inr_per_kwh`) is from the NITI Aayog ICED state-wise deep-dive API and covers 9-11 fiscal years (FY16-FY26) per indicator across all 36 states/UTs plus the All-India aggregate. ICED publishes both 'geographical-location' (where the plant sits) and 'with-allocated-shares' (who has rights to the output) capacity series; we ship both so the analyst can pick the one that matches the question being asked."
+      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic — the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer. The `installed_capacity_*` family is from CEA's monthly Executive Summary (March 2026 snapshot) and covers all 35 CEA-reported state/UT entities across 7 fuel categories (total, thermal, coal, gas, nuclear, hydro, renewable). The legacy `installed_mw_by_state` indicator (Wikipedia-derived, 4 states only) is retained for back-compat but no longer the default. The state-level family (`state_installed_capacity_*`, `state_electricity_*`, `state_rooftop_solar_capacity_mw`, `state_atc_losses_pct`, `state_acs_arr_gap_inr_per_kwh`) is from the NITI Aayog ICED state-wise deep-dive API and covers 9-11 fiscal years (FY16-FY26) per indicator across all 36 states/UTs plus the All-India aggregate. ICED publishes both 'geographical-location' (where the plant sits) and 'with-allocated-shares' (who has rights to the output) capacity series; we ship both so the analyst can pick the one that matches the question being asked. The 2026-05-15 ICED-power batch adds five complementary series from a different ICED endpoint family (NITI ICED public dashboards, not the state-wise deep-dive): `state_installed_capacity_by_source_mw` (FY16-FY26, 11y, all states × ~7 fuels, 1815 rows — same metric as the state-wise `state_installed_capacity_geographical_mw` but tidy-by-fuel and with longer history), `state_electricity_generation_by_source_gwh` and `state_peak_electricity_demand_mw` (FY26 snapshot from `/energy/powerStatistics`, useful as a current-year companion to the multi-year capacity series), and two national series — `india_thermal_capacity_retired_mw` (FY06-FY26, by retired-fuel facet) and `india_capacity_pipeline_gw` (2011-2031, two pipeline-status facets, including forward-looking commissioning estimates). Pipeline is the only forward-looking energy series we ship and is explicitly flagged as projection in `series_breaks`."
     },
     {
       "id": "elections",
