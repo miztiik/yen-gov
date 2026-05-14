@@ -1,0 +1,245 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy",
+      "fetched_at": "2026-05-14T20:59:30Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (Union Government)",
+    "temporal": "1986-04..2025-04",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "fiscal/union_gross_fiscal_deficit",
+    "title": "Gross fiscal deficit (Union Government)",
+    "description": "The Union (Central) Government's own borrowing requirement in each fiscal year. Defined as total expenditure minus total non-debt receipts. The single most-cited 'how much is the Centre borrowing this year' indicator — the headline fiscal deficit number that dominates Union Budget commentary every February. RBI HBS-IE Table 89, column 'Gross Fiscal Deficit'. Distinct from `fiscal/states_combined_gross_fiscal_deficit` which measures the all-states combined borrowing; the two are independent fiscal envelopes and are usefully compared side-by-side rather than added.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "lower_is_better",
+    "scale_hint": "linear",
+    "unit": "INR (crore)",
+    "icon": "trending-down",
+    "attribution_geography": "where_administered",
+    "comparability": "comparable_with_normalisation",
+    "funding_split": {
+      "centre_pct": 100,
+      "state_pct": 0,
+      "source": "definition (Union Government's own budgetary deficit)"
+    },
+    "implementing_authority": "centre",
+    "methodology_vintage": "RBI Handbook of Statistics on Indian Economy, Table 89 (Key Deficit Indicators of the Central Government); cached file mtime 2026-05-14T20:59:30Z. Verified against HBS-IE 2024-25 (published 2025-08-29). Workbook ships 8 indicator columns; we ship 4 to mirror the states-combined sibling family. The latest two fiscal years are RE/BE per the workbook's own footnote 1.",
+    "notes": "Source: RBI Handbook of Statistics on Indian Economy, Table 89 (Key Deficit Indicators of the Central Government), column 'Gross Fiscal Deficit'. Values are nominal Rs Crore (1 Crore = 10 million); NOT inflation-adjusted, so the historical curve reflects price level changes as much as real fiscal stress. The latest two fiscal years are typically RE (Revised Estimate) / BE (Budget Estimate) — read with appropriate caution. Coverage starts FY1986-87 in the 2024-25 edition. The RBI workbook also reports Net Fiscal Deficit, Net Primary Deficit, Drawdown of Cash Balances, and Net RBI Credit on the same sheet; those are intentionally not ingested here."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "1986-04",
+      "value": 26342.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1987-04",
+      "value": 27044.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1988-04",
+      "value": 30923.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1989-04",
+      "value": 35632.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1990-04",
+      "value": 44632.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1991-04",
+      "value": 36325.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1992-04",
+      "value": 40173.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1993-04",
+      "value": 60257.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1994-04",
+      "value": 57703.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1995-04",
+      "value": 60243.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1996-04",
+      "value": 66733.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1997-04",
+      "value": 88937.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1998-04",
+      "value": 113349.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1999-04",
+      "value": 104716.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": 118816.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2001-04",
+      "value": 140955.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2002-04",
+      "value": 145072.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2003-04",
+      "value": 123273.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2004-04",
+      "value": 125794.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 146435.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 142573.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 126912.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 336992.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 418482.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 373591.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 515990.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 490190.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 502858.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 510725.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 532791.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 535618.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 591062.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 649418.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 933651.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1818291.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1584521.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1737755.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1654643.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 1569527.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 1568936.0
+    }
+  ]
+}

@@ -231,9 +231,11 @@ A new `docs/research/` tier captures one note per upstream/topic so future work 
 
 ---
 
-## Open gap — Union (Centre's own) deficit indicators
+## Open gap — Union (Centre's own) deficit indicators ✅ SHIPPED
 
-**Raised by**: Hans (Governance) on 2026-05-14 during the Step B fiscal-actor rename review (ADR-0025). **Status**: source identified, ingest deferred to a follow-up commit on the same branch (or its own PR).
+**Raised by**: Hans (Governance) on 2026-05-14 during the Step B fiscal-actor rename review (ADR-0025). **Status**: ✅ shipped 2026-05-14 in branch `feat/rbi-hbs-ie-union-deficits` — adapter `backend/yen_gov/sources/rbi_hbs_ie_centre_deficits/`, four `fiscal/union_*_deficit` artifacts (FY1986-87 → FY2025-26 BE, 40 years × 4 indicators), reusing the AppT1 parser. Verified all 4 indicator columns (including `Primary Revenue Deficit`) exist in T89 — actually 8 indicator columns total, 4 not shipped (Net Fiscal Deficit, Net Primary Deficit, Drawdown of Cash Balances, Net RBI Credit). The caveat copy below is now obsolete; remove from any frontend surface that adopted it.
+
+The historical context below is preserved verbatim for ADR/audit traceability.
 
 **The asymmetry to fix.** After Step B (ADR-0025) yen-gov ships:
 

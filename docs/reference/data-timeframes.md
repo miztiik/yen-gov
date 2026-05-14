@@ -45,6 +45,7 @@ These are the spine of any longitudinal "did governance work?" comparison.
 | `fiscal/outstanding_debt_pct_gsdp` | FY08–FY26 | 19 | annual | RBI |
 | `fiscal/centre_transfers_to_states_*` (4 transfer flows: net, gross, tax_devolution, grants) | FY07–FY25 | 19 | annual | RBI |
 | `fiscal/states_combined_*_deficit` (4 deficit indicators: gross_fiscal, revenue, primary, primary_revenue) | FY07–FY25 | 19 | annual | RBI |
+| `fiscal/union_*_deficit` (4 deficit indicators: gross_fiscal, revenue, primary, primary_revenue) | FY86–FY25 | 40 | annual | RBI HBS-IE Table 89 |
 
 ## Mid-length series (10–19 years)
 
