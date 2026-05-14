@@ -1,17 +1,26 @@
 """Ingest RBI Handbook of Statistics on Indian States (HBS-IS) 2024-25 Power
-section — Tables 138, 139, 140, 141.
+section — Tables 138, 139, 140, 141, 142, 143.
 
-Emits 4 state × fiscal-year artifacts under datasets/indicators/in/energy/:
+Emits 7 state-level artifacts under datasets/indicators/in/energy/:
 
-  - state_per_capita_availability_kwh.json  (T138)
-  - state_power_availability_mu.json        (T139)
-  - state_installed_capacity_total_mw.json  (T140)
-  - state_power_requirement_mu.json         (T141)
+  Pattern A (states-as-rows × FY-as-cols, two-sheet split, FY05-FY25, 21y):
+    - state_per_capita_availability_kwh.json  (T138)
+    - state_power_availability_mu.json        (T139)
+    - state_installed_capacity_total_mw.json  (T140)
+    - state_power_requirement_mu.json         (T141)
 
-Coverage span FY 2004-05 .. FY 2024-25 (21 fiscal years). Aggregate values
-only — RBI's HBS-IS does NOT publish a state × fuel-source breakdown in the
-Power section. For source-mix data see the CEA monthly archive (separate
-adapter, planned).
+  Pattern B (multi-period grouped sheets, 2 FY per sheet × 6 sheets, FY14-FY25, 12y):
+    - state_peak_demand_mw.json  (T142, Peak Demand sub-column)
+    - state_peak_met_mw.json     (T142, Peak Met sub-column)
+    (Deficit MW + % are derivable: peak_met - peak_demand.)
+
+  Pattern C (states-as-rows × calendar-year-as-cols, two-sheet split, 2007-2024, 18y):
+    - state_renewable_grid_capacity_mw.json   (T143)
+
+T143 covers ALL renewables (wind + solar + small hydro + bio + waste-to-energy)
+combined — RBI does not publish a per-source split in HBS-IS. The closest RBI
+gets to a fuel-mix view of state-level capacity. Originating data: MoSPI
+Energy Statistics (per the workbook footer).
 
 Why a sibling tool instead of extending rbi_hbs_ingest_inflation_pension_health.py:
 keeping each thematic pull (inflation, health, power) in its own script keeps
@@ -76,6 +85,7 @@ NAME_TO_ECI = {
     "NCT of Delhi": "U05",
     "Puducherry": "U07",
     "Lakshadweep": "U04",
+    "Ladakh": "U09",
     "Dadra & Nagar Haveli": "U03",
     "Dadra and Nagar Haveli and Daman and Diu": "U03",
     "Daman & Diu": "U03",
@@ -98,7 +108,8 @@ def _coerce(v: object) -> float | None:
     return None
 
 
-_FY_RX = re.compile(r"^(\d{4})-(\d{2,4})(?:\s*\([A-Z]+\))?$")
+_FY_RX = re.compile(r"^(\d{4})-(\d{2,4})(?:\*+)?$")
+_CY_RX = re.compile(r"^\d{4}$")
 
 
 def _fy_label_to_time(label: object) -> str | None:
@@ -113,14 +124,25 @@ def _fy_label_to_time(label: object) -> str | None:
     return None
 
 
-def parse_state_year_table(xlsx: Path, header_row: int = 3) -> list[dict]:
+def _cy_label_to_time(label: object) -> str | None:
+    """Calendar year (T143 'as-at-end-March YYYY' columns). Strict 4-digit int."""
+    if isinstance(label, int) and 1900 <= label <= 2100:
+        return str(label)
+    if isinstance(label, str) and _CY_RX.match(label.strip()):
+        return label.strip()
+    return None
+
+
+def parse_state_year_table(xlsx: Path, header_row: int = 3, calendar: bool = False) -> list[dict]:
     """Walk every sheet. Header row is at index ``header_row`` (0-based);
-    cells in cols 2+ are FY labels like '2004-05'. Subsequent rows have the
-    state name in col 1. The two-sheet split (T_NNN(i) FY05-FY13 +
-    T_NNN(ii) FY14-FY25) is unioned automatically.
+    cells in cols 2+ are FY labels like '2004-05' (or calendar-year ints when
+    ``calendar=True``). Subsequent rows have the state name in col 1. Two-sheet
+    splits are unioned automatically. 'Total' / 'Others' / footer rows whose
+    label is not in NAME_TO_ECI are silently skipped.
     """
     out: list[dict] = []
     seen: set[tuple[str, str]] = set()
+    label_to_time = _cy_label_to_time if calendar else _fy_label_to_time
     wb = openpyxl.load_workbook(xlsx, data_only=True, read_only=True)
     for sname in wb.sheetnames:
         ws = wb[sname]
@@ -132,7 +154,7 @@ def parse_state_year_table(xlsx: Path, header_row: int = 3) -> list[dict]:
         for ci, cell in enumerate(header):
             if ci < 2:
                 continue
-            t = _fy_label_to_time(cell)
+            t = label_to_time(cell)
             if t:
                 col_to_time[ci] = t
         if not col_to_time:
@@ -147,6 +169,61 @@ def parse_state_year_table(xlsx: Path, header_row: int = 3) -> list[dict]:
                 continue
             for ci, time in col_to_time.items():
                 v = _coerce(row[ci]) if ci < len(row) else None
+                if v is None:
+                    continue
+                key = (eid, time)
+                if key in seen:
+                    continue
+                seen.add(key)
+                out.append({"entity_id": eid, "time": time, "value": v})
+    wb.close()
+    out.sort(key=lambda r: (r["entity_id"], r["time"]))
+    return out
+
+
+def parse_t142_peak(xlsx: Path, sub_col_offset: int) -> list[dict]:
+    """T142 has a multi-period grouped layout — each sheet covers 2 fiscal
+    years, with each FY occupying 4 columns: Peak Demand MW, Peak Met MW,
+    Surplus/Deficit MW, Surplus/Deficit %. Six sheets cover FY13-14..FY24-25.
+
+    Layout per sheet (0-indexed rows):
+      row 2: '2013-14' in col 2, '2014-15' in col 6   (FY-period header)
+      row 3: 'Peak Demand', 'Peak Met', 'Surplus/Deficit', None, repeat
+      row 4: units '(Megawatt)' x4, repeat
+      row 5+: state name in col 1, then 4 cols per FY-period
+
+    ``sub_col_offset`` selects which sub-column to extract within each FY block:
+      0 = Peak Demand, 1 = Peak Met, 2 = Surplus/Deficit (MW).
+    """
+    out: list[dict] = []
+    seen: set[tuple[str, str]] = set()
+    wb = openpyxl.load_workbook(xlsx, data_only=True, read_only=True)
+    for sname in wb.sheetnames:
+        ws = wb[sname]
+        rows = list(ws.iter_rows(values_only=True))
+        if len(rows) < 6:
+            continue
+        # Period header is row index 2; FY labels at cols 2 and 6 (the start
+        # of each 4-col block). Walk col-by-col looking for FY labels.
+        period_row = rows[2]
+        period_starts: list[tuple[int, str]] = []
+        for ci, cell in enumerate(period_row):
+            t = _fy_label_to_time(cell)
+            if t:
+                period_starts.append((ci, t))
+        if not period_starts:
+            continue
+        for row in rows[5:]:
+            label = row[1] if len(row) > 1 else None
+            if not isinstance(label, str):
+                continue
+            name = label.strip()
+            eid = NAME_TO_ECI.get(name)
+            if eid is None:
+                continue
+            for start_col, time in period_starts:
+                target = start_col + sub_col_offset
+                v = _coerce(row[target]) if target < len(row) else None
                 if v is None:
                     continue
                 key = (eid, time)
@@ -293,9 +370,121 @@ SPECS = [
 ]
 
 
+# T142 — Peak Demand vs Peak Met. Two artifacts; deficit derivable.
+T142_SPECS = [
+    {
+        "out_path": "energy/state_peak_demand_mw.json",
+        "id": "energy/state_peak_demand_mw",
+        "title": "State-wise peak power demand (MW)",
+        "xlsx": STATES_CACHE / "T142_PeakDemandVsPeakMet.xlsx",
+        "table_label": "Table 142: State-wise Actual Power Supply Position — Peak Demand",
+        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/142T_111220252ABDAB650F53423F990E3EA91A0B5B5A.XLSX",
+        "sub_col_offset": 0,
+        "value_kind": "raw",
+        "unit": "MW",
+        "icon": "zap",
+        "direction": "neutral",
+        "description": (
+            "Highest single-instant electricity demand observed in the state during "
+            "the fiscal year (MW). 'Peak' is the system-wide simultaneous demand "
+            "as recorded by the State Load Despatch Centre — typically a hot "
+            "summer afternoon (north / west India) or a winter evening (Punjab, "
+            "Delhi). Read alongside Peak Met (`state_peak_met_mw`) — the gap is "
+            "the unmet peak demand, which is more operationally critical than "
+            "the energy-deficit % because shortages here force load-shedding."
+        ),
+        "notes": (
+            "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, "
+            "Table 142. Originating data: Central Electricity Authority. "
+            "Note RBI relabelled 'Surplus / Deficit' to 'Demand Not Met' from "
+            "FY 2019-20 onwards; the underlying definition is unchanged. "
+            "Direction is neutral — higher peak demand reflects economic "
+            "activity (good) and / or supply-side inefficiency at off-peak (not "
+            "good); compare with `state_power_requirement_mu` for the energy-"
+            "volume view."
+        ),
+    },
+    {
+        "out_path": "energy/state_peak_met_mw.json",
+        "id": "energy/state_peak_met_mw",
+        "title": "State-wise peak power supplied (MW)",
+        "xlsx": STATES_CACHE / "T142_PeakDemandVsPeakMet.xlsx",
+        "table_label": "Table 142: State-wise Actual Power Supply Position — Peak Met",
+        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/142T_111220252ABDAB650F53423F990E3EA91A0B5B5A.XLSX",
+        "sub_col_offset": 1,
+        "value_kind": "raw",
+        "unit": "MW",
+        "icon": "zap",
+        "direction": "higher_is_better",
+        "description": (
+            "Maximum instantaneous power actually supplied in the state during "
+            "the fiscal year (MW). The pair (peak_demand, peak_met) tells the "
+            "load-shedding story: peak_met < peak_demand in any year means the "
+            "grid had to drop load to keep frequency stable. India's all-India "
+            "peak deficit fell from ~12% in FY05 to under 1% from FY18 onwards, "
+            "but state-level shortfalls persist — Bihar, UP, Punjab, J&K, and "
+            "Andhra Pradesh routinely under-met their own peak in the FY13-FY25 "
+            "window covered here."
+        ),
+        "notes": (
+            "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, "
+            "Table 142. Originating data: Central Electricity Authority. "
+            "Coverage starts FY 2013-14 in this RBI edition (12 fiscal years). "
+            "Pair with `state_peak_demand_mw` to compute deficit MW and "
+            "deficit % at render time."
+        ),
+    },
+]
+
+
+# T143 — State-wise Grid Interactive Renewable Power capacity (calendar year, end-March).
+T143_SPECS = [
+    {
+        "out_path": "energy/state_renewable_grid_capacity_mw.json",
+        "id": "energy/state_renewable_grid_capacity_mw",
+        "title": "State-wise installed grid-interactive renewable capacity (MW)",
+        "xlsx": STATES_CACHE / "T143_GridInteractiveRenewableCapacity.xlsx",
+        "table_label": "Table 143: State-wise Total Installed Capacity of Grid Interactive Renewable Power",
+        "snapshot_url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/143T_11122025415C21E8727B4EA0B009173F7DC19E84.XLSX",
+        "value_kind": "raw",
+        "unit": "MW",
+        "icon": "sun",
+        "direction": "higher_is_better",
+        "description": (
+            "Cumulative grid-connected renewable-power generation capacity "
+            "installed in the state, MW, as at end-March of the calendar year. "
+            "Includes wind + solar + small hydro + biomass + waste-to-energy "
+            "combined (RBI's table does not publish a per-source split). The "
+            "closest proxy in the RBI Handbook for a state-level fuel-mix view "
+            "of capacity. Coverage 2007–2024 = 18 years; demonstrates the scale "
+            "of India's RE expansion (national total 10,256 MW in 2007 → "
+            "143,645 MW in 2024, a 14× increase). Rajasthan (517→26,693 MW), "
+            "Gujarat (644→25,472), Tamil Nadu (3,802→19,983), Karnataka, and "
+            "Maharashtra dominate; Bihar, Odisha, north-eastern states remain "
+            "in single-digit GW territory."
+        ),
+        "notes": (
+            "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, "
+            "Table 143. Originating data per the workbook footer: 'Energy "
+            "Statistics, Ministry of Statistics and Programme Implementation, "
+            "Government of India.' Time grain is calendar-year (as-at-end-March "
+            "snapshot) — labelled with the year of the March 31 reading. "
+            "Telangana has data from 2015 (state created June 2014); Ladakh "
+            "from 2023 (UT created October 2019). 'Total' / 'Others' rows in "
+            "the source workbook are skipped at parse time."
+        ),
+    },
+]
+
+
+def _build_t142_extra_metadata(spec: dict) -> dict:
+    return {}
+
+
 def _build_artifact(spec: dict, rows: list[dict]) -> dict:
     times = sorted({r["time"] for r in rows})
     entities = sorted({r["entity_id"] for r in rows})
+    time_grain = spec.get("time_grain", "fiscal_year")
     return {
         "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
         "$schema_version": "1.3",
@@ -324,7 +513,7 @@ def _build_artifact(spec: dict, rows: list[dict]) -> dict:
             "title": spec["title"],
             "description": spec["description"],
             "entity_kind": "state",
-            "time_grain": "fiscal_year",
+            "time_grain": time_grain,
             "value_kind": spec["value_kind"],
             "direction": spec.get("direction", "neutral"),
             "scale_hint": "linear",
@@ -333,10 +522,10 @@ def _build_artifact(spec: dict, rows: list[dict]) -> dict:
             "attribution_geography": "where_administered",
             "comparability": "comparable_with_normalisation",
             "implementing_authority": "centre",
-            "methodology_vintage": (
+            "methodology_vintage": spec.get("methodology_vintage", (
                 "RBI Handbook of Statistics on Indian States 2024-25 edition; "
                 "originating data Central Electricity Authority, Ministry of Power."
-            ),
+            )),
             "notes": spec["notes"],
         },
         "rows": rows,
@@ -354,12 +543,36 @@ def _write(spec: dict, art: dict) -> None:
 
 
 def main() -> None:
-    print("=== HBS-IS Power section (T138-T141) ===")
+    print("=== HBS-IS Power section (T138-T141) — FY × state ===")
     for spec in SPECS:
         rows = parse_state_year_table(spec["xlsx"], header_row=3)
         if not rows:
             print(f"  WARN no rows for {spec['id']}")
             continue
+        art = _build_artifact(spec, rows)
+        _write(spec, art)
+
+    print("\n=== HBS-IS Power section (T142) — Peak demand vs peak met ===")
+    for spec in T142_SPECS:
+        rows = parse_t142_peak(spec["xlsx"], spec["sub_col_offset"])
+        if not rows:
+            print(f"  WARN no rows for {spec['id']}")
+            continue
+        art = _build_artifact(spec, rows)
+        _write(spec, art)
+
+    print("\n=== HBS-IS Power section (T143) — Renewable grid capacity (CY) ===")
+    for spec in T143_SPECS:
+        rows = parse_state_year_table(spec["xlsx"], header_row=4, calendar=True)
+        if not rows:
+            print(f"  WARN no rows for {spec['id']}")
+            continue
+        spec["time_grain"] = "year"
+        spec["methodology_vintage"] = (
+            "RBI Handbook of Statistics on Indian States 2024-25 edition; "
+            "originating data Energy Statistics, MoSPI, Government of India. "
+            "End-March cumulative installed capacity snapshots."
+        )
         art = _build_artifact(spec, rows)
         _write(spec, art)
 
