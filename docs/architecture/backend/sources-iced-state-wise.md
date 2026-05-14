@@ -102,6 +102,20 @@ re-evaluate: drop a year's cache file, run the orchestrator with
 `refresh=False` and check the climate columns in
 `.runtime/raw/iced/stateWiseDeepDive_<FY>.json`.
 
+## Runtime dependency
+
+`parsers.py` imports `Crypto.Cipher.AES` and `Crypto.Util.Padding.unpad`
+from **pycryptodome**. It is therefore a **runtime** backend dependency,
+declared in `backend/pyproject.toml` under `[project].dependencies` (not
+under `[project.optional-dependencies].dev`) — the source module imports
+it unconditionally at module load, so any process that imports
+`yen_gov.sources.iced_state_wise.*` (CLI, FastAPI admin, pytest collection)
+fails without it. We chose pycryptodome over `cryptography` because the
+CryptoJS-OpenSSL key derivation we reproduce (`EVP_BytesToKey` with MD5)
+is a thin AES-CBC + PKCS7 use case where pycryptodome's `AES.new(...,
+MODE_CBC)` and `pad`/`unpad` map 1:1 to the JS reference, keeping the
+parser short and obviously correct.
+
 ## What lives where
 
 ```
