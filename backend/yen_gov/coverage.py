@@ -19,14 +19,40 @@ any divergence between them surfaces in the "Inconsistencies" section.
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
-from datetime import datetime, timezone
+from dataclasses import dataclass, field
+from datetime import date, datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 CATALOGUE_REL = "datasets/reference/in/election-events.json"
 STATES_REL = "datasets/reference/in/states.json"
 ELECTIONS_REL = "datasets/elections"
+INDICATORS_REL = "datasets/indicators/in"
 INVENTORY_REL = "docs/reference/data-inventory.md"
+
+# Temporal Richness meter: 7 cells x 3 fiscal years, FY06 -> FY26.
+# Indian FY starts in April; FY 2007-08 begins April 2007 (so the JSON
+# string "2007-04" denotes FY07 in our indicator coverage strings).
+# Choice rationale lives in docs/architecture/backend/coverage.md.
+BUCKET_EDGES: tuple[tuple[date, date], ...] = (
+    (date(2006, 4, 1), date(2009, 3, 31)),  # FY06-FY08
+    (date(2009, 4, 1), date(2012, 3, 31)),  # FY09-FY11
+    (date(2012, 4, 1), date(2015, 3, 31)),  # FY12-FY14
+    (date(2015, 4, 1), date(2018, 3, 31)),  # FY15-FY17
+    (date(2018, 4, 1), date(2021, 3, 31)),  # FY18-FY20
+    (date(2021, 4, 1), date(2024, 3, 31)),  # FY21-FY23
+    (date(2024, 4, 1), date(2027, 3, 31)),  # FY24-FY26
+)
+BUCKET_LABELS: tuple[str, ...] = (
+    "FY06\u2013FY08",
+    "FY09\u2013FY11",
+    "FY12\u2013FY14",
+    "FY15\u2013FY17",
+    "FY18\u2013FY20",
+    "FY21\u2013FY23",
+    "FY24\u2013FY26",
+)
+N_BUCKETS = len(BUCKET_EDGES)
 
 # Constitutional fact: among UTs only Delhi (U05), Puducherry (U07) and J&K
 # (U08) have legislative assemblies. The other five (Andaman, Chandigarh,
@@ -61,10 +87,42 @@ class MissingState:
 
 
 @dataclass(frozen=True)
+class IndicatorCoverage:
+    """A single indicator artifact projected onto the temporal richness meter."""
+
+    id: str
+    category: str
+    title: str
+    unit: str
+    time_grain: str
+    span: str  # raw `coverage.temporal` string
+    n_periods: int
+    n_entities: int
+    n_rows: int
+    source_host: str
+    meter_cells: tuple[bool, ...]
+    is_snapshot: bool
+
+
+@dataclass(frozen=True)
+class StateElectionCoverage:
+    """Per-state projection of election slices onto the 7-cell meter."""
+
+    state_code: str
+    state_name: str
+    events: tuple[str, ...]  # event_ids newest -> oldest
+    polled_dates: tuple[str, ...]  # parallel to events; "-" if unknown
+    ac_counts: tuple[int, ...]  # parallel to events
+    meter_cells: tuple[bool, ...]
+
+
+@dataclass(frozen=True)
 class CoverageReport:
     generated_at: str  # RFC 3339 UTC
     slices: tuple[SliceCoverage, ...]
     missing_states: tuple[MissingState, ...]
+    indicators: tuple[IndicatorCoverage, ...] = field(default_factory=tuple)
+    state_elections: tuple[StateElectionCoverage, ...] = field(default_factory=tuple)
 
     @property
     def declared_only(self) -> tuple[SliceCoverage, ...]:
@@ -154,7 +212,154 @@ def compute_coverage(root: Path) -> CoverageReport:
         generated_at=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         slices=tuple(slices),
         missing_states=tuple(missing),
+        indicators=tuple(_scan_indicators(root)),
+        state_elections=tuple(_project_state_first(slices, state_names)),
     )
+
+
+def _parse_temporal(span: str) -> tuple[date, date]:
+    """Parse a `coverage.temporal` string into a (start, end) date pair.
+
+    Accepts three shapes:
+      * ``"YYYY-MM..YYYY-MM"`` (a closed range, e.g. ``"2007-04..2025-04"``)
+      * ``"YYYY-MM"`` (a single point, e.g. ``"2026-03"``)
+      * ``"YYYY"`` or ``"YYYY..YYYY"`` (annual / annual range, e.g. ``"2019"``)
+    """
+    if not span or not isinstance(span, str):
+        raise ValueError(f"empty temporal span: {span!r}")
+    parts = span.split("..")
+    if len(parts) == 1:
+        d = _parse_point(parts[0])
+        return (d, d)
+    if len(parts) == 2:
+        return (_parse_point(parts[0]), _parse_point(parts[1]))
+    raise ValueError(f"malformed temporal span: {span!r}")
+
+
+def _parse_point(token: str) -> date:
+    token = token.strip()
+    if len(token) == 4 and token.isdigit():
+        return date(int(token), 4, 1)
+    if len(token) == 7 and token[4] == "-":
+        y, m = token.split("-")
+        return date(int(y), int(m), 1)
+    raise ValueError(f"unrecognised temporal token: {token!r}")
+
+
+def _compute_meter(
+    start: date, end: date, edges: tuple[tuple[date, date], ...] = BUCKET_EDGES
+) -> tuple[bool, ...]:
+    """Return one bool per bucket: True iff [start, end] overlaps the bucket."""
+    return tuple(not (end < lo or start > hi) for lo, hi in edges)
+
+
+def _compute_election_meter(n_events: int) -> tuple[bool, ...]:
+    """N rightmost cells filled, capped at the bucket count.
+
+    Mirrors the indicator meter layout (rightmost = newest). For state-first
+    election coverage each cell is one election cycle, not a year window.
+    """
+    n = max(0, min(N_BUCKETS, n_events))
+    return tuple([False] * (N_BUCKETS - n) + [True] * n)
+
+
+def _render_meter(cells: tuple[bool, ...], snapshot: bool = False) -> str:
+    glyphs = " ".join("\u25cf" if c else "\u25cb" for c in cells)
+    n_filled = sum(1 for c in cells if c)
+    suffix = " (snapshot)" if snapshot else ""
+    return f"{glyphs} {n_filled}/{len(cells)}{suffix}"
+
+
+def _scan_indicators(root: Path) -> list[IndicatorCoverage]:
+    """Walk ``datasets/indicators/in/**/*.json`` and project each artifact."""
+    indicators_root = root / INDICATORS_REL
+    out: list[IndicatorCoverage] = []
+    if not indicators_root.exists():
+        return out
+    for path in sorted(indicators_root.rglob("*.json")):
+        try:
+            doc = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        ind = doc.get("indicator") or {}
+        cov = doc.get("coverage") or {}
+        span = cov.get("temporal")
+        if not span:
+            continue
+        try:
+            start, end = _parse_temporal(span)
+        except ValueError:
+            continue
+        meter = _compute_meter(start, end)
+        is_snapshot = (start == end) or ".." not in span
+        rows = doc.get("rows") or []
+        n_periods = len({_row_period_key(r) for r in rows if r.get("period")}) or (
+            1 if is_snapshot else 0
+        )
+        n_entities = len({r["entity_id"] for r in rows if "entity_id" in r})
+        sources = doc.get("sources") or []
+        host = ""
+        if sources:
+            try:
+                host = urlparse(sources[0].get("url", "")).netloc
+            except ValueError:
+                host = ""
+        ind_id = ind.get("id") or path.relative_to(indicators_root).with_suffix("").as_posix()
+        category = ind_id.split("/", 1)[0] if "/" in ind_id else "other"
+        out.append(
+            IndicatorCoverage(
+                id=ind_id,
+                category=category,
+                title=ind.get("title") or ind_id,
+                unit=ind.get("unit") or "",
+                time_grain=ind.get("time_grain") or "",
+                span=span,
+                n_periods=n_periods,
+                n_entities=n_entities,
+                n_rows=len(rows),
+                source_host=host,
+                meter_cells=meter,
+                is_snapshot=is_snapshot,
+            )
+        )
+    return out
+
+
+def _row_period_key(row: dict) -> str:
+    p = row.get("period")
+    if isinstance(p, dict):
+        return str(p.get("start") or p.get("value") or p)
+    return str(p)
+
+
+def _project_state_first(
+    slices: list[SliceCoverage], state_names: dict[str, str]
+) -> list[StateElectionCoverage]:
+    """Group on-disk election slices by state for the state-first meter."""
+    by_state: dict[str, list[SliceCoverage]] = {}
+    for s in slices:
+        if not s.on_disk:
+            continue
+        by_state.setdefault(s.state_code, []).append(s)
+    out: list[StateElectionCoverage] = []
+    for code in sorted(by_state):
+        # Newest -> oldest (descending by polled_on; fall back to event_id).
+        entries = sorted(
+            by_state[code],
+            key=lambda s: (s.polled_on or "", s.event_id),
+            reverse=True,
+        )
+        out.append(
+            StateElectionCoverage(
+                state_code=code,
+                state_name=state_names.get(code, code),
+                events=tuple(s.event_id for s in entries),
+                polled_dates=tuple(s.polled_on or "-" for s in entries),
+                ac_counts=tuple(s.ac_count for s in entries),
+                meter_cells=_compute_election_meter(len(entries)),
+            )
+        )
+    return out
 
 
 def render_markdown(report: CoverageReport) -> str:
@@ -166,15 +371,20 @@ def render_markdown(report: CoverageReport) -> str:
     rot.
     """
     out: list[str] = []
-    out.append("# Election Data Inventory")
+    out.append("# Data Inventory")
     out.append("")
     out.append(f"**Last Updated**: {report.generated_at} (auto-generated)")
     out.append("")
     out.append(
         "Generated by `python -m yen_gov coverage`. Do not hand-edit. "
-        "Re-run after every ingest. Source of truth for declared coverage is "
-        f"[{CATALOGUE_REL}]({_repo_link(CATALOGUE_REL)}); on-disk artifacts "
-        f"live under [{ELECTIONS_REL}/]({_repo_link(ELECTIONS_REL)}/)."
+        "Re-run after every ingest. Indicator coverage is derived from "
+        f"[{INDICATORS_REL}/]({_repo_link(INDICATORS_REL)}/); the declared "
+        "election catalogue lives at "
+        f"[{CATALOGUE_REL}]({_repo_link(CATALOGUE_REL)}); on-disk election "
+        f"artifacts live under [{ELECTIONS_REL}/]({_repo_link(ELECTIONS_REL)}/). "
+        "The Temporal Richness meter (\u25cf filled / \u25cb empty) is "
+        "explained in "
+        "[docs/architecture/backend/coverage.md](../architecture/backend/coverage.md)."
     )
     out.append("")
 
@@ -229,7 +439,77 @@ def render_markdown(report: CoverageReport) -> str:
             )
         out.append("")
 
-    out.append("## By cohort")
+    out.append("## 1. Indicators")
+    out.append("")
+    if not report.indicators:
+        out.append("_No indicator artifacts found under "
+                   f"`{INDICATORS_REL}/`._")
+        out.append("")
+    else:
+        out.append(
+            f"{len(report.indicators)} artifact(s) under `{INDICATORS_REL}/`. "
+            "The Temporal Richness meter projects each indicator's "
+            "`coverage.temporal` span onto 7 cells of 3 fiscal years "
+            f"(buckets: {', '.join(BUCKET_LABELS)}). Snapshots fill exactly "
+            "one cell and carry a `(snapshot)` tag."
+        )
+        out.append("")
+        by_cat: dict[str, list[IndicatorCoverage]] = {}
+        for ind in report.indicators:
+            by_cat.setdefault(ind.category, []).append(ind)
+        sub_letters = "abcdefghijklmnop"
+        for n, cat in enumerate(sorted(by_cat)):
+            label = sub_letters[n] if n < len(sub_letters) else str(n + 1)
+            out.append(f"### 1{label}. {cat.title()} ({len(by_cat[cat])})")
+            out.append("")
+            out.append(
+                "| id | unit | time grain | span | rows | entities | "
+                "Temporal Richness | source |"
+            )
+            out.append(
+                "| --- | --- | --- | --- | ---: | ---: | --- | --- |"
+            )
+            for ind in sorted(by_cat[cat], key=lambda x: x.id):
+                out.append(
+                    f"| `{ind.id}` | {ind.unit or '-'} | "
+                    f"{ind.time_grain or '-'} | {ind.span} | "
+                    f"{ind.n_rows} | {ind.n_entities} | "
+                    f"{_render_meter(ind.meter_cells, ind.is_snapshot)} | "
+                    f"{ind.source_host or '-'} |"
+                )
+            out.append("")
+
+    out.append("## 2a. Elections \u2014 coverage depth (state-first)")
+    out.append("")
+    if not report.state_elections:
+        out.append("_No on-disk election slices yet._")
+        out.append("")
+    else:
+        out.append(
+            f"{len(report.state_elections)} state(s)/UT(s) have at least one "
+            "on-disk slice. The Temporal Richness meter here is "
+            "**event-cycle-based**: each cell is one election cycle (rightmost "
+            "= newest), so a state with 3 ingested elections shows "
+            "`\u25cb \u25cb \u25cb \u25cb \u25cf \u25cf \u25cf 3/7`."
+        )
+        out.append("")
+        out.append(
+            "| State | Code | Cycles | Temporal Richness | Most recent | "
+            "Oldest |"
+        )
+        out.append("| --- | --- | ---: | --- | --- | --- |")
+        for se in report.state_elections:
+            most_recent = se.events[0] if se.events else "-"
+            oldest = se.events[-1] if se.events else "-"
+            out.append(
+                f"| {se.state_name} | `{se.state_code}` | "
+                f"{len(se.events)} | "
+                f"{_render_meter(se.meter_cells)} | "
+                f"{most_recent} | {oldest} |"
+            )
+        out.append("")
+
+    out.append("## 2b. Elections \u2014 by cohort (event-first)")
     out.append("")
     by_event: dict[str, list[SliceCoverage]] = {}
     for s in report.slices:
