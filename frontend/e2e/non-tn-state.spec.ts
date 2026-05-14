@@ -26,16 +26,10 @@ test.afterEach(() => {
 test.describe("non-TN states", () => {
   test("kerala (S11) renders state overview with provenance", async ({ page }) => {
     await page.goto("/s/kerala");
-    // We do NOT wait for `networkidle` here: the state-overview surface
-    // mounts maplibre-gl, which sustains a steady tail of WebGL/tile
-    // traffic (alongside Vite HMR and the boundaries-manifest probe)
-    // such that "no network for 500ms" can take >>15s on CI and times
-    // out before the page is interactively done. The visibility
-    // assertion below is the real gating signal — SourceList renders
-    // only after the result.summary fetch resolves, which is the load
-    // contract this test cares about. Mirror this pattern in any new
-    // non-TN spec.
-    await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeVisible({ timeout: 30_000 });
+    await page.waitForLoadState("networkidle", { timeout: 15_000 });
+    // Either an "Assembly election" heading (May-2026 cohort) or the
+    // catalogue topic shell — we accept either as proof of mount.
+    await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeVisible({ timeout: 15_000 });
   });
 
   test("bihar (S04) degrades gracefully for pending_upstream state", async ({ page }) => {
@@ -43,10 +37,8 @@ test.describe("non-TN states", () => {
     // without throwing; the `attachPageErrorTrap` afterEach asserts that.
     // We do NOT assert specific copy because the empty-state surface is
     // expected to evolve as we wire up the per-topic graceful-empty UI.
-    // `networkidle` is intentionally avoided — see the kerala test
-    // above for the rationale; `main` becoming visible is sufficient
-    // proof of mount.
     await page.goto("/s/bihar");
-    await expect(page.locator("main").first()).toBeVisible({ timeout: 15_000 });
+    await page.waitForLoadState("networkidle", { timeout: 15_000 });
+    await expect(page.locator("main").first()).toBeVisible();
   });
 });
