@@ -101,6 +101,10 @@ These states/UTs have a legislative assembly but no `event_id` registered in [el
 | `fiscal/states_combined_primary_deficit` | INR (crore) | fiscal_year | 2007-04..2025-04 | 20 | 1 | ● ● ● ● ● ● ● 7/7 | www.rbi.org.in |
 | `fiscal/states_combined_primary_revenue_deficit` | INR (crore) | fiscal_year | 2007-04..2025-04 | 20 | 1 | ● ● ● ● ● ● ● 7/7 | www.rbi.org.in |
 | `fiscal/states_combined_revenue_deficit` | INR (crore) | fiscal_year | 2007-04..2025-04 | 20 | 1 | ● ● ● ● ● ● ● 7/7 | www.rbi.org.in |
+| `fiscal/union_gross_fiscal_deficit` | INR (crore) | fiscal_year | 1986-04..2025-04 | 40 | 1 | ● ● ● ● ● ● ● 7/7 | www.rbi.org.in |
+| `fiscal/union_revenue_deficit` | INR (crore) | fiscal_year | 1986-04..2025-04 | 40 | 1 | ● ● ● ● ● ● ● 7/7 | www.rbi.org.in |
+| `fiscal/union_primary_deficit` | INR (crore) | fiscal_year | 1986-04..2025-04 | 40 | 1 | ● ● ● ● ● ● ● 7/7 | www.rbi.org.in |
+| `fiscal/union_primary_revenue_deficit` | INR (crore) | fiscal_year | 1986-04..2025-04 | 40 | 1 | ● ● ● ● ● ● ● 7/7 | www.rbi.org.in |
 | `fiscal/net_transfers_from_centre` | INR (crore) | fiscal_year | 2023-04..2025-04 | 93 | 31 | ○ ○ ○ ○ ○ ● ● 2/7 | rbidocs.rbi.org.in |
 | `fiscal/outstanding_debt_pct_gsdp` | % | fiscal_year | 2008-03..2026-03 | 589 | 31 | ● ● ● ● ● ● ● 7/7 | rbidocs.rbi.org.in |
 | `fiscal/state_external_debt_inr_crore` | INR (crore) | date | 2026-05-14 | 29 | 29 | ○ ○ ○ ○ ○ ○ ● 1/7 (snapshot) | sansad.in |

@@ -75,6 +75,24 @@
       "notes": "₹ Crore series only; the % GDP companion rows interleaved on alternating rows in the same workbook are NOT shipped (would need a separate value_kind=percent indicator family). See docs/architecture/backend/sources-rbi-appendix-deficits.md."
     },
     {
+      "id": "rbi.hbs_ie_t89_centre_deficits",
+      "authority": "Reserve Bank of India",
+      "title": "Handbook of Statistics on Indian Economy — Table 89 (Centre's Key Deficit Indicators)",
+      "landing_url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy",
+      "format": "xlsx",
+      "coverage": "All India national (Union Government), FY87–FY26 annual (~40 years)",
+      "status": "ingested",
+      "adapter": "rbi_hbs_ie_centre_deficits",
+      "indicator_ids": [
+        "fiscal/union_gross_fiscal_deficit",
+        "fiscal/union_revenue_deficit",
+        "fiscal/union_primary_deficit",
+        "fiscal/union_primary_revenue_deficit"
+      ],
+      "license": "GoI-Open",
+      "notes": "Centre-actor sibling of `rbi.appendix_t1_deficits` (states-combined). HBS-IE Table 89 ships 8 indicator columns (Gross/Net Fiscal Deficit, Gross/Net Primary Deficit, Revenue Deficit, Primary Revenue Deficit, Drawdown of Cash Balances, Net RBI Credit); we ship 4 to mirror the states-combined family. The 'Gross Primary Deficit' column maps to `fiscal/union_primary_deficit` (standard Indian fiscal usage). Closes the asymmetry recorded in ADR-0025 — see docs/architecture/backend/sources-rbi-hbs-ie-centre-deficits.md."
+    },
+    {
       "id": "rbi.appendix_t2_central_transfers",
       "authority": "Reserve Bank of India",
       "title": "Handbook of Statistics on Indian Economy — Appendix Table 2 (Central transfers to States)",

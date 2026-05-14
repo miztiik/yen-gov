@@ -1,0 +1,245 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy",
+      "fetched_at": "2026-05-14T20:59:30Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (Union Government)",
+    "temporal": "1986-04..2025-04",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "fiscal/union_revenue_deficit",
+    "title": "Revenue deficit (Union Government)",
+    "description": "Revenue expenditure minus revenue receipts for the Union Government. Positive = the Centre is borrowing to fund current consumption (salaries, subsidies, interest payments), widely considered the most worrying form of deficit. Negative = revenue *surplus* — current receipts exceed current spending. RBI HBS-IE Table 89, column 'Revenue Deficit'.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "lower_is_better",
+    "scale_hint": "linear",
+    "unit": "INR (crore)",
+    "icon": "trending-down",
+    "attribution_geography": "where_administered",
+    "comparability": "comparable_with_normalisation",
+    "funding_split": {
+      "centre_pct": 100,
+      "state_pct": 0,
+      "source": "definition (Union Government's own budgetary deficit)"
+    },
+    "implementing_authority": "centre",
+    "methodology_vintage": "RBI Handbook of Statistics on Indian Economy, Table 89 (Key Deficit Indicators of the Central Government); cached file mtime 2026-05-14T20:59:30Z. Verified against HBS-IE 2024-25 (published 2025-08-29). Workbook ships 8 indicator columns; we ship 4 to mirror the states-combined sibling family. The latest two fiscal years are RE/BE per the workbook's own footnote 1.",
+    "notes": "Source: RBI Handbook of Statistics on Indian Economy, Table 89, column 'Revenue Deficit'. Negative values mean revenue surplus. Same fiscal-year and RE/BE caveats as the Union gross fiscal deficit indicator."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "1986-04",
+      "value": 7777.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1987-04",
+      "value": 9137.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1988-04",
+      "value": 10515.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1989-04",
+      "value": 11914.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1990-04",
+      "value": 18562.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1991-04",
+      "value": 16261.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1992-04",
+      "value": 18574.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1993-04",
+      "value": 32716.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1994-04",
+      "value": 31029.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1995-04",
+      "value": 29731.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1996-04",
+      "value": 32654.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1997-04",
+      "value": 46449.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1998-04",
+      "value": 66976.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "1999-04",
+      "value": 67596.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": 85234.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2001-04",
+      "value": 100162.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2002-04",
+      "value": 107879.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2003-04",
+      "value": 98261.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2004-04",
+      "value": 78338.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 92300.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 80222.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 52569.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 253539.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 338998.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 252252.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 394348.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 364282.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 357048.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 365519.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 342736.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 316381.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 443600.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 454483.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 666545.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1449599.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1031021.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1069926.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 765216.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 610098.0
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 523846.0
+    }
+  ]
+}
