@@ -24,18 +24,30 @@ year so the renderer can show it.
 Run from repo root with the backend venv active::
 
     python tools/rbi_hbs_ingest_state_gdp.py
+
+Shared building blocks (state-name map, value coercion, year-label parsing,
+landing-page URLs, license block, write helper) live in
+``backend/yen_gov/sources/rbi_hbs/``.
 """
 from __future__ import annotations
 
-import io
-import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import openpyxl
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+from yen_gov.sources.rbi_hbs import (
+    ALL_INDIA_NAMES,
+    HBS_IE_LANDING as HBS_LANDING,
+    LICENSE_RBI,
+    NAME_TO_ECI,
+    coerce_value as _coerce_value,
+    fy_label_to_time as _fy_to_time,
+    setup_utf8_stdout,
+    write_artifact,
+)
+
+setup_utf8_stdout()
 
 CACHE = Path(".runtime/raw/rbi/handbook_economy_2024_25")
 OUT = Path("datasets/indicators/in/economy")
@@ -43,7 +55,6 @@ OUT = Path("datasets/indicators/in/economy")
 # Snapshot URLs for sources[]. These are the pinned 2024-25 edition URLs we
 # downloaded into CACHE on 2026-05-14 (lexicographic edition stamp 29082025
 # = Aug 29, 2025 = Handbook of Statistics on Indian Economy 2024-25 edition).
-HBS_LANDING = "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy"
 SNAPSHOT_URLS = {
     "T05": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/05T_2908202556D0D1A9FA0C4615A7889EC1F025BACE.XLSX",
     "T06": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/06T_290820258621D22235014AC19EE27C859382FEAF.XLSX",
@@ -54,56 +65,14 @@ SNAPSHOT_URLS = {
 # the bytes (a single download session). Not the RBI publication date.
 FETCHED_AT = datetime(2026, 5, 14, 18, 0, 0, tzinfo=timezone.utc).isoformat().replace("+00:00", "Z")
 
-# State name (RBI column header) -> ECI code. RBI uses "&" not "and"; our
-# states.json uses "and"; the mapping is hand-pinned.
-NAME_TO_ECI = {
-    "Andhra Pradesh": "S01",
-    "Arunachal Pradesh": "S02",
-    "Assam": "S03",
-    "Bihar": "S04",
-    "Chhattisgarh": "S26",
-    "Goa": "S05",
-    "Gujarat": "S06",
-    "Haryana": "S07",
-    "Himachal Pradesh": "S08",
-    "Jammu & Kashmir": "U08",
-    "Jharkhand": "S27",
-    "Karnataka": "S10",
-    "Kerala": "S11",
-    "Madhya Pradesh": "S12",
-    "Maharashtra": "S13",
-    "Manipur": "S14",
-    "Meghalaya": "S15",
-    "Mizoram": "S16",
-    "Nagaland": "S17",
-    "Odisha": "S18",
-    "Punjab": "S19",
-    "Rajasthan": "S20",
-    "Sikkim": "S21",
-    "Tamil Nadu": "S22",
-    "Telangana": "S29",
-    "Tripura": "S23",
-    "Uttar Pradesh": "S24",
-    "Uttarakhand": "S28",
-    "West Bengal": "S25",
-    "Andaman & Nicobar Islands": "U01",
-    "Chandigarh": "U02",
-    "Delhi": "U05",
-    "Puducherry": "U07",
-}
-
-# All-India aggregate column (only present in Tables 9/10). Becomes entity_id "IN".
-ALL_INDIA_NAMES = {"All- India per capita NNI", "All-India per capita NNI"}
-
-
-def _fy_to_time(fy_label: str) -> str:
-    """Convert RBI fiscal-year label '1994-95' -> '1994-04' (April start)."""
-    start = fy_label.split("-")[0]
-    return f"{start}-04"
-
 
 def _is_year(s: object) -> str | None:
-    """Return canonical 'YYYY-YY' year label if s looks like one, else None."""
+    """Return canonical 'YYYY-YY' year label if s looks like one, else None.
+
+    Local to this tool: state_gdp's table walker needs the original
+    ``YYYY-YY`` string (not the parsed time) because it also drives logic
+    that's downstream of the year cell.
+    """
     if not isinstance(s, str):
         return None
     s = s.strip()
@@ -113,34 +82,20 @@ def _is_year(s: object) -> str | None:
 
 
 def _is_base_marker(s: object) -> str | None:
-    """Return base-year label if s is a '(Base Year : XXXX-YY)' marker."""
+    """Return base-year label if s is a '(Base Year : XXXX-YY)' marker.
+
+    Local to this tool: only HBS-IE's NSDP tables use this sectioning
+    pattern; the inflation tool uses ``(Base : YYYY = 100)`` instead.
+    """
     if not isinstance(s, str):
         return None
     if "Base Year" not in s and "Base :" not in s:
         return None
-    # Extract last token
     inside = s.replace("(", "").replace(")", "").strip()
     parts = inside.split(":")
     if len(parts) < 2:
         return None
     return parts[-1].strip()
-
-
-def _coerce_value(v: object) -> float | None:
-    """Convert RBI cell to float or None (treat '-', '.', '' as missing)."""
-    if v is None:
-        return None
-    if isinstance(v, (int, float)):
-        return float(v)
-    if isinstance(v, str):
-        v = v.strip()
-        if v in ("-", ".", "", "*", "NA", "n.a.", "—"):
-            return None
-        try:
-            return float(v.replace(",", ""))
-        except ValueError:
-            return None
-    return None
 
 
 def parse_workbook(xlsx: Path) -> dict[str, dict[str, dict[str, float]]]:
@@ -369,12 +324,7 @@ def emit(spec: dict, parsed: dict[str, dict[str, dict[str, float]]]) -> None:
                 "authority": "Reserve Bank of India",
             },
         ],
-        "license": {
-            "id": "RBI-publication",
-            "name": "Reserve Bank of India publication (open for non-commercial use with attribution)",
-            "url": "https://www.rbi.org.in/Scripts/Disclaimer.aspx",
-            "redistributable": True,
-        },
+        "license": LICENSE_RBI,
         "coverage": {
             "spatial": f"India (states + UTs); {len(entities)} entities",
             "temporal": f"{times[0]}..{times[-1]}",
@@ -401,9 +351,7 @@ def emit(spec: dict, parsed: dict[str, dict[str, dict[str, float]]]) -> None:
         "rows": rows,
     }
     out_path = OUT / f"{spec['id'].split('/')[-1]}.json"
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(art, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"  wrote {out_path}  rows={len(rows)} entities={len(entities)} span={times[0]}..{times[-1]}")
+    write_artifact(out_path, art)
 
 
 def main() -> None:

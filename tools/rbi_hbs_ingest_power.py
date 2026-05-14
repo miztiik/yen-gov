@@ -22,115 +22,35 @@ combined — RBI does not publish a per-source split in HBS-IS. The closest RBI
 gets to a fuel-mix view of state-level capacity. Originating data: MoSPI
 Energy Statistics (per the workbook footer).
 
-Why a sibling tool instead of extending rbi_hbs_ingest_inflation_pension_health.py:
-keeping each thematic pull (inflation, health, power) in its own script keeps
-the spec table short and the run-time tractable when re-emitting just one
-artifact during iteration. Promote all three to backend/yen_gov/sources/rbi_hbs/
-once the parser shape stays stable across one more edition.
+Shared building blocks (state-name map, value coercion, year-label parsing,
+landing-page URLs, license block, write helper) live in
+``backend/yen_gov/sources/rbi_hbs/``; this script imports them rather than
+duplicating them inline.
 """
 from __future__ import annotations
 
-import io
-import json
-import re
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import openpyxl
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+from yen_gov.sources.rbi_hbs import (
+    HBS_IS_LANDING,
+    LICENSE_RBI,
+    NAME_TO_ECI,
+    coerce_value as _coerce,
+    cy_label_to_time as _cy_label_to_time,
+    fy_label_to_time as _fy_label_to_time,
+    setup_utf8_stdout,
+    write_artifact,
+)
+
+setup_utf8_stdout()
 
 STATES_CACHE = Path(".runtime/raw/rbi/handbook_states_2024_25")
 OUT = Path("datasets/indicators/in")
 
-HBS_IS_LANDING = "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+States"
 FETCHED_AT = datetime(2026, 5, 14, 19, 30, 0, tzinfo=timezone.utc).isoformat().replace("+00:00", "Z")
-
-# Same map used by the inflation/health ingest. Kept inline to keep this script
-# self-contained (no shared module yet — promote when patterns settle).
-NAME_TO_ECI = {
-    "Andhra Pradesh": "S01",
-    "Arunachal Pradesh": "S02",
-    "Assam": "S03",
-    "Bihar": "S04",
-    "Chhattisgarh": "S26",
-    "Goa": "S05",
-    "Gujarat": "S06",
-    "Haryana": "S07",
-    "Himachal Pradesh": "S08",
-    "Jammu & Kashmir": "U08",
-    "Jharkhand": "S27",
-    "Karnataka": "S10",
-    "Kerala": "S11",
-    "Madhya Pradesh": "S12",
-    "Maharashtra": "S13",
-    "Manipur": "S14",
-    "Meghalaya": "S15",
-    "Mizoram": "S16",
-    "Nagaland": "S17",
-    "Odisha": "S18",
-    "Punjab": "S19",
-    "Rajasthan": "S20",
-    "Sikkim": "S21",
-    "Tamil Nadu": "S22",
-    "Telangana": "S29",
-    "Tripura": "S23",
-    "Uttar Pradesh": "S24",
-    "Uttarakhand": "S28",
-    "West Bengal": "S25",
-    "Andaman & Nicobar Islands": "U01",
-    "Chandigarh": "U02",
-    "Delhi": "U05",
-    "NCT of Delhi": "U05",
-    "Puducherry": "U07",
-    "Lakshadweep": "U04",
-    "Ladakh": "U09",
-    "Dadra & Nagar Haveli": "U03",
-    "Dadra and Nagar Haveli and Daman and Diu": "U03",
-    "Daman & Diu": "U03",
-}
-
-
-def _coerce(v: object) -> float | None:
-    if v is None:
-        return None
-    if isinstance(v, (int, float)):
-        return float(v)
-    if isinstance(v, str):
-        s = v.strip()
-        if s in ("-", ".", "", "*", "NA", "n.a.", "—"):
-            return None
-        try:
-            return float(s.replace(",", ""))
-        except ValueError:
-            return None
-    return None
-
-
-_FY_RX = re.compile(r"^(\d{4})-(\d{2,4})(?:\*+)?$")
-_CY_RX = re.compile(r"^\d{4}$")
-
-
-def _fy_label_to_time(label: object) -> str | None:
-    if isinstance(label, int) and 1900 <= label <= 2100:
-        return f"{label}-04"
-    if not isinstance(label, str):
-        return None
-    s = label.strip()
-    m = _FY_RX.match(s)
-    if m:
-        return f"{m.group(1)}-04"
-    return None
-
-
-def _cy_label_to_time(label: object) -> str | None:
-    """Calendar year (T143 'as-at-end-March YYYY' columns). Strict 4-digit int."""
-    if isinstance(label, int) and 1900 <= label <= 2100:
-        return str(label)
-    if isinstance(label, str) and _CY_RX.match(label.strip()):
-        return label.strip()
-    return None
 
 
 def parse_state_year_table(xlsx: Path, header_row: int = 3, calendar: bool = False) -> list[dict]:
@@ -237,12 +157,6 @@ def parse_t142_peak(xlsx: Path, sub_col_offset: int) -> list[dict]:
 
 
 SOURCE_RBI = "Reserve Bank of India (compiled from Central Electricity Authority, Ministry of Power)"
-LICENSE_RBI = {
-    "id": "RBI-publication",
-    "name": "Reserve Bank of India publication (open for non-commercial use with attribution)",
-    "url": "https://www.rbi.org.in/Scripts/Disclaimer.aspx",
-    "redistributable": True,
-}
 
 SPECS = [
     {
@@ -533,13 +447,7 @@ def _build_artifact(spec: dict, rows: list[dict]) -> dict:
 
 
 def _write(spec: dict, art: dict) -> None:
-    path = OUT / spec["out_path"]
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(art, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    rows = art["rows"]
-    times = sorted({r["time"] for r in rows})
-    entities = sorted({r["entity_id"] for r in rows})
-    print(f"  wrote {path}  rows={len(rows)} entities={len(entities)} span={times[0]}..{times[-1]}")
+    write_artifact(OUT / spec["out_path"], art)
 
 
 def main() -> None:
