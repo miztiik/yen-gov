@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "1.2",
+  "x-version": "1.3",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,6 +19,11 @@
       "version": "1.2",
       "date": "2026-05-14",
       "description": "Additive: optional render-hint fields on indicator block. Added chart_type (enum: choropleth | ranked | stacked-trend) so a facetted indicator can declare its preferred default primitive without per-id branching in the frontend; added default_mode (enum: absolute | percent) for stacked/ranked views where percent vs absolute is a real editorial choice. Both optional \u2014 existing v1.1 artifacts remain valid. Driven by ADR-0024 (backend Aggregator for facetted indicators) and the StackedTrend chart primitive landing in the same wave."
+    },
+    {
+      "version": "1.3",
+      "date": "2026-05-14",
+      "description": "Additive: optional row-level `vintage` field. Carries the upstream's revision-tier label per row (e.g. 'First Advance Estimates', 'Provisional Estimates', 'First Revised Estimates', 'Final Estimates') so the chart can honestly surface that recent FY values may revise. Driven by the MoSPI National Accounts Statistics ingest (2026-05-14): the source publishes the same (indicator, year) pair in multiple revision tiers; we pick the most-final per (indicator, year) and stamp the chosen vintage on each row. Optional \u2014 existing v1.2 artifacts remain valid."
     }
   ],
   "type": "object",
@@ -212,6 +217,10 @@
           "facet": {
             "type": ["string", "null"],
             "description": "Optional sub-category for stacked/grouped views (e.g. fuel type for installed capacity: \"coal\" / \"hydro\" / \"solar\"). Null when not faceted."
+          },
+          "vintage": {
+            "type": ["string", "null"],
+            "description": "Optional upstream revision-tier label for the row. Used when the source publishes the same (entity, time, indicator, facet) pair in multiple revision tiers (e.g. MoSPI NAS: 'First Advance Estimates' \u2192 'Second Advance Estimates' \u2192 'Provisional Estimates' \u2192 'First Revised Estimates' \u2192 'Second Revised Estimates' \u2192 'Third Revised Estimates' \u2192 'Final Estimates' \u2192 'Additional Revision'). The ingest picks the most-final tier per row and stamps it here so the chart can disclose 'this year may still revise'."
           }
         }
       }

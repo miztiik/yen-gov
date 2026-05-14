@@ -1,0 +1,1367 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://www.data.gov.in/",
+      "fetched_at": "2026-05-14T15:02:37Z",
+      "name": "MoSPI National Accounts Statistics — consolidated annual + quarterly NAS series (data.gov.in mirror)",
+      "authority": "Ministry of Statistics and Programme Implementation (National Statistical Office)"
+    }
+  ],
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (national aggregate)",
+    "temporal": "2011-04..2025-04",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "economy/national_gva_by_industry_constant_2011_12_inr_crore",
+    "title": "National Gross Value Added by industry, constant 2011-12 prices (annual)",
+    "description": "Annual Gross Value Added by 17-industry NIC-1-digit tier (Agriculture / Mining / Manufacturing / Electricity-Gas-Water / Construction / Trade-Hotels-Transport-Communication / Financial-Real-Estate-Professional / Public Admin / Other Services and their published variants), at constant 2011-12 prices. Drives the 'structure-of-the-economy' citizen story: how shares shift across CM terms and policy waves.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "INR (crore)",
+    "icon": "trending-up",
+    "attribution_geography": "where_resident",
+    "comparability": "comparable_across_states",
+    "implementing_authority": "centre",
+    "methodology_vintage": "MoSPI National Accounts Statistics, base 2011-12, constant prices. Consolidated CSV ingested 2026-05-14; per (indicator, industry, year) the most-final published revision tier was selected (rank order: First Advance < Second Advance < Provisional < First Revised < Second Revised < Third Revised < Final < Additional Revision) and stamped on each row via the v1.3 `vintage` field. Source CSV included a parallel current-price series and a 2022-23 rebased series; both were intentionally dropped — constant-price 2011-12 is yen-gov's canonical real-GDP/GVA basis (matches IMF WEO, World Bank WDI NY.GDP.MKTP.KD, OECD SNA, MoSPI press notes). Pre-computed growth-rate rows were also dropped: MoSPI uses fixed-base accounts so naive (Y_t - Y_{t-1}) / Y_{t-1} on this constant-price level series reproduces the published growth rate to the last decimal. Subindustry rows (Crops, Livestock, Air Transport, etc.) were also dropped — citizen front door uses the 17-industry NIC-1 tier; subindustry returns in a Phase F deep-dive.",
+    "notes": "Values are in ₹ crore at 2011-12 prices — comparable across years (real growth is meaningful) but NOT directly comparable to today's market value. For 'size of the economy in today's money' use the current-price series (not yet shipped at the national level).",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute"
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 1501947.322,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 1524288.195,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1609198.298,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1605715.217,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1616145.932,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 1726004.0,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1840022.896,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1878598.35,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1994325.816,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2074212.404,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 2170106.472,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 2305977.621,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 2367286.515,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 2476804.99,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 2554071.207,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 777334.5489,
+      "facet": "Construction",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 780050.107,
+      "facet": "Construction",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 800770.8801,
+      "facet": "Construction",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 835228.6247,
+      "facet": "Construction",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 865334.931,
+      "facet": "Construction",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 916445.0,
+      "facet": "Construction",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 964305.6677,
+      "facet": "Construction",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1026789.19,
+      "facet": "Construction",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1043429.41,
+      "facet": "Construction",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 995370.6443,
+      "facet": "Construction",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1193532.115,
+      "facet": "Construction",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1302245.296,
+      "facet": "Construction",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1437788.104,
+      "facet": "Construction",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 1572285.306,
+      "facet": "Construction",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 1682792.355,
+      "facet": "Construction",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 186668.0,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 191635.0,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 199601.0,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 214047.0,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 224158.0,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 246496.0,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 272650.0196,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 294147.0,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 300797.9513,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 288213.142,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 317966.1957,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 352331.0576,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 382775.9055,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 405295.9385,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 413702.0036,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 480226.0,
+      "facet": "Financial Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 529792.0,
+      "facet": "Financial Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 577914.0,
+      "facet": "Financial Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 627254.6143,
+      "facet": "Financial Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 672787.5966,
+      "facet": "Financial Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 695983.0,
+      "facet": "Financial Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 728669.6334,
+      "facet": "Financial Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 758170.319,
+      "facet": "Financial Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 784535.538,
+      "facet": "Financial Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 824293.9219,
+      "facet": "Financial Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 831305.3364,
+      "facet": "Financial Services",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 903367.9275,
+      "facet": "Financial Services",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 972874.2439,
+      "facet": "Financial Services",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 2015912.0,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 2248845.0,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 2429638.0,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 2599927.0,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 2846393.0,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 2915680.0,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2872815.312,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 3087359.86,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 3320305.096,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 3691644.946,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 4088071.596,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 4494341.359,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 1409985.571,
+      "facet": "Manufacturing",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 1486873.259,
+      "facet": "Manufacturing",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1560709.116,
+      "facet": "Manufacturing",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1683937.554,
+      "facet": "Manufacturing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1903849.587,
+      "facet": "Manufacturing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 2054764.0,
+      "facet": "Manufacturing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 2209427.763,
+      "facet": "Manufacturing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 2328992.203,
+      "facet": "Manufacturing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 2259705.548,
+      "facet": "Manufacturing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2329160.107,
+      "facet": "Manufacturing",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 2561033.112,
+      "facet": "Manufacturing",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 2504663.33,
+      "facet": "Manufacturing",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 2825935.31,
+      "facet": "Manufacturing",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 2953646.67,
+      "facet": "Manufacturing",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 3161363.993,
+      "facet": "Manufacturing",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 261035.369,
+      "facet": "Mining and Quarrying",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 262608.7984,
+      "facet": "Mining and Quarrying",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 263106.615,
+      "facet": "Mining and Quarrying",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 288685.4562,
+      "facet": "Mining and Quarrying",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 317973.8102,
+      "facet": "Mining and Quarrying",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 349248.0,
+      "facet": "Mining and Quarrying",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 329612.0533,
+      "facet": "Mining and Quarrying",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 326814.5692,
+      "facet": "Mining and Quarrying",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 317134.3495,
+      "facet": "Mining and Quarrying",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 291075.158,
+      "facet": "Mining and Quarrying",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 309276.059,
+      "facet": "Mining and Quarrying",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 319733.4839,
+      "facet": "Mining and Quarrying",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 330007.402,
+      "facet": "Mining and Quarrying",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 338883.983,
+      "facet": "Mining and Quarrying",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 336550.0692,
+      "facet": "Mining and Quarrying",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 534826.965,
+      "facet": "Other Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 568262.2319,
+      "facet": "Other Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 600748.156,
+      "facet": "Other Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 659262.2926,
+      "facet": "Other Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 711690.8016,
+      "facet": "Other Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 781744.0,
+      "facet": "Other Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 836035.0175,
+      "facet": "Other Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 902704.7157,
+      "facet": "Other Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 969872.9436,
+      "facet": "Other Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 843408.2529,
+      "facet": "Other Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 940852.6982,
+      "facet": "Other Services",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1033017.35,
+      "facet": "Other Services",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1149180.057,
+      "facet": "Other Services",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 491154.7828,
+      "facet": "Public Administration and Defence",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 501383.4651,
+      "facet": "Public Administration and Defence",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 510045.6882,
+      "facet": "Public Administration and Defence",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 543852.866,
+      "facet": "Public Administration and Defence",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 565105.9176,
+      "facet": "Public Administration and Defence",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 614238.0,
+      "facet": "Public Administration and Defence",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 676507.4351,
+      "facet": "Public Administration and Defence",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 722772.7338,
+      "facet": "Public Administration and Defence",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 762531.4174,
+      "facet": "Public Administration and Defence",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 757886.4666,
+      "facet": "Public Administration and Defence",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 780845.9384,
+      "facet": "Public Administration and Defence",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 803342.9685,
+      "facet": "Public Administration and Defence",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 849380.7529,
+      "facet": "Public Administration and Defence",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1240950.0,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1316522.0,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 1430002.0,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1554759.0,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1694851.0,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1844316.0,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1677785.634,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1838813.694,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1881614.676,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 2021798.46,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 2175627.886,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 2391454.854,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 1050651.372,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 1150239.294,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1289492.914,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1446459.824,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1621999.025,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 1796983.0,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1808520.625,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1956051.402,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 2113707.893,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2129836.221,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 2291541.852,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 2555908.655,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 2841712.23,
+      "facet": "Real Estate, Ownership of Dwelling & Professional Services",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1904200.0,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1998292.0,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 2143956.0,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 2307684.0,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 2471128.0,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 2577945.0,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2208387.752,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 2385604.693,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 2800111.969,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 2955766.611,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 3176829.841,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 3415552.426,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 883582.3028,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 981620.0,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1034506.0,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1135841.459,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1261425.842,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 1389322.0,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1568174.663,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1707780.608,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1828867.572,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1438477.014,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1614779.636,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1848277.373,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1999558.635,
+      "facet": "Trade, Repair, Hotels and Restaurants",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 529533.7597,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 569523.0,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 617556.0,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 671847.8815,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 731398.9035,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 757056.0,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 800244.7398,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 830976.678,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 861191.9721,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 715411.2431,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 865600.6275,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 937462.866,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 994977.3505,
+      "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
+      "vintage": "First Revised Estimates"
+    }
+  ]
+}

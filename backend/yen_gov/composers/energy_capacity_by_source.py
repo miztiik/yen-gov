@@ -65,7 +65,7 @@ SUM_TOLERANCE_FRACTION = 0.005  # 0.5%
 # Below this fraction, other_thermal is dropped (treated as numerical noise)
 MIN_OTHER_THERMAL_FRACTION = 0.001  # 0.1%
 
-SCHEMA_VERSION = "1.2"
+SCHEMA_VERSION = "1.3"
 SCHEMA_ID = "https://yen-gov.github.io/schemas/indicator.schema.json"
 SCHEMA_PATH_RELPATH = "datasets/schemas/indicator.schema.json"
 

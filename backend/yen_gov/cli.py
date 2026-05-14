@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 import typer
@@ -106,6 +107,15 @@ def coverage(
     """
     report = compute_coverage(root)
     md = render_markdown(report)
+    # The Temporal Richness meter uses U+25CF / U+25CB. On Windows the default
+    # console code page (cp1252) cannot encode them, so a naive `typer.echo`
+    # crashes when stdout is the terminal. Reconfigure to UTF-8 with a safe
+    # fallback so the command works in PowerShell / cmd without operators
+    # having to set $env:PYTHONIOENCODING manually.
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
     typer.echo(md, nl=False)
     if write:
         target = root / INVENTORY_REL

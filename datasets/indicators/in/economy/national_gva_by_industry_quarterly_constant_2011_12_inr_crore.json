@@ -1,0 +1,3166 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://www.data.gov.in/",
+      "fetched_at": "2026-05-14T15:02:37Z",
+      "name": "MoSPI National Accounts Statistics — consolidated annual + quarterly NAS series (data.gov.in mirror)",
+      "authority": "Ministry of Statistics and Programme Implementation (National Statistical Office)"
+    }
+  ],
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (national aggregate)",
+    "temporal": "2011-04..2025-07",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore",
+    "title": "National Gross Value Added by industry, constant 2011-12 prices (quarterly)",
+    "description": "Quarterly Gross Value Added by 17-industry tier at constant 2011-12 prices. Time field is YYYY-MM at the quarter's start month (Q1 = YYYY-04, Q2 = YYYY-07, Q3 = YYYY-10, Q4 = (Y+1)-01). The high-frequency companion to the annual series; useful for monsoon / supply-shock narratives.",
+    "entity_kind": "country",
+    "time_grain": "quarter",
+    "value_kind": "currency",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "INR (crore)",
+    "icon": "trending-up",
+    "attribution_geography": "where_resident",
+    "comparability": "comparable_across_states",
+    "implementing_authority": "centre",
+    "methodology_vintage": "MoSPI National Accounts Statistics, base 2011-12, constant prices. Consolidated CSV ingested 2026-05-14; per (indicator, industry, quarter) the most-final published revision tier was selected (rank order: First Advance < Second Advance < Provisional < First Revised < Second Revised < Third Revised < Final < Additional Revision) and stamped on each row via the v1.3 `vintage` field. Source CSV included a parallel current-price series and a 2022-23 rebased series; both were intentionally dropped — constant-price 2011-12 is yen-gov's canonical real-GDP/GVA basis (matches IMF WEO, World Bank WDI NY.GDP.MKTP.KD, OECD SNA, MoSPI press notes). Pre-computed growth-rate rows were also dropped: MoSPI uses fixed-base accounts so naive (Y_t - Y_{t-1}) / Y_{t-1} on this constant-price level series reproduces the published growth rate to the last decimal. Subindustry rows (Crops, Livestock, Air Transport, etc.) were also dropped — citizen front door uses the 17-industry NIC-1 tier; subindustry returns in a Phase F deep-dive.",
+    "notes": "Values are in ₹ crore at 2011-12 prices — comparable across years (real growth is meaningful) but NOT directly comparable to today's market value. For 'size of the economy in today's money' use the current-price series (not yet shipped at the national level).",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute"
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 336108.8379,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-07",
+      "value": 269074.1208,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-10",
+      "value": 500965.5754,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-01",
+      "value": 395797.5456,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 341199.1851,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-07",
+      "value": 274362.4647,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-10",
+      "value": 506048.7582,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-01",
+      "value": 402678.0968,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 354449.52,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-07",
+      "value": 289365.4713,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-10",
+      "value": 539360.3342,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-01",
+      "value": 426023.0684,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 362652.8124,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-07",
+      "value": 299493.8795,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-10",
+      "value": 522894.1505,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-01",
+      "value": 420673.4098,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 371273.0687,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-07",
+      "value": 307806.1949,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-10",
+      "value": 511553.11,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-01",
+      "value": 425513.5587,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 389609.6502,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-07",
+      "value": 326769.1629,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-10",
+      "value": 549199.104,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-01",
+      "value": 460425.9335,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 413332.3812,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-07",
+      "value": 348961.8905,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-10",
+      "value": 581218.7031,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-01",
+      "value": 496509.9208,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 433154.047,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-07",
+      "value": 364398.3878,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-10",
+      "value": 589159.5096,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-01",
+      "value": 491886.4057,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 451611.8294,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-07",
+      "value": 383768.1617,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-10",
+      "value": 623983.243,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-01",
+      "value": 534962.5822,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 468501.6767,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-07",
+      "value": 400210.1992,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-10",
+      "value": 652913.1158,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 489819.8049,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-07",
+      "value": 423817.4556,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-10",
+      "value": 673640.0041,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-01",
+      "value": 582829.1941,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 510890.2347,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-07",
+      "value": 440718.4825,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-10",
+      "value": 716977.2094,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-01",
+      "value": 637391.6949,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-07",
+      "value": 456997.7427,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-10",
+      "value": 727425.9657,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 547919.0665,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-07",
+      "value": 475765.1016,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-10",
+      "value": 775732.1706,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-01",
+      "value": 677388.6511,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 568374.3511,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-07",
+      "value": 492623.4729,
+      "facet": "Agriculture, Livestock, Forestry and Fishing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 186776.6357,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-07",
+      "value": 190701.4741,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-10",
+      "value": 195723.7805,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-01",
+      "value": 204132.572,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 189865.8008,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-07",
+      "value": 186137.1545,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-10",
+      "value": 194069.2482,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-01",
+      "value": 209977.9034,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 198716.4373,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-07",
+      "value": 194457.7755,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-10",
+      "value": 198469.6844,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-01",
+      "value": 209126.9829,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 209578.9505,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-07",
+      "value": 204911.7921,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-10",
+      "value": 206558.3682,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-01",
+      "value": 214179.5139,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 218252.8273,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-07",
+      "value": 205790.4472,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-10",
+      "value": 216448.5781,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-01",
+      "value": 224843.0783,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 234541.3706,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-07",
+      "value": 222843.9184,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-10",
+      "value": 232427.0672,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-01",
+      "value": 226632.1714,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 235401.3735,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-07",
+      "value": 226647.3063,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-10",
+      "value": 243990.8483,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-01",
+      "value": 258266.1396,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 251353.5342,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-07",
+      "value": 239218.8802,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-10",
+      "value": 260988.3899,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-01",
+      "value": 275228.3858,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 260990.2111,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-07",
+      "value": 241819.6936,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-10",
+      "value": 258983.834,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-01",
+      "value": 281635.6713,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 143771.4068,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-07",
+      "value": 226576.1672,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-10",
+      "value": 288855.2244,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-01",
+      "value": 336167.8459,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 268829.3672,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-07",
+      "value": 263793.6051,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-10",
+      "value": 301090.2361,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-01",
+      "value": 359818.907,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 307843.1554,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-07",
+      "value": 280755.288,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-10",
+      "value": 328418.3243,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-01",
+      "value": 385228.5282,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 336111.8425,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-07",
+      "value": 321687.976,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-01",
+      "value": 418570.3315,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-07",
+      "value": 348600.6591,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-10",
+      "value": 389989.7235,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-01",
+      "value": 463640.7968,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 398031.571,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-07",
+      "value": 373634.2758,
+      "facet": "Construction",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 46302.44103,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-07",
+      "value": 46466.05263,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-10",
+      "value": 46622.94884,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-01",
+      "value": 47276.5575,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 48479.91923,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-07",
+      "value": 47289.98333,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-10",
+      "value": 48003.94487,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-01",
+      "value": 47861.15256,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 49464.09865,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-07",
+      "value": 50076.28589,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-10",
+      "value": 49637.35919,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-01",
+      "value": 50423.25627,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 53899.6147,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-07",
+      "value": 54880.05047,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-10",
+      "value": 53220.85147,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-01",
+      "value": 52046.48335,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 55231.76083,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-07",
+      "value": 57848.30607,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-10",
+      "value": 55199.98093,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-01",
+      "value": 55877.95217,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 62529.07013,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-07",
+      "value": 62354.64698,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-10",
+      "value": 60850.24723,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-01",
+      "value": 60763.03566,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 69161.2695,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-07",
+      "value": 69358.69971,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-10",
+      "value": 66571.44966,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-01",
+      "value": 67558.60072,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 74424.6517,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-07",
+      "value": 76047.56782,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-10",
+      "value": 72707.65348,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-01",
+      "value": 70967.13475,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 79722.32823,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-07",
+      "value": 77536.23947,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-10",
+      "value": 70576.20553,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-01",
+      "value": 72963.17812,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 67513.83278,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-07",
+      "value": 74605.84819,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-01",
+      "value": 74909.79171,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 78875.8009,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-07",
+      "value": 83053.68009,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-10",
+      "value": 75733.75953,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-01",
+      "value": 80302.95523,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 92377.40993,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-07",
+      "value": 89516.32492,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-10",
+      "value": 83214.69466,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-01",
+      "value": 87222.62808,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 96203.00372,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-07",
+      "value": 100019.1847,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-10",
+      "value": 91643.09413,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-01",
+      "value": 94910.62293,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 105981.4324,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-07",
+      "value": 102969.9413,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-10",
+      "value": 96300.76871,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-01",
+      "value": 100043.7961,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 106470.2055,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-07",
+      "value": 107518.7409,
+      "facet": "Electricity, Gas, Water Supply & Other Utility Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 404493.0137,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-07",
+      "value": 410625.8989,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-10",
+      "value": 340343.2386,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-01",
+      "value": 375416.4876,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 442486.8329,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-07",
+      "value": 452821.4266,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-10",
+      "value": 377983.1247,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-01",
+      "value": 406740.0905,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 494882.784,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-07",
+      "value": 524246.0245,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-10",
+      "value": 409823.1533,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-01",
+      "value": 438454.7361,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 540066.6635,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-07",
+      "value": 592769.1797,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-10",
+      "value": 459477.7031,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-01",
+      "value": 481400.8921,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 594978.047,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-07",
+      "value": 669972.5855,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-10",
+      "value": 506287.9353,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-01",
+      "value": 523545.891,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 675148.7413,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-07",
+      "value": 745019.2409,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-10",
+      "value": 532369.6916,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-01",
+      "value": 540428.881,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 694096.26,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-07",
+      "value": 740832.572,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-10",
+      "value": 550115.4494,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-01",
+      "value": 552145.9772,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 735941.1907,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-07",
+      "value": 791141.7734,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-10",
+      "value": 586811.0566,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-01",
+      "value": 600327.7,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 797124.7262,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-07",
+      "value": 857419.0396,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-10",
+      "value": 616488.2106,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-01",
+      "value": 627211.4544,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 788544.6353,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-07",
+      "value": 812790.6572,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-10",
+      "value": 675018.9272,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-01",
+      "value": 677775.923,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 817426.0997,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-07",
+      "value": 876146.0632,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-10",
+      "value": 712147.3787,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-01",
+      "value": 717127.6468,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 917743.4621,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-07",
+      "value": 967000.9249,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-10",
+      "value": 779145.5607,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-01",
+      "value": 795386.6348,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1055656.955,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-07",
+      "value": 1047186.614,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-10",
+      "value": 844745.1008,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 1125793.254,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-10",
+      "value": 904524.3722,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-01",
+      "value": 934864.0234,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 1232476.169,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-07",
+      "value": 1237877.367,
+      "facet": "Financial, Real Estate & Professional Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 356022.3076,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-07",
+      "value": 333104.4928,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-10",
+      "value": 333674.4533,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-01",
+      "value": 387183.9968,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 358339.6807,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-07",
+      "value": 373953.3322,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-10",
+      "value": 355777.8855,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-01",
+      "value": 398803.2082,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 383075.9169,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-07",
+      "value": 387587.2748,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-10",
+      "value": 377185.5845,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-01",
+      "value": 412859.9953,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 422168.544,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-07",
+      "value": 423756.92,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-10",
+      "value": 389832.8586,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-01",
+      "value": 448178.3839,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 466223.7299,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-07",
+      "value": 472854.5688,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-10",
+      "value": 450360.0024,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-01",
+      "value": 514411.2862,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 512044.7929,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-07",
+      "value": 508973.8945,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-10",
+      "value": 487552.7616,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-01",
+      "value": 546192.8951,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 511988.6024,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-07",
+      "value": 553424.4673,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-10",
+      "value": 537524.6139,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-01",
+      "value": 606490.0796,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 565138.647,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-07",
+      "value": 583153.9687,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-10",
+      "value": 563759.3492,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-01",
+      "value": 616940.2385,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 565388.3264,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-07",
+      "value": 562324.6633,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-10",
+      "value": 544149.7233,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-01",
+      "value": 587842.8354,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 397367.9044,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-07",
+      "value": 613999.7006,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-10",
+      "value": 614651.3188,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-01",
+      "value": 703141.1828,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-07",
+      "value": 647821.4805,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-10",
+      "value": 615672.9092,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-01",
+      "value": 701024.1695,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 612446.3849,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-07",
+      "value": 603249.6184,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-10",
+      "value": 589265.2987,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 656921.8049,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-07",
+      "value": 705592.3202,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-10",
+      "value": 671826.3209,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-01",
+      "value": 791594.8641,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 706797.5963,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-07",
+      "value": 720845.5848,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-10",
+      "value": 696048.576,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-01",
+      "value": 829954.9128,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 761394.1208,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-07",
+      "value": 786670.1542,
+      "facet": "Manufacturing",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 67872.92466,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-07",
+      "value": 56967.37472,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-10",
+      "value": 64848.79494,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-01",
+      "value": 71346.27384,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 70780.17453,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-07",
+      "value": 55618.24085,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-10",
+      "value": 64858.70115,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-01",
+      "value": 71351.52644,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 68133.94,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-07",
+      "value": 55660.81198,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-10",
+      "value": 64419.19034,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-01",
+      "value": 74892.01693,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 79535.7418,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-07",
+      "value": 57939.66314,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-10",
+      "value": 68662.60692,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-01",
+      "value": 82547.44439,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 87184.25816,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-07",
+      "value": 63469.33458,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-10",
+      "value": 75874.85283,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-01",
+      "value": 91445.36459,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 93381.80839,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-07",
+      "value": 67440.70104,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-10",
+      "value": 82751.1557,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-01",
+      "value": 105674.0462,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 84065.05902,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-07",
+      "value": 69707.30382,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-10",
+      "value": 79546.33046,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-01",
+      "value": 96293.36004,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 83092.09283,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-07",
+      "value": 67688.2473,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-10",
+      "value": 79355.70119,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-01",
+      "value": 96680.52791,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 81745.12739,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-07",
+      "value": 63762.19891,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-10",
+      "value": 76114.36223,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-01",
+      "value": 95512.66092,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 67270.31218,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-07",
+      "value": 58596.32371,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-10",
+      "value": 72468.60912,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-01",
+      "value": 92739.913,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 74996.75851,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-07",
+      "value": 64735.17632,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-10",
+      "value": 75837.45394,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-01",
+      "value": 93706.67025,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 81221.71455,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-07",
+      "value": 62637.8222,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-10",
+      "value": 77825.91363,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-10",
+      "value": 81455.16137,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-01",
+      "value": 98835.71719,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 90145.64571,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-07",
+      "value": 64901.20491,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-10",
+      "value": 82487.70456,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-01",
+      "value": 101349.4278,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 87326.6797,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-07",
+      "value": 64878.0231,
+      "facet": "Mining and Quarrying",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 232898.3493,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-07",
+      "value": 265771.1594,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-10",
+      "value": 242759.6675,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-01",
+      "value": 284552.6077,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 249342.586,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-07",
+      "value": 280805.5369,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-10",
+      "value": 247602.2179,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-01",
+      "value": 291895.9863,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 268722.6042,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-07",
+      "value": 290608.8061,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-10",
+      "value": 258069.5412,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-01",
+      "value": 293392.614,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 276953.8973,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-07",
+      "value": 312769.9953,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-10",
+      "value": 315706.004,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-01",
+      "value": 297685.2619,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 291805.2617,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-07",
+      "value": 332828.2117,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-10",
+      "value": 336948.4179,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-01",
+      "value": 315215.688,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 311418.3902,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-07",
+      "value": 354768.8911,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-10",
+      "value": 367658.9445,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-01",
+      "value": 362136.0827,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 350940.1155,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-07",
+      "value": 379769.5306,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-10",
+      "value": 395190.6675,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-01",
+      "value": 386642.1391,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 378185.2455,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-07",
+      "value": 408118.2151,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-10",
+      "value": 419690.4652,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-01",
+      "value": 419483.5237,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 393926.1221,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-07",
+      "value": 436867.1178,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-10",
+      "value": 449141.0909,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-01",
+      "value": 452469.9077,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 340826.8017,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-07",
+      "value": 383685.1671,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-10",
+      "value": 426955.9398,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-01",
+      "value": 449826.5004,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 354408.7757,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-07",
+      "value": 439493.0794,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-10",
+      "value": 463499.4283,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 429235.5004,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-07",
+      "value": 461648.1635,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-01",
+      "value": 475720.9142,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 469176.4065,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-07",
+      "value": 502752.1656,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-10",
+      "value": 509292.1359,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-01",
+      "value": 517340.1015,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 511467.8578,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-07",
+      "value": 547307.6574,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-10",
+      "value": 554469.9108,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-01",
+      "value": 562382.4604,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 561412.9983,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-07",
+      "value": 600342.6721,
+      "facet": "Public Administration, Defence & Other Services",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 338657.918,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-07",
+      "value": 340496.5634,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-10",
+      "value": 348957.0715,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-01",
+      "value": 385005.5144,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 374094.9919,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-07",
+      "value": 376920.5939,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-10",
+      "value": 383184.3196,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-01",
+      "value": 416943.0261,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 388784.2931,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-07",
+      "value": 401894.7553,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-10",
+      "value": 417976.0997,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-01",
+      "value": 443406.5233,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 432297.6248,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-07",
+      "value": 432834.3349,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-10",
+      "value": 440657.7049,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-01",
+      "value": 501900.3936,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 475242.2532,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-07",
+      "value": 467654.9786,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-10",
+      "value": 484331.2039,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-01",
+      "value": 565595.4654,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 520052.5458,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-07",
+      "value": 503823.2601,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-10",
+      "value": 522805.086,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-01",
+      "value": 599697.7401,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 579122.3925,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-07",
+      "value": 557968.2781,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-10",
+      "value": 578636.9588,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-01",
+      "value": 652691.7737,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 625853.5981,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-07",
+      "value": 597785.952,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-10",
+      "value": 620625.1021,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-01",
+      "value": 694492.6341,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 662521.2937,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-07",
+      "value": 636278.6211,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-10",
+      "value": 661351.1306,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-01",
+      "value": 729908.4985,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 333955.7027,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-07",
+      "value": 517908.004,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-10",
+      "value": 596828.009,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 481677.4146,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-07",
+      "value": 598187.0748,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-10",
+      "value": 651509.6144,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-01",
+      "value": 749006.1603,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 588836.9419,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-07",
+      "value": 677211.7645,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-10",
+      "value": 714577.521,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-01",
+      "value": 805114.0114,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 653847.4968,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-07",
+      "value": 713764.548,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-10",
+      "value": 772070.9003,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-01",
+      "value": 854853.0403,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-10",
+      "value": 823932.5878,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-01",
+      "value": 906399.7482,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 748348.2787,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-07",
+      "value": 813369.0304,
+      "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
+      "vintage": null
+    }
+  ]
+}

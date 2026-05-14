@@ -1,10 +1,12 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.2",
+  "$schema_version": "1.3",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
-      "fetched_at": "2026-05-14T07:51:49Z"
+      "fetched_at": "2026-05-14T14:11:06Z",
+      "name": "ICED — State-wise Deep Dive (NITI Aayog), GSDP/National GDP Trends panel",
+      "authority": "NITI Aayog (India Climate & Energy Dashboard) — sourced from MoSPI / State DES"
     }
   ],
   "license": {
@@ -15,7 +17,7 @@
   },
   "coverage": {
     "spatial": "All-India aggregate; 28 states; 6 UTs",
-    "temporal": "2015-04..2024-04",
+    "temporal": "2011-04..2024-04",
     "admin_level": "state"
   },
   "indicator": {
@@ -32,7 +34,7 @@
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",
     "implementing_authority": "state",
-    "methodology_vintage": "NITI Aayog ICED state-wise deep-dive API; payload fetched 2026-05-14T07:51:49Z; 10 fiscal years, 334 rows.",
+    "methodology_vintage": "NITI Aayog ICED state-wise deep-dive (GSDP Trends panel); merged snapshot 2026-05-14; 14 fiscal years, 466 rows. Historical FY 2011-12 .. 2014-15 added 2026-05-14 from State_GDP_Trends export; overlap values refreshed to ICED's 11-decimal precision (prior values were rounded to 2dp).",
     "notes": "Source: NITI Aayog ICED dashboard, row 'GDP (Base: 2011-12) Current Price'. Same unit-annotation caveat as the constant-price indicator: values are in **Lakh Crore**."
   },
   "rows": [
@@ -88,1623 +90,2283 @@
     },
     {
       "entity_id": "S01",
+      "time": "2011-04",
+      "value": 3.7940203
+    },
+    {
+      "entity_id": "S01",
+      "time": "2012-04",
+      "value": 4.1140371
+    },
+    {
+      "entity_id": "S01",
+      "time": "2013-04",
+      "value": 4.6427201
+    },
+    {
+      "entity_id": "S01",
+      "time": "2014-04",
+      "value": 5.2497564
+    },
+    {
+      "entity_id": "S01",
       "time": "2015-04",
-      "value": 6.04
+      "value": 6.042286195
     },
     {
       "entity_id": "S01",
       "time": "2016-04",
-      "value": 6.84
+      "value": 6.8441587
     },
     {
       "entity_id": "S01",
       "time": "2017-04",
-      "value": 7.86
+      "value": 7.861354155999999
     },
     {
       "entity_id": "S01",
       "time": "2018-04",
-      "value": 8.74
+      "value": 8.737211063
     },
     {
       "entity_id": "S01",
       "time": "2019-04",
-      "value": 9.26
+      "value": 9.258391181
     },
     {
       "entity_id": "S01",
       "time": "2020-04",
-      "value": 9.79
+      "value": 9.785814621
     },
     {
       "entity_id": "S01",
       "time": "2021-04",
-      "value": 11.32
+      "value": 11.31628953
     },
     {
       "entity_id": "S01",
       "time": "2022-04",
-      "value": 13.09
+      "value": 13.0946397
     },
     {
       "entity_id": "S01",
       "time": "2023-04",
-      "value": 14.22
+      "value": 14.22093897
     },
     {
       "entity_id": "S01",
       "time": "2024-04",
-      "value": 15.93
+      "value": 15.9306198
+    },
+    {
+      "entity_id": "S02",
+      "time": "2011-04",
+      "value": 0.1106269
+    },
+    {
+      "entity_id": "S02",
+      "time": "2012-04",
+      "value": 0.1254662
+    },
+    {
+      "entity_id": "S02",
+      "time": "2013-04",
+      "value": 0.1458107
+    },
+    {
+      "entity_id": "S02",
+      "time": "2014-04",
+      "value": 0.1795941
     },
     {
       "entity_id": "S02",
       "time": "2015-04",
-      "value": 0.19
+      "value": 0.1850916
     },
     {
       "entity_id": "S02",
       "time": "2016-04",
-      "value": 0.2
+      "value": 0.19902119999999998
     },
     {
       "entity_id": "S02",
       "time": "2017-04",
-      "value": 0.22
+      "value": 0.2247475
     },
     {
       "entity_id": "S02",
       "time": "2018-04",
-      "value": 0.25
+      "value": 0.2533487
     },
     {
       "entity_id": "S02",
       "time": "2019-04",
-      "value": 0.3
+      "value": 0.3002365
     },
     {
       "entity_id": "S02",
       "time": "2020-04",
-      "value": 0.31
+      "value": 0.3052535
     },
     {
       "entity_id": "S02",
       "time": "2021-04",
-      "value": 0.33
+      "value": 0.32705259999999997
     },
     {
       "entity_id": "S02",
       "time": "2022-04",
-      "value": 0.36
+      "value": 0.357115
     },
     {
       "entity_id": "S02",
       "time": "2023-04",
-      "value": 0.39
+      "value": 0.3856532
     },
     {
       "entity_id": "S02",
       "time": "2024-04",
-      "value": 0.44
+      "value": 0.44228690000000004
+    },
+    {
+      "entity_id": "S03",
+      "time": "2011-04",
+      "value": 1.4317491
+    },
+    {
+      "entity_id": "S03",
+      "time": "2012-04",
+      "value": 1.5686423999999999
+    },
+    {
+      "entity_id": "S03",
+      "time": "2013-04",
+      "value": 1.7774522
+    },
+    {
+      "entity_id": "S03",
+      "time": "2014-04",
+      "value": 1.9572315
     },
     {
       "entity_id": "S03",
       "time": "2015-04",
-      "value": 2.28
+      "value": 2.2795882
     },
     {
       "entity_id": "S03",
       "time": "2016-04",
-      "value": 2.54
+      "value": 2.5438236
     },
     {
       "entity_id": "S03",
       "time": "2017-04",
-      "value": 2.83
+      "value": 2.8316491
     },
     {
       "entity_id": "S03",
       "time": "2018-04",
-      "value": 3.09
+      "value": 3.0933632
     },
     {
       "entity_id": "S03",
       "time": "2019-04",
-      "value": 3.47
+      "value": 3.4685068
     },
     {
       "entity_id": "S03",
       "time": "2020-04",
-      "value": 3.4
+      "value": 3.3980297999999998
     },
     {
       "entity_id": "S03",
       "time": "2021-04",
-      "value": 4.11
+      "value": 4.10723561
     },
     {
       "entity_id": "S03",
       "time": "2022-04",
-      "value": 4.85
+      "value": 4.849849271
     },
     {
       "entity_id": "S03",
       "time": "2023-04",
-      "value": 5.69
+      "value": 5.692872909
     },
     {
       "entity_id": "S03",
       "time": "2024-04",
-      "value": 6.44
+      "value": 6.4366669
+    },
+    {
+      "entity_id": "S04",
+      "time": "2011-04",
+      "value": 2.471439606
+    },
+    {
+      "entity_id": "S04",
+      "time": "2012-04",
+      "value": 2.8236793089999996
+    },
+    {
+      "entity_id": "S04",
+      "time": "2013-04",
+      "value": 3.171013413
+    },
+    {
+      "entity_id": "S04",
+      "time": "2014-04",
+      "value": 3.429509407
     },
     {
       "entity_id": "S04",
       "time": "2015-04",
-      "value": 3.72
+      "value": 3.716017902
     },
     {
       "entity_id": "S04",
       "time": "2016-04",
-      "value": 4.21
+      "value": 4.210514999
     },
     {
       "entity_id": "S04",
       "time": "2017-04",
-      "value": 4.69
+      "value": 4.687463102
     },
     {
       "entity_id": "S04",
       "time": "2018-04",
-      "value": 5.28
+      "value": 5.2797582
     },
     {
       "entity_id": "S04",
       "time": "2019-04",
-      "value": 5.82
+      "value": 5.818554847000001
     },
     {
       "entity_id": "S04",
       "time": "2020-04",
-      "value": 5.68
+      "value": 5.678140246999999
     },
     {
       "entity_id": "S04",
       "time": "2021-04",
-      "value": 6.47
+      "value": 6.473943482
     },
     {
       "entity_id": "S04",
       "time": "2022-04",
-      "value": 7.63
+      "value": 7.631647228
     },
     {
       "entity_id": "S04",
       "time": "2023-04",
-      "value": 8.77
+      "value": 8.771965555
     },
     {
       "entity_id": "S04",
       "time": "2024-04",
-      "value": 9.92
+      "value": 9.919972141
+    },
+    {
+      "entity_id": "S05",
+      "time": "2011-04",
+      "value": 0.42366658069999996
+    },
+    {
+      "entity_id": "S05",
+      "time": "2012-04",
+      "value": 0.38120017079999996
+    },
+    {
+      "entity_id": "S05",
+      "time": "2013-04",
+      "value": 0.3592110428
+    },
+    {
+      "entity_id": "S05",
+      "time": "2014-04",
+      "value": 0.4781418019
     },
     {
       "entity_id": "S05",
       "time": "2015-04",
-      "value": 0.55
+      "value": 0.5505385314
     },
     {
       "entity_id": "S05",
       "time": "2016-04",
-      "value": 0.63
+      "value": 0.6297631359
     },
     {
       "entity_id": "S05",
       "time": "2017-04",
-      "value": 0.69
+      "value": 0.693520537
     },
     {
       "entity_id": "S05",
       "time": "2018-04",
-      "value": 0.72
+      "value": 0.7185333531
     },
     {
       "entity_id": "S05",
       "time": "2019-04",
-      "value": 0.75
+      "value": 0.7503208521000001
     },
     {
       "entity_id": "S05",
       "time": "2020-04",
-      "value": 0.74
+      "value": 0.7415791870999999
     },
     {
       "entity_id": "S05",
       "time": "2021-04",
-      "value": 0.81
+      "value": 0.8122612592
     },
     {
       "entity_id": "S05",
       "time": "2022-04",
-      "value": 0.94
+      "value": 0.9367237877
     },
     {
       "entity_id": "S05",
       "time": "2023-04",
-      "value": 1.07
+      "value": 1.065325673
+    },
+    {
+      "entity_id": "S06",
+      "time": "2011-04",
+      "value": 6.156060741
+    },
+    {
+      "entity_id": "S06",
+      "time": "2012-04",
+      "value": 7.244953612000001
+    },
+    {
+      "entity_id": "S06",
+      "time": "2013-04",
+      "value": 8.07623194
+    },
+    {
+      "entity_id": "S06",
+      "time": "2014-04",
+      "value": 9.217731469
     },
     {
       "entity_id": "S06",
       "time": "2015-04",
-      "value": 10.29
+      "value": 10.29009741
     },
     {
       "entity_id": "S06",
       "time": "2016-04",
-      "value": 11.67
+      "value": 11.67155579
     },
     {
       "entity_id": "S06",
       "time": "2017-04",
-      "value": 13.29
+      "value": 13.29094771
     },
     {
       "entity_id": "S06",
       "time": "2018-04",
-      "value": 14.92
+      "value": 14.92155713
     },
     {
       "entity_id": "S06",
       "time": "2019-04",
-      "value": 16.17
+      "value": 16.171432749999997
     },
     {
       "entity_id": "S06",
       "time": "2020-04",
-      "value": 16.16
+      "value": 16.16106361
     },
     {
       "entity_id": "S06",
       "time": "2021-04",
-      "value": 19.21
+      "value": 19.20926584
     },
     {
       "entity_id": "S06",
       "time": "2022-04",
-      "value": 21.89
+      "value": 21.88901386
     },
     {
       "entity_id": "S06",
       "time": "2023-04",
-      "value": 24.62
+      "value": 24.61835823
+    },
+    {
+      "entity_id": "S07",
+      "time": "2011-04",
+      "value": 2.975385207
+    },
+    {
+      "entity_id": "S07",
+      "time": "2012-04",
+      "value": 3.4703201270000004
+    },
+    {
+      "entity_id": "S07",
+      "time": "2013-04",
+      "value": 3.992681162
+    },
+    {
+      "entity_id": "S07",
+      "time": "2014-04",
+      "value": 4.371447113
     },
     {
       "entity_id": "S07",
       "time": "2015-04",
-      "value": 4.96
+      "value": 4.955041086
     },
     {
       "entity_id": "S07",
       "time": "2016-04",
-      "value": 5.61
+      "value": 5.614241712
     },
     {
       "entity_id": "S07",
       "time": "2017-04",
-      "value": 6.39
+      "value": 6.3883207539999995
     },
     {
       "entity_id": "S07",
       "time": "2018-04",
-      "value": 6.99
+      "value": 6.9893975930000005
     },
     {
       "entity_id": "S07",
       "time": "2019-04",
-      "value": 7.38
+      "value": 7.380523782
     },
     {
       "entity_id": "S07",
       "time": "2020-04",
-      "value": 7.3
+      "value": 7.304417733
     },
     {
       "entity_id": "S07",
       "time": "2021-04",
-      "value": 8.77
+      "value": 8.772689136
     },
     {
       "entity_id": "S07",
       "time": "2022-04",
-      "value": 9.75
+      "value": 9.747323265
     },
     {
       "entity_id": "S07",
       "time": "2023-04",
-      "value": 10.86
+      "value": 10.855102819999999
     },
     {
       "entity_id": "S07",
       "time": "2024-04",
-      "value": 12.14
+      "value": 12.139510419999999
+    },
+    {
+      "entity_id": "S08",
+      "time": "2011-04",
+      "value": 0.7271982932000001
+    },
+    {
+      "entity_id": "S08",
+      "time": "2012-04",
+      "value": 0.8281978616000001
+    },
+    {
+      "entity_id": "S08",
+      "time": "2013-04",
+      "value": 0.9476415385
+    },
+    {
+      "entity_id": "S08",
+      "time": "2014-04",
+      "value": 1.037723203
     },
     {
       "entity_id": "S08",
       "time": "2015-04",
-      "value": 1.14
+      "value": 1.142394071
     },
     {
       "entity_id": "S08",
       "time": "2016-04",
-      "value": 1.26
+      "value": 1.256336375
     },
     {
       "entity_id": "S08",
       "time": "2017-04",
-      "value": 1.39
+      "value": 1.3855109039999998
     },
     {
       "entity_id": "S08",
       "time": "2018-04",
-      "value": 1.48
+      "value": 1.4838328829999998
     },
     {
       "entity_id": "S08",
       "time": "2019-04",
-      "value": 1.59
+      "value": 1.591640189
     },
     {
       "entity_id": "S08",
       "time": "2020-04",
-      "value": 1.52
+      "value": 1.519054187
     },
     {
       "entity_id": "S08",
       "time": "2021-04",
-      "value": 1.7
+      "value": 1.703759499
     },
     {
       "entity_id": "S08",
       "time": "2022-04",
-      "value": 1.92
+      "value": 1.9202613370000001
     },
     {
       "entity_id": "S08",
       "time": "2023-04",
-      "value": 2.12
+      "value": 2.1216943479999997
     },
     {
       "entity_id": "S08",
       "time": "2024-04",
-      "value": 2.32
+      "value": 2.316903139
+    },
+    {
+      "entity_id": "S10",
+      "time": "2011-04",
+      "value": 6.060098108
+    },
+    {
+      "entity_id": "S10",
+      "time": "2012-04",
+      "value": 6.954130224999999
+    },
+    {
+      "entity_id": "S10",
+      "time": "2013-04",
+      "value": 8.166661523
+    },
+    {
+      "entity_id": "S10",
+      "time": "2014-04",
+      "value": 9.139230258
     },
     {
       "entity_id": "S10",
       "time": "2015-04",
-      "value": 10.45
+      "value": 10.45168104
     },
     {
       "entity_id": "S10",
       "time": "2016-04",
-      "value": 12.08
+      "value": 12.076077190000001
     },
     {
       "entity_id": "S10",
       "time": "2017-04",
-      "value": 13.33
+      "value": 13.33239994
     },
     {
       "entity_id": "S10",
       "time": "2018-04",
-      "value": 14.79
+      "value": 14.79391432
     },
     {
       "entity_id": "S10",
       "time": "2019-04",
-      "value": 16.16
+      "value": 16.158265319999998
     },
     {
       "entity_id": "S10",
       "time": "2020-04",
-      "value": 16.41
+      "value": 16.40811457
     },
     {
       "entity_id": "S10",
       "time": "2021-04",
-      "value": 19.92
+      "value": 19.920293060000002
     },
     {
       "entity_id": "S10",
       "time": "2022-04",
-      "value": 23.2
+      "value": 23.19696226
     },
     {
       "entity_id": "S10",
       "time": "2023-04",
-      "value": 25.57
+      "value": 25.57241346
     },
     {
       "entity_id": "S10",
       "time": "2024-04",
-      "value": 28.84
+      "value": 28.83903227
+    },
+    {
+      "entity_id": "S11",
+      "time": "2011-04",
+      "value": 3.640478786
+    },
+    {
+      "entity_id": "S11",
+      "time": "2012-04",
+      "value": 4.123130036
+    },
+    {
+      "entity_id": "S11",
+      "time": "2013-04",
+      "value": 4.650412083
+    },
+    {
+      "entity_id": "S11",
+      "time": "2014-04",
+      "value": 5.125640461
     },
     {
       "entity_id": "S11",
       "time": "2015-04",
-      "value": 5.62
+      "value": 5.619936113
     },
     {
       "entity_id": "S11",
       "time": "2016-04",
-      "value": 6.35
+      "value": 6.348863993
     },
     {
       "entity_id": "S11",
       "time": "2017-04",
-      "value": 7.02
+      "value": 7.0158826130000005
     },
     {
       "entity_id": "S11",
       "time": "2018-04",
-      "value": 7.88
+      "value": 7.882855833000001
     },
     {
       "entity_id": "S11",
       "time": "2019-04",
-      "value": 8.13
+      "value": 8.129346305
     },
     {
       "entity_id": "S11",
       "time": "2020-04",
-      "value": 7.72
+      "value": 7.717238895
     },
     {
       "entity_id": "S11",
       "time": "2021-04",
-      "value": 9.24
+      "value": 9.244654194999999
     },
     {
       "entity_id": "S11",
       "time": "2022-04",
-      "value": 10.39
+      "value": 10.387340649999999
     },
     {
       "entity_id": "S11",
       "time": "2023-04",
-      "value": 11.35
+      "value": 11.35371562
     },
     {
       "entity_id": "S11",
       "time": "2024-04",
-      "value": 12.49
+      "value": 12.4853301
+    },
+    {
+      "entity_id": "S12",
+      "time": "2011-04",
+      "value": 3.1556159000000004
+    },
+    {
+      "entity_id": "S12",
+      "time": "2012-04",
+      "value": 3.8092479999999997
+    },
+    {
+      "entity_id": "S12",
+      "time": "2013-04",
+      "value": 4.3948344
+    },
+    {
+      "entity_id": "S12",
+      "time": "2014-04",
+      "value": 4.7993904
     },
     {
       "entity_id": "S12",
       "time": "2015-04",
-      "value": 5.41
+      "value": 5.4106751
     },
     {
       "entity_id": "S12",
       "time": "2016-04",
-      "value": 6.5
+      "value": 6.4982281
     },
     {
       "entity_id": "S12",
       "time": "2017-04",
-      "value": 7.26
+      "value": 7.2628392
     },
     {
       "entity_id": "S12",
       "time": "2018-04",
-      "value": 8.3
+      "value": 8.2980473
     },
     {
       "entity_id": "S12",
       "time": "2019-04",
-      "value": 9.28
+      "value": 9.27855
     },
     {
       "entity_id": "S12",
       "time": "2020-04",
-      "value": 9.46
+      "value": 9.4621772
     },
     {
       "entity_id": "S12",
       "time": "2021-04",
-      "value": 11.01
+      "value": 11.011680400000001
     },
     {
       "entity_id": "S12",
       "time": "2022-04",
-      "value": 12.22
+      "value": 12.218125
     },
     {
       "entity_id": "S12",
       "time": "2023-04",
-      "value": 13.54
+      "value": 13.5380897
     },
     {
       "entity_id": "S12",
       "time": "2024-04",
-      "value": 15.03
+      "value": 15.033954
+    },
+    {
+      "entity_id": "S13",
+      "time": "2011-04",
+      "value": 12.803694380000001
+    },
+    {
+      "entity_id": "S13",
+      "time": "2012-04",
+      "value": 14.596286280000001
+    },
+    {
+      "entity_id": "S13",
+      "time": "2013-04",
+      "value": 16.49646631
+    },
+    {
+      "entity_id": "S13",
+      "time": "2014-04",
+      "value": 17.7913793
     },
     {
       "entity_id": "S13",
       "time": "2015-04",
-      "value": 19.66
+      "value": 19.6622458
     },
     {
       "entity_id": "S13",
       "time": "2016-04",
-      "value": 21.98
+      "value": 21.98185154
     },
     {
       "entity_id": "S13",
       "time": "2017-04",
-      "value": 23.53
+      "value": 23.52781502
     },
     {
       "entity_id": "S13",
       "time": "2018-04",
-      "value": 25.29
+      "value": 25.28854299
     },
     {
       "entity_id": "S13",
       "time": "2019-04",
-      "value": 26.57
+      "value": 26.568064730000003
     },
     {
       "entity_id": "S13",
       "time": "2020-04",
-      "value": 26.11
+      "value": 26.106510959999998
     },
     {
       "entity_id": "S13",
       "time": "2021-04",
-      "value": 31.44
+      "value": 31.43821417
     },
     {
       "entity_id": "S13",
       "time": "2022-04",
-      "value": 36.42
+      "value": 36.41542897
     },
     {
       "entity_id": "S13",
       "time": "2023-04",
-      "value": 40.56
+      "value": 40.55847227
     },
     {
       "entity_id": "S13",
       "time": "2024-04",
-      "value": 45.32
+      "value": 45.31518416
+    },
+    {
+      "entity_id": "S14",
+      "time": "2011-04",
+      "value": 0.129145991
+    },
+    {
+      "entity_id": "S14",
+      "time": "2012-04",
+      "value": 0.137432438
+    },
+    {
+      "entity_id": "S14",
+      "time": "2013-04",
+      "value": 0.161820361
+    },
+    {
+      "entity_id": "S14",
+      "time": "2014-04",
+      "value": 0.1812905
     },
     {
       "entity_id": "S14",
       "time": "2015-04",
-      "value": 0.2
+      "value": 0.19530669999999997
     },
     {
       "entity_id": "S14",
       "time": "2016-04",
-      "value": 0.21
+      "value": 0.2129389
     },
     {
       "entity_id": "S14",
       "time": "2017-04",
-      "value": 0.26
+      "value": 0.2578923
     },
     {
       "entity_id": "S14",
       "time": "2018-04",
-      "value": 0.27
+      "value": 0.2738807
     },
     {
       "entity_id": "S14",
       "time": "2019-04",
-      "value": 0.3
+      "value": 0.2981303
     },
     {
       "entity_id": "S14",
       "time": "2020-04",
-      "value": 0.3
+      "value": 0.2977609
     },
     {
       "entity_id": "S14",
       "time": "2021-04",
-      "value": 0.35
+      "value": 0.35027480000000005
     },
     {
       "entity_id": "S14",
       "time": "2022-04",
-      "value": 0.39
+      "value": 0.38524309999999995
     },
     {
       "entity_id": "S14",
       "time": "2023-04",
-      "value": 0.43
+      "value": 0.4341376
+    },
+    {
+      "entity_id": "S15",
+      "time": "2011-04",
+      "value": 0.1991774838
+    },
+    {
+      "entity_id": "S15",
+      "time": "2012-04",
+      "value": 0.2187202373
+    },
+    {
+      "entity_id": "S15",
+      "time": "2013-04",
+      "value": 0.2293823608
+    },
+    {
+      "entity_id": "S15",
+      "time": "2014-04",
+      "value": 0.232345347
     },
     {
       "entity_id": "S15",
       "time": "2015-04",
-      "value": 0.25
+      "value": 0.2511736374
     },
     {
       "entity_id": "S15",
       "time": "2016-04",
-      "value": 0.27
+      "value": 0.2743862385
     },
     {
       "entity_id": "S15",
       "time": "2017-04",
-      "value": 0.3
+      "value": 0.2950830349
     },
     {
       "entity_id": "S15",
       "time": "2018-04",
-      "value": 0.32
+      "value": 0.32175815760000004
     },
     {
       "entity_id": "S15",
       "time": "2019-04",
-      "value": 0.35
+      "value": 0.34770401149999997
     },
     {
       "entity_id": "S15",
       "time": "2020-04",
-      "value": 0.34
+      "value": 0.33776162709999996
     },
     {
       "entity_id": "S15",
       "time": "2021-04",
-      "value": 0.4
+      "value": 0.4022204053
     },
     {
       "entity_id": "S15",
       "time": "2022-04",
-      "value": 0.47
+      "value": 0.4683380235
     },
     {
       "entity_id": "S15",
       "time": "2023-04",
-      "value": 0.53
+      "value": 0.5322333445999999
     },
     {
       "entity_id": "S15",
       "time": "2024-04",
-      "value": 0.6
+      "value": 0.596256323
+    },
+    {
+      "entity_id": "S16",
+      "time": "2011-04",
+      "value": 0.0725869
+    },
+    {
+      "entity_id": "S16",
+      "time": "2012-04",
+      "value": 0.08361930000000001
+    },
+    {
+      "entity_id": "S16",
+      "time": "2013-04",
+      "value": 0.1029337039
+    },
+    {
+      "entity_id": "S16",
+      "time": "2014-04",
+      "value": 0.135094
     },
     {
       "entity_id": "S16",
       "time": "2015-04",
-      "value": 0.15
+      "value": 0.1513885696
     },
     {
       "entity_id": "S16",
       "time": "2016-04",
-      "value": 0.17
+      "value": 0.1719190811
     },
     {
       "entity_id": "S16",
       "time": "2017-04",
-      "value": 0.19
+      "value": 0.1938532947
     },
     {
       "entity_id": "S16",
       "time": "2018-04",
-      "value": 0.22
+      "value": 0.2191208294
     },
     {
       "entity_id": "S16",
       "time": "2019-04",
-      "value": 0.25
+      "value": 0.24989600999999997
     },
     {
       "entity_id": "S16",
       "time": "2020-04",
-      "value": 0.24
+      "value": 0.2392294444
     },
     {
       "entity_id": "S16",
       "time": "2021-04",
-      "value": 0.27
+      "value": 0.2669525843
     },
     {
       "entity_id": "S16",
       "time": "2022-04",
-      "value": 0.3
+      "value": 0.30184177019999997
     },
     {
       "entity_id": "S16",
       "time": "2023-04",
-      "value": 0.33
+      "value": 0.33276725760000003
+    },
+    {
+      "entity_id": "S17",
+      "time": "2011-04",
+      "value": 0.12176764359999999
+    },
+    {
+      "entity_id": "S17",
+      "time": "2012-04",
+      "value": 0.1412126965
+    },
+    {
+      "entity_id": "S17",
+      "time": "2013-04",
+      "value": 0.166117264
+    },
+    {
+      "entity_id": "S17",
+      "time": "2014-04",
+      "value": 0.1840067009
     },
     {
       "entity_id": "S17",
       "time": "2015-04",
-      "value": 0.2
+      "value": 0.195239494
     },
     {
       "entity_id": "S17",
       "time": "2016-04",
-      "value": 0.22
+      "value": 0.2172245279
     },
     {
       "entity_id": "S17",
       "time": "2017-04",
-      "value": 0.24
+      "value": 0.2439296068
     },
     {
       "entity_id": "S17",
       "time": "2018-04",
-      "value": 0.27
+      "value": 0.2652742491
     },
     {
       "entity_id": "S17",
       "time": "2019-04",
-      "value": 0.3
+      "value": 0.2971586713
     },
     {
       "entity_id": "S17",
       "time": "2020-04",
-      "value": 0.3
+      "value": 0.2983163712
     },
     {
       "entity_id": "S17",
       "time": "2021-04",
-      "value": 0.32
+      "value": 0.3226538095
     },
     {
       "entity_id": "S17",
       "time": "2022-04",
-      "value": 0.36
+      "value": 0.35628631419999995
     },
     {
       "entity_id": "S17",
       "time": "2023-04",
-      "value": 0.4
+      "value": 0.3980864788
+    },
+    {
+      "entity_id": "S18",
+      "time": "2011-04",
+      "value": 2.309870752
+    },
+    {
+      "entity_id": "S18",
+      "time": "2012-04",
+      "value": 2.616996019
+    },
+    {
+      "entity_id": "S18",
+      "time": "2013-04",
+      "value": 2.964753752
+    },
+    {
+      "entity_id": "S18",
+      "time": "2014-04",
+      "value": 3.1424995059999996
     },
     {
       "entity_id": "S18",
       "time": "2015-04",
-      "value": 3.29
+      "value": 3.2854950300000003
     },
     {
       "entity_id": "S18",
       "time": "2016-04",
-      "value": 3.93
+      "value": 3.928036748
     },
     {
       "entity_id": "S18",
       "time": "2017-04",
-      "value": 4.4
+      "value": 4.403953167
     },
     {
       "entity_id": "S18",
       "time": "2018-04",
-      "value": 4.99
+      "value": 4.986112571
     },
     {
       "entity_id": "S18",
       "time": "2019-04",
-      "value": 5.38
+      "value": 5.375017099
     },
     {
       "entity_id": "S18",
       "time": "2020-04",
-      "value": 5.4
+      "value": 5.40185165
     },
     {
       "entity_id": "S18",
       "time": "2021-04",
-      "value": 6.96
+      "value": 6.955300788
     },
     {
       "entity_id": "S18",
       "time": "2022-04",
-      "value": 7.15
+      "value": 7.15262453
     },
     {
       "entity_id": "S18",
       "time": "2023-04",
-      "value": 7.99
+      "value": 7.989694967
     },
     {
       "entity_id": "S18",
       "time": "2024-04",
-      "value": 8.9
+      "value": 8.900375392
+    },
+    {
+      "entity_id": "S19",
+      "time": "2011-04",
+      "value": 2.666282724
+    },
+    {
+      "entity_id": "S19",
+      "time": "2012-04",
+      "value": 2.977338216
+    },
+    {
+      "entity_id": "S19",
+      "time": "2013-04",
+      "value": 3.321469357
+    },
+    {
+      "entity_id": "S19",
+      "time": "2014-04",
+      "value": 3.5510182
     },
     {
       "entity_id": "S19",
       "time": "2015-04",
-      "value": 3.9
+      "value": 3.9008744
     },
     {
       "entity_id": "S19",
       "time": "2016-04",
-      "value": 4.27
+      "value": 4.269880987
     },
     {
       "entity_id": "S19",
       "time": "2017-04",
-      "value": 4.71
+      "value": 4.710136077
     },
     {
       "entity_id": "S19",
       "time": "2018-04",
-      "value": 5.13
+      "value": 5.125096889
     },
     {
       "entity_id": "S19",
       "time": "2019-04",
-      "value": 5.37
+      "value": 5.370310424
     },
     {
       "entity_id": "S19",
       "time": "2020-04",
-      "value": 5.41
+      "value": 5.408526119999999
     },
     {
       "entity_id": "S19",
       "time": "2021-04",
-      "value": 6.28
+      "value": 6.277173878
     },
     {
       "entity_id": "S19",
       "time": "2022-04",
-      "value": 6.93
+      "value": 6.925192483
     },
     {
       "entity_id": "S19",
       "time": "2023-04",
-      "value": 7.72
+      "value": 7.717436125000001
     },
     {
       "entity_id": "S19",
       "time": "2024-04",
-      "value": 8.39
+      "value": 8.386366126
+    },
+    {
+      "entity_id": "S20",
+      "time": "2011-04",
+      "value": 4.3483663660000005
+    },
+    {
+      "entity_id": "S20",
+      "time": "2012-04",
+      "value": 4.935512414
+    },
+    {
+      "entity_id": "S20",
+      "time": "2013-04",
+      "value": 5.510310163
+    },
+    {
+      "entity_id": "S20",
+      "time": "2014-04",
+      "value": 6.156415569
     },
     {
       "entity_id": "S20",
       "time": "2015-04",
-      "value": 6.81
+      "value": 6.814822561
     },
     {
       "entity_id": "S20",
       "time": "2016-04",
-      "value": 7.61
+      "value": 7.605872713
     },
     {
       "entity_id": "S20",
       "time": "2017-04",
-      "value": 8.33
+      "value": 8.32529233
     },
     {
       "entity_id": "S20",
       "time": "2018-04",
-      "value": 9.12
+      "value": 9.115194627000001
     },
     {
       "entity_id": "S20",
       "time": "2019-04",
-      "value": 10.0
+      "value": 10.00032148
     },
     {
       "entity_id": "S20",
       "time": "2020-04",
-      "value": 10.18
+      "value": 10.17917331
     },
     {
       "entity_id": "S20",
       "time": "2021-04",
-      "value": 11.96
+      "value": 11.95640575
     },
     {
       "entity_id": "S20",
       "time": "2022-04",
-      "value": 13.56
+      "value": 13.56479874
     },
     {
       "entity_id": "S20",
       "time": "2023-04",
-      "value": 15.22
+      "value": 15.21509645
     },
     {
       "entity_id": "S20",
       "time": "2024-04",
-      "value": 17.04
+      "value": 17.04338547
+    },
+    {
+      "entity_id": "S21",
+      "time": "2011-04",
+      "value": 0.1116509684
+    },
+    {
+      "entity_id": "S21",
+      "time": "2012-04",
+      "value": 0.1233842038
+    },
+    {
+      "entity_id": "S21",
+      "time": "2013-04",
+      "value": 0.1386190232
+    },
+    {
+      "entity_id": "S21",
+      "time": "2014-04",
+      "value": 0.1540672135
     },
     {
       "entity_id": "S21",
       "time": "2015-04",
-      "value": 0.18
+      "value": 0.1803394257
     },
     {
       "entity_id": "S21",
       "time": "2016-04",
-      "value": 0.21
+      "value": 0.20687185679999998
     },
     {
       "entity_id": "S21",
       "time": "2017-04",
-      "value": 0.26
+      "value": 0.2597082203
     },
     {
       "entity_id": "S21",
       "time": "2018-04",
-      "value": 0.28
+      "value": 0.2840242915
     },
     {
       "entity_id": "S21",
       "time": "2019-04",
-      "value": 0.31
+      "value": 0.3144100255
     },
     {
       "entity_id": "S21",
       "time": "2020-04",
-      "value": 0.33
+      "value": 0.3301782627
     },
     {
       "entity_id": "S21",
       "time": "2021-04",
-      "value": 0.38
+      "value": 0.3764963429
     },
     {
       "entity_id": "S21",
       "time": "2022-04",
-      "value": 0.43
+      "value": 0.42677454210000004
     },
     {
       "entity_id": "S21",
       "time": "2023-04",
-      "value": 0.49
+      "value": 0.4893694452
+    },
+    {
+      "entity_id": "S22",
+      "time": "2011-04",
+      "value": 7.5148575829999995
+    },
+    {
+      "entity_id": "S22",
+      "time": "2012-04",
+      "value": 8.548253507
+    },
+    {
+      "entity_id": "S22",
+      "time": "2013-04",
+      "value": 9.685304524
+    },
+    {
+      "entity_id": "S22",
+      "time": "2014-04",
+      "value": 10.726779669999999
     },
     {
       "entity_id": "S22",
       "time": "2015-04",
-      "value": 11.77
+      "value": 11.76500031
     },
     {
       "entity_id": "S22",
       "time": "2016-04",
-      "value": 13.03
+      "value": 13.02638581
     },
     {
       "entity_id": "S22",
       "time": "2017-04",
-      "value": 14.65
+      "value": 14.65050909
     },
     {
       "entity_id": "S22",
       "time": "2018-04",
-      "value": 16.3
+      "value": 16.30209152
     },
     {
       "entity_id": "S22",
       "time": "2019-04",
-      "value": 17.43
+      "value": 17.4314396
     },
     {
       "entity_id": "S22",
       "time": "2020-04",
-      "value": 17.88
+      "value": 17.880743680000002
     },
     {
       "entity_id": "S22",
       "time": "2021-04",
-      "value": 20.72
+      "value": 20.724957890000002
     },
     {
       "entity_id": "S22",
       "time": "2022-04",
-      "value": 23.72
+      "value": 23.72469272
     },
     {
       "entity_id": "S22",
       "time": "2023-04",
-      "value": 26.89
+      "value": 26.88963322
     },
     {
       "entity_id": "S22",
       "time": "2024-04",
-      "value": 31.19
+      "value": 31.18590301
+    },
+    {
+      "entity_id": "S23",
+      "time": "2011-04",
+      "value": 0.1920841
+    },
+    {
+      "entity_id": "S23",
+      "time": "2012-04",
+      "value": 0.21663200000000002
+    },
+    {
+      "entity_id": "S23",
+      "time": "2013-04",
+      "value": 0.2559283
+    },
+    {
+      "entity_id": "S23",
+      "time": "2014-04",
+      "value": 0.2953346
     },
     {
       "entity_id": "S23",
       "time": "2015-04",
-      "value": 0.36
+      "value": 0.3593773
     },
     {
       "entity_id": "S23",
       "time": "2016-04",
-      "value": 0.39
+      "value": 0.39479400000000003
     },
     {
       "entity_id": "S23",
       "time": "2017-04",
-      "value": 0.44
+      "value": 0.43715800000000005
     },
     {
       "entity_id": "S23",
       "time": "2018-04",
-      "value": 0.5
+      "value": 0.4982332
     },
     {
       "entity_id": "S23",
       "time": "2019-04",
-      "value": 0.54
+      "value": 0.5415112000000001
     },
     {
       "entity_id": "S23",
       "time": "2020-04",
-      "value": 0.54
+      "value": 0.5350412
     },
     {
       "entity_id": "S23",
       "time": "2021-04",
-      "value": 0.62
+      "value": 0.6230245751
     },
     {
       "entity_id": "S23",
       "time": "2022-04",
-      "value": 0.71
+      "value": 0.706334436
     },
     {
       "entity_id": "S23",
       "time": "2023-04",
-      "value": 0.79
+      "value": 0.7943406426
     },
     {
       "entity_id": "S23",
       "time": "2024-04",
-      "value": 0.9
+      "value": 0.8968180735
+    },
+    {
+      "entity_id": "S24",
+      "time": "2011-04",
+      "value": 7.370703284
+    },
+    {
+      "entity_id": "S24",
+      "time": "2012-04",
+      "value": 8.37932395
+    },
+    {
+      "entity_id": "S24",
+      "time": "2013-04",
+      "value": 9.614120984
+    },
+    {
+      "entity_id": "S24",
+      "time": "2014-04",
+      "value": 10.36935208
     },
     {
       "entity_id": "S24",
       "time": "2015-04",
-      "value": 11.72
+      "value": 11.722300500000001
     },
     {
       "entity_id": "S24",
       "time": "2016-04",
-      "value": 13.3
+      "value": 13.29863947
     },
     {
       "entity_id": "S24",
       "time": "2017-04",
-      "value": 14.76
+      "value": 14.76374497
     },
     {
       "entity_id": "S24",
       "time": "2018-04",
-      "value": 16.22
+      "value": 16.2172625
     },
     {
       "entity_id": "S24",
       "time": "2019-04",
-      "value": 17.45
+      "value": 17.451311920000002
     },
     {
       "entity_id": "S24",
       "time": "2020-04",
-      "value": 16.83
+      "value": 16.82942547
     },
     {
       "entity_id": "S24",
       "time": "2021-04",
-      "value": 20.28
+      "value": 20.28030288
     },
     {
       "entity_id": "S24",
       "time": "2022-04",
-      "value": 22.96
+      "value": 22.95763178
     },
     {
       "entity_id": "S24",
       "time": "2023-04",
-      "value": 26.43
+      "value": 26.4287702
     },
     {
       "entity_id": "S24",
       "time": "2024-04",
-      "value": 29.78
+      "value": 29.78223512
+    },
+    {
+      "entity_id": "S25",
+      "time": "2011-04",
+      "value": 5.204850454
+    },
+    {
+      "entity_id": "S25",
+      "time": "2012-04",
+      "value": 5.914646991
+    },
+    {
+      "entity_id": "S25",
+      "time": "2013-04",
+      "value": 6.768487402999999
+    },
+    {
+      "entity_id": "S25",
+      "time": "2014-04",
+      "value": 7.180816287999999
     },
     {
       "entity_id": "S25",
       "time": "2015-04",
-      "value": 7.97
+      "value": 7.972999486
     },
     {
       "entity_id": "S25",
       "time": "2016-04",
-      "value": 8.73
+      "value": 8.725272298
     },
     {
       "entity_id": "S25",
       "time": "2017-04",
-      "value": 9.75
+      "value": 9.747000494
     },
     {
       "entity_id": "S25",
       "time": "2018-04",
-      "value": 11.02
+      "value": 11.02053656
     },
     {
       "entity_id": "S25",
       "time": "2019-04",
-      "value": 11.79
+      "value": 11.791274620000001
     },
     {
       "entity_id": "S25",
       "time": "2020-04",
-      "value": 11.42
+      "value": 11.417976910000002
     },
     {
       "entity_id": "S25",
       "time": "2021-04",
-      "value": 13.4
+      "value": 13.400302320000002
     },
     {
       "entity_id": "S25",
       "time": "2022-04",
-      "value": 15.16
+      "value": 15.155644950000001
     },
     {
       "entity_id": "S25",
       "time": "2023-04",
-      "value": 16.51
+      "value": 16.51373729
     },
     {
       "entity_id": "S25",
       "time": "2024-04",
-      "value": 18.15
+      "value": 18.15009906
+    },
+    {
+      "entity_id": "S26",
+      "time": "2011-04",
+      "value": 1.580738209
+    },
+    {
+      "entity_id": "S26",
+      "time": "2012-04",
+      "value": 1.775113291
+    },
+    {
+      "entity_id": "S26",
+      "time": "2013-04",
+      "value": 2.0683317999999997
+    },
+    {
+      "entity_id": "S26",
+      "time": "2014-04",
+      "value": 2.2111810999999997
     },
     {
       "entity_id": "S26",
       "time": "2015-04",
-      "value": 2.25
+      "value": 2.2516298999999997
     },
     {
       "entity_id": "S26",
       "time": "2016-04",
-      "value": 2.63
+      "value": 2.6280175
     },
     {
       "entity_id": "S26",
       "time": "2017-04",
-      "value": 2.83
+      "value": 2.8273744
     },
     {
       "entity_id": "S26",
       "time": "2018-04",
-      "value": 3.27
+      "value": 3.2710665999999997
     },
     {
       "entity_id": "S26",
       "time": "2019-04",
-      "value": 3.45
+      "value": 3.4467204
     },
     {
       "entity_id": "S26",
       "time": "2020-04",
-      "value": 3.52
+      "value": 3.5232751
     },
     {
       "entity_id": "S26",
       "time": "2021-04",
-      "value": 4.12
+      "value": 4.1161335
     },
     {
       "entity_id": "S26",
       "time": "2022-04",
-      "value": 4.59
+      "value": 4.5889132
     },
     {
       "entity_id": "S26",
       "time": "2023-04",
-      "value": 5.12
+      "value": 5.1210749
     },
     {
       "entity_id": "S26",
       "time": "2024-04",
-      "value": 5.68
+      "value": 5.6788043
+    },
+    {
+      "entity_id": "S27",
+      "time": "2011-04",
+      "value": 1.5091759
+    },
+    {
+      "entity_id": "S27",
+      "time": "2012-04",
+      "value": 1.7472369
+    },
+    {
+      "entity_id": "S27",
+      "time": "2013-04",
+      "value": 1.8856670999999998
+    },
+    {
+      "entity_id": "S27",
+      "time": "2014-04",
+      "value": 2.1852517000000002
     },
     {
       "entity_id": "S27",
       "time": "2015-04",
-      "value": 2.07
+      "value": 2.066128
     },
     {
       "entity_id": "S27",
       "time": "2016-04",
-      "value": 2.36
+      "value": 2.3624972
     },
     {
       "entity_id": "S27",
       "time": "2017-04",
-      "value": 2.7
+      "value": 2.6981614
     },
     {
       "entity_id": "S27",
       "time": "2018-04",
-      "value": 3.06
+      "value": 3.0569520000000003
     },
     {
       "entity_id": "S27",
       "time": "2019-04",
-      "value": 3.1
+      "value": 3.1030536
     },
     {
       "entity_id": "S27",
       "time": "2020-04",
-      "value": 2.97
+      "value": 2.96664
     },
     {
       "entity_id": "S27",
       "time": "2021-04",
-      "value": 3.76
+      "value": 3.7612669
     },
     {
       "entity_id": "S27",
       "time": "2022-04",
-      "value": 4.14
+      "value": 4.1430768
     },
     {
       "entity_id": "S27",
       "time": "2023-04",
-      "value": 4.66
+      "value": 4.6563801
     },
     {
       "entity_id": "S27",
       "time": "2024-04",
-      "value": 5.16
+      "value": 5.1625536
+    },
+    {
+      "entity_id": "S28",
+      "time": "2011-04",
+      "value": 1.1532758
+    },
+    {
+      "entity_id": "S28",
+      "time": "2012-04",
+      "value": 1.3161284
+    },
+    {
+      "entity_id": "S28",
+      "time": "2013-04",
+      "value": 1.4907438
+    },
+    {
+      "entity_id": "S28",
+      "time": "2014-04",
+      "value": 1.6143891000000001
     },
     {
       "entity_id": "S28",
       "time": "2015-04",
-      "value": 1.77
+      "value": 1.77163
     },
     {
       "entity_id": "S28",
       "time": "2016-04",
-      "value": 1.95
+      "value": 1.9512485999999998
     },
     {
       "entity_id": "S28",
       "time": "2017-04",
-      "value": 2.2
+      "value": 2.2022212
     },
     {
       "entity_id": "S28",
       "time": "2018-04",
-      "value": 2.3
+      "value": 2.3032744
     },
     {
       "entity_id": "S28",
       "time": "2019-04",
-      "value": 2.39
+      "value": 2.392629
     },
     {
       "entity_id": "S28",
       "time": "2020-04",
-      "value": 2.26
+      "value": 2.2561676
     },
     {
       "entity_id": "S28",
       "time": "2021-04",
-      "value": 2.55
+      "value": 2.5496648
     },
     {
       "entity_id": "S28",
       "time": "2022-04",
-      "value": 2.93
+      "value": 2.9266994
     },
     {
       "entity_id": "S28",
       "time": "2023-04",
-      "value": 3.33
+      "value": 3.3299788
     },
     {
       "entity_id": "S28",
       "time": "2024-04",
-      "value": 3.78
+      "value": 3.7824453000000005
+    },
+    {
+      "entity_id": "S29",
+      "time": "2011-04",
+      "value": 3.5943411
+    },
+    {
+      "entity_id": "S29",
+      "time": "2012-04",
+      "value": 4.0159361
+    },
+    {
+      "entity_id": "S29",
+      "time": "2013-04",
+      "value": 4.515804
+    },
+    {
+      "entity_id": "S29",
+      "time": "2014-04",
+      "value": 5.058487899999999
     },
     {
       "entity_id": "S29",
       "time": "2015-04",
-      "value": 5.78
+      "value": 5.7790205519999995
     },
     {
       "entity_id": "S29",
       "time": "2016-04",
-      "value": 6.58
+      "value": 6.583253399999999
     },
     {
       "entity_id": "S29",
       "time": "2017-04",
-      "value": 7.5
+      "value": 7.5005028000000005
     },
     {
       "entity_id": "S29",
       "time": "2018-04",
-      "value": 8.57
+      "value": 8.574271536
     },
     {
       "entity_id": "S29",
       "time": "2019-04",
-      "value": 9.5
+      "value": 9.500904947
     },
     {
       "entity_id": "S29",
       "time": "2020-04",
-      "value": 9.43
+      "value": 9.430779871
     },
     {
       "entity_id": "S29",
       "time": "2021-04",
-      "value": 11.24
+      "value": 11.240856359999999
     },
     {
       "entity_id": "S29",
       "time": "2022-04",
-      "value": 13.11
+      "value": 13.107206669999998
     },
     {
       "entity_id": "S29",
       "time": "2023-04",
-      "value": 14.62
+      "value": 14.61835936
     },
     {
       "entity_id": "S29",
       "time": "2024-04",
-      "value": 16.41
+      "value": 16.40901431
+    },
+    {
+      "entity_id": "U01",
+      "time": "2011-04",
+      "value": 0.03978431748
+    },
+    {
+      "entity_id": "U01",
+      "time": "2012-04",
+      "value": 0.044211786739999995
+    },
+    {
+      "entity_id": "U01",
+      "time": "2013-04",
+      "value": 0.05022625383
+    },
+    {
+      "entity_id": "U01",
+      "time": "2014-04",
+      "value": 0.05477216982
     },
     {
       "entity_id": "U01",
       "time": "2015-04",
-      "value": 0.06
+      "value": 0.060317348890000004
     },
     {
       "entity_id": "U01",
       "time": "2016-04",
-      "value": 0.07
+      "value": 0.06835868948
     },
     {
       "entity_id": "U01",
       "time": "2017-04",
-      "value": 0.08
+      "value": 0.07890410538
     },
     {
       "entity_id": "U01",
       "time": "2018-04",
-      "value": 0.09
+      "value": 0.09003181865
     },
     {
       "entity_id": "U01",
       "time": "2019-04",
-      "value": 0.1
+      "value": 0.09765004004
     },
     {
       "entity_id": "U01",
       "time": "2020-04",
-      "value": 0.09
+      "value": 0.09310399761
     },
     {
       "entity_id": "U01",
       "time": "2021-04",
-      "value": 0.1
+      "value": 0.10392096320000001
     },
     {
       "entity_id": "U01",
       "time": "2022-04",
-      "value": 0.12
+      "value": 0.1197667529
     },
     {
       "entity_id": "U01",
       "time": "2023-04",
-      "value": 0.12
+      "value": 0.1249911375
+    },
+    {
+      "entity_id": "U02",
+      "time": "2011-04",
+      "value": 0.1876815916
+    },
+    {
+      "entity_id": "U02",
+      "time": "2012-04",
+      "value": 0.21608558020000002
+    },
+    {
+      "entity_id": "U02",
+      "time": "2013-04",
+      "value": 0.24821728469999998
+    },
+    {
+      "entity_id": "U02",
+      "time": "2014-04",
+      "value": 0.26548569240000003
     },
     {
       "entity_id": "U02",
       "time": "2015-04",
-      "value": 0.29
+      "value": 0.2927507805
     },
     {
       "entity_id": "U02",
       "time": "2016-04",
-      "value": 0.32
+      "value": 0.32426662219999997
     },
     {
       "entity_id": "U02",
       "time": "2017-04",
-      "value": 0.36
+      "value": 0.3634435
     },
     {
       "entity_id": "U02",
       "time": "2018-04",
-      "value": 0.4
+      "value": 0.40138870000000004
     },
     {
       "entity_id": "U02",
       "time": "2019-04",
-      "value": 0.43
+      "value": 0.4342143
     },
     {
       "entity_id": "U02",
       "time": "2020-04",
-      "value": 0.39
+      "value": 0.3941149
     },
     {
       "entity_id": "U02",
       "time": "2021-04",
-      "value": 0.46
+      "value": 0.4605
     },
     {
       "entity_id": "U02",
       "time": "2022-04",
-      "value": 0.56
+      "value": 0.5596274
     },
     {
       "entity_id": "U02",
       "time": "2023-04",
-      "value": 0.63
+      "value": 0.6253564
+    },
+    {
+      "entity_id": "U05",
+      "time": "2011-04",
+      "value": 3.437975013
+    },
+    {
+      "entity_id": "U05",
+      "time": "2012-04",
+      "value": 3.9138763919999997
+    },
+    {
+      "entity_id": "U05",
+      "time": "2013-04",
+      "value": 4.439598915
+    },
+    {
+      "entity_id": "U05",
+      "time": "2014-04",
+      "value": 4.9480302279999995
     },
     {
       "entity_id": "U05",
       "time": "2015-04",
-      "value": 5.51
+      "value": 5.508037023999999
     },
     {
       "entity_id": "U05",
       "time": "2016-04",
-      "value": 6.16
+      "value": 6.160850607
     },
     {
       "entity_id": "U05",
       "time": "2017-04",
-      "value": 6.78
+      "value": 6.779000409
     },
     {
       "entity_id": "U05",
       "time": "2018-04",
-      "value": 7.38
+      "value": 7.383894336
     },
     {
       "entity_id": "U05",
       "time": "2019-04",
-      "value": 7.93
+      "value": 7.929112713
     },
     {
       "entity_id": "U05",
       "time": "2020-04",
-      "value": 7.44
+      "value": 7.442772504000001
     },
     {
       "entity_id": "U05",
       "time": "2021-04",
-      "value": 8.71
+      "value": 8.706270363
     },
     {
       "entity_id": "U05",
       "time": "2022-04",
-      "value": 10.0
+      "value": 9.997493861
     },
     {
       "entity_id": "U05",
       "time": "2023-04",
-      "value": 11.13
+      "value": 11.12904821
     },
     {
       "entity_id": "U05",
       "time": "2024-04",
-      "value": 12.15
+      "value": 12.15003054
+    },
+    {
+      "entity_id": "U07",
+      "time": "2011-04",
+      "value": 0.16818009999999997
+    },
+    {
+      "entity_id": "U07",
+      "time": "2012-04",
+      "value": 0.18875450000000002
+    },
+    {
+      "entity_id": "U07",
+      "time": "2013-04",
+      "value": 0.21870119999999998
+    },
+    {
+      "entity_id": "U07",
+      "time": "2014-04",
+      "value": 0.2257396286
     },
     {
       "entity_id": "U07",
       "time": "2015-04",
-      "value": 0.27
+      "value": 0.2661653791
     },
     {
       "entity_id": "U07",
       "time": "2016-04",
-      "value": 0.3
+      "value": 0.2957265908
     },
     {
       "entity_id": "U07",
       "time": "2017-04",
-      "value": 0.32
+      "value": 0.3212880294
     },
     {
       "entity_id": "U07",
       "time": "2018-04",
-      "value": 0.34
+      "value": 0.34170722459999997
     },
     {
       "entity_id": "U07",
       "time": "2019-04",
-      "value": 0.37
+      "value": 0.36998741049999995
     },
     {
       "entity_id": "U07",
       "time": "2020-04",
-      "value": 0.36
+      "value": 0.3617958105
     },
     {
       "entity_id": "U07",
       "time": "2021-04",
-      "value": 0.41
+      "value": 0.409029211
     },
     {
       "entity_id": "U07",
       "time": "2022-04",
-      "value": 0.42
+      "value": 0.423152921
     },
     {
       "entity_id": "U07",
       "time": "2023-04",
-      "value": 0.47
+      "value": 0.4694498066
     },
     {
       "entity_id": "U07",
       "time": "2024-04",
-      "value": 0.52
+      "value": 0.5216267112
+    },
+    {
+      "entity_id": "U08",
+      "time": "2011-04",
+      "value": 0.7825554807999999
+    },
+    {
+      "entity_id": "U08",
+      "time": "2012-04",
+      "value": 0.8713773407000001
+    },
+    {
+      "entity_id": "U08",
+      "time": "2013-04",
+      "value": 0.9562060607999999
+    },
+    {
+      "entity_id": "U08",
+      "time": "2014-04",
+      "value": 0.9836674697
     },
     {
       "entity_id": "U08",
       "time": "2015-04",
-      "value": 1.17
+      "value": 1.171679524
     },
     {
       "entity_id": "U08",
       "time": "2016-04",
-      "value": 1.25
+      "value": 1.248479962
     },
     {
       "entity_id": "U08",
       "time": "2017-04",
-      "value": 1.4
+      "value": 1.3970885999999998
     },
     {
       "entity_id": "U08",
       "time": "2018-04",
-      "value": 1.6
+      "value": 1.598594484
     },
     {
       "entity_id": "U08",
       "time": "2019-04",
-      "value": 1.64
+      "value": 1.641032168
     },
     {
       "entity_id": "U08",
       "time": "2020-04",
-      "value": 1.68
+      "value": 1.6779268969999999
     },
     {
       "entity_id": "U08",
       "time": "2021-04",
-      "value": 1.89
+      "value": 1.885610681
     },
     {
       "entity_id": "U08",
       "time": "2022-04",
-      "value": 2.1
+      "value": 2.0981552100000003
     },
     {
       "entity_id": "U08",
       "time": "2023-04",
-      "value": 2.36
+      "value": 2.360588542
     },
     {
       "entity_id": "U08",
       "time": "2024-04",
-      "value": 2.62
+      "value": 2.62458067
     },
     {
       "entity_id": "U09",
       "time": "2022-04",
-      "value": 0.07
+      "value": 0.06564694159
     },
     {
       "entity_id": "U09",
       "time": "2023-04",
-      "value": 0.08
+      "value": 0.08304169506
     }
   ]
 }

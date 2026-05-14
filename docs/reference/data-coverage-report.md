@@ -8,9 +8,9 @@
 
 | Surface | Coverage today |
 | ------- | -------------- |
-| **Election results** (per AC) | 21 elections × 17 states/UTs = 34 result sets, **~3,930 AC results**, from Apr 2016 → May 2026 |
-| **Indicators** | 32 artifacts: 16 energy, 10 fiscal, 4 economy, 1 demography, 1 misc |
-| **Time depth** | RBI national fiscal series go back to FY 2007–08 (19y); ICED state series go back to FY 2015–16 (10–11y); CEA installed capacity is a single 2026-03 snapshot |
+| **Election results** (per AC) | 22 elections × 22 states/UTs = 34 result sets, **~4,422 AC results**, from Apr 2016 → May 2026 |
+| **Indicators** | **52 artifacts**: 21 energy, 17 fiscal, 10 economy (incl. 3 MoSPI National Accounts Statistics artifacts ingested 2026-05-14: macro aggregates + GVA-by-industry annual + GVA-by-industry quarterly, all at constant 2011-12 prices), 2 transport, 1 demography, 1 human-development |
+| **Time depth** | RBI national fiscal series go back to FY 2007–08 (19y); ICED state-GSDP now goes back to FY 2011–12 (14y) after the 2026-05-14 enrichment; the new `economy/national_gdp_current_inr_lakh_crore` covers FY 2011–12 → FY 2023–24; MoSPI NAS quarterly GVA covers FY 2011–12 Q1 → FY 2025–26 Q2; CEA installed capacity is a single 2026-03 snapshot |
 | **Boundaries** | 31 state/UT AC polygon files + national state + district choropleth bases |
 | **Governance** | CM term timelines for 31 states |
 | **Reference** | 26 state constituency lists, 6 hand-authored district lists (S03, S06, S11, S22, S25, U07 done — full LGD ingest WIP), parties, topics, election event index |

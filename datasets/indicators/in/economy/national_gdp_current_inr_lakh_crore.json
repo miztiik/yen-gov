@@ -1,0 +1,107 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
+      "fetched_at": "2026-05-14T14:11:06Z",
+      "name": "ICED — State-wise Deep Dive (NITI Aayog), GSDP/National GDP Trends panel",
+      "authority": "NITI Aayog (India Climate & Energy Dashboard) — sourced from MoSPI / State DES"
+    }
+  ],
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (national aggregate)",
+    "temporal": "2011-04..2023-04",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "economy/national_gdp_current_inr_lakh_crore",
+    "title": "National GDP at current prices (all-India)",
+    "description": "India's gross domestic product at current (nominal) prices in lakh crore rupees. The all-India aggregate equivalent of the per-state GSDP series — useful for the macro question 'how big is the economy and how fast is it growing in nominal terms?'. Sourced from NITI Aayog ICED's National GDP Trends panel, which republishes MoSPI National Accounts Statistics. Note: 13 fiscal years (2011-12 through 2023-24); the FY 2024-25 figure was not exposed by the National panel at fetch time (state panel goes one year further).",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "INR (lakh crore)",
+    "icon": "trending-up",
+    "attribution_geography": "where_resident",
+    "comparability": "comparable_across_states",
+    "implementing_authority": "centre",
+    "methodology_vintage": "MoSPI National Accounts Statistics, base 2011-12 series, current prices (gross). Sourced via NITI Aayog ICED National GDP Trends panel; export 2026-05-14. Source workbook structure: each per-state row in the National sheet repeats the same per-year national aggregate; 13 distinct (year, value) pairs were extracted and verified to be identical across all 33 'state' rows per year before ingest.",
+    "notes": "Reads the raw nominal value. For real-growth comparisons across years, divide by a deflator or use the constant-price series (not yet ingested at the national level)."
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 87.36329
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 99.44013
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 112.33522
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 124.67959
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 137.71874
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 153.91669
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 170.90042
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 188.99668
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 201.03593
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 198.54096
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 235.97399
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 268.90473
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 301.22956
+    }
+  ]
+}
