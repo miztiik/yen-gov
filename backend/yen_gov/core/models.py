@@ -157,10 +157,16 @@ class DistrictEntry(_Strict):
 
 
 class DistrictsCollection(_Artifact):
-    """Mirrors datasets/schemas/district.schema.json (x-version 3.1)."""
+    """Mirrors datasets/schemas/district.schema.json (x-version 3.2).
+
+    3.2 added an optional `lgd_code` field on each district item
+    (populated by the LGD backfill tool). The field is not declared on
+    DistrictEntry yet — pydantic ignores absent optional fields, so 3.2
+    artifacts round-trip safely; declaring it on the model is a follow-up.
+    """
 
     _schema_id = "https://yen-gov.github.io/schemas/district.schema.json"
-    _schema_version = "3.1"
+    _schema_version = "3.2"
 
     state: ECIStateCode
     districts: list[DistrictEntry] = Field(min_length=1)
