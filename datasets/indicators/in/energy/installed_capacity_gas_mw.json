@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.2",
+  "$schema_version": "1.3",
   "sources": [
     {
       "url": "https://cea.nic.in/installed-capacity-report/?lang=en",

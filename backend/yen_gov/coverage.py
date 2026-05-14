@@ -19,6 +19,7 @@ any divergence between them surfaces in the "Inconsistencies" section.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass, field
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -236,14 +237,27 @@ def _parse_temporal(span: str) -> tuple[date, date]:
     raise ValueError(f"malformed temporal span: {span!r}")
 
 
+_DATE_RE = re.compile(r"(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?")
+
+
 def _parse_point(token: str) -> date:
+    """Parse a single temporal token into a date.
+
+    Strict shapes ``YYYY``, ``YYYY-MM``, ``YYYY-MM-DD`` are accepted directly.
+    For artifacts that put free-form prose alongside a date (legacy snapshot
+    convention like ``\"snapshot 2026-05-14 (RS Session 259)\"``), the first
+    embedded ISO-like date is extracted. Migrating those artifacts to clean
+    canonical strings is preferred, but tolerating them keeps the inventory
+    honest in the meantime.
+    """
     token = token.strip()
-    if len(token) == 4 and token.isdigit():
-        return date(int(token), 4, 1)
-    if len(token) == 7 and token[4] == "-":
-        y, m = token.split("-")
-        return date(int(y), int(m), 1)
-    raise ValueError(f"unrecognised temporal token: {token!r}")
+    m = _DATE_RE.search(token)
+    if not m:
+        raise ValueError(f"unrecognised temporal token: {token!r}")
+    y = int(m.group(1))
+    mo = int(m.group(2)) if m.group(2) else 4  # FY default
+    d = int(m.group(3)) if m.group(3) else 1
+    return date(y, mo, d)
 
 
 def _compute_meter(
@@ -494,18 +508,17 @@ def render_markdown(report: CoverageReport) -> str:
         )
         out.append("")
         out.append(
-            "| State | Code | Cycles | Temporal Richness | Most recent | "
-            "Oldest |"
+            "| State | Code | Cycles | Temporal Richness | "
+            "On-disk event_ids (newest \u2192 oldest) |"
         )
-        out.append("| --- | --- | ---: | --- | --- | --- |")
+        out.append("| --- | --- | ---: | --- | --- |")
         for se in report.state_elections:
-            most_recent = se.events[0] if se.events else "-"
-            oldest = se.events[-1] if se.events else "-"
+            event_list = ", ".join(se.events) if se.events else "-"
             out.append(
                 f"| {se.state_name} | `{se.state_code}` | "
                 f"{len(se.events)} | "
                 f"{_render_meter(se.meter_cells)} | "
-                f"{most_recent} | {oldest} |"
+                f"{event_list} |"
             )
         out.append("")
 

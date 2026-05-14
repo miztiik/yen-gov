@@ -1,0 +1,1542 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://www.data.gov.in/",
+      "fetched_at": "2026-05-14T15:02:37Z",
+      "name": "MoSPI National Accounts Statistics — consolidated annual + quarterly NAS series (data.gov.in mirror)",
+      "authority": "Ministry of Statistics and Programme Implementation (National Statistical Office)"
+    }
+  ],
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (national aggregate)",
+    "temporal": "2011-04..2025-04",
+    "admin_level": "national"
+  },
+  "indicator": {
+    "id": "economy/national_macro_aggregates_constant_2011_12_inr_crore",
+    "title": "National macro aggregates at constant 2011-12 prices (annual)",
+    "description": "MoSPI National Accounts Statistics headline aggregates — GDP, GVA, NDP, Gross National Income, Gross National Disposable Income, Gross Fixed Capital Formation, Gross Saving, Consumption of Fixed Capital, Private and Government Final Consumption Expenditure, Change in Stock, Valuables, Exports and Imports of Goods and Services, Net Taxes / Taxes / Subsidies on Products, and external transfers — at constant 2011-12 prices, faceted by indicator. The 'real-economy' lens IMF WEO, World Bank WDI, OECD SNA, and MoSPI press notes all default to.",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "currency",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "INR (crore)",
+    "icon": "trending-up",
+    "attribution_geography": "where_resident",
+    "comparability": "comparable_across_states",
+    "implementing_authority": "centre",
+    "methodology_vintage": "MoSPI National Accounts Statistics, base 2011-12, constant prices. Consolidated CSV ingested 2026-05-14; per (indicator, year) the most-final published revision tier was selected (rank order: First Advance < Second Advance < Provisional < First Revised < Second Revised < Third Revised < Final < Additional Revision) and stamped on each row via the v1.3 `vintage` field. Source CSV included a parallel current-price series and a 2022-23 rebased series; both were intentionally dropped — constant-price 2011-12 is yen-gov's canonical real-GDP/GVA basis (matches IMF WEO, World Bank WDI NY.GDP.MKTP.KD, OECD SNA, MoSPI press notes). Pre-computed growth-rate rows were also dropped: MoSPI uses fixed-base accounts so naive (Y_t - Y_{t-1}) / Y_{t-1} on this constant-price level series reproduces the published growth rate to the last decimal. Subindustry rows (Crops, Livestock, Air Transport, etc.) were also dropped — citizen front door uses the 17-industry NIC-1 tier; subindustry returns in a Phase F deep-dive.",
+    "notes": "Values are in ₹ crore at 2011-12 prices — comparable across years (real growth is meaningful) but NOT directly comparable to today's market value. For 'size of the economy in today's money' use the current-price series (not yet shipped at the national level).",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute"
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 207983.1878,
+      "facet": "Change in Stock",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 201528.3911,
+      "facet": "Change in Stock",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 129758.3954,
+      "facet": "Change in Stock",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 274751.2112,
+      "facet": "Change in Stock",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 239556.8425,
+      "facet": "Change in Stock",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 122639.0,
+      "facet": "Change in Stock",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 206436.2664,
+      "facet": "Change in Stock",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 262770.7938,
+      "facet": "Change in Stock",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 108537.2207,
+      "facet": "Change in Stock",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 25616.48292,
+      "facet": "Change in Stock",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 160202.9933,
+      "facet": "Change in Stock",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 199176.9217,
+      "facet": "Change in Stock",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 305610.0072,
+      "facet": "Change in Stock",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 319227.5014,
+      "facet": "Change in Stock",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 334874.9544,
+      "facet": "Change in Stock",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 917174.9408,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 1010661.075,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1100609.873,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1178644.238,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1270890.398,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 1381526.0,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1489920.816,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1614455.062,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1731178.493,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1832758.894,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1955788.13,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 2087963.684,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 2228966.517,
+      "facet": "Consumption of Fixed Capital",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 2143931.0,
+      "facet": "Export of Goods and Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 2289835.984,
+      "facet": "Export of Goods and Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 2468268.917,
+      "facet": "Export of Goods and Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 2512144.636,
+      "facet": "Export of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 2370281.636,
+      "facet": "Export of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 2488423.0,
+      "facet": "Export of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 2602011.798,
+      "facet": "Export of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 2912480.483,
+      "facet": "Export of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 2813893.654,
+      "facet": "Export of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2618152.507,
+      "facet": "Export of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 3393107.178,
+      "facet": "Export of Goods and Services",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 3743310.051,
+      "facet": "Export of Goods and Services",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 3825494.336,
+      "facet": "Export of Goods and Services",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 4068098.178,
+      "facet": "Export of Goods and Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 4327568.58,
+      "facet": "Export of Goods and Services",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 968375.0,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 974262.9697,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 979825.1183,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1054150.879,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1132802.498,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 1201598.0,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1344842.633,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1434945.197,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1491606.053,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1480124.357,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1480393.852,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1543991.454,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1669675.255,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 1707729.7,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 1796418.934,
+      "facet": "Government Final Consumption Expenditure",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 8736328.711,
+      "facet": "Gross Domestic Product",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 9213016.662,
+      "facet": "Gross Domestic Product",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 9801369.876,
+      "facet": "Gross Domestic Product",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 10527673.63,
+      "facet": "Gross Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 11369493.14,
+      "facet": "Gross Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 12308193.0,
+      "facet": "Gross Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 13144582.14,
+      "facet": "Gross Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 13992913.94,
+      "facet": "Gross Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 14534640.78,
+      "facet": "Gross Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 13694869.24,
+      "facet": "Gross Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 15021846.27,
+      "facet": "Gross Domestic Product",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 16164913.38,
+      "facet": "Gross Domestic Product",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 17650590.95,
+      "facet": "Gross Domestic Product",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 18796955.44,
+      "facet": "Gross Domestic Product",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 20189918.88,
+      "facet": "Gross Domestic Product",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 3191973.0,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 3540750.0,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 3602041.0,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 4087557.0,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 4548452.0,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 4334091.0,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 4220508.207,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 4784054.224,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 5434691.296,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 5826879.786,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 6333084.225,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 6828575.868,
+      "facet": "Gross Fixed Capital Formation",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 8659504.711,
+      "facet": "Gross National Income",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 9104662.196,
+      "facet": "Gross National Income",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 9679027.018,
+      "facet": "Gross National Income",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 10402987.09,
+      "facet": "Gross National Income",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 11234571.05,
+      "facet": "Gross National Income",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 12163619.0,
+      "facet": "Gross National Income",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 12998694.53,
+      "facet": "Gross National Income",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 13840473.75,
+      "facet": "Gross National Income",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 14392900.06,
+      "facet": "Gross National Income",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 13493976.32,
+      "facet": "Gross National Income",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 14827919.77,
+      "facet": "Gross National Income",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 15939375.75,
+      "facet": "Gross National Income",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 17404637.98,
+      "facet": "Gross National Income",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 18523133.06,
+      "facet": "Gross National Income",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 19873388.03,
+      "facet": "Gross National Income",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 2715554.0,
+      "facet": "Import of Goods and Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 2879079.139,
+      "facet": "Import of Goods and Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 2644555.084,
+      "facet": "Import of Goods and Services",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 2667595.261,
+      "facet": "Import of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 2511539.773,
+      "facet": "Import of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 2621593.0,
+      "facet": "Import of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 3078273.808,
+      "facet": "Import of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 3349860.571,
+      "facet": "Import of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 3321756.705,
+      "facet": "Import of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 2902462.986,
+      "facet": "Import of Goods and Services",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 3543745.42,
+      "facet": "Import of Goods and Services",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 3859868.698,
+      "facet": "Import of Goods and Services",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 4390614.418,
+      "facet": "Import of Goods and Services",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 4229389.502,
+      "facet": "Import of Goods and Services",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 4840195.293,
+      "facet": "Import of Goods and Services",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 7819153.771,
+      "facet": "Net Domestic Product",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 8202355.587,
+      "facet": "Net Domestic Product",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 8700760.003,
+      "facet": "Net Domestic Product",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 9349029.396,
+      "facet": "Net Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 10098602.74,
+      "facet": "Net Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 10926667.0,
+      "facet": "Net Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 11654661.33,
+      "facet": "Net Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 12378458.87,
+      "facet": "Net Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 12803462.28,
+      "facet": "Net Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 11862110.35,
+      "facet": "Net Domestic Product",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 13066058.14,
+      "facet": "Net Domestic Product",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 14076949.69,
+      "facet": "Net Domestic Product",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 15421624.43,
+      "facet": "Net Domestic Product",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 16425021.08,
+      "facet": "Net Domestic Product",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 17643770.89,
+      "facet": "Net Domestic Product",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 629382.7178,
+      "facet": "Net Taxes on Products",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 666741.3124,
+      "facet": "Net Taxes on Products",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 737721.2082,
+      "facet": "Net Taxes on Products",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 815540.8443,
+      "facet": "Net Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 877622.7894,
+      "facet": "Net Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 979909.0,
+      "facet": "Net Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1110411.631,
+      "facet": "Net Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1259116.167,
+      "facet": "Net Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1298540.364,
+      "facet": "Net Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1007524.67,
+      "facet": "Net Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1145006.224,
+      "facet": "Net Taxes on Products",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1286885.116,
+      "facet": "Net Taxes on Products",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1499114.443,
+      "facet": "Net Taxes on Products",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 1609509.233,
+      "facet": "Net Taxes on Products",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 1740090.612,
+      "facet": "Net Taxes on Products",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": -76824.0,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": -108354.4667,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": -122342.8585,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": -124686.5417,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": -134922.0872,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": -144575.0,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": -145887.6107,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": -152440.1899,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": -141740.7115,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": -200892.9249,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": -193926.4982,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": -225537.6217,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": -245952.967,
+      "facet": "Primary Income Receivable Net From Row",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 4910447.272,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 5179090.921,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 5557329.124,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 5912656.721,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 6381418.716,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 6900236.0,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 7330728.486,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 7850443.899,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 8256217.714,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 7819508.521,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 8732573.401,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 9384942.862,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 9906774.488,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 10619578.57,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 11367565.11,
+      "facet": "Private Final Consumption Expenditure",
+      "vintage": "First Advance Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 260677.0,
+      "facet": "Subsidies on Products",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 294069.5731,
+      "facet": "Subsidies on Products",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 271192.2763,
+      "facet": "Subsidies on Products",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 276888.9819,
+      "facet": "Subsidies on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 267935.339,
+      "facet": "Subsidies on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 259425.0,
+      "facet": "Subsidies on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 244096.5308,
+      "facet": "Subsidies on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 236527.4318,
+      "facet": "Subsidies on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 257266.5169,
+      "facet": "Subsidies on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 357591.145,
+      "facet": "Subsidies on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 434565.9074,
+      "facet": "Subsidies on Products",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 451067.8981,
+      "facet": "Subsidies on Products",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 379017.2991,
+      "facet": "Subsidies on Products",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 890059.7178,
+      "facet": "Taxes on Products",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 960810.8855,
+      "facet": "Taxes on Products",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 1008913.485,
+      "facet": "Taxes on Products",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 1092429.826,
+      "facet": "Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 1145558.128,
+      "facet": "Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 1239334.0,
+      "facet": "Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 1354508.162,
+      "facet": "Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 1495643.599,
+      "facet": "Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 1555806.881,
+      "facet": "Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 1365115.815,
+      "facet": "Taxes on Products",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 1579572.131,
+      "facet": "Taxes on Products",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 1737953.014,
+      "facet": "Taxes on Products",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 1878131.742,
+      "facet": "Taxes on Products",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 253033.3333,
+      "facet": "Valuables",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 259949.2793,
+      "facet": "Valuables",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 148879.0938,
+      "facet": "Valuables",
+      "vintage": "Additional Revision"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 187956.7897,
+      "facet": "Valuables",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 185986.4058,
+      "facet": "Valuables",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 151479.0,
+      "facet": "Valuables",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 212306.5155,
+      "facet": "Valuables",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 191704.4341,
+      "facet": "Valuables",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 164526.7579,
+      "facet": "Valuables",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 213655.8611,
+      "facet": "Valuables",
+      "vintage": "Third Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 283099.0154,
+      "facet": "Valuables",
+      "vintage": "Second Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 235146.1529,
+      "facet": "Valuables",
+      "vintage": "Final Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 269106.2372,
+      "facet": "Valuables",
+      "vintage": "First Revised Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 270757.7567,
+      "facet": "Valuables",
+      "vintage": "Provisional Estimates"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2025-04",
+      "value": 241984.5329,
+      "facet": "Valuables",
+      "vintage": "First Advance Estimates"
+    }
+  ]
+}
