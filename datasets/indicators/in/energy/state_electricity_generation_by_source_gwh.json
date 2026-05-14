@@ -1,0 +1,990 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://icedapi.niti.gov.in/energy/powerStatistics",
+      "fetched_at": "2026-05-14T22:53:29Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "India (states + UTs)",
+    "temporal": "2025-04",
+    "admin_level": "state"
+  },
+  "indicator": {
+    "id": "energy/state_electricity_generation_by_source_gwh",
+    "title": "State electricity generation, by fuel source (GWh, latest year snapshot)",
+    "description": "Per-state actual electricity generated, broken down by fuel source, for the most recent fiscal year ICED publishes. This is the 'service' counterpart to installed capacity — capacity is potential, generation is delivered. Unlike capacity, ICED does not yet expose a long historical time series for this field at the state level; we ship a single-year snapshot until an upstream long-history endpoint becomes available.",
+    "entity_kind": "state",
+    "time_grain": "fiscal_year",
+    "value_kind": "count",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "GWh",
+    "icon": "zap",
+    "attribution_geography": "where_produced",
+    "comparability": "comparable_with_normalisation",
+    "implementing_authority": "joint",
+    "methodology_vintage": "ICED powerStatistics endpoint, latest fiscal-year snapshot (refresh per upstream cadence).",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute",
+    "notes": "Single-year snapshot — comparison across states for one year is meaningful, year-on-year reading is not (only one period ships). Pair with installed_capacity_by_source for utilisation analysis."
+  },
+  "rows": [
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 402.75,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 74073.37,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 6190.59,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 311.49,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 389.12,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 8677.26,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 8895.13,
+      "facet": "wind"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2025-04",
+      "value": 4348.98,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2025-04",
+      "value": 0.33,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2025-04",
+      "value": 2.3,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2025-04",
+      "value": 0.47,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2025-04",
+      "value": 4329.33,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2025-04",
+      "value": 1973.36,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2025-04",
+      "value": 2860.09,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2025-04",
+      "value": 136.47,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2025-04",
+      "value": 326.84,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2025-04",
+      "value": 71.96,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2025-04",
+      "value": 58971.58,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2025-04",
+      "value": 21.19,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2025-04",
+      "value": 350.9,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2025-04",
+      "value": 7.46,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2025-04",
+      "value": 49.29,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 149.4,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 60604.4,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 6373.78,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 12772.22,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 5747.51,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 174.99,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 27349.67,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 33432.34,
+      "facet": "wind"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2025-04",
+      "value": 480.62,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2025-04",
+      "value": 25630.36,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2025-04",
+      "value": 185.5,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2025-04",
+      "value": 213.15,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2025-04",
+      "value": 1486.07,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2025-04",
+      "value": 42831.57,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2025-04",
+      "value": 2605.7,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2025-04",
+      "value": 189.04,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 3182.54,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 43331.37,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 15598.3,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 5746.84,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 732.33,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 2734.32,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 17815.66,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 18389.58,
+      "facet": "wind"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2025-04",
+      "value": 88.89,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2025-04",
+      "value": 9187.99,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2025-04",
+      "value": 909.29,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2025-04",
+      "value": 2174.76,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2025-04",
+      "value": 130.26,
+      "facet": "wind"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2025-04",
+      "value": 177.32,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2025-04",
+      "value": 141734.66,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2025-04",
+      "value": 8090.73,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2025-04",
+      "value": 477.06,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2025-04",
+      "value": 8024.49,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2025-04",
+      "value": 4732.07,
+      "facet": "wind"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 3333.99,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 132500.73,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 5477.69,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 7396.99,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 4650.15,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 848.58,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 10359.27,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 8598.08,
+      "facet": "wind"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2025-04",
+      "value": 576.38,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2025-04",
+      "value": 7.87,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2025-04",
+      "value": 879.86,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2025-04",
+      "value": 146.58,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2025-04",
+      "value": 264.44,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2025-04",
+      "value": 22.85,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2025-04",
+      "value": 30.12,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2025-04",
+      "value": 228.65,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2025-04",
+      "value": 94.8,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2025-04",
+      "value": 76.0,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2025-04",
+      "value": 69963.98,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2025-04",
+      "value": 7208.26,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2025-04",
+      "value": 589.35,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2025-04",
+      "value": 880.49,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2025-04",
+      "value": 829.0,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2025-04",
+      "value": 32788.46,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2025-04",
+      "value": 4304.58,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2025-04",
+      "value": 424.01,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2025-04",
+      "value": 1362.42,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 700.13,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 57080.36,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 1071.53,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 10880.09,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 906.55,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 5.39,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 60170.22,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 7414.75,
+      "facet": "wind"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2025-04",
+      "value": 2601.62,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2025-04",
+      "value": 11.33,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 173.39,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 65709.23,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 5587.69,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 15682.65,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 1244.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 295.61,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 19152.47,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 24203.85,
+      "facet": "wind"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2025-04",
+      "value": 5037.94,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2025-04",
+      "value": 8.82,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 2177.61,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 165889.69,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 1737.61,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 2685.24,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 784.21,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 80.08,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 5272.43,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2025-04",
+      "value": 1334.66,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2025-04",
+      "value": 88209.75,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2025-04",
+      "value": 2611.21,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2025-04",
+      "value": 175.65,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2025-04",
+      "value": 377.12,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2025-04",
+      "value": 1334.67,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2025-04",
+      "value": 169555.04,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2025-04",
+      "value": 342.04,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2025-04",
+      "value": 240.35,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2025-04",
+      "value": 1849.52,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2025-04",
+      "value": 40914.16,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2025-04",
+      "value": 145.47,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2025-04",
+      "value": 18.95,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2025-04",
+      "value": 16.17,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2025-04",
+      "value": 227.81,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2025-04",
+      "value": 16524.43,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2025-04",
+      "value": 478.32,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2025-04",
+      "value": 323.95,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2025-04",
+      "value": 322.01,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2025-04",
+      "value": 372.52,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2025-04",
+      "value": 58494.12,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2025-04",
+      "value": 6878.78,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2025-04",
+      "value": 83.25,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2025-04",
+      "value": 7005.92,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2025-04",
+      "value": 292.72,
+      "facet": "wind"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2025-04",
+      "value": 7.27,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2025-04",
+      "value": 446.17,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2025-04",
+      "value": 2886.99,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2025-04",
+      "value": 189.32,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2025-04",
+      "value": 184.29,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2025-04",
+      "value": 13.17,
+      "facet": "solar"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "bio-power"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2025-04",
+      "value": 15664.8,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2025-04",
+      "value": 388.32,
+      "facet": "small-hydro"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "solar"
+    }
+  ]
+}

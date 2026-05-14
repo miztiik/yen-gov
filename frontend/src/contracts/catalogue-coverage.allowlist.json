@@ -1,0 +1,51 @@
+{
+  "$comment": "Intentionally-unwired indicator artifacts. Every entry blocks the catalogue-coverage drift detector from failing. Adding a new artifact to datasets/indicators/in/ MUST be paired with EITHER (a) a topic-catalogue.json entry OR (b) an entry here with a reason. Removing an entry here without wiring it is the ratchet that closes the gap (see TODO/VIZ-LAYER-GAPS-PLAN.md Phase 0). The reason field is plain English; tag with the phase it belongs to so the audit trail is legible.",
+  "allowlist": [
+    { "id": "economy/national_gdp_current_inr_lakh_crore",                          "reason": "phase3-pending (economy extension): national headline; needs Topic Front Door card." },
+    { "id": "economy/national_gva_by_industry_constant_2011_12_inr_crore",          "reason": "phase3-pending (economy extension): sectoral GVA; needs stacked-area renderer." },
+    { "id": "economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore","reason": "phase3-pending (economy extension): quarterly grain; blocked on formatTimeLabel (Phase 1)." },
+    { "id": "economy/national_macro_aggregates_constant_2011_12_inr_crore",         "reason": "phase3-pending (economy extension): GDP/GNI/NNI/NDP composite; needs multi-series picker." },
+    { "id": "economy/state_nsdp_constant_inr_crore",                                "reason": "phase3-pending (economy extension): state-level constant-price NSDP totals; complements existing per-capita view." },
+    { "id": "economy/state_nsdp_current_inr_crore",                                 "reason": "phase3-pending (economy extension): nominal NSDP; needs SnapshotBadge (Phase 2) since current-prices mislead growth." },
+    { "id": "economy/state_per_capita_nsdp_constant_inr_long",                      "reason": "phase3-pending (economy extension): RBI-spliced long history; blocked on splitOnBreaks + SeriesBreakAnnotation (Phase 1+2)." },
+    { "id": "economy/state_per_capita_nsdp_current_inr",                            "reason": "phase3-pending (economy extension): superseded by _long; keep on disk for diff-checks but do not wire." },
+    { "id": "economy/state_per_capita_nsdp_current_inr_long",                       "reason": "phase3-pending (economy extension): RBI-spliced; blocked on splitOnBreaks + SnapshotBadge." },
+
+    { "id": "energy/national_final_energy_consumption_by_sector_mtoe",              "reason": "phase3-pending (energy extension): demand-side companion to existing supply view." },
+    { "id": "energy/national_primary_energy_supply_mtoe",                           "reason": "phase3-pending (energy extension): aggregate supply mix; needs stacked-area renderer." },
+    { "id": "energy/national_renewable_potential_vs_installed_mw",                  "reason": "phase3-pending (energy extension): potential vs realised; needs paired-bar component." },
+    { "id": "energy/state_installed_capacity_total_mw",                             "reason": "phase3-pending (energy extension): state-level totals; partly redundant with installed_mw_by_state — keep until consolidation decision." },
+    { "id": "energy/state_peak_demand_mw",                                          "reason": "phase3-pending (energy extension): operational metric, complements peak_met_mw." },
+    { "id": "energy/state_peak_met_mw",                                             "reason": "phase3-pending (energy extension): pair with state_peak_demand_mw to render shortfall." },
+    { "id": "energy/state_per_capita_availability_kwh",                             "reason": "phase3-pending (energy extension): per-capita availability; needs Topic Front Door tile." },
+    { "id": "energy/state_per_capita_electricity_consumption_kwh",                  "reason": "phase3-pending (energy extension): consumption-per-capita; pairs with availability." },
+    { "id": "energy/state_power_availability_mu",                                   "reason": "phase3-pending (energy extension): aggregate availability." },
+    { "id": "energy/state_power_requirement_mu",                                    "reason": "phase3-pending (energy extension): paired with availability for shortfall ratio." },
+    { "id": "energy/state_renewable_grid_capacity_mw",                              "reason": "phase3-pending (energy extension): grid-connected renewables only; complements rooftop_solar." },
+
+    { "id": "fiscal/state_external_debt_inr_crore",                                 "reason": "phase3-pending (fiscal extension): debt sub-component; needs DirectionLegendCue (higher = riskier)." },
+    { "id": "fiscal/state_grants_in_aid_inr_crore",                                 "reason": "phase3-pending (fiscal extension): transfers sub-component; pair with tax devolution for stacked view." },
+    { "id": "fiscal/state_non_tax_revenue_inr_crore",                               "reason": "phase3-pending (fiscal extension): own-revenue sub-component." },
+    { "id": "fiscal/state_own_tax_revenue_inr_crore",                               "reason": "phase3-pending (fiscal extension): own-tax revenue; needs derived view own_tax_pct_gsdp (Phase 5)." },
+    { "id": "fiscal/state_pension_expenditure_inr_crore",                           "reason": "phase3-pending (fiscal extension): absolute ₹Cr; blocked on per-capita / share-of-revenue derived view (Phase 5) to avoid mis-framing." },
+    { "id": "fiscal/state_revenue_expenditure_inr_crore",                           "reason": "phase3-pending (fiscal extension): denominator for several derived ratios." },
+    { "id": "fiscal/state_share_central_taxes_inr_crore",                           "reason": "phase3-pending (fiscal extension): tax devolution per state." },
+
+    { "id": "health/state_birth_rate_per_1000",                                     "reason": "phase3-pending (new topic: health): crude rate; blocked on VintageTooltipLine + DirectionLegendCue (Phase 2)." },
+    { "id": "health/state_death_rate_per_1000",                                     "reason": "phase3-pending (new topic: health): crude rate; same framing concern as birth_rate." },
+    { "id": "health/state_infant_mortality_rate_per_1000",                          "reason": "phase3-pending (new topic: health): direction-cue critical (lower = better)." },
+    { "id": "health/state_public_health_expenditure_inr_crore",                     "reason": "phase3-pending (new topic: health): absolute ₹Cr; blocked on per-capita derived view (Phase 5) to avoid penalising small states." },
+    { "id": "health/state_total_fertility_rate",                                    "reason": "phase3-pending (new topic: health): TFR; needs replacement-rate (2.1) reference line." },
+
+    { "id": "prices/national_cpi_combined_index_annual",                            "reason": "phase3-pending (new topic: prices): index series; blocked on value_kind:index axis treatment + RebaseBanner (Phase 1+2)." },
+    { "id": "prices/national_cpi_iw_index_annual",                                  "reason": "phase3-pending (new topic: prices): index series; same blockers." },
+    { "id": "prices/national_wpi_all_commodities_index_annual",                     "reason": "phase3-pending (new topic: prices): index series with rebases; RebaseBanner critical." },
+    { "id": "prices/state_cpi_food_inflation_pct",                                  "reason": "phase3-pending (new topic: prices): pct change; needs DirectionLegendCue." },
+    { "id": "prices/state_cpi_fuel_inflation_pct",                                  "reason": "phase3-pending (new topic: prices): pct change." },
+    { "id": "prices/state_cpi_general_inflation_pct",                               "reason": "phase3-pending (new topic: prices): headline state inflation; default for the new prices topic once wired." },
+    { "id": "prices/state_cpi_housing_urban_inflation_pct",                         "reason": "phase3-pending (new topic: prices): urban-only; needs SnapshotBadge to disclose coverage scope." },
+
+    { "id": "transport/state_ev_registrations_count",                               "reason": "phase3-pending (new topic: transport): absolute counts; pair with share for honest framing." },
+    { "id": "transport/state_ev_share_total_registrations_pct",                     "reason": "phase3-pending (new topic: transport): EV share; default for the new transport topic once wired." }
+  ]
+}
