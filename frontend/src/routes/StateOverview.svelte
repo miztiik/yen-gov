@@ -21,6 +21,7 @@
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import IndicatorRanked from "../lib/IndicatorRanked.svelte";
   import IndicatorSmallMultiples from "../lib/IndicatorSmallMultiples.svelte";
+  import ElectionSeatsTrend from "../lib/ElectionSeatsTrend.svelte";
   import ListBadge from "../lib/ListBadge.svelte";
   import PeerSetFilter from "../lib/PeerSetFilter.svelte";
   import {
@@ -607,6 +608,19 @@
         onToggleHidden={toggleHidden}
       />
     </section>
+
+    {#if all_events.length > 1}
+      <section class="bg-white rounded-lg shadow-sm p-5">
+        <div class="flex items-baseline justify-between mb-1 gap-2 flex-wrap">
+          <h2 class="text-sm font-semibold uppercase text-slate-500">Seat composition over time</h2>
+          <span class="text-xs text-slate-400">{all_events.length} elections on record</span>
+        </div>
+        <p class="text-xs text-slate-500 mb-3">
+          Each bar = one assembly election. Segment height = seats won by that party.
+        </p>
+        <ElectionSeatsTrend state_code={state_code} value="seats_won" />
+      </section>
+    {/if}
 
     {#if event}
       <section class="bg-white rounded-lg shadow-sm p-5">
