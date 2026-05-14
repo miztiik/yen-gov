@@ -1,0 +1,949 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/gdp-trend",
+      "fetched_at": "2026-05-14T23:24:21Z"
+    }
+  ],
+  "coverage": {
+    "spatial": "India (national)",
+    "temporal": "1950-04..2024-04",
+    "admin_level": null
+  },
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "indicator": {
+    "id": "economy/india_gdp_inr_crore",
+    "title": "India GDP (₹ crore, current and constant prices)",
+    "description": "National Gross Domestic Product, ₹ crore, faceted by price basis: 'current' (nominal, contemporaneous prices) and 'constant' (real, base 2011-12). Use the constant series for growth-rate analysis; the current series for nominal-share comparisons (e.g. fiscal-deficit ÷ GDP). Annual series 1950-51 to 2024-25 (75 fiscal years).",
+    "entity_kind": "country",
+    "time_grain": "fiscal_year",
+    "value_kind": "raw",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "INR crore",
+    "icon": "trending-up",
+    "attribution_geography": "where_produced",
+    "comparability": "comparable_with_normalisation",
+    "implementing_authority": "centre",
+    "methodology_vintage": "MoSPI / National Statistical Office back-series. Constant prices rebased to 2011-12. Pre-2011 constant series is the back-cast MoSPI publishes; methodology shifted in 2015 (NSS68 → 2011-12 base) — treat the pre-2011 back-cast as a chained estimate.",
+    "chart_type": "stacked-trend",
+    "default_mode": "absolute",
+    "notes": "ICED's upstream priceType field has values 'gross', 'export', 'import' — only 'gross' is the GDP headline number we ship; the other two are deflator-calculation auxiliaries not used in policy framing.",
+    "series_breaks": [
+      {
+        "at_time": "2011-04",
+        "kind": "rebase",
+        "note": "Constant-price base year switches to 2011-12; pre-2011 figures are back-cast."
+      }
+    ]
+  },
+  "rows": [
+    {
+      "entity_id": "IN",
+      "time": "1950-04",
+      "value": 496848.1226714062,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1950-04",
+      "value": 10221.629893855668,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1951-04",
+      "value": 511489.4093704358,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1951-04",
+      "value": 10863.347058601315,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1952-04",
+      "value": 524919.4847384531,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1952-04",
+      "value": 10663.43339040132,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1953-04",
+      "value": 557203.3913377225,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1953-04",
+      "value": 11606.705327483814,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1954-04",
+      "value": 584010.7740071802,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1954-04",
+      "value": 10977.121437669708,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1955-04",
+      "value": 602911.131321714,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1955-04",
+      "value": 11174.781868388283,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1956-04",
+      "value": 636544.2965300129,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1956-04",
+      "value": 13313.90931978862,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1957-04",
+      "value": 633926.6797494888,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1957-04",
+      "value": 13710.441326901713,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1958-04",
+      "value": 680775.5910537316,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1958-04",
+      "value": 15283.468191138974,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1959-04",
+      "value": 698644.0976154071,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1959-04",
+      "value": 16101.745995685158,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1960-04",
+      "value": 737043.6294187462,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1960-04",
+      "value": 17633.26040265425,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1961-04",
+      "value": 764481.8660956601,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1961-04",
+      "value": 18682.09359602767,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1962-04",
+      "value": 786889.8061145258,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1962-04",
+      "value": 20076.87604629509,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1963-04",
+      "value": 834058.7608674427,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1963-04",
+      "value": 23058.035731817825,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1964-04",
+      "value": 896220.7443058175,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1964-04",
+      "value": 26895.3492669218,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1965-04",
+      "value": 872598.4258090976,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1965-04",
+      "value": 28360.02174851713,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1966-04",
+      "value": 872115.6278345287,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1966-04",
+      "value": 32105.823423737314,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1967-04",
+      "value": 940367.0744505933,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1967-04",
+      "value": 37601.20665258471,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1968-04",
+      "value": 972226.0449274299,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1968-04",
+      "value": 39814.09190311727,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1969-04",
+      "value": 1035806.7144680637,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1969-04",
+      "value": 43835.99626263743,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1970-04",
+      "value": 1089225.6463549517,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1970-04",
+      "value": 46816.86229088824,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1971-04",
+      "value": 1107120.8654480118,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1971-04",
+      "value": 50119.91124563567,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1972-04",
+      "value": 1100995.1511698805,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1972-04",
+      "value": 55245.33662253443,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1973-04",
+      "value": 1137278.6790744734,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1973-04",
+      "value": 67240.65647509601,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1974-04",
+      "value": 1150759.2556386567,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1974-04",
+      "value": 79377.87609877749,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1975-04",
+      "value": 1256052.715031831,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1975-04",
+      "value": 85212.44968619935,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1976-04",
+      "value": 1276942.1734133025,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1976-04",
+      "value": 91811.68311455041,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1977-04",
+      "value": 1369581.321991691,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1977-04",
+      "value": 104023.51986861814,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1978-04",
+      "value": 1447819.094495436,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1978-04",
+      "value": 112671.36833568208,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1979-04",
+      "value": 1371979.6851198978,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1979-04",
+      "value": 123562.17926926915,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1980-04",
+      "value": 1464393.7881099654,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1980-04",
+      "value": 147062.86837244104,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1981-04",
+      "value": 1552348.2608783862,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1981-04",
+      "value": 172775.5053220633,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1982-04",
+      "value": 1606303.7453871462,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1982-04",
+      "value": 193254.563407853,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1983-04",
+      "value": 1723385.5050571247,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1983-04",
+      "value": 225074.23896322772,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1984-04",
+      "value": 1789231.5474531977,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1984-04",
+      "value": 252188.24978613493,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1985-04",
+      "value": 1883243.1267542297,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1985-04",
+      "value": 284534.085390419,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1986-04",
+      "value": 1973197.4431899765,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1986-04",
+      "value": 318365.9412846158,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1987-04",
+      "value": 2051441.7391715997,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1987-04",
+      "value": 361864.703529916,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1988-04",
+      "value": 2248950.096546203,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1988-04",
+      "value": 429362.99011957366,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1989-04",
+      "value": 2382702.88006915,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1989-04",
+      "value": 493277.61357208237,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1990-04",
+      "value": 2514548.6613106197,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1990-04",
+      "value": 576109.2055692788,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1991-04",
+      "value": 2541123.201963485,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1991-04",
+      "value": 662260.4835397131,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1992-04",
+      "value": 2680437.639289931,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1992-04",
+      "value": 761195.9317364879,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1993-04",
+      "value": 2807779.2332412372,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1993-04",
+      "value": 875992.4253768079,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1994-04",
+      "value": 2994747.120361487,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1994-04",
+      "value": 1027570.0589251961,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1995-04",
+      "value": 3221583.9966318933,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1995-04",
+      "value": 1205582.6758199255,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1996-04",
+      "value": 3464798.197223495,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1996-04",
+      "value": 1394815.9747008488,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1997-04",
+      "value": 3605116.316992765,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1997-04",
+      "value": 1545293.8758435652,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1998-04",
+      "value": 3828071.7008558554,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1998-04",
+      "value": 1772297.011714788,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1999-04",
+      "value": 4166693.5662171585,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "1999-04",
+      "value": 1988261.5728982026,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": 4326735.897630602,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2000-04",
+      "value": 2139885.690631502,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2001-04",
+      "value": 4535456.177664166,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2001-04",
+      "value": 2315242.95710135,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2002-04",
+      "value": 4707983.811369652,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2002-04",
+      "value": 2492613.7846821565,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2003-04",
+      "value": 5078049.298745882,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2003-04",
+      "value": 2792530.1413903465,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2004-04",
+      "value": 5480379.925862626,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2004-04",
+      "value": 3186331.923746411,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 5914614.027075975,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2005-04",
+      "value": 3632124.660713486,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 6391375.246527044,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2006-04",
+      "value": 4254628.983786545,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 6881006.684275478,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2007-04",
+      "value": 4898662.059055483,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 7093402.584075127,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2008-04",
+      "value": 5514152.38466179,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 7651078.00971842,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2009-04",
+      "value": 6366406.54171643,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 8301234.844178709,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2010-04",
+      "value": 7634472.104367693,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 8736329.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2011-04",
+      "value": 8736329.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 9213017.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2012-04",
+      "value": 9944013.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 9801370.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2013-04",
+      "value": 11233522.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 10527674.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2014-04",
+      "value": 12467959.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 11369493.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2015-04",
+      "value": 13771874.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 12308193.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2016-04",
+      "value": 15391669.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 13144582.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2017-04",
+      "value": 17090042.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 13992914.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2018-04",
+      "value": 18899668.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 14534641.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2019-04",
+      "value": 20103593.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 13694869.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2020-04",
+      "value": 19854096.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 15021846.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2021-04",
+      "value": 23597399.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 16164913.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2022-04",
+      "value": 26890473.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 17650591.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2023-04",
+      "value": 30122956.0,
+      "facet": "current"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 18796955.0,
+      "facet": "constant"
+    },
+    {
+      "entity_id": "IN",
+      "time": "2024-04",
+      "value": 33068145.0,
+      "facet": "current"
+    }
+  ]
+}

@@ -368,6 +368,33 @@
           "default": false,
           "featured": true,
           "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/india_gdp_inr_crore",
+          "default": false,
+          "featured": true,
+          "scope": "national",
+          "chart_type": "stacked-trend",
+          "dimension": "price_basis"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/state_gdp_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "state",
+          "chart_type": "ranked",
+          "dimension": "price_basis"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/india_iip_index_2011_12",
+          "default": false,
+          "featured": false,
+          "scope": "national",
+          "chart_type": "stacked-trend",
+          "dimension": "iip_category"
         }
       ],
       "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. The per-capita NSDP and per-capita consumption indicators come from the ICED key-economic-indicators API (a separate endpoint family from state-wise deep-dive); they go back to 2004-05 and 2009-10 respectively, longer than the GDP series, because the source publisher provides a longer back-run of those particular metrics. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."
@@ -394,6 +421,15 @@
           "default": false,
           "featured": true,
           "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "demography/state_population_by_residence_count",
+          "default": false,
+          "featured": false,
+          "scope": "state",
+          "chart_type": "stacked-trend",
+          "dimension": "residence"
         }
       ],
       "notes": "Two complementary population series. `state_population_lakhs` is the FY16-FY26 inter-censal projection used for per-capita normalisations on other indicators (denominator role). `state_population_by_sex_count` is the decennial Census enumeration (1961-2011) faceted by sex, useful for sex-ratio analysis and historical context. The most recent Census of India was 2011; the 2021 round was deferred. Topic is featured=false pending the next Census release; until then this is mostly the denominator for per-capita normalisations rather than a headline series."
