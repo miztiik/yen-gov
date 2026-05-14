@@ -311,9 +311,23 @@
           "default": false,
           "featured": false,
           "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/state_per_capita_nsdp_constant_2011_12_inr",
+          "default": false,
+          "featured": true,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/state_per_capita_consumption_inr",
+          "default": false,
+          "featured": true,
+          "scope": "state"
         }
       ],
-      "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."
+      "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. The per-capita NSDP and per-capita consumption indicators come from the ICED key-economic-indicators API (a separate endpoint family from state-wise deep-dive); they go back to 2004-05 and 2009-10 respectively, longer than the GDP series, because the source publisher provides a longer back-run of those particular metrics. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."
     },
     {
       "id": "demography",
@@ -330,9 +344,54 @@
           "default": true,
           "featured": true,
           "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "demography/state_population_by_sex_count",
+          "default": false,
+          "featured": true,
+          "scope": "state"
         }
       ],
-      "notes": "Source: NITI Aayog ICED state-wise deep-dive API; underlying figures from MoSPI inter-censal estimates. The most recent Census of India was 2011; the 2021 round was deferred. Per-year deltas in this indicator are projections, not measured population change. Topic is featured=false pending the next Census release; until then this is the denominator for per-capita normalisations on other indicators rather than a headline series in its own right."
+      "notes": "Two complementary population series. `state_population_lakhs` is the FY16-FY26 inter-censal projection used for per-capita normalisations on other indicators (denominator role). `state_population_by_sex_count` is the decennial Census enumeration (1961-2011) faceted by sex, useful for sex-ratio analysis and historical context. The most recent Census of India was 2011; the 2021 round was deferred. Topic is featured=false pending the next Census release; until then this is mostly the denominator for per-capita normalisations rather than a headline series."
+    },
+    {
+      "id": "human_development",
+      "title": "Human development",
+      "list": "state",
+      "summary": "How states score on the composite of income, health and education — what an average resident's life chances look like, beyond pure income.",
+      "icon": "users",
+      "featured": true,
+      "peer_set_default": "all",
+      "artifacts": [
+        {
+          "kind": "indicator",
+          "id": "human_development/state_hdi",
+          "default": true,
+          "featured": true,
+          "scope": "state"
+        }
+      ],
+      "notes": "Source: NITI Aayog ICED HDI map (sub-national HDI computed by NITI from Indian survey inputs — NFHS for health, NSS/PLFS for education and income). Not directly comparable to UNDP's national HDI for India: input series differ. ICED publishes only two snapshot years (2011-12 and 2017-18) — treat this as a position, not a trajectory. We do not draw a trend line through two points."
+    },
+    {
+      "id": "environment",
+      "title": "Environment",
+      "list": "na",
+      "summary": "What India emits and what burden it puts on the climate system. National greenhouse-gas inventory broken down by sector.",
+      "icon": "cloud",
+      "featured": true,
+      "peer_set_default": "all",
+      "artifacts": [
+        {
+          "kind": "indicator",
+          "id": "environment/india_ghg_emissions_mtco2e_by_sector",
+          "default": true,
+          "featured": true,
+          "scope": "national"
+        }
+      ],
+      "notes": "National total only — sub-national emissions accounting does not yet exist for India. Reported in India's Biennial Update Report (BUR) submissions to UNFCCC, methodology per IPCC 2006 guidelines. LULUCF (land-use / land-use-change / forestry) shows up as a net-negative sector when forest absorption exceeds deforestation; that is real, not an error. Per-capita Indian emissions are roughly a quarter of the OECD average; absolute totals reflect a population of 1.4 billion. State-level breakdown remains an open research problem (no government series exists yet)."
     }
   ]
 }

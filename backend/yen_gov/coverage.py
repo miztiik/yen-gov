@@ -29,6 +29,7 @@ CATALOGUE_REL = "datasets/reference/in/election-events.json"
 STATES_REL = "datasets/reference/in/states.json"
 ELECTIONS_REL = "datasets/elections"
 INDICATORS_REL = "datasets/indicators/in"
+TOPIC_CATALOGUE_REL = "datasets/reference/in/topic-catalogue.json"
 INVENTORY_REL = "docs/reference/data-inventory.md"
 
 # Temporal Richness meter: 7 cells x 3 fiscal years, FY06 -> FY26.
@@ -103,6 +104,11 @@ class IndicatorCoverage:
     source_host: str
     meter_cells: tuple[bool, ...]
     is_snapshot: bool
+    # True iff the indicator id is referenced by any topic in
+    # ``datasets/reference/in/topic-catalogue.json``. None when no catalogue
+    # is present (e.g. minimal test fixtures) — the wiring section is then
+    # silently omitted from the rendered Markdown.
+    wired_in_catalogue: bool | None = None
 
 
 @dataclass(frozen=True)
@@ -209,13 +215,47 @@ def compute_coverage(root: Path) -> CoverageReport:
             continue
         missing.append(MissingState(eci_code=code, name=name, kind=kind))
 
+    wired_ids = _load_wired_indicator_ids(root)
+    indicators = _scan_indicators(root)
+    if wired_ids is not None:
+        indicators = [
+            IndicatorCoverage(
+                **{**ind.__dict__, "wired_in_catalogue": ind.id in wired_ids}
+            )
+            for ind in indicators
+        ]
+
     return CoverageReport(
         generated_at=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         slices=tuple(slices),
         missing_states=tuple(missing),
-        indicators=tuple(_scan_indicators(root)),
+        indicators=tuple(indicators),
         state_elections=tuple(_project_state_first(slices, state_names)),
     )
+
+
+def _load_wired_indicator_ids(root: Path) -> set[str] | None:
+    """Return the set of indicator ids referenced by the topic catalogue.
+
+    Returns ``None`` when ``datasets/reference/in/topic-catalogue.json`` is
+    absent (test fixtures, partial checkouts) so the wiring section can be
+    omitted gracefully rather than asserting a hard dependency. When the
+    catalogue file is present but malformed, returns an empty set so every
+    indicator on disk reads as ``unwired`` (which is the honest result).
+    """
+    catalogue_path = root / TOPIC_CATALOGUE_REL
+    if not catalogue_path.exists():
+        return None
+    try:
+        catalogue = json.loads(catalogue_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return set()
+    wired: set[str] = set()
+    for topic in catalogue.get("topics", []) or []:
+        for art in topic.get("artifacts", []) or []:
+            if art.get("kind") == "indicator" and art.get("id"):
+                wired.add(art["id"])
+    return wired
 
 
 def _parse_temporal(span: str) -> tuple[date, date]:
@@ -460,6 +500,15 @@ def render_markdown(report: CoverageReport) -> str:
                    f"`{INDICATORS_REL}/`._")
         out.append("")
     else:
+        wiring_known = any(
+            ind.wired_in_catalogue is not None for ind in report.indicators
+        )
+        n_wired = sum(
+            1 for ind in report.indicators if ind.wired_in_catalogue
+        )
+        n_unwired = sum(
+            1 for ind in report.indicators if ind.wired_in_catalogue is False
+        )
         out.append(
             f"{len(report.indicators)} artifact(s) under `{INDICATORS_REL}/`. "
             "The Temporal Richness meter projects each indicator's "
@@ -468,6 +517,24 @@ def render_markdown(report: CoverageReport) -> str:
             "one cell and carry a `(snapshot)` tag."
         )
         out.append("")
+        if wiring_known:
+            out.append(
+                f"**Frontend wiring**: {n_wired} of "
+                f"{n_wired + n_unwired} indicator artifacts are referenced "
+                "by [`topic-catalogue.json`]"
+                f"({_repo_link(TOPIC_CATALOGUE_REL)}) and therefore reachable "
+                "from the IA today; **the remaining "
+                f"{n_unwired} are on disk but unreachable from any topic / "
+                "state hub** (see \u00a71Z below). The catalogue is "
+                "hand-maintained \u2014 every new ingest must add (or "
+                "consciously skip) a catalogue entry, or the data quietly "
+                "drifts out of the citizen view. Implementation plan: "
+                "[`TODO/VIZ-LAYER-GAPS-PLAN.md`]"
+                "(../../TODO/VIZ-LAYER-GAPS-PLAN.md); narrative + "
+                "mis-framing debt: [data-coverage-report.md \u00a76]"
+                "(data-coverage-report.md#6-frontend-wiring-gaps-visualization-layer)."
+            )
+            out.append("")
         by_cat: dict[str, list[IndicatorCoverage]] = {}
         for ind in report.indicators:
             by_cat.setdefault(ind.category, []).append(ind)
@@ -476,21 +543,64 @@ def render_markdown(report: CoverageReport) -> str:
             label = sub_letters[n] if n < len(sub_letters) else str(n + 1)
             out.append(f"### 1{label}. {cat.title()} ({len(by_cat[cat])})")
             out.append("")
+            wired_col = " Wired |" if wiring_known else ""
+            wired_sep = " :---: |" if wiring_known else ""
             out.append(
                 "| id | unit | time grain | span | rows | entities | "
-                "Temporal Richness | source |"
+                f"Temporal Richness |{wired_col} source |"
             )
             out.append(
-                "| --- | --- | --- | --- | ---: | ---: | --- | --- |"
+                "| --- | --- | --- | --- | ---: | ---: | --- |"
+                f"{wired_sep} --- |"
             )
             for ind in sorted(by_cat[cat], key=lambda x: x.id):
+                if wiring_known:
+                    wired_cell = (
+                        " \u25cf |" if ind.wired_in_catalogue else " \u25cb |"
+                    )
+                else:
+                    wired_cell = ""
                 out.append(
                     f"| `{ind.id}` | {ind.unit or '-'} | "
                     f"{ind.time_grain or '-'} | {ind.span} | "
                     f"{ind.n_rows} | {ind.n_entities} | "
-                    f"{_render_meter(ind.meter_cells, ind.is_snapshot)} | "
-                    f"{ind.source_host or '-'} |"
+                    f"{_render_meter(ind.meter_cells, ind.is_snapshot)} |"
+                    f"{wired_cell} {ind.source_host or '-'} |"
                 )
+            out.append("")
+
+        if wiring_known and n_unwired:
+            out.append("### 1Z. Frontend wiring \u2014 unwired indicators")
+            out.append("")
+            out.append(
+                f"{n_unwired} indicator artifact(s) on disk are NOT referenced "
+                "by any topic in [`topic-catalogue.json`]"
+                f"({_repo_link(TOPIC_CATALOGUE_REL)}). They validate, they "
+                "have provenance, but no route renders them and no citizen can "
+                "find them. Adding a catalogue entry (or a conscious "
+                "`x-skipped` exclusion) is part of every ingest's Definition "
+                "of Done. The visualization-layer plan in "
+                "[`TODO/VIZ-LAYER-GAPS-PLAN.md`]"
+                "(../../TODO/VIZ-LAYER-GAPS-PLAN.md) sequences the wiring "
+                "(plus the `series_breaks` / `vintage` / direction-cue "
+                "renderer fixes the new wedges depend on)."
+            )
+            out.append("")
+            unwired_by_cat: dict[str, list[IndicatorCoverage]] = {}
+            for ind in report.indicators:
+                if ind.wired_in_catalogue is False:
+                    unwired_by_cat.setdefault(ind.category, []).append(ind)
+            out.append("| category | indicator id | shape hint |")
+            out.append("| --- | --- | --- |")
+            for cat in sorted(unwired_by_cat):
+                for ind in sorted(unwired_by_cat[cat], key=lambda x: x.id):
+                    shape = ind.time_grain or "-"
+                    if ind.is_snapshot:
+                        shape = f"{shape} (snapshot)"
+                    out.append(
+                        f"| {cat} | `{ind.id}` | "
+                        f"{shape}, {ind.n_entities} entities, {ind.span} |"
+                    )
             out.append("")
 
     out.append("## 2a. Elections \u2014 coverage depth (state-first)")

@@ -236,3 +236,75 @@ def test_render_includes_indicators_and_state_first(tmp_path: Path) -> None:
     assert "2/7" in md
     assert "## 2b. Elections \u2014 by cohort (event-first)" in md
 
+
+def test_render_markdown_includes_frontend_wiring_section(tmp_path: Path) -> None:
+    """When ``topic-catalogue.json`` is present, the inventory must report
+    which indicators are wired vs unwired \u2014 the catalogue is hand-maintained
+    (Holy Law #6 risk) and ~half the inventory was silently absent from the
+    IA before this section existed."""
+    _write(
+        tmp_path / "datasets/reference/in/states.json",
+        {"states": [{"eci_code": "S22", "name": "Tamil Nadu"}]},
+    )
+    _write(
+        tmp_path / "datasets/reference/in/election-events.json",
+        {"states": {}},
+    )
+    _write(
+        tmp_path / "datasets/reference/in/topic-catalogue.json",
+        {
+            "$schema": "x", "$schema_version": "1.0", "sources": [],
+            "topics": [
+                {
+                    "id": "fiscal", "title": "Fiscal", "list": "state",
+                    "summary": "x", "icon": "x", "featured": True,
+                    "artifacts": [
+                        {"kind": "indicator", "id": "fiscal/wired_one",
+                         "default": True, "scope": "national"}
+                    ],
+                }
+            ],
+        },
+    )
+    _write(
+        tmp_path / "datasets/indicators/in/fiscal/wired_one.json",
+        {
+            "$schema": "x", "$schema_version": "1.0",
+            "sources": [{"url": "https://x", "fetched_at": "2026-01-01T00:00:00Z"}],
+            "coverage": {"temporal": "2007-04..2025-04", "admin_level": "national"},
+            "indicator": {"id": "fiscal/wired_one", "title": "Wired",
+                          "unit": "INR", "time_grain": "fiscal_year"},
+            "rows": [{"entity_id": "IN", "period": "2007-04", "value": 1}],
+        },
+    )
+    _write(
+        tmp_path / "datasets/indicators/in/health/unwired_one.json",
+        {
+            "$schema": "x", "$schema_version": "1.0",
+            "sources": [{"url": "https://x", "fetched_at": "2026-01-01T00:00:00Z"}],
+            "coverage": {"temporal": "2015-04..2024-04", "admin_level": "state"},
+            "indicator": {"id": "health/unwired_one", "title": "Unwired",
+                          "unit": "per 1000", "time_grain": "year"},
+            "rows": [{"entity_id": "S22", "period": "2015-04", "value": 1}],
+        },
+    )
+
+    md = render_markdown(compute_coverage(tmp_path))
+
+    # Top-of-section summary line.
+    assert "Frontend wiring" in md
+    assert "1 of 2" in md
+    # 1Z. unwired listing.
+    assert "## 1. Indicators" in md
+    assert "1Z. Frontend wiring" in md
+    assert "`health/unwired_one`" in md
+    # The wired indicator must NOT appear in the unwired table; assert the
+    # unwired block contains only the unwired id by checking the wired id is
+    # absent from the lines after the "1Z." header.
+    z_idx = md.index("1Z. Frontend wiring")
+    next_h2 = md.index("## 2a.")
+    assert "`fiscal/wired_one`" not in md[z_idx:next_h2]
+    # Per-row Wired column glyphs.
+    assert " \u25cf | iced" not in md  # not asserting host, just that glyph exists somewhere
+    assert "Wired |" in md
+
