@@ -28,6 +28,8 @@ from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
+from yen_gov.core.schema_registry import schema_id, schema_version
+
 from yen_gov.core.io import Source as _IoSource
 
 
@@ -97,10 +99,10 @@ class _Artifact(_Strict):
 # --- election ---------------------------------------------------------------
 
 class Election(_Artifact):
-    """Mirrors datasets/schemas/election.schema.json (x-version 3.1)."""
+    """Mirrors datasets/schemas/election.schema.json. Version sourced via core.schema_registry."""
 
-    _schema_id = "https://yen-gov.github.io/schemas/election.schema.json"
-    _schema_version = "3.1"
+    _schema_id = schema_id("election.schema.json")
+    _schema_version = schema_version("election.schema.json")
 
     eci_event_id: str = Field(min_length=1)
     scope: Literal["general", "state", "by_election"]
@@ -135,10 +137,10 @@ class StateEntry(_Strict):
 
 
 class StatesCollection(_Artifact):
-    """Mirrors datasets/schemas/state.schema.json (x-version 3.3)."""
+    """Mirrors datasets/schemas/state.schema.json. Version sourced via core.schema_registry."""
 
-    _schema_id = "https://yen-gov.github.io/schemas/state.schema.json"
-    _schema_version = "3.3"
+    _schema_id = schema_id("state.schema.json")
+    _schema_version = schema_version("state.schema.json")
 
     country: Annotated[str, Field(pattern=r"^[A-Z]{2}$")]
     states: list[StateEntry] = Field(min_length=1)
@@ -157,16 +159,16 @@ class DistrictEntry(_Strict):
 
 
 class DistrictsCollection(_Artifact):
-    """Mirrors datasets/schemas/district.schema.json (x-version 3.2).
+    """Mirrors datasets/schemas/district.schema.json. Version sourced via core.schema_registry.
 
-    3.2 added an optional `lgd_code` field on each district item
+    Note: schema 3.2 added an optional `lgd_code` field on each district item
     (populated by the LGD backfill tool). The field is not declared on
     DistrictEntry yet — pydantic ignores absent optional fields, so 3.2
     artifacts round-trip safely; declaring it on the model is a follow-up.
     """
 
-    _schema_id = "https://yen-gov.github.io/schemas/district.schema.json"
-    _schema_version = "3.2"
+    _schema_id = schema_id("district.schema.json")
+    _schema_version = schema_version("district.schema.json")
 
     state: ECIStateCode
     districts: list[DistrictEntry] = Field(min_length=1)
@@ -189,10 +191,10 @@ ConstituencyStatus = Literal["provisional", "complete"]
 
 
 class ConstituenciesCollection(_Artifact):
-    """Mirrors datasets/schemas/constituency.schema.json (x-version 4.1)."""
+    """Mirrors datasets/schemas/constituency.schema.json. Version sourced via core.schema_registry."""
 
-    _schema_id = "https://yen-gov.github.io/schemas/constituency.schema.json"
-    _schema_version = "4.1"
+    _schema_id = schema_id("constituency.schema.json")
+    _schema_version = schema_version("constituency.schema.json")
 
     state: ECIStateCode
     body: Body
@@ -212,10 +214,10 @@ class PartyEntry(_Strict):
 
 
 class PartiesSnapshot(_Artifact):
-    """Mirrors datasets/schemas/party.schema.json (x-version 3.1)."""
+    """Mirrors datasets/schemas/party.schema.json. Version sourced via core.schema_registry."""
 
-    _schema_id = "https://yen-gov.github.io/schemas/party.schema.json"
-    _schema_version = "3.1"
+    _schema_id = schema_id("party.schema.json")
+    _schema_version = schema_version("party.schema.json")
 
     election: str = Field(min_length=1)
     parties: list[PartyEntry] = Field(min_length=1)
@@ -266,10 +268,10 @@ class WinnerInfo(_Strict):
 
 
 class ConstituencyResult(_Artifact):
-    """Mirrors datasets/schemas/result.constituency.schema.json (x-version 3.2)."""
+    """Mirrors datasets/schemas/result.constituency.schema.json. Version sourced via core.schema_registry."""
 
-    _schema_id = "https://yen-gov.github.io/schemas/result.constituency.schema.json"
-    _schema_version = "3.2"
+    _schema_id = schema_id("result.constituency.schema.json")
+    _schema_version = schema_version("result.constituency.schema.json")
 
     election: str = Field(min_length=1)
     state: ECIStateCode
@@ -316,10 +318,10 @@ class SummaryTotals(_Strict):
 
 
 class ResultSummary(_Artifact):
-    """Mirrors datasets/schemas/result.summary.schema.json (x-version 3.1)."""
+    """Mirrors datasets/schemas/result.summary.schema.json. Version sourced via core.schema_registry."""
 
-    _schema_id = "https://yen-gov.github.io/schemas/result.summary.schema.json"
-    _schema_version = "3.1"
+    _schema_id = schema_id("result.summary.schema.json")
+    _schema_version = schema_version("result.summary.schema.json")
 
     election: str = Field(min_length=1)
     state: ECIStateCode
@@ -346,10 +348,10 @@ class ResultsKnobs(_Strict):
 
 
 class ProcessingConfig(_Artifact):
-    """Mirrors datasets/schemas/processing.schema.json (x-version 3.1)."""
+    """Mirrors datasets/schemas/processing.schema.json. Version sourced via core.schema_registry."""
 
-    _schema_id = "https://yen-gov.github.io/schemas/processing.schema.json"
-    _schema_version = "3.1"
+    _schema_id = schema_id("processing.schema.json")
+    _schema_version = schema_version("processing.schema.json")
 
     fetch: FetchKnobs
     results: ResultsKnobs

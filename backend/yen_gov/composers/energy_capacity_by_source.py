@@ -37,6 +37,7 @@ from pathlib import Path
 from typing import Any
 
 from yen_gov.core.io import Source, write_artifact
+from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 
 # ---------------------------------------------------------------------------
 # Constants — per the ADR-0024 reconciliation
@@ -65,9 +66,10 @@ SUM_TOLERANCE_FRACTION = 0.005  # 0.5%
 # Below this fraction, other_thermal is dropped (treated as numerical noise)
 MIN_OTHER_THERMAL_FRACTION = 0.001  # 0.1%
 
-SCHEMA_VERSION = "1.3"
-SCHEMA_ID = "https://yen-gov.github.io/schemas/indicator.schema.json"
-SCHEMA_PATH_RELPATH = "datasets/schemas/indicator.schema.json"
+# Schema metadata is sourced via core.schema_registry (single source of truth
+# per CLAUDE.md §11). Do NOT hand-type SCHEMA_VERSION / SCHEMA_ID here —
+# bump the schema file's `x-version` and this composer picks it up for free.
+INDICATOR_SCHEMA_FILENAME = "indicator.schema.json"
 
 
 # ---------------------------------------------------------------------------
@@ -247,14 +249,14 @@ def compose(*, repo_root: Path) -> Path:
         thermal_doc=thermal_doc,
     )
 
-    schema = json.loads((repo_root / SCHEMA_PATH_RELPATH).read_text(encoding="utf-8"))
+    schema = schema_doc(INDICATOR_SCHEMA_FILENAME)
     sources = _union_sources(list(leaf_docs.values()) + [thermal_doc, total_doc])
 
     out_path = repo_root / OUTPUT_PATH_RELPATH
     return write_artifact(
         path=out_path,
-        schema_id=SCHEMA_ID,
-        schema_version=SCHEMA_VERSION,
+        schema_id=schema_id(INDICATOR_SCHEMA_FILENAME),
+        schema_version=schema_version(INDICATOR_SCHEMA_FILENAME),
         payload=payload,
         sources=sources,
         schema_for_validation=schema,

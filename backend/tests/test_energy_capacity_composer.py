@@ -13,6 +13,7 @@ from pathlib import Path
 import pytest
 
 from yen_gov.composers.energy_capacity_by_source import (
+    INDICATOR_SCHEMA_FILENAME,
     LEAF_INPUTS,
     OTHER_THERMAL_FACET,
     OUTPUT_PATH_RELPATH,
@@ -20,13 +21,13 @@ from yen_gov.composers.energy_capacity_by_source import (
     THERMAL_INPUT,
     TOTAL_INPUT,
     INPUT_DIR_RELPATH,
-    SCHEMA_VERSION,
     _index_rows,
     _load_indicator,
     assert_sum_invariant,
     build_facetted_rows,
     compose,
 )
+from yen_gov.core.schema_registry import schema_version
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -45,7 +46,7 @@ def test_composer_writes_to_expected_path():
 
 
 def test_composed_artifact_has_correct_schema_stamp(composed):
-    assert composed["$schema_version"] == SCHEMA_VERSION
+    assert composed["$schema_version"] == schema_version(INDICATOR_SCHEMA_FILENAME)
     assert composed["$schema"].endswith("indicator.schema.json")
 
 

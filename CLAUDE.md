@@ -157,6 +157,7 @@ Bump rules:
 - **Minor** (`1.0` → `1.1`): purely additive, backwards-compatible (new optional field, broadened enum).
 - **Major** (`1.x` → `2.0`): removed/renamed field, type change, narrowed constraint, semantic shift.
 - Every bump adds a new `x-changelog` entry in the same commit (Holy Law #4).
+- **Code never hand-types schema-version literals.** Models and composers MUST source `_schema_version` / schema-id values via `yen_gov.core.schema_registry.schema_version("<file>")` / `schema_id("<file>")`. Hand-typed `_schema_version = "x.y"` or `SCHEMA_VERSION = "..."` constants in production code are a smell — they re-introduce the shadow-copy drift the registry exists to prevent. Test fixtures may seed legacy version strings on purpose (e.g. to exercise a migration path); production emitters may not.
 
 Every emitted data file under `datasets/` carries `"$schema"` (URL to the schema) and `"$schema_version"` (the version it targets). Validator rejects any file whose `$schema_version` does not match the current `x-version` of its schema (until migration support lands).
 
