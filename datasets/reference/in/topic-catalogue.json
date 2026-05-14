@@ -432,9 +432,153 @@
           "default": true,
           "featured": true,
           "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "environment/india_ghg_emissions_by_subsector_ggco2e",
+          "default": false,
+          "featured": true,
+          "scope": "national",
+          "chart_type": "stacked-trend",
+          "dimension": "ghg_subsector"
         }
       ],
-      "notes": "National total only — sub-national emissions accounting does not yet exist for India. Reported in India's Biennial Update Report (BUR) submissions to UNFCCC, methodology per IPCC 2006 guidelines. LULUCF (land-use / land-use-change / forestry) shows up as a net-negative sector when forest absorption exceeds deforestation; that is real, not an error. Per-capita Indian emissions are roughly a quarter of the OECD average; absolute totals reflect a population of 1.4 billion. State-level breakdown remains an open research problem (no government series exists yet)."
+      "notes": "National total only — sub-national emissions accounting does not yet exist for India. Reported in India's Biennial Update Report (BUR) submissions to UNFCCC, methodology per IPCC 2006 guidelines. LULUCF (land-use / land-use-change / forestry) shows up as a net-negative sector when forest absorption exceeds deforestation; that is real, not an error. Per-capita Indian emissions are roughly a quarter of the OECD average; absolute totals reflect a population of 1.4 billion. State-level breakdown remains an open research problem (no government series exists yet). The sub-sector drill-down (`india_ghg_emissions_by_subsector_ggco2e`) is the same UNFCCC source one level deeper — Energy splits into Energy Industries, Transport, Manufacturing, Other Sectors, Fugitive emissions; Agriculture splits into Rice Cultivation, Enteric Fermentation, Manure Management, Agricultural Soils, Field Burning of Residues; etc. Sub-sector totals reconcile to the parent sector indicator when summed within each sector."
+    },
+    {
+      "id": "prices",
+      "title": "Prices and inflation",
+      "list": "union",
+      "summary": "What things cost, and how fast those prices are changing. Monetary policy is set by the Reserve Bank of India under a Union List mandate to keep headline inflation between 2% and 6% — states do not control inflation directly, so a higher state CPI usually reflects commodity composition, monsoon, and global oil prices, not state-government performance.",
+      "icon": "trending-up",
+      "featured": true,
+      "peer_set_default": "all",
+      "artifacts": [
+        {
+          "kind": "indicator",
+          "id": "prices/state_cpi_general_inflation_pct",
+          "default": true,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "prices/national_cpi_combined_index_annual",
+          "default": false,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "prices/state_cpi_food_inflation_pct",
+          "default": false,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "prices/state_cpi_fuel_inflation_pct",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "prices/state_cpi_housing_urban_inflation_pct",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "prices/national_wpi_all_commodities_index_annual",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "prices/national_cpi_iw_index_annual",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        }
+      ],
+      "notes": "Three official price-series families coexist in India and each measures a different basket. CPI-Combined (Rural+Urban, base 2012=100) is the RBI's official target — the headline you read in news. CPI-IW (Industrial Workers, base 2016=100) is older and used to index dearness allowance for central-government employees and many wage settlements; useful for long history. WPI (Wholesale Price Index, base 2011-12=100) measures producer-stage prices and is what GDP deflators are built on; it is NOT a cost-of-living index. State CPI inflation is decomposed by NSO from the same all-India CPI sampling frame; differences across states reflect commodity weights and local price formation, not state-government policy. Index series get a Rebase Banner above the chart so the citizen reads levels as 'percent of base year' not 'rupees', and year-on-year is the comparable read. Per Hans's framing review."
+    },
+    {
+      "id": "transport",
+      "title": "Transport — EV adoption",
+      "list": "concurrent",
+      "summary": "How the Indian vehicle fleet is shifting to electric. Roads and motor-vehicle taxation are State List subjects but the EV push is centrally driven via FAME-II subsidies and PM E-Drive — adoption is the joint outcome of state road-tax waivers, charging infrastructure, and citizen affordability.",
+      "icon": "car",
+      "featured": true,
+      "peer_set_default": "all",
+      "artifacts": [
+        {
+          "kind": "indicator",
+          "id": "transport/state_ev_share_total_registrations_pct",
+          "default": true,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "transport/state_ev_registrations_count",
+          "default": false,
+          "featured": true,
+          "scope": "national"
+        }
+      ],
+      "notes": "Source: VAHAN dashboard (Ministry of Road Transport and Highways). Counts are absolute registrations and reflect both fleet size (large states register more vehicles in absolute terms regardless of EV share) and the EV share of new registrations. Read the share before the count. Telangana was carved out of Andhra Pradesh in 2014 — pre-2014 series for both states are partial. Goa-style small states routinely top the share table because their absolute base is small."
+    },
+    {
+      "id": "health",
+      "title": "Public health",
+      "list": "state",
+      "summary": "Vital rates and public spending on health. Public health is a State List subject (Entry 6) — state governments run primary health centres, district hospitals, and most preventive programmes — but the Centre funds about a third of the spend through centrally-sponsored schemes (NHM, Ayushman Bharat).",
+      "icon": "heart-pulse",
+      "featured": true,
+      "peer_set_default": "general_category",
+      "artifacts": [
+        {
+          "kind": "indicator",
+          "id": "health/state_infant_mortality_rate_per_1000",
+          "default": true,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "health/state_total_fertility_rate",
+          "default": false,
+          "featured": true,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "health/state_birth_rate_per_1000",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "health/state_death_rate_per_1000",
+          "default": false,
+          "featured": false,
+          "scope": "national"
+        },
+        {
+          "kind": "indicator",
+          "id": "health/state_public_health_expenditure_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "national",
+          "peer_set_default": "all"
+        }
+      ],
+      "notes": "Vital rates from the Sample Registration System (SRS) — the official continuous demographic survey run by the Office of the Registrar General of India. SRS publishes annual state-level estimates roughly two years in arrears. Crude birth and death rates are population-weighted — they fall partly because states age and birth-cohorts shrink, not only because of public-health gains; read alongside TFR. IMR (Infant Mortality Rate, deaths under 1 per 1,000 live births) is the cleanest health-system indicator: lower is better, and small states with strong primary care (Kerala, Tamil Nadu) sit near OECD lows while large EAG states still post double-digit rates. Public health expenditure ships in absolute ₹Crore — the per-capita view (Phase 5 derived) is the honest comparison; large states will dominate the absolute table but spend less per capita."
     }
   ]
 }
