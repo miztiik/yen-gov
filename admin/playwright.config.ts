@@ -35,11 +35,23 @@ export default defineConfig({
   ],
   webServer: {
     // bun is the canonical runner (mirrors frontend/playwright.config.ts).
-    command: "bun run dev",
+    // Forwarded `--host 127.0.0.1 --port 5174 --strictPort` makes the
+    // bound interface match the Playwright baseURL exactly: Vite 6's
+    // default host is `localhost`, which on CI's dual-stack runners can
+    // resolve in a way that lags Playwright's 127.0.0.1 readiness probe
+    // past the 60s window. Pinning the host eliminates that race; pinning
+    // the port (already strictPort in vite.config.ts) makes the contract
+    // visible at the test boundary too.
+    // Timeout bumped to 120s to match frontend — cold `bun install` plus
+    // first vite optimize on a fresh CI runner has been observed >60s.
+    // `stdout` switched from "ignore" to "pipe" so a webserver crash is
+    // diagnosable in the action log instead of surfacing only as a
+    // mysterious timeout.
+    command: "bun run dev -- --host 127.0.0.1 --port 5174 --strictPort",
     url: HOST,
     reuseExistingServer: !process.env.CI,
-    timeout: 60_000,
-    stdout: "ignore",
+    timeout: 120_000,
+    stdout: "pipe",
     stderr: "pipe",
   },
 });
