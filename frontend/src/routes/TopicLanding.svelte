@@ -26,6 +26,7 @@
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import IndicatorRanked from "../lib/IndicatorRanked.svelte";
   import IndicatorSmallMultiples from "../lib/IndicatorSmallMultiples.svelte";
+  import StackedTrendArtifact from "../lib/StackedTrendArtifact.svelte";
   import ListBadge from "../lib/ListBadge.svelte";
   import UnionListBanner from "../lib/UnionListBanner.svelte";
   import PeerSetFilter from "../lib/PeerSetFilter.svelte";
@@ -181,15 +182,31 @@
                   />
                 </span>
               </div>
-              <IndicatorChoropleth
-                indicator_path={path}
-                peer_set_members={peer_members}
-              />
-              <IndicatorRanked
-                indicator_path={path}
-                peer_set_members={peer_members}
-              />
-              <IndicatorSmallMultiples indicator_path={path} />
+              {#if artifact.chart_type === "stacked-trend"}
+                <StackedTrendArtifact
+                  indicator_path={path}
+                  mode="spatial"
+                  dimension={artifact.dimension ?? "generic"}
+                  category_labels={{
+                    coal: "Coal",
+                    gas: "Gas",
+                    hydro: "Hydro",
+                    nuclear: "Nuclear",
+                    renewable: "Renewable",
+                    other_thermal: "Other thermal",
+                  }}
+                />
+              {:else}
+                <IndicatorChoropleth
+                  indicator_path={path}
+                  peer_set_members={peer_members}
+                />
+                <IndicatorRanked
+                  indicator_path={path}
+                  peer_set_members={peer_members}
+                />
+                <IndicatorSmallMultiples indicator_path={path} />
+              {/if}
             </section>
           {/if}
         {/each}

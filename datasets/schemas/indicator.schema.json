@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "1.1",
+  "x-version": "1.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -14,6 +14,11 @@
       "version": "1.1",
       "date": "2026-05-11",
       "description": "Additive: optional governance/honesty metadata on indicator block. Added attribution_geography, comparability, funding_split, implementing_authority, methodology_vintage, series_breaks, icon. Driven by Governance Strategist review 2026-05-11 \u2014 the v1.0 schema let an analyst publish a ranked-choropleth indicator without declaring whether the values are even comparable across states. The new fields force honest framing without breaking any existing artifact (all optional)."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-05-14",
+      "description": "Additive: optional render-hint fields on indicator block. Added chart_type (enum: choropleth | ranked | stacked-trend) so a facetted indicator can declare its preferred default primitive without per-id branching in the frontend; added default_mode (enum: absolute | percent) for stacked/ranked views where percent vs absolute is a real editorial choice. Both optional \u2014 existing v1.1 artifacts remain valid. Driven by ADR-0024 (backend Aggregator for facetted indicators) and the StackedTrend chart primitive landing in the same wave."
     }
   ],
   "type": "object",
@@ -155,6 +160,14 @@
         "methodology_vintage": {
           "type": "string",
           "description": "Free-form short string naming the methodology revision the values were computed under. Examples: 'GSDP base 2011-12', 'Census 2011 + UIDAI 2024 projection', 'NFHS-5 (2019-21) sampling frame', 'UDISE+ post-2018-19 schema'. Distinct from `time` (which is the observation year) \u2014 a 2024 NFHS-6 figure has the same time as a 2024 NFHS-5 backcast but a different vintage. Per Governance review 2026-05-11."
+        },
+        "chart_type": {
+          "enum": ["choropleth", "ranked", "stacked-trend"],
+          "description": "Preferred default primitive for the citizen-facing render. Optional \u2014 absent = `choropleth` (the default for single-value-per-entity indicators). `stacked-trend` is for facetted indicators where rows[].facet is populated and the composition over time is the story (e.g. installed capacity by fuel source). `ranked` is for entity-rank tables. The frontend may still choose a different primitive on a specific page; this is the metadata-driven default. Per ADR-0024."
+        },
+        "default_mode": {
+          "enum": ["absolute", "percent"],
+          "description": "For stacked-trend and ranked views, whether absolute units or percent-of-total reads more honestly by default. `percent` is the citizen-default for compositional indicators (fuel mix, scheme outlay shares) where the total varies wildly across entities and the share is what's comparable. `absolute` is the default for indicators where the magnitude itself is the story. Per ADR-0024."
         },
         "series_breaks": {
           "type": "array",

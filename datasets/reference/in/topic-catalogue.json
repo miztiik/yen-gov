@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
-  "$schema_version": "1.1",
+  "$schema_version": "1.2",
   "$comment": "Hand-authored taxonomy. Powers the Topic Front Door (/t, /t/:topic) and the section list inside each state hub (/s/:state). See ADR-0022 and TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md. DOCTRINE (user-mandated 2026-05-11): elections are ONE indicator family among many. Social-welfare topics (fiscal, education, health, livelihood) are first-class; elections are not the spine and not the default theme. Order in this array IS the rendering order on /t and inside the state hub.",
   "sources": [],
   "topics": [
@@ -106,8 +106,17 @@
       "artifacts": [
         {
           "kind": "indicator",
-          "id": "energy/installed_capacity_total_mw",
+          "id": "energy/installed_capacity_by_source_mw",
           "default": true,
+          "featured": true,
+          "scope": "national",
+          "chart_type": "stacked-trend",
+          "dimension": "power_source"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/installed_capacity_total_mw",
+          "default": false,
           "featured": true,
           "scope": "national"
         },

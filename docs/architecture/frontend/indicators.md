@@ -1,6 +1,8 @@
 # Indicator system
 
-> **Status**: live as of 2026-05-11. Schema `indicator.schema.json` v1.1; renderer `IndicatorChoropleth.svelte`. First consumer: `energy/installed_mw_by_state` on TN/KL/AS/WB state-overview pages.
+> **Status**: live as of 2026-05-14. Schema `indicator.schema.json` v1.2; renderers `IndicatorChoropleth.svelte` (default trio) and `StackedTrend.svelte` (facetted). First consumers: `energy/installed_mw_by_state` (choropleth on TN/KL/AS/WB state hubs) and `energy/installed_capacity_by_source_mw` (stacked-trend on `/t/energy`, composed by `backend/yen_gov/composers/energy_capacity_by_source.py` per ADR-0024).
+>
+> v1.2 additive fields (2026-05-14): optional `chart_type` (`choropleth` / `ranked` / `stacked-trend`) and `default_mode` (`absolute` / `percent`). Topic-catalogue v1.2 mirrors `chart_type` + `dimension` at the artifact entry level so `TopicLanding.svelte` can dispatch the right renderer without peeking at every indicator JSON. See [`charts/stacked-trend.md`](./charts/stacked-trend.md) for the chart's contract.
 
 ## What this exists for
 

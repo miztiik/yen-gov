@@ -68,6 +68,10 @@ export interface CatalogueArtifact {
   scope?: ArtifactScope;
   /** Per-artifact override of the topic-level peer_set_default (catalogue v1.1). */
   peer_set_default?: PeerSet;
+  /** Renderer hint mirrored from the indicator's chart_type (catalogue v1.2). */
+  chart_type?: "choropleth" | "ranked" | "stacked-trend";
+  /** Categorical dimension for stacked-trend mnemonic colours (catalogue v1.2). */
+  dimension?: string;
 }
 
 export interface CatalogueTopic {

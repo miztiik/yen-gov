@@ -1,0 +1,1158 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.2",
+  "sources": [
+    {
+      "url": "https://cea.nic.in/installed-capacity-report/?lang=en",
+      "fetched_at": "2026-05-13T21:54:16Z"
+    }
+  ],
+  "license": {
+    "id": "GoI-Open",
+    "name": "Government of India open publication",
+    "url": "https://data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "35 states/UTs (all CEA-reported per-state entities)",
+    "temporal": "2026-03",
+    "admin_level": "state"
+  },
+  "indicator": {
+    "id": "energy/installed_capacity_by_source_mw",
+    "title": "Installed capacity by source (fuel mix)",
+    "description": "Installed electricity-generation capacity per state, broken down by fuel source: coal, gas, nuclear, hydro (large), renewable (solar + wind + small hydro + biomass + WtE per MNRE), and a residual 'other_thermal' bucket (lignite + diesel) where applicable. Composed by joining the seven CEA per-fuel installed-capacity artifacts.",
+    "entity_kind": "state",
+    "time_grain": "month",
+    "value_kind": "raw",
+    "direction": "neutral",
+    "scale_hint": "linear",
+    "unit": "MW",
+    "icon": "zap",
+    "attribution_geography": "where_produced",
+    "comparability": "comparable_with_normalisation",
+    "implementing_authority": "joint",
+    "methodology_vintage": "CEA Monthly Executive Summary, IC sheet, snapshot 2026-03; cached file mtime 2026-05-13T21:54:16Z",
+    "chart_type": "stacked-trend",
+    "default_mode": "percent",
+    "notes": "Composed from the per-fuel CEA artifacts. The residual 'other_thermal' facet is derived as thermal − coal − gas (lignite + diesel); it is dropped per-state when the residual is < 0.1% of that state's total. Capacity is **nameplate** MW, not generation. Read this as 'how is this state's plant fleet composed', not 'where is its electricity coming from this hour' — generation depends on plant load factor and dispatch decisions."
+  },
+  "rows": [
+    {
+      "entity_id": "S01",
+      "time": "2026-03",
+      "value": 12730.826060000001,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2026-03",
+      "value": 1300.7040000000002,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2026-03",
+      "value": 3353.6,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2026-03",
+      "value": 127.27,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2026-03",
+      "value": 12690.109999999999,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2026-03",
+      "value": 217.03,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2026-03",
+      "value": 37.05,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2026-03",
+      "value": 46.82,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2026-03",
+      "value": 670.99,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S02",
+      "time": "2026-03",
+      "value": 156.05,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2026-03",
+      "value": 695.516,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2026-03",
+      "value": 741.915,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2026-03",
+      "value": 605.5999999999999,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2026-03",
+      "value": 612.2800000000001,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2026-03",
+      "value": 7974.786,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2026-03",
+      "value": 72.876,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2026-03",
+      "value": 651.2600000000001,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2026-03",
+      "value": 492.268,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2026-03",
+      "value": 19.67,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2026-03",
+      "value": 5.0,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2026-03",
+      "value": 41.68,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2026-03",
+      "value": 83.49,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2026-03",
+      "value": 16735.582000000002,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2026-03",
+      "value": 5615.72,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2026-03",
+      "value": 970.86,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2026-03",
+      "value": 1034.8899999999999,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2026-03",
+      "value": 45188.329999999994,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2026-03",
+      "value": 1400.0,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2026-03",
+      "value": 8638.384,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2026-03",
+      "value": 581.5899999999999,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2026-03",
+      "value": 2490.82654,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2026-03",
+      "value": 123.042,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2026-03",
+      "value": 3011.72,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2026-03",
+      "value": 144.673,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2026-03",
+      "value": 3706.8698620000005,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2026-03",
+      "value": 42.224000000000004,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S08",
+      "time": "2026-03",
+      "value": 1381.94,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2026-03",
+      "value": 9947.8,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2026-03",
+      "value": 370.04999999999995,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2026-03",
+      "value": 3631.6,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2026-03",
+      "value": 698.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2026-03",
+      "value": 23033.56,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2026-03",
+      "value": 497.1,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2026-03",
+      "value": 2235.816,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2026-03",
+      "value": 359.58000000000004,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2026-03",
+      "value": 2008.15,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2026-03",
+      "value": 362.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2026-03",
+      "value": 2566.1299999999997,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2026-03",
+      "value": 474.16,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2026-03",
+      "value": 15500.599999999999,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2026-03",
+      "value": 332.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2026-03",
+      "value": 3263.0600000000004,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2026-03",
+      "value": 491.98,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2026-03",
+      "value": 9947.640000000001,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2026-03",
+      "value": 24714.238,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2026-03",
+      "value": 3124.73,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2026-03",
+      "value": 3400.44,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2026-03",
+      "value": 1068.66,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2026-03",
+      "value": 28933.630000000005,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2026-03",
+      "value": 47.1,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2026-03",
+      "value": 81.58,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2026-03",
+      "value": 103.32000000000001,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2026-03",
+      "value": 22.97,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S14",
+      "time": "2026-03",
+      "value": 36.0,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2026-03",
+      "value": 51.6,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2026-03",
+      "value": 109.69,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2026-03",
+      "value": 435.4,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S15",
+      "time": "2026-03",
+      "value": 73.11,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2026-03",
+      "value": 31.05,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2026-03",
+      "value": 60.46,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2026-03",
+      "value": 108.34,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S16",
+      "time": "2026-03",
+      "value": 79.16,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2026-03",
+      "value": 32.1,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2026-03",
+      "value": 73.93,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2026-03",
+      "value": 76.99000000000001,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S17",
+      "time": "2026-03",
+      "value": 36.010000000000005,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2026-03",
+      "value": 5972.466,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2026-03",
+      "value": 2179.229,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2026-03",
+      "value": 1088.29,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2026-03",
+      "value": 8214.004,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2026-03",
+      "value": 150.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2026-03",
+      "value": 3827.435354,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2026-03",
+      "value": 229.08900000000003,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2026-03",
+      "value": 2343.63,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2026-03",
+      "value": 12372.719000000001,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2026-03",
+      "value": 774.628573,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2026-03",
+      "value": 2167.068004,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2026-03",
+      "value": 806.74,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2026-03",
+      "value": 46608.03999999999,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2026-03",
+      "value": 1580.0,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2026-03",
+      "value": 89.214,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2026-03",
+      "value": 643.2692,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S21",
+      "time": "2026-03",
+      "value": 62.67,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2026-03",
+      "value": 14040.4,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2026-03",
+      "value": 844.58,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2026-03",
+      "value": 2203.2,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2026-03",
+      "value": 1448.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2026-03",
+      "value": 26954.38,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2026-03",
+      "value": 2128.271,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2026-03",
+      "value": 56.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2026-03",
+      "value": 486.94,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2026-03",
+      "value": 86.47,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2026-03",
+      "value": 51.55,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2026-03",
+      "value": 25550.906000000003,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2026-03",
+      "value": 1029.509397,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2026-03",
+      "value": 3652.222272,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2026-03",
+      "value": 370.452,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2026-03",
+      "value": 6503.630000000001,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2026-03",
+      "value": 9199.338,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2026-03",
+      "value": 1483.2978,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2026-03",
+      "value": 770.9799999999999,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2026-03",
+      "value": 12701.866,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2026-03",
+      "value": 332.1,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2026-03",
+      "value": 135.57,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2026-03",
+      "value": 2203.56,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2026-03",
+      "value": 3421.2799999999997,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2026-03",
+      "value": 176.9842,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2026-03",
+      "value": 279.59000000000003,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2026-03",
+      "value": 653.575,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2026-03",
+      "value": 733.661129,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2026-03",
+      "value": 2323.890106,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2026-03",
+      "value": 47.508,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2026-03",
+      "value": 1233.2,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2026-03",
+      "value": 13198.803940000002,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2026-03",
+      "value": 438.7,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2026-03",
+      "value": 2479.93,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2026-03",
+      "value": 148.73,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2026-03",
+      "value": 5524.98,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2026-03",
+      "value": 61.3,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2026-03",
+      "value": 37.370000000000005,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "U01",
+      "time": "2026-03",
+      "value": 92.713,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2026-03",
+      "value": 44.83,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2026-03",
+      "value": 15.026884999999998,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2026-03",
+      "value": 105.60726999999999,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2026-03",
+      "value": 10.409,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "U02",
+      "time": "2026-03",
+      "value": 78.85000000000001,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2026-03",
+      "value": 587.1479999999999,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2026-03",
+      "value": 109.68,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2026-03",
+      "value": 29.220000000000002,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "U03",
+      "time": "2026-03",
+      "value": 138.65,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "U04",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U04",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "U04",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "U04",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "U04",
+      "time": "2026-03",
+      "value": 6.57,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "U04",
+      "time": "2026-03",
+      "value": 26.83,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2026-03",
+      "value": 3649.4929999999995,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2026-03",
+      "value": 2007.414434,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2026-03",
+      "value": 1074.0343599999999,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2026-03",
+      "value": 153.38199999999998,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2026-03",
+      "value": 506.36999999999995,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2026-03",
+      "value": 140.8,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2026-03",
+      "value": 32.5,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2026-03",
+      "value": 0.0,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2026-03",
+      "value": 86.0,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2026-03",
+      "value": 81.51,
+      "facet": "renewable"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2026-03",
+      "value": 111.8,
+      "facet": "other_thermal"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2026-03",
+      "value": 577.143,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2026-03",
+      "value": 129.07488999999998,
+      "facet": "gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2026-03",
+      "value": 2345.882404,
+      "facet": "hydro"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2026-03",
+      "value": 95.126,
+      "facet": "nuclear"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2026-03",
+      "value": 332.22,
+      "facet": "renewable"
+    }
+  ]
+}

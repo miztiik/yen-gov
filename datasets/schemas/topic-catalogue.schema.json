@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/topic-catalogue.schema.json",
   "title": "Topic catalogue (IA spine)",
   "description": "The hand-authored taxonomy that powers yen-gov's Topic Front Door (`/t`, `/t/:topic`) and the section list inside each state hub (`/s/:state`). Topic membership of an artifact is declared HERE, not on the artifact itself \u2014 keeping `indicator.schema.json` free of IA leakage (per ADR-0022). Each topic carries its Seventh Schedule list (`state` / `union` / `concurrent` / `na`) so cross-state surfaces can render the constitutional honesty banner without per-renderer logic. Each topic points to one or more artifacts via a polymorphic `kind`+`id` reference; the renderer dispatches on `kind` so election artifacts (different schema family) coexist with indicator artifacts under the same catalogue.",
-  "x-version": "1.1",
+  "x-version": "1.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -14,6 +14,11 @@
       "version": "1.1",
       "date": "2026-05-13",
       "description": "Additive: per-artifact `peer_set_default` override (artifact wins over topic default). Required because a single topic may host artifacts whose honest peer set differs \u2014 e.g. fiscal hosts both `outstanding_debt_pct_gsdp` (default `general_category`: comparing across centre-transfer asymmetry would mislead) AND `net_transfers_from_centre` (default `all`: the asymmetry IS the story). Also broadens the `peer_set_default` enum to match the new `state-tiers.json` v1.0 vocabulary: renamed `hill`\u2192`himalayan`, `ut_with_legislature`\u2192`ut_legislature`, `ut_without_legislature`\u2192`ut_no_legislature`; added `special_category`, `fc_horizontal_devolution_share_quintile`, `coastal_states`, `landlocked_states`, `art_371_states`. Old enum values are no longer accepted (this would normally be a major bump under \u00a711, but no producer artifact uses the renamed values yet \u2014 catalogue currently only references `general_category` and `all` \u2014 so the change is non-breaking in practice). See ADR-0022 \u00a7peer-sets and `docs/concepts/peer-sets.md`."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-05-14",
+      "description": "Additive: optional per-artifact `chart_type` and `dimension` fields. `chart_type` mirrors the indicator artifact's chart_type (`choropleth`/`ranked`/`stacked-trend`) so the catalogue itself can drive renderer dispatch on `/t/:topic` without the page having to peek at every indicator JSON before deciding which component to mount. `dimension` carries the categorical dimension name (e.g. `power_source`, `expenditure_head`) needed to resolve mnemonic colours through `dimensionAnchors()`. Both fields are pure UI hints \u2014 the source of truth remains the indicator artifact (per ADR-0024) \u2014 but lifting the dispatcher out of every page keeps TopicLanding/StateOverview free of per-artifact id-string switches."
     }
   ],
   "type": "object",
@@ -133,6 +138,16 @@
                   "type": "string",
                   "enum": ["national", "state", "constituency"],
                   "description": "Geographic scope of this artifact's primary view. Drives which routes can host it: national-scope artifacts render on `/t/:topic`; state-scope artifacts render inside `/s/:state`; constituency-scope on `/s/:state/ac/:ac`. Defaults to `national` for indicators, `state` for elections."
+                },
+                "chart_type": {
+                  "type": "string",
+                  "enum": ["choropleth", "ranked", "stacked-trend"],
+                  "description": "Optional renderer hint. Mirrors the underlying indicator artifact's `chart_type` so TopicLanding can dispatch components without peeking at every indicator JSON. When absent the page falls back to its default trio (Choropleth + Ranked + SmallMultiples)."
+                },
+                "dimension": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Optional categorical dimension name (e.g. `power_source`, `expenditure_head`). Required when `chart_type === \"stacked-trend\"`; passed to `dimensionAnchors()` so the stacked bars get mnemonic colours instead of algorithmic palette swatches."
                 },
                 "peer_set_default": {
                   "type": "string",
