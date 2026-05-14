@@ -1,10 +1,12 @@
 # Data Sources
 
-**Last Updated**: 2026-05-11
+**Last Updated**: 2026-05-14
 
 > The "look here first" catalogue. Every external place yen-gov pulls — or might pull — data from is listed below, with what it covers, what format it ships, and when to use (or avoid) it. When enriching data in future, start here.
 >
 > The hierarchy for **election data** is enforced by the [authority hierarchy for past elections](../architecture/backend/sources-eci.md#authority-hierarchy-for-past-elections): **ECI is the canonical source**; everything else is bootstrap, enrichment, or cross-check. Non-election data (fiscal, energy, demographics) follow per-domain authority — see the per-source sections below.
+
+> **Machine-readable peer**: [`datasets/reference/in/upstream-sources.json`](../../datasets/reference/in/upstream-sources.json) (validated by [`upstream-sources.schema.json`](../../datasets/schemas/upstream-sources.schema.json)) is the canonical, queryable registry. Every upstream — `ingested` / `recon_done` / `candidate` / `skipped` — has one row there with the landing URL, asset URL pattern, format, coverage, ingest status, the backend adapter (when shipped), the indicator ids it produces, and a `skip_reason` when we consciously chose not to ingest. **When in doubt, the JSON wins**; this Markdown is the human reading-room view of the same facts.
 
 ## Source authority order
 
@@ -132,7 +134,50 @@ More Statements (revenue deficit, fiscal deficit, interest payments, central tra
 
 **License**: Government of India open publication (`GoI-Open`, redistributable). The license URL on each artifact points at <https://data.gov.in/government-open-data-license-india>.
 
-## Wikipedia
+## RBI — Handbook of Statistics on Indian Economy (national long series)
+
+**Authority/listing page**: <https://www.rbi.org.in/Scripts/AnnualPublications.aspx>
+
+The Handbook is RBI's catch-all annual compendium covering national fiscal, monetary, banking, external-sector, and price series — most going back 30+ years. We ingest two slices today and have several more queued (see registry `status: candidate`):
+
+| Statement | Coverage | Adapter | Indicator ids |
+| --------- | -------- | ------- | -------------- |
+| Appendix Table 1 (national fiscal deficits) | All India, FY80–FY26 | `rbi_appendix_deficits` | `fiscal/national_gross_fiscal_deficit`, `national_revenue_deficit`, `national_primary_deficit`, `national_primary_revenue_deficit` |
+| Appendix Table 2 (Central transfers to States) | All India aggregate, FY08–FY26 | `rbi_appendix_national` | `fiscal/national_centre_transfers_total`, `national_devolution_central_taxes`, `national_grants_from_centre`, `national_gross_transfers` |
+
+Per-edition pinned URLs live in each adapter's `urls.py`; same Chrome-style UA workaround as the State Finances adapter.
+
+## NITI Aayog — ICED state-wise deep dive (energy + economy + demography)
+
+**Page**: <https://iced.niti.gov.in/analytics/state-wise-deep-dive>
+**API**: <https://icedapi.niti.gov.in/analytics/stateWiseDeepDive>
+
+ICED is NITI Aayog's energy/climate dashboard, but its `stateWiseDeepDive` endpoint also bundles economy and demography series for free. Coverage = 28 states + 8 UTs + All-India, FY16–FY26 annual, 13 indicators per state-year (see registry `iced.state_wise_deep_dive`). Response is **CryptoJS-OpenSSL AES-256-CBC encrypted JSON** — passphrase extracted from the SPA bundle. Adapter `iced_state_wise` does the decrypt + per-indicator extract; full recon recipe in [backend/sources-iced-state-wise.md](../architecture/backend/sources-iced-state-wise.md). On Windows the adapter uses `urllib` (not httpx) because the icedapi cert chain isn't in `certifi`.
+
+## CEA — monthly Installed Capacity Report
+
+**Hub**: <https://cea.nic.in/installed-capacity-report/?lang=en>
+**Asset URL pattern**: `https://cea.nic.in/wp-content/uploads/installed/<YYYY>/<MM>/Website.xlsx`
+
+CEA publishes a monthly XLSX of All-India + per-state nameplate installed capacity by fuel type (coal/gas/hydro/nuclear/renewable/thermal/total). Adapter `cea_installed_capacity` is **operator-fetched** — Windows / many CI images reject `cea.nic.in`'s TLS chain, so the operator runs `Invoke-WebRequest` once per month into `.runtime/raw/cea/installed_capacity_<YYYY>_<MM>.xlsx`; the adapter then parses it with no network. Archive listing at <https://cea.nic.in/archives/?lang=en>; for per-state long history we fall back to ICED (which already exposes 11 years of CEA-published values) rather than back-filling the CEA archive directly.
+
+## data.gov.in — Open Government Data Platform
+
+**Search**: <https://www.data.gov.in/search?title=rbi&type=resources&sortby=_score>
+**Resource page grammar**: `https://www.data.gov.in/resource/<slug>`
+**API endpoint** (rate-limited demo key): `https://api.data.gov.in/resource/<uuid>?api-key=<key>&format=json&limit=N`
+
+data.gov.in aggregates ministry-supplied datasets, most of which are **Rajya Sabha question dumps** (snapshots tabulating an answer to a specific parliamentary question). The public demo key (`579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b`) caps records at 10/request and 429s after a few pages; a production key requires SMS-OTP registration with PII (declined per user direction 2026-05-14). The working pattern (recon: 2026-05-14):
+
+1. Find the resource on data.gov.in by search or `View More` link.
+2. Open the resource page; click `Download` (CSV) — solve the captcha once.
+3. Drop into `.runtime/raw/datagovin/<indicator-leaf>.csv`.
+4. Pin the UUID + page URL in `backend/yen_gov/sources/datagovin_ogd/urls.py::KNOWN_RESOURCES`.
+5. Add a parser entry in `parsers.py::SHIPPED_SPECS`; the adapter writes the indicator artifact.
+
+Currently shipped: `fiscal/centre_transfers_gross` (RS Q1323/2023, FY17–FY23 actuals).
+
+**Recon finding (2026-05-14, RBI search)**: the `?title=rbi` search returns mostly **bank-frauds, RBI-ombudsman-complaints, demonetised-note recovery, internal-debt snapshot** rows — Ministry-of-Finance answers tabulating RBI-reported counts in 3–7 year windows. They do NOT duplicate the canonical RBI long-series we want (Handbook of Statistics, gold reserves, State Finances Statement 8 long series); those live on `rbi.org.in` directly. Status logged as `skipped` in the registry (`data_gov_in.rbi_search_results`) with the rationale; promotion to `candidate` is a per-resource decision when one of them genuinely complements an RBI series.
 
 ## What does NOT belong in `sources[]`
 
@@ -145,6 +190,8 @@ More Statements (revenue deficit, fiscal deficit, interest payments, central tra
 
 ## See also
 
+- [`datasets/reference/in/upstream-sources.json`](../../datasets/reference/in/upstream-sources.json) — machine-readable peer of this doc; the canonical registry.
+- [`datasets/schemas/upstream-sources.schema.json`](../../datasets/schemas/upstream-sources.schema.json) — registry schema (v1.0).
 - [`docs/concepts/disclaimer.md`](../concepts/disclaimer.md) — user-facing disclaimer wording (boundaries are community-contributed, data is best-effort, etc.); rendered by the app's About page.
 - [backend/sources-eci.md](../architecture/backend/sources-eci.md) — ECI results portal adapter conventions and authority hierarchy for past elections.
 - [backend/sources-wikipedia.md](../architecture/backend/sources-wikipedia.md) — Wikipedia adapter scope.
