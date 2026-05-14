@@ -94,26 +94,26 @@ def test_parse_workbook_emits_one_row_per_year_per_indicator():
     # All four shipped specs got parsed.
     assert set(parsed) == {spec.indicator_id for spec in SHIPPED_SPECS}
 
-    gfd = parsed["fiscal/national_gross_fiscal_deficit"]
+    gfd = parsed["fiscal/states_combined_gross_fiscal_deficit"]
     assert gfd.period_count == 2
     assert [(r.time, r.value) for r in gfd.rows] == [
         ("2007-04", 75454.7),
         ("2008-04", 134589.3),
     ]
 
-    rd = parsed["fiscal/national_revenue_deficit"]
+    rd = parsed["fiscal/states_combined_revenue_deficit"]
     assert [(r.time, r.value) for r in rd.rows] == [
         ("2007-04", -42942.7),
         ("2008-04", -12672.2),
     ]
 
-    pd = parsed["fiscal/national_primary_deficit"]
+    pd = parsed["fiscal/states_combined_primary_deficit"]
     assert [(r.time, r.value) for r in pd.rows] == [
         ("2007-04", -24375.9),
         ("2008-04", 31634.5),
     ]
 
-    prd = parsed["fiscal/national_primary_revenue_deficit"]
+    prd = parsed["fiscal/states_combined_primary_revenue_deficit"]
     assert [(r.time, r.value) for r in prd.rows] == [
         ("2007-04", -142773.4),
         ("2008-04", -115627.0),
@@ -133,7 +133,7 @@ def test_parse_workbook_skips_gdp_rows_not_year_data():
         ]
     )
     parsed = parse_workbook(content)
-    gfd = parsed["fiscal/national_gross_fiscal_deficit"]
+    gfd = parsed["fiscal/states_combined_gross_fiscal_deficit"]
     assert gfd.period_count == 1
     assert [r.value for r in gfd.rows] == [161461.1]
     # The -2.1 (%GDP) value must not have leaked in.
@@ -153,7 +153,7 @@ def test_parse_workbook_handles_qualified_year_labels():
         ]
     )
     parsed = parse_workbook(content)
-    gfd = parsed["fiscal/national_gross_fiscal_deficit"]
+    gfd = parsed["fiscal/states_combined_gross_fiscal_deficit"]
     assert [(r.time, r.value) for r in gfd.rows] == [
         ("2023-04", 877194.6),
         ("2024-04", 1039138.1),
@@ -178,10 +178,10 @@ def test_coerce_strips_commas_and_handles_paren_negatives():
     )
     parsed = parse_workbook(content)
     rows = {ind: parsed[ind].rows[0].value for ind in parsed}
-    assert rows["fiscal/national_gross_fiscal_deficit"] == 420670.0
-    assert rows["fiscal/national_revenue_deficit"] == 5381.7
-    assert rows["fiscal/national_primary_deficit"] == -208865.2  # paren -> negative
-    assert rows["fiscal/national_primary_revenue_deficit"] == -3052.0
+    assert rows["fiscal/states_combined_gross_fiscal_deficit"] == 420670.0
+    assert rows["fiscal/states_combined_revenue_deficit"] == 5381.7
+    assert rows["fiscal/states_combined_primary_deficit"] == -208865.2  # paren -> negative
+    assert rows["fiscal/states_combined_primary_revenue_deficit"] == -3052.0
 
 
 def test_coerce_returns_none_for_null_tokens():
@@ -221,8 +221,8 @@ def test_column_resolution_prefers_exact_match_over_substring():
         ]
     )
     parsed = parse_workbook(content)
-    pd_val = parsed["fiscal/national_primary_deficit"].rows[0].value
-    prd_val = parsed["fiscal/national_primary_revenue_deficit"].rows[0].value
+    pd_val = parsed["fiscal/states_combined_primary_deficit"].rows[0].value
+    prd_val = parsed["fiscal/states_combined_primary_revenue_deficit"].rows[0].value
     assert pd_val == 417000.0
     assert prd_val == -16000.0
     assert pd_val != prd_val  # if the substring bug regressed, they'd be equal
@@ -300,8 +300,8 @@ def test_shipped_specs_are_distinct():
 def test_shipped_specs_cover_expected_indicator_set():
     """If a future commit adds/removes a deficit indicator, this test must be updated."""
     assert {spec.indicator_id for spec in SHIPPED_SPECS} == {
-        "fiscal/national_gross_fiscal_deficit",
-        "fiscal/national_revenue_deficit",
-        "fiscal/national_primary_deficit",
-        "fiscal/national_primary_revenue_deficit",
+        "fiscal/states_combined_gross_fiscal_deficit",
+        "fiscal/states_combined_revenue_deficit",
+        "fiscal/states_combined_primary_deficit",
+        "fiscal/states_combined_primary_revenue_deficit",
     }

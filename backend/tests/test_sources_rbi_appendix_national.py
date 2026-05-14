@@ -147,7 +147,7 @@ def test_coerce_value(raw, sign, expected):
 
 
 _NET_TRANSFER_SPEC = AppendixSpec(
-    indicator_id="fiscal/national_centre_transfers_total",
+    indicator_id="fiscal/centre_transfers_to_states_net",
     item_label_match="net transfer of resources",
     prefer_qualifier=("accounts",),
 )
@@ -156,7 +156,7 @@ _NET_TRANSFER_SPEC = AppendixSpec(
 def test_parse_workbook_canonical_layout():
     parsed = parse_workbook(_canonical_workbook(), _NET_TRANSFER_SPEC)
 
-    assert parsed.indicator_id == "fiscal/national_centre_transfers_total"
+    assert parsed.indicator_id == "fiscal/centre_transfers_to_states_net"
     assert parsed.sheet_count == 3
     # 3 + 3 + 3 period cells across the 3 sheets.
     assert parsed.period_count == 9

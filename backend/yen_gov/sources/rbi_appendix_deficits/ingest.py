@@ -4,7 +4,7 @@ No network. Reads the workbook from
 ``.runtime/raw/rbi/state_finances/AppT1_MajorDeficitIndicators_2026.xlsx``
 (or operator-overridden via env), runs the pure parser, and writes four
 canonical national indicator artifacts under
-``datasets/indicators/in/fiscal/national_*_deficit.json``.
+``datasets/indicators/in/fiscal/states_combined_*_deficit.json``.
 
 This is the cache-only sibling of ``rbi_appendix_national``: same RBI
 publication (State Finances), different appendix table, different layout.
@@ -66,8 +66,8 @@ class IndicatorMeta:
 #   like -42942 reads as "Rs 42942 Crore revenue surplus that year".
 #   `direction` reflects citizen interpretation: lower deficit = better.
 INDICATOR_META: dict[str, IndicatorMeta] = {
-    "fiscal/national_gross_fiscal_deficit": IndicatorMeta(
-        indicator_id="fiscal/national_gross_fiscal_deficit",
+    "fiscal/states_combined_gross_fiscal_deficit": IndicatorMeta(
+        indicator_id="fiscal/states_combined_gross_fiscal_deficit",
         title="Gross fiscal deficit (all states, all-India)",
         description=(
             "The consolidated borrowing requirement of all State governments "
@@ -96,8 +96,8 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "own indicator family with value_kind=percent)."
         ),
     ),
-    "fiscal/national_revenue_deficit": IndicatorMeta(
-        indicator_id="fiscal/national_revenue_deficit",
+    "fiscal/states_combined_revenue_deficit": IndicatorMeta(
+        indicator_id="fiscal/states_combined_revenue_deficit",
         title="Revenue deficit (all states, all-India)",
         description=(
             "Revenue expenditure minus revenue receipts for all states "
@@ -118,8 +118,8 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "indicator."
         ),
     ),
-    "fiscal/national_primary_deficit": IndicatorMeta(
-        indicator_id="fiscal/national_primary_deficit",
+    "fiscal/states_combined_primary_deficit": IndicatorMeta(
+        indicator_id="fiscal/states_combined_primary_deficit",
         title="Primary deficit (all states, all-India)",
         description=(
             "Gross fiscal deficit minus interest payments. Strips out the "
@@ -138,8 +138,8 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "fiscal deficit indicator."
         ),
     ),
-    "fiscal/national_primary_revenue_deficit": IndicatorMeta(
-        indicator_id="fiscal/national_primary_revenue_deficit",
+    "fiscal/states_combined_primary_revenue_deficit": IndicatorMeta(
+        indicator_id="fiscal/states_combined_primary_revenue_deficit",
         title="Primary revenue deficit (all states, all-India)",
         description=(
             "Revenue deficit minus interest payments — the strictest "

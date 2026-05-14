@@ -69,7 +69,7 @@ class AppendixSpec:
     """Locate one national-level indicator in an Appendix workbook.
 
     Args:
-        indicator_id: stable id, e.g. ``fiscal/national_centre_transfers_total``.
+        indicator_id: stable id, e.g. ``fiscal/centre_transfers_to_states_net``.
         item_label_match: case-insensitive substring of the row's
             ``Item`` cell. Must be specific enough to identify ONE row
             in any sheet (e.g. ``"net transfer of resources"`` matches
@@ -258,7 +258,7 @@ def parse_workbook(content: bytes, spec: AppendixSpec) -> ParsedIndicator:
 
 SHIPPED_SPECS: tuple[AppendixSpec, ...] = (
     AppendixSpec(
-        indicator_id="fiscal/national_centre_transfers_total",
+        indicator_id="fiscal/centre_transfers_to_states_net",
         # Item VI: "Net Transfer of Resources from the Centre (IV-V)".
         # This is RBI's net-of-loan-repayments figure — what actually
         # flows from Centre to all States in aggregate.
@@ -266,7 +266,7 @@ SHIPPED_SPECS: tuple[AppendixSpec, ...] = (
         prefer_qualifier=("accounts",),
     ),
     AppendixSpec(
-        indicator_id="fiscal/national_devolution_central_taxes",
+        indicator_id="fiscal/centre_transfers_to_states_tax_devolution",
         # Item I: "States' Share in Central Taxes". Note: the workbook
         # uses a curly apostrophe (U+2019). The needle deliberately
         # omits the apostrophe so it matches both straight and curly
@@ -275,7 +275,7 @@ SHIPPED_SPECS: tuple[AppendixSpec, ...] = (
         prefer_qualifier=("accounts",),
     ),
     AppendixSpec(
-        indicator_id="fiscal/national_grants_from_centre",
+        indicator_id="fiscal/centre_transfers_to_states_grants",
         # Item II: "Grants from the Centre".
         # The discretionary / scheme stream (Centrally Sponsored
         # Schemes, Finance Commission grants, etc.).
@@ -283,7 +283,7 @@ SHIPPED_SPECS: tuple[AppendixSpec, ...] = (
         prefer_qualifier=("accounts",),
     ),
     AppendixSpec(
-        indicator_id="fiscal/national_gross_transfers",
+        indicator_id="fiscal/centre_transfers_to_states_gross",
         # Item IV: "Gross Transfer (I+II+III)".
         # Total gross flow before the Centre claws back loan
         # repayments and interest. Useful as the headline "total

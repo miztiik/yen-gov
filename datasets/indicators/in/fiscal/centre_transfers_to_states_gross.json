@@ -19,9 +19,9 @@
     "admin_level": "national"
   },
   "indicator": {
-    "id": "fiscal/national_grants_from_centre",
-    "title": "Grants from Centre to states (all-India)",
-    "description": "Discretionary grants from the Centre to all states combined: Centrally Sponsored Schemes, Finance Commission grants (post-devolution revenue deficit, local body, SDRF, health), State Plan Schemes (legacy), and other statutory grants. Item II of RBI Appendix Table 2. Together with devolution (Item I) this makes up the bulk of Centre-to-State resource flow before the loan/repayment netting in Items III–V.",
+    "id": "fiscal/centre_transfers_to_states_gross",
+    "title": "Gross transfers from Centre to states (all-India)",
+    "description": "Total gross flow of resources from the Centre to all states before the Centre claws back loan repayments and interest (Item IV = Item I devolution + Item II grants + Item III gross loans). The 'headline' transfer figure citizens encounter in budget commentary. Net transfer (`fiscal/centre_transfers_to_states_net`) is gross minus repayments / interest.",
     "entity_kind": "country",
     "time_grain": "fiscal_year",
     "value_kind": "currency",
@@ -38,103 +38,103 @@
     },
     "implementing_authority": "centre",
     "methodology_vintage": "RBI State Finances: A Study of Budgets, Appendix Table 2; cached file mtime 2026-05-11T14:50:50Z",
-    "notes": "Source: RBI 'State Finances: A Study of Budgets', Appendix Table 2, Item II 'Grants from the Centre'. Nominal ₹ Crore. The composition shifts over time (e.g. State Plan Schemes collapsed after FY15 with the abolition of the Planning Commission; CSS share rose; Finance Commission Grants broken out as a separate sub-line from FY21 onwards) — the totals remain comparable but the sub-categorisation is not. Year qualifiers follow the same dedupe rule as the other national_centre_* indicators."
+    "notes": "Source: RBI 'State Finances: A Study of Budgets', Appendix Table 2, Item IV 'Gross Transfer (I+II+III)'. Nominal ₹ Crore. Same dedupe and qualifier rules as the other centre_transfers_to_states_* indicators."
   },
   "rows": [
     {
       "entity_id": "IN",
       "time": "2007-04",
-      "value": 108621.8
+      "value": 267275.9
     },
     {
       "entity_id": "IN",
       "time": "2008-04",
-      "value": 129923.4
+      "value": 297980.5
     },
     {
       "entity_id": "IN",
       "time": "2009-04",
-      "value": 150972.3
+      "value": 324092.7
     },
     {
       "entity_id": "IN",
       "time": "2010-04",
-      "value": 163496.7
+      "value": 392463.9
     },
     {
       "entity_id": "IN",
       "time": "2011-04",
-      "value": 186416.5
+      "value": 451910.3
     },
     {
       "entity_id": "IN",
       "time": "2012-04",
-      "value": 188681.8
+      "value": 491416.3
     },
     {
       "entity_id": "IN",
       "time": "2013-04",
-      "value": 205952.0
+      "value": 535095.9
     },
     {
       "entity_id": "IN",
       "time": "2014-04",
-      "value": 330804.7
+      "value": 680520.6
     },
     {
       "entity_id": "IN",
       "time": "2015-04",
-      "value": 325895.6
+      "value": 844601.1
     },
     {
       "entity_id": "IN",
       "time": "2016-04",
-      "value": 356091.3
+      "value": 981709.8
     },
     {
       "entity_id": "IN",
       "time": "2017-04",
-      "value": 405957.9
+      "value": 1030653.7
     },
     {
       "entity_id": "IN",
       "time": "2018-04",
-      "value": 439868.7
+      "value": 1213484.9
     },
     {
       "entity_id": "IN",
       "time": "2019-04",
-      "value": 534567.5
+      "value": 1214702.2
     },
     {
       "entity_id": "IN",
       "time": "2020-04",
-      "value": 643840.9
+      "value": 1394251.3
     },
     {
       "entity_id": "IN",
       "time": "2021-04",
-      "value": 622627.9
+      "value": 1705162.4
     },
     {
       "entity_id": "IN",
       "time": "2022-04",
-      "value": 661456.9
+      "value": 1723111.2
     },
     {
       "entity_id": "IN",
       "time": "2023-04",
-      "value": 527931.0
+      "value": 1770365.3
     },
     {
       "entity_id": "IN",
       "time": "2024-04",
-      "value": 688104.0
+      "value": 2125145.0
     },
     {
       "entity_id": "IN",
       "time": "2025-04",
-      "value": 723403.7
+      "value": 2313664.1
     }
   ]
 }

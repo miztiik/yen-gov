@@ -75,7 +75,7 @@ class DeficitSpec:
     """Locate one deficit indicator in the AppT1 workbook by column.
 
     Args:
-        indicator_id: stable id, e.g. ``fiscal/national_gross_fiscal_deficit``.
+        indicator_id: stable id, e.g. ``fiscal/states_combined_gross_fiscal_deficit``.
         column_label_match: case-insensitive substring of the row-3 header
             cell. Must uniquely identify one column among the indicator
             header cells.
@@ -108,19 +108,19 @@ class ParsedIndicator:
 # this source family.
 SHIPPED_SPECS: tuple[DeficitSpec, ...] = (
     DeficitSpec(
-        indicator_id="fiscal/national_gross_fiscal_deficit",
+        indicator_id="fiscal/states_combined_gross_fiscal_deficit",
         column_label_match="gross fiscal deficit",
     ),
     DeficitSpec(
-        indicator_id="fiscal/national_revenue_deficit",
+        indicator_id="fiscal/states_combined_revenue_deficit",
         column_label_match="revenue deficit",
     ),
     DeficitSpec(
-        indicator_id="fiscal/national_primary_deficit",
+        indicator_id="fiscal/states_combined_primary_deficit",
         column_label_match="primary deficit",
     ),
     DeficitSpec(
-        indicator_id="fiscal/national_primary_revenue_deficit",
+        indicator_id="fiscal/states_combined_primary_revenue_deficit",
         column_label_match="primary revenue deficit",
     ),
 )

@@ -142,8 +142,8 @@ The Handbook is RBI's catch-all annual compendium covering national fiscal, mone
 
 | Statement | Coverage | Adapter | Indicator ids |
 | --------- | -------- | ------- | -------------- |
-| Appendix Table 1 (national fiscal deficits) | All India, FY80–FY26 | `rbi_appendix_deficits` | `fiscal/national_gross_fiscal_deficit`, `national_revenue_deficit`, `national_primary_deficit`, `national_primary_revenue_deficit` |
-| Appendix Table 2 (Central transfers to States) | All India aggregate, FY08–FY26 | `rbi_appendix_national` | `fiscal/national_centre_transfers_total`, `national_devolution_central_taxes`, `national_grants_from_centre`, `national_gross_transfers` |
+| Appendix Table 1 (states-aggregate fiscal deficits) | All India, FY80–FY26 | `rbi_appendix_deficits` | `fiscal/states_combined_gross_fiscal_deficit`, `fiscal/states_combined_revenue_deficit`, `fiscal/states_combined_primary_deficit`, `fiscal/states_combined_primary_revenue_deficit` |
+| Appendix Table 2 (Centre transfers to States) | All India aggregate, FY08–FY26 | `rbi_appendix_national` | `fiscal/centre_transfers_to_states_net`, `fiscal/centre_transfers_to_states_tax_devolution`, `fiscal/centre_transfers_to_states_grants`, `fiscal/centre_transfers_to_states_gross` |
 
 Per-edition pinned URLs live in each adapter's `urls.py`; same Chrome-style UA workaround as the State Finances adapter.
 

@@ -66,10 +66,10 @@
       "status": "ingested",
       "adapter": "rbi_appendix_deficits",
       "indicator_ids": [
-        "fiscal/national_gross_fiscal_deficit",
-        "fiscal/national_revenue_deficit",
-        "fiscal/national_primary_deficit",
-        "fiscal/national_primary_revenue_deficit"
+        "fiscal/states_combined_gross_fiscal_deficit",
+        "fiscal/states_combined_revenue_deficit",
+        "fiscal/states_combined_primary_deficit",
+        "fiscal/states_combined_primary_revenue_deficit"
       ],
       "license": "GoI-Open",
       "notes": "₹ Crore series only; the % GDP companion rows interleaved on alternating rows in the same workbook are NOT shipped (would need a separate value_kind=percent indicator family). See docs/architecture/backend/sources-rbi-appendix-deficits.md."
@@ -84,13 +84,13 @@
       "status": "ingested",
       "adapter": "rbi_appendix_national",
       "indicator_ids": [
-        "fiscal/national_centre_transfers_total",
-        "fiscal/national_devolution_central_taxes",
-        "fiscal/national_grants_from_centre",
-        "fiscal/national_gross_transfers"
+        "fiscal/centre_transfers_to_states_net",
+        "fiscal/centre_transfers_to_states_tax_devolution",
+        "fiscal/centre_transfers_to_states_grants",
+        "fiscal/centre_transfers_to_states_gross"
       ],
       "license": "GoI-Open",
-      "notes": "Nominal ₹ Crore as RBI publishes; NOT deflated to constant prices. Future indicator `fiscal/national_centre_transfers_total_constant_2011_12` deflated is in the long-coverage backlog. See docs/architecture/backend/sources-rbi-appendix-national.md."
+      "notes": "Nominal ₹ Crore as RBI publishes; NOT deflated to constant prices. Future indicator `fiscal/centre_transfers_to_states_net_constant_2011_12` deflated is in the long-coverage backlog. See docs/architecture/backend/sources-rbi-appendix-national.md."
     },
     {
       "id": "rbi.handbook_state_macro",

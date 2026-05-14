@@ -13,10 +13,10 @@ Four all-India aggregate (country-entity, fiscal-year) deficit indicators source
 
 | Artifact (`datasets/indicators/in/fiscal/…`) | Indicator id | RBI workbook column |
 | --- | --- | --- |
-| `national_gross_fiscal_deficit.json` | `fiscal/national_gross_fiscal_deficit` | Gross Fiscal Deficit |
-| `national_revenue_deficit.json` | `fiscal/national_revenue_deficit` | Revenue Deficit |
-| `national_primary_deficit.json` | `fiscal/national_primary_deficit` | Primary Deficit |
-| `national_primary_revenue_deficit.json` | `fiscal/national_primary_revenue_deficit` | Primary Revenue Deficit |
+| `states_combined_gross_fiscal_deficit.json` | `fiscal/states_combined_gross_fiscal_deficit` | Gross Fiscal Deficit |
+| `states_combined_revenue_deficit.json` | `fiscal/states_combined_revenue_deficit` | Revenue Deficit |
+| `states_combined_primary_deficit.json` | `fiscal/states_combined_primary_deficit` | Primary Deficit |
+| `states_combined_primary_revenue_deficit.json` | `fiscal/states_combined_primary_revenue_deficit` | Primary Revenue Deficit |
 
 Each artifact has 20 rows (FY 2007-08 … 2025-26 BE; the latest two years are RE/BE). Values are nominal ₹ Crore (1 Crore = 10 million).
 
@@ -118,7 +118,7 @@ Each artifact carries:
 
 ## Topic catalogue
 
-Listed under the `fiscal` topic in [`datasets/reference/in/topic-catalogue.json`](../../../datasets/reference/in/topic-catalogue.json). `fiscal/national_gross_fiscal_deficit` is `featured=true` (the headline deficit indicator citizens recognise from budget commentary). The other three are `featured=false` — they show up in the "more in this topic" rail rather than the topic-page hero strip.
+Listed under the `fiscal` topic in [`datasets/reference/in/topic-catalogue.json`](../../../datasets/reference/in/topic-catalogue.json). `fiscal/states_combined_gross_fiscal_deficit` is `featured=true` (the headline deficit indicator citizens recognise from budget commentary). The other three are `featured=false` — they show up in the "more in this topic" rail rather than the topic-page hero strip.
 
 ## See also
 
