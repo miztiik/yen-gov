@@ -185,6 +185,22 @@
       "notes": "Dual provenance per Hans 2026-05-15: ICED is a re-publisher; the underlying tracker is CEA's, against the MoEF&CC December-2015 notification. Artifacts list both the ICED API URL AND the MoEF&CC notification URL in `sources`. Reuses iced_common.IcedClient for AES-256-CBC decryption. ICED feed spells Chhattisgarh as 'Chhatisgarh' (single 't'); alias added in iced_common.entities. See docs/architecture/backend/sources-iced-api.md."
     },
     {
+      "id": "iced.air_quality_namp_markers",
+      "authority": "NITI Aayog (ICED dashboard, re-publishing CPCB NAMP)",
+      "title": "Per-station annual mean PM2.5 / PM10 / NO2 / SO2 — National Air-quality Monitoring Programme",
+      "landing_url": "https://iced.niti.gov.in/climate-and-environment/environment/air-quality",
+      "asset_url_pattern": "https://icedapi.niti.gov.in/climate-environment/environment/air-quality/aqi-map-markers",
+      "format": "encrypted_json",
+      "coverage": "8453 station-year rows; 36 states/UTs with at least one PM2.5 measurement (Lakshadweep absent); SO2/NO2/PM10 from 2010, PM2.5 from 2014; 2020 absent (COVID monitoring disruption)",
+      "status": "ingested",
+      "adapter": "iced_air_quality",
+      "indicator_ids": [
+        "environment/state_pm25_annual_mean_ug_m3"
+      ],
+      "license": "GoI-Open",
+      "notes": "Dual provenance per Hans 2026-05-15: ICED is the re-publisher; the underlying station-year file is CPCB's NAMP (data/AQ_CPCB_UTF8/AQM_<year>_Annual_mean.csv). Per (state, year) aggregation = unweighted arithmetic mean of station-year means; null station-years dropped, not coerced to zero. Indicator is published with `comparability: not_comparable_across_states` because the CPCB monitor network is uneven and urban-biased — ranking states by raw mean is dishonest. NO2 / SO2 / PM10 are mechanical follow-up indicators using the same parser called with a different pollutant argument. New ENTITY_MAP aliases added: 'Tamilnadu' → S22, 'Dadra & Nagar Haveli' / 'Daman & Diu' / 'Dadra and Nagar Haveli' / 'Daman and Diu' → U03 (collapsing pre-2020 separate-UT spellings onto the post-merger entity)."
+    },
+    {
       "id": "cea.installed_capacity_monthly",
       "authority": "Central Electricity Authority",
       "title": "Monthly Installed Capacity Report — All-India + per-state, per-fuel nameplate MW",

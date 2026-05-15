@@ -44,6 +44,7 @@ ENTITY_MAP: dict[str, str] = {
     "Rajasthan": "S20",
     "Sikkim": "S21",
     "Tamil Nadu": "S22",
+    "Tamilnadu": "S22",              # One-word spelling, observed on aqi-map-markers.
     "Tripura": "S23",
     "Uttar Pradesh": "S24",
     "West Bengal": "S25",
@@ -61,6 +62,16 @@ ENTITY_MAP: dict[str, str] = {
     "Dadra and Nagar Haveli and Daman and Diu": "U03",
     "Dadra & Nagar Haveli and Daman & Diu": "U03",
     "DNH and DD": "U03",
+    # Pre-2020 the two halves were separate UTs (legacy ECI U07 / U08); the
+    # markers feed retains the old per-half spellings on stations measured
+    # before the merger. We collapse them onto the post-merger entity U03 —
+    # keeping the legacy codes alive would orphan station-years from charts
+    # that only know the current entity. State-year aggregation simply means
+    # those station-years are pooled into one U03 mean.
+    "Dadra & Nagar Haveli": "U03",
+    "Dadra and Nagar Haveli": "U03",
+    "Daman & Diu": "U03",
+    "Daman and Diu": "U03",
     "Lakshadweep": "U04",
     "Delhi": "U05",
     "NCT of Delhi": "U05",
