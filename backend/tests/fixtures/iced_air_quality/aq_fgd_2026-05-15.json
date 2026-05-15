@@ -1,0 +1,6070 @@
+{
+  "status": "success",
+  "data": {
+    "fgdGroups": [
+      {
+        "name": "Bid Awarded",
+        "value": 103010
+      },
+      {
+        "name": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "value": 5926
+      },
+      {
+        "name": "Claims to be SO2 compliant",
+        "value": 1430
+      },
+      {
+        "name": "Converted to Captive Power Plant",
+        "value": 1500
+      },
+      {
+        "name": "FGD installed",
+        "value": 9700
+      },
+      {
+        "name": "Feasibility Study under various stages",
+        "value": 23270
+      },
+      {
+        "name": "No FGD Planned",
+        "value": 4810
+      },
+      {
+        "name": "Stressed Asset",
+        "value": 1350
+      },
+      {
+        "name": "To be decommissioned",
+        "value": 2052.5
+      },
+      {
+        "name": "Under bidding",
+        "value": 61897
+      }
+    ],
+    "data": [
+      {
+        "developer": "KSK Mahanadi P",
+        "plantName": "Akaltara TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KSK Mahanadi P",
+        "plantName": "Akaltara TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 3,
+        "capacity": 600,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KSK Mahanadi P",
+        "plantName": "Akaltara TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 4,
+        "capacity": 600,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GMDCL",
+        "plantName": "Akrimota TPS",
+        "state": "Gujarat",
+        "unitNo": 1,
+        "capacity": 125,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GMDCL",
+        "plantName": "Akrimota TPS",
+        "state": "Gujarat",
+        "unitNo": 2,
+        "capacity": 125,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RATTANINDIA",
+        "plantName": "Amaravati TPS",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 270,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RATTANINDIA",
+        "plantName": "Amaravati TPS",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 270,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RATTANINDIA",
+        "plantName": "Amaravati TPS",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 270,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RATTANINDIA",
+        "plantName": "Amaravati TPS",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 270,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RATTANINDIA",
+        "plantName": "Amaravati TPS",
+        "state": "Maharashtra",
+        "unitNo": 5,
+        "capacity": 270,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Amarkantak TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Anpara TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Anpara TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Anpara TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Anpara TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 4,
+        "capacity": 500,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Anpara TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Anpara TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Anpara TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 7,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MB Power",
+        "plantName": "Anuppur TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 625,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MB Power",
+        "plantName": "Anuppur TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 625,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KORBA-WEST T",
+        "plantName": "Avantha Bhandar TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Bakreshwar TPS",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Bakreshwar TPS",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Bakreshwar TPS",
+        "state": "West Bengal",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Bakreshwar TPS",
+        "state": "West Bengal",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Bakreshwar TPS",
+        "state": "West Bengal",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Bharat Aluminium",
+        "plantName": "Balco Korba TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Bharat Aluminium",
+        "plantName": "Balco Korba TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MCCPL",
+        "plantName": "Bandakhar TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "Claims to be SO2 compliant",
+        "fgdGroup": "Claims to be SO2 compliant",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Bandel TPS",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 60,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Bandel TPS",
+        "state": "West Bengal",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "DB Power",
+        "plantName": "Baradarha TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "DB Power",
+        "plantName": "Baradarha TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Barauni TPS",
+        "state": "Bihar",
+        "unitNo": 6,
+        "capacity": 105,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Barauni TPS",
+        "state": "Bihar",
+        "unitNo": 7,
+        "capacity": 105,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Barauni TPS",
+        "state": "Bihar",
+        "unitNo": 8,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Barauni TPS",
+        "state": "Bihar",
+        "unitNo": 9,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Barh STPP",
+        "state": "Bihar",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Barh STPP",
+        "state": "Bihar",
+        "unitNo": 4,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Barh STPP",
+        "state": "Bihar",
+        "unitNo": 5,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BEPL",
+        "plantName": "Barkhera TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BEPL",
+        "plantName": "Barkhera TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NLC",
+        "plantName": "Barsingar Lignite TPP",
+        "state": "Rajasthan",
+        "unitNo": 1,
+        "capacity": 125,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NLC",
+        "plantName": "Barsingar Lignite TPP",
+        "state": "Rajasthan",
+        "unitNo": 2,
+        "capacity": 125,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "IEPL",
+        "plantName": "Bela TPS",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 270,
+        "fgdStatus": "Claims to be SO2 compliant",
+        "fgdGroup": "Claims to be SO2 compliant",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Bellary TPS",
+        "state": "Karnataka",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Bellary TPS",
+        "state": "Karnataka",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Bellary TPS",
+        "state": "Karnataka",
+        "unitNo": 3,
+        "capacity": 700,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TSGENCO",
+        "plantName": "Bhadradri TPP",
+        "state": "Telangana",
+        "unitNo": 1,
+        "capacity": 270,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TSGENCO",
+        "plantName": "Bhadradri TPP",
+        "state": "Telangana",
+        "unitNo": 2,
+        "capacity": 270,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TSGENCO",
+        "plantName": "Bhadradri TPP",
+        "state": "Telangana",
+        "unitNo": 3,
+        "capacity": 270,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BECL",
+        "plantName": "Bhavnagar TPP",
+        "state": "Gujarat",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BECL",
+        "plantName": "Bhavnagar TPP",
+        "state": "Gujarat",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC & Sail",
+        "plantName": "Bhilai TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC & Sail",
+        "plantName": "Bhilai TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Bhusawal TPS",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Bhusawal TPS",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Bhusawal TPS",
+        "state": "Maharashtra",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "JPPVL",
+        "plantName": "Bina TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "JPPVL",
+        "plantName": "Bina TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SKS Power Gen.",
+        "plantName": "Binjkote TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SKS Power Gen.",
+        "plantName": "Binjkote TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Bokaro A Extension TPS",
+        "state": "Jharkhand",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Bongaigaon TPP",
+        "state": "Assam",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Bongaigaon TPP",
+        "state": "Assam",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Bongaigaon TPP",
+        "state": "Assam",
+        "unitNo": 3,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "C.E.S.C. Pvt.",
+        "plantName": "Budge Budge TPS",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "C.E.S.C. Pvt.",
+        "plantName": "Budge Budge TPS",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "C.E.S.C. Pvt.",
+        "plantName": "Budge Budge TPS",
+        "state": "West Bengal",
+        "unitNo": 3,
+        "capacity": 250,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Vidarbha Industri",
+        "plantName": "Butibori TPP",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Vidarbha Industri",
+        "plantName": "Butibori TPP",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "ACB",
+        "plantName": "Chakabura TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 30,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Chandrapur (Maharashtra) STPS",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Chandrapur (Maharashtra) STPS",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Chandrapur (Maharashtra) STPS",
+        "state": "Maharashtra",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Chandrapur (Maharashtra) STPS",
+        "state": "Maharashtra",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Chandrapur (Maharashtra) STPS",
+        "state": "Maharashtra",
+        "unitNo": 7,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Chandrapur (Maharashtra) STPS",
+        "state": "Maharashtra",
+        "unitNo": 8,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Chandrapur (Maharashtra) STPS",
+        "state": "Maharashtra",
+        "unitNo": 9,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Chandrapura (DVC) TPS",
+        "state": "Jharkhand",
+        "unitNo": 7,
+        "capacity": 250,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Chandrapura (DVC) TPS",
+        "state": "Jharkhand",
+        "unitNo": 8,
+        "capacity": 250,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Chhabra TPP",
+        "state": "Rajasthan",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Chhabra TPP",
+        "state": "Rajasthan",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Chhabra TPP",
+        "state": "Rajasthan",
+        "unitNo": 3,
+        "capacity": 250,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Chhabra TPP",
+        "state": "Rajasthan",
+        "unitNo": 4,
+        "capacity": 250,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Chhabra TPP",
+        "state": "Rajasthan",
+        "unitNo": 5,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Chhabra TPP",
+        "state": "Rajasthan",
+        "unitNo": 6,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Dadri TPP (NCTPP)",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Dadri TPP (NCTPP)",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Dadri TPP (NCTPP)",
+        "state": "Uttar Pradesh",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Dadri TPP (NCTPP)",
+        "state": "Uttar Pradesh",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Dadri TPP (NCTPP)",
+        "state": "Uttar Pradesh",
+        "unitNo": 5,
+        "capacity": 490,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Dadri TPP (NCTPP)",
+        "state": "Uttar Pradesh",
+        "unitNo": 6,
+        "capacity": 490,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APL",
+        "plantName": "Dahanu TPS",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APL",
+        "plantName": "Dahanu TPS",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APPDCL",
+        "plantName": "Damodaram Sanjeevaiah or Krishnapatnam TPP",
+        "state": "Andhra Pradesh",
+        "unitNo": 1,
+        "capacity": 800,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APPDCL",
+        "plantName": "Damodaram Sanjeevaiah or Krishnapatnam TPP",
+        "state": "Andhra Pradesh",
+        "unitNo": 2,
+        "capacity": 800,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Darlipali STPP",
+        "state": "Odisha",
+        "unitNo": 1,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Darlipali STPP",
+        "state": "Odisha",
+        "unitNo": 2,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "JIPL",
+        "plantName": "Derang TPP",
+        "state": "Odisha",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "JIPL",
+        "plantName": "Derang TPP",
+        "state": "Odisha",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Dhariwal Infrastru",
+        "plantName": "Dhariwal TPP",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Dhariwal Infrastru",
+        "plantName": "Dhariwal TPP",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "DPSCLTD",
+        "plantName": "Dishergarh TPS",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 12,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CSPGCL",
+        "plantName": "Dr. Shyama Prasad Mukherjee TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CSPGCL",
+        "plantName": "Dr. Shyama Prasad Mukherjee TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.P.L.",
+        "plantName": "Durgapur Projects (D.P.L.) TPS",
+        "state": "West Bengal",
+        "unitNo": 7,
+        "capacity": 300,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.P.L.",
+        "plantName": "Durgapur Projects (D.P.L.) TPS",
+        "state": "West Bengal",
+        "unitNo": 8,
+        "capacity": 250,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Durgapur Steel TPS",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Durgapur Steel TPS",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GMR emco ENE",
+        "plantName": "EMCO Energy Warora TPS/ GMR Warora",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GMR emco ENE",
+        "plantName": "EMCO Energy Warora TPS/ GMR Warora",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Essar Gujarat",
+        "plantName": "Salaya TPP/Essar Power Gujarat",
+        "state": "Gujarat",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Essar Gujarat",
+        "plantName": "Salaya TPP/Essar Power Gujarat",
+        "state": "Gujarat",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Farakka STPS",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Farakka STPS",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Farakka STPS",
+        "state": "West Bengal",
+        "unitNo": 3,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Farakka STPS",
+        "state": "West Bengal",
+        "unitNo": 4,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Farakka STPS",
+        "state": "West Bengal",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Farakka STPS",
+        "state": "West Bengal",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Gadarwara STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Gadarwara STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Gandhi Nagar TPS",
+        "state": "Gujarat",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Gandhi Nagar TPS",
+        "state": "Gujarat",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Gandhi Nagar TPS",
+        "state": "Gujarat",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Giral Lignite TPS",
+        "state": "Rajasthan",
+        "unitNo": 1,
+        "capacity": 125,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Giral Lignite TPS",
+        "state": "Rajasthan",
+        "unitNo": 2,
+        "capacity": 125,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GVK Power Ltd.",
+        "plantName": "Goindwal Sahib TPP",
+        "state": "Punjab",
+        "unitNo": 1,
+        "capacity": 270,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GVK Power Ltd.",
+        "plantName": "Goindwal Sahib TPP",
+        "state": "Punjab",
+        "unitNo": 2,
+        "capacity": 270,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GEPL",
+        "plantName": "Gupta Energy or GEPL TPP",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 60,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GEPL",
+        "plantName": "Gupta Energy or GEPL TPP",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 60,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "PSEB",
+        "plantName": "Guru Hargobind TPS",
+        "state": "Punjab",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "PSEB",
+        "plantName": "Guru Hargobind TPS",
+        "state": "Punjab",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "PSEB",
+        "plantName": "Guru Hargobind TPS",
+        "state": "Punjab",
+        "unitNo": 3,
+        "capacity": 250,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "PSEB",
+        "plantName": "Guru Hargobind TPS",
+        "state": "Punjab",
+        "unitNo": 4,
+        "capacity": 250,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s Haldia Energ",
+        "plantName": "Haldia TPP",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s Haldia Energ",
+        "plantName": "Haldia TPP",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Harduaganj TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 7,
+        "capacity": 105,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Harduaganj TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 8,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Harduaganj TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 9,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Bishagarh Power",
+        "plantName": "Hiranmaye TPP",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 150,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "India Power Corp",
+        "plantName": "Hiranmaye TPP",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 150,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "OPGCLtd",
+        "plantName": "IB Valley TPS",
+        "state": "Odisha",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "OPGCLtd",
+        "plantName": "IB Valley TPS",
+        "state": "Odisha",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "OPGC",
+        "plantName": "IB Valley TPS",
+        "state": "Odisha",
+        "unitNo": 3,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "OPGC",
+        "plantName": "IB Valley TPS",
+        "state": "Odisha",
+        "unitNo": 4,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Ind barath",
+        "plantName": "Ind Barath (Utkal) TPP/Sahajbahal",
+        "state": "Odisha",
+        "unitNo": 1,
+        "capacity": 350,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Indira Gandhi STPP",
+        "state": "Haryana",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Indira Gandhi STPP",
+        "state": "Haryana",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Indira Gandhi STPP",
+        "state": "Haryana",
+        "unitNo": 3,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "IL&FS Tamil Nadu Power Co. Ltd.",
+        "plantName": "ITPCL or Cuddalore TPP",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "IL&FS Tamil Nadu Power Co. Ltd.",
+        "plantName": "ITPCL or Cuddalore TPP",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RWPL (JSW)",
+        "plantName": "Jalipa- Kapurdi TPP",
+        "state": "Rajasthan",
+        "unitNo": 1,
+        "capacity": 135,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RWPL (JSW)",
+        "plantName": "Jalipa- Kapurdi TPP",
+        "state": "Rajasthan",
+        "unitNo": 2,
+        "capacity": 135,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RWPL (JSW)",
+        "plantName": "Jalipa- Kapurdi TPP",
+        "state": "Rajasthan",
+        "unitNo": 3,
+        "capacity": 135,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RWPL (JSW)",
+        "plantName": "Jalipa- Kapurdi TPP",
+        "state": "Rajasthan",
+        "unitNo": 4,
+        "capacity": 135,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RWPL (JSW)",
+        "plantName": "Jalipa- Kapurdi TPP",
+        "state": "Rajasthan",
+        "unitNo": 5,
+        "capacity": 135,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RWPL (JSW)",
+        "plantName": "Jalipa- Kapurdi TPP",
+        "state": "Rajasthan",
+        "unitNo": 6,
+        "capacity": 135,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RWPL (JSW)",
+        "plantName": "Jalipa- Kapurdi TPP",
+        "state": "Rajasthan",
+        "unitNo": 7,
+        "capacity": 135,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RWPL (JSW)",
+        "plantName": "Jalipa- Kapurdi TPP",
+        "state": "Rajasthan",
+        "unitNo": 8,
+        "capacity": 135,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Jaipraksh Power",
+        "plantName": "Jaypee Nigrie STPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Jaipraksh Power",
+        "plantName": "Jaypee Nigrie STPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TATA Power Co.",
+        "plantName": "Jojobera TPS",
+        "state": "Jharkhand",
+        "unitNo": 2,
+        "capacity": 120,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TATA Power Co.",
+        "plantName": "Jojobera TPS",
+        "state": "Jharkhand",
+        "unitNo": 3,
+        "capacity": 120,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "JSWEL",
+        "plantName": "JSW Ratnagiri TPP",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "JSWEL",
+        "plantName": "JSW Ratnagiri TPP",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "Converted to Captive Power Plant",
+        "fgdGroup": "Converted to Captive Power Plant",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "JSWEL",
+        "plantName": "JSW Ratnagiri TPP",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 300,
+        "fgdStatus": "Converted to Captive Power Plant",
+        "fgdGroup": "Converted to Captive Power Plant",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "JSWEL",
+        "plantName": "JSW Ratnagiri TPP",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 300,
+        "fgdStatus": "Converted to Captive Power Plant",
+        "fgdGroup": "Converted to Captive Power Plant",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Kahalgaon STPS",
+        "state": "Bihar",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Kahalgaon STPS",
+        "state": "Bihar",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Kahalgaon STPS",
+        "state": "Bihar",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Kahalgaon STPS",
+        "state": "Bihar",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Kahalgaon STPS",
+        "state": "Bihar",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Kahalgaon STPS",
+        "state": "Bihar",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Kahalgaon STPS",
+        "state": "Bihar",
+        "unitNo": 7,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TSGENCO",
+        "plantName": "Kakatiya TPS",
+        "state": "Telangana",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TSGENCO",
+        "plantName": "Kakatiya TPS",
+        "state": "Telangana",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Kalisindh STPS",
+        "state": "Rajasthan",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Kalisindh STPS",
+        "state": "Rajasthan",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GMR",
+        "plantName": "Kamalanga TPS",
+        "state": "Odisha",
+        "unitNo": 1,
+        "capacity": 350,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GMR",
+        "plantName": "Kamalanga TPS",
+        "state": "Odisha",
+        "unitNo": 2,
+        "capacity": 350,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GMR",
+        "plantName": "Kamalanga TPS",
+        "state": "Odisha",
+        "unitNo": 3,
+        "capacity": 350,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Talcher or Kaniha Talcher  STPS",
+        "state": "Odisha",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Talcher or Kaniha Talcher  STPS",
+        "state": "Odisha",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Talcher or Kaniha Talcher  STPS",
+        "state": "Odisha",
+        "unitNo": 3,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Talcher or Kaniha Talcher  STPS",
+        "state": "Odisha",
+        "unitNo": 4,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Talcher or Kaniha Talcher  STPS",
+        "state": "Odisha",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Talcher or Kaniha Talcher  STPS",
+        "state": "Odisha",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "ACB",
+        "plantName": "Kasaipalli TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 135,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "ACB",
+        "plantName": "Kasaipalli TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 135,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "VESPL",
+        "plantName": "Katghora TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 35,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Kawai TPS",
+        "state": "Rajasthan",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Kawai TPS",
+        "state": "Rajasthan",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BEPL",
+        "plantName": "Khamberkhera TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BEPL",
+        "plantName": "Khamberkhera TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Khaparkheda  TPS",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Khaparkheda  TPS",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Khaparkheda  TPS",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Khaparkheda  TPS",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Khaparkheda  TPS",
+        "state": "Maharashtra",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Khargone Super Critical Power Plant",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Khargone Super Critical Power Plant",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Kodarma TPP",
+        "state": "Jharkhand",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Kodarma TPP",
+        "state": "Jharkhand",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Kolaghat TPS",
+        "state": "West Bengal",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Kolaghat TPS",
+        "state": "West Bengal",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Kolaghat TPS",
+        "state": "West Bengal",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Kolaghat TPS",
+        "state": "West Bengal",
+        "unitNo": 6,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Koradi TPS",
+        "state": "Maharashtra",
+        "unitNo": 10,
+        "capacity": 660,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Koradi TPS",
+        "state": "Maharashtra",
+        "unitNo": 6,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Koradi TPS",
+        "state": "Maharashtra",
+        "unitNo": 8,
+        "capacity": 660,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Koradi TPS",
+        "state": "Maharashtra",
+        "unitNo": 9,
+        "capacity": 660,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Korba STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Korba STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Korba STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 3,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Korba STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 4,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Korba STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Korba STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Korba STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 7,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CSPGCL",
+        "plantName": "Korba West or Hasdeo TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CSPGCL",
+        "plantName": "Korba West or Hasdeo TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CSPGCL",
+        "plantName": "Korba West or Hasdeo TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CSPGCL",
+        "plantName": "Korba West or Hasdeo TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CSPGCL",
+        "plantName": "Korba West or Hasdeo TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Kota TPS",
+        "state": "Rajasthan",
+        "unitNo": 1,
+        "capacity": 110,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Kota TPS",
+        "state": "Rajasthan",
+        "unitNo": 2,
+        "capacity": 110,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Kota TPS",
+        "state": "Rajasthan",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Kota TPS",
+        "state": "Rajasthan",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Kota TPS",
+        "state": "Rajasthan",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Kota TPS",
+        "state": "Rajasthan",
+        "unitNo": 6,
+        "capacity": 195,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Kota TPS",
+        "state": "Rajasthan",
+        "unitNo": 7,
+        "capacity": 195,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TSGENCO",
+        "plantName": "Kothagudem TPS",
+        "state": "Telangana",
+        "unitNo": 11,
+        "capacity": 500,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TSGENCO",
+        "plantName": "Kothagudem TPS",
+        "state": "Telangana",
+        "unitNo": 10,
+        "capacity": 250,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TSGENCO",
+        "plantName": "Kothagudem TPS",
+        "state": "Telangana",
+        "unitNo": 9,
+        "capacity": 250,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TSGENCO",
+        "plantName": "Kothagudem TPS",
+        "state": "Telangana",
+        "unitNo": 12,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Kudgi STPP",
+        "state": "Karnataka",
+        "unitNo": 1,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Kudgi STPP",
+        "state": "Karnataka",
+        "unitNo": 2,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Kudgi STPP",
+        "state": "Karnataka",
+        "unitNo": 3,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BEPL",
+        "plantName": "Kundarkhi TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BEPL",
+        "plantName": "Kundarkhi TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Kutchh Lignite TPS",
+        "state": "Gujarat",
+        "unitNo": 3,
+        "capacity": 75,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Kutchh Lignite TPS",
+        "state": "Gujarat",
+        "unitNo": 4,
+        "capacity": 75,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Lalitpur Power G",
+        "plantName": "Lalitpur TPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Retendering",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Lalitpur Power G",
+        "plantName": "Lalitpur TPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Retendering",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Lalitpur Power G",
+        "plantName": "Lalitpur TPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 3,
+        "capacity": 660,
+        "fgdStatus": "Retendering",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Lanko Anpara Po",
+        "plantName": "Anpara C TPS or Lanco Anapara",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Lanko Anpara Po",
+        "plantName": "Anpara C TPS or Lanco Anapara",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Lara STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Lara STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adhunik Power&",
+        "plantName": "Mahadev Prasad or Jamshedpur Kandra STPP",
+        "state": "Jharkhand",
+        "unitNo": 1,
+        "capacity": 270,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adhunik Power&",
+        "plantName": "Mahadev Prasad or Jamshedpur Kandra STPP",
+        "state": "Jharkhand",
+        "unitNo": 2,
+        "capacity": 270,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APL",
+        "plantName": "Mahan TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APL",
+        "plantName": "Mahan TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CHINA LIGHT P",
+        "plantName": "Mahatma Gandhi TPS or Jhajjhar TPS",
+        "state": "Haryana",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CHINA LIGHT P",
+        "plantName": "Mahatma Gandhi TPS or Jhajjhar TPS",
+        "state": "Haryana",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TATA Power Co.",
+        "plantName": "Maithon TPP",
+        "state": "Jharkhand",
+        "unitNo": 1,
+        "capacity": 525,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TATA Power Co.",
+        "plantName": "Maithon TPP",
+        "state": "Jharkhand",
+        "unitNo": 2,
+        "capacity": 525,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BEPL",
+        "plantName": "Maqsoodpur TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BEPL",
+        "plantName": "Maqsoodpur TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CSPGCL",
+        "plantName": "Marwa TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CSPGCL",
+        "plantName": "Marwa TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Mauda TPS",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Mauda TPS",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Mauda TPS",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Mauda TPS",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Meja STPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Meja STPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Mejia TPS",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Mejia TPS",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Mejia TPS",
+        "state": "West Bengal",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Mejia TPS",
+        "state": "West Bengal",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Mejia TPS",
+        "state": "West Bengal",
+        "unitNo": 5,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Mejia TPS",
+        "state": "West Bengal",
+        "unitNo": 6,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Mejia TPS",
+        "state": "West Bengal",
+        "unitNo": 7,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Mejia TPS",
+        "state": "West Bengal",
+        "unitNo": 8,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Mettur TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Mettur TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Mettur TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Mettur TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Mettur TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 5,
+        "capacity": 600,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "AMNEPL",
+        "plantName": "Mihan TPS",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 61.5,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "AMNEPL",
+        "plantName": "Mihan TPS",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 61.5,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "AMNEPL",
+        "plantName": "Mihan TPS",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 61.5,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "AMNEPL",
+        "plantName": "Mihan TPS",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 61.5,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Mundra TPS",
+        "state": "Gujarat",
+        "unitNo": 1,
+        "capacity": 330,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Mundra TPS",
+        "state": "Gujarat",
+        "unitNo": 2,
+        "capacity": 330,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Mundra TPS",
+        "state": "Gujarat",
+        "unitNo": 3,
+        "capacity": 330,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Mundra TPS",
+        "state": "Gujarat",
+        "unitNo": 4,
+        "capacity": 330,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Mundra TPS",
+        "state": "Gujarat",
+        "unitNo": 5,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Mundra TPS",
+        "state": "Gujarat",
+        "unitNo": 6,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Mundra TPS",
+        "state": "Gujarat",
+        "unitNo": 7,
+        "capacity": 660,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Mundra TPS",
+        "state": "Gujarat",
+        "unitNo": 8,
+        "capacity": 660,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Mundra TPS",
+        "state": "Gujarat",
+        "unitNo": 9,
+        "capacity": 660,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Coastal Energen",
+        "plantName": "Muthiara TPP",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Coastal Energen",
+        "plantName": "Muthiara TPP",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC & Bihar",
+        "plantName": "Muzaffarpur TPS",
+        "state": "Bihar",
+        "unitNo": 3,
+        "capacity": 195,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC & Bihar",
+        "plantName": "Muzaffarpur TPS",
+        "state": "Bihar",
+        "unitNo": 4,
+        "capacity": 195,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Nabi Nagar TPP",
+        "state": "Bihar",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Nabi Nagar TPP",
+        "state": "Bihar",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Nabi Nagar TPP",
+        "state": "Bihar",
+        "unitNo": 3,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Nabi Nagar TPP",
+        "state": "Bihar",
+        "unitNo": 4,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Nasik TPS",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Nasik TPS",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Nasik TPS",
+        "state": "Maharashtra",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Ratan Power",
+        "plantName": "Nasik RattanIndia or Nasik (P) TPS",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 270,
+        "fgdStatus": "Stressed Asset",
+        "fgdGroup": "Stressed Asset",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Ratan Power",
+        "plantName": "Nasik RattanIndia or Nasik (P) TPS",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 270,
+        "fgdStatus": "Stressed Asset",
+        "fgdGroup": "Stressed Asset",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Ratan Power",
+        "plantName": "Nasik RattanIndia or Nasik (P) TPS",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 270,
+        "fgdStatus": "Stressed Asset",
+        "fgdGroup": "Stressed Asset",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Ratan Power",
+        "plantName": "Nasik RattanIndia or Nasik (P) TPS",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 270,
+        "fgdStatus": "Stressed Asset",
+        "fgdGroup": "Stressed Asset",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Ratan Power",
+        "plantName": "Nasik RattanIndia or Nasik (P) TPS",
+        "state": "Maharashtra",
+        "unitNo": 5,
+        "capacity": 270,
+        "fgdStatus": "Stressed Asset",
+        "fgdGroup": "Stressed Asset",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TRNE",
+        "plantName": "Nawapara TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "Claims to be SO2 compliant",
+        "fgdGroup": "Claims to be SO2 compliant",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TRN Energy Privete",
+        "plantName": "Nawapara TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "Claims to be SO2 compliant",
+        "fgdGroup": "Claims to be SO2 compliant",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "New NabiNagar TPP (Majhiyan)",
+        "state": "Bihar",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "New NabiNagar TPP (Majhiyan)",
+        "state": "Bihar",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNITE",
+        "plantName": "Neyveli (New) TPP /Neyveli Extension",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNITE",
+        "plantName": "Neyveli (New) TPP /Neyveli Extension",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNIT",
+        "plantName": "Neyveli (EXT) TPS I",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNIT",
+        "plantName": "Neyveli (EXT) TPS I",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TAQA, Neyveli",
+        "plantName": "Neyveli TPS (Z)",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNITE",
+        "plantName": "Neyveli (EXT) TPS II",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNITE",
+        "plantName": "Neyveli (EXT) TPS II",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNIT",
+        "plantName": "Neyveli TPS II",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNIT",
+        "plantName": "Neyveli TPS II",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNIT",
+        "plantName": "Neyveli TPS II",
+        "state": "Tamil Nadu",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNIT",
+        "plantName": "Neyveli TPS II",
+        "state": "Tamil Nadu",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNIT",
+        "plantName": "Neyveli TPS II",
+        "state": "Tamil Nadu",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNIT",
+        "plantName": "Neyveli TPS II",
+        "state": "Tamil Nadu",
+        "unitNo": 6,
+        "capacity": 210,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NEYVELI LIGNIT",
+        "plantName": "Neyveli TPS II",
+        "state": "Tamil Nadu",
+        "unitNo": 7,
+        "capacity": 210,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BLAPPL",
+        "plantName": "Niwari TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BLAPPL",
+        "plantName": "Niwari TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "North Chennai TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "North Chennai TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "North Chennai TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "North Chennai TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 4,
+        "capacity": 600,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "North Chennai TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 5,
+        "capacity": 600,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s O.P.Jindal",
+        "plantName": "O.P. Jindal or Tamnar I TPS/ Raigarh TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s O.P.Jindal",
+        "plantName": "O.P. Jindal or Tamnar I TPS/ Raigarh TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s O.P.Jindal",
+        "plantName": "O.P. Jindal or Tamnar I TPS/ Raigarh TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 3,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s O.P.Jindal",
+        "plantName": "O.P. Jindal or Tamnar I TPS/ Raigarh TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 4,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Obra TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 10,
+        "capacity": 200,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Obra TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 11,
+        "capacity": 200,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Obra TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 12,
+        "capacity": 200,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Obra TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 13,
+        "capacity": 200,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Obra TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 9,
+        "capacity": 200,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "HPGCL",
+        "plantName": "Panipat TPS",
+        "state": "Haryana",
+        "unitNo": 6,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "HPGCL",
+        "plantName": "Panipat TPS",
+        "state": "Haryana",
+        "unitNo": 7,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "HPGCL",
+        "plantName": "Panipat TPS",
+        "state": "Haryana",
+        "unitNo": 8,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Paras TPS",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Paras TPS",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Parichha TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Parichha TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Parichha TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 5,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "UPRVUNL",
+        "plantName": "Parichha TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 6,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Parli TPS",
+        "state": "Maharashtra",
+        "unitNo": 6,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Parli TPS",
+        "state": "Maharashtra",
+        "unitNo": 7,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MAHAGENCO",
+        "plantName": "Parli TPS",
+        "state": "Maharashtra",
+        "unitNo": 8,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s Lanko Amark",
+        "plantName": "Pathadi TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s Lanko Amark",
+        "plantName": "Pathadi TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Prayagraj Power",
+        "plantName": "Prayagraj (Bara) TPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Prayagraj Power",
+        "plantName": "Prayagraj (Bara) TPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Prayagraj Power",
+        "plantName": "Prayagraj (Bara) TPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 3,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Raghunathpur TPS",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "D.V.C",
+        "plantName": "Raghunathpur TPS",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Raichur TPS",
+        "state": "Karnataka",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Raichur TPS",
+        "state": "Karnataka",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Raichur TPS",
+        "state": "Karnataka",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Raichur TPS",
+        "state": "Karnataka",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Raichur TPS",
+        "state": "Karnataka",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Raichur TPS",
+        "state": "Karnataka",
+        "unitNo": 6,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Raichur TPS",
+        "state": "Karnataka",
+        "unitNo": 7,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Raichur TPS",
+        "state": "Karnataka",
+        "unitNo": 8,
+        "capacity": 250,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GMR",
+        "plantName": "Raikheda TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 685,
+        "fgdStatus": "Feasibility study not started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GMR",
+        "plantName": "Raikheda TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 685,
+        "fgdStatus": "Feasibility study not started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "HPGCL",
+        "plantName": "Rajiv Gandhi TPS",
+        "state": "Haryana",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "HPGCL",
+        "plantName": "Rajiv Gandhi TPS",
+        "state": "Haryana",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "L&T Power Deve",
+        "plantName": "Rajpura TPP",
+        "state": "Punjab",
+        "unitNo": 1,
+        "capacity": 700,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "L&T Power Deve",
+        "plantName": "Rajpura TPP",
+        "state": "Punjab",
+        "unitNo": 2,
+        "capacity": 700,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Ramagundam STPS",
+        "state": "Telangana",
+        "unitNo": 1,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Ramagundam STPS",
+        "state": "Telangana",
+        "unitNo": 2,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Ramagundam STPS",
+        "state": "Telangana",
+        "unitNo": 3,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Ramagundam STPS",
+        "state": "Telangana",
+        "unitNo": 4,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Ramagundam STPS",
+        "state": "Telangana",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Ramagundam STPS",
+        "state": "Telangana",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Ramagundam STPS",
+        "state": "Telangana",
+        "unitNo": 7,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TSGENCO",
+        "plantName": "Ramagudem -B TPS",
+        "state": "Telangana",
+        "unitNo": 1,
+        "capacity": 62.5,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SCPL",
+        "plantName": "Ratija TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 50,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SCPL",
+        "plantName": "Ratija TPS",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 50,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Rayalaseema TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Rayalaseema TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Rayalaseema TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Rayalaseema TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Rayalaseema TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Rayalaseema TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 6,
+        "capacity": 600,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Rihand STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Rihand STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Rihand STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 3,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Rihand STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 4,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Rihand STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Rihand STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "PSEB",
+        "plantName": "Ropar TPS or Guru Gobind Singh STPP",
+        "state": "Punjab",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "PSEB",
+        "plantName": "Ropar TPS or Guru Gobind Singh STPP",
+        "state": "Punjab",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "PSEB",
+        "plantName": "Ropar TPS or Guru Gobind Singh STPP",
+        "state": "Punjab",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "PSEB",
+        "plantName": "Ropar TPS or Guru Gobind Singh STPP",
+        "state": "Punjab",
+        "unitNo": 6,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Rosa Power Sup",
+        "plantName": "Rosa TPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Rosa Power Sup",
+        "plantName": "Rosa TPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Rosa Power Sup",
+        "plantName": "Rosa TPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 3,
+        "capacity": 300,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Rosa Power Sup",
+        "plantName": "Rosa TPP",
+        "state": "Uttar Pradesh",
+        "unitNo": 4,
+        "capacity": 300,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Torrent Power G",
+        "plantName": "Sabarmati (D-F Stations) TPP",
+        "state": "Gujarat",
+        "unitNo": 1,
+        "capacity": 120,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Torrent Power G",
+        "plantName": "Sabarmati (D-F Stations) TPP",
+        "state": "Gujarat",
+        "unitNo": 2,
+        "capacity": 121,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Torrent Power G",
+        "plantName": "Sabarmati (D-F Stations) TPP",
+        "state": "Gujarat",
+        "unitNo": 3,
+        "capacity": 121,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Sagardighi TPS",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Sagardighi TPS",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Sagardighi TPS",
+        "state": "West Bengal",
+        "unitNo": 3,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Sagardighi TPS",
+        "state": "West Bengal",
+        "unitNo": 4,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "VVL",
+        "plantName": "Salora TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 135,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Sanjay Gandhi TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Sanjay Gandhi TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Sanjay Gandhi TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Sanjay Gandhi TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Sanjay Gandhi TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Santaldih TPS",
+        "state": "West Bengal",
+        "unitNo": 5,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "WBPDC",
+        "plantName": "Santaldih TPS",
+        "state": "West Bengal",
+        "unitNo": 6,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Reliance Power L",
+        "plantName": "Sasan UMTPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Reliance Power L",
+        "plantName": "Sasan UMTPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Reliance Power L",
+        "plantName": "Sasan UMTPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 3,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Reliance Power L",
+        "plantName": "Sasan UMTPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 4,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Reliance Power L",
+        "plantName": "Sasan UMTPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 5,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Reliance Power L",
+        "plantName": "Sasan UMTPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 6,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Satpura TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 6,
+        "capacity": 200,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Satpura TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 7,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Satpura TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 8,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Satpura TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 9,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Satpura TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 10,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Satpura TPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 11,
+        "capacity": 250,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Jhabua Power Ltd",
+        "plantName": "Seioni TPP or Jhabua Power Seoni TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Sembcorp Energ",
+        "plantName": "Sembcorp Gayatri Power Ltd. Power Project",
+        "state": "Andhra Pradesh",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Sembcorp Energ",
+        "plantName": "Sembcorp Gayatri Power Ltd. Power Project",
+        "state": "Andhra Pradesh",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Shirpur Power Pvt",
+        "plantName": "Shirpur TPP",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 150,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Shri Singhaji or Malwa TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Shri Singhaji or Malwa TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Shri Singhaji or Malwa TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 3,
+        "capacity": 660,
+        "fgdStatus": "Retendering",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MPPGCL",
+        "plantName": "Shri Singhaji or Malwa TPP",
+        "state": "Madhya Pradesh",
+        "unitNo": 4,
+        "capacity": 660,
+        "fgdStatus": "Retendering",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Sikka TPS",
+        "state": "Gujarat",
+        "unitNo": 3,
+        "capacity": 250,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Sikka TPS",
+        "state": "Gujarat",
+        "unitNo": 4,
+        "capacity": 250,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Simhadri TPP",
+        "state": "Andhra Pradesh",
+        "unitNo": 3,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Simhadri TPP",
+        "state": "Andhra Pradesh",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Simhadri TPP",
+        "state": "Andhra Pradesh",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Simhadri TPP",
+        "state": "Andhra Pradesh",
+        "unitNo": 4,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SEPL",
+        "plantName": "Simhapuri TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 1,
+        "capacity": 150,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SEPL",
+        "plantName": "Simhapuri TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 2,
+        "capacity": 150,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SEPL",
+        "plantName": "Simhapuri TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 3,
+        "capacity": 150,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SEPL",
+        "plantName": "Simhapuri TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 4,
+        "capacity": 150,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Singareni Collerie",
+        "plantName": "Singareni TPP",
+        "state": "Telangana",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Singareni Collerie",
+        "plantName": "Singareni TPP",
+        "state": "Telangana",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Singrauli STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Singrauli STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Singrauli STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 3,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Singrauli STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 4,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Singrauli STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 5,
+        "capacity": 200,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Singrauli STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Singrauli STPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 7,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Sipat STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Sipat STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Sipat STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 3,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Sipat STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 4,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Sipat STPS",
+        "state": "Chhatisgarh",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Solapur Super critical Thermal Power Plant",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Solapur Super critical Thermal Power Plant",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "C.E.S.C. Pvt.",
+        "plantName": "Southern Generating Power Station (Southern Repl. TPS)",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 67.5,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "C.E.S.C. Pvt.",
+        "plantName": "Southern Generating Power Station (Southern Repl. TPS)",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 67.5,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SEL",
+        "plantName": "Sterlite (Jharsuguda)/ Vedanta Thermal Power Plant",
+        "state": "Odisha",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Converted to Captive Power Plant",
+        "fgdGroup": "Converted to Captive Power Plant",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SEL",
+        "plantName": "Sterlite (Jharsuguda)/ Vedanta Thermal Power Plant",
+        "state": "Odisha",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GIPCL",
+        "plantName": "Surat (Lignite) TPS",
+        "state": "Gujarat",
+        "unitNo": 1,
+        "capacity": 125,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GIPCL",
+        "plantName": "Surat (Lignite) TPS",
+        "state": "Gujarat",
+        "unitNo": 2,
+        "capacity": 125,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GIPCL",
+        "plantName": "Surat (Lignite) TPS",
+        "state": "Gujarat",
+        "unitNo": 3,
+        "capacity": 125,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GIPCL",
+        "plantName": "Surat (Lignite) TPS",
+        "state": "Gujarat",
+        "unitNo": 4,
+        "capacity": 125,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Suratgarh STPS",
+        "state": "Rajasthan",
+        "unitNo": 1,
+        "capacity": 250,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Suratgarh STPS",
+        "state": "Rajasthan",
+        "unitNo": 2,
+        "capacity": 250,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Suratgarh STPS",
+        "state": "Rajasthan",
+        "unitNo": 3,
+        "capacity": 250,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Suratgarh STPS",
+        "state": "Rajasthan",
+        "unitNo": 4,
+        "capacity": 250,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Suratgarh STPS",
+        "state": "Rajasthan",
+        "unitNo": 5,
+        "capacity": 250,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Suratgarh STPS",
+        "state": "Rajasthan",
+        "unitNo": 6,
+        "capacity": 250,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Suratgarh STPS",
+        "state": "Rajasthan",
+        "unitNo": 7,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RRVUNL",
+        "plantName": "Suratgarh STPS",
+        "state": "Rajasthan",
+        "unitNo": 8,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "SVPPL",
+        "plantName": "SVPL TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 63,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "ACB",
+        "plantName": "Swastik Korba TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 25,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Talwandi Sabo P",
+        "plantName": "Talwandi Sabo TPP",
+        "state": "Punjab",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Talwandi Sabo P",
+        "plantName": "Talwandi Sabo TPP",
+        "state": "Punjab",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Talwandi Sabo P",
+        "plantName": "Talwandi Sabo TPP",
+        "state": "Punjab",
+        "unitNo": 3,
+        "capacity": 660,
+        "fgdStatus": "Tender specification made",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s O.P.Jindal",
+        "plantName": "Tamnar TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s O.P.Jindal",
+        "plantName": "Tamnar TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s O.P.Jindal",
+        "plantName": "Tamnar TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 3,
+        "capacity": 600,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "M/s O.P.Jindal",
+        "plantName": "Tamnar TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 4,
+        "capacity": 600,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Tanda TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 110,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Tanda TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 110,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Tanda TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 3,
+        "capacity": 110,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Tanda TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 4,
+        "capacity": 110,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Tanda TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 5,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Tanda TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 6,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Tata Power (CGP",
+        "plantName": "Mundra UMTPP",
+        "state": "Gujarat",
+        "unitNo": 1,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Tata Power (CGP",
+        "plantName": "Mundra UMTPP",
+        "state": "Gujarat",
+        "unitNo": 2,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Tata Power (CGP",
+        "plantName": "Mundra UMTPP",
+        "state": "Gujarat",
+        "unitNo": 3,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Tata Power (CGP",
+        "plantName": "Mundra UMTPP",
+        "state": "Gujarat",
+        "unitNo": 4,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Tata Power (CGP",
+        "plantName": "Mundra UMTPP",
+        "state": "Gujarat",
+        "unitNo": 5,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TenughatVN Ltd",
+        "plantName": "Tenughat TPS",
+        "state": "Jharkhand",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TenughatVN Ltd",
+        "plantName": "Tenughat TPS",
+        "state": "Jharkhand",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MEL",
+        "plantName": "Thamminapatnam TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 1,
+        "capacity": 150,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "MEL",
+        "plantName": "Thamminapatnam TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 2,
+        "capacity": 150,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Sembcorp Energ",
+        "plantName": "Thermal Powertech Corporation Ltd/ Painampuram/Muthukur Mandal",
+        "state": "Andhra Pradesh",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Sembcorp Energ",
+        "plantName": "Thermal Powertech Corporation Ltd/ Painampuram/Muthukur Mandal",
+        "state": "Andhra Pradesh",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Mah",
+        "plantName": "Tirora TPS",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Mah",
+        "plantName": "Tirora TPS",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Mah",
+        "plantName": "Tirora TPS",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Mah",
+        "plantName": "Tirora TPS",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Mah",
+        "plantName": "Tirora TPS",
+        "state": "Maharashtra",
+        "unitNo": 5,
+        "capacity": 660,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CESC",
+        "plantName": "Titagarh TPS",
+        "state": "West Bengal",
+        "unitNo": 1,
+        "capacity": 60,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CESC",
+        "plantName": "Titagarh TPS",
+        "state": "West Bengal",
+        "unitNo": 2,
+        "capacity": 60,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CESC",
+        "plantName": "Titagarh TPS",
+        "state": "West Bengal",
+        "unitNo": 3,
+        "capacity": 60,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "CESC",
+        "plantName": "Titagarh TPS",
+        "state": "West Bengal",
+        "unitNo": 4,
+        "capacity": 60,
+        "fgdStatus": "To be decommissioned",
+        "fgdGroup": "To be decommissioned",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "JSWEL",
+        "plantName": "Torangallu TPS SBU",
+        "state": "Karnataka",
+        "unitNo": 1,
+        "capacity": 130,
+        "fgdStatus": "Claims to be SO2 compliant",
+        "fgdGroup": "Claims to be SO2 compliant",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "JSWEL",
+        "plantName": "Torangallu TPS SBU",
+        "state": "Karnataka",
+        "unitNo": 2,
+        "capacity": 130,
+        "fgdStatus": "Claims to be SO2 compliant",
+        "fgdGroup": "Claims to be SO2 compliant",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Jindal  (Pvt Co  )",
+        "plantName": "Torangallu TPS SBU",
+        "state": "Karnataka",
+        "unitNo": 3,
+        "capacity": 300,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Jindal  (Pvt Co  )",
+        "plantName": "Torangallu TPS SBU",
+        "state": "Karnataka",
+        "unitNo": 4,
+        "capacity": 300,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TATA PCL",
+        "plantName": "Trombay TPS",
+        "state": "Maharashtra",
+        "unitNo": 5,
+        "capacity": 500,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TATA PCL",
+        "plantName": "Trombay TPS",
+        "state": "Maharashtra",
+        "unitNo": 8,
+        "capacity": 250,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NLC + TANGED",
+        "plantName": "Tuticorin Joint Venture",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NLC + TANGED",
+        "plantName": "Tuticorin Joint Venture",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "IBPIL",
+        "plantName": "Tuticorin (P) TPP",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 150,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "IBPIL",
+        "plantName": "Tuticorin (P) TPP",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 150,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Tuticorin TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Tuticorin TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Tuticorin TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Tuticorin TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Tuticorin TPS",
+        "state": "Tamil Nadu",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "TANGEDCO",
+        "plantName": "Tuticorin Thermal Power Plant",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 525,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RKM Powergen P",
+        "plantName": "Uchpinda TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 1,
+        "capacity": 360,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RKM Powergen P",
+        "plantName": "Uchpinda TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 2,
+        "capacity": 360,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RKM Powergen P",
+        "plantName": "Uchpinda TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 3,
+        "capacity": 360,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "RKMPPL",
+        "plantName": "Uchpinda TPP",
+        "state": "Chhatisgarh",
+        "unitNo": 4,
+        "capacity": 360,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Udupi TPP",
+        "state": "Karnataka",
+        "unitNo": 1,
+        "capacity": 600,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Adani Power Ltd.",
+        "plantName": "Udupi TPP",
+        "state": "Karnataka",
+        "unitNo": 2,
+        "capacity": 600,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Ukai TPS",
+        "state": "Gujarat",
+        "unitNo": 3,
+        "capacity": 200,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Ukai TPS",
+        "state": "Gujarat",
+        "unitNo": 4,
+        "capacity": 200,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Ukai TPS",
+        "state": "Gujarat",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Ukai TPS",
+        "state": "Gujarat",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "Bid opened",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Unchahar or Feroz Gandhi TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Unchahar or Feroz Gandhi TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Unchahar or Feroz Gandhi TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Unchahar or Feroz Gandhi TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Unchahar or Feroz Gandhi TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Unchahar or Feroz Gandhi TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 6,
+        "capacity": 500,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BEPL",
+        "plantName": "Utraula TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 1,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "BEPL",
+        "plantName": "Utraula TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 2,
+        "capacity": 45,
+        "fgdStatus": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdGroup": "Ciculating Fluidized Bed Combustion (CFBC) Boilers",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTEC LTD.",
+        "plantName": "Vallur TPP",
+        "state": "Tamil Nadu",
+        "unitNo": 1,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTEC LTD.",
+        "plantName": "Vallur TPP",
+        "state": "Tamil Nadu",
+        "unitNo": 2,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTEC LTD.",
+        "plantName": "Vallur TPP",
+        "state": "Tamil Nadu",
+        "unitNo": 3,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Vijayawada or Dr. Narla Tata Rao TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 7,
+        "capacity": 500,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Vijayawada or Dr. Narla Tata Rao TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Vijayawada or Dr. Narla Tata Rao TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Vijayawada or Dr. Narla Tata Rao TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Vijayawada or Dr. Narla Tata Rao TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Vijayawada or Dr. Narla Tata Rao TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "APGENCO",
+        "plantName": "Vijayawada or Dr. Narla Tata Rao TPS",
+        "state": "Andhra Pradesh",
+        "unitNo": 6,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 6,
+        "capacity": 210,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 7,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 8,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 10,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 9,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 11,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 12,
+        "capacity": 500,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "NTPC",
+        "plantName": "Vindhyachal STPS",
+        "state": "Madhya Pradesh",
+        "unitNo": 13,
+        "capacity": 500,
+        "fgdStatus": "FGD installed",
+        "fgdGroup": "FGD installed",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "HNPCL",
+        "plantName": "Vizag or Hinduja Power TPP",
+        "state": "Andhra Pradesh",
+        "unitNo": 1,
+        "capacity": 520,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "HNPCL",
+        "plantName": "Vizag or Hinduja Power TPP",
+        "state": "Andhra Pradesh",
+        "unitNo": 2,
+        "capacity": 520,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Wanakbori TPS",
+        "state": "Gujarat",
+        "unitNo": 1,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Wanakbori TPS",
+        "state": "Gujarat",
+        "unitNo": 2,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Wanakbori TPS",
+        "state": "Gujarat",
+        "unitNo": 3,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Wanakbori TPS",
+        "state": "Gujarat",
+        "unitNo": 4,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Wanakbori TPS",
+        "state": "Gujarat",
+        "unitNo": 5,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Wanakbori TPS",
+        "state": "Gujarat",
+        "unitNo": 6,
+        "capacity": 210,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Wanakbori TPS",
+        "state": "Gujarat",
+        "unitNo": 7,
+        "capacity": 210,
+        "fgdStatus": "Feasibility Study completed",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "GSECL",
+        "plantName": "Wanakbori TPS",
+        "state": "Gujarat",
+        "unitNo": 8,
+        "capacity": 800,
+        "fgdStatus": "Feasibility Study started",
+        "fgdGroup": "Feasibility Study under various stages",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Wardha P C P L",
+        "plantName": "Wardha Warora TPP",
+        "state": "Maharashtra",
+        "unitNo": 3,
+        "capacity": 135,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Wardha P C P L",
+        "plantName": "Wardha Warora TPP",
+        "state": "Maharashtra",
+        "unitNo": 4,
+        "capacity": 135,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Wardha P C P L",
+        "plantName": "Wardha Warora TPP",
+        "state": "Maharashtra",
+        "unitNo": 1,
+        "capacity": 135,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "Wardha P C P L",
+        "plantName": "Wardha Warora TPP",
+        "state": "Maharashtra",
+        "unitNo": 2,
+        "capacity": 135,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "HPGCL",
+        "plantName": "Yamuna Nagar or Deenbandhu Chotu Ram TPS",
+        "state": "Haryana",
+        "unitNo": 1,
+        "capacity": 300,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "HPGCL",
+        "plantName": "Yamuna Nagar or Deenbandhu Chotu Ram TPS",
+        "state": "Haryana",
+        "unitNo": 2,
+        "capacity": 300,
+        "fgdStatus": "NIT issued",
+        "fgdGroup": "Under bidding",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Yermarus TPP",
+        "state": "Karnataka",
+        "unitNo": 1,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "KPCL",
+        "plantName": "Yermarus TPP",
+        "state": "Karnataka",
+        "unitNo": 2,
+        "capacity": 800,
+        "fgdStatus": "Bid Awarded",
+        "fgdGroup": "Bid Awarded",
+        "fgdDate": "Invalid date"
+      },
+      {
+        "developer": "--",
+        "plantName": "New NabiNagar TPP (Majhiyan)",
+        "state": "Bihar",
+        "unitNo": 3,
+        "capacity": 660,
+        "fgdDate": "--",
+        "fgdStatus": "No FGD Planned",
+        "fgdGroup": "No FGD Planned"
+      },
+      {
+        "developer": "--",
+        "plantName": "Harduaganj TPS",
+        "state": "Uttar Pradesh",
+        "unitNo": 10,
+        "capacity": 660,
+        "fgdDate": "--",
+        "fgdStatus": "No FGD Planned",
+        "fgdGroup": "No FGD Planned"
+      },
+      {
+        "developer": "--",
+        "plantName": "Bhadradri TPP",
+        "state": "Telangana",
+        "unitNo": 4,
+        "capacity": 270,
+        "fgdDate": "--",
+        "fgdStatus": "No FGD Planned",
+        "fgdGroup": "No FGD Planned"
+      },
+      {
+        "developer": "--",
+        "plantName": "North Karanpura TPP",
+        "state": "Jharkhand",
+        "unitNo": 1,
+        "capacity": 660,
+        "fgdDate": "--",
+        "fgdStatus": "No FGD Planned",
+        "fgdGroup": "No FGD Planned"
+      },
+      {
+        "developer": "--",
+        "plantName": "Damodaram Sanjeevaiah or Krishnapatnam TPP",
+        "state": "Andhra Pradesh",
+        "unitNo": 3,
+        "capacity": 800,
+        "fgdDate": "--",
+        "fgdStatus": "No FGD Planned",
+        "fgdGroup": "No FGD Planned"
+      },
+      {
+        "developer": "--",
+        "plantName": "Barh STPP",
+        "state": "Bihar",
+        "unitNo": 2,
+        "capacity": 660,
+        "fgdDate": "--",
+        "fgdStatus": "No FGD Planned",
+        "fgdGroup": "No FGD Planned"
+      },
+      {
+        "developer": "--",
+        "plantName": "Shree Cement Ltd. TPS",
+        "state": "Rajasthan",
+        "unitNo": 1,
+        "capacity": 150,
+        "fgdDate": "--",
+        "fgdStatus": "No FGD Planned",
+        "fgdGroup": "No FGD Planned"
+      },
+      {
+        "developer": "--",
+        "plantName": "Shree Cement Ltd. TPS",
+        "state": "Rajasthan",
+        "unitNo": 2,
+        "capacity": 150,
+        "fgdDate": "--",
+        "fgdStatus": "No FGD Planned",
+        "fgdGroup": "No FGD Planned"
+      },
+      {
+        "developer": "--",
+        "plantName": "Ramagundam STPP/Telangana Phase I",
+        "state": "Telangana",
+        "unitNo": 1,
+        "capacity": 800,
+        "fgdDate": "--",
+        "fgdStatus": "No FGD Planned",
+        "fgdGroup": "No FGD Planned"
+      }
+    ],
+    "graphData": null
+  }
+}

@@ -169,6 +169,22 @@
       "notes": "Encrypted JSON: CryptoJS-OpenSSL AES-256-CBC, passphrase extracted from SPA bundle. Uses urllib (not httpx) on Windows because httpx + certifi rejects icedapi cert chain. Unit caveat: ICED's metadata says GDP/GVA in 'Crores' but actual values are Lakh Crore — adapter overrides. See docs/architecture/backend/sources-iced-state-wise.md."
     },
     {
+      "id": "iced.air_quality_fgd",
+      "authority": "NITI Aayog (ICED dashboard, re-publishing CEA / MoEF&CC tracker)",
+      "title": "Coal thermal-plant FGD-compliance status — per plant-unit, snapshot",
+      "landing_url": "https://iced.niti.gov.in/climate-and-environment/environment/air-quality",
+      "asset_url_pattern": "https://icedapi.niti.gov.in/climate-environment/environment/air-quality/fgd",
+      "format": "encrypted_json",
+      "coverage": "17 states with coal thermal capacity, 602 plant-units, snapshot only (no historical series)",
+      "status": "ingested",
+      "adapter": "iced_air_quality",
+      "indicator_ids": [
+        "environment/state_thermal_fgd_installed_share_pct"
+      ],
+      "license": "GoI-Open",
+      "notes": "Dual provenance per Hans 2026-05-15: ICED is a re-publisher; the underlying tracker is CEA's, against the MoEF&CC December-2015 notification. Artifacts list both the ICED API URL AND the MoEF&CC notification URL in `sources`. Reuses iced_common.IcedClient for AES-256-CBC decryption. ICED feed spells Chhattisgarh as 'Chhatisgarh' (single 't'); alias added in iced_common.entities. See docs/architecture/backend/sources-iced-api.md."
+    },
+    {
       "id": "cea.installed_capacity_monthly",
       "authority": "Central Electricity Authority",
       "title": "Monthly Installed Capacity Report — All-India + per-state, per-fuel nameplate MW",

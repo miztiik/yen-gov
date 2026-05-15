@@ -49,6 +49,7 @@ ENTITY_MAP: dict[str, str] = {
     "West Bengal": "S25",
     "Chhattisgarh": "S26",
     "Chattisgarh": "S26",            # Variant spelling.
+    "Chhatisgarh": "S26",            # Single-'t' typo, observed on the FGD endpoint.
     "Jharkhand": "S27",
     "Uttarakhand": "S28",
     "Uttaranchal": "S28",            # Pre-2007 name, sometimes lingers.
