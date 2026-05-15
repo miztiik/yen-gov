@@ -5,7 +5,7 @@ available. Pure stdlib (Python 3.9+); no `pip install` required.
 Why this exists
 ---------------
 Our primary dev box cannot reach `old.eci.gov.in` (CONNECT timeout — see
-`notes/eci-portal-recon-2026-05-11.md`). The historical Lok Sabha General
+`docs/archive/eci-statistical-report-recon-2026-05.md`). The historical Lok Sabha General
 Election (PC) and pre-2024 State Assembly Election (AC) statistical reports
 live there as XLS / XLSX / PDF / ZIP. To bring them across:
 

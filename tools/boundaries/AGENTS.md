@@ -1,6 +1,8 @@
 # AGENTS.md — tools/boundaries
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-15
+
+Canonical rationale lives in [docs/architecture/data/boundaries.md](../../docs/architecture/data/boundaries.md) and source catalogue decisions live in [docs/reference/boundary-data-sources.md](../../docs/reference/boundary-data-sources.md). This file is only the module map for the boundary build tools.
 
 ## Invariants
 

@@ -177,11 +177,11 @@ Purpose: turn yen-gov from "view one state at a time" into "compare states by ca
 - [x] `docs/reference/schemas.md` updated to indicator 1.1 + state 3.3 with ADR cross-reference.
 - [x] Memory: `/memories/repo/yen-gov-architecture.md` — holy laws, indicator system, colour system, schema versions, Phase-6 ordering, file layout.
 - [ ] `docs/architecture/data-flow.md` update with the indicators tributary — deferred to next sweep.
-- [ ] `docs/architecture/data-sources/elections-india.md` — to be promoted from `notes/eci-portal-recon-2026-05-11.md` once Phase 6C implementation begins.
+- [x] [ECI source adapter](../docs/architecture/backend/sources-eci.md) + [ECI reconnaissance archive](../docs/archive/eci-statistical-report-recon-2026-05.md) — durable home for the ECI Statistical Report recon findings.
 
 ### 6C — National elections + prior cycles (data) (RECON DONE 2026-05-11)
-- [x] **Recon**: `notes/eci-portal-recon-2026-05-11.md` — catalogued portal URL templates. Key findings: May-2026 AC is the EXCEPTION (live HTML); LS-2024 + 2024-25 state cycles + by-elections are API-only at `www.eci.gov.in/eci-backend/public/api/election-result?category_id=N`; 2021 cycles live on `old.eci.gov.in`. State codes (S22/S11/S03/S25) are stable across all eras. Commit `535b1d1`.
-- [ ] Backend: extend `body` enum to admit `lok_sabha`. Add LS constituency reference (PC, 543 seats, ECI codes). Verify per-state PC counts.
+- [x] **Recon**: [ECI reconnaissance archive](../docs/archive/eci-statistical-report-recon-2026-05.md) — catalogued portal URL templates. Key findings: May-2026 AC is the exception (live HTML); LS-2024 + 2024-25 state cycles + by-elections are API-backed at `www.eci.gov.in/eci-backend/public/api/election-result?category_id=N`; 2021 cycles live on `old.eci.gov.in`.
+- [ ] Backend: add LS constituency reference (PC, 543 seats, ECI codes). `body: "PC"` already exists; do not add a `lok_sabha` enum value.
 - [ ] Backend: new `eci_api/` HTTP client + `eci_xlsx/` parser for `33-Constituency-Wise-Detailed-Result.xlsx`.
 - [ ] Pipeline: parameterise `run_state_slice` over body. Emit `datasets/elections/PcGenJune2024/<state>/...` mirroring the AC layout.
 - [ ] One TN LS-2024 slice end-to-end before generalising.

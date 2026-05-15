@@ -1,7 +1,7 @@
 # ADR-0016: ECI Statistical Reports as the canonical source for past-election enrichment
 
-**Last Updated**: 2026-05-09
-**Status**: accepted
+**Last Updated**: 2026-05-15
+**Status**: accepted; current implementation details live in [ECI source adapter](../backend/sources-eci.md)
 
 ## Context
 
@@ -9,7 +9,7 @@ ADR-0015 introduced the `status: provisional | complete` lifecycle on `constitue
 
 Two facts changed the picture:
 
-1. The user identified the [ECI Statistical Reports hub](https://www.eci.gov.in/statistical-reports) as a much richer resource than was previously catalogued. Per-election landing pages at `https://www.eci.gov.in/statistical-report/{ae|ge}/{year}/{display-state-code}` carry the **full official statistical report** for an election: constituency-wise results, candidate-wise results, party-wise summary, vote share, electors, turnout. Many of these are published as XLSX, which we can parse losslessly.
+1. The user identified the [ECI Statistical Reports hub](https://www.eci.gov.in/statistical-reports) as a much richer resource than was previously catalogued. Per-election landing pages carry the **full official statistical report** for an election: constituency-wise results, candidate-wise results, party-wise summary, vote share, electors, turnout. Many of these are published as XLSX, which we can parse losslessly.
 2. The user explicitly designated ECI as the canonical source for enrichment, asked to bootstrap West Bengal (S25) reference data from ECI rather than Wikipedia, and asked for an exploration pass against TN, Kerala, and WB across the last three assembly cycles.
 
 This ADR codifies the policy before any tooling is written, so the recon and enrichment workstreams don't accumulate ad hoc decisions.
@@ -34,7 +34,7 @@ Wikipedia is reduced to: a fast bootstrap for constituency *names* and *numbers*
 **Persisted in `sources[]`** (the human-facing landing page):
 
 ```
-https://www.eci.gov.in/statistical-report/{body}/{year}/{state-code}
+https://www.eci.gov.in/statistical-report/{body}/{year}/{category_id}
 ```
 
 **Never persisted in `sources[]`** (time-limited signed URLs from the "Download" buttons):
@@ -43,9 +43,9 @@ https://www.eci.gov.in/statistical-report/{body}/{year}/{state-code}
 https://www.eci.gov.in/eci-backend/public/api/download?url=<base64-blob>
 ```
 
-These signed URLs expire. We re-resolve them from the landing page on every fetch. The intermediate downloaded XLSX/PDF lives in `.runtime/raw/eci/statistical_report/{body}/{year}/{state-code}/<filename>` per ADR-0003 and ADR-0006 — not a contract surface, gitignored, throwaway.
+These signed URLs expire. We re-resolve them from the landing/catalogue on every fetch. The intermediate downloaded XLSX/PDF lives in `.runtime/raw/eci/...` per ADR-0003 and ADR-0006 — not a contract surface, gitignored, throwaway.
 
-The ECI URL grammar uses *display* state codes (e.g. `26` for Tamil Nadu), not the `S22`-style codes we use internally. The mapping must be empirically confirmed during the recon pass and recorded in [`docs/reference/identifiers.md`](../../reference/identifiers.md). Until the mapping for a state is confirmed, code MUST NOT silently assume it.
+Implementation note, 2026-05-15: later recon established that the 2024+ landing-page integer is the API `category_id`, not a state-display lookup. The canonical pin store is [`config/eci-pins.json`](../../../config/eci-pins.json); see [ECI source adapter](../backend/sources-eci.md#url-grammar--statistical-reports).
 
 ### 3. Two-phase rollout
 
@@ -56,7 +56,7 @@ The user asked for both reconnaissance and enrichment. We separate them:
 - A standalone tool under `tools/eci_recon/` (per CLAUDE.md §3 / §4: tools are self-contained, no `backend/` imports).
 - Inputs: a list of `(state_code, body, year)` tuples — initial scope is `{S22, S11, S25} × {AE} × {2021, 2016, 2011}` plus `{S22 × AE × 2026}`.
 - For each tuple: fetch the landing page, extract every linked file (XLSX, PDF, CSV), record `(file_name, content_type, size_bytes, link_text, landing_url)`.
-- Output: a markdown inventory written to `notes/eci-recon-<date>.md` — non-authoritative per CLAUDE.md §3, intended for human review.
+- Output: a markdown inventory for human review. The 2026-05 recon notes were later distilled into [ECI source adapter](../backend/sources-eci.md) and archived at [ECI Statistical Report reconnaissance](../../archive/eci-statistical-report-recon-2026-05.md); `notes/` is not durable authority.
 - **No data is ingested into `datasets/` in this phase.** The recon's only artifact is the inventory.
 - Recon is idempotent and re-runnable; no state in `datasets/` depends on it.
 

@@ -316,7 +316,7 @@ def eci_statreport(
                 param_hint="state year",
             )
         cid = category_id_for(state, year)
-        typer.echo(f"category_id: {cid}  (pinned in sources/eci/categories.py)")
+        typer.echo(f"category_id: {cid}  (pinned in config/eci-pins.json)")
 
     # www.eci.gov.in is fronted by Akamai; processing.json's default
     # `yen-gov/0.1` UA is blocked. Bare Mozilla/5.0 is the only UA that
@@ -363,9 +363,8 @@ def eci_statreport_emit(
         None, "--event",
         help="On-disk event id (groups artifacts under "
              "datasets/elections/<event>/<state>/). Defaults to the value "
-             "registered for (state, year) in sources/eci/events.py — only "
-             "the May-2026 cohort is registered today (N1 of "
-             "TODO/ECI-MULTI-STATE-INGEST-PLAN.md).",
+             "registered for (state, year) in sources/eci/events.py. See "
+             "docs/architecture/backend/sources-eci.md for registration steps.",
     ),
     root: Path = typer.Option(
         Path.cwd(), "--root", "-r",
@@ -396,7 +395,8 @@ def eci_statreport_emit(
 
     # Default --event from the (state, year) registry. Explicit --event
     # still overrides for ad-hoc runs / future events not yet in the
-    # registry. Per N1 of TODO/ECI-MULTI-STATE-INGEST-PLAN.md.
+    # registry. See docs/architecture/backend/sources-eci.md for the
+    # event-registration contract.
     try:
         info = event_info_for(state, year)
     except KeyError as exc:
@@ -478,7 +478,7 @@ def eci_statreport_emit(
             # names but no numeric eci_code. We backfill numeric codes from
             # the canonical party registry derived from every parties.json
             # already on disk (ECI numeric codes are stable across cohorts).
-            # Per N6 of TODO/ECI-MULTI-STATE-INGEST-PLAN.md.
+            # See docs/architecture/backend/sources-eci.md#central-party-registry.
             registry = load_eci_party_registry(root / "datasets" / "elections")
             party_eci_codes = {}
             section_3 = next(
@@ -695,7 +695,7 @@ _LOCAL_NAME_TO_ECI: dict[str, str] = {
 
 # Filename pattern: ``YYYY_state_<name>_*.xlsx`` (the shape produced by
 # old.eci.gov.in's Section 10 hand-download flow). See
-# notes/eci-portal-recon-2026-05-11.md for sample filenames.
+# docs/archive/eci-statistical-report-recon-2026-05.md for archive context.
 _LOCAL_FNAME_RE = re.compile(
     r"^(?P<year>\d{4})_state_(?P<state>[a-z][a-z_]*?)(?=_[A-Z0-9]|[-. ]|$)",
 )

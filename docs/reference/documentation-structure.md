@@ -7,10 +7,10 @@
 > - [Architecture: System Overview](../architecture/system-overview.md) - Runtime boundary and deployment model
 > - [Concepts: Observability](../concepts/observability.md) - Identifier and telemetry concepts
 > - [Root CLAUDE](../../CLAUDE.md) - Project-level engineering contract example
-> - [Backend AGENTS](../../backend/puzzle_manager/AGENTS.md) - Module architecture-map example
+> - [Backend AGENTS](../../backend/yen_gov/AGENTS.md) - Module architecture-map example
 > - [Frontend AGENTS](../../frontend/src/AGENTS.md) - Frontend architecture-map example
 
-**Last Updated**: 2026-05-08
+**Last Updated**: 2026-05-15
 
 This file is a portable, single-source standard for bootstrapping a new project with the same structural discipline used in Yen-Go. It is not a cookie-cutter implementation. It defines the architectural contracts, documentation model, schema governance, telemetry contract, and agent documentation shape that should exist before feature work scales.
 
@@ -69,7 +69,7 @@ Four distinct memory tiers exist; do not blur them:
 | Working | `TODO/`, `notes/` | Non-authoritative | In-progress plans, drafts, handoff memos |
 | Runtime | `.runtime/`, logs | Ephemeral | State, logs, staging — operational only |
 
-Rule: distill durable insights from Working/Agent into Canonical. Never let `TODO/` become the source of truth for architecture.
+Rule: distill durable insights from Working/Agent into Canonical. Never let `TODO/`, `AGENTS.md`, or `/memories/` become the source of truth for architecture. `AGENTS.md` and repo memory are derived indexes that link to canonical docs for rationale and contracts.
 
 ## 4. Architecture Contracts
 
@@ -383,6 +383,8 @@ Every major module has its own `AGENTS.md` — dense, agent-facing, NOT user doc
 - Fast validation commands (e.g. test markers).
 
 Rule: if module structure or invariants change, `AGENTS.md` updates in the **same commit**.
+
+`AGENTS.md` files summarize structure, invariants, and validation commands. They should link to subsystem docs for rationale and data contracts instead of restating those decisions; duplicated rationale drifts.
 
 ### 14.3 Anti-Patterns (What NOT to Do)
 

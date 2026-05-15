@@ -3,7 +3,8 @@
 Phase A of the ECI authority hierarchy (docs/architecture/backend/sources-eci.md#authority-hierarchy-for-past-elections):
 probe ECI's reachable endpoints and produce a Markdown
 inventory of what is available for a given (state, body, year) matrix.
-Writes to notes/eci-recon-<date>.md (non-authoritative per CLAUDE.md §3).
+Historical runs wrote a human-review inventory outside docs/, but durable findings
+must be distilled into docs/architecture/backend/sources-eci.md or docs/archive/.
 Does NOT write to datasets/. No data ingestion happens here.
 
 Usage:
@@ -16,8 +17,8 @@ Endpoint map (verified 2026-05-09):
 - 2024+ assembly elections: GET /eci-backend/public/api/election-result
   ?category_id=<small int per event>. Returns the file inventory (PDF + XLSX
   per section) with stable `https://www.eci.gov.in/eci-backend/public/all_files/
-  election_report/...` URLs. The category_id is hardcoded per (state, year) in
-  the React bundle's /statistical-reports hub table.
+    election_report/...` URLs. Current ingest pins category_id per (state, year)
+    in config/eci-pins.json after recon confirms the catalogue.
 - <=2021 assembly elections: per-state landing page at
   https://old.eci.gov.in/files/file/<id>-<slug>/. The (state, year) -> URL map
   is also hardcoded in the same React table; the bundle IS the canonical

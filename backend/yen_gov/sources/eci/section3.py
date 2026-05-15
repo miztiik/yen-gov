@@ -21,8 +21,8 @@ Important shape facts confirmed against Assam-2026:
 * Independents are not listed (they are not parties).
 
 This module returns a flat list of ``ParticipatingParty`` rows annotated
-with their group label, leaving eci_code resolution to a future reference
-dataset (see TODO/ECI-MULTI-STATE-INGEST-PLAN.md, follow-up to N2).
+with their group label, leaving eci_code resolution to the central party
+registry path documented in docs/architecture/backend/sources-eci.md.
 """
 
 from __future__ import annotations

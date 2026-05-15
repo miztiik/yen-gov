@@ -1,6 +1,6 @@
 # Data Sources
 
-**Last Updated**: 2026-05-14
+**Last Updated**: 2026-05-15
 
 > The "look here first" catalogue. Every external place yen-gov pulls — or might pull — data from is listed below, with what it covers, what format it ships, and when to use (or avoid) it. When enriching data in future, start here.
 >
@@ -21,37 +21,29 @@
 
 **Hub**: <https://www.eci.gov.in/statistical-reports>
 
-**Per-election landing URL grammar** (observed):
+**Per-election landing URL grammar** (2024+ API-backed catalogues):
 
 ```
-https://www.eci.gov.in/statistical-report/{body}/{year}/{state-code}
+https://www.eci.gov.in/statistical-report/{body}/{year}/{category_id}
 ```
 
 | Token | Meaning | Example |
 | ----- | ------- | ------- |
 | `{body}` | `ae` for Assembly Election, `ge` for General (Lok Sabha) Election | `ae` |
 | `{year}` | Year the election concluded | `2026` |
-| `{state-code}` | ECI's *display* state code used in URL paths (numeric, NOT the same as the `S22`-style code we use internally) | `26` for Tamil Nadu |
+| `{category_id}` | Cleartext ECI catalogue id; same integer used by `/eci-backend/public/api/election-result?category_id=<id>` | `26` for Tamil Nadu 2026 |
 
-**Confirmed mappings** (from URLs the user supplied or pages we have visited):
+The `category_id` is not the yen-gov state code (`S22`) and is not a general state-display-code table. The canonical pin store is [`config/eci-pins.json`](../../config/eci-pins.json), validated by [`eci_pins.schema.json`](../../datasets/schemas/eci_pins.schema.json) and loaded by [`backend/yen_gov/sources/eci/categories.py`](../../backend/yen_gov/sources/eci/categories.py). Detailed mechanics live in [backend/sources-eci.md](../architecture/backend/sources-eci.md#url-grammar--statistical-reports).
 
-| Internal (ECI) | Display state code | State |
-| -------------- | ------------------ | ----- |
-| `S22`          | `26`               | Tamil Nadu |
-| `S11`          | TBC                | Kerala |
-| `S25`          | TBC                | West Bengal |
+**Known URL families**:
 
-The "TBC" rows are confirmed during the [recon pass](../architecture/backend/sources-eci.md#two-phase-rollout) before any tooling depends on them. Mappings are then promoted into [`identifiers.md`](identifiers.md) as a stable lookup.
+- 2024+ catalogues: `/statistical-report/{body}/{year}/{category_id}` plus `/api/election-result?category_id=<id>`.
+- 2023 static catalogues: `/eci-backend/public/all_files/full-statistical-reports/<state-slug>/<year>/...` (synthesised by `static_catalog.py`).
+- 2021 and earlier: `https://old.eci.gov.in/files/file/<id>-<slug>/` permalinks from the hub table.
 
-**Per-election known URLs** (assembly elections, last three cycles for the in-scope states):
+ECI can publish multiple catalogues with the same `cat_name`; pin the Statistical Report family (`index_name == "Copy of Index Cards [Digital]"`, usually 14 statement documents), not the per-AC live-results catalogue.
 
-| State | 2026 | 2021 | 2016 | 2011 |
-| ----- | ---- | ---- | ---- | ---- |
-| Tamil Nadu (S22) | <https://www.eci.gov.in/statistical-report/ae/2026/26> | TBC during recon | TBC | TBC |
-| Kerala (S11) | n/a (next cycle 2026 TBC) | TBC | TBC | TBC |
-| West Bengal (S25) | n/a (next cycle 2026 TBC) | TBC | TBC | TBC |
-
-The recon script ([`tools/eci_recon/`](../../tools/eci_recon/)) populates the TBCs and lists the actual file artifacts (XLSX names, PDF names, sizes) attached to each landing page.
+Use [backend/sources-eci.md](../architecture/backend/sources-eci.md) for ingest commands and event-registration steps; this reference page only lists the upstream.
 
 **Signed download URLs**: ECI's "Download" buttons point at `https://www.eci.gov.in/eci-backend/public/api/download?url=<base64-blob>` — the `url` query param is an encrypted/signed reference that is **time-limited**. We MUST NOT persist these URLs in `sources[]`. Persist the human-facing landing URL (`/statistical-report/...`) and, if needed, document the file name extracted from the response headers; re-resolve the signed URL each fetch. (See ADR-0003: no fetch cache; intermediate downloads live in `.runtime/raw/`.)
 
@@ -67,7 +59,7 @@ https://results.eci.gov.in/Result{ElectionEvent}/Constituencywise{State}{ConstNo
 
 Example: `https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseS22167.htm` → TN AC #167 (Mannargudi) for the May 2026 Assembly General Election.
 
-`{ElectionEvent}` is the ECI's per-event slug (e.g. `AcGenMay2026`, `AcGenApr2021`, `LSGenJun2024`). Slug history: TBC during recon. Documented in [backend/sources-eci.md](../architecture/backend/sources-eci.md).
+`{ElectionEvent}` is the ECI's per-event slug (e.g. `AcGenMay2026`, `AcGenApr2021`, `LSGenJun2024`). Registered event ids live in [`backend/yen_gov/sources/eci/events.py`](../../backend/yen_gov/sources/eci/events.py) and per-cohort metadata under `datasets/events/in/eci/`.
 
 ## ECI Term of the Houses
 
