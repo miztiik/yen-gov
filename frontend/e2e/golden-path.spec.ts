@@ -50,6 +50,32 @@ test.describe("golden path", () => {
     await expect(page.locator('a[href*="/ac/"]').first()).toBeVisible({ timeout: 15_000 });
     // Provenance: SourceList renders "Sources (N)" once result.summary loads.
     await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeVisible({ timeout: 15_000 });
+
+    // Regression: every indicator card H3 must contain its title exactly
+    // once. Bug 2026-05-15: IndicatorChoropleth passed the indicator title
+    // to IndicatorIcon as `title={...}`, which renders <svg><title>...
+    // </title></svg>. Element.textContent walks into the SVG <title>, so
+    // the H3's effective text became "<title> <title> <badge>", e.g.
+    // "Outstanding liabilities (% of GSDP) Outstanding liabilities (% of
+    // GSDP) Central". Fix at the call site (drop the redundant prop).
+    // Detection: a heading whose first half equals its second half (after
+    // stripping the legitimate implementing_authority badge suffix).
+    const dups = await page.locator("main h3").evaluateAll((nodes) =>
+      nodes
+        .map((n) => (n.textContent ?? "").replace(/\s+/g, " ").trim())
+        .filter((t) => {
+          // Strip trailing legitimate badge tokens (implementing_authority).
+          const core = t
+            .replace(/\s+(Central|Centre \+ state|Local body|Parastatal)$/, "")
+            .trim();
+          if (core.length < 8) return false; // ignore short headings
+          const half = Math.floor(core.length / 2);
+          // Treat as duplicated when the first half exactly equals the
+          // second half (allowing for an odd-length middle char).
+          return core.slice(0, half) === core.slice(-half);
+        }),
+    );
+    expect(dups, `Duplicated H3 titles found:\n${dups.join("\n")}`).toEqual([]);
   });
 
   test("constituency page renders top-N candidates", async ({ page }) => {
