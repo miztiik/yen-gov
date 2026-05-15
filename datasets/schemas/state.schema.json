@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/state.schema.json",
   "title": "States collection",
   "description": "All first-level administrative divisions (states + union territories) of a country, keyed by ECI state code. ECI codes are the canonical identifiers; ISO 3166-2 codes are carried for cross-referencing.",
-  "x-version": "3.3",
+  "x-version": "3.4",
   "x-changelog": [
     {
       "version": "1.0",
@@ -32,7 +32,12 @@
     {
       "version": "3.3",
       "date": "2026-05-11",
-      "description": "Additive: optional `tier` enum on each state entry. Distinguishes general-category states from special-category (NEH/hill), UTs with/without legislatures, and NCT Delhi. Used by cross-state comparison views to default-filter ranked tables to general-category states (since special-category states have different CSS funding ratios and Article 371 carve-outs that make them not comparable in the same ranked view). Per Governance Strategist review 2026-05-11."    }
+      "description": "Additive: optional `tier` enum on each state entry. Distinguishes general-category states from special-category (NEH/hill), UTs with/without legislatures, and NCT Delhi. Used by cross-state comparison views to default-filter ranked tables to general-category states (since special-category states have different CSS funding ratios and Article 371 carve-outs that make them not comparable in the same ranked view). Per Governance Strategist review 2026-05-11."    },
+    {
+      "version": "3.4",
+      "date": "2026-05-15",
+      "description": "Additive: optional `name_ta` (Tamil-script localised name, e.g. \"தமிழ்நாடு\") on each state entry. Tooltip / search affordance only — never an identifier. Lands in the same arc as its consumer (IndicatorChoropleth tooltip in TN drill-down — Phase 4 of TODO/TN-GRANULAR-GEO-PLAN.md, Fowler YAGNI). Existing v3.3 data files re-validate unchanged."
+    }
   ],
   "type": "object",
   "required": [
@@ -115,6 +120,11 @@
             "type": "string",
             "minLength": 1,
             "description": "Official English name."
+          },
+          "name_ta": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional Tamil-script localised name (e.g. \"தமிழ்நாடு\"). Tooltip / search affordance only — never an identifier. v3.4."
           },
           "kind": {
             "enum": [

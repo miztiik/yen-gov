@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/district.schema.json",
   "title": "Districts collection (per state)",
   "description": "All districts within a single state, keyed by LGD (Local Government Directory) code where available, falling back to a Wikipedia-derived slug. Each file covers exactly one state.",
-  "x-version": "3.3",
+  "x-version": "3.4",
   "x-changelog": [
     {
       "version": "1.0",
@@ -34,6 +34,11 @@
       "version": "3.3",
       "date": "2026-05-15",
       "description": "Additive: optional name_alt (alternate canonical name — e.g. Thoothukudi/Tuticorin), name_source enum (lgd|census_2011 — which authority issued the canonical name), census_2011_code (Census 2011 district code, frozen at 2011 — null for post-2011 districts), lgd_code_history (array of {old, retired_on} for districts whose LGD code changed), created_after_2011 ({date, parent_lgd_codes:[...], notes} — parent_lgd_codes is plural because some new districts (e.g. Chengalpattu) were carved from multiple parents). Surfaces the methodology break required by trend visualisations across Census-frozen layers vs current-LGD layers. Existing v3.2 data files re-validate unchanged. Per TODO/TN-GRANULAR-GEO-PLAN.md Phase 0 (Hans v2 nits)."
+    },
+    {
+      "version": "3.4",
+      "date": "2026-05-15",
+      "description": "Additive: optional `name_ta` (Tamil-script localised name) on each district item. Tooltip / search affordance only — never an identifier. Lands in the same arc as its consumer (IndicatorChoropleth tooltip in TN drill-down — Phase 4 of TODO/TN-GRANULAR-GEO-PLAN.md, Fowler YAGNI). Existing v3.3 data files re-validate unchanged."
     }
   ],
   "type": "object",
@@ -122,6 +127,11 @@
           "name": {
             "type": "string",
             "minLength": 1
+          },
+          "name_ta": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional Tamil-script localised name (e.g. \"சென்னை\"). Tooltip / search affordance only — never an identifier. v3.4."
           },
           "name_alt": {
             "type": "string",

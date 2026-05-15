@@ -153,9 +153,9 @@ Tidy First split. Pure structural commits (one per schema): register `subdistric
 
 ## Phase 4 — Polish (Correction Level 1, Jony)
 
-- [ ] Replace generic India outline with SoI outline everywhere (visual diff review).
-- [ ] **Schema bump `boundaries.schema.json` v1.0 → v1.1** to add `name_ta` (Fowler YAGNI — field lands in the same arc as its consumer, the Tamil tooltip).
-- [ ] Tamil names (`name_ta`) in tooltips when present.
+- [x] Replace generic India outline with SoI outline everywhere (visual diff review). — verified 2026-05-15: `boundaries.ts` `country` branch already returns `india-soi.geojson`; `india-soi.geojson` + `.sources.json` are on disk; no remaining code reference to plain `india.geojson`. Phase 1b/2 landed the structural swap; this checkbox closes the audit.
+- [x] **Schema bump `boundaries.schema.json` v1.0 → v1.1** to add `name_ta` (Fowler YAGNI — field lands in the same arc as its consumer, the Tamil tooltip). — done 2026-05-15: realised on the registry side as `state.schema.json` v3.3→v3.4, `district.schema.json` v3.3→v3.4, `subdistrict.schema.json` v1.0→v1.1 (no `boundaries.schema.json` exists; the Tamil name belongs on the registry, not the geojson sidecar — feature properties come from upstream ramSeraph and aren't ours to constrain). All 7 affected data files re-bumped to the new `$schema_version`; backend + frontend test suites green.
+- [x] Tamil names (`name_ta`) in tooltips when present. — done 2026-05-15: `IndicatorChoropleth.svelte` `deeper_tooltips` now reads `f.properties?.name_ta` and renders it on a secondary line (`lang="ta"`) below the English label. No-op until a producer joins the registry's `name_ta` into geojson features; consumer is forward-compatible.
 - [ ] Mobile gesture tuning (pinch-to-drill enabled — was reserved in Phase 3).
 - [ ] **Pincode polygons + `datasets/schemas/postal.schema.json` v1.0** — schema + Chennai pincode file land here under `datasets/boundaries/in/postal/IN-pincodes-chennai.geojson` with `<file>.geojson.sources.json` sidecar (Fowler YAGNI — deferred from Phase 0 since the consumer is the search affordance built in Phase 3; if Phase 3 search ships before Phase 4, promote this bullet to Phase 3). Loader path table extends with `("postal", "<pincode>", "33") → "../postal/IN-pincodes-chennai.geojson"`; bundle-budget chunk count remains 80.
 

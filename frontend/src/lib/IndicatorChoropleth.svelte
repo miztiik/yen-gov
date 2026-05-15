@@ -349,9 +349,18 @@
         const v = f.properties?.[nk];
         if (typeof v === "string" && v.length) { label = v; break; }
       }
+      // Tamil-script secondary line when the feature carries name_ta
+      // (Phase 4 of TN-GRANULAR-GEO-PLAN — registry schemas v3.4 / v1.1 now
+      // allow it; tooltip surfaces it on the line below the English label
+      // when a producer eventually joins it into feature properties).
+      const ta = f.properties?.["name_ta"];
+      const ta_html = (typeof ta === "string" && ta.length)
+        ? `<div class="text-slate-700 text-xs" lang="ta">${escape_html(ta)}</div>`
+        : "";
       // Jony edit #4 / #5: hatched polygon tooltip is specific, not generic.
       out[String(k)] =
         `<div class="font-semibold">${escape_html(label)}</div>` +
+        ta_html +
         `<div class="text-slate-500">no data, ${escape_html(selected_time ?? "")}</div>`;
     }
     return out;

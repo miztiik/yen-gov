@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
-  "$schema_version": "3.3",
+  "$schema_version": "3.4",
   "sources": [
     {
       "url": "https://en.wikipedia.org/wiki/List_of_districts_of_Tamil_Nadu",
