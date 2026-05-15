@@ -146,6 +146,42 @@ export function _resetCachesForTesting(): void {
 }
 
 /**
+ * Compute a coarse centroid for a GeoJSON geometry. Pure: no I/O. Used by
+ * the drill-down breadcrumb glyph (Phase 3 c3 of TN-GRANULAR-GEO-PLAN).
+ *
+ * Algorithm: arithmetic mean of every coordinate pair the geometry visits.
+ * NOT a proper polygon-area centroid (which requires shoelace integration);
+ * this is the cheapest "where roughly is this thing" we can compute without
+ * pulling in @turf/centroid (~30 KB) for a 14 px glyph. The breadcrumb is
+ * a positional cue, not a geometric assertion — coarse is fine.
+ *
+ * Returns null when the geometry is missing or has no positions.
+ */
+export function centroidOf(
+  geometry: { coordinates?: unknown } | null | undefined,
+): [number, number] | null {
+  if (!geometry || !geometry.coordinates) return null;
+  let sx = 0;
+  let sy = 0;
+  let n = 0;
+  function visit(c: any): void {
+    if (typeof c[0] === "number" && typeof c[1] === "number") {
+      sx += c[0];
+      sy += c[1];
+      n += 1;
+      return;
+    }
+    for (const child of c) visit(child);
+  }
+  visit(geometry.coordinates);
+  if (n === 0) return null;
+  return [sx / n, sy / n];
+}
+
+/** State-LGD → ECI code (exported for callers that need to bridge the two). */
+export const STATE_LGD_TO_ECI_PUBLIC: Record<string, string> = STATE_LGD_TO_ECI;
+
+/**
  * Load the FeatureCollection for the requested level. Returns null when
  * the file is absent (the graceful-degradation contract). Throws only on
  * caller-input bugs (see boundaryBasename).

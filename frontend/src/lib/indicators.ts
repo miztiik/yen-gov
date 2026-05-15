@@ -78,6 +78,19 @@ export interface IndicatorMeta {
     kind: "rebase" | "definition_change" | "frame_change" | "coverage_change";
     note: string;
   }>;
+  /**
+   * Lowest geographic grain at which this indicator is measurably valid
+   * (Phase 3 c3 of TN-GRANULAR-GEO-PLAN). When undefined the drill-down is
+   * unrestricted. PLFS / NFHS sample-based indicators set this to "state"
+   * or "district" so the citizen cannot drill into a level the underlying
+   * methodology does not support. Greyed crumbs in the breadcrumb surface
+   * the floor in their tooltip ("this indicator is measured at district
+   * level, not village"). The schema bump that makes this field part of
+   * the on-disk indicator artifact is deferred to a follow-up commit; the
+   * TS type accepts it now so the drill-down honours it as soon as a
+   * producer starts emitting it.
+   */
+  min_grain?: "country" | "state" | "district" | "subdistrict" | "village";
 }
 
 export interface IndicatorRow {

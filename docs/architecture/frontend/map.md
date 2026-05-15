@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-15 (revision: Phase 2 of TN-GRANULAR-GEO-PLAN — typed boundary loader)
+**Last Updated**: 2026-05-15 (revision: Phase 3 c3 of TN-GRANULAR-GEO-PLAN — drill-down UX behavioural)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -193,6 +193,51 @@ The orphan-boundary check lives next to the loader (in `boundaries.contract.test
 ### Caching
 
 The per-state villages index is memoised in a `Map<stateLgd, Promise<VillagesIndex | null>>` for the lifetime of the page. The GeoJSON shards themselves are not memoised by the loader — the browser HTTP cache + Pages' `Cache-Control` already do that, and a JS-side cache for ~50 MB of geometry is the wrong allocator. A test-only `_resetCachesForTesting()` is exported to keep vitest cases isolated; it is not part of the public API.
+
+## Drill-down UX (Phase 3 of TN-GRANULAR-GEO-PLAN)
+
+`IndicatorChoropleth.svelte` ships a state→district→subdistrict→village drill on TN-scoped indicators (`highlight_state === "S22"`). Sign-off: Jony APPROVED-WITH-EDITS 2026-05-15; the five edits are baked into the implementation as called out below.
+
+### Zoom-and-replace (not stacked)
+
+Each click discards the parent layer and renders the child layer in its place — same legend, same slider, same headline. The alternative (stacked layers with a fade-in child) was rejected on Jony's review because at village zoom the citizen has no spatial reference for "where in TN am I"; the breadcrumb glyph (below) carries that signal more cleanly than half-faded parent polygons.
+
+### Breadcrumb pattern
+
+Top-of-map nav: `India › Tamil Nadu › Coimbatore › Pollachi`. Each crumb is a back-affordance — clicking returns to that level (the `goBack(state, idx)` reducer in `drilldown.ts` pops the stack to that index and clears parent/state context that no longer applies).
+
+- **14 px monochrome SVG glyph** beside each crumb name (Jony edit #2 — bumped from 12 px on Jony's request because at 12 px the centroid dot was indistinguishable from the bullet separator). The glyph reuses an inline `<svg>` rather than a new component file (per the plan: no new components for crumbs/glyphs — inline in the choropleth).
+- **Re-clicking the active crumb is a recentre signal, not a no-op** (Jony edit #1). `goBack(state, stack.length)` returns the same state object referentially, which the choropleth observes and treats as "fit map to current bbox". Re-fitting the map handle is deferred until MapChoropleth grows a `recentre` prop; until then the click is logged but has no visible effect.
+
+### Lazy fetch + spinner + dim
+
+Each drill click invokes `loadBoundary(level, parentDistrictLgd, stateLgd)` from `boundaries.ts` lazily — village shards are never preloaded.
+
+- **During fetch**: the map dims to 60 % opacity (CSS `opacity` transition, 250 ms ease-out) and a centred overlay surfaces "Loading <level> boundaries…" with a spinner (Jony edit #3 — exact polygon-overlay positioning requires the maplibre map handle for LngLat→pixel projection, deferred; the centred overlay + dim carries the "something is happening" signal honestly in the meantime).
+- **On failure** (404, network error, missing index entry): `deeper_fetch_error` surfaces an inline amber toast at the bottom of the map ("village boundaries unavailable"); the breadcrumb is rolled back via `goBack` to the parent level so the citizen never lands on a level with no data underneath. This is the loader's 404-as-null contract bubbled up to the UI.
+
+### min_grain gating
+
+The `IndicatorMeta.min_grain` field (`country|state|district|subdistrict|village`, optional) gates click depth (Jony edit #4 + plan §Phase 3 goal #5). When set, `isLevelEnabled(candidate, min_grain)` refuses any drill below the floor; greyed crumbs in the breadcrumb surface `blockedCrumbTooltip(min_grain)` ("this indicator is measured at district level, not village") in their `title` attribute so the citizen reads the floor without a second tap.
+
+The schema bump that lands `min_grain` on the on-disk `indicator.schema.json` is deferred to a follow-up commit; the TS type accepts the field today so the drill-down honours it as soon as a producer starts emitting it. (Per CLAUDE.md §11: the schema bump must precede the first artifact that sets the field.)
+
+### Empty-state hatch + dual tooltip
+
+When the active level has polygons with no value (the common case at deeper levels today, since no indicator emits district / subdistrict / village rows yet):
+
+- **Per-polygon hover tooltip** is specific (Jony edit #5): "Nilgiris — no data, 2024" — naming the polygon and the selected time, never a generic "no data" string.
+- **Legend chip** below the map shows the aggregate count, labelled with the unit so it reads unambiguously: "12 districts, no data" (not just "12 — no data" which the eye groups as a value bucket).
+
+The diagonal-hatch fill on the polygon itself (the Phase 3 goal #6 visual) is deferred to a polish commit — implementing it requires extending `MapChoropleth` with a `fill-pattern` image registration (~30 LOC) and a per-key pattern selector. Tracked as a stub: until then, no-data polygons render with the existing default soft slate, and the count + tooltip carry the editorial signal.
+
+### 250 ms transition + reduced motion
+
+The fade-out / fade-in across drill levels uses a CSS `opacity` transition at 250 ms ease-out (plan §Phase 3 goal #7). When `prefers-reduced-motion: reduce` matches, `drill_transition_ms` collapses to 0 and the swap is instant. The actual map remount (the `{#key}` block re-keys MapChoropleth on level change) is what swaps the geometry; the opacity transition fades over the swap.
+
+### Why this lives inline in `IndicatorChoropleth.svelte`
+
+The plan was explicit: no new components for crumbs / glyphs — inline them in the choropleth. The drill state machine is the only seam carved out (`drilldown.ts`), and only because pure orchestration logic must be unit-testable without mounting Svelte (the project's vitest stack does not bundle `@testing-library/svelte`; see `IndicatorChoropleth.boundaries.test.ts` header for the reasoning).
 
 ## See also
 

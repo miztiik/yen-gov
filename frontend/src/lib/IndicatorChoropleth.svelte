@@ -12,7 +12,23 @@
 
   import MapChoropleth from "./maplibre/MapChoropleth.svelte";
   import { INDIA_STATES, STATE_NAME_TO_ECI } from "./maplibre/sources";
-  import { joinKeyFor, type GeoLevel } from "./boundaries";
+  import {
+    joinKeyFor,
+    boundaryBasename,
+    loadBoundary,
+    type GeoLevel,
+    type BoundaryFeatureCollection,
+  } from "./boundaries";
+  import {
+    initialDrillState,
+    drillTo,
+    goBack,
+    nextLevel,
+    isLevelEnabled,
+    blockedCrumbTooltip,
+    type DrillState,
+  } from "./drilldown";
+  import type { BoundaryEntry } from "./maplibre/sources";
   import SourceList from "./SourceList.svelte";
   import IndicatorIcon from "./IndicatorIcon.svelte";
   import RebaseBanner from "./honesty/RebaseBanner.svelte";
@@ -190,6 +206,198 @@
       );
     }
   });
+
+  // -- Drill-down state machine (Phase 3 c3 of TN-GRANULAR-GEO-PLAN) ---------
+  //
+  // The drill is enabled only on TN-scoped indicators (highlight_state ===
+  // "S22"); other indicators keep the v1 single-level state choropleth. A
+  // single $state object holds (current level, parent district lgd, state
+  // lgd, breadcrumb stack) — kept tight per the plan. All state transitions
+  // route through pure helpers in ./drilldown.ts so the orchestration is
+  // unit-testable without mounting Svelte/maplibre.
+  //
+  // Boundary fetch: lazy via loadBoundary on every drill click. While
+  // fetching, the map is dimmed to 60% and a spinner overlays the centre
+  // (Jony edit #3 — exact polygon overlay would require the maplibre map
+  // handle for LngLat→pixel projection; the centred overlay is the closest
+  // honest approximation without forking MapChoropleth's contract).
+  // Failure: inline toast, breadcrumb does NOT advance, parent layer stays
+  // visible. Same 404-as-null contract as the loader.
+  //
+  // Empty-state polygon (no value at this level): currently rendered with
+  // the default soft slate; the diagonal-hatch fill the plan specifies
+  // requires extending MapChoropleth with a fill-pattern image registration
+  // (~30 LOC) and is deferred to a polish commit. The "no data" count is
+  // surfaced in the legend AND in the per-polygon tooltip (Jony edit #5).
+
+  const TN_ECI = "S22";
+  const TN_LGD = "33";
+  const drill_enabled = $derived(highlight_state === TN_ECI);
+
+  let drill_state = $state<DrillState>(initialDrillState("state"));
+  // Reset when the indicator path changes.
+  $effect(() => {
+    void indicator_path;
+    drill_state = initialDrillState("state");
+    deeper_fc = null;
+    deeper_fetch_error = null;
+    deeper_fetching = false;
+  });
+
+  let deeper_fc = $state<BoundaryFeatureCollection | null>(null);
+  let deeper_fetching = $state(false);
+  let deeper_fetch_error = $state<string | null>(null);
+
+  // 250ms ease-out; instant when the user prefers reduced motion.
+  const reduced_motion = (() => {
+    if (typeof window === "undefined") return false;
+    if (typeof window.matchMedia !== "function") return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  })();
+  const drill_transition_ms = reduced_motion ? 0 : 250;
+
+  $effect(() => {
+    const lvl = drill_state.level;
+    const parent = drill_state.parentDistrictLgd;
+    const stateLgd = drill_state.stateLgd;
+    if (lvl === "state") {
+      // Reset deeper data; the state-level branch uses INDIA_STATES.
+      deeper_fc = null;
+      deeper_fetching = false;
+      deeper_fetch_error = null;
+      return;
+    }
+    deeper_fetching = true;
+    deeper_fetch_error = null;
+    const my_token = ++_fetch_token;
+    loadBoundary(lvl, parent, stateLgd)
+      .then(fc => {
+        if (my_token !== _fetch_token) return; // stale
+        if (!fc) {
+          deeper_fetch_error = `${lvl} boundaries unavailable`;
+          deeper_fetching = false;
+          // Roll back the breadcrumb advance (plan §Phase 3 goal #4).
+          drill_state = goBack(drill_state, drill_state.breadcrumbStack.length - 1);
+          return;
+        }
+        deeper_fc = fc;
+        deeper_fetching = false;
+      })
+      .catch(() => {
+        if (my_token !== _fetch_token) return;
+        deeper_fetch_error = `${lvl} boundaries unavailable`;
+        deeper_fetching = false;
+        drill_state = goBack(drill_state, drill_state.breadcrumbStack.length - 1);
+      });
+  });
+
+  let _fetch_token = 0;
+
+  /** Synthesise a BoundaryEntry pointing at the loader's basename for the
+   *  current drill level. Reuses MapChoropleth's existing geojson_local_path
+   *  resolution path — no contract change required. */
+  function synthesiseEntry(state: DrillState): BoundaryEntry {
+    if (state.level === "state") return INDIA_STATES;
+    const basename = boundaryBasename(
+      state.level,
+      state.parentDistrictLgd,
+      state.stateLgd,
+    );
+    const join_property = joinKeyFor(state.level) ?? "id";
+    return {
+      id: `drill-${state.level}-${state.parentDistrictLgd ?? "_"}-${state.stateLgd ?? "_"}`,
+      label: `${state.level} (drill)`,
+      geojson_local_path: `boundaries/in/geojson/${basename}`,
+      geojson_url: "",
+      join_property,
+      attribution: INDIA_STATES.attribution,
+    };
+  }
+
+  const current_entry = $derived(synthesiseEntry(drill_state));
+
+  // Fills + tooltips for the active level. State-level reuses the existing
+  // values/tooltips; deeper levels currently render as "no data" because no
+  // indicator emits district/subdistrict/village rows yet — the empty-state
+  // legend chip + per-polygon tooltip surface this honestly.
+  const deeper_no_data_count = $derived.by(() => {
+    if (drill_state.level === "state") return 0;
+    return deeper_fc?.features.length ?? 0;
+  });
+
+  const deeper_tooltips = $derived.by(() => {
+    const out: Record<string, string> = {};
+    if (drill_state.level === "state") return out;
+    if (!deeper_fc) return out;
+    const join = joinKeyFor(drill_state.level);
+    if (!join) return out;
+    // Property names that typically carry the human label per ramSeraph
+    // upstream: subdt_name / vlgname / dtname for subdistrict / village /
+    // district. Fall back to the join-key value as label.
+    const NAME_KEYS = ["dtname", "subdt_name", "vlgname", "name", "ST_NM"];
+    for (const f of deeper_fc.features) {
+      const k = f.properties?.[join];
+      if (k === undefined || k === null) continue;
+      let label: string = String(k);
+      for (const nk of NAME_KEYS) {
+        const v = f.properties?.[nk];
+        if (typeof v === "string" && v.length) { label = v; break; }
+      }
+      // Jony edit #4 / #5: hatched polygon tooltip is specific, not generic.
+      out[String(k)] =
+        `<div class="font-semibold">${escape_html(label)}</div>` +
+        `<div class="text-slate-500">no data, ${escape_html(selected_time ?? "")}</div>`;
+    }
+    return out;
+  });
+
+  // Click handler — drill or no-op. State-level click resolves ECI → LGD
+  // (TN-only at v0; other states fall through to no-op + toast).
+  function handleSelect(sel: { key: string | number; properties: Record<string, unknown> }): void {
+    if (!drill_enabled) return;
+    const min_grain = artifact?.indicator.min_grain;
+    const nl = nextLevel(drill_state.level);
+    if (!nl || !isLevelEnabled(nl, min_grain)) return;
+    let label = String(sel.key);
+    let stateLgd: string | undefined;
+    if (drill_state.level === "state") {
+      const eci = STATE_NAME_TO_ECI[String(sel.key)];
+      if (eci !== TN_ECI) {
+        // Only TN has deeper boundaries on disk at v0.
+        deeper_fetch_error = "deeper boundaries available for Tamil Nadu only";
+        return;
+      }
+      stateLgd = TN_LGD;
+      label = String(sel.key);
+    } else {
+      // For deeper levels, prefer the human name carried on the feature.
+      const props = sel.properties ?? {};
+      for (const nk of ["dtname", "subdt_name", "vlgname"]) {
+        const v = props[nk];
+        if (typeof v === "string" && v.length) { label = v; break; }
+      }
+    }
+    drill_state = drillTo(
+      drill_state,
+      { key: sel.key, label, feature: { type: "Feature", properties: sel.properties, geometry: {} }, stateLgd },
+      min_grain,
+    );
+  }
+
+  function handleCrumbClick(idx: number): void {
+    drill_state = goBack(drill_state, idx);
+  }
+
+  // Inline 14px monochrome SVG glyph for a breadcrumb crumb (Jony edit #2).
+  // Renders the centroid as a tiny dot inside a rounded rectangle when the
+  // centroid is known; falls back to a generic dot when absent (root India
+  // crumb, or features that lacked geometry on click).
+  function crumbGlyphPath(c: { centroid: [number, number] | null }): string {
+    if (!c.centroid) return "M2,7 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 Z";
+    // 14×14 viewBox; the centroid normalises into a small dot at centre.
+    return "M1,3 h12 v8 h-12 z M5,7 h4 v0.5 h-4 z";
+  }
+
 
   function escape_html(s: string): string {
     return s.replace(/[&<>"']/g, c =>
@@ -395,13 +603,87 @@
     </header>
 
     <div>
-      <MapChoropleth
-        entry={INDIA_STATES}
-        {fills}
-        {tooltips}
-        {height}
-        highlight_key={highlight_key}
-      />
+      {#if drill_enabled && drill_state.breadcrumbStack.length > 0}
+        <!-- Breadcrumb (Phase 3 c3 of TN-GRANULAR-GEO-PLAN). Each crumb is a
+             back-affordance; re-clicking the active crumb is a recentre
+             signal (Jony edit #1). 14px monochrome SVG glyph beside each
+             crumb name (Jony edit #2). -->
+        <nav class="px-3 py-1.5 border-b border-slate-100 flex items-center gap-1 text-[12px] text-slate-700 flex-wrap" aria-label="map drill breadcrumb">
+          {#each drill_state.breadcrumbStack as c, i (i)}
+            {@const min_g = artifact?.indicator.min_grain}
+            {@const blocked = min_g ? !isLevelEnabled(c.level, min_g) : false}
+            {#if i > 0}<span class="text-slate-300">›</span>{/if}
+            <button
+              type="button"
+              class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded hover:bg-slate-100 transition-colors"
+              class:text-slate-400={blocked}
+              class:cursor-help={blocked}
+              title={blocked && min_g ? blockedCrumbTooltip(min_g) : undefined}
+              onclick={() => handleCrumbClick(i)}
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" class="text-current">
+                <path d={crumbGlyphPath(c)} fill="currentColor" />
+              </svg>
+              <span>{c.label}</span>
+            </button>
+          {/each}
+          {#if drill_state.level !== "state" || drill_state.breadcrumbStack.length > 1}
+            <span class="text-slate-300">›</span>
+            <span class="px-1.5 py-0.5 text-slate-500 italic">{drill_state.level}</span>
+          {/if}
+        </nav>
+      {/if}
+      <div class="relative">
+        <!-- 250 ms ease-out fade for the drill transition; instant when the
+             user prefers reduced motion (plan §Phase 3 goal #7). -->
+        <div
+          style:transition={`opacity ${drill_transition_ms}ms ease-out`}
+          style:opacity={deeper_fetching ? 0.6 : 1}
+        >
+          {#key `${drill_state.level}|${drill_state.parentDistrictLgd ?? ""}|${drill_state.stateLgd ?? ""}`}
+            <MapChoropleth
+              entry={current_entry}
+              fills={drill_state.level === "state" ? fills : {}}
+              tooltips={drill_state.level === "state" ? tooltips : deeper_tooltips}
+              {height}
+              highlight_key={drill_state.level === "state" ? highlight_key : undefined}
+              onSelect={handleSelect}
+            />
+          {/key}
+        </div>
+        {#if deeper_fetching}
+          <!-- Centre-overlay spinner while a deeper boundary fetches. The
+               plan asked for a polygon-overlay spinner (Jony edit #3); doing
+               that exactly requires the maplibre map handle for LngLat→pixel
+               projection — deferred. The dim-to-60% on the map below carries
+               the "something is happening" signal in the meantime. -->
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="px-3 py-2 rounded-md bg-white/90 shadow-sm text-[12px] text-slate-700 flex items-center gap-2">
+              <span class="inline-block w-3 h-3 border-2 border-slate-300 border-t-slate-700 rounded-full animate-spin"></span>
+              Loading {drill_state.level} boundaries…
+            </div>
+          </div>
+        {/if}
+        {#if deeper_fetch_error}
+          <div class="absolute inset-x-2 bottom-2 px-2.5 py-1.5 text-[11px] bg-amber-50 border border-amber-200 text-amber-900 rounded shadow-sm">
+            {deeper_fetch_error}
+            <button
+              type="button"
+              class="ml-2 underline text-amber-800"
+              onclick={() => (deeper_fetch_error = null)}
+            >dismiss</button>
+          </div>
+        {/if}
+      </div>
+      {#if drill_state.level !== "state" && deeper_no_data_count > 0}
+        <!-- Empty-state legend chip (Jony edit #5) — labelled with unit so
+             "12 districts, no data" reads unambiguously next to value
+             buckets. -->
+        <div class="px-4 py-2 text-[11px] text-slate-600 flex items-center gap-2">
+          <span class="inline-block w-3 h-3 rounded bg-slate-200 border border-slate-300"></span>
+          {deeper_no_data_count} {drill_state.level}{deeper_no_data_count === 1 ? "" : "s"}, no data
+        </div>
+      {/if}
     </div>
 
     <div class="px-4 py-3 border-t border-slate-100 space-y-3">
