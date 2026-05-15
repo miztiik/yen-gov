@@ -4,7 +4,7 @@
 
 **Title**: National primary energy supply by source  
 **One-line**: Total primary energy supply (TPES) for India, broken down by source (coal, oil, gas, nuclear, hydro, renewables).  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/national_primary_energy_supply_mtoe.json`](../../../../datasets/indicators/in/energy/national_primary_energy_supply_mtoe.json)
 
 ## Definition

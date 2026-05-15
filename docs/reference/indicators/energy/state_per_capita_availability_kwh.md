@@ -4,7 +4,7 @@
 
 **Title**: State-wise per-capita availability of power  
 **One-line**: Annual per-capita electricity availability (kWh / person / year), by state and Union Territory, fiscal year.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_per_capita_availability_kwh.json`](../../../../datasets/indicators/in/energy/state_per_capita_availability_kwh.json)
 
 ## Definition

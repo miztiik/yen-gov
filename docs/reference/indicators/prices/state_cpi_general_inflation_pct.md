@@ -4,7 +4,7 @@
 
 **Title**: State-wise CPI inflation (General) — annual average  
 **One-line**: State-wise headline CPI inflation (General sub-index), year-on-year %, annual average per fiscal year.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/state_cpi_general_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_general_inflation_pct.json)
 
 ## Definition

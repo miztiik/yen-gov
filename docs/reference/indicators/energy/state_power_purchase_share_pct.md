@@ -4,7 +4,7 @@
 
 **Title**: State power-purchase mix by source (%, by source)  
 **One-line**: Share of total electricity purchased by a state's distribution utilities, broken down by generation source (coal, hydro, solar, wind, nuclear, gas, small-hydro, bio-power, trading-and-others).  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_power_purchase_share_pct.json`](../../../../datasets/indicators/in/energy/state_power_purchase_share_pct.json)
 
 ## Definition

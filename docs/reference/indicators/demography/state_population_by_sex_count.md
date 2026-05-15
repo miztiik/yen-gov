@@ -4,7 +4,7 @@
 
 **Title**: State population by sex, decennial Census (number of people)  
 **One-line**: State-level resident population at each decennial Census, faceted into Male and Female.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/demography/state_population_by_sex_count.json`](../../../../datasets/indicators/in/demography/state_population_by_sex_count.json)
 
 ## Definition

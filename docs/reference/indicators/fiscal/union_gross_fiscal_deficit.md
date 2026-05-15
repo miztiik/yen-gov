@@ -4,7 +4,7 @@
 
 **Title**: Gross fiscal deficit (Union Government)  
 **One-line**: The Union (Central) Government's own borrowing requirement in each fiscal year.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json`](../../../../datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json)
 
 ## Definition

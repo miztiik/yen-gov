@@ -4,7 +4,7 @@
 
 **Title**: National final energy consumption by sector and source  
 **One-line**: Final energy consumption in India broken down by end-use sector (agriculture, industry, transport, residential, commercial, others) and by source (oil, gas, coal, electricity, biomass).  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json`](../../../../datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json)
 
 ## Definition

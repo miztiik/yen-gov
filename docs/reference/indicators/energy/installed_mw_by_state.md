@@ -4,7 +4,7 @@
 
 **Title**: Installed power-generation capacity (siting basis)  
 **One-line**: Nameplate capacity of power plants physically located within each state.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_mw_by_state.json`](../../../../datasets/indicators/in/energy/installed_mw_by_state.json)
 
 ## Definition

@@ -4,7 +4,7 @@
 
 **Title**: National macro aggregates at constant 2011-12 prices (annual)  
 **One-line**: MoSPI National Accounts Statistics headline aggregates — GDP, GVA, NDP, Gross National Income, Gross National Disposable Income, Gross Fixed Capital Formation, Gross Saving, Consumption of Fixed Capital, Private and Government Final Consumption Expenditure, Change in Stock, Valuables, Exports and Imports of Goods and Services, Net Taxes / Taxes / Subsidies on Products, and external transfers — at constant 2011-12 prices, faceted by indicator.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json)
 
 ## Definition

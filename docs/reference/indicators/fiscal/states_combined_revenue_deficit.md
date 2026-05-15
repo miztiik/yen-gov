@@ -4,7 +4,7 @@
 
 **Title**: Revenue deficit (all states, all-India)  
 **One-line**: Revenue expenditure minus revenue receipts for all states combined.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/states_combined_revenue_deficit.json`](../../../../datasets/indicators/in/fiscal/states_combined_revenue_deficit.json)
 
 ## Definition

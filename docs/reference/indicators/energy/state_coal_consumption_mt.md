@@ -4,7 +4,7 @@
 
 **Title**: State coal consumption (Mt, FY06–FY25)  
 **One-line**: Per-state domestic coal consumption in million tonnes per fiscal year, summed across all coal grades produced or imported within the state (raw coal + washed coal + middlings + lignite).  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_coal_consumption_mt.json`](../../../../datasets/indicators/in/energy/state_coal_consumption_mt.json)
 
 ## Definition

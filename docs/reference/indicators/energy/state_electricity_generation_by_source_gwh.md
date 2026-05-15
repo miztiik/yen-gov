@@ -4,7 +4,7 @@
 
 **Title**: State electricity generation, by fuel source (GWh, FY16–FY26)  
 **One-line**: Per-state actual electricity generated, broken down by fuel source (coal, oil-gas, hydro, nuclear, wind, solar, small-hydro, bio-power).  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json`](../../../../datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json)
 
 ## Definition

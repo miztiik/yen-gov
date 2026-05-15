@@ -4,7 +4,7 @@
 
 **Title**: Devolution of central taxes to states (all-India)  
 **One-line**: States' share in the divisible pool of central taxes — the constitutional, Finance-Commission-driven stream that the Centre is obligated to pass on to the states.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/centre_transfers_to_states_tax_devolution.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_to_states_tax_devolution.json)
 
 ## Definition

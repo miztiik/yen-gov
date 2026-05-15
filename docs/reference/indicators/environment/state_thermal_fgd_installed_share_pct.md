@@ -4,7 +4,7 @@
 
 **Title**: Thermal-plant FGD compliance (share of state capacity)  
 **One-line**: Share of each state's coal thermal-plant capacity (MW) that has actually installed flue-gas desulphurisation (FGD) equipment, against the MoEF&CC's December-2015 directive.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json`](../../../../datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json)
 
 ## Definition

@@ -93,7 +93,9 @@ def _load_wired_ids(root: Path) -> set[str] | None:
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    # Date-only stamp: government statistics don't update multiple times per
+    # day, so a sub-day timestamp on an auto-generated doc footer is noise.
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
 def _first_sentence(text: str) -> str:

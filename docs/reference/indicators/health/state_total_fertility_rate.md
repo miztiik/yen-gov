@@ -4,7 +4,7 @@
 
 **Title**: Total Fertility Rate (children per woman)  
 **One-line**: Total Fertility Rate — average number of children a woman would bear over her lifetime at current age-specific fertility rates.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/health/state_total_fertility_rate.json`](../../../../datasets/indicators/in/health/state_total_fertility_rate.json)
 
 ## Definition

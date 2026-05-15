@@ -4,7 +4,7 @@
 
 **Title**: PM2.5 — annual mean (state)  
 **One-line**: Annual mean concentration of fine particulate matter (PM2.5) in micrograms per cubic metre, averaged across all CPCB monitoring stations in each state.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json`](../../../../datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json)
 
 ## Definition

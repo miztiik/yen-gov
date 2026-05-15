@@ -4,7 +4,7 @@
 
 **Title**: State public expenditure on health  
 **One-line**: Annual public expenditure on health, by state, ₹ Crore — captures Medical & Public Health, Family Welfare, and Water Supply & Sanitation heads of the state revenue + capital accounts.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json`](../../../../datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json)
 
 ## Definition

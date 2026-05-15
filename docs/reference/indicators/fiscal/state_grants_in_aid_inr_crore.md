@@ -4,7 +4,7 @@
 
 **Title**: Grants-in-Aid from the Centre to states  
 **One-line**: Finance Commission grants + centrally-sponsored scheme grants + special-purpose transfers received by the state from the Central Government.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_grants_in_aid_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_grants_in_aid_inr_crore.json)
 
 ## Definition

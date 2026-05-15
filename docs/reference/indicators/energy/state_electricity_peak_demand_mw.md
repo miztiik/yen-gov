@@ -4,7 +4,7 @@
 
 **Title**: Annual peak electricity demand (by state)  
 **One-line**: The single highest 15-minute system demand the state's grid served at any moment during the fiscal year.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_electricity_peak_demand_mw.json`](../../../../datasets/indicators/in/energy/state_electricity_peak_demand_mw.json)
 
 ## Definition

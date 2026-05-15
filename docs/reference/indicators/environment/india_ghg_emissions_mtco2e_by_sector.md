@@ -4,7 +4,7 @@
 
 **Title**: India's greenhouse-gas emissions by sector (Gg CO₂-equivalent)  
 **One-line**: National greenhouse-gas emissions broken down by sector (Energy, Industrial Processes & Product Use, Agriculture, Land-Use / Land-Use Change & Forestry, Waste).  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json)
 
 ## Definition

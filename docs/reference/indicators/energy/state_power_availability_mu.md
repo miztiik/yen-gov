@@ -4,7 +4,7 @@
 
 **Title**: State-wise availability of power (MU)  
 **One-line**: Annual availability of energy in the state (MU = million units = GWh), fiscal year.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_power_availability_mu.json`](../../../../datasets/indicators/in/energy/state_power_availability_mu.json)
 
 ## Definition

@@ -4,7 +4,7 @@
 
 **Title**: Grants from Centre to states (all-India)  
 **One-line**: Discretionary grants from the Centre to all states combined: Centrally Sponsored Schemes, Finance Commission grants (post-devolution revenue deficit, local body, SDRF, health), State Plan Schemes (legacy), and other statutory grants.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/centre_transfers_to_states_grants.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_to_states_grants.json)
 
 ## Definition

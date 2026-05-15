@@ -4,7 +4,7 @@
 
 **Title**: Net State Domestic Product (constant prices, spliced)  
 **One-line**: Real Net State Domestic Product (constant prices), 1994-95 -> 2024-25, spliced across MoSPI's four base years (1993-94, 1999-2000, 2004-05, 2011-12).  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json`](../../../../datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json)
 
 ## Definition

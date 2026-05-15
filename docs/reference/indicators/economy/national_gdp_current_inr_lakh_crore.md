@@ -4,7 +4,7 @@
 
 **Title**: National GDP at current prices (all-India)  
 **One-line**: India's gross domestic product at current (nominal) prices in lakh crore rupees.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json)
 
 ## Definition

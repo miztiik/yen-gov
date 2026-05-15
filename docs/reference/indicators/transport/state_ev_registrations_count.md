@@ -4,7 +4,7 @@
 
 **Title**: EV registrations by state and vehicle category  
 **One-line**: Annual count of electric vehicles newly registered in each state, broken down by vehicle category (2-wheeler, 3-wheeler, 4-wheeler, bus, others).  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/transport/state_ev_registrations_count.json`](../../../../datasets/indicators/in/transport/state_ev_registrations_count.json)
 
 ## Definition

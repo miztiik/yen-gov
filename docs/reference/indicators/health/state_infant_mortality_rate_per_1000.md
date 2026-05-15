@@ -4,7 +4,7 @@
 
 **Title**: Infant Mortality Rate (per 1,000 live births)  
 **One-line**: Infant Mortality Rate — deaths of children under one year of age per 1,000 live births, calendar-year.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json)
 
 ## Definition

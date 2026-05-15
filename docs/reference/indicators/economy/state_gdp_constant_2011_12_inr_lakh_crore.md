@@ -4,7 +4,7 @@
 
 **Title**: State GDP (constant prices, base 2011-12)  
 **One-line**: Gross Domestic Product of the state at constant 2011-12 prices, in Lakh Crore Rupees (1 Lakh Crore = 1 trillion).  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json)
 
 ## Definition

@@ -4,7 +4,7 @@
 
 **Title**: State per-capita NSDP, inflation-adjusted (₹ per person per year)  
 **One-line**: Net State Domestic Product per person at constant 2011-12 prices.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json)
 
 ## Definition

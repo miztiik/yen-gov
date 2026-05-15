@@ -4,7 +4,7 @@
 
 **Title**: State pension expenditure (revenue account)  
 **One-line**: Annual state-government pension expenditure (revenue account, ₹ Crore) from FY 2004-05 onwards.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)
 
 ## Definition

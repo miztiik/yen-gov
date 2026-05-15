@@ -4,7 +4,7 @@
 
 **Title**: Installed power-generation capacity (all fuels)  
 **One-line**: Total nameplate generation capacity physically located in (or allocated to) each state, in megawatts, from CEA's monthly Installed Capacity report.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_total_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_total_mw.json)
 
 ## Definition

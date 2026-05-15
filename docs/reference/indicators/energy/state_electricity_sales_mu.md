@@ -4,7 +4,7 @@
 
 **Title**: Annual electricity sales (by state)  
 **One-line**: Total electricity actually billed to end-consumers (all categories: domestic, commercial, industrial, agricultural, public lighting, etc.) in the state, in million units.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_electricity_sales_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_sales_mu.json)
 
 ## Definition

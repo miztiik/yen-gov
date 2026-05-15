@@ -4,7 +4,7 @@
 
 **Title**: ACS-ARR gap on electricity sales (Rs/kWh, by state)  
 **One-line**: Average Cost of Supply minus Average Revenue Realised, per unit of electricity sold.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json`](../../../../datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json)
 
 ## Definition

@@ -4,7 +4,7 @@
 
 **Title**: State per-capita Net State Domestic Product (current prices)  
 **One-line**: Net State Domestic Product (NSDP) per person, in current prices.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json)
 
 ## Definition

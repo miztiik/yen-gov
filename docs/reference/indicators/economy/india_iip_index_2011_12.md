@@ -4,7 +4,7 @@
 
 **Title**: Index of Industrial Production (IIP), base 2011-12 = 100  
 **One-line**: National Index of Industrial Production, faceted by category (sectoral: Mining/Manufacturing/Electricity, plus the General all-industry index, plus use-based: Capital, Consumer durables, Consumer non-durables, Intermediate, Infrastructure, Primary).  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/india_iip_index_2011_12.json`](../../../../datasets/indicators/in/economy/india_iip_index_2011_12.json)
 
 ## Definition

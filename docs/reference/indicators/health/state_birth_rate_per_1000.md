@@ -4,7 +4,7 @@
 
 **Title**: Crude Birth Rate (per 1,000 population)  
 **One-line**: Crude Birth Rate — number of live births per 1,000 mid-year population, calendar-year.  
-**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/health/state_birth_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_birth_rate_per_1000.json)
 
 ## Definition
