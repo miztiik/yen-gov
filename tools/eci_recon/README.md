@@ -1,6 +1,6 @@
 # tools/eci_recon
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-15
 
 > Phase A of the [authority hierarchy for past elections](../../docs/architecture/backend/sources-eci.md#authority-hierarchy-for-past-elections): probe ECI's reachable endpoints and produce a Markdown inventory of what's available for the in-scope (state × year) matrix. **Reconnaissance only — does not write to `datasets/`.**
 
@@ -10,13 +10,13 @@
 python tools/eci_recon/recon.py
 ```
 
-Output is written to `notes/eci-recon-<YYYY-MM-DD>.md`. `notes/` is non-authoritative per CLAUDE.md §3 — the inventory is for human review before any data ingestion.
+Historically this tool wrote a human-review inventory outside `docs/`. Durable findings must now be distilled into [backend/sources-eci.md](../../docs/architecture/backend/sources-eci.md) or archived under `docs/archive/`; `notes/` is non-authoritative per CLAUDE.md §3.
 
 ## What it probes
 
 For the matrix `{S22, S11, S25} × {2021, 2016, 2011}` plus `S22 × 2026`:
 
-1. **State-code mapping** via `GET /api/get-ac-election-state` on the new portal. Confirms that the API uses internal ECI codes (`S22`, `S11`, `S25`), not the display number that appears in the user-facing URL `/statistical-report/ae/<year>/<display-code>`.
+1. **State-code mapping** via `GET /api/get-ac-election-state` on the new portal. Later recon established that the 2024+ Statistical Report landing-page integer is the API `category_id`, not a general state-display-code lookup.
 2. **Per-(state, year) notification metadata** via `GET /api/get-ac-election-details?iYear=<y>&st_code=<s>&election_id=3`. This endpoint only carries the active cycle; past cycles return empty. The recon records that fact per cell.
 3. **Publications catalogue** via `GET /api/eci-publication` and the paginated `GET /api/general-election-narative-reports-publication`. Filters for documents whose title/description mentions a state in scope, "statistical", "assembly election", or "legislative".
 4. **Legacy-host reachability** for `old.eci.gov.in` and `eci.gov.in` (file-host subdomain), where the per-state AE statistical reports for 2021 / 2016 / 2011 actually live. The recon records the HEAD response (or the connect error) so the inventory reflects the truth about *whether the run could see them at all*.

@@ -1,6 +1,6 @@
 # Backend `sources/eci/` — ECI Source Adapter
 
-**Last Updated**: 2026-05-13
+**Last Updated**: 2026-05-15
 
 `backend/yen_gov/sources/eci/` is the adapter for the Election Commission of India's surfaces. It owns URL conventions for both the live results portal (`results.eci.gov.in`) and the Statistical Reports hub (`eci.gov.in/statistical-report/...`), the HTML and XLSX parsers, and the per-page commitment about which artifact each ECI page can produce.
 
@@ -11,7 +11,8 @@
 | [`urls.py`](../../../backend/yen_gov/sources/eci/urls.py) | URL builders for the results portal: `event_index_url`, `partywise_state_url`, `constituencywise_url`. Validates state codes against `^[SU]\\d{2}$`. |
 | [`partywise.py`](../../../backend/yen_gov/sources/eci/partywise.py) | `parse_partywise(content) -> PartywiseSnapshot`. Source of truth for party seat counts and party ECI codes within a state. |
 | [`constituencywise.py`](../../../backend/yen_gov/sources/eci/constituencywise.py) | `parse_constituencywise(content) -> ConstituencywiseRaw`; `to_constituency_result(raw, *, election, state, body, eci_no, ...)` binds it to `result.constituency.schema.json`. |
-| [`categories.py`](../../../backend/yen_gov/sources/eci/categories.py) | Pinned `dict[(state_code, year), int]` of Statistical Report `category_id`s for the new ECI portal. Hand-curated from Phase A recon — extending it requires a code change, not a config edit. |
+| [`categories.py`](../../../backend/yen_gov/sources/eci/categories.py) | Loader for [`config/eci-pins.json`](../../../config/eci-pins.json). `category_id_for(state, year)` reads the schema-validated pin file; the config is canonical, not this Python module. |
+| [`events.py`](../../../backend/yen_gov/sources/eci/events.py) | `(state, year) -> EventInfo(event_id, has_partywise)` registry. This is the branch point for live partywise reconciliation versus archived Statistical Report-only ingest. |
 | [`statistical_report.py`](../../../backend/yen_gov/sources/eci/statistical_report.py) | `statistical_report_catalog_url`, `parse_catalog`, `fetch_catalog`, `download_documents`. Catalog = list of `(xlsx_url, pdf_zip_url)` permalinks under `/all_files/election_report/...` (safe to persist in `sources[]`). |
 | [`static_catalog.py`](../../../backend/yen_gov/sources/eci/static_catalog.py) | Synthesises a `CatalogResponse` for legacy cohorts whose Statistical Report is published under `/all_files/full-statistical-reports/<state-slug>/<year>/...` rather than the 2024+ `/api/election-result?category_id=...` endpoint. `resolve_catalog(state, year, *, fetcher)` is the single dispatcher — pinned `(state, year)` win over the static registry, so a future ECI republish under the unified API automatically takes over. Today: 2023 cohort (S12 MP, S26 Chhattisgarh, S16 Mizoram, S29 Telangana). |
 | [`statistical_report_detailed.py`](../../../backend/yen_gov/sources/eci/statistical_report_detailed.py) | `parse_detailed_results(xlsx_bytes) -> DetailedResultsRaw`; `to_constituency_results(raw, *, election, state, top_n, collapse_others, sources, party_eci_codes=None)` emits one `ConstituencyResult` per AC from Section 10 ("Detailed Results"). |
@@ -97,10 +98,18 @@ For any past election (assembly or general), when filling out fields that are no
 
 ### URL grammar — Statistical Reports
 
-**Persisted in `sources[]`** (the human-facing landing page):
+For 2024+ Statistical Report catalogues, the trailing integer in the public landing URL is the same `category_id` used by the JSON API. It is **not** the yen-gov `S22` state code and should not be documented as a display-state lookup.
+
+**Human-facing landing page** (safe to cite in docs and commit messages):
 
 ```
-https://www.eci.gov.in/statistical-report/{body}/{year}/{state-code}
+https://www.eci.gov.in/statistical-report/{body}/{year}/{category_id}
+```
+
+**Machine catalogue endpoint** (what `statistical_report_catalog_url(category_id)` fetches):
+
+```
+https://www.eci.gov.in/eci-backend/public/api/election-result?category_id=<category_id>
 ```
 
 **Never persisted in `sources[]`** (time-limited signed URLs from the "Download" buttons):
@@ -109,13 +118,13 @@ https://www.eci.gov.in/statistical-report/{body}/{year}/{state-code}
 https://www.eci.gov.in/eci-backend/public/api/download?url=<base64-blob>
 ```
 
-These signed URLs expire. We re-resolve them from the landing page on every fetch. The intermediate downloaded XLSX/PDF lives in `.runtime/raw/eci/statistical_report/{body}/{year}/{state-code}/<filename>` per [no fetch cache](../decisions/0003-no-fetch-cache.md) — not a contract surface, gitignored, throwaway.
+These signed URLs expire. We re-resolve them from the landing/catalogue on every fetch. The intermediate downloaded XLSX/PDF lives in `.runtime/raw/eci/...` per [no fetch cache](../decisions/0003-no-fetch-cache.md) — not a contract surface, gitignored, throwaway.
 
-The ECI URL grammar uses *display* state codes (e.g. `26` for Tamil Nadu), not the `S22`-style codes we use internally. The mapping must be empirically confirmed during the recon pass and recorded in [`docs/reference/identifiers.md`](../../reference/identifiers.md). Until the mapping for a state is confirmed, code MUST NOT silently assume it.
+The 2021-and-earlier archive is different: the hub table points directly at `https://old.eci.gov.in/files/file/<id>-<slug>/` landing pages. Those permalinks are also safe for provenance, but they are not `category_id` catalogues.
 
 ### Two-phase rollout
 
-**Phase A — Reconnaissance** (in `tools/eci_recon/`, per CLAUDE.md §3 / §4: tools are self-contained, no `backend/` imports). **Done 2026-05-09**; output in `notes/eci-recon-2026-05-09.md`. Key findings the parser depends on:
+**Phase A — Reconnaissance** (in `tools/eci_recon/`, per CLAUDE.md §3 / §4: tools are self-contained, no `backend/` imports). **Done 2026-05-09 / 2026-05-11**; the durable findings now live in this doc and the historical trace is archived at [ECI Statistical Report reconnaissance](../../archive/eci-statistical-report-recon-2026-05.md). Key findings the parser depends on:
 
 - The new portal's `/statistical-reports` hub table is hardcoded in `main.<hash>.js`. There is no JSON API that returns the (state, year) → URL map; the React bundle IS the canonical inventory. Recon extracts it by regex and prints it into the inventory note.
 - 2024+ events use `GET /eci-backend/public/api/election-result?category_id=<int>` with a *cleartext* small integer; the response carries stable `https://www.eci.gov.in/eci-backend/public/all_files/election_report/...` PDF/XLSX permalinks safe to persist in `sources[]`.
@@ -123,13 +132,28 @@ The ECI URL grammar uses *display* state codes (e.g. `26` for Tamil Nadu), not t
 - ECI's `jl()` AES-ECB obfuscation (key `4WS8851W824R456Y`, public constant from the bundle) wraps category_ids on a small set of legacy endpoints (`/api/get-statistical?categories=jl(<id>)`, `/api/get-sub-category`). Implemented in `tools/eci_recon/recon.py` for completeness; **not on the canonical Phase B path** — the hub table gives every URL we need cleartext.
 - `old.eci.gov.in` is unreachable from at least one dev environment (Windows box: ConnectTimeout). Recon documents reachability per probe rather than silently dropping URLs it couldn't visit.
 
-**Phase B — Enrichment**. First slice is **2026-only**, scoped to the four state assemblies that polled in May 2026: `S22` (Tamil Nadu), `S11` (Kerala), `S25` (West Bengal), `S03` (Assam). Pipeline shape:
+**Phase B — Enrichment**. The first slice was the May-2026 assembly cohort; the same Section 10 path now handles the pinned 2024-2026 assembly catalogues and the 2023 static-catalog cohort. Pipeline shape:
 
-1. **Catalog**: call `GET /api/election-result?category_id=<id>` per state. The `category_id` per `(state, year)` is harvested from the React bundle (Phase A) and pinned in `backend/yen_gov/sources/eci/categories.py` as a `dict[(state, year), int]` with the source URL in a sibling comment. Extending the map requires a code change, not a config edit. Phase A confirmed the pinned values for the 2026 cohort: `S03→23`, `S11→24`, `S22→26`, `S25→27` (each Statistical Report family ships 14 sectioned XLSX/PDF documents).
+1. **Catalog**: call `GET /api/election-result?category_id=<id>` per state/year when a 2024+ pin exists. The `(state, year) -> category_id` value is stored in [`config/eci-pins.json`](../../../config/eci-pins.json), validated by [`eci_pins.schema.json`](../../../datasets/schemas/eci_pins.schema.json), and loaded by `categories.py`. Extending the map is a config update, normally after recon confirms the Statistical Report family.
 2. **Download**: every listed `xlsx_url` (and the matching `pdf_zip_url` for human cross-check) to `.runtime/raw/eci/<state>/<year>/<slug>.xlsx` per [no fetch cache](../decisions/0003-no-fetch-cache.md). The landing-page permalink — *not* the path under `.runtime/raw/` — goes into `sources[]` with the fetch timestamp.
 3. **Parse**: with `openpyxl` directly. `pandas.read_excel` would pull a 50MB wheel for 90% unused functionality; the read-only XLSX surface fits openpyxl cleanly. Each report section becomes its own emitted artifact under `datasets/results/in/<state>/<year>/<section>.json`, validated against the appropriate result schema.
 4. **No `jl()` on the canonical path.** The 2024+ endpoint is cleartext; the helper stays in `tools/eci_recon/` for future legacy probing only.
-5. **Hand-curated `category_id` map, not auto-discovery.** Recon is the discovery mechanism; ingestion uses pinned ids. A "figure it out at runtime" approach makes the pipeline non-deterministic and silently breaks when ECI reshuffles the bundle. Mismatch between the pinned id and the next recon run is the early-warning signal.
+5. **Hand-curated pins, not auto-discovery at ingest time.** Recon is the discovery mechanism; ingestion uses pinned ids. A "figure it out at runtime" approach makes the pipeline non-deterministic and silently breaks when ECI reshuffles the bundle. Mismatch between the pin and the next recon run is the early-warning signal.
+
+#### Choosing the right catalogue
+
+ECI can publish multiple catalogues with the same `cat_name`. Bihar 2025 is the anchor case: `category_id=15` was the per-AC live-results catalogue (243 documents, one per AC) while `category_id=16` was the 14-statement Statistical Report catalogue our parser consumes. The pin MUST target the Statistical Report family: `index_name == "Copy of Index Cards [Digital]"` and a statement bundle whose Section 10 is the Detailed Results XLSX. `cat_name` alone is not a safe discriminator.
+
+#### Existing recon and ingest affordances
+
+Before writing a new throwaway recon script, use the maintained path:
+
+- `python -m yen_gov eci-statreport <state> <year>` — inspect the pinned catalogue.
+- `python -m yen_gov eci-statreport --category-id <id>` — inspect a fresh public URL like `/statistical-report/ae/<year>/<id>` before editing pins.
+- `python -m yen_gov eci-statreport-emit <state> <year>` — emit Section 10 artifacts for a registered event.
+- [`tools/eci_recon/enumerate_categories.py`](../../../tools/eci_recon/enumerate_categories.py) — sweep candidate ids when the portal has changed.
+
+To register a new assembly event for ingest: confirm the Statistical Report `category_id`, update [`config/eci-pins.json`](../../../config/eci-pins.json), add or update [`events.py`](../../../backend/yen_gov/sources/eci/events.py) with `event_id` and `has_partywise`, add cohort metadata under `datasets/events/in/eci/<event_id>/election.json` when the cohort is new, then run `eci-statreport-emit` and the ingestion gate below.
 
 The catalog + download steps are exposed end-user as `python -m yen_gov eci-statreport <state> <year> [--download] [--skip-pdf]`. Without `--download` the command prints the resolved permalinks (useful for review before pulling 13 MB per state); with `--download` it fetches every XLSX and PDF through the standard `core.http.Fetcher` so on-disk placement under `.runtime/raw/eci/...` matches every other source. The CLI overrides the configured `user_agent` to bare `Mozilla/5.0` because Akamai (fronting `www.eci.gov.in`) blocks the project's default `yen-gov/0.1` UA.
 
@@ -152,7 +176,7 @@ The parser (`statistical_report_detailed.py`) follows the same two-step conventi
 
 **Countermanded ACs are skipped silently.** ECI publishes a stub Section-10 row for postponed/countermanded constituencies (a single zero-vote NOTA row with `polled_total = 0`; e.g. WB 2026 AC #144 FALTA). The schema requires `candidates: minItems: 1` and a non-zero winner — emitting a stub would mislead consumers. Skipping leaves a gap in the per-AC file sequence (`results/144.json` simply does not exist) which is the correct signal: a contiguous AC numbering can't be assumed.
 
-End-to-end emit is exposed as `python -m yen_gov eci-statreport-emit <state> <year> [--event AcGenMay2026] [--output ...]`. The command resolves the catalog through `static_catalog.resolve_catalog(state, year, *, fetcher)` — pinned `(state, year)` use the 2024+ `/api/election-result` path; legacy cohorts use the synthesised static catalog with no network call to discover URLs. For the static path the Fetcher is given an extra browser-fingerprint header set (`Sec-Fetch-*` + `Accept` + `Referer`) because the Akamai WAF in front of `www.eci.gov.in` returns 403 on `/all_files/full-statistical-reports/` for minimalist clients (verified 2026-05-12; recon at [`tools/eci_2023_recon.py`](../../../tools/eci_2023_recon.py)). The fetched Section 10 XLSX URL plus, when available, the live-results `partywiseresult-<state>.htm` URL land in the `sources[]` array of every emitted artifact. Before any artifact is written, `reconcile_winners_against_partywise` cross-checks per-AC winners (aggregated by `party_short`) against partywise `seats_won + leading` — a mismatch aborts the run with a fail-loud `ValueError`, so we never publish a partial slice when the two ECI sources disagree. Reconciliation is skipped for archived events with no live-results page (`has_partywise=False` in `events.py`), including every 2024+-archived cohort and the entire 2023 cohort. Outputs under `<output_dir>/`: `results/<eci_no>.json` per AC, `result.summary.json` (state-level rollup, composed directly from the raw sections via `compose_result_summary_from_section_10`), and `parties.json` (live cohorts: full roster from the partywise snapshot; archived cohorts: the registry-resolvable subset from Section 3 \u00d7 `pipeline.compose.load_eci_party_registry()` aggregated across every existing `parties.json` on disk \u2014 see N6 in `TODO/ECI-MULTI-STATE-INGEST-PLAN.md`. Per-state resolution rate for archived cohorts is bounded by what's in the live cohorts; dropped shorts are logged on the emit line and remain visible in `result.summary.json` with `party_eci_code: null`). Confirmed 2026-05-09 against all four 2026 states: S03=126, S11=140, S22=234, S25=293 (1 countermanded), 793 ConstituencyResult artifacts total, reconciliation passes for all four, validator clean. Confirmed 2026-05-12 against the 2023 cohort: S12=230 (BJP=163 / INC=66), S26=90 (BJP=54 / INC=35), S16=40 (ZPM=27 / MNF=10), S29=119 (INC=64 / BRS=39); validator clean. SQLite is then emitted by `emit_state_sqlite(state_dir=...)` against the same directory (S03 80 KB, S11 96 KB, S22 140 KB, S25 172 KB).
+End-to-end emit is exposed as `python -m yen_gov eci-statreport-emit <state> <year> [--event AcGenMay2026] [--output ...]`. The command resolves the catalog through `static_catalog.resolve_catalog(state, year, *, fetcher)` — pinned `(state, year)` use the 2024+ `/api/election-result` path; legacy cohorts use the synthesised static catalog with no network call to discover URLs. For the static path the Fetcher is given an extra browser-fingerprint header set (`Sec-Fetch-*` + `Accept` + `Referer`) because the Akamai WAF in front of `www.eci.gov.in` returns 403 on `/all_files/full-statistical-reports/` for minimalist clients (verified 2026-05-12; recon at [`tools/eci_2023_recon.py`](../../../tools/eci_2023_recon.py)). The fetched Section 10 XLSX URL plus, when available, the live-results `partywiseresult-<state>.htm` URL land in the `sources[]` array of every emitted artifact. Before any artifact is written, `reconcile_winners_against_partywise` cross-checks per-AC winners (aggregated by `party_short`) against partywise `seats_won + leading` — a mismatch aborts the run with a fail-loud `ValueError`, so we never publish a partial slice when the two ECI sources disagree. Reconciliation is skipped for archived events with no live-results page (`has_partywise=False` in `events.py`), including every 2024+-archived cohort and the entire 2023 cohort. Outputs under `<output_dir>/`: `results/<eci_no>.json` per AC, `result.summary.json` (state-level rollup, composed directly from the raw sections via `compose_result_summary_from_section_10`), and `parties.json` (live cohorts: full roster from the partywise snapshot; archived cohorts: the registry-resolvable subset from Section 3 via `pipeline.compose.load_eci_party_registry()` aggregated across every existing `parties.json` on disk; see [Central party registry](#central-party-registry). Per-state resolution rate for archived cohorts is bounded by what's in the live cohorts; dropped shorts are logged on the emit line and remain visible in `result.summary.json` with `party_eci_code: null`). Confirmed 2026-05-09 against all four 2026 states: S03=126, S11=140, S22=234, S25=293 (1 countermanded), 793 ConstituencyResult artifacts total, reconciliation passes for all four, validator clean. Confirmed 2026-05-12 against the 2023 cohort: S12=230 (BJP=163 / INC=66), S26=90 (BJP=54 / INC=35), S16=40 (ZPM=27 / MNF=10), S29=119 (INC=64 / BRS=39); validator clean. SQLite is then emitted by `emit_state_sqlite(state_dir=...)` against the same directory (S03 80 KB, S11 96 KB, S22 140 KB, S25 172 KB).
 
 **Out of scope for the first Phase B slice**: 2021 / 2016 / 2011 backfill (blocked on `old.eci.gov.in` reachability — needs a network change or a mirroring decision before it can run); promotion of any reference file from `provisional` to `complete` (needs the Delimitation Order PDF for AC↔PC↔district mapping, independent of statistical-report ingestion); per-AC live counting pages on `results.eci.gov.in` (covered by the live-results scraper, different host and schema).
 
@@ -221,7 +245,7 @@ parties.json: SKIPPED (no partywise snapshot and no Section 3)
   └─ live path; full roster always emitted
 ```
 
-`reconcile_winners_against_partywise` only runs on the live path. Archived cohorts trust Section 10 alone (there is no second source to cross-check against), and the validator picks up any internal inconsistency at file-write time. Increasing archived-cohort coverage means growing the registry — either by ingesting more live cohorts, or by a future adapter for `notification.eci.gov.in` (the canonical party-registration source for the full ~2,800 entry party universe). Both are tracked under N6 of `TODO/ECI-MULTI-STATE-INGEST-PLAN.md`.
+`reconcile_winners_against_partywise` only runs on the live path. Archived cohorts trust Section 10 alone (there is no second source to cross-check against), and the validator picks up any internal inconsistency at file-write time. Increasing archived-cohort coverage means growing the registry — either by ingesting more live cohorts, or by a future adapter for `notification.eci.gov.in` (the canonical party-registration source for the full ~2,800 entry party universe).
 
 ### WB (S25) bootstrap policy
 
@@ -231,7 +255,7 @@ The policy applied: WB and Assam (the two missing 2026-cohort states) were both 
 
 ### Authority rationale
 
-A clear authority order ends ambiguity over "which source wins when they disagree" — ECI Statistical Reports do. Separating recon from enrichment prevents the "let me also write the parser while I'm here" sprawl: recon's output is reviewed before parser work starts. WB bootstrap from ECI rather than Wikipedia gives us a `complete`-grade reference file from day one for that state, not a `provisional` one. Signed-URL non-persistence is policy: a `sources[]` entry that 404s in a week is worse than no entry — it implies traceability that does not exist.
+A clear authority order ends ambiguity over "which source wins when they disagree" — ECI Statistical Reports do. Separating recon from enrichment prevents the "let me also write the parser while I'm here" sprawl: recon's output is reviewed before parser work starts. Signed-URL non-persistence is policy: a `sources[]` entry that 404s in a week is worse than no entry — it implies traceability that does not exist.
 
 Acknowledged costs: recon discovers reality. If a state's report is published as a scanned PDF rather than XLSX, Phase B for that state is much harder. We accept this; pretending the data is uniformly XLSX would just defer the surprise.
 
@@ -239,7 +263,7 @@ Acknowledged costs: recon discovers reality. If a state's report is published as
 
 - **Treat all ECI surfaces (Statistical Reports, Results portal, Delimitation Order, CEO sites) as one undifferentiated "ECI source".** Rejected: they differ in authority, freshness, and format. "Any ECI URL satisfies `status: complete`" loses meaning.
 - **Combine recon and enrichment in one workstream.** Rejected: recon's purpose is to surface unknowns; tying it to a parser commits us to a parser shape before we know what we're parsing.
-- **Bootstrap WB from Wikipedia for consistency, promote later.** Rejected by user direction. Also dispreferred: every `provisional` file is a future migration we'd rather not create when we can avoid it.
+- **Keep recon findings only in `notes/` / TODO files.** Rejected: `notes/` and `TODO/` are working memory. Durable ingest mechanics belong here, with historical trace in `docs/archive/` if useful.
 - **Persist signed download URLs in `sources[]` "for traceability".** Rejected: they expire.
 
 ## See also

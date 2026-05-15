@@ -4,7 +4,7 @@
 
 This file is the non-negotiable contract for any human or AI agent working in this repository. The full standard it derives from lives in [docs/reference/documentation-structure.md](docs/reference/documentation-structure.md). When the two disagree, **this file wins for yen-gov**; the standard is generic.
 
-> Project description: Indian election data — schema-first ingestion, processing, and static visualization. First slice: Tamil Nadu Legislative Assembly election, May 2026.
+> Project description: Indian election data — schema-first ingestion, processing, and static visualization. First slice: Tamil Nadu - Macro and Micro, later other states and national. Depth first before breadth. Phase 0: election results; Phase A: socio-economic expansion starting with energy.
 
 ## 0. Non-Goals (Project-Level Descopes)
 
@@ -72,6 +72,7 @@ Create each "not yet" folder only when real code is about to land in it. Empty s
 - Maximum depth: `docs/<tier>/<topic>/<file>.md`. No deeper.
 - Every doc has: H1 title, `Last Updated: YYYY-MM-DD`, "See also" cross-links.
 - One concept defined once; everywhere else links to it.
+- Agent memory is derived, not authoritative. Per-module `AGENTS.md` files and `/memories/repo/` are fast-entry indexes that point back to canonical docs; if they disagree with `docs/`, the docs win and the derived memory gets updated or deleted.
 - Docs-only PRs are a code smell — they mean a previous PR shipped without its docs.
 
 ## 6. Correction Levels
@@ -138,6 +139,7 @@ A change is not done until ALL hold:
 - Mock in tests by default.
 - Use forbidden git commands (Section 8).
 - Let `TODO/` or chat logs become the source of truth for architecture.
+- Let `AGENTS.md` or `/memories/` become a shadow source of truth instead of linking back to `docs/`.
 - Pre-create empty modules "for later".
 - Skip the docs update.
 - Edit a `package.json` without running `bun install` and staging the resulting `bun.lock` in the same commit. The deploy workflow uses `--frozen-lockfile`; a desync silently stops the site from updating until someone notices and pushes a lockfile-only commit.
