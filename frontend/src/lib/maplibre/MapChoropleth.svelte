@@ -24,6 +24,13 @@
     key: string | number;
     /** Raw GeoJSON properties of the clicked/hovered feature. */
     properties: Record<string, unknown>;
+    /**
+     * Lng/lat of the actual cursor/tap location at click time. Forwarded
+     * so callers that need to position UI over the clicked spot (e.g. the
+     * drill-down's polygon-anchored loading spinner) don't have to re-derive
+     * it from properties or geometry. Phase 4 d2 of TN-GRANULAR-GEO-PLAN.
+     */
+    at?: [number, number];
   }
 
   interface Props {
@@ -61,6 +68,21 @@
      * recentre (the load handler already fits bounds).
      */
     recentre_signal?: number;
+    /**
+     * Loading-overlay state for an external fetch (e.g. drill-down boundary
+     * download). When `pending` is true, an absolutely-positioned spinner
+     * appears inside the map wrapper. When `pending_at` is supplied, the
+     * spinner is anchored over that lng/lat (re-projected on every map
+     * move/zoom so it stays pinned through pan); otherwise it falls back
+     * to the canvas centre. Phase 4 d2 of TN-GRANULAR-GEO-PLAN — keeps the
+     * maplibre handle private (Fowler + Gregor verdict 2026-05-15: punching
+     * a handle hole through this component is a one-way door we don't need
+     * to walk through; declarative props match the `recentre_signal`
+     * precedent and stay reversible).
+     */
+    pending?: boolean;
+    pending_at?: [number, number];
+    pending_label?: string;
     onSelect?: (sel: FeatureSelection) => void;
     onHover?: (sel: FeatureSelection | null) => void;
   }
@@ -75,6 +97,9 @@
     highlight_key,
     hatch_unmapped = false,
     recentre_signal,
+    pending = false,
+    pending_at,
+    pending_label,
     onSelect,
     onHover,
   }: Props = $props();
@@ -203,7 +228,30 @@
     repaint();
   });
 
-  // Recentre on signal change. The first observed value is the initial
+  // Pending-overlay projected pixel position. Re-projects on map move /
+  // zoom / render so the spinner stays pinned to the polygon as the user
+  // pans during a long fetch (Phase 4 d2). null → fall back to canvas
+  // centre (the wrapper CSS handles the centring).
+  let pending_xy = $state<{ x: number; y: number } | null>(null);
+
+  function project_pending(): void {
+    if (!map || !pending_at) {
+      pending_xy = null;
+      return;
+    }
+    try {
+      const p = map.project(pending_at);
+      pending_xy = { x: p.x, y: p.y };
+    } catch {
+      pending_xy = null;
+    }
+  }
+
+  $effect(() => {
+    void pending_at;
+    void pending;
+    project_pending();
+  });
   // mount — the load handler already fits bounds, so we skip it. Any
   // subsequent change re-fits to the cached data_bbox (no re-fetch).
   let _last_recentre_signal: number | undefined = undefined;
@@ -392,6 +440,13 @@
             const h = diagonalHatch();
             map.addImage(HATCH_IMAGE_ID, { width: h.width, height: h.height, data: h.data });
           }
+          // Keep the pending-overlay pixel coords pinned to the source
+          // lng/lat as the user pans / zooms / the map animates a fit
+          // (Phase 4 d2). `move` covers pan + zoom; `render` is the
+          // safety net for any frame where the camera shifted without
+          // dispatching a discrete move event (e.g. resize observers).
+          map.on("move", project_pending);
+          map.on("zoom", project_pending);
           // Fit bounds to the data extent. For GeoJSON we have it locally;
           // for vector tiles maplibre exposes querySourceFeatures only for
           // visible tiles, which isn't enough — fall back to the same bbox
@@ -479,7 +534,11 @@
           if (html && popup) {
             popup.setLngLat(e.lngLat).setHTML(html).addTo(map);
           }
-          onSelect?.({ key, properties: f.properties ?? {} });
+          onSelect?.({
+            key,
+            properties: f.properties ?? {},
+            at: [e.lngLat.lng, e.lngLat.lat],
+          });
         });
       } catch (e) {
         if (!cancelled) {
@@ -537,6 +596,24 @@
     <div class="absolute inset-0 flex items-center justify-center text-xs text-slate-500 pointer-events-none">
       Loading map…
     </div>
+  {/if}
+  {#if pending}
+    {#if pending_xy}
+      <div
+        class="absolute pointer-events-none flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs text-slate-700 shadow ring-1 ring-slate-200"
+        style="left:{pending_xy.x}px;top:{pending_xy.y}px;transform:translate(-50%,-50%);"
+      >
+        <span class="inline-block h-3 w-3 animate-spin rounded-full border-2 border-slate-300 border-t-slate-600"></span>
+        <span>{pending_label ?? "Loading…"}</span>
+      </div>
+    {:else}
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs text-slate-700 shadow ring-1 ring-slate-200">
+          <span class="inline-block h-3 w-3 animate-spin rounded-full border-2 border-slate-300 border-t-slate-600"></span>
+          <span>{pending_label ?? "Loading…"}</span>
+        </div>
+      </div>
+    {/if}
   {/if}
   {#if error}
     <div class="absolute inset-x-2 bottom-2 p-2 text-xs bg-rose-50 border border-rose-200 rounded text-rose-900">

@@ -217,10 +217,11 @@
   // unit-testable without mounting Svelte/maplibre.
   //
   // Boundary fetch: lazy via loadBoundary on every drill click. While
-  // fetching, the map is dimmed to 60% and a spinner overlays the centre
-  // (Jony edit #3 — exact polygon overlay would require the maplibre map
-  // handle for LngLat→pixel projection; the centred overlay is the closest
-  // honest approximation without forking MapChoropleth's contract).
+  // fetching, the map is dimmed to 60% and a spinner overlays the polygon
+  // the user just tapped (Phase 4 d2 — declarative `pending` + `pending_at`
+  // props on MapChoropleth; the maplibre handle stays sealed, per Fowler +
+  // Gregor verdict 2026-05-15). Falls back to centre when no click position
+  // is known (e.g. programmatic level changes).
   // Failure: inline toast, breadcrumb does NOT advance, parent layer stays
   // visible. Same 404-as-null contract as the loader.
   //
@@ -242,11 +243,16 @@
     deeper_fc = null;
     deeper_fetch_error = null;
     deeper_fetching = false;
+    pending_pos = null;
   });
 
   let deeper_fc = $state<BoundaryFeatureCollection | null>(null);
   let deeper_fetching = $state(false);
   let deeper_fetch_error = $state<string | null>(null);
+  // Lng/lat of the most recent drill click. Forwarded to MapChoropleth's
+  // `pending_at` so the loading spinner pins over the polygon the user just
+  // tapped (Phase 4 d2). Cleared at indicator-path change and on reset.
+  let pending_pos = $state<[number, number] | null>(null);
 
   // 250ms ease-out; instant when the user prefers reduced motion.
   const reduced_motion = (() => {
@@ -353,7 +359,7 @@
 
   // Click handler — drill or no-op. State-level click resolves ECI → LGD
   // (TN-only at v0; other states fall through to no-op + toast).
-  function handleSelect(sel: { key: string | number; properties: Record<string, unknown> }): void {
+  function handleSelect(sel: { key: string | number; properties: Record<string, unknown>; at?: [number, number] }): void {
     if (!drill_enabled) return;
     const min_grain = artifact?.indicator.min_grain;
     const nl = nextLevel(drill_state.level);
@@ -377,6 +383,7 @@
         if (typeof v === "string" && v.length) { label = v; break; }
       }
     }
+    pending_pos = sel.at ?? null;
     drill_state = drillTo(
       drill_state,
       { key: sel.key, label, feature: { type: "Feature", properties: sel.properties, geometry: {} }, stateLgd },
@@ -664,23 +671,13 @@
               highlight_key={drill_state.level === "state" ? highlight_key : undefined}
               hatch_unmapped={drill_state.level !== "state"}
               recentre_signal={recentre_count}
+              pending={deeper_fetching}
+              pending_at={pending_pos ?? undefined}
+              pending_label={`Loading ${drill_state.level} boundaries…`}
               onSelect={handleSelect}
             />
           {/key}
         </div>
-        {#if deeper_fetching}
-          <!-- Centre-overlay spinner while a deeper boundary fetches. The
-               plan asked for a polygon-overlay spinner (Jony edit #3); doing
-               that exactly requires the maplibre map handle for LngLat→pixel
-               projection — deferred. The dim-to-60% on the map below carries
-               the "something is happening" signal in the meantime. -->
-          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div class="px-3 py-2 rounded-md bg-white/90 shadow-sm text-[12px] text-slate-700 flex items-center gap-2">
-              <span class="inline-block w-3 h-3 border-2 border-slate-300 border-t-slate-700 rounded-full animate-spin"></span>
-              Loading {drill_state.level} boundaries…
-            </div>
-          </div>
-        {/if}
         {#if deeper_fetch_error}
           <div class="absolute inset-x-2 bottom-2 px-2.5 py-1.5 text-[11px] bg-amber-50 border border-amber-200 text-amber-900 rounded shadow-sm">
             {deeper_fetch_error}

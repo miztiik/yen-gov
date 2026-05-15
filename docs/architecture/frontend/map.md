@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-15 (revision: Phase 4 d4 of TN-GRANULAR-GEO-PLAN — district-level state filter)
+**Last Updated**: 2026-05-15 (revision: Phase 4 d2 of TN-GRANULAR-GEO-PLAN — polygon-positioned loading overlay)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -276,6 +276,34 @@ Upstream `state_lgd` is numeric (`33`); the drill-down state machine carries LGD
 ### Test
 
 `IndicatorChoropleth.boundaries.test.ts` adds a mixed-state fixture (5 TN + 3 Gujarat) and asserts `loadBoundary("district", undefined, "33")` returns exactly the 5 TN features.
+
+## Polygon-positioned loading overlay (Phase 4 d2 of TN-GRANULAR-GEO-PLAN)
+
+Pulled forward from Phase 3 c3 deferral. Jony's edit #3 was: "the loading spinner should sit over the polygon the user just tapped, not the canvas centre — otherwise on a tall national map the user's eye is at the click but the feedback is 400 px away." The Phase 3 ship punted with a centred fallback because the natural fix is `map.project(LngLat) → {x, y}`, which needs the maplibre handle.
+
+### Decision: declarative props, not handle exposure
+
+Three options were on the table:
+
+- **A. Declarative `pending` + `pending_at` + `pending_label` props on MapChoropleth.** The component owns the projection and the DOM; parents stay maplibre-unaware.
+- **B. Expose the map handle via `onMapReady(map)` callback.** Parents `map.project(...)` themselves and render their own overlay.
+- **C. Add a parallel `LoadingOverlay` slot facade.**
+
+Fowler and Gregor independently picked **A**. Reasons: (1) **B is a one-way door** — once any consumer holds the handle, every future change to MapChoropleth's internals risks breaking that consumer; (2) **encapsulation** — the maplibre instance stays a private implementation detail (Holy Law #5: no band-aids; punching a handle hole because we need one feature today is a band-aid against future-us); (3) **precedent** — `recentre_signal` (Phase 4 d3, commit `f767831`) already established the declarative-signal-prop pattern, A keeps the API symmetric; (4) **YAGNI on C** — a slot facade only pays off when there are 3+ overlay kinds, which we don't have.
+
+### Mechanism
+
+Three new props on MapChoropleth:
+
+- `pending?: boolean` — render the overlay or not.
+- `pending_at?: [number, number]` — lng/lat to anchor it. Re-projected inside `map.on("move", ...)` and `map.on("zoom", ...)` so the spinner stays pinned to the polygon as the camera animates a `fitBounds` mid-fetch.
+- `pending_label?: string` — copy under the spinner.
+
+The click handler now forwards `at: [e.lngLat.lng, e.lngLat.lat]` on `onSelect`, so parents that want polygon-anchored overlays don't have to compute centroids. `IndicatorChoropleth` captures `sel.at` into `pending_pos` and forwards it; if it's null (e.g. a programmatic level change), MapChoropleth falls back to the canvas-centre overlay.
+
+### Why the projection isn't unit-tested
+
+`map.project(LngLat)` is maplibre's; the only thing our code does is call it inside `move`/`zoom` listeners and stash the result in `$state`. There is no pure helper to extract here — projection is the contract boundary. Vitest can't mount maplibre, so this is verified via the manual smoke flow (see CLAUDE.md §13) and the integration test for the click-`at` forwarding lives at the `onSelect` shape.
 
 ## See also
 
