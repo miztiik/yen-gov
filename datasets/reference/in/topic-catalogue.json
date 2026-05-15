@@ -329,6 +329,62 @@
         },
         {
           "kind": "indicator",
+          "id": "energy/state_installed_capacity_total_mw",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_peak_demand_mw",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_peak_met_mw",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_power_requirement_mu",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_power_availability_mu",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_per_capita_availability_kwh",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_per_capita_electricity_consumption_kwh",
+          "default": false,
+          "featured": true,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "energy/state_renewable_grid_capacity_mw",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
           "id": "energy/india_thermal_capacity_retired_mw",
           "default": false,
           "featured": false,
@@ -346,7 +402,7 @@
           "dimension": "pipeline_status"
         }
       ],
-      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic — the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer. The `installed_capacity_*` family is from CEA's monthly Executive Summary (March 2026 snapshot) and covers all 35 CEA-reported state/UT entities across 7 fuel categories (total, thermal, coal, gas, nuclear, hydro, renewable). The legacy `installed_mw_by_state` indicator (Wikipedia-derived, 4 states only) is retained for back-compat but no longer the default. The state-level family (`state_installed_capacity_*`, `state_electricity_*`, `state_rooftop_solar_capacity_mw`, `state_atc_losses_pct`, `state_acs_arr_gap_inr_per_kwh`) is from the NITI Aayog ICED state-wise deep-dive API and covers 9-11 fiscal years (FY16-FY26) per indicator across all 36 states/UTs plus the All-India aggregate. ICED publishes both 'geographical-location' (where the plant sits) and 'with-allocated-shares' (who has rights to the output) capacity series; we ship both so the analyst can pick the one that matches the question being asked. The 2026-05-15 ICED-power batch adds five complementary series from a different ICED endpoint family (NITI ICED public dashboards, not the state-wise deep-dive): `state_installed_capacity_by_source_mw` (FY16-FY26, 11y, all states × ~7 fuels, 1815 rows — same metric as the state-wise `state_installed_capacity_geographical_mw` but tidy-by-fuel and with longer history), `state_electricity_generation_by_source_gwh` and `state_peak_electricity_demand_mw` (FY26 snapshot from `/energy/powerStatistics`, useful as a current-year companion to the multi-year capacity series), and two national series — `india_thermal_capacity_retired_mw` (FY06-FY26, by retired-fuel facet) and `india_capacity_pipeline_gw` (2011-2031, two pipeline-status facets, including forward-looking commissioning estimates). Pipeline is the only forward-looking energy series we ship and is explicitly flagged as projection in `series_breaks`."
+      "notes": "Installed-MW is a *siting* statistic, not a consumption statistic — the state where a plant sits is not necessarily the state that consumes the power. The indicator artifact's `attribution_geography` field carries this caveat to the renderer. The `installed_capacity_*` family is from CEA's monthly Executive Summary (March 2026 snapshot) and covers all 35 CEA-reported state/UT entities across 7 fuel categories (total, thermal, coal, gas, nuclear, hydro, renewable). The legacy `installed_mw_by_state` indicator (Wikipedia-derived, 4 states only) is retained for back-compat but no longer the default. The state-level family (`state_installed_capacity_*`, `state_electricity_*`, `state_rooftop_solar_capacity_mw`, `state_atc_losses_pct`, `state_acs_arr_gap_inr_per_kwh`) is from the NITI Aayog ICED state-wise deep-dive API and covers 9-11 fiscal years (FY16-FY26) per indicator across all 36 states/UTs plus the All-India aggregate. ICED publishes both 'geographical-location' (where the plant sits) and 'with-allocated-shares' (who has rights to the output) capacity series; we ship both so the analyst can pick the one that matches the question being asked. The 2026-05-15 ICED-power batch adds five complementary series from a different ICED endpoint family (NITI ICED public dashboards, not the state-wise deep-dive): `state_installed_capacity_by_source_mw` (FY16-FY26, 11y, all states × ~7 fuels, 1815 rows — same metric as the state-wise `state_installed_capacity_geographical_mw` but tidy-by-fuel and with longer history), `state_electricity_generation_by_source_gwh` and `state_peak_electricity_demand_mw` (FY26 snapshot from `/energy/powerStatistics`, useful as a current-year companion to the multi-year capacity series), and two national series — `india_thermal_capacity_retired_mw` (FY06-FY26, by retired-fuel facet) and `india_capacity_pipeline_gw` (2011-2031, two pipeline-status facets, including forward-looking commissioning estimates). Pipeline is the only forward-looking energy series we ship and is explicitly flagged as projection in `series_breaks`. The 2026-05-15 ICED-power state-extension batch adds eight more state-scope series from the same NITI ICED public dashboards: `state_installed_capacity_total_mw` (state totals across all fuels), the `peak_demand_mw` / `peak_met_mw` pair (peak load served vs requested — the gap is the operational shortfall, but it ships as two raw series rather than a derived ratio so the citizen can see both numbers), the `power_requirement_mu` / `power_availability_mu` pair (annual energy-volume equivalent of peak — a fuller-year shortfall view), `per_capita_availability_kwh` and `per_capita_electricity_consumption_kwh` (citizen-experience metrics already normalised by population so cross-state comparison is honest — the latter is `comparable_across_states` and the headline citizen read of 'how electrified is daily life here'), and `renewable_grid_capacity_mw` (grid-connected renewables only, complements the existing `state_rooftop_solar_capacity_mw`). The two pairs (peak demand/met, requirement/availability) are intentionally shipped as raw series rather than as derived shortfall % — the renderer's existing comparability banner surfaces normalisation guidance, and the explicit pairing in topic notes here lets the citizen reason about gaps without us pre-committing to one ratio framing. Three remaining national-entity series (`national_final_energy_consumption_by_sector_mtoe`, `national_primary_energy_supply_mtoe`, `national_renewable_potential_vs_installed_mw`) stay allowlisted pending Phase 4 country-entity renderers — they are multi-facet and the IndicatorChoropleth state-only renderer cannot show them honestly."
     },
     {
       "id": "elections",
@@ -420,6 +476,34 @@
         },
         {
           "kind": "indicator",
+          "id": "economy/state_nsdp_constant_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/state_nsdp_current_inr_crore",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/state_per_capita_nsdp_constant_inr_long",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
+          "id": "economy/state_per_capita_nsdp_current_inr_long",
+          "default": false,
+          "featured": false,
+          "scope": "state"
+        },
+        {
+          "kind": "indicator",
           "id": "economy/india_gdp_inr_crore",
           "default": false,
           "featured": true,
@@ -464,7 +548,7 @@
           "dimension": "bop_item"
         }
       ],
-      "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. The per-capita NSDP and per-capita consumption indicators come from the ICED key-economic-indicators API (a separate endpoint family from state-wise deep-dive); they go back to 2004-05 and 2009-10 respectively, longer than the GDP series, because the source publisher provides a longer back-run of those particular metrics. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."
+      "notes": "Source: NITI Aayog ICED state-wise deep-dive API (which republishes MoSPI National Statistical Office figures with the 2011-12 base year). Covers 10 fiscal years (FY16-FY25) for all 36 states/UTs plus All-India. Constant-price series strips inflation; current-price series is the nominal 'sticker' value. Compare GDP vs Sectoral GVA: GDP includes net product taxes; GVA is the cleaner production-side measure. The 2025-26 row is typically N.A. while NSO finalises that year's accounts. The per-capita NSDP and per-capita consumption indicators come from the ICED key-economic-indicators API (a separate endpoint family from state-wise deep-dive); they go back to 2004-05 and 2009-10 respectively, longer than the GDP series, because the source publisher provides a longer back-run of those particular metrics. The four `state_nsdp_*` and `state_per_capita_nsdp_*_long` indicators are RBI Handbook of Statistics on Indian Economy splices: `state_nsdp_constant_inr_crore` and `state_nsdp_current_inr_crore` are absolute ₹Cr (large states will dominate the table by sheer size — the existing comparability banner advises per-capita normalisation), while the `_long` per-capita variants extend FY81→FY26 by stitching across 1980-81, 1999-2000, 2004-05 and 2011-12 base-year breaks. SeriesBreakAnnotation (Phase 2) renders these breaks visibly so a citizen reading 'India's per-capita NSDP grew Nx since 1980' knows the slope crosses methodology revisions and is not a single coherent measurement. The legacy `state_per_capita_nsdp_current_inr` (non-`_long`) is permanently allowlisted as a diff-check artifact only — superseded by the spliced version. Topic is featured=false pending IA review (the doctrine says social-welfare topics drive IA; pure macro economy is context, not headline)."
     },
     {
       "id": "demography",

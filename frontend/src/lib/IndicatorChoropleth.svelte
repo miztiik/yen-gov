@@ -14,6 +14,8 @@
   import { INDIA_STATES, STATE_NAME_TO_ECI } from "./maplibre/sources";
   import SourceList from "./SourceList.svelte";
   import IndicatorIcon from "./IndicatorIcon.svelte";
+  import RebaseBanner from "./honesty/RebaseBanner.svelte";
+  import DirectionLegendCue from "./honesty/DirectionLegendCue.svelte";
   import {
     fetchIndicator,
     uniqueTimes,
@@ -307,6 +309,11 @@
         </div>
       {/if}
 
+      <!-- Phase 2 honesty: rebase banner for index-series indicators.
+           Component self-gates on value_kind === "index"; renders nothing
+           for currency/rate/share/count series. -->
+      <RebaseBanner meta={artifact.indicator} />
+
       <!-- Coverage + temporal: first-class info, not a footnote. -->
       <div class="flex justify-between items-center gap-3 flex-wrap text-[11px]">
         {#if coverage_summary}
@@ -367,9 +374,15 @@
            replacing 5 separate swatches with 5 separately-formatted unit
            labels (UX P0-1). One eye-stop, one numeric reading. -->
       <div>
-        <div class="text-[10px] text-slate-500 uppercase tracking-wide mb-1 flex items-center gap-2">
+        <div class="text-[10px] text-slate-500 uppercase tracking-wide mb-1 flex items-center gap-2 flex-wrap">
           <span>Legend</span>
           <span class="text-slate-400 normal-case font-normal">{artifact.indicator.unit}</span>
+          <!-- Phase 2 honesty: ↑/↓/↔ cue so the citizen reads the colour ramp
+               correctly for direction-asymmetric indicators (e.g. IMR=lower
+               is better; HDI=higher is better). -->
+          <span class="ml-auto normal-case font-normal">
+            <DirectionLegendCue direction={artifact.indicator.direction} />
+          </span>
         </div>
         <div class="h-3 w-full rounded-sm" style:background={legend_gradient}></div>
         <div class="flex justify-between text-[10px] text-slate-600 tabular-nums mt-1">
