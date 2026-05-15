@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/postal.schema.json",
+  "title": "Postal-code (pincode) collection (per state)",
+  "description": "All postal codes (India Post 6-digit pincodes) within a single state, keyed by the pincode itself. Analogous to subdistrict.schema.json but the issuing authority is India Post rather than LGD, so the pincode IS the canonical identifier (CLAUDE.md §3 — never invent IDs when an authority publishes one). One file per state at datasets/reference/in/states/<S>/postal.json. Joined to datasets/boundaries/in/postal/IN-pincodes-<city>.geojson via the `pincode` feature property. Per TODO/TN-GRANULAR-GEO-PLAN.md Phase 4 §160. v1.0 ships the schema only — the registry data file and the Chennai pincode polygon file are deferred behind the Phase 3 search affordance that will consume them; structural surface lands now so the loader's GeoLevel union and the schema-validator both know about `postal` before the data does. Pincode is a search-only layer (Jony edit §d): typed pincode → zoom to its polygon when present, otherwise fall back to district. Never a clickable choropleth.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-15",
+      "description": "Initial schema. Per-state postal registry mirroring subdistrict.schema.json shape, with two semantic differences: (1) `id` is the 6-digit pincode itself (id_source fixed to \"indiapost\"); (2) `district_id` is OPTIONAL because pincodes do not always nest cleanly inside a single revenue district (some span borders) — the field carries the predominant district where one exists. Required fields: $schema, $schema_version, sources, state, postal_codes (each with id, id_source, name). Optional per-item: name_ta, name_alt, district_id, subdistrict_id, headquarters, notes. Created in the same arc that lands the GeoLevel=\"postal\" loader extension; the actual data files are not yet emitted (Fowler YAGNI — consumer is Phase 3 search affordance)."
+    }
+  ],
+  "type": "object",
+  "required": [
+    "$schema",
+    "$schema_version",
+    "sources",
+    "state",
+    "postal_codes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. An empty array signals hand-authored content.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[SU]\\d{2}$",
+      "description": "ECI state code that this collection belongs to."
+    },
+    "postal_codes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "id_source", "name"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]{5}$",
+            "description": "India Post 6-digit pincode. Leading zero is invalid (no Indian pincode begins with 0). Join key against `IN-pincodes-<city>.geojson` feature property `pincode`."
+          },
+          "id_source": {
+            "enum": ["indiapost"],
+            "description": "Fixed: India Post is the sole issuing authority for pincodes. Enum is preserved (rather than collapsing the field) for shape-symmetry with district / subdistrict registry items."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Post Office name as published by India Post (e.g. \"T. Nagar S.O.\")."
+          },
+          "name_ta": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional Tamil-script localised post-office name. Tooltip / search affordance only — never an identifier."
+          },
+          "name_alt": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional citizen-recognised name where it diverges from the India Post canonical name."
+          },
+          "district_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "OPTIONAL parent district id (resolves into the same state's districts.json under id_source=lgd). Optional because some pincodes span district borders — when set, this carries the PREDOMINANT district. Absence is a valid signal, not a data gap."
+          },
+          "subdistrict_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "OPTIONAL parent subdistrict id (same resolution rules as district_id). Same predominant-not-exclusive caveat applies."
+          },
+          "headquarters": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

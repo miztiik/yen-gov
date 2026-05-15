@@ -90,6 +90,19 @@ Trend visualisations MUST consult these fields and either (a) render the new dis
 
 See [`docs/architecture/frontend/maps.md`](../frontend/maps.md). Summary: render at true geographic position (Indian-reader expectation, MoSPI/ECI convention), with an optional zoom-on-hover callout when sub-pixel at national zoom. **No US-Alaska-style displaced inset.** No connecting line on the callout — the labelled border carries the meaning.
 
+## Postal (pincode) — search-only orthogonal layer
+
+Pincode polygons are an India Post artifact, not LGD. Two design consequences:
+
+- **The pincode IS the identifier.** No agency-specific code to invent (CLAUDE.md §3). `postal.schema.json` v1.0 (per-state pincode registry, modelled on `subdistrict.schema.json`) carries `id` = 6-digit pincode and `id_source` = `"indiapost"` as the only enum value.
+- **Pincodes don't nest cleanly under revenue districts.** Some span district borders. The schema makes `district_id` and `subdistrict_id` OPTIONAL (predominant district when set, absent when ambiguous), so the registry doesn't lie about a hierarchy that isn't there.
+
+The frontend treats `postal` as a search-only orthogonal layer (Jony edit §d of TN-GRANULAR-GEO-PLAN): typed pincode → zoom to its polygon when present, otherwise fall back to district. Pincode is **never a clickable choropleth layer** and **never a drill rung** — the drill state machine (`frontend/src/lib/drilldown.ts`) carries `postal` as a sentinel rank `-1` so `nextLevel("postal") === null` and the function table stays total without forcing every caller to narrow first.
+
+Disk layout sits OUTSIDE the LGD `geojson/` tree to make the orthogonality visible at the path level: `datasets/boundaries/in/postal/IN-pincodes-<city>.geojson`. The loader's basename for postal climbs out of `geojson/` with a `..` segment (`"../postal/IN-pincodes-chennai.geojson"`); the URL builder resolves the segment naturally without needing a separate URL branch — keeps the code one-arm.
+
+**Status (Phase 4 §160 of TN-GRANULAR-GEO-PLAN, landed 2026-05-15)**: schema v1.0 + loader + tests are in place; the actual Chennai pincode geojson, the per-state registry data file, and the search-affordance UI consumer follow in subsequent commits gated on the Phase 3 search affordance landing first (Fowler YAGNI — structural surface ahead of the data and consumer).
+
 ## See also
 
 - [TODO/TN-GRANULAR-GEO-PLAN.md](../../../TODO/TN-GRANULAR-GEO-PLAN.md) — implementation plan that drove this doc.
@@ -101,5 +114,6 @@ See [`docs/architecture/frontend/maps.md`](../frontend/maps.md). Summary: render
 - [`datasets/schemas/feature_collection.metadata.schema.json`](../../../datasets/schemas/feature_collection.metadata.schema.json) — v1.1.
 - [`datasets/schemas/boundary.unkeyed.schema.json`](../../../datasets/schemas/boundary.unkeyed.schema.json) — v1.0.
 - [`datasets/schemas/boundary.villages_index.schema.json`](../../../datasets/schemas/boundary.villages_index.schema.json) — v1.0.
+- [`datasets/schemas/postal.schema.json`](../../../datasets/schemas/postal.schema.json) — v1.0 (Phase 4 §160 — pincode registry; structural-only landing).
 - [`tools/lgd/snapshot.py`](../../../tools/lgd/snapshot.py) — LGD CSV fetcher.
 - [`tools/lgd/backfill_lgd_codes.py`](../../../tools/lgd/backfill_lgd_codes.py) — district name → LGD code bridge.

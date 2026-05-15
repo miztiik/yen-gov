@@ -19,6 +19,11 @@
 //                   ramSeraph upstream property name)
 //   village      → datasets/boundaries/in/geojson/<S>-villages-<dist_lgd>.geojson
 //                  (one file PER DISTRICT; joins on vil_lgd integer)
+//   postal       → datasets/boundaries/in/postal/IN-pincodes-<city>.geojson
+//                  (search-only; Chennai metro under TN today; joins on
+//                   pincode 6-digit string. Phase 4 §160 — structural
+//                   surface lands ahead of the data file and the Phase 3
+//                   search-affordance consumer.)
 //
 // The per-district village split is the contract Fowler v3 nailed: it lets
 // a single district click pull ~10–600 KB instead of the full TN villages
@@ -40,7 +45,7 @@
 
 import { DATA_BASE } from "./paths";
 
-export type GeoLevel = "country" | "state" | "district" | "subdistrict" | "village";
+export type GeoLevel = "country" | "state" | "district" | "subdistrict" | "village" | "postal";
 
 export interface BoundaryFeature {
   type: "Feature";
@@ -60,6 +65,7 @@ const JOIN_KEYS: Record<GeoLevel, string | null> = {
   district: "dist_lgd",
   subdistrict: "subdt_lgd",
   village: "vil_lgd",
+  postal: "pincode",
 };
 
 /** Tamil Nadu LGD state code (string, as the index manifest uses). */
@@ -102,6 +108,20 @@ export function boundaryBasename(
       const eci = STATE_LGD_TO_ECI[stateLgd];
       if (!eci) throw new Error(`no per-state village files for stateLgd=${stateLgd}`);
       return `${eci}-villages-${parentDistrictLgd}.geojson`;
+    }
+    case "postal": {
+      // Phase 4 §160 of TODO/TN-GRANULAR-GEO-PLAN.md. Pincode polygons are a
+      // search-only layer (Jony edit §d) and currently exist only for
+      // Chennai metro under TN. The basename climbs out of `geojson/` into
+      // the sibling `postal/` directory — the loader's URL builder resolves
+      // the `..` segment naturally. Returns the same Chennai file regardless
+      // of `parentDistrictLgd` (kept in the signature for shape-symmetry
+      // with `village`); the consumer searches by `pincode` property.
+      if (!stateLgd) throw new Error("postal requires stateLgd");
+      if (stateLgd !== TN_STATE_LGD) {
+        throw new Error(`no postal boundaries for stateLgd=${stateLgd}`);
+      }
+      return "../postal/IN-pincodes-chennai.geojson";
     }
   }
 }

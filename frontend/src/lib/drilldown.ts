@@ -49,12 +49,22 @@ export interface DrillState {
   breadcrumbStack: BreadcrumbCrumb[];
 }
 
+/**
+ * `postal` is a search-only orthogonal layer (Jony edit §d, Phase 4 §160 of
+ * TN-GRANULAR-GEO-PLAN). It is NOT a drill rung — you do not click into a
+ * pincode from a village. The rank/label tables below carry a sentinel row
+ * for postal (rank `-1`, label `"postal"`) so the `Record<GeoLevel,…>`
+ * shape stays total without forcing every caller to narrow first; the drill
+ * functions (`nextLevel`, `drillTo`, `goBack`) treat the sentinel as
+ * "not in the ladder" and reject advancement into it.
+ */
 const LEVEL_RANK: Record<GeoLevel, number> = {
   country: 0,
   state: 1,
   district: 2,
   subdistrict: 3,
   village: 4,
+  postal: -1,
 };
 
 const RANK_TO_LEVEL: GeoLevel[] = ["country", "state", "district", "subdistrict", "village"];
@@ -65,6 +75,7 @@ const LEVEL_LABEL: Record<GeoLevel, string> = {
   district: "district",
   subdistrict: "subdistrict",
   village: "village",
+  postal: "postal",
 };
 
 /** Initial drill state for an indicator that opens at `geoLevel`. */
@@ -77,9 +88,10 @@ export function initialDrillState(geoLevel: GeoLevel = "state"): DrillState {
   };
 }
 
-/** Next deeper level, or null if already at village. */
+/** Next deeper level, or null if already at village (or off-ladder, e.g. postal). */
 export function nextLevel(level: GeoLevel): GeoLevel | null {
   const r = LEVEL_RANK[level];
+  if (r < 0) return null;
   if (r >= LEVEL_RANK.village) return null;
   return RANK_TO_LEVEL[r + 1];
 }

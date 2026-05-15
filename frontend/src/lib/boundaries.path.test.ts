@@ -27,6 +27,22 @@ describe("boundaryBasename", () => {
     );
   });
 
+  it("postal for TN → ../postal/IN-pincodes-chennai.geojson (Phase 4 §160)", () => {
+    expect(boundaryBasename("postal", undefined, "33")).toBe(
+      "../postal/IN-pincodes-chennai.geojson",
+    );
+  });
+
+  it("postal without stateLgd throws (caller bug)", () => {
+    expect(() => boundaryBasename("postal")).toThrow(/stateLgd/);
+  });
+
+  it("postal for an unmapped state throws (Chennai-only today)", () => {
+    expect(() => boundaryBasename("postal", undefined, "27")).toThrow(
+      /no postal boundaries/,
+    );
+  });
+
   it("subdistrict without stateLgd throws (caller bug)", () => {
     expect(() => boundaryBasename("subdistrict")).toThrow(/stateLgd/);
   });
@@ -63,5 +79,9 @@ describe("joinKeyFor", () => {
 
   it("village joins on vil_lgd (ramSeraph upstream property)", () => {
     expect(joinKeyFor("village")).toBe("vil_lgd");
+  });
+
+  it("postal joins on pincode (India Post 6-digit)", () => {
+    expect(joinKeyFor("postal")).toBe("pincode");
   });
 });
