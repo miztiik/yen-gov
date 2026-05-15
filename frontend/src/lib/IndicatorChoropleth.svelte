@@ -12,7 +12,7 @@
 
   import MapChoropleth from "./maplibre/MapChoropleth.svelte";
   import { INDIA_STATES, STATE_NAME_TO_ECI } from "./maplibre/sources";
-  import type { GeoLevel } from "./boundaries";
+  import { joinKeyFor, type GeoLevel } from "./boundaries";
   import SourceList from "./SourceList.svelte";
   import IndicatorIcon from "./IndicatorIcon.svelte";
   import RebaseBanner from "./honesty/RebaseBanner.svelte";
@@ -169,6 +169,27 @@
   });
 
   const highlight_key = $derived(highlight_state ? ECI_TO_NAME[highlight_state] : undefined);
+
+  // Loader-exposed join-key for the current geoLevel. At "state" this resolves
+  // to "ST_NM" — the same value INDIA_STATES.join_property carries — so the
+  // state branch is unchanged. The `current_join_key` derivation is the seam
+  // c3 will use to dispatch on level (district → "dist_lgd",
+  // subdistrict → "subdt_lgd", village → "vil_lgd"); commit 2 only introduces
+  // the dependency and a dev-only consistency check.
+  const current_join_key = $derived(joinKeyFor(geoLevel));
+
+  // Dev-only invariant: the join-key the loader names for `geoLevel === "state"`
+  // MUST match the one the v1 BoundaryEntry hardcodes — otherwise a future
+  // edit to one without the other would silently produce blank polygons. Fires
+  // only in dev (drops out of the prod bundle via the dead-code branch).
+  $effect(() => {
+    if (import.meta.env.DEV && geoLevel === "state" && current_join_key !== INDIA_STATES.join_property) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `[IndicatorChoropleth] join-key drift: loader says ${current_join_key}, INDIA_STATES says ${INDIA_STATES.join_property}`,
+      );
+    }
+  });
 
   function escape_html(s: string): string {
     return s.replace(/[&<>"']/g, c =>
