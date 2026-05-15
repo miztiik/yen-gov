@@ -1,0 +1,176 @@
+// Typed boundary loader. Single entry point for any map component that
+// needs an LGD-keyed FeatureCollection — replaces the per-component
+// fetch('/boundary.json') pattern. Phase 2 of TODO/TN-GRANULAR-GEO-PLAN.md.
+//
+// The loader is a pure path resolver wrapped around a fetcher. It does NOT
+// know about choropleth values, color scales, or click handlers — it only
+// answers "given (level, parent district lgd, state lgd), where is the
+// GeoJSON and what property carries the join key?".
+//
+// Drill levels:
+//   country      → datasets/boundaries/in/geojson/india-soi.geojson
+//                  (silhouette only; no per-feature join key)
+//   state        → datasets/boundaries/in/geojson/india-states.geojson
+//                  (datameet/maps lineage; joins on ST_NM English name)
+//   district     → datasets/boundaries/in/geojson/india-districts.geojson
+//                  (LGD-keyed; joins on dist_lgd integer)
+//   subdistrict  → datasets/boundaries/in/geojson/<S>-subdistricts.geojson
+//                  (one file per state; joins on subdt_lgd integer —
+//                   ramSeraph upstream property name)
+//   village      → datasets/boundaries/in/geojson/<S>-villages-<dist_lgd>.geojson
+//                  (one file PER DISTRICT; joins on vil_lgd integer)
+//
+// The per-district village split is the contract Fowler v3 nailed: it lets
+// a single district click pull ~10–600 KB instead of the full TN villages
+// bundle (~200 MB raw, ~50 MB even at coord_precision=4). Which district
+// files exist on disk is communicated by the per-state index manifest
+// (boundary.villages_index.schema.json v2.0) — the loader reads it once,
+// caches the set of present dist_lgd codes, and returns null for any
+// village query whose district is absent (no 404-probing on hover).
+//
+// Why not import.meta.glob over the per-district files: datasets/ is
+// served at runtime via the dev-server middleware + Pages, not bundled
+// into the SPA. Vite's import.meta.glob would not see datasets/ even if
+// it could; runtime fetch is the right primitive for "load when clicked".
+//
+// 404-as-null contract: every loadBoundary call that hits a missing file
+// resolves to null rather than throwing. Callers (the choropleth) degrade
+// gracefully — show a toast, keep the parent layer visible — instead of
+// crashing the page. The same contract as resolveSource() in maplibre/sources.ts.
+
+import { DATA_BASE } from "./paths";
+
+export type GeoLevel = "country" | "state" | "district" | "subdistrict" | "village";
+
+export interface BoundaryFeature {
+  type: "Feature";
+  properties: Record<string, unknown>;
+  geometry: Record<string, unknown>;
+}
+
+export interface BoundaryFeatureCollection {
+  type: "FeatureCollection";
+  features: BoundaryFeature[];
+}
+
+/** Per-level property name on each Feature that carries the join key. */
+const JOIN_KEYS: Record<GeoLevel, string | null> = {
+  country: null,
+  state: "ST_NM",
+  district: "dist_lgd",
+  subdistrict: "subdt_lgd",
+  village: "vil_lgd",
+};
+
+/** Tamil Nadu LGD state code (string, as the index manifest uses). */
+const TN_STATE_LGD = "33";
+
+const STATE_LGD_TO_ECI: Record<string, string> = {
+  "33": "S22",
+};
+
+/**
+ * Resolve the GeoJSON basename for a given level + scope. Pure: no I/O.
+ *
+ * Throws when the inputs do not satisfy the contract — these are caller
+ * bugs (e.g. asking for villages without naming a district) and should
+ * surface in tests, not silently return a bogus path. Missing FILES on
+ * disk are different from missing INPUTS; that's the 404-as-null branch
+ * in loadBoundary.
+ */
+export function boundaryBasename(
+  level: GeoLevel,
+  parentDistrictLgd?: string,
+  stateLgd?: string,
+): string {
+  switch (level) {
+    case "country":
+      return "india-soi.geojson";
+    case "state":
+      return "india-states.geojson";
+    case "district":
+      return "india-districts.geojson";
+    case "subdistrict": {
+      if (!stateLgd) throw new Error("subdistrict requires stateLgd");
+      const eci = STATE_LGD_TO_ECI[stateLgd];
+      if (!eci) throw new Error(`no per-state subdistricts file for stateLgd=${stateLgd}`);
+      return `${eci}-subdistricts.geojson`;
+    }
+    case "village": {
+      if (!stateLgd) throw new Error("village requires stateLgd");
+      if (!parentDistrictLgd) throw new Error("village requires parentDistrictLgd");
+      const eci = STATE_LGD_TO_ECI[stateLgd];
+      if (!eci) throw new Error(`no per-state village files for stateLgd=${stateLgd}`);
+      return `${eci}-villages-${parentDistrictLgd}.geojson`;
+    }
+  }
+}
+
+/** Per-level join-key property name (or null at country level — silhouette only). */
+export function joinKeyFor(level: GeoLevel): string | null {
+  return JOIN_KEYS[level];
+}
+
+interface VillagesIndex {
+  state_lgd: string;
+  district_lgd_codes: string[];
+}
+
+const _villageIndexCache: Map<string, Promise<VillagesIndex | null>> = new Map();
+
+/**
+ * Fetch the per-state villages index manifest. Cached per state.
+ * Returns null when the manifest is missing — equivalent to "no village
+ * layer emitted for this state yet".
+ */
+export function fetchVillagesIndex(stateLgd: string): Promise<VillagesIndex | null> {
+  let cached = _villageIndexCache.get(stateLgd);
+  if (cached) return cached;
+  const eci = STATE_LGD_TO_ECI[stateLgd];
+  if (!eci) {
+    cached = Promise.resolve(null);
+    _villageIndexCache.set(stateLgd, cached);
+    return cached;
+  }
+  const url = `${DATA_BASE}/boundaries/in/geojson/${eci}-villages-index.json`;
+  cached = fetch(url)
+    .then(async r => (r.ok ? ((await r.json()) as VillagesIndex) : null))
+    .catch(() => null);
+  _villageIndexCache.set(stateLgd, cached);
+  return cached;
+}
+
+/** Test-only — clear all caches between cases. Not part of the public API. */
+export function _resetCachesForTesting(): void {
+  _villageIndexCache.clear();
+}
+
+/**
+ * Load the FeatureCollection for the requested level. Returns null when
+ * the file is absent (the graceful-degradation contract). Throws only on
+ * caller-input bugs (see boundaryBasename).
+ *
+ * For village queries: the index manifest is consulted first so a request
+ * for a district whose shard was not emitted resolves to null without a
+ * speculative network probe.
+ */
+export async function loadBoundary(
+  level: GeoLevel,
+  parentDistrictLgd?: string,
+  stateLgd?: string,
+): Promise<BoundaryFeatureCollection | null> {
+  if (level === "village") {
+    const index = await fetchVillagesIndex(stateLgd ?? TN_STATE_LGD);
+    if (!index) return null;
+    if (!index.district_lgd_codes.includes(parentDistrictLgd ?? "")) return null;
+  }
+  const basename = boundaryBasename(level, parentDistrictLgd, stateLgd);
+  const url = `${DATA_BASE}/boundaries/in/geojson/${basename}`;
+  try {
+    const r = await fetch(url);
+    if (!r.ok) return null;
+    return (await r.json()) as BoundaryFeatureCollection;
+  } catch {
+    return null;
+  }
+}

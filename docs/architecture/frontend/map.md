@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-10 (revision: post-Phase-1d sync; UX audit P1)
+**Last Updated**: 2026-05-15 (revision: Phase 2 of TN-GRANULAR-GEO-PLAN — typed boundary loader)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -150,6 +150,49 @@ Chunk sizes after Phase 1d:
 | `sql-wasm-*.wasm` | 644 KB | 323 KB | first SQL query |
 
 The maplibre chunk loads in parallel with the app chunk on the first route that mounts a map, then stays cached for the rest of the session.
+
+## Boundary loader (`frontend/src/lib/boundaries.ts`) — Phase 2 of TN-GRANULAR-GEO-PLAN
+
+A single typed entry point — `loadBoundary(level, parentDistrictLgd?, stateLgd?)` — replaces the per-component `fetch('/some-boundary.json')` pattern. The loader is a pure path resolver (`boundaryBasename`) wrapped around a fetcher; it does not know about colours, click handlers, or choropleth values. It only answers: *given (level, parent district lgd, state lgd), where is the GeoJSON and what property carries the join key?*
+
+### Path table
+
+| Level | URL | Join key |
+| --- | --- | --- |
+| `country` | `india-soi.geojson` | none (silhouette only) |
+| `state` | `india-states.geojson` | `ST_NM` (datameet lineage — English name) |
+| `district` | `india-districts.geojson` | `dist_lgd` (LGD numeric) |
+| `subdistrict` | `<S>-subdistricts.geojson` (one file per state) | `subdt_lgd` (ramSeraph upstream property) |
+| `village` | `<S>-villages-<dist_lgd>.geojson` (one file per district) | `vil_lgd` (ramSeraph upstream property) |
+
+Property names match what ramSeraph's upstream actually emits — `subdt_lgd` / `vil_lgd` (not `subdist_lgd` / `village_lgd`). The plan referenced the longer names; the loader honours the disk shape, since renaming on the upstream feeds would mean shipping a parallel write pipeline (Holy Law #5: structural fixes only — and "use what's actually on disk" is the structural fix).
+
+### Per-district village split + index manifest
+
+The per-district village split is the contract Phase 1b nailed: a single district click pulls ~10–600 KB instead of the full TN villages bundle (~200 MB raw, ~50 MB even at `coord_precision=4`). Which district shards exist on disk is communicated by the per-state index manifest (`<S>-villages-index.json`, schema `boundary.villages_index.schema.json` v2.0). The loader reads it once, caches the set of present `dist_lgd` codes, and returns `null` for any village query whose district is absent — never speculatively probes a 404 on hover.
+
+### 404-as-null contract
+
+Every `loadBoundary` call that hits a missing file resolves to `null` rather than throwing. Callers (the choropleth, drill-down components) degrade gracefully — show an inline toast, keep the parent layer visible — instead of crashing the page. This mirrors `resolveSource()` in `maplibre/sources.ts`. Caller-input bugs (asking for `subdistrict` without a state, asking for `village` without a parent district) DO throw — those are tests-should-have-caught-this conditions, not graceful-degradation conditions.
+
+### Why `fetch` and not `import.meta.glob`
+
+Vite's `import.meta.glob` would let the bundler see the per-district shards at build time, but `datasets/` is **served at runtime** via the dev-server middleware + Pages, not bundled into the SPA. The glob would not see `datasets/` even if the right primitive existed. Runtime `fetch` is the correct primitive for "load when clicked".
+
+### Test coverage (CLAUDE.md §15)
+
+Four files in `frontend/src/lib/`:
+
+- `boundaries.path.test.ts` (unit, 13 tests) — pure resolver, no I/O.
+- `boundaries.integration.test.ts` (integration, 9 tests) — `fetch` mocked at the loader's contract boundary (Holy Law #7 carve-out: the loader's contract IS the fetch boundary). Exercises path composition, 404-as-null, network-error-as-null, missing-index degradation, and per-state index caching.
+- `boundaries.contract.test.ts` (contract, 156 tests) — sibling-`sources.json` presence per `*.geojson`, join-key property presence on every LGD-keyed feature (sampled at first/middle/last to bound runtime), index→shard one-to-one consistency, orphan-file detector against the loader's path table.
+- `boundaries.budget.test.ts` (contract, 44 tests) — per-shard byte ceilings (4 MB village / 8 MB subdistrict / 16 MB national) and a chunk-count ratchet at 80 `*.geojson` files.
+
+The orphan-boundary check lives next to the loader (in `boundaries.contract.test.ts`) rather than in `frontend/src/contracts/catalogue-coverage.test.ts`, because the catalogue test is concerned with **indicator** artifacts referenced by `topic-catalogue.json`. Boundary files are not indicators and the catalogue has no concept of them. The loader's path table IS the boundary equivalent of the catalogue, so the orphan check belongs at the same layer that produces the contract.
+
+### Caching
+
+The per-state villages index is memoised in a `Map<stateLgd, Promise<VillagesIndex | null>>` for the lifetime of the page. The GeoJSON shards themselves are not memoised by the loader — the browser HTTP cache + Pages' `Cache-Control` already do that, and a JS-side cache for ~50 MB of geometry is the wrong allocator. A test-only `_resetCachesForTesting()` is exported to keep vitest cases isolated; it is not part of the public API.
 
 ## See also
 
