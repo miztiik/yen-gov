@@ -168,6 +168,63 @@ ENDPOINT_CATALOGUE: tuple[Endpoint, ...] = (
         "/dailyPeakDemand/last30Days",
         page_hint="/energy/electricity/distribution/peak-demand",
         notes="Daily peak demand for last 30 days, all India."),
+
+    # ----- Climate / air quality --------------------------------------
+    # Recon 2026-05-15 via tools/iced_full_triage.py against the public
+    # /climate-and-environment/environment/air-quality dashboard. Eight
+    # endpoints respond OK; registered here as catalogue-only (no parser
+    # binds them yet). ICED is a re-publisher of CPCB NAMP annual-mean
+    # station files (the `file` column on aqi_map_markers points to
+    # `data/AQ_CPCB_UTF8/AQM_<year>_Annual_mean.csv`); any artifact built
+    # from these endpoints MUST list both the ICED API URL and the CPCB
+    # upstream URL in its `sources` array (Hans, 2026-05-15).
+    _ep("aq_aqi_map_markers",
+        "/climate-environment/environment/air-quality/aqi-map-markers",
+        page_hint="/climate-and-environment/environment/air-quality",
+        notes="NAMP station-year rows: 8453 rows × {state, city, location, "
+              "lat, lng, year, so2, no2, pm10, pm25, file}. SO2/NO2/PM10 "
+              "cover 2010-2023 (14y); PM2.5 starts 2014 (9y). 37 states, "
+              "532 cities, 1837 unique stations. Source-of-record for the "
+              "PM2.5 indicator."),
+    _ep("aq_aqm_cities",
+        "/climate-environment/aqmCityWise/aqm-cities",
+        page_hint="/climate-and-environment/environment/air-quality",
+        notes="ICED's pre-aggregated city-year rollup (374 city-year rows). "
+              "Use as a cross-check fixture only; do NOT use as the source "
+              "of truth — methodology is opaque (see Fowler 2026-05-15)."),
+    _ep("aq_fgd",
+        "/climate-environment/environment/air-quality/fgd",
+        page_hint="/climate-and-environment/environment/air-quality",
+        notes="Coal thermal-plant flue-gas-desulphurisation compliance: 602 "
+              "plant-units × {developer, plantName, state, unitNo, capacity, "
+              "fgdStatus, fgdGroup, fgdDate}. Tracks MoEFCC's 2015 directive "
+              "(deadline since pushed 2017→2027). First AQ indicator we ship."),
+    _ep("aq_co2_emission",
+        "/climate-environment/environment/air-quality/co2Emission",
+        page_hint="/climate-and-environment/environment/air-quality",
+        notes="Power-sector CO2 emissions, sector × FY. Distinct from the "
+              "GHG endpoints (which are economy-wide MoEFCC inventories)."),
+    _ep("aq_cpcb_dates",
+        "/climate-environment/environment/air-quality/cpbc-dates",
+        page_hint="/climate-and-environment/environment/air-quality",
+        notes="Metadata only: vintage of the CPCB NAMP files ICED is "
+              "mirroring. Use to populate methodology_vintage / data_as_of."),
+    _ep("aq_sentinel_dates",
+        "/climate-environment/environment/air-quality/sentinel-dates",
+        page_hint="/climate-and-environment/environment/air-quality",
+        notes="Metadata only: vintage of the Sentinel satellite layers."),
+    _ep("aq_power_plant_list",
+        "/climate-environment/environment/air-quality/power-plant-list",
+        page_hint="/climate-and-environment/environment/air-quality",
+        notes="322 power plants with geometry. Subset/duplicate of the "
+              "energy-section power_plants_listing — kept distinct because "
+              "this is the list ICED's AQ pages bind to."),
+    _ep("aq_coal_plant_impact",
+        "/analytics/aqi-impact-due-to-coal-plants-list",
+        page_hint="/climate-and-environment/environment/air-quality",
+        notes="951 plant rows from ICED's modelled AQI-impact-of-coal-plants "
+              "analytic. Modelled, not measured — treat with the same "
+              "caution as any model output before binding to an indicator."),
 )
 
 

@@ -1,6 +1,6 @@
 # ICED API: how the wire actually works
 
-**Last Updated**: 2026-05-14
+**Last Updated**: 2026-05-15
 
 > Canonical reference for every yen-gov adapter that talks to NITI Aayog's
 > ICED dashboard at <https://iced.niti.gov.in>. Read this before opening a
@@ -232,6 +232,39 @@ URL strings inline — one place to grep when ICED rotates a path.
 13 indicators from `/analytics/stateWiseDeepDive` are already emitted by
 [`backend/yen_gov/sources/iced_state_wise/`](sources-iced-state-wise.md).
 Anything new must extend, augment, or fill a gap not on that list.
+
+### Air-quality endpoints (registered 2026-05-15, parsers pending)
+
+Eight endpoints under `/climate-environment/environment/air-quality/*`
+plus the city-aggregated `/climate-environment/aqmCityWise/aqm-cities`
+were probed live on 2026-05-15 (see `tools/iced_full_triage.py` output)
+and registered in `endpoints.py` as `aq_*`. Catalogue-only — no parser
+binds them yet. Sequencing: `aq_fgd` (thermal-plant FGD compliance) ships
+first, `aq_aqi_map_markers` → state-year PM2.5 follows, the other
+pollutants come behind that.
+
+**Provenance rule (mandatory):** ICED is a re-publisher of CPCB NAMP
+annual-mean station files (the `file` column on `aq_aqi_map_markers`
+literally points to `data/AQ_CPCB_UTF8/AQM_<year>_Annual_mean.csv`).
+Any artifact emitted from these endpoints MUST list **both** the ICED
+API URL we fetched AND the CPCB upstream URL in its `sources` array
+(CLAUDE.md §12). Listing only the ICED URL is a governance bug — we
+would be implying NITI as the publisher.
+
+**Honesty constraints (do not paper over):**
+- `aq_aqi_map_markers` is **station-level**, not state-level. The monitor
+  network is uneven and urban-biased (rural districts may have zero
+  monitors). State-aggregated rankings are not honest from this dataset.
+  Aggregations we publish (e.g. state PM2.5 mean) MUST document the
+  method in `methodology_vintage` AND surface the rural-coverage caveat
+  on the consuming UI.
+- PM2.5 measurements start in 2014; SO₂/NO₂/PM10 start in 2010. Any
+  multi-pollutant view declares a `series_break` at 2014 for PM2.5.
+- `aq_aqm_cities` is ICED's pre-aggregated city-year rollup with an
+  opaque method. Use as a cross-check fixture only; never as the source
+  of truth. Compute our own aggregates from `aq_aqi_map_markers`.
+- `aq_coal_plant_impact` is **modelled**, not measured. Treat with the
+  same caution as any model output before binding to an indicator.
 
 ## Conventions for new ICED adapters
 
