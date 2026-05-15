@@ -4,7 +4,7 @@
 
 **Title**: State population (Lakhs)  
 **One-line**: Estimated total resident population of the state in Lakhs (1 Lakh = 100,000).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/demography/state_population_lakhs.json`](../../../../datasets/indicators/in/demography/state_population_lakhs.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'Population'. The values are inter-censal
 
 ## Citation
 
-> iced.niti.gov.in, *State population (Lakhs)*. Re-published by yen-gov as `demography/state_population_lakhs`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *State population (Lakhs)*. Re-published by yen-gov as `demography/state_population_lakhs`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/demography/state_population_lakhs.json`](../../../../datasets/indicators/in/demography/state_population_lakhs.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/demography/state_population_lakhs.json`](../../../../datasets/indicators/in/demography/state_population_lakhs.json)

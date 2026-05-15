@@ -4,7 +4,7 @@
 
 **Title**: Installed nuclear capacity  
 **One-line**: Nuclear generation capacity in megawatts, per state.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_nuclear_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_nuclear_mw.json)
 
 ## Definition
@@ -49,8 +49,8 @@ About 1.6% of all-India installed capacity. The state-level split here is the ce
 
 ## Citation
 
-> cea.nic.in, *Installed nuclear capacity*. Re-published by yen-gov as `energy/installed_capacity_nuclear_mw`, schema v1.4. Retrieved 2026-05-13.
+> cea.nic.in, *Installed nuclear capacity*. Re-published by yen-gov as `energy/installed_capacity_nuclear_mw`, schema v1.5. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/installed_capacity_nuclear_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_nuclear_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_nuclear_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_nuclear_mw.json)

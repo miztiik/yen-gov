@@ -4,7 +4,7 @@
 
 **Title**: Distribution billing efficiency (%, by state)  
 **One-line**: Share of energy actually billed to a consumer, out of total energy input to the distribution system.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Together with collection efficiency, billing efficiency decomposes the commercia
 
 ## Citation
 
-> icedapi.niti.gov.in, *Distribution billing efficiency (%, by state)*. Re-published by yen-gov as `energy/state_distribution_billing_efficiency_pct`, schema v1.4. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *Distribution billing efficiency (%, by state)*. Re-published by yen-gov as `energy/state_distribution_billing_efficiency_pct`, schema v1.5. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json)

@@ -4,7 +4,7 @@
 
 **Title**: State-wise CPI inflation (Housing — Urban only)  
 **One-line**: State-wise CPI Housing inflation, URBAN ONLY — NSO does not publish a rural housing CPI because rural housing in the CPI methodology is imputed from owner-occupied dwellings differently.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 111. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise CPI inflation (Housing — Urban only)*. Re-published by yen-gov as `prices/state_cpi_housing_urban_inflation_pct`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise CPI inflation (Housing — Urban only)*. Re-published by yen-gov as `prices/state_cpi_housing_urban_inflation_pct`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json)

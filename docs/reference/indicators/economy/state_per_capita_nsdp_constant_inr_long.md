@@ -4,7 +4,7 @@
 
 **Title**: State per-capita NSDP (constant prices, long series, spliced)  
 **One-line**: Real per-capita NSDP, 2000-01 -> 2024-25, spliced across MoSPI's 1999-2000, 2004-05, and 2011-12 base years.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 10. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State per-capita NSDP (constant prices, long series, spliced)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_constant_inr_long`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State per-capita NSDP (constant prices, long series, spliced)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_constant_inr_long`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json)

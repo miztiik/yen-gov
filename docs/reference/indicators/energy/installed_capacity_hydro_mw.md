@@ -4,7 +4,7 @@
 
 **Title**: Installed hydro capacity  
 **One-line**: Conventional hydro generation capacity in megawatts, per state, including pumped-storage projects (PSPs) but EXCLUDING small-hydro (SHP) which CEA classifies under RES.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_hydro_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_hydro_mw.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Small hydro (≤25 MW) lives in the renewable category, not here. PSPs ARE inclu
 
 ## Citation
 
-> cea.nic.in, *Installed hydro capacity*. Re-published by yen-gov as `energy/installed_capacity_hydro_mw`, schema v1.4. Retrieved 2026-05-13.
+> cea.nic.in, *Installed hydro capacity*. Re-published by yen-gov as `energy/installed_capacity_hydro_mw`, schema v1.5. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/installed_capacity_hydro_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_hydro_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_hydro_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_hydro_mw.json)

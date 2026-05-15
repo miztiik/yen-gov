@@ -4,7 +4,7 @@
 
 **Title**: Aggregate Technical & Commercial losses (%, by state)  
 **One-line**: Combined technical losses (transmission + distribution heat and ageing-equipment losses) and commercial losses (theft + billing/collection inefficiencies) as a percentage of total energy input to the distribution system.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_atc_losses_pct.json`](../../../../datasets/indicators/in/energy/state_atc_losses_pct.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'AT&C Losses'. Calculated by PFC. The Gov
 
 ## Citation
 
-> iced.niti.gov.in, *Aggregate Technical & Commercial losses (%, by state)*. Re-published by yen-gov as `energy/state_atc_losses_pct`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Aggregate Technical & Commercial losses (%, by state)*. Re-published by yen-gov as `energy/state_atc_losses_pct`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_atc_losses_pct.json`](../../../../datasets/indicators/in/energy/state_atc_losses_pct.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_atc_losses_pct.json`](../../../../datasets/indicators/in/energy/state_atc_losses_pct.json)

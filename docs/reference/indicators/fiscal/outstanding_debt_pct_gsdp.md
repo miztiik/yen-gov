@@ -4,7 +4,7 @@
 
 **Title**: Outstanding liabilities (% of GSDP)  
 **One-line**: Stock of state-government debt outstanding at the end of each fiscal year, expressed as a share of Gross State Domestic Product.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json`](../../../../datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI 'State Finances: A Study of Budgets', Statement 20 (Total Outstandin
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Outstanding liabilities (% of GSDP)*. Re-published by yen-gov as `fiscal/outstanding_debt_pct_gsdp`, schema v1.4. Retrieved 2026-05-11.
+> rbidocs.rbi.org.in, *Outstanding liabilities (% of GSDP)*. Re-published by yen-gov as `fiscal/outstanding_debt_pct_gsdp`, schema v1.5. Retrieved 2026-05-11.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json`](../../../../datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json`](../../../../datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json)

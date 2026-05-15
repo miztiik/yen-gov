@@ -162,6 +162,45 @@ def _series_breaks_table(breaks: list[dict]) -> list[str]:
     return out
 
 
+def _revision_tier_table(tiers: list[dict]) -> list[str]:
+    """Schema 1.5: indicator.revision_tier_by_period[]."""
+    if not tiers:
+        return []
+    out = ["| from | tier | note |", "| --- | --- | --- |"]
+    for t in tiers:
+        frm = t.get("from", "-")
+        tier = t.get("tier", "-")
+        note = (t.get("note") or "").replace("|", "\\|").replace("\n", " ")
+        out.append(f"| `{frm}` | `{tier}` | {note} |")
+    return out
+
+
+def _denominator_block(denom) -> list[str]:
+    """Schema 1.5: indicator.denominator may be string | object | null."""
+    if not denom:
+        return []
+    if isinstance(denom, str):
+        return [f"Indicator id: `{denom}`."]
+    if isinstance(denom, dict):
+        rows = ["| field | value |", "| --- | --- |"]
+        for k in ("what", "price_basis", "base_year", "source_artifact", "note"):
+            v = denom.get(k)
+            if v:
+                rows.append(f"| {k} | `{v}` |")
+        return rows if len(rows) > 2 else []
+    return []
+
+
+def _excludes_bullets(excludes: list[str]) -> list[str]:
+    """Schema 1.5: indicator.excludes[] (citizen-facing what's-NOT-counted)."""
+    return [f"- {e}" for e in (excludes or []) if e]
+
+
+def _renderer_rules_block(rules: list[str]) -> list[str]:
+    """Schema 1.5: indicator.renderer_rules[] (controlled-vocab slugs)."""
+    return [f"- `{r}`" for r in (rules or []) if r]
+
+
 def _sources_bullets(sources: list[dict]) -> list[str]:
     out: list[str] = []
     for s in sources or []:
@@ -218,7 +257,7 @@ def render_page(artifact: IndicatorArtifact) -> str:
     doc = artifact.doc
     ind = doc.get("indicator") or {}
     ind_id = ind.get("id") or f"{artifact.topic}/{artifact.basename}"
-    schema_version = doc.get("$schema_version", "1.4")
+    schema_version = doc.get("$schema_version", "1.5")
 
     lines: list[str] = []
     lines.append(f"# `{ind_id}`")
@@ -271,6 +310,34 @@ def render_page(artifact: IndicatorArtifact) -> str:
             "> Renderer guard: growth rates spanning a `definition_change` "
             "or `rebase` break MUST NOT be computed without a splice note."
         )
+        lines.append("")
+
+    rev_tbl = _revision_tier_table(ind.get("revision_tier_by_period") or [])
+    if rev_tbl:
+        lines.append("## Revision tier (by period)")
+        lines.append("")
+        lines.extend(rev_tbl)
+        lines.append("")
+
+    denom_block = _denominator_block(ind.get("denominator"))
+    if denom_block:
+        lines.append("## Denominator")
+        lines.append("")
+        lines.extend(denom_block)
+        lines.append("")
+
+    excl = _excludes_bullets(ind.get("excludes") or [])
+    if excl:
+        lines.append("## What's NOT counted")
+        lines.append("")
+        lines.extend(excl)
+        lines.append("")
+
+    rrules = _renderer_rules_block(ind.get("renderer_rules") or [])
+    if rrules:
+        lines.append("## Renderer rules")
+        lines.append("")
+        lines.extend(rrules)
         lines.append("")
 
     notes = (ind.get("notes") or "").strip()

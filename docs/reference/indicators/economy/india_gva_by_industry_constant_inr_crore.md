@@ -4,7 +4,7 @@
 
 **Title**: India GVA by industry (constant 2011-12 prices, ₹ crore)  
 **One-line**: National Gross Value Added at constant 2011-12 prices, ₹ crore, faceted by industry.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Only the constant-price series ships in this artifact; the current-price compani
 
 ## Citation
 
-> icedapi.niti.gov.in, *India GVA by industry (constant 2011-12 prices, ₹ crore)*. Re-published by yen-gov as `economy/india_gva_by_industry_constant_inr_crore`, schema v1.4. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India GVA by industry (constant 2011-12 prices, ₹ crore)*. Re-published by yen-gov as `economy/india_gva_by_industry_constant_inr_crore`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json)

@@ -4,7 +4,7 @@
 
 **Title**: Consumer Price Index — Combined (Rural+Urban), annual average  
 **One-line**: All-India CPI-Combined (Rural+Urban) — annual average, base 2012=100, from FY 2014-15 onwards.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/national_cpi_combined_index_annual.json`](../../../../datasets/indicators/in/prices/national_cpi_combined_index_annual.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 37, 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Consumer Price Index — Combined (Rural+Urban), annual average*. Re-published by yen-gov as `prices/national_cpi_combined_index_annual`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Consumer Price Index — Combined (Rural+Urban), annual average*. Re-published by yen-gov as `prices/national_cpi_combined_index_annual`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/prices/national_cpi_combined_index_annual.json`](../../../../datasets/indicators/in/prices/national_cpi_combined_index_annual.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/prices/national_cpi_combined_index_annual.json`](../../../../datasets/indicators/in/prices/national_cpi_combined_index_annual.json)

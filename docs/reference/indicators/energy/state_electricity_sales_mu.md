@@ -4,7 +4,7 @@
 
 **Title**: Annual electricity sales (by state)  
 **One-line**: Total electricity actually billed to end-consumers (all categories: domestic, commercial, industrial, agricultural, public lighting, etc.) in the state, in million units.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_electricity_sales_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_sales_mu.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'Electricity Sales'. Underlying figures f
 
 ## Citation
 
-> iced.niti.gov.in, *Annual electricity sales (by state)*. Re-published by yen-gov as `energy/state_electricity_sales_mu`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Annual electricity sales (by state)*. Re-published by yen-gov as `energy/state_electricity_sales_mu`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_electricity_sales_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_sales_mu.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_electricity_sales_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_sales_mu.json)

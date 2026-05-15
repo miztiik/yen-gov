@@ -4,7 +4,7 @@
 
 **Title**: State population by sex, decennial Census (number of people)  
 **One-line**: State-level resident population at each decennial Census, faceted into Male and Female.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/demography/state_population_by_sex_count.json`](../../../../datasets/indicators/in/demography/state_population_by_sex_count.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Decennial Census enumerations only — no inter- or post-censal projections in t
 
 ## Citation
 
-> icedapi.niti.gov.in, *State population by sex, decennial Census (number of people)*. Re-published by yen-gov as `demography/state_population_by_sex_count`, schema v1.4. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State population by sex, decennial Census (number of people)*. Re-published by yen-gov as `demography/state_population_by_sex_count`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/demography/state_population_by_sex_count.json`](../../../../datasets/indicators/in/demography/state_population_by_sex_count.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/demography/state_population_by_sex_count.json`](../../../../datasets/indicators/in/demography/state_population_by_sex_count.json)

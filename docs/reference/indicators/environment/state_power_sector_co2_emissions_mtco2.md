@@ -4,7 +4,7 @@
 
 **Title**: State CO₂ emissions from power generation (MtCO₂/yr)  
 **One-line**: Per-state CO₂ emissions from electricity generation, faceted by fuel source (coal vs oil-gas — only fossil-fired generation is in the upstream dataset).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json`](../../../../datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Emissions follow the *siting* of the plant, not the consumer — ``attribution_g
 
 ## Citation
 
-> icedapi.niti.gov.in, *State CO₂ emissions from power generation (MtCO₂/yr)*. Re-published by yen-gov as `environment/state_power_sector_co2_emissions_mtco2`, schema v1.4. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *State CO₂ emissions from power generation (MtCO₂/yr)*. Re-published by yen-gov as `environment/state_power_sector_co2_emissions_mtco2`, schema v1.5. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json`](../../../../datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json`](../../../../datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json)

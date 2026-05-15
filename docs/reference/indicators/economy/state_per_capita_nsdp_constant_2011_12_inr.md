@@ -4,7 +4,7 @@
 
 **Title**: State per-capita NSDP, inflation-adjusted (₹ per person per year)  
 **One-line**: Net State Domestic Product per person at constant 2011-12 prices.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Adjusted for inflation, base year 2011-12. CSO re-spliced the series from a 2004
 
 ## Citation
 
-> icedapi.niti.gov.in, *State per-capita NSDP, inflation-adjusted (₹ per person per year)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_constant_2011_12_inr`, schema v1.4. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State per-capita NSDP, inflation-adjusted (₹ per person per year)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_constant_2011_12_inr`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json)

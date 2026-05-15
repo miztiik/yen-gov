@@ -4,7 +4,7 @@
 
 **Title**: State per-capita electricity consumption  
 **One-line**: Electricity consumption per person per year, in kilowatt-hours.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json`](../../../../datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json)
 
 ## Definition
@@ -45,8 +45,8 @@ ICED dashboard composition: state electricity sales (CEA) ÷ state population (C
 
 ## Citation
 
-> iced.niti.gov.in, *State per-capita electricity consumption*. Re-published by yen-gov as `energy/state_per_capita_electricity_consumption_kwh`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *State per-capita electricity consumption*. Re-published by yen-gov as `energy/state_per_capita_electricity_consumption_kwh`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json`](../../../../datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json`](../../../../datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json)

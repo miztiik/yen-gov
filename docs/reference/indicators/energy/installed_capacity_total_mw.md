@@ -4,7 +4,7 @@
 
 **Title**: Installed power-generation capacity (all fuels)  
 **One-line**: Total nameplate generation capacity physically located in (or allocated to) each state, in megawatts, from CEA's monthly Installed Capacity report.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_total_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_total_mw.json)
 
 ## Definition
@@ -49,8 +49,8 @@ The headline 'how big is each state's power footprint' indicator. Source: CEA mo
 
 ## Citation
 
-> cea.nic.in, *Installed power-generation capacity (all fuels)*. Re-published by yen-gov as `energy/installed_capacity_total_mw`, schema v1.4. Retrieved 2026-05-13.
+> cea.nic.in, *Installed power-generation capacity (all fuels)*. Re-published by yen-gov as `energy/installed_capacity_total_mw`, schema v1.5. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/installed_capacity_total_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_total_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_total_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_total_mw.json)

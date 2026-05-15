@@ -4,7 +4,7 @@
 
 **Title**: Installed thermal capacity (coal + lignite + gas + diesel)  
 **One-line**: Total fossil-fuel thermal generation capacity (coal + lignite + gas + diesel), in megawatts, per state.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_thermal_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_thermal_mw.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Includes lignite and diesel alongside coal and gas. Lignite is concentrated in T
 
 ## Citation
 
-> cea.nic.in, *Installed thermal capacity (coal + lignite + gas + diesel)*. Re-published by yen-gov as `energy/installed_capacity_thermal_mw`, schema v1.4. Retrieved 2026-05-13.
+> cea.nic.in, *Installed thermal capacity (coal + lignite + gas + diesel)*. Re-published by yen-gov as `energy/installed_capacity_thermal_mw`, schema v1.5. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/installed_capacity_thermal_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_thermal_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_thermal_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_thermal_mw.json)

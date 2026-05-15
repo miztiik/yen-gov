@@ -4,7 +4,7 @@
 
 **Title**: National Gross Value Added by industry, constant 2011-12 prices (annual)  
 **One-line**: Annual Gross Value Added by 17-industry NIC-1-digit tier (Agriculture / Mining / Manufacturing / Electricity-Gas-Water / Construction / Trade-Hotels-Transport-Communication / Financial-Real-Estate-Professional / Public Admin / Other Services and their published variants), at constant 2011-12 prices.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Values are in ₹ crore at 2011-12 prices — comparable across years (real grow
 
 ## Citation
 
-> www.data.gov.in, *National Gross Value Added by industry, constant 2011-12 prices (annual)*. Re-published by yen-gov as `economy/national_gva_by_industry_constant_2011_12_inr_crore`, schema v1.4. Retrieved 2026-05-14.
+> www.data.gov.in, *National Gross Value Added by industry, constant 2011-12 prices (annual)*. Re-published by yen-gov as `economy/national_gva_by_industry_constant_2011_12_inr_crore`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json)

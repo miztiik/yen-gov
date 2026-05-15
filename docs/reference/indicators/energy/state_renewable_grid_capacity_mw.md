@@ -4,7 +4,7 @@
 
 **Title**: State-wise installed grid-interactive renewable capacity (MW)  
 **One-line**: Cumulative grid-connected renewable-power generation capacity installed in the state, MW, as at end-March of the calendar year.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json`](../../../../datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 143. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise installed grid-interactive renewable capacity (MW)*. Re-published by yen-gov as `energy/state_renewable_grid_capacity_mw`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise installed grid-interactive renewable capacity (MW)*. Re-published by yen-gov as `energy/state_renewable_grid_capacity_mw`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json`](../../../../datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json`](../../../../datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json)

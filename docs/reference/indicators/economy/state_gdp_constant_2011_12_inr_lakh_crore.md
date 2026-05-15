@@ -4,7 +4,7 @@
 
 **Title**: State GDP (constant prices, base 2011-12)  
 **One-line**: Gross Domestic Product of the state at constant 2011-12 prices, in Lakh Crore Rupees (1 Lakh Crore = 1 trillion).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'GDP (Base: 2011-12) Constant Price'. Und
 
 ## Citation
 
-> iced.niti.gov.in, *State GDP (constant prices, base 2011-12)*. Re-published by yen-gov as `economy/state_gdp_constant_2011_12_inr_lakh_crore`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *State GDP (constant prices, base 2011-12)*. Re-published by yen-gov as `economy/state_gdp_constant_2011_12_inr_lakh_crore`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json)

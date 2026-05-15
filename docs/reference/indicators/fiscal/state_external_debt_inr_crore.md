@@ -4,7 +4,7 @@
 
 **Title**: States' total external debt outstanding  
 **One-line**: Total external debt outstanding against each State / UT, as reported in the Rajya Sabha Session 259 Unstarred Question 1480 answer (≈ Jul-Aug 2023).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_external_debt_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_external_debt_inr_crore.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Snapshot: snapshot  (RS Session 259 ≈ Jul-Aug 2023.
 
 ## Citation
 
-> sansad.in, *States' total external debt outstanding*. Re-published by yen-gov as `fiscal/state_external_debt_inr_crore`, schema v1.4. Retrieved 2026-05-14.
+> sansad.in, *States' total external debt outstanding*. Re-published by yen-gov as `fiscal/state_external_debt_inr_crore`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/fiscal/state_external_debt_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_external_debt_inr_crore.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/state_external_debt_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_external_debt_inr_crore.json)

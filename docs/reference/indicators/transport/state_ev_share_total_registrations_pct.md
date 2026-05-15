@@ -4,7 +4,7 @@
 
 **Title**: EV share of total vehicle registrations by state and category  
 **One-line**: EVs as a share of total new vehicle registrations in each state, by vehicle category.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json`](../../../../datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json)
 
 ## Definition
@@ -47,8 +47,8 @@ MoRTH VAHAN registration database (excludes Telangana for some years; some early
 
 ## Citation
 
-> iced.niti.gov.in, *EV share of total vehicle registrations by state and category*. Re-published by yen-gov as `transport/state_ev_share_total_registrations_pct`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *EV share of total vehicle registrations by state and category*. Re-published by yen-gov as `transport/state_ev_share_total_registrations_pct`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json`](../../../../datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json`](../../../../datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json)

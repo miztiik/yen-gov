@@ -4,7 +4,7 @@
 
 **Title**: State electricity generation, by fuel source (GWh, FY16–FY26)  
 **One-line**: Per-state actual electricity generated, broken down by fuel source (coal, oil-gas, hydro, nuclear, wind, solar, small-hydro, bio-power).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json`](../../../../datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json)
 
 ## Definition
@@ -51,8 +51,8 @@ ICED publishes one bucket called ``Others`` that aggregates generation not attri
 
 ## Citation
 
-> icedapi.niti.gov.in, *State electricity generation, by fuel source (GWh, FY16–FY26)*. Re-published by yen-gov as `energy/state_electricity_generation_by_source_gwh`, schema v1.4. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *State electricity generation, by fuel source (GWh, FY16–FY26)*. Re-published by yen-gov as `energy/state_electricity_generation_by_source_gwh`, schema v1.5. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json`](../../../../datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json`](../../../../datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json)

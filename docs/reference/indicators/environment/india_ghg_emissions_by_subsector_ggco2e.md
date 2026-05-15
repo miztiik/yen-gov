@@ -4,7 +4,7 @@
 
 **Title**: India's greenhouse-gas emissions by sub-sector (Gg CO₂-equivalent)  
 **One-line**: National greenhouse-gas emissions one level deeper than the headline by-sector view: each row is a (sector, sub-sector) pair, e.g.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Facets are encoded as 'Sector|SubSector' strings. The 'Energy Sector / Total' ro
 
 ## Citation
 
-> icedapi.niti.gov.in, *India's greenhouse-gas emissions by sub-sector (Gg CO₂-equivalent)*. Re-published by yen-gov as `environment/india_ghg_emissions_by_subsector_ggco2e`, schema v1.4. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India's greenhouse-gas emissions by sub-sector (Gg CO₂-equivalent)*. Re-published by yen-gov as `environment/india_ghg_emissions_by_subsector_ggco2e`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json)

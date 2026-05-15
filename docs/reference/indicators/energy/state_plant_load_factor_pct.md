@@ -4,7 +4,7 @@
 
 **Title**: State Plant Load Factor (PLF), by fuel source (%)  
 **One-line**: Plant Load Factor — the share of nameplate capacity actually delivered as energy over a fiscal year.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_plant_load_factor_pct.json`](../../../../datasets/indicators/in/energy/state_plant_load_factor_pct.json)
 
 ## Definition
@@ -51,8 +51,8 @@ PLF is dimensionless (%) and directly comparable across states WITHIN a fuel —
 
 ## Citation
 
-> icedapi.niti.gov.in, *State Plant Load Factor (PLF), by fuel source (%)*. Re-published by yen-gov as `energy/state_plant_load_factor_pct`, schema v1.4. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *State Plant Load Factor (PLF), by fuel source (%)*. Re-published by yen-gov as `energy/state_plant_load_factor_pct`, schema v1.5. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_plant_load_factor_pct.json`](../../../../datasets/indicators/in/energy/state_plant_load_factor_pct.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_plant_load_factor_pct.json`](../../../../datasets/indicators/in/energy/state_plant_load_factor_pct.json)

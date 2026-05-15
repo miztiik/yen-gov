@@ -4,7 +4,7 @@
 
 **Title**: India GDP (₹ crore, current and constant prices)  
 **One-line**: National Gross Domestic Product, ₹ crore, faceted by price basis: 'current' (nominal, contemporaneous prices) and 'constant' (real, base 2011-12).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/india_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gdp_inr_crore.json)
 
 ## Definition
@@ -51,8 +51,8 @@ ICED's upstream priceType field has values 'gross', 'export', 'import' — only 
 
 ## Citation
 
-> icedapi.niti.gov.in, *India GDP (₹ crore, current and constant prices)*. Re-published by yen-gov as `economy/india_gdp_inr_crore`, schema v1.4. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India GDP (₹ crore, current and constant prices)*. Re-published by yen-gov as `economy/india_gdp_inr_crore`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/economy/india_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gdp_inr_crore.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/india_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gdp_inr_crore.json)

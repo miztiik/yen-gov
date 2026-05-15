@@ -4,7 +4,7 @@
 
 **Title**: State pension expenditure (revenue account)  
 **One-line**: Annual state-government pension expenditure (revenue account, ₹ Crore) from FY 2004-05 onwards.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 171. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State pension expenditure (revenue account)*. Re-published by yen-gov as `fiscal/state_pension_expenditure_inr_crore`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State pension expenditure (revenue account)*. Re-published by yen-gov as `fiscal/state_pension_expenditure_inr_crore`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)

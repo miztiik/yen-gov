@@ -4,7 +4,7 @@
 
 **Title**: Installed renewable capacity (RES MNRE)  
 **One-line**: Renewable capacity reported by MNRE (Ministry of New & Renewable Energy) and republished by CEA in the IC sheet's RES* (MNRE) column: solar (ground-mounted + rooftop + hybrid + off-grid + KUSUM) + wind + small hydro + biomass + waste-to-energy, in megawatts per state.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_renewable_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_renewable_mw.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Excludes large hydro (which has its own column / indicator). Includes small hydr
 
 ## Citation
 
-> cea.nic.in, *Installed renewable capacity (RES MNRE)*. Re-published by yen-gov as `energy/installed_capacity_renewable_mw`, schema v1.4. Retrieved 2026-05-13.
+> cea.nic.in, *Installed renewable capacity (RES MNRE)*. Re-published by yen-gov as `energy/installed_capacity_renewable_mw`, schema v1.5. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/installed_capacity_renewable_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_renewable_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_renewable_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_renewable_mw.json)

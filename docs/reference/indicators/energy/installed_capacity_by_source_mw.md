@@ -4,7 +4,7 @@
 
 **Title**: Installed capacity by source (fuel mix)  
 **One-line**: Installed electricity-generation capacity per state, broken down by fuel source: coal, gas, nuclear, hydro (large), renewable (solar + wind + small hydro + biomass + WtE per MNRE), and a residual 'other_thermal' bucket (lignite + diesel) where applicable.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15T21:11:07Z (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_by_source_mw.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Composed from the per-fuel CEA artifacts. The residual 'other_thermal' facet is 
 
 ## Citation
 
-> cea.nic.in, *Installed capacity by source (fuel mix)*. Re-published by yen-gov as `energy/installed_capacity_by_source_mw`, schema v1.4. Retrieved 2026-05-13.
+> cea.nic.in, *Installed capacity by source (fuel mix)*. Re-published by yen-gov as `energy/installed_capacity_by_source_mw`, schema v1.5. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_by_source_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_by_source_mw.json)
