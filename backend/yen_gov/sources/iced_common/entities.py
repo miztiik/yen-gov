@@ -126,3 +126,26 @@ def fy_to_period(fy_label: str) -> str:
     if not m:
         raise ValueError(f"FY label {fy_label!r} does not match YYYY-YY")
     return f"{int(m.group(1)):04d}-04"
+
+
+# Case-insensitive lookup index. Some endpoints (e.g. the v0
+# ``/energy/fuel-sources/coal/consumption-domestic-state`` family) ship
+# state names in UPPERCASE; others use Title Case. We keep ENTITY_MAP
+# in canonical Title Case (it is the human-readable form) and provide
+# this helper so per-source parsers don't each have to title-case +
+# fix-and-of-of words manually.
+_ENTITY_MAP_CI: dict[str, str] = {k.lower(): v for k, v in ENTITY_MAP.items()}
+
+
+def lookup_entity(label: str) -> str | None:
+    """Case-insensitive lookup of an ICED state-name to its ECI entity_id.
+
+    Returns ``None`` if the label is unmapped (caller decides whether to
+    skip + count or escalate). Trims surrounding whitespace before lookup.
+    """
+    if not isinstance(label, str):
+        return None
+    key = label.strip().lower()
+    if not key:
+        return None
+    return _ENTITY_MAP_CI.get(key)

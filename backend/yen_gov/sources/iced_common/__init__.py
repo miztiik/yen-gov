@@ -28,7 +28,7 @@ from .crypto import (
     decrypt_response,
 )
 from .client import IcedClient, ICEDFetchError
-from .entities import ENTITY_MAP, fy_to_period, coerce_numeric
+from .entities import ENTITY_MAP, fy_to_period, coerce_numeric, lookup_entity
 
 __all__ = (
     "PASSPHRASE",
@@ -40,4 +40,5 @@ __all__ = (
     "ENTITY_MAP",
     "fy_to_period",
     "coerce_numeric",
+    "lookup_entity",
 )
