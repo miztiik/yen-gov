@@ -461,6 +461,25 @@
     return `linear-gradient(to right, ${stops})`;
   });
 
+  // Methodology / series-break summary for the legend "i" glyph (Phase 3
+  // Jony edit §g — methodology context lives in the legend, NOT on every
+  // polygon). Joins methodology_vintage + each series_break into a single
+  // newline-delimited title-attribute string. Returns "" when there's
+  // nothing worth surfacing — the glyph then renders as empty (the
+  // template wraps the badge in `{#if methodology_summary}`).
+  const methodology_summary = $derived.by(() => {
+    if (!artifact) return "";
+    const ind = artifact.indicator;
+    const lines: string[] = [];
+    if (ind.methodology_vintage) {
+      lines.push(`Methodology: ${ind.methodology_vintage}`);
+    }
+    for (const br of ind.series_breaks ?? []) {
+      lines.push(`Series break ${br.at_time} (${br.kind}): ${br.note}`);
+    }
+    return lines.join("\n");
+  });
+
   // Coverage caption (Citizen P0 + UX P0-2): make "4 of 35 states" first-class
   // info above the map, not a footnote. Honours the peer-set restriction:
   // when active, both numerator and denominator are computed within the
@@ -718,6 +737,18 @@
         <div class="text-[10px] text-slate-500 uppercase tracking-wide mb-1 flex items-center gap-2 flex-wrap">
           <span>Legend</span>
           <span class="text-slate-400 normal-case font-normal">{artifact.indicator.unit}</span>
+          {#if methodology_summary}
+            <!-- Phase 3 Jony edit §g — methodology context lives in the
+                 legend, NOT on every polygon. The full text already renders
+                 in the source card at the foot; this glyph is the legend-
+                 slot pointer so a citizen can see "the values come with a
+                 caveat" without scrolling. Native title= keeps it cheap
+                 (no popover library, no new component). -->
+            <span
+              class="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-slate-200 text-slate-700 text-[9px] font-semibold normal-case cursor-help"
+              title={methodology_summary}
+            >i</span>
+          {/if}
           <!-- Phase 2 honesty: ↑/↓/↔ cue so the citizen reads the colour ramp
                correctly for direction-asymmetric indicators (e.g. IMR=lower
                is better; HDI=higher is better). -->

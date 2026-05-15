@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-15 (revision: Phase 4 mobile pinch-to-drill of TN-GRANULAR-GEO-PLAN)
+**Last Updated**: 2026-05-15 (revision: Phase 3 methodology-break "i" glyph in legend)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -326,6 +326,23 @@ Without the finger-count check, a single-finger tap that incidentally bumps the 
 ### Why no unit test
 
 Touch events on a maplibre instance need a real pointer-event runtime; jsdom provides neither, and our vitest stack can't mount maplibre. The drill-dispatch shape (`onSelect({ key, properties, at })`) is the same one the click handler uses and is already covered by `IndicatorChoropleth.boundaries.test.ts`. CLAUDE.md §13 manual smoke (touch DevTools or a real phone) is the verification tier.
+
+## Methodology-break "i" glyph in the legend (Phase 3 §g of TN-GRANULAR-GEO-PLAN)
+
+Indicators carry two governance-honesty fields on their metadata block: `methodology_vintage` (free-form short string naming the methodology revision under which values were computed — e.g. "GSDP base 2011-12") and `series_breaks` (an array of `{at_time, kind, note}` objects marking time-points where the series stops being comparable across the boundary). The full text already renders in the source card at the foot of every `IndicatorChoropleth.svelte` instance, so methodology context is reachable but lives below the fold.
+
+The Phase 3 polish bullet (Jony edit §g) called for **demoting the methodology marker out of polygon tooltips and into the legend**. Two implementation considerations:
+
+- **Why not on the polygon tooltip.** A tooltip the citizen reads dozens of times during a drill should show one number first; methodology is the rare per-indicator caveat, not a per-polygon fact. Decorating every tooltip with the same break-text turns the caveat into noise.
+- **Why a legend "i" badge specifically.** The legend is where the citizen looks once per indicator to learn what the colour ramp means; pinning the caveat there reaches the same eye-stop as the unit and direction cue.
+
+Implementation (`IndicatorChoropleth.svelte`):
+
+- A `methodology_summary` derived state joins `methodology_vintage` + every `series_breaks[i]` into newline-delimited text, returning `""` when both are absent.
+- The legend header conditionally renders a 14px circular slate-200 chip with text "i" when `methodology_summary` is non-empty. The chip's native `title` attribute carries the summary so a hover shows the full text without a popover library.
+- Polygon tooltips remain unchanged — they never carried methodology, so the bullet's "demote-from-polygons" half is preventive, not a code removal.
+
+The bullet's "second line on affected districts in affected years" sub-clause is descoped: `series_breaks` is indicator-level (not per-feature × per-year), so per-polygon × per-year filtering would require data shape we don't emit. The legend glyph carries the same information at the lower visual weight the bullet asked for. If a future schema bump promotes break entries to per-entity, the polygon-tooltip second-line variant becomes implementable; until then the legend glyph is the honest surface.
 
 ## See also
 
