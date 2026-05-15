@@ -20,7 +20,7 @@ Stock of state-government debt outstanding at the end of each fiscal year, expre
 | Value kind | `share` |
 | Unit | `%` |
 | Direction | `lower_is_better` |
-| Comparability | `comparable_across_states` |
+| Comparability | `comparable_across_states_and_time` |
 | Attribution geography | `where_administered` |
 | Implementing authority | `state` |
 | Scale hint | `linear` |
@@ -34,6 +34,20 @@ Stock of state-government debt outstanding at the end of each fiscal year, expre
 ## Methodology vintage
 
 RBI State Finances: A Study of Budgets, fetched 2026-05-11T15:18:58Z
+
+## Denominator
+
+| field | value |
+| --- | --- |
+| what | `GSDP at current prices` |
+| price_basis | `current` |
+| source_artifact | `economy/state_gdp_current_inr_lakh_crore` |
+| note | `Each state's own MoSPI base year — sub-1pp YoY moves are inside the noise band` |
+
+## What's NOT counted
+
+- Off-budget borrowings excluded — captures consolidated debt as reported by RBI, not the wider 'extended debt' some states carry
+- PSU debt excluded unless explicitly guaranteed by the state government
 
 ## Notes
 

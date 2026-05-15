@@ -35,6 +35,15 @@ Per-capita Net State Domestic Product (current prices), 2000-01 -> 2024-25 (25 f
 
 MoSPI multi-base spliced (1993-94 / 1999-2000 / 2004-05 / 2011-12); RBI Handbook 2024-25 edition
 
+## Denominator
+
+| field | value |
+| --- | --- |
+| what | `state mid-year population (MoSPI / RGI)` |
+| price_basis | `current` |
+| source_artifact | `demography/state_population_lakhs` |
+| note | `Per-capita = NSDP ÷ state mid-year population estimate` |
+
 ## Notes
 
 Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 9. RBI's per-capita series begins in 2000-01 (no 1993-94 base section here). All-India per-capita NNI (IN) included as the national reference line.

@@ -20,7 +20,7 @@ Wholesale Price Index (All Commodities) — annual average, FY 1974-75 onwards, 
 | Value kind | `index` |
 | Unit | `index (rebased)` |
 | Direction | `neutral` |
-| Comparability | `comparable_with_normalisation` |
+| Comparability | `directional_only` |
 | Attribution geography | `where_resident` |
 | Implementing authority | `centre` |
 | Scale hint | `linear` |
@@ -34,6 +34,10 @@ Wholesale Price Index (All Commodities) — annual average, FY 1974-75 onwards, 
 ## Methodology vintage
 
 RBI Handbook 2024-25 edition
+
+## Renderer rules
+
+- `no_growth_across_break`
 
 ## Notes
 

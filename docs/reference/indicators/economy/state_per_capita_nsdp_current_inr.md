@@ -20,7 +20,7 @@ Net State Domestic Product (NSDP) per person, in current prices. Sourced from NI
 | Value kind | `currency` |
 | Unit | `INR` |
 | Direction | `higher_is_better` |
-| Comparability | `comparable_across_states` |
+| Comparability | `comparable_across_states_and_time` |
 | Attribution geography | `where_resident` |
 | Implementing authority | `state` |
 | Scale hint | `linear` |
@@ -34,6 +34,15 @@ Net State Domestic Product (NSDP) per person, in current prices. Sourced from NI
 ## Methodology vintage
 
 MoSPI / State DES; NSDP per-capita series
+
+## Denominator
+
+| field | value |
+| --- | --- |
+| what | `state mid-year population (MoSPI / RGI)` |
+| price_basis | `current` |
+| source_artifact | `demography/state_population_lakhs` |
+| note | `Per-capita = NSDP ÷ state mid-year population estimate` |
 
 ## Sources
 

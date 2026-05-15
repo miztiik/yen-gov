@@ -35,6 +35,15 @@ Real per-capita NSDP, 2000-01 -> 2024-25, spliced across MoSPI's 1999-2000, 2004
 
 MoSPI multi-base spliced (1993-94 / 1999-2000 / 2004-05 / 2011-12); RBI Handbook 2024-25 edition
 
+## Denominator
+
+| field | value |
+| --- | --- |
+| what | `state mid-year population (MoSPI / RGI)` |
+| price_basis | `constant` |
+| source_artifact | `demography/state_population_lakhs` |
+| note | `Per-capita = NSDP ÷ state mid-year population estimate` |
+
 ## Notes
 
 Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 10. Pre-2011-12 figures are real per-capita NSDP at factor cost (older bases); 2011-12 onwards are at basic prices. Cross-base growth rates not strictly comparable.

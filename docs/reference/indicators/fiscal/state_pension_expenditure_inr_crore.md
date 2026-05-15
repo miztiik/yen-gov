@@ -35,6 +35,20 @@ Annual state-government pension expenditure (revenue account, ₹ Crore) from FY
 
 RBI Handbook 2024-25 edition
 
+## Revision tier (by period)
+
+| from | tier | note |
+| --- | --- | --- |
+| `2022-04` | `A` | Actual (audited) |
+| `2023-04` | `RE` | Revised Estimate — will be revised to Actual in the next HBS-IS edition |
+| `2024-04` | `BE` | Budget Estimate — citizen should treat as plan, not outturn |
+
+## What's NOT counted
+
+- IGNOAPS / IGNWPS social pensions excluded — these are central social-security transfers, not state-employer pensions
+- NPS contribution flows excluded — captures only pre-NPS-hire defined-benefit retirement and family pensions
+- State pension fund corpus contributions excluded — measures actual paid pensions, not actuarial accruals
+
 ## Notes
 
 Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 171. Suffix codes in column headers — '(A)' = Actuals, '(RE)' = Revised Estimates, '(BE)' = Budget Estimates — are stripped at parse time but the underlying revision tier should be considered when comparing FY24/FY25 with earlier years.

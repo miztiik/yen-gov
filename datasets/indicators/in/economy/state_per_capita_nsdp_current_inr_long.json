@@ -30,18 +30,20 @@
     "id": "economy/state_per_capita_nsdp_current_inr_long",
     "title": "State per-capita NSDP (current prices, long series)",
     "description": "Per-capita Net State Domestic Product (current prices), 2000-01 -> 2024-25 (25 fiscal years), spliced across MoSPI's 1999-2000, 2004-05, and 2011-12 base years. Long-history sibling of `economy/state_per_capita_nsdp_current_inr` (which covers 2004-05 -> 2023-24 from ICED at the 2011-12 base only). Use this artifact when you need depth; use the ICED sibling when you need single-base purity.",
-    "entity_kind": "state",
-    "time_grain": "fiscal_year",
-    "value_kind": "currency",
-    "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "INR",
+    "denominator": {
+      "what": "state mid-year population (MoSPI / RGI)",
+      "price_basis": "current",
+      "source_artifact": "demography/state_population_lakhs",
+      "note": "Per-capita = NSDP ÷ state mid-year population estimate"
+    },
+    "notes": "Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 9. RBI's per-capita series begins in 2000-01 (no 1993-94 base section here). All-India per-capita NNI (IN) included as the national reference line.",
     "icon": "trending-up",
     "attribution_geography": "where_resident",
     "comparability": "comparable_with_normalisation",
     "implementing_authority": "state",
     "methodology_vintage": "MoSPI multi-base spliced (1993-94 / 1999-2000 / 2004-05 / 2011-12); RBI Handbook 2024-25 edition",
-    "notes": "Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 9. RBI's per-capita series begins in 2000-01 (no 1993-94 base section here). All-India per-capita NNI (IN) included as the national reference line.",
     "series_breaks": [
       {
         "at_time": "1999-04",
@@ -68,7 +70,11 @@
         "kind": "coverage_change",
         "note": "J&K reorganisation (Aug 2019): U08 series from 2019-20 onwards covers UT of Jammu & Kashmir only (Ladakh not separately reported in this RBI table)."
       }
-    ]
+    ],
+    "value_kind": "currency",
+    "time_grain": "fiscal_year",
+    "entity_kind": "state",
+    "direction": "higher_is_better"
   },
   "rows": [
     {

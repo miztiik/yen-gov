@@ -20,7 +20,7 @@ Net State Domestic Product per person at constant 2011-12 prices. This is the in
 | Value kind | `currency` |
 | Unit | `INR` |
 | Direction | `higher_is_better` |
-| Comparability | `comparable_across_states` |
+| Comparability | `comparable_across_states_and_time` |
 | Attribution geography | `where_resident` |
 | Implementing authority | `joint` |
 | Scale hint | `linear` |
@@ -34,6 +34,16 @@ Net State Domestic Product per person at constant 2011-12 prices. This is the in
 ## Methodology vintage
 
 NSDP base 2011-12 (CSO re-spliced from 2004-05 base around 2014)
+
+## Denominator
+
+| field | value |
+| --- | --- |
+| what | `state mid-year population (MoSPI / RGI)` |
+| price_basis | `constant` |
+| base_year | `2011-12` |
+| source_artifact | `demography/state_population_lakhs` |
+| note | `Per-capita = NSDP ÷ state mid-year population estimate` |
 
 ## Notes
 
