@@ -290,23 +290,36 @@ def _round_coords_geom(geom: Any, coord_precision: int | None) -> Any:
     return {**geom, "coordinates": _walk(geom.get("coordinates"))}
 
 
+def emit_feature_collection(out_path: Path, features: list[dict[str, Any]]) -> None:
+    """Write `features` as a GeoJSON FeatureCollection at `out_path`.
+
+    Extracted from the per-format fetchers so that `snapshot_one` can interpose
+    transforms (state_filter, split_by — Phase 1b commits 2–3) between fetch
+    and emit without duplicating the JSON-write boilerplate per format.
+    """
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    fc = {"type": "FeatureCollection", "features": features}
+    with out_path.open("w", encoding="utf-8", newline="\n") as fh:
+        json.dump(fc, fh, ensure_ascii=False)
+        fh.write("\n")
+
+
 def fetch_geojsonl_7z(
     urls: list[str],
-    out_path: Path,
     raw_dir: Path,
     coord_precision: int | None = None,
-) -> list[dict[str, str]]:
+) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
     """Download a 7z archive containing newline-delimited GeoJSON, extract it,
-    and emit a wrapped FeatureCollection at out_path.
+    and return the parsed features plus the sources list.
 
     Used by the ramSeraph/indian_admin_boundaries layers — every release ships
     one `*.geojsonl.7z` file holding one feature per line. We unpack to
     raw_dir (per ADR-0003 — intermediate artifacts under .runtime/, never
-    datasets/), parse line-by-line, optionally round coordinates, and write
-    the conventional FeatureCollection that the rest of the pipeline expects.
+    datasets/), parse line-by-line, and optionally round coordinates. The
+    caller emits the FeatureCollection (so transforms can interpose).
 
-    Returns the per-URL [{url, fetched_at}] sources list. py7zr is required
-    (pure-python, works on Windows without the Linux build toolchain).
+    Returns `(features, sources)`. py7zr is required (pure-python, works on
+    Windows without the Linux build toolchain).
     """
     try:
         import py7zr  # type: ignore[import-not-found]
@@ -361,13 +374,7 @@ def fetch_geojsonl_7z(
                 feat["geometry"] = _round_coords_geom(feat["geometry"], coord_precision)
             features.append(feat)
 
-    geojson = {"type": "FeatureCollection", "features": features}
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    with out_path.open("w", encoding="utf-8", newline="\n") as fh:
-        json.dump(geojson, fh, ensure_ascii=False)
-        fh.write("\n")
-
-    return [{"url": url, "fetched_at": fetched_at}]
+    return features, [{"url": url, "fetched_at": fetched_at}]
 
 
 # -----------------------------------------------------------------------------
@@ -407,12 +414,12 @@ def snapshot_one(
         )
     elif fmt == "geojsonl_7z":
         bundle_dir = raw_root / "snapshot" / basename.removesuffix(".geojson")
-        sources = fetch_geojsonl_7z(
+        features, sources = fetch_geojsonl_7z(
             urls,
-            out_path,
             bundle_dir,
             coord_precision=source.get("coord_precision"),
         )
+        emit_feature_collection(out_path, features)
     else:  # pragma: no cover — caught at config-parse time in practice
         msg = f"unknown source.format: {fmt!r}"
         raise ValueError(msg)

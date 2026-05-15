@@ -72,7 +72,8 @@ def test_extracts_and_wraps_features(tmp_path: Path, two_district_features: list
     out_path = tmp_path / "out" / "test-districts.geojson"
     raw_dir = tmp_path / "raw"
 
-    sources = snapshot.fetch_geojsonl_7z([_file_url(archive)], out_path, raw_dir)
+    features, sources = snapshot.fetch_geojsonl_7z([_file_url(archive)], raw_dir)
+    snapshot.emit_feature_collection(out_path, features)
 
     assert out_path.is_file()
     fc = json.loads(out_path.read_text(encoding="utf-8"))
@@ -92,7 +93,8 @@ def test_coord_precision_rounds_and_dedups(tmp_path: Path, two_district_features
     out_path = tmp_path / "out" / "rounded.geojson"
     raw_dir = tmp_path / "raw"
 
-    snapshot.fetch_geojsonl_7z([_file_url(archive)], out_path, raw_dir, coord_precision=2)
+    features, _ = snapshot.fetch_geojsonl_7z([_file_url(archive)], raw_dir, coord_precision=2)
+    snapshot.emit_feature_collection(out_path, features)
 
     fc = json.loads(out_path.read_text(encoding="utf-8"))
     coords = fc["features"][0]["geometry"]["coordinates"][0]
@@ -110,7 +112,6 @@ def test_rejects_multi_url(tmp_path: Path, two_district_features: list[dict]) ->
     with pytest.raises(ValueError, match="exactly 1 url"):
         snapshot.fetch_geojsonl_7z(
             [_file_url(archive), _file_url(archive)],
-            tmp_path / "out.geojson",
             tmp_path / "raw",
         )
 
@@ -125,7 +126,7 @@ def test_rejects_archive_without_geojsonl(tmp_path: Path) -> None:
         zf.write(txt, arcname=txt.name)
 
     with pytest.raises(ValueError, match="no .geojsonl file"):
-        snapshot.fetch_geojsonl_7z([_file_url(archive)], tmp_path / "out.geojson", tmp_path / "raw")
+        snapshot.fetch_geojsonl_7z([_file_url(archive)], tmp_path / "raw")
 
 
 def test_districts_basename_routing() -> None:
