@@ -12,6 +12,7 @@
 
   import MapChoropleth from "./maplibre/MapChoropleth.svelte";
   import { INDIA_STATES, STATE_NAME_TO_ECI } from "./maplibre/sources";
+  import type { GeoLevel } from "./boundaries";
   import SourceList from "./SourceList.svelte";
   import IndicatorIcon from "./IndicatorIcon.svelte";
   import RebaseBanner from "./honesty/RebaseBanner.svelte";
@@ -46,6 +47,18 @@
      * tells an honest within-peer story, not a softly-clipped national one.
      */
     peer_set_members?: string[] | null;
+    /**
+     * Geographic level to render. Default `"state"` preserves the v1 behaviour
+     * (national choropleth keyed by ECI state code). Phase 3 of
+     * TODO/TN-GRANULAR-GEO-PLAN.md introduces this prop as the seam for
+     * district / subdistrict / village drill-downs; deeper levels are wired
+     * in subsequent commits (commit 2: loader-exposed join key; commit 3:
+     * loadBoundary fetch + drill click). At this commit the prop is accepted
+     * but only the `"state"` branch has behaviour — passing anything else
+     * still renders the state-level map (no-op), which keeps the structural
+     * change reversible.
+     */
+    geoLevel?: GeoLevel;
   }
 
   let {
@@ -53,6 +66,7 @@
     highlight_state,
     height = "440px",
     peer_set_members = null,
+    geoLevel = "state",
   }: Props = $props();
 
   let artifact = $state<IndicatorArtifact | null>(null);
