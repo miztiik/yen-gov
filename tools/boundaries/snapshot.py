@@ -507,6 +507,125 @@ def _write_sources_sidecar(sidecar_path: Path, basename: str, sources: list[dict
         fh.write("\n")
 
 
+def _make_drop_record(
+    feat: dict[str, Any],
+    reason: str,
+    name_property: str | None = None,
+    dropped_at: str | None = None,
+) -> dict[str, str]:
+    """Build a boundary.unkeyed.schema.json `dropped[]` entry for `feat`.
+
+    `name_property` is the entry's `name_property` (e.g. "vlgname") when known
+    — that yields the most useful display name. Falls back to a small set of
+    common name fields and finally "(unnamed)" so the record always satisfies
+    the schema's `minLength: 1` constraint on `source_feature_name`.
+    """
+    name = "(unnamed)"
+    props = feat.get("properties") or {}
+    if name_property:
+        v = props.get(name_property)
+        if v not in (None, ""):
+            name = str(v)
+    if name == "(unnamed)":
+        for k in ("name", "vlgname", "sdtname", "dtname", "stname"):
+            v = props.get(k)
+            if v not in (None, ""):
+                name = str(v)
+                break
+    return {
+        "source_feature_name": name,
+        "reason": reason,
+        "dropped_at": dropped_at or utc_now(),
+    }
+
+
+def _write_unkeyed_sidecar(
+    sidecar_path: Path,
+    basename: str,
+    original: int,
+    retained: int,
+    dropped_records: list[dict[str, str]],
+) -> None:
+    """Hans v2 denominator sidecar — always emit, even when `dropped_records`
+    is empty, so the citizen UI can read 'X of Y features carry an LGD code'
+    rather than silently shrink the dataset. `original == retained + len(dropped)`
+    is asserted (writer-side invariant; the schema enforces the same shape on
+    readers via boundary.unkeyed.schema.json totals)."""
+    if original != retained + len(dropped_records):
+        msg = (
+            f"unkeyed sidecar denominator mismatch for {basename}: "
+            f"original={original} retained={retained} dropped={len(dropped_records)}"
+        )
+        raise ValueError(msg)
+    payload = {
+        "$schema": "https://yen-gov.github.io/schemas/boundary.unkeyed.schema.json",
+        "$schema_version": "1.0",
+        "$comment": (
+            "Hans v2 denominator sidecar. Empty `dropped` with totals.dropped=0 "
+            "is the canonical 'perfect snapshot' signal — written explicitly so "
+            "downstream readers never have to distinguish 'no drops' from 'no sidecar'."
+        ),
+        "for": basename,
+        "totals": {
+            "original": original,
+            "retained": retained,
+            "dropped": len(dropped_records),
+        },
+        "dropped": dropped_records,
+    }
+    sidecar_path.parent.mkdir(parents=True, exist_ok=True)
+    with sidecar_path.open("w", encoding="utf-8", newline="\n") as fh:
+        json.dump(payload, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+
+
+def _write_simplification_metadata_sidecar(
+    metadata_path: Path,
+    basename: str,
+    entry_metadata: dict[str, Any],
+    sources: list[dict[str, str]],
+    coord_precision: int,
+    original_feature_count: int,
+    retained_feature_count: int,
+) -> None:
+    """Write `feature_collection.metadata.schema.json` v1.2 sidecar with the
+    `simplification` block populated.
+
+    Requires the entry to carry a `metadata` block with at least `license` +
+    `coverage` — those are operator-knowledge fields (legal classification,
+    spatial/temporal scope) that snapshot.py cannot honestly synthesise
+    from the URL alone. Other fields (title, description, category,
+    coordinate_system) are passed through verbatim if present.
+    """
+    payload: dict[str, Any] = {
+        "$schema": "https://yen-gov.github.io/schemas/feature_collection.metadata.schema.json",
+        "$schema_version": "1.2",
+        "$comment": (
+            "Simplification metadata for a coord_precision-rounded GeoJSON. "
+            "Records the rounding tolerance + feature counts so downstream area/"
+            "length math is not silently lying. Per TODO/TN-GRANULAR-GEO-PLAN.md "
+            "Phase 1b (Hans v2 nit)."
+        ),
+        "for": basename,
+        "sources": sources,
+        "license": entry_metadata["license"],
+        "coverage": entry_metadata["coverage"],
+        "simplification": {
+            "tolerance_deg": 10 ** -coord_precision,
+            "algorithm": "coord-precision-round",
+            "original_feature_count": original_feature_count,
+            "retained_feature_count": retained_feature_count,
+        },
+    }
+    for opt in ("title", "description", "category", "coordinate_system"):
+        if opt in entry_metadata:
+            payload[opt] = entry_metadata[opt]
+    metadata_path.parent.mkdir(parents=True, exist_ok=True)
+    with metadata_path.open("w", encoding="utf-8", newline="\n") as fh:
+        json.dump(payload, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+
+
 def _emit_split_shards(
     entry: dict[str, Any],
     source: dict[str, Any],
@@ -514,6 +633,8 @@ def _emit_split_shards(
     features: list[dict[str, Any]],
     sources: list[dict[str, str]],
     out_root: Path,
+    upstream_drops: list[dict[str, str]] | None = None,
+    original_count: int | None = None,
 ) -> dict[str, Any] | None:
     """Group features per `source.split_by`, emit one GeoJSON shard + sources
     sidecar per group, and write the index manifest atomically.
@@ -525,9 +646,16 @@ def _emit_split_shards(
     Per-shard budget: shards over `SNAPSHOT_BYTE_BUDGET` are deleted and
     omitted from both the shard list and the index manifest, mirroring the
     single-file budget behaviour.
+
+    `upstream_drops` carries drop records from steps prior to the split (e.g.
+    state_filter exclusions). They flow into the bundle-level unkeyed
+    sidecar alongside features missing the split-by property.
+    `original_count` is the feature count BEFORE any upstream filtering
+    (e.g. the raw upstream count) — used for the unkeyed denominator.
     """
     split = source["split_by"]
     prop = split["property"]
+    name_property = entry.get("name_property")
     groups, dropped_no_prop = apply_split_by(features, split)
     print(f"  split_by[{prop}] -> {len(groups)} groups (skipped {len(dropped_no_prop)} feature(s) with no {prop})", flush=True)
 
@@ -569,6 +697,43 @@ def _emit_split_shards(
     schema_basename = split.get("index_schema", "boundary.villages_index.schema.json")
     index_path = out_root / index_basename
     emit_index_manifest(index_path, state_lgd, emitted_keys, schema_basename)
+
+    # Bundle-level unkeyed sidecar (Hans v2 denominator). Aggregates upstream
+    # drops (state_filter) + features missing the split-by property. The
+    # `for` field points at the conceptual unsplit GeoJSON (no such file
+    # exists on disk — only shards do — but the schema's `for` requires a
+    # `.geojson` suffix, and the conceptual referent is unambiguous).
+    bundle_for = template_basename.replace(f"-{{{prop}}}", "")
+    bundle_unkeyed = out_root / f"{bundle_for}.unkeyed.json"
+    drops: list[dict[str, str]] = list(upstream_drops or [])
+    drops.extend(
+        _make_drop_record(f, "no_lgd_code_in_source", name_property)
+        for f in dropped_no_prop
+    )
+    retained_total = sum(len(groups[k]) for k in emitted_keys)
+    if original_count is None:
+        original_count = retained_total + len(drops)
+    _write_unkeyed_sidecar(
+        bundle_unkeyed, bundle_for, original_count, retained_total, drops,
+    )
+
+    # Per-shard simplification metadata sidecar (when entry opted in via a
+    # `metadata` block AND coord_precision was applied).
+    coord_precision = source.get("coord_precision")
+    entry_metadata = entry.get("metadata")
+    if coord_precision is not None and entry_metadata:
+        for key in emitted_keys:
+            shard_basename = template_basename.replace(f"{{{prop}}}", str(key))
+            metadata_path = out_root / f"{shard_basename}.metadata.json"
+            _write_simplification_metadata_sidecar(
+                metadata_path,
+                shard_basename,
+                entry_metadata,
+                sources,
+                coord_precision,
+                original_feature_count=len(groups[key]),
+                retained_feature_count=len(groups[key]),
+            )
 
     record: dict[str, Any] = {
         "id": template_basename.removesuffix(".geojson"),
@@ -623,14 +788,39 @@ def snapshot_one(
             bundle_dir,
             coord_precision=source.get("coord_precision"),
         )
+        original_count = len(features)
+        name_property = entry.get("name_property")
+        upstream_drops: list[dict[str, str]] = []
         if "state_filter" in source:
-            features, _dropped_by_filter = apply_state_filter(features, source["state_filter"])
-            print(f"  state_filter kept {len(features)} (dropped {len(_dropped_by_filter)})", flush=True)
+            features, dropped_by_filter = apply_state_filter(features, source["state_filter"])
+            print(f"  state_filter kept {len(features)} (dropped {len(dropped_by_filter)})", flush=True)
+            upstream_drops.extend(
+                _make_drop_record(f, "outside_state_filter", name_property)
+                for f in dropped_by_filter
+            )
         if "split_by" in source:
             return _emit_split_shards(
                 entry, source, basename, features, sources, out_root,
+                upstream_drops=upstream_drops, original_count=original_count,
             )
         emit_feature_collection(out_path, features)
+        # Single-file unkeyed sidecar — Hans v2 denominator. Always emit;
+        # empty `dropped` is the canonical "perfect snapshot" signal.
+        unkeyed_path = out_path.with_suffix(out_path.suffix + ".unkeyed.json")
+        _write_unkeyed_sidecar(
+            unkeyed_path, basename, original_count, len(features), upstream_drops,
+        )
+        # Simplification metadata sidecar — only when coord_precision was
+        # applied AND the entry opted in via a `metadata` block (license +
+        # coverage are operator knowledge we won't synthesise).
+        coord_precision = source.get("coord_precision")
+        entry_metadata = entry.get("metadata")
+        if coord_precision is not None and entry_metadata:
+            metadata_path = out_path.with_suffix(out_path.suffix + ".metadata.json")
+            _write_simplification_metadata_sidecar(
+                metadata_path, basename, entry_metadata, sources,
+                coord_precision, original_count, len(features),
+            )
     else:  # pragma: no cover — caught at config-parse time in practice
         msg = f"unknown source.format: {fmt!r}"
         raise ValueError(msg)

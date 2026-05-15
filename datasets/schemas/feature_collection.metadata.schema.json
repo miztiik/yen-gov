@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/feature_collection.metadata.schema.json",
   "title": "Feature collection metadata sidecar",
   "description": "CLAUDE.md §12 provenance + license/coverage sidecar for a sibling non-electoral GeoJSON FeatureCollection (e.g. power plants, healthcare facilities). GeoJSON (RFC 7946 §7.1) reserves all top-level members; rather than muddle the artifact, a sibling `<file>.metadata.json` carries the required `sources`, `license`, `coverage`, and `coordinate_system` on its behalf. Mirrors boundary.sources.schema.json but extends it with license/coverage/CRS for non-electoral feature data.",
-  "x-version": "1.1",
+  "x-version": "1.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -14,6 +14,11 @@
       "version": "1.1",
       "date": "2026-05-15",
       "description": "Additive: optional file-level `simplification` object {tolerance_deg, algorithm, original_feature_count, retained_feature_count, original_vertex_count?, retained_vertex_count?}. Surfaces geometry-simplification metadata so downstream area/length math is not silently lying. Required by the TN granular-geo pipeline (TODO/TN-GRANULAR-GEO-PLAN.md Phase 0) for per-district village boundary GeoJSONs whose geometries are simplified at write time to meet the 8 MB gzipped per-file budget. Existing v1.0 sidecars re-validate unchanged."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-05-15",
+      "description": "Additive: broaden simplification.algorithm enum with `coord-precision-round`. tools/boundaries/snapshot.py applies coordinate rounding (round-then-dedupe-consecutive) at emit time; this is neither Douglas-Peucker, Visvalingam, nor a shapely topology-preserving simplification — naming it honestly avoids overclaiming the algorithm semantics downstream consumers infer. Pure enum widening — every v1.1 sidecar still validates."
     }
   ],
   "type": "object",
@@ -117,8 +122,8 @@
         },
         "algorithm": {
           "type": "string",
-          "enum": ["douglas-peucker", "visvalingam", "shapely-preserve-topology"],
-          "description": "Simplification algorithm applied. `shapely-preserve-topology` denotes shapely.simplify(..., preserve_topology=True)."
+          "enum": ["douglas-peucker", "visvalingam", "shapely-preserve-topology", "coord-precision-round"],
+          "description": "Simplification algorithm applied. `shapely-preserve-topology` denotes shapely.simplify(..., preserve_topology=True). `coord-precision-round` denotes coordinate rounding to N decimal places followed by consecutive-duplicate elision (tools/boundaries/snapshot.py); not topology-aware but predictable in geometric error magnitude (≤ tolerance_deg)."
         },
         "original_feature_count": {
           "type": "integer",
