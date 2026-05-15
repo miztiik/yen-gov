@@ -44,6 +44,10 @@ from yen_gov.coverage import (
     compute_coverage,
     render_markdown,
 )
+from yen_gov.coverage_indicator_pages import (
+    INDICATOR_DOCS_REL,
+    write_pages as write_indicator_pages,
+)
 from yen_gov.sources.eci.urls import partywise_state_url
 from yen_gov.validate import run as run_validate
 
@@ -122,6 +126,38 @@ def coverage(
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(md, encoding="utf-8")
         typer.echo(f"\ncoverage: wrote {INVENTORY_REL}")
+        # Also regenerate the per-indicator docs tree (Phase 1 of
+        # TODO/PER-INDICATOR-DOCS-PLAN.md). Both surfaces share one trigger
+        # so the inventory and per-indicator pages cannot drift apart.
+        pages = write_indicator_pages(root)
+        typer.echo(
+            f"coverage: wrote {len(pages)} files under {INDICATOR_DOCS_REL}/"
+        )
+
+
+@app.command("indicator-pages")
+def indicator_pages(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Regenerate per-indicator Markdown pages under docs/reference/indicators/.
+
+    Phase 1 of TODO/PER-INDICATOR-DOCS-PLAN.md. Walks every artifact under
+    datasets/indicators/in/**/*.json and emits one page per artifact plus a
+    topic-grouped index. Pure derivation from the artifact — do not
+    hand-edit the emitted tree.
+    """
+    pages = write_indicator_pages(root)
+    typer.echo(
+        f"indicator-pages: wrote {len(pages)} files under {INDICATOR_DOCS_REL}/"
+    )
 
 
 @app.command()
