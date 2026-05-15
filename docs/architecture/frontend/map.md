@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-15 (revision: Phase 4 d1 of TN-GRANULAR-GEO-PLAN — diagonal-hatch fill for no-data polygons)
+**Last Updated**: 2026-05-15 (revision: Phase 4 d3 of TN-GRANULAR-GEO-PLAN — recentre_signal on MapChoropleth)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -252,6 +252,14 @@ A pure helper in `frontend/src/lib/maplibre/hatch.ts` (`diagonalHatch()`) genera
 ### Why the helper is pure
 
 Vitest cannot mount maplibre (no @testing-library/svelte, jsdom has no real canvas). Carving the pattern generator out of the Svelte component lets us assert the pixel layout directly (`hatch.test.ts`: 5 cases — buffer shape, default colour, transparency, seam-tiling, custom colour). The wiring inside the component is paint-only — no behavioural branching beyond the filter rebuild already covered by the existing `repaint()` effect.
+
+## Recentre signal (Phase 4 d3 of TN-GRANULAR-GEO-PLAN)
+
+Pulled forward from Phase 3 c3 deferral. Jony's edit #1 in the Phase 3 sign-off was: "re-clicking the active crumb is a recentre, not a no-op." The drill state machine (`drilldown.ts`) returns the same `DrillState` object on a re-click, so a structural-equality `$effect` would not fire. We needed a separate change-on-each-click signal.
+
+`MapChoropleth.svelte` gains an optional `recentre_signal?: number` prop. Any change in its value (typically a monotonic counter) triggers `map.fitBounds(data_bbox, …)` with a 400 ms animated tween. Initial mount is NOT a recentre — the load handler already fits bounds, so the first observed value is captured silently. `IndicatorChoropleth.svelte` exposes the active-level pill (the trailing italic label after the breadcrumb crumbs) as a button; clicking it increments `recentre_count` and forwards it to MapChoropleth.
+
+This intentionally does NOT use a Svelte store or event bus — the prop is the single source of truth, the counter is a plain `$state` in the parent, and the child's effect-tracking does the work. No global state, no over-engineered signal abstraction.
 
 ## See also
 

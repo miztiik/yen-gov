@@ -388,6 +388,16 @@
     drill_state = goBack(drill_state, idx);
   }
 
+  // Re-click on the active-level pill (rendered after the crumbs) is the
+  // recentre signal Jony asked for in the Phase 3 sign-off — the user is
+  // already at this level; tapping it should snap the camera back to the
+  // layer's bounds. Implemented as a monotonic counter forwarded to
+  // MapChoropleth's `recentre_signal` prop (Phase 4 d3).
+  let recentre_count = $state(0);
+  function handleRecentre(): void {
+    recentre_count += 1;
+  }
+
   // Inline 14px monochrome SVG glyph for a breadcrumb crumb (Jony edit #2).
   // Renders the centroid as a tiny dot inside a rounded rectangle when the
   // centroid is known; falls back to a generic dot when absent (root India
@@ -629,7 +639,12 @@
           {/each}
           {#if drill_state.level !== "state" || drill_state.breadcrumbStack.length > 1}
             <span class="text-slate-300">›</span>
-            <span class="px-1.5 py-0.5 text-slate-500 italic">{drill_state.level}</span>
+            <button
+              type="button"
+              class="px-1.5 py-0.5 text-slate-500 italic rounded hover:bg-slate-100 transition-colors"
+              title="recentre map on this layer"
+              onclick={handleRecentre}
+            >{drill_state.level}</button>
           {/if}
         </nav>
       {/if}
@@ -648,6 +663,7 @@
               {height}
               highlight_key={drill_state.level === "state" ? highlight_key : undefined}
               hatch_unmapped={drill_state.level !== "state"}
+              recentre_signal={recentre_count}
               onSelect={handleSelect}
             />
           {/key}

@@ -52,6 +52,15 @@
      * off for back-compat (existing consumers stay flat-filled).
      */
     hatch_unmapped?: boolean;
+    /**
+     * Recentre signal. Any change to this number (typically a monotonic
+     * counter from the parent) triggers a re-fit to the data bounds.
+     * Used by the drill-down breadcrumb's "re-click active crumb"
+     * affordance — the user has panned/zoomed away and wants to snap
+     * back to the current layer's extent. Initial mount is NOT a
+     * recentre (the load handler already fits bounds).
+     */
+    recentre_signal?: number;
     onSelect?: (sel: FeatureSelection) => void;
     onHover?: (sel: FeatureSelection | null) => void;
   }
@@ -65,6 +74,7 @@
     height = "420px",
     highlight_key,
     hatch_unmapped = false,
+    recentre_signal,
     onSelect,
     onHover,
   }: Props = $props();
@@ -191,6 +201,25 @@
     void highlight_key;
     void hatch_unmapped;
     repaint();
+  });
+
+  // Recentre on signal change. The first observed value is the initial
+  // mount — the load handler already fits bounds, so we skip it. Any
+  // subsequent change re-fits to the cached data_bbox (no re-fetch).
+  let _last_recentre_signal: number | undefined = undefined;
+  let _seen_first_signal = false;
+  $effect(() => {
+    const sig = recentre_signal;
+    if (!_seen_first_signal) {
+      _seen_first_signal = true;
+      _last_recentre_signal = sig;
+      return;
+    }
+    if (sig === _last_recentre_signal) return;
+    _last_recentre_signal = sig;
+    if (map && data_bbox) {
+      map.fitBounds(data_bbox as any, { padding: 16, animate: true, duration: 400 });
+    }
   });
 
   onMount(() => {
