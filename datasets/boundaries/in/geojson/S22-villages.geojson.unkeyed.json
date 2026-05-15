@@ -1,0 +1,12 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/boundary.unkeyed.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "Hans v2 denominator sidecar. Empty `dropped` with totals.dropped=0 is the canonical 'perfect snapshot' signal — written explicitly so downstream readers never have to distinguish 'no drops' from 'no sidecar'.",
+  "for": "S22-villages.geojson",
+  "totals": {
+    "original": 18159,
+    "retained": 18159,
+    "dropped": 0
+  },
+  "dropped": []
+}

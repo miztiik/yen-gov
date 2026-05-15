@@ -1,0 +1,12 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/boundary.sources.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "CLAUDE.md §12 provenance sidecar for the GeoJSON of the same name. GeoJSON has no native top-level metadata slot; this file carries the required `sources` array on its behalf.",
+  "for": "S22-villages-569.geojson",
+  "sources": [
+    {
+      "url": "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/villages/LGD_Villages.geojsonl.7z",
+      "fetched_at": "2026-05-15T10:48:41Z"
+    }
+  ]
+}

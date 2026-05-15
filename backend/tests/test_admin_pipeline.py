@@ -55,8 +55,10 @@ def test_trigger_validate_end_to_end():
     run_id = r.json()["run_id"]
     assert run_id
 
-    # Poll up to 60s for the watcher to write final meta.
-    deadline = time.time() + 60.0
+    # Poll up to 180s for the watcher to write final meta. `validate` walks
+    # every datasets/**/*.json against its $schema; wall time scales with
+    # dataset count (TN villages added 38 shards × 3 sidecars in Phase 1b).
+    deadline = time.time() + 180.0
     final = None
     while time.time() < deadline:
         d = client.get(f"/api/pipeline/runs/{run_id}").json()
@@ -64,7 +66,7 @@ def test_trigger_validate_end_to_end():
             final = d
             break
         time.sleep(0.5)
-    assert final is not None, "validate run did not finish in 60s"
+    assert final is not None, "validate run did not finish in 180s"
     # We don't assert exit code — repo state may legitimately fail
     # validation in some branches. We DO assert the run finished and
     # produced log output.

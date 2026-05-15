@@ -733,6 +733,108 @@
         "drop_densest_as_needed": true
       },
       "coord_precision_note": "coord_precision=2 (~1.1 km). At precision=3 the file is 39 MB (over the 12 MB SNAPSHOT_BYTE_BUDGET); at 2 it lands ~6.5 MB. 1.1 km is well below typical district width (10-50 km) so choropleth rendering at zoom 3-9 is visually unaffected."
+    },
+    {
+      "$comment": "GAP-FILL: Survey-of-India national silhouette (single polygon, no admin codes). Used as the canonical India outline at country zoom in lieu of GADM-style derivatives; matches ECI/MoSPI cartographic convention. Separate license blanket from the ramSeraph layers below — yashveeeeeeer/india-geodata states CC-BY-4.0 derivative of SoI under National Geospatial Policy 2022 (Fowler v4 nit 3, TODO/TN-GRANULAR-GEO-PLAN.md Phase 1b).",
+      "kind": "country",
+      "country": "IN",
+      "out": "geojson/india-soi.geojson",
+      "source": {
+        "format": "geojson",
+        "urls": [
+          "https://raw.githubusercontent.com/yashveeeeeeer/india-geodata/main/data/administrative/country/india-soi.geojson"
+        ]
+      },
+      "license": "CC-BY-4.0",
+      "license_url": "https://github.com/yashveeeeeeer/india-geodata",
+      "license_note": "yashveeeeeeer/india-geodata states CC-BY-4.0; the underlying SoI master is governed by India's National Geospatial Policy 2022. Separate license blanket from the ramSeraph mirrors used for LGD-keyed administrative layers."
+    },
+    {
+      "$comment": "GAP-FILL (TN): per-subdistrict (taluk) polygons keyed by LGD code, sliced from the national LGD_Subdistricts release. Same upstream pipeline as the existing districts entry above (ramSeraph/indian_admin_boundaries, geojsonl_7z format, coord_precision-based budget). Filtered to state_lgd=33 (Tamil Nadu) at write time via the new source.state_filter block (TODO/TN-GRANULAR-GEO-PLAN.md Phase 1b commit 2). Frontend join target: subdistrict.lgd_code field per ADR-0019 amendment.",
+      "kind": "subdistricts",
+      "country": "IN",
+      "state": "S22",
+      "out": "geojson/S22-subdistricts.geojson",
+      "source": {
+        "format": "geojsonl_7z",
+        "urls": [
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/subdistricts/LGD_Subdistricts.geojsonl.7z"
+        ],
+        "coord_precision": 3,
+        "state_filter": {
+          "property": "state_lgd",
+          "equals": 33
+        }
+      },
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/Bharatmaps). Same blanket as the existing LGD_Districts entry.",
+      "id_property": "subdist_lgd",
+      "name_property": "sdtname",
+      "id_property_note": "Confirm exact property names on first snapshot. ramSeraph mirrors typically follow {state_lgd, dist_lgd, subdist_lgd} naming for the LGD numeric codes and {stname, dtname, sdtname} for canonical names; if upstream surprises, adjust here in the pipeline rather than hard-coding in snapshot.py.",
+      "metadata": {
+        "title": "Tamil Nadu sub-districts (taluks), LGD-keyed",
+        "description": "Per-taluk polygons for Tamil Nadu, sliced from the national LGD Subdistricts release. Geometries coordinate-rounded to 3 decimal places (~110 m) at emit time to fit the 12 MB per-file snapshot budget.",
+        "category": "boundaries",
+        "license": {
+          "id": "CC0-1.0",
+          "name": "Creative Commons Zero v1.0 Universal",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "redistributable": true
+        },
+        "coverage": {
+          "spatial": "Tamil Nadu",
+          "temporal": "snapshot 2026-05-15",
+          "admin_level": "subdistrict"
+        },
+        "coordinate_system": "EPSG:4326"
+      }
+    },
+    {
+      "$comment": "GAP-FILL (TN): per-village polygons keyed by LGD code, sliced from the national LGD_Villages release and split per-district. Same upstream pipeline as the districts/subdistricts entries (ramSeraph, geojsonl_7z). state_filter slices to state_lgd=33 first; split_by emits one shard per dist_lgd plus an index manifest so the frontend loader (Phase 2) does not 404-probe per district. Frontend join target: village.lgd_code field per ADR-0019 amendment.",
+      "kind": "villages",
+      "country": "IN",
+      "state": "S22",
+      "out": "geojson/S22-villages-{dist_lgd}.geojson",
+      "source": {
+        "format": "geojsonl_7z",
+        "urls": [
+          "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/villages/LGD_Villages.geojsonl.7z"
+        ],
+        "coord_precision": 4,
+        "state_filter": {
+          "property": "state_lgd",
+          "equals": 33
+        },
+        "split_by": {
+          "property": "dist_lgd",
+          "emit_index": "S22-villages-index.json",
+          "index_schema": "boundary.villages_index.schema.json"
+        }
+      },
+      "license": "CC0-1.0",
+      "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
+      "license_note": "CC0 1.0 with requested attribution to datameet and the original government publisher (LGD/Bharatmaps). Same blanket as the existing LGD_Districts entry.",
+      "id_property": "village_lgd",
+      "name_property": "vlgname",
+      "id_property_note": "Confirm exact property names on first snapshot. coord_precision=4 (~11 m) — villages are smaller than taluks/districts so precision=3 (~110 m) would over-simplify. Per-shard byte budget enforced at write time; oversize shards are listed in the manifest record's `skipped_oversize`.",
+      "metadata": {
+        "title": "Tamil Nadu villages (per district), LGD-keyed",
+        "description": "Per-village polygons for Tamil Nadu, split per district. Geometries coordinate-rounded to 4 decimal places (~11 m) at emit time. The companion S22-villages-index.json lists which districts have a shard on disk so the frontend loader can skip 404-probing.",
+        "category": "boundaries",
+        "license": {
+          "id": "CC0-1.0",
+          "name": "Creative Commons Zero v1.0 Universal",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "redistributable": true
+        },
+        "coverage": {
+          "spatial": "Tamil Nadu",
+          "temporal": "snapshot 2026-05-15",
+          "admin_level": "village"
+        },
+        "coordinate_system": "EPSG:4326"
+      }
     }
   ],
   "staged_inputs": [

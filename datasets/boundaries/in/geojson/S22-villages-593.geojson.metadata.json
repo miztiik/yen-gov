@@ -1,0 +1,33 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/feature_collection.metadata.schema.json",
+  "$schema_version": "1.2",
+  "$comment": "Simplification metadata for a coord_precision-rounded GeoJSON. Records the rounding tolerance + feature counts so downstream area/length math is not silently lying. Per TODO/TN-GRANULAR-GEO-PLAN.md Phase 1b (Hans v2 nit).",
+  "for": "S22-villages-593.geojson",
+  "sources": [
+    {
+      "url": "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/villages/LGD_Villages.geojsonl.7z",
+      "fetched_at": "2026-05-15T10:48:41Z"
+    }
+  ],
+  "license": {
+    "id": "CC0-1.0",
+    "name": "Creative Commons Zero v1.0 Universal",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true
+  },
+  "coverage": {
+    "spatial": "Tamil Nadu",
+    "temporal": "snapshot 2026-05-15",
+    "admin_level": "village"
+  },
+  "simplification": {
+    "tolerance_deg": 0.0001,
+    "algorithm": "coord-precision-round",
+    "original_feature_count": 1200,
+    "retained_feature_count": 1200
+  },
+  "title": "Tamil Nadu villages (per district), LGD-keyed",
+  "description": "Per-village polygons for Tamil Nadu, split per district. Geometries coordinate-rounded to 4 decimal places (~11 m) at emit time. The companion S22-villages-index.json lists which districts have a shard on disk so the frontend loader can skip 404-probing.",
+  "category": "boundaries",
+  "coordinate_system": "EPSG:4326"
+}

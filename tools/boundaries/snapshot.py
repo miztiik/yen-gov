@@ -127,6 +127,11 @@ def derive_output_basename(entry: dict[str, Any]) -> str:
     state = entry.get("state")
     if kind == "states":
         return "india-states.geojson"
+    if kind == "country" and entry.get("country") == "IN" and not state:
+        # National silhouette (Survey of India outline). Single canonical
+        # name today — extend with another branch when a non-IN country
+        # silhouette ships.
+        return "india-soi.geojson"
     if kind == "ac" and state:
         return f"{state}-ac.geojson"
     if kind == "districts" and not state:
@@ -788,16 +793,20 @@ def snapshot_one(
             bundle_dir,
             coord_precision=source.get("coord_precision"),
         )
-        original_count = len(features)
         name_property = entry.get("name_property")
-        upstream_drops: list[dict[str, str]] = []
         if "state_filter" in source:
+            # State filtering is scope selection (this file is TN-only), not
+            # LGD-join failure. Other states' features belong in other files,
+            # not in this file's unkeyed sidecar — listing them would bloat
+            # the sidecar and misframe the denominator (Hans intent: "of TN
+            # villages, how many got an LGD code", not "of India villages,
+            # how many are in TN"). They are dropped silently here.
             features, dropped_by_filter = apply_state_filter(features, source["state_filter"])
-            print(f"  state_filter kept {len(features)} (dropped {len(dropped_by_filter)})", flush=True)
-            upstream_drops.extend(
-                _make_drop_record(f, "outside_state_filter", name_property)
-                for f in dropped_by_filter
-            )
+            print(f"  state_filter kept {len(features)} (dropped {len(dropped_by_filter)} out-of-scope)", flush=True)
+        # From here on, `features` is this file's in-scope set. The unkeyed
+        # denominator is computed against this, not the global upstream count.
+        original_count = len(features)
+        upstream_drops: list[dict[str, str]] = []
         if "split_by" in source:
             return _emit_split_shards(
                 entry, source, basename, features, sources, out_root,
@@ -884,6 +893,18 @@ def main(argv: list[str] | None = None) -> int:
         default=".",
         help="Repo root (default: cwd).",
     )
+    parser.add_argument(
+        "--kind",
+        action="append",
+        default=None,
+        help="Run only entries whose `kind` matches (repeatable). Default: all.",
+    )
+    parser.add_argument(
+        "--state",
+        action="append",
+        default=None,
+        help="Run only entries whose `state` matches (repeatable). Default: all.",
+    )
     args = parser.parse_args(argv)
 
     root = Path(args.root).resolve()
@@ -899,8 +920,20 @@ def main(argv: list[str] | None = None) -> int:
     raw_root = root / cfg.get("raw_dir", ".runtime/raw/boundaries")
     out_root.mkdir(parents=True, exist_ok=True)
 
+    entries = cfg["inputs"]
+    if args.kind:
+        entries = [e for e in entries if e.get("kind") in args.kind]
+    if args.state:
+        entries = [e for e in entries if e.get("state") in args.state]
+    if (args.kind or args.state) and not entries:
+        print(
+            f"no entries matched filters kind={args.kind} state={args.state}",
+            file=sys.stderr,
+        )
+        return 2
+
     records = [
-        r for r in (snapshot_one(e, out_root, raw_root) for e in cfg["inputs"]) if r is not None
+        r for r in (snapshot_one(e, out_root, raw_root) for e in entries) if r is not None
     ]
 
     print(f"\nsnapshotted {len(records)} files into {out_root.relative_to(root)}/")

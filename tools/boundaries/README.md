@@ -1,6 +1,6 @@
 # tools/boundaries
 
-**Last Updated**: 2026-05-13
+**Last Updated**: 2026-05-15
 
 Builds vector-tile boundary files (`datasets/boundaries/in/*.pmtiles`) consumed by the frontend [map](../../docs/architecture/frontend/map.md). The pipeline downloads upstream GeoJSON, simplifies with [mapshaper](https://github.com/mbloch/mapshaper), and packs to [PMTiles](https://github.com/protomaps/PMTiles) with [tippecanoe](https://github.com/felt/tippecanoe).
 
@@ -66,6 +66,29 @@ Each `inputs[]` entry in [pipeline.json](pipeline.json) carries a `source` block
 This split exists so adding a future format (zip+geojson, GeoPackage, GeoParquet) is a new `format` value plus a new branch in `snapshot.py` `fetch_*` — not a rewrite of existing entries. The frontend resolver and the sidecar schema are format-agnostic.
 
 For `format: shp_bundle`, install pyshp once: `pip install pyshp`. For `format: geojsonl_7z`, install py7zr once: `pip install py7zr`.
+
+## Optional `source.*` keys (additive — opt-in)
+
+Three `source` keys are optional opt-ins added during the TN granular-geo expansion ([TODO/TN-GRANULAR-GEO-PLAN.md](../../TODO/TN-GRANULAR-GEO-PLAN.md) Phase 1b). **Entries that omit them behave identically to pre-v5 `snapshot.py`** — these blocks are additive and only activate when present.
+
+| Key | Shape | Effect |
+| --- | --- | --- |
+| `state_filter` | `{ "property": "state_lgd", "equals": "33" }` | Scope filter: features whose property doesn't match are silently dropped (they belong in another state's file, not in an LGD-join failure log). The post-filter count becomes the unkeyed-sidecar denominator. |
+| `split_by` | `{ "property": "dist_lgd", "emit_index": "S22-villages-index.json" }` | Shards the FeatureCollection by the named property and writes one GeoJSON per group. The `{prop}` placeholder in `derive_output_basename` is substituted with the group key (e.g. `S22-villages-568.geojson`). When `emit_index` is set, an index manifest of present group keys is written next to the shards so the frontend loader can avoid 404-probing. |
+| `metadata` (entry-level, not under `source`) | `{ title, description, category, license, coverage, coordinate_system }` | When present *and* `coord_precision` is set, a `<basename>.metadata.json` sibling is written conforming to [`feature_collection.metadata.schema.json`](../../datasets/schemas/feature_collection.metadata.schema.json) v1.2 with a `simplification` block (`algorithm: "coord-precision-round"`, `tolerance_deg = 10**-coord_precision`, original/retained feature counts). Surfaces simplification so downstream area/length math doesn't silently lie. |
+
+A `<basename>.unkeyed.json` sidecar conforming to [`boundary.unkeyed.schema.json`](../../datasets/schemas/boundary.unkeyed.schema.json) is always emitted for `geojsonl_7z` entries — even when `dropped` is empty (the canonical "perfect snapshot" signal, written explicitly so consumers never have to distinguish "no drops" from "no sidecar").
+
+### CLI filters
+
+`snapshot.py` accepts repeatable `--kind` and `--state` filters so you can re-snapshot a single source without churning every other entry's `fetched_at`:
+
+```bash
+python tools/boundaries/snapshot.py --kind subdistricts --state S22
+python tools/boundaries/snapshot.py --kind villages --state S22
+```
+
+Both flags are repeatable; an entry must match every supplied filter dimension to run.
 
 ## `inputs` vs `staged_inputs`
 
