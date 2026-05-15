@@ -74,7 +74,7 @@ describe("IndicatorChoropleth drill — TN state click", () => {
     expect(state.level).toBe("district");
     expect(state.stateLgd).toBe(TN_LGD);
 
-    fetchSpy.mockResolvedValueOnce(jsonResponse(FC(38, { dist_lgd: 568 })));
+    fetchSpy.mockResolvedValueOnce(jsonResponse(FC(38, { dist_lgd: 568, state_lgd: 33 })));
     const [lvl, parent, stateLgd] = loadBoundaryArgs(state);
     const fc = await loadBoundary(lvl, parent, stateLgd);
 
@@ -82,6 +82,27 @@ describe("IndicatorChoropleth drill — TN state click", () => {
       `${BASE}/boundaries/in/geojson/india-districts.geojson`,
     );
     expect(fc?.features.length).toBe(38);
+  });
+
+  it("district-level fetch with stateLgd filters to that state's districts (Phase 4 d4)", async () => {
+    // Mixed national fixture: 5 TN (state_lgd=33), 3 Gujarat (state_lgd=24).
+    // Caller passes stateLgd="33" → loader returns only the 5 TN features.
+    const features = [
+      ...Array.from({ length: 5 }, (_, i) => ({
+        type: "Feature" as const,
+        properties: { dist_lgd: 600 + i, state_lgd: 33 },
+        geometry: { type: "Point" as const, coordinates: [78, 11] },
+      })),
+      ...Array.from({ length: 3 }, (_, i) => ({
+        type: "Feature" as const,
+        properties: { dist_lgd: 700 + i, state_lgd: 24 },
+        geometry: { type: "Point" as const, coordinates: [72, 23] },
+      })),
+    ];
+    fetchSpy.mockResolvedValueOnce(jsonResponse({ type: "FeatureCollection", features }));
+    const fc = await loadBoundary("district", undefined, TN_LGD);
+    expect(fc?.features.length).toBe(5);
+    expect(fc?.features.every(f => f.properties?.state_lgd === 33)).toBe(true);
   });
 
   it("district click then village click composes the per-district shard URL", async () => {

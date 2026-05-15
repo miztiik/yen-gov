@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-15 (revision: Phase 4 d3 of TN-GRANULAR-GEO-PLAN — recentre_signal on MapChoropleth)
+**Last Updated**: 2026-05-15 (revision: Phase 4 d4 of TN-GRANULAR-GEO-PLAN — district-level state filter)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -260,6 +260,22 @@ Pulled forward from Phase 3 c3 deferral. Jony's edit #1 in the Phase 3 sign-off 
 `MapChoropleth.svelte` gains an optional `recentre_signal?: number` prop. Any change in its value (typically a monotonic counter) triggers `map.fitBounds(data_bbox, …)` with a 400 ms animated tween. Initial mount is NOT a recentre — the load handler already fits bounds, so the first observed value is captured silently. `IndicatorChoropleth.svelte` exposes the active-level pill (the trailing italic label after the breadcrumb crumbs) as a button; clicking it increments `recentre_count` and forwards it to MapChoropleth.
 
 This intentionally does NOT use a Svelte store or event bus — the prop is the single source of truth, the counter is a plain `$state` in the parent, and the child's effect-tracking does the work. No global state, no over-engineered signal abstraction.
+
+## District-level state filter (Phase 4 d4 of TN-GRANULAR-GEO-PLAN)
+
+Pulled forward from Phase 3 c3 deferral. `india-districts.geojson` is national (~766 features). When the drill-down clicks TN at state level, the choropleth would render every Indian district — the citizen sees a country-wide layer instead of TN's 38 districts. Honest behaviour: `loadBoundary("district", undefined, stateLgd)` filters the loaded FeatureCollection to features whose `state_lgd` (numeric upstream property) equals the requested state.
+
+### Why filter in the loader, not in MapChoropleth
+
+The loader's contract is "give me the FeatureCollection for this layer". The maplibre layer-filter alternative (load all 766, paint only 38) wastes ~3 MB of bandwidth per click and leaves the source data semantically lying about scope. Filtering in the loader keeps the source/scope contract honest and lets the bbox-fit logic in MapChoropleth zoom to TN naturally.
+
+### Type coercion note
+
+Upstream `state_lgd` is numeric (`33`); the drill-down state machine carries LGD codes as strings (URL-safe). The filter coerces both sides via `Number(...)` and rejects non-finite values, so a malformed stateLgd silently returns the unfiltered FC (which is the safer degradation — citizens see a country-scale layer rather than an empty map).
+
+### Test
+
+`IndicatorChoropleth.boundaries.test.ts` adds a mixed-state fixture (5 TN + 3 Gujarat) and asserts `loadBoundary("district", undefined, "33")` returns exactly the 5 TN features.
 
 ## See also
 

@@ -205,7 +205,23 @@ export async function loadBoundary(
   try {
     const r = await fetch(url);
     if (!r.ok) return null;
-    return (await r.json()) as BoundaryFeatureCollection;
+    const fc = (await r.json()) as BoundaryFeatureCollection;
+    // District-level filter: india-districts.geojson is national. When the
+    // caller supplies a stateLgd (drill-down picked a specific state), trim
+    // to that state's districts before returning so the choropleth doesn't
+    // paint 766 districts for what was a state-scoped click. Property
+    // upstream is numeric `state_lgd`; the caller passes the LGD as string,
+    // so coerce on the property side. Phase 4 d4 of TN-GRANULAR-GEO-PLAN.
+    if (level === "district" && stateLgd) {
+      const wanted = Number(stateLgd);
+      if (Number.isFinite(wanted)) {
+        return {
+          ...fc,
+          features: fc.features.filter(f => Number(f.properties?.state_lgd) === wanted),
+        };
+      }
+    }
+    return fc;
   } catch {
     return null;
   }
