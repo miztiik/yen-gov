@@ -39,6 +39,23 @@ RBI State Finances: A Study of Budgets, Appendix Table 2; cached file mtime 2026
 
 Source: RBI 'State Finances: A Study of Budgets', Appendix Table 2 ('Devolution and Transfer of Resources from the Centre'), Item VI 'Net Transfer of Resources from the Centre'. Values are in nominal ₹ Crore (1 Crore = 10 million); they are NOT inflation-adjusted, so the historical curve reflects price level changes as much as real flows. For fiscal years that appear in the workbook with multiple qualifiers (e.g. 2023-24 ships as both 'Accounts' and 'Budget Estimates'), the Accounts (actual) figure is preferred. The latest two years are RE / BE only. From 2017-18 onwards the figures include Delhi and Puducherry.
 
+## Editor's note
+
+'Net' = gross transfers minus loan repayments and interest the states pay back to the Centre. The gross-vs-net wedge has narrowed sharply since FY15 because most legacy Centre-state loans were converted to grants on 14th FC's recommendation; today net ≈ gross for most years, but the historical series shows the older ratio.
+
+## Policy context
+
+- 15th Finance Commission (FY21–FY26) pinned vertical devolution at 41% of the divisible pool — down from 14th FC's 42%, the 1pp shift accounting for J&K's UT-isation in 2019 (UTs aren't in the pool).
+- Cesses and surcharges sit *outside* the divisible pool — their share of Centre's gross tax receipts has risen from ~10% (FY12) to ~20%+ (FY24), shrinking the share of Centre's tax revenue states actually have a constitutional claim on. This is the single biggest structural states-vs-Centre fiscal grievance of the 2020s.
+- The 16th FC (constituted Dec 2023, award covers FY27–FY31) will revisit both vertical devolution and the south-vs-north horizontal-share formula — the latter is politically charged because population-2011 weighting penalises Tamil Nadu, Kerala, Karnataka, AP for successful demographic transition.
+
+## Related indicators
+
+- [`fiscal/centre_transfers_to_states_gross`](centre_transfers_to_states_gross.md)
+- [`fiscal/centre_transfers_to_states_tax_devolution`](centre_transfers_to_states_tax_devolution.md)
+- [`fiscal/centre_transfers_to_states_grants`](centre_transfers_to_states_grants.md)
+- [`fiscal/state_share_central_taxes_inr_crore`](state_share_central_taxes_inr_crore.md)
+
 ## Sources
 
 - <https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets> — www.rbi.org.in (fetched 2026-05-11T14:50:50Z)

@@ -35,6 +35,23 @@ Tax revenue raised by the State Government from sources within its constitutiona
 
 Rajya Sabha Session 260 Unstarred Q1323, answered 1 August 2023
 
+## Editor's note
+
+Own-tax revenue is the indicator of *fiscal autonomy* — money the state legislature can raise and spend without permission. Compare its growth rate with `state_share_central_taxes_inr_crore` to see whether a state is becoming more or less dependent on Centre devolution; states whose own-tax growth lags devolution growth are quietly losing fiscal independence even if total revenue looks healthy.
+
+## Policy context
+
+- GST (July 2017) subsumed VAT, entry tax, octroi, luxury tax, entertainment tax — the major heads of state own-tax revenue. The state's own-tax base is now narrower: SGST (half of GST), stamp duty + registration, state excise (alcohol), motor-vehicle tax, electricity duty, professional tax. Revenue grew but autonomy shrank — every SGST rate change requires GST Council assent.
+- GST compensation cess (5-year guarantee of 14% YoY growth on the 2015–16 base) ended June 2022; states that grew slower than 14% (mostly the BIMARU group) saw a permanent revenue cliff that this series shows clearly in FY23 onwards.
+- State excise on alcohol and stamp duty on real-estate transactions are the two heads still fully under state control — which is why prohibition states (Bihar, Gujarat) and real-estate-bust periods both show up as visible dips on the chart.
+
+## Related indicators
+
+- [`fiscal/state_non_tax_revenue_inr_crore`](state_non_tax_revenue_inr_crore.md)
+- [`fiscal/state_share_central_taxes_inr_crore`](state_share_central_taxes_inr_crore.md)
+- [`fiscal/state_grants_in_aid_inr_crore`](state_grants_in_aid_inr_crore.md)
+- [`fiscal/state_revenue_expenditure_inr_crore`](state_revenue_expenditure_inr_crore.md)
+
 ## Sources
 
 - <https://sansad.in/rs/questions/questions-and-answers> — sansad.in (fetched 2026-05-14T12:20:42Z)

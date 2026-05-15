@@ -166,7 +166,8 @@ def test_render_page_includes_v15_governance_fields_when_present() -> None:
     assert "- `no_growth_across_break`" in out
 
 
-def test_iter_artifacts_skips_notes_sidecars(tmp_path: Path) -> None:
+def test_iter_artifacts_loads_notes_sidecar(tmp_path: Path) -> None:
+    """Sidecar is consumed via IndicatorArtifact.notes, NOT as a standalone artifact."""
     base = tmp_path / "datasets" / "indicators" / "in" / "energy"
     base.mkdir(parents=True)
     (base / "real.json").write_text(
@@ -179,10 +180,69 @@ def test_iter_artifacts_skips_notes_sidecars(tmp_path: Path) -> None:
         ),
         encoding="utf-8",
     )
-    (base / "real.notes.json").write_text(json.dumps({"related": []}), encoding="utf-8")
+    (base / "real.notes.json").write_text(
+        json.dumps(
+            {
+                "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
+                "$schema_version": "1.0",
+                "for": "real.json",
+                "related": ["energy/peer"],
+                "editor_note_md": "A short note.",
+                "policy_context": ["Some debate."],
+            }
+        ),
+        encoding="utf-8",
+    )
     found = list(iter_indicator_artifacts(tmp_path))
     assert len(found) == 1
     assert found[0].basename == "real"
+    assert found[0].notes is not None
+    assert found[0].notes["related"] == ["energy/peer"]
+    assert found[0].notes["editor_note_md"] == "A short note."
+
+
+def test_render_page_includes_sidecar_sections_when_present() -> None:
+    """indicator-notes 1.0 sidecar drives Related / Editor's note / Policy context."""
+    art = IndicatorArtifact(
+        path_rel="datasets/indicators/in/energy/test_indicator.json",
+        topic="energy",
+        basename="test_indicator",
+        doc=_minimal_artifact().doc,
+        notes={
+            "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
+            "$schema_version": "1.0",
+            "for": "test_indicator.json",
+            "related": [
+                "energy/peer_same_topic",
+                "fiscal/peer_other_topic",
+            ],
+            "editor_note_md": "Pair this with the constant-prices sibling.",
+            "policy_context": [
+                "Old Pension Scheme restoration debate.",
+                "15th FC award window: FY21 → FY26.",
+            ],
+        },
+    )
+    out = render_page(art)
+    # Editor's note: human voice, free-form md
+    assert "## Editor's note" in out
+    assert "Pair this with the constant-prices sibling." in out
+    # Policy context bullets
+    assert "## Policy context" in out
+    assert "- Old Pension Scheme restoration debate." in out
+    assert "- 15th FC award window: FY21 → FY26." in out
+    # Related: same-topic peer collapses to bare basename, cross-topic uses ../
+    assert "## Related indicators" in out
+    assert "- [`energy/peer_same_topic`](peer_same_topic.md)" in out
+    assert "- [`fiscal/peer_other_topic`](../fiscal/peer_other_topic.md)" in out
+
+
+def test_render_page_omits_sidecar_sections_when_absent() -> None:
+    art = _minimal_artifact()  # notes defaults to None
+    out = render_page(art)
+    assert "## Editor's note" not in out
+    assert "## Policy context" not in out
+    assert "## Related indicators" not in out
 
 
 def test_write_pages_against_real_datasets() -> None:

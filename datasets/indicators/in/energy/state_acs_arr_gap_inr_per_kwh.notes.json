@@ -1,0 +1,21 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
+  "$schema_version": "1.0",
+  "for": "state_acs_arr_gap_inr_per_kwh.json",
+  "related": [
+    "energy/state_atc_losses_pct",
+    "energy/state_distribution_billing_efficiency_pct",
+    "energy/state_distribution_collection_efficiency_pct",
+    "energy/state_distribution_td_loss_pct",
+    "energy/state_power_purchase_share_pct"
+  ],
+  "editor_note_md": "Mind the sign convention — this is the one indicator in the energy bucket where a *negative* number is the good outcome (revenue exceeds cost). Most state-discoms run a positive gap, meaning every kWh sold burns cash; the gap is closed either by tariff hikes (politically expensive), loss reduction (slow), or state-budget subsidy transfers that show up downstream in `fiscal/state_revenue_expenditure_inr_crore`.",
+  "policy_context": [
+    "UDAY (2015) and RDSS (2021–FY26) both target ACS-ARR gap = 0 by their respective end-dates. UDAY missed across most states; RDSS milestones are tied to Centre disbursements.",
+    "Tariff orders are issued by State Electricity Regulatory Commissions (SERCs) — politically captured in several states, leading to multi-year tariff freezes that widen the gap independent of utility performance.",
+    "Free-power-scheme states (Punjab agri, Delhi household, Tamil Nadu agri, Telangana agri) typically post the largest gaps when the state subsidy is delayed or under-budgeted; the chart will show a step-change the year a new free scheme is announced."
+  ],
+  "chart_defaults": {
+    "allowed_negative": true
+  }
+}

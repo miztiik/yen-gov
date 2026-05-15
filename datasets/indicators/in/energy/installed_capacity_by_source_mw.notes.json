@@ -1,0 +1,21 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
+  "$schema_version": "1.0",
+  "for": "installed_capacity_by_source_mw.json",
+  "related": [
+    "energy/installed_capacity_coal_mw",
+    "energy/installed_capacity_renewable_mw",
+    "energy/state_installed_capacity_by_source_mw",
+    "energy/state_electricity_generation_by_source_gwh",
+    "environment/state_power_sector_co2_emissions_mtco2"
+  ],
+  "editor_note_md": "Read this as *nameplate* capacity, not actual generation — coal still dominates the **electrons delivered** (PLF ~65%) even as solar+wind dominate **MW added** in any recent year. To see what the mix actually generated, pair with `energy/state_electricity_generation_by_source_gwh`; a state can be 50% renewable on this chart and still be coal-fired in practice.",
+  "policy_context": [
+    "India's NDC commits to 50% non-fossil installed capacity by 2030 — measured on this surface, not generation. As of 2024 the share is ~46%, so the headline target is essentially in sight; the harder target is the parallel 500 GW non-fossil absolute number.",
+    "PM-KUSUM, PLI for solar manufacturing, and the Green Energy Corridor inter-state transmission expansion all push the renewable bars up; coal-plant retirements under CEA's National Electricity Plan move the coal bar slowly.",
+    "The 'others/thermal' residual (lignite + diesel) is shrinking by attrition — diesel sets are mostly captive backup, not grid contributors."
+  ],
+  "chart_defaults": {
+    "preferred_facet": "coal"
+  }
+}

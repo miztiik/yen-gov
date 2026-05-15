@@ -53,6 +53,22 @@ RBI Handbook 2024-25 edition
 
 Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 171. Suffix codes in column headers — '(A)' = Actuals, '(RE)' = Revised Estimates, '(BE)' = Budget Estimates — are stripped at parse time but the underlying revision tier should be considered when comparing FY24/FY25 with earlier years.
 
+## Editor's note
+
+Pension is a *committed* revenue expenditure — the state cannot defer it without legal reform. As a share of own-tax revenue (divide by `state_own_tax_revenue_inr_crore`) this number is the cleanest read on how much fiscal room a state has for discretionary spending after meeting salaries, pensions and interest.
+
+## Policy context
+
+- Old Pension Scheme (OPS) restoration: Rajasthan (Mar 2022), Chhattisgarh, Jharkhand, Punjab and Himachal Pradesh have announced reversion to the pre-2004 defined-benefit OPS for state employees. Their pension liability trajectories will diverge sharply from NPS-cohort states over the next 15–20 years — RBI flagged this as a 'looming risk' in its 2023 State Finances report.
+- NPS (National Pension System) has been the default for Centre and most state employees joining after 2004; the contribution is on-budget and capped, so NPS-state pension lines should grow more slowly than OPS-state lines once the post-2004 cohort matures.
+- 7th Pay Commission revisions (2016) and equivalent state pay-commissions caused a one-time level shift across all states — visible as a step in FY17/FY18 on every state's pension line.
+
+## Related indicators
+
+- [`fiscal/state_revenue_expenditure_inr_crore`](state_revenue_expenditure_inr_crore.md)
+- [`fiscal/state_own_tax_revenue_inr_crore`](state_own_tax_revenue_inr_crore.md)
+- [`fiscal/outstanding_debt_pct_gsdp`](outstanding_debt_pct_gsdp.md)
+
 ## Sources
 
 - <https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/171T_1112202558897643693142228AC6C769081FB16B.XLSX> — rbidocs.rbi.org.in (fetched 2026-05-14T19:00:00Z)

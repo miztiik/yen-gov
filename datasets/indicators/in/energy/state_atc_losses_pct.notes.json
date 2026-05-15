@@ -1,0 +1,17 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
+  "$schema_version": "1.0",
+  "for": "state_atc_losses_pct.json",
+  "related": [
+    "energy/state_distribution_billing_efficiency_pct",
+    "energy/state_distribution_collection_efficiency_pct",
+    "energy/state_distribution_td_loss_pct",
+    "energy/state_acs_arr_gap_inr_per_kwh"
+  ],
+  "editor_note_md": "AT&C losses are the discom-health headline number — they fold technical T&D loss together with billing and collection failure into a single percentage. A state can have low *technical* losses and still post awful AT&C if its billing or collection efficiency is poor; that's why this is best read alongside the billing-efficiency and collection-efficiency siblings rather than alone.",
+  "policy_context": [
+    "RDSS (Revamped Distribution Sector Scheme, 2021–FY26, ₹3.04 lakh crore) ties Centre funding for discoms to AT&C-loss reduction trajectories — every state has a notified glide-path target.",
+    "The earlier UDAY (2015) baked in AT&C targets as MoU commitments; states that took over discom debt (Rajasthan, UP, Bihar, J&K) accepted bond servicing in return for loss-reduction milestones — most missed.",
+    "Politically: free-power schemes (free agri pumpsets in Punjab/TN/Telangana, free 100–200 units to households in Delhi/Punjab/Karnataka) raise AT&C optically because unmetered free supply is booked as 'loss' until subsidy reimbursement closes the gap."
+  ]
+}

@@ -10,10 +10,11 @@ than rendered as empty headings.
 Wiring: ``python -m yen_gov indicator-pages`` regenerates the tree;
 ``python -m yen_gov coverage`` invokes it after rendering the inventory.
 
-Schema-1.5-only fields (revision_tier_by_period, denominator, excludes,
-policy_context, related) are NOT rendered yet — they land in Phase 3 once
-the schema bumps and the sidecar arrives. This generator targets the
-v1.4 surface only.
+Schema-1.5 governance fields (revision_tier_by_period, denominator,
+excludes, renderer_rules) render directly off the artifact. The Phase 4
+sidecar (`<id>.notes.json`, indicator-notes.schema.json v1.0) supplies
+the three hand-curated sections — Related indicators, Editor's note,
+Policy context — when present, and is silently skipped otherwise.
 """
 
 from __future__ import annotations
@@ -39,13 +40,15 @@ class IndicatorArtifact:
     topic: str  # first dir under indicators/in (e.g. "energy")
     basename: str  # filename without .json (e.g. "state_coal_consumption_mt")
     doc: dict
+    notes: dict | None = None  # parsed sidecar (<basename>.notes.json), or None
 
 
 def iter_indicator_artifacts(root: Path) -> Iterator[IndicatorArtifact]:
     """Yield every indicator artifact under ``datasets/indicators/in/**``.
 
-    Skips ``*.notes.json`` sidecars (Phase 4 surface) and files that fail
-    to parse as JSON (logged silently — the validator catches them).
+    Skips ``*.notes.json`` sidecars (consumed via ``IndicatorArtifact.notes``,
+    not as standalone artifacts) and files that fail to parse as JSON
+    (logged silently — the validator catches them).
     """
     base = root / INDICATORS_REL
     if not base.exists():
@@ -65,8 +68,17 @@ def iter_indicator_artifacts(root: Path) -> Iterator[IndicatorArtifact]:
         topic = parts[0]
         basename = path.stem
         path_rel = path.relative_to(root).as_posix()
+        notes_path = path.with_name(f"{basename}.notes.json")
+        notes: dict | None = None
+        if notes_path.is_file():
+            try:
+                loaded = json.loads(notes_path.read_text(encoding="utf-8"))
+                if isinstance(loaded, dict):
+                    notes = loaded
+            except (OSError, json.JSONDecodeError):
+                notes = None
         yield IndicatorArtifact(
-            path_rel=path_rel, topic=topic, basename=basename, doc=doc
+            path_rel=path_rel, topic=topic, basename=basename, doc=doc, notes=notes
         )
 
 
@@ -201,6 +213,40 @@ def _excludes_bullets(excludes: list[str]) -> list[str]:
 def _renderer_rules_block(rules: list[str]) -> list[str]:
     """Schema 1.5: indicator.renderer_rules[] (controlled-vocab slugs)."""
     return [f"- `{r}`" for r in (rules or []) if r]
+
+
+def _related_bullets(related: list[str], current_topic: str) -> list[str]:
+    """indicator-notes 1.0: sidecar.related[] — link each peer to its page.
+
+    Peer pages live at ``../<peer_topic>/<peer_basename>.md`` from the
+    current page (we are at ``docs/reference/indicators/<topic>/<basename>.md``).
+    Same-topic peers collapse to ``<peer_basename>.md``.
+    """
+    out: list[str] = []
+    for r in related or []:
+        if "/" not in r:
+            # Malformed id — emit as plain code, no link.
+            out.append(f"- `{r}`")
+            continue
+        peer_topic, peer_basename = r.split("/", 1)
+        if peer_topic == current_topic:
+            href = f"{peer_basename}.md"
+        else:
+            href = f"../{peer_topic}/{peer_basename}.md"
+        out.append(f"- [`{r}`]({href})")
+    return out
+
+
+def _editor_note_block(note_md: str | None) -> list[str]:
+    """indicator-notes 1.0: sidecar.editor_note_md — verbatim markdown."""
+    if not note_md or not note_md.strip():
+        return []
+    return [note_md.strip()]
+
+
+def _policy_context_bullets(items: list[str]) -> list[str]:
+    """indicator-notes 1.0: sidecar.policy_context[] — citizen-facing bullets."""
+    return [f"- {p}" for p in (items or []) if p]
 
 
 def _sources_bullets(sources: list[dict]) -> list[str]:
@@ -347,6 +393,28 @@ def render_page(artifact: IndicatorArtifact) -> str:
         lines.append("## Notes")
         lines.append("")
         lines.append(notes)
+        lines.append("")
+
+    sidecar = artifact.notes or {}
+    editor_note = _editor_note_block(sidecar.get("editor_note_md"))
+    if editor_note:
+        lines.append("## Editor's note")
+        lines.append("")
+        lines.extend(editor_note)
+        lines.append("")
+
+    policy_ctx = _policy_context_bullets(sidecar.get("policy_context") or [])
+    if policy_ctx:
+        lines.append("## Policy context")
+        lines.append("")
+        lines.extend(policy_ctx)
+        lines.append("")
+
+    related = _related_bullets(sidecar.get("related") or [], artifact.topic)
+    if related:
+        lines.append("## Related indicators")
+        lines.append("")
+        lines.extend(related)
         lines.append("")
 
     src = _sources_bullets(doc.get("sources") or [])
