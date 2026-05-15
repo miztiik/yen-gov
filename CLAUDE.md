@@ -68,11 +68,12 @@ Create each "not yet" folder only when real code is about to land in it. Empty s
 
 ## 5. Documentation Discipline
 
-- Diataxis tiers under `docs/`: `architecture/`, `how-to/`, `concepts/`, `reference/` (+ `getting-started/`, `archive/`).
+- Diataxis tiers under `docs/`: `architecture/`, `how-to/`, `concepts/`, `reference/` (+ `getting-started/`, `archive/`, `research/`, `agents/`).
 - Maximum depth: `docs/<tier>/<topic>/<file>.md`. No deeper.
 - Every doc has: H1 title, `Last Updated: YYYY-MM-DD`, "See also" cross-links.
 - One concept defined once; everywhere else links to it.
 - Agent memory is derived, not authoritative. Per-module `AGENTS.md` files and `/memories/repo/` are fast-entry indexes that point back to canonical docs; if they disagree with `docs/`, the docs win and the derived memory gets updated or deleted.
+- Personas (Citizen, Hans, Max, Gregor, Fowler, Jony) and the citizen-question pipeline live as canonical docs under `docs/agents/` and `docs/how-to/distill.md`, with thin wrappers in `.claude/skills/` and `.github/agents/`. Every persona invokes [`docs/agents/bootstrap.md`](docs/agents/bootstrap.md) before answering; new citizen-facing features run [`docs/how-to/distill.md`](docs/how-to/distill.md). Doctrine: [`docs/concepts/citizen-first.md`](docs/concepts/citizen-first.md).
 - Docs-only PRs are a code smell — they mean a previous PR shipped without its docs.
 
 ## 6. Correction Levels
