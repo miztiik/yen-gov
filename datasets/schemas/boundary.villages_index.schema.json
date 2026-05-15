@@ -3,21 +3,39 @@
   "$id": "https://yen-gov.github.io/schemas/boundary.villages_index.schema.json",
   "title": "Per-state village-boundaries index",
   "description": "Manifest sidecar that lists which per-district village-boundary files (`<S>-villages-<dist_lgd>.geojson`) exist on disk for a given state. The frontend loader reads this at startup so it can decide whether a village-level drill is fetchable for a given district WITHOUT a 404-probe (Fowler v4 nit 1, TODO/TN-GRANULAR-GEO-PLAN.md). Lives at `datasets/boundaries/in/geojson/<S>-villages-index.json`.",
-  "x-version": "1.0",
+  "x-version": "2.0",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-15",
       "description": "Initial schema. Records {state_lgd, district_lgd_codes:[...], generated_at}. Emitted by tools/boundaries/snapshot.py alongside the per-district village GeoJSONs (the source.split_by block). Pure additive — pre-existing boundary files unaffected."
+    },
+    {
+      "version": "2.0",
+      "date": "2026-05-15",
+      "description": "Major: add required top-level `sources` array (CLAUDE.md §12). The index manifest is itself a published artifact under datasets/, so it carries its own provenance — copied at emit time from the upstream the per-district village shards were derived from. Bumped same day as v1.0; no v1.0 data files were ever committed beyond the bundle this fixup commit also corrects."
     }
   ],
   "type": "object",
-  "required": ["$schema", "$schema_version", "state_lgd", "district_lgd_codes", "generated_at"],
+  "required": ["$schema", "$schema_version", "sources", "state_lgd", "district_lgd_codes", "generated_at"],
   "additionalProperties": false,
   "properties": {
     "$schema": { "type": "string", "format": "uri" },
     "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
     "$comment": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "description": "CLAUDE.md §12 provenance — typically copied verbatim from the upstream that produced the per-district shards this index enumerates.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
     "state_lgd": {
       "type": "string",
       "pattern": "^[1-9][0-9]*$",

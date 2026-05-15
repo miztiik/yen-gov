@@ -1,7 +1,13 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/boundary.villages_index.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "2.0",
   "$comment": "Index of per-district shards present on disk. The frontend loader consults this to avoid 404-probing for districts whose village layer was not emitted (TODO/TN-GRANULAR-GEO-PLAN.md Phase 2).",
+  "sources": [
+    {
+      "url": "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/villages/LGD_Villages.geojsonl.7z",
+      "fetched_at": "2026-05-15T11:15:41Z"
+    }
+  ],
   "state_lgd": "33",
   "district_lgd_codes": [
     "568",
@@ -43,5 +49,5 @@
     "733",
     "735"
   ],
-  "generated_at": "2026-05-15T10:55:46Z"
+  "generated_at": "2026-05-15T11:24:29Z"
 }

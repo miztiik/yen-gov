@@ -63,6 +63,14 @@ def test_make_drop_record_unnamed_when_no_name_field() -> None:
 # --- _write_unkeyed_sidecar -----------------------------------------------
 
 
+_SOURCES_FIXTURE = [
+    {
+        "url": "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/villages/LGD_Villages.geojsonl.7z",
+        "fetched_at": "2026-05-15T12:00:00Z",
+    },
+]
+
+
 def test_unkeyed_sidecar_validates_and_records_totals(tmp_path: Path) -> None:
     sidecar = tmp_path / "S22-villages-603.geojson.unkeyed.json"
     drops = [
@@ -75,11 +83,14 @@ def test_unkeyed_sidecar_validates_and_records_totals(tmp_path: Path) -> None:
         original=10,
         retained=8,
         dropped_records=drops,
+        sources=_SOURCES_FIXTURE,
     )
     payload = json.loads(sidecar.read_text(encoding="utf-8"))
     jsonschema.validate(payload, _load("boundary.unkeyed.schema.json"))
     assert payload["totals"] == {"original": 10, "retained": 8, "dropped": 2}
     assert payload["for"] == "S22-villages-603.geojson"
+    assert payload["$schema_version"] == "2.0"
+    assert payload["sources"] == _SOURCES_FIXTURE
 
 
 def test_unkeyed_sidecar_empty_dropped_emitted_explicitly(tmp_path: Path) -> None:
@@ -91,6 +102,7 @@ def test_unkeyed_sidecar_empty_dropped_emitted_explicitly(tmp_path: Path) -> Non
         original=800,
         retained=800,
         dropped_records=[],
+        sources=_SOURCES_FIXTURE,
     )
     payload = json.loads(sidecar.read_text(encoding="utf-8"))
     jsonschema.validate(payload, _load("boundary.unkeyed.schema.json"))
@@ -104,6 +116,7 @@ def test_unkeyed_sidecar_denominator_mismatch_raises(tmp_path: Path) -> None:
     with pytest.raises(ValueError, match="denominator mismatch"):
         snapshot._write_unkeyed_sidecar(
             sidecar, "x.geojson", original=10, retained=8, dropped_records=[],
+            sources=_SOURCES_FIXTURE,
         )
 
 

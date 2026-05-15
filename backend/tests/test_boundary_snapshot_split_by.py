@@ -56,6 +56,14 @@ def test_split_by_drops_features_missing_property() -> None:
 # --- emit_index_manifest ---------------------------------------------------
 
 
+_SOURCES_FIXTURE = [
+    {
+        "url": "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/villages/LGD_Villages.geojsonl.7z",
+        "fetched_at": "2026-05-15T12:00:00Z",
+    },
+]
+
+
 def _load_index_schema() -> dict:
     schema_path = REPO / "datasets" / "schemas" / "boundary.villages_index.schema.json"
     return json.loads(schema_path.read_text(encoding="utf-8"))
@@ -68,6 +76,7 @@ def test_emit_index_manifest_writes_valid_payload(tmp_path: Path) -> None:
         state_lgd=33,
         group_keys=[603, 532, 561],
         schema_basename="boundary.villages_index.schema.json",
+        sources=_SOURCES_FIXTURE,
     )
 
     payload = json.loads(index_path.read_text(encoding="utf-8"))
@@ -78,7 +87,8 @@ def test_emit_index_manifest_writes_valid_payload(tmp_path: Path) -> None:
     assert payload["state_lgd"] == "33"
     # Sorted ascending lexicographically per schema requirement.
     assert payload["district_lgd_codes"] == ["532", "561", "603"]
-    assert payload["$schema_version"] == "1.0"
+    assert payload["$schema_version"] == "2.0"
+    assert payload["sources"] == _SOURCES_FIXTURE
     assert payload["generated_at"].endswith("Z")
 
 
@@ -89,6 +99,7 @@ def test_emit_index_manifest_dedupes_keys(tmp_path: Path) -> None:
         state_lgd=33,
         group_keys=[603, 603, 532],
         schema_basename="boundary.villages_index.schema.json",
+        sources=_SOURCES_FIXTURE,
     )
     payload = json.loads(index_path.read_text(encoding="utf-8"))
     assert payload["district_lgd_codes"] == ["532", "603"]
@@ -104,6 +115,7 @@ def test_emit_index_manifest_atomic_no_partial_on_existing(tmp_path: Path) -> No
         state_lgd=33,
         group_keys=[603],
         schema_basename="boundary.villages_index.schema.json",
+        sources=_SOURCES_FIXTURE,
     )
 
     payload = json.loads(index_path.read_text(encoding="utf-8"))
@@ -121,6 +133,7 @@ def test_emit_index_manifest_empty_keys_allowed(tmp_path: Path) -> None:
         state_lgd=33,
         group_keys=[],
         schema_basename="boundary.villages_index.schema.json",
+        sources=_SOURCES_FIXTURE,
     )
     payload = json.loads(index_path.read_text(encoding="utf-8"))
     jsonschema.validate(payload, _load_index_schema())

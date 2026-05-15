@@ -467,21 +467,25 @@ def emit_index_manifest(
     state_lgd: int,
     group_keys: list[Any],
     schema_basename: str,
+    sources: list[dict[str, str]],
 ) -> None:
     """Write the per-state index manifest atomically (temp-then-rename so a
     crash mid-write cannot leave a partial manifest beside complete shards
     — Fowler v5 nit). Validates against `boundary.villages_index.schema.json`
     by construction: state_lgd + district codes serialised as digit strings,
-    sorted ascending.
+    sorted ascending. `sources` is copied verbatim from the upstream the
+    shards were derived from (CLAUDE.md §12 — every datasets/ artifact
+    carries its own provenance, even derived sidecars).
     """
     payload = {
         "$schema": f"https://yen-gov.github.io/schemas/{schema_basename}",
-        "$schema_version": "1.0",
+        "$schema_version": "2.0",
         "$comment": (
             "Index of per-district shards present on disk. The frontend loader "
             "consults this to avoid 404-probing for districts whose village "
             "layer was not emitted (TODO/TN-GRANULAR-GEO-PLAN.md Phase 2)."
         ),
+        "sources": sources,
         "state_lgd": str(state_lgd),
         "district_lgd_codes": sorted({str(k) for k in group_keys}),
         "generated_at": utc_now(),
@@ -550,12 +554,15 @@ def _write_unkeyed_sidecar(
     original: int,
     retained: int,
     dropped_records: list[dict[str, str]],
+    sources: list[dict[str, str]],
 ) -> None:
     """Hans v2 denominator sidecar — always emit, even when `dropped_records`
     is empty, so the citizen UI can read 'X of Y features carry an LGD code'
     rather than silently shrink the dataset. `original == retained + len(dropped)`
     is asserted (writer-side invariant; the schema enforces the same shape on
-    readers via boundary.unkeyed.schema.json totals)."""
+    readers via boundary.unkeyed.schema.json totals). `sources` is copied
+    verbatim from the parent GeoJSON's sidecar so this artifact is independently
+    attributable per CLAUDE.md §12."""
     if original != retained + len(dropped_records):
         msg = (
             f"unkeyed sidecar denominator mismatch for {basename}: "
@@ -564,13 +571,14 @@ def _write_unkeyed_sidecar(
         raise ValueError(msg)
     payload = {
         "$schema": "https://yen-gov.github.io/schemas/boundary.unkeyed.schema.json",
-        "$schema_version": "1.0",
+        "$schema_version": "2.0",
         "$comment": (
             "Hans v2 denominator sidecar. Empty `dropped` with totals.dropped=0 "
             "is the canonical 'perfect snapshot' signal — written explicitly so "
             "downstream readers never have to distinguish 'no drops' from 'no sidecar'."
         ),
         "for": basename,
+        "sources": sources,
         "totals": {
             "original": original,
             "retained": retained,
@@ -701,7 +709,7 @@ def _emit_split_shards(
         raise ValueError(msg)
     schema_basename = split.get("index_schema", "boundary.villages_index.schema.json")
     index_path = out_root / index_basename
-    emit_index_manifest(index_path, state_lgd, emitted_keys, schema_basename)
+    emit_index_manifest(index_path, state_lgd, emitted_keys, schema_basename, sources)
 
     # Bundle-level unkeyed sidecar (Hans v2 denominator). Aggregates upstream
     # drops (state_filter) + features missing the split-by property. The
@@ -719,7 +727,7 @@ def _emit_split_shards(
     if original_count is None:
         original_count = retained_total + len(drops)
     _write_unkeyed_sidecar(
-        bundle_unkeyed, bundle_for, original_count, retained_total, drops,
+        bundle_unkeyed, bundle_for, original_count, retained_total, drops, sources,
     )
 
     # Per-shard simplification metadata sidecar (when entry opted in via a
@@ -817,7 +825,7 @@ def snapshot_one(
         # empty `dropped` is the canonical "perfect snapshot" signal.
         unkeyed_path = out_path.with_suffix(out_path.suffix + ".unkeyed.json")
         _write_unkeyed_sidecar(
-            unkeyed_path, basename, original_count, len(features), upstream_drops,
+            unkeyed_path, basename, original_count, len(features), upstream_drops, sources,
         )
         # Simplification metadata sidecar — only when coord_precision was
         # applied AND the entry opted in via a `metadata` block (license +
