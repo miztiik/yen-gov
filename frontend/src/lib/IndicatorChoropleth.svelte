@@ -683,6 +683,7 @@
               pending={deeper_fetching}
               pending_at={pending_pos ?? undefined}
               pending_label={`Loading ${drill_state.level} boundaries…`}
+              pinch_to_drill={drill_enabled}
               onSelect={handleSelect}
             />
           {/key}

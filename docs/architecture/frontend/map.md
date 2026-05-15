@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-15 (revision: Phase 4 d2 of TN-GRANULAR-GEO-PLAN — polygon-positioned loading overlay)
+**Last Updated**: 2026-05-15 (revision: Phase 4 mobile pinch-to-drill of TN-GRANULAR-GEO-PLAN)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -304,6 +304,28 @@ The click handler now forwards `at: [e.lngLat.lng, e.lngLat.lat]` on `onSelect`,
 ### Why the projection isn't unit-tested
 
 `map.project(LngLat)` is maplibre's; the only thing our code does is call it inside `move`/`zoom` listeners and stash the result in `$state`. There is no pure helper to extract here — projection is the contract boundary. Vitest can't mount maplibre, so this is verified via the manual smoke flow (see CLAUDE.md §13) and the integration test for the click-`at` forwarding lives at the `onSelect` shape.
+
+## Mobile pinch-to-drill (Phase 4 of TN-GRANULAR-GEO-PLAN)
+
+Phase 3 §143 reserved pinch for Phase 4 — tap was the only drill affordance on the TN drill-down. Phone users were left with cooperative-zoom that did nothing semantically useful: pinch in, see a bigger version of the same layer.
+
+### Mechanism
+
+`MapChoropleth.svelte` gains an optional `pinch_to_drill?: boolean = false` prop. When on, the component records the zoom level at `touchstart` (along with the touch count) and on `touchend` checks two things: the gesture started with ≥ 2 fingers (a true pinch, not an accidental one-finger drag) AND the zoom delta exceeded `PINCH_DRILL_DELTA = 0.6` (filters jitter). When both hold, it queries rendered features at the gesture's `lngLat` and dispatches `onSelect` with the same shape a click would produce — including `at` so the spinner pins over the gesture point.
+
+`IndicatorChoropleth.svelte` opts in (`pinch_to_drill={drill_enabled}`) so the prop is on for TN drill-down maps and off for `IndiaMap` / state-overview maps that don't drill.
+
+### Why opt-in, not always-on
+
+A non-drill map (the home-page IndiaMap, a state-overview indicator without `highlight_state === "S22"`) has no useful "drill" semantics — pinching there should still just zoom. Coupling pinch to drill globally would surprise users who pinched only to read a label more closely. The prop keeps pinch-to-drill scoped to maps that are actually a drill-down surface.
+
+### Why threshold + finger-count gating
+
+Without the finger-count check, a single-finger tap that incidentally bumps the zoom by `0.7` (rare but possible on jittery touchscreens) would drill. Without the zoom-delta check, every pinch — including pinches the user meant only to zoom by a notch — would drill. Both gates together approximate the user's intent: "I deliberately zoomed in hard."
+
+### Why no unit test
+
+Touch events on a maplibre instance need a real pointer-event runtime; jsdom provides neither, and our vitest stack can't mount maplibre. The drill-dispatch shape (`onSelect({ key, properties, at })`) is the same one the click handler uses and is already covered by `IndicatorChoropleth.boundaries.test.ts`. CLAUDE.md §13 manual smoke (touch DevTools or a real phone) is the verification tier.
 
 ## See also
 

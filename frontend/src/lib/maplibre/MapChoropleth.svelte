@@ -83,6 +83,16 @@
     pending?: boolean;
     pending_at?: [number, number];
     pending_label?: string;
+    /**
+     * Mobile pinch-to-drill (Phase 4 of TN-GRANULAR-GEO-PLAN). When true,
+     * a touch-driven zoom-in that crosses a threshold dispatches `onSelect`
+     * on the polygon under the gesture's focal point. Lets a citizen drill
+     * the TN map naturally on a phone — pinch to zoom is the gesture they
+     * already know; the drill is the side-effect they expect at zoom-in.
+     * Off by default so non-drill maps (state-overview, IndiaMap) keep the
+     * v1 "pinch is just zoom" semantics.
+     */
+    pinch_to_drill?: boolean;
     onSelect?: (sel: FeatureSelection) => void;
     onHover?: (sel: FeatureSelection | null) => void;
   }
@@ -100,6 +110,7 @@
     pending = false,
     pending_at,
     pending_label,
+    pinch_to_drill = false,
     onSelect,
     onHover,
   }: Props = $props();
@@ -447,6 +458,42 @@
           // dispatching a discrete move event (e.g. resize observers).
           map.on("move", project_pending);
           map.on("zoom", project_pending);
+          // Mobile pinch-to-drill (Phase 4). We only act when (a) the prop is
+          // on, (b) the gesture started with multiple touches (a true pinch,
+          // not a single-finger tap), (c) the zoom delta exceeds the
+          // threshold (filters out incidental jitter from a non-pinch tap).
+          // The drill is dispatched on touchend (not zoom in real-time) so
+          // we don't fire mid-gesture or flood onSelect during the pinch.
+          // Threshold of 0.6 zoom levels is a citizen-comfortable amount —
+          // small enough to feel responsive, large enough that an accidental
+          // two-finger graze doesn't drill.
+          const PINCH_DRILL_DELTA = 0.6;
+          let _touch_start_zoom: number | null = null;
+          let _touch_start_n_fingers = 0;
+          map.on("touchstart", (e: any) => {
+            if (!pinch_to_drill) return;
+            _touch_start_n_fingers = e.originalEvent?.touches?.length ?? 0;
+            _touch_start_zoom = map.getZoom();
+          });
+          map.on("touchend", (e: any) => {
+            if (!pinch_to_drill || _touch_start_zoom === null) return;
+            const was_pinch = _touch_start_n_fingers >= 2;
+            const dz = map.getZoom() - _touch_start_zoom;
+            _touch_start_zoom = null;
+            _touch_start_n_fingers = 0;
+            if (!was_pinch || dz < PINCH_DRILL_DELTA) return;
+            const lngLat = e.lngLat ?? map.getCenter();
+            const point = map.project(lngLat);
+            const features = map.queryRenderedFeatures(point, { layers: [FILL_LAYER_ID] });
+            const f = features?.[0];
+            if (!f) return;
+            const key = f.properties?.[entry.join_property];
+            onSelect?.({
+              key,
+              properties: f.properties ?? {},
+              at: [lngLat.lng, lngLat.lat],
+            });
+          });
           // Fit bounds to the data extent. For GeoJSON we have it locally;
           // for vector tiles maplibre exposes querySourceFeatures only for
           // visible tiles, which isn't enough — fall back to the same bbox
