@@ -73,7 +73,7 @@ Create each "not yet" folder only when real code is about to land in it. Empty s
 - Every doc has: H1 title, `Last Updated: YYYY-MM-DD`, "See also" cross-links.
 - One concept defined once; everywhere else links to it.
 - Agent memory is derived, not authoritative. Per-module `AGENTS.md` files and `/memories/repo/` are fast-entry indexes that point back to canonical docs; if they disagree with `docs/`, the docs win and the derived memory gets updated or deleted.
-- Personas (Citizen, Hans, Max, Gregor, Fowler, Jony) and the citizen-question pipeline live as canonical docs under `docs/agents/` and `docs/how-to/distill.md`, with thin wrappers in `.claude/skills/` and `.github/agents/`. Every persona invokes [`docs/agents/bootstrap.md`](docs/agents/bootstrap.md) before answering; new citizen-facing features run [`docs/how-to/distill.md`](docs/how-to/distill.md). Doctrine: [`docs/concepts/citizen-first.md`](docs/concepts/citizen-first.md).
+- Personas (Citizen, Hans, Max, Gregor, Fowler, Jony) live as canonical docs under `docs/agents/` with thin wrappers in `.claude/skills/bootstrap/` and `.github/agents/`. Every persona loads [`docs/agents/bootstrap.md`](docs/agents/bootstrap.md) before answering. New citizen-facing features **follow** the seven-step procedure in [`docs/how-to/distill.md`](docs/how-to/distill.md) — it is a runbook, not an automated skill; the seven persona handoffs are driven manually (or by a future orchestrator under `tools/`), not by the harness. Doctrine: [`docs/concepts/citizen-first.md`](docs/concepts/citizen-first.md).
 - Docs-only PRs are a code smell — they mean a previous PR shipped without its docs.
 
 ## 6. Correction Levels

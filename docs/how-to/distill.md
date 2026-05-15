@@ -4,7 +4,7 @@
 
 This is the seven-step procedure for taking a citizen question and turning it into a shipped, citizen-readable answer in yen-gov. The doctrine behind the order is in [`../concepts/citizen-first.md`](../concepts/citizen-first.md). This doc is the *how*.
 
-The procedure is invokable as the `distill` skill (Claude Code) or by name in Copilot Chat. Either invocation drives the same seven steps below.
+This is a runbook, not an automated skill. The seven persona handoffs are driven manually by you (or by a future orchestrator under `tools/`); the harness does not orchestrate them. Treat the section headings below as a checklist you tick off as you go.
 
 ## When to run distill
 
