@@ -20,6 +20,10 @@
     type BoundaryFeatureCollection,
   } from "./boundaries";
   import {
+    extractLakshadweepGeometry,
+    geometryToSvgPath,
+  } from "./lakshadweep";
+  import {
     initialDrillState,
     drillTo,
     goBack,
@@ -253,6 +257,27 @@
   // `pending_at` so the loading spinner pins over the polygon the user just
   // tapped (Phase 4 d2). Cleared at indicator-path change and on reset.
   let pending_pos = $state<[number, number] | null>(null);
+
+  // Lakshadweep callout (Phase 3 §c). The islands are sub-pixel at
+  // national zoom; an inset bottom-left of the choropleth shows them at
+  // exaggerated scale with a labelled border. Geometry is pulled once
+  // from india-states.geojson via the loader (cached; the parent map
+  // already loads it). Pure SVG render — no second maplibre instance.
+  // The inset is gated on `drill_state.level === "state"` (national
+  // choropleth zoom only); below that level the parent map shows a
+  // single state and the callout would be visually misleading.
+  let lakshadweep_path = $state<string>("");
+  $effect(() => {
+    let cancelled = false;
+    loadBoundary("state").then(fc => {
+      if (cancelled) return;
+      const geom = extractLakshadweepGeometry(fc);
+      lakshadweep_path = geometryToSvgPath(geom, { width: 80, height: 80, padding: 6 });
+    });
+    return () => {
+      cancelled = true;
+    };
+  });
 
   // 250ms ease-out; instant when the user prefers reduced motion.
   const reduced_motion = (() => {
@@ -715,6 +740,29 @@
               class="ml-2 underline text-amber-800"
               onclick={() => (deeper_fetch_error = null)}
             >dismiss</button>
+          </div>
+        {/if}
+        <!-- Lakshadweep callout (Phase 3 §c, Jony edit). Visible at
+             national zoom only; the labelled border carries the meaning
+             ("shown 10×"), no connecting line — the line would imply
+             geographic continuity that isn't there. Pure SVG inset, no
+             second maplibre instance. -->
+        {#if drill_state.level === "state" && lakshadweep_path}
+          <div
+            class="absolute bottom-2 left-2 pointer-events-none flex flex-col items-stretch"
+            style:width="84px"
+          >
+            <svg
+              viewBox="0 0 80 80"
+              class="bg-white/90 rounded-sm ring-1 ring-slate-300 shadow-sm"
+              style:width="80px"
+              style:height="80px"
+            >
+              <path d={lakshadweep_path} fill="#94a3b8" stroke="#475569" stroke-width="0.4" />
+            </svg>
+            <div class="mt-0.5 text-[8px] text-slate-600 leading-tight text-center">
+              Lakshadweep<br />shown 10×
+            </div>
           </div>
         {/if}
       </div>

@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-15 (revision: Phase 3 methodology-break "i" glyph in legend)
+**Last Updated**: 2026-05-15 (revision: Phase 3 Lakshadweep callout inset)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -343,6 +343,32 @@ Implementation (`IndicatorChoropleth.svelte`):
 - Polygon tooltips remain unchanged — they never carried methodology, so the bullet's "demote-from-polygons" half is preventive, not a code removal.
 
 The bullet's "second line on affected districts in affected years" sub-clause is descoped: `series_breaks` is indicator-level (not per-feature × per-year), so per-polygon × per-year filtering would require data shape we don't emit. The legend glyph carries the same information at the lower visual weight the bullet asked for. If a future schema bump promotes break entries to per-entity, the polygon-tooltip second-line variant becomes implementable; until then the legend glyph is the honest surface.
+
+## Lakshadweep callout inset (Phase 3 §c of TN-GRANULAR-GEO-PLAN)
+
+Lakshadweep is sub-pixel at national zoom on a choropleth — it appears as the smallest dot in the Arabian Sea, and citizens routinely lose track of it. Standard Indian-cartography practice is an inset showing the islands at exaggerated scale, with a labelled border (NOT a connecting line — a line would imply geographic continuity that isn't there; the labelled border carries the meaning).
+
+### Implementation
+
+Pure helper module `frontend/src/lib/lakshadweep.ts` exposes three functions:
+
+- `extractLakshadweepGeometry(fc)` — pulls the Lakshadweep feature out of an india-states-shaped FC by `ST_NM === "Lakshadweep"`.
+- `geometryBbox(geometry)` — walks coordinates computing min/max lng/lat. Returns `null` for degenerate input.
+- `geometryToSvgPath(geometry, viewbox)` — equirectangular Y-flipped aspect-preserving projection, supports Polygon + MultiPolygon, returns the SVG path `d=` attribute string.
+
+`IndicatorChoropleth.svelte` wires it via a `$effect` that calls `loadBoundary("state")` (cached, free after the parent map's first load), extracts the geometry, projects it into an 80×80 viewbox with padding 6, and stores the path in `lakshadweep_path: $state<string>`. The inset SVG renders bottom-left of the map wrapper, gated on `drill_state.level === "state" && lakshadweep_path` — so it appears at the national/state-overview level and disappears once the citizen drills into a TN polygon (where the islands are no longer relevant context).
+
+### Why SVG inset, not a second MapChoropleth
+
+A second maplibre instance would double the WebGL memory cost (~150–250 KB per Map plus tile caches) for a feature that needs no pan/zoom/click. The geometry comes free from the parent's already-loaded `india-states.geojson`, the projection over 4° of latitude near the equator is fractions of a pixel different between equirectangular and Mercator (so we avoid pulling in a projection library), and an inline `<path>` is ~100 bytes vs a second canvas.
+
+### Why a labelled border, not a connecting line
+
+A connecting line from the inset to the islands' true location would suggest the islands are part of the mainland's coastline — they aren't. The inset is a standalone re-projected fragment; the labelled border ("Lakshadweep / shown 10×") declares the discontinuity honestly. This matches the convention used by the Survey of India's official maps.
+
+### Why the helper is pure
+
+Vitest cannot mount maplibre, but the projection math is the actual logic worth testing — bbox walking, MultiPolygon flattening, Y-flip orientation, aspect-preserving centring. Carving the helper out of the Svelte component lets `lakshadweep.test.ts` (11 cases) assert the path string directly. The component-side wiring is a single `$effect` and a conditional render, both verified manually per CLAUDE.md §13.
 
 ## See also
 
