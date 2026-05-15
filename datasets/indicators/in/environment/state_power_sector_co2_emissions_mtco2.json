@@ -1,0 +1,3678 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
+  "$schema_version": "1.3",
+  "sources": [
+    {
+      "url": "https://icedapi.niti.gov.in/v1/co-emission-metatable-data",
+      "fetched_at": "2026-05-15T11:53:52Z"
+    }
+  ],
+  "coverage": {
+    "spatial": "India (states + UTs, fossil-fired plants only)",
+    "temporal": "2008-04..2025-04",
+    "admin_level": "state"
+  },
+  "license": {
+    "id": "GoI-OpenData",
+    "name": "Government of India Open Data License",
+    "url": "https://www.data.gov.in/government-open-data-license-india",
+    "redistributable": true
+  },
+  "indicator": {
+    "id": "environment/state_power_sector_co2_emissions_mtco2",
+    "title": "State CO₂ emissions from power generation (MtCO₂/yr)",
+    "description": "Per-state CO₂ emissions from electricity generation, faceted by fuel source (coal vs oil-gas — only fossil-fired generation is in the upstream dataset). Aggregated from plant-unit-level ICED data (~280 plants × ~18 fiscal years × {coal, oil-gas}) summed to state × year × source. Million tonnes of CO₂ per year. FY09–FY26 coverage; the most recent two FYs are preliminary.",
+    "entity_kind": "state",
+    "time_grain": "fiscal_year",
+    "value_kind": "raw",
+    "direction": "lower_is_better",
+    "scale_hint": "linear",
+    "unit": "Mt CO2",
+    "icon": "cloud",
+    "attribution_geography": "where_produced",
+    "comparability": "comparable_with_normalisation",
+    "implementing_authority": "joint",
+    "methodology_vintage": "NITI Aayog ICED ``/v1/co-emission-metatable-data``. Plant-unit-level CO₂ emissions are derived upstream from CEA generation × CEA technology-specific emission factors (subcritical / supercritical / ultra-supercritical for coal). We aggregate by SUM per (state, fiscal year, fuel source).",
+    "chart_type": "ranked",
+    "default_mode": "absolute",
+    "notes": "Emissions follow the *siting* of the plant, not the consumer — ``attribution_geography=where_produced``. Renewables/nuclear/hydro/large-hydro are absent from the upstream dataset by design (operational CO₂ ≈ 0 for those). For per-capita / per-GSDP normalisation, divide by the matching demography / economy artifact."
+  },
+  "rows": [
+    {
+      "entity_id": "S01",
+      "time": "2008-04",
+      "value": 25.333097,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2008-04",
+      "value": 3.702676,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2009-04",
+      "value": 25.343748,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2009-04",
+      "value": 7.430503,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2010-04",
+      "value": 26.579513,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2010-04",
+      "value": 8.829459,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2011-04",
+      "value": 32.277073,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2011-04",
+      "value": 8.145441,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2012-04",
+      "value": 35.399198,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2012-04",
+      "value": 4.634874,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2013-04",
+      "value": 37.835402,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2013-04",
+      "value": 2.359827,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2014-04",
+      "value": 39.296995,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2014-04",
+      "value": 1.152481,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2015-04",
+      "value": 49.750112,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2015-04",
+      "value": 2.490979,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2016-04",
+      "value": 56.331996,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2016-04",
+      "value": 2.527322,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2017-04",
+      "value": 51.773962,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2017-04",
+      "value": 1.570617,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2018-04",
+      "value": 55.306601,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2018-04",
+      "value": 2.137819,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2019-04",
+      "value": 54.758784,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2019-04",
+      "value": 1.356129,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2020-04",
+      "value": 45.197139,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2020-04",
+      "value": 1.495458,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2021-04",
+      "value": 51.632993,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2021-04",
+      "value": 0.879619,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2022-04",
+      "value": 59.350414,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2022-04",
+      "value": 0.28365,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2023-04",
+      "value": 68.861647,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2023-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2024-04",
+      "value": 70.475467,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2024-04",
+      "value": 0.015352,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 71.777096,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S01",
+      "time": "2025-04",
+      "value": 0.140482,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2008-04",
+      "value": 0.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2008-04",
+      "value": 1.356025,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2009-04",
+      "value": 0.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2009-04",
+      "value": 1.373796,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2010-04",
+      "value": 0.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2010-04",
+      "value": 1.408468,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2011-04",
+      "value": 0.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2011-04",
+      "value": 1.396301,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2012-04",
+      "value": 0.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2012-04",
+      "value": 1.394852,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2013-04",
+      "value": 0.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2013-04",
+      "value": 1.417172,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2014-04",
+      "value": 0.0,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2014-04",
+      "value": 1.470577,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2015-04",
+      "value": 0.104972,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2015-04",
+      "value": 1.446444,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2016-04",
+      "value": 1.608262,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2016-04",
+      "value": 1.267308,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2017-04",
+      "value": 1.679411,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2017-04",
+      "value": 1.161963,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2018-04",
+      "value": 2.787581,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2018-04",
+      "value": 1.217885,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2019-04",
+      "value": 3.778771,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2019-04",
+      "value": 1.263928,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2020-04",
+      "value": 2.945005,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2020-04",
+      "value": 1.22463,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2021-04",
+      "value": 4.075358,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2021-04",
+      "value": 1.427626,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2022-04",
+      "value": 4.898039,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2022-04",
+      "value": 1.565581,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2023-04",
+      "value": 4.923672,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2023-04",
+      "value": 1.569124,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2024-04",
+      "value": 4.637043,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2024-04",
+      "value": 1.537003,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2025-04",
+      "value": 4.195121,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S03",
+      "time": "2025-04",
+      "value": 1.289901,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2008-04",
+      "value": 9.634551,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2009-04",
+      "value": 11.440792,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2010-04",
+      "value": 14.408474,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2011-04",
+      "value": 12.309826,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2012-04",
+      "value": 14.545668,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2013-04",
+      "value": 14.769973,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2014-04",
+      "value": 18.070553,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2015-04",
+      "value": 20.370314,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2016-04",
+      "value": 23.856094,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2017-04",
+      "value": 25.600403,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2018-04",
+      "value": 31.722952,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2019-04",
+      "value": 33.173453,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2020-04",
+      "value": 33.44042,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2021-04",
+      "value": 42.314737,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2022-04",
+      "value": 53.739553,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2023-04",
+      "value": 56.861785,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2024-04",
+      "value": 58.817147,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S04",
+      "time": "2025-04",
+      "value": 57.143461,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2008-04",
+      "value": 0.146178,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2009-04",
+      "value": 0.144414,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2010-04",
+      "value": 0.131526,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2011-04",
+      "value": 0.12469,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2012-04",
+      "value": 0.110435,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2013-04",
+      "value": 0.108594,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2014-04",
+      "value": 0.005674,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2015-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2016-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2017-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2018-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2019-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2020-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2021-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2022-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2023-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S05",
+      "time": "2024-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2008-04",
+      "value": 29.669573,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2008-04",
+      "value": 8.677476,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2009-04",
+      "value": 33.704096,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2009-04",
+      "value": 12.738645,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2010-04",
+      "value": 38.355212,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2010-04",
+      "value": 12.556836,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2011-04",
+      "value": 46.095323,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2011-04",
+      "value": 11.035939,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2012-04",
+      "value": 68.673636,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2012-04",
+      "value": 7.092167,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2013-04",
+      "value": 81.521023,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2013-04",
+      "value": 2.768238,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2014-04",
+      "value": 92.604343,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2014-04",
+      "value": 3.136946,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2015-04",
+      "value": 87.858662,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2015-04",
+      "value": 5.650191,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2016-04",
+      "value": 85.54821,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2016-04",
+      "value": 4.687614,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2017-04",
+      "value": 75.423874,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2017-04",
+      "value": 6.2658,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2018-04",
+      "value": 83.028924,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2018-04",
+      "value": 5.758529,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2019-04",
+      "value": 84.060716,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2019-04",
+      "value": 6.081939,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2020-04",
+      "value": 78.099128,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2020-04",
+      "value": 8.494749,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2021-04",
+      "value": 50.14816,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2021-04",
+      "value": 3.088617,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2022-04",
+      "value": 53.592191,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2022-04",
+      "value": 1.003791,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2023-04",
+      "value": 74.683528,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2023-04",
+      "value": 3.790866,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2024-04",
+      "value": 84.138667,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2024-04",
+      "value": 3.793677,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 60.561691,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S06",
+      "time": "2025-04",
+      "value": 2.592127,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2008-04",
+      "value": 12.859888,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2008-04",
+      "value": 1.071225,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2009-04",
+      "value": 14.32343,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2009-04",
+      "value": 1.445377,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2010-04",
+      "value": 13.00983,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2010-04",
+      "value": 1.41993,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2011-04",
+      "value": 20.584106,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2011-04",
+      "value": 1.380474,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2012-04",
+      "value": 22.63552,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2012-04",
+      "value": 1.081282,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2013-04",
+      "value": 24.371284,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2013-04",
+      "value": 0.779342,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2014-04",
+      "value": 26.878231,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2014-04",
+      "value": 0.707144,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2015-04",
+      "value": 20.521305,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2015-04",
+      "value": 0.495288,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2016-04",
+      "value": 17.331058,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2016-04",
+      "value": 0.465322,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2017-04",
+      "value": 22.971098,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2017-04",
+      "value": 0.376821,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2018-04",
+      "value": 24.410208,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2018-04",
+      "value": 0.26869,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2019-04",
+      "value": 16.289789,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2019-04",
+      "value": 0.249822,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2020-04",
+      "value": 13.747011,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2020-04",
+      "value": 0.40581,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2021-04",
+      "value": 22.110335,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2021-04",
+      "value": 0.050526,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2022-04",
+      "value": 31.323094,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2022-04",
+      "value": 0.001204,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2023-04",
+      "value": 27.246755,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2023-04",
+      "value": 0.063835,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2024-04",
+      "value": 29.292308,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2024-04",
+      "value": 0.097132,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2025-04",
+      "value": 24.835819,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S07",
+      "time": "2025-04",
+      "value": 0.083661,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2008-04",
+      "value": 11.612759,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2008-04",
+      "value": 0.346536,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2009-04",
+      "value": 17.98182,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2009-04",
+      "value": 0.164016,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2010-04",
+      "value": 18.46826,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2011-04",
+      "value": 22.929461,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2012-04",
+      "value": 27.706311,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2013-04",
+      "value": 29.446704,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2014-04",
+      "value": 30.204881,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2015-04",
+      "value": 31.666257,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2016-04",
+      "value": 29.61968,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2017-04",
+      "value": 27.203681,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2018-04",
+      "value": 29.842576,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2019-04",
+      "value": 22.41168,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2020-04",
+      "value": 19.889631,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2021-04",
+      "value": 29.654452,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2022-04",
+      "value": 34.094794,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2023-04",
+      "value": 43.355491,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2024-04",
+      "value": 42.975257,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2024-04",
+      "value": 0.141781,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 41.988098,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S10",
+      "time": "2025-04",
+      "value": 0.330281,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2008-04",
+      "value": 1.290722,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2009-04",
+      "value": 1.348164,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2010-04",
+      "value": 0.956641,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2011-04",
+      "value": 0.339822,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2012-04",
+      "value": 0.758084,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2013-04",
+      "value": 0.594333,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2014-04",
+      "value": 0.438223,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2015-04",
+      "value": 0.064238,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2016-04",
+      "value": 0.00693,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2017-04",
+      "value": 0.021078,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2018-04",
+      "value": 0.000365,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2019-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2020-04",
+      "value": 0.045635,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2021-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2022-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2023-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2024-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S11",
+      "time": "2025-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2008-04",
+      "value": 42.098585,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2009-04",
+      "value": 43.116958,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2010-04",
+      "value": 42.239142,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2011-04",
+      "value": 41.23766,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2012-04",
+      "value": 42.83091,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2013-04",
+      "value": 46.521759,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2014-04",
+      "value": 60.073324,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2015-04",
+      "value": 88.53888,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2016-04",
+      "value": 88.875298,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2017-04",
+      "value": 98.27329,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2018-04",
+      "value": 116.700374,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2019-04",
+      "value": 110.0901,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2020-04",
+      "value": 121.667769,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2021-04",
+      "value": 125.356961,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2022-04",
+      "value": 132.356513,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2023-04",
+      "value": 144.944134,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2024-04",
+      "value": 141.552198,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S12",
+      "time": "2025-04",
+      "value": 137.340886,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2008-04",
+      "value": 53.473776,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2008-04",
+      "value": 4.7898,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2009-04",
+      "value": 53.722767,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2009-04",
+      "value": 6.666525,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2010-04",
+      "value": 51.797916,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2010-04",
+      "value": 8.537958,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2011-04",
+      "value": 57.832833,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2011-04",
+      "value": 8.035092,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2012-04",
+      "value": 65.054046,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2012-04",
+      "value": 4.709255,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2013-04",
+      "value": 71.270327,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2013-04",
+      "value": 2.723828,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2014-04",
+      "value": 84.128425,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2014-04",
+      "value": 2.122047,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2015-04",
+      "value": 94.568576,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2015-04",
+      "value": 2.384959,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2016-04",
+      "value": 89.49912,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2016-04",
+      "value": 4.266387,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2017-04",
+      "value": 94.096437,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2017-04",
+      "value": 4.079875,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2018-04",
+      "value": 111.463484,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2018-04",
+      "value": 3.803013,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2019-04",
+      "value": 102.665202,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2019-04",
+      "value": 3.599568,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2020-04",
+      "value": 97.13063,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2020-04",
+      "value": 2.683539,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2021-04",
+      "value": 112.965834,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2021-04",
+      "value": 2.572147,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2022-04",
+      "value": 121.053728,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2022-04",
+      "value": 1.129745,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2023-04",
+      "value": 129.545998,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2023-04",
+      "value": 1.845329,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2024-04",
+      "value": 126.959766,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2024-04",
+      "value": 2.431327,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 128.393207,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S13",
+      "time": "2025-04",
+      "value": 2.097218,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2008-04",
+      "value": 29.157787,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2009-04",
+      "value": 30.04759,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2010-04",
+      "value": 29.189544,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2011-04",
+      "value": 34.529709,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2012-04",
+      "value": 36.486633,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2013-04",
+      "value": 37.640756,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2014-04",
+      "value": 43.218212,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2015-04",
+      "value": 50.291303,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2016-04",
+      "value": 48.601211,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2017-04",
+      "value": 35.858183,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2018-04",
+      "value": 39.159999,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2019-04",
+      "value": 38.877808,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2020-04",
+      "value": 53.226942,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2021-04",
+      "value": 57.872218,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2022-04",
+      "value": 62.84148,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2023-04",
+      "value": 63.684592,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2024-04",
+      "value": 65.521949,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S18",
+      "time": "2025-04",
+      "value": 67.795097,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2008-04",
+      "value": 17.867679,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2009-04",
+      "value": 20.072437,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2010-04",
+      "value": 18.123247,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2011-04",
+      "value": 18.858727,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2012-04",
+      "value": 17.814204,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2013-04",
+      "value": 16.632972,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2014-04",
+      "value": 15.995483,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2015-04",
+      "value": 18.49344,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2016-04",
+      "value": 22.373445,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2017-04",
+      "value": 21.94685,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2018-04",
+      "value": 25.98898,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2019-04",
+      "value": 20.62154,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2020-04",
+      "value": 17.682618,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2021-04",
+      "value": 23.427867,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2022-04",
+      "value": 30.674943,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2023-04",
+      "value": 31.636644,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2024-04",
+      "value": 32.532741,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S19",
+      "time": "2025-04",
+      "value": 31.772018,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2008-04",
+      "value": 18.79063,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2008-04",
+      "value": 2.319134,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2009-04",
+      "value": 18.755388,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2009-04",
+      "value": 2.600753,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2010-04",
+      "value": 22.021673,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2010-04",
+      "value": 2.152755,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2011-04",
+      "value": 26.010077,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2011-04",
+      "value": 2.468322,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2012-04",
+      "value": 30.506391,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2012-04",
+      "value": 1.726663,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2013-04",
+      "value": 33.417868,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2013-04",
+      "value": 1.696433,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2014-04",
+      "value": 44.852295,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2014-04",
+      "value": 1.687819,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2015-04",
+      "value": 44.004516,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2015-04",
+      "value": 1.275687,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2016-04",
+      "value": 43.06074,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2016-04",
+      "value": 1.010583,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2017-04",
+      "value": 39.469649,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2017-04",
+      "value": 0.966303,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2018-04",
+      "value": 49.13984,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2018-04",
+      "value": 0.706347,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2019-04",
+      "value": 46.874914,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2019-04",
+      "value": 0.465079,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2020-04",
+      "value": 47.476554,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2020-04",
+      "value": 0.458415,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2021-04",
+      "value": 50.948302,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2021-04",
+      "value": 0.629584,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2022-04",
+      "value": 57.292981,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2022-04",
+      "value": 0.674403,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2023-04",
+      "value": 58.683641,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2023-04",
+      "value": 0.533411,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2024-04",
+      "value": 65.862715,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2024-04",
+      "value": 0.415777,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 57.983115,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S20",
+      "time": "2025-04",
+      "value": 0.408854,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2008-04",
+      "value": 42.39056,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2008-04",
+      "value": 2.635978,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2009-04",
+      "value": 46.30904,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2009-04",
+      "value": 2.520342,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2010-04",
+      "value": 45.468383,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2010-04",
+      "value": 2.304221,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2011-04",
+      "value": 47.434707,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2011-04",
+      "value": 2.233796,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2012-04",
+      "value": 48.861237,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2012-04",
+      "value": 2.160275,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2013-04",
+      "value": 53.79856,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2013-04",
+      "value": 2.220242,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2014-04",
+      "value": 61.950895,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2014-04",
+      "value": 1.850337,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2015-04",
+      "value": 69.173592,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2015-04",
+      "value": 1.202301,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2016-04",
+      "value": 75.470398,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2016-04",
+      "value": 1.238562,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2017-04",
+      "value": 65.628556,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2017-04",
+      "value": 1.245677,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2018-04",
+      "value": 74.037582,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2018-04",
+      "value": 1.306822,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2019-04",
+      "value": 67.137073,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2019-04",
+      "value": 1.291495,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2020-04",
+      "value": 54.363293,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2020-04",
+      "value": 1.019128,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2021-04",
+      "value": 64.844891,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2021-04",
+      "value": 0.727537,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2022-04",
+      "value": 70.249774,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2022-04",
+      "value": 0.865807,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2023-04",
+      "value": 71.302062,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2023-04",
+      "value": 0.888592,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2024-04",
+      "value": 76.641833,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2024-04",
+      "value": 0.728712,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 69.287351,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S22",
+      "time": "2025-04",
+      "value": 0.561044,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2008-04",
+      "value": 0.573475,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2009-04",
+      "value": 0.577125,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2010-04",
+      "value": 0.591039,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2011-04",
+      "value": 0.649278,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2012-04",
+      "value": 0.641232,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2013-04",
+      "value": 1.06492,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2014-04",
+      "value": 1.720998,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2015-04",
+      "value": 2.299221,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2016-04",
+      "value": 2.64325,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2017-04",
+      "value": 2.699672,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2018-04",
+      "value": 2.983882,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2019-04",
+      "value": 2.741823,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2020-04",
+      "value": 3.169444,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2021-04",
+      "value": 2.659553,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2022-04",
+      "value": 3.291958,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2023-04",
+      "value": 2.954936,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2024-04",
+      "value": 2.299942,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S23",
+      "time": "2025-04",
+      "value": 2.272111,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2008-04",
+      "value": 73.870902,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2008-04",
+      "value": 4.063545,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2009-04",
+      "value": 75.415394,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2009-04",
+      "value": 4.560759,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2010-04",
+      "value": 80.975908,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2010-04",
+      "value": 4.396149,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2011-04",
+      "value": 78.063234,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2011-04",
+      "value": 4.164611,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2012-04",
+      "value": 91.731965,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2012-04",
+      "value": 3.23658,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2013-04",
+      "value": 101.426668,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2013-04",
+      "value": 2.336333,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2014-04",
+      "value": 102.429632,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2014-04",
+      "value": 1.887426,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2015-04",
+      "value": 100.082102,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2015-04",
+      "value": 2.030089,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2016-04",
+      "value": 109.919834,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2016-04",
+      "value": 1.247683,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2017-04",
+      "value": 109.003949,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2017-04",
+      "value": 0.902151,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2018-04",
+      "value": 114.811129,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2018-04",
+      "value": 0.992912,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2019-04",
+      "value": 112.098848,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2019-04",
+      "value": 1.033443,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2020-04",
+      "value": 118.003415,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2020-04",
+      "value": 1.111838,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2021-04",
+      "value": 126.7263,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2021-04",
+      "value": 0.482366,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2022-04",
+      "value": 147.292314,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2022-04",
+      "value": 0.422327,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2023-04",
+      "value": 148.675186,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2023-04",
+      "value": 0.753077,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2024-04",
+      "value": 155.933631,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2024-04",
+      "value": 0.56265,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 160.74711,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S24",
+      "time": "2025-04",
+      "value": 0.353679,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2008-04",
+      "value": 48.913982,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2008-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2009-04",
+      "value": 50.345164,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2009-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2010-04",
+      "value": 53.523187,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2010-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2011-04",
+      "value": 56.048262,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2011-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2012-04",
+      "value": 62.144102,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2012-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2013-04",
+      "value": 63.384545,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2013-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2014-04",
+      "value": 63.334769,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2014-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2015-04",
+      "value": 60.911699,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2015-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2016-04",
+      "value": 69.817308,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2016-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2017-04",
+      "value": 65.609779,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2017-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2018-04",
+      "value": 73.257862,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2018-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2019-04",
+      "value": 68.478983,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2019-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2020-04",
+      "value": 71.901619,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2020-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2021-04",
+      "value": 80.707017,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2021-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2022-04",
+      "value": 85.37764,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2022-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2023-04",
+      "value": 87.127891,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2023-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2024-04",
+      "value": 90.066961,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2024-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S25",
+      "time": "2025-04",
+      "value": 85.475248,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2008-04",
+      "value": 31.557665,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2009-04",
+      "value": 45.643626,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2010-04",
+      "value": 55.204398,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2011-04",
+      "value": 57.751498,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2012-04",
+      "value": 67.06768,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2013-04",
+      "value": 69.788755,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2014-04",
+      "value": 78.14988,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2015-04",
+      "value": 86.092005,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2016-04",
+      "value": 102.437426,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2017-04",
+      "value": 99.101983,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2018-04",
+      "value": 113.732225,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2019-04",
+      "value": 112.196363,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2020-04",
+      "value": 133.17873,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2021-04",
+      "value": 136.308319,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2022-04",
+      "value": 138.927341,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2023-04",
+      "value": 158.313187,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2024-04",
+      "value": 161.274401,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S26",
+      "time": "2025-04",
+      "value": 164.298834,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2008-04",
+      "value": 9.08893,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2008-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2009-04",
+      "value": 11.0993,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2009-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2010-04",
+      "value": 11.549858,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2010-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2011-04",
+      "value": 13.580236,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2011-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2012-04",
+      "value": 19.771435,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2012-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2013-04",
+      "value": 22.272972,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2013-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2014-04",
+      "value": 22.802849,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2014-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2015-04",
+      "value": 25.46402,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2015-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2016-04",
+      "value": 25.142467,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2017-04",
+      "value": 24.366181,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2018-04",
+      "value": 26.671353,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2019-04",
+      "value": 25.143565,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2020-04",
+      "value": 26.975005,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2021-04",
+      "value": 28.073216,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2022-04",
+      "value": 29.721247,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2023-04",
+      "value": 34.826132,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2024-04",
+      "value": 37.586967,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S27",
+      "time": "2025-04",
+      "value": 39.645821,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2016-04",
+      "value": 0.436055,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2017-04",
+      "value": 0.730345,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2018-04",
+      "value": 0.564408,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2019-04",
+      "value": 0.894056,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2020-04",
+      "value": 0.324887,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2021-04",
+      "value": 0.425174,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2022-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2023-04",
+      "value": 0.283557,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2024-04",
+      "value": 0.37783,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S28",
+      "time": "2025-04",
+      "value": 0.215722,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2008-04",
+      "value": 29.775378,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2009-04",
+      "value": 30.716026,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2010-04",
+      "value": 30.994627,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2011-04",
+      "value": 34.563701,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2012-04",
+      "value": 37.201997,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2013-04",
+      "value": 34.269552,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2014-04",
+      "value": 36.099538,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2015-04",
+      "value": 34.501295,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2016-04",
+      "value": 40.04285,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2017-04",
+      "value": 42.732158,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2018-04",
+      "value": 47.525659,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2019-04",
+      "value": 45.37716,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2020-04",
+      "value": 44.083769,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2021-04",
+      "value": 49.984013,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2022-04",
+      "value": 49.531833,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2023-04",
+      "value": 55.214855,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2024-04",
+      "value": 54.953075,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "S29",
+      "time": "2025-04",
+      "value": 56.680802,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2008-04",
+      "value": 6.310878,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2008-04",
+      "value": 1.656756,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2009-04",
+      "value": 5.689806,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2009-04",
+      "value": 1.778328,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2010-04",
+      "value": 5.272369,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2010-04",
+      "value": 1.709545,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2011-04",
+      "value": 5.532179,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2011-04",
+      "value": 1.969641,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2012-04",
+      "value": 5.289577,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2012-04",
+      "value": 2.426634,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2013-04",
+      "value": 4.47658,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2013-04",
+      "value": 1.850085,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2014-04",
+      "value": 3.663998,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2014-04",
+      "value": 2.258136,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2015-04",
+      "value": 2.236119,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2015-04",
+      "value": 1.763127,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2016-04",
+      "value": 1.676048,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2016-04",
+      "value": 2.046784,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2017-04",
+      "value": 1.259699,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2017-04",
+      "value": 2.471278,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2018-04",
+      "value": 1.377202,
+      "facet": "coal"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2018-04",
+      "value": 2.581069,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2019-04",
+      "value": 2.7068,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2020-04",
+      "value": 2.386805,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2021-04",
+      "value": 2.078399,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2022-04",
+      "value": 1.7597,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2023-04",
+      "value": 1.746177,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2024-04",
+      "value": 1.748983,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U05",
+      "time": "2025-04",
+      "value": 1.302032,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2008-04",
+      "value": 0.116177,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2009-04",
+      "value": 0.102263,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2010-04",
+      "value": 0.087953,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2011-04",
+      "value": 0.113157,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2012-04",
+      "value": 0.103842,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2013-04",
+      "value": 0.115637,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2014-04",
+      "value": 0.045963,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2015-04",
+      "value": 0.102416,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2016-04",
+      "value": 0.111078,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2017-04",
+      "value": 0.101902,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2018-04",
+      "value": 0.103446,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2019-04",
+      "value": 0.115105,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2020-04",
+      "value": 0.104468,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2021-04",
+      "value": 0.105475,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2022-04",
+      "value": 0.108378,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2023-04",
+      "value": 0.104537,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2024-04",
+      "value": 0.092432,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U07",
+      "time": "2025-04",
+      "value": 0.083115,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2008-04",
+      "value": 0.000126,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2009-04",
+      "value": 0.005643,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2010-04",
+      "value": 0.006358,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2011-04",
+      "value": 0.002435,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2012-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2013-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2014-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2015-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2016-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2017-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2018-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2019-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2020-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2021-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2022-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2023-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    },
+    {
+      "entity_id": "U08",
+      "time": "2024-04",
+      "value": 0.0,
+      "facet": "oil-gas"
+    }
+  ]
+}
