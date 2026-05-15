@@ -1,6 +1,6 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-15 (revision: Phase 3 c3 of TN-GRANULAR-GEO-PLAN — drill-down UX behavioural)
+**Last Updated**: 2026-05-15 (revision: Phase 4 d1 of TN-GRANULAR-GEO-PLAN — diagonal-hatch fill for no-data polygons)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
@@ -238,6 +238,20 @@ The fade-out / fade-in across drill levels uses a CSS `opacity` transition at 25
 ### Why this lives inline in `IndicatorChoropleth.svelte`
 
 The plan was explicit: no new components for crumbs / glyphs — inline them in the choropleth. The drill state machine is the only seam carved out (`drilldown.ts`), and only because pure orchestration logic must be unit-testable without mounting Svelte (the project's vitest stack does not bundle `@testing-library/svelte`; see `IndicatorChoropleth.boundaries.test.ts` header for the reasoning).
+
+## Diagonal-hatch fill for no-data polygons (Phase 4 d1 of TN-GRANULAR-GEO-PLAN)
+
+Pulled forward from Phase 3 c3 deferral. The drill-down's deeper levels (district / subdistrict / village) currently render as "no data" because no indicator emits rows at those grains yet. A flat slate-200 fill on every polygon reads as "this region has the minimum value" — indistinguishable from the lowest choropleth bucket. The well-known cartographic convention for missing-data is a **diagonal hatch** overlay, which reads unambiguously as "different kind of empty".
+
+### Implementation
+
+A pure helper in `frontend/src/lib/maplibre/hatch.ts` (`diagonalHatch()`) generates an 8×8 RGBA tile of slate-400 stripes on transparent background. `MapChoropleth.svelte` registers it once on `map.on("load", …)` via `map.addImage("yen-hatch", …)` (idempotent — guarded by `hasImage`). A second fill layer `yen-fill-hatch` sits between the flat-fill and line layers, painted with `fill-pattern: "yen-hatch"`. Its filter selects features whose join-key is **not** in the `fills` map, gated on the new `hatch_unmapped: boolean = false` prop (default off → no behaviour change for existing consumers).
+
+`IndicatorChoropleth.svelte` opts in (`hatch_unmapped={drill_state.level !== "state"}`) so deeper drill levels get the hatch automatically until a producer starts emitting district / subdistrict / village rows.
+
+### Why the helper is pure
+
+Vitest cannot mount maplibre (no @testing-library/svelte, jsdom has no real canvas). Carving the pattern generator out of the Svelte component lets us assert the pixel layout directly (`hatch.test.ts`: 5 cases — buffer shape, default colour, transparency, seam-tiling, custom colour). The wiring inside the component is paint-only — no behavioural branching beyond the filter rebuild already covered by the existing `repaint()` effect.
 
 ## See also
 

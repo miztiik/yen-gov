@@ -17,6 +17,7 @@
   import "maplibre-gl/dist/maplibre-gl.css";
   import { Protocol } from "pmtiles";
   import { resolveSource, type BoundaryEntry } from "./sources";
+  import { diagonalHatch } from "./hatch";
 
   interface FeatureSelection {
     /** Join-key value (string for state name, number for AC_NO). */
@@ -43,6 +44,14 @@
      * focused feature (e.g. the current AC on the constituency drilldown).
      */
     highlight_key?: string | number;
+    /**
+     * When true, every feature whose join-key is NOT a key in `fills`
+     * renders with a diagonal-hatch fill instead of `default_fill`. The
+     * citizen-cartography convention for "no data here" — distinguishes
+     * a missing measurement from the lowest choropleth bucket. Default
+     * off for back-compat (existing consumers stay flat-filled).
+     */
+    hatch_unmapped?: boolean;
     onSelect?: (sel: FeatureSelection) => void;
     onHover?: (sel: FeatureSelection | null) => void;
   }
@@ -55,6 +64,7 @@
     default_fill = "#e2e8f0", // slate-200 — visible but unobtrusive
     height = "420px",
     highlight_key,
+    hatch_unmapped = false,
     onSelect,
     onHover,
   }: Props = $props();
@@ -75,6 +85,8 @@
   let pmtiles_registered = false;
 
   const FILL_LAYER_ID = "yen-fill";
+  const FILL_HATCH_LAYER_ID = "yen-fill-hatch";
+  const HATCH_IMAGE_ID = "yen-hatch";
   const LINE_LAYER_ID = "yen-line";
   const HIGHLIGHT_LAYER_ID = "yen-highlight";
   // Halo layer drawn beneath HIGHLIGHT_LAYER_ID so the slate-900 stroke
@@ -142,6 +154,19 @@
     return ["==", get_join_value(numeric), join_key];
   }
 
+  function hatch_filter(): unknown[] {
+    // The hatch layer covers features whose join-key is NOT in fills.
+    // Always-false when hatch_unmapped is off OR fills is empty (nothing
+    // to "exclude from", so nothing to hatch — every feature is unmapped
+    // and the citizen would see hatching everywhere, which is noise).
+    if (!hatch_unmapped) return ["==", ["literal", 1], ["literal", 0]];
+    const keys = Object.keys(fills);
+    if (keys.length === 0) return ["==", ["literal", 1], ["literal", 0]];
+    const numeric = keys_are_numeric(keys);
+    const literal_keys = keys.map(k => (numeric ? Number(k) : k));
+    return ["!", ["in", get_join_value(numeric), ["literal", literal_keys]]];
+  }
+
   function repaint(): void {
     if (!map || !map.getLayer(FILL_LAYER_ID)) return;
     map.setPaintProperty(FILL_LAYER_ID, "fill-color", fill_expression());
@@ -153,6 +178,9 @@
     if (map.getLayer(HIGHLIGHT_LAYER_ID)) {
       map.setFilter(HIGHLIGHT_LAYER_ID, f);
     }
+    if (map.getLayer(FILL_HATCH_LAYER_ID)) {
+      map.setFilter(FILL_HATCH_LAYER_ID, hatch_filter());
+    }
   }
 
   // Recompute paint expressions on any prop change. Cheap — just a few
@@ -161,6 +189,7 @@
     void fills;
     void opacities;
     void highlight_key;
+    void hatch_unmapped;
     repaint();
   });
 
@@ -215,6 +244,22 @@
               paint: {
                 "fill-color": fill_expression(),
                 "fill-opacity": opacity_expression(),
+              },
+            },
+            // Hatched overlay for "no data" polygons (Phase 4 d1). Drawn
+            // above the flat fill, below lines/highlight. Filtered to
+            // never paint when hatch_unmapped=false (back-compat).
+            {
+              id: FILL_HATCH_LAYER_ID,
+              type: "fill",
+              source: SOURCE_ID,
+              ...(resolved.kind === "pmtiles"
+                ? { "source-layer": resolved.source_layer! }
+                : {}),
+              filter: hatch_filter(),
+              paint: {
+                "fill-pattern": HATCH_IMAGE_ID,
+                "fill-opacity": 0.85,
               },
             },
             {
@@ -310,6 +355,14 @@
         });
 
         map.on("load", () => {
+          // Register the hatch pattern as a maplibre image. Done inside the
+          // load handler so the style is ready; the FILL_HATCH_LAYER_ID
+          // layer references this image via fill-pattern. Idempotent
+          // (hasImage guards re-registration if a parent re-mounts).
+          if (!map.hasImage(HATCH_IMAGE_ID)) {
+            const h = diagonalHatch();
+            map.addImage(HATCH_IMAGE_ID, { width: h.width, height: h.height, data: h.data });
+          }
           // Fit bounds to the data extent. For GeoJSON we have it locally;
           // for vector tiles maplibre exposes querySourceFeatures only for
           // visible tiles, which isn't enough — fall back to the same bbox

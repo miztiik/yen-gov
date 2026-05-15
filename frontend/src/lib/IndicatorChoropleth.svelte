@@ -647,6 +647,7 @@
               tooltips={drill_state.level === "state" ? tooltips : deeper_tooltips}
               {height}
               highlight_key={drill_state.level === "state" ? highlight_key : undefined}
+              hatch_unmapped={drill_state.level !== "state"}
               onSelect={handleSelect}
             />
           {/key}
