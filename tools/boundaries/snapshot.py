@@ -116,7 +116,13 @@ def stream_to_disk(url: str, dest: Path) -> None:
 
 def derive_output_basename(entry: dict[str, Any]) -> str:
     """Output naming mirrors the BoundaryEntry.id convention used in
-    frontend/src/lib/maplibre/sources.ts: 'india-states' or '<state>-ac'."""
+    frontend/src/lib/maplibre/sources.ts: 'india-states' or '<state>-ac'.
+
+    For `kind: "villages"` with a `source.split_by` block, returns a
+    template basename containing `{<property>}` (e.g.
+    `S22-villages-{dist_lgd}.geojson`); the orchestrator substitutes per
+    group when emitting shards.
+    """
     kind = entry["kind"]
     state = entry.get("state")
     if kind == "states":
@@ -128,6 +134,13 @@ def derive_output_basename(entry: dict[str, Any]) -> str:
         # district carve-outs would use kind='districts' with state=<S22>;
         # add that branch when the first per-state district consumer ships.
         return "india-districts.geojson"
+    if kind == "subdistricts" and state:
+        return f"{state}-subdistricts.geojson"
+    if kind == "villages" and state:
+        split = entry.get("source", {}).get("split_by")
+        if split:
+            return f"{state}-villages-{{{split['property']}}}.geojson"
+        return f"{state}-villages.geojson"
     msg = f"unknown entry shape: kind={kind} state={state}"
     raise ValueError(msg)
 
@@ -421,6 +434,158 @@ def apply_state_filter(
     return kept, dropped
 
 
+def apply_split_by(
+    features: list[dict[str, Any]],
+    split_spec: dict[str, Any],
+) -> tuple[dict[Any, list[dict[str, Any]]], list[dict[str, Any]]]:
+    """Group features by `split_spec["property"]`. Returns
+    `(groups: {value: [features]}, dropped: [features])` where dropped
+    holds features that lack the property entirely (None or missing).
+
+    The orchestrator emits one shard per group at the templated
+    `out_path` and one manifest listing the groups present.
+    """
+    prop = split_spec["property"]
+    groups: dict[Any, list[dict[str, Any]]] = {}
+    dropped: list[dict[str, Any]] = []
+    for f in features:
+        v = f.get("properties", {}).get(prop)
+        if v is None:
+            dropped.append(f)
+            continue
+        groups.setdefault(v, []).append(f)
+    return groups, dropped
+
+
+def emit_index_manifest(
+    index_path: Path,
+    state_lgd: int,
+    group_keys: list[Any],
+    schema_basename: str,
+) -> None:
+    """Write the per-state index manifest atomically (temp-then-rename so a
+    crash mid-write cannot leave a partial manifest beside complete shards
+    — Fowler v5 nit). Validates against `boundary.villages_index.schema.json`
+    by construction: state_lgd + district codes serialised as digit strings,
+    sorted ascending.
+    """
+    payload = {
+        "$schema": f"https://yen-gov.github.io/schemas/{schema_basename}",
+        "$schema_version": "1.0",
+        "$comment": (
+            "Index of per-district shards present on disk. The frontend loader "
+            "consults this to avoid 404-probing for districts whose village "
+            "layer was not emitted (TODO/TN-GRANULAR-GEO-PLAN.md Phase 2)."
+        ),
+        "state_lgd": str(state_lgd),
+        "district_lgd_codes": sorted({str(k) for k in group_keys}),
+        "generated_at": utc_now(),
+    }
+    index_path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = index_path.with_suffix(index_path.suffix + ".part")
+    with tmp.open("w", encoding="utf-8", newline="\n") as fh:
+        json.dump(payload, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+    tmp.replace(index_path)
+
+
+def _write_sources_sidecar(sidecar_path: Path, basename: str, sources: list[dict[str, str]]) -> None:
+    """Write the boundary.sources.schema.json v1.0 sidecar for one shard."""
+    sidecar = {
+        "$schema": "https://yen-gov.github.io/schemas/boundary.sources.schema.json",
+        "$schema_version": "1.0",
+        "$comment": (
+            "CLAUDE.md §12 provenance sidecar for the GeoJSON of the same name. "
+            "GeoJSON has no native top-level metadata slot; this file carries the "
+            "required `sources` array on its behalf."
+        ),
+        "for": basename,
+        "sources": sources,
+    }
+    with sidecar_path.open("w", encoding="utf-8", newline="\n") as fh:
+        json.dump(sidecar, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+
+
+def _emit_split_shards(
+    entry: dict[str, Any],
+    source: dict[str, Any],
+    template_basename: str,
+    features: list[dict[str, Any]],
+    sources: list[dict[str, str]],
+    out_root: Path,
+) -> dict[str, Any] | None:
+    """Group features per `source.split_by`, emit one GeoJSON shard + sources
+    sidecar per group, and write the index manifest atomically.
+
+    `template_basename` is the output of `derive_output_basename` containing
+    `{<property>}` (e.g. `S22-villages-{dist_lgd}.geojson`); each group's
+    value is substituted in to produce the shard basename.
+
+    Per-shard budget: shards over `SNAPSHOT_BYTE_BUDGET` are deleted and
+    omitted from both the shard list and the index manifest, mirroring the
+    single-file budget behaviour.
+    """
+    split = source["split_by"]
+    prop = split["property"]
+    groups, dropped_no_prop = apply_split_by(features, split)
+    print(f"  split_by[{prop}] -> {len(groups)} groups (skipped {len(dropped_no_prop)} feature(s) with no {prop})", flush=True)
+
+    emitted_keys: list[Any] = []
+    total_bytes = 0
+    skipped_oversize: list[Any] = []
+    for key in sorted(groups, key=lambda k: (str(k))):
+        shard_basename = template_basename.replace(f"{{{prop}}}", str(key))
+        shard_path = out_root / shard_basename
+        emit_feature_collection(shard_path, groups[key])
+        size = shard_path.stat().st_size
+        if size > SNAPSHOT_BYTE_BUDGET:
+            shard_path.unlink()
+            skipped_oversize.append(key)
+            print(
+                f"  SKIP shard {shard_basename} — {size / 1024 / 1024:.1f} MB exceeds "
+                f"{SNAPSHOT_BYTE_BUDGET / 1024 / 1024:.0f} MB budget",
+                flush=True,
+            )
+            continue
+        sidecar_path = shard_path.with_suffix(shard_path.suffix + ".sources.json")
+        _write_sources_sidecar(sidecar_path, shard_basename, sources)
+        emitted_keys.append(key)
+        total_bytes += size
+
+    # Index manifest. State LGD comes from the entry's state_filter when
+    # present; the manifest schema requires it as a digit string.
+    state_lgd = source.get("state_filter", {}).get("equals")
+    if state_lgd is None:
+        msg = (
+            "split_by currently requires a state_filter equals to populate the "
+            "index manifest's state_lgd; multi-state split is not yet supported."
+        )
+        raise ValueError(msg)
+    index_basename = split.get("emit_index")
+    if not index_basename:
+        msg = "split_by requires `emit_index` (basename of the index manifest)"
+        raise ValueError(msg)
+    schema_basename = split.get("index_schema", "boundary.villages_index.schema.json")
+    index_path = out_root / index_basename
+    emit_index_manifest(index_path, state_lgd, emitted_keys, schema_basename)
+
+    record: dict[str, Any] = {
+        "id": template_basename.removesuffix(".geojson"),
+        "path": f"boundaries/in/geojson/{index_basename}",
+        "kind": entry["kind"],
+        "size_bytes": total_bytes,
+        "fetched_at": sources[-1]["fetched_at"],
+        "shard_count": len(emitted_keys),
+        "shard_keys": [str(k) for k in emitted_keys],
+    }
+    if "state" in entry:
+        record["state"] = entry["state"]
+    if skipped_oversize:
+        record["skipped_oversize"] = [str(k) for k in skipped_oversize]
+    return record
+
+
 def snapshot_one(
     entry: dict[str, Any],
     out_root: Path,
@@ -452,7 +617,7 @@ def snapshot_one(
             coord_precision=source.get("coord_precision"),
         )
     elif fmt == "geojsonl_7z":
-        bundle_dir = raw_root / "snapshot" / basename.removesuffix(".geojson")
+        bundle_dir = raw_root / "snapshot" / basename.removesuffix(".geojson").replace("{", "_").replace("}", "_")
         features, sources = fetch_geojsonl_7z(
             urls,
             bundle_dir,
@@ -461,6 +626,10 @@ def snapshot_one(
         if "state_filter" in source:
             features, _dropped_by_filter = apply_state_filter(features, source["state_filter"])
             print(f"  state_filter kept {len(features)} (dropped {len(_dropped_by_filter)})", flush=True)
+        if "split_by" in source:
+            return _emit_split_shards(
+                entry, source, basename, features, sources, out_root,
+            )
         emit_feature_collection(out_path, features)
     else:  # pragma: no cover — caught at config-parse time in practice
         msg = f"unknown source.format: {fmt!r}"

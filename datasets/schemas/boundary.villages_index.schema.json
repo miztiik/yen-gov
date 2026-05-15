@@ -8,7 +8,7 @@
     {
       "version": "1.0",
       "date": "2026-05-15",
-      "description": "Initial schema. Records {state_lgd, district_lgd_codes:[...], generated_at}. Emitted by backend/yen_gov/pipelines/boundaries_tn/emit.py alongside the per-district village GeoJSONs. Pure additive — pre-existing boundary files unaffected."
+      "description": "Initial schema. Records {state_lgd, district_lgd_codes:[...], generated_at}. Emitted by tools/boundaries/snapshot.py alongside the per-district village GeoJSONs (the source.split_by block). Pure additive — pre-existing boundary files unaffected."
     }
   ],
   "type": "object",
