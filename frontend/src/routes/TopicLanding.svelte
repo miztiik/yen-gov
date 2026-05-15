@@ -27,6 +27,7 @@
   import IndicatorRanked from "../lib/IndicatorRanked.svelte";
   import IndicatorSmallMultiples from "../lib/IndicatorSmallMultiples.svelte";
   import StackedTrendArtifact from "../lib/StackedTrendArtifact.svelte";
+  import { renderKindForArtifact } from "../lib/topic-dispatch";
   import ListBadge from "../lib/ListBadge.svelte";
   import UnionListBanner from "../lib/UnionListBanner.svelte";
   import PeerSetFilter from "../lib/PeerSetFilter.svelte";
@@ -182,7 +183,7 @@
                   />
                 </span>
               </div>
-              {#if artifact.chart_type === "stacked-trend"}
+              {#if renderKindForArtifact(artifact) === "stacked-trend"}
                 <StackedTrendArtifact
                   indicator_path={path}
                   mode="spatial"
