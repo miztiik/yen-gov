@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/subdistrict.schema.json",
+  "title": "Subdistricts collection (per state)",
+  "description": "All subdistricts (taluks / tehsils / mandals — the unit varies by state) within a single state, keyed by LGD numeric code. Analogous to district.schema.json. One file per state at datasets/reference/in/states/<S>/subdistricts.json. Joined to datasets/boundaries/in/geojson/<S>-subdistricts.geojson via lgd_code (matches the GeoJSON feature property `subdist_lgd`). Per TODO/TN-GRANULAR-GEO-PLAN.md Phase 0 and ADR-0019 amendment promoting subdistrict_lgd_code to first-class canonical column.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-15",
+      "description": "Initial schema. Per-state subdistrict registry mirroring district.schema.json shape. Required fields: id, id_source, name, district_id (parent district id, same id_source). Optional: lgd_code (numeric, required when id_source=lgd), name_alt, name_source, created_on, split_from. Top-level: $schema, $schema_version, sources, state, subdistricts. Created for TN granular-geo pipeline; emitted from datasets/reference/in/lgd/subdistricts-latest.csv (ramSeraph opendata mirror) joined to existing per-state districts.json via parent district_lgd."
+    }
+  ],
+  "type": "object",
+  "required": [
+    "$schema",
+    "$schema_version",
+    "sources",
+    "state",
+    "subdistricts"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline fetched it. An empty array signals hand-authored content.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[SU]\\d{2}$",
+      "description": "ECI state code that this collection belongs to."
+    },
+    "subdistricts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "id_source", "name", "district_id"],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": { "properties": { "id_source": { "const": "lgd" } } },
+            "then": { "required": ["lgd_code"] }
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Stable identifier. LGD numeric code (preferred) or Wikipedia URL slug (fallback)."
+          },
+          "id_source": {
+            "enum": ["lgd", "wikipedia"]
+          },
+          "lgd_code": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$",
+            "description": "LGD numeric subdistrict code. Join key against the <S>-subdistricts.geojson feature property `subdist_lgd`. Required when id_source=lgd."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name_alt": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional alternate canonical name where upstream LGD and citizen-recognised name diverge. Tooltip / search affordance only — never an identifier."
+          },
+          "name_source": {
+            "enum": ["lgd", "census_2011", "wikipedia"]
+          },
+          "district_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Parent district id. MUST resolve into the same state's districts.json under the same id_source."
+          },
+          "headquarters": { "type": "string" },
+          "created_on": {
+            "type": ["string", "null"],
+            "format": "date"
+          },
+          "split_from": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Parent subdistrict ids (same id_source) if this subdistrict was carved out."
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

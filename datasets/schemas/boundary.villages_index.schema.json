@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/boundary.villages_index.schema.json",
+  "title": "Per-state village-boundaries index",
+  "description": "Manifest sidecar that lists which per-district village-boundary files (`<S>-villages-<dist_lgd>.geojson`) exist on disk for a given state. The frontend loader reads this at startup so it can decide whether a village-level drill is fetchable for a given district WITHOUT a 404-probe (Fowler v4 nit 1, TODO/TN-GRANULAR-GEO-PLAN.md). Lives at `datasets/boundaries/in/geojson/<S>-villages-index.json`.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-15",
+      "description": "Initial schema. Records {state_lgd, district_lgd_codes:[...], generated_at}. Emitted by backend/yen_gov/pipelines/boundaries_tn/emit.py alongside the per-district village GeoJSONs. Pure additive — pre-existing boundary files unaffected."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "state_lgd", "district_lgd_codes", "generated_at"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+    "state_lgd": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$",
+      "description": "LGD numeric state code (e.g. \"33\" for Tamil Nadu)."
+    },
+    "district_lgd_codes": {
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "description": "LGD numeric district codes for which a village-level boundary file exists on disk under the same directory. Sorted ascending lexicographically. Empty array = no village layer emitted yet for this state.",
+      "items": { "type": "string", "pattern": "^[1-9][0-9]*$" }
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC 3339 UTC timestamp when the emitter wrote this index."
+    }
+  }
+}

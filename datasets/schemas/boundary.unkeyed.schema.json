@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/boundary.unkeyed.schema.json",
+  "title": "Boundary unkeyed-features sidecar",
+  "description": "Sibling sidecar (`<file>.geojson.unkeyed.json`) for an LGD-keyed boundary GeoJSON, listing features that were dropped from the emitted file because they could not be joined to the LGD registry. Surfaces a denominator so the UI can say \"47 of 12,524 villages (0.4%) lack an LGD join\" rather than silently shrink the dataset (defuses Hans's Negativity-instinct concern). Per TODO/TN-GRANULAR-GEO-PLAN.md Phase 0.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-15",
+      "description": "Initial schema. Records dropped features (unkeyed against LGD registry) plus totals so the citizen-facing UI can show retention rate. Top-level: $schema, $schema_version, for, dropped (array of {source_feature_name, reason, dropped_at}), totals ({original, retained, dropped}). Empty `dropped` array with totals.dropped=0 is the canonical \"perfect join\" signal."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "for", "totals", "dropped"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+    "for": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\.geojson$",
+      "description": "Basename of the sibling GeoJSON this sidecar describes (e.g. \"S22-villages-603.geojson\")."
+    },
+    "totals": {
+      "type": "object",
+      "required": ["original", "retained", "dropped"],
+      "additionalProperties": false,
+      "properties": {
+        "original": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Feature count in the upstream source before LGD-join filtering."
+        },
+        "retained": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Feature count in the emitted GeoJSON. MUST equal original - dropped."
+        },
+        "dropped": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Feature count dropped for lack of LGD join. MUST equal len(dropped[])."
+        }
+      }
+    },
+    "dropped": {
+      "type": "array",
+      "description": "One entry per feature that could not be matched to the LGD registry. Empty array with totals.dropped=0 is a perfect join.",
+      "items": {
+        "type": "object",
+        "required": ["source_feature_name", "reason", "dropped_at"],
+        "additionalProperties": false,
+        "properties": {
+          "source_feature_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Name of the feature in the upstream source as best we can identify it (often the only handle we have when the LGD code is missing)."
+          },
+          "reason": {
+            "enum": [
+              "no_lgd_code_in_source",
+              "lgd_code_not_in_registry",
+              "lgd_code_ambiguous",
+              "geometry_invalid",
+              "outside_state_filter",
+              "other"
+            ],
+            "description": "Why the feature was dropped. `other` requires a non-empty `notes`."
+          },
+          "notes": { "type": "string" },
+          "dropped_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "RFC 3339 UTC timestamp when the emitter dropped this feature."
+          }
+        }
+      }
+    }
+  }
+}

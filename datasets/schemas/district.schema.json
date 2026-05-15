@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/district.schema.json",
   "title": "Districts collection (per state)",
   "description": "All districts within a single state, keyed by LGD (Local Government Directory) code where available, falling back to a Wikipedia-derived slug. Each file covers exactly one state.",
-  "x-version": "3.2",
+  "x-version": "3.3",
   "x-changelog": [
     {
       "version": "1.0",
@@ -29,6 +29,11 @@
       "version": "3.2",
       "date": "2026-05-13",
       "description": "Additive: optional lgd_code (LGD numeric district code, string) on each district item. Set during backfill from datasets/reference/in/lgd/districts-latest.csv (ramSeraph opendata mirror). Independent of id/id_source so wikipedia-slug ids stay stable for cross-file references in constituencies.json. lgd_code is the join key against datasets/boundaries/in/geojson/india-districts.geojson where features carry dist_lgd. Per ADR-0015 (LGD as district authority) and ADR-0019 (district_lgd_code dataset column)."
+    },
+    {
+      "version": "3.3",
+      "date": "2026-05-15",
+      "description": "Additive: optional name_alt (alternate canonical name — e.g. Thoothukudi/Tuticorin), name_source enum (lgd|census_2011 — which authority issued the canonical name), census_2011_code (Census 2011 district code, frozen at 2011 — null for post-2011 districts), lgd_code_history (array of {old, retired_on} for districts whose LGD code changed), created_after_2011 ({date, parent_lgd_codes:[...], notes} — parent_lgd_codes is plural because some new districts (e.g. Chengalpattu) were carved from multiple parents). Surfaces the methodology break required by trend visualisations across Census-frozen layers vs current-LGD layers. Existing v3.2 data files re-validate unchanged. Per TODO/TN-GRANULAR-GEO-PLAN.md Phase 0 (Hans v2 nits)."
     }
   ],
   "type": "object",
@@ -117,6 +122,48 @@
           "name": {
             "type": "string",
             "minLength": 1
+          },
+          "name_alt": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional alternate canonical name when the upstream LGD CSV and the citizen-recognised name diverge (e.g. \"Tuticorin\" alongside name \"Thoothukudi\"). Tooltip / search affordance only — never an identifier."
+          },
+          "name_source": {
+            "enum": ["lgd", "census_2011", "wikipedia"],
+            "description": "Optional. Which authority issued the canonical name. Defaults to id_source when absent."
+          },
+          "census_2011_code": {
+            "type": ["string", "null"],
+            "pattern": "^[0-9]+$",
+            "description": "Optional. Census 2011 district code (frozen at the 2011 Census; non-incrementing). Null for post-2011 districts (e.g. Mayiladuthurai 2020, Tenkasi 2019). Lets trend visualisations bridge Census-frozen layers (e.g. SECC) to current LGD geometry."
+          },
+          "lgd_code_history": {
+            "type": "array",
+            "description": "Optional. Prior LGD codes this district has held (rare but happens on UT reorganisation, etc.). Most recent code is the current `lgd_code`.",
+            "items": {
+              "type": "object",
+              "required": ["old", "retired_on"],
+              "additionalProperties": false,
+              "properties": {
+                "old": { "type": "string", "pattern": "^[1-9][0-9]*$" },
+                "retired_on": { "type": "string", "format": "date" }
+              }
+            }
+          },
+          "created_after_2011": {
+            "type": "object",
+            "description": "Optional. Methodology-break marker for districts that did not exist in Census 2011. Surfaces the break to trend visualisations so they don't draw a continuous polyline through a discontinuity. parent_lgd_codes is plural because some new districts (e.g. Chengalpattu, carved from multiple parents) have more than one ancestor.",
+            "required": ["date", "parent_lgd_codes"],
+            "additionalProperties": false,
+            "properties": {
+              "date": { "type": "string", "format": "date" },
+              "parent_lgd_codes": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string", "pattern": "^[1-9][0-9]*$" }
+              },
+              "notes": { "type": "string" }
+            }
           },
           "headquarters": {
             "type": "string"

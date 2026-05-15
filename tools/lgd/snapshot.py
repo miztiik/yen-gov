@@ -33,7 +33,14 @@ RAW_ROOT = REPO / ".runtime" / "raw" / "lgd"
 OUT_ROOT = REPO / "datasets" / "reference" / "in" / "lgd"
 
 RELEASE_TAG = "lgd-latest-extra1"
-COMPONENTS = ("States", "Districts")  # canonical filenames on the release
+# Components fetched from the release. Subdistricts + Villages added 2026-05-15
+# for the TN granular-geography pipeline (TODO/TN-GRANULAR-GEO-PLAN.md Phase 1b).
+# REQUIRED components MUST be present on the release for token resolution;
+# OPTIONAL components are probed and skipped per-token if the asset is absent
+# (e.g. Villages may roll out on a different cadence than the smaller registries).
+REQUIRED_COMPONENTS = ("States", "Districts", "Subdistricts")
+OPTIONAL_COMPONENTS = ("Villages",)
+COMPONENTS = REQUIRED_COMPONENTS + OPTIONAL_COMPONENTS
 USER_AGENT = "yen-gov/0.1 (+https://github.com/yen-gov/yen-gov)"
 LOOKBACK_DAYS = 120  # release cadence is ~90 days; 120 gives margin
 WALK_LIMIT = 200  # safety bound, never sweeps more than this many dates
@@ -80,13 +87,17 @@ def _extract_csv(archive: Path, raw_dir: Path) -> Path:
 
 
 def _resolve_token() -> str:
-    """Find the most recent date token where BOTH States and Districts exist."""
+    """Find the most recent date token where ALL REQUIRED components exist.
+
+    OPTIONAL components are not required for token resolution — they are probed
+    per-token at fetch time and skipped if absent (see main()).
+    """
     today = datetime.now(timezone.utc).date()
     for offset in range(WALK_LIMIT):
         d = today - timedelta(days=offset)
         token = _date_token(datetime(d.year, d.month, d.day))
-        statuses = [_http_head(_asset_url(c, token)) for c in COMPONENTS]
-        print(f"  probe {token}: {dict(zip(COMPONENTS, statuses))}")
+        statuses = [_http_head(_asset_url(c, token)) for c in REQUIRED_COMPONENTS]
+        print(f"  probe {token}: {dict(zip(REQUIRED_COMPONENTS, statuses))}")
         if all(s == 200 for s in statuses):
             return token
         if offset >= LOOKBACK_DAYS:
@@ -132,6 +143,12 @@ def main() -> None:
 
     for component in COMPONENTS:
         url = _asset_url(component, token)
+        is_optional = component in OPTIONAL_COMPONENTS
+        if is_optional:
+            status = _http_head(url)
+            if status != 200:
+                print(f"{component}: SKIP (asset not present on this release; status={status})")
+                continue
         archive = RAW_ROOT / f"{component}.{token}.csv.7z"
         print(f"{component}: {url}")
         _download(url, archive)

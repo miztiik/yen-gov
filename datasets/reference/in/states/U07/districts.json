@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/district.schema.json",
-  "$schema_version": "3.2",
+  "$schema_version": "3.3",
   "sources": [],
   "state": "U07",
   "districts": [

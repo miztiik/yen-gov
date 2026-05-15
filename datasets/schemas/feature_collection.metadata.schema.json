@@ -3,12 +3,17 @@
   "$id": "https://yen-gov.github.io/schemas/feature_collection.metadata.schema.json",
   "title": "Feature collection metadata sidecar",
   "description": "CLAUDE.md §12 provenance + license/coverage sidecar for a sibling non-electoral GeoJSON FeatureCollection (e.g. power plants, healthcare facilities). GeoJSON (RFC 7946 §7.1) reserves all top-level members; rather than muddle the artifact, a sibling `<file>.metadata.json` carries the required `sources`, `license`, `coverage`, and `coordinate_system` on its behalf. Mirrors boundary.sources.schema.json but extends it with license/coverage/CRS for non-electoral feature data.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-10",
       "description": "Initial schema. Sidecar shape (for, sources, license, coverage, coordinate_system). Created for the energy/power-plants ingest (TODO/SOCIO-ECONOMIC-EXPANSION.md Phase B). Adopts the india-geodata metadata vocabulary (D3) without breaking existing boundary sidecars."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-15",
+      "description": "Additive: optional file-level `simplification` object {tolerance_deg, algorithm, original_feature_count, retained_feature_count, original_vertex_count?, retained_vertex_count?}. Surfaces geometry-simplification metadata so downstream area/length math is not silently lying. Required by the TN granular-geo pipeline (TODO/TN-GRANULAR-GEO-PLAN.md Phase 0) for per-district village boundary GeoJSONs whose geometries are simplified at write time to meet the 8 MB gzipped per-file budget. Existing v1.0 sidecars re-validate unchanged."
     }
   ],
   "type": "object",
@@ -98,6 +103,44 @@
       "type": "string",
       "description": "EPSG identifier of the coordinate reference system. Default and overwhelmingly common: EPSG:4326. Declare even if default — explicit beats implicit.",
       "default": "EPSG:4326"
+    },
+    "simplification": {
+      "type": "object",
+      "description": "Optional. Records geometry-simplification applied at emit time. Required when the producer simplified geometry (e.g. to meet a per-file size budget) so downstream area/length math is not silently lying. Absent = no simplification applied or none recorded. Per TODO/TN-GRANULAR-GEO-PLAN.md Phase 0 (Hans v2 nit).",
+      "required": ["tolerance_deg", "algorithm", "original_feature_count", "retained_feature_count"],
+      "additionalProperties": false,
+      "properties": {
+        "tolerance_deg": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Simplification tolerance in degrees (WGS84). Typically 1e-5 to 1e-3."
+        },
+        "algorithm": {
+          "type": "string",
+          "enum": ["douglas-peucker", "visvalingam", "shapely-preserve-topology"],
+          "description": "Simplification algorithm applied. `shapely-preserve-topology` denotes shapely.simplify(..., preserve_topology=True)."
+        },
+        "original_feature_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Feature count before simplification (after any LGD-join filtering)."
+        },
+        "retained_feature_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Feature count in the emitted file. Equals original_feature_count when simplification only changes vertices, not feature count."
+        },
+        "original_vertex_count": {
+          "type": ["integer", "null"],
+          "minimum": 0,
+          "description": "Optional. Total coordinate count before simplification."
+        },
+        "retained_vertex_count": {
+          "type": ["integer", "null"],
+          "minimum": 0,
+          "description": "Optional. Total coordinate count in the emitted file."
+        }
+      }
     }
   }
 }

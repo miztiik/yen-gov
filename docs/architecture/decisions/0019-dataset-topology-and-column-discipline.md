@@ -1,7 +1,7 @@
 # ADR-0019: Dataset topology — per-state, per-topic SQLite + canonical column names
 
-**Last Updated**: 2026-05-10
-**Status**: accepted
+**Last Updated**: 2026-05-15
+**Status**: accepted (amended 2026-05-15 — see §Amendments)
 
 ## Context
 
@@ -54,10 +54,12 @@ Every SQLite emitter — elections, socio-econ, boundaries, anything future — 
 | --------------------- | --------- | ----------------------------------------------------------------------- |
 | `state_eci_code`      | `TEXT`    | ECI state code (`S22`, `U07`, …). Injected at query time when state is path-encoded; persisted as a column only in cross-state aggregates. |
 | `district_lgd_code`   | `INTEGER` | LGD numeric district code. Falls back to `district_id` (`TEXT`) with `id_source` column when LGD unavailable, per [identifiers.md](../../reference/identifiers.md). |
+| `subdistrict_lgd_code`| `INTEGER` | LGD numeric subdistrict (taluk / tehsil / mandal) code. Promoted to first-class 2026-05-15 by amendment for the TN granular-geo pipeline (`backend/yen_gov/pipelines/boundaries_tn/`). Join key against `<S>-subdistricts.geojson` feature property `subdist_lgd`. |
+| `village_lgd_code`    | `INTEGER` | LGD numeric village code. Promoted to first-class 2026-05-15 by amendment for the TN granular-geo pipeline. Join key against `<S>-villages-<dist_lgd>.geojson` feature property `village_lgd`. |
 | `ac_eci_no`           | `INTEGER` | ECI Assembly Constituency number, scoped by state.                      |
 | `year`                | `INTEGER` | Calendar year, four digits.                                             |
 
-Authoritative definitions live in [docs/reference/identifiers.md](../../reference/identifiers.md). Future additions (`pc_eci_no`, `block_lgd_code`, `village_lgd_code`, `gender`, `age_band`, `year_quarter`, …) are added to the table as the first emitter that needs them lands, in the same commit.
+Authoritative definitions live in [docs/reference/identifiers.md](../../reference/identifiers.md). Future additions (`pc_eci_no`, `block_lgd_code`, `gender`, `age_band`, `year_quarter`, …) are added to the table as the first emitter that needs them lands, in the same commit.
 
 ### 4. No socio-econ schemas land before the elections slice closes
 
@@ -87,3 +89,14 @@ Holy Law #4 (CLAUDE.md §1) plus Hohpe's "sell options, don't burn them": shippi
 - [docs/reference/identifiers.md](../../reference/identifiers.md) — authoritative table of canonical IDs and (now) column names.
 - [docs/reference/sqlite-schema.md](../../reference/sqlite-schema.md) — current elections layout; future per-domain layouts will be appended as separate sections.
 - [TODO/PLAN.md](../../../TODO/PLAN.md) — phasing that defers socio-econ until elections closes.
+
+## Amendments
+
+### 2026-05-15 — `subdistrict_lgd_code` and `village_lgd_code` promoted to first-class
+
+The TN granular-geography pipeline (TODO/TN-GRANULAR-GEO-PLAN.md) is the first emitter that needs sub-district and village identifiers. Per the original §3 rule ("Future additions are added to the table as the first emitter that needs them lands, in the same commit"), both columns are promoted from the prose footnote to first-class rows in the canonical-column table:
+
+- `subdistrict_lgd_code` (`INTEGER`) — LGD numeric subdistrict code; join key against `<S>-subdistricts.geojson` feature property `subdist_lgd`.
+- `village_lgd_code` (`INTEGER`) — LGD numeric village code; join key against `<S>-villages-<dist_lgd>.geojson` feature property `village_lgd`.
+
+`block_lgd_code` remains a deferred future addition (no emitter yet). The footnote is updated accordingly. No type or semantic change for any existing column. No migration required for any existing artifact.
