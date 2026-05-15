@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.3",
+  "$schema_version": "1.4",
   "sources": [
     {
       "url": "https://cea.nic.in/installed-capacity-report/?lang=en",
@@ -35,6 +35,14 @@
     "methodology_vintage": "CEA Monthly Executive Summary, IC sheet, snapshot 2026-03; cached file mtime 2026-05-13T21:54:16Z",
     "chart_type": "stacked-trend",
     "default_mode": "percent",
+    "facet_labels": {
+      "coal": "Coal",
+      "gas": "Gas",
+      "hydro": "Hydro",
+      "nuclear": "Nuclear",
+      "renewable": "Renewable",
+      "other_thermal": "Other thermal"
+    },
     "notes": "Composed from the per-fuel CEA artifacts. The residual 'other_thermal' facet is derived as thermal − coal − gas (lignite + diesel); it is dropped per-state when the residual is < 0.1% of that state's total. Capacity is **nameplate** MW, not generation. Read this as 'how is this state's plant fleet composed', not 'where is its electricity coming from this hour' — generation depends on plant load factor and dispatch decisions."
   },
   "rows": [

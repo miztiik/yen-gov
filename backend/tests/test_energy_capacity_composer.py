@@ -13,6 +13,7 @@ from pathlib import Path
 import pytest
 
 from yen_gov.composers.energy_capacity_by_source import (
+    FACET_LABELS,
     INDICATOR_SCHEMA_FILENAME,
     LEAF_INPUTS,
     OTHER_THERMAL_FACET,
@@ -54,6 +55,21 @@ def test_composed_artifact_carries_render_hints(composed):
     ind = composed["indicator"]
     assert ind["chart_type"] == "stacked-trend"
     assert ind["default_mode"] == "percent"
+
+
+def test_composed_artifact_emits_facet_labels(composed):
+    # Schema 1.4 / Phase 4 C2: composer is the source-of-truth for facet
+    # labels. The frontend reads these and falls back to humanise() only
+    # when absent — so the keys must cover every facet that can appear in
+    # rows[].facet.
+    ind = composed["indicator"]
+    labels = ind["facet_labels"]
+    assert isinstance(labels, dict) and labels
+    assert set(labels.keys()) == set(FACET_LABELS.keys())
+    assert all(isinstance(v, str) and v for v in labels.values())
+    # Spot-check the residual bucket — the historical bug-source the
+    # hardcoded literal in TopicLanding.svelte used to paper over.
+    assert labels[OTHER_THERMAL_FACET] == "Other thermal"
 
 
 def test_every_row_has_facet_set(composed):

@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "1.3",
+  "x-version": "1.4",
   "x-changelog": [
     {
       "version": "1.0",
@@ -23,8 +23,11 @@
     {
       "version": "1.3",
       "date": "2026-05-14",
-      "description": "Additive: optional row-level `vintage` field. Carries the upstream's revision-tier label per row (e.g. 'First Advance Estimates', 'Provisional Estimates', 'First Revised Estimates', 'Final Estimates') so the chart can honestly surface that recent FY values may revise. Driven by the MoSPI National Accounts Statistics ingest (2026-05-14): the source publishes the same (indicator, year) pair in multiple revision tiers; we pick the most-final per (indicator, year) and stamp the chosen vintage on each row. Optional \u2014 existing v1.2 artifacts remain valid."
-    }
+      "description": "Additive: optional row-level `vintage` field. Carries the upstream's revision-tier label per row (e.g. 'First Advance Estimates', 'Provisional Estimates', 'First Revised Estimates', 'Final Estimates') so the chart can honestly surface that recent FY values may revise. Driven by the MoSPI National Accounts Statistics ingest (2026-05-14): the source publishes the same (indicator, year) pair in multiple revision tiers; we pick the most-final per (indicator, year) and stamp the chosen vintage on each row. Optional \u2014 existing v1.2 artifacts remain valid."    },
+    {
+      "version": "1.4",
+      "date": "2026-05-15",
+      "description": "Additive: optional `indicator.facet_labels` map. Lets a facetted indicator (chart_type = stacked-trend, rows[].facet populated) declare the human-readable label per facet value (e.g. {coal: 'Coal', other_thermal: 'Other thermal'}). The frontend stops carrying topic-level hardcoded label literals and reads the labels from the artifact (composer-as-source-of-truth), with a humanise(facet_id) fallback when the field is absent so old artifacts keep rendering. Driven by Phase 4 C2 of TODO/VIZ-LAYER-GAPS-PLAN.md (lift facet labels into the schema). Optional — existing v1.3 artifacts remain valid."    }
   ],
   "type": "object",
   "required": [
@@ -173,6 +176,11 @@
         "default_mode": {
           "enum": ["absolute", "percent"],
           "description": "For stacked-trend and ranked views, whether absolute units or percent-of-total reads more honestly by default. `percent` is the citizen-default for compositional indicators (fuel mix, scheme outlay shares) where the total varies wildly across entities and the share is what's comparable. `absolute` is the default for indicators where the magnitude itself is the story. Per ADR-0024."
+        },
+        "facet_labels": {
+          "type": "object",
+          "description": "Optional map from a `rows[].facet` value to its human-readable label (e.g. {\"coal\": \"Coal\", \"other_thermal\": \"Other thermal\"}). Populated by the composer for facetted indicators so the frontend does not have to carry topic-level hardcoded label literals. When absent, the renderer falls back to humanise(facet_id) (snake_case to Title Case). Per Phase 4 C2 of TODO/VIZ-LAYER-GAPS-PLAN.md.",
+          "additionalProperties": { "type": "string", "minLength": 1 }
         },
         "series_breaks": {
           "type": "array",

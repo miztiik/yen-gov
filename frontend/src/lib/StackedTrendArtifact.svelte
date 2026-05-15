@@ -11,6 +11,7 @@
   } from "./charts/stacked-trend/adapter-indicator";
   import type { StackedTrendModel } from "./charts/stacked-trend/types";
   import { STATE_NAME_TO_ECI } from "./maplibre/sources";
+  import { humanise } from "./humanise";
 
   interface Props {
     indicator_path: string;
@@ -57,6 +58,23 @@
     return m;
   });
 
+  // Facet-label resolution chain (per indicator schema 1.4 / Phase 4 C2):
+  //   1. caller-supplied `category_labels` prop (explicit override)
+  //   2. artifact's own `indicator.facet_labels` (composer-as-source-of-truth)
+  //   3. humanise(facet_id) fallback so a missing label never produces
+  //      "other_thermal" in a citizen chart legend
+  const resolved_labels = $derived.by<Record<string, string> | undefined>(() => {
+    if (category_labels) return category_labels;
+    const fromDoc = doc?.indicator.facet_labels;
+    if (fromDoc) return fromDoc;
+    if (!doc) return undefined;
+    const out: Record<string, string> = {};
+    for (const r of doc.rows) {
+      if (r.facet && !(r.facet in out)) out[r.facet] = humanise(r.facet);
+    }
+    return out;
+  });
+
   const model = $derived.by<StackedTrendModel | null>(() => {
     if (!doc) return null;
     if (mode === "spatial") {
@@ -67,7 +85,7 @@
         mode: { kind: "spatial", time: t, entity_labels: eci_to_state_name },
         config: { coverage_ceiling, max_named_categories },
         dimension,
-        category_labels,
+        category_labels: resolved_labels,
       });
     }
     if (!entity_id) return null;
@@ -75,7 +93,7 @@
       mode: { kind: "temporal", entity_id, entity_label: eci_to_state_name[entity_id] },
       config: { coverage_ceiling, max_named_categories },
       dimension,
-      category_labels,
+      category_labels: resolved_labels,
     });
   });
 </script>

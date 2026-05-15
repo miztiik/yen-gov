@@ -188,14 +188,6 @@
                   indicator_path={path}
                   mode="spatial"
                   dimension={artifact.dimension ?? "generic"}
-                  category_labels={{
-                    coal: "Coal",
-                    gas: "Gas",
-                    hydro: "Hydro",
-                    nuclear: "Nuclear",
-                    renewable: "Renewable",
-                    other_thermal: "Other thermal",
-                  }}
                 />
               {:else}
                 <IndicatorChoropleth

@@ -57,6 +57,18 @@ TOTAL_INPUT = "installed_capacity_total_mw.json"
 OTHER_THERMAL_FACET = "other_thermal"
 OUTPUT_BASENAME = "installed_capacity_by_source_mw.json"
 
+# Citizen-facing labels for each facet value (indicator schema 1.4 — lifted
+# out of the frontend topic page so the renderer is data-driven). Keep keys
+# in sync with LEAF_INPUTS + OTHER_THERMAL_FACET.
+FACET_LABELS: dict[str, str] = {
+    "coal":          "Coal",
+    "gas":           "Gas",
+    "hydro":         "Hydro",
+    "nuclear":       "Nuclear",
+    "renewable":     "Renewable",
+    OTHER_THERMAL_FACET: "Other thermal",
+}
+
 INPUT_DIR_RELPATH = "datasets/indicators/in/energy"
 OUTPUT_PATH_RELPATH = f"{INPUT_DIR_RELPATH}/{OUTPUT_BASENAME}"
 
@@ -311,6 +323,7 @@ def _build_payload(
             "methodology_vintage": methodology,
             "chart_type": "stacked-trend",
             "default_mode": "percent",
+            "facet_labels": dict(FACET_LABELS),
             "notes": (
                 "Composed from the per-fuel CEA artifacts. The residual "
                 "'other_thermal' facet is derived as thermal − coal − gas "

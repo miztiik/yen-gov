@@ -26,6 +26,8 @@ export interface IndicatorDoc {
     notes?: string;
     chart_type?: string;
     default_mode?: "percent" | "absolute";
+    /** Indicator schema 1.4: composer-supplied facet value → human label. */
+    facet_labels?: Record<string, string>;
   };
   rows: Array<{
     entity_id: string;
