@@ -382,6 +382,45 @@ def fetch_geojsonl_7z(
 # -----------------------------------------------------------------------------
 
 
+def apply_state_filter(
+    features: list[dict[str, Any]],
+    filter_spec: dict[str, Any],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Slice a national feature list to a sub-national subset.
+
+    `filter_spec` shape (one of):
+        {"property": "state_lgd", "equals": 33}        # single value
+        {"property": "state_lgd", "one_of": [33, 7]}    # multi value
+
+    Returns `(kept, dropped)`. Empty `kept` is a config error and raises —
+    a state filter that matches nothing is almost certainly the wrong
+    property name or value, never a legitimate "this state has no
+    features" signal (Fowler v5 nit: fail loud, don't emit empty FC).
+    """
+    prop = filter_spec["property"]
+    if "equals" in filter_spec:
+        target = filter_spec["equals"]
+        match = lambda f: f.get("properties", {}).get(prop) == target  # noqa: E731
+    elif "one_of" in filter_spec:
+        targets = set(filter_spec["one_of"])
+        match = lambda f: f.get("properties", {}).get(prop) in targets  # noqa: E731
+    else:
+        msg = f"state_filter {filter_spec!r} requires `equals` or `one_of`"
+        raise ValueError(msg)
+
+    kept: list[dict[str, Any]] = []
+    dropped: list[dict[str, Any]] = []
+    for f in features:
+        (kept if match(f) else dropped).append(f)
+    if not kept:
+        msg = (
+            f"state_filter {filter_spec!r} matched zero features out of "
+            f"{len(features)}; check `property` name + value against the upstream"
+        )
+        raise ValueError(msg)
+    return kept, dropped
+
+
 def snapshot_one(
     entry: dict[str, Any],
     out_root: Path,
@@ -419,6 +458,9 @@ def snapshot_one(
             bundle_dir,
             coord_precision=source.get("coord_precision"),
         )
+        if "state_filter" in source:
+            features, _dropped_by_filter = apply_state_filter(features, source["state_filter"])
+            print(f"  state_filter kept {len(features)} (dropped {len(_dropped_by_filter)})", flush=True)
         emit_feature_collection(out_path, features)
     else:  # pragma: no cover — caught at config-parse time in practice
         msg = f"unknown source.format: {fmt!r}"
