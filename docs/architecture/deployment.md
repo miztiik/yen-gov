@@ -1,6 +1,6 @@
 # Deployment
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-15
 
 yen-gov deploys as a single static bundle to GitHub Pages. There is no production backend (CLAUDE.md Holy Law #1). This page is the operator-level overview; the design rationale lives in [frontend/data-loading > production placement](frontend/data-loading.md#production-placement).
 
@@ -8,8 +8,21 @@ yen-gov deploys as a single static bundle to GitHub Pages. There is no productio
 
 | Workflow | Trigger | What it does |
 | -------- | ------- | ------------ |
-| [`ci-checks.yml`](../../.github/workflows/ci-checks.yml) | every PR + push to main | pytest, schema/data validation, frontend build. Live tests skipped via `YEN_GOV_NO_NET=1`. Gate only — nothing publishes. |
-| [`deploy-site.yml`](../../.github/workflows/deploy-site.yml) | push to main + manual | builds `frontend/dist/`, stages `datasets/` next to it as `data/`, uploads to Pages, smoke-tests the live URL. |
+| [`ci-checks.yml`](../../.github/workflows/ci-checks.yml) | every PR + push to main | pytest, schema/data validation, frontend/admin builds, unit/contract/integration tests, and Playwright smoke. Live tests skipped via `YEN_GOV_NO_NET=1`. Gate only - nothing publishes. Stale runs for the same PR/branch are cancelled. |
+| [`deploy-site.yml`](../../.github/workflows/deploy-site.yml) | hourly schedule + manual | checks that the latest `main` SHA has a successful CI run, skips scheduled redeploys of an already-published SHA, builds `frontend/dist/`, stages `datasets/` next to it as `data/`, uploads to Pages, smoke-tests the live URL. |
+
+## Deploy cadence and CI gate
+
+Production deploy is intentionally **batched hourly** instead of publishing every green commit. During active development, `main` can receive several small commits in quick succession; rebuilding and publishing Pages for every commit adds queue noise and compute churn without changing the public data story meaningfully. The hourly schedule publishes the newest eligible bundle, while `workflow_dispatch` remains available when an operator wants an immediate release.
+
+`deploy-site.yml` has a preflight job before the Pages build:
+
+1. It resolves the current `main` SHA from GitHub.
+2. It requires a successful completed `ci-checks.yml` run for that exact SHA.
+3. On scheduled runs, it checks whether `deploy-site.yml` has already successfully deployed that SHA and skips if so.
+4. On manual runs, it still requires green CI, but may redeploy the same SHA when an operator deliberately asks for a fresh Pages publish.
+
+This keeps the release pipe simple: CI proves the static bundle and committed `datasets/` are valid; deploy publishes only a CI-green `main` bundle. Branch protection should still require the CI jobs before merging, but the deploy preflight is a second guard against direct pushes or administrative bypasses.
 
 Scraping ECI/Wikipedia and rebuilding boundary PMTiles are **local-only** operations (CLAUDE.md §1, §13): run `python -m yen_gov run <event> <state>` and `python tools/boundaries/build.py` on a maintainer machine, commit the regenerated `datasets/` through a normal PR. Both artifacts change rarely (results don't change post-declaration; boundaries change once per delimitation cycle), so a CI dispatch is unnecessary overhead. The contract between scraping and deploying is the `datasets/` directory committed to main.
 
@@ -17,7 +30,7 @@ Scraping ECI/Wikipedia and rebuilding boundary PMTiles are **local-only** operat
 
 The deploy step assembles (per [frontend/data-loading > production placement](frontend/data-loading.md#production-placement)):
 
-```
+```text
 _site/
 ├── index.html               (from frontend/dist/)
 ├── assets/...               (from frontend/dist/)
@@ -35,7 +48,7 @@ The bundle is served under a project Pages subpath (`https://miztiik.github.io/y
 
 1. The deploy workflow exports `BASE_URL=/yen-gov/` to the `bun run build` step.
 2. [`frontend/vite.config.ts`](../../frontend/vite.config.ts) reads `process.env.BASE_URL` (default `/`) and passes it as Vite's [`base`](https://vitejs.dev/config/shared-options.html#base). Vite then rewrites `<script>`/`<link>` URLs in `index.html` and exposes the value to client code as `import.meta.env.BASE_URL` (always trailing-slashed).
-3. [`frontend/src/lib/paths.ts`](../../frontend/src/lib/paths.ts) defines `DATA_BASE = ` `${import.meta.env.BASE_URL}data` — the single constant every fetch under `datasets/` must use ([`data.ts`](../../frontend/src/lib/data.ts), [`sql.ts`](../../frontend/src/lib/sql.ts), [`maplibre/sources.ts`](../../frontend/src/lib/maplibre/sources.ts)).
+3. [`frontend/src/lib/paths.ts`](../../frontend/src/lib/paths.ts) defines `DATA_BASE` from `import.meta.env.BASE_URL` plus `data` - the single constant every fetch under `datasets/` must use ([`data.ts`](../../frontend/src/lib/data.ts), [`sql.ts`](../../frontend/src/lib/sql.ts), [`maplibre/sources.ts`](../../frontend/src/lib/maplibre/sources.ts)).
 
 To move the bundle (custom domain, user/org Pages, CDN, S3 origin) change **only** the `BASE_URL` env var in the workflow — the value flows through Vite to every URL builder. Local `bun run dev` / `bun run preview` keep their root mount because `BASE_URL` is unset.
 

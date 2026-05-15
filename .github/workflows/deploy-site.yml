@@ -1,27 +1,74 @@
 name: deploy site
 
 # Builds the frontend and stages datasets/ next to it (per ADR-0013), then
-# publishes to GitHub Pages. Triggered on push to main and manually.
+# publishes to GitHub Pages. Triggered hourly or manually, only for CI-green main.
 
 on:
-  push:
-    branches: [main]
+  schedule:
+    - cron: "37 * * * *"
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.decide.outputs.should_deploy }}
+      head_sha: ${{ steps.decide.outputs.head_sha }}
+    steps:
+      - id: decide
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          if [ "$REF_NAME" != "main" ]; then
+            echo "deploy-site.yml only publishes from main; got ref '$REF_NAME'"
+            exit 1
+          fi
+
+          head_sha="$(gh api "repos/${GITHUB_REPOSITORY}/branches/main" --jq '.commit.sha')"
+          echo "head_sha=${head_sha}" >> "$GITHUB_OUTPUT"
+          echo "latest main SHA: ${head_sha}"
+
+          ci_success_id="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/ci-checks.yml/runs?branch=main&head_sha=${head_sha}&status=completed&per_page=20" --jq '.workflow_runs[] | select(.conclusion == "success") | .id' | head -n 1)"
+          if [ -z "$ci_success_id" ]; then
+            echo "should_deploy=false" >> "$GITHUB_OUTPUT"
+            echo "No successful ci-checks.yml run found for ${head_sha}; skipping deploy."
+            exit 0
+          fi
+          echo "CI gate passed via run ${ci_success_id}."
+
+          if [ "$EVENT_NAME" = "schedule" ]; then
+            deployed_id="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/deploy-site.yml/runs?branch=main&head_sha=${head_sha}&status=completed&per_page=20" --jq '.workflow_runs[] | select(.conclusion == "success") | .id' | head -n 1)"
+            if [ -n "$deployed_id" ]; then
+              echo "should_deploy=false" >> "$GITHUB_OUTPUT"
+              echo "SHA ${head_sha} was already deployed by run ${deployed_id}; skipping scheduled redeploy."
+              exit 0
+            fi
+          fi
+
+          echo "should_deploy=true" >> "$GITHUB_OUTPUT"
+
   build:
+    needs: preflight
+    if: needs.preflight.outputs.should_deploy == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.preflight.outputs.head_sha }}
 
       - uses: oven-sh/setup-bun@v2
         with:

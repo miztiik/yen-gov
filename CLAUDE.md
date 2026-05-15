@@ -1,6 +1,6 @@
 # CLAUDE.md — yen-gov Engineering Contract
 
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-15
 
 This file is the non-negotiable contract for any human or AI agent working in this repository. The full standard it derives from lives in [docs/reference/documentation-structure.md](docs/reference/documentation-structure.md). When the two disagree, **this file wins for yen-gov**; the standard is generic.
 
@@ -226,7 +226,7 @@ These are unresolved and must be answered before the corresponding work starts:
 
 - District identifier source: LGD codes (gov.in Local Government Directory) preferred; Wikipedia slug as fallback. Confirm during Phase 0 taxonomy build.
 - "Top-N + others" cutoff for per-AC results: provisional default = top 5 candidates + NOTA + collapsed "others". Confirm with real data in Phase 2.
-- GitHub Actions cadence: manual dispatch only for now (results don't change post-declaration). Revisit if we add live event tracking.
+- Data-ingest automation cadence: local/manual only for now (results don't change post-declaration). Production Pages deploy is hourly plus manual dispatch, and only publishes CI-green `main`; see `docs/architecture/deployment.md`. Revisit ingest automation if we add live event tracking.
 
 Update this section as decisions are made; promote each decision into an architecture doc under `docs/architecture/`.
 
