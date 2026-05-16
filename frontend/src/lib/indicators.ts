@@ -137,6 +137,86 @@ export interface IndicatorRow {
   time: string;
   value: number | null;
   facet?: string | null;
+  /** v1.6+: optional adapter-owned citizen label for the period token.
+   *  When present, frontend prefers this over re-deriving from `time`. */
+  period_label?: string | null;
+}
+
+// -- Folded blocks (schema v2.0) ---------------------------------------------
+
+/** Period frequency enum, mirrors indicator.schema.json
+ *  `series_spec.expected_periods[].frequency`. */
+export type PeriodFrequency =
+  | "annual_fy"
+  | "annual_cy"
+  | "quarterly_fy"
+  | "quarterly_cy"
+  | "monthly"
+  | "weekly"
+  | "daily"
+  | "decennial"
+  | "ad_hoc";
+
+/** A period token as it appears in `series_spec.expected_periods[]`,
+ *  `collection_inventory.observed_periods[]`, etc. The `key` is the
+ *  machine-stable join token; `label` is the citizen-facing rendering. */
+export interface PeriodToken {
+  key: string;
+  label: string;
+  frequency: PeriodFrequency;
+}
+
+export interface SeriesSpec {
+  description: string;
+  /** Either an inline list of entity ids (e.g. ECI state codes) OR a
+   *  `$ref` to a named universe in `datasets/reference/in/universes.json`. */
+  expected_geographies: string[] | { $ref: string };
+  expected_periods: PeriodToken[];
+  expected_periods_inference: {
+    basis: string;
+    confidence: "none" | "low" | "medium" | "high";
+    series?: string | null;
+    note?: string;
+  };
+}
+
+export interface UnavailablePeriodEntry {
+  period: PeriodToken;
+  geographies?: string[];
+  reason: string;
+}
+
+export interface CollectionInventory {
+  status: "empty" | "partial" | "complete";
+  /** Operator-set: when true, refresh leaves rows untouched. */
+  frozen: boolean;
+  /** ISO timestamp of the most recent successful fetch contributing a row. */
+  last_collected_at: string | null;
+  /** Operator-set: signal to a future ingest job to ignore the
+   *  ad_hoc-skip-list once. */
+  refetch_requested?: boolean;
+  pending_periods: PeriodToken[];
+  observed_periods: PeriodToken[];
+  unavailable_periods: UnavailablePeriodEntry[];
+}
+
+export interface MethodologyBreak {
+  from: string;
+  note: string;
+}
+
+export interface IndicatorMethodology {
+  definition: string;
+  publisher: string;
+  publisher_methodology_url?: string | null;
+  documentation_status: "stub" | "partial" | "authored";
+  methodology_breaks: MethodologyBreak[];
+  known_caveats: string[];
+  notes: string[];
+  related_indicators?: string[];
+  editor_note_md?: string;
+  policy_context?: string[];
+  chart_defaults?: Record<string, unknown>;
 }
 
 export interface IndicatorArtifact {
@@ -147,6 +227,13 @@ export interface IndicatorArtifact {
   coverage: IndicatorCoverage;
   indicator: IndicatorMeta;
   rows: IndicatorRow[];
+  /** Required since schema v2.0; optional in TS only so v1.5/v1.6
+   *  test fixtures still type-check. */
+  series_spec?: SeriesSpec;
+  collection_inventory?: CollectionInventory;
+  methodology?: IndicatorMethodology;
+  /** Reserved for the divergence subsystem; always `null` today. */
+  divergence?: null;
 }
 
 // -- Fetcher ------------------------------------------------------------------
