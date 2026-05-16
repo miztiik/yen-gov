@@ -76,6 +76,19 @@ test.describe("golden path", () => {
         }),
     );
     expect(dups, `Duplicated H3 titles found:\n${dups.join("\n")}`).toEqual([]);
+
+    // IA-rework Step #1 (TODO/20260515-state-page-ia-rework-plan.md §2,
+    // §9 row 1): the per-artifact India choropleth + ranked table +
+    // small-multiples trio has been replaced with one IndicatorCard
+    // per artifact. The state AC map (top-of-page StateAcMap) is the
+    // ONLY maplibre canvas allowed on this surface; every per-indicator
+    // India choropleth must be gone. Assert at most one maplibre canvas
+    // is mounted (StateAcMap for S22) AND that at least one indicator
+    // card rendered.
+    await expect(page.locator("canvas.maplibregl-canvas"))
+      .toHaveCount(1, { timeout: 15_000 });
+    await expect(page.locator('[data-testid="indicator-card"]').first())
+      .toBeVisible({ timeout: 15_000 });
   });
 
   test("constituency page renders top-N candidates", async ({ page }) => {

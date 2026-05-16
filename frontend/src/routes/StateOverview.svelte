@@ -6,11 +6,7 @@
   import {
     fetchTopicCatalogue,
     indicatorPathForArtifact,
-    resolvePeerSetDefault,
     type TopicCatalogue,
-    type CatalogueTopic,
-    type CatalogueArtifact,
-    type PeerSet,
   } from "../lib/catalogue";
   import PartyBar from "../lib/PartyBar.svelte";
   import SeatDonut from "../lib/SeatDonut.svelte";
@@ -18,17 +14,8 @@
   import RacesBoard from "../lib/RacesBoard.svelte";
   import SourceList from "../lib/SourceList.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
-  import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
-  import IndicatorRanked from "../lib/IndicatorRanked.svelte";
-  import IndicatorSmallMultiples from "../lib/IndicatorSmallMultiples.svelte";
+  import IndicatorCard from "../lib/IndicatorCard.svelte";
   import ElectionSeatsTrend from "../lib/ElectionSeatsTrend.svelte";
-  import ListBadge from "../lib/ListBadge.svelte";
-  import PeerSetFilter from "../lib/PeerSetFilter.svelte";
-  import {
-    fetchStateTiers,
-    resolvePeerSet,
-    type StateTiersFile,
-  } from "../lib/state-tiers";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { getDb } from "../lib/sql";
@@ -118,27 +105,6 @@
   let districts = $state<DistrictEntry[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
   let error = $state<string | null>(null);
-
-  // State-tier reference for the per-section peer-set picker (P3.1/P3.2).
-  // Loaded once per page; null while loading or on error (degrades to
-  // "all" for every artifact, which is the safe fallback).
-  let state_tiers = $state<StateTiersFile | null>(null);
-  fetchStateTiers()
-    .then(t => (state_tiers = t))
-    .catch(() => (state_tiers = null));
-
-  // Per-artifact peer-set selection. Key is `${topic.id}::${artifact.id}`
-  // so two artifacts under the same topic carry independent state. Null
-  // value = use the catalogue default (artifact > topic > "all"); a
-  // non-null value = the citizen has overridden it via the picker.
-  let peer_set_overrides = $state<Record<string, PeerSet>>({});
-  function peer_set_for(topic: CatalogueTopic, artifact: CatalogueArtifact): PeerSet {
-    const key = `${topic.id}::${artifact.id}`;
-    return peer_set_overrides[key] ?? resolvePeerSetDefault(topic, artifact);
-  }
-  function set_peer_set(topic: CatalogueTopic, artifact: CatalogueArtifact, next: PeerSet) {
-    peer_set_overrides = { ...peer_set_overrides, [`${topic.id}::${artifact.id}`]: next };
-  }
 
   // Indicator sections on the state hub are now data-driven (P2.4 of the
   // IA reset, ADR-0022): each topic in the catalogue that ships at least
@@ -444,9 +410,20 @@
     <!-- Indicator sections — catalogue-driven, lead the page (P2 commit B
          of IA reset, ADR-0022 §Doctrine). Welfare topics (fiscal first,
          then energy) come BEFORE the election bundle because elections
-         are one indicator family among many, not the spine. The closed
-         renderer set runs unchanged for every indicator artifact; adding
-         the 8th fiscal indicator is a one-line catalogue edit.
+         are one indicator family among many, not the spine.
+
+         Step #1 of TODO/20260515-state-page-ia-rework-plan.md (the IA
+         rework): the per-artifact India choropleth + ranked table +
+         small-multiples trio has been replaced with one IndicatorCard
+         per artifact. A citizen on /s/<state> is asking "how is MY
+         state doing?", not "where does it rank on a map of India?" —
+         the card answers that directly (big number + sparkline +
+         one-line rank + "See all states →" link to /t/<topic>). The
+         triple-render components remain in use on /t/<topic> and
+         /compare where the cross-state question IS the right one.
+         PeerSetFilter is dropped from this surface because there is no
+         visible India view to constrain on /s/<state>; the picker is
+         meaningful on /t/<topic>, one click away.
 
          Election artifacts in the catalogue are intentionally skipped
          here — the existing election-only renderer family below handles
@@ -455,38 +432,22 @@
          this single move is what the doctrine actually requires:
          welfare visible first. -->
     {#each indicator_topics as topic (topic.id)}
-      {#each topic.artifacts.filter(a => a.kind === "indicator") as artifact (artifact.id)}
-        {@const path = indicatorPathForArtifact(artifact)}
-        {#if path}
-          {@const current_peer_set = peer_set_for(topic, artifact)}
-          {@const peer_members = resolvePeerSet(state_tiers, current_peer_set)}
-          <section class="space-y-3">
-            <div class="flex items-center gap-2 flex-wrap">
-              <h2 class="text-sm font-semibold uppercase text-slate-500">{topic.title}</h2>
-              <ListBadge list={topic.list} compact />
-              <span class="ml-auto">
-                <PeerSetFilter
-                  value={current_peer_set}
-                  tiers={state_tiers}
-                  onChange={(next) => set_peer_set(topic, artifact, next)}
-                  id_prefix={`peerset-${topic.id}-${artifact.id}`}
-                />
-              </span>
-            </div>
-            <IndicatorChoropleth
-              indicator_path={path}
-              highlight_state={state_code}
-              peer_set_members={peer_members}
-            />
-            <IndicatorRanked
-              indicator_path={path}
-              home_state={state_code}
-              peer_set_members={peer_members}
-            />
-            <IndicatorSmallMultiples indicator_path={path} home_state={state_code} />
-          </section>
-        {/if}
-      {/each}
+      <section class="space-y-3">
+        <h2 class="text-sm font-semibold uppercase text-slate-500">{topic.title}</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {#each topic.artifacts.filter(a => a.kind === "indicator") as artifact (artifact.id)}
+            {@const path = indicatorPathForArtifact(artifact)}
+            {#if path}
+              <IndicatorCard
+                {topic}
+                {artifact}
+                indicator_path={path}
+                home_state={state_code}
+              />
+            {/if}
+          {/each}
+        </div>
+      </section>
     {/each}
 
     <!-- Election sections — preserved unchanged in capability and layout,
