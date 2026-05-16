@@ -7,6 +7,20 @@ documentation_status, inventory_status, frozen, last_collected_at, and
 counts), and writes the aggregated index to
 `datasets/reference/in/indicators-completeness.json`.
 
+Sources of each field (v4.0+):
+  - `inventory_status`: "complete" iff `rows[]` is non-empty, else "empty".
+    The pre-v4 "partial" tier is no longer derivable because the
+    expected-periods surface (formerly `series_spec.expected_periods`)
+    was lifted out of the artifact per ADR-0025; we report what we have,
+    not what we promised.
+  - `last_collected_at`: `max(sources[].fetched_at)` from the artifact.
+  - `observed_count`: count of distinct `rows[].time` values.
+  - `pending_count`: always 0 in v4.0+ (was: expected − observed; expected
+    is no longer in-artifact).
+  - `unavailable_count`: from the operator-state overlay
+    (`datasets/reference/in/indicators-operator-state.json`).
+  - `frozen`: from the same operator-state overlay.
+
 Output is sorted (deterministic), validates against
 `datasets/schemas/indicators-completeness.schema.json` v1.0, and
 inherits its `generated_at` from the maximum input mtime so re-running
@@ -30,37 +44,65 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 INDICATORS_ROOT = REPO_ROOT / "datasets" / "indicators" / "in"
 OUTPUT_PATH = REPO_ROOT / "datasets" / "reference" / "in" / "indicators-completeness.json"
 SCHEMA_PATH = REPO_ROOT / "datasets" / "schemas" / "indicators-completeness.schema.json"
+OPERATOR_STATE_PATH = REPO_ROOT / "datasets" / "reference" / "in" / "indicators-operator-state.json"
 
 
-def _index_row(path: Path, doc: dict) -> dict:
+def _load_operator_state() -> dict[str, dict]:
+    if not OPERATOR_STATE_PATH.exists():
+        return {}
+    try:
+        doc = json.loads(OPERATOR_STATE_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    inds = (doc.get("indicators") if isinstance(doc, dict) else None) or {}
+    return inds if isinstance(inds, dict) else {}
+
+
+def _max_fetched_at(sources: list) -> str | None:
+    stamps = [s["fetched_at"] for s in sources if isinstance(s, dict) and isinstance(s.get("fetched_at"), str)]
+    return max(stamps) if stamps else None
+
+
+def _index_row(path: Path, doc: dict, op_state: dict[str, dict]) -> dict:
     ind = doc.get("indicator") or {}
     methodology = doc.get("methodology") or {}
-    inventory = doc.get("collection_inventory") or {}
+    rows = doc.get("rows") or []
+    sources = doc.get("sources") or []
     topic = path.relative_to(INDICATORS_ROOT).parts[0]
+
+    ind_id = ind.get("id", "")
+    op = op_state.get(ind_id) or {}
+
+    observed = {str(r["time"]) for r in rows if isinstance(r, dict) and "time" in r}
+    inventory_status = "complete" if observed else "empty"
+
     return {
-        "id": ind.get("id", ""),
+        "id": ind_id,
         "topic": topic,
         "path": path.relative_to(REPO_ROOT).as_posix(),
         "title": ind.get("title", ""),
         "documentation_status": methodology.get("documentation_status", "stub"),
-        "inventory_status": inventory.get("status", "empty"),
-        "frozen": bool(inventory.get("frozen", False)),
-        "last_collected_at": inventory.get("last_collected_at"),
-        "observed_count": len(inventory.get("observed_periods") or []),
-        "pending_count": len(inventory.get("pending_periods") or []),
-        "unavailable_count": len(inventory.get("unavailable_periods") or []),
+        "inventory_status": inventory_status,
+        "frozen": bool(op.get("frozen", False)),
+        "last_collected_at": _max_fetched_at(sources),
+        "observed_count": len(observed),
+        "pending_count": 0,
+        "unavailable_count": len(op.get("unavailable_periods") or []),
     }
 
 
 def build_index() -> dict:
+    op_state = _load_operator_state()
     rows: list[dict] = []
     max_mtime = 0.0
     for path in sorted(INDICATORS_ROOT.rglob("*.json")):
+        if path.name.endswith(".notes.json"):
+            continue
         try:
             doc = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             continue
-        rows.append(_index_row(path, doc))
+        rows.append(_index_row(path, doc, op_state))
         max_mtime = max(max_mtime, path.stat().st_mtime)
 
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
