@@ -534,3 +534,162 @@ def _build_so2_payload(*, parsed: list[StateYearMean]) -> dict:
         },
         "rows": rows,
     }
+
+
+# ---------------------------------------------------------------------------
+# PM10 — sibling of PM2.5/NO2/SO2 from the same NAMP markers feed.
+#
+# PM10 is the coarse particulate fraction (particles ≤10 µm) and
+# *includes* the PM2.5 fraction by definition. The extra mass between
+# PM2.5 and PM10 is dominated in India by road dust, construction
+# activity, and seasonal crop-residue burning — so PM10 tracks PM2.5
+# in metros but runs much higher in dry/dusty regions (Rajasthan,
+# parts of Haryana, Punjab in burning season). Reading PM10 alongside
+# PM2.5 separates "combustion soot" (PM2.5-dominant) from "dust and
+# coarse aerosols" (PM10 ≫ PM2.5).
+#
+# Series start year: 2010. 2020 IS present in the snapshot, so no
+# series_break declared; `renderer_rules` carries
+# `no_growth_across_break` defensively.
+# ---------------------------------------------------------------------------
+
+PM10_SERIES_START_YEAR = 2010
+
+PM10_INDICATOR_ID = "environment/state_pm10_annual_mean_ug_m3"
+PM10_INDICATOR_TITLE = "PM10 — annual mean (state)"
+
+PM10_INDICATOR_DESCRIPTION = (
+    "Annual mean concentration of inhalable particulate matter (PM10, "
+    "particles ≤10 µm diameter) in micrograms per cubic metre, "
+    "averaged across all CPCB monitoring stations in each state. PM10 "
+    "includes the PM2.5 fine fraction plus coarser particles — road "
+    "dust, construction, and crop-residue burning dominate the extra "
+    "mass. The WHO 2021 annual guideline is 15 µg/m³; India's "
+    "national standard (NAAQS) is 60 µg/m³."
+)
+
+PM10_INDICATOR_NOTES = (
+    "Method: per (state, year), unweighted arithmetic mean of CPCB "
+    "station-year annual means; null station-years dropped (not coerced "
+    "to zero). PM10 includes the PM2.5 fraction by definition; the "
+    "extra mass between PM2.5 and PM10 in India is dominated by road "
+    "dust, construction activity, and seasonal crop-residue burning, "
+    "so PM10 runs much higher than PM2.5 in dry/dusty regions even "
+    "where combustion sources are modest. The CPCB monitor network is "
+    "urban-biased and uneven, so cross-state ranking from this number "
+    "is dishonest; read the chart as 'direction of change within a "
+    "state', not a leaderboard. ICED is a re-publisher; the underlying "
+    "station-year file is CPCB's NAMP — both URLs appear in `sources`."
+)
+
+PM10_INDICATOR_EXCLUDES = [
+    "Indoor air — NAMP measures only outdoor ambient air",
+    "Station-years dropped by CPCB for below-threshold data completeness",
+    "Sub-2.5 µm fraction is counted in PM10 here AND separately in the "
+    "state_pm25_annual_mean_ug_m3 indicator — do not sum PM10 and PM2.5",
+]
+
+
+def ingest_pm10(
+    *,
+    repo_root: Path,
+    refresh: bool = False,
+) -> MarkersIngestResult:
+    """Fetch markers, aggregate PM10 to state-year, write artifact."""
+    runtime_root = repo_root / ".runtime"
+    client = IcedClient(host="https://icedapi.niti.gov.in", runtime_root=runtime_root)
+    response = client.get(MARKERS_API_PATH)
+    fetched_at = response.fetched_at
+
+    parsed_all = aggregate_state_year_mean(response.decrypted, pollutant=PM10_FIELD)
+    parsed = [r for r in parsed_all if r.year >= PM10_SERIES_START_YEAR]
+    if not parsed:
+        raise ICEDShapeError(
+            "PM10 aggregation returned zero state-year rows after "
+            f"trimming to >= {PM10_SERIES_START_YEAR} — refusing to ship "
+            "empty artifact."
+        )
+
+    payload = _build_pm10_payload(parsed=parsed)
+
+    indicator_schema = schema_doc("indicator.schema.json")
+    out_path = (
+        repo_root
+        / "datasets"
+        / "indicators"
+        / "in"
+        / "environment"
+        / "state_pm10_annual_mean_ug_m3.json"
+    )
+    write_artifact(
+        path=out_path,
+        schema_id=schema_id("indicator.schema.json"),
+        schema_version=schema_version("indicator.schema.json"),
+        payload=payload,
+        sources=[
+            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
+            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
+        ],
+        schema_for_validation=indicator_schema,
+    )
+
+    years = [r.year for r in parsed]
+    return MarkersIngestResult(
+        indicator_id=PM10_INDICATOR_ID,
+        artifact_path=out_path,
+        pollutant=PM10_FIELD,
+        state_year_row_count=len(parsed),
+        year_min=min(years),
+        year_max=max(years),
+        fetched_at=fetched_at,
+    )
+
+
+def _build_pm10_payload(*, parsed: list[StateYearMean]) -> dict:
+    """Compose the schema-required payload (everything except $schema/sources)."""
+    rows = emit_indicator_rows(parsed)
+    states = sorted({r.entity_id for r in parsed})
+    years = [r.year for r in parsed]
+
+    return {
+        "license": {
+            "id": "GoI-Open",
+            "name": (
+                "Government of India open publication "
+                "(NITI Aayog ICED, re-publishing CPCB NAMP)"
+            ),
+            "url": "https://data.gov.in/government-open-data-license-india",
+            "redistributable": True,
+        },
+        "coverage": {
+            "spatial": f"{len(states)} states/UTs with CPCB stations recording PM10",
+            "temporal": f"{min(years)}–{max(years)} (annual)",
+            "admin_level": "state",
+        },
+        "indicator": {
+            "id": PM10_INDICATOR_ID,
+            "title": PM10_INDICATOR_TITLE,
+            "description": PM10_INDICATOR_DESCRIPTION,
+            "entity_kind": "state",
+            "time_grain": "year",
+            "value_kind": "raw",
+            "direction": "lower_is_better",
+            "scale_hint": "linear",
+            "unit": "µg/m³",
+            "icon": "wind",
+            "notes": PM10_INDICATOR_NOTES,
+            "attribution_geography": "where_consumed",
+            "comparability": "directional_only",
+            "implementing_authority": "centre",
+            "methodology_vintage": (
+                "CPCB NAMP per-station annual mean (re-published via "
+                "ICED aqi-map-markers); state aggregation = unweighted "
+                "arithmetic mean of station-year means; null station-"
+                "years dropped, not coerced to zero."
+            ),
+            "chart_type": "choropleth",
+            "excludes": PM10_INDICATOR_EXCLUDES,
+            "renderer_rules": ["no_rank_table", "no_growth_across_break"],
+        },
+        "rows": rows,
+    }

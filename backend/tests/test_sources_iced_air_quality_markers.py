@@ -376,3 +376,93 @@ def test_ingest_so2_emits_artifact(tmp_path, markers: dict) -> None:
     assert body["$schema_version"] == schema_version("indicator.schema.json")
     assert len(body["sources"]) == 2
     assert body["rows"], "SO2 artifact rows[] must not be empty"
+
+
+# ---------------------------------------------------------------------------
+# PM10 specifics — coarse particulate fraction from the same NAMP feed.
+# Series begins 2010; 2020 IS present. PM10 includes the PM2.5 fraction
+# by definition; the extra mass is dominated in India by road dust,
+# construction, and crop-residue burning.
+# ---------------------------------------------------------------------------
+
+def test_pm10_year_range(markers: dict) -> None:
+    """PM10 measurements exist from 2010 onward, and 2020 IS present."""
+    rows = aggregate_state_year_mean(markers, pollutant=PM10_FIELD)
+    years = sorted({r.year for r in rows})
+    assert min(years) >= 2010, f"PM10 should not appear before 2010, got {min(years)}"
+    assert 2020 in years, (
+        "PM10 2020 should be present in this snapshot. If this ever "
+        "fails, declare a 2020 series_break in the PM10 artifact and "
+        "update this test."
+    )
+    assert max(years) >= 2023
+
+
+def test_pm10_one_row_per_state_year(markers: dict) -> None:
+    """Aggregation contract: at most one (state, year) row per pollutant."""
+    rows = aggregate_state_year_mean(markers, pollutant=PM10_FIELD)
+    keys = [(r.entity_id, r.year) for r in rows]
+    assert len(keys) == len(set(keys)), "duplicate (state, year) rows for PM10"
+
+
+def test_pm10_delhi_2019_in_plausible_range(markers: dict) -> None:
+    """Delhi 2019 PM10 should land in 150–250 µg/m³. Delhi is the
+    canonical Indian high-PM10 metro (heavy road dust + construction
+    + winter crop-residue smoke). A reading outside this band signals
+    a parser regression."""
+    rows = aggregate_state_year_mean(markers, pollutant=PM10_FIELD)
+    delhi_2019 = [r for r in rows if r.entity_id == "U05" and r.year == 2019]
+    assert len(delhi_2019) == 1
+    v = delhi_2019[0].mean_value
+    assert 150 <= v <= 250, f"Delhi 2019 PM10 = {v}, outside plausible 150-250 range"
+
+
+def test_ingest_pm10_emits_artifact(tmp_path, markers: dict) -> None:
+    """End-to-end: building the PM10 payload from the captured fixture
+    produces a dict that validates against indicator.schema.json v1.5
+    when stamped via write_artifact."""
+    from datetime import datetime, timezone
+    from yen_gov.core.io import Source, write_artifact
+    from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
+    from yen_gov.sources.iced_air_quality.markers_ingest import (
+        CPCB_NAMP_URL,
+        MARKERS_API_URL,
+        PM10_INDICATOR_ID,
+        PM10_SERIES_START_YEAR,
+        _build_pm10_payload,
+    )
+
+    parsed = [
+        r for r in aggregate_state_year_mean(markers, pollutant=PM10_FIELD)
+        if r.year >= PM10_SERIES_START_YEAR
+    ]
+    payload = _build_pm10_payload(parsed=parsed)
+    assert payload["indicator"]["id"] == PM10_INDICATOR_ID
+    assert payload["indicator"]["comparability"] == "directional_only"
+    assert payload["indicator"]["renderer_rules"] == [
+        "no_rank_table",
+        "no_growth_across_break",
+    ]
+    assert payload["indicator"]["excludes"], "PM10 excludes[] must not be empty"
+    assert "series_breaks" not in payload["indicator"], (
+        "PM10 has 2020 data in this snapshot — series_breaks should "
+        "not be declared for PM10"
+    )
+
+    out = tmp_path / "state_pm10_annual_mean_ug_m3.json"
+    fetched_at = datetime(2026, 5, 15, 14, 44, 39, tzinfo=timezone.utc)
+    write_artifact(
+        path=out,
+        schema_id=schema_id("indicator.schema.json"),
+        schema_version=schema_version("indicator.schema.json"),
+        payload=payload,
+        sources=[
+            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
+            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
+        ],
+        schema_for_validation=schema_doc("indicator.schema.json"),
+    )
+    body = json.loads(out.read_text(encoding="utf-8"))
+    assert body["$schema_version"] == schema_version("indicator.schema.json")
+    assert len(body["sources"]) == 2
+    assert body["rows"], "PM10 artifact rows[] must not be empty"
