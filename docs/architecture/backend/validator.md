@@ -65,12 +65,56 @@ today; if three concrete callers earn one, add it then.
 - `backend/tests/test_validate.py` — fixture-based, runs in pytest.
   All cases use `tmp_path` and construct synthetic schemas/data. None
   walk the on-disk corpus.
+- `backend/tests/test_admin_schemas.py` — same pattern, one altitude
+  up. Tests the `/api/schemas` FastAPI route by pointing it at a
+  `tmp_path` fixture corpus via the `YEN_GOV_REPO_ROOT` env var
+  (`monkeypatch.setenv`). Three tests run in ~0.2s. The previous
+  version of this file hit the live endpoint, which walked the real
+  `datasets/**` corpus inside the route handler — 22s per test, 66s
+  total. The endpoint's behaviour was reasserting Tier-B conformance
+  on the real repo in HTTP disguise.
 - The previous `test_repo_passes_validation` (which walked all of
-  `datasets/`) and `test_trigger_validate_end_to_end` in
+  `datasets/`), `test_trigger_validate_end_to_end` in
   `test_admin_pipeline.py` (which spawned the walk as a subprocess and
-  took 60-180s) were deleted on 2026-05-16. They tested data quality,
-  not code correctness, and were the dominant reason devs ran
-  `pytest --ignore=tests/test_admin_pipeline.py`.
+  took 60-180s), and `test_repo_schemas_are_clean` in
+  `test_admin_schemas.py` (which asserted the live endpoint reported
+  zero corpus failures against the real repo) were all deleted on
+  2026-05-16 / 2026-05-17. They tested data quality, not code
+  correctness, and were the dominant reason devs ran
+  `pytest --ignore=...`. Combined wall-clock savings: ~150s per
+  `pytest -q`.
+
+## Pattern: env-var injection for "endpoint walks the corpus"
+
+Any FastAPI route, CLI, or tool that defaults to the real repo root
+MUST take that root via an injectable parameter, not a module-level
+constant. The shape used here is:
+
+```python
+# backend/yen_gov/admin/schemas.py
+_DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[3]
+
+def _repo_root() -> Path:
+    override = os.environ.get("YEN_GOV_REPO_ROOT")
+    return Path(override) if override else _DEFAULT_REPO_ROOT
+```
+
+Tests then `monkeypatch.setenv("YEN_GOV_REPO_ROOT", str(tmp_path))`
+and build whatever minimal corpus the test needs. Production
+behaviour is unchanged (env var is absent). The handler reads the root
+exactly once per request and threads it through.
+
+Symptoms that this pattern is missing:
+
+- A single pytest test takes >5s and most of that is walking
+  `datasets/**`.
+- The fix for a "test failed" report is "add the missing file" or
+  "regenerate the artifact", not "change the code".
+- The test starts failing on a teammate's machine after they pull a
+  corpus-only PR.
+
+When you see those, refactor to inject the root before extending the
+test.
 
 ## Rejected designs
 
