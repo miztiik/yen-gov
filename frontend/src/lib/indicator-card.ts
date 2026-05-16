@@ -6,10 +6,19 @@
 // per indicator replacing the IndicatorChoropleth + IndicatorRanked +
 // IndicatorSmallMultiples trio (which remains in use on /t/<topic>).
 //
-// Honesty rules honoured here (see docs/concepts/indicator-naming.md):
+// Honesty rules honoured here (see docs/concepts/indicator-naming.md §5
+// for the comparability ladder and §6 for the renderer_rules vocab):
 //   - `renderer_rules` containing "no_rank_table" → suppress rank line.
-//   - `comparability ∈ {not_comparable_across_states, directional_only}`
-//     → suppress rank line (urban-biased AQ etc.).
+//   - `comparability` ∈ rank-incompatible set → suppress rank line. The
+//     set is: `directional_only` (Hans: read direction-of-change only,
+//     a rank would mislead — e.g. WPI across base splices),
+//     `comparable_within_state_over_time` (Hans: trace one state, do NOT
+//     rank states — e.g. an indicator defined only inside a state's own
+//     reporting), and the deprecated `not_comparable_across_states`
+//     (v1.4 alias of directional_only). `comparable_across_states_and_time`
+//     and `comparable_across_states_snapshot_only` BOTH permit ranking;
+//     the snapshot variant should also suppress trend-line views, but
+//     that's an IndicatorCard-template rule, not a canShowRank concern.
 //   - Series with < 2 distinct time points → suppress sparkline (nothing
 //     to draw; same rule IndicatorSmallMultiples applies).
 //
@@ -86,21 +95,19 @@ export function rankForEntity(
 }
 
 /** Whether the card may display a rank line. Honours both the
- *  `renderer_rules` (v1.5) and the `comparability` token. */
+ *  `renderer_rules` (v1.5) and the `comparability` token. See the file
+ *  header for the full set of rank-suppressing comparability values. */
 export function canShowRank(meta: IndicatorMeta): boolean {
-  const rules = (meta as { renderer_rules?: string[] }).renderer_rules ?? [];
+  const rules = meta.renderer_rules ?? [];
   if (rules.includes("no_rank_table")) return false;
-  const cmp = meta.comparability;
-  // `directional_only` is the v1.5 4-level ladder token (see
-  // docs/concepts/indicator-naming.md §5); the schema's union here is the
-  // v1.4 shape, hence the cast.
-  if (
-    cmp === "not_comparable_across_states" ||
-    (cmp as string) === "directional_only"
-  ) {
-    return false;
+  switch (meta.comparability) {
+    case "directional_only":
+    case "comparable_within_state_over_time":
+    case "not_comparable_across_states": // deprecated v1.4 alias of directional_only
+      return false;
+    default:
+      return true;
   }
-  return true;
 }
 
 /** Ordinal English suffix for a rank: 1 → "1st", 2 → "2nd", 23 → "23rd". */
