@@ -38,6 +38,22 @@ test.describe("golden path", () => {
     // Tamil Nadu must appear in the "Available" bucket (data shipped).
     const tn = page.getByRole("link", { name: /Tamil Nadu/i }).first();
     await expect(tn).toBeVisible({ timeout: 15_000 });
+
+    // IA-reset Step #3b: the Theme <select> shows humanised indicator
+    // titles (e.g. "Outstanding liabilities (% of GSDP)") rather than
+    // raw schema slugs ("fiscal/outstanding_debt_pct_gsdp"). Titles are
+    // pulled from each indicator artifact's own `indicator.title` and
+    // populated after the per-indicator JSON fetches resolve, so we
+    // wait on the humanised label before asserting absence of slugs.
+    const theme_select = page.getByRole("combobox").first();
+    await expect(theme_select).toBeVisible({ timeout: 15_000 });
+    await expect(
+      theme_select.locator("option", { hasText: /Outstanding liabilities/i }),
+    ).toHaveCount(1, { timeout: 15_000 });
+    const option_text = await theme_select.locator("option").allInnerTexts();
+    const joined = option_text.join(" | ");
+    expect(joined, `Theme dropdown leaked raw slugs:\n${joined}`).not.toMatch(/fiscal\//);
+    expect(joined, `Theme dropdown leaked raw slugs:\n${joined}`).not.toMatch(/energy\//);
   });
 
   test("state overview renders party totals and AC list for Tamil Nadu", async ({ page }) => {
