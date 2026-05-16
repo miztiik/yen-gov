@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Tuli",
+  "totals": {
+    "electors": 17384,
+    "votes_polled": 14618,
+    "turnout_pct": 84.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMENBA YADEN",
+      "party_short": "NPF",
+      "votes": 3865,
+      "vote_share_pct": 26.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "L. TEMJEN JAMIR",
+      "party_short": "JD(U)",
+      "votes": 2979,
+      "vote_share_pct": 20.38,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "JAMES IMTIKUMBA YADEN",
+      "party_short": "NDPP",
+      "votes": 2792,
+      "vote_share_pct": 19.1,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "LIPOKMAR TZUDIR",
+      "party_short": "LJP",
+      "votes": 2350,
+      "vote_share_pct": 16.08,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "S. IMTIWAPANG JAMIR",
+      "party_short": "NCP",
+      "votes": 1375,
+      "vote_share_pct": 9.41,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 64,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1081,
+    "vote_share_pct": 7.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMENBA YADEN",
+    "party_short": "NPF",
+    "votes": 3865,
+    "margin_votes": 886,
+    "margin_pct": 6.06
+  }
+}

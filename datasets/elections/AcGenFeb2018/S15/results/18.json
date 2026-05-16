@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "West Shillong",
+  "totals": {
+    "electors": 25782,
+    "votes_polled": 19578,
+    "turnout_pct": 75.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHENDRO RAPSANG",
+      "party_short": "INC",
+      "votes": 10288,
+      "vote_share_pct": 52.55,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "PAUL LYNGDOH",
+      "party_short": "UDP",
+      "votes": 8304,
+      "vote_share_pct": 42.41,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "DONALDSON SHANPRU",
+      "party_short": "IND",
+      "votes": 189,
+      "vote_share_pct": 0.97,
+      "gender": "M",
+      "age": 64,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "HAVERGAIL EDWINA BAREH",
+      "party_short": "NPEP",
+      "votes": 182,
+      "vote_share_pct": 0.93,
+      "gender": "F",
+      "age": 42,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 201,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHENDRO RAPSANG",
+    "party_short": "INC",
+    "votes": 10288,
+    "margin_votes": 1984,
+    "margin_pct": 10.13
+  },
+  "others": null
+}

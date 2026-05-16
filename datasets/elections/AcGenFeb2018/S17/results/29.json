@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "Jangpetkong",
+  "totals": {
+    "electors": 11277,
+    "votes_polled": 10303,
+    "turnout_pct": 91.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LONGRINEKEN",
+      "party_short": "BJP",
+      "votes": 3615,
+      "vote_share_pct": 35.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "E.T SUNUP",
+      "party_short": "NPF",
+      "votes": 3339,
+      "vote_share_pct": 32.41,
+      "gender": "M",
+      "age": 71,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "DR. K. CHUBA",
+      "party_short": "NPEP",
+      "votes": 3185,
+      "vote_share_pct": 30.91,
+      "gender": "M",
+      "age": 69,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 45,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LONGRINEKEN",
+    "party_short": "BJP",
+    "votes": 3615,
+    "margin_votes": 276,
+    "margin_pct": 2.68
+  },
+  "others": null
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Khliehriat",
+  "totals": {
+    "electors": 38105,
+    "votes_polled": 34984,
+    "turnout_pct": 91.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KYRMEN SHYLLA",
+      "party_short": "UDP",
+      "votes": 20285,
+      "vote_share_pct": 57.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "JUSTINE DKHAR",
+      "party_short": "BJP",
+      "votes": 12104,
+      "vote_share_pct": 34.6,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "VIOLET LYNGDOH",
+      "party_short": "NPEP",
+      "votes": 1707,
+      "vote_share_pct": 4.88,
+      "gender": "F",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "T S DIOLINDA DKHAR",
+      "party_short": "INC",
+      "votes": 150,
+      "vote_share_pct": 0.43,
+      "gender": "F",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "FIRST BORNSON NONGTDU",
+      "party_short": "IND",
+      "votes": 123,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 25,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 120,
+    "vote_share_pct": 0.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KYRMEN SHYLLA",
+    "party_short": "UDP",
+    "votes": 20285,
+    "margin_votes": 8181,
+    "margin_pct": 23.38
+  },
+  "others": null
+}

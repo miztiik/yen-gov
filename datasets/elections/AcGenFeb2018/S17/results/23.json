@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Impur",
+  "totals": {
+    "electors": 10178,
+    "votes_polled": 9763,
+    "turnout_pct": 95.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR IMTIWAPANG AIER",
+      "party_short": "NPF",
+      "votes": 4852,
+      "vote_share_pct": 49.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "T N MANNEN",
+      "party_short": "NDPP",
+      "votes": 4790,
+      "vote_share_pct": 49.06,
+      "gender": "M",
+      "age": 68,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 27,
+    "vote_share_pct": 0.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR IMTIWAPANG AIER",
+    "party_short": "NPF",
+    "votes": 4852,
+    "margin_votes": 62,
+    "margin_pct": 0.64
+  },
+  "others": null
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Dimapur-i",
+  "totals": {
+    "electors": 22808,
+    "votes_polled": 18557,
+    "turnout_pct": 81.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "H. TOVIHOTO AYEMI",
+      "party_short": "BJP",
+      "votes": 11721,
+      "vote_share_pct": 63.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "PUKHAVI YEPTHOMI",
+      "party_short": "NPF",
+      "votes": 5121,
+      "vote_share_pct": 27.6,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "W. KHOLIE KAPFO",
+      "party_short": "INC",
+      "votes": 1395,
+      "vote_share_pct": 7.52,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 214,
+    "vote_share_pct": 1.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "H. TOVIHOTO AYEMI",
+    "party_short": "BJP",
+    "votes": 11721,
+    "margin_votes": 6600,
+    "margin_pct": 35.57
+  },
+  "others": null
+}

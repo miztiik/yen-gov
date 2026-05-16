@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Southern angami-i",
+  "totals": {
+    "electors": 13394,
+    "votes_polled": 11454,
+    "turnout_pct": 85.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIKHO-O YHOSHÜ",
+      "party_short": "NDPP",
+      "votes": 5821,
+      "vote_share_pct": 50.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "MEDOKUL SOPHIE",
+      "party_short": "NPEP",
+      "votes": 3739,
+      "vote_share_pct": 32.64,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "KHRIELEZO BIO",
+      "party_short": "NPF",
+      "votes": 1366,
+      "vote_share_pct": 11.93,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "NAGAKUL TASE",
+      "party_short": "INC",
+      "votes": 337,
+      "vote_share_pct": 2.94,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 105,
+    "vote_share_pct": 0.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIKHO-O YHOSHÜ",
+    "party_short": "NDPP",
+    "votes": 5821,
+    "margin_votes": 2082,
+    "margin_pct": 18.18
+  },
+  "others": null
+}

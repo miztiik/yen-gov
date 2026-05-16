@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "Songsak",
+  "totals": {
+    "electors": 26687,
+    "votes_polled": 24030,
+    "turnout_pct": 90.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. MUKUL SANGMA",
+      "party_short": "INC",
+      "votes": 10274,
+      "vote_share_pct": 42.75,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "NIHIM D SHIRA",
+      "party_short": "NPEP",
+      "votes": 8444,
+      "vote_share_pct": 35.14,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "THOMAS N. MARAK",
+      "party_short": "BJP",
+      "votes": 3077,
+      "vote_share_pct": 12.8,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "ARUN N MARAK",
+      "party_short": "UDP",
+      "votes": 800,
+      "vote_share_pct": 3.33,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "FARDINA C. MARAK",
+      "party_short": "IND",
+      "votes": 464,
+      "vote_share_pct": 1.93,
+      "gender": "F",
+      "age": 45,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 216,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 679,
+    "vote_share_pct": 2.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. MUKUL SANGMA",
+    "party_short": "INC",
+    "votes": 10274,
+    "margin_votes": 1830,
+    "margin_pct": 7.62
+  }
+}

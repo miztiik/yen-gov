@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "Rongara Siju",
+  "totals": {
+    "electors": 29496,
+    "votes_polled": 25589,
+    "turnout_pct": 86.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAKKAM A. SANGMA",
+      "party_short": "NPEP",
+      "votes": 8108,
+      "vote_share_pct": 31.69,
+      "is_winner": true,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "ROPHUL S. MARAK",
+      "party_short": "IND",
+      "votes": 7000,
+      "vote_share_pct": 27.36,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "FRANCIS PONDIT R. SANGMA",
+      "party_short": "INC",
+      "votes": 6073,
+      "vote_share_pct": 23.73,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "AUGUSTINE R. MARAK",
+      "party_short": "GNC",
+      "votes": 3387,
+      "vote_share_pct": 13.24,
+      "gender": "M",
+      "age": 28,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "RANGRICK R. SANGMA",
+      "party_short": "AITC",
+      "votes": 440,
+      "vote_share_pct": 1.72,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 418,
+    "vote_share_pct": 1.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAKKAM A. SANGMA",
+    "party_short": "NPEP",
+    "votes": 8108,
+    "margin_votes": 1108,
+    "margin_pct": 4.33
+  },
+  "others": null
+}

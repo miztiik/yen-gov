@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "Longkhim chare",
+  "totals": {
+    "electors": 21129,
+    "votes_polled": 20092,
+    "turnout_pct": 95.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MUTHINGNYUBA SANGTAM",
+      "party_short": "NPF",
+      "votes": 9316,
+      "vote_share_pct": 46.37,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "A. IMTILEMBA SANGTAM",
+      "party_short": "BJP",
+      "votes": 7468,
+      "vote_share_pct": 37.17,
+      "gender": "M",
+      "age": 68,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "T. CHOLONGSE SANGTAM",
+      "party_short": "NPEP",
+      "votes": 2971,
+      "vote_share_pct": 14.79,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 64,
+    "vote_share_pct": 0.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MUTHINGNYUBA SANGTAM",
+    "party_short": "NPF",
+    "votes": 9316,
+    "margin_votes": 1848,
+    "margin_pct": 9.2
+  },
+  "others": null
+}

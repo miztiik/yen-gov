@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Longleng",
+  "totals": {
+    "electors": 25211,
+    "votes_polled": 24479,
+    "turnout_pct": 97.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "S PANGNYU PHOM",
+      "party_short": "BJP",
+      "votes": 9987,
+      "vote_share_pct": 40.8,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Y. B ANGAM PHOM",
+      "party_short": "NPEP",
+      "votes": 8981,
+      "vote_share_pct": 36.69,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "ER. T. L. SEMDOK",
+      "party_short": "NPF",
+      "votes": 4639,
+      "vote_share_pct": 18.95,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 226,
+    "vote_share_pct": 0.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "S PANGNYU PHOM",
+    "party_short": "BJP",
+    "votes": 9987,
+    "margin_votes": 1006,
+    "margin_pct": 4.11
+  },
+  "others": null
+}

@@ -526,6 +526,15 @@
     ],
     "S15": [
       {
+        "event_id": "AcGenFeb2018",
+        "kind": "assembly",
+        "display": "Meghalaya Assembly · February 2018",
+        "polled_on": "2018-02-27",
+        "term_end_estimated": "2023-03-15",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 27 February 2018. 60 ACs (Williamnagar AC 43 countermanded after a candidate’s death). Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX; pre-2019 reports use literal NULL in vote columns for ACs where no poll was held."
+      },
+      {
         "event_id": "AcGenFeb2023",
         "kind": "assembly",
         "display": "Meghalaya Assembly · February 2023",
@@ -536,6 +545,15 @@
       }
     ],
     "S17": [
+      {
+        "event_id": "AcGenFeb2018",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · February 2018",
+        "polled_on": "2018-02-27",
+        "term_end_estimated": "2023-03-12",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 27 February 2018. 60 ACs (Northern Angami-II AC 11 — Neiphiu Rio NDPP declared elected unopposed). Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX; pre-2019 reports use literal NULL in vote columns for ACs where no poll was held."
+      },
       {
         "event_id": "AcGenFeb2023",
         "kind": "assembly",

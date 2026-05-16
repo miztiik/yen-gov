@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 47,
+  "constituency_name": "Aboi",
+  "totals": {
+    "electors": 11921,
+    "votes_polled": 11414,
+    "turnout_pct": 95.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ESHAK KONYAK",
+      "party_short": "NPF",
+      "votes": 6036,
+      "vote_share_pct": 52.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "AWAN KONYAK",
+      "party_short": "NDPP",
+      "votes": 5131,
+      "vote_share_pct": 44.95,
+      "gender": "F",
+      "age": 38,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 43,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ESHAK KONYAK",
+    "party_short": "NPF",
+    "votes": 6036,
+    "margin_votes": 905,
+    "margin_pct": 7.93
+  },
+  "others": null
+}

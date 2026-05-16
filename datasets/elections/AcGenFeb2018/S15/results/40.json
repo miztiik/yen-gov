@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 40,
+  "constituency_name": "Bajengdoba",
+  "totals": {
+    "electors": 28764,
+    "votes_polled": 25504,
+    "turnout_pct": 88.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PONGSENG MARAK",
+      "party_short": "NPEP",
+      "votes": 11648,
+      "vote_share_pct": 45.67,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "BRIGADY NAPAK MARAK",
+      "party_short": "INC",
+      "votes": 9684,
+      "vote_share_pct": 37.97,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "JOHN MANNER MARAK",
+      "party_short": "BJP",
+      "votes": 3435,
+      "vote_share_pct": 13.47,
+      "gender": "M",
+      "age": 65,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 573,
+    "vote_share_pct": 2.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PONGSENG MARAK",
+    "party_short": "NPEP",
+    "votes": 11648,
+    "margin_votes": 1964,
+    "margin_pct": 7.7
+  },
+  "others": null
+}

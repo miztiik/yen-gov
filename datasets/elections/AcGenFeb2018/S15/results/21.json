@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Nongthymmai",
+  "totals": {
+    "electors": 33897,
+    "votes_polled": 24773,
+    "turnout_pct": 73.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHARLES PYNGROPE",
+      "party_short": "INC",
+      "votes": 10225,
+      "vote_share_pct": 41.27,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "DR. JEMINO MAWTHOH",
+      "party_short": "UDP",
+      "votes": 9268,
+      "vote_share_pct": 37.41,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "ERNEST MAWRIE",
+      "party_short": "BJP",
+      "votes": 3065,
+      "vote_share_pct": 12.37,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "LATIPLANG KHARKONGOR",
+      "party_short": "PDF",
+      "votes": 655,
+      "vote_share_pct": 2.64,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "EHKUPAR NONGRUM",
+      "party_short": "NPEP",
+      "votes": 352,
+      "vote_share_pct": 1.42,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 285,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 292,
+    "vote_share_pct": 1.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHARLES PYNGROPE",
+    "party_short": "INC",
+    "votes": 10225,
+    "margin_votes": 957,
+    "margin_pct": 3.86
+  }
+}

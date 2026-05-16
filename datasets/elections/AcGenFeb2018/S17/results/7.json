@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 7,
+  "constituency_name": "Peren",
+  "totals": {
+    "electors": 29168,
+    "votes_polled": 23253,
+    "turnout_pct": 79.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TADITUI RANGKAU ZELIANG",
+      "party_short": "NPF",
+      "votes": 14064,
+      "vote_share_pct": 60.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "IHERIE NDANG",
+      "party_short": "NDPP",
+      "votes": 8632,
+      "vote_share_pct": 37.12,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 113,
+    "vote_share_pct": 0.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TADITUI RANGKAU ZELIANG",
+    "party_short": "NPF",
+    "votes": 14064,
+    "margin_votes": 5432,
+    "margin_pct": 23.36
+  },
+  "others": null
+}

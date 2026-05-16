@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "Mairang",
+  "totals": {
+    "electors": 34960,
+    "votes_polled": 32436,
+    "turnout_pct": 92.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "METBAH LYNGDOH",
+      "party_short": "UDP",
+      "votes": 10710,
+      "vote_share_pct": 33.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "COUNCELLOR SINGH WAHLANG",
+      "party_short": "PDF",
+      "votes": 7796,
+      "vote_share_pct": 24.04,
+      "gender": "M",
+      "age": 30,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "EUREKA F.P. LYNGDOH",
+      "party_short": "INC",
+      "votes": 6170,
+      "vote_share_pct": 19.02,
+      "gender": "F",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "LAWANPYNSHNGAIN K. WAR",
+      "party_short": "NPEP",
+      "votes": 4530,
+      "vote_share_pct": 13.97,
+      "gender": "M",
+      "age": 31,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "KESTONBEL MANIK SYIEMLIEH",
+      "party_short": "BJP",
+      "votes": 2390,
+      "vote_share_pct": 7.37,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 320,
+    "vote_share_pct": 0.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "METBAH LYNGDOH",
+    "party_short": "UDP",
+    "votes": 10710,
+    "margin_votes": 2914,
+    "margin_pct": 8.98
+  },
+  "others": null
+}

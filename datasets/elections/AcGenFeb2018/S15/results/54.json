@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "Mahendraganj",
+  "totals": {
+    "electors": 31149,
+    "votes_polled": 28615,
+    "turnout_pct": 91.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DIKKANCHI D. SHIRA",
+      "party_short": "INC",
+      "votes": 14292,
+      "vote_share_pct": 49.95,
+      "is_winner": true,
+      "gender": "F",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "PREMANANDA KOCH",
+      "party_short": "BJP",
+      "votes": 6207,
+      "vote_share_pct": 21.69,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SANJAY A SANGMA",
+      "party_short": "NPEP",
+      "votes": 4899,
+      "vote_share_pct": 17.12,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "NIDHU RAM HAJONG",
+      "party_short": "UDP",
+      "votes": 1572,
+      "vote_share_pct": 5.49,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "ROBERTH S SANGMA",
+      "party_short": "IND",
+      "votes": 991,
+      "vote_share_pct": 3.46,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 155,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 295,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DIKKANCHI D. SHIRA",
+    "party_short": "INC",
+    "votes": 14292,
+    "margin_votes": 8085,
+    "margin_pct": 28.25
+  }
+}

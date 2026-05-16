@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Southern angami-ii",
+  "totals": {
+    "electors": 17504,
+    "votes_polled": 14515,
+    "turnout_pct": 82.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ZALE NEIKHA",
+      "party_short": "NDPP",
+      "votes": 7563,
+      "vote_share_pct": 52.1,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "ER. KROPOL VITSU",
+      "party_short": "NPF",
+      "votes": 6792,
+      "vote_share_pct": 46.79,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 38,
+    "vote_share_pct": 0.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ZALE NEIKHA",
+    "party_short": "NDPP",
+    "votes": 7563,
+    "margin_votes": 771,
+    "margin_pct": 5.31
+  },
+  "others": null
+}

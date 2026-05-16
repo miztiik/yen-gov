@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Mongoya",
+  "totals": {
+    "electors": 16014,
+    "votes_polled": 14013,
+    "turnout_pct": 87.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NGANGSHI K AO",
+      "party_short": "NPF",
+      "votes": 6883,
+      "vote_share_pct": 49.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 76,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "ALEMTEMSHI JAMIR",
+      "party_short": "NDPP",
+      "votes": 6535,
+      "vote_share_pct": 46.64,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "S. SUPONGMEREN JAMIR",
+      "party_short": "NPEP",
+      "votes": 151,
+      "vote_share_pct": 1.08,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 16,
+    "vote_share_pct": 0.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NGANGSHI K AO",
+    "party_short": "NPF",
+    "votes": 6883,
+    "margin_votes": 348,
+    "margin_pct": 2.48
+  },
+  "others": null
+}

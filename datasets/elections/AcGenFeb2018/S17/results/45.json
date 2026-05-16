@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "Tehok",
+  "totals": {
+    "electors": 11640,
+    "votes_polled": 10888,
+    "turnout_pct": 93.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C.L JOHN",
+      "party_short": "NPF",
+      "votes": 7463,
+      "vote_share_pct": 68.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "ER C KAWANG KONYAK",
+      "party_short": "BJP",
+      "votes": 2907,
+      "vote_share_pct": 26.7,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "CHINGKAI KONYAK",
+      "party_short": "NPEP",
+      "votes": 268,
+      "vote_share_pct": 2.46,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SHABOH KONYAK",
+      "party_short": "INC",
+      "votes": 45,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 47,
+    "vote_share_pct": 0.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C.L JOHN",
+    "party_short": "NPF",
+    "votes": 7463,
+    "margin_votes": 4556,
+    "margin_pct": 41.84
+  },
+  "others": null
+}
