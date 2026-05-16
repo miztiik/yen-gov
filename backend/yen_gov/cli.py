@@ -1022,6 +1022,7 @@ def ingest_fiscal_rbi(
     (pinned URL → RBI_STATE_FINANCES_URL env → local .runtime cache).
     """
     from yen_gov.sources.rbi_xlsx import ingest as rbi_ingest_mod
+    from yen_gov.sources.rbi_xlsx.parsers import FISCAL_SPECS
 
     config_path = config or (root / "config" / "processing.json")
     config_doc = json.loads(config_path.read_text(encoding="utf-8"))
@@ -1047,9 +1048,69 @@ def ingest_fiscal_rbi(
     ) as fetcher:
         result = rbi_ingest_mod.ingest(
             fetcher=fetcher, repo_root=root, schema_dir=schema_dir,
+            specs=FISCAL_SPECS,
         )
 
     typer.echo("ingest-fiscal-rbi: OK")
+    for r in result.indicators:
+        typer.echo(f"  - {r.indicator_id}")
+        typer.echo(f"    workbook_url:  {r.workbook_url}")
+        typer.echo(f"    workbook_time: {r.workbook_fetched_at.isoformat()}")
+        typer.echo(f"    sheet:         {r.sheet_name}  ({r.period_columns} period cols)")
+        typer.echo(f"    rows written:  {r.row_count}")
+        typer.echo(f"    artifact:      {r.artifact_path.relative_to(root).as_posix()}")
+
+
+@app.command("ingest-health-rbi-statement-27")
+def ingest_health_rbi_statement_27(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+    config: Path = typer.Option(
+        None, "--config", "-c",
+        help="Path to processing.json. Defaults to <root>/config/processing.json.",
+    ),
+) -> None:
+    """Ingest RBI Statement 27 → health/state_health_expenditure_pct_total_expenditure.
+
+    Single indicator: share of each state's aggregate expenditure that
+    goes to Medical and Public Health and Family Welfare. Sheet ST_27,
+    18 fiscal years (2008-09 through 2025-26 with last two RE / BE).
+    Reuses the rbi_xlsx wide-table parser seam — no parser changes.
+
+    See TODO/20260515-health-ingest-handover.md for the full Hans
+    governance contract (denominator, revision tiers, excludes).
+    """
+    from yen_gov.sources.rbi_xlsx import ingest as rbi_ingest_mod
+    from yen_gov.sources.rbi_xlsx.parsers import HEALTH_SPECS
+
+    config_path = config or (root / "config" / "processing.json")
+    config_doc = json.loads(config_path.read_text(encoding="utf-8"))
+    for key in ("$schema", "$schema_version"):
+        config_doc.pop(key, None)
+    cfg = ProcessingConfig.model_validate(config_doc)
+    schema_dir = root / "datasets" / "schemas"
+
+    with Fetcher(
+        source="rbi",
+        runtime_root=root,
+        timeout_seconds=cfg.fetch.timeout_seconds,
+        retry_attempts=cfg.fetch.retry_attempts,
+        retry_backoff_seconds=cfg.fetch.retry_backoff_seconds or 1.0,
+        # RBI CDN rejects non-browser UAs — see ingest-fiscal-rbi note.
+        user_agent=(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 yen-gov/0.1"
+        ),
+    ) as fetcher:
+        result = rbi_ingest_mod.ingest(
+            fetcher=fetcher, repo_root=root, schema_dir=schema_dir,
+            specs=HEALTH_SPECS,
+        )
+
+    typer.echo("ingest-health-rbi-statement-27: OK")
     for r in result.indicators:
         typer.echo(f"  - {r.indicator_id}")
         typer.echo(f"    workbook_url:  {r.workbook_url}")

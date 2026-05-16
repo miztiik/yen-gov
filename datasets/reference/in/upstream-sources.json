@@ -197,6 +197,7 @@
       "adapter": "iced_air_quality",
       "indicator_ids": [
         "environment/state_pm25_annual_mean_ug_m3",
+        "environment/state_pm10_annual_mean_ug_m3",
         "environment/state_no2_annual_mean_ug_m3",
         "environment/state_so2_annual_mean_ug_m3"
       ],

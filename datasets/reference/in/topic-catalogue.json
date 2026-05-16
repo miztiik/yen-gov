@@ -724,6 +724,14 @@
         },
         {
           "kind": "indicator",
+          "id": "environment/state_pm10_annual_mean_ug_m3",
+          "default": false,
+          "featured": true,
+          "scope": "state",
+          "chart_type": "choropleth"
+        },
+        {
+          "kind": "indicator",
           "id": "environment/state_no2_annual_mean_ug_m3",
           "default": false,
           "featured": true,

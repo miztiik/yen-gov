@@ -60,6 +60,17 @@ KNOWN_URLS: dict[str, dict[str, str]] = {
             "17_ST2301202683B49BF6F4584A6985B2CCCAA41B020E.XLSX"
         ),
     },
+    # Statement 27: "Expenditure on Medical and Public Health and
+    # Family Welfare" — per-cent of each state's aggregate expenditure.
+    # 18 fiscal years 2008-09 through 2025-26 (last two RE / BE).
+    # Includes revenue + capital outlay. Delhi + Puducherry coverage
+    # starts 2017-18 (per source footnote).
+    "health/state_health_expenditure_pct_total_expenditure": {
+        "23012026": (
+            "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/"
+            "27_ST23012026CC86B1004D0246F9A46EE80264885103.XLSX"
+        ),
+    },
 }
 
 

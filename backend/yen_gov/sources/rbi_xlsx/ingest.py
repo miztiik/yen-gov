@@ -168,6 +168,122 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "planned as sibling indicators."
         ),
     ),
+    "health/state_health_expenditure_pct_total_expenditure": IndicatorMeta(
+        indicator_id="health/state_health_expenditure_pct_total_expenditure",
+        title="Public health spend (% of state total expenditure)",
+        description=(
+            "Share of each State / UT government's total annual budget "
+            "spent on Medical & Public Health and Family Welfare — "
+            "covering primary health centres, district hospitals, "
+            "disease-control programmes, immunisation, maternal & child "
+            "health, and family planning. Includes both day-to-day "
+            "(revenue) spending and one-off (capital) spending. The "
+            "denominator is the state's own total expenditure, so the "
+            "indicator answers: 'of every ₹100 the state government "
+            "spends, how much goes to health?' The National Health "
+            "Policy 2017 target is 8% by 2025."
+        ),
+        direction="higher_is_better",
+        # v1.5 4-level ladder: this indicator IS comparable across states
+        # AND time — same denominator (own total expenditure) across all
+        # rows, no methodology break in the RBI series 2008-09 → 2025-26.
+        comparability="comparable_across_states_and_time",
+        # Spend is administered by the state government, regardless of
+        # which funding source (own tax revenue vs centrally-sponsored
+        # scheme pass-through) underwrote it.
+        attribution_geography="where_administered",
+        icon="heart-pulse",
+        # Health is a State List subject (Entry 6, List II). All spend
+        # captured by Statement 27 flows through the state's own budget.
+        # That includes pass-through Centrally-Sponsored Scheme money
+        # (NHM etc.), so 100% of the measured spend is state-administered
+        # even though ~30-40% of the underlying funding originates with
+        # the Centre. The denominator (state total expenditure) shares
+        # the same scope, so the ratio is comparable across states with
+        # different CSS dependency profiles.
+        funding_split_state_pct=100,
+        funding_split_source=(
+            "Constitutional assignment (Entry 6, State List). "
+            "Underlying funding mix (own-tax vs CSS pass-through) "
+            "varies per state and per year and is not separated in "
+            "Statement 27; this field captures who administered the "
+            "spend, not who originated the funds."
+        ),
+        value_kind="share",
+        unit="% of state total expenditure",
+        implementing_authority="state",
+        time_grain="fiscal_year",
+        chart_type="choropleth",
+        denominator={
+            "what": (
+                "State / UT government's own aggregate expenditure "
+                "(revenue expenditure + capital outlay + loans & "
+                "advances net of recoveries), per RBI 'State Finances: "
+                "A Study of Budgets' classification"
+            ),
+            "price_basis": "current",
+        },
+        # Period-level vintage governance (Hans v1.5). Accounts data
+        # runs 2008-09 through 2023-24; the final two periods of this
+        # edition are still RE and BE and WILL be revised when next
+        # year's State Finances publication lands. Renderers should
+        # disclose this on the trend view.
+        revision_tier_by_period=(
+            {
+                "from": "2008-04",
+                "tier": "Accounts",
+                "note": "Audited Accounts data (final).",
+            },
+            {
+                "from": "2024-04",
+                "tier": "RE",
+                "note": (
+                    "Revised Estimates from state budget documents — "
+                    "will be replaced by Accounts in a future RBI edition."
+                ),
+            },
+            {
+                "from": "2025-04",
+                "tier": "BE",
+                "note": (
+                    "Budget Estimates — planning intent, not actual "
+                    "spend; revises substantially by year-end."
+                ),
+            },
+        ),
+        excludes=(
+            (
+                "Water Supply, Sanitation, Housing & Urban Development "
+                "spend — RBI's Statement 27 is titled 'Medical and "
+                "Public Health and Family Welfare' and excludes these "
+                "even though some international health-spend "
+                "definitions group them together."
+            ),
+            (
+                "Pre-2017-18 figures for NCT Delhi and Puducherry "
+                "(coverage starts 2017-18 per the RBI source footnote)."
+            ),
+            (
+                "Pre-2014-15 figures for Telangana (state formed "
+                "June 2014 — earlier values are intentionally null)."
+            ),
+        ),
+        notes=(
+            "Source: RBI 'State Finances: A Study of Budgets', "
+            "Statement 27 (Expenditure on Medical and Public Health and "
+            "Family Welfare, as per cent of Aggregate Expenditure). "
+            "Includes both revenue expenditure and capital outlay per "
+            "the RBI footnote. Spend funded by Centrally-Sponsored "
+            "Schemes (e.g. NHM) flows through state budgets and is "
+            "included; raw values do not separate own-tax vs "
+            "centrally-transferred funding sources. The National "
+            "Health Policy 2017 target of 8% of state total expenditure "
+            "by 2025 is met by very few states (Delhi, J&K, "
+            "Puducherry); the all-India average sits near 5.5%. "
+            "Compare against fiscal/outstanding_debt_pct_gsdp to see "
+            "whether higher-debt states are sustaining health priority."
+        ),
+    ),
 }
 
 

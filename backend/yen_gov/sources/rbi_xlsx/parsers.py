@@ -531,7 +531,7 @@ def parse_workbook(
 # ---------------------------------------------------------------------------
 
 
-SHIPPED_SPECS: tuple[IndicatorSpec, ...] = (
+FISCAL_SPECS: tuple[IndicatorSpec, ...] = (
     IndicatorSpec(
         indicator_id="fiscal/outstanding_debt_pct_gsdp",
         sheet_match="ST_20",
@@ -551,3 +551,28 @@ SHIPPED_SPECS: tuple[IndicatorSpec, ...] = (
         value_column_label="Net",
     ),
 )
+
+
+HEALTH_SPECS: tuple[IndicatorSpec, ...] = (
+    # Statement 27: state expenditure on Medical and Public Health and
+    # Family Welfare, as a per-cent of each state's aggregate
+    # expenditure. Single-column-per-fiscal-year layout (same shape as
+    # ST_20). 2008-09 through 2025-26 with last two periods RE / BE.
+    # Footnote *: includes revenue expenditure and capital outlay.
+    # Footnote: Delhi and Puducherry coverage from 2017-18 onwards;
+    # Telangana naturally pre-2014-15 nulls (state formation).
+    IndicatorSpec(
+        indicator_id="health/state_health_expenditure_pct_total_expenditure",
+        sheet_match="ST_27",
+        header_label_match="state/ut",
+        period_kind="fy_span",
+    ),
+)
+
+
+# Back-compat union. The orchestrator defaults to this when no specs
+# tuple is passed, so legacy callers (and the existing test that asserts
+# `len(SHIPPED_SPECS) >= 1`) keep working. New per-scope CLIs MUST pass
+# the scoped tuple they own so a fiscal-only run never accidentally
+# emits a health artifact, and vice versa.
+SHIPPED_SPECS: tuple[IndicatorSpec, ...] = FISCAL_SPECS + HEALTH_SPECS
