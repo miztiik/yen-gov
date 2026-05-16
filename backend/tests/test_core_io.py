@@ -156,8 +156,10 @@ def _indicator_payload(rows: list[dict] | None = None) -> dict:
 
 def test_write_artifact_derives_folded_blocks_when_payload_omits_them(tmp_path: Path) -> None:
     """Composer that emits a v1.5-shape payload (no series_spec / methodology /
-    collection_inventory / divergence) still produces a valid v2.0 artifact —
-    write_artifact derives stubs and validates."""
+    divergence) still produces a valid v4.0 artifact —
+    write_artifact derives stubs and validates. v4.0 dropped
+    `collection_inventory` (lifted to external completeness index per
+    ADR-0025) and shrunk `series_spec` to `{description}` only."""
     schema = _load_schema("indicator.schema.json")
     target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
 
@@ -171,61 +173,41 @@ def test_write_artifact_derives_folded_blocks_when_payload_omits_them(tmp_path: 
     )
 
     written = json.loads(target.read_text(encoding="utf-8"))
-    # All four required v2.0 blocks present.
-    for block in ("series_spec", "methodology", "collection_inventory", "divergence"):
+    # All three required v4.0 folded blocks present.
+    for block in ("series_spec", "methodology", "divergence"):
         assert block in written, f"missing {block}"
+    # v4.0: collection_inventory MUST NOT be in the artifact.
+    assert "collection_inventory" not in written
+    # v4.0: series_spec is `{description}` only — no expected_* keys.
+    assert set(written["series_spec"].keys()) == {"description"}
     # Stub markers visible — /data-completeness can surface these as 'stub'.
     assert written["methodology"]["documentation_status"] == "stub"
-    assert written["series_spec"]["expected_periods_inference"]["basis"] == "seeded_from_observed_rows"
-    # collection_inventory derived from rows: 2 entities x 1 period, all observed.
-    assert written["collection_inventory"]["status"] == "complete"
 
 
-def test_write_artifact_preserves_operator_set_inventory_fields(tmp_path: Path) -> None:
-    """On a re-write of an existing artifact, operator-set fields on
-    collection_inventory (frozen / refetch_requested / unavailable_periods)
-    survive the auto-rederivation. This is the real regression target:
-    if the merge logic regressed, every refresh would silently clear an
-    operator's `frozen: true` flag."""
+def test_write_artifact_v4_strips_no_inventory_carried_in_caller_payload(tmp_path: Path) -> None:
+    """v4.0: if a caller (e.g. unpatched old composer) still passes a
+    `collection_inventory` block in the payload, validation MUST reject
+    it — the schema has `additionalProperties: false`. This catches a
+    composer that didn't get the v4 memo."""
+    import jsonschema
     schema = _load_schema("indicator.schema.json")
     target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
 
-    write_artifact(
-        path=target,
-        schema_id=schema["$id"], schema_version=schema["x-version"],
-        payload=_indicator_payload(),
-        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 17, tzinfo=timezone.utc))],
-        schema_for_validation=schema,
-    )
+    payload = _indicator_payload()
+    payload["collection_inventory"] = {
+        "status": "complete", "frozen": False,
+        "last_collected_at": None, "refetch_requested": False,
+        "pending_periods": [], "observed_periods": [], "unavailable_periods": [],
+    }
 
-    # Operator edits the artifact: marks frozen, declares an unavailable period.
-    on_disk = json.loads(target.read_text(encoding="utf-8"))
-    on_disk["collection_inventory"]["frozen"] = True
-    on_disk["collection_inventory"]["unavailable_periods"] = [
-        {
-            "period": {"key": "2099", "label": "FY2099", "frequency": "annual_fy"},
-            "reason": "future period, not yet published",
-        }
-    ]
-    target.write_text(json.dumps(on_disk, indent=2) + "\n", encoding="utf-8")
-
-    # Adapter re-emits with fresh rows; operator flags must survive.
-    write_artifact(
-        path=target,
-        schema_id=schema["$id"], schema_version=schema["x-version"],
-        payload=_indicator_payload([
-            {"entity_id": "S01", "time": "2023", "value": 100.0},
-            {"entity_id": "S01", "time": "2024", "value": 110.0},
-            {"entity_id": "S02", "time": "2023", "value": 200.0},
-            {"entity_id": "S02", "time": "2024", "value": 210.0},
-        ]),
-        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 18, tzinfo=timezone.utc))],
-        schema_for_validation=schema,
-    )
-
-    after = json.loads(target.read_text(encoding="utf-8"))
-    assert after["collection_inventory"]["frozen"] is True
-    assert after["collection_inventory"]["unavailable_periods"][0]["period"]["key"] == "2099"
+    with pytest.raises(jsonschema.ValidationError):
+        write_artifact(
+            path=target,
+            schema_id=schema["$id"], schema_version=schema["x-version"],
+            payload=payload,
+            sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 17, tzinfo=timezone.utc))],
+            schema_for_validation=schema,
+        )
 
 
 def test_write_artifact_caller_provided_methodology_wins_over_prior(tmp_path: Path) -> None:
