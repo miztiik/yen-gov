@@ -26,6 +26,7 @@ Every page shows:
 - **The source URL and the date we fetched it** — RBI, Election Commission, Ministry data portals. No anonymous numbers.
 - **Honest caveats on the page, not in a footnote** — when a methodology changed (GST, base-year revisions, PLFS replacing the old NSS surveys), the page says so before you read the number.
 - **Who is constitutionally accountable** — every topic is tagged State List, Union List, or Concurrent List, so you know which government to ask.
+- **What we have and what's missing** — the [`/data-completeness`](https://yen-gov.github.io/data-completeness) view lists every indicator with its editorial documentation status (stub / partial / authored) and collection status (empty / partial / complete). We are loud about gaps. See [folded-indicator](docs/concepts/folded-indicator.md) and [data-quality](docs/concepts/data-quality.md).
 
 ## What this is *not*
 
