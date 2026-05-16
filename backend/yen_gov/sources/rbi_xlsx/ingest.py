@@ -1,12 +1,17 @@
-"""Orchestrator for the RBI fiscal ingest.
+"""Orchestrator for the RBI ingest of State Finances Statement workbooks.
 
-Network + filesystem boundary. For each shipped indicator spec:
+Network + filesystem boundary. For each indicator spec passed in:
   1. Resolve a workbook URL via :mod:`.urls` (registry → env override
      → local cache fallback).
   2. Fetch the XLSX bytes.
   3. Run the pure parser (:mod:`.parsers`) for that single indicator.
-  4. Write a ``datasets/indicators/in/fiscal/<leaf>.json`` artifact
-     conforming to ``datasets/schemas/indicator.schema.json``.
+  4. Write a ``datasets/indicators/in/<scope>/<leaf>.json`` artifact
+     conforming to ``datasets/schemas/indicator.schema.json``, where
+     ``<scope>`` is the first path segment of the indicator id
+     (``fiscal``, ``health``, …). The orchestrator is therefore
+     scope-agnostic — adding a non-fiscal indicator that lives in a
+     Statement workbook of this shape only needs a new spec + meta +
+     URL pin + CLI command, no parser/orchestrator edits.
 
 See ``docs/architecture/backend/sources-rbi.md`` for the per-indicator
 honesty fields each artifact materialises.
@@ -16,6 +21,7 @@ from __future__ import annotations
 import json
 import os
 import re
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -53,7 +59,13 @@ class RBISourceUnavailable(RuntimeError):
 
 @dataclass(frozen=True)
 class IndicatorMeta:
-    """Honesty fields for one fiscal indicator."""
+    """Honesty fields for one indicator emitted from a Statement workbook.
+
+    Originally fiscal-only; v1.5 schema added a Hans-governance layer
+    that is opt-in per indicator. Existing fiscal entries do not set
+    the new fields and therefore re-emit byte-identically (the payload
+    builder only injects optional fields when they are set).
+    """
 
     indicator_id: str
     title: str
@@ -71,6 +83,16 @@ class IndicatorMeta:
     value_kind: str = "share"  # count | rate | share | currency | index | duration | raw
     unit: str = "%"
     series_breaks: tuple[dict[str, str], ...] = ()
+    # v1.5 optional Hans-governance fields. Each is emitted only when
+    # set, so existing fiscal entries (none set) re-emit unchanged.
+    implementing_authority: str = "state"  # state | centre | joint | local_body | parastatal
+    time_grain: str = "fiscal_year"
+    chart_type: str | None = None  # choropleth | ranked | stacked-trend (None ⇒ schema default)
+    denominator: Mapping[str, Any] | str | None = None
+    revision_tier_by_period: tuple[Mapping[str, str], ...] = ()
+    excludes: tuple[str, ...] = ()
+    renderer_rules: tuple[str, ...] = ()
+    funding_split_source: str = "definition (own vs centrally-transferred)"
 
 
 # Registry of shipped indicators' metadata. Currently one entry; new
@@ -301,7 +323,7 @@ def _build_indicator_payload(
             "title": meta.title,
             "description": meta.description,
             "entity_kind": "state",
-            "time_grain": "fiscal_year",
+            "time_grain": meta.time_grain,
             "value_kind": meta.value_kind,
             "direction": meta.direction,
             "scale_hint": "linear",
@@ -312,9 +334,9 @@ def _build_indicator_payload(
             "funding_split": {
                 "centre_pct": 100 - meta.funding_split_state_pct,
                 "state_pct": meta.funding_split_state_pct,
-                "source": "definition (own vs centrally-transferred)",
+                "source": meta.funding_split_source,
             },
-            "implementing_authority": "state",
+            "implementing_authority": meta.implementing_authority,
             "methodology_vintage": (
                 f"RBI State Finances: A Study of Budgets, fetched "
                 f"{workbook_fetched_at.isoformat(timespec='seconds').replace('+00:00', 'Z')}"
@@ -324,8 +346,29 @@ def _build_indicator_payload(
         "rows": rows,
     }
 
+    # v1.5 optional fields: only inject when the meta entry has set
+    # them. Existing fiscal entries leave these at their defaults and
+    # therefore re-emit byte-identically.
+    indicator_block: dict[str, Any] = payload["indicator"]
+    if meta.chart_type is not None:
+        indicator_block["chart_type"] = meta.chart_type
+    if meta.denominator is not None:
+        indicator_block["denominator"] = (
+            dict(meta.denominator)
+            if isinstance(meta.denominator, Mapping)
+            else meta.denominator
+        )
+    if meta.revision_tier_by_period:
+        indicator_block["revision_tier_by_period"] = [
+            dict(entry) for entry in meta.revision_tier_by_period
+        ]
+    if meta.excludes:
+        indicator_block["excludes"] = list(meta.excludes)
+    if meta.renderer_rules:
+        indicator_block["renderer_rules"] = list(meta.renderer_rules)
+
     if meta.series_breaks:
-        payload["indicator"]["series_breaks"] = list(meta.series_breaks)
+        indicator_block["series_breaks"] = list(meta.series_breaks)
 
     return payload
 
@@ -358,10 +401,17 @@ def ingest(
     fetcher: Fetcher,
     repo_root: Path,
     schema_dir: Path,
+    specs: Sequence[IndicatorSpec] = SHIPPED_SPECS,
 ) -> IngestResult:
-    """Fetch + parse + write all shipped fiscal indicators.
+    """Fetch + parse + write indicators from RBI State Finances workbooks.
+
+    ``specs`` defaults to the full :data:`SHIPPED_SPECS` registry for
+    backward compatibility with the original fiscal-only entry point.
+    Per-scope CLIs (fiscal vs health vs …) pass the subset they own so
+    a fiscal-only run never accidentally emits a health artifact.
 
     Idempotent: re-runs overwrite the artifacts and re-stamp ``fetched_at``.
+
     Raises:
         RBISourceUnavailable: no resolvable source for an indicator.
         RBIWorkbookShapeError: workbook layout has shifted; re-run recon.
@@ -369,11 +419,19 @@ def ingest(
     indicator_schema_path = schema_dir / "indicator.schema.json"
     indicator_schema = json.loads(indicator_schema_path.read_text(encoding="utf-8"))
 
-    out_dir = repo_root / "datasets" / "indicators" / "in" / "fiscal"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    indicators_root = repo_root / "datasets" / "indicators" / "in"
 
     results: list[IndicatorIngestResult] = []
-    for spec in SHIPPED_SPECS:
+    for spec in specs:
+        scope = spec.indicator_id.split("/", 1)[0]
+        if not scope or "/" in scope:
+            raise ValueError(
+                f"indicator id {spec.indicator_id!r} has no usable scope "
+                f"segment (expected '<scope>/<leaf>')"
+            )
+        out_dir = indicators_root / scope
+        out_dir.mkdir(parents=True, exist_ok=True)
+
         wb = _resolve_source(
             indicator_id=spec.indicator_id,
             fetcher=fetcher,
