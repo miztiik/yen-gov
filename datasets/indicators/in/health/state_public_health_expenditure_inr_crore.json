@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/18T_11122025768C98BEB7A5493EA2E2EFFFEDDA7C46.XLSX",
@@ -1314,5 +1314,183 @@
       "time": "2019-04",
       "value": 1883.0
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Annual public expenditure on health, by state, ₹ Crore — captures Medical & Public Health, Family Welfare, and Water Supply & Sanitation heads of the state revenue + capital accounts. Coverage is FY 2012-13 to FY 2019-20 in this RBI edition; for citizen-relevant comparisons normalise by population (per-capita) or by GSDP (% of GSDP). Direction is `neutral` not `higher_is_better` because spending is an INPUT, not an OUTCOME — pair with Infant Mortality / Life Expectancy for the value-for-money story.",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U01",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U07",
+      "U08"
+    ],
+    "expected_periods": [
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Annual public expenditure on health, by state, ₹ Crore — captures Medical & Public Health, Family Welfare, and Water Supply & Sanitation heads of the state revenue + capital accounts. Coverage is FY 2012-13 to FY 2019-20 in this RBI edition; for citizen-relevant comparisons normalise by population (per-capita) or by GSDP (% of GSDP). Direction is `neutral` not `higher_is_better` because spending is an INPUT, not an OUTCOME — pair with Infant Mortality / Life Expectancy for the value-for-money story.",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "partial",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T19:00:00Z",
+    "refetch_requested": false,
+    "pending_periods": [
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "observed_periods": [
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

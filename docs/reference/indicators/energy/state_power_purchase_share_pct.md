@@ -4,7 +4,7 @@
 
 **Title**: State power-purchase mix by source (%, by source)  
 **One-line**: Share of total electricity purchased by a state's distribution utilities, broken down by generation source (coal, hydro, solar, wind, nuclear, gas, small-hydro, bio-power, trading-and-others).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_power_purchase_share_pct.json`](../../../../datasets/indicators/in/energy/state_power_purchase_share_pct.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Compare state procurement mix vs state generation mix (``state_electricity_gener
 
 ## Citation
 
-> icedapi.niti.gov.in, *State power-purchase mix by source (%, by source)*. Re-published by yen-gov as `energy/state_power_purchase_share_pct`, schema v1.5. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *State power-purchase mix by source (%, by source)*. Re-published by yen-gov as `energy/state_power_purchase_share_pct`, schema v3.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_power_purchase_share_pct.json`](../../../../datasets/indicators/in/energy/state_power_purchase_share_pct.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_power_purchase_share_pct.json`](../../../../datasets/indicators/in/energy/state_power_purchase_share_pct.json)

@@ -4,7 +4,7 @@
 
 **Title**: State per-capita NSDP (current prices, long series)  
 **One-line**: Per-capita Net State Domestic Product (current prices), 2000-01 -> 2024-25 (25 fiscal years), spliced across MoSPI's 1999-2000, 2004-05, and 2011-12 base years.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json)
 
 ## Definition
@@ -59,8 +59,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 9. R
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State per-capita NSDP (current prices, long series)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_current_inr_long`, schema v1.5. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State per-capita NSDP (current prices, long series)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_current_inr_long`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json)

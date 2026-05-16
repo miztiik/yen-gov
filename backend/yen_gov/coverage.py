@@ -226,12 +226,59 @@ def compute_coverage(root: Path) -> CoverageReport:
         ]
 
     return CoverageReport(
-        generated_at=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        generated_at=_max_input_mtime_date(root),
         slices=tuple(slices),
         missing_states=tuple(missing),
         indicators=tuple(indicators),
         state_elections=tuple(_project_state_first(slices, state_names)),
     )
+
+
+def _max_input_mtime_date(root: Path) -> str:
+    """Return ``YYYY-MM-DD`` derived from the newest input the report reads.
+
+    Wall-clock at write time would couple ``data-inventory.md`` bytes to
+    when the operator ran ``coverage``, producing a daily git-status churn
+    even when nothing about the data changed (CLAUDE.md §10 anti-pattern).
+    The report is a pure function of the inputs we scan: the election
+    catalogue, states reference, topic catalogue, election artifacts and
+    indicator artifacts. Deriving the footer date from
+    ``max(input.st_mtime)`` makes re-runs with unchanged inputs produce
+    byte-identical output.
+
+    Falls back to ``"unknown"`` when no input exists (fresh checkout or
+    sparse fixture tree) so the function stays total.
+
+    Why no idempotency unit test guards this
+    ----------------------------------------
+    The obvious "call ``render_markdown`` twice, assert byte-equal" test
+    is ceremony: it's ``f(x) == f(x)`` for a near-pure function, and it
+    only catches a regression if a re-introduced ``datetime.now()`` is
+    SUB-DAY (``isoformat()``, ``time()``). A regression that re-adds
+    ``datetime.now().strftime("%Y-%m-%d")`` straddles the same UTC day
+    in both calls and silently passes. The real regression signal is the
+    diff against committed ``docs/reference/**/*.md`` outputs in CI -- if
+    someone re-introduces wall-clock here, the next coverage re-run
+    changes 110+ doc files and the PR diff is impossible to miss. A
+    flimsy unit test that pretends to guard this would be worse than no
+    test: it would absolve the reviewer of looking at the doc diff.
+    Deleted deliberately, not forgotten.
+    """
+    inputs: list[Path] = []
+    for rel in (CATALOGUE_REL, STATES_REL, TOPIC_CATALOGUE_REL):
+        p = root / rel
+        if p.is_file():
+            inputs.append(p)
+    for tree_rel in (INDICATORS_REL, ELECTIONS_REL):
+        base = root / tree_rel
+        if base.is_dir():
+            for path in base.rglob("*.json"):
+                if path.is_file():
+                    inputs.append(path)
+    if not inputs:
+        return "unknown"
+    newest = max(p.stat().st_mtime for p in inputs)
+    return datetime.fromtimestamp(newest, tz=timezone.utc).strftime("%Y-%m-%d")
 
 
 def _load_wired_indicator_ids(root: Path) -> set[str] | None:

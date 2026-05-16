@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/17_ST2301202683B49BF6F4584A6985B2CCCAA41B020E.XLSX",
@@ -572,5 +572,99 @@
       "value": 3699.8,
       "facet": "BE"
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Total devolution + grants flowing from the Central Government to each State / Union Territory in a fiscal year, net of items returned or adjusted (RBI's 'Net' column). Devolution is the state's share in central taxes (Finance Commission formula); grants include Finance Commission grants, centrally-sponsored scheme grants, and special-purpose transfers. This is the federal-transfer side of state fiscal capacity — a state's debt and deficit numbers are only honest read alongside how much the Centre is sending.",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U05",
+      "U07"
+    ],
+    "expected_periods": [
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Total devolution + grants flowing from the Central Government to each State / Union Territory in a fiscal year, net of items returned or adjusted (RBI's 'Net' column). Devolution is the state's share in central taxes (Finance Commission formula); grants include Finance Commission grants, centrally-sponsored scheme grants, and special-purpose transfers. This is the federal-transfer side of state fiscal capacity — a state's debt and deficit numbers are only honest read alongside how much the Centre is sending.",
+    "publisher": "rbidocs.rbi.org.in",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-11T15:18:58Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

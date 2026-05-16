@@ -4,7 +4,7 @@
 
 **Title**: State-wise peak power supplied (MW)  
 **One-line**: Maximum instantaneous power actually supplied in the state during the fiscal year (MW).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_peak_met_mw.json`](../../../../datasets/indicators/in/energy/state_peak_met_mw.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 142. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise peak power supplied (MW)*. Re-published by yen-gov as `energy/state_peak_met_mw`, schema v1.5. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise peak power supplied (MW)*. Re-published by yen-gov as `energy/state_peak_met_mw`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_peak_met_mw.json`](../../../../datasets/indicators/in/energy/state_peak_met_mw.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_peak_met_mw.json`](../../../../datasets/indicators/in/energy/state_peak_met_mw.json)

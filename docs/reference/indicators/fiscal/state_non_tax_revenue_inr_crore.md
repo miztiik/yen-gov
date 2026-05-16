@@ -4,7 +4,7 @@
 
 **Title**: States' non-tax revenue  
 **One-line**: Non-tax revenue accruing to the State Government (interest receipts, dividends, royalties, user charges from state PSUs etc.).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json)
 
 ## Definition
@@ -45,8 +45,8 @@ Rajya Sabha Session 260 Unstarred Q1323, answered 1 August 2023
 
 ## Citation
 
-> sansad.in, *States' non-tax revenue*. Re-published by yen-gov as `fiscal/state_non_tax_revenue_inr_crore`, schema v1.5. Retrieved 2026-05-14.
+> sansad.in, *States' non-tax revenue*. Re-published by yen-gov as `fiscal/state_non_tax_revenue_inr_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json)

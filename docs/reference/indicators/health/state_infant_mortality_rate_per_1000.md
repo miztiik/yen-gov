@@ -4,7 +4,7 @@
 
 **Title**: Infant Mortality Rate (per 1,000 live births)  
 **One-line**: Infant Mortality Rate — deaths of children under one year of age per 1,000 live births, calendar-year.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 4 (SR
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Infant Mortality Rate (per 1,000 live births)*. Re-published by yen-gov as `health/state_infant_mortality_rate_per_1000`, schema v1.5. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Infant Mortality Rate (per 1,000 live births)*. Re-published by yen-gov as `health/state_infant_mortality_rate_per_1000`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json)

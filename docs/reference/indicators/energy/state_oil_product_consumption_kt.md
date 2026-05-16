@@ -4,7 +4,7 @@
 
 **Title**: State oil-product consumption (kt, by product)  
 **One-line**: Per-state consumption of refined petroleum products in kilotonnes (kt) per fiscal year, faceted by product: diesel-HSD, petrol, LPG, kerosene, naphtha, petroleum-coke, others.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_oil_product_consumption_kt.json`](../../../../datasets/indicators/in/energy/state_oil_product_consumption_kt.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Like coal, oil is a *consumption* statistic — the state where the product is s
 
 ## Citation
 
-> icedapi.niti.gov.in, *State oil-product consumption (kt, by product)*. Re-published by yen-gov as `energy/state_oil_product_consumption_kt`, schema v1.5. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *State oil-product consumption (kt, by product)*. Re-published by yen-gov as `energy/state_oil_product_consumption_kt`, schema v3.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_oil_product_consumption_kt.json`](../../../../datasets/indicators/in/energy/state_oil_product_consumption_kt.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_oil_product_consumption_kt.json`](../../../../datasets/indicators/in/energy/state_oil_product_consumption_kt.json)

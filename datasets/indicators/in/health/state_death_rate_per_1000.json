@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/3T_111220254D0C628610584647A785A4DC76884B04.XLSX",
@@ -3439,5 +3439,344 @@
       "time": "2023",
       "value": 5.6
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Crude Death Rate — deaths per 1,000 mid-year population, calendar-year. Crude in the sense that it is unadjusted for age structure: states with older populations (Kerala, Tamil Nadu) will show structurally higher CDR than states with younger populations (Bihar, UP), without that meaning they are 'less healthy'. Pair with Life Expectancy and Infant Mortality for a properly age-controlled mortality picture.",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U01",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U07",
+      "U08"
+    ],
+    "expected_periods": [
+      {
+        "key": "2004",
+        "label": "2004",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2005",
+        "label": "2005",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2006",
+        "label": "2006",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2008",
+        "label": "2008",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2009",
+        "label": "2009",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2021",
+        "label": "2021",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2022",
+        "label": "2022",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2023",
+        "label": "2023",
+        "frequency": "annual_cy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Crude Death Rate — deaths per 1,000 mid-year population, calendar-year. Crude in the sense that it is unadjusted for age structure: states with older populations (Kerala, Tamil Nadu) will show structurally higher CDR than states with younger populations (Bihar, UP), without that meaning they are 'less healthy'. Pair with Life Expectancy and Infant Mortality for a properly age-controlled mortality picture.",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "partial",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T19:00:00Z",
+    "refetch_requested": false,
+    "pending_periods": [
+      {
+        "key": "2004",
+        "label": "2004",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2005",
+        "label": "2005",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2006",
+        "label": "2006",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2008",
+        "label": "2008",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2009",
+        "label": "2009",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2021",
+        "label": "2021",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2022",
+        "label": "2022",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2023",
+        "label": "2023",
+        "frequency": "annual_cy"
+      }
+    ],
+    "observed_periods": [
+      {
+        "key": "2004",
+        "label": "2004",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2005",
+        "label": "2005",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2006",
+        "label": "2006",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2008",
+        "label": "2008",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2009",
+        "label": "2009",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2021",
+        "label": "2021",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2022",
+        "label": "2022",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2023",
+        "label": "2023",
+        "frequency": "annual_cy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

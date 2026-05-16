@@ -4,7 +4,7 @@
 
 **Title**: National macro aggregates at constant 2011-12 prices (annual)  
 **One-line**: MoSPI National Accounts Statistics headline aggregates — GDP, GVA, NDP, Gross National Income, Gross National Disposable Income, Gross Fixed Capital Formation, Gross Saving, Consumption of Fixed Capital, Private and Government Final Consumption Expenditure, Change in Stock, Valuables, Exports and Imports of Goods and Services, Net Taxes / Taxes / Subsidies on Products, and external transfers — at constant 2011-12 prices, faceted by indicator.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Values are in ₹ crore at 2011-12 prices — comparable across years (real grow
 
 ## Citation
 
-> www.data.gov.in, *National macro aggregates at constant 2011-12 prices (annual)*. Re-published by yen-gov as `economy/national_macro_aggregates_constant_2011_12_inr_crore`, schema v1.5. Retrieved 2026-05-14.
+> www.data.gov.in, *National macro aggregates at constant 2011-12 prices (annual)*. Re-published by yen-gov as `economy/national_macro_aggregates_constant_2011_12_inr_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json)

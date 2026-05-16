@@ -4,7 +4,7 @@
 
 **Title**: State coal consumption (Mt, FY06–FY25)  
 **One-line**: Per-state domestic coal consumption in million tonnes per fiscal year, summed across all coal grades produced or imported within the state (raw coal + washed coal + middlings + lignite).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_coal_consumption_mt.json`](../../../../datasets/indicators/in/energy/state_coal_consumption_mt.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Coal consumption is a *consumption* statistic — the state where coal is burned
 
 ## Citation
 
-> icedapi.niti.gov.in, *State coal consumption (Mt, FY06–FY25)*. Re-published by yen-gov as `energy/state_coal_consumption_mt`, schema v1.5. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *State coal consumption (Mt, FY06–FY25)*. Re-published by yen-gov as `energy/state_coal_consumption_mt`, schema v3.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_coal_consumption_mt.json`](../../../../datasets/indicators/in/energy/state_coal_consumption_mt.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_coal_consumption_mt.json`](../../../../datasets/indicators/in/energy/state_coal_consumption_mt.json)

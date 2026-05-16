@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/171T_1112202558897643693142228AC6C769081FB16B.XLSX",
@@ -3161,5 +3161,340 @@
       "time": "2024-04",
       "value": 14058.0
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Annual state-government pension expenditure (revenue account, ₹ Crore) from FY 2004-05 onwards. Covers retirement and family pensions paid to state-government employees and pre-NPS hires; does NOT include the centrally-sponsored social-pension schemes (IGNOAPS, IGNWPS) or the National Pension System (NPS) contribution flows. Rapidly-growing line item in most state budgets — relevant to fiscal-sustainability and the Old Pension Scheme (OPS) restoration debate.",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U07",
+      "U08"
+    ],
+    "expected_periods": [
+      {
+        "key": "2004-04",
+        "label": "2004-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2005-04",
+        "label": "2005-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2006-04",
+        "label": "2006-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Annual state-government pension expenditure (revenue account, ₹ Crore) from FY 2004-05 onwards. Covers retirement and family pensions paid to state-government employees and pre-NPS hires; does NOT include the centrally-sponsored social-pension schemes (IGNOAPS, IGNWPS) or the National Pension System (NPS) contribution flows. Rapidly-growing line item in most state budgets — relevant to fiscal-sustainability and the Old Pension Scheme (OPS) restoration debate.",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": [],
+    "related_indicators": [
+      "fiscal/state_revenue_expenditure_inr_crore",
+      "fiscal/state_own_tax_revenue_inr_crore",
+      "fiscal/outstanding_debt_pct_gsdp"
+    ],
+    "editor_note_md": "Pension is a *committed* revenue expenditure — the state cannot defer it without legal reform. As a share of own-tax revenue (divide by `state_own_tax_revenue_inr_crore`) this number is the cleanest read on how much fiscal room a state has for discretionary spending after meeting salaries, pensions and interest.",
+    "policy_context": [
+      "Old Pension Scheme (OPS) restoration: Rajasthan (Mar 2022), Chhattisgarh, Jharkhand, Punjab and Himachal Pradesh have announced reversion to the pre-2004 defined-benefit OPS for state employees. Their pension liability trajectories will diverge sharply from NPS-cohort states over the next 15–20 years — RBI flagged this as a 'looming risk' in its 2023 State Finances report.",
+      "NPS (National Pension System) has been the default for Centre and most state employees joining after 2004; the contribution is on-budget and capped, so NPS-state pension lines should grow more slowly than OPS-state lines once the post-2004 cohort matures.",
+      "7th Pay Commission revisions (2016) and equivalent state pay-commissions caused a one-time level shift across all states — visible as a step in FY17/FY18 on every state's pension line."
+    ]
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "partial",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T19:00:00Z",
+    "refetch_requested": false,
+    "pending_periods": [
+      {
+        "key": "2004-04",
+        "label": "2004-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2005-04",
+        "label": "2005-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2006-04",
+        "label": "2006-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "observed_periods": [
+      {
+        "key": "2004-04",
+        "label": "2004-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2005-04",
+        "label": "2005-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2006-04",
+        "label": "2006-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

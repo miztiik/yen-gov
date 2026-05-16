@@ -4,7 +4,7 @@
 
 **Title**: State GDP (₹ crore, current and constant prices)  
 **One-line**: Per-state GSDP (Gross State Domestic Product) in ₹ crore, faceted by price basis.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_inr_crore.json)
 
 ## Definition
@@ -51,8 +51,8 @@ GSDP is the within-state production view; for who-consumes-what, see per-capita 
 
 ## Citation
 
-> icedapi.niti.gov.in, *State GDP (₹ crore, current and constant prices)*. Re-published by yen-gov as `economy/state_gdp_inr_crore`, schema v1.5. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State GDP (₹ crore, current and constant prices)*. Re-published by yen-gov as `economy/state_gdp_inr_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/state_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_inr_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/state_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_inr_crore.json)

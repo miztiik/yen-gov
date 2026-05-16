@@ -113,22 +113,34 @@ def _union_keys(*indices: dict[tuple[str, str], float]) -> list[tuple[str, str]]
 
 
 def _union_sources(docs: list[dict[str, Any]]) -> list[Source]:
-    """Union of input ``sources`` arrays, dedup on (url, fetched_at)."""
-    seen: set[tuple[str, str]] = set()
-    out: list[Source] = []
+    """Union of input ``sources`` arrays, deduplicated by ``url`` (earliest fetch wins).
+
+    The dedup key is the URL **alone**, not ``(url, fetched_at)``. The
+    tuple key smears the 2026-05-16 ``fetched_at`` smear (CLAUDE.md \u00a710)
+    one layer up: every re-ingest of an upstream URL with byte-identical
+    bytes used to land in this composer with a different ``fetched_at``,
+    so the tuple key treated each re-poll as a fresh source and the
+    composed artifact gained one ``sources[]`` entry per re-poll instead
+    of being byte-stable. Dedup-by-URL with first-seen-wins
+    (``min(fetched_at)``) cuts that one-layer-up smear off too.
+
+    Output is sorted by URL for deterministic byte-equal re-emits.
+    """
+    first_seen: dict[str, str] = {}
     for doc in docs:
         for s in doc.get("sources", []):
-            key = (s["url"], s["fetched_at"])
-            if key in seen:
-                continue
-            seen.add(key)
-            out.append(
-                Source(
-                    url=s["url"],
-                    fetched_at=datetime.fromisoformat(s["fetched_at"].replace("Z", "+00:00")),
-                )
-            )
-    return out
+            url = s["url"]
+            fetched_at = s["fetched_at"]
+            existing = first_seen.get(url)
+            if existing is None or fetched_at < existing:
+                first_seen[url] = fetched_at
+    return [
+        Source(
+            url=url,
+            fetched_at=datetime.fromisoformat(fetched_at.replace("Z", "+00:00")),
+        )
+        for url, fetched_at in sorted(first_seen.items())
+    ]
 
 
 def build_facetted_rows(

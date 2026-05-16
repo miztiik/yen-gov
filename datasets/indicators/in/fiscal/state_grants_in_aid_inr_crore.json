@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://sansad.in/rs/questions/questions-and-answers",
@@ -1017,5 +1017,136 @@
       "time": "2022-04",
       "value": 50591.5
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Finance Commission grants + centrally-sponsored scheme grants + special-purpose transfers received by the state from the Central Government. From Rajya Sabha Session 260 Unstarred Q1323 (1 Aug 2023), Col. (5).",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29"
+    ],
+    "expected_periods": [
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Finance Commission grants + centrally-sponsored scheme grants + special-purpose transfers received by the state from the Central Government. From Rajya Sabha Session 260 Unstarred Q1323 (1 Aug 2023), Col. (5).",
+    "publisher": "sansad.in",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T12:20:42Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

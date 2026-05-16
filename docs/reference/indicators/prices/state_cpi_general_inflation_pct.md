@@ -4,7 +4,7 @@
 
 **Title**: State-wise CPI inflation (General) — annual average  
 **One-line**: State-wise headline CPI inflation (General sub-index), year-on-year %, annual average per fiscal year.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/state_cpi_general_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_general_inflation_pct.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 108. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise CPI inflation (General) — annual average*. Re-published by yen-gov as `prices/state_cpi_general_inflation_pct`, schema v1.5. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise CPI inflation (General) — annual average*. Re-published by yen-gov as `prices/state_cpi_general_inflation_pct`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/prices/state_cpi_general_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_general_inflation_pct.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/prices/state_cpi_general_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_general_inflation_pct.json)

@@ -4,7 +4,7 @@
 
 **Title**: Human Development Index (income + health + education, 0–1)  
 **One-line**: Composite score combining life expectancy, years of schooling, and per-capita income, scaled 0 (lowest) to 1 (highest).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/human_development/state_hdi.json`](../../../../datasets/indicators/in/human_development/state_hdi.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Sub-national HDI computed by NITI Aayog using Indian survey inputs (NFHS for hea
 
 ## Citation
 
-> icedapi.niti.gov.in, *Human Development Index (income + health + education, 0–1)*. Re-published by yen-gov as `human_development/state_hdi`, schema v1.5. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *Human Development Index (income + health + education, 0–1)*. Re-published by yen-gov as `human_development/state_hdi`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/human_development/state_hdi.json`](../../../../datasets/indicators/in/human_development/state_hdi.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/human_development/state_hdi.json`](../../../../datasets/indicators/in/human_development/state_hdi.json)

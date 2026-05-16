@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/energy/electricity/distribution/rpo",
@@ -1748,5 +1748,113 @@
       "value": 6.7,
       "facet": "total"
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Share of the state's regulatory Renewable Purchase Obligation (RPO) target actually met in a given fiscal year, faceted by solar, non-solar, and total. Each state regulator sets a year-by-year RPO target as a % of total energy procurement; this indicator measures how close the state came to that target, expressed as ``compliance ÷ target × 100``. 100% = target exactly met; values above 100% indicate over-compliance (renewable procurement above the regulatory floor).",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U07",
+      "U08"
+    ],
+    "expected_periods": [
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Share of the state's regulatory Renewable Purchase Obligation (RPO) target actually met in a given fiscal year, faceted by solar, non-solar, and total. Each state regulator sets a year-by-year RPO target as a % of total energy procurement; this indicator measures how close the state came to that target, expressed as ``compliance ÷ target × 100``. 100% = target exactly met; values above 100% indicate over-compliance (renewable procurement above the regulatory floor).",
+    "publisher": "icedapi.niti.gov.in",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "partial",
+    "frozen": false,
+    "last_collected_at": "2026-05-15T17:53:07Z",
+    "refetch_requested": false,
+    "pending_periods": [
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "observed_periods": [
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

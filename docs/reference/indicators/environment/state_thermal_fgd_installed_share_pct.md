@@ -4,7 +4,7 @@
 
 **Title**: Thermal-plant FGD compliance (share of state capacity)  
 **One-line**: Share of each state's coal thermal-plant capacity (MW) that has actually installed flue-gas desulphurisation (FGD) equipment, against the MoEF&CC's December-2015 directive.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json`](../../../../datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Snapshot. The MoEF&CC's December 2015 notification mandated FGD installation at 
 
 ## Citation
 
-> icedapi.niti.gov.in, *Thermal-plant FGD compliance (share of state capacity)*. Re-published by yen-gov as `environment/state_thermal_fgd_installed_share_pct`, schema v1.5. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *Thermal-plant FGD compliance (share of state capacity)*. Re-published by yen-gov as `environment/state_thermal_fgd_installed_share_pct`, schema v3.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json`](../../../../datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json`](../../../../datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json)

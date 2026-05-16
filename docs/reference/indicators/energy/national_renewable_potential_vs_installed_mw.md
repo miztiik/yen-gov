@@ -4,7 +4,7 @@
 
 **Title**: Renewable energy: installed vs potential capacity (national)  
 **One-line**: India's installed renewable capacity compared with assessed potential, by source (Hydro, Wind, Solar, Small-Hydro, Biomass).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json`](../../../../datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Snapshot.
 
 ## Citation
 
-> iced.niti.gov.in, *Renewable energy: installed vs potential capacity (national)*. Re-published by yen-gov as `energy/national_renewable_potential_vs_installed_mw`, schema v1.5. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Renewable energy: installed vs potential capacity (national)*. Re-published by yen-gov as `energy/national_renewable_potential_vs_installed_mw`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json`](../../../../datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json`](../../../../datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json)

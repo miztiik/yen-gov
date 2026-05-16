@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://www.data.gov.in/",
@@ -1363,5 +1363,189 @@
       "facet": "Transport, Storage, Communication & Services Related to Broadcasting",
       "vintage": "First Revised Estimates"
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Annual Gross Value Added by 17-industry NIC-1-digit tier (Agriculture / Mining / Manufacturing / Electricity-Gas-Water / Construction / Trade-Hotels-Transport-Communication / Financial-Real-Estate-Professional / Public Admin / Other Services and their published variants), at constant 2011-12 prices. Drives the 'structure-of-the-economy' citizen story: how shares shift across CM terms and policy waves.",
+    "expected_geographies": [
+      "IN"
+    ],
+    "expected_periods": [
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Annual Gross Value Added by 17-industry NIC-1-digit tier (Agriculture / Mining / Manufacturing / Electricity-Gas-Water / Construction / Trade-Hotels-Transport-Communication / Financial-Real-Estate-Professional / Public Admin / Other Services and their published variants), at constant 2011-12 prices. Drives the 'structure-of-the-economy' citizen story: how shares shift across CM terms and policy waves.",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T15:02:37Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

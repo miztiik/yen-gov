@@ -39,13 +39,18 @@ def test_to_mw_coerces_strings_and_drops_garbage() -> None:
 
 
 def test_temporal_to_year_extracts_year_or_falls_back() -> None:
-    """Upstream's coverage.temporal is free-form ('2019', 'snapshot 2026-03-15')."""
-    assert _temporal_to_year("2019") == "2019"
-    assert _temporal_to_year("snapshot 2026-03-15") == "2026"
-    # Unknown / missing falls through to current year (which we don't pin in
-    # the test — just assert it parses to a 4-digit YYYY string).
-    out = _temporal_to_year(None)
-    assert len(out) == 4 and out.isdigit()
+    """Upstream's coverage.temporal is free-form ('2019', 'snapshot 2026-03-15').
+
+    When upstream gives nothing parseable, the caller-supplied
+    ``default_year`` is returned verbatim -- the function refuses to invent
+    a year from wall-clock (CLAUDE.md \u00a710 anti-pattern; see commit
+    that removed ``datetime.now()`` from this fallback).
+    """
+    assert _temporal_to_year("2019", default_year="2024") == "2019"
+    assert _temporal_to_year("snapshot 2026-03-15", default_year="2024") == "2026"
+    # Unknown / missing falls back to the caller-supplied default verbatim.
+    assert _temporal_to_year(None, default_year="2024") == "2024"
+    assert _temporal_to_year("no digits here", default_year="2024") == "2024"
 
 
 def test_rollup_by_state_fuel_aggregates_and_reports_unresolved() -> None:

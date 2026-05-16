@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/v1/plantPipelineInfo",
@@ -278,5 +278,239 @@
       "value": 0.0,
       "facet": "Under Construction but on Hold"
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "National total of generating capacity that is either under construction and on track, or under construction but on hold, by year of expected commissioning. Reads forward in time as well as backward — the citizen sees what is in the pipeline for the rest of the decade, not just what already exists.",
+    "expected_geographies": [
+      "IN"
+    ],
+    "expected_periods": [
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2021",
+        "label": "2021",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2023",
+        "label": "2023",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2024",
+        "label": "2024",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2025",
+        "label": "2025",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2026",
+        "label": "2026",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2027",
+        "label": "2027",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2028",
+        "label": "2028",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2029",
+        "label": "2029",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2030",
+        "label": "2030",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2031",
+        "label": "2031",
+        "frequency": "annual_cy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "National total of generating capacity that is either under construction and on track, or under construction but on hold, by year of expected commissioning. Reads forward in time as well as backward — the citizen sees what is in the pipeline for the rest of the decade, not just what already exists.",
+    "publisher": "joint",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T22:53:31Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2021",
+        "label": "2021",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2023",
+        "label": "2023",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2024",
+        "label": "2024",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2025",
+        "label": "2025",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2026",
+        "label": "2026",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2027",
+        "label": "2027",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2028",
+        "label": "2028",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2029",
+        "label": "2029",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2030",
+        "label": "2030",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2031",
+        "label": "2031",
+        "frequency": "annual_cy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

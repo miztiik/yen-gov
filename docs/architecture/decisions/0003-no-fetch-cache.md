@@ -1,6 +1,6 @@
 # ADR-0003: No HTTP cache layer; intermediates live in `.runtime/raw/`
 
-**Last Updated**: 2026-05-08
+**Last Updated**: 2026-05-17
 **Status**: accepted
 
 ## Context
@@ -42,3 +42,29 @@ The `cache_ttl_seconds` field is removed from `processing.schema.json` in the v2
 - **Hash-keyed cache with TTL**. Rejected: complexity that defends against a problem we don't have. Election data doesn't change post-declaration.
 - **ETag / If-Modified-Since**. Rejected: ECI HTML pages don't reliably set those headers; would be dead code in practice.
 - **No persistence at all (parse-in-memory, write only the final artifact)**. Rejected: when a parser bug is found mid-development, having the original HTML on disk is invaluable. Loss of `.runtime/raw/` is annoying; loss of upstream is permanent.
+
+## Clarifications 2026-05-17 (folded-indicator PR)
+
+The folded-indicator + collection-inventory work
+(`indicator.schema.json` v2.0, see [folded-indicator](../../concepts/folded-indicator.md))
+clarified how this ADR relates to the higher-level collection model:
+
+- **The no-cache stance stands.** `core/http.py` still has no cache
+  layer; every `Fetcher.fetch(url)` still hits the network.
+- **`.runtime/raw/` is throwaway debug, not a published inventory
+  record.** It is gitignored, has no schema, and is not a contract
+  surface. The committed indicator JSON is.
+- **Collection avoidance lives one layer up.** The planner reads
+  `collection_inventory.frozen`, `refetch_requested`, and
+  `pending_periods` on each folded indicator and simply does not call
+  the Fetcher for already-collected (state, period) cells. This is
+  not caching; this is the planner not asking again. See
+  [collection-inventory](../../concepts/collection-inventory.md).
+- **`rm` remains the only force-recollect mechanism.** A second
+  force-refetch flag was considered and rejected as duplicate state.
+  See [How-to: force re-collection](../../how-to/force-recollect.md).
+- **A SHA-gate at the Fetcher (and a paired `.meta.json` per URL)
+  was considered and rejected.** Bytes ≠ data; the gate that matters
+  is at the collect/planner layer (do we already have this cell?),
+  not at the byte layer (are the bytes identical?). See CLAUDE.md
+  §10 anti-patterns.

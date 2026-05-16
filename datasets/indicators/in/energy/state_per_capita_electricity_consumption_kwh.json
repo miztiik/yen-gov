@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
@@ -2812,5 +2812,235 @@
       "time": "2023-04",
       "value": 893.0
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Electricity consumption per person per year, in kilowatt-hours. Sourced from NITI Aayog ICED dashboard (state-wise deep-dive). A widely-used proxy for energy access AND industrial intensity — a high value can mean either many electrified homes or a heavy-industry economy, so it must be read alongside per-capita income.",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U01",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U07",
+      "U08"
+    ],
+    "expected_periods": [
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Electricity consumption per person per year, in kilowatt-hours. Sourced from NITI Aayog ICED dashboard (state-wise deep-dive). A widely-used proxy for energy access AND industrial intensity — a high value can mean either many electrified homes or a heavy-industry economy, so it must be read alongside per-capita income.",
+    "publisher": "iced.niti.gov.in",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": [],
+    "related_indicators": [
+      "energy/state_electricity_sales_mu",
+      "energy/state_per_capita_availability_kwh",
+      "demography/state_population_lakhs",
+      "economy/state_per_capita_nsdp_current_inr"
+    ],
+    "editor_note_md": "This is *consumption* (sales billed to end-consumers), not *availability* — there is a sibling `state_per_capita_availability_kwh` that uses the requirement-side denominator. Per-capita kWh is the cleanest single proxy for development the energy bucket has, but it's distorted by industrial-load states (Gujarat, Chhattisgarh, Odisha) where industry consumes most of the electrons and households see very little of the headline number.",
+    "policy_context": [
+      "Centre's 'Power for All' / Saubhagya (2017–19) drove rural household electrification to ~100% by FY19; the consumption gap that remains is now about *load*, not access — air-conditioning, irrigation pumpsets, and industrial demand.",
+      "The all-India number (~1,255 kWh in FY23) is roughly one-third the global average and ~1/12 of the US — used by NITI Aayog and IEA in every long-term demand projection as the 'India still has runway' framing.",
+      "Compare against `economy/state_per_capita_nsdp_current_inr` to read the development-electricity coupling: Goa, Sikkim, Gujarat sit high on both; Bihar, UP, Assam sit low on both."
+    ]
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T12:20:42Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/09T_2908202582956A1D380840F5870B18841EEEF815.XLSX",
@@ -5063,5 +5063,348 @@
       "value": 154703.0,
       "vintage": "Base 2011-12"
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Per-capita Net State Domestic Product (current prices), 2000-01 -> 2024-25 (25 fiscal years), spliced across MoSPI's 1999-2000, 2004-05, and 2011-12 base years. Long-history sibling of `economy/state_per_capita_nsdp_current_inr` (which covers 2004-05 -> 2023-24 from ICED at the 2011-12 base only). Use this artifact when you need depth; use the ICED sibling when you need single-base purity.",
+    "expected_geographies": [
+      "IN",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U01",
+      "U02",
+      "U05",
+      "U07",
+      "U08"
+    ],
+    "expected_periods": [
+      {
+        "key": "2000-04",
+        "label": "2000-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2001-04",
+        "label": "2001-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2002-04",
+        "label": "2002-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2003-04",
+        "label": "2003-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2004-04",
+        "label": "2004-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2005-04",
+        "label": "2005-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2006-04",
+        "label": "2006-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Per-capita Net State Domestic Product (current prices), 2000-01 -> 2024-25 (25 fiscal years), spliced across MoSPI's 1999-2000, 2004-05, and 2011-12 base years. Long-history sibling of `economy/state_per_capita_nsdp_current_inr` (which covers 2004-05 -> 2023-24 from ICED at the 2011-12 base only). Use this artifact when you need depth; use the ICED sibling when you need single-base purity.",
+    "publisher": "rbidocs.rbi.org.in",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "partial",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T18:00:00Z",
+    "refetch_requested": false,
+    "pending_periods": [
+      {
+        "key": "2000-04",
+        "label": "2000-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2001-04",
+        "label": "2001-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2002-04",
+        "label": "2002-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2003-04",
+        "label": "2003-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "observed_periods": [
+      {
+        "key": "2000-04",
+        "label": "2000-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2001-04",
+        "label": "2001-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2002-04",
+        "label": "2002-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2003-04",
+        "label": "2003-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2004-04",
+        "label": "2004-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2005-04",
+        "label": "2005-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2006-04",
+        "label": "2006-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

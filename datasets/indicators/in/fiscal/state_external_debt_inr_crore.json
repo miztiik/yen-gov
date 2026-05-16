@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://sansad.in/rs/questions/questions-and-answers",
@@ -183,5 +183,77 @@
       "time": "2026-05-14",
       "value": 17795.26
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Total external debt outstanding against each State / UT, as reported in the Rajya Sabha Session 259 Unstarred Question 1480 answer (≈ Jul-Aug 2023). External debt comprises borrowings from multilateral and bilateral agencies (World Bank, ADB, JICA, KfW etc.) routed through the Centre and back-to-back-loaned to states. The reference year is the latest available outstanding stock at the time of answer (likely end-March 2023); the source PDF should be consulted for the exact reference date.",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U08"
+    ],
+    "expected_periods": [
+      {
+        "key": "2026-05-14",
+        "label": "2026-05-14",
+        "frequency": "ad_hoc"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Total external debt outstanding against each State / UT, as reported in the Rajya Sabha Session 259 Unstarred Question 1480 answer (≈ Jul-Aug 2023). External debt comprises borrowings from multilateral and bilateral agencies (World Bank, ADB, JICA, KfW etc.) routed through the Centre and back-to-back-loaned to states. The reference year is the latest available outstanding stock at the time of answer (likely end-March 2023); the source PDF should be consulted for the exact reference date.",
+    "publisher": "sansad.in",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T12:20:42Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2026-05-14",
+        "label": "2026-05-14",
+        "frequency": "ad_hoc"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

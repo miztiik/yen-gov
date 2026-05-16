@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets",
@@ -141,5 +141,229 @@
       "time": "2025-04",
       "value": 81573.9
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Revenue expenditure minus revenue receipts for all states combined. Positive = the states are borrowing to fund current consumption (salaries, subsidies, interest), which is widely considered the most worrying form of deficit. Negative = revenue *surplus* — current receipts exceed current spending, freeing borrowed funds for genuine capital formation. RBI Appendix Table 1, column 3.",
+    "expected_geographies": [
+      "IN"
+    ],
+    "expected_periods": [
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Revenue expenditure minus revenue receipts for all states combined. Positive = the states are borrowing to fund current consumption (salaries, subsidies, interest), which is widely considered the most worrying form of deficit. Negative = revenue *surplus* — current receipts exceed current spending, freeing borrowed funds for genuine capital formation. RBI Appendix Table 1, column 3.",
+    "publisher": "www.rbi.org.in",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-11T06:28:31Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

@@ -4,7 +4,7 @@
 
 **Title**: National final energy consumption by sector and source  
 **One-line**: Final energy consumption in India broken down by end-use sector (agriculture, industry, transport, residential, commercial, others) and by source (oil, gas, coal, electricity, biomass).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json`](../../../../datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json)
 
 ## Definition
@@ -47,8 +47,8 @@ MoSPI Energy Statistics India (composed by ICED)
 
 ## Citation
 
-> iced.niti.gov.in, *National final energy consumption by sector and source*. Re-published by yen-gov as `energy/national_final_energy_consumption_by_sector_mtoe`, schema v1.5. Retrieved 2026-05-14.
+> iced.niti.gov.in, *National final energy consumption by sector and source*. Re-published by yen-gov as `energy/national_final_energy_consumption_by_sector_mtoe`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json`](../../../../datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json`](../../../../datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json)

@@ -4,7 +4,7 @@
 
 **Title**: PM2.5 — annual mean (state)  
 **One-line**: Annual mean concentration of fine particulate matter (PM2.5) in micrograms per cubic metre, averaged across all CPCB monitoring stations in each state.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json`](../../../../datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Method: per (state, year), unweighted arithmetic mean of CPCB station-year annua
 
 ## Citation
 
-> icedapi.niti.gov.in, *PM2.5 — annual mean (state)*. Re-published by yen-gov as `environment/state_pm25_annual_mean_ug_m3`, schema v1.5. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *PM2.5 — annual mean (state)*. Re-published by yen-gov as `environment/state_pm25_annual_mean_ug_m3`, schema v3.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json`](../../../../datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json`](../../../../datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json)

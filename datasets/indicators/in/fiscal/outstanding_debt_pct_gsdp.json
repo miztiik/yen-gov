@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/20_ST2301202696AC652FC4CE482EAAD928FC544CD86A.XLSX",
@@ -3062,5 +3062,312 @@
       "value": 25.9,
       "facet": "BE"
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Stock of state-government debt outstanding at the end of each fiscal year, expressed as a share of Gross State Domestic Product. Includes loans and public-account liabilities. Higher values mean a larger debt burden relative to the state's economic base. The FRBM Act 2003 imposed the first hard ceilings on state debt; pre-2003 series used different consolidation rules.",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U05",
+      "U07"
+    ],
+    "expected_periods": [
+      {
+        "key": "2008-03",
+        "label": "2008-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-03",
+        "label": "2009-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-03",
+        "label": "2010-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-03",
+        "label": "2011-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-03",
+        "label": "2012-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-03",
+        "label": "2013-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-03",
+        "label": "2014-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-03",
+        "label": "2015-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-03",
+        "label": "2016-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-03",
+        "label": "2017-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-03",
+        "label": "2018-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-03",
+        "label": "2019-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-03",
+        "label": "2020-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-03",
+        "label": "2021-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-03",
+        "label": "2022-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-03",
+        "label": "2023-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-03",
+        "label": "2024-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-03",
+        "label": "2025-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2026-03",
+        "label": "2026-03",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Stock of state-government debt outstanding at the end of each fiscal year, expressed as a share of Gross State Domestic Product. Includes loans and public-account liabilities. Higher values mean a larger debt burden relative to the state's economic base. The FRBM Act 2003 imposed the first hard ceilings on state debt; pre-2003 series used different consolidation rules.",
+    "publisher": "rbidocs.rbi.org.in",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": [],
+    "related_indicators": [
+      "fiscal/states_combined_gross_fiscal_deficit",
+      "fiscal/state_external_debt_inr_crore",
+      "economy/state_gdp_current_inr_lakh_crore"
+    ],
+    "editor_note_md": "This is a *ratio*, so movement reflects both numerator (debt stock) and denominator (nominal GSDP) — high inflation can flatter the number even when fresh borrowing is rising. To read pure fiscal stance, pair with `fiscal/states_combined_gross_fiscal_deficit` (the annual flow) rather than relying on this ratio alone.",
+    "policy_context": [
+      "FRBM Act (Centre, 2003) and state-level FRBM legislations cap fiscal deficit at 3% of GSDP and target debt/GSDP at 20% by FY25 (15th FC recommendation) — the latter is a target almost no major state will meet.",
+      "15th Finance Commission (FY21–FY26) award allowed an additional 0.5% GSDP borrowing window each year tied to power-sector reforms; states like Andhra Pradesh, Punjab, Rajasthan have used it heavily.",
+      "COVID-era relaxations (FY21 fiscal-deficit ceiling raised to 5%, FY22 to 4%, FY23 to 3.5%) caused a step up in debt-to-GSDP across all states — visible as a kink in FY21 on every state's line.",
+      "Post-2022 OPS-restoration states (Rajasthan, Chhattisgarh, Jharkhand, Punjab, HP) carry an additional implicit liability not captured in this stock measure, since OPS payouts are pay-as-you-go and only show up as future revenue expenditure."
+    ]
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "partial",
+    "frozen": false,
+    "last_collected_at": "2026-05-11T15:18:58Z",
+    "refetch_requested": false,
+    "pending_periods": [
+      {
+        "key": "2008-03",
+        "label": "2008-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-03",
+        "label": "2009-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-03",
+        "label": "2010-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-03",
+        "label": "2011-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-03",
+        "label": "2012-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-03",
+        "label": "2013-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-03",
+        "label": "2014-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-03",
+        "label": "2015-03",
+        "frequency": "annual_fy"
+      }
+    ],
+    "observed_periods": [
+      {
+        "key": "2008-03",
+        "label": "2008-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-03",
+        "label": "2009-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-03",
+        "label": "2010-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-03",
+        "label": "2011-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-03",
+        "label": "2012-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-03",
+        "label": "2013-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-03",
+        "label": "2014-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-03",
+        "label": "2015-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-03",
+        "label": "2016-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-03",
+        "label": "2017-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-03",
+        "label": "2018-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-03",
+        "label": "2019-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-03",
+        "label": "2020-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-03",
+        "label": "2021-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-03",
+        "label": "2022-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-03",
+        "label": "2023-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-03",
+        "label": "2024-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-03",
+        "label": "2025-03",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2026-03",
+        "label": "2026-03",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

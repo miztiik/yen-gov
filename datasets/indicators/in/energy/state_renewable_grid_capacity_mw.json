@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/143T_11122025415C21E8727B4EA0B009173F7DC19E84.XLSX",
@@ -2969,5 +2969,335 @@
       "time": "2024",
       "value": 51.0
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Cumulative grid-connected renewable-power generation capacity installed in the state, MW, as at end-March of the calendar year. Includes wind + solar + small hydro + biomass + waste-to-energy combined (RBI's table does not publish a per-source split). The closest proxy in the RBI Handbook for a state-level fuel-mix view of capacity. Coverage 2007–2024 = 18 years; demonstrates the scale of India's RE expansion (national total 10,256 MW in 2007 → 143,645 MW in 2024, a 14× increase). Rajasthan (517→26,693 MW), Gujarat (644→25,472), Tamil Nadu (3,802→19,983), Karnataka, and Maharashtra dominate; Bihar, Odisha, north-eastern states remain in single-digit GW territory.",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U01",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U07",
+      "U08",
+      "U09"
+    ],
+    "expected_periods": [
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2008",
+        "label": "2008",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2009",
+        "label": "2009",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2021",
+        "label": "2021",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2022",
+        "label": "2022",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2023",
+        "label": "2023",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2024",
+        "label": "2024",
+        "frequency": "annual_cy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Cumulative grid-connected renewable-power generation capacity installed in the state, MW, as at end-March of the calendar year. Includes wind + solar + small hydro + biomass + waste-to-energy combined (RBI's table does not publish a per-source split). The closest proxy in the RBI Handbook for a state-level fuel-mix view of capacity. Coverage 2007–2024 = 18 years; demonstrates the scale of India's RE expansion (national total 10,256 MW in 2007 → 143,645 MW in 2024, a 14× increase). Rajasthan (517→26,693 MW), Gujarat (644→25,472), Tamil Nadu (3,802→19,983), Karnataka, and Maharashtra dominate; Bihar, Odisha, north-eastern states remain in single-digit GW territory.",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "partial",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T19:30:00Z",
+    "refetch_requested": false,
+    "pending_periods": [
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2008",
+        "label": "2008",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2009",
+        "label": "2009",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2021",
+        "label": "2021",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2022",
+        "label": "2022",
+        "frequency": "annual_cy"
+      }
+    ],
+    "observed_periods": [
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2008",
+        "label": "2008",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2009",
+        "label": "2009",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2021",
+        "label": "2021",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2022",
+        "label": "2022",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2023",
+        "label": "2023",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2024",
+        "label": "2024",
+        "frequency": "annual_cy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

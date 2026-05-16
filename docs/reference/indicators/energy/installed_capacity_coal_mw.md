@@ -4,7 +4,7 @@
 
 **Title**: Installed coal-fired capacity  
 **One-line**: Coal-fired thermal generation capacity in megawatts, per state.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_coal_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_coal_mw.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Excludes lignite (which CEA lists as a separate column — see energy/installed_
 
 ## Citation
 
-> cea.nic.in, *Installed coal-fired capacity*. Re-published by yen-gov as `energy/installed_capacity_coal_mw`, schema v1.5. Retrieved 2026-05-13.
+> cea.nic.in, *Installed coal-fired capacity*. Re-published by yen-gov as `energy/installed_capacity_coal_mw`, schema v3.0. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_coal_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_coal_mw.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/installed_capacity_coal_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_coal_mw.json)

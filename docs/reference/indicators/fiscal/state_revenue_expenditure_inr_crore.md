@@ -4,7 +4,7 @@
 
 **Title**: States' revenue expenditure  
 **One-line**: Total revenue (current) expenditure by the State Government — salaries, pensions, interest, subsidies, scheme outlays, grants to local bodies.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json)
 
 ## Definition
@@ -45,8 +45,8 @@ Rajya Sabha Session 260 Unstarred Q1323, answered 1 August 2023
 
 ## Citation
 
-> sansad.in, *States' revenue expenditure*. Re-published by yen-gov as `fiscal/state_revenue_expenditure_inr_crore`, schema v1.5. Retrieved 2026-05-14.
+> sansad.in, *States' revenue expenditure*. Re-published by yen-gov as `fiscal/state_revenue_expenditure_inr_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json)

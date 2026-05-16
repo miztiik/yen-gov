@@ -31,7 +31,6 @@ from __future__ import annotations
 import json
 from collections import defaultdict
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -306,7 +305,8 @@ def ingest(
             {
                 "entity_id": r.eci,
                 "time": _temporal_to_year(
-                    (upstream_meta.get("coverage") or {}).get("temporal")
+                    (upstream_meta.get("coverage") or {}).get("temporal"),
+                    default_year=str(meta_res.fetched_at.year),
                 ),
                 "value": r.mw,
                 "facet": r.fuel,
@@ -336,11 +336,17 @@ def ingest(
     return paths
 
 
-def _temporal_to_year(temporal: str | None) -> str:
-    """Best-effort extraction of a YYYY string from upstream's free-form temporal coverage."""
+def _temporal_to_year(temporal: str | None, *, default_year: str) -> str:
+    """Best-effort extraction of a YYYY string from upstream's free-form temporal coverage.
+
+    ``default_year`` is required and must be derived from a source-related
+    timestamp (typically ``meta_res.fetched_at.year``); using
+    ``datetime.now().year`` here would leak operator wall-clock into
+    artifact content (CLAUDE.md §10 anti-pattern).
+    """
     if not temporal:
-        return str(datetime.now(timezone.utc).year)
+        return default_year
     digits = "".join(ch for ch in temporal if ch.isdigit())
     if len(digits) >= 4 and digits[:4].isdigit():
         return digits[:4]
-    return str(datetime.now(timezone.utc).year)
+    return default_year

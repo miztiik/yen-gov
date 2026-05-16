@@ -85,12 +85,17 @@ def test_facets_are_the_expected_six(composed):
 
 
 def test_sources_are_unioned_and_deduped(composed):
-    seen = set()
-    for s in composed["sources"]:
-        key = (s["url"], s["fetched_at"])
-        assert key not in seen, f"duplicate source entry: {key}"
-        seen.add(key)
-    assert len(seen) >= 1
+    """Sources are deduped by URL alone (not by (url, fetched_at)) and sorted.
+
+    Dedup-by-URL is the canonical contract — see ``_union_sources`` docstring
+    and CLAUDE.md \u00a710. A tuple key would smear ``fetched_at`` churn from
+    upstream re-polls into the composed artifact, breaking byte-stability.
+    """
+    sources = composed["sources"]
+    urls = [s["url"] for s in sources]
+    assert len(urls) == len(set(urls)), f"duplicate URL in composed sources: {urls}"
+    assert urls == sorted(urls), "composed sources must be sorted by URL for determinism"
+    assert len(sources) >= 1
 
 
 def test_sum_invariant_holds_on_real_data():
@@ -155,3 +160,46 @@ def test_other_thermal_kept_when_residual_meaningful():
     other = [r for r in rows if r["facet"] == OTHER_THERMAL_FACET]
     assert len(other) == 1
     assert other[0]["value"] == pytest.approx(2000.0, rel=1e-6)
+
+
+def test_union_sources_dedups_by_url_keeping_earliest_fetched_at():
+    """Regression guard for the 2026-05-16 fetched_at-smear-one-layer-up bug.
+
+    Two source entries sharing a URL but differing only in ``fetched_at``
+    (the symptom of an upstream re-poll producing byte-identical bytes
+    but a fresh wall-clock stamp before the composer-level fix) must
+    collapse to ONE entry in the composed output, with ``fetched_at`` set
+    to the earlier of the two. Otherwise every re-ingest of a fuel
+    artifact churns this composed artifact's ``sources[]`` even when the
+    upstream bytes are unchanged.
+
+    Output must also be sorted by URL for deterministic byte-equal
+    re-emits (no ordering-noise from set/dict iteration).
+    """
+    from yen_gov.composers.energy_capacity_by_source import _union_sources
+
+    docs = [
+        {
+            "sources": [
+                {"url": "https://example.gov.in/b.htm", "fetched_at": "2026-05-10T00:00:00Z"},
+                {"url": "https://example.gov.in/a.htm", "fetched_at": "2026-05-15T00:00:00Z"},
+            ]
+        },
+        {
+            "sources": [
+                # Same URL as above, later re-poll — must be discarded.
+                {"url": "https://example.gov.in/a.htm", "fetched_at": "2026-05-16T00:00:00Z"},
+                {"url": "https://example.gov.in/c.htm", "fetched_at": "2026-05-12T00:00:00Z"},
+            ]
+        },
+    ]
+    out = _union_sources(docs)
+    urls = [s.url for s in out]
+    assert urls == [
+        "https://example.gov.in/a.htm",
+        "https://example.gov.in/b.htm",
+        "https://example.gov.in/c.htm",
+    ]
+    by_url = {s.url: s.fetched_at.isoformat() for s in out}
+    # Earliest fetched_at wins for the re-polled URL.
+    assert by_url["https://example.gov.in/a.htm"].startswith("2026-05-15")

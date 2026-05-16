@@ -4,7 +4,7 @@
 
 **Title**: National GDP at current prices (all-India)  
 **One-line**: India's gross domestic product at current (nominal) prices in lakh crore rupees.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Reads the raw nominal value. For real-growth comparisons across years, divide by
 
 ## Citation
 
-> iced.niti.gov.in, *National GDP at current prices (all-India)*. Re-published by yen-gov as `economy/national_gdp_current_inr_lakh_crore`, schema v1.5. Retrieved 2026-05-14.
+> iced.niti.gov.in, *National GDP at current prices (all-India)*. Re-published by yen-gov as `economy/national_gdp_current_inr_lakh_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json)

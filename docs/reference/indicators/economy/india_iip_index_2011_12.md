@@ -4,7 +4,7 @@
 
 **Title**: Index of Industrial Production (IIP), base 2011-12 = 100  
 **One-line**: National Index of Industrial Production, faceted by category (sectoral: Mining/Manufacturing/Electricity, plus the General all-industry index, plus use-based: Capital, Consumer durables, Consumer non-durables, Intermediate, Infrastructure, Primary).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/india_iip_index_2011_12.json`](../../../../datasets/indicators/in/economy/india_iip_index_2011_12.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Mixed sectoral + use-based facets in one indicator — ICED ships them in the sa
 
 ## Citation
 
-> icedapi.niti.gov.in, *Index of Industrial Production (IIP), base 2011-12 = 100*. Re-published by yen-gov as `economy/india_iip_index_2011_12`, schema v1.5. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *Index of Industrial Production (IIP), base 2011-12 = 100*. Re-published by yen-gov as `economy/india_iip_index_2011_12`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/india_iip_index_2011_12.json`](../../../../datasets/indicators/in/economy/india_iip_index_2011_12.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/india_iip_index_2011_12.json`](../../../../datasets/indicators/in/economy/india_iip_index_2011_12.json)

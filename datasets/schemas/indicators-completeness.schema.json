@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/indicators-completeness.schema.json",
+  "title": "Indicators completeness index",
+  "description": "Per-indicator summary of editorial documentation status, collection completeness, and operator flags. Derived from every artifact under `datasets/indicators/in/**/*.json` by `tools/emit_indicators_completeness_index.py`. Consumed by the `/data-completeness` citizen-facing route. Re-emit after any indicator-content change or schema bump.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-17",
+      "description": "Initial schema for the `/data-completeness` index. One row per indicator with `id`, `topic`, `title`, `documentation_status` (stub|partial|authored), `inventory_status` (empty|partial|complete), `frozen`, `last_collected_at`, `observed_count`, `pending_count`, `unavailable_count`. Indices change as artifacts change; this is a generated artifact, not hand-edited."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "generated_at", "indicators"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string" },
+          "fetched_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date",
+      "description": "YYYY-MM-DD date the index was last regenerated. Derived from the maximum mtime of the input indicator artifacts (per CLAUDE.md provenance rule)."
+    },
+    "indicators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "topic", "path", "title",
+          "documentation_status", "inventory_status",
+          "frozen", "last_collected_at",
+          "observed_count", "pending_count", "unavailable_count"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*(/[a-z][a-z0-9_]*)*$" },
+          "topic": { "type": "string", "minLength": 1 },
+          "path": { "type": "string", "description": "POSIX-relative path under repo root to the source indicator artifact." },
+          "title": { "type": "string", "minLength": 1 },
+          "documentation_status": { "enum": ["stub", "partial", "authored"] },
+          "inventory_status": { "enum": ["empty", "partial", "complete"] },
+          "frozen": { "type": "boolean" },
+          "last_collected_at": { "type": ["string", "null"] },
+          "observed_count": { "type": "integer", "minimum": 0 },
+          "pending_count": { "type": "integer", "minimum": 0 },
+          "unavailable_count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

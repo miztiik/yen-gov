@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://cea.nic.in/installed-capacity-report/?lang=en",
@@ -211,5 +211,83 @@
       "time": "2026-03",
       "value": 26.83
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Total fossil-fuel thermal generation capacity (coal + lignite + gas + diesel), in megawatts, per state. The 'IC' sheet's Total Thermal column. Useful for the 'how dependent is each state on fossil-fuel plants' question.",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U01",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U07",
+      "U08"
+    ],
+    "expected_periods": [
+      {
+        "key": "2026-03",
+        "label": "2026-03",
+        "frequency": "monthly"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Total fossil-fuel thermal generation capacity (coal + lignite + gas + diesel), in megawatts, per state. The 'IC' sheet's Total Thermal column. Useful for the 'how dependent is each state on fossil-fuel plants' question.",
+    "publisher": "joint",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-13T21:54:16Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2026-03",
+        "label": "2026-03",
+        "frequency": "monthly"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

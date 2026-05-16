@@ -129,4 +129,12 @@ export const url = {
     const s = params.toString();
     return withBase(s ? `/compare?${s}` : "/compare");
   },
+  /** Citizen transparency surface — `/data-completeness`. */
+  dataCompleteness(): string {
+    return withBase("/data-completeness");
+  },
+  /** Legal-style framing — `/disclaimer`. */
+  disclaimer(): string {
+    return withBase("/disclaimer");
+  },
 };

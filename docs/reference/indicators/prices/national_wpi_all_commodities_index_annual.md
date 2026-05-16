@@ -4,7 +4,7 @@
 
 **Title**: Wholesale Price Index — All Commodities (annual average, spliced)  
 **One-line**: Wholesale Price Index (All Commodities) — annual average, FY 1974-75 onwards, spliced across MoCI's five base-year revisions (1970-71 / 1981-82 / 1993-94 / 2004-05 / 2011-12).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json`](../../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json)
 
 ## Definition
@@ -54,8 +54,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 36. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Wholesale Price Index — All Commodities (annual average, spliced)*. Re-published by yen-gov as `prices/national_wpi_all_commodities_index_annual`, schema v1.5. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Wholesale Price Index — All Commodities (annual average, spliced)*. Re-published by yen-gov as `prices/national_wpi_all_commodities_index_annual`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json`](../../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json`](../../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json)

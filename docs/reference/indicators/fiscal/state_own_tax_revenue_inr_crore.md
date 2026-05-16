@@ -4,7 +4,7 @@
 
 **Title**: States' own tax revenue  
 **One-line**: Tax revenue raised by the State Government from sources within its constitutional jurisdiction (state GST share, state excise, stamp duties, motor vehicle tax, etc.).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json)
 
 ## Definition
@@ -62,8 +62,8 @@ Own-tax revenue is the indicator of *fiscal autonomy* — money the state legisl
 
 ## Citation
 
-> sansad.in, *States' own tax revenue*. Re-published by yen-gov as `fiscal/state_own_tax_revenue_inr_crore`, schema v1.5. Retrieved 2026-05-14.
+> sansad.in, *States' own tax revenue*. Re-published by yen-gov as `fiscal/state_own_tax_revenue_inr_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json)

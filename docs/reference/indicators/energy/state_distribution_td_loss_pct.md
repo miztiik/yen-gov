@@ -4,7 +4,7 @@
 
 **Title**: Transmission & Distribution losses (%, by state)  
 **One-line**: Energy lost between the point of generation/import into the state grid and the point of metered sale to consumers, as a percentage of total energy input.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_distribution_td_loss_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_td_loss_pct.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Indian central-government targets envision T&D losses below 12% by FY26; the all
 
 ## Citation
 
-> icedapi.niti.gov.in, *Transmission & Distribution losses (%, by state)*. Re-published by yen-gov as `energy/state_distribution_td_loss_pct`, schema v1.5. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *Transmission & Distribution losses (%, by state)*. Re-published by yen-gov as `energy/state_distribution_td_loss_pct`, schema v3.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_distribution_td_loss_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_td_loss_pct.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_distribution_td_loss_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_td_loss_pct.json)

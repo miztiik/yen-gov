@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "3.0",
   "sources": [
     {
       "url": "https://cea.nic.in/installed-capacity-report/?lang=en",
@@ -211,5 +211,96 @@
       "time": "2026-03",
       "value": 6.57
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Renewable capacity reported by MNRE (Ministry of New & Renewable Energy) and republished by CEA in the IC sheet's RES* (MNRE) column: solar (ground-mounted + rooftop + hybrid + off-grid + KUSUM) + wind + small hydro + biomass + waste-to-energy, in megawatts per state. The fastest-growing capacity category in India — about 42% of all-India installed capacity as of FY26 (vs ~27% a decade ago).",
+    "expected_geographies": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U01",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U07",
+      "U08"
+    ],
+    "expected_periods": [
+      {
+        "key": "2026-03",
+        "label": "2026-03",
+        "frequency": "monthly"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Renewable capacity reported by MNRE (Ministry of New & Renewable Energy) and republished by CEA in the IC sheet's RES* (MNRE) column: solar (ground-mounted + rooftop + hybrid + off-grid + KUSUM) + wind + small hydro + biomass + waste-to-energy, in megawatts per state. The fastest-growing capacity category in India — about 42% of all-India installed capacity as of FY26 (vs ~27% a decade ago).",
+    "publisher": "joint",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": [],
+    "related_indicators": [
+      "energy/installed_capacity_by_source_mw",
+      "energy/state_renewable_grid_capacity_mw",
+      "energy/state_rooftop_solar_capacity_mw",
+      "energy/state_rpo_compliance_pct",
+      "environment/india_ghg_emissions_by_subsector_ggco2e"
+    ],
+    "editor_note_md": "MNRE's 'renewable' bucket here includes solar, wind, small-hydro (≤25 MW), biomass and waste-to-energy — but **excludes** large hydro, which CEA classifies separately even though it is renewable in the climate sense. India's headline 'non-fossil' target (50% by 2030) uses the broader CEA non-fossil definition (renewable + large hydro + nuclear), so this number alone always understates the climate-aligned share by 10–12 GW of large hydro.",
+    "policy_context": [
+      "500 GW non-fossil capacity by 2030 — Modi's Glasgow COP26 commitment, restated in India's updated NDC. Of that, ~280 GW is targeted as solar; this artifact is the most-watched leading indicator of whether India is on track.",
+      "Solar tariffs hit ₹1.99/kWh in 2020 (Gujarat auction) and the trajectory since has been ~₹2.5–3.0/kWh — cheaper than new coal on LCOE, which is why even coal-heavy states (Chhattisgarh, MP, Jharkhand) are auctioning solar.",
+      "PLI for solar PV manufacturing (~₹24,000 cr, 2021 + 2023 tranches) and the BCD on imported modules (40% from FY23) are the supply-side levers; the demand-side levers are PM-KUSUM (agri solarisation) and the rooftop subsidy under PM Surya Ghar (Feb 2024)."
+    ]
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-13T21:54:16Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2026-03",
+        "label": "2026-03",
+        "frequency": "monthly"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

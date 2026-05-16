@@ -13,9 +13,11 @@ import Psephlab from "./routes/Psephlab.svelte";
 import Compare from "./routes/Compare.svelte";
 import CompareIndicator from "./routes/CompareIndicator.svelte";
 import About from "./routes/About.svelte";
+import Disclaimer from "./routes/Disclaimer.svelte";
 import TopicIndex from "./routes/TopicIndex.svelte";
 import TopicLanding from "./routes/TopicLanding.svelte";
 import StateTopic from "./routes/StateTopic.svelte";
+import DataCompleteness from "./routes/DataCompleteness.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -69,9 +71,12 @@ startRouter({
     { pattern: "/compare", component: CompareIndicator },
     { pattern: "/settings", component: Settings },
     { pattern: "/about", component: About },
+    { pattern: "/disclaimer", component: Disclaimer },
     // Topic Front Door (P3.3, ADR-0022).
     { pattern: "/t", component: TopicIndex },
     { pattern: "/t/:topic", component: TopicLanding },
+    // Citizen transparency surface (folded-indicator PR commit 10).
+    { pattern: "/data-completeness", component: DataCompleteness },
   ],
   notFound: { pattern: "*", component: NotFound },
 });

@@ -4,7 +4,7 @@
 
 **Title**: Revenue deficit (all states, all-India)  
 **One-line**: Revenue expenditure minus revenue receipts for all states combined.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/states_combined_revenue_deficit.json`](../../../../datasets/indicators/in/fiscal/states_combined_revenue_deficit.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Source: RBI 'State Finances: A Study of Budgets', Appendix Table 1, column 'Reve
 
 ## Citation
 
-> www.rbi.org.in, *Revenue deficit (all states, all-India)*. Re-published by yen-gov as `fiscal/states_combined_revenue_deficit`, schema v1.5. Retrieved 2026-05-11.
+> www.rbi.org.in, *Revenue deficit (all states, all-India)*. Re-published by yen-gov as `fiscal/states_combined_revenue_deficit`, schema v3.0. Retrieved 2026-05-11.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/states_combined_revenue_deficit.json`](../../../../datasets/indicators/in/fiscal/states_combined_revenue_deficit.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/states_combined_revenue_deficit.json`](../../../../datasets/indicators/in/fiscal/states_combined_revenue_deficit.json)
