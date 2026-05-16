@@ -111,4 +111,45 @@ test.describe("golden path", () => {
     await page.goto("/s/tamil-nadu/explore");
     await page.waitForLoadState("networkidle", { timeout: 30_000 });
   });
+
+  test("per-state topic page (/s/:state/t/:topic) renders cards + breadcrumb", async ({ page }) => {
+    // IA-reset Step #2: pick a state → click a topic in the rail → land
+    // here. Asserts the route shell (breadcrumb + heading), at least one
+    // IndicatorCard rendered, and SourceList provenance per CLAUDE.md §15.
+    await page.goto("/s/tamil-nadu/t/fiscal");
+
+    // Breadcrumb: "Tamil Nadu" is clickable, "Money & debt"-equivalent
+    // (catalogue title for `fiscal`) is current. We assert the structural
+    // landmark + the state link by href shape rather than its label, since
+    // states.json drives the display name.
+    const breadcrumb = page.getByRole("navigation", { name: "Breadcrumb" });
+    await expect(breadcrumb).toBeVisible({ timeout: 15_000 });
+    await expect(breadcrumb.locator('a[href$="/s/tamil-nadu"]')).toBeVisible();
+
+    // At least one IndicatorCard renders with TN data.
+    await expect(page.locator('[data-testid="indicator-card"]').first())
+      .toBeVisible({ timeout: 15_000 });
+
+    // Provenance per CLAUDE.md §15 four-tier policy — SourceList renders
+    // inside the IndicatorCard once its underlying indicator artifact
+    // loads.
+    await expect(page.getByText(SOURCE_LIST_TEXT).first())
+      .toBeVisible({ timeout: 15_000 });
+
+    // "See all states →" link on a card points back to the national
+    // topic page /t/fiscal.
+    await expect(page.locator('a[href$="/t/fiscal"]').first()).toBeVisible();
+  });
+
+  test("per-state topic page 404s cleanly on unknown topic", async ({ page }) => {
+    await page.goto("/s/tamil-nadu/t/nonsense-topic-slug");
+    await expect(page.getByRole("heading", { name: /Topic not found/i }))
+      .toBeVisible({ timeout: 15_000 });
+  });
+
+  test("per-state topic page 404s cleanly on unknown state slug", async ({ page }) => {
+    await page.goto("/s/nonsense-state-slug/t/fiscal");
+    await expect(page.getByRole("heading", { name: /State not found/i }))
+      .toBeVisible({ timeout: 15_000 });
+  });
 });

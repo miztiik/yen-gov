@@ -10,9 +10,9 @@
 //   * Three groups, state-aware:
 //       THIS STATE · ACROSS STATES · ABOUT
 //   * THIS STATE lists Overview + one entry per topic in the catalogue we
-//     surface; entries point at the national `/t/<topic>` page for now —
-//     per-state-topic routes (`/s/<state>/t/<topic>`) are Step #2's work
-//     and intentionally NOT pre-built here.
+//     surface; when a state is in scope, topic entries point at
+//     `/s/<state>/t/<topic>` (per-state-topic view, IA-reset Step #2).
+//     Without a state, the group collapses to a single hint line.
 //   * NO greyed dead links. When no state is in scope, THIS STATE
 //     collapses to a single hint line ("Pick a state above…") and the
 //     topic sub-items are omitted entirely.
@@ -117,13 +117,17 @@ export function buildRailGroups(args: BuildRailGroupsArgs): RailGroup[] {
               p.startsWith("/s/") &&
               !p.includes("/explore") &&
               !p.includes("/ac/") &&
-              !p.includes("/party/"),
+              !p.includes("/party/") &&
+              !p.includes("/t/"),
           },
           ...THIS_STATE_TOPICS.map(t => ({
             id: `this-state.topic.${t.id}`,
             label: t.label,
-            href: url.topic(t.id),
-            match: (p: string) => p === `/t/${t.id}`,
+            // IA-reset Step #2: with a state in scope, topic links go to
+            // the per-state-topic view, not the national /t/<id> page.
+            href: url.stateTopic(state, t.id),
+            match: (p: string) =>
+              p.startsWith("/s/") && p.endsWith(`/t/${t.id}`),
           })),
         ],
       }
