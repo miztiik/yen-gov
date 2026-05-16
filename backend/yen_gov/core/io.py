@@ -17,6 +17,7 @@ to test without the full model layer in place.
 
 from __future__ import annotations
 
+import copy
 import json
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -24,6 +25,57 @@ from pathlib import Path
 from typing import Any
 
 from jsonschema import Draft202012Validator
+
+
+# Operational / non-deterministic fields stripped before the dict-equal
+# write-skip compare below. These vary run-to-run for reasons unrelated to
+# the artifact's data content (operator-clock telemetry, not citizen content)
+# so byte-identical re-runs MUST still hit the skip path. Each entry is a
+# JSON path read by `_strip_operational`. Keep this list short and append
+# only with a rationale comment — every entry is a place where the contract
+# is silently leaky and we are accepting that. See CLAUDE.md §10 amendment
+# (commit 19 of TODO/20260517 §16).
+_OPERATIONAL_STRIP_PATHS: tuple[tuple[str, ...], ...] = (
+    # `sources[].fetched_at` — operator-clock at fetch time. Until each
+    # adapter migrates to publisher-`Last-Modified` / release-vintage
+    # derivation (§16 commit 13), wall-clock leaks into this field.
+    ("sources", "*", "fetched_at"),
+    # `collection_inventory.last_collected_at` — derived `max(sources[].fetched_at)`.
+    # Removed entirely when the block is lifted out of the artifact in
+    # §16 commits 4-7; harmless strip until then.
+    ("collection_inventory", "last_collected_at"),
+)
+
+
+def _strip_operational(doc: dict[str, Any]) -> dict[str, Any]:
+    """Return a deep copy of ``doc`` with operational-only fields removed.
+
+    Used by `write_artifact` to compare a candidate artifact against the
+    on-disk file's parsed dict, ignoring fields whose value alone changes
+    on every run for reasons unrelated to data content.
+    """
+    out = copy.deepcopy(doc)
+    for path in _OPERATIONAL_STRIP_PATHS:
+        _strip_path(out, path)
+    return out
+
+
+def _strip_path(doc: Any, path: tuple[str, ...]) -> None:
+    if not path:
+        return
+    head, *rest = path
+    if head == "*":
+        if isinstance(doc, list):
+            for item in doc:
+                _strip_path(item, tuple(rest))
+        return
+    if not isinstance(doc, dict):
+        return
+    if not rest:
+        doc.pop(head, None)
+        return
+    if head in doc:
+        _strip_path(doc[head], tuple(rest))
 
 
 @dataclass(frozen=True)
@@ -104,6 +156,23 @@ def write_artifact(
 
     path.parent.mkdir(parents=True, exist_ok=True)
     text = json.dumps(document, indent=2, ensure_ascii=False, sort_keys=False) + "\n"
+
+    # Write-skip gate: if the on-disk file exists and its parsed dict is
+    # structurally equal to ``document`` (after stripping operational-only
+    # fields per `_OPERATIONAL_STRIP_PATHS`), this is a re-emit with no real
+    # change — return without writing so the file's bytes AND mtime stay
+    # untouched and re-running ingest produces a clean git status. This
+    # is a value-level compare, NOT a byte compare; JSON key-order or
+    # whitespace differences don't matter (Python dict == is structural
+    # and order-insensitive). See CLAUDE.md §10 amendment (TODO/20260517 §16).
+    if path.exists():
+        try:
+            prior_doc = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            prior_doc = None
+        if isinstance(prior_doc, dict) and _strip_operational(prior_doc) == _strip_operational(document):
+            return path
+
     path.write_text(text, encoding="utf-8")
     return path
 

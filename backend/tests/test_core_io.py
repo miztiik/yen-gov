@@ -266,3 +266,97 @@ def test_write_artifact_caller_provided_methodology_wins_over_prior(tmp_path: Pa
 
     after = json.loads(target.read_text(encoding="utf-8"))
     assert after["methodology"] == explicit_methodology
+
+
+# --------------------------------------------------------------------- #
+# Write-skip gate (dict-equal, operational-field-stripped)               #
+# --------------------------------------------------------------------- #
+
+
+def test_write_artifact_skips_write_when_only_fetched_at_changed(tmp_path: Path) -> None:
+    """The headline bug fix: re-emitting the same indicator with only
+    `sources[].fetched_at` changing MUST NOT advance the file's bytes or
+    mtime. This is the test that would have caught the multi-day arc of
+    `fetched_at` smearing across unrelated artifacts (per 2026-05-16
+    user-memory lesson)."""
+    schema = _load_schema("indicator.schema.json")
+    target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
+
+    # First write.
+    write_artifact(
+        path=target,
+        schema_id=schema["$id"], schema_version=schema["x-version"],
+        payload=_indicator_payload(),
+        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 17, tzinfo=timezone.utc))],
+        schema_for_validation=schema,
+    )
+    first_bytes = target.read_bytes()
+    first_mtime_ns = target.stat().st_mtime_ns
+
+    # Re-emit with identical rows but a different fetched_at — the bug case.
+    write_artifact(
+        path=target,
+        schema_id=schema["$id"], schema_version=schema["x-version"],
+        payload=_indicator_payload(),
+        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 18, 9, 0, 0, tzinfo=timezone.utc))],
+        schema_for_validation=schema,
+    )
+
+    assert target.read_bytes() == first_bytes, "fetched_at-only change must not rewrite bytes"
+    assert target.stat().st_mtime_ns == first_mtime_ns, "fetched_at-only change must not advance mtime"
+
+
+def test_write_artifact_writes_when_rows_change(tmp_path: Path) -> None:
+    """Sanity counterpart: a real row change DOES rewrite the file."""
+    schema = _load_schema("indicator.schema.json")
+    target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
+
+    write_artifact(
+        path=target,
+        schema_id=schema["$id"], schema_version=schema["x-version"],
+        payload=_indicator_payload(),
+        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 17, tzinfo=timezone.utc))],
+        schema_for_validation=schema,
+    )
+    first_bytes = target.read_bytes()
+
+    write_artifact(
+        path=target,
+        schema_id=schema["$id"], schema_version=schema["x-version"],
+        payload=_indicator_payload(rows=[
+            {"entity_id": "S01", "time": "2024", "value": 999.0},  # value changed
+            {"entity_id": "S02", "time": "2023", "value": 200.0},
+        ]),
+        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 17, tzinfo=timezone.utc))],
+        schema_for_validation=schema,
+    )
+
+    assert target.read_bytes() != first_bytes, "real row change must rewrite bytes"
+
+
+def test_write_artifact_strip_operational_idempotent() -> None:
+    """`_strip_operational` is pure; running it twice produces the same dict."""
+    from yen_gov.core.io import _strip_operational
+
+    doc = {
+        "sources": [
+            {"url": "https://x", "fetched_at": "2026-05-17T00:00:00Z"},
+            {"url": "https://y", "fetched_at": "2026-05-18T00:00:00Z"},
+        ],
+        "collection_inventory": {
+            "status": "complete",
+            "last_collected_at": "2026-05-18T00:00:00Z",
+            "frozen": False,
+        },
+        "rows": [{"entity_id": "S01", "time": "2023", "value": 1.0}],
+    }
+    once = _strip_operational(doc)
+    twice = _strip_operational(once)
+    assert once == twice
+    assert "fetched_at" not in once["sources"][0]
+    assert "last_collected_at" not in once["collection_inventory"]
+    # Non-stripped content intact.
+    assert once["sources"][0]["url"] == "https://x"
+    assert once["collection_inventory"]["status"] == "complete"
+    assert once["rows"][0]["value"] == 1.0
+
