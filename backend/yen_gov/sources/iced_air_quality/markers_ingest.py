@@ -20,6 +20,7 @@ from yen_gov.sources.iced_common import IcedClient, ICEDShapeError
 
 from .markers_parsers import (
     COVID_GAP_YEAR,
+    NO2_FIELD,
     PM25_FIELD,
     StateYearMean,
     aggregate_state_year_mean,
@@ -204,6 +205,170 @@ def _build_pm25_payload(*, parsed: list[StateYearMean]) -> dict:
                     ),
                 },
             ],
+        },
+        "rows": rows,
+    }
+
+
+# ---------------------------------------------------------------------------
+# NO2 — sibling of PM2.5 from the same NAMP markers feed.
+#
+# Sequencing (Hans + Fowler 2026-05-16, per the PM2.5 handover): NO2
+# follows PM2.5 because vehicle exhaust and thermal-plant flue gas are
+# concentrated in metros where the CPCB monitor network is densest, so
+# the indicator at least *records* the modal Indian NO2 experience even
+# if it under-samples the rural margin. Comparability is still honest
+# (`directional_only`) — the chart shows direction-of-change in a state,
+# not cross-state ranking.
+#
+# Series start year: 2010 (verified against the captured snapshot —
+# NO2 column is non-null from 2010 forward, unlike PM2.5 which begins
+# in 2014). The 2020 COVID gap that PM2.5 hit does NOT appear for NO2
+# in the snapshot (NO2 values are present for 2020), so we do NOT
+# declare a 2020 series_break here. `renderer_rules` still carries
+# `no_growth_across_break` as a defensive policy for any future break.
+# ---------------------------------------------------------------------------
+
+NO2_SERIES_START_YEAR = 2010
+
+NO2_INDICATOR_ID = "environment/state_no2_annual_mean_ug_m3"
+NO2_INDICATOR_TITLE = "NO₂ — annual mean (state)"
+
+NO2_INDICATOR_DESCRIPTION = (
+    "Annual mean concentration of nitrogen dioxide (NO₂) in micrograms "
+    "per cubic metre, averaged across all CPCB monitoring stations in "
+    "each state. NO₂ is a respiratory irritant produced by combustion "
+    "— vehicle exhaust (especially diesel) and thermal-plant flue gas "
+    "dominate. The WHO 2021 annual guideline is 10 µg/m³; India's "
+    "national standard (NAAQS) is 40 µg/m³."
+)
+
+NO2_INDICATOR_NOTES = (
+    "Method: per (state, year), unweighted arithmetic mean of CPCB "
+    "station-year annual means; null station-years dropped (not coerced "
+    "to zero). Sources of NO₂ are concentrated in metros and along "
+    "highways — vehicle exhaust (especially diesel) and thermal-plant "
+    "flue gas. The CPCB monitor network is urban-biased and uneven, so "
+    "cross-state ranking from this number is dishonest; read the chart "
+    "as 'direction of change within a state', not a leaderboard. The "
+    "2020 dip visible in many states reflects COVID lockdown traffic "
+    "collapse — a real signal, but read with caution because the "
+    "monitor coverage was also disrupted. ICED is a re-publisher; the "
+    "underlying station-year file is CPCB's NAMP — both URLs appear in "
+    "`sources`."
+)
+
+NO2_INDICATOR_EXCLUDES = [
+    "Indoor air — NAMP measures only outdoor ambient air",
+    "Station-years dropped by CPCB for below-threshold data completeness",
+]
+
+
+def ingest_no2(
+    *,
+    repo_root: Path,
+    refresh: bool = False,
+) -> MarkersIngestResult:
+    """Fetch markers, aggregate NO2 to state-year, write artifact.
+
+    Args:
+        repo_root: workspace root.
+        refresh: if True, bypass the on-disk cache and re-fetch.
+    """
+    runtime_root = repo_root / ".runtime"
+    client = IcedClient(host="https://icedapi.niti.gov.in", runtime_root=runtime_root)
+    response = client.get(MARKERS_API_PATH)
+    fetched_at = response.fetched_at
+
+    parsed_all = aggregate_state_year_mean(response.decrypted, pollutant=NO2_FIELD)
+    parsed = [r for r in parsed_all if r.year >= NO2_SERIES_START_YEAR]
+    if not parsed:
+        raise ICEDShapeError(
+            "NO2 aggregation returned zero state-year rows after "
+            f"trimming to >= {NO2_SERIES_START_YEAR} — refusing to ship "
+            "empty artifact."
+        )
+
+    payload = _build_no2_payload(parsed=parsed)
+
+    indicator_schema = schema_doc("indicator.schema.json")
+    out_path = (
+        repo_root
+        / "datasets"
+        / "indicators"
+        / "in"
+        / "environment"
+        / "state_no2_annual_mean_ug_m3.json"
+    )
+    write_artifact(
+        path=out_path,
+        schema_id=schema_id("indicator.schema.json"),
+        schema_version=schema_version("indicator.schema.json"),
+        payload=payload,
+        sources=[
+            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
+            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
+        ],
+        schema_for_validation=indicator_schema,
+    )
+
+    years = [r.year for r in parsed]
+    return MarkersIngestResult(
+        indicator_id=NO2_INDICATOR_ID,
+        artifact_path=out_path,
+        pollutant=NO2_FIELD,
+        state_year_row_count=len(parsed),
+        year_min=min(years),
+        year_max=max(years),
+        fetched_at=fetched_at,
+    )
+
+
+def _build_no2_payload(*, parsed: list[StateYearMean]) -> dict:
+    """Compose the schema-required payload (everything except $schema/sources)."""
+    rows = emit_indicator_rows(parsed)
+    states = sorted({r.entity_id for r in parsed})
+    years = [r.year for r in parsed]
+
+    return {
+        "license": {
+            "id": "GoI-Open",
+            "name": (
+                "Government of India open publication "
+                "(NITI Aayog ICED, re-publishing CPCB NAMP)"
+            ),
+            "url": "https://data.gov.in/government-open-data-license-india",
+            "redistributable": True,
+        },
+        "coverage": {
+            "spatial": f"{len(states)} states/UTs with CPCB stations recording NO₂",
+            "temporal": f"{min(years)}–{max(years)} (annual)",
+            "admin_level": "state",
+        },
+        "indicator": {
+            "id": NO2_INDICATOR_ID,
+            "title": NO2_INDICATOR_TITLE,
+            "description": NO2_INDICATOR_DESCRIPTION,
+            "entity_kind": "state",
+            "time_grain": "year",
+            "value_kind": "raw",
+            "direction": "lower_is_better",
+            "scale_hint": "linear",
+            "unit": "µg/m³",
+            "icon": "wind",
+            "notes": NO2_INDICATOR_NOTES,
+            "attribution_geography": "where_consumed",
+            "comparability": "directional_only",
+            "implementing_authority": "centre",
+            "methodology_vintage": (
+                "CPCB NAMP per-station annual mean (re-published via "
+                "ICED aqi-map-markers); state aggregation = unweighted "
+                "arithmetic mean of station-year means; null station-"
+                "years dropped, not coerced to zero."
+            ),
+            "chart_type": "choropleth",
+            "excludes": NO2_INDICATOR_EXCLUDES,
+            "renderer_rules": ["no_rank_table", "no_growth_across_break"],
         },
         "rows": rows,
     }

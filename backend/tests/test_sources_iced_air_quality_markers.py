@@ -197,3 +197,92 @@ def test_emit_indicator_rows_shape(markers: dict) -> None:
     assert sample["time"].isdigit() and len(sample["time"]) == 4
     assert isinstance(sample["value"], float)
     assert sample["entity_id"].startswith("S") or sample["entity_id"].startswith("U")
+
+
+# ---------------------------------------------------------------------------
+# NO2 specifics — sibling of PM2.5 from the same NAMP feed.
+# Series begins 2010 (vs PM2.5 which begins 2014); 2020 IS present for
+# NO2 (unlike PM2.5 where 2020 is empty), so no series_break is declared.
+# ---------------------------------------------------------------------------
+
+def test_no2_year_range(markers: dict) -> None:
+    """NO2 measurements exist from 2010 onward, and 2020 IS present
+    (unlike PM2.5 which is empty in 2020)."""
+    rows = aggregate_state_year_mean(markers, pollutant=NO2_FIELD)
+    years = sorted({r.year for r in rows})
+    assert min(years) >= 2010, f"NO2 should not appear before 2010, got {min(years)}"
+    assert 2020 in years, (
+        "NO2 2020 should be present in this snapshot — only PM2.5 is "
+        "missing 2020. If this assertion ever fails, declare a 2020 "
+        "series_break in the NO2 artifact and update this test."
+    )
+    assert max(years) >= 2023
+
+
+def test_no2_one_row_per_state_year(markers: dict) -> None:
+    """Aggregation contract: at most one (state, year) row per pollutant."""
+    rows = aggregate_state_year_mean(markers, pollutant=NO2_FIELD)
+    keys = [(r.entity_id, r.year) for r in rows]
+    assert len(keys) == len(set(keys)), "duplicate (state, year) rows for NO2"
+
+
+def test_no2_delhi_2019_in_plausible_range(markers: dict) -> None:
+    """Delhi 2019 NO2 should land in 50–90 µg/m³ — Delhi is the
+    canonical Indian high-NO2 metro (dense diesel traffic + thermal
+    plants). A reading outside this band signals a parser regression."""
+    rows = aggregate_state_year_mean(markers, pollutant=NO2_FIELD)
+    delhi_2019 = [r for r in rows if r.entity_id == "U05" and r.year == 2019]
+    assert len(delhi_2019) == 1
+    v = delhi_2019[0].mean_value
+    assert 50 <= v <= 90, f"Delhi 2019 NO2 = {v}, outside plausible 50-90 range"
+
+
+def test_ingest_no2_emits_artifact(tmp_path, markers: dict) -> None:
+    """End-to-end: building the NO2 payload from the captured fixture
+    produces a dict that validates against indicator.schema.json v1.5
+    when stamped via write_artifact."""
+    from datetime import datetime, timezone
+    from yen_gov.core.io import Source, write_artifact
+    from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
+    from yen_gov.sources.iced_air_quality.markers_ingest import (
+        CPCB_NAMP_URL,
+        MARKERS_API_URL,
+        NO2_INDICATOR_ID,
+        NO2_SERIES_START_YEAR,
+        _build_no2_payload,
+    )
+
+    parsed = [
+        r for r in aggregate_state_year_mean(markers, pollutant=NO2_FIELD)
+        if r.year >= NO2_SERIES_START_YEAR
+    ]
+    payload = _build_no2_payload(parsed=parsed)
+    assert payload["indicator"]["id"] == NO2_INDICATOR_ID
+    assert payload["indicator"]["comparability"] == "directional_only"
+    assert payload["indicator"]["renderer_rules"] == [
+        "no_rank_table",
+        "no_growth_across_break",
+    ]
+    assert payload["indicator"]["excludes"], "NO2 excludes[] must not be empty"
+    assert "series_breaks" not in payload["indicator"], (
+        "NO2 has 2020 data in this snapshot — series_breaks should not "
+        "be declared for NO2"
+    )
+
+    out = tmp_path / "state_no2_annual_mean_ug_m3.json"
+    fetched_at = datetime(2026, 5, 15, 14, 44, 39, tzinfo=timezone.utc)
+    write_artifact(
+        path=out,
+        schema_id=schema_id("indicator.schema.json"),
+        schema_version=schema_version("indicator.schema.json"),
+        payload=payload,
+        sources=[
+            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
+            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
+        ],
+        schema_for_validation=schema_doc("indicator.schema.json"),
+    )
+    body = json.loads(out.read_text(encoding="utf-8"))
+    assert body["$schema_version"] == schema_version("indicator.schema.json")
+    assert len(body["sources"]) == 2
+    assert body["rows"], "NO2 artifact rows[] must not be empty"
