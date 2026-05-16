@@ -12,12 +12,25 @@
     }
   ],
   "type": "object",
-  "required": ["$schema", "$schema_version", "indicators"],
+  "required": ["$schema", "$schema_version", "sources", "indicators"],
   "additionalProperties": false,
   "properties": {
     "$schema": { "type": "string", "format": "uri" },
     "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
     "$comment": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "description": "Per CLAUDE.md §12: every dataset file declares its provenance. This overlay is hand-authored — the canonical signal is an empty array. Operators MUST NOT inject upstream URLs here; the file's content is operator-set state, not pipeline-derived data.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "fetched_at"],
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "fetched_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
     "indicators": {
       "type": "object",
       "description": "Map of indicator id → operator-flag overlay. Sparse: only indicators with at least one flag set appear.",

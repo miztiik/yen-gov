@@ -124,6 +124,7 @@ def main() -> None:
         envelope = {
             "$schema": OPERATOR_STATE_SCHEMA_ID,
             "$schema_version": OPERATOR_STATE_SCHEMA_VERSION,
+            "sources": [],
             "indicators": seeded,
         }
         _write_json(OPERATOR_STATE_PATH, envelope)
