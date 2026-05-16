@@ -1,11 +1,18 @@
-// Pure tests for rail-groups.ts (P3.3c).
+// Pure tests for rail-groups.ts (IA-reset Step #1.5).
 //
 // What we're guarding:
-//   - The four-group structure (My state / How states compare /
-//     Centre and states / Settings) is stable.
-//   - "Side by side" appears ONLY when state + defaultEvent are both set
-//     (no greyed stub when missing).
-//   - "My state" group is hint-only when state is null (no greyed stubs).
+//   - The three-group structure (This state / Across states / About) is
+//     stable, in that order.
+//   - "This state" is hint-only when state is null (no greyed stubs).
+//   - When a state is selected, "This state" expands to Overview + the
+//     fixed topic list, every entry pointing at /t/<topic-id> (national
+//     topic page — per-state-topic routes are Step #2's work).
+//   - "Across states" always exposes Compare states + All topics, in that
+//     order, regardless of scope.
+//   - "About" exposes a single About & sources entry; the previous Repo
+//     external link is intentionally gone (moved to the About page).
+//   - No "Centre and states" group, no "Side by side", no "Explore
+//     trends", no "Settings" rail entries.
 //   - Group hrefs flow through `url.*` builders (so deploy base prefixing
 //     isn't bypassed) — asserted by checking the produced strings.
 
@@ -23,130 +30,189 @@ function find(groups: RailGroup[], id: string): RailGroup {
 describe("buildRailGroups (no scope)", () => {
   const groups = buildRailGroups({ state: null, defaultEvent: null, repoUrl: REPO });
 
-  it("emits the four expected groups in order", () => {
+  it("emits the three expected groups in order", () => {
     expect(groups.map(g => g.id)).toEqual([
-      "my-state",
-      "how-states-compare",
-      "centre-and-states",
-      "settings",
+      "this-state",
+      "across-states",
+      "about",
     ]);
   });
 
-  it("My state group is empty with a hint (no greyed stubs)", () => {
-    const my = find(groups, "my-state");
+  it("This state group is empty with a hint (no greyed stubs)", () => {
+    const my = find(groups, "this-state");
     expect(my.items).toEqual([]);
     expect(my.hint).toMatch(/Pick a state/i);
   });
 
-  it("How states compare omits Side by side when no scope", () => {
-    const cmp = find(groups, "how-states-compare");
-    const ids = cmp.items.map(i => i.id);
-    expect(ids).toContain("compare.all-topics");
-    expect(ids).toContain("compare.fiscal");
-    expect(ids).toContain("compare.energy");
-    expect(ids).toContain("compare.elections");
-    expect(ids).not.toContain("compare.side-by-side");
+  it("Across states exposes Compare states + All topics (in that order)", () => {
+    const cmp = find(groups, "across-states");
+    expect(cmp.items.map(i => i.id)).toEqual([
+      "across-states.compare",
+      "across-states.all-topics",
+    ]);
+    const compare = cmp.items[0];
+    expect(compare.label).toBe("Compare states");
+    expect(compare.href).toMatch(/\/compare$/);
+    const all = cmp.items[1];
+    expect(all.label).toBe("All topics");
+    expect(all.href).toMatch(/\/t$/);
   });
 
-  it("How states compare always exposes the generic Compare states tool (P4)", () => {
-    const cmp = find(groups, "how-states-compare");
-    const ci = cmp.items.find(i => i.id === "compare.indicator");
-    expect(ci).toBeDefined();
-    // Bare /compare URL — friendly empty state, no precondition.
-    expect(ci!.href).toMatch(/\/compare$/);
-    expect(ci!.label).toBe("Compare states");
+  it("About has a single About & sources entry (no Repo, no Settings)", () => {
+    const s = find(groups, "about");
+    expect(s.items.map(i => i.id)).toEqual(["about.about"]);
+    expect(s.items[0].label).toBe("About & sources");
+    expect(s.items[0].href).toMatch(/\/about$/);
+    expect(s.items[0].external).toBeUndefined();
   });
 
-  it("Centre and states has fiscal + a 'more coming' hint", () => {
-    const cs = find(groups, "centre-and-states");
-    expect(cs.items.map(i => i.id)).toEqual(["centre.fiscal"]);
-    expect(cs.hint).toMatch(/more topics/i);
+  it("never emits any killed-in-step-1.5 rail entries", () => {
+    const flat_ids = groups.flatMap(g => g.items.map(i => i.id));
+    const flat_labels = groups.flatMap(g => g.items.map(i => i.label.toLowerCase()));
+    // No legacy group IDs survive.
+    expect(groups.map(g => g.id)).not.toContain("my-state");
+    expect(groups.map(g => g.id)).not.toContain("how-states-compare");
+    expect(groups.map(g => g.id)).not.toContain("centre-and-states");
+    expect(groups.map(g => g.id)).not.toContain("settings");
+    // No killed items survive.
+    expect(flat_ids).not.toContain("my-state.trends");
+    expect(flat_ids).not.toContain("compare.side-by-side");
+    expect(flat_ids).not.toContain("centre.fiscal");
+    expect(flat_ids).not.toContain("settings.settings");
+    expect(flat_ids).not.toContain("settings.repo");
+    // And no killed verbs by label, either.
+    expect(flat_labels).not.toContain("explore trends");
+    expect(flat_labels).not.toContain("side by side");
+    expect(flat_labels).not.toContain("settings");
+    expect(flat_labels).not.toContain("repo");
+    expect(flat_labels).not.toContain("psephlab");
   });
 
-  it("Settings has Settings + About + external Repo", () => {
-    const s = find(groups, "settings");
-    const ids = s.items.map(i => i.id);
-    expect(ids).toEqual(["settings.settings", "settings.about", "settings.repo"]);
-    const repo = s.items.find(i => i.id === "settings.repo")!;
-    expect(repo.external).toBe(true);
-    expect(repo.href).toBe(REPO);
-  });
-
-  it("never emits a Psephlab/Analyze/Compare-as-verb item anywhere", () => {
-    const flat = groups.flatMap(g => g.items.map(i => i.label.toLowerCase()));
-    expect(flat).not.toContain("psephlab");
-    expect(flat).not.toContain("analyze trends");
-    expect(flat).not.toContain("explore"); // "Explore trends" lives under My state when scoped, "Explore" alone is the killed verb
+  it("never emits an external rail item in the no-scope case", () => {
+    const flat = groups.flatMap(g => g.items);
+    expect(flat.every(i => !i.external)).toBe(true);
   });
 });
 
 describe("buildRailGroups (scoped state, no event)", () => {
   const groups = buildRailGroups({ state: "S22", defaultEvent: null, repoUrl: REPO });
 
-  it("My state group has Overview + Explore trends", () => {
-    const my = find(groups, "my-state");
-    expect(my.items.map(i => i.id)).toEqual(["my-state.overview", "my-state.trends"]);
+  it("This state group has Overview + the fixed topic list (no hint)", () => {
+    const my = find(groups, "this-state");
     expect(my.hint).toBeUndefined();
+    const ids = my.items.map(i => i.id);
+    expect(ids[0]).toBe("this-state.overview");
+    expect(ids.slice(1)).toEqual([
+      "this-state.topic.fiscal",
+      "this-state.topic.energy",
+      "this-state.topic.economy",
+      "this-state.topic.health",
+      "this-state.topic.environment",
+      "this-state.topic.transport",
+      "this-state.topic.elections",
+    ]);
   });
 
-  it("Side by side still hidden when event is missing", () => {
-    const cmp = find(groups, "how-states-compare");
-    expect(cmp.items.map(i => i.id)).not.toContain("compare.side-by-side");
+  it("Every This state topic entry targets the national /t/<id> page (Step #2 not yet shipped)", () => {
+    const my = find(groups, "this-state");
+    const topic_items = my.items.filter(i => i.id.startsWith("this-state.topic."));
+    expect(topic_items.length).toBeGreaterThan(0);
+    for (const item of topic_items) {
+      // Must end with /t/<slug>, never /s/<state>/t/<slug>.
+      expect(item.href).toMatch(/\/t\/[a-z][a-z0-9-]*$/);
+      expect(item.href).not.toContain("/s/");
+    }
+  });
+
+  it("Across states + About are unaffected by scope", () => {
+    expect(find(groups, "across-states").items.map(i => i.id)).toEqual([
+      "across-states.compare",
+      "across-states.all-topics",
+    ]);
+    expect(find(groups, "about").items.map(i => i.id)).toEqual(["about.about"]);
   });
 
   it("hrefs are concrete URLs (no template-string leakage)", () => {
-    const overview = find(groups, "my-state").items[0];
+    const overview = find(groups, "this-state").items[0];
     expect(overview.href).toMatch(/^\/?(yen-gov\/)?s\//);
     expect(overview.href).not.toContain("undefined");
+  });
+
+  it("scope/event do NOT re-introduce killed entries", () => {
+    const flat_ids = groups.flatMap(g => g.items.map(i => i.id));
+    expect(flat_ids).not.toContain("my-state.trends");
+    expect(flat_ids).not.toContain("compare.side-by-side");
   });
 });
 
 describe("buildRailGroups (scoped state + event)", () => {
+  // event is plumbed through the signature but Step #1.5 does NOT render
+  // a state+event-aware rail item; the test exists to lock that in so a
+  // future "Side by side" resurrection has to update this file deliberately.
   const groups = buildRailGroups({
     state: "S22",
     defaultEvent: "AcGenMay2026",
     repoUrl: REPO,
   });
 
-  it("Side by side appears under How states compare", () => {
-    const cmp = find(groups, "how-states-compare");
-    const sbs = cmp.items.find(i => i.id === "compare.side-by-side");
-    expect(sbs).toBeDefined();
-    expect(sbs!.href).toContain("AcGenMay2026");
-  });
-
-  it("Side by side is the LAST item under How states compare", () => {
-    const cmp = find(groups, "how-states-compare");
-    expect(cmp.items[cmp.items.length - 1].id).toBe("compare.side-by-side");
+  it("does NOT add any state+event-aware item under Across states", () => {
+    const cmp = find(groups, "across-states");
+    expect(cmp.items.map(i => i.id)).toEqual([
+      "across-states.compare",
+      "across-states.all-topics",
+    ]);
+    // And no item href encodes the event id anywhere in the rail.
+    const all_hrefs = groups.flatMap(g => g.items.map(i => i.href));
+    expect(all_hrefs.every(h => !h.includes("AcGenMay2026"))).toBe(true);
   });
 });
 
 describe("RailItem.match predicates", () => {
   const groups = buildRailGroups({ state: "S22", defaultEvent: "E1", repoUrl: REPO });
 
-  it("My state Overview matches /s/<slug> but NOT /s/<slug>/explore", () => {
-    const overview = find(groups, "my-state").items.find(i => i.id === "my-state.overview")!;
+  it("This state Overview matches /s/<slug> but NOT its sub-pages", () => {
+    const overview = find(groups, "this-state").items.find(
+      i => i.id === "this-state.overview",
+    )!;
     expect(overview.match("/s/tamil-nadu")).toBe(true);
     expect(overview.match("/s/tamil-nadu/explore")).toBe(false);
     expect(overview.match("/s/tamil-nadu/ac/167-mylapore")).toBe(false);
   });
 
-  it("My state Explore trends matches /s/<slug>/explore", () => {
-    const trends = find(groups, "my-state").items.find(i => i.id === "my-state.trends")!;
-    expect(trends.match("/s/tamil-nadu/explore")).toBe(true);
-    expect(trends.match("/s/tamil-nadu")).toBe(false);
-  });
-
   it("All topics matches exactly /t (not /t/fiscal)", () => {
-    const all = find(groups, "how-states-compare").items.find(i => i.id === "compare.all-topics")!;
+    const all = find(groups, "across-states").items.find(
+      i => i.id === "across-states.all-topics",
+    )!;
     expect(all.match("/t")).toBe(true);
     expect(all.match("/t/fiscal")).toBe(false);
   });
 
-  it("topic items match their own /t/<id> exactly", () => {
-    const fiscal = find(groups, "how-states-compare").items.find(i => i.id === "compare.fiscal")!;
+  it("Topic items match their own /t/<id> exactly", () => {
+    const fiscal = find(groups, "this-state").items.find(
+      i => i.id === "this-state.topic.fiscal",
+    )!;
     expect(fiscal.match("/t/fiscal")).toBe(true);
     expect(fiscal.match("/t")).toBe(false);
     expect(fiscal.match("/t/energy")).toBe(false);
+
+    const energy = find(groups, "this-state").items.find(
+      i => i.id === "this-state.topic.energy",
+    )!;
+    expect(energy.match("/t/energy")).toBe(true);
+    expect(energy.match("/t/fiscal")).toBe(false);
+  });
+
+  it("Compare states matches /compare exactly", () => {
+    const c = find(groups, "across-states").items.find(
+      i => i.id === "across-states.compare",
+    )!;
+    expect(c.match("/compare")).toBe(true);
+    expect(c.match("/compare/tamil-nadu/AcGenMay2026")).toBe(false);
+  });
+
+  it("About matches /about exactly", () => {
+    const a = find(groups, "about").items.find(i => i.id === "about.about")!;
+    expect(a.match("/about")).toBe(true);
+    expect(a.match("/")).toBe(false);
   });
 });

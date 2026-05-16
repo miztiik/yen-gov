@@ -1,23 +1,26 @@
-// Pure builder for the LeftRail's grouped IA (P3.3c, IA reset).
+// Pure builder for the LeftRail's grouped IA (IA-reset Step #1.5).
 //
 // The rail's structure is data, not view: this module returns the list of
 // groups and items the rail should render, given the current scope and the
 // per-state default election event. The view (`LeftRail.svelte`) is a
 // straight render of this output — no conditionals, no greyed stubs.
 //
-// Doctrine (P3.3c, see TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md
-// §"P3.3c — IA decision pending"):
+// Doctrine (IA-reset §1, see TODO/20260515-state-page-ia-rework-plan.md):
 //
-//   * Groups, not a flat list. Top-level: My state / How states compare /
-//     Centre and states / Settings.
-//   * NO greyed dead links. Sub-items that need a prerequisite (state +
-//     event for "Side by side") are simply omitted until satisfied; the
-//     group instead surfaces a one-line hint when it's empty for a
-//     contextual reason.
-//   * "Psephlab" is killed from the rail entirely — it's reachable only
-//     from election artifacts.
-//   * "Centre and states" is rendered with one /t/fiscal entry today plus
-//     a "more topics coming" line; will fill out as Union-list topics ship.
+//   * Three groups, state-aware:
+//       THIS STATE · ACROSS STATES · ABOUT
+//   * THIS STATE lists Overview + one entry per topic in the catalogue we
+//     surface; entries point at the national `/t/<topic>` page for now —
+//     per-state-topic routes (`/s/<state>/t/<topic>`) are Step #2's work
+//     and intentionally NOT pre-built here.
+//   * NO greyed dead links. When no state is in scope, THIS STATE
+//     collapses to a single hint line ("Pick a state above…") and the
+//     topic sub-items are omitted entirely.
+//   * The previous "Centre and states" group + "Side by side" /
+//     "Explore trends" / Settings / Repo rail entries are killed in this
+//     pass. The corresponding ROUTES (`/s/<state>/explore`, `/settings`,
+//     `/compare/<state>/<event>`) still resolve directly by URL — only
+//     the rail surfaces are removed. Repo lives on the About page.
 //
 // Tested by rail-groups.test.ts.
 
@@ -51,11 +54,45 @@ export interface RailGroup {
 export interface BuildRailGroupsArgs {
   /** ECI state code from scope, or null on India / unscoped routes. */
   state: string | null;
-  /** Default event_id for the current state, resolved from election-events. */
+  /**
+   * Default event_id for the current state. Carried through the signature
+   * for future surfaces that need it; the current rail (Step #1.5) does
+   * not render a state+event item, so it's unused by the builder today.
+   */
   defaultEvent: string | null;
-  /** Repo URL for the external "Repo" link in Settings group. */
+  /**
+   * Repo URL — carried through for any future external rail link. Not
+   * rendered today (Repo moved to the About page in Step #1.5).
+   */
   repoUrl: string;
 }
+
+/**
+ * The fixed topic list under THIS STATE (in display order). Each topic ID
+ * MUST exist in datasets/reference/in/topic-catalogue.json — entries are
+ * deliberately ordered to put money + power first (highest citizen pull),
+ * then economy → people → environment → transport → elections.
+ *
+ * Labels are citizen-readable noun phrases, NOT schema slugs. The slugs
+ * stay opaque keys; labels are tuned for the rail width and Indian
+ * citizen comprehension per docs/concepts/citizen-first.md.
+ *
+ * Catalogue alignment (verified 2026-05-16): no `human-development` topic
+ * exists — `health` is its closest analogue and is used here with the
+ * citizen-friendly label "People & health". Likewise `environment` and
+ * `transport` are separate catalogue entries and surface as separate
+ * rail entries rather than the plan-doc's combined "Environment &
+ * transport" label.
+ */
+const THIS_STATE_TOPICS: ReadonlyArray<{ id: string; label: string }> = [
+  { id: "fiscal", label: "Money & debt" },
+  { id: "energy", label: "Power & energy" },
+  { id: "economy", label: "Economy" },
+  { id: "health", label: "People & health" },
+  { id: "environment", label: "Environment" },
+  { id: "transport", label: "Transport" },
+  { id: "elections", label: "Elections" },
+];
 
 /**
  * Build the rail's groups for the current scope.
@@ -64,127 +101,70 @@ export interface BuildRailGroupsArgs {
  * already-resolved scope/event/repo and renders whatever comes back.
  */
 export function buildRailGroups(args: BuildRailGroupsArgs): RailGroup[] {
-  const { state, defaultEvent, repoUrl } = args;
+  const { state } = args;
 
-  const my_state: RailGroup = state
+  const this_state: RailGroup = state
     ? {
-        id: "my-state",
-        label: "My state",
+        id: "this-state",
+        label: "This state",
         items: [
           {
-            id: "my-state.overview",
+            id: "this-state.overview",
             label: "Overview",
             href: url.state(state),
             // Highlight on /s/<slug> exactly, NOT on its sub-pages.
-            match: p => p.startsWith("/s/") && !p.includes("/explore") && !p.includes("/ac/") && !p.includes("/party/"),
+            match: p =>
+              p.startsWith("/s/") &&
+              !p.includes("/explore") &&
+              !p.includes("/ac/") &&
+              !p.includes("/party/"),
           },
-          {
-            id: "my-state.trends",
-            label: "Explore trends",
-            href: url.explore(state),
-            match: p => p.endsWith("/explore"),
-          },
+          ...THIS_STATE_TOPICS.map(t => ({
+            id: `this-state.topic.${t.id}`,
+            label: t.label,
+            href: url.topic(t.id),
+            match: (p: string) => p === `/t/${t.id}`,
+          })),
         ],
       }
     : {
-        id: "my-state",
-        label: "My state",
+        id: "this-state",
+        label: "This state",
         items: [],
         hint: "Pick a state above to see your data.",
       };
 
-  const compare_items: RailItem[] = [
-    {
-      id: "compare.all-topics",
-      label: "All topics",
-      href: url.topics(),
-      match: p => p === "/t",
-    },
-    {
-      id: "compare.fiscal",
-      label: "Money & debt",
-      href: url.topic("fiscal"),
-      match: p => p === "/t/fiscal",
-    },
-    {
-      id: "compare.energy",
-      label: "Power & energy",
-      href: url.topic("energy"),
-      match: p => p === "/t/energy",
-    },
-    {
-      id: "compare.elections",
-      label: "Elections",
-      href: url.topic("elections"),
-      match: p => p === "/t/elections",
-    },
-    // Generic indicator Compare (P4) — always available, friendly empty
-    // state when no indicator is selected so it doesn't violate the
-    // "no greyed dead links" rule.
-    {
-      id: "compare.indicator",
-      label: "Compare states",
-      href: url.compareIndicator(),
-      match: p => p === "/compare",
-    },
-  ];
-  // Side-by-side requires both a chosen state AND an event — otherwise
-  // hidden (per P3.3c "no greyed stubs" rule).
-  if (state && defaultEvent) {
-    compare_items.push({
-      id: "compare.side-by-side",
-      label: "Side by side",
-      href: url.compare(state, defaultEvent),
-      match: p => p.startsWith("/compare/"),
-    });
-  }
-  const compare: RailGroup = {
-    id: "how-states-compare",
-    label: "How states compare",
-    items: compare_items,
-  };
-
-  // Centre & states: only one topic exists today (fiscal/net-transfers).
-  // Hint signals that more is coming so the group doesn't read as broken.
-  const centre_states: RailGroup = {
-    id: "centre-and-states",
-    label: "Centre and states",
+  const across_states: RailGroup = {
+    id: "across-states",
+    label: "Across states",
     items: [
       {
-        id: "centre.fiscal",
-        label: "Money & debt",
-        href: url.topic("fiscal"),
-        match: p => p === "/t/fiscal",
+        id: "across-states.compare",
+        label: "Compare states",
+        href: url.compareIndicator(),
+        match: p => p === "/compare",
+      },
+      {
+        id: "across-states.all-topics",
+        label: "All topics",
+        href: url.topics(),
+        match: p => p === "/t",
       },
     ],
-    hint: "More topics coming soon.",
   };
 
-  const settings: RailGroup = {
-    id: "settings",
-    label: "Settings",
+  const about: RailGroup = {
+    id: "about",
+    label: "About",
     items: [
       {
-        id: "settings.settings",
-        label: "Settings",
-        href: url.settings(),
-        match: p => p === "/settings",
-      },
-      {
-        id: "settings.about",
-        label: "About",
+        id: "about.about",
+        label: "About & sources",
         href: url.about(),
         match: p => p === "/about",
       },
-      {
-        id: "settings.repo",
-        label: "Repo",
-        href: repoUrl,
-        external: true,
-        match: () => false,
-      },
     ],
   };
 
-  return [my_state, compare, centre_states, settings];
+  return [this_state, across_states, about];
 }
