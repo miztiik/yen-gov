@@ -219,4 +219,62 @@ describe("homeThemeOptions", () => {
     expect(opts).toHaveLength(1);
     expect(opts[0].theme).toEqual({ kind: "election" });
   });
+
+  // IA-reset Step #3b: indicator labels are humanised from the
+  // indicator artifact's own `indicator.title`, passed in via an
+  // optional title-map. Raw slugs like "fiscal/outstanding_debt_pct_gsdp"
+  // should never reach the dropdown when a title is available.
+  describe("with titleMap (Step #3b humanised labels)", () => {
+    it("prefers titleMap entry over artifact.display and id", () => {
+      const titles = new Map<string, string>([
+        ["fiscal/outstanding_debt_pct_gsdp", "Outstanding debt"],
+        ["energy/installed_mw_by_state", "Installed capacity"],
+      ]);
+      const opts = homeThemeOptions(catalogue, titles);
+      const fiscal = opts.find(o => o.value === "indicator/fiscal/outstanding_debt_pct_gsdp");
+      const energy = opts.find(o => o.value === "indicator/energy/installed_mw_by_state");
+      expect(fiscal?.label).toBe("Outstanding debt");
+      expect(fiscal?.caption).toBe("Outstanding debt");
+      expect(energy?.label).toBe("Installed capacity");
+    });
+
+    it("falls back to artifact.display when titleMap has no entry for that id", () => {
+      const titles = new Map<string, string>(); // empty
+      const opts = homeThemeOptions(catalogue, titles);
+      // catalogue fixture sets display = "Outstanding liabilities (% of GSDP)"
+      const fiscal = opts.find(o => o.value === "indicator/fiscal/outstanding_debt_pct_gsdp");
+      expect(fiscal?.label).toBe("Outstanding liabilities (% of GSDP)");
+    });
+
+    it("falls back to the bare id when neither titleMap nor display is set", () => {
+      const cat: TopicCatalogue = {
+        ...catalogue,
+        topics: [
+          {
+            id: "x",
+            title: "X",
+            list: "concurrent",
+            summary: "",
+            artifacts: [{ kind: "indicator", id: "x/no_display", scope: "national" }],
+          },
+        ],
+      };
+      const opts = homeThemeOptions(cat, new Map());
+      const x = opts.find(o => o.value === "indicator/x/no_display");
+      expect(x?.label).toBe("x/no_display");
+    });
+
+    it("does not touch the election entry's label (uses the ELECTION_LABEL constant)", () => {
+      const titles = new Map<string, string>([["election", "Should be ignored"]]);
+      const opts = homeThemeOptions(catalogue, titles);
+      expect(opts[0].value).toBe("election");
+      expect(opts[0].label).toBe("Leading party");
+    });
+
+    it("handles a null catalogue without crashing (returns just election)", () => {
+      const opts = homeThemeOptions(null, new Map([["whatever", "x"]]));
+      expect(opts).toHaveLength(1);
+      expect(opts[0].label).toBe("Leading party");
+    });
+  });
 });
