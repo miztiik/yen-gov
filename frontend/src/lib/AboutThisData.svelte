@@ -12,7 +12,7 @@
   //   1. Read-only consumption of folded v4.0 IndicatorArtifact fields
   //      (`methodology`, `series_spec`, `sources`). No fetches;
   //      everything is in the artifact. Coverage / completeness moved
-  //      to /data-completeness in v4.0 per ADR-0025 — this panel no
+  //      to /data-completeness in v4.0 per ADR-0026 — this panel no
   //      longer renders a per-indicator coverage block.
   //   2. Sections hide themselves when their data is empty/absent — no
   //      "N/A" stubs. The shorter the artifact, the shorter the panel.

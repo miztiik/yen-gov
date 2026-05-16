@@ -185,7 +185,7 @@ def _maintain_folded_blocks(document: dict[str, Any], path: Path) -> dict[str, A
     """Carry forward / derive the three v4.0 folded blocks on an indicator.
 
     Strategy (v4.0 — `collection_inventory` lifted OUT of the artifact;
-    see ADR-0025 and TODO/20260517 §16):
+    see ADR-0026 and TODO/20260517 §16):
       - `methodology`, `series_spec`, `divergence`: if the caller
         provided them in `payload`, keep them verbatim. Else, if a
         prior artifact exists on disk, lift them from there. Else,

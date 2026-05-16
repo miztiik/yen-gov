@@ -50,7 +50,7 @@
     {
       "version": "4.0",
       "date": "2026-05-17",
-      "description": "Inventory lift (TODO/20260517 §16). Removed block `collection_inventory` and removed sub-fields `series_spec.expected_geographies`, `series_spec.expected_periods`, `series_spec.expected_periods_inference`. Status / observed periods / observed geographies / unavailable periods / last_attempt now live in the external index `datasets/reference/in/indicators-completeness.json` (its own schema, v2.0). Operator-set flags (`frozen`, `refetch_requested`, `unavailable_periods`) move to the operator overlay `datasets/reference/in/indicators-operator-state.json` (its own schema, v1.0). Rationale: ADR-0025 — derived/operational state is operator-axis, not citizen-axis; folding it into the citizen-facing artifact violated the separation and caused the 2026-05-16 fetched_at smear (every re-derive of inventory pushed `last_collected_at` into every artifact). The 110 indicator artifacts retain only the citizen-axis surface: `series_spec` shrinks to `{description}` only; everything else is unchanged. Mechanical migration via `tools/rip_to_v4.py`."
+      "description": "Inventory lift (TODO/20260517 §16). Removed block `collection_inventory` and removed sub-fields `series_spec.expected_geographies`, `series_spec.expected_periods`, `series_spec.expected_periods_inference`. Status / observed periods / observed geographies / unavailable periods / last_attempt now live in the external index `datasets/reference/in/indicators-completeness.json` (its own schema, v2.0). Operator-set flags (`frozen`, `refetch_requested`, `unavailable_periods`) move to the operator overlay `datasets/reference/in/indicators-operator-state.json` (its own schema, v1.0). Rationale: ADR-0026 — derived/operational state is operator-axis, not citizen-axis; folding it into the citizen-facing artifact violated the separation and caused the 2026-05-16 fetched_at smear (every re-derive of inventory pushed `last_collected_at` into every artifact). The 110 indicator artifacts retain only the citizen-axis surface: `series_spec` shrinks to `{description}` only; everything else is unchanged. Mechanical migration via `tools/rip_to_v4.py`."
     }
   ],
   "type": "object",
@@ -314,7 +314,7 @@
 
     "series_spec": {
       "type": "object",
-      "description": "v4.0: shrunk to `description` only. The expected_geographies / expected_periods / expected_periods_inference sub-fields moved to the external completeness index (datasets/reference/in/indicators-completeness.json) per ADR-0025. The editorial description of what the series IS stays here, on the citizen-facing artifact.",
+      "description": "v4.0: shrunk to `description` only. The expected_geographies / expected_periods / expected_periods_inference sub-fields moved to the external completeness index (datasets/reference/in/indicators-completeness.json) per ADR-0026. The editorial description of what the series IS stays here, on the citizen-facing artifact.",
       "additionalProperties": false,
       "required": ["description"],
       "properties": {

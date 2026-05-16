@@ -159,7 +159,7 @@ def test_write_artifact_derives_folded_blocks_when_payload_omits_them(tmp_path: 
     divergence) still produces a valid v4.0 artifact —
     write_artifact derives stubs and validates. v4.0 dropped
     `collection_inventory` (lifted to external completeness index per
-    ADR-0025) and shrunk `series_spec` to `{description}` only."""
+    ADR-0026) and shrunk `series_spec` to `{description}` only."""
     schema = _load_schema("indicator.schema.json")
     target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
 

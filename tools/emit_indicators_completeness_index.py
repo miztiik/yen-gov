@@ -11,7 +11,7 @@ Sources of each field (v4.0+):
   - `inventory_status`: "complete" iff `rows[]` is non-empty, else "empty".
     The pre-v4 "partial" tier is no longer derivable because the
     expected-periods surface (formerly `series_spec.expected_periods`)
-    was lifted out of the artifact per ADR-0025; we report what we have,
+    was lifted out of the artifact per ADR-0026; we report what we have,
     not what we promised.
   - `last_collected_at`: `max(sources[].fetched_at)` from the artifact.
   - `observed_count`: count of distinct `rows[].time` values.

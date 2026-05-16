@@ -3,7 +3,7 @@
 Migrates indicator artifacts from schema v3.0 to v4.0 (CLAUDE.md §11):
 
   - Removes the entire ``collection_inventory`` block (lifted to the
-    external completeness index per ADR-0025).
+    external completeness index per ADR-0026).
   - Removes ``series_spec.expected_geographies``,
     ``series_spec.expected_periods``, and
     ``series_spec.expected_periods_inference`` (lifted to the same index).

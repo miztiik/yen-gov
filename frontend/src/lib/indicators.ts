@@ -159,7 +159,7 @@ export type PeriodFrequency =
 
 /** A period token. Historically appeared in `series_spec.expected_periods[]`
  *  and `collection_inventory.observed_periods[]`; in v4.0+ those surfaces
- *  were lifted out of the indicator artifact per ADR-0025, so this type is
+ *  were lifted out of the indicator artifact per ADR-0026, so this type is
  *  now only used by the completeness index consumers. */
 export interface PeriodToken {
   key: string;
