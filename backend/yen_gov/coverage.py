@@ -248,6 +248,21 @@ def _max_input_mtime_date(root: Path) -> str:
 
     Falls back to ``"unknown"`` when no input exists (fresh checkout or
     sparse fixture tree) so the function stays total.
+
+    Why no idempotency unit test guards this
+    ----------------------------------------
+    The obvious "call ``render_markdown`` twice, assert byte-equal" test
+    is ceremony: it's ``f(x) == f(x)`` for a near-pure function, and it
+    only catches a regression if a re-introduced ``datetime.now()`` is
+    SUB-DAY (``isoformat()``, ``time()``). A regression that re-adds
+    ``datetime.now().strftime("%Y-%m-%d")`` straddles the same UTC day
+    in both calls and silently passes. The real regression signal is the
+    diff against committed ``docs/reference/**/*.md`` outputs in CI -- if
+    someone re-introduces wall-clock here, the next coverage re-run
+    changes 110+ doc files and the PR diff is impossible to miss. A
+    flimsy unit test that pretends to guard this would be worse than no
+    test: it would absolve the reviewer of looking at the doc diff.
+    Deleted deliberately, not forgotten.
     """
     inputs: list[Path] = []
     for rel in (CATALOGUE_REL, STATES_REL, TOPIC_CATALOGUE_REL):
