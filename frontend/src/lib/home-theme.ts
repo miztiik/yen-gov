@@ -113,18 +113,26 @@ export function sameTheme(a: HomeTheme, b: HomeTheme): boolean {
   return a.id === (b as { kind: "indicator"; id: string }).id;
 }
 
-/** Caption rendered after "India — " above the map. */
+/**
+ * Caption rendered after "India — " above the map. The optional
+ * `titleMap` (artifact-id → indicator.title) lets the caller surface
+ * the human-readable indicator title fetched at runtime; without it
+ * we fall back to the catalogue-level `display` override or the raw
+ * slug. Priority order matches `homeThemeOptions` deliberately —
+ * citizens see the same label in the chooser and the caption.
+ */
 export function themeCaption(
   theme: HomeTheme,
   catalogue: TopicCatalogue | null,
+  titleMap?: ReadonlyMap<string, string>,
 ): string {
   if (theme.kind === "election") return ELECTION_CAPTION;
   for (const { artifact } of nationalIndicators(catalogue)) {
     if (artifact.id === theme.id) {
-      return artifact.display ?? artifact.id;
+      return titleMap?.get(artifact.id) ?? artifact.display ?? artifact.id;
     }
   }
-  return theme.id;
+  return titleMap?.get(theme.id) ?? theme.id;
 }
 
 /**

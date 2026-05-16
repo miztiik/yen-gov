@@ -186,6 +186,44 @@ describe("themeCaption", () => {
       "unknown/thing",
     );
   });
+
+  it("prefers titleMap.get(artifact.id) over display when both present", () => {
+    const titleMap = new Map([
+      ["fiscal/outstanding_debt_pct_gsdp", "Public debt as a share of state output"],
+    ]);
+    expect(
+      themeCaption(
+        { kind: "indicator", id: "fiscal/outstanding_debt_pct_gsdp" },
+        catalogue,
+        titleMap,
+      ),
+    ).toBe("Public debt as a share of state output");
+  });
+
+  it("falls back to artifact.display when titleMap has no entry for the id", () => {
+    const titleMap = new Map([["some/other", "Other"]]);
+    expect(
+      themeCaption(
+        { kind: "indicator", id: "fiscal/outstanding_debt_pct_gsdp" },
+        catalogue,
+        titleMap,
+      ),
+    ).toBe("Outstanding liabilities (% of GSDP)");
+  });
+
+  it("uses titleMap entry even when the artifact is unknown to the catalogue", () => {
+    const titleMap = new Map([["unknown/thing", "Some indicator title"]]);
+    expect(
+      themeCaption({ kind: "indicator", id: "unknown/thing" }, catalogue, titleMap),
+    ).toBe("Some indicator title");
+  });
+
+  it("ignores titleMap for the election theme (its caption is fixed copy)", () => {
+    const titleMap = new Map([["election", "should-not-appear"]]);
+    expect(themeCaption({ kind: "election" }, catalogue, titleMap)).toBe(
+      "leading party by state",
+    );
+  });
 });
 
 describe("homeThemeOptions", () => {

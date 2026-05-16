@@ -110,7 +110,7 @@
   });
 
   const options = $derived(homeThemeOptions(catalogue, indicator_titles));
-  const caption = $derived(themeCaption(theme, catalogue));
+  const caption = $derived(themeCaption(theme, catalogue, indicator_titles));
   const current_value = $derived(
     theme.kind === "election" ? "election" : `indicator/${theme.id}`,
   );
