@@ -49,8 +49,8 @@ Snapshot: snapshot  (RS Session 259 ≈ Jul-Aug 2023.
 
 ## Citation
 
-> sansad.in, *States' total external debt outstanding*. Re-published by yen-gov as `fiscal/state_external_debt_inr_crore`, schema v1.5. Retrieved 2026-05-14.
+> sansad.in, *States' total external debt outstanding*. Re-published by yen-gov as `fiscal/state_external_debt_inr_crore`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/state_external_debt_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_external_debt_inr_crore.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/fiscal/state_external_debt_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_external_debt_inr_crore.json)

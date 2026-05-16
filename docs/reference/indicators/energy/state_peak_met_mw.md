@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 142. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise peak power supplied (MW)*. Re-published by yen-gov as `energy/state_peak_met_mw`, schema v1.5. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise peak power supplied (MW)*. Re-published by yen-gov as `energy/state_peak_met_mw`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_peak_met_mw.json`](../../../../datasets/indicators/in/energy/state_peak_met_mw.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/state_peak_met_mw.json`](../../../../datasets/indicators/in/energy/state_peak_met_mw.json)

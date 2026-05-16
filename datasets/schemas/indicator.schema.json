@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "1.6",
+  "x-version": "2.0",
   "x-changelog": [
     {
       "version": "1.0",
@@ -36,6 +36,11 @@
       "version": "1.6",
       "date": "2026-05-17",
       "description": "Expand phase for the folded indicator model (TODO/20260517-folded-indicator-and-collection-inventory-handover.md). Adds four optional top-level blocks — `methodology`, `series_spec`, `collection_inventory`, `divergence` — plus optional `rows[].period_label` (adapter-owned citizen label matching the period token; existing `rows[].time` remains the machine sort/join key). Adds the optional `$ref` form for `series_spec.expected_geographies` that targets `datasets/reference/in/universes.json`. All v1.5 fields and behaviours remain valid; the contraction phase that makes the new blocks required and deletes the indicator-notes sidecar lands in v2.0. Strict `$schema_version == x-version` enforcement is unchanged; existing 106 indicators are mechanically bumped to `$schema_version: 1.6` in the same commit, no other content change."
+    },
+    {
+      "version": "2.0",
+      "date": "2026-05-17",
+      "description": "Contract phase for the folded indicator model. The four blocks introduced as optional in v1.6 — `methodology`, `series_spec`, `collection_inventory`, `divergence` — are now `required`. The companion `indicator-notes.schema.json` sidecar contract is deleted in this commit; the 10 `.notes.json` sidecars under `datasets/indicators/in/` were folded losslessly into the inline `methodology` block in the preceding commit. `divergence` remains a reserved `null` slot until the divergence-reporting subsystem ships. All 110 existing indicators are mechanically bumped to `$schema_version: 2.0` in the same commit (see `tools/bump_indicators_to_2_0.py`); their content is unchanged because the fold migration already populated the new blocks. Per the working contract: schema bumps remain breaking — there is no `additionalProperties: true` escape hatch, and `$schema_version` MUST equal `x-version`."
     }
   ],
   "type": "object",
@@ -46,7 +51,11 @@
     "license",
     "coverage",
     "indicator",
-    "rows"
+    "rows",
+    "series_spec",
+    "collection_inventory",
+    "methodology",
+    "divergence"
   ],
   "additionalProperties": false,
   "properties": {

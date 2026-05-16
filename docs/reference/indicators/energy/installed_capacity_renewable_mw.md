@@ -67,8 +67,8 @@ MNRE's 'renewable' bucket here includes solar, wind, small-hydro (≤25 MW), bio
 
 ## Citation
 
-> cea.nic.in, *Installed renewable capacity (RES MNRE)*. Re-published by yen-gov as `energy/installed_capacity_renewable_mw`, schema v1.5. Retrieved 2026-05-13.
+> cea.nic.in, *Installed renewable capacity (RES MNRE)*. Re-published by yen-gov as `energy/installed_capacity_renewable_mw`, schema v2.0. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_renewable_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_renewable_mw.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/installed_capacity_renewable_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_renewable_mw.json)

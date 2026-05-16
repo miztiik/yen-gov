@@ -49,8 +49,8 @@ This is National-Accounts PFCE per capita — modelled by CSO from national tota
 
 ## Citation
 
-> icedapi.niti.gov.in, *State per-capita private consumption (₹ per person per year)*. Re-published by yen-gov as `economy/state_per_capita_consumption_inr`, schema v1.5. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State per-capita private consumption (₹ per person per year)*. Re-published by yen-gov as `economy/state_per_capita_consumption_inr`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/state_per_capita_consumption_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_consumption_inr.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/economy/state_per_capita_consumption_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_consumption_inr.json)

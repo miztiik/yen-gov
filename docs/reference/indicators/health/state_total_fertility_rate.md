@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 6 (SR
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Total Fertility Rate (children per woman)*. Re-published by yen-gov as `health/state_total_fertility_rate`, schema v1.5. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Total Fertility Rate (children per woman)*. Re-published by yen-gov as `health/state_total_fertility_rate`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/health/state_total_fertility_rate.json`](../../../../datasets/indicators/in/health/state_total_fertility_rate.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/health/state_total_fertility_rate.json`](../../../../datasets/indicators/in/health/state_total_fertility_rate.json)

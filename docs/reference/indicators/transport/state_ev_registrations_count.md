@@ -47,8 +47,8 @@ MoRTH VAHAN registration database (excludes Telangana for some years; some early
 
 ## Citation
 
-> iced.niti.gov.in, *EV registrations by state and vehicle category*. Re-published by yen-gov as `transport/state_ev_registrations_count`, schema v1.5. Retrieved 2026-05-14.
+> iced.niti.gov.in, *EV registrations by state and vehicle category*. Re-published by yen-gov as `transport/state_ev_registrations_count`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/transport/state_ev_registrations_count.json`](../../../../datasets/indicators/in/transport/state_ev_registrations_count.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/transport/state_ev_registrations_count.json`](../../../../datasets/indicators/in/transport/state_ev_registrations_count.json)

@@ -51,8 +51,8 @@ Companion to the existing Male/Female-faceted `state_population_by_sex_count`. B
 
 ## Citation
 
-> icedapi.niti.gov.in, *Census population by state, faceted Rural / Urban*. Re-published by yen-gov as `demography/state_population_by_residence_count`, schema v1.5. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *Census population by state, faceted Rural / Urban*. Re-published by yen-gov as `demography/state_population_by_residence_count`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/demography/state_population_by_residence_count.json`](../../../../datasets/indicators/in/demography/state_population_by_residence_count.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/demography/state_population_by_residence_count.json`](../../../../datasets/indicators/in/demography/state_population_by_residence_count.json)

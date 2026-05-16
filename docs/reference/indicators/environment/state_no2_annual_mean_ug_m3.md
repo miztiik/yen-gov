@@ -61,8 +61,8 @@ Method: per (state, year), unweighted arithmetic mean of CPCB station-year annua
 
 ## Citation
 
-> icedapi.niti.gov.in, *NO₂ — annual mean (state)*. Re-published by yen-gov as `environment/state_no2_annual_mean_ug_m3`, schema v1.5. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *NO₂ — annual mean (state)*. Re-published by yen-gov as `environment/state_no2_annual_mean_ug_m3`, schema v2.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/environment/state_no2_annual_mean_ug_m3.json`](../../../../datasets/indicators/in/environment/state_no2_annual_mean_ug_m3.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/environment/state_no2_annual_mean_ug_m3.json`](../../../../datasets/indicators/in/environment/state_no2_annual_mean_ug_m3.json)

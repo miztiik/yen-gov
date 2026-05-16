@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'Generation'. Read alongside Installed Ca
 
 ## Citation
 
-> iced.niti.gov.in, *Annual electricity generation (by state)*. Re-published by yen-gov as `energy/state_electricity_generation_mu`, schema v1.5. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Annual electricity generation (by state)*. Re-published by yen-gov as `energy/state_electricity_generation_mu`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_electricity_generation_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_generation_mu.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/state_electricity_generation_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_generation_mu.json)

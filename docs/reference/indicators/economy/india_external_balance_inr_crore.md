@@ -51,8 +51,8 @@ Trade Balance + Invisibles (Net) ≈ Current Account Balance; Current Account + 
 
 ## Citation
 
-> icedapi.niti.gov.in, *India external-sector balance (₹ crore)*. Re-published by yen-gov as `economy/india_external_balance_inr_crore`, schema v1.5. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India external-sector balance (₹ crore)*. Re-published by yen-gov as `economy/india_external_balance_inr_crore`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/india_external_balance_inr_crore.json`](../../../../datasets/indicators/in/economy/india_external_balance_inr_crore.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/economy/india_external_balance_inr_crore.json`](../../../../datasets/indicators/in/economy/india_external_balance_inr_crore.json)

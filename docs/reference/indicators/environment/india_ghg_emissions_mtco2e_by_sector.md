@@ -51,8 +51,8 @@ National total only — sub-national emissions accounting does not exist for Ind
 
 ## Citation
 
-> icedapi.niti.gov.in, *India's greenhouse-gas emissions by sector (Gg CO₂-equivalent)*. Re-published by yen-gov as `environment/india_ghg_emissions_mtco2e_by_sector`, schema v1.5. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India's greenhouse-gas emissions by sector (Gg CO₂-equivalent)*. Re-published by yen-gov as `environment/india_ghg_emissions_mtco2e_by_sector`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json)

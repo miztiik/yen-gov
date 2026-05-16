@@ -51,8 +51,8 @@ Like coal, oil is a *consumption* statistic — the state where the product is s
 
 ## Citation
 
-> icedapi.niti.gov.in, *State oil-product consumption (kt, by product)*. Re-published by yen-gov as `energy/state_oil_product_consumption_kt`, schema v1.5. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *State oil-product consumption (kt, by product)*. Re-published by yen-gov as `energy/state_oil_product_consumption_kt`, schema v2.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_oil_product_consumption_kt.json`](../../../../datasets/indicators/in/energy/state_oil_product_consumption_kt.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/state_oil_product_consumption_kt.json`](../../../../datasets/indicators/in/energy/state_oil_product_consumption_kt.json)

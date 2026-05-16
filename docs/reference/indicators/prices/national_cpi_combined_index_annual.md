@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 37, 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Consumer Price Index — Combined (Rural+Urban), annual average*. Re-published by yen-gov as `prices/national_cpi_combined_index_annual`, schema v1.5. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Consumer Price Index — Combined (Rural+Urban), annual average*. Re-published by yen-gov as `prices/national_cpi_combined_index_annual`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/prices/national_cpi_combined_index_annual.json`](../../../../datasets/indicators/in/prices/national_cpi_combined_index_annual.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/prices/national_cpi_combined_index_annual.json`](../../../../datasets/indicators/in/prices/national_cpi_combined_index_annual.json)

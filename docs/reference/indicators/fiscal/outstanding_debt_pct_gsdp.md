@@ -81,8 +81,8 @@ This is a *ratio*, so movement reflects both numerator (debt stock) and denomina
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Outstanding liabilities (% of GSDP)*. Re-published by yen-gov as `fiscal/outstanding_debt_pct_gsdp`, schema v1.5. Retrieved 2026-05-11.
+> rbidocs.rbi.org.in, *Outstanding liabilities (% of GSDP)*. Re-published by yen-gov as `fiscal/outstanding_debt_pct_gsdp`, schema v2.0. Retrieved 2026-05-11.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json`](../../../../datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json`](../../../../datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json)

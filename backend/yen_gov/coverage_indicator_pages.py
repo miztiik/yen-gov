@@ -11,10 +11,12 @@ Wiring: ``python -m yen_gov indicator-pages`` regenerates the tree;
 ``python -m yen_gov coverage`` invokes it after rendering the inventory.
 
 Schema-1.5 governance fields (revision_tier_by_period, denominator,
-excludes, renderer_rules) render directly off the artifact. The Phase 4
-sidecar (`<id>.notes.json`, indicator-notes.schema.json v1.0) supplies
-the three hand-curated sections — Related indicators, Editor's note,
-Policy context — when present, and is silently skipped otherwise.
+excludes, renderer_rules) render directly off the artifact. The three
+hand-curated sections — Related indicators, Editor's note, Policy
+context — come from the inline ``methodology`` block (schema v2.0,
+folded-indicator PR 2026-05-17). The previous ``<id>.notes.json``
+sidecar contract is gone; ``methodology.related_indicators`` /
+``editor_note_md`` / ``policy_context`` carry the same content.
 """
 
 from __future__ import annotations
@@ -40,23 +42,21 @@ class IndicatorArtifact:
     topic: str  # first dir under indicators/in (e.g. "energy")
     basename: str  # filename without .json (e.g. "state_coal_consumption_mt")
     doc: dict
-    notes: dict | None = None  # parsed sidecar (<basename>.notes.json), or None
     source_mtime_date: str = "unknown"  # YYYY-MM-DD derived from the artifact file's st_mtime
 
 
 def iter_indicator_artifacts(root: Path) -> Iterator[IndicatorArtifact]:
     """Yield every indicator artifact under ``datasets/indicators/in/**``.
 
-    Skips ``*.notes.json`` sidecars (consumed via ``IndicatorArtifact.notes``,
-    not as standalone artifacts) and files that fail to parse as JSON
-    (logged silently — the validator catches them).
+    Files that fail to parse as JSON are logged silently — the
+    validator catches them. The legacy ``*.notes.json`` sidecar pattern
+    was removed in schema v2.0; if any reappear, the
+    ``test_no_indicator_notes_sidecars_exist`` integrity test fails.
     """
     base = root / INDICATORS_REL
     if not base.exists():
         return
     for path in sorted(base.rglob("*.json")):
-        if path.name.endswith(".notes.json"):
-            continue
         try:
             doc = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
@@ -69,21 +69,11 @@ def iter_indicator_artifacts(root: Path) -> Iterator[IndicatorArtifact]:
         topic = parts[0]
         basename = path.stem
         path_rel = path.relative_to(root).as_posix()
-        notes_path = path.with_name(f"{basename}.notes.json")
-        notes: dict | None = None
-        if notes_path.is_file():
-            try:
-                loaded = json.loads(notes_path.read_text(encoding="utf-8"))
-                if isinstance(loaded, dict):
-                    notes = loaded
-            except (OSError, json.JSONDecodeError):
-                notes = None
         yield IndicatorArtifact(
             path_rel=path_rel,
             topic=topic,
             basename=basename,
             doc=doc,
-            notes=notes,
             source_mtime_date=_mtime_date(path),
         )
 
@@ -231,7 +221,7 @@ def _renderer_rules_block(rules: list[str]) -> list[str]:
 
 
 def _related_bullets(related: list[str], current_topic: str) -> list[str]:
-    """indicator-notes 1.0: sidecar.related[] — link each peer to its page.
+    """Schema 2.0: methodology.related_indicators[] — link each peer to its page.
 
     Peer pages live at ``../<peer_topic>/<peer_basename>.md`` from the
     current page (we are at ``docs/reference/indicators/<topic>/<basename>.md``).
@@ -253,14 +243,14 @@ def _related_bullets(related: list[str], current_topic: str) -> list[str]:
 
 
 def _editor_note_block(note_md: str | None) -> list[str]:
-    """indicator-notes 1.0: sidecar.editor_note_md — verbatim markdown."""
+    """Schema 2.0: methodology.editor_note_md — verbatim markdown."""
     if not note_md or not note_md.strip():
         return []
     return [note_md.strip()]
 
 
 def _policy_context_bullets(items: list[str]) -> list[str]:
-    """indicator-notes 1.0: sidecar.policy_context[] — citizen-facing bullets."""
+    """Schema 2.0: methodology.policy_context[] — citizen-facing bullets."""
     return [f"- {p}" for p in (items or []) if p]
 
 
@@ -410,22 +400,22 @@ def render_page(artifact: IndicatorArtifact) -> str:
         lines.append(notes)
         lines.append("")
 
-    sidecar = artifact.notes or {}
-    editor_note = _editor_note_block(sidecar.get("editor_note_md"))
+    methodology = doc.get("methodology") or {}
+    editor_note = _editor_note_block(methodology.get("editor_note_md"))
     if editor_note:
         lines.append("## Editor's note")
         lines.append("")
         lines.extend(editor_note)
         lines.append("")
 
-    policy_ctx = _policy_context_bullets(sidecar.get("policy_context") or [])
+    policy_ctx = _policy_context_bullets(methodology.get("policy_context") or [])
     if policy_ctx:
         lines.append("## Policy context")
         lines.append("")
         lines.extend(policy_ctx)
         lines.append("")
 
-    related = _related_bullets(sidecar.get("related") or [], artifact.topic)
+    related = _related_bullets(methodology.get("related_indicators") or [], artifact.topic)
     if related:
         lines.append("## Related indicators")
         lines.append("")

@@ -51,8 +51,8 @@ State government departments (irrigation, street-lighting, panchayats) are often
 
 ## Citation
 
-> icedapi.niti.gov.in, *Distribution collection efficiency (%, by state)*. Re-published by yen-gov as `energy/state_distribution_collection_efficiency_pct`, schema v1.5. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *Distribution collection efficiency (%, by state)*. Re-published by yen-gov as `energy/state_distribution_collection_efficiency_pct`, schema v2.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json)

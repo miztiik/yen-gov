@@ -47,8 +47,8 @@ MoSPI Energy Statistics India series (composed by ICED)
 
 ## Citation
 
-> iced.niti.gov.in, *National primary energy supply by source*. Re-published by yen-gov as `energy/national_primary_energy_supply_mtoe`, schema v1.5. Retrieved 2026-05-14.
+> iced.niti.gov.in, *National primary energy supply by source*. Re-published by yen-gov as `energy/national_primary_energy_supply_mtoe`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/national_primary_energy_supply_mtoe.json`](../../../../datasets/indicators/in/energy/national_primary_energy_supply_mtoe.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/national_primary_energy_supply_mtoe.json`](../../../../datasets/indicators/in/energy/national_primary_energy_supply_mtoe.json)

@@ -51,8 +51,8 @@ Decennial Census enumerations only — no inter- or post-censal projections in t
 
 ## Citation
 
-> icedapi.niti.gov.in, *State population by sex, decennial Census (number of people)*. Re-published by yen-gov as `demography/state_population_by_sex_count`, schema v1.5. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State population by sex, decennial Census (number of people)*. Re-published by yen-gov as `demography/state_population_by_sex_count`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/demography/state_population_by_sex_count.json`](../../../../datasets/indicators/in/demography/state_population_by_sex_count.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/demography/state_population_by_sex_count.json`](../../../../datasets/indicators/in/demography/state_population_by_sex_count.json)

@@ -49,8 +49,8 @@ Source: RBI 'State Finances: A Study of Budgets', Appendix Table 2, Item I 'Stat
 
 ## Citation
 
-> www.rbi.org.in, *Devolution of central taxes to states (all-India)*. Re-published by yen-gov as `fiscal/centre_transfers_to_states_tax_devolution`, schema v1.5. Retrieved 2026-05-11.
+> www.rbi.org.in, *Devolution of central taxes to states (all-India)*. Re-published by yen-gov as `fiscal/centre_transfers_to_states_tax_devolution`, schema v2.0. Retrieved 2026-05-11.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/centre_transfers_to_states_tax_devolution.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_to_states_tax_devolution.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/fiscal/centre_transfers_to_states_tax_devolution.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_to_states_tax_devolution.json)

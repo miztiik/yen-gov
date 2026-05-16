@@ -51,8 +51,8 @@ GSDP is the within-state production view; for who-consumes-what, see per-capita 
 
 ## Citation
 
-> icedapi.niti.gov.in, *State GDP (₹ crore, current and constant prices)*. Re-published by yen-gov as `economy/state_gdp_inr_crore`, schema v1.5. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State GDP (₹ crore, current and constant prices)*. Re-published by yen-gov as `economy/state_gdp_inr_crore`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/state_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_inr_crore.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/economy/state_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_inr_crore.json)

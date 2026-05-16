@@ -166,8 +166,10 @@ def test_render_page_includes_v15_governance_fields_when_present() -> None:
     assert "- `no_growth_across_break`" in out
 
 
-def test_iter_artifacts_loads_notes_sidecar(tmp_path: Path) -> None:
-    """Sidecar is consumed via IndicatorArtifact.notes, NOT as a standalone artifact."""
+def test_iter_artifacts_ignores_legacy_notes_sidecar(tmp_path: Path) -> None:
+    """Legacy `.notes.json` sidecars are gone in schema v2.0; if any reappear on
+    disk they must NOT be loaded by the iterator (the renderer reads
+    methodology fields off the inline `methodology` block instead)."""
     base = tmp_path / "datasets" / "indicators" / "in" / "energy"
     base.mkdir(parents=True)
     (base / "real.json").write_text(
@@ -176,52 +178,45 @@ def test_iter_artifacts_loads_notes_sidecar(tmp_path: Path) -> None:
                 "indicator": {"id": "energy/real"},
                 "coverage": {"temporal": "2020"},
                 "rows": [],
+                "methodology": {"related_indicators": ["energy/peer"]},
             }
         ),
         encoding="utf-8",
     )
+    # Hypothetical legacy sidecar that shouldn't be picked up.
     (base / "real.notes.json").write_text(
-        json.dumps(
-            {
-                "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
-                "$schema_version": "1.0",
-                "for": "real.json",
-                "related": ["energy/peer"],
-                "editor_note_md": "A short note.",
-                "policy_context": ["Some debate."],
-            }
-        ),
+        json.dumps({"related": ["energy/should_be_ignored"]}),
         encoding="utf-8",
     )
     found = list(iter_indicator_artifacts(tmp_path))
-    assert len(found) == 1
-    assert found[0].basename == "real"
-    assert found[0].notes is not None
-    assert found[0].notes["related"] == ["energy/peer"]
-    assert found[0].notes["editor_note_md"] == "A short note."
+    # Both real.json and real.notes.json have valid topic depth; the
+    # iterator must surface real.json AND skip real.notes.json content.
+    real = [a for a in found if a.basename == "real"]
+    assert len(real) == 1
+    assert real[0].doc["methodology"]["related_indicators"] == ["energy/peer"]
 
 
-def test_render_page_includes_sidecar_sections_when_present() -> None:
-    """indicator-notes 1.0 sidecar drives Related / Editor's note / Policy context."""
+def test_render_page_includes_methodology_sections_when_present() -> None:
+    """methodology.{related_indicators, editor_note_md, policy_context} drive
+    Related / Editor's note / Policy context sections (schema v2.0)."""
+    art_template = _minimal_artifact()
+    doc = dict(art_template.doc)
+    doc["methodology"] = {
+        "related_indicators": [
+            "energy/peer_same_topic",
+            "fiscal/peer_other_topic",
+        ],
+        "editor_note_md": "Pair this with the constant-prices sibling.",
+        "policy_context": [
+            "Old Pension Scheme restoration debate.",
+            "15th FC award window: FY21 → FY26.",
+        ],
+    }
     art = IndicatorArtifact(
         path_rel="datasets/indicators/in/energy/test_indicator.json",
         topic="energy",
         basename="test_indicator",
-        doc=_minimal_artifact().doc,
-        notes={
-            "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
-            "$schema_version": "1.0",
-            "for": "test_indicator.json",
-            "related": [
-                "energy/peer_same_topic",
-                "fiscal/peer_other_topic",
-            ],
-            "editor_note_md": "Pair this with the constant-prices sibling.",
-            "policy_context": [
-                "Old Pension Scheme restoration debate.",
-                "15th FC award window: FY21 → FY26.",
-            ],
-        },
+        doc=doc,
     )
     out = render_page(art)
     # Editor's note: human voice, free-form md
@@ -237,8 +232,8 @@ def test_render_page_includes_sidecar_sections_when_present() -> None:
     assert "- [`fiscal/peer_other_topic`](../fiscal/peer_other_topic.md)" in out
 
 
-def test_render_page_omits_sidecar_sections_when_absent() -> None:
-    art = _minimal_artifact()  # notes defaults to None
+def test_render_page_omits_methodology_sections_when_absent() -> None:
+    art = _minimal_artifact()  # no `methodology` on _minimal_artifact()
     out = render_page(art)
     assert "## Editor's note" not in out
     assert "## Policy context" not in out

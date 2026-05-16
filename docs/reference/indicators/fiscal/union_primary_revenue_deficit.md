@@ -49,8 +49,8 @@ Source: RBI Handbook of Statistics on Indian Economy, Table 89, column 'Primary 
 
 ## Citation
 
-> www.rbi.org.in, *Primary revenue deficit (Union Government)*. Re-published by yen-gov as `fiscal/union_primary_revenue_deficit`, schema v1.5. Retrieved 2026-05-14.
+> www.rbi.org.in, *Primary revenue deficit (Union Government)*. Re-published by yen-gov as `fiscal/union_primary_revenue_deficit`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/union_primary_revenue_deficit.json`](../../../../datasets/indicators/in/fiscal/union_primary_revenue_deficit.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/fiscal/union_primary_revenue_deficit.json`](../../../../datasets/indicators/in/fiscal/union_primary_revenue_deficit.json)

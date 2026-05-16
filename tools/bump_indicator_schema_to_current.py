@@ -1,24 +1,28 @@
-"""Mechanical bump of every indicator artifact's `$schema_version` from "1.5" to "1.6".
+"""Mechanical bump of every indicator artifact's `$schema_version` to the schema's current `x-version`.
 
-Part of the folded-indicator-and-collection-inventory PR (commit 3:
-expand phase). Reads `datasets/schemas/indicator.schema.json` for the
-target version, walks `datasets/indicators/in/**/*.json` (skipping
-`*.notes.json` sidecars), and rewrites any artifact whose
-`$schema_version != target` with the bumped value. Order of keys is
-preserved; nothing else in the file is touched.
+Reads `datasets/schemas/indicator.schema.json` for the target version,
+walks `datasets/indicators/in/**/*.json` (skipping `*.notes.json`
+sidecars), and rewrites any artifact whose `$schema_version != target`
+with the bumped value. Order of keys is preserved; nothing else in
+the file is touched.
 
-The v1.6 changes are purely additive (four new optional top-level
-blocks + optional `rows[].period_label`), so existing artifacts remain
-valid without any content change. The bump is required because the
+The bump is required after any schema version change because the
 strict `$schema_version == x-version` invariant in
-`backend/yen_gov/core/validate.py` would otherwise reject every
-artifact after the schema bump.
+`backend/yen_gov/core/validate.py` rejects any artifact whose version
+disagrees with the schema's `x-version`. Use this tool whenever the
+schema version is bumped and the bump is otherwise additive (no
+per-artifact content edits required).
 
 Idempotent: re-running on a fully-bumped tree produces no diff.
 
 Usage (from repo root):
-    python tools/bump_indicators_to_1_6.py            # dry-run, print plan
-    python tools/bump_indicators_to_1_6.py --write    # apply bump
+    python tools/bump_indicator_schema_to_current.py            # dry-run, print plan
+    python tools/bump_indicator_schema_to_current.py --write    # apply bump
+
+History: originally `bump_indicators_to_1_6.py` (v1.5 -> v1.6 expand
+commit, 2026-05-17). Renamed when the v2.0 contract bump landed —
+the tool was already version-agnostic, the filename was the only
+lie.
 """
 
 from __future__ import annotations

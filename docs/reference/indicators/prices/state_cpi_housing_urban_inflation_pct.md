@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 111. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise CPI inflation (Housing — Urban only)*. Re-published by yen-gov as `prices/state_cpi_housing_urban_inflation_pct`, schema v1.5. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise CPI inflation (Housing — Urban only)*. Re-published by yen-gov as `prices/state_cpi_housing_urban_inflation_pct`, schema v2.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json)

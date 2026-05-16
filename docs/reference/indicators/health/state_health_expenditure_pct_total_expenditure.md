@@ -72,8 +72,8 @@ Source: RBI 'State Finances: A Study of Budgets', Statement 27 (Expenditure on M
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Public health spend (% of state total expenditure)*. Re-published by yen-gov as `health/state_health_expenditure_pct_total_expenditure`, schema v1.5. Retrieved 2026-05-16.
+> rbidocs.rbi.org.in, *Public health spend (% of state total expenditure)*. Re-published by yen-gov as `health/state_health_expenditure_pct_total_expenditure`, schema v2.0. Retrieved 2026-05-16.
 
 ## Schema
 
-`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json`](../../../../datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json)
+`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json`](../../../../datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json)
