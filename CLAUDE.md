@@ -138,6 +138,7 @@ A change is not done until ALL hold:
 - Build custom HTTP / retry / parsing / validation when an OSS library exists.
 - Swallow exceptions or silently coerce invalid input — fail fast at the boundary.
 - Mock in tests by default.
+- Use `datetime.now()` as input to artifact CONTENT (`fetched_at`, `generated_at`, doc footers, vintage years). Wall-clock at write time is operational telemetry, NOT provenance. Provenance fields must be DERIVED from the thing they describe — upstream content hash (via a Fetcher-level identity check + `.runtime/` sidecar), input file `st_mtime`, or source release vintage. Re-running ingest with byte-identical upstream bytes MUST leave artifact bytes and mtimes unchanged. Composers union `sources[]` per-`url`, not per-`(url, fetched_at)`, or the bug smears one layer up. See [data provenance](docs/concepts/data-provenance.md); diagnosis archive: `TODO/20260516-fetched-at-content-hash-gate-handover.md`.
 - Use forbidden git commands (Section 8).
 - Let `TODO/` or chat logs become the source of truth for architecture.
 - Let `AGENTS.md` or `/memories/` become a shadow source of truth instead of linking back to `docs/`.
