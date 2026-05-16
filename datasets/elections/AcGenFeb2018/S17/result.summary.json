@@ -1,0 +1,86 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.summary.schema.json",
+  "$schema_version": "3.1",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "total_seats": 60,
+  "totals": {
+    "electors": 1176432,
+    "votes_polled": 1023244,
+    "turnout_pct": 86.98
+  },
+  "party_totals": [
+    {
+      "party_short": "NPF",
+      "seats_contested": 58,
+      "seats_won": 26,
+      "votes": 389687,
+      "vote_share_pct": 38.08
+    },
+    {
+      "party_short": "NDPP",
+      "seats_contested": 40,
+      "seats_won": 17,
+      "votes": 254192,
+      "vote_share_pct": 24.84
+    },
+    {
+      "party_short": "BJP",
+      "seats_contested": 20,
+      "seats_won": 12,
+      "votes": 153864,
+      "vote_share_pct": 15.04
+    },
+    {
+      "party_short": "NPEP",
+      "seats_contested": 25,
+      "seats_won": 2,
+      "votes": 71503,
+      "vote_share_pct": 6.99
+    },
+    {
+      "party_short": "JD(U)",
+      "seats_contested": 13,
+      "seats_won": 1,
+      "votes": 45089,
+      "vote_share_pct": 4.41
+    },
+    {
+      "party_short": "IND",
+      "seats_contested": 11,
+      "seats_won": 1,
+      "votes": 43008,
+      "vote_share_pct": 4.2
+    },
+    {
+      "party_short": "INC",
+      "seats_contested": 18,
+      "seats_won": 0,
+      "votes": 20752,
+      "vote_share_pct": 2.03
+    },
+    {
+      "party_short": "NCP",
+      "seats_contested": 6,
+      "seats_won": 0,
+      "votes": 10693,
+      "vote_share_pct": 1.05
+    },
+    {
+      "party_short": "AAAP",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 7491,
+      "vote_share_pct": 0.73
+    },
+    {
+      "party_short": "LJP",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 2765,
+      "vote_share_pct": 0.27
+    }
+  ]
+}

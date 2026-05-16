@@ -89,3 +89,38 @@ def test_parses_2023_14_col_layout() -> None:
     assert top.name == "Babu Jandel"
     assert top.party_short == "INC"
     assert top.votes_total == 96844
+
+
+def test_null_token_treated_as_missing() -> None:
+    """Pre-2019 Statistical Reports use literal 'NULL' in vote columns for
+    ACs where no poll was held (uncontested winner declared, e.g.
+    Northern Angami-II 2018 with Neiphiu Rio unopposed; countermanded
+    polls, e.g. Williamnagar 2018 in Meghalaya). The coercers must treat
+    'NULL' (and any case variant) the same way they treat '' and '-':
+    zero for int/float, None for the percentage-or-none variant.
+
+    Regression guard: this used to raise ``ValueError: could not convert
+    string to float: 'NULL'`` and blocked ingest of Meghalaya / Nagaland
+    2018 Statistical Reports until a follow-up fix landed.
+    """
+    from yen_gov.sources.eci.statistical_report_detailed import (
+        _to_float,
+        _to_float_or_none,
+        _to_int,
+    )
+
+    for tok in ("NULL", "null", "Null", " NULL ", "null\n"):
+        assert _to_int(tok) == 0
+        assert _to_float(tok) == 0.0
+        assert _to_float_or_none(tok) is None
+
+    # Existing missing-token semantics preserved.
+    assert _to_int("") == 0
+    assert _to_int("-") == 0
+    assert _to_int(None) == 0
+    assert _to_float_or_none("-") is None
+    assert _to_float_or_none(None) is None
+
+    # Real values still parse.
+    assert _to_int("1,234") == 1234
+    assert _to_float("81.83%") == 81.83

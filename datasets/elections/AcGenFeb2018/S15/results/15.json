@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Mawlai",
+  "totals": {
+    "electors": 42690,
+    "votes_polled": 35840,
+    "turnout_pct": 83.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PROCESS T. SAWKMIE",
+      "party_short": "INC",
+      "votes": 9253,
+      "vote_share_pct": 25.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "TEIBORLANG PATHAW",
+      "party_short": "IND",
+      "votes": 7679,
+      "vote_share_pct": 21.43,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "EMBHAHLANG SYIEMLIEH",
+      "party_short": "UDP",
+      "votes": 7599,
+      "vote_share_pct": 21.2,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SARITA LYNGDOH",
+      "party_short": "PDF",
+      "votes": 6336,
+      "vote_share_pct": 17.68,
+      "gender": "F",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "BANKYRSHANBORLANG LYNGDOH NONGBRI",
+      "party_short": "KHNAM",
+      "votes": 2247,
+      "vote_share_pct": 6.27,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 361,
+    "vote_share_pct": 1.01
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1396,
+    "vote_share_pct": 3.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PROCESS T. SAWKMIE",
+    "party_short": "INC",
+    "votes": 9253,
+    "margin_votes": 1574,
+    "margin_pct": 4.39
+  }
+}

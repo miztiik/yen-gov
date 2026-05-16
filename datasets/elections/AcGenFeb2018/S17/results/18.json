@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Chozuba",
+  "totals": {
+    "electors": 24803,
+    "votes_polled": 22245,
+    "turnout_pct": 89.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHOTISUH SAZO",
+      "party_short": "NPF",
+      "votes": 11432,
+      "vote_share_pct": 51.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "KUDECHO KHAMO",
+      "party_short": "NDPP",
+      "votes": 10490,
+      "vote_share_pct": 47.16,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 93,
+    "vote_share_pct": 0.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHOTISUH SAZO",
+    "party_short": "NPF",
+    "votes": 11432,
+    "margin_votes": 942,
+    "margin_pct": 4.23
+  },
+  "others": null
+}

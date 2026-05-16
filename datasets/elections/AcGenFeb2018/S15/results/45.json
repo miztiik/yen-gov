@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "Tikrikilla",
+  "totals": {
+    "electors": 30933,
+    "votes_polled": 27649,
+    "turnout_pct": 89.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JIMMY D. SANGMA",
+      "party_short": "INC",
+      "votes": 7167,
+      "vote_share_pct": 25.92,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "RAHINATH BARCHUNG",
+      "party_short": "IND",
+      "votes": 5760,
+      "vote_share_pct": 20.83,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SAYEEDULLAH NONGRUM",
+      "party_short": "IND",
+      "votes": 5371,
+      "vote_share_pct": 19.43,
+      "gender": "M",
+      "age": 68,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "DR. KAPIN CH. BORO",
+      "party_short": "BJP",
+      "votes": 3615,
+      "vote_share_pct": 13.07,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "MICHAEL T. SANGMA",
+      "party_short": "IND",
+      "votes": 2318,
+      "vote_share_pct": 8.38,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 258,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3017,
+    "vote_share_pct": 10.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JIMMY D. SANGMA",
+    "party_short": "INC",
+    "votes": 7167,
+    "margin_votes": 1407,
+    "margin_pct": 5.09
+  }
+}

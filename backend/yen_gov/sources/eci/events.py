@@ -110,15 +110,20 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     # Dec-2017 Gujarat (polled 9 & 14 Dec 2017).
     ("S06", 2017): EventInfo("AcGenDec2017", False),  # Gujarat
 
-    # Feb-2018 cohort: Tripura ingested; Meghalaya & Nagaland source XLSX
-    # parsed as Layout-C but contain literal "NULL" cells in numeric columns
-    # — parked under datasets/ephemeral/parked/ pending parser hardening.
-    # Pin only what we can actually ingest; remaining pins land with the
-    # parser fix (re-add ("S15", 2018) and ("S17", 2018) then).
+    # Feb-2018 cohort: Tripura, Meghalaya, Nagaland.
+    # NULL-cell handling added in statistical_report_detailed._to_int /
+    # _to_float / _to_float_or_none: pre-2019 Section-10 XLSX use the
+    # literal string "NULL" in vote columns for ACs where no poll was held
+    # (Williamnagar Meghalaya AC 43 — countermand; Northern Angami-II
+    # Nagaland AC 11 — Neiphiu Rio unopposed). Coerced to 0 / None
+    # consistently with other missing tokens.
     ("S23", 2018): EventInfo("AcGenFeb2018", False),  # Tripura
+    ("S15", 2018): EventInfo("AcGenFeb2018", False),  # Meghalaya
+    ("S17", 2018): EventInfo("AcGenFeb2018", False),  # Nagaland
 
-    # Nov-2018 Mizoram source is also NULL-cell-blocked — parked. Pin lands
-    # with the parser fix.
+    # Nov-2018 Mizoram source as supplied was a mislabelled duplicate of the
+    # Nagaland XLSX (60 ACs vs Mizoram's actual 40); parked pending a
+    # correctly-sourced Mizoram-2018 Statistical Report XLSX.
 
     # Apr-2019 cohort: AP (S01) ingested. Odisha (S18) and Sikkim (S21) ship
     # as legacy BIFF .xls (OLE2 magic D0CF11E0) which openpyxl rejects;

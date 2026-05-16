@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "Gambegre",
+  "totals": {
+    "electors": 26026,
+    "votes_polled": 23925,
+    "turnout_pct": 91.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SALENG A. SANGMA",
+      "party_short": "NCP",
+      "votes": 7291,
+      "vote_share_pct": 30.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SADHIARANI M. SANGMA",
+      "party_short": "INC",
+      "votes": 7155,
+      "vote_share_pct": 29.91,
+      "gender": "F",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "PHILLIPOLE D. MARAK",
+      "party_short": "NPEP",
+      "votes": 3134,
+      "vote_share_pct": 13.1,
+      "gender": "M",
+      "age": 59,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "JINBERTH R. MARAK",
+      "party_short": "GNC",
+      "votes": 2891,
+      "vote_share_pct": 12.08,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "NEHRU D. SANGMA",
+      "party_short": "IND",
+      "votes": 2727,
+      "vote_share_pct": 11.4,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 282,
+    "vote_share_pct": 1.18
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 311,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SALENG A. SANGMA",
+    "party_short": "NCP",
+    "votes": 7291,
+    "margin_votes": 136,
+    "margin_pct": 0.57
+  }
+}

@@ -827,35 +827,56 @@ def _strip_leading_serial(name: str) -> str:
     return name
 
 
+# ECI's pre-2019 Statistical Report XLSX files use the literal string
+# "NULL" in numeric vote columns for ACs where no poll was held — most
+# commonly an uncontested winner (e.g. Northern Angami-II 2018, Neiphiu
+# Rio unopposed) or a countermanded election (e.g. Williamnagar 2018,
+# Meghalaya). Semantically NULL means "no votes recorded", which the
+# parser treats the same way it treats "" and "-": zero for ints/floats,
+# None for the percentage-or-none variant. The resulting AC carries an
+# all-zero result row that faithfully reflects the upstream sheet; the
+# operator can declare these ACs in `ALLOWED_MISSING_RESULTS` or accept
+# the zero rows as an honest record of the missing poll.
+_MISSING_TOKENS = {"", "-", "null"}
+
+
+def _is_missing(value: object) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, str):
+        return value.strip().lower() in _MISSING_TOKENS
+    return False
+
+
 def _to_int(value: object) -> int:
-    if value is None or value == "" or value == "-":
+    if _is_missing(value):
         return 0
     if isinstance(value, (int, float)):
         return int(value)
     s = str(value).strip().replace(",", "")
-    if not s or s == "-":
+    if _is_missing(s):
         return 0
     return int(float(s))
 
 
 def _to_float(value: object) -> float:
-    if value is None or value == "" or value == "-":
+    if _is_missing(value):
         return 0.0
     if isinstance(value, (int, float)):
         return float(value)
     s = str(value).strip().rstrip("%").replace(",", "")
-    if not s or s == "-":
+    if _is_missing(s):
         return 0.0
     return float(s)
 
 
 def _to_float_or_none(value: object) -> float | None:
-    if value is None or value == "" or value == "-":
+    if _is_missing(value):
         return None
     if isinstance(value, (int, float)):
         return float(value)
     s = str(value).strip().rstrip("%").replace(",", "")
-    if not s or s == "-":
+    if _is_missing(s):
         return None
     return float(s)
 

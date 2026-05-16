@@ -45,6 +45,15 @@ ALLOWED_MISSING_RESULTS: dict[tuple[str, str], set[int]] = {
     # countermanded due to cash-for-votes seizures; held as by-elections on
     # 19 November 2016. Section 10 Report has 232 of 234 ACs.
     ("AcGenMay2016", "S22"): {134, 174},
+    # Meghalaya 2018: AC 43 Williamnagar was countermanded after a
+    # candidate's death; held as a by-election later. Section 10 carries
+    # the candidate roster but with NULL vote columns (parser now coerces
+    # NULL -> 0 and the mapper drops zero-vote AC sections).
+    ("AcGenFeb2018", "S15"): {43},
+    # Nagaland 2018: AC 11 Northern Angami-II — Neiphiu Rio (NDPP)
+    # declared elected unopposed. Section 10 carries the roster with NULL
+    # vote cells; no poll was held.
+    ("AcGenFeb2018", "S17"): {11},
 }
 
 

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "Tobu",
+  "totals": {
+    "electors": 18637,
+    "votes_polled": 17920,
+    "turnout_pct": 96.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "N. BONGKHAO KONYAK",
+      "party_short": "NDPP",
+      "votes": 9732,
+      "vote_share_pct": 54.31,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "NAIBA KONYAK",
+      "party_short": "NPF",
+      "votes": 7991,
+      "vote_share_pct": 44.59,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 48,
+    "vote_share_pct": 0.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "N. BONGKHAO KONYAK",
+    "party_short": "NDPP",
+    "votes": 9732,
+    "margin_votes": 1741,
+    "margin_pct": 9.72
+  },
+  "others": null
+}

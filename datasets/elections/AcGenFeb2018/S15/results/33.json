@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "Rambrai Jyrngam",
+  "totals": {
+    "electors": 32275,
+    "votes_polled": 27937,
+    "turnout_pct": 86.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KIMFA SIDNEY MARBANIANG",
+      "party_short": "INC",
+      "votes": 12135,
+      "vote_share_pct": 43.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "K PHLASTINGWELL PANGNIANG",
+      "party_short": "HSPDP",
+      "votes": 8332,
+      "vote_share_pct": 29.82,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "ALFRED KHARBANI",
+      "party_short": "NPEP",
+      "votes": 3455,
+      "vote_share_pct": 12.37,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SYNRANLANG NONGSHLONG",
+      "party_short": "PDF",
+      "votes": 2564,
+      "vote_share_pct": 9.18,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SILLASH M SANGMA",
+      "party_short": "IND",
+      "votes": 600,
+      "vote_share_pct": 2.15,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 287,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 391,
+    "vote_share_pct": 1.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KIMFA SIDNEY MARBANIANG",
+    "party_short": "INC",
+    "votes": 12135,
+    "margin_votes": 3803,
+    "margin_pct": 13.61
+  }
+}

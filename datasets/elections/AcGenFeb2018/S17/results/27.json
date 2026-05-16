@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Mokokchung town",
+  "totals": {
+    "electors": 7179,
+    "votes_polled": 5919,
+    "turnout_pct": 82.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "METSUBO JAMIR",
+      "party_short": "NDPP",
+      "votes": 2964,
+      "vote_share_pct": 50.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "C. APOK JAMIR",
+      "party_short": "NPF",
+      "votes": 1960,
+      "vote_share_pct": 33.11,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "TEMSUWATI",
+      "party_short": "IND",
+      "votes": 526,
+      "vote_share_pct": 8.89,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "RONGSENSHILU",
+      "party_short": "INC",
+      "votes": 129,
+      "vote_share_pct": 2.18,
+      "gender": "M",
+      "age": 25,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 27,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "METSUBO JAMIR",
+    "party_short": "NDPP",
+    "votes": 2964,
+    "margin_votes": 1004,
+    "margin_pct": 16.96
+  },
+  "others": null
+}

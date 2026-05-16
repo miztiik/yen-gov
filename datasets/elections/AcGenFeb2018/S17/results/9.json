@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Kohima town",
+  "totals": {
+    "electors": 31641,
+    "votes_polled": 23438,
+    "turnout_pct": 74.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR.NEIKIESALIE NICKY KIRE",
+      "party_short": "NDPP",
+      "votes": 12605,
+      "vote_share_pct": 53.78,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "DR.TSEILHOUTUO RHUTSO",
+      "party_short": "NPF",
+      "votes": 10233,
+      "vote_share_pct": 43.66,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 146,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR.NEIKIESALIE NICKY KIRE",
+    "party_short": "NDPP",
+    "votes": 12605,
+    "margin_votes": 2372,
+    "margin_pct": 10.12
+  },
+  "others": null
+}

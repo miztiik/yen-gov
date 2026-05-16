@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Tuensang sadar-i",
+  "totals": {
+    "electors": 21605,
+    "votes_polled": 17735,
+    "turnout_pct": 82.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TOYANG CHANG",
+      "party_short": "NPF",
+      "votes": 10087,
+      "vote_share_pct": 56.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "T.MONGKO CHANG",
+      "party_short": "NDPP",
+      "votes": 6828,
+      "vote_share_pct": 38.5,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 70,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TOYANG CHANG",
+    "party_short": "NPF",
+    "votes": 10087,
+    "margin_votes": 3259,
+    "margin_pct": 18.38
+  },
+  "others": null
+}

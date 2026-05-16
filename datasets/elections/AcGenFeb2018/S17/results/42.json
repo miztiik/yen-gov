@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "Wakching",
+  "totals": {
+    "electors": 14892,
+    "votes_polled": 14184,
+    "turnout_pct": 95.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHRI. Y.M.YOLLOW KONYAK",
+      "party_short": "NPF",
+      "votes": 7808,
+      "vote_share_pct": 55.05,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SHRI. M.C.KONYAK",
+      "party_short": "NDPP",
+      "votes": 6044,
+      "vote_share_pct": 42.61,
+      "gender": "M",
+      "age": 67,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 86,
+    "vote_share_pct": 0.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHRI. Y.M.YOLLOW KONYAK",
+    "party_short": "NPF",
+    "votes": 7808,
+    "margin_votes": 1764,
+    "margin_pct": 12.44
+  },
+  "others": null
+}

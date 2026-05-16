@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Sohiong",
+  "totals": {
+    "electors": 28739,
+    "votes_polled": 26295,
+    "turnout_pct": 91.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAMLIN MALNGIANG",
+      "party_short": "HSPDP",
+      "votes": 11960,
+      "vote_share_pct": 45.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "H. DONKUPAR R. LYNGDOH",
+      "party_short": "INC",
+      "votes": 11338,
+      "vote_share_pct": 43.12,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "JUDAH JUSTINE MACDONALD WAHLANG",
+      "party_short": "PDF",
+      "votes": 2670,
+      "vote_share_pct": 10.15,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 175,
+    "vote_share_pct": 0.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAMLIN MALNGIANG",
+    "party_short": "HSPDP",
+    "votes": 11960,
+    "margin_votes": 622,
+    "margin_pct": 2.37
+  },
+  "others": null
+}

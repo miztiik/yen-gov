@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Resubelpara",
+  "totals": {
+    "electors": 25967,
+    "votes_polled": 22768,
+    "turnout_pct": 87.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TIMOTHY SHIRA",
+      "party_short": "NPEP",
+      "votes": 6720,
+      "vote_share_pct": 29.52,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SALSENG C MARAK",
+      "party_short": "INC",
+      "votes": 4957,
+      "vote_share_pct": 21.77,
+      "gender": "M",
+      "age": 77,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "BRAZE ADONEZA G MOMIN",
+      "party_short": "IND",
+      "votes": 3224,
+      "vote_share_pct": 14.16,
+      "gender": "M",
+      "age": 30,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "TENGRAK R. MARAK",
+      "party_short": "IND",
+      "votes": 3059,
+      "vote_share_pct": 13.44,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "TWEEL K. MARAK",
+      "party_short": "NCP",
+      "votes": 1512,
+      "vote_share_pct": 6.64,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 155,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2900,
+    "vote_share_pct": 12.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TIMOTHY SHIRA",
+    "party_short": "NPEP",
+    "votes": 6720,
+    "margin_votes": 1763,
+    "margin_pct": 7.74
+  }
+}

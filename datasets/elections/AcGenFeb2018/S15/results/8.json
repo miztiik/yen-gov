@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Mawhati",
+  "totals": {
+    "electors": 32017,
+    "votes_polled": 28523,
+    "turnout_pct": 89.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DASAKHIATBHA LAMARE",
+      "party_short": "NPEP",
+      "votes": 6365,
+      "vote_share_pct": 22.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 25,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "JULIAS KITBOK DORPHANG",
+      "party_short": "IND",
+      "votes": 6161,
+      "vote_share_pct": 21.6,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "JAMES SYLLIANG",
+      "party_short": "PDF",
+      "votes": 4314,
+      "vote_share_pct": 15.12,
+      "gender": "M",
+      "age": 32,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "CHARLES MARNGAR",
+      "party_short": "INC",
+      "votes": 3675,
+      "vote_share_pct": 12.88,
+      "gender": "M",
+      "age": 32,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "DONBOK KHYMDEIT",
+      "party_short": "UDP",
+      "votes": 3367,
+      "vote_share_pct": 11.8,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 316,
+    "vote_share_pct": 1.11
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4135,
+    "vote_share_pct": 14.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DASAKHIATBHA LAMARE",
+    "party_short": "NPEP",
+    "votes": 6365,
+    "margin_votes": 204,
+    "margin_pct": 0.72
+  }
+}

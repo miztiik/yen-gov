@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 51,
+  "constituency_name": "South Tura",
+  "totals": {
+    "electors": 30229,
+    "votes_polled": 23372,
+    "turnout_pct": 77.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AGATHA K. SANGMA",
+      "party_short": "NPEP",
+      "votes": 6499,
+      "vote_share_pct": 27.81,
+      "is_winner": true,
+      "gender": "F",
+      "age": 37,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "BILLYKID A. SANGMA",
+      "party_short": "BJP",
+      "votes": 4896,
+      "vote_share_pct": 20.95,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "GRITHALSON N. ARENGH",
+      "party_short": "INC",
+      "votes": 3597,
+      "vote_share_pct": 15.39,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "JOHN LESLEE K. SANGMA",
+      "party_short": "NCP",
+      "votes": 3314,
+      "vote_share_pct": 14.18,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "JINGJANG M. MARAK",
+      "party_short": "IND",
+      "votes": 2028,
+      "vote_share_pct": 8.68,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 171,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2292,
+    "vote_share_pct": 9.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AGATHA K. SANGMA",
+    "party_short": "NPEP",
+    "votes": 6499,
+    "margin_votes": 1603,
+    "margin_pct": 6.86
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Phek",
+  "totals": {
+    "electors": 21068,
+    "votes_polled": 18459,
+    "turnout_pct": 87.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KUZHOLUZO NIENU",
+      "party_short": "NPF",
+      "votes": 11127,
+      "vote_share_pct": 60.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "KUPOTA KHESOH",
+      "party_short": "NDPP",
+      "votes": 6196,
+      "vote_share_pct": 33.57,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SHEZOTA LOHE",
+      "party_short": "INC",
+      "votes": 326,
+      "vote_share_pct": 1.77,
+      "gender": "M",
+      "age": 32,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 181,
+    "vote_share_pct": 0.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KUZHOLUZO NIENU",
+    "party_short": "NPF",
+    "votes": 11127,
+    "margin_votes": 4931,
+    "margin_pct": 26.71
+  },
+  "others": null
+}

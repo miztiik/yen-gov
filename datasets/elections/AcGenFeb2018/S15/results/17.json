@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "North Shillong",
+  "totals": {
+    "electors": 26725,
+    "votes_polled": 19319,
+    "turnout_pct": 72.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADELBERT NONGRUM",
+      "party_short": "KHNAM",
+      "votes": 5572,
+      "vote_share_pct": 28.84,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "J. ANTONIUS LYNGDOH",
+      "party_short": "BJP",
+      "votes": 5166,
+      "vote_share_pct": 26.74,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "W. HUMPHREY D. SYNGKON",
+      "party_short": "INC",
+      "votes": 5124,
+      "vote_share_pct": 26.52,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "ALESTER NEVILLE DIENGDOH",
+      "party_short": "HSPDP",
+      "votes": 968,
+      "vote_share_pct": 5.01,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "JOEBRENSON MARWEIN",
+      "party_short": "UDP",
+      "votes": 785,
+      "vote_share_pct": 4.06,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 193,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 768,
+    "vote_share_pct": 3.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADELBERT NONGRUM",
+    "party_short": "KHNAM",
+    "votes": 5572,
+    "margin_votes": 406,
+    "margin_pct": 2.1
+  }
+}

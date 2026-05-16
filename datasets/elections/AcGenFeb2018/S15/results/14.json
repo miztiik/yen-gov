@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Pynthorumkhrah",
+  "totals": {
+    "electors": 31013,
+    "votes_polled": 24724,
+    "turnout_pct": 79.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ALEXANDER LALOO HEK",
+      "party_short": "BJP",
+      "votes": 10166,
+      "vote_share_pct": 41.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "JAMES BAN BASAIAWMOIT",
+      "party_short": "PDF",
+      "votes": 8748,
+      "vote_share_pct": 35.38,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "BANPYNSHNGAINLANG RUMNONG",
+      "party_short": "INC",
+      "votes": 2964,
+      "vote_share_pct": 11.99,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "PREDECESSOR RUMNONG",
+      "party_short": "NCP",
+      "votes": 914,
+      "vote_share_pct": 3.7,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "PROBETY NONGPLUH",
+      "party_short": "NPEP",
+      "votes": 851,
+      "vote_share_pct": 3.44,
+      "gender": "F",
+      "age": 54,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 287,
+    "vote_share_pct": 1.16
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 238,
+    "vote_share_pct": 0.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ALEXANDER LALOO HEK",
+    "party_short": "BJP",
+    "votes": 10166,
+    "margin_votes": 1418,
+    "margin_pct": 5.74
+  }
+}

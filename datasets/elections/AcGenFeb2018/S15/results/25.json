@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Mawsynram",
+  "totals": {
+    "electors": 31773,
+    "votes_polled": 28805,
+    "turnout_pct": 90.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HIMALAYA MUKTAN SHANGPLIANG",
+      "party_short": "INC",
+      "votes": 8984,
+      "vote_share_pct": 31.19,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "PYNSHNGAINLANG SYIEM",
+      "party_short": "PDF",
+      "votes": 8190,
+      "vote_share_pct": 28.43,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "OLLAN SINGH SUIN",
+      "party_short": "UDP",
+      "votes": 5348,
+      "vote_share_pct": 18.57,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "KHRAWKUPAR JYRWA",
+      "party_short": "BJP",
+      "votes": 4098,
+      "vote_share_pct": 14.23,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "LAPLU SANGMA",
+      "party_short": "NPEP",
+      "votes": 1057,
+      "vote_share_pct": 3.67,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 164,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 721,
+    "vote_share_pct": 2.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HIMALAYA MUKTAN SHANGPLIANG",
+    "party_short": "INC",
+    "votes": 8984,
+    "margin_votes": 794,
+    "margin_pct": 2.76
+  }
+}

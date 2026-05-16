@@ -1,0 +1,121 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.summary.schema.json",
+  "$schema_version": "3.1",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "total_seats": 60,
+  "totals": {
+    "electors": 1812445,
+    "votes_polled": 1591364,
+    "turnout_pct": 87.8
+  },
+  "party_totals": [
+    {
+      "party_short": "INC",
+      "seats_contested": 60,
+      "seats_won": 21,
+      "votes": 447770,
+      "vote_share_pct": 28.14
+    },
+    {
+      "party_short": "NPEP",
+      "seats_contested": 52,
+      "seats_won": 19,
+      "votes": 323745,
+      "vote_share_pct": 20.34
+    },
+    {
+      "party_short": "UDP",
+      "seats_contested": 35,
+      "seats_won": 6,
+      "votes": 182494,
+      "vote_share_pct": 11.47
+    },
+    {
+      "party_short": "PDF",
+      "seats_contested": 26,
+      "seats_won": 4,
+      "votes": 128413,
+      "vote_share_pct": 8.07
+    },
+    {
+      "party_short": "IND",
+      "seats_contested": 45,
+      "seats_won": 3,
+      "votes": 170269,
+      "vote_share_pct": 10.7
+    },
+    {
+      "party_short": "BJP",
+      "seats_contested": 47,
+      "seats_won": 2,
+      "votes": 151292,
+      "vote_share_pct": 9.51
+    },
+    {
+      "party_short": "HSPDP",
+      "seats_contested": 13,
+      "seats_won": 2,
+      "votes": 84011,
+      "vote_share_pct": 5.28
+    },
+    {
+      "party_short": "NCP",
+      "seats_contested": 21,
+      "seats_won": 1,
+      "votes": 25247,
+      "vote_share_pct": 1.59
+    },
+    {
+      "party_short": "KHNAM",
+      "seats_contested": 8,
+      "seats_won": 1,
+      "votes": 14164,
+      "vote_share_pct": 0.89
+    },
+    {
+      "party_short": "GNC",
+      "seats_contested": 6,
+      "seats_won": 0,
+      "votes": 21682,
+      "vote_share_pct": 1.36
+    },
+    {
+      "party_short": "AITC",
+      "seats_contested": 8,
+      "seats_won": 0,
+      "votes": 5544,
+      "vote_share_pct": 0.35
+    },
+    {
+      "party_short": "AAAP",
+      "seats_contested": 6,
+      "seats_won": 0,
+      "votes": 1410,
+      "vote_share_pct": 0.09
+    },
+    {
+      "party_short": "NEINDP",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 327,
+      "vote_share_pct": 0.02
+    },
+    {
+      "party_short": "RPI(A)",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 169,
+      "vote_share_pct": 0.01
+    },
+    {
+      "party_short": "LJP",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 104,
+      "vote_share_pct": 0.01
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Seyochung sitimi",
+  "totals": {
+    "electors": 21744,
+    "votes_polled": 18802,
+    "turnout_pct": 86.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V. KASHIHO SANGTAM",
+      "party_short": "BJP",
+      "votes": 9830,
+      "vote_share_pct": 52.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "C KIPILI SANGTAM",
+      "party_short": "NPF",
+      "votes": 8668,
+      "vote_share_pct": 46.1,
+      "gender": "M",
+      "age": 67,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 50,
+    "vote_share_pct": 0.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V. KASHIHO SANGTAM",
+    "party_short": "BJP",
+    "votes": 9830,
+    "margin_votes": 1162,
+    "margin_pct": 6.18
+  },
+  "others": null
+}

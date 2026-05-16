@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Nartiang",
+  "totals": {
+    "electors": 36705,
+    "votes_polled": 34167,
+    "turnout_pct": 93.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SNIAWBHALANG DHAR",
+      "party_short": "NPEP",
+      "votes": 16604,
+      "vote_share_pct": 48.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 36,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "JOPTHIAW LYNGDOH",
+      "party_short": "INC",
+      "votes": 14506,
+      "vote_share_pct": 42.46,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "DRAISON KHARSHIING",
+      "party_short": "BJP",
+      "votes": 2168,
+      "vote_share_pct": 6.35,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "INNOCENT SHADAP",
+      "party_short": "KHNAM",
+      "votes": 254,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "COUPLE STONE SHYLLA",
+      "party_short": "IND",
+      "votes": 131,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 115,
+    "vote_share_pct": 0.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SNIAWBHALANG DHAR",
+    "party_short": "NPEP",
+    "votes": 16604,
+    "margin_votes": 2098,
+    "margin_pct": 6.14
+  },
+  "others": null
+}

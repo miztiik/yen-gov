@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Shella",
+  "totals": {
+    "electors": 29040,
+    "votes_polled": 25311,
+    "turnout_pct": 87.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DONKUPAR ROY",
+      "party_short": "UDP",
+      "votes": 8280,
+      "vote_share_pct": 32.71,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "LESTON WANSWETT",
+      "party_short": "PDF",
+      "votes": 7910,
+      "vote_share_pct": 31.25,
+      "gender": "M",
+      "age": 76,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "BATYNGSHAIN LAITMON RYNGNGA",
+      "party_short": "INC",
+      "votes": 4332,
+      "vote_share_pct": 17.12,
+      "gender": "M",
+      "age": 30,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "JROP SINGH NONGKHLAW",
+      "party_short": "BJP",
+      "votes": 3390,
+      "vote_share_pct": 13.39,
+      "gender": "M",
+      "age": 59,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SAINKUPAR RIAHTAM",
+      "party_short": "NPEP",
+      "votes": 484,
+      "vote_share_pct": 1.91,
+      "gender": "M",
+      "age": 59,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 195,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 456,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DONKUPAR ROY",
+    "party_short": "UDP",
+    "votes": 8280,
+    "margin_votes": 370,
+    "margin_pct": 1.46
+  }
+}
