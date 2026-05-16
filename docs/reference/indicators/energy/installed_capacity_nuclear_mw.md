@@ -49,8 +49,8 @@ About 1.6% of all-India installed capacity. The state-level split here is the ce
 
 ## Citation
 
-> cea.nic.in, *Installed nuclear capacity*. Re-published by yen-gov as `energy/installed_capacity_nuclear_mw`, schema v3.0. Retrieved 2026-05-13.
+> cea.nic.in, *Installed nuclear capacity*. Re-published by yen-gov as `energy/installed_capacity_nuclear_mw`, schema v4.0. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/installed_capacity_nuclear_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_nuclear_mw.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/installed_capacity_nuclear_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_nuclear_mw.json)

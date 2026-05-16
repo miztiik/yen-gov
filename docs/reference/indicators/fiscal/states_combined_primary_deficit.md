@@ -49,8 +49,8 @@ Source: RBI 'State Finances: A Study of Budgets', Appendix Table 1, column 'Prim
 
 ## Citation
 
-> www.rbi.org.in, *Primary deficit (all states, all-India)*. Re-published by yen-gov as `fiscal/states_combined_primary_deficit`, schema v3.0. Retrieved 2026-05-11.
+> www.rbi.org.in, *Primary deficit (all states, all-India)*. Re-published by yen-gov as `fiscal/states_combined_primary_deficit`, schema v4.0. Retrieved 2026-05-11.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/states_combined_primary_deficit.json`](../../../../datasets/indicators/in/fiscal/states_combined_primary_deficit.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/fiscal/states_combined_primary_deficit.json`](../../../../datasets/indicators/in/fiscal/states_combined_primary_deficit.json)

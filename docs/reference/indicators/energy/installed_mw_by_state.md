@@ -51,8 +51,8 @@ v1 limitation: rollup is restricted to states already in datasets/reference/in/s
 
 ## Citation
 
-> raw.githubusercontent.com, *Installed power-generation capacity (siting basis)*. Re-published by yen-gov as `energy/installed_mw_by_state`, schema v3.0. Retrieved 2026-05-10.
+> raw.githubusercontent.com, *Installed power-generation capacity (siting basis)*. Re-published by yen-gov as `energy/installed_mw_by_state`, schema v4.0. Retrieved 2026-05-10.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/installed_mw_by_state.json`](../../../../datasets/indicators/in/energy/installed_mw_by_state.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/installed_mw_by_state.json`](../../../../datasets/indicators/in/energy/installed_mw_by_state.json)

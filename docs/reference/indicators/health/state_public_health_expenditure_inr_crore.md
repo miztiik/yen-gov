@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 18.
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State public expenditure on health*. Re-published by yen-gov as `health/state_public_health_expenditure_inr_crore`, schema v3.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State public expenditure on health*. Re-published by yen-gov as `health/state_public_health_expenditure_inr_crore`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json`](../../../../datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json`](../../../../datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json)

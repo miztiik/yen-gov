@@ -66,8 +66,8 @@ This is the headline 'fiscal deficit' number that dominates Budget commentary ev
 
 ## Citation
 
-> www.rbi.org.in, *Gross fiscal deficit (Union Government)*. Re-published by yen-gov as `fiscal/union_gross_fiscal_deficit`, schema v3.0. Retrieved 2026-05-14.
+> www.rbi.org.in, *Gross fiscal deficit (Union Government)*. Re-published by yen-gov as `fiscal/union_gross_fiscal_deficit`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json`](../../../../datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json`](../../../../datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json)

@@ -51,8 +51,8 @@ Facets are encoded as 'Sector|SubSector' strings. The 'Energy Sector / Total' ro
 
 ## Citation
 
-> icedapi.niti.gov.in, *India's greenhouse-gas emissions by sub-sector (Gg CO₂-equivalent)*. Re-published by yen-gov as `environment/india_ghg_emissions_by_subsector_ggco2e`, schema v3.0. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India's greenhouse-gas emissions by sub-sector (Gg CO₂-equivalent)*. Re-published by yen-gov as `environment/india_ghg_emissions_by_subsector_ggco2e`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json)

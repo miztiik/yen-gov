@@ -51,8 +51,8 @@ National only — ICED does not publish state-level retired capacity. Captures o
 
 ## Citation
 
-> icedapi.niti.gov.in, *India thermal generating capacity retired, by fuel (MW per year)*. Re-published by yen-gov as `energy/india_thermal_capacity_retired_mw`, schema v3.0. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India thermal generating capacity retired, by fuel (MW per year)*. Re-published by yen-gov as `energy/india_thermal_capacity_retired_mw`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json`](../../../../datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json`](../../../../datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json)

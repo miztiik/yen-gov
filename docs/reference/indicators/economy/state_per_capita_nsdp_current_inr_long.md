@@ -59,8 +59,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 9. R
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State per-capita NSDP (current prices, long series)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_current_inr_long`, schema v3.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State per-capita NSDP (current prices, long series)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_current_inr_long`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json)

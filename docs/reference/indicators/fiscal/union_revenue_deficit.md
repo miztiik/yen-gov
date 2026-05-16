@@ -49,8 +49,8 @@ Source: RBI Handbook of Statistics on Indian Economy, Table 89, column 'Revenue 
 
 ## Citation
 
-> www.rbi.org.in, *Revenue deficit (Union Government)*. Re-published by yen-gov as `fiscal/union_revenue_deficit`, schema v3.0. Retrieved 2026-05-14.
+> www.rbi.org.in, *Revenue deficit (Union Government)*. Re-published by yen-gov as `fiscal/union_revenue_deficit`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/union_revenue_deficit.json`](../../../../datasets/indicators/in/fiscal/union_revenue_deficit.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/fiscal/union_revenue_deficit.json`](../../../../datasets/indicators/in/fiscal/union_revenue_deficit.json)

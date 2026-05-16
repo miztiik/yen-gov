@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 3 (SR
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Crude Death Rate (per 1,000 population)*. Re-published by yen-gov as `health/state_death_rate_per_1000`, schema v3.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Crude Death Rate (per 1,000 population)*. Re-published by yen-gov as `health/state_death_rate_per_1000`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/health/state_death_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_death_rate_per_1000.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/health/state_death_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_death_rate_per_1000.json)

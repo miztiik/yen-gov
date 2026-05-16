@@ -67,8 +67,8 @@ Mind the sign convention — this is the one indicator in the energy bucket wher
 
 ## Citation
 
-> iced.niti.gov.in, *ACS-ARR gap on electricity sales (Rs/kWh, by state)*. Re-published by yen-gov as `energy/state_acs_arr_gap_inr_per_kwh`, schema v3.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *ACS-ARR gap on electricity sales (Rs/kWh, by state)*. Re-published by yen-gov as `energy/state_acs_arr_gap_inr_per_kwh`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json`](../../../../datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json`](../../../../datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json)

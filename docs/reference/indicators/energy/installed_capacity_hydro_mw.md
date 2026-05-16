@@ -49,8 +49,8 @@ Small hydro (≤25 MW) lives in the renewable category, not here. PSPs ARE inclu
 
 ## Citation
 
-> cea.nic.in, *Installed hydro capacity*. Re-published by yen-gov as `energy/installed_capacity_hydro_mw`, schema v3.0. Retrieved 2026-05-13.
+> cea.nic.in, *Installed hydro capacity*. Re-published by yen-gov as `energy/installed_capacity_hydro_mw`, schema v4.0. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/installed_capacity_hydro_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_hydro_mw.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/installed_capacity_hydro_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_hydro_mw.json)

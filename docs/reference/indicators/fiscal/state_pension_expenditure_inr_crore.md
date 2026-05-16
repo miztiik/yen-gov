@@ -80,8 +80,8 @@ Pension is a *committed* revenue expenditure — the state cannot defer it witho
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State pension expenditure (revenue account)*. Re-published by yen-gov as `fiscal/state_pension_expenditure_inr_crore`, schema v3.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State pension expenditure (revenue account)*. Re-published by yen-gov as `fiscal/state_pension_expenditure_inr_crore`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)

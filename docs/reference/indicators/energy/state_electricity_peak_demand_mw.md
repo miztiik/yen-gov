@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'Peak Demand'. Underlying figures publish
 
 ## Citation
 
-> iced.niti.gov.in, *Annual peak electricity demand (by state)*. Re-published by yen-gov as `energy/state_electricity_peak_demand_mw`, schema v3.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Annual peak electricity demand (by state)*. Re-published by yen-gov as `energy/state_electricity_peak_demand_mw`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_electricity_peak_demand_mw.json`](../../../../datasets/indicators/in/energy/state_electricity_peak_demand_mw.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/state_electricity_peak_demand_mw.json`](../../../../datasets/indicators/in/energy/state_electricity_peak_demand_mw.json)

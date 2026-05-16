@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 37, 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Consumer Price Index — Industrial Workers (annual average, spliced)*. Re-published by yen-gov as `prices/national_cpi_iw_index_annual`, schema v3.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Consumer Price Index — Industrial Workers (annual average, spliced)*. Re-published by yen-gov as `prices/national_cpi_iw_index_annual`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/prices/national_cpi_iw_index_annual.json`](../../../../datasets/indicators/in/prices/national_cpi_iw_index_annual.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/prices/national_cpi_iw_index_annual.json`](../../../../datasets/indicators/in/prices/national_cpi_iw_index_annual.json)

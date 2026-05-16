@@ -49,8 +49,8 @@ Sub-national HDI computed by NITI Aayog using Indian survey inputs (NFHS for hea
 
 ## Citation
 
-> icedapi.niti.gov.in, *Human Development Index (income + health + education, 0–1)*. Re-published by yen-gov as `human_development/state_hdi`, schema v3.0. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *Human Development Index (income + health + education, 0–1)*. Re-published by yen-gov as `human_development/state_hdi`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/human_development/state_hdi.json`](../../../../datasets/indicators/in/human_development/state_hdi.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/human_development/state_hdi.json`](../../../../datasets/indicators/in/human_development/state_hdi.json)

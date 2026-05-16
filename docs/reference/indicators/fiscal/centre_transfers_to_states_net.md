@@ -66,8 +66,8 @@ Source: RBI 'State Finances: A Study of Budgets', Appendix Table 2 ('Devolution 
 
 ## Citation
 
-> www.rbi.org.in, *Net Centre-to-States transfers (all-India)*. Re-published by yen-gov as `fiscal/centre_transfers_to_states_net`, schema v3.0. Retrieved 2026-05-11.
+> www.rbi.org.in, *Net Centre-to-States transfers (all-India)*. Re-published by yen-gov as `fiscal/centre_transfers_to_states_net`, schema v4.0. Retrieved 2026-05-11.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/centre_transfers_to_states_net.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_to_states_net.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/fiscal/centre_transfers_to_states_net.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_to_states_net.json)
