@@ -2,7 +2,8 @@
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
   import { fetchStates, type StateEntry } from "../lib/data";
-  import { fetchTopicCatalogue, type TopicCatalogue } from "../lib/catalogue";
+  import { fetchTopicCatalogue, indicatorPathForArtifact, type TopicCatalogue } from "../lib/catalogue";
+  import { fetchIndicator } from "../lib/indicators";
   import IndiaMap from "../lib/maplibre/IndiaMap.svelte";
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import { STATE_NAME_TO_ECI } from "../lib/maplibre/sources";
@@ -32,6 +33,14 @@
   let states = $state<StateEntry[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
   let error = $state<string | null>(null);
+  // Map of indicator-artifact id → humanised title (from each indicator
+  // JSON's own `indicator.title`). Populated lazily after the catalogue
+  // loads; missing entries fall through to artifact.display ?? artifact.id
+  // inside homeThemeOptions, so the dropdown renders raw slugs for a
+  // ~200ms window during initial load and then re-derives with human
+  // labels. Fetch failures (404, network) are intentionally silent — this
+  // is a degraded-UX path, not an error worth a console warning.
+  let indicator_titles = $state<Map<string, string>>(new Map());
   // Tracked separately from the parsed theme so the UI can mount in
   // election mode immediately and re-derive once the catalogue arrives
   // (which is when ?theme=indicator/<id> validation can run).
@@ -46,8 +55,37 @@
       catalogue = c;
       // Re-parse now that we can validate indicator ids.
       sync_theme_from_url();
+      // Fire-and-forget: humanise the dropdown labels once the catalogue
+      // tells us which national indicators are wired. Per-artifact failures
+      // do not block other titles from resolving.
+      load_indicator_titles(c);
     })
     .catch(e => (error = String(e)));
+
+  async function load_indicator_titles(cat: TopicCatalogue): Promise<void> {
+    const targets: Array<{ id: string; path: string }> = [];
+    for (const t of cat.topics) {
+      for (const a of t.artifacts) {
+        if (a.kind !== "indicator") continue;
+        if ((a.scope ?? "national") !== "national") continue;
+        const path = indicatorPathForArtifact(a);
+        if (path === null) continue;
+        targets.push({ id: a.id, path });
+      }
+    }
+    const results = await Promise.all(
+      targets.map(({ id, path }) =>
+        fetchIndicator(path)
+          .then(art => ({ id, title: art.indicator?.title ?? null }))
+          .catch(() => ({ id, title: null as string | null })),
+      ),
+    );
+    const next = new Map<string, string>();
+    for (const { id, title } of results) {
+      if (title) next.set(id, title);
+    }
+    indicator_titles = next;
+  }
 
   function sync_theme_from_url(): void {
     const parsed = parseHomeTheme(window.location.search, catalogue);
@@ -71,7 +109,7 @@
     return () => window.removeEventListener("popstate", sync_theme_from_url);
   });
 
-  const options = $derived(homeThemeOptions(catalogue));
+  const options = $derived(homeThemeOptions(catalogue, indicator_titles));
   const caption = $derived(themeCaption(theme, catalogue));
   const current_value = $derived(
     theme.kind === "election" ? "election" : `indicator/${theme.id}`,

@@ -130,8 +130,24 @@ export function themeCaption(
 /**
  * Full chooser list: election first, then every national indicator
  * grouped by topic title. Stable order = catalogue order.
+ *
+ * Label resolution per indicator artifact, in priority order:
+ *   1. `titleMap.get(artifact.id)` — the indicator's own `indicator.title`,
+ *      pre-fetched by the caller (see Home.svelte). This is the
+ *      human-readable label citizens should see.
+ *   2. `artifact.display` — catalogue-level override (only ever set
+ *      today for the May-2026 election entry).
+ *   3. `artifact.id` — raw slug fallback (e.g. for the bootstrap
+ *      window before the title-map resolves, or when the indicator
+ *      fetch fails). Last-resort so the dropdown never goes blank.
+ *
+ * `titleMap` is optional so existing callers / tests keep working
+ * unchanged; passing it in is purely additive UX polish.
  */
-export function homeThemeOptions(catalogue: TopicCatalogue | null): HomeThemeOption[] {
+export function homeThemeOptions(
+  catalogue: TopicCatalogue | null,
+  titleMap?: ReadonlyMap<string, string>,
+): HomeThemeOption[] {
   const out: HomeThemeOption[] = [
     {
       value: ELECTION_VALUE,
@@ -142,7 +158,7 @@ export function homeThemeOptions(catalogue: TopicCatalogue | null): HomeThemeOpt
     },
   ];
   for (const { topic, artifact } of nationalIndicators(catalogue)) {
-    const label = artifact.display ?? artifact.id;
+    const label = titleMap?.get(artifact.id) ?? artifact.display ?? artifact.id;
     out.push({
       value: `indicator/${artifact.id}`,
       label,
