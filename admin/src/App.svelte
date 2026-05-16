@@ -5,12 +5,13 @@
 
   import { onMount } from "svelte";
   import Inventory from "./routes/Inventory.svelte";
+  import Indicators from "./routes/Indicators.svelte";
   import Schemas from "./routes/Schemas.svelte";
   import Pipeline from "./routes/Pipeline.svelte";
   import EciRecon from "./routes/EciRecon.svelte";
   import { api } from "./lib/api";
 
-  type PanelId = "inventory" | "schemas" | "pipeline" | "eci-recon";
+  type PanelId = "inventory" | "indicators" | "schemas" | "pipeline" | "eci-recon";
   let active: PanelId = $state("inventory");
   let api_version = $state<string | null>(null);
   let api_error = $state<string | null>(null);
@@ -36,6 +37,11 @@
         class:bg-slate-800={active === 'inventory'}
         onclick={() => (active = 'inventory')}
       >📦 Inventory</button>
+      <button
+        class="block w-full text-left px-2 py-1 rounded"
+        class:bg-slate-800={active === 'indicators'}
+        onclick={() => (active = 'indicators')}
+      >📈 Indicators</button>
       <button
         class="block w-full text-left px-2 py-1 rounded"
         class:bg-slate-800={active === 'schemas'}
@@ -68,6 +74,8 @@
   <main class="flex-1 p-6 overflow-x-auto">
     {#if active === 'inventory'}
       <Inventory />
+    {:else if active === 'indicators'}
+      <Indicators />
     {:else if active === 'schemas'}
       <Schemas />
     {:else if active === 'pipeline'}

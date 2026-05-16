@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 4 (SR
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Infant Mortality Rate (per 1,000 live births)*. Re-published by yen-gov as `health/state_infant_mortality_rate_per_1000`, schema v2.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Infant Mortality Rate (per 1,000 live births)*. Re-published by yen-gov as `health/state_infant_mortality_rate_per_1000`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json)

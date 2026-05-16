@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'Rooftop Solar Capacity'. Underlying figu
 
 ## Citation
 
-> iced.niti.gov.in, *Rooftop solar installed capacity (by state)*. Re-published by yen-gov as `energy/state_rooftop_solar_capacity_mw`, schema v2.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Rooftop solar installed capacity (by state)*. Re-published by yen-gov as `energy/state_rooftop_solar_capacity_mw`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/state_rooftop_solar_capacity_mw.json`](../../../../datasets/indicators/in/energy/state_rooftop_solar_capacity_mw.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_rooftop_solar_capacity_mw.json`](../../../../datasets/indicators/in/energy/state_rooftop_solar_capacity_mw.json)

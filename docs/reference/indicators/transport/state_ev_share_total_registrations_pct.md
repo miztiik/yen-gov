@@ -47,8 +47,8 @@ MoRTH VAHAN registration database (excludes Telangana for some years; some early
 
 ## Citation
 
-> iced.niti.gov.in, *EV share of total vehicle registrations by state and category*. Re-published by yen-gov as `transport/state_ev_share_total_registrations_pct`, schema v2.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *EV share of total vehicle registrations by state and category*. Re-published by yen-gov as `transport/state_ev_share_total_registrations_pct`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json`](../../../../datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json`](../../../../datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json)

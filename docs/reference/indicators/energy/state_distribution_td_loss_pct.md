@@ -51,8 +51,8 @@ Indian central-government targets envision T&D losses below 12% by FY26; the all
 
 ## Citation
 
-> icedapi.niti.gov.in, *Transmission & Distribution losses (%, by state)*. Re-published by yen-gov as `energy/state_distribution_td_loss_pct`, schema v2.0. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *Transmission & Distribution losses (%, by state)*. Re-published by yen-gov as `energy/state_distribution_td_loss_pct`, schema v3.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/state_distribution_td_loss_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_td_loss_pct.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_distribution_td_loss_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_td_loss_pct.json)

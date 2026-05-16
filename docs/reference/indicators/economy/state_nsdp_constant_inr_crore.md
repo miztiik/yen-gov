@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 6. E
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Net State Domestic Product (constant prices, spliced)*. Re-published by yen-gov as `economy/state_nsdp_constant_inr_crore`, schema v2.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Net State Domestic Product (constant prices, spliced)*. Re-published by yen-gov as `economy/state_nsdp_constant_inr_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json`](../../../../datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json`](../../../../datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json)

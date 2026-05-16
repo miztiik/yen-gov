@@ -34,7 +34,7 @@
     ordinal,
   } from "./indicator-card";
   import type { CatalogueTopic, CatalogueArtifact } from "./catalogue";
-  import SourceList from "./SourceList.svelte";
+  import AboutThisData from "./AboutThisData.svelte";
   import ListBadge from "./ListBadge.svelte";
   import { url } from "./url";
 
@@ -204,6 +204,6 @@
       >See all states →</a>
     </footer>
 
-    <SourceList sources={data.sources} schema_version={data.$schema_version} />
+    <AboutThisData artifact={data} />
   {/if}
 </section>

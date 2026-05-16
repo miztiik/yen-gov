@@ -51,8 +51,8 @@ Values are in ₹ crore at 2011-12 prices — comparable across years (real grow
 
 ## Citation
 
-> www.data.gov.in, *National Gross Value Added by industry, constant 2011-12 prices (quarterly)*. Re-published by yen-gov as `economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore`, schema v2.0. Retrieved 2026-05-14.
+> www.data.gov.in, *National Gross Value Added by industry, constant 2011-12 prices (quarterly)*. Re-published by yen-gov as `economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json)

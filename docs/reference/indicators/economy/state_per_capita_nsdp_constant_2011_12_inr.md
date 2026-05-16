@@ -59,8 +59,8 @@ Adjusted for inflation, base year 2011-12. CSO re-spliced the series from a 2004
 
 ## Citation
 
-> icedapi.niti.gov.in, *State per-capita NSDP, inflation-adjusted (₹ per person per year)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_constant_2011_12_inr`, schema v2.0. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State per-capita NSDP, inflation-adjusted (₹ per person per year)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_constant_2011_12_inr`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json)

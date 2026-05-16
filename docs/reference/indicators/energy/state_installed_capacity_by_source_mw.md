@@ -51,8 +51,8 @@ Andhra Pradesh figures before FY2014-15 include the area now in Telangana; Jammu
 
 ## Citation
 
-> icedapi.niti.gov.in, *State installed electricity capacity, by fuel source (MW)*. Re-published by yen-gov as `energy/state_installed_capacity_by_source_mw`, schema v2.0. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State installed electricity capacity, by fuel source (MW)*. Re-published by yen-gov as `energy/state_installed_capacity_by_source_mw`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json)

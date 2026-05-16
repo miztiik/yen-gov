@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 141. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise power requirement (MU)*. Re-published by yen-gov as `energy/state_power_requirement_mu`, schema v2.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise power requirement (MU)*. Re-published by yen-gov as `energy/state_power_requirement_mu`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/state_power_requirement_mu.json`](../../../../datasets/indicators/in/energy/state_power_requirement_mu.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_power_requirement_mu.json`](../../../../datasets/indicators/in/energy/state_power_requirement_mu.json)

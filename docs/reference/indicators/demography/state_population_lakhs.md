@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'Population'. The values are inter-censal
 
 ## Citation
 
-> iced.niti.gov.in, *State population (Lakhs)*. Re-published by yen-gov as `demography/state_population_lakhs`, schema v2.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *State population (Lakhs)*. Re-published by yen-gov as `demography/state_population_lakhs`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/demography/state_population_lakhs.json`](../../../../datasets/indicators/in/demography/state_population_lakhs.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/demography/state_population_lakhs.json`](../../../../datasets/indicators/in/demography/state_population_lakhs.json)

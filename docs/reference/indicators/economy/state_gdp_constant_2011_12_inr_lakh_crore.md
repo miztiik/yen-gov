@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'GDP (Base: 2011-12) Constant Price'. Und
 
 ## Citation
 
-> iced.niti.gov.in, *State GDP (constant prices, base 2011-12)*. Re-published by yen-gov as `economy/state_gdp_constant_2011_12_inr_lakh_crore`, schema v2.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *State GDP (constant prices, base 2011-12)*. Re-published by yen-gov as `economy/state_gdp_constant_2011_12_inr_lakh_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json)

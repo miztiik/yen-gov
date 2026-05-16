@@ -49,8 +49,8 @@ Includes lignite and diesel alongside coal and gas. Lignite is concentrated in T
 
 ## Citation
 
-> cea.nic.in, *Installed thermal capacity (coal + lignite + gas + diesel)*. Re-published by yen-gov as `energy/installed_capacity_thermal_mw`, schema v2.0. Retrieved 2026-05-13.
+> cea.nic.in, *Installed thermal capacity (coal + lignite + gas + diesel)*. Re-published by yen-gov as `energy/installed_capacity_thermal_mw`, schema v3.0. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/installed_capacity_thermal_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_thermal_mw.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/installed_capacity_thermal_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_thermal_mw.json)

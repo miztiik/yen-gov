@@ -51,8 +51,8 @@ Mixed sectoral + use-based facets in one indicator — ICED ships them in the sa
 
 ## Citation
 
-> icedapi.niti.gov.in, *Index of Industrial Production (IIP), base 2011-12 = 100*. Re-published by yen-gov as `economy/india_iip_index_2011_12`, schema v2.0. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *Index of Industrial Production (IIP), base 2011-12 = 100*. Re-published by yen-gov as `economy/india_iip_index_2011_12`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/economy/india_iip_index_2011_12.json`](../../../../datasets/indicators/in/economy/india_iip_index_2011_12.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/india_iip_index_2011_12.json`](../../../../datasets/indicators/in/economy/india_iip_index_2011_12.json)

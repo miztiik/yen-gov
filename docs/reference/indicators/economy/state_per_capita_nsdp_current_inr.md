@@ -54,8 +54,8 @@ MoSPI / State DES; NSDP per-capita series
 
 ## Citation
 
-> iced.niti.gov.in, *State per-capita Net State Domestic Product (current prices)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_current_inr`, schema v2.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *State per-capita Net State Domestic Product (current prices)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_current_inr`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json)

@@ -45,8 +45,8 @@ Rajya Sabha Session 260 Unstarred Q1323, answered 1 August 2023
 
 ## Citation
 
-> sansad.in, *States' non-tax revenue*. Re-published by yen-gov as `fiscal/state_non_tax_revenue_inr_crore`, schema v2.0. Retrieved 2026-05-14.
+> sansad.in, *States' non-tax revenue*. Re-published by yen-gov as `fiscal/state_non_tax_revenue_inr_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json)

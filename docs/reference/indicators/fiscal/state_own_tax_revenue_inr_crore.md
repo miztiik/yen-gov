@@ -62,8 +62,8 @@ Own-tax revenue is the indicator of *fiscal autonomy* — money the state legisl
 
 ## Citation
 
-> sansad.in, *States' own tax revenue*. Re-published by yen-gov as `fiscal/state_own_tax_revenue_inr_crore`, schema v2.0. Retrieved 2026-05-14.
+> sansad.in, *States' own tax revenue*. Re-published by yen-gov as `fiscal/state_own_tax_revenue_inr_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json)

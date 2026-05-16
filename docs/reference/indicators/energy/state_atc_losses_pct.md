@@ -66,8 +66,8 @@ AT&C losses are the discom-health headline number — they fold technical T&D lo
 
 ## Citation
 
-> iced.niti.gov.in, *Aggregate Technical & Commercial losses (%, by state)*. Re-published by yen-gov as `energy/state_atc_losses_pct`, schema v2.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Aggregate Technical & Commercial losses (%, by state)*. Re-published by yen-gov as `energy/state_atc_losses_pct`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/state_atc_losses_pct.json`](../../../../datasets/indicators/in/energy/state_atc_losses_pct.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_atc_losses_pct.json`](../../../../datasets/indicators/in/energy/state_atc_losses_pct.json)

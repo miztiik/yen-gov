@@ -50,8 +50,8 @@ Source: RBI 'State Finances: A Study of Budgets', Statement 17 (Devolution and T
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Net transfers from the Centre*. Re-published by yen-gov as `fiscal/net_transfers_from_centre`, schema v2.0. Retrieved 2026-05-11.
+> rbidocs.rbi.org.in, *Net transfers from the Centre*. Re-published by yen-gov as `fiscal/net_transfers_from_centre`, schema v3.0. Retrieved 2026-05-11.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/fiscal/net_transfers_from_centre.json`](../../../../datasets/indicators/in/fiscal/net_transfers_from_centre.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/net_transfers_from_centre.json`](../../../../datasets/indicators/in/fiscal/net_transfers_from_centre.json)

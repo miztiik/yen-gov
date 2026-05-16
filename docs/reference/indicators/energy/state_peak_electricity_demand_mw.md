@@ -49,8 +49,8 @@ Single-year snapshot. Larger states will read higher even when per-capita demand
 
 ## Citation
 
-> icedapi.niti.gov.in, *State peak electricity demand (MW, latest year snapshot)*. Re-published by yen-gov as `energy/state_peak_electricity_demand_mw`, schema v2.0. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State peak electricity demand (MW, latest year snapshot)*. Re-published by yen-gov as `energy/state_peak_electricity_demand_mw`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/energy/state_peak_electricity_demand_mw.json`](../../../../datasets/indicators/in/energy/state_peak_electricity_demand_mw.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_peak_electricity_demand_mw.json`](../../../../datasets/indicators/in/energy/state_peak_electricity_demand_mw.json)

@@ -51,8 +51,8 @@ Only the constant-price series ships in this artifact; the current-price compani
 
 ## Citation
 
-> icedapi.niti.gov.in, *India GVA by industry (constant 2011-12 prices, ₹ crore)*. Re-published by yen-gov as `economy/india_gva_by_industry_constant_inr_crore`, schema v2.0. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India GVA by industry (constant 2011-12 prices, ₹ crore)*. Re-published by yen-gov as `economy/india_gva_by_industry_constant_inr_crore`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json)

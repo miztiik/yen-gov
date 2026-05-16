@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 109.
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise CPI inflation (Food and Beverages)*. Re-published by yen-gov as `prices/state_cpi_food_inflation_pct`, schema v2.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise CPI inflation (Food and Beverages)*. Re-published by yen-gov as `prices/state_cpi_food_inflation_pct`, schema v3.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v2.0 · artifact: [`datasets/indicators/in/prices/state_cpi_food_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_food_inflation_pct.json)
+`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/prices/state_cpi_food_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_food_inflation_pct.json)

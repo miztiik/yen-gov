@@ -160,6 +160,31 @@ export interface EciPinsResponse {
   events: { state: string; year: number; event_id: string; has_partywise: boolean }[];
 }
 
+// ---------- Indicators inventory ----------
+
+export interface IndicatorIndexRow {
+  id: string;
+  topic: string;
+  path: string;
+  title: string;
+  documentation_status: "stub" | "partial" | "authored";
+  inventory_status: "empty" | "partial" | "complete";
+  frozen: boolean;
+  last_collected_at: string | null;
+  observed_count: number;
+  pending_count: number;
+  unavailable_count: number;
+}
+
+export interface IndicatorsInventoryResponse {
+  $schema: string | null;
+  $schema_version: string | null;
+  generated_at: string | null;
+  index_mtime: string;
+  count: number;
+  indicators: IndicatorIndexRow[];
+}
+
 async function getJson<T>(path: string): Promise<T> {
   const res = await fetch(path);
   if (!res.ok) {
@@ -207,4 +232,8 @@ export const api = {
     postJson("/api/eci/pins", { ...entry, confirm: true }),
   eciDeletePin: (state: string, year: number): Promise<{ removed: boolean; total_pins: number }> =>
     postJson("/api/eci/pins/delete", { state, year, confirm: true }),
+
+  // Indicators inventory
+  indicators: (): Promise<IndicatorsInventoryResponse> =>
+    getJson("/api/inventory/indicators"),
 };
