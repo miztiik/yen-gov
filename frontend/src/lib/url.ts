@@ -103,6 +103,16 @@ export const url = {
     return withBase(`/t/${topicId}`);
   },
   /**
+   * Per-state topic page — `/s/<state-slug>/t/<topic-id>`. (IA-reset
+   * Step #2.) The state slug is derived the same way as `state()` so
+   * the URL shape stays citizen-readable; the topic id stays opaque
+   * (catalogue key), matching `topic()`.
+   */
+  stateTopic(stateCode: string, topicId: string): string {
+    const slug = states.slug(stateCode) || stateCode.toLowerCase();
+    return withBase(`/s/${slug}/t/${encodeURIComponent(topicId)}`);
+  },
+  /**
    * Generic indicator Compare — `/compare?i=<id>&states=<csv>&peer=<peer>`.
    * (P4, ADR-0022.) Distinct from `compare(state, event)` which is the
    * election-results compare under `/compare/:state/:event`. All three

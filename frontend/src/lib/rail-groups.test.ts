@@ -113,14 +113,17 @@ describe("buildRailGroups (scoped state, no event)", () => {
     ]);
   });
 
-  it("Every This state topic entry targets the national /t/<id> page (Step #2 not yet shipped)", () => {
+  it("Every This state topic entry targets the per-state /s/<slug>/t/<id> page (IA-reset Step #2)", () => {
     const my = find(groups, "this-state");
     const topic_items = my.items.filter(i => i.id.startsWith("this-state.topic."));
     expect(topic_items.length).toBeGreaterThan(0);
     for (const item of topic_items) {
-      // Must end with /t/<slug>, never /s/<state>/t/<slug>.
-      expect(item.href).toMatch(/\/t\/[a-z][a-z0-9-]*$/);
-      expect(item.href).not.toContain("/s/");
+      // Must point under /s/<some-slug>/t/<topic-id>, NOT the national
+      // /t/<id> page. The state-S22 mock resolves to slug "tamil-nadu"
+      // once states.json is loaded; before then the slug falls back to
+      // the lower-cased ECI code (still under /s/ — verified below).
+      expect(item.href).toMatch(/\/s\/[a-z0-9-]+\/t\/[a-z][a-z0-9-]*$/);
+      expect(item.href).not.toMatch(/^\/?(yen-gov\/)?t\//);
     }
   });
 
@@ -177,6 +180,7 @@ describe("RailItem.match predicates", () => {
     expect(overview.match("/s/tamil-nadu")).toBe(true);
     expect(overview.match("/s/tamil-nadu/explore")).toBe(false);
     expect(overview.match("/s/tamil-nadu/ac/167-mylapore")).toBe(false);
+    expect(overview.match("/s/tamil-nadu/t/fiscal")).toBe(false);
   });
 
   it("All topics matches exactly /t (not /t/fiscal)", () => {
@@ -187,19 +191,21 @@ describe("RailItem.match predicates", () => {
     expect(all.match("/t/fiscal")).toBe(false);
   });
 
-  it("Topic items match their own /t/<id> exactly", () => {
+  it("Topic items match their own per-state /s/<slug>/t/<id> path", () => {
     const fiscal = find(groups, "this-state").items.find(
       i => i.id === "this-state.topic.fiscal",
     )!;
-    expect(fiscal.match("/t/fiscal")).toBe(true);
-    expect(fiscal.match("/t")).toBe(false);
-    expect(fiscal.match("/t/energy")).toBe(false);
+    expect(fiscal.match("/s/tamil-nadu/t/fiscal")).toBe(true);
+    expect(fiscal.match("/s/s22/t/fiscal")).toBe(true);
+    expect(fiscal.match("/t/fiscal")).toBe(false);
+    expect(fiscal.match("/s/tamil-nadu")).toBe(false);
+    expect(fiscal.match("/s/tamil-nadu/t/energy")).toBe(false);
 
     const energy = find(groups, "this-state").items.find(
       i => i.id === "this-state.topic.energy",
     )!;
-    expect(energy.match("/t/energy")).toBe(true);
-    expect(energy.match("/t/fiscal")).toBe(false);
+    expect(energy.match("/s/tamil-nadu/t/energy")).toBe(true);
+    expect(energy.match("/s/tamil-nadu/t/fiscal")).toBe(false);
   });
 
   it("Compare states matches /compare exactly", () => {

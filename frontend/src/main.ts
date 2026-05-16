@@ -15,6 +15,7 @@ import CompareIndicator from "./routes/CompareIndicator.svelte";
 import About from "./routes/About.svelte";
 import TopicIndex from "./routes/TopicIndex.svelte";
 import TopicLanding from "./routes/TopicLanding.svelte";
+import StateTopic from "./routes/StateTopic.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -57,6 +58,10 @@ startRouter({
       parse: ({ state, party }) => ({ state, party_slug: party }),
     },
     { pattern: "/s/:state/explore", component: Explore },
+    // Per-state topic page (IA-reset Step #2). Sits under /s/:state and is
+    // pattern-distinct from /s/:state (different segment count), so order
+    // here is not load-bearing.
+    { pattern: "/s/:state/t/:topic", component: StateTopic },
     { pattern: "/lab/:state/:event", component: Psephlab },
     { pattern: "/compare/:state/:event", component: Compare },
     // Generic indicator Compare (P4) — sits alongside the more-specific
