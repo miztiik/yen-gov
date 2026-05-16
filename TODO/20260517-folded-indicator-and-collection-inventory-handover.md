@@ -1204,4 +1204,87 @@ These are intentionally NOT in this PR. Each has a rationale. None are blockers.
 
 ## §15. Invocation phrase for the next agent
 
-> "Read `TODO/20260517-folded-indicator-and-collection-inventory-handover.md` end-to-end, especially §3.3. Execute the amended 10-commit slate in §4 in order. Honour the working contract in §2 and the critical amendments in §3.3 — do NOT relitigate rejected designs. If anything is ambiguous, surface it to the user; do not guess. Run the §14 pre-flight checklist before opening the PR."
+> "Read `TODO/20260517-folded-indicator-and-collection-inventory-handover.md` end-to-end, especially §3.3 AND §16. **§16 supersedes §4 commit slate.** Execute the §16 v4 slate in order. Honour the working contract in §2. If anything is ambiguous, surface it to the user; do not guess."
+
+---
+
+## §16. v4 AMENDMENT — post-PR-#6 plan (authoritative, supersedes §4)
+
+**Created**: 2026-05-16 (after PR #6 merged to `main`).
+**Origin**: User pushback on `expected_geographies` (audit: `TODO/20260516-expected-geographies-audit.md`) escalated to a full rip of structural smells. Three persona validations run (Fowler-engineering, Gregor-architecture, Jony-UI). Convergence below.
+
+### §16.1 Locked design decisions (do NOT relitigate)
+
+1. **Inventory lifted OUT of indicator artifact entirely** (Gregor). Indicator JSON v4.0 top-level keys: `$schema, $schema_version, $comment?, sources, license, coverage, indicator, rows, series_spec, methodology, divergence`. `collection_inventory` REMOVED. Also removed from `series_spec`: `expected_geographies`, `expected_periods`, `expected_periods_inference`.
+2. **Two new sibling files under `datasets/reference/in/`**:
+   - `indicators-completeness.json` — **derived** index. Promotes existing convenience file (`tools/emit_indicators_completeness_index.py`) to canonical. Re-emitted every ingest. Carries: `{indicator_id: {status, observed_periods, observed_geographies, unavailable_periods, last_attempt}}`. Schema v2.0 absorbs fields formerly in `collection_inventory`.
+   - `indicators-operator-state.json` — **hand-edited only**. `{indicator_id: {frozen, refetch_requested, unavailable_periods}}`. Tiny. Schema v1.0.
+3. **`docs/reference/refresh-report.md`** — auto-generated narrative (sibling of `data-coverage-report.md` / `data-inventory.md`). Last-state-only (git holds history). Columns: `indicator_id | last_attempt | status | reason | siblings_affected`. NOT in `datasets/` (rationale: human narrative, not contract surface; matches pattern of existing siblings).
+4. **`fetched_at` derivation — Option B + Option C combined** (Fowler):
+   - **(B)** Where publisher exposes `Last-Modified` header OR content has clear release vintage (CEA filenames, RBI document footers), derive `fetched_at` from that. Per-adapter wiring. No clock involved.
+   - **(C)** Belt-and-suspenders dict-equal at `write_artifact`: strip `sources[].fetched_at` before compare; skip write if equal. Document the §10 carve-out inline.
+   - User rejected: byte compare, content hashing, mtime comparison anywhere.
+5. **Refresh-shape guard at `write_artifact`** — Fowler's expanded shape tuple: `(indicator.id, indicator.entity_kind, indicator.time_grain, indicator.direction, indicator.comparability, indicator.attribution_geography, denominator-shape, set(rows[].entity_id), set(rows[].time), facet_names, unit, value_kind, columns)`. If diverged → don't write artifact, append row to `docs/reference/refresh-report.md`. CLI prints summary at end of run.
+6. **Status enum stays internal**: `complete | partial | empty` for operator/admin. Citizen NEVER sees these words.
+7. **Jony's verbal verdicts (citizen-facing, derived by renderer)**:
+
+   | Scenario | Citizen sentence | Badge | Color |
+   |---|---|---|---|
+   | Publisher doesn't cover state | "The publisher does not report this for {state}." | Not published | slate |
+   | Backlog (publisher has it, we don't) | "On our backlog — published by {publisher}, not yet collected on yen-gov." | On our backlog | amber |
+   | Awaiting next release | "Awaiting the {Apr 2026} release from {publisher}." | Awaiting {period} | amber |
+   | Stub (no rows yet) | "This indicator is being set up. Nothing collected yet." | Being set up | slate |
+   | Complete | (no banner; chart speaks) | Live | emerald |
+   | Partial | "Covers {n} of {m} states through {period}." | Partial — see coverage | amber |
+
+   New `<CoverageVerdict artifact altitude="banner|row|chip" />` component, ~40 lines, no new deps. Reads `indicators-completeness.json` + adapter-supplied scenario hint.
+8. **Prior-fallback corruption window** (`_maintain_folded_blocks` lines 142-150): drop the `prior.get(...)` fallbacks. BUT first lift current on-disk `methodology` + `series_spec` content into each adapter's `INDICATOR_META` — all 110 indicators currently carry migration-tool-seeded content richer than `_stub_methodology()` produces; dropping the fallback without lifting first regresses methodology quality AND breaks dict-equal.
+9. **Composer-level `sources[]` dedup**: first-seen `fetched_at` per URL wins. Key by `url` ALONE, NEVER `(url, fetched_at)` tuple (smear-up bug per CLAUDE.md §10).
+10. **Branching**: PR #6 merged to `main` with `--no-ff`. All §16 commits continue on `main`. NO more feature branches.
+
+### §16.2 Commit slate (execute in order on `main`)
+
+| # | Type | Title | Files |
+|---|---|---|---|
+| 1 | structural | Lift methodology + series_spec into every adapter's INDICATOR_META | `backend/yen_gov/sources/*/ingest.py` (~15-20 files) |
+| 2 | structural | Drop `_maintain_folded_blocks` prior-fallback (dead code after #1) | `backend/yen_gov/core/io.py` |
+| 3 | structural | AST guard `tests/test_no_runtime_llm.py` (~30 lines) | `backend/tests/` |
+| 4 | structural | Schema v4.0 — drop `collection_inventory`, `series_spec.expected_*` | `datasets/schemas/indicator.schema.json` |
+| 5 | structural | New schemas: `indicators-completeness.schema.json` v2.0, `indicators-operator-state.schema.json` v1.0 | `datasets/schemas/` |
+| 6 | structural | Rewrite `derive_collection_inventory` to write to external index (not artifact block); read operator-state file for frozen/refetch/unavailable | `backend/yen_gov/inventory/derive.py` |
+| 7 | structural | One-shot `tools/rip_to_v4.py` — strip block from 110 artifacts, bump `$schema_version`, seed operator-state, re-emit completeness index. Idempotent. | `tools/`, `datasets/indicators/in/**/*.json`, `datasets/reference/in/` |
+| 8 | behavioural | Refresh-shape guard at `write_artifact`; append divergences to `docs/reference/refresh-report.md` | `backend/yen_gov/core/io.py`, `docs/reference/refresh-report.md` (new) |
+| 9 | behavioural | Dict-equal skip at `write_artifact` (Option C) with inline §10 carve-out doc | `backend/yen_gov/core/io.py` |
+| 10 | behavioural | Composer-level `sources[]` dedup by `url` only | `backend/yen_gov/composers/*.py` |
+| 11 | behavioural | Wire `refetch_requested`: admin POST endpoint; collector reads flag, clears on success | `backend/yen_gov/admin/`, collector adapters |
+| 12 | structural | `.runtime/` → `.operator_cache/<source>/` split (cache vs telemetry); update §3 + ADR-0003 | `backend/yen_gov/sources/**`, `CLAUDE.md`, `docs/architecture/decisions/0003-no-fetch-cache.md` |
+| 13 | behavioural | Per-adapter Option B — derive `fetched_at` from `Last-Modified` / content vintage where available (start with CEA, RBI, data.gov.in OGD; each adapter is its own micro-commit if scope grows) | `backend/yen_gov/sources/*/ingest.py` |
+| 14 | structural | Frontend: drop Coverage block from `AboutThisData.svelte`; new `<CoverageVerdict>` per §16.1.7; load `indicators-completeness.json` | `frontend/src/lib/` |
+| 15 | structural | Admin: Indicators panel reads completeness index; new refetch button POSTs to operator-state | `admin/src/`, `backend/yen_gov/admin/` |
+| 16 | structural | Doc generator schema-version rip — delete `f"v{schema_version}"` interpolations from `coverage_indicator_pages.py`; regenerate 110 docs (one-time 220-line cleanup) | `backend/yen_gov/coverage_indicator_pages.py`, `docs/reference/indicators/**` |
+| 17 | structural | ICED `datetime.now()` → cache-mtime migration (10 adapter sites; becomes moot for sources covered by #13 Option B) | `backend/yen_gov/sources/iced_*/` |
+| 18 | structural | ADR-0025 — inventory lifted out of indicator artifact (clears Holy Law #4 ADR tests: credible rejected alternative + cross-cutting) | `docs/architecture/decisions/0025-inventory-lifted-out-of-indicator-artifact.md` |
+| 19 | structural | CLAUDE.md §10 amendment — document dict-equal-at-write-seam carve-out and why inventory lift removed the upstream sin's main propagation path | `CLAUDE.md` |
+| 20 | verify | Full suite: `pytest -q`, `npm test`, `npm run test:e2e`, `svelte-check`, browser §13 on affected routes | (no code) |
+
+### §16.3 Documentation updates (global)
+
+- `CLAUDE.md` §10 — dict-equal carve-out (commit 19).
+- `CLAUDE.md` §3 — `.operator_cache/` split if commit 12 lands (else defer).
+- `docs/architecture/decisions/0003-no-fetch-cache.md` — clarify `.runtime/` vs `.operator_cache/`.
+- `docs/architecture/decisions/0025-inventory-lifted-out-of-indicator-artifact.md` — NEW (commit 18).
+- `docs/concepts/collection-inventory.md` — rewrite header: "moved from in-artifact block to derived index". Keep the concept; point to new files.
+- `docs/concepts/folded-indicator.md` — v4 top-level keys; note inventory lift.
+- `docs/architecture/backend/coverage.md` — note `refresh-report.md` is a new sibling output.
+- `docs/reference/data-coverage-report.md` — cross-link `refresh-report.md`.
+- `docs/architecture/frontend/about-this-data.md` (if exists) or relevant frontend doc — `<CoverageVerdict>` component contract.
+- `backend/yen_gov/AGENTS.md` — note inventory module no longer writes into artifact.
+- `frontend/AGENTS.md` — `<CoverageVerdict>` consumer of completeness index.
+- `admin/AGENTS.md` — operator-state file is the ONE writable knob.
+- `/memories/lessons.md` — prepend: inventory-in-artifact was a two-consumer-schema smell; status-enum-leaking-to-citizen was raw-enum-as-copy smell; refresh-report-in-`datasets/`-vs-`docs/` clarified by "is it a contract surface or a narrative?".
+
+### §16.4 Open micro-decisions (defaults stand unless overridden)
+
+- Merge style for PR #6 → main: **`--no-ff`** (preserves history per CLAUDE.md §8).
+- ADR-0025 timing: **same commit as the move (commit 18)** — keeps rationale next to code change per Holy Law #4.
+- Option B per-adapter scope: **start with CEA + RBI + data.gov.in OGD** (the three with clear vintage signals). Other adapters fall through to Option C dict-equal. Add more in follow-up commits per adapter as we touch them.
