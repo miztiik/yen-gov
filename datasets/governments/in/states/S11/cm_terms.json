@@ -169,7 +169,7 @@
       "party_code": null,
       "alliance": null,
       "cm_name": null,
-      "notes": "Placeholder for the post-May-2026 government. Results ingested in datasets/elections/AcGenMay2026/S11/. Backfill once the new ministry is sworn in. Downstream UI MUST treat null cm_name + null party_code as 'transition state' and render the neutral 'pending' colour.",
+      "notes": "The new ministry has not yet been sworn in. This page will update once the cabinet is announced.",
       "references": [
         { "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm", "note": "2026 Kerala partywise result." }
       ]
