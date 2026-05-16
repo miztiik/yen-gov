@@ -1,12 +1,17 @@
-"""Orchestrator for the RBI fiscal ingest.
+"""Orchestrator for the RBI ingest of State Finances Statement workbooks.
 
-Network + filesystem boundary. For each shipped indicator spec:
+Network + filesystem boundary. For each indicator spec passed in:
   1. Resolve a workbook URL via :mod:`.urls` (registry → env override
      → local cache fallback).
   2. Fetch the XLSX bytes.
   3. Run the pure parser (:mod:`.parsers`) for that single indicator.
-  4. Write a ``datasets/indicators/in/fiscal/<leaf>.json`` artifact
-     conforming to ``datasets/schemas/indicator.schema.json``.
+  4. Write a ``datasets/indicators/in/<scope>/<leaf>.json`` artifact
+     conforming to ``datasets/schemas/indicator.schema.json``, where
+     ``<scope>`` is the first path segment of the indicator id
+     (``fiscal``, ``health``, …). The orchestrator is therefore
+     scope-agnostic — adding a non-fiscal indicator that lives in a
+     Statement workbook of this shape only needs a new spec + meta +
+     URL pin + CLI command, no parser/orchestrator edits.
 
 See ``docs/architecture/backend/sources-rbi.md`` for the per-indicator
 honesty fields each artifact materialises.
@@ -16,6 +21,7 @@ from __future__ import annotations
 import json
 import os
 import re
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -53,7 +59,13 @@ class RBISourceUnavailable(RuntimeError):
 
 @dataclass(frozen=True)
 class IndicatorMeta:
-    """Honesty fields for one fiscal indicator."""
+    """Honesty fields for one indicator emitted from a Statement workbook.
+
+    Originally fiscal-only; v1.5 schema added a Hans-governance layer
+    that is opt-in per indicator. Existing fiscal entries do not set
+    the new fields and therefore re-emit byte-identically (the payload
+    builder only injects optional fields when they are set).
+    """
 
     indicator_id: str
     title: str
@@ -71,6 +83,16 @@ class IndicatorMeta:
     value_kind: str = "share"  # count | rate | share | currency | index | duration | raw
     unit: str = "%"
     series_breaks: tuple[dict[str, str], ...] = ()
+    # v1.5 optional Hans-governance fields. Each is emitted only when
+    # set, so existing fiscal entries (none set) re-emit unchanged.
+    implementing_authority: str = "state"  # state | centre | joint | local_body | parastatal
+    time_grain: str = "fiscal_year"
+    chart_type: str | None = None  # choropleth | ranked | stacked-trend (None ⇒ schema default)
+    denominator: Mapping[str, Any] | str | None = None
+    revision_tier_by_period: tuple[Mapping[str, str], ...] = ()
+    excludes: tuple[str, ...] = ()
+    renderer_rules: tuple[str, ...] = ()
+    funding_split_source: str = "definition (own vs centrally-transferred)"
 
 
 # Registry of shipped indicators' metadata. Currently one entry; new
@@ -144,6 +166,122 @@ INDICATOR_META: dict[str, IndicatorMeta] = {
             "directly comparable across states of very different size; "
             "per-capita and %-of-state-revenue normalisations are "
             "planned as sibling indicators."
+        ),
+    ),
+    "health/state_health_expenditure_pct_total_expenditure": IndicatorMeta(
+        indicator_id="health/state_health_expenditure_pct_total_expenditure",
+        title="Public health spend (% of state total expenditure)",
+        description=(
+            "Share of each State / UT government's total annual budget "
+            "spent on Medical & Public Health and Family Welfare — "
+            "covering primary health centres, district hospitals, "
+            "disease-control programmes, immunisation, maternal & child "
+            "health, and family planning. Includes both day-to-day "
+            "(revenue) spending and one-off (capital) spending. The "
+            "denominator is the state's own total expenditure, so the "
+            "indicator answers: 'of every ₹100 the state government "
+            "spends, how much goes to health?' The National Health "
+            "Policy 2017 target is 8% by 2025."
+        ),
+        direction="higher_is_better",
+        # v1.5 4-level ladder: this indicator IS comparable across states
+        # AND time — same denominator (own total expenditure) across all
+        # rows, no methodology break in the RBI series 2008-09 → 2025-26.
+        comparability="comparable_across_states_and_time",
+        # Spend is administered by the state government, regardless of
+        # which funding source (own tax revenue vs centrally-sponsored
+        # scheme pass-through) underwrote it.
+        attribution_geography="where_administered",
+        icon="heart-pulse",
+        # Health is a State List subject (Entry 6, List II). All spend
+        # captured by Statement 27 flows through the state's own budget.
+        # That includes pass-through Centrally-Sponsored Scheme money
+        # (NHM etc.), so 100% of the measured spend is state-administered
+        # even though ~30-40% of the underlying funding originates with
+        # the Centre. The denominator (state total expenditure) shares
+        # the same scope, so the ratio is comparable across states with
+        # different CSS dependency profiles.
+        funding_split_state_pct=100,
+        funding_split_source=(
+            "Constitutional assignment (Entry 6, State List). "
+            "Underlying funding mix (own-tax vs CSS pass-through) "
+            "varies per state and per year and is not separated in "
+            "Statement 27; this field captures who administered the "
+            "spend, not who originated the funds."
+        ),
+        value_kind="share",
+        unit="% of state total expenditure",
+        implementing_authority="state",
+        time_grain="fiscal_year",
+        chart_type="choropleth",
+        denominator={
+            "what": (
+                "State / UT government's own aggregate expenditure "
+                "(revenue expenditure + capital outlay + loans & "
+                "advances net of recoveries), per RBI 'State Finances: "
+                "A Study of Budgets' classification"
+            ),
+            "price_basis": "current",
+        },
+        # Period-level vintage governance (Hans v1.5). Accounts data
+        # runs 2008-09 through 2023-24; the final two periods of this
+        # edition are still RE and BE and WILL be revised when next
+        # year's State Finances publication lands. Renderers should
+        # disclose this on the trend view.
+        revision_tier_by_period=(
+            {
+                "from": "2008-04",
+                "tier": "Accounts",
+                "note": "Audited Accounts data (final).",
+            },
+            {
+                "from": "2024-04",
+                "tier": "RE",
+                "note": (
+                    "Revised Estimates from state budget documents — "
+                    "will be replaced by Accounts in a future RBI edition."
+                ),
+            },
+            {
+                "from": "2025-04",
+                "tier": "BE",
+                "note": (
+                    "Budget Estimates — planning intent, not actual "
+                    "spend; revises substantially by year-end."
+                ),
+            },
+        ),
+        excludes=(
+            (
+                "Water Supply, Sanitation, Housing & Urban Development "
+                "spend — RBI's Statement 27 is titled 'Medical and "
+                "Public Health and Family Welfare' and excludes these "
+                "even though some international health-spend "
+                "definitions group them together."
+            ),
+            (
+                "Pre-2017-18 figures for NCT Delhi and Puducherry "
+                "(coverage starts 2017-18 per the RBI source footnote)."
+            ),
+            (
+                "Pre-2014-15 figures for Telangana (state formed "
+                "June 2014 — earlier values are intentionally null)."
+            ),
+        ),
+        notes=(
+            "Source: RBI 'State Finances: A Study of Budgets', "
+            "Statement 27 (Expenditure on Medical and Public Health and "
+            "Family Welfare, as per cent of Aggregate Expenditure). "
+            "Includes both revenue expenditure and capital outlay per "
+            "the RBI footnote. Spend funded by Centrally-Sponsored "
+            "Schemes (e.g. NHM) flows through state budgets and is "
+            "included; raw values do not separate own-tax vs "
+            "centrally-transferred funding sources. The National "
+            "Health Policy 2017 target of 8% of state total expenditure "
+            "by 2025 is met by very few states (Delhi, J&K, "
+            "Puducherry); the all-India average sits near 5.5%. "
+            "Compare against fiscal/outstanding_debt_pct_gsdp to see "
+            "whether higher-debt states are sustaining health priority."
         ),
     ),
 }
@@ -301,7 +439,7 @@ def _build_indicator_payload(
             "title": meta.title,
             "description": meta.description,
             "entity_kind": "state",
-            "time_grain": "fiscal_year",
+            "time_grain": meta.time_grain,
             "value_kind": meta.value_kind,
             "direction": meta.direction,
             "scale_hint": "linear",
@@ -312,9 +450,9 @@ def _build_indicator_payload(
             "funding_split": {
                 "centre_pct": 100 - meta.funding_split_state_pct,
                 "state_pct": meta.funding_split_state_pct,
-                "source": "definition (own vs centrally-transferred)",
+                "source": meta.funding_split_source,
             },
-            "implementing_authority": "state",
+            "implementing_authority": meta.implementing_authority,
             "methodology_vintage": (
                 f"RBI State Finances: A Study of Budgets, fetched "
                 f"{workbook_fetched_at.isoformat(timespec='seconds').replace('+00:00', 'Z')}"
@@ -324,8 +462,29 @@ def _build_indicator_payload(
         "rows": rows,
     }
 
+    # v1.5 optional fields: only inject when the meta entry has set
+    # them. Existing fiscal entries leave these at their defaults and
+    # therefore re-emit byte-identically.
+    indicator_block: dict[str, Any] = payload["indicator"]
+    if meta.chart_type is not None:
+        indicator_block["chart_type"] = meta.chart_type
+    if meta.denominator is not None:
+        indicator_block["denominator"] = (
+            dict(meta.denominator)
+            if isinstance(meta.denominator, Mapping)
+            else meta.denominator
+        )
+    if meta.revision_tier_by_period:
+        indicator_block["revision_tier_by_period"] = [
+            dict(entry) for entry in meta.revision_tier_by_period
+        ]
+    if meta.excludes:
+        indicator_block["excludes"] = list(meta.excludes)
+    if meta.renderer_rules:
+        indicator_block["renderer_rules"] = list(meta.renderer_rules)
+
     if meta.series_breaks:
-        payload["indicator"]["series_breaks"] = list(meta.series_breaks)
+        indicator_block["series_breaks"] = list(meta.series_breaks)
 
     return payload
 
@@ -358,10 +517,17 @@ def ingest(
     fetcher: Fetcher,
     repo_root: Path,
     schema_dir: Path,
+    specs: Sequence[IndicatorSpec] = SHIPPED_SPECS,
 ) -> IngestResult:
-    """Fetch + parse + write all shipped fiscal indicators.
+    """Fetch + parse + write indicators from RBI State Finances workbooks.
+
+    ``specs`` defaults to the full :data:`SHIPPED_SPECS` registry for
+    backward compatibility with the original fiscal-only entry point.
+    Per-scope CLIs (fiscal vs health vs …) pass the subset they own so
+    a fiscal-only run never accidentally emits a health artifact.
 
     Idempotent: re-runs overwrite the artifacts and re-stamp ``fetched_at``.
+
     Raises:
         RBISourceUnavailable: no resolvable source for an indicator.
         RBIWorkbookShapeError: workbook layout has shifted; re-run recon.
@@ -369,11 +535,19 @@ def ingest(
     indicator_schema_path = schema_dir / "indicator.schema.json"
     indicator_schema = json.loads(indicator_schema_path.read_text(encoding="utf-8"))
 
-    out_dir = repo_root / "datasets" / "indicators" / "in" / "fiscal"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    indicators_root = repo_root / "datasets" / "indicators" / "in"
 
     results: list[IndicatorIngestResult] = []
-    for spec in SHIPPED_SPECS:
+    for spec in specs:
+        scope = spec.indicator_id.split("/", 1)[0]
+        if not scope or "/" in scope:
+            raise ValueError(
+                f"indicator id {spec.indicator_id!r} has no usable scope "
+                f"segment (expected '<scope>/<leaf>')"
+            )
+        out_dir = indicators_root / scope
+        out_dir.mkdir(parents=True, exist_ok=True)
+
         wb = _resolve_source(
             indicator_id=spec.indicator_id,
             fetcher=fetcher,

@@ -51,7 +51,8 @@
       "adapter": "rbi_xlsx",
       "indicator_ids": [
         "fiscal/outstanding_debt_pct_gsdp",
-        "fiscal/net_transfers_from_centre"
+        "fiscal/net_transfers_from_centre",
+        "health/state_health_expenditure_pct_total_expenditure"
       ],
       "license": "GoI-Open",
       "notes": "Per-Statement XLSX shipped on the listing page; URLs include DDMMYYYY date stamp + opaque hex hash, change wholesale every edition. Per-edition pinned URLs live in `backend/yen_gov/sources/rbi_xlsx/urls.py`. RBI CDN (rbidocs.rbi.org.in) rejects non-browser UA — adapter passes Chrome-style UA at this call site only. See docs/architecture/backend/sources-rbi.md."
@@ -195,7 +196,10 @@
       "status": "ingested",
       "adapter": "iced_air_quality",
       "indicator_ids": [
-        "environment/state_pm25_annual_mean_ug_m3"
+        "environment/state_pm25_annual_mean_ug_m3",
+        "environment/state_pm10_annual_mean_ug_m3",
+        "environment/state_no2_annual_mean_ug_m3",
+        "environment/state_so2_annual_mean_ug_m3"
       ],
       "license": "GoI-Open",
       "notes": "Dual provenance per Hans 2026-05-15: ICED is the re-publisher; the underlying station-year file is CPCB's NAMP (data/AQ_CPCB_UTF8/AQM_<year>_Annual_mean.csv). Per (state, year) aggregation = unweighted arithmetic mean of station-year means; null station-years dropped, not coerced to zero. Indicator is published with `comparability: not_comparable_across_states` because the CPCB monitor network is uneven and urban-biased — ranking states by raw mean is dishonest. NO2 / SO2 / PM10 are mechanical follow-up indicators using the same parser called with a different pollutant argument. New ENTITY_MAP aliases added: 'Tamilnadu' → S22, 'Dadra & Nagar Haveli' / 'Daman & Diu' / 'Dadra and Nagar Haveli' / 'Daman and Diu' → U03 (collapsing pre-2020 separate-UT spellings onto the post-merger entity)."

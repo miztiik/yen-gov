@@ -30,6 +30,9 @@ Public surface:
 - :func:`ingest.ingest_fgd`                        — FGD fetch + write.
 - :func:`markers_parsers.aggregate_state_year_mean` — markers parser.
 - :func:`markers_ingest.ingest_pm25`               — PM2.5 fetch + write.
+- :func:`markers_ingest.ingest_no2`                — NO₂ fetch + write.
+- :func:`markers_ingest.ingest_so2`                — SO₂ fetch + write.
+- :func:`markers_ingest.ingest_pm10`               — PM10 fetch + write.
 """
 
 from .markers_parsers import (
