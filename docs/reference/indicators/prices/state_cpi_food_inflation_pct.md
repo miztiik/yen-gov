@@ -4,7 +4,7 @@
 
 **Title**: State-wise CPI inflation (Food and Beverages)  
 **One-line**: State-wise CPI inflation in the Food and Beverages sub-basket — the single biggest household expenditure category (~46% of CPI-Combined).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/state_cpi_food_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_food_inflation_pct.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 109.
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise CPI inflation (Food and Beverages)*. Re-published by yen-gov as `prices/state_cpi_food_inflation_pct`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise CPI inflation (Food and Beverages)*. Re-published by yen-gov as `prices/state_cpi_food_inflation_pct`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/prices/state_cpi_food_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_food_inflation_pct.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/prices/state_cpi_food_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_food_inflation_pct.json)

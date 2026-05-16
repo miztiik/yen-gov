@@ -4,7 +4,7 @@
 
 **Title**: Crude Birth Rate (per 1,000 population)  
 **One-line**: Crude Birth Rate — number of live births per 1,000 mid-year population, calendar-year.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/health/state_birth_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_birth_rate_per_1000.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 2 (SR
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Crude Birth Rate (per 1,000 population)*. Re-published by yen-gov as `health/state_birth_rate_per_1000`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Crude Birth Rate (per 1,000 population)*. Re-published by yen-gov as `health/state_birth_rate_per_1000`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/health/state_birth_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_birth_rate_per_1000.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/health/state_birth_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_birth_rate_per_1000.json)

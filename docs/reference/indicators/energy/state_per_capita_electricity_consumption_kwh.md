@@ -4,7 +4,7 @@
 
 **Title**: State per-capita electricity consumption  
 **One-line**: Electricity consumption per person per year, in kilowatt-hours.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json`](../../../../datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json)
 
 ## Definition
@@ -35,6 +35,23 @@ Electricity consumption per person per year, in kilowatt-hours. Sourced from NIT
 
 ICED dashboard composition: state electricity sales (CEA) ÷ state population (Census + projections)
 
+## Editor's note
+
+This is *consumption* (sales billed to end-consumers), not *availability* — there is a sibling `state_per_capita_availability_kwh` that uses the requirement-side denominator. Per-capita kWh is the cleanest single proxy for development the energy bucket has, but it's distorted by industrial-load states (Gujarat, Chhattisgarh, Odisha) where industry consumes most of the electrons and households see very little of the headline number.
+
+## Policy context
+
+- Centre's 'Power for All' / Saubhagya (2017–19) drove rural household electrification to ~100% by FY19; the consumption gap that remains is now about *load*, not access — air-conditioning, irrigation pumpsets, and industrial demand.
+- The all-India number (~1,255 kWh in FY23) is roughly one-third the global average and ~1/12 of the US — used by NITI Aayog and IEA in every long-term demand projection as the 'India still has runway' framing.
+- Compare against `economy/state_per_capita_nsdp_current_inr` to read the development-electricity coupling: Goa, Sikkim, Gujarat sit high on both; Bihar, UP, Assam sit low on both.
+
+## Related indicators
+
+- [`energy/state_electricity_sales_mu`](state_electricity_sales_mu.md)
+- [`energy/state_per_capita_availability_kwh`](state_per_capita_availability_kwh.md)
+- [`demography/state_population_lakhs`](../demography/state_population_lakhs.md)
+- [`economy/state_per_capita_nsdp_current_inr`](../economy/state_per_capita_nsdp_current_inr.md)
+
 ## Sources
 
 - <https://iced.niti.gov.in/analytics/state-wise-deep-dive> — iced.niti.gov.in (fetched 2026-05-14T12:20:42Z)
@@ -45,8 +62,8 @@ ICED dashboard composition: state electricity sales (CEA) ÷ state population (C
 
 ## Citation
 
-> iced.niti.gov.in, *State per-capita electricity consumption*. Re-published by yen-gov as `energy/state_per_capita_electricity_consumption_kwh`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *State per-capita electricity consumption*. Re-published by yen-gov as `energy/state_per_capita_electricity_consumption_kwh`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json`](../../../../datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json`](../../../../datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json)

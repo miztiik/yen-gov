@@ -10,10 +10,11 @@ than rendered as empty headings.
 Wiring: ``python -m yen_gov indicator-pages`` regenerates the tree;
 ``python -m yen_gov coverage`` invokes it after rendering the inventory.
 
-Schema-1.5-only fields (revision_tier_by_period, denominator, excludes,
-policy_context, related) are NOT rendered yet — they land in Phase 3 once
-the schema bumps and the sidecar arrives. This generator targets the
-v1.4 surface only.
+Schema-1.5 governance fields (revision_tier_by_period, denominator,
+excludes, renderer_rules) render directly off the artifact. The Phase 4
+sidecar (`<id>.notes.json`, indicator-notes.schema.json v1.0) supplies
+the three hand-curated sections — Related indicators, Editor's note,
+Policy context — when present, and is silently skipped otherwise.
 """
 
 from __future__ import annotations
@@ -39,13 +40,15 @@ class IndicatorArtifact:
     topic: str  # first dir under indicators/in (e.g. "energy")
     basename: str  # filename without .json (e.g. "state_coal_consumption_mt")
     doc: dict
+    notes: dict | None = None  # parsed sidecar (<basename>.notes.json), or None
 
 
 def iter_indicator_artifacts(root: Path) -> Iterator[IndicatorArtifact]:
     """Yield every indicator artifact under ``datasets/indicators/in/**``.
 
-    Skips ``*.notes.json`` sidecars (Phase 4 surface) and files that fail
-    to parse as JSON (logged silently — the validator catches them).
+    Skips ``*.notes.json`` sidecars (consumed via ``IndicatorArtifact.notes``,
+    not as standalone artifacts) and files that fail to parse as JSON
+    (logged silently — the validator catches them).
     """
     base = root / INDICATORS_REL
     if not base.exists():
@@ -65,8 +68,17 @@ def iter_indicator_artifacts(root: Path) -> Iterator[IndicatorArtifact]:
         topic = parts[0]
         basename = path.stem
         path_rel = path.relative_to(root).as_posix()
+        notes_path = path.with_name(f"{basename}.notes.json")
+        notes: dict | None = None
+        if notes_path.is_file():
+            try:
+                loaded = json.loads(notes_path.read_text(encoding="utf-8"))
+                if isinstance(loaded, dict):
+                    notes = loaded
+            except (OSError, json.JSONDecodeError):
+                notes = None
         yield IndicatorArtifact(
-            path_rel=path_rel, topic=topic, basename=basename, doc=doc
+            path_rel=path_rel, topic=topic, basename=basename, doc=doc, notes=notes
         )
 
 
@@ -93,7 +105,9 @@ def _load_wired_ids(root: Path) -> set[str] | None:
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    # Date-only stamp: government statistics don't update multiple times per
+    # day, so a sub-day timestamp on an auto-generated doc footer is noise.
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
 def _first_sentence(text: str) -> str:
@@ -162,6 +176,79 @@ def _series_breaks_table(breaks: list[dict]) -> list[str]:
     return out
 
 
+def _revision_tier_table(tiers: list[dict]) -> list[str]:
+    """Schema 1.5: indicator.revision_tier_by_period[]."""
+    if not tiers:
+        return []
+    out = ["| from | tier | note |", "| --- | --- | --- |"]
+    for t in tiers:
+        frm = t.get("from", "-")
+        tier = t.get("tier", "-")
+        note = (t.get("note") or "").replace("|", "\\|").replace("\n", " ")
+        out.append(f"| `{frm}` | `{tier}` | {note} |")
+    return out
+
+
+def _denominator_block(denom) -> list[str]:
+    """Schema 1.5: indicator.denominator may be string | object | null."""
+    if not denom:
+        return []
+    if isinstance(denom, str):
+        return [f"Indicator id: `{denom}`."]
+    if isinstance(denom, dict):
+        rows = ["| field | value |", "| --- | --- |"]
+        for k in ("what", "price_basis", "base_year", "source_artifact", "note"):
+            v = denom.get(k)
+            if v:
+                rows.append(f"| {k} | `{v}` |")
+        return rows if len(rows) > 2 else []
+    return []
+
+
+def _excludes_bullets(excludes: list[str]) -> list[str]:
+    """Schema 1.5: indicator.excludes[] (citizen-facing what's-NOT-counted)."""
+    return [f"- {e}" for e in (excludes or []) if e]
+
+
+def _renderer_rules_block(rules: list[str]) -> list[str]:
+    """Schema 1.5: indicator.renderer_rules[] (controlled-vocab slugs)."""
+    return [f"- `{r}`" for r in (rules or []) if r]
+
+
+def _related_bullets(related: list[str], current_topic: str) -> list[str]:
+    """indicator-notes 1.0: sidecar.related[] — link each peer to its page.
+
+    Peer pages live at ``../<peer_topic>/<peer_basename>.md`` from the
+    current page (we are at ``docs/reference/indicators/<topic>/<basename>.md``).
+    Same-topic peers collapse to ``<peer_basename>.md``.
+    """
+    out: list[str] = []
+    for r in related or []:
+        if "/" not in r:
+            # Malformed id — emit as plain code, no link.
+            out.append(f"- `{r}`")
+            continue
+        peer_topic, peer_basename = r.split("/", 1)
+        if peer_topic == current_topic:
+            href = f"{peer_basename}.md"
+        else:
+            href = f"../{peer_topic}/{peer_basename}.md"
+        out.append(f"- [`{r}`]({href})")
+    return out
+
+
+def _editor_note_block(note_md: str | None) -> list[str]:
+    """indicator-notes 1.0: sidecar.editor_note_md — verbatim markdown."""
+    if not note_md or not note_md.strip():
+        return []
+    return [note_md.strip()]
+
+
+def _policy_context_bullets(items: list[str]) -> list[str]:
+    """indicator-notes 1.0: sidecar.policy_context[] — citizen-facing bullets."""
+    return [f"- {p}" for p in (items or []) if p]
+
+
 def _sources_bullets(sources: list[dict]) -> list[str]:
     out: list[str] = []
     for s in sources or []:
@@ -218,7 +305,7 @@ def render_page(artifact: IndicatorArtifact) -> str:
     doc = artifact.doc
     ind = doc.get("indicator") or {}
     ind_id = ind.get("id") or f"{artifact.topic}/{artifact.basename}"
-    schema_version = doc.get("$schema_version", "1.4")
+    schema_version = doc.get("$schema_version", "1.5")
 
     lines: list[str] = []
     lines.append(f"# `{ind_id}`")
@@ -273,11 +360,61 @@ def render_page(artifact: IndicatorArtifact) -> str:
         )
         lines.append("")
 
+    rev_tbl = _revision_tier_table(ind.get("revision_tier_by_period") or [])
+    if rev_tbl:
+        lines.append("## Revision tier (by period)")
+        lines.append("")
+        lines.extend(rev_tbl)
+        lines.append("")
+
+    denom_block = _denominator_block(ind.get("denominator"))
+    if denom_block:
+        lines.append("## Denominator")
+        lines.append("")
+        lines.extend(denom_block)
+        lines.append("")
+
+    excl = _excludes_bullets(ind.get("excludes") or [])
+    if excl:
+        lines.append("## What's NOT counted")
+        lines.append("")
+        lines.extend(excl)
+        lines.append("")
+
+    rrules = _renderer_rules_block(ind.get("renderer_rules") or [])
+    if rrules:
+        lines.append("## Renderer rules")
+        lines.append("")
+        lines.extend(rrules)
+        lines.append("")
+
     notes = (ind.get("notes") or "").strip()
     if notes:
         lines.append("## Notes")
         lines.append("")
         lines.append(notes)
+        lines.append("")
+
+    sidecar = artifact.notes or {}
+    editor_note = _editor_note_block(sidecar.get("editor_note_md"))
+    if editor_note:
+        lines.append("## Editor's note")
+        lines.append("")
+        lines.extend(editor_note)
+        lines.append("")
+
+    policy_ctx = _policy_context_bullets(sidecar.get("policy_context") or [])
+    if policy_ctx:
+        lines.append("## Policy context")
+        lines.append("")
+        lines.extend(policy_ctx)
+        lines.append("")
+
+    related = _related_bullets(sidecar.get("related") or [], artifact.topic)
+    if related:
+        lines.append("## Related indicators")
+        lines.append("")
+        lines.extend(related)
         lines.append("")
 
     src = _sources_bullets(doc.get("sources") or [])

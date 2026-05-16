@@ -4,7 +4,7 @@
 
 **Title**: Consumer Price Index — Industrial Workers (annual average, spliced)  
 **One-line**: CPI for Industrial Workers (CPI-IW) — annual average from FY 1993-94 onwards in this series, the deepest continuous CPI India publishes.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/national_cpi_iw_index_annual.json`](../../../../datasets/indicators/in/prices/national_cpi_iw_index_annual.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 37, 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Consumer Price Index — Industrial Workers (annual average, spliced)*. Re-published by yen-gov as `prices/national_cpi_iw_index_annual`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Consumer Price Index — Industrial Workers (annual average, spliced)*. Re-published by yen-gov as `prices/national_cpi_iw_index_annual`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/prices/national_cpi_iw_index_annual.json`](../../../../datasets/indicators/in/prices/national_cpi_iw_index_annual.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/prices/national_cpi_iw_index_annual.json`](../../../../datasets/indicators/in/prices/national_cpi_iw_index_annual.json)

@@ -228,6 +228,8 @@ def test_render_includes_indicators_and_state_first(tmp_path: Path) -> None:
     assert md.startswith("# Data Inventory\n")
     assert "## 1. Indicators" in md
     assert "`fiscal/national_x`" in md
+    # Phase 2: id cell links to the per-indicator page.
+    assert "[`fiscal/national_x`](indicators/fiscal/national_x.md)" in md
     # 7/7 for the all-7 bucket case.
     assert "7/7" in md
     assert "## 2a. Elections \u2014 coverage depth (state-first)" in md

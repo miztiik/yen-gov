@@ -4,7 +4,7 @@
 
 **Title**: Primary deficit (Union Government)  
 **One-line**: Gross fiscal deficit minus interest payments.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/union_primary_deficit.json`](../../../../datasets/indicators/in/fiscal/union_primary_deficit.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Source: RBI Handbook of Statistics on Indian Economy, Table 89, column 'Gross Pr
 
 ## Citation
 
-> www.rbi.org.in, *Primary deficit (Union Government)*. Re-published by yen-gov as `fiscal/union_primary_deficit`, schema v1.4. Retrieved 2026-05-14.
+> www.rbi.org.in, *Primary deficit (Union Government)*. Re-published by yen-gov as `fiscal/union_primary_deficit`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/fiscal/union_primary_deficit.json`](../../../../datasets/indicators/in/fiscal/union_primary_deficit.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/union_primary_deficit.json`](../../../../datasets/indicators/in/fiscal/union_primary_deficit.json)

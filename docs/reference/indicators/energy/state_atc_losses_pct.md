@@ -4,7 +4,7 @@
 
 **Title**: Aggregate Technical & Commercial losses (%, by state)  
 **One-line**: Combined technical losses (transmission + distribution heat and ageing-equipment losses) and commercial losses (theft + billing/collection inefficiencies) as a percentage of total energy input to the distribution system.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_atc_losses_pct.json`](../../../../datasets/indicators/in/energy/state_atc_losses_pct.json)
 
 ## Definition
@@ -39,6 +39,23 @@ NITI Aayog ICED state-wise deep-dive API; payload fetched 2026-05-14T07:51:49Z; 
 
 Source: NITI Aayog ICED dashboard, row 'AT&C Losses'. Calculated by PFC. The Government's UDAY targets envisaged AT&C losses below 15% all-India by 2018-19; the actual all-India figure has hovered around 15% since then.
 
+## Editor's note
+
+AT&C losses are the discom-health headline number — they fold technical T&D loss together with billing and collection failure into a single percentage. A state can have low *technical* losses and still post awful AT&C if its billing or collection efficiency is poor; that's why this is best read alongside the billing-efficiency and collection-efficiency siblings rather than alone.
+
+## Policy context
+
+- RDSS (Revamped Distribution Sector Scheme, 2021–FY26, ₹3.04 lakh crore) ties Centre funding for discoms to AT&C-loss reduction trajectories — every state has a notified glide-path target.
+- The earlier UDAY (2015) baked in AT&C targets as MoU commitments; states that took over discom debt (Rajasthan, UP, Bihar, J&K) accepted bond servicing in return for loss-reduction milestones — most missed.
+- Politically: free-power schemes (free agri pumpsets in Punjab/TN/Telangana, free 100–200 units to households in Delhi/Punjab/Karnataka) raise AT&C optically because unmetered free supply is booked as 'loss' until subsidy reimbursement closes the gap.
+
+## Related indicators
+
+- [`energy/state_distribution_billing_efficiency_pct`](state_distribution_billing_efficiency_pct.md)
+- [`energy/state_distribution_collection_efficiency_pct`](state_distribution_collection_efficiency_pct.md)
+- [`energy/state_distribution_td_loss_pct`](state_distribution_td_loss_pct.md)
+- [`energy/state_acs_arr_gap_inr_per_kwh`](state_acs_arr_gap_inr_per_kwh.md)
+
 ## Sources
 
 - <https://iced.niti.gov.in/analytics/state-wise-deep-dive> — iced.niti.gov.in (fetched 2026-05-14T07:51:49Z)
@@ -49,8 +66,8 @@ Source: NITI Aayog ICED dashboard, row 'AT&C Losses'. Calculated by PFC. The Gov
 
 ## Citation
 
-> iced.niti.gov.in, *Aggregate Technical & Commercial losses (%, by state)*. Re-published by yen-gov as `energy/state_atc_losses_pct`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Aggregate Technical & Commercial losses (%, by state)*. Re-published by yen-gov as `energy/state_atc_losses_pct`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_atc_losses_pct.json`](../../../../datasets/indicators/in/energy/state_atc_losses_pct.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_atc_losses_pct.json`](../../../../datasets/indicators/in/energy/state_atc_losses_pct.json)

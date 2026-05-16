@@ -32,7 +32,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 def _minimal_artifact(**overrides) -> IndicatorArtifact:
     doc = {
         "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-        "$schema_version": "1.4",
+        "$schema_version": "1.5",
         "sources": [
             {"url": "https://example.gov.in/data.csv", "fetched_at": "2026-05-15T00:00:00Z"}
         ],
@@ -98,7 +98,7 @@ def test_render_page_includes_required_sections() -> None:
     assert "Government of India Open Data License" in out
     # Citation block
     assert "## Citation" in out
-    assert "schema v1.4" in out
+    assert "schema v1.5" in out
     # Schema footer
     assert "## Schema" in out
 
@@ -115,6 +115,11 @@ def test_render_page_omits_empty_sections_for_missing_fields() -> None:
     assert "## Methodology vintage" not in out
     assert "## Series breaks" not in out
     assert "## Notes" not in out
+    # Schema v1.5 governance sections also omit when absent
+    assert "## Revision tier" not in out
+    assert "## Denominator" not in out
+    assert "## What's NOT counted" not in out
+    assert "## Renderer rules" not in out
     # No two consecutive blank H2 headings (defence-in-depth)
     assert "##  ##" not in out
 
@@ -133,7 +138,36 @@ def test_render_page_includes_methodology_and_breaks_when_present() -> None:
     assert "Renderer guard" in out
 
 
-def test_iter_artifacts_skips_notes_sidecars(tmp_path: Path) -> None:
+def test_render_page_includes_v15_governance_fields_when_present() -> None:
+    """Schema v1.5 (Hans) fields render when populated; absent ⇒ no headings."""
+    art = _minimal_artifact()
+    art.doc["indicator"]["revision_tier_by_period"] = [
+        {"from": "2024-04", "tier": "RE", "note": "Revised Estimate"},
+        {"from": "2025-04", "tier": "BE"},
+    ]
+    art.doc["indicator"]["denominator"] = {
+        "what": "GSDP",
+        "price_basis": "current",
+        "base_year": "2011-12",
+    }
+    art.doc["indicator"]["excludes"] = [
+        "IGNOAPS / IGNWPS social pensions excluded",
+        "State pension fund contributions excluded",
+    ]
+    art.doc["indicator"]["renderer_rules"] = ["no_growth_across_break"]
+    out = render_page(art)
+    assert "## Revision tier (by period)" in out
+    assert "| `2024-04` | `RE` | Revised Estimate |" in out
+    assert "## Denominator" in out
+    assert "| what | `GSDP` |" in out
+    assert "## What's NOT counted" in out
+    assert "- IGNOAPS / IGNWPS social pensions excluded" in out
+    assert "## Renderer rules" in out
+    assert "- `no_growth_across_break`" in out
+
+
+def test_iter_artifacts_loads_notes_sidecar(tmp_path: Path) -> None:
+    """Sidecar is consumed via IndicatorArtifact.notes, NOT as a standalone artifact."""
     base = tmp_path / "datasets" / "indicators" / "in" / "energy"
     base.mkdir(parents=True)
     (base / "real.json").write_text(
@@ -146,10 +180,69 @@ def test_iter_artifacts_skips_notes_sidecars(tmp_path: Path) -> None:
         ),
         encoding="utf-8",
     )
-    (base / "real.notes.json").write_text(json.dumps({"related": []}), encoding="utf-8")
+    (base / "real.notes.json").write_text(
+        json.dumps(
+            {
+                "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
+                "$schema_version": "1.0",
+                "for": "real.json",
+                "related": ["energy/peer"],
+                "editor_note_md": "A short note.",
+                "policy_context": ["Some debate."],
+            }
+        ),
+        encoding="utf-8",
+    )
     found = list(iter_indicator_artifacts(tmp_path))
     assert len(found) == 1
     assert found[0].basename == "real"
+    assert found[0].notes is not None
+    assert found[0].notes["related"] == ["energy/peer"]
+    assert found[0].notes["editor_note_md"] == "A short note."
+
+
+def test_render_page_includes_sidecar_sections_when_present() -> None:
+    """indicator-notes 1.0 sidecar drives Related / Editor's note / Policy context."""
+    art = IndicatorArtifact(
+        path_rel="datasets/indicators/in/energy/test_indicator.json",
+        topic="energy",
+        basename="test_indicator",
+        doc=_minimal_artifact().doc,
+        notes={
+            "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
+            "$schema_version": "1.0",
+            "for": "test_indicator.json",
+            "related": [
+                "energy/peer_same_topic",
+                "fiscal/peer_other_topic",
+            ],
+            "editor_note_md": "Pair this with the constant-prices sibling.",
+            "policy_context": [
+                "Old Pension Scheme restoration debate.",
+                "15th FC award window: FY21 → FY26.",
+            ],
+        },
+    )
+    out = render_page(art)
+    # Editor's note: human voice, free-form md
+    assert "## Editor's note" in out
+    assert "Pair this with the constant-prices sibling." in out
+    # Policy context bullets
+    assert "## Policy context" in out
+    assert "- Old Pension Scheme restoration debate." in out
+    assert "- 15th FC award window: FY21 → FY26." in out
+    # Related: same-topic peer collapses to bare basename, cross-topic uses ../
+    assert "## Related indicators" in out
+    assert "- [`energy/peer_same_topic`](peer_same_topic.md)" in out
+    assert "- [`fiscal/peer_other_topic`](../fiscal/peer_other_topic.md)" in out
+
+
+def test_render_page_omits_sidecar_sections_when_absent() -> None:
+    art = _minimal_artifact()  # notes defaults to None
+    out = render_page(art)
+    assert "## Editor's note" not in out
+    assert "## Policy context" not in out
+    assert "## Related indicators" not in out
 
 
 def test_write_pages_against_real_datasets() -> None:

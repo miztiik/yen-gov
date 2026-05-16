@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.4",
+  "$schema_version": "1.5",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/20_ST2301202696AC652FC4CE482EAAD928FC544CD86A.XLSX",
@@ -26,15 +26,18 @@
     "id": "fiscal/outstanding_debt_pct_gsdp",
     "title": "Outstanding liabilities (% of GSDP)",
     "description": "Stock of state-government debt outstanding at the end of each fiscal year, expressed as a share of Gross State Domestic Product. Includes loans and public-account liabilities. Higher values mean a larger debt burden relative to the state's economic base. The FRBM Act 2003 imposed the first hard ceilings on state debt; pre-2003 series used different consolidation rules.",
-    "entity_kind": "state",
-    "time_grain": "fiscal_year",
-    "value_kind": "share",
-    "direction": "lower_is_better",
     "scale_hint": "linear",
     "unit": "%",
+    "denominator": {
+      "what": "GSDP at current prices",
+      "price_basis": "current",
+      "source_artifact": "economy/state_gdp_current_inr_lakh_crore",
+      "note": "Each state's own MoSPI base year — sub-1pp YoY moves are inside the noise band"
+    },
+    "notes": "Source: RBI 'State Finances: A Study of Budgets', Statement 20 (Total Outstanding Liabilities — As per cent of GSDP). The latest two periods are the State governments' Revised Estimates (RE) and Budget Estimates (BE); earlier periods are Accounts data. Telangana's series begins in 2014-15 (state formation) — pre-2014 cells are intentionally null.",
     "icon": "landmark",
     "attribution_geography": "where_administered",
-    "comparability": "comparable_across_states",
+    "comparability": "comparable_across_states_and_time",
     "funding_split": {
       "centre_pct": 0,
       "state_pct": 100,
@@ -42,7 +45,14 @@
     },
     "implementing_authority": "state",
     "methodology_vintage": "RBI State Finances: A Study of Budgets, fetched 2026-05-11T15:18:58Z",
-    "notes": "Source: RBI 'State Finances: A Study of Budgets', Statement 20 (Total Outstanding Liabilities — As per cent of GSDP). The latest two periods are the State governments' Revised Estimates (RE) and Budget Estimates (BE); earlier periods are Accounts data. Telangana's series begins in 2014-15 (state formation) — pre-2014 cells are intentionally null."
+    "excludes": [
+      "Off-budget borrowings excluded — captures consolidated debt as reported by RBI, not the wider 'extended debt' some states carry",
+      "PSU debt excluded unless explicitly guaranteed by the state government"
+    ],
+    "value_kind": "share",
+    "time_grain": "fiscal_year",
+    "entity_kind": "state",
+    "direction": "lower_is_better"
   },
   "rows": [
     {

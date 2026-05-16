@@ -4,7 +4,7 @@
 
 **Title**: Gross fiscal deficit (Union Government)  
 **One-line**: The Union (Central) Government's own borrowing requirement in each fiscal year.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json`](../../../../datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json)
 
 ## Definition
@@ -39,6 +39,23 @@ RBI Handbook of Statistics on Indian Economy, Table 89 (Key Deficit Indicators o
 
 Source: RBI Handbook of Statistics on Indian Economy, Table 89 (Key Deficit Indicators of the Central Government), column 'Gross Fiscal Deficit'. Values are nominal Rs Crore (1 Crore = 10 million); NOT inflation-adjusted, so the historical curve reflects price level changes as much as real fiscal stress. The latest two fiscal years are typically RE (Revised Estimate) / BE (Budget Estimate) — read with appropriate caution. Coverage starts FY1986-87 in the 2024-25 edition. The RBI workbook also reports Net Fiscal Deficit, Net Primary Deficit, Drawdown of Cash Balances, and Net RBI Credit on the same sheet; those are intentionally not ingested here.
 
+## Editor's note
+
+This is the headline 'fiscal deficit' number that dominates Budget commentary every February. Read it together with `union_primary_deficit` (which strips out interest payments) to separate *new* borrowing from *legacy debt servicing* — primary deficit is the cleaner read on the current government's fiscal stance. The two latest fiscal years are RE/BE (Revised/Budget Estimates) per RBI's footnote, not actuals.
+
+## Policy context
+
+- FRBM Act (2003, amended 2018) sets a Centre fiscal-deficit glide-path target of 3% of GDP. The act has been suspended via 'escape clauses' through every crisis (2008 GFC, 2020 COVID); the post-COVID glide path targets 4.5% by FY26 — the only credible near-term anchor.
+- Pandemic FY21 saw the largest single-year jump on record (~9.2% of GDP) — visible as a sharp spike. The post-COVID consolidation since FY22 has been faster than any major economy's, driven mainly by buoyant direct-tax receipts and nominal-GDP growth, not expenditure compression.
+- Compare against `fiscal/states_combined_gross_fiscal_deficit` to see the centre-vs-states fiscal symmetry — combined general-government deficit (Centre + states, net of intergovernmental flows) is the number IMF and rating agencies actually track when assessing India's sovereign credit.
+
+## Related indicators
+
+- [`fiscal/union_primary_deficit`](union_primary_deficit.md)
+- [`fiscal/union_revenue_deficit`](union_revenue_deficit.md)
+- [`fiscal/union_primary_revenue_deficit`](union_primary_revenue_deficit.md)
+- [`fiscal/states_combined_gross_fiscal_deficit`](states_combined_gross_fiscal_deficit.md)
+
 ## Sources
 
 - <https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy> — www.rbi.org.in (fetched 2026-05-14T20:59:30Z)
@@ -49,8 +66,8 @@ Source: RBI Handbook of Statistics on Indian Economy, Table 89 (Key Deficit Indi
 
 ## Citation
 
-> www.rbi.org.in, *Gross fiscal deficit (Union Government)*. Re-published by yen-gov as `fiscal/union_gross_fiscal_deficit`, schema v1.4. Retrieved 2026-05-14.
+> www.rbi.org.in, *Gross fiscal deficit (Union Government)*. Re-published by yen-gov as `fiscal/union_gross_fiscal_deficit`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json`](../../../../datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json`](../../../../datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json)

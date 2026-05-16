@@ -4,7 +4,7 @@
 
 **Title**: Installed power-generation capacity (siting basis)  
 **One-line**: Nameplate capacity of power plants physically located within each state.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_mw_by_state.json`](../../../../datasets/indicators/in/energy/installed_mw_by_state.json)
 
 ## Definition
@@ -51,8 +51,8 @@ v1 limitation: rollup is restricted to states already in datasets/reference/in/s
 
 ## Citation
 
-> raw.githubusercontent.com, *Installed power-generation capacity (siting basis)*. Re-published by yen-gov as `energy/installed_mw_by_state`, schema v1.4. Retrieved 2026-05-10.
+> raw.githubusercontent.com, *Installed power-generation capacity (siting basis)*. Re-published by yen-gov as `energy/installed_mw_by_state`, schema v1.5. Retrieved 2026-05-10.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/installed_mw_by_state.json`](../../../../datasets/indicators/in/energy/installed_mw_by_state.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_mw_by_state.json`](../../../../datasets/indicators/in/energy/installed_mw_by_state.json)

@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.4",
+  "$schema_version": "1.5",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/18T_11122025768C98BEB7A5493EA2E2EFFFEDDA7C46.XLSX",

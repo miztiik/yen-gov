@@ -4,7 +4,7 @@
 
 **Title**: Renewable Purchase Obligation compliance (%, by state)  
 **One-line**: Share of the state's regulatory Renewable Purchase Obligation (RPO) target actually met in a given fiscal year, faceted by solar, non-solar, and total.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_rpo_compliance_pct.json`](../../../../datasets/indicators/in/energy/state_rpo_compliance_pct.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Time coverage is thin (FY19–FY21 in current upstream); most useful as a recent
 
 ## Citation
 
-> icedapi.niti.gov.in, *Renewable Purchase Obligation compliance (%, by state)*. Re-published by yen-gov as `energy/state_rpo_compliance_pct`, schema v1.4. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *Renewable Purchase Obligation compliance (%, by state)*. Re-published by yen-gov as `energy/state_rpo_compliance_pct`, schema v1.5. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_rpo_compliance_pct.json`](../../../../datasets/indicators/in/energy/state_rpo_compliance_pct.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_rpo_compliance_pct.json`](../../../../datasets/indicators/in/energy/state_rpo_compliance_pct.json)

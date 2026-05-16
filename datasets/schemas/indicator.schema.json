@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "1.4",
+  "x-version": "1.5",
   "x-changelog": [
     {
       "version": "1.0",
@@ -27,7 +27,11 @@
     {
       "version": "1.4",
       "date": "2026-05-15",
-      "description": "Additive: optional `indicator.facet_labels` map. Lets a facetted indicator (chart_type = stacked-trend, rows[].facet populated) declare the human-readable label per facet value (e.g. {coal: 'Coal', other_thermal: 'Other thermal'}). The frontend stops carrying topic-level hardcoded label literals and reads the labels from the artifact (composer-as-source-of-truth), with a humanise(facet_id) fallback when the field is absent so old artifacts keep rendering. Driven by Phase 4 C2 of TODO/VIZ-LAYER-GAPS-PLAN.md (lift facet labels into the schema). Optional — existing v1.3 artifacts remain valid."    }
+      "description": "Additive: optional `indicator.facet_labels` map. Lets a facetted indicator (chart_type = stacked-trend, rows[].facet populated) declare the human-readable label per facet value (e.g. {coal: 'Coal', other_thermal: 'Other thermal'}). The frontend stops carrying topic-level hardcoded label literals and reads the labels from the artifact (composer-as-source-of-truth), with a humanise(facet_id) fallback when the field is absent so old artifacts keep rendering. Driven by Phase 4 C2 of TODO/VIZ-LAYER-GAPS-PLAN.md (lift facet labels into the schema). Optional — existing v1.3 artifacts remain valid."    },
+    {
+      "version": "1.5",
+      "date": "2026-05-15",
+      "description": "Additive (Hans governance fields per TODO/PER-INDICATOR-DOCS-PLAN.md). (a) `indicator.comparability` enum extended with the 4-level honest ladder: `comparable_across_states_and_time`, `comparable_across_states_snapshot_only`, `comparable_within_state_over_time`, `directional_only`. The old 3 tokens remain valid (deprecated, mapping rule: `comparable_across_states` → `comparable_across_states_and_time`; `comparable_with_normalisation` → splits per artifact into level 2 / 3 / 4 on next touch; `not_comparable_across_states` → `directional_only`). (b) `indicator.denominator` accepts an object form `{what, price_basis, base_year, source_artifact}` in addition to the legacy string form so ratio indicators can declare their normalisation surface; both shapes remain valid. (c) Three new optional indicator fields: `revision_tier_by_period[]` (array of `{from, tier, note?}` so a fiscal artifact can declare per-period RE/BE/A vintage), `excludes[]` (array of citizen-facing what's-NOT-counted bullets, e.g. 'IGNOAPS social pensions'), `renderer_rules[]` (array of slug strings from a controlled vocabulary, e.g. 'no_growth_across_break'). All v1.4 artifacts remain valid; backfill is opt-in per artifact."    }
   ],
   "type": "object",
   "required": [
@@ -130,8 +134,23 @@
           "description": "Unit string (e.g. \"MW\", \"INR (crore)\", \"per 100k\", \"%\", \"years\"). For `share`, use \"%\" or \"share\" to disambiguate display."
         },
         "denominator": {
-          "type": ["string", "null"],
-          "description": "When this indicator is itself a derived per-X rate, the indicator id of the denominator (e.g. \"people/population_total\"). Null for raw indicators."
+          "description": "When this indicator is itself a derived per-X rate, declares the normalisation surface. v1.0–v1.4 string form (the indicator id of the denominator, e.g. \"people/population_total\") remains valid. v1.5 object form lets a ratio against a non-indicator denominator (e.g. GSDP at current prices, base 2011-12) be declared without forging a sibling indicator first. `null` for raw indicators.",
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string" },
+            {
+              "type": "object",
+              "required": ["what"],
+              "additionalProperties": false,
+              "properties": {
+                "what":             { "type": "string", "minLength": 1 },
+                "price_basis":      { "enum": ["current", "constant"] },
+                "base_year":        { "type": "string", "pattern": "^\\d{4}(-\\d{2})?$" },
+                "source_artifact":  { "type": "string" },
+                "note":             { "type": "string" }
+              }
+            }
+          ]
         },
         "notes": {
           "type": "string",
@@ -146,8 +165,16 @@
           "description": "What the entity_id geographically represents. `where_produced`: asset is sited in this state but may serve a region (e.g. installed power capacity). `where_consumed`: end-use happens in this state (e.g. per-capita electricity consumption). `where_billed`: financial/billing residence (e.g. GST collection). `where_resident`: persons resident in the state (e.g. population, NFHS). `where_administered`: administrative jurisdiction regardless of where the activity happens (e.g. cases filed in state HC). When this is `where_produced` or `where_billed`, the chart MUST surface a citizen-facing banner clarifying that the map shows siting/billing, not service. Per Governance review 2026-05-11."
         },
         "comparability": {
-          "enum": ["comparable_across_states", "comparable_with_normalisation", "not_comparable_across_states"],
-          "description": "Honest declaration of whether ranking states by this indicator's raw value is meaningful. `comparable_with_normalisation` should pair with a populated `denominator` (per-capita, per-area, share-of-total). `not_comparable_across_states` triggers a banner suppressing rank-table views and labels the choropleth as 'illustrative, not a ranking'. Per Governance review 2026-05-11 \u2014 the canonical example is the v1.0 'installed MW by state' artifact, which is a siting statistic, not a service statistic."
+          "enum": [
+            "comparable_across_states",
+            "comparable_with_normalisation",
+            "not_comparable_across_states",
+            "comparable_across_states_and_time",
+            "comparable_across_states_snapshot_only",
+            "comparable_within_state_over_time",
+            "directional_only"
+          ],
+          "description": "Honest declaration of whether ranking states by this indicator's raw value is meaningful. v1.5 4-level ladder (preferred): `comparable_across_states_and_time` (rank states AND trace trends), `comparable_across_states_snapshot_only` (rank states today; do NOT trace trends — e.g. HDI 2011 vs 2017 base shifts), `comparable_within_state_over_time` (trace one state; do NOT rank states), `directional_only` (read direction-of-change only — e.g. WPI across multiple base splices). v1.0–v1.4 tokens kept valid for back-compat: `comparable_across_states` ≡ `comparable_across_states_and_time`; `not_comparable_across_states` ≡ `directional_only`; `comparable_with_normalisation` should be replaced per-artifact with one of the 4 new tokens on next touch. Renderer behaviour: `directional_only` (and the deprecated `not_comparable_across_states`) suppress rank-table views and label the choropleth as 'illustrative, not a ranking'. Per Governance review 2026-05-11 + Hans plan 2026-05-15."
         },
         "funding_split": {
           "type": "object",
@@ -181,6 +208,30 @@
           "type": "object",
           "description": "Optional map from a `rows[].facet` value to its human-readable label (e.g. {\"coal\": \"Coal\", \"other_thermal\": \"Other thermal\"}). Populated by the composer for facetted indicators so the frontend does not have to carry topic-level hardcoded label literals. When absent, the renderer falls back to humanise(facet_id) (snake_case to Title Case). Per Phase 4 C2 of TODO/VIZ-LAYER-GAPS-PLAN.md.",
           "additionalProperties": { "type": "string", "minLength": 1 }
+        },
+        "revision_tier_by_period": {
+          "type": "array",
+          "description": "Optional v1.5 (Hans) field. Declares the upstream revision tier active over a contiguous period of the series — e.g. fiscal data published as Budget Estimate (BE), Revised Estimate (RE), or Actual (A). Distinct from `rows[].vintage` (per-row label): this field is the period-level governance contract that lets the renderer disclose 'recent FY values are still BE; the trend you see WILL revise'. Per Hans plan 2026-05-15.",
+          "items": {
+            "type": "object",
+            "required": ["from", "tier"],
+            "additionalProperties": false,
+            "properties": {
+              "from": { "type": "string", "pattern": "^\\d{4}(-\\d{2})?$" },
+              "tier": { "type": "string", "minLength": 1 },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "excludes": {
+          "type": "array",
+          "description": "Optional v1.5 (Hans) field. Citizen-facing what's-NOT-counted bullets the renderer surfaces inline on the indicator card and on its docs page. Examples: 'IGNOAPS / IGNWPS social pensions excluded' (state pension expenditure); 'rural housing not collected by NSO' (housing CPI). Critical for honest reading: a citizen-readable indicator name often implies more than the source actually measures. Per Hans plan 2026-05-15.",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "renderer_rules": {
+          "type": "array",
+          "description": "Optional v1.5 (Hans) field. Slug-strings from a controlled vocabulary (sibling reference doc; TBD) that bind renderer behaviour to the indicator's data shape. Examples (provisional vocabulary): 'no_growth_across_break' (refuse to compute YoY growth that spans a series_break), 'mask_be_in_long_view' (visually distinguish BE periods from A periods), 'force_per_capita_choropleth' (block raw-magnitude choropleth for a not-comparable raw count). Per Hans plan 2026-05-15.",
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
         },
         "series_breaks": {
           "type": "array",

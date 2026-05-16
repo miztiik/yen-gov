@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.4",
+  "$schema_version": "1.5",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
@@ -24,17 +24,23 @@
     "id": "economy/state_per_capita_nsdp_current_inr",
     "title": "State per-capita Net State Domestic Product (current prices)",
     "description": "Net State Domestic Product (NSDP) per person, in current prices. Sourced from NITI Aayog ICED dashboard (state-wise deep-dive), originally compiled by MoSPI from State DES estimates. Per-capita NSDP is the standard income comparator across states; constant-price series strips out inflation for real growth comparisons.",
-    "entity_kind": "state",
-    "time_grain": "fiscal_year",
-    "value_kind": "currency",
-    "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "INR",
+    "denominator": {
+      "what": "state mid-year population (MoSPI / RGI)",
+      "price_basis": "current",
+      "source_artifact": "demography/state_population_lakhs",
+      "note": "Per-capita = NSDP ÷ state mid-year population estimate"
+    },
     "icon": "trending-up",
     "attribution_geography": "where_resident",
-    "comparability": "comparable_across_states",
+    "comparability": "comparable_across_states_and_time",
     "implementing_authority": "state",
-    "methodology_vintage": "MoSPI / State DES; NSDP per-capita series"
+    "methodology_vintage": "MoSPI / State DES; NSDP per-capita series",
+    "value_kind": "currency",
+    "time_grain": "fiscal_year",
+    "entity_kind": "state",
+    "direction": "higher_is_better"
   },
   "rows": [
     {

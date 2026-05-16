@@ -4,7 +4,7 @@
 
 **Title**: State-wise power requirement (MU)  
 **One-line**: Annual energy requirement assessed by the state (MU = million units = GWh), fiscal year — the demand-side counterpart to Availability (T139).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_power_requirement_mu.json`](../../../../datasets/indicators/in/energy/state_power_requirement_mu.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 141. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise power requirement (MU)*. Re-published by yen-gov as `energy/state_power_requirement_mu`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise power requirement (MU)*. Re-published by yen-gov as `energy/state_power_requirement_mu`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_power_requirement_mu.json`](../../../../datasets/indicators/in/energy/state_power_requirement_mu.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_power_requirement_mu.json`](../../../../datasets/indicators/in/energy/state_power_requirement_mu.json)

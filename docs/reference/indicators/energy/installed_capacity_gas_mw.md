@@ -4,7 +4,7 @@
 
 **Title**: Installed gas-based capacity  
 **One-line**: Natural-gas-based thermal capacity in megawatts, per state.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_gas_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_gas_mw.json)
 
 ## Definition
@@ -49,8 +49,8 @@ About 4% of all-India installed capacity but a much smaller share of generation 
 
 ## Citation
 
-> cea.nic.in, *Installed gas-based capacity*. Re-published by yen-gov as `energy/installed_capacity_gas_mw`, schema v1.4. Retrieved 2026-05-13.
+> cea.nic.in, *Installed gas-based capacity*. Re-published by yen-gov as `energy/installed_capacity_gas_mw`, schema v1.5. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/installed_capacity_gas_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_gas_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_gas_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_gas_mw.json)

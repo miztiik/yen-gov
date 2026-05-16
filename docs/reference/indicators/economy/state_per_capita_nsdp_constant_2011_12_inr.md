@@ -4,7 +4,7 @@
 
 **Title**: State per-capita NSDP, inflation-adjusted (₹ per person per year)  
 **One-line**: Net State Domestic Product per person at constant 2011-12 prices.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json)
 
 ## Definition
@@ -20,7 +20,7 @@ Net State Domestic Product per person at constant 2011-12 prices. This is the in
 | Value kind | `currency` |
 | Unit | `INR` |
 | Direction | `higher_is_better` |
-| Comparability | `comparable_across_states` |
+| Comparability | `comparable_across_states_and_time` |
 | Attribution geography | `where_resident` |
 | Implementing authority | `joint` |
 | Scale hint | `linear` |
@@ -34,6 +34,16 @@ Net State Domestic Product per person at constant 2011-12 prices. This is the in
 ## Methodology vintage
 
 NSDP base 2011-12 (CSO re-spliced from 2004-05 base around 2014)
+
+## Denominator
+
+| field | value |
+| --- | --- |
+| what | `state mid-year population (MoSPI / RGI)` |
+| price_basis | `constant` |
+| base_year | `2011-12` |
+| source_artifact | `demography/state_population_lakhs` |
+| note | `Per-capita = NSDP ÷ state mid-year population estimate` |
 
 ## Notes
 
@@ -49,8 +59,8 @@ Adjusted for inflation, base year 2011-12. CSO re-spliced the series from a 2004
 
 ## Citation
 
-> icedapi.niti.gov.in, *State per-capita NSDP, inflation-adjusted (₹ per person per year)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_constant_2011_12_inr`, schema v1.4. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State per-capita NSDP, inflation-adjusted (₹ per person per year)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_constant_2011_12_inr`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json)

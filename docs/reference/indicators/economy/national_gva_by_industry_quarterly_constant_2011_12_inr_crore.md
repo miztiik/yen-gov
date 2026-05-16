@@ -4,7 +4,7 @@
 
 **Title**: National Gross Value Added by industry, constant 2011-12 prices (quarterly)  
 **One-line**: Quarterly Gross Value Added by 17-industry tier at constant 2011-12 prices.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Values are in ₹ crore at 2011-12 prices — comparable across years (real grow
 
 ## Citation
 
-> www.data.gov.in, *National Gross Value Added by industry, constant 2011-12 prices (quarterly)*. Re-published by yen-gov as `economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore`, schema v1.4. Retrieved 2026-05-14.
+> www.data.gov.in, *National Gross Value Added by industry, constant 2011-12 prices (quarterly)*. Re-published by yen-gov as `economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json)

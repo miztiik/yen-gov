@@ -4,7 +4,7 @@
 
 **Title**: State peak electricity demand (MW, latest year snapshot)  
 **One-line**: Per-state peak instantaneous electricity demand met during the most recent fiscal year.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_peak_electricity_demand_mw.json`](../../../../datasets/indicators/in/energy/state_peak_electricity_demand_mw.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Single-year snapshot. Larger states will read higher even when per-capita demand
 
 ## Citation
 
-> icedapi.niti.gov.in, *State peak electricity demand (MW, latest year snapshot)*. Re-published by yen-gov as `energy/state_peak_electricity_demand_mw`, schema v1.4. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State peak electricity demand (MW, latest year snapshot)*. Re-published by yen-gov as `energy/state_peak_electricity_demand_mw`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_peak_electricity_demand_mw.json`](../../../../datasets/indicators/in/energy/state_peak_electricity_demand_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_peak_electricity_demand_mw.json`](../../../../datasets/indicators/in/energy/state_peak_electricity_demand_mw.json)

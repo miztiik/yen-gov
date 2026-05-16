@@ -4,7 +4,7 @@
 
 **Title**: Centre transfers to states (gross)  
 **One-line**: Gross transfers from the Central Government to each State / Union Territory in a fiscal year, computed as the sum of (a) the state's share in central taxes (Finance Commission devolution) and (b) Grants-in-Aid (Finance Commission grants + centrally-sponsored scheme grants + special-purpose transfers).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/centre_transfers_gross.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_gross.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Source: data.gov.in OGD resource 1f2e77f0-6742-4671-ae29-8836d2110a5c, populated
 
 ## Citation
 
-> www.data.gov.in, *Centre transfers to states (gross)*. Re-published by yen-gov as `fiscal/centre_transfers_gross`, schema v1.4. Retrieved 2026-05-13.
+> www.data.gov.in, *Centre transfers to states (gross)*. Re-published by yen-gov as `fiscal/centre_transfers_gross`, schema v1.5. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/fiscal/centre_transfers_gross.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_gross.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/centre_transfers_gross.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_gross.json)

@@ -4,7 +4,7 @@
 
 **Title**: Installed renewable capacity (RES MNRE)  
 **One-line**: Renewable capacity reported by MNRE (Ministry of New & Renewable Energy) and republished by CEA in the IC sheet's RES* (MNRE) column: solar (ground-mounted + rooftop + hybrid + off-grid + KUSUM) + wind + small hydro + biomass + waste-to-energy, in megawatts per state.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_renewable_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_renewable_mw.json)
 
 ## Definition
@@ -39,6 +39,24 @@ CEA Monthly Executive Summary, IC sheet, snapshot 2026-03; cached file mtime 202
 
 Excludes large hydro (which has its own column / indicator). Includes small hydro (≤25 MW). From August 2021 onwards CEA also includes off-grid RES capacity in this column. Source: CEA monthly Executive Summary, 'IC' sheet, per-state Sub-Total row (sum of State + Private + Central ownership tiers, including allocated shares from joint and central-sector utilities). Snapshot is point-in-time as of the last day of the report month — NOT a year-average. Capacity is **nameplate** MW, not generation; a state with high coal capacity isn't necessarily a high coal-generation state if those plants run at low PLF. Two CEA-reported entities are intentionally dropped: 'NLC' (a central PSU on the Tamil Nadu list) and 'DVC' (a central corporation on the West Bengal list) — their capacity is not state-attributable. 'Central - Unallocated' shares are also dropped for the same reason. CEA bundles 'Jammu & Kashmir and Ladakh' into a single row; the combined capacity is attributed to U08 (J&K UT) — the alternative would require a fabrication split. The Andaman & Nicobar (U01) and Lakshadweep (U04) entries in the Islands region are tiny but real.
 
+## Editor's note
+
+MNRE's 'renewable' bucket here includes solar, wind, small-hydro (≤25 MW), biomass and waste-to-energy — but **excludes** large hydro, which CEA classifies separately even though it is renewable in the climate sense. India's headline 'non-fossil' target (50% by 2030) uses the broader CEA non-fossil definition (renewable + large hydro + nuclear), so this number alone always understates the climate-aligned share by 10–12 GW of large hydro.
+
+## Policy context
+
+- 500 GW non-fossil capacity by 2030 — Modi's Glasgow COP26 commitment, restated in India's updated NDC. Of that, ~280 GW is targeted as solar; this artifact is the most-watched leading indicator of whether India is on track.
+- Solar tariffs hit ₹1.99/kWh in 2020 (Gujarat auction) and the trajectory since has been ~₹2.5–3.0/kWh — cheaper than new coal on LCOE, which is why even coal-heavy states (Chhattisgarh, MP, Jharkhand) are auctioning solar.
+- PLI for solar PV manufacturing (~₹24,000 cr, 2021 + 2023 tranches) and the BCD on imported modules (40% from FY23) are the supply-side levers; the demand-side levers are PM-KUSUM (agri solarisation) and the rooftop subsidy under PM Surya Ghar (Feb 2024).
+
+## Related indicators
+
+- [`energy/installed_capacity_by_source_mw`](installed_capacity_by_source_mw.md)
+- [`energy/state_renewable_grid_capacity_mw`](state_renewable_grid_capacity_mw.md)
+- [`energy/state_rooftop_solar_capacity_mw`](state_rooftop_solar_capacity_mw.md)
+- [`energy/state_rpo_compliance_pct`](state_rpo_compliance_pct.md)
+- [`environment/india_ghg_emissions_by_subsector_ggco2e`](../environment/india_ghg_emissions_by_subsector_ggco2e.md)
+
 ## Sources
 
 - <https://cea.nic.in/installed-capacity-report/?lang=en> — cea.nic.in (fetched 2026-05-13T21:54:16Z)
@@ -49,8 +67,8 @@ Excludes large hydro (which has its own column / indicator). Includes small hydr
 
 ## Citation
 
-> cea.nic.in, *Installed renewable capacity (RES MNRE)*. Re-published by yen-gov as `energy/installed_capacity_renewable_mw`, schema v1.4. Retrieved 2026-05-13.
+> cea.nic.in, *Installed renewable capacity (RES MNRE)*. Re-published by yen-gov as `energy/installed_capacity_renewable_mw`, schema v1.5. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/installed_capacity_renewable_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_renewable_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_renewable_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_renewable_mw.json)

@@ -4,7 +4,7 @@
 
 **Title**: State pension expenditure (revenue account)  
 **One-line**: Annual state-government pension expenditure (revenue account, ₹ Crore) from FY 2004-05 onwards.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)
 
 ## Definition
@@ -35,9 +35,39 @@ Annual state-government pension expenditure (revenue account, ₹ Crore) from FY
 
 RBI Handbook 2024-25 edition
 
+## Revision tier (by period)
+
+| from | tier | note |
+| --- | --- | --- |
+| `2022-04` | `A` | Actual (audited) |
+| `2023-04` | `RE` | Revised Estimate — will be revised to Actual in the next HBS-IS edition |
+| `2024-04` | `BE` | Budget Estimate — citizen should treat as plan, not outturn |
+
+## What's NOT counted
+
+- IGNOAPS / IGNWPS social pensions excluded — these are central social-security transfers, not state-employer pensions
+- NPS contribution flows excluded — captures only pre-NPS-hire defined-benefit retirement and family pensions
+- State pension fund corpus contributions excluded — measures actual paid pensions, not actuarial accruals
+
 ## Notes
 
 Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 171. Suffix codes in column headers — '(A)' = Actuals, '(RE)' = Revised Estimates, '(BE)' = Budget Estimates — are stripped at parse time but the underlying revision tier should be considered when comparing FY24/FY25 with earlier years.
+
+## Editor's note
+
+Pension is a *committed* revenue expenditure — the state cannot defer it without legal reform. As a share of own-tax revenue (divide by `state_own_tax_revenue_inr_crore`) this number is the cleanest read on how much fiscal room a state has for discretionary spending after meeting salaries, pensions and interest.
+
+## Policy context
+
+- Old Pension Scheme (OPS) restoration: Rajasthan (Mar 2022), Chhattisgarh, Jharkhand, Punjab and Himachal Pradesh have announced reversion to the pre-2004 defined-benefit OPS for state employees. Their pension liability trajectories will diverge sharply from NPS-cohort states over the next 15–20 years — RBI flagged this as a 'looming risk' in its 2023 State Finances report.
+- NPS (National Pension System) has been the default for Centre and most state employees joining after 2004; the contribution is on-budget and capped, so NPS-state pension lines should grow more slowly than OPS-state lines once the post-2004 cohort matures.
+- 7th Pay Commission revisions (2016) and equivalent state pay-commissions caused a one-time level shift across all states — visible as a step in FY17/FY18 on every state's pension line.
+
+## Related indicators
+
+- [`fiscal/state_revenue_expenditure_inr_crore`](state_revenue_expenditure_inr_crore.md)
+- [`fiscal/state_own_tax_revenue_inr_crore`](state_own_tax_revenue_inr_crore.md)
+- [`fiscal/outstanding_debt_pct_gsdp`](outstanding_debt_pct_gsdp.md)
 
 ## Sources
 
@@ -50,8 +80,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 171. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State pension expenditure (revenue account)*. Re-published by yen-gov as `fiscal/state_pension_expenditure_inr_crore`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State pension expenditure (revenue account)*. Re-published by yen-gov as `fiscal/state_pension_expenditure_inr_crore`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)

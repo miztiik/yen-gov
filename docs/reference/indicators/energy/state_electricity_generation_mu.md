@@ -4,7 +4,7 @@
 
 **Title**: Annual electricity generation (by state)  
 **One-line**: Gross electricity generated in the state during the fiscal year, in million units (MU = GWh).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_electricity_generation_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_generation_mu.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'Generation'. Read alongside Installed Ca
 
 ## Citation
 
-> iced.niti.gov.in, *Annual electricity generation (by state)*. Re-published by yen-gov as `energy/state_electricity_generation_mu`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Annual electricity generation (by state)*. Re-published by yen-gov as `energy/state_electricity_generation_mu`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_electricity_generation_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_generation_mu.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_electricity_generation_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_generation_mu.json)

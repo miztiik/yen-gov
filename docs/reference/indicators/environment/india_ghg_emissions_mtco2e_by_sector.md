@@ -4,7 +4,7 @@
 
 **Title**: India's greenhouse-gas emissions by sector (Gg CO₂-equivalent)  
 **One-line**: National greenhouse-gas emissions broken down by sector (Energy, Industrial Processes & Product Use, Agriculture, Land-Use / Land-Use Change & Forestry, Waste).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json)
 
 ## Definition
@@ -51,8 +51,8 @@ National total only — sub-national emissions accounting does not exist for Ind
 
 ## Citation
 
-> icedapi.niti.gov.in, *India's greenhouse-gas emissions by sector (Gg CO₂-equivalent)*. Re-published by yen-gov as `environment/india_ghg_emissions_mtco2e_by_sector`, schema v1.4. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India's greenhouse-gas emissions by sector (Gg CO₂-equivalent)*. Re-published by yen-gov as `environment/india_ghg_emissions_mtco2e_by_sector`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json)

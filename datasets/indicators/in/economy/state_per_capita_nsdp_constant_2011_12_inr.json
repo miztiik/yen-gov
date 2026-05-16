@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.4",
+  "$schema_version": "1.5",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/per-capita-income",
@@ -22,18 +22,21 @@
     "id": "economy/state_per_capita_nsdp_constant_2011_12_inr",
     "title": "State per-capita NSDP, inflation-adjusted (₹ per person per year)",
     "description": "Net State Domestic Product per person at constant 2011-12 prices. This is the inflation-adjusted measure of state income — the only honest way to ask 'is my state catching up or falling behind' across years. The current-price companion indicator (state_per_capita_nsdp_current_inr) gives the same data without inflation adjustment, useful only for comparing states within a single year.",
-    "entity_kind": "state",
-    "time_grain": "fiscal_year",
-    "value_kind": "currency",
-    "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "INR",
+    "denominator": {
+      "what": "state mid-year population (MoSPI / RGI)",
+      "price_basis": "constant",
+      "source_artifact": "demography/state_population_lakhs",
+      "note": "Per-capita = NSDP ÷ state mid-year population estimate",
+      "base_year": "2011-12"
+    },
+    "notes": "Adjusted for inflation, base year 2011-12. CSO re-spliced the series from a 2004-05 base around 2014; treat the join across that boundary as approximate. Andhra Pradesh figures before 2014 include the area now in Telangana; Jammu & Kashmir figures before 2019 include Ladakh.",
     "icon": "trending-up",
     "attribution_geography": "where_resident",
-    "comparability": "comparable_across_states",
+    "comparability": "comparable_across_states_and_time",
     "implementing_authority": "joint",
     "methodology_vintage": "NSDP base 2011-12 (CSO re-spliced from 2004-05 base around 2014)",
-    "notes": "Adjusted for inflation, base year 2011-12. CSO re-spliced the series from a 2004-05 base around 2014; treat the join across that boundary as approximate. Andhra Pradesh figures before 2014 include the area now in Telangana; Jammu & Kashmir figures before 2019 include Ladakh.",
     "series_breaks": [
       {
         "at_time": "2011-04",
@@ -50,7 +53,11 @@
         "kind": "coverage_change",
         "note": "J&K bifurcated into J&K (UT) and Ladakh (UT) on 2019-10-31; pre-2019 J&K rows include Ladakh."
       }
-    ]
+    ],
+    "value_kind": "currency",
+    "time_grain": "fiscal_year",
+    "entity_kind": "state",
+    "direction": "higher_is_better"
   },
   "rows": [
     {

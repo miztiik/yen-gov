@@ -4,7 +4,7 @@
 
 **Title**: Outstanding liabilities (% of GSDP)  
 **One-line**: Stock of state-government debt outstanding at the end of each fiscal year, expressed as a share of Gross State Domestic Product.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json`](../../../../datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json)
 
 ## Definition
@@ -20,7 +20,7 @@ Stock of state-government debt outstanding at the end of each fiscal year, expre
 | Value kind | `share` |
 | Unit | `%` |
 | Direction | `lower_is_better` |
-| Comparability | `comparable_across_states` |
+| Comparability | `comparable_across_states_and_time` |
 | Attribution geography | `where_administered` |
 | Implementing authority | `state` |
 | Scale hint | `linear` |
@@ -35,9 +35,40 @@ Stock of state-government debt outstanding at the end of each fiscal year, expre
 
 RBI State Finances: A Study of Budgets, fetched 2026-05-11T15:18:58Z
 
+## Denominator
+
+| field | value |
+| --- | --- |
+| what | `GSDP at current prices` |
+| price_basis | `current` |
+| source_artifact | `economy/state_gdp_current_inr_lakh_crore` |
+| note | `Each state's own MoSPI base year — sub-1pp YoY moves are inside the noise band` |
+
+## What's NOT counted
+
+- Off-budget borrowings excluded — captures consolidated debt as reported by RBI, not the wider 'extended debt' some states carry
+- PSU debt excluded unless explicitly guaranteed by the state government
+
 ## Notes
 
 Source: RBI 'State Finances: A Study of Budgets', Statement 20 (Total Outstanding Liabilities — As per cent of GSDP). The latest two periods are the State governments' Revised Estimates (RE) and Budget Estimates (BE); earlier periods are Accounts data. Telangana's series begins in 2014-15 (state formation) — pre-2014 cells are intentionally null.
+
+## Editor's note
+
+This is a *ratio*, so movement reflects both numerator (debt stock) and denominator (nominal GSDP) — high inflation can flatter the number even when fresh borrowing is rising. To read pure fiscal stance, pair with `fiscal/states_combined_gross_fiscal_deficit` (the annual flow) rather than relying on this ratio alone.
+
+## Policy context
+
+- FRBM Act (Centre, 2003) and state-level FRBM legislations cap fiscal deficit at 3% of GSDP and target debt/GSDP at 20% by FY25 (15th FC recommendation) — the latter is a target almost no major state will meet.
+- 15th Finance Commission (FY21–FY26) award allowed an additional 0.5% GSDP borrowing window each year tied to power-sector reforms; states like Andhra Pradesh, Punjab, Rajasthan have used it heavily.
+- COVID-era relaxations (FY21 fiscal-deficit ceiling raised to 5%, FY22 to 4%, FY23 to 3.5%) caused a step up in debt-to-GSDP across all states — visible as a kink in FY21 on every state's line.
+- Post-2022 OPS-restoration states (Rajasthan, Chhattisgarh, Jharkhand, Punjab, HP) carry an additional implicit liability not captured in this stock measure, since OPS payouts are pay-as-you-go and only show up as future revenue expenditure.
+
+## Related indicators
+
+- [`fiscal/states_combined_gross_fiscal_deficit`](states_combined_gross_fiscal_deficit.md)
+- [`fiscal/state_external_debt_inr_crore`](state_external_debt_inr_crore.md)
+- [`economy/state_gdp_current_inr_lakh_crore`](../economy/state_gdp_current_inr_lakh_crore.md)
 
 ## Sources
 
@@ -50,8 +81,8 @@ Source: RBI 'State Finances: A Study of Budgets', Statement 20 (Total Outstandin
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Outstanding liabilities (% of GSDP)*. Re-published by yen-gov as `fiscal/outstanding_debt_pct_gsdp`, schema v1.4. Retrieved 2026-05-11.
+> rbidocs.rbi.org.in, *Outstanding liabilities (% of GSDP)*. Re-published by yen-gov as `fiscal/outstanding_debt_pct_gsdp`, schema v1.5. Retrieved 2026-05-11.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json`](../../../../datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json`](../../../../datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json)

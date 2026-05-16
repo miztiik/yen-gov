@@ -4,7 +4,7 @@
 
 **Title**: Wholesale Price Index — All Commodities (annual average, spliced)  
 **One-line**: Wholesale Price Index (All Commodities) — annual average, FY 1974-75 onwards, spliced across MoCI's five base-year revisions (1970-71 / 1981-82 / 1993-94 / 2004-05 / 2011-12).  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json`](../../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json)
 
 ## Definition
@@ -20,7 +20,7 @@ Wholesale Price Index (All Commodities) — annual average, FY 1974-75 onwards, 
 | Value kind | `index` |
 | Unit | `index (rebased)` |
 | Direction | `neutral` |
-| Comparability | `comparable_with_normalisation` |
+| Comparability | `directional_only` |
 | Attribution geography | `where_resident` |
 | Implementing authority | `centre` |
 | Scale hint | `linear` |
@@ -34,6 +34,10 @@ Wholesale Price Index (All Commodities) — annual average, FY 1974-75 onwards, 
 ## Methodology vintage
 
 RBI Handbook 2024-25 edition
+
+## Renderer rules
+
+- `no_growth_across_break`
 
 ## Notes
 
@@ -50,8 +54,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 36. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Wholesale Price Index — All Commodities (annual average, spliced)*. Re-published by yen-gov as `prices/national_wpi_all_commodities_index_annual`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Wholesale Price Index — All Commodities (annual average, spliced)*. Re-published by yen-gov as `prices/national_wpi_all_commodities_index_annual`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json`](../../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json`](../../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json)

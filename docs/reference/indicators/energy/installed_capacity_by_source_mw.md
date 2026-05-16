@@ -4,7 +4,7 @@
 
 **Title**: Installed capacity by source (fuel mix)  
 **One-line**: Installed electricity-generation capacity per state, broken down by fuel source: coal, gas, nuclear, hydro (large), renewable (solar + wind + small hydro + biomass + WtE per MNRE), and a residual 'other_thermal' bucket (lignite + diesel) where applicable.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_by_source_mw.json)
 
 ## Definition
@@ -41,6 +41,24 @@ CEA Monthly Executive Summary, IC sheet, snapshot 2026-03; cached file mtime 202
 
 Composed from the per-fuel CEA artifacts. The residual 'other_thermal' facet is derived as thermal − coal − gas (lignite + diesel); it is dropped per-state when the residual is < 0.1% of that state's total. Capacity is **nameplate** MW, not generation. Read this as 'how is this state's plant fleet composed', not 'where is its electricity coming from this hour' — generation depends on plant load factor and dispatch decisions.
 
+## Editor's note
+
+Read this as *nameplate* capacity, not actual generation — coal still dominates the **electrons delivered** (PLF ~65%) even as solar+wind dominate **MW added** in any recent year. To see what the mix actually generated, pair with `energy/state_electricity_generation_by_source_gwh`; a state can be 50% renewable on this chart and still be coal-fired in practice.
+
+## Policy context
+
+- India's NDC commits to 50% non-fossil installed capacity by 2030 — measured on this surface, not generation. As of 2024 the share is ~46%, so the headline target is essentially in sight; the harder target is the parallel 500 GW non-fossil absolute number.
+- PM-KUSUM, PLI for solar manufacturing, and the Green Energy Corridor inter-state transmission expansion all push the renewable bars up; coal-plant retirements under CEA's National Electricity Plan move the coal bar slowly.
+- The 'others/thermal' residual (lignite + diesel) is shrinking by attrition — diesel sets are mostly captive backup, not grid contributors.
+
+## Related indicators
+
+- [`energy/installed_capacity_coal_mw`](installed_capacity_coal_mw.md)
+- [`energy/installed_capacity_renewable_mw`](installed_capacity_renewable_mw.md)
+- [`energy/state_installed_capacity_by_source_mw`](state_installed_capacity_by_source_mw.md)
+- [`energy/state_electricity_generation_by_source_gwh`](state_electricity_generation_by_source_gwh.md)
+- [`environment/state_power_sector_co2_emissions_mtco2`](../environment/state_power_sector_co2_emissions_mtco2.md)
+
 ## Sources
 
 - <https://cea.nic.in/installed-capacity-report/?lang=en> — cea.nic.in (fetched 2026-05-13T21:54:16Z)
@@ -51,8 +69,8 @@ Composed from the per-fuel CEA artifacts. The residual 'other_thermal' facet is 
 
 ## Citation
 
-> cea.nic.in, *Installed capacity by source (fuel mix)*. Re-published by yen-gov as `energy/installed_capacity_by_source_mw`, schema v1.4. Retrieved 2026-05-13.
+> cea.nic.in, *Installed capacity by source (fuel mix)*. Re-published by yen-gov as `energy/installed_capacity_by_source_mw`, schema v1.5. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_by_source_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_by_source_mw.json)

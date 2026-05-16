@@ -4,7 +4,7 @@
 
 **Title**: India external-sector balance (₹ crore)  
 **One-line**: India's balance-of-payments headline items — Trade Balance, Invisibles (Net), Current Account Balance, Loans (Net), Total Foreign Investment, Overall Balance — in ₹ crore.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/india_external_balance_inr_crore.json`](../../../../datasets/indicators/in/economy/india_external_balance_inr_crore.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Trade Balance + Invisibles (Net) ≈ Current Account Balance; Current Account + 
 
 ## Citation
 
-> icedapi.niti.gov.in, *India external-sector balance (₹ crore)*. Re-published by yen-gov as `economy/india_external_balance_inr_crore`, schema v1.4. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India external-sector balance (₹ crore)*. Re-published by yen-gov as `economy/india_external_balance_inr_crore`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/economy/india_external_balance_inr_crore.json`](../../../../datasets/indicators/in/economy/india_external_balance_inr_crore.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/india_external_balance_inr_crore.json`](../../../../datasets/indicators/in/economy/india_external_balance_inr_crore.json)

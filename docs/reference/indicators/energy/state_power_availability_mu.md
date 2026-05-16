@@ -4,7 +4,7 @@
 
 **Title**: State-wise availability of power (MU)  
 **One-line**: Annual availability of energy in the state (MU = million units = GWh), fiscal year.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_power_availability_mu.json`](../../../../datasets/indicators/in/energy/state_power_availability_mu.json)
 
 ## Definition
@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 139. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *State-wise availability of power (MU)*. Re-published by yen-gov as `energy/state_power_availability_mu`, schema v1.4. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *State-wise availability of power (MU)*. Re-published by yen-gov as `energy/state_power_availability_mu`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_power_availability_mu.json`](../../../../datasets/indicators/in/energy/state_power_availability_mu.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_power_availability_mu.json`](../../../../datasets/indicators/in/energy/state_power_availability_mu.json)

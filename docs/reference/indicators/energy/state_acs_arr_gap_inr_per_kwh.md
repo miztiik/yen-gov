@@ -4,7 +4,7 @@
 
 **Title**: ACS-ARR gap on electricity sales (Rs/kWh, by state)  
 **One-line**: Average Cost of Supply minus Average Revenue Realised, per unit of electricity sold.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json`](../../../../datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json)
 
 ## Definition
@@ -39,6 +39,24 @@ NITI Aayog ICED state-wise deep-dive API; payload fetched 2026-05-14T07:51:49Z; 
 
 Source: NITI Aayog ICED dashboard, row 'ACS-ARR (Electricity Sales) Gap'. Calculated by PFC from utility tariff orders + audited accounts. Note the opposite sign convention from fiscal-deficit indicators: here a *negative* number is the surplus side.
 
+## Editor's note
+
+Mind the sign convention — this is the one indicator in the energy bucket where a *negative* number is the good outcome (revenue exceeds cost). Most state-discoms run a positive gap, meaning every kWh sold burns cash; the gap is closed either by tariff hikes (politically expensive), loss reduction (slow), or state-budget subsidy transfers that show up downstream in `fiscal/state_revenue_expenditure_inr_crore`.
+
+## Policy context
+
+- UDAY (2015) and RDSS (2021–FY26) both target ACS-ARR gap = 0 by their respective end-dates. UDAY missed across most states; RDSS milestones are tied to Centre disbursements.
+- Tariff orders are issued by State Electricity Regulatory Commissions (SERCs) — politically captured in several states, leading to multi-year tariff freezes that widen the gap independent of utility performance.
+- Free-power-scheme states (Punjab agri, Delhi household, Tamil Nadu agri, Telangana agri) typically post the largest gaps when the state subsidy is delayed or under-budgeted; the chart will show a step-change the year a new free scheme is announced.
+
+## Related indicators
+
+- [`energy/state_atc_losses_pct`](state_atc_losses_pct.md)
+- [`energy/state_distribution_billing_efficiency_pct`](state_distribution_billing_efficiency_pct.md)
+- [`energy/state_distribution_collection_efficiency_pct`](state_distribution_collection_efficiency_pct.md)
+- [`energy/state_distribution_td_loss_pct`](state_distribution_td_loss_pct.md)
+- [`energy/state_power_purchase_share_pct`](state_power_purchase_share_pct.md)
+
 ## Sources
 
 - <https://iced.niti.gov.in/analytics/state-wise-deep-dive> — iced.niti.gov.in (fetched 2026-05-14T07:51:49Z)
@@ -49,8 +67,8 @@ Source: NITI Aayog ICED dashboard, row 'ACS-ARR (Electricity Sales) Gap'. Calcul
 
 ## Citation
 
-> iced.niti.gov.in, *ACS-ARR gap on electricity sales (Rs/kWh, by state)*. Re-published by yen-gov as `energy/state_acs_arr_gap_inr_per_kwh`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *ACS-ARR gap on electricity sales (Rs/kWh, by state)*. Re-published by yen-gov as `energy/state_acs_arr_gap_inr_per_kwh`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json`](../../../../datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json`](../../../../datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json)

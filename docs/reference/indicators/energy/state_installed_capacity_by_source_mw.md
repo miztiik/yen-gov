@@ -4,7 +4,7 @@
 
 **Title**: State installed electricity capacity, by fuel source (MW)  
 **One-line**: Per-state installed electricity-generation capacity broken down by fuel source — coal, hydro, large-hydro, small-hydro, wind, solar, bio-power, oil-gas, nuclear.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json)
 
 ## Definition
@@ -51,8 +51,8 @@ Andhra Pradesh figures before FY2014-15 include the area now in Telangana; Jammu
 
 ## Citation
 
-> icedapi.niti.gov.in, *State installed electricity capacity, by fuel source (MW)*. Re-published by yen-gov as `energy/state_installed_capacity_by_source_mw`, schema v1.4. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *State installed electricity capacity, by fuel source (MW)*. Re-published by yen-gov as `energy/state_installed_capacity_by_source_mw`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json)

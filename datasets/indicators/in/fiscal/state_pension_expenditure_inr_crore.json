@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.4",
+  "$schema_version": "1.5",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/171T_1112202558897643693142228AC6C769081FB16B.XLSX",
@@ -30,18 +30,40 @@
     "id": "fiscal/state_pension_expenditure_inr_crore",
     "title": "State pension expenditure (revenue account)",
     "description": "Annual state-government pension expenditure (revenue account, ₹ Crore) from FY 2004-05 onwards. Covers retirement and family pensions paid to state-government employees and pre-NPS hires; does NOT include the centrally-sponsored social-pension schemes (IGNOAPS, IGNWPS) or the National Pension System (NPS) contribution flows. Rapidly-growing line item in most state budgets — relevant to fiscal-sustainability and the Old Pension Scheme (OPS) restoration debate.",
-    "entity_kind": "state",
-    "time_grain": "fiscal_year",
-    "value_kind": "currency",
-    "direction": "neutral",
     "scale_hint": "linear",
     "unit": "INR (crore)",
+    "notes": "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 171. Suffix codes in column headers — '(A)' = Actuals, '(RE)' = Revised Estimates, '(BE)' = Budget Estimates — are stripped at parse time but the underlying revision tier should be considered when comparing FY24/FY25 with earlier years.",
     "icon": "trending-up",
     "attribution_geography": "where_resident",
     "comparability": "comparable_with_normalisation",
     "implementing_authority": "centre",
     "methodology_vintage": "RBI Handbook 2024-25 edition",
-    "notes": "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 171. Suffix codes in column headers — '(A)' = Actuals, '(RE)' = Revised Estimates, '(BE)' = Budget Estimates — are stripped at parse time but the underlying revision tier should be considered when comparing FY24/FY25 with earlier years."
+    "revision_tier_by_period": [
+      {
+        "from": "2022-04",
+        "tier": "A",
+        "note": "Actual (audited)"
+      },
+      {
+        "from": "2023-04",
+        "tier": "RE",
+        "note": "Revised Estimate — will be revised to Actual in the next HBS-IS edition"
+      },
+      {
+        "from": "2024-04",
+        "tier": "BE",
+        "note": "Budget Estimate — citizen should treat as plan, not outturn"
+      }
+    ],
+    "excludes": [
+      "IGNOAPS / IGNWPS social pensions excluded — these are central social-security transfers, not state-employer pensions",
+      "NPS contribution flows excluded — captures only pre-NPS-hire defined-benefit retirement and family pensions",
+      "State pension fund corpus contributions excluded — measures actual paid pensions, not actuarial accruals"
+    ],
+    "value_kind": "currency",
+    "time_grain": "fiscal_year",
+    "entity_kind": "state",
+    "direction": "neutral"
   },
   "rows": [
     {

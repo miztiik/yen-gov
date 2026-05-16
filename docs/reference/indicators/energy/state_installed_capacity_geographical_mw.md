@@ -4,7 +4,7 @@
 
 **Title**: Installed electricity capacity (geographical, by state)  
 **One-line**: Total installed electricity generating capacity physically located in the state, summed across all utility/non-utility and renewable/non-renewable plants.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json)
 
 ## Definition
@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard (state-wise deep-dive), row 'Installed Capacit
 
 ## Citation
 
-> iced.niti.gov.in, *Installed electricity capacity (geographical, by state)*. Re-published by yen-gov as `energy/state_installed_capacity_geographical_mw`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Installed electricity capacity (geographical, by state)*. Re-published by yen-gov as `energy/state_installed_capacity_geographical_mw`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json)

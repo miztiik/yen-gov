@@ -4,7 +4,7 @@
 
 **Title**: State per-capita Net State Domestic Product (current prices)  
 **One-line**: Net State Domestic Product (NSDP) per person, in current prices.  
-**Last Updated**: 2026-05-15T20:53:11Z (auto-generated)  
+**Last Updated**: 2026-05-15 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json)
 
 ## Definition
@@ -20,7 +20,7 @@ Net State Domestic Product (NSDP) per person, in current prices. Sourced from NI
 | Value kind | `currency` |
 | Unit | `INR` |
 | Direction | `higher_is_better` |
-| Comparability | `comparable_across_states` |
+| Comparability | `comparable_across_states_and_time` |
 | Attribution geography | `where_resident` |
 | Implementing authority | `state` |
 | Scale hint | `linear` |
@@ -35,6 +35,15 @@ Net State Domestic Product (NSDP) per person, in current prices. Sourced from NI
 
 MoSPI / State DES; NSDP per-capita series
 
+## Denominator
+
+| field | value |
+| --- | --- |
+| what | `state mid-year population (MoSPI / RGI)` |
+| price_basis | `current` |
+| source_artifact | `demography/state_population_lakhs` |
+| note | `Per-capita = NSDP ÷ state mid-year population estimate` |
+
 ## Sources
 
 - <https://iced.niti.gov.in/analytics/state-wise-deep-dive> — iced.niti.gov.in (fetched 2026-05-14T12:20:42Z)
@@ -45,8 +54,8 @@ MoSPI / State DES; NSDP per-capita series
 
 ## Citation
 
-> iced.niti.gov.in, *State per-capita Net State Domestic Product (current prices)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_current_inr`, schema v1.4. Retrieved 2026-05-14.
+> iced.niti.gov.in, *State per-capita Net State Domestic Product (current prices)*. Re-published by yen-gov as `economy/state_per_capita_nsdp_current_inr`, schema v1.5. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v1.4 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json)
+`indicator.schema.json` v1.5 · artifact: [`datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json)
