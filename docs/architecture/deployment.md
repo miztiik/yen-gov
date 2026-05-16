@@ -8,7 +8,7 @@ yen-gov deploys as a single static bundle to GitHub Pages. There is no productio
 
 | Workflow | Trigger | What it does |
 | -------- | ------- | ------------ |
-| [`ci-checks.yml`](../../.github/workflows/ci-checks.yml) | every PR + push to main | pytest, schema/data validation, frontend/admin builds, unit/contract/integration tests, and Playwright smoke. Live tests skipped via `YEN_GOV_NO_NET=1`. Gate only - nothing publishes. Stale runs for the same PR/branch are cancelled. |
+| [`ci-checks.yml`](../../.github/workflows/ci-checks.yml) | every PR + push to main | pytest (includes Tier-A schema sanity via fixture tests), frontend/admin builds, unit/contract/integration tests, and Playwright smoke. Live tests skipped via `YEN_GOV_NO_NET=1`. Gate only - nothing publishes. Stale runs for the same PR/branch are cancelled. Tier-B corpus conformance is a LOCAL pre-emit check, not gated here - see [backend/validator.md](backend/validator.md). |
 | [`deploy-site.yml`](../../.github/workflows/deploy-site.yml) | hourly schedule + manual | checks that the latest `main` SHA has a successful CI run, skips scheduled redeploys of an already-published SHA, builds `frontend/dist/`, stages `datasets/` next to it as `data/`, uploads to Pages, smoke-tests the live URL. |
 
 ## Deploy cadence and CI gate
@@ -22,7 +22,7 @@ Production deploy is intentionally **batched hourly** instead of publishing ever
 3. On scheduled runs, it checks whether `deploy-site.yml` has already successfully deployed that SHA and skips if so.
 4. On manual runs, it still requires green CI, but may redeploy the same SHA when an operator deliberately asks for a fresh Pages publish.
 
-This keeps the release pipe simple: CI proves the static bundle and committed `datasets/` are valid; deploy publishes only a CI-green `main` bundle. Branch protection should still require the CI jobs before merging, but the deploy preflight is a second guard against direct pushes or administrative bypasses.
+This keeps the release pipe simple: CI proves the static bundle builds and the code's invariants hold; deploy publishes only a CI-green `main` bundle. Corpus conformance is the engineer's local pre-emit responsibility (`python -m yen_gov validate --root .`), since this repo's CI has no build that consumes `datasets/**` to defend - see [backend/validator.md](backend/validator.md). Branch protection should still require the CI jobs before merging, but the deploy preflight is a second guard against direct pushes or administrative bypasses.
 
 Scraping ECI/Wikipedia and rebuilding boundary PMTiles are **local-only** operations (CLAUDE.md §1, §13): run `python -m yen_gov run <event> <state>` and `python tools/boundaries/build.py` on a maintainer machine, commit the regenerated `datasets/` through a normal PR. Both artifacts change rarely (results don't change post-declaration; boundaries change once per delimitation cycle), so a CI dispatch is unnecessary overhead. The contract between scraping and deploying is the `datasets/` directory committed to main.
 

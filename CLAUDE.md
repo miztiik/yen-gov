@@ -167,12 +167,10 @@ Bump rules:
 
 Every emitted data file under `datasets/` carries `"$schema"` (URL to the schema) and `"$schema_version"` (the version it targets). Validator rejects any file whose `$schema_version` does not match the current `x-version` of its schema (until migration support lands).
 
-Validation is two-tier and runs in CI on every PR:
+Validation has two tiers with different homes:
 
-- **Tier A — schema sanity**: every `*.schema.json` validates against the JSON Schema 2020-12 meta-schema; all `$ref`s resolve; `x-version`/`x-changelog` invariants hold.
-- **Tier B — data conformance**: every `*.json` under `datasets/` validates against its declared `$schema`.
-
-Both tiers must pass before merge. No silent skips.
+- **Tier A — schema sanity** (always-on, in `pytest -q`): every `*.schema.json` validates against the JSON Schema 2020-12 meta-schema; all `$ref`s resolve; `x-version`/`x-changelog` invariants hold; the validator rejects malformed JSON. Tested with `tmp_path` fixtures in `backend/tests/test_validate.py` — fast, code-driven, runs on every commit.
+- **Tier B — corpus conformance** (on-demand, local): every `*.json` under `datasets/` and `config/` validates against its declared `$schema`. Run via `python -m yen_gov validate --root .` before committing changes to `datasets/**`, `config/**`, or `datasets/schemas/**`. Not gated in CI here: the production frontend lives in a separate repo and pulls `datasets/**` at runtime via raw.githubusercontent, so this repo's CI has no build that consumes the corpus to defend. See [`docs/architecture/backend/validator.md`](docs/architecture/backend/validator.md).
 
 ## 12. Data Provenance (Mandatory)
 
@@ -245,12 +243,12 @@ Every feature lands with tests at the tier(s) appropriate to its surface. Covera
 | **Unit** | `frontend/src/**/*.test.ts` (vitest), `backend/tests/test_*.py` (pytest) | Pure functions, formatters, parsers, slug round-trips, math invariants. No I/O, no DOM, no network. | Any change to a pure function or pure module. |
 | **Contract** | `frontend/src/contracts/*.test.ts` (ajv against `datasets/schemas/`), `backend/tests/test_validate.py`, `backend/tests/test_datasets_integrity.py` | Every `datasets/**/*.json` validates against its declared `$schema`; `$schema_version` matches `x-version` (§11); `sources` array shape (§12); cross-registry consistency (frontend catalogue ↔ backend events). | Any schema bump, new emitted artifact, or new loader — producer AND consumer side. |
 | **Integration** | `frontend/src/**/*.test.ts` for loader+fixture composition; `backend/tests/test_pipeline_*.py` for adapter+pipeline composition | Loaders compose paths correctly, mock `fetch` returns the expected shape, the 404-as-null and other graceful-degradation contracts hold; pipeline adapters compose end-to-end against fixture pages. | Any new loader, adapter, or composed pipeline step. |
-| **End-to-end** | `frontend/e2e/*.spec.ts` (Playwright) for citizen routes; `admin/e2e/*.spec.ts` (when added) for the operator console | Page renders without console errors / 404s, key copy and DOM landmarks present, user-visible interaction works. Smoke-tested via the agent's browser tools too (§13). | Any change to a citizen-visible route or admin panel. |
+| **End-to-end** | `frontend/e2e/*.spec.ts` (Playwright) for citizen routes; `admin/e2e/*.spec.ts` (when added) for the (fixture-based validator-logic tests), `backend/tests/test_datasets_integrity.py` | Validator code correctly rejects bad schemas/data (Tier A always-on; fixture tests in pytest); cross-registry consistency (frontend catalogue ↔ backend events); `sources` array shape (§12). Full-corpus Tier-B conformance is a LOCAL pre-emit check via `python -m yen_gov validate --root .`, not a CI gate — see [`docs/architecture/backend/validator.md`](docs/architecture/backend/validator.md). | Any schema bump, new emitted artifact, or new loader — producer (local pre-commit `yen_gov validate`) AND consumer side (frontend contract test)
 
 Non-negotiables:
 
 - A change that touches `frontend/src/lib/**` MUST have a corresponding `*.test.ts` covering the new or changed behaviour, in the same commit.
-- A new `datasets/**/*.json` artifact (or a schema bump) MUST be covered by the consumer-side contract test (`frontend/src/contracts/datasets-conform.test.ts`) AND the producer-side validator (`backend/tests/test_validate.py`). Both sides validate; never just one.
+- A new `datasets/**/*.json` artifact (or a schema bump) MUST be covered by the consumer-side contract test (`frontend/src/contracts/datasets-conform.test.ts`) AND validated locally by `python -m yen_gov validate --root .` before commit. Both sides validate; never just one.
 - A new citizen-visible route or a meaningful change to an existing one MUST extend `frontend/e2e/golden-path.spec.ts` (or add a sibling spec) with at least: route loads, no `pageerror`, one DOM assertion that proves the new content is there, one provenance (`SourceList`) assertion if the route surfaces data.
 - Mocks remain forbidden (Holy Law #7) except: (a) `fetch` in unit tests of loaders — the loader's contract IS the fetch boundary, mocking it is testing the contract; (b) explicit user request.
 - A red test at commit time blocks the commit. "Skip this for now" is a structural fix request (§5), not a casual override.

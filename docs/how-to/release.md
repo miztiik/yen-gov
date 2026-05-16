@@ -7,7 +7,7 @@ A release is "the bundle on Pages reflects the latest validated `datasets/`". Tw
 ## Path A — code-only change (UI tweak, schema-compatible refactor)
 
 1. Branch, commit, push, open PR.
-2. `ci-checks.yml` runs (pytest + schema/data validation + frontend build). Wait for green.
+2. `ci-checks.yml` runs (pytest + frontend build + Playwright smoke). Wait for green. Note: Tier-B corpus validation is a LOCAL pre-emit check, not a CI gate - see [validator.md](../architecture/backend/validator.md).
 3. Merge to main. The next hourly `deploy-site.yml` run publishes the latest CI-green main bundle, unless that exact SHA has already been deployed.
 4. For an urgent release, manually dispatch `deploy-site.yml` from `main`; it still refuses to publish if the current main SHA has not passed CI.
 5. Confirm the smoke job in `deploy-site.yml` passes — it fetches the live `result.summary.json` and asserts `state == "S22"`. Failure here means the dev/prod URL contract (see [frontend/data-loading.md](../architecture/frontend/data-loading.md)) is broken.

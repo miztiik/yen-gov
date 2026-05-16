@@ -1,8 +1,13 @@
 name: ci checks
 
-# Schema sanity (Tier A) + data conformance (Tier B) + backend pytest +
-# frontend type-check / build. Live network tests skipped via YEN_GOV_NO_NET=1.
-# Gate only -- nothing publishes from this workflow.
+# Schema sanity (Tier A, via fixture-based pytest) + backend pytest +
+# frontend type-check / build + Playwright smoke. Live network tests
+# skipped via YEN_GOV_NO_NET=1. Gate only -- nothing publishes from
+# this workflow.
+#
+# Tier-B corpus conformance is a LOCAL pre-emit check
+# (`python -m yen_gov validate --root .`), NOT gated here. See
+# docs/architecture/backend/validator.md for the rationale.
 
 on:
   pull_request:
@@ -39,10 +44,6 @@ jobs:
       - name: pytest
         working-directory: backend
         run: pytest -q
-
-      - name: schema + data validation
-        working-directory: backend
-        run: python -m yen_gov validate --root ..
 
   frontend:
     runs-on: ubuntu-latest

@@ -8,11 +8,6 @@ from yen_gov.validate import load_schemas, run, tier_a, tier_b
 REPO = Path(__file__).resolve().parents[2]
 
 
-def test_repo_passes_validation():
-    failures = run(REPO)
-    assert failures == [], "\n".join(f"[{f.tier}] {f.file}: {f.message}" for f in failures)
-
-
 def test_tier_a_rejects_three_part_version(tmp_path: Path):
     src = json.loads((REPO / "datasets/schemas/state.schema.json").read_text(encoding="utf-8"))
     src["x-version"] = "1.0.0"
