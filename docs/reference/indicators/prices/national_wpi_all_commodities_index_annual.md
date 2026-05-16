@@ -54,8 +54,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 36. 
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Wholesale Price Index — All Commodities (annual average, spliced)*. Re-published by yen-gov as `prices/national_wpi_all_commodities_index_annual`, schema v3.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Wholesale Price Index — All Commodities (annual average, spliced)*. Re-published by yen-gov as `prices/national_wpi_all_commodities_index_annual`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json`](../../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json`](../../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json)

@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'Electricity Sales'. Underlying figures f
 
 ## Citation
 
-> iced.niti.gov.in, *Annual electricity sales (by state)*. Re-published by yen-gov as `energy/state_electricity_sales_mu`, schema v3.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Annual electricity sales (by state)*. Re-published by yen-gov as `energy/state_electricity_sales_mu`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_electricity_sales_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_sales_mu.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/state_electricity_sales_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_sales_mu.json)

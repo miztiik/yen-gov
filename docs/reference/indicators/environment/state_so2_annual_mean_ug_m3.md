@@ -62,8 +62,8 @@ Method: per (state, year), unweighted arithmetic mean of CPCB station-year annua
 
 ## Citation
 
-> icedapi.niti.gov.in, *SO₂ — annual mean (state)*. Re-published by yen-gov as `environment/state_so2_annual_mean_ug_m3`, schema v3.0. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *SO₂ — annual mean (state)*. Re-published by yen-gov as `environment/state_so2_annual_mean_ug_m3`, schema v4.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/environment/state_so2_annual_mean_ug_m3.json`](../../../../datasets/indicators/in/environment/state_so2_annual_mean_ug_m3.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/environment/state_so2_annual_mean_ug_m3.json`](../../../../datasets/indicators/in/environment/state_so2_annual_mean_ug_m3.json)

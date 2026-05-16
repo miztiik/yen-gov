@@ -51,8 +51,8 @@ Emissions follow the *siting* of the plant, not the consumer — ``attribution_g
 
 ## Citation
 
-> icedapi.niti.gov.in, *State CO₂ emissions from power generation (MtCO₂/yr)*. Re-published by yen-gov as `environment/state_power_sector_co2_emissions_mtco2`, schema v3.0. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *State CO₂ emissions from power generation (MtCO₂/yr)*. Re-published by yen-gov as `environment/state_power_sector_co2_emissions_mtco2`, schema v4.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json`](../../../../datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json`](../../../../datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json)

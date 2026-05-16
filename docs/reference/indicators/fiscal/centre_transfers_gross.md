@@ -51,8 +51,8 @@ Source: data.gov.in OGD resource 1f2e77f0-6742-4671-ae29-8836d2110a5c, populated
 
 ## Citation
 
-> www.data.gov.in, *Centre transfers to states (gross)*. Re-published by yen-gov as `fiscal/centre_transfers_gross`, schema v3.0. Retrieved 2026-05-13.
+> www.data.gov.in, *Centre transfers to states (gross)*. Re-published by yen-gov as `fiscal/centre_transfers_gross`, schema v4.0. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/fiscal/centre_transfers_gross.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_gross.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/fiscal/centre_transfers_gross.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_gross.json)

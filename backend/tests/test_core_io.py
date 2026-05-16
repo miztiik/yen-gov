@@ -156,8 +156,10 @@ def _indicator_payload(rows: list[dict] | None = None) -> dict:
 
 def test_write_artifact_derives_folded_blocks_when_payload_omits_them(tmp_path: Path) -> None:
     """Composer that emits a v1.5-shape payload (no series_spec / methodology /
-    collection_inventory / divergence) still produces a valid v2.0 artifact —
-    write_artifact derives stubs and validates."""
+    divergence) still produces a valid v4.0 artifact —
+    write_artifact derives stubs and validates. v4.0 dropped
+    `collection_inventory` (lifted to external completeness index per
+    ADR-0026) and shrunk `series_spec` to `{description}` only."""
     schema = _load_schema("indicator.schema.json")
     target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
 
@@ -171,61 +173,41 @@ def test_write_artifact_derives_folded_blocks_when_payload_omits_them(tmp_path: 
     )
 
     written = json.loads(target.read_text(encoding="utf-8"))
-    # All four required v2.0 blocks present.
-    for block in ("series_spec", "methodology", "collection_inventory", "divergence"):
+    # All three required v4.0 folded blocks present.
+    for block in ("series_spec", "methodology", "divergence"):
         assert block in written, f"missing {block}"
+    # v4.0: collection_inventory MUST NOT be in the artifact.
+    assert "collection_inventory" not in written
+    # v4.0: series_spec is `{description}` only — no expected_* keys.
+    assert set(written["series_spec"].keys()) == {"description"}
     # Stub markers visible — /data-completeness can surface these as 'stub'.
     assert written["methodology"]["documentation_status"] == "stub"
-    assert written["series_spec"]["expected_periods_inference"]["basis"] == "seeded_from_observed_rows"
-    # collection_inventory derived from rows: 2 entities x 1 period, all observed.
-    assert written["collection_inventory"]["status"] == "complete"
 
 
-def test_write_artifact_preserves_operator_set_inventory_fields(tmp_path: Path) -> None:
-    """On a re-write of an existing artifact, operator-set fields on
-    collection_inventory (frozen / refetch_requested / unavailable_periods)
-    survive the auto-rederivation. This is the real regression target:
-    if the merge logic regressed, every refresh would silently clear an
-    operator's `frozen: true` flag."""
+def test_write_artifact_v4_strips_no_inventory_carried_in_caller_payload(tmp_path: Path) -> None:
+    """v4.0: if a caller (e.g. unpatched old composer) still passes a
+    `collection_inventory` block in the payload, validation MUST reject
+    it — the schema has `additionalProperties: false`. This catches a
+    composer that didn't get the v4 memo."""
+    import jsonschema
     schema = _load_schema("indicator.schema.json")
     target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
 
-    write_artifact(
-        path=target,
-        schema_id=schema["$id"], schema_version=schema["x-version"],
-        payload=_indicator_payload(),
-        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 17, tzinfo=timezone.utc))],
-        schema_for_validation=schema,
-    )
+    payload = _indicator_payload()
+    payload["collection_inventory"] = {
+        "status": "complete", "frozen": False,
+        "last_collected_at": None, "refetch_requested": False,
+        "pending_periods": [], "observed_periods": [], "unavailable_periods": [],
+    }
 
-    # Operator edits the artifact: marks frozen, declares an unavailable period.
-    on_disk = json.loads(target.read_text(encoding="utf-8"))
-    on_disk["collection_inventory"]["frozen"] = True
-    on_disk["collection_inventory"]["unavailable_periods"] = [
-        {
-            "period": {"key": "2099", "label": "FY2099", "frequency": "annual_fy"},
-            "reason": "future period, not yet published",
-        }
-    ]
-    target.write_text(json.dumps(on_disk, indent=2) + "\n", encoding="utf-8")
-
-    # Adapter re-emits with fresh rows; operator flags must survive.
-    write_artifact(
-        path=target,
-        schema_id=schema["$id"], schema_version=schema["x-version"],
-        payload=_indicator_payload([
-            {"entity_id": "S01", "time": "2023", "value": 100.0},
-            {"entity_id": "S01", "time": "2024", "value": 110.0},
-            {"entity_id": "S02", "time": "2023", "value": 200.0},
-            {"entity_id": "S02", "time": "2024", "value": 210.0},
-        ]),
-        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 18, tzinfo=timezone.utc))],
-        schema_for_validation=schema,
-    )
-
-    after = json.loads(target.read_text(encoding="utf-8"))
-    assert after["collection_inventory"]["frozen"] is True
-    assert after["collection_inventory"]["unavailable_periods"][0]["period"]["key"] == "2099"
+    with pytest.raises(jsonschema.ValidationError):
+        write_artifact(
+            path=target,
+            schema_id=schema["$id"], schema_version=schema["x-version"],
+            payload=payload,
+            sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 17, tzinfo=timezone.utc))],
+            schema_for_validation=schema,
+        )
 
 
 def test_write_artifact_caller_provided_methodology_wins_over_prior(tmp_path: Path) -> None:
@@ -266,3 +248,97 @@ def test_write_artifact_caller_provided_methodology_wins_over_prior(tmp_path: Pa
 
     after = json.loads(target.read_text(encoding="utf-8"))
     assert after["methodology"] == explicit_methodology
+
+
+# --------------------------------------------------------------------- #
+# Write-skip gate (dict-equal, operational-field-stripped)               #
+# --------------------------------------------------------------------- #
+
+
+def test_write_artifact_skips_write_when_only_fetched_at_changed(tmp_path: Path) -> None:
+    """The headline bug fix: re-emitting the same indicator with only
+    `sources[].fetched_at` changing MUST NOT advance the file's bytes or
+    mtime. This is the test that would have caught the multi-day arc of
+    `fetched_at` smearing across unrelated artifacts (per 2026-05-16
+    user-memory lesson)."""
+    schema = _load_schema("indicator.schema.json")
+    target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
+
+    # First write.
+    write_artifact(
+        path=target,
+        schema_id=schema["$id"], schema_version=schema["x-version"],
+        payload=_indicator_payload(),
+        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 17, tzinfo=timezone.utc))],
+        schema_for_validation=schema,
+    )
+    first_bytes = target.read_bytes()
+    first_mtime_ns = target.stat().st_mtime_ns
+
+    # Re-emit with identical rows but a different fetched_at — the bug case.
+    write_artifact(
+        path=target,
+        schema_id=schema["$id"], schema_version=schema["x-version"],
+        payload=_indicator_payload(),
+        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 18, 9, 0, 0, tzinfo=timezone.utc))],
+        schema_for_validation=schema,
+    )
+
+    assert target.read_bytes() == first_bytes, "fetched_at-only change must not rewrite bytes"
+    assert target.stat().st_mtime_ns == first_mtime_ns, "fetched_at-only change must not advance mtime"
+
+
+def test_write_artifact_writes_when_rows_change(tmp_path: Path) -> None:
+    """Sanity counterpart: a real row change DOES rewrite the file."""
+    schema = _load_schema("indicator.schema.json")
+    target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
+
+    write_artifact(
+        path=target,
+        schema_id=schema["$id"], schema_version=schema["x-version"],
+        payload=_indicator_payload(),
+        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 17, tzinfo=timezone.utc))],
+        schema_for_validation=schema,
+    )
+    first_bytes = target.read_bytes()
+
+    write_artifact(
+        path=target,
+        schema_id=schema["$id"], schema_version=schema["x-version"],
+        payload=_indicator_payload(rows=[
+            {"entity_id": "S01", "time": "2024", "value": 999.0},  # value changed
+            {"entity_id": "S02", "time": "2023", "value": 200.0},
+        ]),
+        sources=[Source(url="https://example.gov.in/data.csv", fetched_at=datetime(2026, 5, 17, tzinfo=timezone.utc))],
+        schema_for_validation=schema,
+    )
+
+    assert target.read_bytes() != first_bytes, "real row change must rewrite bytes"
+
+
+def test_write_artifact_strip_operational_idempotent() -> None:
+    """`_strip_operational` is pure; running it twice produces the same dict."""
+    from yen_gov.core.io import _strip_operational
+
+    doc = {
+        "sources": [
+            {"url": "https://x", "fetched_at": "2026-05-17T00:00:00Z"},
+            {"url": "https://y", "fetched_at": "2026-05-18T00:00:00Z"},
+        ],
+        "collection_inventory": {
+            "status": "complete",
+            "last_collected_at": "2026-05-18T00:00:00Z",
+            "frozen": False,
+        },
+        "rows": [{"entity_id": "S01", "time": "2023", "value": 1.0}],
+    }
+    once = _strip_operational(doc)
+    twice = _strip_operational(once)
+    assert once == twice
+    assert "fetched_at" not in once["sources"][0]
+    assert "last_collected_at" not in once["collection_inventory"]
+    # Non-stripped content intact.
+    assert once["sources"][0]["url"] == "https://x"
+    assert once["collection_inventory"]["status"] == "complete"
+    assert once["rows"][0]["value"] == 1.0
+

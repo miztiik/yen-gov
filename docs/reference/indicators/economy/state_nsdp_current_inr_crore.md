@@ -50,8 +50,8 @@ Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 5. T
 
 ## Citation
 
-> rbidocs.rbi.org.in, *Net State Domestic Product (current prices)*. Re-published by yen-gov as `economy/state_nsdp_current_inr_crore`, schema v3.0. Retrieved 2026-05-14.
+> rbidocs.rbi.org.in, *Net State Domestic Product (current prices)*. Re-published by yen-gov as `economy/state_nsdp_current_inr_crore`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/state_nsdp_current_inr_crore.json`](../../../../datasets/indicators/in/economy/state_nsdp_current_inr_crore.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/economy/state_nsdp_current_inr_crore.json`](../../../../datasets/indicators/in/economy/state_nsdp_current_inr_crore.json)

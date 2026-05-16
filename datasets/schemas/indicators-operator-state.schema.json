@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/indicators-operator-state.schema.json",
+  "title": "Indicators operator state (overlay)",
+  "description": "Per-indicator operator-set flags. The CITIZEN-facing indicator artifact (datasets/indicators/in/**/*.json, schema v4.0+) carries the data only. Operator state — `frozen`, `refetch_requested`, `unavailable_periods` — lives here as a sparse overlay keyed by indicator id under `indicators`. The planner reads this file; the rip migration tool seeds it from prior in-artifact values. Hand-editable (sparingly).",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-17",
+      "description": "Initial schema. Sparse overlay: only indicators with at least one non-default operator flag appear under `indicators`. Per ADR-0026 (inventory lifted out of indicator artifact)."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "indicators"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "description": "Per CLAUDE.md §12: every dataset file declares its provenance. This overlay is hand-authored — the canonical signal is an empty array. Operators MUST NOT inject upstream URLs here; the file's content is operator-set state, not pipeline-derived data.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "fetched_at"],
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "fetched_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "indicators": {
+      "type": "object",
+      "description": "Map of indicator id → operator-flag overlay. Sparse: only indicators with at least one flag set appear.",
+      "patternProperties": {
+        "^[a-z][a-z0-9_]*(/[a-z][a-z0-9_]*)*$": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "frozen": {
+              "type": "boolean",
+              "description": "When true, the planner skips this indicator entirely on the next collect run."
+            },
+            "refetch_requested": {
+              "type": "boolean",
+              "description": "When true, the planner re-runs the bulk for this indicator's source on the next collect; the planner clears the flag to false after a successful re-collect."
+            },
+            "unavailable_periods": {
+              "type": "array",
+              "description": "Structured cells or whole periods excluded because the source does not publish them or the cell cannot exist (e.g. Ladakh in Census 2011).",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["period", "reason"],
+                "properties": {
+                  "period": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["key", "label", "frequency"],
+                    "properties": {
+                      "key": { "type": "string", "minLength": 1 },
+                      "label": { "type": "string", "minLength": 1 },
+                      "frequency": { "enum": ["annual_fy", "annual_cy", "quarterly_fy", "quarterly_cy", "monthly", "weekly", "daily", "decennial", "ad_hoc"] }
+                    }
+                  },
+                  "geographies": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+                  "reason": { "type": "string", "minLength": 10 }
+                }
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

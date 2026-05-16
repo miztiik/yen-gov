@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'Installed Capacity (Including Allocated 
 
 ## Citation
 
-> iced.niti.gov.in, *Installed electricity capacity (with allocated shares, by state)*. Re-published by yen-gov as `energy/state_installed_capacity_with_alloc_mw`, schema v3.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Installed electricity capacity (with allocated shares, by state)*. Re-published by yen-gov as `energy/state_installed_capacity_with_alloc_mw`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json)

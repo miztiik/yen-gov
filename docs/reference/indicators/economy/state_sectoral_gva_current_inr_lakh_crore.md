@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard, row 'Sectoral GVA (Base: 2011-12) Current Pri
 
 ## Citation
 
-> iced.niti.gov.in, *State Sectoral GVA (current prices)*. Re-published by yen-gov as `economy/state_sectoral_gva_current_inr_lakh_crore`, schema v3.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *State Sectoral GVA (current prices)*. Re-published by yen-gov as `economy/state_sectoral_gva_current_inr_lakh_crore`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json)

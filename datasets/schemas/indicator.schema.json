@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "3.0",
+  "x-version": "4.0",
   "x-changelog": [
     {
       "version": "1.0",
@@ -46,6 +46,11 @@
       "version": "3.0",
       "date": "2026-05-17",
       "description": "Narrowed constraint: `series_spec.expected_geographies` is inline-array-only; the `{\"$ref\": \"universes.json#/universes/<key>\"}` form added in v1.6 is removed. The companion `datasets/reference/in/universes.json` reference file and `datasets/schemas/universes.schema.json` are deleted in this commit because they had zero consumers — every existing indicator's `expected_geographies` was auto-seeded inline by the v1.6 fold migration, so dropping the indirection is a no-op for current data. Rationale: a level of indirection that no artifact uses is dead weight; each indicator declares its own geographic universe inline so the contract surface stays self-contained. All 110 indicators are mechanically bumped to `$schema_version: 3.0` via `tools/bump_indicator_schema_to_current.py`; no content change. Per the working contract: narrowing a constraint is MAJOR (CLAUDE.md §11) even when no on-disk artifact would have failed under the new shape."
+    },
+    {
+      "version": "4.0",
+      "date": "2026-05-17",
+      "description": "Inventory lift (TODO/20260517 §16). Removed block `collection_inventory` and removed sub-fields `series_spec.expected_geographies`, `series_spec.expected_periods`, `series_spec.expected_periods_inference`. Status / observed periods / observed geographies / unavailable periods / last_attempt now live in the external index `datasets/reference/in/indicators-completeness.json` (its own schema, v2.0). Operator-set flags (`frozen`, `refetch_requested`, `unavailable_periods`) move to the operator overlay `datasets/reference/in/indicators-operator-state.json` (its own schema, v1.0). Rationale: ADR-0026 — derived/operational state is operator-axis, not citizen-axis; folding it into the citizen-facing artifact violated the separation and caused the 2026-05-16 fetched_at smear (every re-derive of inventory pushed `last_collected_at` into every artifact). The 110 indicator artifacts retain only the citizen-axis surface: `series_spec` shrinks to `{description}` only; everything else is unchanged. Mechanical migration via `tools/rip_to_v4.py`."
     }
   ],
   "type": "object",
@@ -58,7 +63,6 @@
     "indicator",
     "rows",
     "series_spec",
-    "collection_inventory",
     "methodology",
     "divergence"
   ],
@@ -310,143 +314,11 @@
 
     "series_spec": {
       "type": "object",
-      "description": "Optional in v1.6, required in v2.0. Declares what the series IS: description, expected geographies, expected periods. The editorial source of truth for what yen-gov promises to track for this indicator. See docs/concepts/folded-indicator.md.",
+      "description": "v4.0: shrunk to `description` only. The expected_geographies / expected_periods / expected_periods_inference sub-fields moved to the external completeness index (datasets/reference/in/indicators-completeness.json) per ADR-0026. The editorial description of what the series IS stays here, on the citizen-facing artifact.",
       "additionalProperties": false,
-      "required": ["description", "expected_geographies", "expected_periods", "expected_periods_inference"],
+      "required": ["description"],
       "properties": {
-        "description": { "type": "string", "minLength": 10 },
-        "expected_geographies": {
-          "description": "Inline array of geo codes (ECI state codes, district LGD codes, or 'IN' for union). Each indicator declares its own universe — no shared reference file. v1.6 briefly allowed a `{\"$ref\": \"universes.json#/universes/<key>\"}` indirection; v3.0 removed it (zero consumers).",
-          "type": "array",
-          "items": { "type": "string", "minLength": 1 },
-          "minItems": 1
-        },
-        "expected_periods": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["key", "label", "frequency"],
-            "properties": {
-              "key": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Stable equality token. Normally equals rows[].time. Not citizen-facing."
-              },
-              "label": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Publisher's exact period string (e.g. 'FY 2024-25', 'as on 31.03.2025', 'Census 2011'). MUST be citizen-readable without unwrapping."
-              },
-              "frequency": {
-                "enum": ["annual_fy", "annual_cy", "quarterly_fy", "quarterly_cy", "monthly", "weekly", "daily", "decennial", "ad_hoc"]
-              }
-            }
-          }
-        },
-        "expected_periods_inference": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["basis", "confidence", "series"],
-          "properties": {
-            "basis": {
-              "enum": ["authored_from_publisher_catalogue", "authored_from_source_schedule", "seeded_from_observed_rows", "not_inferable"]
-            },
-            "confidence": { "enum": ["clear", "partial", "none"] },
-            "series": {
-              "description": "Optional adapter-authored shorthand for a clearly iterable period set. Null when explicit periods are used or no inference is justified.",
-              "oneOf": [
-                { "type": "null" },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": ["mode", "kind", "role"],
-                  "properties": {
-                    "mode": { "enum": ["explicit", "structured"] },
-                    "kind": { "enum": ["integer_range", "integer_list", "string_list", "month_list", "date_list"] },
-                    "role": { "type": "string", "minLength": 1 },
-                    "start": { "oneOf": [{ "type": "integer" }, { "type": "string" }] },
-                    "end": { "oneOf": [{ "type": "integer" }, { "type": "string" }] },
-                    "step": { "type": "integer", "minimum": 1 },
-                    "values": { "type": "array", "items": { "oneOf": [{ "type": "integer" }, { "type": "string" }] } },
-                    "key_template": { "type": "string" },
-                    "label_template": { "type": "string" }
-                  }
-                }
-              ]
-            },
-            "note": { "type": "string" }
-          }
-        }
-      }
-    },
-
-    "collection_inventory": {
-      "type": "object",
-      "description": "Optional in v1.6, required in v2.0. Derived + operator-flagged view of where collection stands for this indicator. Most fields are derived on emit; `frozen`, `refetch_requested`, and `unavailable_periods` are operator-set and preserved across re-derivation.",
-      "additionalProperties": false,
-      "required": ["status", "frozen", "last_collected_at", "refetch_requested", "observed_periods", "pending_periods", "unavailable_periods"],
-      "properties": {
-        "status": { "enum": ["complete", "partial", "empty"], "description": "Derived on emit. Do not hand-edit." },
-        "frozen": { "type": "boolean", "description": "Operator-set. When true, planner skips this indicator entirely on next collect run." },
-        "last_collected_at": {
-          "type": ["string", "null"],
-          "format": "date-time",
-          "description": "Derived: max(sources[].fetched_at). Informational only; planner does not read."
-        },
-        "refetch_requested": { "type": "boolean", "description": "Operator-set. When true, planner re-runs the bulk for this indicator's source on next collect. Planner clears the flag to false after a successful re-collect." },
-        "pending_periods": {
-          "type": "array",
-          "description": "Derived: expected periods x expected geographies minus collected minus unavailable. Planner reads and passes period tokens back to the adapter verbatim.",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["key", "label", "frequency"],
-            "properties": {
-              "key": { "type": "string", "minLength": 1 },
-              "label": { "type": "string", "minLength": 1 },
-              "frequency": { "enum": ["annual_fy", "annual_cy", "quarterly_fy", "quarterly_cy", "monthly", "weekly", "daily", "decennial", "ad_hoc"] }
-            }
-          }
-        },
-        "observed_periods": {
-          "type": "array",
-          "description": "Derived from rows[].time and rows[].period_label. Never hand-edited.",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["key", "label", "frequency"],
-            "properties": {
-              "key": { "type": "string", "minLength": 1 },
-              "label": { "type": "string", "minLength": 1 },
-              "frequency": { "enum": ["annual_fy", "annual_cy", "quarterly_fy", "quarterly_cy", "monthly", "weekly", "daily", "decennial", "ad_hoc"] }
-            }
-          }
-        },
-        "unavailable_periods": {
-          "type": "array",
-          "description": "Structured cells or whole periods excluded from pending because the source does not publish them or the cell cannot exist (e.g. Ladakh in Census 2011).",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["period", "reason"],
-            "properties": {
-              "period": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["key", "label", "frequency"],
-                "properties": {
-                  "key": { "type": "string", "minLength": 1 },
-                  "label": { "type": "string", "minLength": 1 },
-                  "frequency": { "enum": ["annual_fy", "annual_cy", "quarterly_fy", "quarterly_cy", "monthly", "weekly", "daily", "decennial", "ad_hoc"] }
-                }
-              },
-              "geographies": { "type": "array", "items": { "type": "string", "minLength": 1 } },
-              "reason": { "type": "string", "minLength": 10 }
-            }
-          }
-        }
+        "description": { "type": "string", "minLength": 10 }
       }
     },
 

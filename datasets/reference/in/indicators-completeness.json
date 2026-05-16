@@ -10,11 +10,11 @@
       "path": "datasets/indicators/in/demography/state_population_by_residence_count.json",
       "title": "Census population by state, faceted Rural / Urban",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T23:24:24Z",
       "observed_count": 6,
-      "pending_count": 1,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -153,11 +153,11 @@
       "path": "datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json",
       "title": "State GDP (constant prices, base 2011-12)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
-      "pending_count": 1,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -166,11 +166,11 @@
       "path": "datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json",
       "title": "State GDP (current prices)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T14:11:06Z",
       "observed_count": 14,
-      "pending_count": 12,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -179,11 +179,11 @@
       "path": "datasets/indicators/in/economy/state_gdp_inr_crore.json",
       "title": "State GDP (₹ crore, current and constant prices)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T23:24:21Z",
       "observed_count": 14,
-      "pending_count": 12,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -192,11 +192,11 @@
       "path": "datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json",
       "title": "Net State Domestic Product (constant prices, spliced)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T18:00:00Z",
       "observed_count": 31,
-      "pending_count": 18,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -205,11 +205,11 @@
       "path": "datasets/indicators/in/economy/state_nsdp_current_inr_crore.json",
       "title": "Net State Domestic Product (current prices)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T18:00:00Z",
       "observed_count": 31,
-      "pending_count": 18,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -218,11 +218,11 @@
       "path": "datasets/indicators/in/economy/state_per_capita_consumption_inr.json",
       "title": "State per-capita private consumption (₹ per person per year)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T22:00:50Z",
       "observed_count": 15,
-      "pending_count": 13,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -231,11 +231,11 @@
       "path": "datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json",
       "title": "State per-capita NSDP, inflation-adjusted (₹ per person per year)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T22:00:48Z",
       "observed_count": 20,
-      "pending_count": 1,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -244,11 +244,11 @@
       "path": "datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json",
       "title": "State per-capita NSDP (constant prices, long series, spliced)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T18:00:00Z",
       "observed_count": 25,
-      "pending_count": 5,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -257,11 +257,11 @@
       "path": "datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json",
       "title": "State per-capita Net State Domestic Product (current prices)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T12:20:42Z",
       "observed_count": 20,
-      "pending_count": 1,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -270,11 +270,11 @@
       "path": "datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json",
       "title": "State per-capita NSDP (current prices, long series)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T18:00:00Z",
       "observed_count": 25,
-      "pending_count": 5,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -283,11 +283,11 @@
       "path": "datasets/indicators/in/economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore.json",
       "title": "State Sectoral GVA (constant prices, base 2011-12)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
-      "pending_count": 1,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -296,11 +296,11 @@
       "path": "datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json",
       "title": "State Sectoral GVA (current prices)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
-      "pending_count": 8,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -491,11 +491,11 @@
       "path": "datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json",
       "title": "ACS-ARR gap on electricity sales (Rs/kWh, by state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
-      "pending_count": 10,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -504,11 +504,11 @@
       "path": "datasets/indicators/in/energy/state_atc_losses_pct.json",
       "title": "Aggregate Technical & Commercial losses (%, by state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
-      "pending_count": 10,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -517,11 +517,11 @@
       "path": "datasets/indicators/in/energy/state_coal_consumption_mt.json",
       "title": "State coal consumption (Mt, FY06–FY25)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T18:16:07Z",
       "observed_count": 20,
-      "pending_count": 19,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -530,11 +530,11 @@
       "path": "datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json",
       "title": "Distribution billing efficiency (%, by state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T17:53:06Z",
       "observed_count": 16,
-      "pending_count": 16,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -543,11 +543,11 @@
       "path": "datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json",
       "title": "Distribution collection efficiency (%, by state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T17:53:06Z",
       "observed_count": 16,
-      "pending_count": 16,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -556,11 +556,11 @@
       "path": "datasets/indicators/in/energy/state_distribution_td_loss_pct.json",
       "title": "Transmission & Distribution losses (%, by state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T17:53:06Z",
       "observed_count": 16,
-      "pending_count": 16,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -569,11 +569,11 @@
       "path": "datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json",
       "title": "State electricity generation, by fuel source (GWh, FY16–FY26)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T11:53:39Z",
       "observed_count": 11,
-      "pending_count": 4,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -595,11 +595,11 @@
       "path": "datasets/indicators/in/energy/state_electricity_peak_demand_mw.json",
       "title": "Annual peak electricity demand (by state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T07:51:49Z",
       "observed_count": 9,
-      "pending_count": 1,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -608,11 +608,11 @@
       "path": "datasets/indicators/in/energy/state_electricity_sales_mu.json",
       "title": "Annual electricity sales (by state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
-      "pending_count": 8,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -621,11 +621,11 @@
       "path": "datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json",
       "title": "State installed electricity capacity, by fuel source (MW)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T22:53:28Z",
       "observed_count": 11,
-      "pending_count": 4,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -647,11 +647,11 @@
       "path": "datasets/indicators/in/energy/state_installed_capacity_total_mw.json",
       "title": "State-wise installed capacity of power (MW)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:30:00Z",
       "observed_count": 21,
-      "pending_count": 21,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -673,11 +673,11 @@
       "path": "datasets/indicators/in/energy/state_oil_product_consumption_kt.json",
       "title": "State oil-product consumption (kt, by product)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T18:16:10Z",
       "observed_count": 15,
-      "pending_count": 7,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -686,11 +686,11 @@
       "path": "datasets/indicators/in/energy/state_peak_demand_mw.json",
       "title": "State-wise peak power demand (MW)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:30:00Z",
       "observed_count": 12,
-      "pending_count": 7,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -712,11 +712,11 @@
       "path": "datasets/indicators/in/energy/state_peak_met_mw.json",
       "title": "State-wise peak power supplied (MW)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:30:00Z",
       "observed_count": 12,
-      "pending_count": 7,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -725,11 +725,11 @@
       "path": "datasets/indicators/in/energy/state_per_capita_availability_kwh.json",
       "title": "State-wise per-capita availability of power",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:30:00Z",
       "observed_count": 21,
-      "pending_count": 10,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -751,11 +751,11 @@
       "path": "datasets/indicators/in/energy/state_plant_load_factor_pct.json",
       "title": "State Plant Load Factor (PLF), by fuel source (%)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T11:53:41Z",
       "observed_count": 11,
-      "pending_count": 4,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -764,11 +764,11 @@
       "path": "datasets/indicators/in/energy/state_power_availability_mu.json",
       "title": "State-wise availability of power (MU)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:30:00Z",
       "observed_count": 21,
-      "pending_count": 13,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -777,11 +777,11 @@
       "path": "datasets/indicators/in/energy/state_power_purchase_share_pct.json",
       "title": "State power-purchase mix by source (%, by source)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T18:16:12Z",
       "observed_count": 10,
-      "pending_count": 4,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -790,11 +790,11 @@
       "path": "datasets/indicators/in/energy/state_power_requirement_mu.json",
       "title": "State-wise power requirement (MU)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:30:00Z",
       "observed_count": 21,
-      "pending_count": 13,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -803,11 +803,11 @@
       "path": "datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json",
       "title": "State-wise installed grid-interactive renewable capacity (MW)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:30:00Z",
       "observed_count": 18,
-      "pending_count": 16,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -816,11 +816,11 @@
       "path": "datasets/indicators/in/energy/state_rooftop_solar_capacity_mw.json",
       "title": "Rooftop solar installed capacity (by state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T07:51:49Z",
       "observed_count": 9,
-      "pending_count": 7,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -829,11 +829,11 @@
       "path": "datasets/indicators/in/energy/state_rpo_compliance_pct.json",
       "title": "Renewable Purchase Obligation compliance (%, by state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T17:53:07Z",
       "observed_count": 3,
-      "pending_count": 2,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -868,11 +868,11 @@
       "path": "datasets/indicators/in/environment/state_no2_annual_mean_ug_m3.json",
       "title": "NO₂ — annual mean (state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T14:44:39Z",
       "observed_count": 14,
-      "pending_count": 13,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -881,11 +881,11 @@
       "path": "datasets/indicators/in/environment/state_pm10_annual_mean_ug_m3.json",
       "title": "PM10 — annual mean (state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T14:44:39Z",
       "observed_count": 14,
-      "pending_count": 12,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -894,11 +894,11 @@
       "path": "datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json",
       "title": "PM2.5 — annual mean (state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T14:44:39Z",
       "observed_count": 9,
-      "pending_count": 9,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -907,11 +907,11 @@
       "path": "datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json",
       "title": "State CO₂ emissions from power generation (MtCO₂/yr)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T11:53:52Z",
       "observed_count": 18,
-      "pending_count": 9,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -920,11 +920,11 @@
       "path": "datasets/indicators/in/environment/state_so2_annual_mean_ug_m3.json",
       "title": "SO₂ — annual mean (state)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-15T14:44:39Z",
       "observed_count": 14,
-      "pending_count": 13,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -1024,11 +1024,11 @@
       "path": "datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json",
       "title": "Outstanding liabilities (% of GSDP)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-11T15:18:58Z",
       "observed_count": 19,
-      "pending_count": 8,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -1089,11 +1089,11 @@
       "path": "datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json",
       "title": "State pension expenditure (revenue account)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:00:00Z",
       "observed_count": 21,
-      "pending_count": 10,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -1232,11 +1232,11 @@
       "path": "datasets/indicators/in/health/state_birth_rate_per_1000.json",
       "title": "Crude Birth Rate (per 1,000 population)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:00:00Z",
       "observed_count": 20,
-      "pending_count": 14,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -1245,11 +1245,11 @@
       "path": "datasets/indicators/in/health/state_death_rate_per_1000.json",
       "title": "Crude Death Rate (per 1,000 population)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:00:00Z",
       "observed_count": 20,
-      "pending_count": 14,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -1258,11 +1258,11 @@
       "path": "datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json",
       "title": "Public health spend (% of state total expenditure)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-16T08:00:34Z",
       "observed_count": 18,
-      "pending_count": 6,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -1271,11 +1271,11 @@
       "path": "datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json",
       "title": "Infant Mortality Rate (per 1,000 live births)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:00:00Z",
       "observed_count": 20,
-      "pending_count": 14,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -1284,11 +1284,11 @@
       "path": "datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json",
       "title": "State public expenditure on health",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:00:00Z",
       "observed_count": 8,
-      "pending_count": 6,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {
@@ -1297,11 +1297,11 @@
       "path": "datasets/indicators/in/health/state_total_fertility_rate.json",
       "title": "Total Fertility Rate (children per woman)",
       "documentation_status": "stub",
-      "inventory_status": "partial",
+      "inventory_status": "complete",
       "frozen": false,
       "last_collected_at": "2026-05-14T19:00:00Z",
       "observed_count": 21,
-      "pending_count": 11,
+      "pending_count": 0,
       "unavailable_count": 0
     },
     {

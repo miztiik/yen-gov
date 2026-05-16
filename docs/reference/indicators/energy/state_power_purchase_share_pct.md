@@ -51,8 +51,8 @@ Compare state procurement mix vs state generation mix (``state_electricity_gener
 
 ## Citation
 
-> icedapi.niti.gov.in, *State power-purchase mix by source (%, by source)*. Re-published by yen-gov as `energy/state_power_purchase_share_pct`, schema v3.0. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *State power-purchase mix by source (%, by source)*. Re-published by yen-gov as `energy/state_power_purchase_share_pct`, schema v4.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_power_purchase_share_pct.json`](../../../../datasets/indicators/in/energy/state_power_purchase_share_pct.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/state_power_purchase_share_pct.json`](../../../../datasets/indicators/in/energy/state_power_purchase_share_pct.json)

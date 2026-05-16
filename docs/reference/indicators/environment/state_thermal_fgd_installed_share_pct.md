@@ -51,8 +51,8 @@ Snapshot. The MoEF&CC's December 2015 notification mandated FGD installation at 
 
 ## Citation
 
-> icedapi.niti.gov.in, *Thermal-plant FGD compliance (share of state capacity)*. Re-published by yen-gov as `environment/state_thermal_fgd_installed_share_pct`, schema v3.0. Retrieved 2026-05-15.
+> icedapi.niti.gov.in, *Thermal-plant FGD compliance (share of state capacity)*. Re-published by yen-gov as `environment/state_thermal_fgd_installed_share_pct`, schema v4.0. Retrieved 2026-05-15.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json`](../../../../datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json`](../../../../datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json)

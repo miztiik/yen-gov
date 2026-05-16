@@ -49,8 +49,8 @@ Source: NITI Aayog ICED dashboard (state-wise deep-dive), row 'Installed Capacit
 
 ## Citation
 
-> iced.niti.gov.in, *Installed electricity capacity (geographical, by state)*. Re-published by yen-gov as `energy/state_installed_capacity_geographical_mw`, schema v3.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Installed electricity capacity (geographical, by state)*. Re-published by yen-gov as `energy/state_installed_capacity_geographical_mw`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json)

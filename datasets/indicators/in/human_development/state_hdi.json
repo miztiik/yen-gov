@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "3.0",
+  "$schema_version": "4.0",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/hdi-map",
@@ -388,62 +388,7 @@
     }
   ],
   "series_spec": {
-    "description": "Composite score combining life expectancy, years of schooling, and per-capita income, scaled 0 (lowest) to 1 (highest). Lets a citizen see two states in the same frame on something other than money — Kerala and Bihar can have similar incomes and very different HDI scores because of differences in health and schooling outcomes.",
-    "expected_geographies": [
-      "IN",
-      "S01",
-      "S02",
-      "S03",
-      "S04",
-      "S05",
-      "S06",
-      "S07",
-      "S08",
-      "S10",
-      "S11",
-      "S12",
-      "S13",
-      "S14",
-      "S15",
-      "S16",
-      "S17",
-      "S18",
-      "S19",
-      "S20",
-      "S21",
-      "S22",
-      "S23",
-      "S24",
-      "S25",
-      "S26",
-      "S27",
-      "S28",
-      "S29",
-      "U01",
-      "U02",
-      "U04",
-      "U05",
-      "U07",
-      "U08"
-    ],
-    "expected_periods": [
-      {
-        "key": "2011-04",
-        "label": "2011-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2017-04",
-        "label": "2017-04",
-        "frequency": "annual_fy"
-      }
-    ],
-    "expected_periods_inference": {
-      "basis": "seeded_from_observed_rows",
-      "confidence": "none",
-      "series": null,
-      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
-    }
+    "description": "Composite score combining life expectancy, years of schooling, and per-capita income, scaled 0 (lowest) to 1 (highest). Lets a citizen see two states in the same frame on something other than money — Kerala and Bihar can have similar incomes and very different HDI scores because of differences in health and schooling outcomes."
   },
   "methodology": {
     "definition": "Composite score combining life expectancy, years of schooling, and per-capita income, scaled 0 (lowest) to 1 (highest). Lets a citizen see two states in the same frame on something other than money — Kerala and Bihar can have similar incomes and very different HDI scores because of differences in health and schooling outcomes.",
@@ -454,25 +399,5 @@
     "known_caveats": [],
     "notes": []
   },
-  "divergence": null,
-  "collection_inventory": {
-    "status": "complete",
-    "frozen": false,
-    "last_collected_at": "2026-05-14T22:00:49Z",
-    "refetch_requested": false,
-    "pending_periods": [],
-    "observed_periods": [
-      {
-        "key": "2011-04",
-        "label": "2011-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2017-04",
-        "label": "2017-04",
-        "frequency": "annual_fy"
-      }
-    ],
-    "unavailable_periods": []
-  }
+  "divergence": null
 }

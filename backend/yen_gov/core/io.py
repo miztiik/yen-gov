@@ -17,6 +17,7 @@ to test without the full model layer in place.
 
 from __future__ import annotations
 
+import copy
 import json
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -24,6 +25,57 @@ from pathlib import Path
 from typing import Any
 
 from jsonschema import Draft202012Validator
+
+
+# Operational / non-deterministic fields stripped before the dict-equal
+# write-skip compare below. These vary run-to-run for reasons unrelated to
+# the artifact's data content (operator-clock telemetry, not citizen content)
+# so byte-identical re-runs MUST still hit the skip path. Each entry is a
+# JSON path read by `_strip_operational`. Keep this list short and append
+# only with a rationale comment — every entry is a place where the contract
+# is silently leaky and we are accepting that. See CLAUDE.md §10 amendment
+# (commit 19 of TODO/20260517 §16).
+_OPERATIONAL_STRIP_PATHS: tuple[tuple[str, ...], ...] = (
+    # `sources[].fetched_at` — operator-clock at fetch time. Until each
+    # adapter migrates to publisher-`Last-Modified` / release-vintage
+    # derivation (§16 commit 13), wall-clock leaks into this field.
+    ("sources", "*", "fetched_at"),
+    # `collection_inventory.last_collected_at` — derived `max(sources[].fetched_at)`.
+    # Removed entirely when the block is lifted out of the artifact in
+    # §16 commits 4-7; harmless strip until then.
+    ("collection_inventory", "last_collected_at"),
+)
+
+
+def _strip_operational(doc: dict[str, Any]) -> dict[str, Any]:
+    """Return a deep copy of ``doc`` with operational-only fields removed.
+
+    Used by `write_artifact` to compare a candidate artifact against the
+    on-disk file's parsed dict, ignoring fields whose value alone changes
+    on every run for reasons unrelated to data content.
+    """
+    out = copy.deepcopy(doc)
+    for path in _OPERATIONAL_STRIP_PATHS:
+        _strip_path(out, path)
+    return out
+
+
+def _strip_path(doc: Any, path: tuple[str, ...]) -> None:
+    if not path:
+        return
+    head, *rest = path
+    if head == "*":
+        if isinstance(doc, list):
+            for item in doc:
+                _strip_path(item, tuple(rest))
+        return
+    if not isinstance(doc, dict):
+        return
+    if not rest:
+        doc.pop(head, None)
+        return
+    if head in doc:
+        _strip_path(doc[head], tuple(rest))
 
 
 @dataclass(frozen=True)
@@ -104,6 +156,23 @@ def write_artifact(
 
     path.parent.mkdir(parents=True, exist_ok=True)
     text = json.dumps(document, indent=2, ensure_ascii=False, sort_keys=False) + "\n"
+
+    # Write-skip gate: if the on-disk file exists and its parsed dict is
+    # structurally equal to ``document`` (after stripping operational-only
+    # fields per `_OPERATIONAL_STRIP_PATHS`), this is a re-emit with no real
+    # change — return without writing so the file's bytes AND mtime stay
+    # untouched and re-running ingest produces a clean git status. This
+    # is a value-level compare, NOT a byte compare; JSON key-order or
+    # whitespace differences don't matter (Python dict == is structural
+    # and order-insensitive). See CLAUDE.md §10 amendment (TODO/20260517 §16).
+    if path.exists():
+        try:
+            prior_doc = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            prior_doc = None
+        if isinstance(prior_doc, dict) and _strip_operational(prior_doc) == _strip_operational(document):
+            return path
+
     path.write_text(text, encoding="utf-8")
     return path
 
@@ -113,21 +182,17 @@ def _is_indicator_schema(schema_id: str) -> bool:
 
 
 def _maintain_folded_blocks(document: dict[str, Any], path: Path) -> dict[str, Any]:
-    """Carry forward / derive the four v2.0 folded blocks on an indicator.
+    """Carry forward / derive the three v4.0 folded blocks on an indicator.
 
-    Strategy:
+    Strategy (v4.0 — `collection_inventory` lifted OUT of the artifact;
+    see ADR-0026 and TODO/20260517 §16):
       - `methodology`, `series_spec`, `divergence`: if the caller
         provided them in `payload`, keep them verbatim. Else, if a
         prior artifact exists on disk, lift them from there. Else,
-        build a stub (mirrors `tools/migrate_indicators_v15_to_v20`
-        defaults).
-      - `collection_inventory`: ALWAYS re-derived from
-        `rows[]` + `series_spec` (preserving operator-set fields
-        from the prior on-disk artifact when present).
+        build a stub. `series_spec` in v4.0 is `{description}` only;
+        observed/expected periods + geographies now live in the
+        external completeness index `datasets/reference/in/indicators-completeness.json`.
     """
-    # Lazy import to avoid circulars between core.io and inventory.
-    from yen_gov.inventory import derive_collection_inventory
-
     prior: dict[str, Any] = {}
     if path.exists():
         try:
@@ -144,15 +209,6 @@ def _maintain_folded_blocks(document: dict[str, Any], path: Path) -> dict[str, A
         document["series_spec"] = prior.get("series_spec") or _stub_series_spec(document)
     if "divergence" not in document:
         document["divergence"] = prior.get("divergence", None)
-
-    # collection_inventory: always recompute from the now-final
-    # series_spec + rows. Splice in operator-set fields from the prior
-    # so a re-run doesn't clobber `frozen: true` / `unavailable_periods`.
-    document["collection_inventory"] = derive_collection_inventory(document)
-    prior_inv = prior.get("collection_inventory") or {}
-    for op_field in ("frozen", "refetch_requested", "unavailable_periods"):
-        if op_field in prior_inv:
-            document["collection_inventory"][op_field] = prior_inv[op_field]
 
     return document
 
@@ -174,37 +230,9 @@ def _stub_methodology(document: dict[str, Any]) -> dict[str, Any]:
 
 
 def _stub_series_spec(document: dict[str, Any]) -> dict[str, Any]:
-    rows = document.get("rows") or []
+    """v4.0 stub: description only. Observed/expected periods + geographies
+    moved to the external completeness index."""
     ind = document.get("indicator") or {}
-    time_grain = ind.get("time_grain") or "year"
-    grain_to_freq = {
-        "fiscal_year": "annual_fy",
-        "year": "annual_cy",
-        "month": "monthly",
-        "quarter": "quarterly_cy",
-        "date": "ad_hoc",
-        "decade": "decennial",
-    }
-    frequency = grain_to_freq.get(time_grain, "ad_hoc")
-    geographies = sorted({str(r["entity_id"]) for r in rows if "entity_id" in r})
-    periods: dict[str, dict[str, str]] = {}
-    for r in rows:
-        t = r.get("time")
-        if t is None:
-            continue
-        k = str(t)
-        if k not in periods:
-            periods[k] = {"key": k, "label": k, "frequency": frequency}
     description_src = ind.get("description") or ind.get("title") or "Series description (stub)."
     description = description_src if len(description_src) >= 10 else f"{description_src} (stub)"
-    return {
-        "description": description,
-        "expected_geographies": geographies,
-        "expected_periods": [periods[k] for k in sorted(periods)],
-        "expected_periods_inference": {
-            "basis": "seeded_from_observed_rows",
-            "confidence": "none",
-            "series": None,
-            "note": "Auto-seeded by core.io.write_artifact at refresh time. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator.",
-        },
-    }
+    return {"description": description}

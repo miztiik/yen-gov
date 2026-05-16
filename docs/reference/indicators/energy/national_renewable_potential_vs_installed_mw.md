@@ -51,8 +51,8 @@ Snapshot.
 
 ## Citation
 
-> iced.niti.gov.in, *Renewable energy: installed vs potential capacity (national)*. Re-published by yen-gov as `energy/national_renewable_potential_vs_installed_mw`, schema v3.0. Retrieved 2026-05-14.
+> iced.niti.gov.in, *Renewable energy: installed vs potential capacity (national)*. Re-published by yen-gov as `energy/national_renewable_potential_vs_installed_mw`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json`](../../../../datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json`](../../../../datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json)

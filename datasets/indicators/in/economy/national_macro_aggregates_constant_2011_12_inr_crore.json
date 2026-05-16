@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "3.0",
+  "$schema_version": "4.0",
   "sources": [
     {
       "url": "https://www.data.gov.in/",
@@ -1540,93 +1540,7 @@
     }
   ],
   "series_spec": {
-    "description": "MoSPI National Accounts Statistics headline aggregates — GDP, GVA, NDP, Gross National Income, Gross National Disposable Income, Gross Fixed Capital Formation, Gross Saving, Consumption of Fixed Capital, Private and Government Final Consumption Expenditure, Change in Stock, Valuables, Exports and Imports of Goods and Services, Net Taxes / Taxes / Subsidies on Products, and external transfers — at constant 2011-12 prices, faceted by indicator. The 'real-economy' lens IMF WEO, World Bank WDI, OECD SNA, and MoSPI press notes all default to.",
-    "expected_geographies": [
-      "IN"
-    ],
-    "expected_periods": [
-      {
-        "key": "2011-04",
-        "label": "2011-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2012-04",
-        "label": "2012-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2013-04",
-        "label": "2013-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2014-04",
-        "label": "2014-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2015-04",
-        "label": "2015-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2016-04",
-        "label": "2016-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2017-04",
-        "label": "2017-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2018-04",
-        "label": "2018-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2019-04",
-        "label": "2019-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2020-04",
-        "label": "2020-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2021-04",
-        "label": "2021-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2022-04",
-        "label": "2022-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2023-04",
-        "label": "2023-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2024-04",
-        "label": "2024-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2025-04",
-        "label": "2025-04",
-        "frequency": "annual_fy"
-      }
-    ],
-    "expected_periods_inference": {
-      "basis": "seeded_from_observed_rows",
-      "confidence": "none",
-      "series": null,
-      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
-    }
+    "description": "MoSPI National Accounts Statistics headline aggregates — GDP, GVA, NDP, Gross National Income, Gross National Disposable Income, Gross Fixed Capital Formation, Gross Saving, Consumption of Fixed Capital, Private and Government Final Consumption Expenditure, Change in Stock, Valuables, Exports and Imports of Goods and Services, Net Taxes / Taxes / Subsidies on Products, and external transfers — at constant 2011-12 prices, faceted by indicator. The 'real-economy' lens IMF WEO, World Bank WDI, OECD SNA, and MoSPI press notes all default to."
   },
   "methodology": {
     "definition": "MoSPI National Accounts Statistics headline aggregates — GDP, GVA, NDP, Gross National Income, Gross National Disposable Income, Gross Fixed Capital Formation, Gross Saving, Consumption of Fixed Capital, Private and Government Final Consumption Expenditure, Change in Stock, Valuables, Exports and Imports of Goods and Services, Net Taxes / Taxes / Subsidies on Products, and external transfers — at constant 2011-12 prices, faceted by indicator. The 'real-economy' lens IMF WEO, World Bank WDI, OECD SNA, and MoSPI press notes all default to.",
@@ -1637,90 +1551,5 @@
     "known_caveats": [],
     "notes": []
   },
-  "divergence": null,
-  "collection_inventory": {
-    "status": "complete",
-    "frozen": false,
-    "last_collected_at": "2026-05-14T15:02:37Z",
-    "refetch_requested": false,
-    "pending_periods": [],
-    "observed_periods": [
-      {
-        "key": "2011-04",
-        "label": "2011-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2012-04",
-        "label": "2012-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2013-04",
-        "label": "2013-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2014-04",
-        "label": "2014-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2015-04",
-        "label": "2015-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2016-04",
-        "label": "2016-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2017-04",
-        "label": "2017-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2018-04",
-        "label": "2018-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2019-04",
-        "label": "2019-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2020-04",
-        "label": "2020-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2021-04",
-        "label": "2021-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2022-04",
-        "label": "2022-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2023-04",
-        "label": "2023-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2024-04",
-        "label": "2024-04",
-        "frequency": "annual_fy"
-      },
-      {
-        "key": "2025-04",
-        "label": "2025-04",
-        "frequency": "annual_fy"
-      }
-    ],
-    "unavailable_periods": []
-  }
+  "divergence": null
 }

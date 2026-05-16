@@ -9,9 +9,11 @@
   // TODO/20260517-folded-indicator-and-collection-inventory-handover.md
   // §8.1 — the "What you'll find on every indicator" panel):
   //
-  //   1. Read-only consumption of folded v3.0 IndicatorArtifact fields
-  //      (`methodology`, `series_spec`, `collection_inventory`,
-  //      `sources`). No fetches; everything is in the artifact.
+  //   1. Read-only consumption of folded v4.0 IndicatorArtifact fields
+  //      (`methodology`, `series_spec`, `sources`). No fetches;
+  //      everything is in the artifact. Coverage / completeness moved
+  //      to /data-completeness in v4.0 per ADR-0026 — this panel no
+  //      longer renders a per-indicator coverage block.
   //   2. Sections hide themselves when their data is empty/absent — no
   //      "N/A" stubs. The shorter the artifact, the shorter the panel.
   //   3. Period labels render verbatim (publisher's own form). No
@@ -39,14 +41,12 @@
 
   const methodology = $derived(artifact.methodology);
   const series = $derived(artifact.series_spec);
-  const inventory = $derived(artifact.collection_inventory);
 
   const has_definition = $derived(!!methodology?.definition);
   const has_publisher = $derived(!!methodology?.publisher);
   const has_caveats = $derived(!!methodology?.known_caveats?.length);
   const has_breaks = $derived(!!methodology?.methodology_breaks?.length);
-  const has_scope = $derived(!!series?.description || !!series?.expected_geographies?.length);
-  const has_coverage = $derived(!!inventory);
+  const has_scope = $derived(!!series?.description);
   const doc_status = $derived(methodology?.documentation_status ?? "stub");
 </script>
 
@@ -94,32 +94,7 @@
     {#if has_scope}
       <section class="space-y-1">
         <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">Scope</h4>
-        {#if series!.description}
-          <p>{series!.description}</p>
-        {/if}
-        {#if series!.expected_geographies?.length}
-          <p class="text-xs text-slate-500">
-            Tracked for {series!.expected_geographies.length} geograph{series!.expected_geographies.length === 1 ? "y" : "ies"}.
-          </p>
-        {/if}
-      </section>
-    {/if}
-
-    {#if has_coverage}
-      {@const obs = inventory!.observed_periods?.length ?? 0}
-      {@const pend = inventory!.pending_periods?.length ?? 0}
-      {@const unav = inventory!.unavailable_periods?.length ?? 0}
-      <section class="space-y-1">
-        <h4 class="text-xs font-semibold uppercase tracking-wide text-slate-500">Coverage</h4>
-        <p>
-          Status: <strong>{inventory!.status}</strong>.
-          Observed {obs} period{obs === 1 ? "" : "s"};
-          {pend} not collected yet;
-          {unav} not published by source.
-        </p>
-        {#if inventory!.last_collected_at}
-          <p class="text-xs text-slate-500">Last collected from source on {inventory!.last_collected_at.slice(0, 10)}.</p>
-        {/if}
+        <p>{series!.description}</p>
       </section>
     {/if}
 

@@ -51,8 +51,8 @@ ICED's upstream priceType field has values 'gross', 'export', 'import' — only 
 
 ## Citation
 
-> icedapi.niti.gov.in, *India GDP (₹ crore, current and constant prices)*. Re-published by yen-gov as `economy/india_gdp_inr_crore`, schema v3.0. Retrieved 2026-05-14.
+> icedapi.niti.gov.in, *India GDP (₹ crore, current and constant prices)*. Re-published by yen-gov as `economy/india_gdp_inr_crore`, schema v4.0. Retrieved 2026-05-14.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/economy/india_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gdp_inr_crore.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/economy/india_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gdp_inr_crore.json)

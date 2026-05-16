@@ -69,8 +69,8 @@ Read this as *nameplate* capacity, not actual generation — coal still dominate
 
 ## Citation
 
-> cea.nic.in, *Installed capacity by source (fuel mix)*. Re-published by yen-gov as `energy/installed_capacity_by_source_mw`, schema v3.0. Retrieved 2026-05-13.
+> cea.nic.in, *Installed capacity by source (fuel mix)*. Re-published by yen-gov as `energy/installed_capacity_by_source_mw`, schema v4.0. Retrieved 2026-05-13.
 
 ## Schema
 
-`indicator.schema.json` v3.0 · artifact: [`datasets/indicators/in/energy/installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_by_source_mw.json)
+`indicator.schema.json` v4.0 · artifact: [`datasets/indicators/in/energy/installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_by_source_mw.json)

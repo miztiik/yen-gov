@@ -157,47 +157,21 @@ export type PeriodFrequency =
   | "decennial"
   | "ad_hoc";
 
-/** A period token as it appears in `series_spec.expected_periods[]`,
- *  `collection_inventory.observed_periods[]`, etc. The `key` is the
- *  machine-stable join token; `label` is the citizen-facing rendering. */
+/** A period token. Historically appeared in `series_spec.expected_periods[]`
+ *  and `collection_inventory.observed_periods[]`; in v4.0+ those surfaces
+ *  were lifted out of the indicator artifact per ADR-0026, so this type is
+ *  now only used by the completeness index consumers. */
 export interface PeriodToken {
   key: string;
   label: string;
   frequency: PeriodFrequency;
 }
 
+/** v4.0+: series_spec is reduced to a single human-authored description.
+ *  Expected geographies / expected periods now live in the completeness
+ *  index, not in the per-indicator artifact. */
 export interface SeriesSpec {
   description: string;
-  /** Inline list of entity ids (e.g. ECI state codes). Schema v3.0
-   *  removed the briefly-allowed `{$ref}` form — no consumers ever used it. */
-  expected_geographies: string[];
-  expected_periods: PeriodToken[];
-  expected_periods_inference: {
-    basis: string;
-    confidence: "none" | "low" | "medium" | "high";
-    series?: string | null;
-    note?: string;
-  };
-}
-
-export interface UnavailablePeriodEntry {
-  period: PeriodToken;
-  geographies?: string[];
-  reason: string;
-}
-
-export interface CollectionInventory {
-  status: "empty" | "partial" | "complete";
-  /** Operator-set: when true, refresh leaves rows untouched. */
-  frozen: boolean;
-  /** ISO timestamp of the most recent successful fetch contributing a row. */
-  last_collected_at: string | null;
-  /** Operator-set: signal to a future ingest job to ignore the
-   *  ad_hoc-skip-list once. */
-  refetch_requested?: boolean;
-  pending_periods: PeriodToken[];
-  observed_periods: PeriodToken[];
-  unavailable_periods: UnavailablePeriodEntry[];
 }
 
 export interface MethodologyBreak {
@@ -230,7 +204,6 @@ export interface IndicatorArtifact {
   /** Required since schema v2.0; optional in TS only so v1.5/v1.6
    *  test fixtures still type-check. */
   series_spec?: SeriesSpec;
-  collection_inventory?: CollectionInventory;
   methodology?: IndicatorMethodology;
   /** Reserved for the divergence subsystem; always `null` today. */
   divergence?: null;
