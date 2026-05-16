@@ -1,7 +1,8 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "1.1",
   "for": "state_own_tax_revenue_inr_crore.json",
+  "sources": [],
   "related": [
     "fiscal/state_non_tax_revenue_inr_crore",
     "fiscal/state_share_central_taxes_inr_crore",

@@ -1,6 +1,6 @@
 # ADR-0002: Provenance as a list of `{url, fetched_at}` entries
 
-**Last Updated**: 2026-05-08
+**Last Updated**: 2026-05-16
 **Status**: accepted (replaces the earlier sentinel-string approach used in schemas v2.0)
 
 ## Context
@@ -40,6 +40,7 @@ Schemas bumped to v3.0 to encode this change.
 - **Cost**: every emit path now needs to thread `fetched_at` through. Mitigated by `core/io.py` accepting a `sources: list[Source]` argument and stamping it.
 - **Cost**: hand-authored files lose the explicit `hand-authored` marker. Mitigated by docs (`docs/concepts/data-provenance.md`) explicitly stating the convention.
 - **Migration**: schemas v2.0 → v3.0 is a major bump; existing data files (3 of them) are rewritten by hand in the same commit.
+- **Clarification (2026-05-16, prompted by the indicator-notes sidecar drift)**: any file that declares a `$schema` is a contract surface and carries the full §12 envelope — **there is no filename-pattern exemption.** Editorial overlays (`*.notes.json`) comply via the canonical empty-array form (`"sources": []`, rationale in the commit message); they are not exempt. The same rule applies to any future sidecar / overlay / derived-metadata file we add. The contract test (`frontend/src/contracts/datasets-conform.test.ts`) is the enforcement point and is intentionally uniform. Lesson: a `$schema` declaration that forbids `sources` (as v1.0 of `indicator-notes.schema.json` did via `additionalProperties: false`) is an internal contradiction — fix the schema, don't carve out the contract.
 
 ## Alternatives considered
 

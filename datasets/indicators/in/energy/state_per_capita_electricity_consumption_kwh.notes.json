@@ -1,7 +1,8 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "1.1",
   "for": "state_per_capita_electricity_consumption_kwh.json",
+  "sources": [],
   "related": [
     "energy/state_electricity_sales_mu",
     "energy/state_per_capita_availability_kwh",
