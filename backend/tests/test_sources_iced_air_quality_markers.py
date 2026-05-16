@@ -286,3 +286,93 @@ def test_ingest_no2_emits_artifact(tmp_path, markers: dict) -> None:
     assert body["$schema_version"] == schema_version("indicator.schema.json")
     assert len(body["sources"]) == 2
     assert body["rows"], "NO2 artifact rows[] must not be empty"
+
+
+# ---------------------------------------------------------------------------
+# SO2 specifics — sibling of PM2.5/NO2 from the same NAMP feed.
+# Series begins 2010; 2020 IS present. SO2 magnitudes in India are
+# generally low (single-digit µg/m³) — the honest signal is anomaly
+# (near un-retrofitted thermal plants and refineries), not ranking.
+# ---------------------------------------------------------------------------
+
+def test_so2_year_range(markers: dict) -> None:
+    """SO2 measurements exist from 2010 onward, and 2020 IS present."""
+    rows = aggregate_state_year_mean(markers, pollutant=SO2_FIELD)
+    years = sorted({r.year for r in rows})
+    assert min(years) >= 2010, f"SO2 should not appear before 2010, got {min(years)}"
+    assert 2020 in years, (
+        "SO2 2020 should be present in this snapshot. If this ever "
+        "fails, declare a 2020 series_break in the SO2 artifact and "
+        "update this test."
+    )
+    assert max(years) >= 2023
+
+
+def test_so2_one_row_per_state_year(markers: dict) -> None:
+    """Aggregation contract: at most one (state, year) row per pollutant."""
+    rows = aggregate_state_year_mean(markers, pollutant=SO2_FIELD)
+    keys = [(r.entity_id, r.year) for r in rows]
+    assert len(keys) == len(set(keys)), "duplicate (state, year) rows for SO2"
+
+
+def test_so2_delhi_2019_in_plausible_range(markers: dict) -> None:
+    """Delhi 2019 SO2 should land in 1–15 µg/m³. Indian metropolitan
+    SO2 is typically low single digits (low-sulphur domestic coal;
+    most metros off furnace oil). A reading outside this band signals
+    a parser regression."""
+    rows = aggregate_state_year_mean(markers, pollutant=SO2_FIELD)
+    delhi_2019 = [r for r in rows if r.entity_id == "U05" and r.year == 2019]
+    assert len(delhi_2019) == 1
+    v = delhi_2019[0].mean_value
+    assert 1 <= v <= 15, f"Delhi 2019 SO2 = {v}, outside plausible 1-15 range"
+
+
+def test_ingest_so2_emits_artifact(tmp_path, markers: dict) -> None:
+    """End-to-end: building the SO2 payload from the captured fixture
+    produces a dict that validates against indicator.schema.json v1.5
+    when stamped via write_artifact."""
+    from datetime import datetime, timezone
+    from yen_gov.core.io import Source, write_artifact
+    from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
+    from yen_gov.sources.iced_air_quality.markers_ingest import (
+        CPCB_NAMP_URL,
+        MARKERS_API_URL,
+        SO2_INDICATOR_ID,
+        SO2_SERIES_START_YEAR,
+        _build_so2_payload,
+    )
+
+    parsed = [
+        r for r in aggregate_state_year_mean(markers, pollutant=SO2_FIELD)
+        if r.year >= SO2_SERIES_START_YEAR
+    ]
+    payload = _build_so2_payload(parsed=parsed)
+    assert payload["indicator"]["id"] == SO2_INDICATOR_ID
+    assert payload["indicator"]["comparability"] == "directional_only"
+    assert payload["indicator"]["renderer_rules"] == [
+        "no_rank_table",
+        "no_growth_across_break",
+    ]
+    assert payload["indicator"]["excludes"], "SO2 excludes[] must not be empty"
+    assert "series_breaks" not in payload["indicator"], (
+        "SO2 has 2020 data in this snapshot — series_breaks should not "
+        "be declared for SO2"
+    )
+
+    out = tmp_path / "state_so2_annual_mean_ug_m3.json"
+    fetched_at = datetime(2026, 5, 15, 14, 44, 39, tzinfo=timezone.utc)
+    write_artifact(
+        path=out,
+        schema_id=schema_id("indicator.schema.json"),
+        schema_version=schema_version("indicator.schema.json"),
+        payload=payload,
+        sources=[
+            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
+            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
+        ],
+        schema_for_validation=schema_doc("indicator.schema.json"),
+    )
+    body = json.loads(out.read_text(encoding="utf-8"))
+    assert body["$schema_version"] == schema_version("indicator.schema.json")
+    assert len(body["sources"]) == 2
+    assert body["rows"], "SO2 artifact rows[] must not be empty"

@@ -729,6 +729,14 @@
           "featured": true,
           "scope": "state",
           "chart_type": "choropleth"
+        },
+        {
+          "kind": "indicator",
+          "id": "environment/state_so2_annual_mean_ug_m3",
+          "default": false,
+          "featured": true,
+          "scope": "state",
+          "chart_type": "choropleth"
         }
       ],
       "notes": "National total only — sub-national emissions accounting does not yet exist for India. Reported in India's Biennial Update Report (BUR) submissions to UNFCCC, methodology per IPCC 2006 guidelines. LULUCF (land-use / land-use-change / forestry) shows up as a net-negative sector when forest absorption exceeds deforestation; that is real, not an error. Per-capita Indian emissions are roughly a quarter of the OECD average; absolute totals reflect a population of 1.4 billion. State-level breakdown remains an open research problem (no government series exists yet). The sub-sector drill-down (`india_ghg_emissions_by_subsector_ggco2e`) is the same UNFCCC source one level deeper — Energy splits into Energy Industries, Transport, Manufacturing, Other Sectors, Fugitive emissions; Agriculture splits into Rice Cultivation, Enteric Fermentation, Manure Management, Agricultural Soils, Field Burning of Residues; etc. Sub-sector totals reconcile to the parent sector indicator when summed within each sector."

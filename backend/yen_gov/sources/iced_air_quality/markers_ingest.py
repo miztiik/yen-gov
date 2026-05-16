@@ -21,7 +21,9 @@ from yen_gov.sources.iced_common import IcedClient, ICEDShapeError
 from .markers_parsers import (
     COVID_GAP_YEAR,
     NO2_FIELD,
+    PM10_FIELD,
     PM25_FIELD,
+    SO2_FIELD,
     StateYearMean,
     aggregate_state_year_mean,
     emit_indicator_rows,
@@ -368,6 +370,166 @@ def _build_no2_payload(*, parsed: list[StateYearMean]) -> dict:
             ),
             "chart_type": "choropleth",
             "excludes": NO2_INDICATOR_EXCLUDES,
+            "renderer_rules": ["no_rank_table", "no_growth_across_break"],
+        },
+        "rows": rows,
+    }
+
+
+# ---------------------------------------------------------------------------
+# SO2 — sibling of PM2.5/NO2 from the same NAMP markers feed.
+#
+# Sequencing (Hans + Fowler 2026-05-16): SO2 is the lowest-magnitude of
+# the four pollutants in most Indian states (typical state-year means
+# in single digits µg/m³) because India's coal-fired plants historically
+# burn low-sulphur Indian coal and most metros have phased out furnace
+# oil. The honest signal here is *where SO2 is unusually high* —
+# typically near old thermal plants without flue-gas desulphurisation
+# (FGD), and near oil refineries. The chart is read for direction and
+# anomaly, not for ranking — `comparability: directional_only`.
+#
+# Series start year: 2010 (verified against snapshot — SO2 column is
+# non-null from 2010). 2020 is present in the snapshot for SO2 (no
+# series_break), but `renderer_rules` still carries
+# `no_growth_across_break` defensively against future revisions.
+# ---------------------------------------------------------------------------
+
+SO2_SERIES_START_YEAR = 2010
+
+SO2_INDICATOR_ID = "environment/state_so2_annual_mean_ug_m3"
+SO2_INDICATOR_TITLE = "SO₂ — annual mean (state)"
+
+SO2_INDICATOR_DESCRIPTION = (
+    "Annual mean concentration of sulphur dioxide (SO₂) in micrograms "
+    "per cubic metre, averaged across all CPCB monitoring stations in "
+    "each state. SO₂ is produced by burning sulphur-bearing fuels — "
+    "coal-fired thermal plants without flue-gas desulphurisation (FGD) "
+    "and oil refineries are the dominant Indian sources. The WHO 2021 "
+    "guideline addresses 24-hour exposure (40 µg/m³) and does not set "
+    "an annual mean; India's national standard (NAAQS) is 50 µg/m³ "
+    "annual mean."
+)
+
+SO2_INDICATOR_NOTES = (
+    "Method: per (state, year), unweighted arithmetic mean of CPCB "
+    "station-year annual means; null station-years dropped (not coerced "
+    "to zero). Indian SO₂ levels are typically low in absolute terms "
+    "(low-sulphur domestic coal; most metros have phased out furnace "
+    "oil) — the honest signal is *where SO₂ is unusually high*, near "
+    "old un-retrofitted thermal plants and refineries. The CPCB "
+    "monitor network is urban-biased and uneven, so cross-state "
+    "ranking from this number is dishonest; read the chart as "
+    "'direction of change within a state', not a leaderboard. ICED is "
+    "a re-publisher; the underlying station-year file is CPCB's NAMP "
+    "— both URLs appear in `sources`."
+)
+
+SO2_INDICATOR_EXCLUDES = [
+    "Indoor air — NAMP measures only outdoor ambient air",
+    "Station-years dropped by CPCB for below-threshold data completeness",
+    "Point-source plumes from individual stacks — only ambient air is sampled",
+]
+
+
+def ingest_so2(
+    *,
+    repo_root: Path,
+    refresh: bool = False,
+) -> MarkersIngestResult:
+    """Fetch markers, aggregate SO2 to state-year, write artifact."""
+    runtime_root = repo_root / ".runtime"
+    client = IcedClient(host="https://icedapi.niti.gov.in", runtime_root=runtime_root)
+    response = client.get(MARKERS_API_PATH)
+    fetched_at = response.fetched_at
+
+    parsed_all = aggregate_state_year_mean(response.decrypted, pollutant=SO2_FIELD)
+    parsed = [r for r in parsed_all if r.year >= SO2_SERIES_START_YEAR]
+    if not parsed:
+        raise ICEDShapeError(
+            "SO2 aggregation returned zero state-year rows after "
+            f"trimming to >= {SO2_SERIES_START_YEAR} — refusing to ship "
+            "empty artifact."
+        )
+
+    payload = _build_so2_payload(parsed=parsed)
+
+    indicator_schema = schema_doc("indicator.schema.json")
+    out_path = (
+        repo_root
+        / "datasets"
+        / "indicators"
+        / "in"
+        / "environment"
+        / "state_so2_annual_mean_ug_m3.json"
+    )
+    write_artifact(
+        path=out_path,
+        schema_id=schema_id("indicator.schema.json"),
+        schema_version=schema_version("indicator.schema.json"),
+        payload=payload,
+        sources=[
+            Source(url=MARKERS_API_URL, fetched_at=fetched_at),
+            Source(url=CPCB_NAMP_URL, fetched_at=fetched_at),
+        ],
+        schema_for_validation=indicator_schema,
+    )
+
+    years = [r.year for r in parsed]
+    return MarkersIngestResult(
+        indicator_id=SO2_INDICATOR_ID,
+        artifact_path=out_path,
+        pollutant=SO2_FIELD,
+        state_year_row_count=len(parsed),
+        year_min=min(years),
+        year_max=max(years),
+        fetched_at=fetched_at,
+    )
+
+
+def _build_so2_payload(*, parsed: list[StateYearMean]) -> dict:
+    """Compose the schema-required payload (everything except $schema/sources)."""
+    rows = emit_indicator_rows(parsed)
+    states = sorted({r.entity_id for r in parsed})
+    years = [r.year for r in parsed]
+
+    return {
+        "license": {
+            "id": "GoI-Open",
+            "name": (
+                "Government of India open publication "
+                "(NITI Aayog ICED, re-publishing CPCB NAMP)"
+            ),
+            "url": "https://data.gov.in/government-open-data-license-india",
+            "redistributable": True,
+        },
+        "coverage": {
+            "spatial": f"{len(states)} states/UTs with CPCB stations recording SO₂",
+            "temporal": f"{min(years)}–{max(years)} (annual)",
+            "admin_level": "state",
+        },
+        "indicator": {
+            "id": SO2_INDICATOR_ID,
+            "title": SO2_INDICATOR_TITLE,
+            "description": SO2_INDICATOR_DESCRIPTION,
+            "entity_kind": "state",
+            "time_grain": "year",
+            "value_kind": "raw",
+            "direction": "lower_is_better",
+            "scale_hint": "linear",
+            "unit": "µg/m³",
+            "icon": "wind",
+            "notes": SO2_INDICATOR_NOTES,
+            "attribution_geography": "where_consumed",
+            "comparability": "directional_only",
+            "implementing_authority": "centre",
+            "methodology_vintage": (
+                "CPCB NAMP per-station annual mean (re-published via "
+                "ICED aqi-map-markers); state aggregation = unweighted "
+                "arithmetic mean of station-year means; null station-"
+                "years dropped, not coerced to zero."
+            ),
+            "chart_type": "choropleth",
+            "excludes": SO2_INDICATOR_EXCLUDES,
             "renderer_rules": ["no_rank_table", "no_growth_across_break"],
         },
         "rows": rows,
