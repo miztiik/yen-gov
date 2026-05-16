@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 150,
+  "constituency_name": "Sevata",
+  "totals": {
+    "electors": 296486,
+    "votes_polled": 214086,
+    "turnout_pct": 72.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GYAN TIWARI",
+      "party_short": "BJP",
+      "votes": 94697,
+      "vote_share_pct": 44.23,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ENGINEER MOHAMMAD NASIM",
+      "party_short": "BSP",
+      "votes": 51038,
+      "vote_share_pct": 23.84,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHIV KUMAR GUPTA",
+      "party_short": "SP",
+      "votes": 43488,
+      "vote_share_pct": 20.31,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMPAL YADAV",
+      "party_short": "LD",
+      "votes": 13130,
+      "vote_share_pct": 6.13,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMARJEET SINGH",
+      "party_short": "RVIP",
+      "votes": 2470,
+      "vote_share_pct": 1.15,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2990,
+    "vote_share_pct": 1.4
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 6273,
+    "vote_share_pct": 2.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GYAN TIWARI",
+    "party_short": "BJP",
+    "votes": 94697,
+    "margin_votes": 43659,
+    "margin_pct": 20.39
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 105,
+  "constituency_name": "Bhavnagar West",
+  "totals": {
+    "electors": 264681,
+    "votes_polled": 161650,
+    "turnout_pct": 61.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jitendrabhai Savajibhai Vaghani (jitu Vaghani)",
+      "party_short": "BJP",
+      "votes": 85188,
+      "vote_share_pct": 52.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kishorsinh Kumbhajibhai Gohil (k. K. Gohil)",
+      "party_short": "INC",
+      "votes": 43266,
+      "vote_share_pct": 26.77,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Rajenbhai Shankarbhai Solanki (raju Solanki)",
+      "party_short": "AAAP",
+      "votes": 26408,
+      "vote_share_pct": 16.34,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Solanki Savitaben Rameshbhai",
+      "party_short": "IND",
+      "votes": 686,
+      "vote_share_pct": 0.42,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Dineshbhai Lakhabhai Rathod",
+      "party_short": "BSP",
+      "votes": 674,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2417,
+    "vote_share_pct": 1.5
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3011,
+    "vote_share_pct": 1.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jitendrabhai Savajibhai Vaghani (jitu Vaghani)",
+    "party_short": "BJP",
+    "votes": 85188,
+    "margin_votes": 41922,
+    "margin_pct": 25.93
+  }
+}

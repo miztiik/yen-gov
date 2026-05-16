@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 175,
+  "constituency_name": "Orathanadu",
+  "totals": {
+    "electors": 225366,
+    "votes_polled": 180023,
+    "turnout_pct": 79.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMCHANDRAN. M",
+      "party_short": "DMK",
+      "votes": 84378,
+      "vote_share_pct": 46.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VAITHILINGAM. R",
+      "party_short": "ADMK",
+      "votes": 80733,
+      "vote_share_pct": 44.85,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAMANATHAN. P. DR",
+      "party_short": "DMDK",
+      "votes": 6351,
+      "vote_share_pct": 3.53,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KANDHASAMY. M",
+      "party_short": "NTK",
+      "votes": 1891,
+      "vote_share_pct": 1.05,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SARAVANA IYYAPPAN. M",
+      "party_short": "PMK",
+      "votes": 1444,
+      "vote_share_pct": 0.8,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1882,
+    "vote_share_pct": 1.05
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3344,
+    "vote_share_pct": 1.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMCHANDRAN. M",
+    "party_short": "DMK",
+    "votes": 84378,
+    "margin_votes": 3645,
+    "margin_pct": 2.02
+  }
+}

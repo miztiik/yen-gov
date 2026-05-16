@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "Hosur",
+  "totals": {
+    "electors": 302410,
+    "votes_polled": 215231,
+    "turnout_pct": 71.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BALAKRISHNA REDDY P",
+      "party_short": "ADMK",
+      "votes": 89510,
+      "vote_share_pct": 41.59,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GOPINATH K",
+      "party_short": "INC",
+      "votes": 66546,
+      "vote_share_pct": 30.92,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BALAKRISHNAN  G",
+      "party_short": "BJP",
+      "votes": 28850,
+      "vote_share_pct": 13.4,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MUNIRAJ P",
+      "party_short": "PMK",
+      "votes": 10309,
+      "vote_share_pct": 4.79,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRAN V",
+      "party_short": "DMDK",
+      "votes": 7780,
+      "vote_share_pct": 3.61,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3445,
+    "vote_share_pct": 1.6
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 8791,
+    "vote_share_pct": 4.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BALAKRISHNA REDDY P",
+    "party_short": "ADMK",
+    "votes": 89510,
+    "margin_votes": 22964,
+    "margin_pct": 10.67
+  }
+}

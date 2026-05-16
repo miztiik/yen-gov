@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "Abohar",
+  "totals": {
+    "electors": 178739,
+    "votes_polled": 133102,
+    "turnout_pct": 74.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANDEEP JAKHAR",
+      "party_short": "INC",
+      "votes": 49924,
+      "vote_share_pct": 37.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KULDEEP KUMAR alias DEEP KAMBOJ",
+      "party_short": "AAAP",
+      "votes": 44453,
+      "vote_share_pct": 33.4,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARUN NARANG",
+      "party_short": "BJP",
+      "votes": 21534,
+      "vote_share_pct": 16.18,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHINDER KUMAR RINWA",
+      "party_short": "SAD",
+      "votes": 14345,
+      "vote_share_pct": 10.78,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BALJINDER SINGH",
+      "party_short": "IND",
+      "votes": 899,
+      "vote_share_pct": 0.68,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 726,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1221,
+    "vote_share_pct": 0.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANDEEP JAKHAR",
+    "party_short": "INC",
+    "votes": 49924,
+    "margin_votes": 5471,
+    "margin_pct": 4.11
+  }
+}

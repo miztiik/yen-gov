@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 171,
+  "constituency_name": "Lucknow West",
+  "totals": {
+    "electors": 443178,
+    "votes_polled": 258320,
+    "turnout_pct": 58.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARMAAN KHAN",
+      "party_short": "SP",
+      "votes": 124497,
+      "vote_share_pct": 48.19,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANJANI KUMAR SRIVASTAVA",
+      "party_short": "BJP",
+      "votes": 116313,
+      "vote_share_pct": 45.03,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KAYAM RAZA KHAN",
+      "party_short": "BSP",
+      "votes": 10061,
+      "vote_share_pct": 3.89,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHAHANA SIDDIQUI",
+      "party_short": "INC",
+      "votes": 2796,
+      "vote_share_pct": 1.08,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJIV BAKSHI",
+      "party_short": "AAAP",
+      "votes": 1294,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1334,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2025,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARMAAN KHAN",
+    "party_short": "SP",
+    "votes": 124497,
+    "margin_votes": 8184,
+    "margin_pct": 3.17
+  }
+}

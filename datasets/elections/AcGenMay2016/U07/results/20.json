@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Manavely",
+  "totals": {
+    "electors": 31279,
+    "votes_polled": 27409,
+    "turnout_pct": 87.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "R.K.R. ANANTHARAMAN",
+      "party_short": "INC",
+      "votes": 9326,
+      "vote_share_pct": 34.03,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "G. SURESH",
+      "party_short": "AINRC",
+      "votes": 6611,
+      "vote_share_pct": 24.12,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "EMBALAM SELVAM @ R. SELVAM",
+      "party_short": "IND",
+      "votes": 5831,
+      "vote_share_pct": 21.27,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "P. PURUSHOTHAMAN",
+      "party_short": "ADMK",
+      "votes": 3350,
+      "vote_share_pct": 12.22,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "P. RAJAKUMAR",
+      "party_short": "VCK",
+      "votes": 833,
+      "vote_share_pct": 3.04,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 442,
+    "vote_share_pct": 1.61
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1016,
+    "vote_share_pct": 3.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "R.K.R. ANANTHARAMAN",
+    "party_short": "INC",
+    "votes": 9326,
+    "margin_votes": 2715,
+    "margin_pct": 9.91
+  }
+}

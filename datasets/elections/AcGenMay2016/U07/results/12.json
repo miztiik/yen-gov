@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "Kalapet",
+  "totals": {
+    "electors": 32009,
+    "votes_polled": 28042,
+    "turnout_pct": 87.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M.O.H.F. SHAHJAHAN",
+      "party_short": "INC",
+      "votes": 9839,
+      "vote_share_pct": 35.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "P.M.L. KALYANASUNDARAM",
+      "party_short": "IND",
+      "votes": 9205,
+      "vote_share_pct": 32.83,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "N. VISWANATHAN",
+      "party_short": "AINRC",
+      "votes": 3841,
+      "vote_share_pct": 13.7,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "V.C. EZHUMALAI@KASILINGAM",
+      "party_short": "ADMK",
+      "votes": 3694,
+      "vote_share_pct": 13.17,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "P. SELVARASSOU",
+      "party_short": "PMK",
+      "votes": 271,
+      "vote_share_pct": 0.97,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 377,
+    "vote_share_pct": 1.34
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 815,
+    "vote_share_pct": 2.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M.O.H.F. SHAHJAHAN",
+    "party_short": "INC",
+    "votes": 9839,
+    "margin_votes": 634,
+    "margin_pct": 2.26
+  }
+}

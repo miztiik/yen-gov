@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 77,
+  "constituency_name": "Jamnagar Rural",
+  "totals": {
+    "electors": 253660,
+    "votes_polled": 162780,
+    "turnout_pct": 64.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Patel Raghavjibhai Hansrajbhai",
+      "party_short": "BJP",
+      "votes": 79439,
+      "vote_share_pct": 48.8,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Prakash Dhirubhai Donga",
+      "party_short": "AAAP",
+      "votes": 31939,
+      "vote_share_pct": 19.62,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kasam Nurmamad Khafi",
+      "party_short": "BSP",
+      "votes": 29162,
+      "vote_share_pct": 17.91,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ahir Jivanbhai K. Kumbharvadiya",
+      "party_short": "INC",
+      "votes": 18737,
+      "vote_share_pct": 11.51,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Chandra Dharmendra Dhirajlal",
+      "party_short": "IND",
+      "votes": 660,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2285,
+    "vote_share_pct": 1.4
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 558,
+    "vote_share_pct": 0.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Patel Raghavjibhai Hansrajbhai",
+    "party_short": "BJP",
+    "votes": 79439,
+    "margin_votes": 47500,
+    "margin_pct": 29.18
+  }
+}

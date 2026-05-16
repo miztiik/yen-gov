@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Nambol",
+  "totals": {
+    "electors": 31092,
+    "votes_polled": 29307,
+    "turnout_pct": 94.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAMEIRAKPAM LOKEN SINGH",
+      "party_short": "INC",
+      "votes": 14736,
+      "vote_share_pct": 50.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "THOUNAOJAM CHAOBA",
+      "party_short": "BJP",
+      "votes": 14456,
+      "vote_share_pct": 49.33,
+      "gender": "M",
+      "age": 78,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 115,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAMEIRAKPAM LOKEN SINGH",
+    "party_short": "INC",
+    "votes": 14736,
+    "margin_votes": 280,
+    "margin_pct": 0.96
+  },
+  "others": null
+}

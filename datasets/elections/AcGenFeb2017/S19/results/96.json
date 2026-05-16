@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 96,
+  "constituency_name": "Mansa",
+  "totals": {
+    "electors": 206801,
+    "votes_polled": 174326,
+    "turnout_pct": 84.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAZAR SINGH MANSHAHIA",
+      "party_short": "AAAP",
+      "votes": 70586,
+      "vote_share_pct": 40.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANOJ BALA",
+      "party_short": "INC",
+      "votes": 50117,
+      "vote_share_pct": 28.75,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAGDEEP SINGH NAKAI",
+      "party_short": "SAD",
+      "votes": 44232,
+      "vote_share_pct": 25.37,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RANJIT SINGH TAMKOT",
+      "party_short": "CPI(ML)(L)",
+      "votes": 3883,
+      "vote_share_pct": 2.23,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JASKARAN SINGH KAHAN SINGH WALA",
+      "party_short": "SAD(M)",
+      "votes": 1519,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1253,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2736,
+    "vote_share_pct": 1.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAZAR SINGH MANSHAHIA",
+    "party_short": "AAAP",
+    "votes": 70586,
+    "margin_votes": 20469,
+    "margin_pct": 11.74
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "Dadri",
+  "totals": {
+    "electors": 441229,
+    "votes_polled": 265281,
+    "turnout_pct": 60.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TEJPAL SINGH NAGAR",
+      "party_short": "BJP",
+      "votes": 141226,
+      "vote_share_pct": 53.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATVEER SINGH GURJAR",
+      "party_short": "BSP",
+      "votes": 61049,
+      "vote_share_pct": 23.01,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SAMIR BHATI",
+      "party_short": "INC",
+      "votes": 39975,
+      "vote_share_pct": 15.07,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAVINDRA SINGH BHATI",
+      "party_short": "RLD",
+      "votes": 10373,
+      "vote_share_pct": 3.91,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMESH SINGH RAWAL",
+      "party_short": "RSHP",
+      "votes": 3835,
+      "vote_share_pct": 1.45,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1665,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 7158,
+    "vote_share_pct": 2.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TEJPAL SINGH NAGAR",
+    "party_short": "BJP",
+    "votes": 141226,
+    "margin_votes": 80177,
+    "margin_pct": 30.22
+  }
+}

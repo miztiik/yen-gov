@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 397,
+  "constituency_name": "Majhawan",
+  "totals": {
+    "electors": 397877,
+    "votes_polled": 245391,
+    "turnout_pct": 61.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. VINOD KUMAR BIND",
+      "party_short": "NINSHAD",
+      "votes": 103235,
+      "vote_share_pct": 42.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ROHIT SHUKLA",
+      "party_short": "SP",
+      "votes": 69648,
+      "vote_share_pct": 28.38,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PUSPLATA BIND",
+      "party_short": "BSP",
+      "votes": 52990,
+      "vote_share_pct": 21.59,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHIV SHANKER CHAUBEY",
+      "party_short": "INC",
+      "votes": 3399,
+      "vote_share_pct": 1.39,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHESH DHAR DUBEY",
+      "party_short": "AAAP",
+      "votes": 2361,
+      "vote_share_pct": 0.96,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2746,
+    "vote_share_pct": 1.12
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 11012,
+    "vote_share_pct": 4.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. VINOD KUMAR BIND",
+    "party_short": "NINSHAD",
+    "votes": 103235,
+    "margin_votes": 33587,
+    "margin_pct": 13.69
+  }
+}

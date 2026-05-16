@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 281,
+  "constituency_name": "Akbarpur",
+  "totals": {
+    "electors": 306161,
+    "votes_polled": 204316,
+    "turnout_pct": 66.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM ACHAL RAJBHAR",
+      "party_short": "BSP",
+      "votes": 72325,
+      "vote_share_pct": 35.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAM MURTI VERMA",
+      "party_short": "SP",
+      "votes": 58312,
+      "vote_share_pct": 28.54,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHANDRA PRAKASH VERMA",
+      "party_short": "BJP",
+      "votes": 57821,
+      "vote_share_pct": 28.3,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHRIRAM",
+      "party_short": "NINSHAD",
+      "votes": 6550,
+      "vote_share_pct": 3.21,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAVI SINHA",
+      "party_short": "IND",
+      "votes": 1528,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1719,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6061,
+    "vote_share_pct": 2.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM ACHAL RAJBHAR",
+    "party_short": "BSP",
+    "votes": 72325,
+    "margin_votes": 14013,
+    "margin_pct": 6.86
+  }
+}

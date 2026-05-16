@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "Dharmanagar",
+  "totals": {
+    "electors": 41588,
+    "votes_polled": 37587,
+    "turnout_pct": 90.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BISWABANDHU SEN",
+      "party_short": "BJP",
+      "votes": 21357,
+      "vote_share_pct": 56.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ABHIJIT DE",
+      "party_short": "CPM",
+      "votes": 14070,
+      "vote_share_pct": 37.43,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KEBAL KANTI NANDI",
+      "party_short": "INC",
+      "votes": 642,
+      "vote_share_pct": 1.71,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BIPUL KRISHNA DAS",
+      "party_short": "AITC",
+      "votes": 161,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BIBHAS RANJAN DAS",
+      "party_short": "AMB",
+      "votes": 124,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 254,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 90,
+    "vote_share_pct": 0.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BISWABANDHU SEN",
+    "party_short": "BJP",
+    "votes": 21357,
+    "margin_votes": 7287,
+    "margin_pct": 19.39
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 120,
+  "constituency_name": "Bhojipura",
+  "totals": {
+    "electors": 378098,
+    "votes_polled": 260250,
+    "turnout_pct": 68.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHAZIL ISLAM ANSARI",
+      "party_short": "SP",
+      "votes": 119402,
+      "vote_share_pct": 45.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BAHORAN LAL MAURYA",
+      "party_short": "BJP",
+      "votes": 109993,
+      "vote_share_pct": 42.26,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "YOGESH KUMAR",
+      "party_short": "BSP",
+      "votes": 26909,
+      "vote_share_pct": 10.34,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SARDAR KHAN",
+      "party_short": "INC",
+      "votes": 1963,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAHENDRA SINGH",
+      "party_short": "AAAP",
+      "votes": 610,
+      "vote_share_pct": 0.23,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1373,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHAZIL ISLAM ANSARI",
+    "party_short": "SP",
+    "votes": 119402,
+    "margin_votes": 9409,
+    "margin_pct": 3.62
+  },
+  "others": null
+}

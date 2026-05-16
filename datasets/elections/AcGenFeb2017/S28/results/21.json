@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Dehradun Cantt.",
+  "totals": {
+    "electors": 127622,
+    "votes_polled": 72838,
+    "turnout_pct": 57.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHRI HARBANS KAPOOR",
+      "party_short": "BJP",
+      "votes": 41142,
+      "vote_share_pct": 56.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHRI SURYAKANT DHASMANA",
+      "party_short": "INC",
+      "votes": 24472,
+      "vote_share_pct": 33.6,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHRI ANOOP NAUTIYAL",
+      "party_short": "IND",
+      "votes": 3285,
+      "vote_share_pct": 4.51,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHRI NAVEEN BISHT",
+      "party_short": "IND",
+      "votes": 1303,
+      "vote_share_pct": 1.79,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHRI DEVENDRA KUMAR",
+      "party_short": "BSP",
+      "votes": 802,
+      "vote_share_pct": 1.1,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 641,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1193,
+    "vote_share_pct": 1.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHRI HARBANS KAPOOR",
+    "party_short": "BJP",
+    "votes": 41142,
+    "margin_votes": 16670,
+    "margin_pct": 22.89
+  }
+}

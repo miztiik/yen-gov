@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Kangpokpi",
+  "totals": {
+    "electors": 28124,
+    "votes_polled": 25119,
+    "turnout_pct": 89.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nemcha Kipgen",
+      "party_short": "BJP",
+      "votes": 14412,
+      "vote_share_pct": 57.37,
+      "is_winner": true,
+      "gender": "F",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Soshim Gurung",
+      "party_short": "JD(U)",
+      "votes": 9016,
+      "vote_share_pct": 35.89,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ngamkhohen Kipgen",
+      "party_short": "INC",
+      "votes": 1376,
+      "vote_share_pct": 5.48,
+      "gender": "M",
+      "age": 77,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 315,
+    "vote_share_pct": 1.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nemcha Kipgen",
+    "party_short": "BJP",
+    "votes": 14412,
+    "margin_votes": 5396,
+    "margin_pct": 21.48
+  },
+  "others": null
+}

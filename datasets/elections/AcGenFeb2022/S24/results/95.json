@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 95,
+  "constituency_name": "Tundla",
+  "totals": {
+    "electors": 372750,
+    "votes_polled": 248451,
+    "turnout_pct": 66.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PREM PAL SINGH DHANGAR",
+      "party_short": "BJP",
+      "votes": 122881,
+      "vote_share_pct": 49.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAKESH BABU",
+      "party_short": "SP",
+      "votes": 75190,
+      "vote_share_pct": 30.26,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "AMAR SINGH",
+      "party_short": "BSP",
+      "votes": 40977,
+      "vote_share_pct": 16.49,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "YATENDRA KUMAR",
+      "party_short": "VSIP",
+      "votes": 2168,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SMT. YOGESH DIWAKAR",
+      "party_short": "INC",
+      "votes": 1949,
+      "vote_share_pct": 0.78,
+      "gender": "F",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1110,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4176,
+    "vote_share_pct": 1.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PREM PAL SINGH DHANGAR",
+    "party_short": "BJP",
+    "votes": 122881,
+    "margin_votes": 47691,
+    "margin_pct": 19.2
+  }
+}

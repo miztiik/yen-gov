@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 99,
+  "constituency_name": "Mahuva",
+  "totals": {
+    "electors": 208956,
+    "votes_polled": 135434,
+    "turnout_pct": 64.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAKWANA RAGHAVBHAI CHONDABHAI",
+      "party_short": "BJP",
+      "votes": 44410,
+      "vote_share_pct": 32.79,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. KANUBHAI V. KALSARIA",
+      "party_short": "IND",
+      "votes": 39401,
+      "vote_share_pct": 29.09,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BARAIYA VIJAYBHAI RAVJIBHAI",
+      "party_short": "INC",
+      "votes": 30576,
+      "vote_share_pct": 22.58,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BIPINKUMAR BHUPATRAY SANGHAVI",
+      "party_short": "IND",
+      "votes": 13414,
+      "vote_share_pct": 9.9,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHHAGANBHAI BACHUBHAI PARMAR",
+      "party_short": "VPP",
+      "votes": 1234,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2653,
+    "vote_share_pct": 1.96
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2948,
+    "vote_share_pct": 2.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAKWANA RAGHAVBHAI CHONDABHAI",
+    "party_short": "BJP",
+    "votes": 44410,
+    "margin_votes": 5009,
+    "margin_pct": 3.7
+  }
+}

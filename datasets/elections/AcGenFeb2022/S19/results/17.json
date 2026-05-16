@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Amritsar Central",
+  "totals": {
+    "electors": 147190,
+    "votes_polled": 87205,
+    "turnout_pct": 59.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AJAY GUPTA",
+      "party_short": "AAAP",
+      "votes": 40837,
+      "vote_share_pct": 46.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "OM PARKASH SONI",
+      "party_short": "INC",
+      "votes": 26811,
+      "vote_share_pct": 30.74,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. RAM CHAWLA",
+      "party_short": "BJP",
+      "votes": 13551,
+      "vote_share_pct": 15.54,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DALVIR KAUR",
+      "party_short": "BSP",
+      "votes": 4016,
+      "vote_share_pct": 4.61,
+      "gender": "F",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAMESH CHAND @ MAHANT RAMESHANAND",
+      "party_short": "APNJBP",
+      "votes": 664,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 697,
+    "vote_share_pct": 0.8
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 629,
+    "vote_share_pct": 0.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AJAY GUPTA",
+    "party_short": "AAAP",
+    "votes": 40837,
+    "margin_votes": 14026,
+    "margin_pct": 16.08
+  }
+}

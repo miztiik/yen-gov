@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 114,
+  "constituency_name": "Sojitra",
+  "totals": {
+    "electors": 220898,
+    "votes_polled": 154604,
+    "turnout_pct": 69.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Patel Vipulkumar Vinubhai",
+      "party_short": "BJP",
+      "votes": 87300,
+      "vote_share_pct": 56.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Poonambhai Madhabhai Parmar",
+      "party_short": "INC",
+      "votes": 57781,
+      "vote_share_pct": 37.37,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Manubhai Ranchhodbhai Thakor",
+      "party_short": "AAAP",
+      "votes": 3460,
+      "vote_share_pct": 2.24,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Mukeshbhai Ranchhodbhai Jadava",
+      "party_short": "BSP",
+      "votes": 1288,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Manubhai Jethabhai Vankar",
+      "party_short": "IND",
+      "votes": 908,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2766,
+    "vote_share_pct": 1.79
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1101,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Patel Vipulkumar Vinubhai",
+    "party_short": "BJP",
+    "votes": 87300,
+    "margin_votes": 29519,
+    "margin_pct": 19.09
+  }
+}

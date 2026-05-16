@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "Thiruvaiyaru",
+  "totals": {
+    "electors": 268590,
+    "votes_polled": 211430,
+    "turnout_pct": 78.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DURAI.CHANDRASEKARAN",
+      "party_short": "DMK",
+      "votes": 103210,
+      "vote_share_pct": 48.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VENKATESAN, S.",
+      "party_short": "BJP",
+      "votes": 49560,
+      "vote_share_pct": 23.44,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KARTHIKEYAN, V.",
+      "party_short": "AMMKMNKZ",
+      "votes": 37469,
+      "vote_share_pct": 17.72,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SENTHILNATHAN, D.",
+      "party_short": "NTK",
+      "votes": 15820,
+      "vote_share_pct": 7.48,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "UTHIRAPATHI, G.",
+      "party_short": "PT",
+      "votes": 1215,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1180,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2976,
+    "vote_share_pct": 1.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DURAI.CHANDRASEKARAN",
+    "party_short": "DMK",
+    "votes": 103210,
+    "margin_votes": 53650,
+    "margin_pct": 25.37
+  }
+}

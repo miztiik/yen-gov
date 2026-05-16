@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "Aghunato (ST)",
+  "totals": {
+    "electors": 16040,
+    "votes_polled": 13706,
+    "turnout_pct": 85.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "G. Ikuto Zhimomi",
+      "party_short": "NDPP",
+      "votes": 7133,
+      "vote_share_pct": 52.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Hukiye N. Tissica",
+      "party_short": "LJPRV",
+      "votes": 6541,
+      "vote_share_pct": 47.72,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 32,
+    "vote_share_pct": 0.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "G. Ikuto Zhimomi",
+    "party_short": "NDPP",
+    "votes": 7133,
+    "margin_votes": 592,
+    "margin_pct": 4.32
+  },
+  "others": null
+}

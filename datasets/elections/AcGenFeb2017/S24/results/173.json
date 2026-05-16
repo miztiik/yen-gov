@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "Lucknow East",
+  "totals": {
+    "electors": 422793,
+    "votes_polled": 228115,
+    "turnout_pct": 53.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ASHUTOSH TANDAN &QUOT;GOPAL JI&QUOT;",
+      "party_short": "BJP",
+      "votes": 135167,
+      "vote_share_pct": 59.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANURAG SINGH",
+      "party_short": "INC",
+      "votes": 55937,
+      "vote_share_pct": 24.52,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SAROJ KUMAR SHUKLA",
+      "party_short": "BSP",
+      "votes": 31390,
+      "vote_share_pct": 13.76,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ROHIT AGARWAL",
+      "party_short": "RLD",
+      "votes": 921,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AKHILESH KUMAR SINGH",
+      "party_short": "AIFB",
+      "votes": 512,
+      "vote_share_pct": 0.22,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1747,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2441,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ASHUTOSH TANDAN &QUOT;GOPAL JI&QUOT;",
+    "party_short": "BJP",
+    "votes": 135167,
+    "margin_votes": 79230,
+    "margin_pct": 34.73
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 250,
+  "constituency_name": "Raniganj",
+  "totals": {
+    "electors": 315821,
+    "votes_polled": 177190,
+    "turnout_pct": 56.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABHAY KUMAR ALIAS DHIRAJ OJHA",
+      "party_short": "BJP",
+      "votes": 67031,
+      "vote_share_pct": 37.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHAKEEL AHMAD KHAN",
+      "party_short": "BSP",
+      "votes": 58022,
+      "vote_share_pct": 32.75,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PROF.SHIVAKANT OJHA",
+      "party_short": "SP",
+      "votes": 37816,
+      "vote_share_pct": 21.34,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHREENATH",
+      "party_short": "NINSHAD",
+      "votes": 2052,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PRANANJANY",
+      "party_short": "IND",
+      "votes": 1874,
+      "vote_share_pct": 1.06,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1259,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 9136,
+    "vote_share_pct": 5.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABHAY KUMAR ALIAS DHIRAJ OJHA",
+    "party_short": "BJP",
+    "votes": 67031,
+    "margin_votes": 9009,
+    "margin_pct": 5.08
+  }
+}

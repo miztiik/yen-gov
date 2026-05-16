@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Modi Nagar",
+  "totals": {
+    "electors": 332327,
+    "votes_polled": 223867,
+    "turnout_pct": 67.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. MANJU SHIWACH",
+      "party_short": "BJP",
+      "votes": 113349,
+      "vote_share_pct": 50.63,
+      "is_winner": true,
+      "gender": "F",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUDESH SHARMA",
+      "party_short": "RLD",
+      "votes": 78730,
+      "vote_share_pct": 35.17,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. POONAM GARG",
+      "party_short": "BSP",
+      "votes": 26729,
+      "vote_share_pct": 11.94,
+      "gender": "F",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NEERAJ KUMARI",
+      "party_short": "INC",
+      "votes": 2073,
+      "vote_share_pct": 0.93,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HARINDRA KUMAR SHARMA",
+      "party_short": "AAAP",
+      "votes": 1070,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 869,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1047,
+    "vote_share_pct": 0.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. MANJU SHIWACH",
+    "party_short": "BJP",
+    "votes": 113349,
+    "margin_votes": 34619,
+    "margin_pct": 15.46
+  }
+}

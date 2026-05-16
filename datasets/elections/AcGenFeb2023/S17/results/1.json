@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Dimapur-I",
+  "totals": {
+    "electors": 25244,
+    "votes_polled": 19886,
+    "turnout_pct": 78.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "H. Tovihoto Ayemi",
+      "party_short": "BJP",
+      "votes": 13325,
+      "vote_share_pct": 67.01,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Kewekhape Therie",
+      "party_short": "INC",
+      "votes": 6366,
+      "vote_share_pct": 32.01,
+      "gender": "M",
+      "age": 69,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 195,
+    "vote_share_pct": 0.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "H. Tovihoto Ayemi",
+    "party_short": "BJP",
+    "votes": 13325,
+    "margin_votes": 6959,
+    "margin_pct": 34.99
+  },
+  "others": null
+}

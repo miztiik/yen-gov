@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 110,
+  "constituency_name": "Karhal",
+  "totals": {
+    "electors": 373351,
+    "votes_polled": 246498,
+    "turnout_pct": 66.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Akhilesh Yadav",
+      "party_short": "SP",
+      "votes": 148196,
+      "vote_share_pct": 60.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Prof. S.P. Singh Baghel",
+      "party_short": "BJP",
+      "votes": 80692,
+      "vote_share_pct": 32.74,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Kuladip Narayan",
+      "party_short": "BSP",
+      "votes": 15701,
+      "vote_share_pct": 6.37,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1909,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Akhilesh Yadav",
+    "party_short": "SP",
+    "votes": 148196,
+    "margin_votes": 67504,
+    "margin_pct": 27.39
+  },
+  "others": null
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Pfutsero (ST)",
+  "totals": {
+    "electors": 20805,
+    "votes_polled": 19007,
+    "turnout_pct": 91.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr.neisatuo Mero",
+      "party_short": "IND",
+      "votes": 7995,
+      "vote_share_pct": 42.06,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Neiba Kronu",
+      "party_short": "NDPP",
+      "votes": 7891,
+      "vote_share_pct": 41.52,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Vivolie Kezo",
+      "party_short": "NPF",
+      "votes": 3059,
+      "vote_share_pct": 16.09,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 62,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr.neisatuo Mero",
+    "party_short": "IND",
+    "votes": 7995,
+    "margin_votes": 104,
+    "margin_pct": 0.55
+  },
+  "others": null
+}

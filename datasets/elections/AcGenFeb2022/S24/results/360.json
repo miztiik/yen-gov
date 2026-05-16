@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 360,
+  "constituency_name": "Phephana",
+  "totals": {
+    "electors": 331153,
+    "votes_polled": 189662,
+    "turnout_pct": 57.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANGRAM SINGH",
+      "party_short": "SP",
+      "votes": 92516,
+      "vote_share_pct": 48.78,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "UPENDRA TIWARI",
+      "party_short": "BJP",
+      "votes": 73162,
+      "vote_share_pct": 38.57,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KAMAL DEV",
+      "party_short": "BSP",
+      "votes": 14154,
+      "vote_share_pct": 7.46,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIVEK",
+      "party_short": "VSIP",
+      "votes": 2256,
+      "vote_share_pct": 1.19,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAINENDRA",
+      "party_short": "INC",
+      "votes": 2229,
+      "vote_share_pct": 1.18,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1117,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4228,
+    "vote_share_pct": 2.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANGRAM SINGH",
+    "party_short": "SP",
+    "votes": 92516,
+    "margin_votes": 19354,
+    "margin_pct": 10.2
+  }
+}

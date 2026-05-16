@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Kapurthala",
+  "totals": {
+    "electors": 141299,
+    "votes_polled": 105540,
+    "turnout_pct": 74.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RANA GURJIT SINGH",
+      "party_short": "INC",
+      "votes": 56378,
+      "vote_share_pct": 53.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADVOCATE PARAMJIT SINGH",
+      "party_short": "SAD",
+      "votes": 27561,
+      "vote_share_pct": 26.11,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SUKHWANT SINGH PADDA",
+      "party_short": "AAAP",
+      "votes": 18076,
+      "vote_share_pct": 17.13,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANOJ KUMAR NAHAR",
+      "party_short": "BSP(A)",
+      "votes": 1115,
+      "vote_share_pct": 1.06,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "NARINDER  SINGH",
+      "party_short": "SAD(M)",
+      "votes": 605,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 658,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1147,
+    "vote_share_pct": 1.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RANA GURJIT SINGH",
+    "party_short": "INC",
+    "votes": 56378,
+    "margin_votes": 28817,
+    "margin_pct": 27.3
+  }
+}

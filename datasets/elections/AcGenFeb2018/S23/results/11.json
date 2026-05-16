@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Mandaibazar",
+  "totals": {
+    "electors": 44578,
+    "votes_polled": 41615,
+    "turnout_pct": 93.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DHIRENDRA DEBBARMA",
+      "party_short": "IPFT",
+      "votes": 21381,
+      "vote_share_pct": 51.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "MONORANJAN DEBBARMA",
+      "party_short": "CPM",
+      "votes": 15517,
+      "vote_share_pct": 37.29,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "JAGADISH DEBBARMA",
+      "party_short": "INPT",
+      "votes": 2215,
+      "vote_share_pct": 5.32,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "JITEN DEBBARMA",
+      "party_short": "INC",
+      "votes": 496,
+      "vote_share_pct": 1.19,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SONA CHARAN DEBBARMA",
+      "party_short": "TLSP",
+      "votes": 466,
+      "vote_share_pct": 1.12,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 453,
+    "vote_share_pct": 1.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DHIRENDRA DEBBARMA",
+    "party_short": "IPFT",
+    "votes": 21381,
+    "margin_votes": 5864,
+    "margin_pct": 14.09
+  },
+  "others": null
+}

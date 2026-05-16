@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 227,
+  "constituency_name": "Mehroni",
+  "totals": {
+    "electors": 414998,
+    "votes_polled": 307753,
+    "turnout_pct": 74.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANOHAR LAL",
+      "party_short": "BJP",
+      "votes": 159291,
+      "vote_share_pct": 51.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "FERAN LAL",
+      "party_short": "BSP",
+      "votes": 59727,
+      "vote_share_pct": 19.41,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BRIJ LAL KHABRI",
+      "party_short": "INC",
+      "votes": 43171,
+      "vote_share_pct": 14.03,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAMESH KHATIK",
+      "party_short": "SP",
+      "votes": 27031,
+      "vote_share_pct": 8.78,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ARADHANA",
+      "party_short": "CPI",
+      "votes": 4603,
+      "vote_share_pct": 1.5,
+      "gender": "F",
+      "age": 32,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 4092,
+    "vote_share_pct": 1.33
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 9838,
+    "vote_share_pct": 3.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANOHAR LAL",
+    "party_short": "BJP",
+    "votes": 159291,
+    "margin_votes": 99564,
+    "margin_pct": 32.35
+  }
+}

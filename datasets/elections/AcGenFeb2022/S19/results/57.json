@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Khanna",
+  "totals": {
+    "electors": 172035,
+    "votes_polled": 128586,
+    "turnout_pct": 74.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TARUNPREET SINGH SOND",
+      "party_short": "AAAP",
+      "votes": 62425,
+      "vote_share_pct": 48.55,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JASDEEP KAUR YADU",
+      "party_short": "SAD",
+      "votes": 26805,
+      "vote_share_pct": 20.85,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GURKIRAT SINGH",
+      "party_short": "INC",
+      "votes": 20305,
+      "vote_share_pct": 15.79,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GURPREET SINGH BHATTI",
+      "party_short": "BJP",
+      "votes": 12667,
+      "vote_share_pct": 9.85,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PARMJEET SINGH RINKA",
+      "party_short": "SAD(M)",
+      "votes": 3936,
+      "vote_share_pct": 3.06,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 694,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1754,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TARUNPREET SINGH SOND",
+    "party_short": "AAAP",
+    "votes": 62425,
+    "margin_votes": 35620,
+    "margin_pct": 27.7
+  }
+}

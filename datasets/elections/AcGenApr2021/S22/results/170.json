@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 170,
+  "constituency_name": "Thiruvidaimarudur",
+  "totals": {
+    "electors": 259518,
+    "votes_polled": 198446,
+    "turnout_pct": 76.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHEZHIAAN, GOVI.",
+      "party_short": "DMK",
+      "votes": 95763,
+      "vote_share_pct": 48.26,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "UNION VEERAMANI, S.",
+      "party_short": "ADMK",
+      "votes": 85083,
+      "vote_share_pct": 42.87,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DIVYA BHARATHI, M.",
+      "party_short": "NTK",
+      "votes": 11176,
+      "vote_share_pct": 5.63,
+      "gender": "F",
+      "age": 26,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PURATCHI MANI, M.",
+      "party_short": "BSP",
+      "votes": 1839,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KUDANTHAI ARASAN, J.",
+      "party_short": "AMMKMNKZ",
+      "votes": 1746,
+      "vote_share_pct": 0.88,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1240,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1599,
+    "vote_share_pct": 0.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHEZHIAAN, GOVI.",
+    "party_short": "DMK",
+    "votes": 95763,
+    "margin_votes": 10680,
+    "margin_pct": 5.38
+  }
+}

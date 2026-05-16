@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 180,
+  "constituency_name": "Rae Bareli",
+  "totals": {
+    "electors": 351324,
+    "votes_polled": 207329,
+    "turnout_pct": 59.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADITI SINGH",
+      "party_short": "INC",
+      "votes": 128319,
+      "vote_share_pct": 61.89,
+      "is_winner": true,
+      "gender": "F",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MHD. SHAHBAZ KHAN",
+      "party_short": "BSP",
+      "votes": 39156,
+      "vote_share_pct": 18.89,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANITA SRIVASTAVA",
+      "party_short": "BJP",
+      "votes": 28821,
+      "vote_share_pct": 13.9,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANVENDRA SINGH",
+      "party_short": "AABHAP",
+      "votes": 1536,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BHARATI PANDEY",
+      "party_short": "RLD",
+      "votes": 1233,
+      "vote_share_pct": 0.59,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3448,
+    "vote_share_pct": 1.66
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4816,
+    "vote_share_pct": 2.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADITI SINGH",
+    "party_short": "INC",
+    "votes": 128319,
+    "margin_votes": 89163,
+    "margin_pct": 43.01
+  }
+}

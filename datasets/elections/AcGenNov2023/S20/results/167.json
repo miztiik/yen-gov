@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 167,
+  "constituency_name": "Kapasan (SC)",
+  "totals": {
+    "electors": 269727,
+    "votes_polled": 201758,
+    "turnout_pct": 74.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Arjun Lal Jingar",
+      "party_short": "BJP",
+      "votes": 84778,
+      "vote_share_pct": 42.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Shankar Lal Berwa",
+      "party_short": "INC",
+      "votes": 63434,
+      "vote_share_pct": 31.44,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Anandi Ram",
+      "party_short": "RLTP",
+      "votes": 29425,
+      "vote_share_pct": 14.58,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Dinesh Chandra Bunkar",
+      "party_short": "IND",
+      "votes": 15527,
+      "vote_share_pct": 7.7,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Banshilal Meghwal",
+      "party_short": "IND",
+      "votes": 1486,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2845,
+    "vote_share_pct": 1.41
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4263,
+    "vote_share_pct": 2.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Arjun Lal Jingar",
+    "party_short": "BJP",
+    "votes": 84778,
+    "margin_votes": 21344,
+    "margin_pct": 10.58
+  }
+}

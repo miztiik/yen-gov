@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 233,
+  "constituency_name": "Baberu",
+  "totals": {
+    "electors": 338211,
+    "votes_polled": 205453,
+    "turnout_pct": 60.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VISHAMBHAR SINGH YADAV",
+      "party_short": "SP",
+      "votes": 79614,
+      "vote_share_pct": 38.75,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AJAY KUMAR",
+      "party_short": "BJP",
+      "votes": 72221,
+      "vote_share_pct": 35.15,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAMSEVAK SHUKLA",
+      "party_short": "BSP",
+      "votes": 37009,
+      "vote_share_pct": 18.01,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ASHOK KUMAR",
+      "party_short": "JANADIP",
+      "votes": 4458,
+      "vote_share_pct": 2.17,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GAJENDRA SINGH PATEL",
+      "party_short": "INC",
+      "votes": 2112,
+      "vote_share_pct": 1.03,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3047,
+    "vote_share_pct": 1.48
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 6992,
+    "vote_share_pct": 3.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VISHAMBHAR SINGH YADAV",
+    "party_short": "SP",
+    "votes": 79614,
+    "margin_votes": 7393,
+    "margin_pct": 3.6
+  }
+}

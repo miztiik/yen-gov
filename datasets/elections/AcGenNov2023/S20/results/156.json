@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 156,
+  "constituency_name": "Salumber (ST)",
+  "totals": {
+    "electors": 295173,
+    "votes_polled": 213319,
+    "turnout_pct": 72.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Amritlal Meena",
+      "party_short": "BJP",
+      "votes": 80086,
+      "vote_share_pct": 37.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Raghuvir Singh Meena",
+      "party_short": "INC",
+      "votes": 65395,
+      "vote_share_pct": 30.66,
+      "gender": "M",
+      "age": 64,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Jitesh Kumar Meena",
+      "party_short": "BHRTADVSIP",
+      "votes": 51691,
+      "vote_share_pct": 24.23,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Govind Kalasuya",
+      "party_short": "IND",
+      "votes": 3838,
+      "vote_share_pct": 1.8,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Kalu Ram Meena",
+      "party_short": "CPI",
+      "votes": 2224,
+      "vote_share_pct": 1.04,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3702,
+    "vote_share_pct": 1.74
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 6383,
+    "vote_share_pct": 2.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Amritlal Meena",
+    "party_short": "BJP",
+    "votes": 80086,
+    "margin_votes": 14691,
+    "margin_pct": 6.89
+  }
+}

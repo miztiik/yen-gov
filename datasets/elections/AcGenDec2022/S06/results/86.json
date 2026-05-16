@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 86,
+  "constituency_name": "Junagadh",
+  "totals": {
+    "electors": 287816,
+    "votes_polled": 162707,
+    "turnout_pct": 56.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sanjay Sukhabhai Koradia",
+      "party_short": "BJP",
+      "votes": 84616,
+      "vote_share_pct": 52.01,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Joshi Bhikhabhai Galabhai",
+      "party_short": "INC",
+      "votes": 44360,
+      "vote_share_pct": 27.26,
+      "gender": "M",
+      "age": 77,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Chetankumar Harsukhbhai Gajera",
+      "party_short": "AAAP",
+      "votes": 28306,
+      "vote_share_pct": 17.4,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Mayurbhai Harilal Ranva",
+      "party_short": "BSP",
+      "votes": 900,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Gorfad Dilipkumar Ranchhodbhai",
+      "party_short": "BTJP",
+      "votes": 845,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2002,
+    "vote_share_pct": 1.23
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1678,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sanjay Sukhabhai Koradia",
+    "party_short": "BJP",
+    "votes": 84616,
+    "margin_votes": 40256,
+    "margin_pct": 24.74
+  }
+}

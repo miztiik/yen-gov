@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 183,
+  "constituency_name": "Unchahar",
+  "totals": {
+    "electors": 339043,
+    "votes_polled": 212030,
+    "turnout_pct": 62.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manoj Kumar Pandey",
+      "party_short": "SP",
+      "votes": 82514,
+      "vote_share_pct": 38.92,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMARPAL MAURYA",
+      "party_short": "BJP",
+      "votes": 75893,
+      "vote_share_pct": 35.79,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANJALI MAURYA",
+      "party_short": "BSP",
+      "votes": 34692,
+      "vote_share_pct": 16.36,
+      "gender": "F",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Atul Singh",
+      "party_short": "INC",
+      "votes": 9985,
+      "vote_share_pct": 4.71,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAILENDRA KUMAR GUPTA",
+      "party_short": "IND",
+      "votes": 1820,
+      "vote_share_pct": 0.86,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1243,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5883,
+    "vote_share_pct": 2.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manoj Kumar Pandey",
+    "party_short": "SP",
+    "votes": 82514,
+    "margin_votes": 6621,
+    "margin_pct": 3.12
+  }
+}

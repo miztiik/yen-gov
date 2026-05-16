@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Khatauli",
+  "totals": {
+    "electors": 318047,
+    "votes_polled": 221969,
+    "turnout_pct": 69.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIKRAM SINGH",
+      "party_short": "BJP",
+      "votes": 100651,
+      "vote_share_pct": 45.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJPAL SINGH SAINI",
+      "party_short": "RLD",
+      "votes": 84306,
+      "vote_share_pct": 37.98,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KARTAR SINGH BHADANA",
+      "party_short": "BSP",
+      "votes": 31412,
+      "vote_share_pct": 14.15,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GAURAV KUMAR URF GAURAV BHATI",
+      "party_short": "INC",
+      "votes": 1209,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MANOJ PANWAR",
+      "party_short": "ASPKR",
+      "votes": 843,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 824,
+    "vote_share_pct": 0.37
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2724,
+    "vote_share_pct": 1.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIKRAM SINGH",
+    "party_short": "BJP",
+    "votes": 100651,
+    "margin_votes": 16345,
+    "margin_pct": 7.36
+  }
+}

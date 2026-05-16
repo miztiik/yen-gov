@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Meerapur",
+  "totals": {
+    "electors": 314587,
+    "votes_polled": 216692,
+    "turnout_pct": 68.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chandan Chauhan",
+      "party_short": "RLD",
+      "votes": 107421,
+      "vote_share_pct": 49.57,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PRASHANT CHAUDHARY",
+      "party_short": "BJP",
+      "votes": 80041,
+      "vote_share_pct": 36.94,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MOHD. SALIM",
+      "party_short": "BSP",
+      "votes": 23797,
+      "vote_share_pct": 10.98,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "UMESH",
+      "party_short": "ASPKR",
+      "votes": 1628,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAMIL AHMAD",
+      "party_short": "INC",
+      "votes": 1258,
+      "vote_share_pct": 0.58,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 888,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1659,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chandan Chauhan",
+    "party_short": "RLD",
+    "votes": 107421,
+    "margin_votes": 27380,
+    "margin_pct": 12.64
+  }
+}

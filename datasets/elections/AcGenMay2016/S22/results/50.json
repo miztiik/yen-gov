@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Tirupattur",
+  "totals": {
+    "electors": 224938,
+    "votes_polled": 177843,
+    "turnout_pct": 79.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NALLATHAMBI. A",
+      "party_short": "DMK",
+      "votes": 80791,
+      "vote_share_pct": 45.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KUMAR.T.T",
+      "party_short": "ADMK",
+      "votes": 73144,
+      "vote_share_pct": 41.13,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJA.T.K",
+      "party_short": "PMK",
+      "votes": 12227,
+      "vote_share_pct": 6.88,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "HARIKRISHNAN.K",
+      "party_short": "DMDK",
+      "votes": 3968,
+      "vote_share_pct": 2.23,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GOVINDARAJAN. V",
+      "party_short": "BJP",
+      "votes": 1831,
+      "vote_share_pct": 1.03,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1193,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 4689,
+    "vote_share_pct": 2.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NALLATHAMBI. A",
+    "party_short": "DMK",
+    "votes": 80791,
+    "margin_votes": 7647,
+    "margin_pct": 4.3
+  }
+}

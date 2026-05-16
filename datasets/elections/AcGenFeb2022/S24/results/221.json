@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 221,
+  "constituency_name": "Orai",
+  "totals": {
+    "electors": 444977,
+    "votes_polled": 271107,
+    "turnout_pct": 60.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GAURI SHANKAR",
+      "party_short": "BJP",
+      "votes": 128644,
+      "vote_share_pct": 47.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DAYASHANKAR VERMA",
+      "party_short": "SP",
+      "votes": 90996,
+      "vote_share_pct": 33.56,
+      "gender": "M",
+      "age": 71,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SATYENDRA PRATAP",
+      "party_short": "BSP",
+      "votes": 38638,
+      "vote_share_pct": 14.25,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "URMILA DEVI SONKAR KHABRI",
+      "party_short": "INC",
+      "votes": 4650,
+      "vote_share_pct": 1.72,
+      "gender": "F",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BALAK RAM",
+      "party_short": "JANADIP",
+      "votes": 1607,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1682,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4890,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GAURI SHANKAR",
+    "party_short": "BJP",
+    "votes": 128644,
+    "margin_votes": 37648,
+    "margin_pct": 13.89
+  }
+}

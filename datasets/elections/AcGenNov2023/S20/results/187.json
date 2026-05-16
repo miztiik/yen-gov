@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 187,
+  "constituency_name": "Pipalda",
+  "totals": {
+    "electors": 210017,
+    "votes_polled": 163162,
+    "turnout_pct": 77.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chetan Patel Kolana",
+      "party_short": "INC",
+      "votes": 89281,
+      "vote_share_pct": 54.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 32,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Premchand Gochar",
+      "party_short": "BJP",
+      "votes": 68276,
+      "vote_share_pct": 41.85,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Shyam Lal",
+      "party_short": "BSP",
+      "votes": 1387,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Dilip Kumar",
+      "party_short": "AAAP",
+      "votes": 1348,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 28,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Prem Shankar Nagar",
+      "party_short": "IND",
+      "votes": 689,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1624,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 557,
+    "vote_share_pct": 0.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chetan Patel Kolana",
+    "party_short": "INC",
+    "votes": 89281,
+    "margin_votes": 21005,
+    "margin_pct": 12.87
+  }
+}

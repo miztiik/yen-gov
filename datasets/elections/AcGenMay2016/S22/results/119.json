@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 119,
+  "constituency_name": "Thondamuthur",
+  "totals": {
+    "electors": 297360,
+    "votes_polled": 199100,
+    "turnout_pct": 66.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VELUMANI,S.P.",
+      "party_short": "ADMK",
+      "votes": 109519,
+      "vote_share_pct": 55.01,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KOVAI SYED @ SYED MOHAMMED,M.A.",
+      "party_short": "MAMAK",
+      "votes": 45478,
+      "vote_share_pct": 22.84,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KARUMUTHU THIYAGARAJAN,M.",
+      "party_short": "BJP",
+      "votes": 19043,
+      "vote_share_pct": 9.56,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THIYAGARAJAN,K.",
+      "party_short": "DMDK",
+      "votes": 7968,
+      "vote_share_pct": 4.0,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ANSHAR SHERIFF,A.",
+      "party_short": "SDPI",
+      "votes": 3643,
+      "vote_share_pct": 1.83,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3248,
+    "vote_share_pct": 1.63
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 10201,
+    "vote_share_pct": 5.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VELUMANI,S.P.",
+    "party_short": "ADMK",
+    "votes": 109519,
+    "margin_votes": 64041,
+    "margin_pct": 32.17
+  }
+}

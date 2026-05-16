@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 73,
+  "constituency_name": "Vanur",
+  "totals": {
+    "electors": 226608,
+    "votes_polled": 182208,
+    "turnout_pct": 80.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHAKRAPANI M",
+      "party_short": "ADMK",
+      "votes": 92219,
+      "vote_share_pct": 50.61,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "VANNI ARASU",
+      "party_short": "VCK",
+      "votes": 70492,
+      "vote_share_pct": 38.69,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "LATCHOUMY M",
+      "party_short": "NTK",
+      "votes": 8587,
+      "vote_share_pct": 4.71,
+      "gender": "F",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "GANAPATHI P M",
+      "party_short": "DMDK",
+      "votes": 5460,
+      "vote_share_pct": 3.0,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SANDOSHKUMAR M",
+      "party_short": "MNM",
+      "votes": 2500,
+      "vote_share_pct": 1.37,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1363,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1587,
+    "vote_share_pct": 0.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHAKRAPANI M",
+    "party_short": "ADMK",
+    "votes": 92219,
+    "margin_votes": 21727,
+    "margin_pct": 11.92
+  }
+}

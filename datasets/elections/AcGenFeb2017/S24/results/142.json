@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 142,
+  "constituency_name": "LAKHIMPUR",
+  "totals": {
+    "electors": 393426,
+    "votes_polled": 255622,
+    "turnout_pct": 64.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "YOGESH VERMA",
+      "party_short": "BJP",
+      "votes": 122677,
+      "vote_share_pct": 47.99,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "UTKARSH VERMA MADHUR",
+      "party_short": "SP",
+      "votes": 84929,
+      "vote_share_pct": 33.22,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHASHIDHAR MISHRA NAAME MAHRAJ",
+      "party_short": "BSP",
+      "votes": 39068,
+      "vote_share_pct": 15.28,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "LIAQAT ALI KHAN",
+      "party_short": "RLD",
+      "votes": 1674,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PARO KINNAR",
+      "party_short": "IND",
+      "votes": 1231,
+      "vote_share_pct": 0.48,
+      "gender": "O",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2434,
+    "vote_share_pct": 0.95
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3609,
+    "vote_share_pct": 1.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "YOGESH VERMA",
+    "party_short": "BJP",
+    "votes": 122677,
+    "margin_votes": 37748,
+    "margin_pct": 14.77
+  }
+}

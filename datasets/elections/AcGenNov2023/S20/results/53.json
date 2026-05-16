@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Adarsh Nagar",
+  "totals": {
+    "electors": 268419,
+    "votes_polled": 198217,
+    "turnout_pct": 73.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rafeek Khan",
+      "party_short": "INC",
+      "votes": 103421,
+      "vote_share_pct": 52.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ravi Kumar Nayyar",
+      "party_short": "BJP",
+      "votes": 89348,
+      "vote_share_pct": 45.08,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Umaradaraj",
+      "party_short": "AAAP",
+      "votes": 1122,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Saurabh Chhajer",
+      "party_short": "IND",
+      "votes": 797,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sanjay Kumar Balmiky",
+      "party_short": "ASPKR",
+      "votes": 633,
+      "vote_share_pct": 0.32,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1377,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1519,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rafeek Khan",
+    "party_short": "INC",
+    "votes": 103421,
+    "margin_votes": 14073,
+    "margin_pct": 7.1
+  }
+}

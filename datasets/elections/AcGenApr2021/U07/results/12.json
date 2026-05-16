@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "KALAPET",
+  "totals": {
+    "electors": 34646,
+    "votes_polled": 29751,
+    "turnout_pct": 85.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.M.L. KALYANASUNDARAM",
+      "party_short": "BJP",
+      "votes": 13277,
+      "vote_share_pct": 44.63,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "A. SENTHIL @ RAMESH",
+      "party_short": "IND",
+      "votes": 9769,
+      "vote_share_pct": 32.84,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S. MOUTTOUVEL",
+      "party_short": "DMK",
+      "votes": 3769,
+      "vote_share_pct": 12.67,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K. KAMARAJ",
+      "party_short": "NTK",
+      "votes": 1321,
+      "vote_share_pct": 4.44,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "R. CHANDRAMOHAN",
+      "party_short": "MNM",
+      "votes": 685,
+      "vote_share_pct": 2.3,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 453,
+    "vote_share_pct": 1.52
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 477,
+    "vote_share_pct": 1.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.M.L. KALYANASUNDARAM",
+    "party_short": "BJP",
+    "votes": 13277,
+    "margin_votes": 3508,
+    "margin_pct": 11.79
+  }
+}

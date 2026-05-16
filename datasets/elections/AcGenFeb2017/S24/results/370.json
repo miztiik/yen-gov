@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 370,
+  "constituency_name": "Mariyahu",
+  "totals": {
+    "electors": 308120,
+    "votes_polled": 180043,
+    "turnout_pct": 58.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LEENA TIWARI",
+      "party_short": "ADAL",
+      "votes": 58804,
+      "vote_share_pct": 32.66,
+      "is_winner": true,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHRADDHA YADAV",
+      "party_short": "SP",
+      "votes": 47454,
+      "vote_share_pct": 26.36,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BHOLANATH SHUKLA",
+      "party_short": "BSP",
+      "votes": 37066,
+      "vote_share_pct": 20.59,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SEEMA SINGH",
+      "party_short": "IND",
+      "votes": 21440,
+      "vote_share_pct": 11.91,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "LAL PRATAP",
+      "party_short": "IND",
+      "votes": 1690,
+      "vote_share_pct": 0.94,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1174,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 12415,
+    "vote_share_pct": 6.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LEENA TIWARI",
+    "party_short": "ADAL",
+    "votes": 58804,
+    "margin_votes": 11350,
+    "margin_pct": 6.3
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 4,
+  "constituency_name": "Ghaspani-I (ST)",
+  "totals": {
+    "electors": 75372,
+    "votes_polled": 57260,
+    "turnout_pct": 75.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "N. Jacob Zhimomi",
+      "party_short": "BJP",
+      "votes": 32037,
+      "vote_share_pct": 55.95,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "V. Phushika Aomi",
+      "party_short": "IND",
+      "votes": 11941,
+      "vote_share_pct": 20.85,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Imsumongba Pongen",
+      "party_short": "JD(U)",
+      "votes": 8228,
+      "vote_share_pct": 14.37,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Akavi N. Zhimomi",
+      "party_short": "INC",
+      "votes": 4513,
+      "vote_share_pct": 7.88,
+      "gender": "M",
+      "age": 31,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Vikato Aye",
+      "party_short": "NPF",
+      "votes": 277,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 264,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "N. Jacob Zhimomi",
+    "party_short": "BJP",
+    "votes": 32037,
+    "margin_votes": 20096,
+    "margin_pct": 35.1
+  },
+  "others": null
+}

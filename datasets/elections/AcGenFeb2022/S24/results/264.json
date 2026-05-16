@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 264,
+  "constituency_name": "Bara",
+  "totals": {
+    "electors": 334880,
+    "votes_polled": 205129,
+    "turnout_pct": 61.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VACHASPATI",
+      "party_short": "ADAL",
+      "votes": 89203,
+      "vote_share_pct": 43.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "AJAY",
+      "party_short": "SP",
+      "votes": 76679,
+      "vote_share_pct": 37.38,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DR AJAY KUMAR",
+      "party_short": "BSP",
+      "votes": 22719,
+      "vote_share_pct": 11.08,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MANJU SANT",
+      "party_short": "INC",
+      "votes": 3443,
+      "vote_share_pct": 1.68,
+      "gender": "F",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ram Kumar Vidyarthi",
+      "party_short": "PPID",
+      "votes": 2575,
+      "vote_share_pct": 1.26,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2731,
+    "vote_share_pct": 1.33
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 7779,
+    "vote_share_pct": 3.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VACHASPATI",
+    "party_short": "ADAL",
+    "votes": 89203,
+    "margin_votes": 12524,
+    "margin_pct": 6.11
+  }
+}

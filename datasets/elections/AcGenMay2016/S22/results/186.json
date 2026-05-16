@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 186,
+  "constituency_name": "Sivaganga",
+  "totals": {
+    "electors": 273251,
+    "votes_polled": 189342,
+    "turnout_pct": 69.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BASKARAN.G",
+      "party_short": "ADMK",
+      "votes": 81697,
+      "vote_share_pct": 43.15,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATHIANATHAN.M @ MEPPAL M.SAKTHI",
+      "party_short": "DMK",
+      "votes": 75061,
+      "vote_share_pct": 39.64,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GUNASEKARAN.S",
+      "party_short": "CPI",
+      "votes": 15114,
+      "vote_share_pct": 7.98,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SRITHAR VANDAIYAR. G. M.",
+      "party_short": "AIFB(S)",
+      "votes": 5214,
+      "vote_share_pct": 2.75,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KOTTAIKUMAR. RAMA",
+      "party_short": "NTK",
+      "votes": 3118,
+      "vote_share_pct": 1.65,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1530,
+    "vote_share_pct": 0.81
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 7608,
+    "vote_share_pct": 4.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BASKARAN.G",
+    "party_short": "ADMK",
+    "votes": 81697,
+    "margin_votes": 6636,
+    "margin_pct": 3.5
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Anna Nagar",
+  "totals": {
+    "electors": 283857,
+    "votes_polled": 170281,
+    "turnout_pct": 59.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHAN M.K.",
+      "party_short": "DMK",
+      "votes": 70812,
+      "vote_share_pct": 41.59,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GOKULAINDIRA S",
+      "party_short": "ADMK",
+      "votes": 69726,
+      "vote_share_pct": 40.95,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SURESH K",
+      "party_short": "BJP",
+      "votes": 8832,
+      "vote_share_pct": 5.19,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MALLIKA DAYALAN",
+      "party_short": "MDMK",
+      "votes": 6384,
+      "vote_share_pct": 3.75,
+      "gender": "F",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AKHILESH A M",
+      "party_short": "PMK",
+      "votes": 5402,
+      "vote_share_pct": 3.17,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3970,
+    "vote_share_pct": 2.33
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 5155,
+    "vote_share_pct": 3.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHAN M.K.",
+    "party_short": "DMK",
+    "votes": 70812,
+    "margin_votes": 1086,
+    "margin_pct": 0.64
+  }
+}

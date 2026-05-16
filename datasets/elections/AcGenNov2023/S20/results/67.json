@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "Ramgarh",
+  "totals": {
+    "electors": 271744,
+    "votes_polled": 211159,
+    "turnout_pct": 77.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Zubair Khan",
+      "party_short": "INC",
+      "votes": 93765,
+      "vote_share_pct": 44.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sukhavant Singh",
+      "party_short": "ASPKR",
+      "votes": 74069,
+      "vote_share_pct": 35.08,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Jai Aahuja",
+      "party_short": "BJP",
+      "votes": 34882,
+      "vote_share_pct": 16.52,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Diwan Chand",
+      "party_short": "BSP",
+      "votes": 1219,
+      "vote_share_pct": 0.58,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Vishvender Singh",
+      "party_short": "AAAP",
+      "votes": 1178,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 695,
+    "vote_share_pct": 0.33
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 5351,
+    "vote_share_pct": 2.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Zubair Khan",
+    "party_short": "INC",
+    "votes": 93765,
+    "margin_votes": 19696,
+    "margin_pct": 9.33
+  }
+}

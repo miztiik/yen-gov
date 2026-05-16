@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 390,
+  "constituency_name": "Varanasi Cantt.",
+  "totals": {
+    "electors": 459277,
+    "votes_polled": 243821,
+    "turnout_pct": 53.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Saurabh Srivastava",
+      "party_short": "BJP",
+      "votes": 147833,
+      "vote_share_pct": 60.63,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Pooja Yadav",
+      "party_short": "SP",
+      "votes": 60989,
+      "vote_share_pct": 25.01,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Rajesh Kumar Mishra",
+      "party_short": "INC",
+      "votes": 23807,
+      "vote_share_pct": 9.76,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Kaoshik Kumar Pandey",
+      "party_short": "BSP",
+      "votes": 7068,
+      "vote_share_pct": 2.9,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rakesh Pandey",
+      "party_short": "AAAP",
+      "votes": 1165,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1522,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1437,
+    "vote_share_pct": 0.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Saurabh Srivastava",
+    "party_short": "BJP",
+    "votes": 147833,
+    "margin_votes": 86844,
+    "margin_pct": 35.62
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 162,
+  "constituency_name": "Bangermau",
+  "totals": {
+    "electors": 337892,
+    "votes_polled": 202064,
+    "turnout_pct": 59.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KULDEEP SINGH SENGAR",
+      "party_short": "BJP",
+      "votes": 87657,
+      "vote_share_pct": 43.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BADALOO KHAN",
+      "party_short": "SP",
+      "votes": 59330,
+      "vote_share_pct": 29.36,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MOHD IRASHAD KHAN",
+      "party_short": "BSP",
+      "votes": 44730,
+      "vote_share_pct": 22.14,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUNDAR LAL",
+      "party_short": "IND",
+      "votes": 1504,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SHREE KANT VERMA",
+      "party_short": "RLD",
+      "votes": 1281,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1873,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5689,
+    "vote_share_pct": 2.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KULDEEP SINGH SENGAR",
+    "party_short": "BJP",
+    "votes": 87657,
+    "margin_votes": 28327,
+    "margin_pct": 14.02
+  }
+}

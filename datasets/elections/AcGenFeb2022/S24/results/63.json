@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 63,
+  "constituency_name": "Jewar",
+  "totals": {
+    "electors": 352164,
+    "votes_polled": 231959,
+    "turnout_pct": 65.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DHIRENDRA SINGH",
+      "party_short": "BJP",
+      "votes": 117205,
+      "vote_share_pct": 50.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AVTAR SINGH BHADANA",
+      "party_short": "RLD",
+      "votes": 60890,
+      "vote_share_pct": 26.25,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NARENDER KUMAR",
+      "party_short": "BSP",
+      "votes": 45256,
+      "vote_share_pct": 19.51,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANOJ",
+      "party_short": "INC",
+      "votes": 3200,
+      "vote_share_pct": 1.38,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUNIL GAUTAM",
+      "party_short": "IND",
+      "votes": 1001,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1694,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2713,
+    "vote_share_pct": 1.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DHIRENDRA SINGH",
+    "party_short": "BJP",
+    "votes": 117205,
+    "margin_votes": 56315,
+    "margin_pct": 24.28
+  }
+}

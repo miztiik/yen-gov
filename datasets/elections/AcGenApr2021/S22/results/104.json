@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 104,
+  "constituency_name": "Bhavani",
+  "totals": {
+    "electors": 238721,
+    "votes_polled": 201385,
+    "turnout_pct": 84.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARUPPANAN.K.C",
+      "party_short": "ADMK",
+      "votes": 100915,
+      "vote_share_pct": 50.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DURAIRAJ.K.P",
+      "party_short": "DMK",
+      "votes": 78392,
+      "vote_share_pct": 38.93,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SATHYA.M",
+      "party_short": "NTK",
+      "votes": 10471,
+      "vote_share_pct": 5.2,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SADHANANDHAM.K",
+      "party_short": "MNM",
+      "votes": 4221,
+      "vote_share_pct": 2.1,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SATHEESH KUMAR.P",
+      "party_short": "IND",
+      "votes": 1224,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2079,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4083,
+    "vote_share_pct": 2.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARUPPANAN.K.C",
+    "party_short": "ADMK",
+    "votes": 100915,
+    "margin_votes": 22523,
+    "margin_pct": 11.18
+  }
+}

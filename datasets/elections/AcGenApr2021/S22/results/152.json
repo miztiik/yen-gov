@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 152,
+  "constituency_name": "Vriddhachalam",
+  "totals": {
+    "electors": 252911,
+    "votes_polled": 196734,
+    "turnout_pct": 77.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Radhakrishnan",
+      "party_short": "INC",
+      "votes": 77064,
+      "vote_share_pct": 39.17,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Karthikeyan. J",
+      "party_short": "PMK",
+      "votes": 76202,
+      "vote_share_pct": 38.73,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Premalatha Vijayakant",
+      "party_short": "DMDK",
+      "votes": 25908,
+      "vote_share_pct": 13.17,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "N. Amutha",
+      "party_short": "NTK",
+      "votes": 8642,
+      "vote_share_pct": 4.39,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "R. Kesavaperumal",
+      "party_short": "TNLK",
+      "votes": 891,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 761,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 24,
+    "votes": 7266,
+    "vote_share_pct": 3.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Radhakrishnan",
+    "party_short": "INC",
+    "votes": 77064,
+    "margin_votes": 862,
+    "margin_pct": 0.44
+  }
+}

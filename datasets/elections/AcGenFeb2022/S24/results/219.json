@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 219,
+  "constituency_name": "Madhaugarh",
+  "totals": {
+    "electors": 445421,
+    "votes_polled": 254828,
+    "turnout_pct": 57.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOOL CHANDRA SINGH",
+      "party_short": "BJP",
+      "votes": 105231,
+      "vote_share_pct": 41.29,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHEETAL KUSHWAHA",
+      "party_short": "BSP",
+      "votes": 70257,
+      "vote_share_pct": 27.57,
+      "gender": "F",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAGHVENDRA PRATAP SINGH",
+      "party_short": "SP",
+      "votes": 63035,
+      "vote_share_pct": 24.74,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SIDDARTH DEVOLIA",
+      "party_short": "INC",
+      "votes": 3141,
+      "vote_share_pct": 1.23,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMBIHARI",
+      "party_short": "IND",
+      "votes": 2131,
+      "vote_share_pct": 0.84,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2852,
+    "vote_share_pct": 1.12
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 8181,
+    "vote_share_pct": 3.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOOL CHANDRA SINGH",
+    "party_short": "BJP",
+    "votes": 105231,
+    "margin_votes": 34974,
+    "margin_pct": 13.72
+  }
+}

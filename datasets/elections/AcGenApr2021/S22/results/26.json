@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Velachery",
+  "totals": {
+    "electors": 314578,
+    "votes_polled": 176714,
+    "turnout_pct": 56.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JMH.AASSAN MAULAANA",
+      "party_short": "INC",
+      "votes": 68493,
+      "vote_share_pct": 38.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M.K.ASHOK",
+      "party_short": "ADMK",
+      "votes": 64141,
+      "vote_share_pct": 36.3,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. SANTHOSH BABU IAS (Retd)",
+      "party_short": "MNM",
+      "votes": 23072,
+      "vote_share_pct": 13.06,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M.KEERTHANA",
+      "party_short": "NTK",
+      "votes": 14171,
+      "vote_share_pct": 8.02,
+      "gender": "F",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "M.CHANDRABOSE",
+      "party_short": "AMMKMNKZ",
+      "votes": 1977,
+      "vote_share_pct": 1.12,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1742,
+    "vote_share_pct": 0.99
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 3118,
+    "vote_share_pct": 1.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JMH.AASSAN MAULAANA",
+    "party_short": "INC",
+    "votes": 68493,
+    "margin_votes": 4352,
+    "margin_pct": 2.46
+  }
+}

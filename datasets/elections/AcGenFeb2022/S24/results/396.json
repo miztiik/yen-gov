@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 396,
+  "constituency_name": "Mirzapur",
+  "totals": {
+    "electors": 403374,
+    "votes_polled": 227751,
+    "turnout_pct": 56.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RATNAKAR MISHRA",
+      "party_short": "BJP",
+      "votes": 118642,
+      "vote_share_pct": 52.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAILASH CHAURSIA",
+      "party_short": "SP",
+      "votes": 78766,
+      "vote_share_pct": 34.58,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJESH KUMAR PANDEY",
+      "party_short": "BSP",
+      "votes": 19529,
+      "vote_share_pct": 8.57,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BHAGWAN DUTT PATHAK ALIAS RAJAN PATHAK",
+      "party_short": "INC",
+      "votes": 3674,
+      "vote_share_pct": 1.61,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRIKA PRASAD",
+      "party_short": "IND",
+      "votes": 1293,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1758,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4089,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RATNAKAR MISHRA",
+    "party_short": "BJP",
+    "votes": 118642,
+    "margin_votes": 39876,
+    "margin_pct": 17.51
+  }
+}

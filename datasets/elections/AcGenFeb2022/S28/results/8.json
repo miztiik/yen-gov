@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Rudraprayag",
+  "totals": {
+    "electors": 105849,
+    "votes_polled": 63397,
+    "turnout_pct": 59.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHARAT SINGH CHAUDHARY",
+      "party_short": "BJP",
+      "votes": 29660,
+      "vote_share_pct": 46.78,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PRADEEP PRASAD THAPLIYAL",
+      "party_short": "INC",
+      "votes": 19858,
+      "vote_share_pct": 31.32,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MATBAR SINGH KANDARI",
+      "party_short": "IND",
+      "votes": 4838,
+      "vote_share_pct": 7.63,
+      "gender": "M",
+      "age": 79,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHIT DIMRI",
+      "party_short": "UKKD",
+      "votes": 4623,
+      "vote_share_pct": 7.29,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUDHIR NEGI",
+      "party_short": "IND",
+      "votes": 1219,
+      "vote_share_pct": 1.92,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 871,
+    "vote_share_pct": 1.37
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2328,
+    "vote_share_pct": 3.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHARAT SINGH CHAUDHARY",
+    "party_short": "BJP",
+    "votes": 29660,
+    "margin_votes": 9802,
+    "margin_pct": 15.46
+  }
+}

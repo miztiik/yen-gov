@@ -259,6 +259,24 @@
     ],
     "S22": [
       {
+        "event_id": "AcGenMay2016",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · May 2016",
+        "polled_on": "2016-05-16",
+        "term_end_estimated": "2021-05-15",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 16 May 2016. 232 ACs (Aravakurichi and Thanjavur countermanded; held 19 Nov 2016). Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      },
+      {
+        "event_id": "AcGenApr2021",
+        "kind": "assembly",
+        "display": "Tamil Nadu Assembly · April 2021",
+        "polled_on": "2021-04-06",
+        "term_end_estimated": "2026-04-05",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 6 April 2021. 234 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      },
+      {
         "event_id": "AcGenMay2026",
         "kind": "assembly",
         "display": "Tamil Nadu Assembly · May 2026",
@@ -346,6 +364,24 @@
     ],
     "U07": [
       {
+        "event_id": "AcGenMay2016",
+        "kind": "assembly",
+        "display": "Puducherry Assembly · May 2016",
+        "polled_on": "2016-05-16",
+        "term_end_estimated": "2021-05-15",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 16 May 2016. 30 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      },
+      {
+        "event_id": "AcGenApr2021",
+        "kind": "assembly",
+        "display": "Puducherry Assembly · April 2021",
+        "polled_on": "2021-04-06",
+        "term_end_estimated": "2026-04-05",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 6 April 2021. 30 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      },
+      {
         "event_id": "AcGenMay2026",
         "kind": "assembly",
         "display": "Puducherry Assembly · May 2026",
@@ -366,6 +402,159 @@
         "default": true,
         "data_status": "complete",
         "notes": "First elected government in J&K since 2018. The state was reorganised into a Union Territory on 31 October 2019; this Assembly's powers under Article 239A and the J&K Reorganisation Act 2019 are narrower than a full state's."
+      }
+    ],
+    "S19": [
+      {
+        "event_id": "AcGenFeb2017",
+        "kind": "assembly",
+        "display": "Punjab Assembly · February 2017",
+        "polled_on": "2017-02-04",
+        "term_end_estimated": "2022-02-03",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 4 February 2017. 117 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      },
+      {
+        "event_id": "AcGenFeb2022",
+        "kind": "assembly",
+        "display": "Punjab Assembly · February 2022",
+        "polled_on": "2022-02-20",
+        "term_end_estimated": "2027-02-19",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 20 February 2022. 117 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      }
+    ],
+    "S24": [
+      {
+        "event_id": "AcGenFeb2017",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · February-March 2017",
+        "polled_on": "2017-02-11",
+        "term_end_estimated": "2022-02-10",
+        "data_status": "complete",
+        "notes": "Seven-phase poll: 11 Feb – 8 Mar 2017. 403 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      },
+      {
+        "event_id": "AcGenFeb2022",
+        "kind": "assembly",
+        "display": "Uttar Pradesh Assembly · February-March 2022",
+        "polled_on": "2022-02-10",
+        "term_end_estimated": "2027-02-09",
+        "data_status": "complete",
+        "notes": "Seven-phase poll: 10 February – 7 March 2022. 403 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      }
+    ],
+    "S28": [
+      {
+        "event_id": "AcGenFeb2017",
+        "kind": "assembly",
+        "display": "Uttarakhand Assembly · February 2017",
+        "polled_on": "2017-02-15",
+        "term_end_estimated": "2022-02-14",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 15 February 2017. 70 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      },
+      {
+        "event_id": "AcGenFeb2022",
+        "kind": "assembly",
+        "display": "Uttarakhand Assembly · February 2022",
+        "polled_on": "2022-02-14",
+        "term_end_estimated": "2027-02-13",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 14 February 2022. 70 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      }
+    ],
+    "S14": [
+      {
+        "event_id": "AcGenMar2017",
+        "kind": "assembly",
+        "display": "Manipur Assembly · March 2017",
+        "polled_on": "2017-03-04",
+        "term_end_estimated": "2022-03-03",
+        "data_status": "complete",
+        "notes": "Two-phase poll: 4 March, 8 March 2017. 60 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      },
+      {
+        "event_id": "AcGenMar2022",
+        "kind": "assembly",
+        "display": "Manipur Assembly · February-March 2022",
+        "polled_on": "2022-02-28",
+        "term_end_estimated": "2027-02-27",
+        "data_status": "complete",
+        "notes": "Two-phase poll: 28 February, 5 March 2022. 60 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      }
+    ],
+    "S06": [
+      {
+        "event_id": "AcGenDec2017",
+        "kind": "assembly",
+        "display": "Gujarat Assembly · December 2017",
+        "polled_on": "2017-12-09",
+        "term_end_estimated": "2022-12-08",
+        "data_status": "complete",
+        "notes": "Two-phase poll: 9 December, 14 December 2017. 182 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      },
+      {
+        "event_id": "AcGenDec2022",
+        "kind": "assembly",
+        "display": "Gujarat Assembly · December 2022",
+        "polled_on": "2022-12-01",
+        "term_end_estimated": "2027-11-30",
+        "data_status": "complete",
+        "notes": "Two-phase poll: 1 December, 5 December 2022. 182 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      }
+    ],
+    "S23": [
+      {
+        "event_id": "AcGenFeb2018",
+        "kind": "assembly",
+        "display": "Tripura Assembly · February 2018",
+        "polled_on": "2018-02-18",
+        "term_end_estimated": "2023-02-17",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 18 February 2018. 60 ACs (Charilam countermanded; held 12 March 2018). Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      },
+      {
+        "event_id": "AcGenFeb2023",
+        "kind": "assembly",
+        "display": "Tripura Assembly · February 2023",
+        "polled_on": "2023-02-16",
+        "term_end_estimated": "2028-02-15",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 16 February 2023. 60 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      }
+    ],
+    "S15": [
+      {
+        "event_id": "AcGenFeb2023",
+        "kind": "assembly",
+        "display": "Meghalaya Assembly · February 2023",
+        "polled_on": "2023-02-27",
+        "term_end_estimated": "2028-02-26",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 27 February 2023. 59 ACs (Sohiong countermanded; held 22 May 2023). Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      }
+    ],
+    "S17": [
+      {
+        "event_id": "AcGenFeb2023",
+        "kind": "assembly",
+        "display": "Nagaland Assembly · February 2023",
+        "polled_on": "2023-02-27",
+        "term_end_estimated": "2028-02-26",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 27 February 2023. 59 ACs (Akuluto seat uncontested). Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
+      }
+    ],
+    "S20": [
+      {
+        "event_id": "AcGenNov2023",
+        "kind": "assembly",
+        "display": "Rajasthan Assembly · November 2023",
+        "polled_on": "2023-11-25",
+        "term_end_estimated": "2028-11-24",
+        "data_status": "complete",
+        "notes": "Single-phase poll on 25 November 2023. 199 ACs (Karanpur countermanded; held 5 January 2024). Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX."
       }
     ]
   }

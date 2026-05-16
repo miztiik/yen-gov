@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 294,
+  "constituency_name": "Balrampur",
+  "totals": {
+    "electors": 410725,
+    "votes_polled": 193307,
+    "turnout_pct": 47.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PALTURAM",
+      "party_short": "BJP",
+      "votes": 89401,
+      "vote_share_pct": 46.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SHIVLAL",
+      "party_short": "INC",
+      "votes": 64541,
+      "vote_share_pct": 33.39,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RAM SAGAR AKELA",
+      "party_short": "BSP",
+      "votes": 26011,
+      "vote_share_pct": 13.46,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SHIV KUMAR",
+      "party_short": "PECP",
+      "votes": 2357,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MADAN LAL",
+      "party_short": "MAHAD",
+      "votes": 1798,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3414,
+    "vote_share_pct": 1.77
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 5785,
+    "vote_share_pct": 3.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PALTURAM",
+    "party_short": "BJP",
+    "votes": 89401,
+    "margin_votes": 24860,
+    "margin_pct": 12.86
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 359,
+  "constituency_name": "Sikanderpur",
+  "totals": {
+    "electors": 286805,
+    "votes_polled": 164615,
+    "turnout_pct": 57.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANJAY YADAV",
+      "party_short": "BJP",
+      "votes": 69536,
+      "vote_share_pct": 42.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ZIAUDDIN RIZWI",
+      "party_short": "SP",
+      "votes": 45988,
+      "vote_share_pct": 27.94,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJNARAIN",
+      "party_short": "BSP",
+      "votes": 34968,
+      "vote_share_pct": 21.24,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARVIND RAI",
+      "party_short": "IND",
+      "votes": 2936,
+      "vote_share_pct": 1.78,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SATYENDRA YADAV",
+      "party_short": "JANADIP",
+      "votes": 2260,
+      "vote_share_pct": 1.37,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1122,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 7805,
+    "vote_share_pct": 4.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANJAY YADAV",
+    "party_short": "BJP",
+    "votes": 69536,
+    "margin_votes": 23548,
+    "margin_pct": 14.3
+  }
+}

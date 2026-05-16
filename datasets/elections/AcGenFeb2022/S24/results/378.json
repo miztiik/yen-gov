@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 378,
+  "constituency_name": "Mohammadabad",
+  "totals": {
+    "electors": 424837,
+    "votes_polled": 246214,
+    "turnout_pct": 57.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUHAIB Alias MANNU ANSARI",
+      "party_short": "SP",
+      "votes": 111443,
+      "vote_share_pct": 45.26,
+      "is_winner": true,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ALKA RAI",
+      "party_short": "BJP",
+      "votes": 92684,
+      "vote_share_pct": 37.64,
+      "gender": "F",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MADHVENDRA RAI",
+      "party_short": "BSP",
+      "votes": 32440,
+      "vote_share_pct": 13.18,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANJAY SINGH KUSHWAHA",
+      "party_short": "JANADIP",
+      "votes": 2522,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Dr. Arvind Kishor Rai",
+      "party_short": "INC",
+      "votes": 2458,
+      "vote_share_pct": 1.0,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1567,
+    "vote_share_pct": 0.64
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3100,
+    "vote_share_pct": 1.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUHAIB Alias MANNU ANSARI",
+    "party_short": "SP",
+    "votes": 111443,
+    "margin_votes": 18759,
+    "margin_pct": 7.62
+  }
+}

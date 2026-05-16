@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 216,
+  "constituency_name": "Srivaikuntam",
+  "totals": {
+    "electors": 207471,
+    "votes_polled": 155366,
+    "turnout_pct": 74.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHANMUGANATHAN S.P",
+      "party_short": "ADMK",
+      "votes": 65198,
+      "vote_share_pct": 41.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RANI VENKATESAN V",
+      "party_short": "INC",
+      "votes": 61667,
+      "vote_share_pct": 39.69,
+      "gender": "F",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SELVARAJ S",
+      "party_short": "BJP",
+      "votes": 9582,
+      "vote_share_pct": 6.17,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIJAYASEELAN SDR",
+      "party_short": "TMC(M)",
+      "votes": 6203,
+      "vote_share_pct": 3.99,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUTHURAMALINGAM S",
+      "party_short": "AIFB",
+      "votes": 3764,
+      "vote_share_pct": 2.42,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1457,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 7495,
+    "vote_share_pct": 4.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHANMUGANATHAN S.P",
+    "party_short": "ADMK",
+    "votes": 65198,
+    "margin_votes": 3531,
+    "margin_pct": 2.27
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Mawphlang (ST)",
+  "totals": {
+    "electors": 35484,
+    "votes_polled": 31259,
+    "turnout_pct": 88.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Matthew Beyondstar Kurbah",
+      "party_short": "UDP",
+      "votes": 6690,
+      "vote_share_pct": 21.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Auspicious Lyngdoh Mawphlang",
+      "party_short": "PDF",
+      "votes": 6586,
+      "vote_share_pct": 21.07,
+      "gender": "M",
+      "age": 31,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Dannyson Kurbah",
+      "party_short": "INC",
+      "votes": 5594,
+      "vote_share_pct": 17.9,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Doristar Marbaniang",
+      "party_short": "VOTPP",
+      "votes": 4811,
+      "vote_share_pct": 15.39,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Kennedy Cornelius Khyriem",
+      "party_short": "NPEP",
+      "votes": 4733,
+      "vote_share_pct": 15.14,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 142,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2703,
+    "vote_share_pct": 8.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Matthew Beyondstar Kurbah",
+    "party_short": "UDP",
+    "votes": 6690,
+    "margin_votes": 104,
+    "margin_pct": 0.33
+  }
+}

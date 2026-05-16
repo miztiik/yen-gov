@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 154,
+  "constituency_name": "Sawaijpur",
+  "totals": {
+    "electors": 384720,
+    "votes_polled": 231842,
+    "turnout_pct": 60.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KUNVAR MADHVENDRA PRATAP",
+      "party_short": "BJP",
+      "votes": 92601,
+      "vote_share_pct": 39.94,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PADAMRAG SINGH YADAV",
+      "party_short": "SP",
+      "votes": 65631,
+      "vote_share_pct": 28.31,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. ANUPAM DUBEY ADVOCATE",
+      "party_short": "BSP",
+      "votes": 59791,
+      "vote_share_pct": 25.79,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "YADUNANDAN LAL",
+      "party_short": "JAM",
+      "votes": 3569,
+      "vote_share_pct": 1.54,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NEERAJ KUMAR",
+      "party_short": "IND",
+      "votes": 1620,
+      "vote_share_pct": 0.7,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1831,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 6799,
+    "vote_share_pct": 2.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KUNVAR MADHVENDRA PRATAP",
+    "party_short": "BJP",
+    "votes": 92601,
+    "margin_votes": 26970,
+    "margin_pct": 11.63
+  }
+}

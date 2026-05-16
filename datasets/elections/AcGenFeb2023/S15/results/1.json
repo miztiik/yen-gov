@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Nartiang (ST)",
+  "totals": {
+    "electors": 44478,
+    "votes_polled": 40827,
+    "turnout_pct": 91.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sniawbhalang Dhar",
+      "party_short": "NPEP",
+      "votes": 16969,
+      "vote_share_pct": 41.56,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Emlang Laloo",
+      "party_short": "INC",
+      "votes": 14846,
+      "vote_share_pct": 36.36,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Generous Paslein",
+      "party_short": "IND",
+      "votes": 7404,
+      "vote_share_pct": 18.14,
+      "gender": "M",
+      "age": 26,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Dawan Lyngdoh",
+      "party_short": "UDP",
+      "votes": 893,
+      "vote_share_pct": 2.19,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Rimiki Sari",
+      "party_short": "BJP",
+      "votes": 282,
+      "vote_share_pct": 0.69,
+      "gender": "M",
+      "age": 32,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 433,
+    "vote_share_pct": 1.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sniawbhalang Dhar",
+    "party_short": "NPEP",
+    "votes": 16969,
+    "margin_votes": 2123,
+    "margin_pct": 5.2
+  },
+  "others": null
+}

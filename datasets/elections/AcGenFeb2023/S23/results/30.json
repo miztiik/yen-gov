@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "Bagma (ST)",
+  "totals": {
+    "electors": 56768,
+    "votes_polled": 50287,
+    "turnout_pct": 88.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ram Pada Jamatia",
+      "party_short": "BJP",
+      "votes": 19482,
+      "vote_share_pct": 38.74,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Purna Ch. Jamatia",
+      "party_short": "TMP",
+      "votes": 17399,
+      "vote_share_pct": 34.6,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Naresh Chandra Jamatia",
+      "party_short": "CPI(M)",
+      "votes": 12613,
+      "vote_share_pct": 25.08,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 793,
+    "vote_share_pct": 1.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ram Pada Jamatia",
+    "party_short": "BJP",
+    "votes": 19482,
+    "margin_votes": 2083,
+    "margin_pct": 4.14
+  },
+  "others": null
+}

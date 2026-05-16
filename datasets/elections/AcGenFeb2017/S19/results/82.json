@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 82,
+  "constituency_name": "Balluana",
+  "totals": {
+    "electors": 171087,
+    "votes_polled": 142736,
+    "turnout_pct": 83.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NATHU RAM",
+      "party_short": "INC",
+      "votes": 65607,
+      "vote_share_pct": 45.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PARKASH SINGH BHATTI",
+      "party_short": "SAD",
+      "votes": 50158,
+      "vote_share_pct": 35.14,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SIMARJEET SINGH",
+      "party_short": "AAAP",
+      "votes": 22464,
+      "vote_share_pct": 15.74,
+      "gender": "M",
+      "age": 27,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "GIRI RAJ RAJORA",
+      "party_short": "AITC",
+      "votes": 1072,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SATISH KUMAR",
+      "party_short": "BSP",
+      "votes": 888,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1175,
+    "vote_share_pct": 0.82
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1372,
+    "vote_share_pct": 0.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NATHU RAM",
+    "party_short": "INC",
+    "votes": 65607,
+    "margin_votes": 15449,
+    "margin_pct": 10.82
+  }
+}

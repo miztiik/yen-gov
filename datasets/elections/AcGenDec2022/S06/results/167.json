@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 167,
+  "constituency_name": "Surat West",
+  "totals": {
+    "electors": 256881,
+    "votes_polled": 162398,
+    "turnout_pct": 63.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Purnesh Modi",
+      "party_short": "BJP",
+      "votes": 122981,
+      "vote_share_pct": 75.73,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sanjay R. Shah (patva)",
+      "party_short": "INC",
+      "votes": 18669,
+      "vote_share_pct": 11.5,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Moxesh Rameshchandra Sanghavi",
+      "party_short": "AAAP",
+      "votes": 16955,
+      "vote_share_pct": 10.44,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vimal Raju Uttpure",
+      "party_short": "BSP",
+      "votes": 454,
+      "vote_share_pct": 0.28,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mohammed Zakir Nizamuddin Shaikh",
+      "party_short": "SP",
+      "votes": 301,
+      "vote_share_pct": 0.19,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2441,
+    "vote_share_pct": 1.5
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 597,
+    "vote_share_pct": 0.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Purnesh Modi",
+    "party_short": "BJP",
+    "votes": 122981,
+    "margin_votes": 104312,
+    "margin_pct": 64.23
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Khem Karan",
+  "totals": {
+    "electors": 218055,
+    "votes_polled": 154988,
+    "turnout_pct": 71.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SARVAN SINGH DHUN",
+      "party_short": "AAAP",
+      "votes": 64541,
+      "vote_share_pct": 41.64,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Virsa Singh Valtoha",
+      "party_short": "SAD",
+      "votes": 52659,
+      "vote_share_pct": 33.98,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUKHPAL SINGH BHULLAR",
+      "party_short": "INC",
+      "votes": 28859,
+      "vote_share_pct": 18.62,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "HARPAL SINGH BALER",
+      "party_short": "SAD(M)",
+      "votes": 3270,
+      "vote_share_pct": 2.11,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SURJIT SINGH BHURA",
+      "party_short": "IND",
+      "votes": 1056,
+      "vote_share_pct": 0.68,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1832,
+    "vote_share_pct": 1.18
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2771,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SARVAN SINGH DHUN",
+    "party_short": "AAAP",
+    "votes": 64541,
+    "margin_votes": 11882,
+    "margin_pct": 7.67
+  }
+}

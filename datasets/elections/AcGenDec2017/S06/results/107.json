@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "Botad",
+  "totals": {
+    "electors": 259712,
+    "votes_polled": 179044,
+    "turnout_pct": 68.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAURABH PATEL (DALAL)",
+      "party_short": "BJP",
+      "votes": 79623,
+      "vote_share_pct": 44.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KALATHIYA DHIRAJLAL MADHAVJIBHAI  (D.M.PATEL)",
+      "party_short": "INC",
+      "votes": 78717,
+      "vote_share_pct": 43.97,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAMOD SOMABHAI RAMJIBHAI",
+      "party_short": "IND",
+      "votes": 4708,
+      "vote_share_pct": 2.63,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DALVADI MANSUKHABHAI LAXMANBHAI",
+      "party_short": "IND",
+      "votes": 2247,
+      "vote_share_pct": 1.25,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NAKABHAI VELABHAI BARAIYA",
+      "party_short": "IND",
+      "votes": 1828,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1334,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 8797,
+    "vote_share_pct": 4.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAURABH PATEL (DALAL)",
+    "party_short": "BJP",
+    "votes": 79623,
+    "margin_votes": 906,
+    "margin_pct": 0.51
+  }
+}

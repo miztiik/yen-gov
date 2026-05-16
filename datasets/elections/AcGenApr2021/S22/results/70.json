@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 70,
+  "constituency_name": "Gingee",
+  "totals": {
+    "electors": 261167,
+    "votes_polled": 206880,
+    "turnout_pct": 79.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MASTHAN K S",
+      "party_short": "DMK",
+      "votes": 109625,
+      "vote_share_pct": 52.99,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJENDIRAN P",
+      "party_short": "PMK",
+      "votes": 73822,
+      "vote_share_pct": 35.68,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUGUMAR AP",
+      "party_short": "NTK",
+      "votes": 9920,
+      "vote_share_pct": 4.8,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GOWTHAM SAGAR A",
+      "party_short": "AMMKMNKZ",
+      "votes": 4811,
+      "vote_share_pct": 2.33,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SRIPATHI P",
+      "party_short": "MNM",
+      "votes": 2151,
+      "vote_share_pct": 1.04,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2279,
+    "vote_share_pct": 1.1
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4272,
+    "vote_share_pct": 2.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MASTHAN K S",
+    "party_short": "DMK",
+    "votes": 109625,
+    "margin_votes": 35803,
+    "margin_pct": 17.31
+  }
+}

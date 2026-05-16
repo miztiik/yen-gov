@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Poonamallee",
+  "totals": {
+    "electors": 315718,
+    "votes_polled": 239987,
+    "turnout_pct": 76.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ELUMALAI T A",
+      "party_short": "ADMK",
+      "votes": 103952,
+      "vote_share_pct": 43.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PARANTHAMEN I",
+      "party_short": "DMK",
+      "votes": 92189,
+      "vote_share_pct": 38.41,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PARTHASARATHY C",
+      "party_short": "PMK",
+      "votes": 15827,
+      "vote_share_pct": 6.59,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KANDAN D",
+      "party_short": "MDMK",
+      "votes": 15051,
+      "vote_share_pct": 6.27,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "AMARNATH A",
+      "party_short": "BJP",
+      "votes": 3456,
+      "vote_share_pct": 1.44,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3265,
+    "vote_share_pct": 1.36
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 6247,
+    "vote_share_pct": 2.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ELUMALAI T A",
+    "party_short": "ADMK",
+    "votes": 103952,
+    "margin_votes": 11763,
+    "margin_pct": 4.9
+  }
+}

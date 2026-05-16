@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Thana Bhawan",
+  "totals": {
+    "electors": 311405,
+    "votes_polled": 212691,
+    "turnout_pct": 68.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURESH KUMAR",
+      "party_short": "BJP",
+      "votes": 90995,
+      "vote_share_pct": 42.78,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ABDUL WARIS KHAN",
+      "party_short": "BSP",
+      "votes": 74178,
+      "vote_share_pct": 34.88,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAVED RAO",
+      "party_short": "RLD",
+      "votes": 31275,
+      "vote_share_pct": 14.7,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUDHIR KUMAR",
+      "party_short": "SP",
+      "votes": 13480,
+      "vote_share_pct": 6.34,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHD NASIR",
+      "party_short": "BMUP",
+      "votes": 561,
+      "vote_share_pct": 0.26,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 883,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1319,
+    "vote_share_pct": 0.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURESH KUMAR",
+    "party_short": "BJP",
+    "votes": 90995,
+    "margin_votes": 16817,
+    "margin_pct": 7.91
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Kadi",
+  "totals": {
+    "electors": 257276,
+    "votes_polled": 193972,
+    "turnout_pct": 75.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARSHANBHAI PUNJABHAI SOLANKI",
+      "party_short": "BJP",
+      "votes": 96651,
+      "vote_share_pct": 49.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "CHAVDA RAMESHBHAI MAGANBHAI",
+      "party_short": "INC",
+      "votes": 88905,
+      "vote_share_pct": 45.83,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PARMAR AARATIBEN ASHVINKUMAR",
+      "party_short": "BSP",
+      "votes": 1055,
+      "vote_share_pct": 0.54,
+      "gender": "F",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "VIJAYKUMAR LALJIBHAI VAGHELA",
+      "party_short": "IND",
+      "votes": 998,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "CHAVDA LAXMICHAND POONJABHAI",
+      "party_short": "IND",
+      "votes": 645,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2657,
+    "vote_share_pct": 1.37
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1505,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARSHANBHAI PUNJABHAI SOLANKI",
+    "party_short": "BJP",
+    "votes": 96651,
+    "margin_votes": 7746,
+    "margin_pct": 3.99
+  }
+}

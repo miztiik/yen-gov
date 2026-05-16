@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 120,
+  "constituency_name": "Bali",
+  "totals": {
+    "electors": 332830,
+    "votes_polled": 222020,
+    "turnout_pct": 66.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pushpendra Singh",
+      "party_short": "BJP",
+      "votes": 107938,
+      "vote_share_pct": 48.62,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Badriram Jakhar",
+      "party_short": "INC",
+      "votes": 97445,
+      "vote_share_pct": 43.89,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Lal Singh Dewasi",
+      "party_short": "AAAP",
+      "votes": 5823,
+      "vote_share_pct": 2.62,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shailesh Kumar Mousalpuriya",
+      "party_short": "ASPKR",
+      "votes": 2735,
+      "vote_share_pct": 1.23,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Mohit Suthar",
+      "party_short": "IND",
+      "votes": 1828,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3144,
+    "vote_share_pct": 1.42
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3107,
+    "vote_share_pct": 1.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pushpendra Singh",
+    "party_short": "BJP",
+    "votes": 107938,
+    "margin_votes": 10493,
+    "margin_pct": 4.73
+  }
+}

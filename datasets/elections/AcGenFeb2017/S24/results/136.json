@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 136,
+  "constituency_name": "Dadraul",
+  "totals": {
+    "electors": 330219,
+    "votes_polled": 216563,
+    "turnout_pct": 65.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANVENDRA SINGH",
+      "party_short": "BJP",
+      "votes": 86435,
+      "vote_share_pct": 39.91,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAMMURTEE SINGH VERMA",
+      "party_short": "SP",
+      "votes": 69037,
+      "vote_share_pct": 31.88,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RIZWAN ALI",
+      "party_short": "BSP",
+      "votes": 50762,
+      "vote_share_pct": 23.44,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ROOPA",
+      "party_short": "CPI",
+      "votes": 2387,
+      "vote_share_pct": 1.1,
+      "gender": "F",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KUVER",
+      "party_short": "IND",
+      "votes": 1410,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2383,
+    "vote_share_pct": 1.1
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4149,
+    "vote_share_pct": 1.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANVENDRA SINGH",
+    "party_short": "BJP",
+    "votes": 86435,
+    "margin_votes": 17398,
+    "margin_pct": 8.03
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Ellisbridge",
+  "totals": {
+    "electors": 244140,
+    "votes_polled": 157022,
+    "turnout_pct": 64.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHAH RAKESHBHAI JASVANTLAL (RAKESH SHAH)",
+      "party_short": "BJP",
+      "votes": 116811,
+      "vote_share_pct": 74.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DAVE VIJAYKUMAR RATILAL",
+      "party_short": "INC",
+      "votes": 31606,
+      "vote_share_pct": 20.13,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SOLANKI MALABHAI HIRABHAI",
+      "party_short": "BSP",
+      "votes": 2144,
+      "vote_share_pct": 1.37,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SOLANKI NILABEN JIVRAJBHAI",
+      "party_short": "IND",
+      "votes": 553,
+      "vote_share_pct": 0.35,
+      "gender": "F",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MEENAKSHI JOSHI",
+      "party_short": "SUCI",
+      "votes": 476,
+      "vote_share_pct": 0.3,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3479,
+    "vote_share_pct": 2.22
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 996,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHAH RAKESHBHAI JASVANTLAL (RAKESH SHAH)",
+    "party_short": "BJP",
+    "votes": 116811,
+    "margin_votes": 85205,
+    "margin_pct": 54.26
+  }
+}

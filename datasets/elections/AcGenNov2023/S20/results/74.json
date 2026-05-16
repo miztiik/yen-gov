@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 74,
+  "constituency_name": "Nadbai",
+  "totals": {
+    "electors": 291897,
+    "votes_polled": 206955,
+    "turnout_pct": 70.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jagat Singh",
+      "party_short": "BJP",
+      "votes": 103795,
+      "vote_share_pct": 50.15,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Joginder Singh Awana S/o Girwar Singh",
+      "party_short": "INC",
+      "votes": 88028,
+      "vote_share_pct": 42.53,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Khaimkaran Singh Tauli",
+      "party_short": "BSP",
+      "votes": 10301,
+      "vote_share_pct": 4.98,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rohit (rohitash Chaturvedi)",
+      "party_short": "AAAP",
+      "votes": 877,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Vijay Choudhary Lakhanpur",
+      "party_short": "ASPKR",
+      "votes": 726,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 570,
+    "vote_share_pct": 0.28
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 2658,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jagat Singh",
+    "party_short": "BJP",
+    "votes": 103795,
+    "margin_votes": 15767,
+    "margin_pct": 7.62
+  }
+}

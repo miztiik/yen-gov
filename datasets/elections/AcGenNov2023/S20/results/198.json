@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 198,
+  "constituency_name": "Jhalrapatan",
+  "totals": {
+    "electors": 297916,
+    "votes_polled": 233271,
+    "turnout_pct": 78.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vasundhara Raje",
+      "party_short": "BJP",
+      "votes": 138831,
+      "vote_share_pct": 59.51,
+      "is_winner": true,
+      "gender": "F",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ramlal",
+      "party_short": "INC",
+      "votes": 85638,
+      "vote_share_pct": 36.71,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Makasud",
+      "party_short": "BSP",
+      "votes": 3431,
+      "vote_share_pct": 1.47,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Pawan Kumar Mehar",
+      "party_short": "IPGP",
+      "votes": 2177,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 26,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3194,
+    "vote_share_pct": 1.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vasundhara Raje",
+    "party_short": "BJP",
+    "votes": 138831,
+    "margin_votes": 53193,
+    "margin_pct": 22.8
+  },
+  "others": null
+}

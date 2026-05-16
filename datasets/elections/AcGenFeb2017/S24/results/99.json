@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 99,
+  "constituency_name": "Sirsaganj",
+  "totals": {
+    "electors": 305946,
+    "votes_polled": 203075,
+    "turnout_pct": 66.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARIOM YADAV",
+      "party_short": "SP",
+      "votes": 90281,
+      "vote_share_pct": 44.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAIVEER SINGH",
+      "party_short": "BJP",
+      "votes": 79605,
+      "vote_share_pct": 39.2,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAGHVENDRA SINGH",
+      "party_short": "BSP",
+      "votes": 20920,
+      "vote_share_pct": 10.3,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PANKAJ MISHRA",
+      "party_short": "JAM",
+      "votes": 6176,
+      "vote_share_pct": 3.04,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ASHOK YADAV",
+      "party_short": "IND",
+      "votes": 2184,
+      "vote_share_pct": 1.08,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1552,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2357,
+    "vote_share_pct": 1.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARIOM YADAV",
+    "party_short": "SP",
+    "votes": 90281,
+    "margin_votes": 10676,
+    "margin_pct": 5.26
+  }
+}

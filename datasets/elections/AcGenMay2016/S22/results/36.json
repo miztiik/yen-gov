@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 36,
+  "constituency_name": "Uthiramerur",
+  "totals": {
+    "electors": 239472,
+    "votes_polled": 198773,
+    "turnout_pct": 83.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUNDAR.K",
+      "party_short": "DMK",
+      "votes": 85513,
+      "vote_share_pct": 43.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GANESAN.P",
+      "party_short": "ADMK",
+      "votes": 73357,
+      "vote_share_pct": 36.9,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GANGADHARAN.PON",
+      "party_short": "PMK",
+      "votes": 24221,
+      "vote_share_pct": 12.19,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJENDRAN.M",
+      "party_short": "DMDK",
+      "votes": 9184,
+      "vote_share_pct": 4.62,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUSAIRAJ.R",
+      "party_short": "NTK",
+      "votes": 928,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1647,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3923,
+    "vote_share_pct": 1.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUNDAR.K",
+    "party_short": "DMK",
+    "votes": 85513,
+    "margin_votes": 12156,
+    "margin_pct": 6.12
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "Chomu",
+  "totals": {
+    "electors": 252985,
+    "votes_polled": 213563,
+    "turnout_pct": 84.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Shikha Meel Barala",
+      "party_short": "INC",
+      "votes": 85746,
+      "vote_share_pct": 40.15,
+      "is_winner": true,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ram Lal Sharma",
+      "party_short": "BJP",
+      "votes": 80051,
+      "vote_share_pct": 37.48,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Chhuttan Lal Yadav",
+      "party_short": "RLTP",
+      "votes": 42369,
+      "vote_share_pct": 19.84,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Kailash Raj Saini",
+      "party_short": "BSP",
+      "votes": 1399,
+      "vote_share_pct": 0.66,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Hemant Kumar Kumawat",
+      "party_short": "AAAP",
+      "votes": 1051,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 987,
+    "vote_share_pct": 0.46
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1960,
+    "vote_share_pct": 0.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Shikha Meel Barala",
+    "party_short": "INC",
+    "votes": 85746,
+    "margin_votes": 5695,
+    "margin_pct": 2.67
+  }
+}

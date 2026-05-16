@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 402,
+  "constituency_name": "Obra",
+  "totals": {
+    "electors": 327556,
+    "votes_polled": 163139,
+    "turnout_pct": 49.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANJEEV KUMAR GOND",
+      "party_short": "BJP",
+      "votes": 78364,
+      "vote_share_pct": 48.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "ARVIND KUMAR alias SUNIL SINGH GOND",
+      "party_short": "SP",
+      "votes": 51922,
+      "vote_share_pct": 31.83,
+      "gender": "M",
+      "age": 31,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SUBHASH KHARWAR",
+      "party_short": "BSP",
+      "votes": 20131,
+      "vote_share_pct": 12.34,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "RAMRAJ",
+      "party_short": "INC",
+      "votes": 4519,
+      "vote_share_pct": 2.77,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "UMASHANKAR",
+      "party_short": "VSIP",
+      "votes": 2184,
+      "vote_share_pct": 1.34,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3077,
+    "vote_share_pct": 1.89
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2942,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANJEEV KUMAR GOND",
+    "party_short": "BJP",
+    "votes": 78364,
+    "margin_votes": 26442,
+    "margin_pct": 16.21
+  }
+}

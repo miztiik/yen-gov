@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 166,
+  "constituency_name": "Katargam",
+  "totals": {
+    "electors": 322246,
+    "votes_polled": 206869,
+    "turnout_pct": 64.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vinodbhai Amarshibhai Moradiya",
+      "party_short": "BJP",
+      "votes": 120505,
+      "vote_share_pct": 58.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Gopal Italia",
+      "party_short": "AAAP",
+      "votes": 55878,
+      "vote_share_pct": 27.01,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Variya Kalpesh Harjivanbhai",
+      "party_short": "INC",
+      "votes": 26840,
+      "vote_share_pct": 12.97,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Amitkumar Bikaram Singh",
+      "party_short": "BSP",
+      "votes": 620,
+      "vote_share_pct": 0.3,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Amarkumar Sureshbhai Lavne",
+      "party_short": "SABHP",
+      "votes": 589,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1529,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 908,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vinodbhai Amarshibhai Moradiya",
+    "party_short": "BJP",
+    "votes": 120505,
+    "margin_votes": 64627,
+    "margin_pct": 31.24
+  }
+}

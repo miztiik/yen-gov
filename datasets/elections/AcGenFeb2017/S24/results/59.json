@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Hapur",
+  "totals": {
+    "electors": 345001,
+    "votes_polled": 222655,
+    "turnout_pct": 64.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIJAY PAL (AADHTI)",
+      "party_short": "BJP",
+      "votes": 84532,
+      "vote_share_pct": 37.97,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "GAJRAJ SINGH",
+      "party_short": "INC",
+      "votes": 69526,
+      "vote_share_pct": 31.23,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SHRIPAL SINGH",
+      "party_short": "BSP",
+      "votes": 58806,
+      "vote_share_pct": 26.41,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "ANJU URF MUSKAAN",
+      "party_short": "RLD",
+      "votes": 5317,
+      "vote_share_pct": 2.39,
+      "gender": "F",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRA PAL SINGH",
+      "party_short": "SWAJANPA",
+      "votes": 1108,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 944,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2422,
+    "vote_share_pct": 1.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIJAY PAL (AADHTI)",
+    "party_short": "BJP",
+    "votes": 84532,
+    "margin_votes": 15006,
+    "margin_pct": 6.74
+  }
+}

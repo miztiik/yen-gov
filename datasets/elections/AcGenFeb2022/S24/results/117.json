@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 117,
+  "constituency_name": "Dataganj",
+  "totals": {
+    "electors": 407118,
+    "votes_polled": 237304,
+    "turnout_pct": 58.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJEEV SINGH URF BABBU BHAIYA",
+      "party_short": "BJP",
+      "votes": 107591,
+      "vote_share_pct": 45.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARJUN SINGH",
+      "party_short": "SP",
+      "votes": 98115,
+      "vote_share_pct": 41.35,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RACHIT GUPTA",
+      "party_short": "BSP",
+      "votes": 20571,
+      "vote_share_pct": 8.67,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ATIF KHAN",
+      "party_short": "INC",
+      "votes": 2413,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GANESH",
+      "party_short": "JANADIP",
+      "votes": 1551,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1463,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 5600,
+    "vote_share_pct": 2.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJEEV SINGH URF BABBU BHAIYA",
+    "party_short": "BJP",
+    "votes": 107591,
+    "margin_votes": 9476,
+    "margin_pct": 3.99
+  }
+}

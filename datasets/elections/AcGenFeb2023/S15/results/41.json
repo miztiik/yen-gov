@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "Songsak (ST)",
+  "totals": {
+    "electors": 31824,
+    "votes_polled": 28506,
+    "turnout_pct": 89.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Mukul Sangma",
+      "party_short": "AITC",
+      "votes": 12689,
+      "vote_share_pct": 44.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Nihim D Shira",
+      "party_short": "NPEP",
+      "votes": 12317,
+      "vote_share_pct": 43.21,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Champion R. Sangma",
+      "party_short": "INC",
+      "votes": 2232,
+      "vote_share_pct": 7.83,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Thomas Marak",
+      "party_short": "BJP",
+      "votes": 776,
+      "vote_share_pct": 2.72,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Sarenni Marak",
+      "party_short": "RPI",
+      "votes": 296,
+      "vote_share_pct": 1.04,
+      "gender": "F",
+      "age": 46,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 196,
+    "vote_share_pct": 0.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Mukul Sangma",
+    "party_short": "AITC",
+    "votes": 12689,
+    "margin_votes": 372,
+    "margin_pct": 1.3
+  },
+  "others": null
+}

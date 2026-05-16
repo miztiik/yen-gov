@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 177,
+  "constituency_name": "Bansda (ST)",
+  "totals": {
+    "electors": 299690,
+    "votes_polled": 236767,
+    "turnout_pct": 79.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anantkumar Hasmukhbhai Patel",
+      "party_short": "INC",
+      "votes": 124477,
+      "vote_share_pct": 52.57,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Piyushkumar Kantilal Patel",
+      "party_short": "BJP",
+      "votes": 89444,
+      "vote_share_pct": 37.78,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Pankajbhai Chandubhai Patel",
+      "party_short": "AAAP",
+      "votes": 16178,
+      "vote_share_pct": 6.83,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Manakbhai Jatrubhai Sanakar",
+      "party_short": "BSP",
+      "votes": 1807,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 64,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Alpeshkumar Chhotubhai Patel",
+      "party_short": "BARESP",
+      "votes": 1058,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3803,
+    "vote_share_pct": 1.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anantkumar Hasmukhbhai Patel",
+    "party_short": "INC",
+    "votes": 124477,
+    "margin_votes": 35033,
+    "margin_pct": 14.8
+  },
+  "others": null
+}

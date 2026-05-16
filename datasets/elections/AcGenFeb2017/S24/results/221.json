@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 221,
+  "constituency_name": "Orai",
+  "totals": {
+    "electors": 423932,
+    "votes_polled": 265142,
+    "turnout_pct": 62.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GAURI SHANKAR",
+      "party_short": "BJP",
+      "votes": 140485,
+      "vote_share_pct": 52.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "MAHENDRA SINGH",
+      "party_short": "SP",
+      "votes": 61606,
+      "vote_share_pct": 23.24,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "VIJAY CHAUDHARI",
+      "party_short": "BSP",
+      "votes": 57541,
+      "vote_share_pct": 21.7,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SHYAM KUMAR",
+      "party_short": "BSCP",
+      "votes": 1051,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KAILASH",
+      "party_short": "RVLP",
+      "votes": 940,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2169,
+    "vote_share_pct": 0.82
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1350,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GAURI SHANKAR",
+    "party_short": "BJP",
+    "votes": 140485,
+    "margin_votes": 78879,
+    "margin_pct": 29.75
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 230,
+  "constituency_name": "Nagercoil",
+  "totals": {
+    "electors": 270845,
+    "votes_polled": 184185,
+    "turnout_pct": 68.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gandhi M.R.",
+      "party_short": "BJP",
+      "votes": 88804,
+      "vote_share_pct": 48.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Suresh Rajan N.",
+      "party_short": "DMK",
+      "votes": 77135,
+      "vote_share_pct": 41.88,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vijayaragavan",
+      "party_short": "NTK",
+      "votes": 10753,
+      "vote_share_pct": 5.84,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Maria Jacob Stani Raja S.",
+      "party_short": "MNM",
+      "votes": 4037,
+      "vote_share_pct": 2.19,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ammu Anto I.",
+      "party_short": "AMMKMNKZ",
+      "votes": 1094,
+      "vote_share_pct": 0.59,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 930,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1432,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gandhi M.R.",
+    "party_short": "BJP",
+    "votes": 88804,
+    "margin_votes": 11669,
+    "margin_pct": 6.34
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "Ampinagar",
+  "totals": {
+    "electors": 37608,
+    "votes_polled": 34692,
+    "turnout_pct": 92.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SINDHU CHANDRA JAMATIA",
+      "party_short": "IPFT",
+      "votes": 18202,
+      "vote_share_pct": 52.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "DANIEL JAMATIA",
+      "party_short": "CPM",
+      "votes": 13255,
+      "vote_share_pct": 38.21,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "RAM KRISHNA JAMATIA",
+      "party_short": "INPT",
+      "votes": 1303,
+      "vote_share_pct": 3.76,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "DANIEL KAIPENG",
+      "party_short": "INC",
+      "votes": 672,
+      "vote_share_pct": 1.94,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 651,
+    "vote_share_pct": 1.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SINDHU CHANDRA JAMATIA",
+    "party_short": "IPFT",
+    "votes": 18202,
+    "margin_votes": 4947,
+    "margin_pct": 14.26
+  },
+  "others": null
+}

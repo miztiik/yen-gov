@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "Nawan",
+  "totals": {
+    "electors": 269093,
+    "votes_polled": 202101,
+    "turnout_pct": 75.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vijay Singh",
+      "party_short": "BJP",
+      "votes": 106159,
+      "vote_share_pct": 52.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mahendra Choudhary",
+      "party_short": "INC",
+      "votes": 82211,
+      "vote_share_pct": 40.68,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ravi Meghwal Lunwa",
+      "party_short": "IND",
+      "votes": 3738,
+      "vote_share_pct": 1.85,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Govind Ram",
+      "party_short": "ASPKR",
+      "votes": 3041,
+      "vote_share_pct": 1.5,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Govind Kumawat",
+      "party_short": "NJMP",
+      "votes": 1607,
+      "vote_share_pct": 0.8,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1364,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3981,
+    "vote_share_pct": 1.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vijay Singh",
+    "party_short": "BJP",
+    "votes": 106159,
+    "margin_votes": 23948,
+    "margin_pct": 11.85
+  }
+}

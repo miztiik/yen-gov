@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "Baghpat",
+  "totals": {
+    "electors": 316266,
+    "votes_polled": 214112,
+    "turnout_pct": 67.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Yogesh Dhama",
+      "party_short": "BJP",
+      "votes": 101420,
+      "vote_share_pct": 47.37,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mohd Ahmed Hameed",
+      "party_short": "RLD",
+      "votes": 94687,
+      "vote_share_pct": 44.22,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Arun Kasana",
+      "party_short": "BSP",
+      "votes": 12863,
+      "vote_share_pct": 6.01,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Anil",
+      "party_short": "INC",
+      "votes": 1229,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Naveen Kumar",
+      "party_short": "AAAP",
+      "votes": 1004,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 574,
+    "vote_share_pct": 0.27
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2335,
+    "vote_share_pct": 1.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Yogesh Dhama",
+    "party_short": "BJP",
+    "votes": 101420,
+    "margin_votes": 6733,
+    "margin_pct": 3.14
+  }
+}

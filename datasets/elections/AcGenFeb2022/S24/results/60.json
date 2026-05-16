@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "Garhmukteshwar",
+  "totals": {
+    "electors": 348800,
+    "votes_polled": 236220,
+    "turnout_pct": 67.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARENDRA SINGH",
+      "party_short": "BJP",
+      "votes": 104113,
+      "vote_share_pct": 44.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAVINDER CHAUDHARY",
+      "party_short": "SP",
+      "votes": 77807,
+      "vote_share_pct": 32.94,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MADAN CHAUHAN",
+      "party_short": "BSP",
+      "votes": 43929,
+      "vote_share_pct": 18.6,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "FURKAN",
+      "party_short": "AIMIM",
+      "votes": 4868,
+      "vote_share_pct": 2.06,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ABHA CHAUDHARY",
+      "party_short": "INC",
+      "votes": 1646,
+      "vote_share_pct": 0.7,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 818,
+    "vote_share_pct": 0.35
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3039,
+    "vote_share_pct": 1.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARENDRA SINGH",
+    "party_short": "BJP",
+    "votes": 104113,
+    "margin_votes": 26306,
+    "margin_pct": 11.14
+  }
+}

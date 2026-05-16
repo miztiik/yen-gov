@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Amritsar West",
+  "totals": {
+    "electors": 179766,
+    "votes_polled": 107550,
+    "turnout_pct": 59.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJ KUMAR VERKA",
+      "party_short": "INC",
+      "votes": 52271,
+      "vote_share_pct": 48.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAKESH GILL",
+      "party_short": "BJP",
+      "votes": 25424,
+      "vote_share_pct": 23.64,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BALWINDER SINGH SAHOTA",
+      "party_short": "AAAP",
+      "votes": 24731,
+      "vote_share_pct": 22.99,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "GURNAM KAUR",
+      "party_short": "CPI",
+      "votes": 1725,
+      "vote_share_pct": 1.6,
+      "gender": "F",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "JASWANT SINGH",
+      "party_short": "BSP",
+      "votes": 847,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 810,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1742,
+    "vote_share_pct": 1.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJ KUMAR VERKA",
+    "party_short": "INC",
+    "votes": 52271,
+    "margin_votes": 26847,
+    "margin_pct": 24.96
+  }
+}

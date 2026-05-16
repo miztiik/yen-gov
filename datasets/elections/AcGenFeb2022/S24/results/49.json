@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 49,
+  "constituency_name": "Meerut South",
+  "totals": {
+    "electors": 481365,
+    "votes_polled": 298393,
+    "turnout_pct": 61.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Somendra Singh Tomar",
+      "party_short": "BJP",
+      "votes": 129667,
+      "vote_share_pct": 43.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mohd Adil",
+      "party_short": "SP",
+      "votes": 121725,
+      "vote_share_pct": 40.79,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dilshad Ali",
+      "party_short": "BSP",
+      "votes": 39857,
+      "vote_share_pct": 13.36,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Nafees",
+      "party_short": "INC",
+      "votes": 2346,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Omdutt",
+      "party_short": "AAAP",
+      "votes": 797,
+      "vote_share_pct": 0.27,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1139,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2862,
+    "vote_share_pct": 0.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Somendra Singh Tomar",
+    "party_short": "BJP",
+    "votes": 129667,
+    "margin_votes": 7942,
+    "margin_pct": 2.66
+  }
+}

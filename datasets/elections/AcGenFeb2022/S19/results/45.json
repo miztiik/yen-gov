@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "Garhshankar",
+  "totals": {
+    "electors": 176304,
+    "votes_polled": 122472,
+    "turnout_pct": 69.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAI KRISHAN",
+      "party_short": "AAAP",
+      "votes": 32341,
+      "vote_share_pct": 26.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMARPREET SINGH LALLY",
+      "party_short": "INC",
+      "votes": 28162,
+      "vote_share_pct": 22.99,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SURINDER SINGH HEER",
+      "party_short": "SAD",
+      "votes": 25430,
+      "vote_share_pct": 20.76,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NIMISHA MEHTA",
+      "party_short": "BJP",
+      "votes": 24735,
+      "vote_share_pct": 20.2,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JANG BAHADUR SINGH",
+      "party_short": "IND",
+      "votes": 4106,
+      "vote_share_pct": 3.35,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1078,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 6620,
+    "vote_share_pct": 5.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAI KRISHAN",
+    "party_short": "AAAP",
+    "votes": 32341,
+    "margin_votes": 4179,
+    "margin_pct": 3.41
+  }
+}

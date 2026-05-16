@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 75,
+  "constituency_name": "Koil",
+  "totals": {
+    "electors": 404885,
+    "votes_polled": 252406,
+    "turnout_pct": 62.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANIL PARASHAR",
+      "party_short": "BJP",
+      "votes": 108067,
+      "vote_share_pct": 42.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHAZ ISHAQ",
+      "party_short": "SP",
+      "votes": 103039,
+      "vote_share_pct": 40.82,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MOHD BILAL",
+      "party_short": "BSP",
+      "votes": 23016,
+      "vote_share_pct": 9.12,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIVEK BANSAL",
+      "party_short": "INC",
+      "votes": 15550,
+      "vote_share_pct": 6.16,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MANOJ SHARMA",
+      "party_short": "AAAP",
+      "votes": 683,
+      "vote_share_pct": 0.27,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1144,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 907,
+    "vote_share_pct": 0.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANIL PARASHAR",
+    "party_short": "BJP",
+    "votes": 108067,
+    "margin_votes": 5028,
+    "margin_pct": 1.99
+  }
+}

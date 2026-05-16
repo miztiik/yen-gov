@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 240,
+  "constituency_name": "Fatehpur",
+  "totals": {
+    "electors": 357518,
+    "votes_polled": 214050,
+    "turnout_pct": 59.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chandra Prakash",
+      "party_short": "SP",
+      "votes": 96839,
+      "vote_share_pct": 45.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIKRAM SINGH",
+      "party_short": "BJP",
+      "votes": 88238,
+      "vote_share_pct": 41.22,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AYUV AHMAD",
+      "party_short": "BSP",
+      "votes": 20363,
+      "vote_share_pct": 9.51,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHSIN AHMAD",
+      "party_short": "INC",
+      "votes": 1803,
+      "vote_share_pct": 0.84,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KULDEEP SINGH",
+      "party_short": "IND",
+      "votes": 1444,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1793,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3570,
+    "vote_share_pct": 1.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chandra Prakash",
+    "party_short": "SP",
+    "votes": 96839,
+    "margin_votes": 8601,
+    "margin_pct": 4.02
+  }
+}

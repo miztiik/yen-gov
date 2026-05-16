@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 161,
+  "constituency_name": "Mayiladuthurai",
+  "totals": {
+    "electors": 233224,
+    "votes_polled": 168856,
+    "turnout_pct": 72.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RATHAKRISHNAN.V",
+      "party_short": "ADMK",
+      "votes": 70949,
+      "vote_share_pct": 42.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANBAZHAGAN.K",
+      "party_short": "DMK",
+      "votes": 66171,
+      "vote_share_pct": 39.19,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AYYAPPAN.A",
+      "party_short": "PMK",
+      "votes": 13115,
+      "vote_share_pct": 7.77,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARULSELVAN.R",
+      "party_short": "DMDK",
+      "votes": 12294,
+      "vote_share_pct": 7.28,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUTHUKUMARASAMY.C",
+      "party_short": "BJP",
+      "votes": 1926,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1688,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2713,
+    "vote_share_pct": 1.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RATHAKRISHNAN.V",
+    "party_short": "ADMK",
+    "votes": 70949,
+    "margin_votes": 4778,
+    "margin_pct": 2.83
+  }
+}

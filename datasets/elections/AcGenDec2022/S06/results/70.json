@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 70,
+  "constituency_name": "Rajkot South",
+  "totals": {
+    "electors": 258831,
+    "votes_polled": 153275,
+    "turnout_pct": 59.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rameshbhai Virjibhai Tilala",
+      "party_short": "BJP",
+      "votes": 101734,
+      "vote_share_pct": 66.37,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Shivlal Barasia",
+      "party_short": "AAAP",
+      "votes": 22870,
+      "vote_share_pct": 14.92,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Hitesh Maganbhai Vora",
+      "party_short": "INC",
+      "votes": 22507,
+      "vote_share_pct": 14.68,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Parekh Punitaben Hasmukhbhai",
+      "party_short": "IND",
+      "votes": 2842,
+      "vote_share_pct": 1.85,
+      "gender": "F",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rakesh Patel",
+      "party_short": "IND",
+      "votes": 295,
+      "vote_share_pct": 0.19,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2353,
+    "vote_share_pct": 1.54
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 674,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rameshbhai Virjibhai Tilala",
+    "party_short": "BJP",
+    "votes": 101734,
+    "margin_votes": 78864,
+    "margin_pct": 51.45
+  }
+}

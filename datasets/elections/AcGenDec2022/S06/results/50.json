@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Amraiwadi",
+  "totals": {
+    "electors": 296798,
+    "votes_polled": 159361,
+    "turnout_pct": 53.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Hasmukh Patel",
+      "party_short": "BJP",
+      "votes": 93994,
+      "vote_share_pct": 58.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dharmendrabhai Shantilal Patel (dhambhai)",
+      "party_short": "INC",
+      "votes": 50722,
+      "vote_share_pct": 31.83,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vinay Nandlal Gupta",
+      "party_short": "AAAP",
+      "votes": 7787,
+      "vote_share_pct": 4.89,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rathod Yalpeshkumar Pravinbhai",
+      "party_short": "BSP",
+      "votes": 1529,
+      "vote_share_pct": 0.96,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Parmar Rameshbhai Kishorbhai",
+      "party_short": "CPI",
+      "votes": 687,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1224,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 3418,
+    "vote_share_pct": 2.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Hasmukh Patel",
+    "party_short": "BJP",
+    "votes": 93994,
+    "margin_votes": 43272,
+    "margin_pct": 27.15
+  }
+}

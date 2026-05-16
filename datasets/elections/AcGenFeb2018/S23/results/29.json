@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "Krishnapur",
+  "totals": {
+    "electors": 35359,
+    "votes_polled": 32993,
+    "turnout_pct": 93.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ATUL DEBBARMA",
+      "party_short": "BJP",
+      "votes": 16730,
+      "vote_share_pct": 50.71,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "KHAGENDRA JAMATIA",
+      "party_short": "CPM",
+      "votes": 14735,
+      "vote_share_pct": 44.66,
+      "gender": "M",
+      "age": 64,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SARATAL JAMATIA",
+      "party_short": "INC",
+      "votes": 397,
+      "vote_share_pct": 1.2,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "KRIPAJAY REANG",
+      "party_short": "IND",
+      "votes": 211,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 325,
+    "vote_share_pct": 0.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ATUL DEBBARMA",
+    "party_short": "BJP",
+    "votes": 16730,
+    "margin_votes": 1995,
+    "margin_pct": 6.05
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "Kithore",
+  "totals": {
+    "electors": 365516,
+    "votes_polled": 253869,
+    "turnout_pct": 69.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHAHID MANZOOR",
+      "party_short": "SP",
+      "votes": 107104,
+      "vote_share_pct": 42.19,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATYAVIR TYAGI",
+      "party_short": "BJP",
+      "votes": 104924,
+      "vote_share_pct": 41.33,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KUSHAL PAL MAVI",
+      "party_short": "BSP",
+      "votes": 31213,
+      "vote_share_pct": 12.29,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "TASLEEM AHMAD",
+      "party_short": "AIMIM",
+      "votes": 4833,
+      "vote_share_pct": 1.9,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BABITA GURJAR",
+      "party_short": "INC",
+      "votes": 1589,
+      "vote_share_pct": 0.63,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 912,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3294,
+    "vote_share_pct": 1.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHAHID MANZOOR",
+    "party_short": "SP",
+    "votes": 107104,
+    "margin_votes": 2180,
+    "margin_pct": 0.86
+  }
+}

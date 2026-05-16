@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "Rongjeng (ST)",
+  "totals": {
+    "electors": 35340,
+    "votes_polled": 30139,
+    "turnout_pct": 85.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jim M Sangma",
+      "party_short": "NPEP",
+      "votes": 8836,
+      "vote_share_pct": 29.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Walseng M. Sangma",
+      "party_short": "IND",
+      "votes": 8708,
+      "vote_share_pct": 28.89,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Sengnam M. Marak",
+      "party_short": "AITC",
+      "votes": 4400,
+      "vote_share_pct": 14.6,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Rapiush Ch. Sangma",
+      "party_short": "BJP",
+      "votes": 3302,
+      "vote_share_pct": 10.96,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Jebing G Momin",
+      "party_short": "INC",
+      "votes": 3131,
+      "vote_share_pct": 10.39,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 456,
+    "vote_share_pct": 1.51
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1306,
+    "vote_share_pct": 4.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jim M Sangma",
+    "party_short": "NPEP",
+    "votes": 8836,
+    "margin_votes": 128,
+    "margin_pct": 0.42
+  }
+}

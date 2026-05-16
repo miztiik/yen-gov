@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "Sambhal",
+  "totals": {
+    "electors": 379786,
+    "votes_polled": 244853,
+    "turnout_pct": 64.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "IQBAL MEHMOOD",
+      "party_short": "SP",
+      "votes": 107073,
+      "vote_share_pct": 43.73,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJESH SINGHAL",
+      "party_short": "BJP",
+      "votes": 65376,
+      "vote_share_pct": 26.7,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHAKIL AHAMAD",
+      "party_short": "BSP",
+      "votes": 44443,
+      "vote_share_pct": 18.15,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHAMMAD MUSHIR KHAN TARIN",
+      "party_short": "AIMIM",
+      "votes": 21470,
+      "vote_share_pct": 8.77,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NIDA AHMAD",
+      "party_short": "INC",
+      "votes": 2256,
+      "vote_share_pct": 0.92,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1204,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3031,
+    "vote_share_pct": 1.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "IQBAL MEHMOOD",
+    "party_short": "SP",
+    "votes": 107073,
+    "margin_votes": 41697,
+    "margin_pct": 17.03
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Egmore",
+  "totals": {
+    "electors": 191494,
+    "votes_polled": 120635,
+    "turnout_pct": 63.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAVICHANDRAN K.S",
+      "party_short": "DMK",
+      "votes": 55060,
+      "vote_share_pct": 45.64,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PARITHI ELLAMVAZHUTHI E",
+      "party_short": "ADMK",
+      "votes": 44381,
+      "vote_share_pct": 36.79,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "VENKATESAN M",
+      "party_short": "BJP",
+      "votes": 7159,
+      "vote_share_pct": 5.93,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PRABHU T",
+      "party_short": "DMDK",
+      "votes": 6321,
+      "vote_share_pct": 5.24,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAJENDRAN A",
+      "party_short": "PMK",
+      "votes": 1814,
+      "vote_share_pct": 1.5,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2840,
+    "vote_share_pct": 2.35
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 3060,
+    "vote_share_pct": 2.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAVICHANDRAN K.S",
+    "party_short": "DMK",
+    "votes": 55060,
+    "margin_votes": 10679,
+    "margin_pct": 8.85
+  }
+}

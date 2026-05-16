@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 317,
+  "constituency_name": "Siswa",
+  "totals": {
+    "electors": 366103,
+    "votes_polled": 239366,
+    "turnout_pct": 65.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PREMSAGAR PATEL",
+      "party_short": "BJP",
+      "votes": 122884,
+      "vote_share_pct": 51.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHIVENDRA SINGH ALIAS SHIVBABU",
+      "party_short": "SP",
+      "votes": 54698,
+      "vote_share_pct": 22.85,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAGHVENDRA PRATAP ALIAS ANKIT SINGH",
+      "party_short": "BSP",
+      "votes": 46185,
+      "vote_share_pct": 19.29,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAKESH KUMAR ALIAS R. K. MISHRA",
+      "party_short": "IND",
+      "votes": 4073,
+      "vote_share_pct": 1.7,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "YASH TRIPATHI",
+      "party_short": "PECP",
+      "votes": 2659,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2501,
+    "vote_share_pct": 1.04
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 6366,
+    "vote_share_pct": 2.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PREMSAGAR PATEL",
+    "party_short": "BJP",
+    "votes": 122884,
+    "margin_votes": 68186,
+    "margin_pct": 28.49
+  }
+}

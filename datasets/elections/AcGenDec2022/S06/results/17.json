@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Chanasma",
+  "totals": {
+    "electors": 292600,
+    "votes_polled": 186118,
+    "turnout_pct": 63.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Thakor Dineshbhai Ataji",
+      "party_short": "INC",
+      "votes": 86406,
+      "vote_share_pct": 46.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dilipkumar Virajibhai Thakor",
+      "party_short": "BJP",
+      "votes": 85002,
+      "vote_share_pct": 45.67,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vishnubhai Jorabhai Patel",
+      "party_short": "AAAP",
+      "votes": 7586,
+      "vote_share_pct": 4.08,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Thakor Diwanji Hemaji",
+      "party_short": "GAGUP",
+      "votes": 1458,
+      "vote_share_pct": 0.78,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Baloch Jalamkhan Kayamkhan",
+      "party_short": "IND",
+      "votes": 1052,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3293,
+    "vote_share_pct": 1.77
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1321,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Thakor Dineshbhai Ataji",
+    "party_short": "INC",
+    "votes": 86406,
+    "margin_votes": 1404,
+    "margin_pct": 0.75
+  }
+}

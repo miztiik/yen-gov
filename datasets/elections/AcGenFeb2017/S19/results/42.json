@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "Sham Chaurasi",
+  "totals": {
+    "electors": 166750,
+    "votes_polled": 123889,
+    "turnout_pct": 74.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PAWAN KUMAR ADIA",
+      "party_short": "INC",
+      "votes": 46612,
+      "vote_share_pct": 37.62,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DR. RAVJOT SINGH",
+      "party_short": "AAAP",
+      "votes": 42797,
+      "vote_share_pct": 34.54,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MOHINDER KAUR JOSH",
+      "party_short": "SAD",
+      "votes": 24671,
+      "vote_share_pct": 19.91,
+      "gender": "F",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BHAGWAN DASS",
+      "party_short": "BSP",
+      "votes": 8009,
+      "vote_share_pct": 6.46,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SATISH LAMBA",
+      "party_short": "APPA",
+      "votes": 498,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 898,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 404,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PAWAN KUMAR ADIA",
+    "party_short": "INC",
+    "votes": 46612,
+    "margin_votes": 3815,
+    "margin_pct": 3.08
+  }
+}

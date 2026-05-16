@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Rudraprayag",
+  "totals": {
+    "electors": 98657,
+    "votes_polled": 58176,
+    "turnout_pct": 58.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHARAT SINGH",
+      "party_short": "BJP",
+      "votes": 29333,
+      "vote_share_pct": 50.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "LAXMI SINGH RANA",
+      "party_short": "INC",
+      "votes": 14701,
+      "vote_share_pct": 25.27,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRADEEP PRASAD THAPLIYAL",
+      "party_short": "IND",
+      "votes": 5818,
+      "vote_share_pct": 10.0,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JAGMOHAN SINGH RAUTHAN",
+      "party_short": "IND",
+      "votes": 3342,
+      "vote_share_pct": 5.74,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SURJEET LAL",
+      "party_short": "BSP",
+      "votes": 801,
+      "vote_share_pct": 1.38,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1266,
+    "vote_share_pct": 2.18
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2915,
+    "vote_share_pct": 5.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHARAT SINGH",
+    "party_short": "BJP",
+    "votes": 29333,
+    "margin_votes": 14632,
+    "margin_pct": 25.15
+  }
+}

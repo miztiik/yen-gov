@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Becharaji",
+  "totals": {
+    "electors": 233171,
+    "votes_polled": 165911,
+    "turnout_pct": 71.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "THAKOR BHARATJI SONAJI",
+      "party_short": "INC",
+      "votes": 80894,
+      "vote_share_pct": 48.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PATEL RAJNIKANT SOMABHAI",
+      "party_short": "BJP",
+      "votes": 65083,
+      "vote_share_pct": 39.23,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PATEL KIRITKUMAR DAHYABHAI",
+      "party_short": "IND",
+      "votes": 10144,
+      "vote_share_pct": 6.11,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PARMAR JITENDRABHAI RAMESHBHAI",
+      "party_short": "IND",
+      "votes": 1407,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RATHOD DINESHKUMAR REVABHAI",
+      "party_short": "BSP",
+      "votes": 829,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3596,
+    "vote_share_pct": 2.17
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2651,
+    "vote_share_pct": 1.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "THAKOR BHARATJI SONAJI",
+    "party_short": "INC",
+    "votes": 80894,
+    "margin_votes": 15811,
+    "margin_pct": 9.53
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 71,
+  "constituency_name": "Rajkot Rural (SC)",
+  "totals": {
+    "electors": 367494,
+    "votes_polled": 227829,
+    "turnout_pct": 62.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhanuben Manoharbhai Babariya",
+      "party_short": "BJP",
+      "votes": 119695,
+      "vote_share_pct": 52.54,
+      "is_winner": true,
+      "gender": "F",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Vashrambhai Sagathiya",
+      "party_short": "AAAP",
+      "votes": 71201,
+      "vote_share_pct": 31.25,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Bathwar Sureshkumar Karshanbhai",
+      "party_short": "INC",
+      "votes": 29175,
+      "vote_share_pct": 12.81,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Rahul Chavda",
+      "party_short": "BSP",
+      "votes": 1626,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Solanki Ramjibhai Khimabhai",
+      "party_short": "IND",
+      "votes": 709,
+      "vote_share_pct": 0.31,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3038,
+    "vote_share_pct": 1.33
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2385,
+    "vote_share_pct": 1.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhanuben Manoharbhai Babariya",
+    "party_short": "BJP",
+    "votes": 119695,
+    "margin_votes": 48494,
+    "margin_pct": 21.29
+  }
+}

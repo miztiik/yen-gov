@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 64,
+  "constituency_name": "Dhrangadhra",
+  "totals": {
+    "electors": 309241,
+    "votes_polled": 210380,
+    "turnout_pct": 68.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Prakashbhai Parsotambhai Varmora",
+      "party_short": "BJP",
+      "votes": 102844,
+      "vote_share_pct": 48.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Gunjariya Chhatrasinh Shankarbhai",
+      "party_short": "INC",
+      "votes": 69871,
+      "vote_share_pct": 33.21,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vaghjibhai Karshanbhai Kaila",
+      "party_short": "AAAP",
+      "votes": 28127,
+      "vote_share_pct": 13.37,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Samrat Jayraj Prabhubhai",
+      "party_short": "BSP",
+      "votes": 1524,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Surela Laljibhai Khodabhai",
+      "party_short": "IND",
+      "votes": 1480,
+      "vote_share_pct": 0.7,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3613,
+    "vote_share_pct": 1.72
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2921,
+    "vote_share_pct": 1.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Prakashbhai Parsotambhai Varmora",
+    "party_short": "BJP",
+    "votes": 102844,
+    "margin_votes": 32973,
+    "margin_pct": 15.67
+  }
+}

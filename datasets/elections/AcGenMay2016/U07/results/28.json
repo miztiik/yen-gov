@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "Neravy T.R. Pattinam",
+  "totals": {
+    "electors": 29373,
+    "votes_polled": 24910,
+    "turnout_pct": 84.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A.GEETHA",
+      "party_short": "DMK",
+      "votes": 14993,
+      "vote_share_pct": 60.19,
+      "is_winner": true,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VMC. SIVAKUMAR",
+      "party_short": "ADMK",
+      "votes": 8057,
+      "vote_share_pct": 32.34,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.R. UDAYAKUMAR",
+      "party_short": "AINRC",
+      "votes": 373,
+      "vote_share_pct": 1.5,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "S. MOHAMED THAMEEM ANSARI",
+      "party_short": "CPM",
+      "votes": 334,
+      "vote_share_pct": 1.34,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "M.KUMARAVELU",
+      "party_short": "BJP",
+      "votes": 237,
+      "vote_share_pct": 0.95,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 231,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 685,
+    "vote_share_pct": 2.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A.GEETHA",
+    "party_short": "DMK",
+    "votes": 14993,
+    "margin_votes": 6936,
+    "margin_pct": 27.84
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "Sangrur",
+  "totals": {
+    "electors": 190530,
+    "votes_polled": 144873,
+    "turnout_pct": 76.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Narinder Kaur Bharaj",
+      "party_short": "AAAP",
+      "votes": 74851,
+      "vote_share_pct": 51.67,
+      "is_winner": true,
+      "gender": "F",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Vijay Inder Singla",
+      "party_short": "INC",
+      "votes": 38421,
+      "vote_share_pct": 26.52,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Arvind Khanna",
+      "party_short": "BJP",
+      "votes": 13766,
+      "vote_share_pct": 9.5,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Winnerjit Singh Goldy",
+      "party_short": "SAD",
+      "votes": 10488,
+      "vote_share_pct": 7.24,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Gurnaib Singh",
+      "party_short": "SAD(M)",
+      "votes": 4466,
+      "vote_share_pct": 3.08,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 811,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2070,
+    "vote_share_pct": 1.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Narinder Kaur Bharaj",
+    "party_short": "AAAP",
+    "votes": 74851,
+    "margin_votes": 36430,
+    "margin_pct": 25.15
+  }
+}

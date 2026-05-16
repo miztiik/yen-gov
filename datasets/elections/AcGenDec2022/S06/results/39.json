@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Viramgam",
+  "totals": {
+    "electors": 302819,
+    "votes_polled": 199757,
+    "turnout_pct": 65.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Patel Hardik Bharatbhai",
+      "party_short": "BJP",
+      "votes": 99157,
+      "vote_share_pct": 49.64,
+      "is_winner": true,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Amarsinh Anadaji Thakor",
+      "party_short": "AAAP",
+      "votes": 47449,
+      "vote_share_pct": 23.75,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Bharwad Lakhabhai Bhikhabhai",
+      "party_short": "INC",
+      "votes": 42724,
+      "vote_share_pct": 21.39,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Hardikkumar Jagdishchandra Patel",
+      "party_short": "IND",
+      "votes": 1218,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Kirit Rathod",
+      "party_short": "IND",
+      "votes": 977,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3253,
+    "vote_share_pct": 1.63
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4979,
+    "vote_share_pct": 2.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Patel Hardik Bharatbhai",
+    "party_short": "BJP",
+    "votes": 99157,
+    "margin_votes": 51708,
+    "margin_pct": 25.89
+  }
+}

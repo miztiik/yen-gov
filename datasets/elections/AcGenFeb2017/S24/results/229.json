@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 229,
+  "constituency_name": "Rath",
+  "totals": {
+    "electors": 383217,
+    "votes_polled": 242011,
+    "turnout_pct": 63.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANISHA ANURAGI",
+      "party_short": "BJP",
+      "votes": 147526,
+      "vote_share_pct": 60.96,
+      "is_winner": true,
+      "gender": "F",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "GAYADEEN ANURAGI",
+      "party_short": "INC",
+      "votes": 42883,
+      "vote_share_pct": 17.72,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ANIL KUMAR AHIRWAR",
+      "party_short": "BSP",
+      "votes": 38710,
+      "vote_share_pct": 16.0,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "AJIT KUMAR",
+      "party_short": "JANADIP",
+      "votes": 3083,
+      "vote_share_pct": 1.27,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "GANGOTRI",
+      "party_short": "IND",
+      "votes": 2334,
+      "vote_share_pct": 0.96,
+      "gender": "F",
+      "age": 37,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 4595,
+    "vote_share_pct": 1.9
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2880,
+    "vote_share_pct": 1.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANISHA ANURAGI",
+    "party_short": "BJP",
+    "votes": 147526,
+    "margin_votes": 104643,
+    "margin_pct": 43.24
+  }
+}

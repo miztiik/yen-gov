@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 281,
+  "constituency_name": "Akbarpur",
+  "totals": {
+    "electors": 332577,
+    "votes_polled": 214843,
+    "turnout_pct": 64.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM ACHAL RAJBHAR",
+      "party_short": "SP",
+      "votes": 81931,
+      "vote_share_pct": 38.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DHARMRAJ NISHAD",
+      "party_short": "BJP",
+      "votes": 69595,
+      "vote_share_pct": 32.39,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHANDRA PRAKASH VERMA",
+      "party_short": "BSP",
+      "votes": 53398,
+      "vote_share_pct": 24.85,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRIYANKA",
+      "party_short": "INC",
+      "votes": 2735,
+      "vote_share_pct": 1.27,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JITENDRA KUMAR",
+      "party_short": "BMUP",
+      "votes": 1082,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1656,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4446,
+    "vote_share_pct": 2.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM ACHAL RAJBHAR",
+    "party_short": "SP",
+    "votes": 81931,
+    "margin_votes": 12336,
+    "margin_pct": 5.74
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "Mainpuri",
+  "totals": {
+    "electors": 326542,
+    "votes_polled": 196813,
+    "turnout_pct": 60.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJKUMAR ALIAS RAJU YADAV",
+      "party_short": "SP",
+      "votes": 75787,
+      "vote_share_pct": 38.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ASHOK KUMAR",
+      "party_short": "BJP",
+      "votes": 66956,
+      "vote_share_pct": 34.02,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MAHARAJ SINGH",
+      "party_short": "BSP",
+      "votes": 48314,
+      "vote_share_pct": 24.55,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SATYENDRA SINGH",
+      "party_short": "MHP",
+      "votes": 1257,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VINAY",
+      "party_short": "JAM",
+      "votes": 684,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1157,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2658,
+    "vote_share_pct": 1.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJKUMAR ALIAS RAJU YADAV",
+    "party_short": "SP",
+    "votes": 75787,
+    "margin_votes": 8831,
+    "margin_pct": 4.49
+  }
+}

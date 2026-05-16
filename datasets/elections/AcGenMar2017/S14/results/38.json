@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Hiyanglam",
+  "totals": {
+    "electors": 26450,
+    "votes_polled": 25190,
+    "turnout_pct": 95.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. RADHESHYAM YUMNAM",
+      "party_short": "BJP",
+      "votes": 13394,
+      "vote_share_pct": 53.17,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ELANGBAM DWIJAMANI SINGH",
+      "party_short": "INC",
+      "votes": 11669,
+      "vote_share_pct": 46.32,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 127,
+    "vote_share_pct": 0.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. RADHESHYAM YUMNAM",
+    "party_short": "BJP",
+    "votes": 13394,
+    "margin_votes": 1725,
+    "margin_pct": 6.85
+  },
+  "others": null
+}

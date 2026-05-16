@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 74,
+  "constituency_name": "Villupuram",
+  "totals": {
+    "electors": 247327,
+    "votes_polled": 188964,
+    "turnout_pct": 76.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHANMUGAM C VE",
+      "party_short": "ADMK",
+      "votes": 69421,
+      "vote_share_pct": 36.74,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMEER ABBAS S M",
+      "party_short": "IUML",
+      "votes": 47130,
+      "vote_share_pct": 24.94,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PALANIVEL P",
+      "party_short": "PMK",
+      "votes": 36456,
+      "vote_share_pct": 19.29,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VENGATESAN L",
+      "party_short": "DMDK",
+      "votes": 24907,
+      "vote_share_pct": 13.18,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAYAKUMAR RAMA",
+      "party_short": "BJP",
+      "votes": 2188,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1701,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 7161,
+    "vote_share_pct": 3.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHANMUGAM C VE",
+    "party_short": "ADMK",
+    "votes": 69421,
+    "margin_votes": 22291,
+    "margin_pct": 11.8
+  }
+}

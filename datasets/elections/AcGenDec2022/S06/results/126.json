@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 126,
+  "constituency_name": "Godhra",
+  "totals": {
+    "electors": 279773,
+    "votes_polled": 186303,
+    "turnout_pct": 66.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C.k.raulji",
+      "party_short": "BJP",
+      "votes": 96223,
+      "vote_share_pct": 51.65,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rashmitaben Dushyantsinh Chauhan",
+      "party_short": "INC",
+      "votes": 61025,
+      "vote_share_pct": 32.76,
+      "gender": "F",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Rajeshbhai Somabhai Patel",
+      "party_short": "AAAP",
+      "votes": 11827,
+      "vote_share_pct": 6.35,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Hasan Shabbir Kachaba",
+      "party_short": "AIMIM",
+      "votes": 9508,
+      "vote_share_pct": 5.1,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Husnain Jakkiuddin Presswala",
+      "party_short": "IND",
+      "votes": 2289,
+      "vote_share_pct": 1.23,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3548,
+    "vote_share_pct": 1.9
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1883,
+    "vote_share_pct": 1.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C.k.raulji",
+    "party_short": "BJP",
+    "votes": 96223,
+    "margin_votes": 35198,
+    "margin_pct": 18.89
+  }
+}

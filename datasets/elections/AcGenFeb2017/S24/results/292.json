@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 292,
+  "constituency_name": "Gainsari",
+  "totals": {
+    "electors": 349774,
+    "votes_polled": 196103,
+    "turnout_pct": 56.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHAILESH KUMAR SINGH",
+      "party_short": "BJP",
+      "votes": 55716,
+      "vote_share_pct": 28.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ALAUDDIN",
+      "party_short": "BSP",
+      "votes": 53413,
+      "vote_share_pct": 27.24,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR.SHIV PRATAP YADAV",
+      "party_short": "SP",
+      "votes": 46378,
+      "vote_share_pct": 23.65,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANURAG",
+      "party_short": "IND",
+      "votes": 27652,
+      "vote_share_pct": 14.1,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MANJOOR ALAM KHAN",
+      "party_short": "AIMIM",
+      "votes": 3160,
+      "vote_share_pct": 1.61,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1914,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 7870,
+    "vote_share_pct": 4.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHAILESH KUMAR SINGH",
+    "party_short": "BJP",
+    "votes": 55716,
+    "margin_votes": 2303,
+    "margin_pct": 1.17
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Jwalapur",
+  "totals": {
+    "electors": 108875,
+    "votes_polled": 86877,
+    "turnout_pct": 79.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURESH RATHOR",
+      "party_short": "BJP",
+      "votes": 29513,
+      "vote_share_pct": 33.97,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "S.P.SINGH ENGINEER",
+      "party_short": "INC",
+      "votes": 24725,
+      "vote_share_pct": 28.46,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MULKI RAJ",
+      "party_short": "BSP",
+      "votes": 19483,
+      "vote_share_pct": 22.43,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BRAJ RANI",
+      "party_short": "IND",
+      "votes": 9338,
+      "vote_share_pct": 10.75,
+      "gender": "F",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SUBHASH CHANCHAL",
+      "party_short": "IND",
+      "votes": 1544,
+      "vote_share_pct": 1.78,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 638,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1636,
+    "vote_share_pct": 1.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURESH RATHOR",
+    "party_short": "BJP",
+    "votes": 29513,
+    "margin_votes": 4788,
+    "margin_pct": 5.51
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 242,
+  "constituency_name": "Husainganj",
+  "totals": {
+    "electors": 304518,
+    "votes_polled": 188359,
+    "turnout_pct": 61.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "USHA MAURYA",
+      "party_short": "SP",
+      "votes": 91884,
+      "vote_share_pct": 48.78,
+      "is_winner": true,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RANVENDRA PRATAP SINGH ALIAS DHUNNI BHAIYA",
+      "party_short": "BJP",
+      "votes": 66703,
+      "vote_share_pct": 35.41,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "FAREED AHMAD",
+      "party_short": "BSP",
+      "votes": 21009,
+      "vote_share_pct": 11.15,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHIVAKANT TIWARI",
+      "party_short": "INC",
+      "votes": 5042,
+      "vote_share_pct": 2.68,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ABDUL RAJIK",
+      "party_short": "AAAP",
+      "votes": 691,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1765,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1265,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "USHA MAURYA",
+    "party_short": "SP",
+    "votes": 91884,
+    "margin_votes": 25181,
+    "margin_pct": 13.37
+  }
+}

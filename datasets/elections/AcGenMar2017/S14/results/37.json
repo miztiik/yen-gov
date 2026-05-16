@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "Kakching",
+  "totals": {
+    "electors": 27879,
+    "votes_polled": 24100,
+    "turnout_pct": 86.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "YENGKHOM SURCHANDRA SINGH",
+      "party_short": "INC",
+      "votes": 11133,
+      "vote_share_pct": 46.2,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "M. RAMESHWAR SINGH (RAMAY)",
+      "party_short": "BJP",
+      "votes": 10503,
+      "vote_share_pct": 43.58,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "NAOREM ACHOUBA",
+      "party_short": "CPI",
+      "votes": 2215,
+      "vote_share_pct": 9.19,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 249,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "YENGKHOM SURCHANDRA SINGH",
+    "party_short": "INC",
+    "votes": 11133,
+    "margin_votes": 630,
+    "margin_pct": 2.61
+  },
+  "others": null
+}

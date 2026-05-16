@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "Kancheepuram",
+  "totals": {
+    "electors": 296893,
+    "votes_polled": 224112,
+    "turnout_pct": 75.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C.V.M.P. EZHILARASAN",
+      "party_short": "DMK",
+      "votes": 90533,
+      "vote_share_pct": 40.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "T.MYTHILI",
+      "party_short": "ADMK",
+      "votes": 82985,
+      "vote_share_pct": 37.03,
+      "gender": "F",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "P. MAGESH KUMAR",
+      "party_short": "PMK",
+      "votes": 30102,
+      "vote_share_pct": 13.43,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "S.EAGAMBARAM",
+      "party_short": "DMDK",
+      "votes": 8986,
+      "vote_share_pct": 4.01,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "T.VASAN",
+      "party_short": "BJP",
+      "votes": 3646,
+      "vote_share_pct": 1.63,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3645,
+    "vote_share_pct": 1.63
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4215,
+    "vote_share_pct": 1.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C.V.M.P. EZHILARASAN",
+    "party_short": "DMK",
+    "votes": 90533,
+    "margin_votes": 7548,
+    "margin_pct": 3.37
+  }
+}

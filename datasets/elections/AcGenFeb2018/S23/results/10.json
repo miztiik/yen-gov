@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "Majlishpur",
+  "totals": {
+    "electors": 45993,
+    "votes_polled": 44778,
+    "turnout_pct": 97.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUSHANTA CHOWDHURY",
+      "party_short": "BJP",
+      "votes": 23249,
+      "vote_share_pct": 51.92,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANIK DEY",
+      "party_short": "CPM",
+      "votes": 19359,
+      "vote_share_pct": 43.23,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJIB GOPE",
+      "party_short": "INC",
+      "votes": 509,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 417,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUSHANTA CHOWDHURY",
+    "party_short": "BJP",
+    "votes": 23249,
+    "margin_votes": 3890,
+    "margin_pct": 8.69
+  },
+  "others": null
+}

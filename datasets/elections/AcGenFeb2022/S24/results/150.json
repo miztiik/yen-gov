@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 150,
+  "constituency_name": "Sevata",
+  "totals": {
+    "electors": 314101,
+    "votes_polled": 223131,
+    "turnout_pct": 71.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GYAN TIWARI",
+      "party_short": "BJP",
+      "votes": 108057,
+      "vote_share_pct": 48.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAHENDRA KUMAR SINGH",
+      "party_short": "SP",
+      "votes": 87776,
+      "vote_share_pct": 39.34,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASHISH PRATAP SINGH",
+      "party_short": "BSP",
+      "votes": 17054,
+      "vote_share_pct": 7.64,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHANTI DEVI",
+      "party_short": "VSIP",
+      "votes": 4300,
+      "vote_share_pct": 1.93,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DR. VIJAYNATH AWASTHI",
+      "party_short": "INC",
+      "votes": 2984,
+      "vote_share_pct": 1.34,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1996,
+    "vote_share_pct": 0.89
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 964,
+    "vote_share_pct": 0.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GYAN TIWARI",
+    "party_short": "BJP",
+    "votes": 108057,
+    "margin_votes": 20281,
+    "margin_pct": 9.09
+  }
+}

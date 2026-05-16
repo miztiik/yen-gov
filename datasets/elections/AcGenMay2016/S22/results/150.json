@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 150,
+  "constituency_name": "Jayankondam",
+  "totals": {
+    "electors": 250673,
+    "votes_polled": 204038,
+    "turnout_pct": 81.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMAJEYALINGAM.J.K.N",
+      "party_short": "ADMK",
+      "votes": 75672,
+      "vote_share_pct": 37.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GURU @ GURUNATHAN.J",
+      "party_short": "PMK",
+      "votes": 52738,
+      "vote_share_pct": 25.85,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJENDRAN.G",
+      "party_short": "INC",
+      "votes": 46868,
+      "vote_share_pct": 22.97,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KANDASAMY.M.S",
+      "party_short": "MDMK",
+      "votes": 21405,
+      "vote_share_pct": 10.49,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KRISHNAMOORTHY.R",
+      "party_short": "NTK",
+      "votes": 1325,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1950,
+    "vote_share_pct": 0.96
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4080,
+    "vote_share_pct": 2.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMAJEYALINGAM.J.K.N",
+    "party_short": "ADMK",
+    "votes": 75672,
+    "margin_votes": 22934,
+    "margin_pct": 11.24
+  }
+}

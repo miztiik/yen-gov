@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Sujanpur",
+  "totals": {
+    "electors": 159005,
+    "votes_polled": 125369,
+    "turnout_pct": 78.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DINESH SINGH",
+      "party_short": "BJP",
+      "votes": 48910,
+      "vote_share_pct": 39.01,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMIT SINGH",
+      "party_short": "INC",
+      "votes": 30209,
+      "vote_share_pct": 24.1,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NARESH PURI",
+      "party_short": "IND",
+      "votes": 28675,
+      "vote_share_pct": 22.87,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NATHA SINGH",
+      "party_short": "RMPOI",
+      "votes": 10581,
+      "vote_share_pct": 8.44,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KULBHUSHAN SINGH",
+      "party_short": "AAAP",
+      "votes": 2831,
+      "vote_share_pct": 2.26,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1008,
+    "vote_share_pct": 0.8
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3155,
+    "vote_share_pct": 2.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DINESH SINGH",
+    "party_short": "BJP",
+    "votes": 48910,
+    "margin_votes": 18701,
+    "margin_pct": 14.92
+  }
+}

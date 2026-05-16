@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 217,
+  "constituency_name": "Maharajpur",
+  "totals": {
+    "electors": 409049,
+    "votes_polled": 236731,
+    "turnout_pct": 57.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATISH MAHANA",
+      "party_short": "BJP",
+      "votes": 132394,
+      "vote_share_pct": 55.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANOJ KUMAR SHUKLA",
+      "party_short": "BSP",
+      "votes": 40568,
+      "vote_share_pct": 17.14,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARUNA TOMAR",
+      "party_short": "SP",
+      "votes": 38752,
+      "vote_share_pct": 16.37,
+      "gender": "F",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJARAM PAL",
+      "party_short": "INC",
+      "votes": 18697,
+      "vote_share_pct": 7.9,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AWADHESH",
+      "party_short": "BSCP",
+      "votes": 1374,
+      "vote_share_pct": 0.58,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1359,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3587,
+    "vote_share_pct": 1.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATISH MAHANA",
+    "party_short": "BJP",
+    "votes": 132394,
+    "margin_votes": 91826,
+    "margin_pct": 38.79
+  }
+}

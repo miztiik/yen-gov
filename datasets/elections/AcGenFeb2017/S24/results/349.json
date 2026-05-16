@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 349,
+  "constituency_name": "Phoolpur Pawai",
+  "totals": {
+    "electors": 304955,
+    "votes_polled": 178455,
+    "turnout_pct": 58.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARUN KUMAR YADAV",
+      "party_short": "BJP",
+      "votes": 68435,
+      "vote_share_pct": 38.35,
+      "is_winner": true,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ABUL QAIS AZMI",
+      "party_short": "BSP",
+      "votes": 61140,
+      "vote_share_pct": 34.26,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHYAM BAHADUR SINGH YADAV",
+      "party_short": "SP",
+      "votes": 38099,
+      "vote_share_pct": 21.35,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMSURAT",
+      "party_short": "NINSHAD",
+      "votes": 4012,
+      "vote_share_pct": 2.25,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMAGYA YADAV",
+      "party_short": "CPI",
+      "votes": 1382,
+      "vote_share_pct": 0.77,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1609,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3778,
+    "vote_share_pct": 2.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARUN KUMAR YADAV",
+    "party_short": "BJP",
+    "votes": 68435,
+    "margin_votes": 7295,
+    "margin_pct": 4.09
+  }
+}

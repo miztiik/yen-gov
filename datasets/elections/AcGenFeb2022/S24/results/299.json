@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 299,
+  "constituency_name": "Tarabganj",
+  "totals": {
+    "electors": 367243,
+    "votes_polled": 211012,
+    "turnout_pct": 57.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PREM NRAYAN PANDEY",
+      "party_short": "BJP",
+      "votes": 125325,
+      "vote_share_pct": 59.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAM BHAJAN CHAUBEY",
+      "party_short": "SP",
+      "votes": 71635,
+      "vote_share_pct": 33.95,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "LALJI",
+      "party_short": "BSP",
+      "votes": 3751,
+      "vote_share_pct": 1.78,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "TVARITA SINGH",
+      "party_short": "INC",
+      "votes": 2684,
+      "vote_share_pct": 1.27,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SANDEEP KUMAR",
+      "party_short": "IND",
+      "votes": 1342,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2408,
+    "vote_share_pct": 1.14
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3867,
+    "vote_share_pct": 1.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PREM NRAYAN PANDEY",
+    "party_short": "BJP",
+    "votes": 125325,
+    "margin_votes": 53690,
+    "margin_pct": 25.44
+  }
+}

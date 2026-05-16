@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "Manapparai",
+  "totals": {
+    "electors": 262415,
+    "votes_polled": 205956,
+    "turnout_pct": 78.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHANDRASEKAR R",
+      "party_short": "ADMK",
+      "votes": 91399,
+      "vote_share_pct": 44.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MOHAMED NIZAM M A",
+      "party_short": "IUML",
+      "votes": 73122,
+      "vote_share_pct": 35.5,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KRISHNA GOPAL P",
+      "party_short": "DMDK",
+      "votes": 26316,
+      "vote_share_pct": 12.78,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SENTHIL DEEPAK C",
+      "party_short": "BJP",
+      "votes": 4154,
+      "vote_share_pct": 2.02,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHAIDEEN BASHA J",
+      "party_short": "IND",
+      "votes": 2392,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3364,
+    "vote_share_pct": 1.63
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5209,
+    "vote_share_pct": 2.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHANDRASEKAR R",
+    "party_short": "ADMK",
+    "votes": 91399,
+    "margin_votes": 18277,
+    "margin_pct": 8.87
+  }
+}

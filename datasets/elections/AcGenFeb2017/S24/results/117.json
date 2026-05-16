@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 117,
+  "constituency_name": "Dataganj",
+  "totals": {
+    "electors": 389734,
+    "votes_polled": 224822,
+    "turnout_pct": 57.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJEEV KUMAR SINGH URF BABBU BHAIYA",
+      "party_short": "BJP",
+      "votes": 79110,
+      "vote_share_pct": 35.19,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SINOD KUMAR SHAKYA (DEEPU BHAIYA)",
+      "party_short": "BSP",
+      "votes": 53351,
+      "vote_share_pct": 23.73,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CAPTAIN ARJUN SINGH",
+      "party_short": "LD",
+      "votes": 39029,
+      "vote_share_pct": 17.36,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PREM PAL SINGH YADAV",
+      "party_short": "INC",
+      "votes": 32243,
+      "vote_share_pct": 14.34,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DR SHAILESH PATHAK",
+      "party_short": "PECP",
+      "votes": 11064,
+      "vote_share_pct": 4.92,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1971,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 8054,
+    "vote_share_pct": 3.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJEEV KUMAR SINGH URF BABBU BHAIYA",
+    "party_short": "BJP",
+    "votes": 79110,
+    "margin_votes": 25759,
+    "margin_pct": 11.46
+  }
+}

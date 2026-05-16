@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "Devprayag",
+  "totals": {
+    "electors": 82105,
+    "votes_polled": 43541,
+    "turnout_pct": 53.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VINOD KANDARI",
+      "party_short": "BJP",
+      "votes": 13824,
+      "vote_share_pct": 31.75,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DIWAKAR BHATT",
+      "party_short": "IND",
+      "votes": 10325,
+      "vote_share_pct": 23.71,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MANTRI PRASAD NAITHANI",
+      "party_short": "INC",
+      "votes": 8742,
+      "vote_share_pct": 20.08,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHOORBEER SINGH SAJWAN",
+      "party_short": "IND",
+      "votes": 6681,
+      "vote_share_pct": 15.34,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SAMEER RATURI",
+      "party_short": "PRAJAPA",
+      "votes": 728,
+      "vote_share_pct": 1.67,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 294,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2947,
+    "vote_share_pct": 6.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VINOD KANDARI",
+    "party_short": "BJP",
+    "votes": 13824,
+    "margin_votes": 3499,
+    "margin_pct": 8.04
+  }
+}

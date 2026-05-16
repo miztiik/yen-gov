@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Rishikesh",
+  "totals": {
+    "electors": 151997,
+    "votes_polled": 98348,
+    "turnout_pct": 64.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PREMCHAND AGGARWAL",
+      "party_short": "BJP",
+      "votes": 45082,
+      "vote_share_pct": 45.84,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJPAL SINGH KHAROLA",
+      "party_short": "INC",
+      "votes": 30281,
+      "vote_share_pct": 30.79,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANDEEP GUPTA",
+      "party_short": "IND",
+      "votes": 17149,
+      "vote_share_pct": 17.44,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "LALLAN BHARDWAJ RAJBHAR",
+      "party_short": "BSP",
+      "votes": 2866,
+      "vote_share_pct": 2.91,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VIVEK TIWARI",
+      "party_short": "IND",
+      "votes": 889,
+      "vote_share_pct": 0.9,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 775,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1306,
+    "vote_share_pct": 1.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PREMCHAND AGGARWAL",
+    "party_short": "BJP",
+    "votes": 45082,
+    "margin_votes": 14801,
+    "margin_pct": 15.05
+  }
+}

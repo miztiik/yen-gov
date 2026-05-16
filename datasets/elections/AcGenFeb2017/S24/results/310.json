@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 310,
+  "constituency_name": "Basti Sadar",
+  "totals": {
+    "electors": 347784,
+    "votes_polled": 206622,
+    "turnout_pct": 59.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DAYARAM CHAUDHARY",
+      "party_short": "BJP",
+      "votes": 92697,
+      "vote_share_pct": 44.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAHENDRA NATH YADAV",
+      "party_short": "SP",
+      "votes": 50103,
+      "vote_share_pct": 24.25,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JITENDRA KUMAR ALIAS NANDU CHAUDHARY",
+      "party_short": "BSP",
+      "votes": 49538,
+      "vote_share_pct": 23.98,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJA ASHWARYA RAJ SINGH",
+      "party_short": "RLD",
+      "votes": 4152,
+      "vote_share_pct": 2.01,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GAURI SHANKER SUT PAL ALIAS AMARPAL SINGH",
+      "party_short": "NINSHAD",
+      "votes": 1707,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1206,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 7219,
+    "vote_share_pct": 3.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DAYARAM CHAUDHARY",
+    "party_short": "BJP",
+    "votes": 92697,
+    "margin_votes": 42594,
+    "margin_pct": 20.61
+  }
+}

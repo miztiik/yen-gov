@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Gummidipoondi",
+  "totals": {
+    "electors": 260912,
+    "votes_polled": 214348,
+    "turnout_pct": 82.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIJAYAKUMAR  K S",
+      "party_short": "ADMK",
+      "votes": 89332,
+      "vote_share_pct": 41.68,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SEKAR C H",
+      "party_short": "DMK",
+      "votes": 65937,
+      "vote_share_pct": 30.76,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SELVARAJ M",
+      "party_short": "PMK",
+      "votes": 43055,
+      "vote_share_pct": 20.09,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GEETHA K",
+      "party_short": "DMDK",
+      "votes": 6585,
+      "vote_share_pct": 3.07,
+      "gender": "F",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BHASKARAN M",
+      "party_short": "BJP",
+      "votes": 2092,
+      "vote_share_pct": 0.98,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1484,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5863,
+    "vote_share_pct": 2.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIJAYAKUMAR  K S",
+    "party_short": "ADMK",
+    "votes": 89332,
+    "margin_votes": 23395,
+    "margin_pct": 10.91
+  }
+}

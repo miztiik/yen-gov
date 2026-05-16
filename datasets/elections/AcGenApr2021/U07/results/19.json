@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "ARIANKUPPAM",
+  "totals": {
+    "electors": 39027,
+    "votes_polled": 32874,
+    "turnout_pct": 84.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "R. BASKAR @ DATCHANAMOURTTY",
+      "party_short": "AINRC",
+      "votes": 17858,
+      "vote_share_pct": 54.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "T. DJEAMOURTHY",
+      "party_short": "INC",
+      "votes": 11440,
+      "vote_share_pct": 34.8,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUNDARAVADIVELU",
+      "party_short": "NTK",
+      "votes": 1094,
+      "vote_share_pct": 3.33,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "V RUTHRAKUMARAN",
+      "party_short": "MNM",
+      "votes": 1055,
+      "vote_share_pct": 3.21,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "S KUMARAVELU",
+      "party_short": "IND",
+      "votes": 823,
+      "vote_share_pct": 2.5,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 382,
+    "vote_share_pct": 1.16
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 222,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "R. BASKAR @ DATCHANAMOURTTY",
+    "party_short": "AINRC",
+    "votes": 17858,
+    "margin_votes": 6418,
+    "margin_pct": 19.52
+  }
+}

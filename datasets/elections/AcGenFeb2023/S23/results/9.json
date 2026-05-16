@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Banamalipur",
+  "totals": {
+    "electors": 41466,
+    "votes_polled": 34548,
+    "turnout_pct": 83.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gopal Chandra Roy",
+      "party_short": "INC",
+      "votes": 17128,
+      "vote_share_pct": 49.58,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rajib Bhattacharjee",
+      "party_short": "BJP",
+      "votes": 15759,
+      "vote_share_pct": 45.61,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Santanu Saha",
+      "party_short": "AITC",
+      "votes": 732,
+      "vote_share_pct": 2.12,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sujata Datta",
+      "party_short": "IND",
+      "votes": 288,
+      "vote_share_pct": 0.83,
+      "gender": "F",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Brajalal Debnath",
+      "party_short": "IND",
+      "votes": 162,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 479,
+    "vote_share_pct": 1.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gopal Chandra Roy",
+    "party_short": "INC",
+    "votes": 17128,
+    "margin_votes": 1369,
+    "margin_pct": 3.96
+  },
+  "others": null
+}

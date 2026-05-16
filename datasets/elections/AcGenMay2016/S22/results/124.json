@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 124,
+  "constituency_name": "Valparai",
+  "totals": {
+    "electors": 196795,
+    "votes_polled": 143743,
+    "turnout_pct": 73.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KASTHURI VASU, V.",
+      "party_short": "ADMK",
+      "votes": 69980,
+      "vote_share_pct": 48.68,
+      "is_winner": true,
+      "gender": "F",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PAULPANDI, T.",
+      "party_short": "DMK",
+      "votes": 61736,
+      "vote_share_pct": 42.95,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MANIBHARATHI, P.",
+      "party_short": "CPI",
+      "votes": 3494,
+      "vote_share_pct": 2.43,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MURUGESAN, P.",
+      "party_short": "BJP",
+      "votes": 2565,
+      "vote_share_pct": 1.78,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ANBAZHAGAN, K.V.",
+      "party_short": "KMDK",
+      "votes": 1284,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2206,
+    "vote_share_pct": 1.53
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2478,
+    "vote_share_pct": 1.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KASTHURI VASU, V.",
+    "party_short": "ADMK",
+    "votes": 69980,
+    "margin_votes": 8244,
+    "margin_pct": 5.74
+  }
+}

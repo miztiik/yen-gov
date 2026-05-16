@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "Kilvaithinankuppam",
+  "totals": {
+    "electors": 205533,
+    "votes_polled": 165226,
+    "turnout_pct": 80.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LOGANATHAN.G",
+      "party_short": "ADMK",
+      "votes": 75612,
+      "vote_share_pct": 45.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "AMALU V",
+      "party_short": "DMK",
+      "votes": 65866,
+      "vote_share_pct": 39.86,
+      "gender": "F",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KUSALAKUMARI.C",
+      "party_short": "PMK",
+      "votes": 13046,
+      "vote_share_pct": 7.9,
+      "gender": "F",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "DEVIYAMMAL M",
+      "party_short": "DMDK",
+      "votes": 4170,
+      "vote_share_pct": 2.52,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "VIMALA R",
+      "party_short": "BJP",
+      "votes": 2210,
+      "vote_share_pct": 1.34,
+      "gender": "F",
+      "age": 31,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1990,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2332,
+    "vote_share_pct": 1.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LOGANATHAN.G",
+    "party_short": "ADMK",
+    "votes": 75612,
+    "margin_votes": 9746,
+    "margin_pct": 5.9
+  }
+}

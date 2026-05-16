@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 154,
+  "constituency_name": "Ankleshwar",
+  "totals": {
+    "electors": 221057,
+    "votes_polled": 157826,
+    "turnout_pct": 71.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ISHWARSINH THAKORBHAI PATEL",
+      "party_short": "BJP",
+      "votes": 99050,
+      "vote_share_pct": 62.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANILKUMAR CHHITUBHAI BHAGAT",
+      "party_short": "INC",
+      "votes": 52138,
+      "vote_share_pct": 33.04,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SHAIKH ALTAFHUSSAIN  KALUAHEMAD",
+      "party_short": "IND",
+      "votes": 1216,
+      "vote_share_pct": 0.77,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CHETANBHAI  KANJIBHAI  VASAVA",
+      "party_short": "BSP",
+      "votes": 616,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "MALEK SABIRHUSSAIN  HABIBBHAI",
+      "party_short": "IND",
+      "votes": 398,
+      "vote_share_pct": 0.25,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2732,
+    "vote_share_pct": 1.73
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1282,
+    "vote_share_pct": 0.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ISHWARSINH THAKORBHAI PATEL",
+    "party_short": "BJP",
+    "votes": 99050,
+    "margin_votes": 46912,
+    "margin_pct": 29.72
+  }
+}

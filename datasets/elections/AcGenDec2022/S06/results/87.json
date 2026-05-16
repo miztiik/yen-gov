@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "Visavadar",
+  "totals": {
+    "electors": 259296,
+    "votes_polled": 146562,
+    "turnout_pct": 56.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhupendrabhai Gandubhai Bhayani",
+      "party_short": "AAAP",
+      "votes": 66210,
+      "vote_share_pct": 45.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Harshadkumar Madhavjibhai Ribadiya",
+      "party_short": "BJP",
+      "votes": 59147,
+      "vote_share_pct": 40.36,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Karashanbhai Naranbhai Vadadoriya",
+      "party_short": "INC",
+      "votes": 16963,
+      "vote_share_pct": 11.57,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vaghela Mansukhbhai Nathabhai",
+      "party_short": "BSP",
+      "votes": 1842,
+      "vote_share_pct": 1.26,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ikbalbhai Habibbhai Sama",
+      "party_short": "IND",
+      "votes": 635,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1765,
+    "vote_share_pct": 1.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhupendrabhai Gandubhai Bhayani",
+    "party_short": "AAAP",
+    "votes": 66210,
+    "margin_votes": 7063,
+    "margin_pct": 4.82
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "Prantij",
+  "totals": {
+    "electors": 259317,
+    "votes_polled": 184028,
+    "turnout_pct": 70.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gajendrasinh Udesinh Parmar",
+      "party_short": "BJP",
+      "votes": 105324,
+      "vote_share_pct": 57.23,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Bahecharsinh Harisinh Rathod",
+      "party_short": "INC",
+      "votes": 40702,
+      "vote_share_pct": 22.12,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Alpeshkumar Nareshbhai Patel",
+      "party_short": "AAAP",
+      "votes": 32139,
+      "vote_share_pct": 17.46,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Nadiya Chandubhai Motibhai",
+      "party_short": "IND",
+      "votes": 1110,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Chauhan Vijaysinh Karansinh",
+      "party_short": "IND",
+      "votes": 1018,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3114,
+    "vote_share_pct": 1.69
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 621,
+    "vote_share_pct": 0.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gajendrasinh Udesinh Parmar",
+    "party_short": "BJP",
+    "votes": 105324,
+    "margin_votes": 64622,
+    "margin_pct": 35.12
+  }
+}

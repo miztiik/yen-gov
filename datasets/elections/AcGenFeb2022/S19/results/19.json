@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Amritsar South",
+  "totals": {
+    "electors": 177731,
+    "votes_polled": 105885,
+    "turnout_pct": 59.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "INDERBIR SINGH NIJJAR",
+      "party_short": "AAAP",
+      "votes": 53053,
+      "vote_share_pct": 50.1,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "TALBIR SINGH GILL",
+      "party_short": "SAD",
+      "votes": 25550,
+      "vote_share_pct": 24.13,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "INDERBIR SINGH BOLARIA",
+      "party_short": "INC",
+      "votes": 22467,
+      "vote_share_pct": 21.22,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "HARJINDER SINGH THEKEDAR",
+      "party_short": "PLCP",
+      "votes": 1566,
+      "vote_share_pct": 1.48,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Pritpal Singh",
+      "party_short": "SAD(M)",
+      "votes": 1204,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 632,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1413,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "INDERBIR SINGH NIJJAR",
+    "party_short": "AAAP",
+    "votes": 53053,
+    "margin_votes": 27503,
+    "margin_pct": 25.97
+  }
+}

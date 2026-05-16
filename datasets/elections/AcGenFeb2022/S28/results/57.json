@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Bhimtal",
+  "totals": {
+    "electors": 101482,
+    "votes_polled": 66255,
+    "turnout_pct": 65.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM SINGH KAIRA",
+      "party_short": "BJP",
+      "votes": 25632,
+      "vote_share_pct": 38.69,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DAN SINGH BHANDARI",
+      "party_short": "INC",
+      "votes": 15788,
+      "vote_share_pct": 23.83,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "LAKHAN SINGH NEGI",
+      "party_short": "IND",
+      "votes": 12508,
+      "vote_share_pct": 18.88,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANOJ SAH",
+      "party_short": "IND",
+      "votes": 5272,
+      "vote_share_pct": 7.96,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HARISH CHANDRA JOSHI",
+      "party_short": "UKKD",
+      "votes": 1797,
+      "vote_share_pct": 2.71,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 799,
+    "vote_share_pct": 1.21
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4459,
+    "vote_share_pct": 6.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM SINGH KAIRA",
+    "party_short": "BJP",
+    "votes": 25632,
+    "margin_votes": 9844,
+    "margin_pct": 14.86
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Karaikal North",
+  "totals": {
+    "electors": 32666,
+    "votes_polled": 26604,
+    "turnout_pct": 81.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.R.N. THIRUMURUGAN",
+      "party_short": "AINRC",
+      "votes": 13139,
+      "vote_share_pct": 49.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M.V.OMALINGAM",
+      "party_short": "ADMK",
+      "votes": 9841,
+      "vote_share_pct": 36.99,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "R.P. CHANDRAMOHAN",
+      "party_short": "INC",
+      "votes": 2129,
+      "vote_share_pct": 8.0,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M.ARUL MURUGAN",
+      "party_short": "BJP",
+      "votes": 402,
+      "vote_share_pct": 1.51,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "N.SELVASUNDARAM",
+      "party_short": "VCK",
+      "votes": 261,
+      "vote_share_pct": 0.98,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 408,
+    "vote_share_pct": 1.53
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 424,
+    "vote_share_pct": 1.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.R.N. THIRUMURUGAN",
+    "party_short": "AINRC",
+    "votes": 13139,
+    "margin_votes": 3298,
+    "margin_pct": 12.4
+  }
+}

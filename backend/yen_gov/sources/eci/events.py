@@ -89,6 +89,66 @@ EVENTS: dict[tuple[str, int], EventInfo] = {
     ("S05", 2022): EventInfo("AcGenFeb2022", False),  # Goa
     ("S08", 2022): EventInfo("AcGenNov2022", False),  # Himachal Pradesh
     ("S10", 2023): EventInfo("AcGenMay2023", False),  # Karnataka
+
+    # 2026-05-17 ephemeral backfill — XLSX dumps held in datasets/ephemeral/
+    # for hand-ingest via `eci-statreport-emit-local`. Polling months sourced
+    # from Wikipedia/ECI archives; documented in
+    # TODO/20260517-ephemeral-ae-ingest.md.
+
+    # May-2016 cohort (polled 16 May 2016, shared with Kerala already pinned).
+    ("U07", 2016): EventInfo("AcGenMay2016", False),  # Puducherry
+    ("S22", 2016): EventInfo("AcGenMay2016", False),  # Tamil Nadu
+
+    # Feb-2017 cohort (Punjab/Goa polled 4 Feb; UK 15 Feb; UP 7-phase Feb-Mar).
+    ("S19", 2017): EventInfo("AcGenFeb2017", False),  # Punjab
+    ("S28", 2017): EventInfo("AcGenFeb2017", False),  # Uttarakhand
+    ("S24", 2017): EventInfo("AcGenFeb2017", False),  # Uttar Pradesh
+
+    # Mar-2017 Manipur (polled 4 & 8 Mar 2017).
+    ("S14", 2017): EventInfo("AcGenMar2017", False),  # Manipur
+
+    # Dec-2017 Gujarat (polled 9 & 14 Dec 2017).
+    ("S06", 2017): EventInfo("AcGenDec2017", False),  # Gujarat
+
+    # Feb-2018 cohort: Tripura ingested; Meghalaya & Nagaland source XLSX
+    # parsed as Layout-C but contain literal "NULL" cells in numeric columns
+    # — parked under datasets/ephemeral/parked/ pending parser hardening.
+    # Pin only what we can actually ingest; remaining pins land with the
+    # parser fix (re-add ("S15", 2018) and ("S17", 2018) then).
+    ("S23", 2018): EventInfo("AcGenFeb2018", False),  # Tripura
+
+    # Nov-2018 Mizoram source is also NULL-cell-blocked — parked. Pin lands
+    # with the parser fix.
+
+    # Apr-2019 cohort: AP (S01) ingested. Odisha (S18) and Sikkim (S21) ship
+    # as legacy BIFF .xls (OLE2 magic D0CF11E0) which openpyxl rejects;
+    # parked pending xlrd<2.0 or LibreOffice conversion path. Pin lands then.
+
+    # Oct-2019 Maharashtra (S13) shares the BIFF .xls issue (parked). Haryana
+    # (S07) already pinned and ingested.
+
+    # Apr-2021 cohort (shared with Assam/Kerala already pinned).
+    ("U07", 2021): EventInfo("AcGenApr2021", False),  # Puducherry
+    ("S22", 2021): EventInfo("AcGenApr2021", False),  # Tamil Nadu
+
+    # Feb-2022 cohort (shared with Goa already pinned; UK 14 Feb; UP 7-phase).
+    ("S19", 2022): EventInfo("AcGenFeb2022", False),  # Punjab
+    ("S28", 2022): EventInfo("AcGenFeb2022", False),  # Uttarakhand
+    ("S24", 2022): EventInfo("AcGenFeb2022", False),  # Uttar Pradesh
+
+    # Mar-2022 Manipur (polled 28 Feb & 5 Mar 2022).
+    ("S14", 2022): EventInfo("AcGenMar2022", False),  # Manipur
+
+    # Dec-2022 Gujarat (polled 1 & 5 Dec 2022).
+    ("S06", 2022): EventInfo("AcGenDec2022", False),  # Gujarat
+
+    # Feb-2023 cohort: Tripura (16 Feb), Meghalaya & Nagaland (27 Feb).
+    ("S23", 2023): EventInfo("AcGenFeb2023", False),  # Tripura
+    ("S15", 2023): EventInfo("AcGenFeb2023", False),  # Meghalaya
+    ("S17", 2023): EventInfo("AcGenFeb2023", False),  # Nagaland
+
+    # Nov-2023 Rajasthan (joins existing Nov-2023 four-state cohort).
+    ("S20", 2023): EventInfo("AcGenNov2023", False),  # Rajasthan
 }
 
 

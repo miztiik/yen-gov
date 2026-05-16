@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 140,
+  "constituency_name": "Sri Nagar",
+  "totals": {
+    "electors": 319314,
+    "votes_polled": 229293,
+    "turnout_pct": 71.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manju Tyagi",
+      "party_short": "BJP",
+      "votes": 108249,
+      "vote_share_pct": 47.21,
+      "is_winner": true,
+      "gender": "F",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Ramsaran",
+      "party_short": "SP",
+      "votes": 90641,
+      "vote_share_pct": 39.53,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Meera Bano",
+      "party_short": "BSP",
+      "votes": 23091,
+      "vote_share_pct": 10.07,
+      "gender": "F",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Chandni",
+      "party_short": "INC",
+      "votes": 2127,
+      "vote_share_pct": 0.93,
+      "gender": "F",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Anil Kumar Rajvansi",
+      "party_short": "AAAP",
+      "votes": 1024,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1624,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2537,
+    "vote_share_pct": 1.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manju Tyagi",
+    "party_short": "BJP",
+    "votes": 108249,
+    "margin_votes": 17608,
+    "margin_pct": 7.68
+  }
+}

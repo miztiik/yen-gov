@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 166,
+  "constituency_name": "Katargam",
+  "totals": {
+    "electors": 277541,
+    "votes_polled": 180663,
+    "turnout_pct": 65.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VINODBHAI AMARSHIBHAI MORADIYA (VINUBHAI NINGALA)",
+      "party_short": "BJP",
+      "votes": 125387,
+      "vote_share_pct": 69.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JIGNESH JIVANI (MEVASA)",
+      "party_short": "INC",
+      "votes": 46157,
+      "vote_share_pct": 25.55,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NAGAJIBHAI B. AMBALIYA",
+      "party_short": "AAAP",
+      "votes": 4135,
+      "vote_share_pct": 2.29,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DINESHBHAI JIKADARA (PRAJAPATI)",
+      "party_short": "IND",
+      "votes": 872,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NAYAN NATHUBHAI MAVANI",
+      "party_short": "NCP",
+      "votes": 505,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1693,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1668,
+    "vote_share_pct": 0.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VINODBHAI AMARSHIBHAI MORADIYA (VINUBHAI NINGALA)",
+    "party_short": "BJP",
+    "votes": 125387,
+    "margin_votes": 79230,
+    "margin_pct": 43.86
+  }
+}

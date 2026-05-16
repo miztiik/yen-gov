@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Agartala",
+  "totals": {
+    "electors": 52849,
+    "votes_polled": 46092,
+    "turnout_pct": 87.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sudip Roy Barman",
+      "party_short": "INC",
+      "votes": 26435,
+      "vote_share_pct": 57.35,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Papia Dutta",
+      "party_short": "BJP",
+      "votes": 18273,
+      "vote_share_pct": 39.64,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Goutam Deb",
+      "party_short": "IND",
+      "votes": 255,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Malin Debbarma",
+      "party_short": "IND",
+      "votes": 241,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Arnab Roy",
+      "party_short": "RPI(A)",
+      "votes": 220,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 562,
+    "vote_share_pct": 1.22
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 106,
+    "vote_share_pct": 0.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sudip Roy Barman",
+    "party_short": "INC",
+    "votes": 26435,
+    "margin_votes": 8162,
+    "margin_pct": 17.71
+  }
+}

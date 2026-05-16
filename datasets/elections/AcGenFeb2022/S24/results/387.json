@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 387,
+  "constituency_name": "Rohaniya",
+  "totals": {
+    "electors": 408653,
+    "votes_polled": 246793,
+    "turnout_pct": 60.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. SUNIL PATEL",
+      "party_short": "ADAL",
+      "votes": 118663,
+      "vote_share_pct": 48.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ABHAY PATEL",
+      "party_short": "APNDLK",
+      "votes": 72191,
+      "vote_share_pct": 29.25,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARUN SINGH PATEL",
+      "party_short": "BSP",
+      "votes": 26356,
+      "vote_share_pct": 10.68,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJESHWAR SINGH PATEL",
+      "party_short": "INC",
+      "votes": 16785,
+      "vote_share_pct": 6.8,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SANJIV",
+      "party_short": "PPID",
+      "votes": 2661,
+      "vote_share_pct": 1.08,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2967,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 7170,
+    "vote_share_pct": 2.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. SUNIL PATEL",
+    "party_short": "ADAL",
+    "votes": 118663,
+    "margin_votes": 46472,
+    "margin_pct": 18.83
+  }
+}

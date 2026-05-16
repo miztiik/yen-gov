@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 403,
+  "constituency_name": "Duddhi",
+  "totals": {
+    "electors": 308054,
+    "votes_polled": 196600,
+    "turnout_pct": 63.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HAR IRAM",
+      "party_short": "ADAL",
+      "votes": 64399,
+      "vote_share_pct": 32.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "VIJAY SINGH GOND",
+      "party_short": "BSP",
+      "votes": 63314,
+      "vote_share_pct": 32.2,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "ANIL KUMAR SINGH",
+      "party_short": "INC",
+      "votes": 46090,
+      "vote_share_pct": 23.44,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "PRATOSH KUMAR",
+      "party_short": "IND",
+      "votes": 4699,
+      "vote_share_pct": 2.39,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SHIVKUMAR KHARWAR",
+      "party_short": "RLD",
+      "votes": 3312,
+      "vote_share_pct": 1.68,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 8522,
+    "vote_share_pct": 4.33
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 6264,
+    "vote_share_pct": 3.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HAR IRAM",
+    "party_short": "ADAL",
+    "votes": 64399,
+    "margin_votes": 1085,
+    "margin_pct": 0.55
+  }
+}

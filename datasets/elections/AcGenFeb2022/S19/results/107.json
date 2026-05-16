@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "Dhuri",
+  "totals": {
+    "electors": 166143,
+    "votes_polled": 128458,
+    "turnout_pct": 77.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHAGWANT MANN",
+      "party_short": "AAAP",
+      "votes": 82592,
+      "vote_share_pct": 64.29,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DALVIR SINGH GOLDY",
+      "party_short": "INC",
+      "votes": 24386,
+      "vote_share_pct": 18.98,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PARKASH CHAND GARG",
+      "party_short": "SAD",
+      "votes": 6991,
+      "vote_share_pct": 5.44,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RANDEEP SINGH",
+      "party_short": "BJP",
+      "votes": 5436,
+      "vote_share_pct": 4.23,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NARINDER SINGH",
+      "party_short": "SAD(M)",
+      "votes": 4469,
+      "vote_share_pct": 3.48,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 775,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3809,
+    "vote_share_pct": 2.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHAGWANT MANN",
+    "party_short": "AAAP",
+    "votes": 82592,
+    "margin_votes": 58206,
+    "margin_pct": 45.31
+  }
+}

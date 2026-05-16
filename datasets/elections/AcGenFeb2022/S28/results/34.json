@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "Laksar",
+  "totals": {
+    "electors": 102620,
+    "votes_polled": 81591,
+    "turnout_pct": 79.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shahzad",
+      "party_short": "BSP",
+      "votes": 34899,
+      "vote_share_pct": 42.77,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sanjay Gupta",
+      "party_short": "BJP",
+      "votes": 24459,
+      "vote_share_pct": 29.98,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Antriksh Saini",
+      "party_short": "INC",
+      "votes": 11584,
+      "vote_share_pct": 14.2,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Haji Tasleem Ahmad",
+      "party_short": "ASPKR",
+      "votes": 4161,
+      "vote_share_pct": 5.1,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ajay",
+      "party_short": "RSTJLKPS",
+      "votes": 4126,
+      "vote_share_pct": 5.06,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 298,
+    "vote_share_pct": 0.37
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2064,
+    "vote_share_pct": 2.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shahzad",
+    "party_short": "BSP",
+    "votes": 34899,
+    "margin_votes": 10440,
+    "margin_pct": 12.8
+  }
+}

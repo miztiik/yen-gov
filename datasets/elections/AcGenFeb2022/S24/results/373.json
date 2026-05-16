@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 373,
+  "constituency_name": "Jakhanian",
+  "totals": {
+    "electors": 432337,
+    "votes_polled": 254608,
+    "turnout_pct": 58.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BEDI",
+      "party_short": "SBSP",
+      "votes": 113378,
+      "vote_share_pct": 44.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAMRAJ",
+      "party_short": "BJP",
+      "votes": 76513,
+      "vote_share_pct": 30.05,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "VIJAY KUMAR",
+      "party_short": "BSP",
+      "votes": 51585,
+      "vote_share_pct": 20.26,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SUNIL KUMAR",
+      "party_short": "INC",
+      "votes": 1926,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DEEPAK",
+      "party_short": "BSSPA",
+      "votes": 1578,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1544,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 8084,
+    "vote_share_pct": 3.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BEDI",
+    "party_short": "SBSP",
+    "votes": 113378,
+    "margin_votes": 36865,
+    "margin_pct": 14.48
+  }
+}

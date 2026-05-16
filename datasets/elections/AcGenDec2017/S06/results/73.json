@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 73,
+  "constituency_name": "Gondal",
+  "totals": {
+    "electors": 213098,
+    "votes_polled": 141155,
+    "turnout_pct": 66.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JADEJA GEETABA JAYRAJSINH",
+      "party_short": "BJP",
+      "votes": 70506,
+      "vote_share_pct": 49.95,
+      "is_winner": true,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KHATARIYA ARJUNBHAI GHANSHYAMBHAI",
+      "party_short": "INC",
+      "votes": 55109,
+      "vote_share_pct": 39.04,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JADEJA OMDEVSINH PRABHATSINH",
+      "party_short": "NCP",
+      "votes": 6004,
+      "vote_share_pct": 4.25,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KHUNT NIMISHABEN DHIRAJLAL",
+      "party_short": "AAAP",
+      "votes": 2179,
+      "vote_share_pct": 1.54,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SAKHIYA RAJESHBHAI LALJIBHAI",
+      "party_short": "BSP",
+      "votes": 1210,
+      "vote_share_pct": 0.86,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2595,
+    "vote_share_pct": 1.84
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2272,
+    "vote_share_pct": 1.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JADEJA GEETABA JAYRAJSINH",
+    "party_short": "BJP",
+    "votes": 70506,
+    "margin_votes": 15397,
+    "margin_pct": 10.91
+  }
+}

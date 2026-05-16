@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Villivakkam",
+  "totals": {
+    "electors": 255328,
+    "votes_polled": 144092,
+    "turnout_pct": 56.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A . Vetriazhagan",
+      "party_short": "DMK",
+      "votes": 76127,
+      "vote_share_pct": 52.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "J.C.D.Prabhakar",
+      "party_short": "ADMK",
+      "votes": 38890,
+      "vote_share_pct": 26.99,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sriharan",
+      "party_short": "MNM",
+      "votes": 13364,
+      "vote_share_pct": 9.27,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "R.Sridar",
+      "party_short": "NTK",
+      "votes": 10914,
+      "vote_share_pct": 7.57,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "D.Subamangalam",
+      "party_short": "DMDK",
+      "votes": 1094,
+      "vote_share_pct": 0.76,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1444,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 2259,
+    "vote_share_pct": 1.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A . Vetriazhagan",
+    "party_short": "DMK",
+    "votes": 76127,
+    "margin_votes": 37237,
+    "margin_pct": 25.84
+  }
+}

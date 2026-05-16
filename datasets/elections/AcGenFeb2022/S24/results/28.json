@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "Moradabad Nagar",
+  "totals": {
+    "electors": 529243,
+    "votes_polled": 321704,
+    "turnout_pct": 60.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RITESH KUMAR GUPTA",
+      "party_short": "BJP",
+      "votes": 148384,
+      "vote_share_pct": 46.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MOHD YUSUF ANSARI",
+      "party_short": "SP",
+      "votes": 147602,
+      "vote_share_pct": 45.88,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "IRSHAD HUSSAIN",
+      "party_short": "BSP",
+      "votes": 14013,
+      "vote_share_pct": 4.36,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RIZWAN QURESHI",
+      "party_short": "INC",
+      "votes": 5351,
+      "vote_share_pct": 1.66,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "WAQI RASHEED",
+      "party_short": "AIMIM",
+      "votes": 2661,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1400,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2293,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RITESH KUMAR GUPTA",
+    "party_short": "BJP",
+    "votes": 148384,
+    "margin_votes": 782,
+    "margin_pct": 0.24
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Patti",
+  "totals": {
+    "electors": 204405,
+    "votes_polled": 144922,
+    "turnout_pct": 70.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Laljit Singh Bhullar",
+      "party_short": "AAAP",
+      "votes": 57323,
+      "vote_share_pct": 39.55,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Adaish Partap Singh Kairon",
+      "party_short": "SAD",
+      "votes": 46324,
+      "vote_share_pct": 31.96,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Harminder Singh Gill",
+      "party_short": "INC",
+      "votes": 33009,
+      "vote_share_pct": 22.78,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dilbag Singh Sheron",
+      "party_short": "SAD(M)",
+      "votes": 4055,
+      "vote_share_pct": 2.8,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Advocate Ravinder Singh Vohra",
+      "party_short": "IND",
+      "votes": 658,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1079,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2474,
+    "vote_share_pct": 1.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Laljit Singh Bhullar",
+    "party_short": "AAAP",
+    "votes": 57323,
+    "margin_votes": 10999,
+    "margin_pct": 7.59
+  }
+}

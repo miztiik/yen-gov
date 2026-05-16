@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "Bhavnagar Rural",
+  "totals": {
+    "electors": 258637,
+    "votes_polled": 163272,
+    "turnout_pct": 63.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARSOTTAMBHAI ODHAVJIBHAI SOLANKI",
+      "party_short": "BJP",
+      "votes": 89555,
+      "vote_share_pct": 54.85,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KANTIBHAI TAPUBHAI CHAUHAN",
+      "party_short": "INC",
+      "votes": 58562,
+      "vote_share_pct": 35.87,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SOLANKI VICKY GIRISHBHAI",
+      "party_short": "IND",
+      "votes": 2143,
+      "vote_share_pct": 1.31,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GOHIL NARENDRABHAI DIPAKBHAI",
+      "party_short": "LOKSP",
+      "votes": 1959,
+      "vote_share_pct": 1.2,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GOHIL DIGVIJAYSINH BHIKHUBHA",
+      "party_short": "BSP",
+      "votes": 1444,
+      "vote_share_pct": 0.88,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3463,
+    "vote_share_pct": 2.12
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4820,
+    "vote_share_pct": 2.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARSOTTAMBHAI ODHAVJIBHAI SOLANKI",
+    "party_short": "BJP",
+    "votes": 89555,
+    "margin_votes": 30993,
+    "margin_pct": 18.98
+  }
+}

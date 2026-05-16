@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 93,
+  "constituency_name": "Bathinda Rural",
+  "totals": {
+    "electors": 158867,
+    "votes_polled": 124402,
+    "turnout_pct": 78.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMIT RATTAN KOTFATTA",
+      "party_short": "AAAP",
+      "votes": 66096,
+      "vote_share_pct": 53.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PARKASH SINGH BHATTI",
+      "party_short": "SAD",
+      "votes": 30617,
+      "vote_share_pct": 24.61,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "HARVINDER SINGH LADDI",
+      "party_short": "INC",
+      "votes": 22716,
+      "vote_share_pct": 18.26,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "CHAMKAUR SINGH",
+      "party_short": "IND",
+      "votes": 1130,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Dr. JAGSIR SINGH MRAR",
+      "party_short": "IND",
+      "votes": 773,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1250,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1820,
+    "vote_share_pct": 1.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMIT RATTAN KOTFATTA",
+    "party_short": "AAAP",
+    "votes": 66096,
+    "margin_votes": 35479,
+    "margin_pct": 28.52
+  }
+}

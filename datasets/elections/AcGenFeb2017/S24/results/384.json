@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 384,
+  "constituency_name": "Pindra",
+  "totals": {
+    "electors": 342536,
+    "votes_polled": 204375,
+    "turnout_pct": 59.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AVADHESH SINGH",
+      "party_short": "BJP",
+      "votes": 90614,
+      "vote_share_pct": 44.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BABULAL",
+      "party_short": "BSP",
+      "votes": 53765,
+      "vote_share_pct": 26.31,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AJAY RAI",
+      "party_short": "INC",
+      "votes": 48189,
+      "vote_share_pct": 23.58,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHYAMLAL SINGH",
+      "party_short": "CPI",
+      "votes": 2672,
+      "vote_share_pct": 1.31,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHRIPRAKASH MISHRA",
+      "party_short": "IND",
+      "votes": 1319,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2889,
+    "vote_share_pct": 1.41
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4927,
+    "vote_share_pct": 2.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AVADHESH SINGH",
+    "party_short": "BJP",
+    "votes": 90614,
+    "margin_votes": 36849,
+    "margin_pct": 18.03
+  }
+}

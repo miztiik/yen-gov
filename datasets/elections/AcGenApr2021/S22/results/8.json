@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Ambattur",
+  "totals": {
+    "electors": 384377,
+    "votes_polled": 240299,
+    "turnout_pct": 62.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JOSEPH SAMUEL",
+      "party_short": "DMK",
+      "votes": 114554,
+      "vote_share_pct": 47.67,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "V ALEXANDER",
+      "party_short": "ADMK",
+      "votes": 72408,
+      "vote_share_pct": 30.13,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "R ANBU THENARASAN",
+      "party_short": "NTK",
+      "votes": 22701,
+      "vote_share_pct": 9.45,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "S VAITHESWARAN",
+      "party_short": "MNM",
+      "votes": 22370,
+      "vote_share_pct": 9.31,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "S VEDHACHALAM",
+      "party_short": "AMMKMNKZ",
+      "votes": 2631,
+      "vote_share_pct": 1.09,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2358,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 3277,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JOSEPH SAMUEL",
+    "party_short": "DMK",
+    "votes": 114554,
+    "margin_votes": 42146,
+    "margin_pct": 17.54
+  }
+}

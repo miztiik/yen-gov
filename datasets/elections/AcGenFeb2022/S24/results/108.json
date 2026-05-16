@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "Bhongaon",
+  "totals": {
+    "electors": 343606,
+    "votes_polled": 215153,
+    "turnout_pct": 62.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ram Naresh Agnihotri",
+      "party_short": "BJP",
+      "votes": 97208,
+      "vote_share_pct": 45.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Alok Kumar Shakya",
+      "party_short": "SP",
+      "votes": 92441,
+      "vote_share_pct": 42.97,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ashok Kumar",
+      "party_short": "BSP",
+      "votes": 14150,
+      "vote_share_pct": 6.58,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Bhupendra Singh",
+      "party_short": "JANADIP",
+      "votes": 4214,
+      "vote_share_pct": 1.96,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mamta Rajput",
+      "party_short": "INC",
+      "votes": 2121,
+      "vote_share_pct": 0.99,
+      "gender": "F",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 906,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4113,
+    "vote_share_pct": 1.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ram Naresh Agnihotri",
+    "party_short": "BJP",
+    "votes": 97208,
+    "margin_votes": 4767,
+    "margin_pct": 2.22
+  }
+}

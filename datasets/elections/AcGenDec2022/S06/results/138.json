@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "Jetpur (ST)",
+  "totals": {
+    "electors": 271247,
+    "votes_polled": 181008,
+    "turnout_pct": 66.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rathwa Jayantibhai Savjibhai",
+      "party_short": "BJP",
+      "votes": 86041,
+      "vote_share_pct": 47.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Rathwa Radhikaben Amarsinghbhai",
+      "party_short": "AAAP",
+      "votes": 48262,
+      "vote_share_pct": 26.66,
+      "gender": "F",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Sukhrambhai Hariyabhai Rathwa",
+      "party_short": "INC",
+      "votes": 33672,
+      "vote_share_pct": 18.6,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Rathwa Namalabhai (narendrabhai) Gurjibhai",
+      "party_short": "BTP",
+      "votes": 4326,
+      "vote_share_pct": 2.39,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Varsanbhai Fuljibhai Rathwa",
+      "party_short": "IND",
+      "votes": 2944,
+      "vote_share_pct": 1.63,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 4598,
+    "vote_share_pct": 2.54
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1165,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rathwa Jayantibhai Savjibhai",
+    "party_short": "BJP",
+    "votes": 86041,
+    "margin_votes": 37779,
+    "margin_pct": 20.87
+  }
+}

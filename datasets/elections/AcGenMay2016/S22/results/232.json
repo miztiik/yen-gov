@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 232,
+  "constituency_name": "Padmanabhapuram",
+  "totals": {
+    "electors": 236398,
+    "votes_polled": 161560,
+    "turnout_pct": 68.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANO THANGARAJ T",
+      "party_short": "DMK",
+      "votes": 76249,
+      "vote_share_pct": 47.2,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJENDRA PRASAD K P",
+      "party_short": "ADMK",
+      "votes": 35344,
+      "vote_share_pct": 21.88,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHEEBA PRASAD SU",
+      "party_short": "BJP",
+      "votes": 31994,
+      "vote_share_pct": 19.8,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JEGANATHAN D",
+      "party_short": "DMDK",
+      "votes": 13185,
+      "vote_share_pct": 8.16,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ARUL SELESTIN RAJ",
+      "party_short": "NTK",
+      "votes": 826,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1359,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2603,
+    "vote_share_pct": 1.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANO THANGARAJ T",
+    "party_short": "DMK",
+    "votes": 76249,
+    "margin_votes": 40905,
+    "margin_pct": 25.32
+  }
+}

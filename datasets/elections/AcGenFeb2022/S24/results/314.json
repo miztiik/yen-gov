@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 314,
+  "constituency_name": "Dhanghata",
+  "totals": {
+    "electors": 387446,
+    "votes_polled": 216222,
+    "turnout_pct": 55.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GANESH CHANDRA",
+      "party_short": "BJP",
+      "votes": 83241,
+      "vote_share_pct": 38.5,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ALAGU PRASAD",
+      "party_short": "SBSP",
+      "votes": 72688,
+      "vote_share_pct": 33.62,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SANTOSH",
+      "party_short": "BSP",
+      "votes": 40693,
+      "vote_share_pct": 18.82,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "YASHAVANT",
+      "party_short": "IND",
+      "votes": 5433,
+      "vote_share_pct": 2.51,
+      "gender": "M",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "NARENDRA DEV",
+      "party_short": "JANADIP",
+      "votes": 3960,
+      "vote_share_pct": 1.83,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1915,
+    "vote_share_pct": 0.89
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 8292,
+    "vote_share_pct": 3.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GANESH CHANDRA",
+    "party_short": "BJP",
+    "votes": 83241,
+    "margin_votes": 10553,
+    "margin_pct": 4.88
+  }
+}

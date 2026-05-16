@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 329,
+  "constituency_name": "Khadda",
+  "totals": {
+    "electors": 340053,
+    "votes_polled": 204959,
+    "turnout_pct": 60.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIVEKA NAND PANDEY",
+      "party_short": "NINSHAD",
+      "votes": 88291,
+      "vote_share_pct": 43.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIJAY PRATAP KUSHWAHA",
+      "party_short": "IND",
+      "votes": 46840,
+      "vote_share_pct": 22.85,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASHOK CHAUHAN",
+      "party_short": "SBSP",
+      "votes": 21126,
+      "vote_share_pct": 10.31,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DR. NISAR AHMAD SIDDIQUE",
+      "party_short": "BSP",
+      "votes": 19997,
+      "vote_share_pct": 9.76,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MD AKHTAR WASEEM",
+      "party_short": "AIMIM",
+      "votes": 16419,
+      "vote_share_pct": 8.01,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2973,
+    "vote_share_pct": 1.45
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 9313,
+    "vote_share_pct": 4.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIVEKA NAND PANDEY",
+    "party_short": "NINSHAD",
+    "votes": 88291,
+    "margin_votes": 41451,
+    "margin_pct": 20.22
+  }
+}

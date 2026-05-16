@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 337,
+  "constituency_name": "Deoria",
+  "totals": {
+    "electors": 324208,
+    "votes_polled": 183289,
+    "turnout_pct": 56.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JANMEJAI SINGH",
+      "party_short": "BJP",
+      "votes": 88030,
+      "vote_share_pct": 48.03,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "J.P. JAISWAL",
+      "party_short": "SP",
+      "votes": 41794,
+      "vote_share_pct": 22.8,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ABHAY NATH TRIPATHI",
+      "party_short": "BSP",
+      "votes": 29218,
+      "vote_share_pct": 15.94,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIJAY PRATAP YADAV",
+      "party_short": "PECP",
+      "votes": 12696,
+      "vote_share_pct": 6.93,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAKESH KUMAR PATHAK",
+      "party_short": "CPI",
+      "votes": 1791,
+      "vote_share_pct": 0.98,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1440,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 8320,
+    "vote_share_pct": 4.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JANMEJAI SINGH",
+    "party_short": "BJP",
+    "votes": 88030,
+    "margin_votes": 46236,
+    "margin_pct": 25.23
+  }
+}

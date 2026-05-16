@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 293,
+  "constituency_name": "Utraula",
+  "totals": {
+    "electors": 411396,
+    "votes_polled": 198526,
+    "turnout_pct": 48.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM PRATAP ALIAS SHASHIKANT VERMA",
+      "party_short": "BJP",
+      "votes": 85240,
+      "vote_share_pct": 42.94,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARIF ANWAR HASHMI",
+      "party_short": "SP",
+      "votes": 56066,
+      "vote_share_pct": 28.24,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PARVEZ AHMAD ALIAS PARVEZ UMAR",
+      "party_short": "BSP",
+      "votes": 44799,
+      "vote_share_pct": 22.57,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHAMMAD NIZAMULLAH KHAN",
+      "party_short": "AIMIM",
+      "votes": 2966,
+      "vote_share_pct": 1.49,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DHARMENDRA",
+      "party_short": "PECP",
+      "votes": 1680,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1977,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5798,
+    "vote_share_pct": 2.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM PRATAP ALIAS SHASHIKANT VERMA",
+    "party_short": "BJP",
+    "votes": 85240,
+    "margin_votes": 29174,
+    "margin_pct": 14.7
+  }
+}

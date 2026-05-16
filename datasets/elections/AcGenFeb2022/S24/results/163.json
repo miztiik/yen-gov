@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "Safipur",
+  "totals": {
+    "electors": 346258,
+    "votes_polled": 197535,
+    "turnout_pct": 57.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BAMBA LAL",
+      "party_short": "BJP",
+      "votes": 102968,
+      "vote_share_pct": 52.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SUDHIR KUMAR",
+      "party_short": "SP",
+      "votes": 68836,
+      "vote_share_pct": 34.85,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RAJENDRA KUMAR",
+      "party_short": "BSP",
+      "votes": 19768,
+      "vote_share_pct": 10.01,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SHANKAR LAL GAUTAM",
+      "party_short": "INC",
+      "votes": 1504,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAJU",
+      "party_short": "BMUP",
+      "votes": 1136,
+      "vote_share_pct": 0.58,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1745,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1578,
+    "vote_share_pct": 0.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BAMBA LAL",
+    "party_short": "BJP",
+    "votes": 102968,
+    "margin_votes": 34132,
+    "margin_pct": 17.28
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 95,
+  "constituency_name": "Amreli",
+  "totals": {
+    "electors": 268067,
+    "votes_polled": 172071,
+    "turnout_pct": 64.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARESH DHANANI",
+      "party_short": "INC",
+      "votes": 87032,
+      "vote_share_pct": 50.58,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BAVKUBHAI UNDHAD",
+      "party_short": "BJP",
+      "votes": 75003,
+      "vote_share_pct": 43.59,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHUKLA BHARGAVKUMAR",
+      "party_short": "IND",
+      "votes": 1483,
+      "vote_share_pct": 0.86,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MADHAD RAVAJIBHAI DANABHAI",
+      "party_short": "BSP",
+      "votes": 1167,
+      "vote_share_pct": 0.68,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "LALBHAI BODAR",
+      "party_short": "NCP",
+      "votes": 806,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2869,
+    "vote_share_pct": 1.67
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1448,
+    "vote_share_pct": 0.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARESH DHANANI",
+    "party_short": "INC",
+    "votes": 87032,
+    "margin_votes": 12029,
+    "margin_pct": 6.99
+  }
+}

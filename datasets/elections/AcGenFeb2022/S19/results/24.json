@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Khadoor Sahib",
+  "totals": {
+    "electors": 203539,
+    "votes_polled": 145256,
+    "turnout_pct": 71.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANJINDER SINGH LALPURA",
+      "party_short": "AAAP",
+      "votes": 55756,
+      "vote_share_pct": 38.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAMANJEET SINGH SAHOTA SIKKI",
+      "party_short": "INC",
+      "votes": 39265,
+      "vote_share_pct": 27.03,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RANJIT SINGH BRAHAMPURA",
+      "party_short": "SAD",
+      "votes": 38532,
+      "vote_share_pct": 26.53,
+      "gender": "M",
+      "age": 84,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JASWANT SINGH SOHAL",
+      "party_short": "SAD(M)",
+      "votes": 5473,
+      "vote_share_pct": 3.77,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HARJINDER SINGH TANDA",
+      "party_short": "IND",
+      "votes": 2621,
+      "vote_share_pct": 1.8,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1059,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2550,
+    "vote_share_pct": 1.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANJINDER SINGH LALPURA",
+    "party_short": "AAAP",
+    "votes": 55756,
+    "margin_votes": 16491,
+    "margin_pct": 11.35
+  }
+}

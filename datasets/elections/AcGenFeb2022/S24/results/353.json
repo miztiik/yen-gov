@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 353,
+  "constituency_name": "Madhuban",
+  "totals": {
+    "electors": 403798,
+    "votes_polled": 224258,
+    "turnout_pct": 55.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM BILASH CHAUHAN",
+      "party_short": "BJP",
+      "votes": 79032,
+      "vote_share_pct": 35.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "UMESH PANDEY",
+      "party_short": "SP",
+      "votes": 74584,
+      "vote_share_pct": 33.26,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NEELAM SINGH KUSHWAHA",
+      "party_short": "BSP",
+      "votes": 51185,
+      "vote_share_pct": 22.82,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BHARAT SINGH",
+      "party_short": "VSIP",
+      "votes": 8011,
+      "vote_share_pct": 3.57,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMARESH CHAND PANDEY",
+      "party_short": "INC",
+      "votes": 3871,
+      "vote_share_pct": 1.73,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1254,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 6321,
+    "vote_share_pct": 2.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM BILASH CHAUHAN",
+    "party_short": "BJP",
+    "votes": 79032,
+    "margin_votes": 4448,
+    "margin_pct": 1.98
+  }
+}

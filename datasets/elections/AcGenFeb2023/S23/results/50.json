@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Pabiachara (SC)",
+  "totals": {
+    "electors": 49260,
+    "votes_polled": 43952,
+    "turnout_pct": 89.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhagaban Chandra Das",
+      "party_short": "BJP",
+      "votes": 19542,
+      "vote_share_pct": 44.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Satyaban Das",
+      "party_short": "INC",
+      "votes": 19134,
+      "vote_share_pct": 43.53,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Gobinda Das",
+      "party_short": "TMP",
+      "votes": 4331,
+      "vote_share_pct": 9.85,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Arjun Nama",
+      "party_short": "IND",
+      "votes": 455,
+      "vote_share_pct": 1.04,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 490,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhagaban Chandra Das",
+    "party_short": "BJP",
+    "votes": 19542,
+    "margin_votes": 408,
+    "margin_pct": 0.93
+  },
+  "others": null
+}

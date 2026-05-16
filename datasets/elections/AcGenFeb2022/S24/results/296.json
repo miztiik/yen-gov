@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 296,
+  "constituency_name": "Gonda",
+  "totals": {
+    "electors": 347946,
+    "votes_polled": 200215,
+    "turnout_pct": 57.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRATEEK BHUSHAN SINGH",
+      "party_short": "BJP",
+      "votes": 96528,
+      "vote_share_pct": 48.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURAJ SINGH",
+      "party_short": "SP",
+      "votes": 89829,
+      "vote_share_pct": 44.87,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MOHD. ZAKI",
+      "party_short": "BSP",
+      "votes": 5758,
+      "vote_share_pct": 2.88,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMA KASHYAP",
+      "party_short": "INC",
+      "votes": 2701,
+      "vote_share_pct": 1.35,
+      "gender": "F",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KANHAIYA LAL",
+      "party_short": "IND",
+      "votes": 701,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 989,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3709,
+    "vote_share_pct": 1.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRATEEK BHUSHAN SINGH",
+    "party_short": "BJP",
+    "votes": 96528,
+    "margin_votes": 6699,
+    "margin_pct": 3.35
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 195,
+  "constituency_name": "Thiruparankundram",
+  "totals": {
+    "electors": 279599,
+    "votes_polled": 197480,
+    "turnout_pct": 70.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SEENIVEL S M",
+      "party_short": "ADMK",
+      "votes": 93453,
+      "vote_share_pct": 47.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANIMARAN M",
+      "party_short": "DMK",
+      "votes": 70461,
+      "vote_share_pct": 35.68,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KANDASAMY K",
+      "party_short": "CPI",
+      "votes": 15275,
+      "vote_share_pct": 7.73,
+      "gender": "M",
+      "age": 80,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARUMUGAM S",
+      "party_short": "BJP",
+      "votes": 7698,
+      "vote_share_pct": 3.9,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHAN M",
+      "party_short": "AIFB",
+      "votes": 1277,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3111,
+    "vote_share_pct": 1.58
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 6205,
+    "vote_share_pct": 3.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SEENIVEL S M",
+    "party_short": "ADMK",
+    "votes": 93453,
+    "margin_votes": 22992,
+    "margin_pct": 11.64
+  }
+}

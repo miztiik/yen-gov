@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Sagolband",
+  "totals": {
+    "electors": 24019,
+    "votes_polled": 20244,
+    "turnout_pct": 84.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajkumar Imo Singh",
+      "party_short": "BJP",
+      "votes": 11054,
+      "vote_share_pct": 54.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Khwairakpam Loken Singh",
+      "party_short": "JD(U)",
+      "votes": 8398,
+      "vote_share_pct": 41.48,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Moirangthem Momo Singh",
+      "party_short": "INC",
+      "votes": 564,
+      "vote_share_pct": 2.79,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 228,
+    "vote_share_pct": 1.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajkumar Imo Singh",
+    "party_short": "BJP",
+    "votes": 11054,
+    "margin_votes": 2656,
+    "margin_pct": 13.12
+  },
+  "others": null
+}

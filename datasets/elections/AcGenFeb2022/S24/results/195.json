@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 195,
+  "constituency_name": "Bhojpur",
+  "totals": {
+    "electors": 319917,
+    "votes_polled": 197269,
+    "turnout_pct": 61.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nagendra Singh Rathour",
+      "party_short": "BJP",
+      "votes": 99979,
+      "vote_share_pct": 50.68,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Arshad Jamal Siddiqui",
+      "party_short": "SP",
+      "votes": 72521,
+      "vote_share_pct": 36.76,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Alok Verma",
+      "party_short": "BSP",
+      "votes": 15714,
+      "vote_share_pct": 7.97,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Talib Siddiqui",
+      "party_short": "AIMIM",
+      "votes": 3919,
+      "vote_share_pct": 1.99,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Archana Rathaur",
+      "party_short": "INC",
+      "votes": 2053,
+      "vote_share_pct": 1.04,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 947,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2136,
+    "vote_share_pct": 1.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nagendra Singh Rathour",
+    "party_short": "BJP",
+    "votes": 99979,
+    "margin_votes": 27458,
+    "margin_pct": 13.92
+  }
+}

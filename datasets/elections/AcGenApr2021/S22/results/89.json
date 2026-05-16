@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 89,
+  "constituency_name": "Salem (North)",
+  "totals": {
+    "electors": 276022,
+    "votes_polled": 202376,
+    "turnout_pct": 73.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "R. RAJENDRAN",
+      "party_short": "DMK",
+      "votes": 93432,
+      "vote_share_pct": 46.17,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "G.VENKATACHALAM",
+      "party_short": "ADMK",
+      "votes": 85844,
+      "vote_share_pct": 42.42,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "R S GURU CHAKRAVARTHY",
+      "party_short": "MNM",
+      "votes": 10718,
+      "vote_share_pct": 5.3,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "IMAYAESWARAN N",
+      "party_short": "NTK",
+      "votes": 8155,
+      "vote_share_pct": 4.03,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "C NATARAJAN",
+      "party_short": "AMMKMNKZ",
+      "votes": 805,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1539,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 1883,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "R. RAJENDRAN",
+    "party_short": "DMK",
+    "votes": 93432,
+    "margin_votes": 7588,
+    "margin_pct": 3.75
+  }
+}

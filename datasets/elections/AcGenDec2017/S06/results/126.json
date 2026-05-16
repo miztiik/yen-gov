@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 126,
+  "constituency_name": "Godhra",
+  "totals": {
+    "electors": 252511,
+    "votes_polled": 181508,
+    "turnout_pct": 71.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C. K. RAULJI",
+      "party_short": "BJP",
+      "votes": 75149,
+      "vote_share_pct": 41.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PARMAR RAJENDRASINH BALVANTSINH (LALABHAI)",
+      "party_short": "INC",
+      "votes": 74891,
+      "vote_share_pct": 41.26,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PARMAR JASHVANTSINH SALAMSINH",
+      "party_short": "IND",
+      "votes": 18856,
+      "vote_share_pct": 10.39,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANSURI MUKHTAR AHEMED MOHAMMAD",
+      "party_short": "IND",
+      "votes": 1713,
+      "vote_share_pct": 0.94,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BHANA VASIM FARUK",
+      "party_short": "IND",
+      "votes": 1435,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3050,
+    "vote_share_pct": 1.68
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3817,
+    "vote_share_pct": 2.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C. K. RAULJI",
+    "party_short": "BJP",
+    "votes": 75149,
+    "margin_votes": 258,
+    "margin_pct": 0.14
+  }
+}

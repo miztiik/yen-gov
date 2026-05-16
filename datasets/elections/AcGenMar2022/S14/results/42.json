@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "Tengnoupal",
+  "totals": {
+    "electors": 44914,
+    "votes_polled": 41902,
+    "turnout_pct": 93.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LETPAO HAOKIP",
+      "party_short": "BJP",
+      "votes": 21663,
+      "vote_share_pct": 51.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "D. Korungthang",
+      "party_short": "NPF",
+      "votes": 15252,
+      "vote_share_pct": 36.4,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Wairok Morung Makunga",
+      "party_short": "INC",
+      "votes": 4099,
+      "vote_share_pct": 9.78,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Tantanga Kohai Moshilpha",
+      "party_short": "IND",
+      "votes": 777,
+      "vote_share_pct": 1.85,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Kh. David Maring",
+      "party_short": "RPPRINAT",
+      "votes": 52,
+      "vote_share_pct": 0.12,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 32,
+    "vote_share_pct": 0.08
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 27,
+    "vote_share_pct": 0.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LETPAO HAOKIP",
+    "party_short": "BJP",
+    "votes": 21663,
+    "margin_votes": 6411,
+    "margin_pct": 15.3
+  }
+}

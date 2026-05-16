@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 205,
+  "constituency_name": "Rasulabad",
+  "totals": {
+    "electors": 311334,
+    "votes_polled": 189385,
+    "turnout_pct": 60.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NIRMALA SANKHWAR",
+      "party_short": "BJP",
+      "votes": 88390,
+      "vote_share_pct": 46.67,
+      "is_winner": true,
+      "gender": "F",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ARUN KUMARI KORI",
+      "party_short": "SP",
+      "votes": 54996,
+      "vote_share_pct": 29.04,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "POONAM SANKHAVAR",
+      "party_short": "BSP",
+      "votes": 41060,
+      "vote_share_pct": 21.68,
+      "gender": "F",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BABURAM KATHERIYA",
+      "party_short": "IND",
+      "votes": 1164,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MUNNILAL",
+      "party_short": "BSCP",
+      "votes": 1018,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1421,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1336,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NIRMALA SANKHWAR",
+    "party_short": "BJP",
+    "votes": 88390,
+    "margin_votes": 33394,
+    "margin_pct": 17.63
+  }
+}

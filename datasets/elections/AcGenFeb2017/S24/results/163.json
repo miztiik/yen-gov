@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "Safipur",
+  "totals": {
+    "electors": 327844,
+    "votes_polled": 197225,
+    "turnout_pct": 60.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BAMBA LAL",
+      "party_short": "BJP",
+      "votes": 84068,
+      "vote_share_pct": 42.63,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAM BARAN",
+      "party_short": "BSP",
+      "votes": 56832,
+      "vote_share_pct": 28.82,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SUDHIR KUMAR",
+      "party_short": "SP",
+      "votes": 48506,
+      "vote_share_pct": 24.59,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BABLU RAWAT",
+      "party_short": "RLD",
+      "votes": 2056,
+      "vote_share_pct": 1.04,
+      "gender": "M",
+      "age": 26,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SWARIT CHAUDHARY",
+      "party_short": "IND",
+      "votes": 1165,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1820,
+    "vote_share_pct": 0.92
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2778,
+    "vote_share_pct": 1.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BAMBA LAL",
+    "party_short": "BJP",
+    "votes": 84068,
+    "margin_votes": 27236,
+    "margin_pct": 13.81
+  }
+}

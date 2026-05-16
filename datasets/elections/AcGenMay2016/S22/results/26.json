@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Velachery",
+  "totals": {
+    "electors": 300891,
+    "votes_polled": 175522,
+    "turnout_pct": 58.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VAGAI CHANDERASEKAR",
+      "party_short": "DMK",
+      "votes": 70139,
+      "vote_share_pct": 39.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "C MUNUSAMY",
+      "party_short": "ADMK",
+      "votes": 61267,
+      "vote_share_pct": 34.91,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "P SRITHARAN",
+      "party_short": "BJP",
+      "votes": 14472,
+      "vote_share_pct": 8.25,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "V N RAJAN",
+      "party_short": "DMDK",
+      "votes": 9654,
+      "vote_share_pct": 5.5,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VINOBA BHOOPATHY",
+      "party_short": "PMK",
+      "votes": 6809,
+      "vote_share_pct": 3.88,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4225,
+    "vote_share_pct": 2.41
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 8956,
+    "vote_share_pct": 5.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VAGAI CHANDERASEKAR",
+    "party_short": "DMK",
+    "votes": 70139,
+    "margin_votes": 8872,
+    "margin_pct": 5.05
+  }
+}

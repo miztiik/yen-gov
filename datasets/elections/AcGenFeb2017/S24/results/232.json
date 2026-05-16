@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 232,
+  "constituency_name": "Tindwari",
+  "totals": {
+    "electors": 309634,
+    "votes_polled": 184823,
+    "turnout_pct": 59.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BRAJESH KUMAR PRAJAPATI",
+      "party_short": "BJP",
+      "votes": 82197,
+      "vote_share_pct": 44.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAGDISH PRASAD PRAJAPATI",
+      "party_short": "BSP",
+      "votes": 44790,
+      "vote_share_pct": 24.23,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DALJEET SINGH",
+      "party_short": "INC",
+      "votes": 42089,
+      "vote_share_pct": 22.77,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMKARAN SINGH BACHCHAN",
+      "party_short": "LD",
+      "votes": 4688,
+      "vote_share_pct": 2.54,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHYAM BABU",
+      "party_short": "CPI",
+      "votes": 3304,
+      "vote_share_pct": 1.79,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2875,
+    "vote_share_pct": 1.56
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4880,
+    "vote_share_pct": 2.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BRAJESH KUMAR PRAJAPATI",
+    "party_short": "BJP",
+    "votes": 82197,
+    "margin_votes": 37407,
+    "margin_pct": 20.24
+  }
+}

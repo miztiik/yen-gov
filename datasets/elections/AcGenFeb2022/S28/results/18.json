@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Dharampur",
+  "totals": {
+    "electors": 207718,
+    "votes_polled": 118849,
+    "turnout_pct": 57.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VINOD CHAMOLI",
+      "party_short": "BJP",
+      "votes": 58538,
+      "vote_share_pct": 49.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DINESH AGARWAL",
+      "party_short": "INC",
+      "votes": 48448,
+      "vote_share_pct": 40.76,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BEER SINGH PANWAR",
+      "party_short": "IND",
+      "votes": 5206,
+      "vote_share_pct": 4.38,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "YOGENDRA CHAUHAN",
+      "party_short": "AAAP",
+      "votes": 3162,
+      "vote_share_pct": 2.66,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "LALIT THAPA",
+      "party_short": "BSP",
+      "votes": 706,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 528,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 2261,
+    "vote_share_pct": 1.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VINOD CHAMOLI",
+    "party_short": "BJP",
+    "votes": 58538,
+    "margin_votes": 10090,
+    "margin_pct": 8.49
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "Dasada (SC)",
+  "totals": {
+    "electors": 264687,
+    "votes_polled": 167584,
+    "turnout_pct": 63.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.k.parmar",
+      "party_short": "BJP",
+      "votes": 76344,
+      "vote_share_pct": 45.56,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Naushad Solanki",
+      "party_short": "INC",
+      "votes": 74165,
+      "vote_share_pct": 44.26,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Arvindbhai Kalubhai Solanki",
+      "party_short": "AAAP",
+      "votes": 10324,
+      "vote_share_pct": 6.16,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "R.b.vaghela",
+      "party_short": "IND",
+      "votes": 1054,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Solanki Kisanbhai Vajubhai",
+      "party_short": "BSP",
+      "votes": 1041,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3147,
+    "vote_share_pct": 1.88
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1509,
+    "vote_share_pct": 0.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.k.parmar",
+    "party_short": "BJP",
+    "votes": 76344,
+    "margin_votes": 2179,
+    "margin_pct": 1.3
+  }
+}

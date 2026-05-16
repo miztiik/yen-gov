@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 192,
+  "constituency_name": "Kaimganj",
+  "totals": {
+    "electors": 392514,
+    "votes_polled": 241231,
+    "turnout_pct": 61.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. SURABHI",
+      "party_short": "ADAL",
+      "votes": 114952,
+      "vote_share_pct": 47.65,
+      "is_winner": true,
+      "gender": "F",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SARVESH AMBEDKAR",
+      "party_short": "SP",
+      "votes": 96409,
+      "vote_share_pct": 39.97,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DURGA PRASAD",
+      "party_short": "BSP",
+      "votes": 18443,
+      "vote_share_pct": 7.65,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "ARUN KUMAR",
+      "party_short": "JANADIP",
+      "votes": 4664,
+      "vote_share_pct": 1.93,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SHAKUNTALA",
+      "party_short": "INC",
+      "votes": 2244,
+      "vote_share_pct": 0.93,
+      "gender": "F",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1618,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2901,
+    "vote_share_pct": 1.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. SURABHI",
+    "party_short": "ADAL",
+    "votes": 114952,
+    "margin_votes": 18543,
+    "margin_pct": 7.69
+  }
+}

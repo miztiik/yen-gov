@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 120,
+  "constituency_name": "Kapadvanj",
+  "totals": {
+    "electors": 299625,
+    "votes_polled": 207578,
+    "turnout_pct": 69.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Zala Rajeshkumar Maganbhai",
+      "party_short": "BJP",
+      "votes": 112036,
+      "vote_share_pct": 53.97,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kalabhai Raijibhai Dabhi",
+      "party_short": "INC",
+      "votes": 80158,
+      "vote_share_pct": 38.62,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Manubhai Ramabhai Patel",
+      "party_short": "AAAP",
+      "votes": 8901,
+      "vote_share_pct": 4.29,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ajaykumar Pravinsinh Solanki",
+      "party_short": "GAGUP",
+      "votes": 2444,
+      "vote_share_pct": 1.18,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Parmar Rahulkumar Hasmukhbhai",
+      "party_short": "PRJVJP",
+      "votes": 816,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3223,
+    "vote_share_pct": 1.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Zala Rajeshkumar Maganbhai",
+    "party_short": "BJP",
+    "votes": 112036,
+    "margin_votes": 31878,
+    "margin_pct": 15.36
+  },
+  "others": null
+}

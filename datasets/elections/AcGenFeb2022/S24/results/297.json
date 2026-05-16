@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 297,
+  "constituency_name": "Katra Bazar",
+  "totals": {
+    "electors": 387612,
+    "votes_polled": 234642,
+    "turnout_pct": 60.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bawan Singh",
+      "party_short": "BJP",
+      "votes": 112291,
+      "vote_share_pct": 47.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Baijnath",
+      "party_short": "SP",
+      "votes": 93834,
+      "vote_share_pct": 39.99,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vinod Kumar",
+      "party_short": "BSP",
+      "votes": 18218,
+      "vote_share_pct": 7.76,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Tahir Vano",
+      "party_short": "INC",
+      "votes": 2719,
+      "vote_share_pct": 1.16,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Renu Devi",
+      "party_short": "IND",
+      "votes": 1151,
+      "vote_share_pct": 0.49,
+      "gender": "F",
+      "age": 31,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2004,
+    "vote_share_pct": 0.85
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4425,
+    "vote_share_pct": 1.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bawan Singh",
+    "party_short": "BJP",
+    "votes": 112291,
+    "margin_votes": 18457,
+    "margin_pct": 7.87
+  }
+}

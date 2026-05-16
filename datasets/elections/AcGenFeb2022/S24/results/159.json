@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 159,
+  "constituency_name": "Bilgram-Mallanwan",
+  "totals": {
+    "electors": 381886,
+    "votes_polled": 234764,
+    "turnout_pct": 61.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ASHISH KUMAR SINGH 'ASHU'",
+      "party_short": "BJP",
+      "votes": 82075,
+      "vote_share_pct": 34.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BRIJESH KUMAR VERMA A/s TILLU BHAIYA",
+      "party_short": "SP",
+      "votes": 57185,
+      "vote_share_pct": 24.36,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUBHASH PAL",
+      "party_short": "INC",
+      "votes": 52398,
+      "vote_share_pct": 22.32,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KRISHNA KUMAR SINGH Urf SATISH VERMA",
+      "party_short": "BSP",
+      "votes": 35764,
+      "vote_share_pct": 15.23,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DEEPAK KUMAR",
+      "party_short": "AAAP",
+      "votes": 1474,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1818,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4050,
+    "vote_share_pct": 1.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ASHISH KUMAR SINGH 'ASHU'",
+    "party_short": "BJP",
+    "votes": 82075,
+    "margin_votes": 24890,
+    "margin_pct": 10.6
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 176,
+  "constituency_name": "Nathdwara",
+  "totals": {
+    "electors": 238585,
+    "votes_polled": 189003,
+    "turnout_pct": 79.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vishvaraj Singh Mewar",
+      "party_short": "BJP",
+      "votes": 94950,
+      "vote_share_pct": 50.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "C. P. Joshi",
+      "party_short": "INC",
+      "votes": 87446,
+      "vote_share_pct": 46.27,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Jitendra Kumar Khatik",
+      "party_short": "IND",
+      "votes": 2001,
+      "vote_share_pct": 1.06,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Babulal Salvi",
+      "party_short": "BSP",
+      "votes": 1762,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Moti Singh Chadana",
+      "party_short": "IND",
+      "votes": 681,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2163,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vishvaraj Singh Mewar",
+    "party_short": "BJP",
+    "votes": 94950,
+    "margin_votes": 7504,
+    "margin_pct": 3.97
+  },
+  "others": null
+}

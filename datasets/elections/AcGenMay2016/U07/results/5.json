@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Villianur",
+  "totals": {
+    "electors": 36772,
+    "votes_polled": 31533,
+    "turnout_pct": 85.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A. NAMASSIVAYAM",
+      "party_short": "INC",
+      "votes": 18009,
+      "vote_share_pct": 57.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAYAKUMAR",
+      "party_short": "AINRC",
+      "votes": 9728,
+      "vote_share_pct": 30.85,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "A. MOHAMAD HALID",
+      "party_short": "VCK",
+      "votes": 1598,
+      "vote_share_pct": 5.07,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "V. SUBRAMANIAN",
+      "party_short": "ADMK",
+      "votes": 704,
+      "vote_share_pct": 2.23,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "S. MOHANKUMAR",
+      "party_short": "BJP",
+      "votes": 361,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 445,
+    "vote_share_pct": 1.41
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 688,
+    "vote_share_pct": 2.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A. NAMASSIVAYAM",
+    "party_short": "INC",
+    "votes": 18009,
+    "margin_votes": 8281,
+    "margin_pct": 26.26
+  }
+}

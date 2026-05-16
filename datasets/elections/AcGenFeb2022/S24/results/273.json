@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 273,
+  "constituency_name": "Milkipur",
+  "totals": {
+    "electors": 358203,
+    "votes_polled": 216515,
+    "turnout_pct": 60.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AWADHESH PRASAD",
+      "party_short": "SP",
+      "votes": 103905,
+      "vote_share_pct": 47.99,
+      "is_winner": true,
+      "gender": "M",
+      "age": 77,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Baba Gorakhnath",
+      "party_short": "BJP",
+      "votes": 90567,
+      "vote_share_pct": 41.83,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Mira Devi",
+      "party_short": "BSP",
+      "votes": 14427,
+      "vote_share_pct": 6.66,
+      "gender": "F",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BRIJESH KUMAR",
+      "party_short": "INC",
+      "votes": 3166,
+      "vote_share_pct": 1.46,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "HASH BARDHAN",
+      "party_short": "AAAP",
+      "votes": 889,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1960,
+    "vote_share_pct": 0.91
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1601,
+    "vote_share_pct": 0.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AWADHESH PRASAD",
+    "party_short": "SP",
+    "votes": 103905,
+    "margin_votes": 13338,
+    "margin_pct": 6.16
+  }
+}

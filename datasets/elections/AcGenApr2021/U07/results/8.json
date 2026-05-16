@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "INDIRA NAGAR",
+  "totals": {
+    "electors": 35605,
+    "votes_polled": 29212,
+    "turnout_pct": 82.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V. AROUMOUGAME @ AKD",
+      "party_short": "AINRC",
+      "votes": 21841,
+      "vote_share_pct": 74.77,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M. Kannan",
+      "party_short": "INC",
+      "votes": 3310,
+      "vote_share_pct": 11.33,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "T. Devika",
+      "party_short": "NTK",
+      "votes": 1774,
+      "vote_share_pct": 6.07,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "P. SAKTHIVEL",
+      "party_short": "MNM",
+      "votes": 1218,
+      "vote_share_pct": 4.17,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K. Ezhumalai",
+      "party_short": "DMDK",
+      "votes": 156,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 569,
+    "vote_share_pct": 1.95
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 344,
+    "vote_share_pct": 1.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V. AROUMOUGAME @ AKD",
+    "party_short": "AINRC",
+    "votes": 21841,
+    "margin_votes": 18531,
+    "margin_pct": 63.44
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Kankrej",
+  "totals": {
+    "electors": 252198,
+    "votes_polled": 192780,
+    "turnout_pct": 76.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KIRTISINH PRABHATSINH VAGHELA",
+      "party_short": "BJP",
+      "votes": 95131,
+      "vote_share_pct": 49.35,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JALERA DINESHJI DHARSIJI",
+      "party_short": "INC",
+      "votes": 86543,
+      "vote_share_pct": 44.89,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "THAKOR LEBUJI BHUDARJI",
+      "party_short": "IND",
+      "votes": 3037,
+      "vote_share_pct": 1.58,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAKVANA VAGHABHAI MAGANBHAI",
+      "party_short": "BSP",
+      "votes": 1952,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DESAI ISHVARBHAI  MAHADEVBHAI",
+      "party_short": "AINHCP",
+      "votes": 1043,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3881,
+    "vote_share_pct": 2.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KIRTISINH PRABHATSINH VAGHELA",
+    "party_short": "BJP",
+    "votes": 95131,
+    "margin_votes": 8588,
+    "margin_pct": 4.45
+  },
+  "others": null
+}

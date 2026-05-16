@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 149,
+  "constituency_name": "Biswan",
+  "totals": {
+    "electors": 317171,
+    "votes_polled": 228054,
+    "turnout_pct": 71.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAHENDRA SINGH",
+      "party_short": "BJP",
+      "votes": 81907,
+      "vote_share_pct": 35.92,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AFZAAL KAUSAR",
+      "party_short": "SP",
+      "votes": 71672,
+      "vote_share_pct": 31.43,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NIRMAL VERMA",
+      "party_short": "BSP",
+      "votes": 65040,
+      "vote_share_pct": 28.52,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUNILA",
+      "party_short": "IND",
+      "votes": 2035,
+      "vote_share_pct": 0.89,
+      "gender": "F",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAM PRAKASH SINGH CHAUHAN",
+      "party_short": "RLD",
+      "votes": 1716,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2080,
+    "vote_share_pct": 0.91
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3604,
+    "vote_share_pct": 1.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAHENDRA SINGH",
+    "party_short": "BJP",
+    "votes": 81907,
+    "margin_votes": 10235,
+    "margin_pct": 4.49
+  }
+}

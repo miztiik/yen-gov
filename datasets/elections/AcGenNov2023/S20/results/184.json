@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 184,
+  "constituency_name": "Hindoli",
+  "totals": {
+    "electors": 273581,
+    "votes_polled": 224991,
+    "turnout_pct": 82.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ashok",
+      "party_short": "INC",
+      "votes": 127354,
+      "vote_share_pct": 56.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Prabhu Lal Saini",
+      "party_short": "BJP",
+      "votes": 82350,
+      "vote_share_pct": 36.6,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ramalakhan",
+      "party_short": "ASPKR",
+      "votes": 9312,
+      "vote_share_pct": 4.14,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Satynarayan Regar",
+      "party_short": "BSP",
+      "votes": 1227,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 27,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ramprashad",
+      "party_short": "IND",
+      "votes": 1168,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2861,
+    "vote_share_pct": 1.27
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 719,
+    "vote_share_pct": 0.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ashok",
+    "party_short": "INC",
+    "votes": 127354,
+    "margin_votes": 45004,
+    "margin_pct": 20.0
+  }
+}

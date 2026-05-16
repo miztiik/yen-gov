@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 162,
+  "constituency_name": "Poompuhar",
+  "totals": {
+    "electors": 254828,
+    "votes_polled": 192758,
+    "turnout_pct": 75.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PAVUNRAJ.S",
+      "party_short": "ADMK",
+      "votes": 87666,
+      "vote_share_pct": 45.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHAJAHAN.A.M",
+      "party_short": "IUML",
+      "votes": 67731,
+      "vote_share_pct": 35.14,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANBALAGAN.R",
+      "party_short": "PMK",
+      "votes": 16241,
+      "vote_share_pct": 8.43,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANKAR.M",
+      "party_short": "TMC(M)",
+      "votes": 14806,
+      "vote_share_pct": 7.68,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KALIYAPERUMAL.S",
+      "party_short": "NTK",
+      "votes": 1946,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1478,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2890,
+    "vote_share_pct": 1.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PAVUNRAJ.S",
+    "party_short": "ADMK",
+    "votes": 87666,
+    "margin_votes": 19935,
+    "margin_pct": 10.34
+  }
+}

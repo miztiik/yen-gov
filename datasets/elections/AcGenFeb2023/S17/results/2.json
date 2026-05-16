@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "Dimapur-II (ST)",
+  "totals": {
+    "electors": 58627,
+    "votes_polled": 44854,
+    "turnout_pct": 76.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Moatoshi Longkumer",
+      "party_short": "NDPP",
+      "votes": 23856,
+      "vote_share_pct": 53.19,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Y. Vikheho Awomi",
+      "party_short": "LJPRV",
+      "votes": 18709,
+      "vote_share_pct": 41.71,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "S. Amento Chishi",
+      "party_short": "INC",
+      "votes": 1784,
+      "vote_share_pct": 3.98,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 505,
+    "vote_share_pct": 1.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Moatoshi Longkumer",
+    "party_short": "NDPP",
+    "votes": 23856,
+    "margin_votes": 5147,
+    "margin_pct": 11.48
+  },
+  "others": null
+}

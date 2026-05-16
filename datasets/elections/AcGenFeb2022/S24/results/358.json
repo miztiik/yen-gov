@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 358,
+  "constituency_name": "Rasara",
+  "totals": {
+    "electors": 356377,
+    "votes_polled": 200572,
+    "turnout_pct": 56.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UMASHANKAR SINGH",
+      "party_short": "BSP",
+      "votes": 87887,
+      "vote_share_pct": 43.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAHENDRA",
+      "party_short": "SBSP",
+      "votes": 81304,
+      "vote_share_pct": 40.54,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BABBAN",
+      "party_short": "BJP",
+      "votes": 24235,
+      "vote_share_pct": 12.08,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CHANDAN",
+      "party_short": "ASPKR",
+      "votes": 2605,
+      "vote_share_pct": 1.3,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAJ URF OMLATA RAJ",
+      "party_short": "INC",
+      "votes": 1294,
+      "vote_share_pct": 0.65,
+      "gender": "F",
+      "age": 29,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1339,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1908,
+    "vote_share_pct": 0.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UMASHANKAR SINGH",
+    "party_short": "BSP",
+    "votes": 87887,
+    "margin_votes": 6583,
+    "margin_pct": 3.28
+  }
+}

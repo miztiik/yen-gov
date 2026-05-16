@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 376,
+  "constituency_name": "Jangipur",
+  "totals": {
+    "electors": 376819,
+    "votes_polled": 230465,
+    "turnout_pct": 61.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIRENDRA KUMAR YADAV",
+      "party_short": "SP",
+      "votes": 103125,
+      "vote_share_pct": 44.75,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAM NARESH KUSHWAHA",
+      "party_short": "BJP",
+      "votes": 68062,
+      "vote_share_pct": 29.53,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. MUKESH SINGH",
+      "party_short": "BSP",
+      "votes": 47857,
+      "vote_share_pct": 20.77,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "YOGENDRA KUSHWAHA",
+      "party_short": "JANADIP",
+      "votes": 2598,
+      "vote_share_pct": 1.13,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DR. RAM BADAN SINGH",
+      "party_short": "CPI",
+      "votes": 2136,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1169,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5518,
+    "vote_share_pct": 2.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIRENDRA KUMAR YADAV",
+    "party_short": "SP",
+    "votes": 103125,
+    "margin_votes": 35063,
+    "margin_pct": 15.21
+  }
+}

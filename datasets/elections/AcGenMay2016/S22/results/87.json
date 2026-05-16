@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "Sankari",
+  "totals": {
+    "electors": 256847,
+    "votes_polled": 215863,
+    "turnout_pct": 84.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJA.S",
+      "party_short": "ADMK",
+      "votes": 96202,
+      "vote_share_pct": 44.57,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJESWARAN.T.K",
+      "party_short": "INC",
+      "votes": 58828,
+      "vote_share_pct": 27.25,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KANNAN.P",
+      "party_short": "PMK",
+      "votes": 37927,
+      "vote_share_pct": 17.57,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SELVAKUMAR.K",
+      "party_short": "TMC(M)",
+      "votes": 5633,
+      "vote_share_pct": 2.61,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SARAVANAN.K",
+      "party_short": "KMDK",
+      "votes": 5091,
+      "vote_share_pct": 2.36,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2934,
+    "vote_share_pct": 1.36
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 9248,
+    "vote_share_pct": 4.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJA.S",
+    "party_short": "ADMK",
+    "votes": 96202,
+    "margin_votes": 37374,
+    "margin_pct": 17.31
+  }
+}

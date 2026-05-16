@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "Kakraban-Salgarah",
+  "totals": {
+    "electors": 50446,
+    "votes_polled": 47661,
+    "turnout_pct": 94.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RATAN KUMAR BHOWMIK",
+      "party_short": "CPM",
+      "votes": 24835,
+      "vote_share_pct": 52.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "JITENDRA MAJUMDER",
+      "party_short": "BJP",
+      "votes": 21068,
+      "vote_share_pct": 44.2,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 762,
+    "vote_share_pct": 1.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RATAN KUMAR BHOWMIK",
+    "party_short": "CPM",
+    "votes": 24835,
+    "margin_votes": 3767,
+    "margin_pct": 7.9
+  },
+  "others": null
+}

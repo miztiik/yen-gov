@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 277,
+  "constituency_name": "Katehari",
+  "totals": {
+    "electors": 370154,
+    "votes_polled": 234407,
+    "turnout_pct": 63.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LAL JI VERMA",
+      "party_short": "BSP",
+      "votes": 84358,
+      "vote_share_pct": 35.99,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AWDHESH KUMAR DWIVEDI",
+      "party_short": "BJP",
+      "votes": 78071,
+      "vote_share_pct": 33.31,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAISHANKAR PANDEY",
+      "party_short": "SP",
+      "votes": 45532,
+      "vote_share_pct": 19.42,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AJAY PRATAP SINGH",
+      "party_short": "NINSHAD",
+      "votes": 18721,
+      "vote_share_pct": 7.99,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUNIR AHMAD",
+      "party_short": "CPI(ML)(L)",
+      "votes": 2024,
+      "vote_share_pct": 0.86,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2235,
+    "vote_share_pct": 0.95
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3466,
+    "vote_share_pct": 1.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LAL JI VERMA",
+    "party_short": "BSP",
+    "votes": 84358,
+    "margin_votes": 6287,
+    "margin_pct": 2.68
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Ajnala",
+  "totals": {
+    "electors": 158691,
+    "votes_polled": 122038,
+    "turnout_pct": 76.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KULDEEP SINGH DHALIWAL",
+      "party_short": "AAAP",
+      "votes": 43555,
+      "vote_share_pct": 35.69,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMARPAL SINGH BONNY AJNALA",
+      "party_short": "SAD",
+      "votes": 35712,
+      "vote_share_pct": 29.26,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HARPARTAP SINGH",
+      "party_short": "INC",
+      "votes": 33853,
+      "vote_share_pct": 27.74,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SONA MASIH JAFAR",
+      "party_short": "IND",
+      "votes": 3110,
+      "vote_share_pct": 2.55,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMRIK SINGH",
+      "party_short": "SAD(M)",
+      "votes": 2185,
+      "vote_share_pct": 1.79,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 824,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2799,
+    "vote_share_pct": 2.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KULDEEP SINGH DHALIWAL",
+    "party_short": "AAAP",
+    "votes": 43555,
+    "margin_votes": 7843,
+    "margin_pct": 6.43
+  }
+}

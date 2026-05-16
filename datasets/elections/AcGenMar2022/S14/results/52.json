@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "Tamei",
+  "totals": {
+    "electors": 42117,
+    "votes_polled": 38644,
+    "turnout_pct": 91.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Awangbow Newmai",
+      "party_short": "NPF",
+      "votes": 19643,
+      "vote_share_pct": 50.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Z. Kikhonbou Newmai",
+      "party_short": "NPEP",
+      "votes": 17945,
+      "vote_share_pct": 46.44,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Wilubou Newmai",
+      "party_short": "BJP",
+      "votes": 627,
+      "vote_share_pct": 1.62,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "GN. Kumuiteung (Dr. Aku)",
+      "party_short": "INC",
+      "votes": 397,
+      "vote_share_pct": 1.03,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 32,
+    "vote_share_pct": 0.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Awangbow Newmai",
+    "party_short": "NPF",
+    "votes": 19643,
+    "margin_votes": 1698,
+    "margin_pct": 4.39
+  },
+  "others": null
+}

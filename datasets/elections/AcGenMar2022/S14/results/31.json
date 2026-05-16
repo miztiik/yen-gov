@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Thoubal",
+  "totals": {
+    "electors": 32132,
+    "votes_polled": 29581,
+    "turnout_pct": 92.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Okram Ibobi Singh",
+      "party_short": "INC",
+      "votes": 15085,
+      "vote_share_pct": 51.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Leitanthem Basanta Singh",
+      "party_short": "BJP",
+      "votes": 12542,
+      "vote_share_pct": 42.4,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Konsam Michael Singh",
+      "party_short": "SHS",
+      "votes": 1622,
+      "vote_share_pct": 5.48,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Irom Chaoba Singh",
+      "party_short": "JD(U)",
+      "votes": 145,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 187,
+    "vote_share_pct": 0.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Okram Ibobi Singh",
+    "party_short": "INC",
+    "votes": 15085,
+    "margin_votes": 2543,
+    "margin_pct": 8.6
+  },
+  "others": null
+}

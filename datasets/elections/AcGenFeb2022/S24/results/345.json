@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 345,
+  "constituency_name": "Sagri",
+  "totals": {
+    "electors": 336378,
+    "votes_polled": 194340,
+    "turnout_pct": 57.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HRIDAY NARAYAN SINGH PATEL",
+      "party_short": "SP",
+      "votes": 83093,
+      "vote_share_pct": 42.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BANDANA SINGH",
+      "party_short": "BJP",
+      "votes": 60578,
+      "vote_share_pct": 31.17,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHANKAR YADAV",
+      "party_short": "BSP",
+      "votes": 41006,
+      "vote_share_pct": 21.1,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PANKAJ MAURYA",
+      "party_short": "JANADIP",
+      "votes": 2415,
+      "vote_share_pct": 1.24,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RANA KHATOON",
+      "party_short": "INC",
+      "votes": 1401,
+      "vote_share_pct": 0.72,
+      "gender": "F",
+      "age": 68,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1148,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4699,
+    "vote_share_pct": 2.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HRIDAY NARAYAN SINGH PATEL",
+    "party_short": "SP",
+    "votes": 83093,
+    "margin_votes": 22515,
+    "margin_pct": 11.59
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 395,
+  "constituency_name": "Chhanbey",
+  "totals": {
+    "electors": 357230,
+    "votes_polled": 215798,
+    "turnout_pct": 60.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAHUL PRAKASH",
+      "party_short": "ADAL",
+      "votes": 107007,
+      "vote_share_pct": 49.59,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DHANESHWAR",
+      "party_short": "BSP",
+      "votes": 43539,
+      "vote_share_pct": 20.18,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BHAI LAL",
+      "party_short": "SP",
+      "votes": 37108,
+      "vote_share_pct": 17.2,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SAROJ SARGAM",
+      "party_short": "NINSHAD",
+      "votes": 15095,
+      "vote_share_pct": 6.99,
+      "gender": "F",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SUSHIL KUMAR",
+      "party_short": "RSPS",
+      "votes": 2064,
+      "vote_share_pct": 0.96,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 4397,
+    "vote_share_pct": 2.04
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 6588,
+    "vote_share_pct": 3.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAHUL PRAKASH",
+    "party_short": "ADAL",
+    "votes": 107007,
+    "margin_votes": 63468,
+    "margin_pct": 29.41
+  }
+}

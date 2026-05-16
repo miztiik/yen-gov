@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 122,
+  "constituency_name": "Lunawada",
+  "totals": {
+    "electors": 260748,
+    "votes_polled": 178458,
+    "turnout_pct": 68.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RATHOD RATANSINH MAGANSINH",
+      "party_short": "IND",
+      "votes": 55098,
+      "vote_share_pct": 30.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PATEL MANOJKUMAR RAYAJIBHAI",
+      "party_short": "BJP",
+      "votes": 51898,
+      "vote_share_pct": 29.08,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PARMAR PARANJAYADITYASINHJI KRISHNAKUMARSINHJI",
+      "party_short": "INC",
+      "votes": 47093,
+      "vote_share_pct": 26.39,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SOLANKI BHUPENDRASINH PRABHATSINH",
+      "party_short": "IND",
+      "votes": 8660,
+      "vote_share_pct": 4.85,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HIRENKUMAR GIRISHBHAI PATEL",
+      "party_short": "RSPS",
+      "votes": 4654,
+      "vote_share_pct": 2.61,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3419,
+    "vote_share_pct": 1.92
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4224,
+    "vote_share_pct": 2.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RATHOD RATANSINH MAGANSINH",
+    "party_short": "IND",
+    "votes": 55098,
+    "margin_votes": 3200,
+    "margin_pct": 1.79
+  }
+}

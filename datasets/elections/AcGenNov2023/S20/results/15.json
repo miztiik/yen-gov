@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Kolayat",
+  "totals": {
+    "electors": 256184,
+    "votes_polled": 202018,
+    "turnout_pct": 78.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anshuman Singh Bhati",
+      "party_short": "BJP",
+      "votes": 101093,
+      "vote_share_pct": 50.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Bhanwar Singh Bhati",
+      "party_short": "INC",
+      "votes": 68160,
+      "vote_share_pct": 33.74,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Revat Ram Panwar",
+      "party_short": "RLTP",
+      "votes": 27854,
+      "vote_share_pct": 13.79,
+      "gender": "M",
+      "age": 73,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Pratap Ram",
+      "party_short": "BSP",
+      "votes": 1390,
+      "vote_share_pct": 0.69,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Manfool Karvasara",
+      "party_short": "ARJP",
+      "votes": 1210,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1856,
+    "vote_share_pct": 0.92
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 455,
+    "vote_share_pct": 0.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anshuman Singh Bhati",
+    "party_short": "BJP",
+    "votes": 101093,
+    "margin_votes": 32933,
+    "margin_pct": 16.3
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "Nungba (ST)",
+  "totals": {
+    "electors": 25392,
+    "votes_polled": 19659,
+    "turnout_pct": 77.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GAIKHANGAM",
+      "party_short": "INC",
+      "votes": 10255,
+      "vote_share_pct": 52.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "ADIM PAMEI",
+      "party_short": "BJP",
+      "votes": 5108,
+      "vote_share_pct": 25.98,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "POU MATHIUPUANG GONMEI",
+      "party_short": "LJP",
+      "votes": 4111,
+      "vote_share_pct": 20.91,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "KAMEI WILLIAM KABUI",
+      "party_short": "AITC",
+      "votes": 110,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 75,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GAIKHANGAM",
+    "party_short": "INC",
+    "votes": 10255,
+    "margin_votes": 5147,
+    "margin_pct": 26.18
+  },
+  "others": null
+}

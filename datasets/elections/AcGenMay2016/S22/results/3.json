@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "Tiruttani",
+  "totals": {
+    "electors": 274818,
+    "votes_polled": 222409,
+    "turnout_pct": 80.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NARASIMHAN  P M",
+      "party_short": "ADMK",
+      "votes": 93045,
+      "vote_share_pct": 41.84,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHIDAMBARAM A G",
+      "party_short": "INC",
+      "votes": 69904,
+      "vote_share_pct": 31.43,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VAITHILINGAM A",
+      "party_short": "PMK",
+      "votes": 29596,
+      "vote_share_pct": 13.31,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KRISHNAMURTHY D",
+      "party_short": "DMDK",
+      "votes": 15648,
+      "vote_share_pct": 7.04,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHAKRAVARTHY. M",
+      "party_short": "BJP",
+      "votes": 5525,
+      "vote_share_pct": 2.48,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2076,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 6615,
+    "vote_share_pct": 2.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NARASIMHAN  P M",
+    "party_short": "ADMK",
+    "votes": 93045,
+    "margin_votes": 23141,
+    "margin_pct": 10.4
+  }
+}

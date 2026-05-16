@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 142,
+  "constituency_name": "Jalore (SC)",
+  "totals": {
+    "electors": 287956,
+    "votes_polled": 182096,
+    "turnout_pct": 63.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jogeshwar Garg",
+      "party_short": "BJP",
+      "votes": 84519,
+      "vote_share_pct": 46.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Ramila Meghwal",
+      "party_short": "INC",
+      "votes": 64983,
+      "vote_share_pct": 35.69,
+      "gender": "F",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Pavani Devi",
+      "party_short": "IND",
+      "votes": 19957,
+      "vote_share_pct": 10.96,
+      "gender": "F",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Ramlal Meghwal",
+      "party_short": "IND",
+      "votes": 4154,
+      "vote_share_pct": 2.28,
+      "gender": "M",
+      "age": 80,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Om Prakash Chouhan",
+      "party_short": "BSP",
+      "votes": 3459,
+      "vote_share_pct": 1.9,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3177,
+    "vote_share_pct": 1.74
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1847,
+    "vote_share_pct": 1.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jogeshwar Garg",
+    "party_short": "BJP",
+    "votes": 84519,
+    "margin_votes": 19536,
+    "margin_pct": 10.73
+  }
+}

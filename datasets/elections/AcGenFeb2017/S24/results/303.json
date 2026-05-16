@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 303,
+  "constituency_name": "Kapilvastu",
+  "totals": {
+    "electors": 430611,
+    "votes_polled": 235129,
+    "turnout_pct": 54.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHYAM DHANI",
+      "party_short": "BJP",
+      "votes": 114082,
+      "vote_share_pct": 48.52,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "VIJAY KUMAR",
+      "party_short": "SP",
+      "votes": 75928,
+      "vote_share_pct": 32.29,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "CHANDRA BHAN",
+      "party_short": "BSP",
+      "votes": 37166,
+      "vote_share_pct": 15.81,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PINGAL PRASAD",
+      "party_short": "IND",
+      "votes": 2106,
+      "vote_share_pct": 0.9,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DEVENDRA NATH",
+      "party_short": "BMUP",
+      "votes": 2063,
+      "vote_share_pct": 0.88,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2623,
+    "vote_share_pct": 1.12
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1161,
+    "vote_share_pct": 0.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHYAM DHANI",
+    "party_short": "BJP",
+    "votes": 114082,
+    "margin_votes": 38154,
+    "margin_pct": 16.23
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 170,
+  "constituency_name": "Nimbahera",
+  "totals": {
+    "electors": 276158,
+    "votes_polled": 237550,
+    "turnout_pct": 86.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shrichand Kriplani",
+      "party_short": "BJP",
+      "votes": 116640,
+      "vote_share_pct": 49.1,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Anjana Udayalal",
+      "party_short": "INC",
+      "votes": 112795,
+      "vote_share_pct": 47.48,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Radheshyam Meghwal",
+      "party_short": "BSP",
+      "votes": 1544,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Gopal Dhakad",
+      "party_short": "RTORP",
+      "votes": 1076,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Prakash Chandra Meghwal",
+      "party_short": "ABCD(A)",
+      "votes": 1060,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2485,
+    "vote_share_pct": 1.05
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1950,
+    "vote_share_pct": 0.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shrichand Kriplani",
+    "party_short": "BJP",
+    "votes": 116640,
+    "margin_votes": 3845,
+    "margin_pct": 1.62
+  }
+}

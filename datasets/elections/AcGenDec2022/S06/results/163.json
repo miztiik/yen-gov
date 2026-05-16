@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "Limbayat",
+  "totals": {
+    "electors": 305333,
+    "votes_polled": 179057,
+    "turnout_pct": 58.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sangitaben Rajendra Patil",
+      "party_short": "BJP",
+      "votes": 95696,
+      "vote_share_pct": 53.44,
+      "is_winner": true,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Pankajbhai Tayade",
+      "party_short": "AAAP",
+      "votes": 37687,
+      "vote_share_pct": 21.05,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Gopal D. Patil",
+      "party_short": "INC",
+      "votes": 29436,
+      "vote_share_pct": 16.44,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Abdul Bashir Shaikh",
+      "party_short": "AIMIM",
+      "votes": 5216,
+      "vote_share_pct": 2.91,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ayaz Kazi",
+      "party_short": "BSP",
+      "votes": 972,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1069,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 39,
+    "votes": 8981,
+    "vote_share_pct": 5.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sangitaben Rajendra Patil",
+    "party_short": "BJP",
+    "votes": 95696,
+    "margin_votes": 58009,
+    "margin_pct": 32.4
+  }
+}

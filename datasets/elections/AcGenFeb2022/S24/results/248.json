@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 248,
+  "constituency_name": "Pratapgarh",
+  "totals": {
+    "electors": 355158,
+    "votes_polled": 195981,
+    "turnout_pct": 55.18
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJENDRA KUMAR",
+      "party_short": "BJP",
+      "votes": 89762,
+      "vote_share_pct": 45.8,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KRISHNA PATEL",
+      "party_short": "APNDLK",
+      "votes": 64699,
+      "vote_share_pct": 33.01,
+      "gender": "F",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASHUTOSH TRIPATHI",
+      "party_short": "BSP",
+      "votes": 19249,
+      "vote_share_pct": 9.82,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ISRAR AHMAD",
+      "party_short": "AIMIM",
+      "votes": 6480,
+      "vote_share_pct": 3.31,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NEERAJ TRIPATHI",
+      "party_short": "INC",
+      "votes": 6326,
+      "vote_share_pct": 3.23,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1336,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 8129,
+    "vote_share_pct": 4.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJENDRA KUMAR",
+    "party_short": "BJP",
+    "votes": 89762,
+    "margin_votes": 25063,
+    "margin_pct": 12.79
+  }
+}

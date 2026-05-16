@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 164,
+  "constituency_name": "Udhna",
+  "totals": {
+    "electors": 270734,
+    "votes_polled": 148831,
+    "turnout_pct": 54.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manubhai M. Patel (fogwa)",
+      "party_short": "BJP",
+      "votes": 93999,
+      "vote_share_pct": 63.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dhansukhbhai Bhagvatiprasad Rajput",
+      "party_short": "INC",
+      "votes": 24103,
+      "vote_share_pct": 16.19,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Mahendrabhai Ravanbhai Patil",
+      "party_short": "AAAP",
+      "votes": 21741,
+      "vote_share_pct": 14.61,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Suresh Mohan Sonvane",
+      "party_short": "BSP",
+      "votes": 5434,
+      "vote_share_pct": 3.65,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ashaben Vinodbhai Mangale",
+      "party_short": "IND",
+      "votes": 476,
+      "vote_share_pct": 0.32,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1820,
+    "vote_share_pct": 1.22
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1258,
+    "vote_share_pct": 0.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manubhai M. Patel (fogwa)",
+    "party_short": "BJP",
+    "votes": 93999,
+    "margin_votes": 69896,
+    "margin_pct": 46.96
+  }
+}

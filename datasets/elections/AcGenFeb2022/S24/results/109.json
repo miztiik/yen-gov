@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 109,
+  "constituency_name": "Kishni",
+  "totals": {
+    "electors": 310906,
+    "votes_polled": 195795,
+    "turnout_pct": 62.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ENG. BRAJESH KATHERIYA",
+      "party_short": "SP",
+      "votes": 97070,
+      "vote_share_pct": 49.58,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DR. PRIYA RANJAN ASHU DIWAKAR",
+      "party_short": "BJP",
+      "votes": 77919,
+      "vote_share_pct": 39.8,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PRABHU DAYAL",
+      "party_short": "BSP",
+      "votes": 16755,
+      "vote_share_pct": 8.56,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "DR. VIJAY NARAIN SINGH ASST. PROFESSOR",
+      "party_short": "INC",
+      "votes": 1570,
+      "vote_share_pct": 0.8,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PAPPU",
+      "party_short": "AAAP",
+      "votes": 799,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1185,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 497,
+    "vote_share_pct": 0.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ENG. BRAJESH KATHERIYA",
+    "party_short": "SP",
+    "votes": 97070,
+    "margin_votes": 19151,
+    "margin_pct": 9.78
+  }
+}

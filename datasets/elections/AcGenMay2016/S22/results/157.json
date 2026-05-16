@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 157,
+  "constituency_name": "Bhuvanagiri",
+  "totals": {
+    "electors": 238837,
+    "votes_polled": 190854,
+    "turnout_pct": 79.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SARAVANAN, DURAI K.",
+      "party_short": "DMK",
+      "votes": 60554,
+      "vote_share_pct": 31.73,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SELVI RAMAJAYAM",
+      "party_short": "ADMK",
+      "votes": 55066,
+      "vote_share_pct": 28.85,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASHOKKUMAR",
+      "party_short": "PMK",
+      "votes": 33681,
+      "vote_share_pct": 17.65,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SINTHANAI SELVAN",
+      "party_short": "VCK",
+      "votes": 33662,
+      "vote_share_pct": 17.64,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MARIMUTHU, R.",
+      "party_short": "IND",
+      "votes": 1345,
+      "vote_share_pct": 0.7,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1132,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 5414,
+    "vote_share_pct": 2.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SARAVANAN, DURAI K.",
+    "party_short": "DMK",
+    "votes": 60554,
+    "margin_votes": 5488,
+    "margin_pct": 2.88
+  }
+}

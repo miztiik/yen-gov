@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Dharampur",
+  "totals": {
+    "electors": 184569,
+    "votes_polled": 106003,
+    "turnout_pct": 57.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VINOD CHAMOLI",
+      "party_short": "BJP",
+      "votes": 53828,
+      "vote_share_pct": 50.78,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DINESH AGARWAL",
+      "party_short": "INC",
+      "votes": 42875,
+      "vote_share_pct": 40.45,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NOOR HASSAN",
+      "party_short": "IND",
+      "votes": 4117,
+      "vote_share_pct": 3.88,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SALEEM AHMED",
+      "party_short": "BSP",
+      "votes": 951,
+      "vote_share_pct": 0.9,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JOGENDRA RAWAT",
+      "party_short": "IND",
+      "votes": 577,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 377,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 3278,
+    "vote_share_pct": 3.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VINOD CHAMOLI",
+    "party_short": "BJP",
+    "votes": 53828,
+    "margin_votes": 10953,
+    "margin_pct": 10.33
+  }
+}

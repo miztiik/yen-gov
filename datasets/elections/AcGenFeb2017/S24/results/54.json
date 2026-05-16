@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "Muradnagar",
+  "totals": {
+    "electors": 419254,
+    "votes_polled": 253532,
+    "turnout_pct": 60.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AJIT PAL TYAGI",
+      "party_short": "BJP",
+      "votes": 140759,
+      "vote_share_pct": 55.52,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUDHAN KUMAR",
+      "party_short": "BSP",
+      "votes": 51147,
+      "vote_share_pct": 20.17,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SURENDER PRAKASH",
+      "party_short": "INC",
+      "votes": 49989,
+      "vote_share_pct": 19.72,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AJAY PAL SINGH",
+      "party_short": "RLD",
+      "votes": 6648,
+      "vote_share_pct": 2.62,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DISHANT TYAGI",
+      "party_short": "IND",
+      "votes": 770,
+      "vote_share_pct": 0.3,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1053,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3166,
+    "vote_share_pct": 1.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AJIT PAL TYAGI",
+    "party_short": "BJP",
+    "votes": 140759,
+    "margin_votes": 89612,
+    "margin_pct": 35.35
+  }
+}

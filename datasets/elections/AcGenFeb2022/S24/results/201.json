@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 201,
+  "constituency_name": "Bharthana",
+  "totals": {
+    "electors": 407642,
+    "votes_polled": 246734,
+    "turnout_pct": 60.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAGHVENDRA KUMAR SINGH",
+      "party_short": "SP",
+      "votes": 103676,
+      "vote_share_pct": 42.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. SIDDHARTH SHANKER DOHRE",
+      "party_short": "BJP",
+      "votes": 96117,
+      "vote_share_pct": 38.96,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KAMLESH AMBEDKAR",
+      "party_short": "BSP",
+      "votes": 37599,
+      "vote_share_pct": 15.24,
+      "gender": "F",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAKESH CHANDRA Urf ATALJI",
+      "party_short": "JANADIP",
+      "votes": 4185,
+      "vote_share_pct": 1.7,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SNEH LATA DOHRE",
+      "party_short": "INC",
+      "votes": 1854,
+      "vote_share_pct": 0.75,
+      "gender": "F",
+      "age": 39,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1257,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2046,
+    "vote_share_pct": 0.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAGHVENDRA KUMAR SINGH",
+    "party_short": "SP",
+    "votes": 103676,
+    "margin_votes": 7559,
+    "margin_pct": 3.06
+  }
+}

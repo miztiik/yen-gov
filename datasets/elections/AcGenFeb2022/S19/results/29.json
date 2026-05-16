@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "Phagwara",
+  "totals": {
+    "electors": 193076,
+    "votes_polled": 127964,
+    "turnout_pct": 66.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Balwinder Singh Dhaliwal",
+      "party_short": "INC",
+      "votes": 37217,
+      "vote_share_pct": 29.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Joginder Singh Mann",
+      "party_short": "AAAP",
+      "votes": 34505,
+      "vote_share_pct": 26.96,
+      "gender": "M",
+      "age": 71,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "JASVIR SINGH GARHI",
+      "party_short": "BSP",
+      "votes": 31232,
+      "vote_share_pct": 24.41,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "VIJAY SAMPLA",
+      "party_short": "BJP",
+      "votes": 15469,
+      "vote_share_pct": 12.09,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KULDEEP SINGH NOOR",
+      "party_short": "SAD(M)",
+      "votes": 3776,
+      "vote_share_pct": 2.95,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1009,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 4756,
+    "vote_share_pct": 3.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Balwinder Singh Dhaliwal",
+    "party_short": "INC",
+    "votes": 37217,
+    "margin_votes": 2712,
+    "margin_pct": 2.12
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 229,
+  "constituency_name": "Kanniyakumari",
+  "totals": {
+    "electors": 279651,
+    "votes_polled": 209924,
+    "turnout_pct": 75.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AUSTIN. S",
+      "party_short": "DMK",
+      "votes": 89023,
+      "vote_share_pct": 42.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "THALAVAI SUNDARAM. N",
+      "party_short": "ADMK",
+      "votes": 83111,
+      "vote_share_pct": 39.59,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MEENA DEV. M",
+      "party_short": "BJP",
+      "votes": 24638,
+      "vote_share_pct": 11.74,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AATHILINGA PERUMAL. D",
+      "party_short": "DMDK",
+      "votes": 6914,
+      "vote_share_pct": 3.29,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BALASUBRAMANIAM. V",
+      "party_short": "NTK",
+      "votes": 1732,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1570,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2936,
+    "vote_share_pct": 1.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AUSTIN. S",
+    "party_short": "DMK",
+    "votes": 89023,
+    "margin_votes": 5912,
+    "margin_pct": 2.82
+  }
+}

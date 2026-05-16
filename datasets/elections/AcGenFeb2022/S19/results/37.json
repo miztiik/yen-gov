@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "Jalandhar Cantt.",
+  "totals": {
+    "electors": 193992,
+    "votes_polled": 125090,
+    "turnout_pct": 64.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARGAT SINGH POWAR",
+      "party_short": "INC",
+      "votes": 40816,
+      "vote_share_pct": 32.63,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURINDER SINGH SODHI",
+      "party_short": "AAAP",
+      "votes": 35008,
+      "vote_share_pct": 27.99,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAGBIR SINGH BRAR",
+      "party_short": "SAD",
+      "votes": 27387,
+      "vote_share_pct": 21.89,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SARABJIT SINGH MAKKAR",
+      "party_short": "BJP",
+      "votes": 15946,
+      "vote_share_pct": 12.75,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JASWINDER SINGH SANGHA",
+      "party_short": "IND",
+      "votes": 1890,
+      "vote_share_pct": 1.51,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 935,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3108,
+    "vote_share_pct": 2.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARGAT SINGH POWAR",
+    "party_short": "INC",
+    "votes": 40816,
+    "margin_votes": 5808,
+    "margin_pct": 4.64
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 127,
+  "constituency_name": "Pilibhit",
+  "totals": {
+    "electors": 368537,
+    "votes_polled": 251819,
+    "turnout_pct": 68.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANJAY SINGH GANGWAR",
+      "party_short": "BJP",
+      "votes": 136486,
+      "vote_share_pct": 54.2,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RIAZ AHMAD",
+      "party_short": "SP",
+      "votes": 93130,
+      "vote_share_pct": 36.98,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARSHAD KHAN",
+      "party_short": "BSP",
+      "votes": 14532,
+      "vote_share_pct": 5.77,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CHANDARSEN",
+      "party_short": "JSEP",
+      "votes": 1010,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MOH YUSUF MALIK",
+      "party_short": "RKMP",
+      "votes": 989,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1818,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3854,
+    "vote_share_pct": 1.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANJAY SINGH GANGWAR",
+    "party_short": "BJP",
+    "votes": 136486,
+    "margin_votes": 43356,
+    "margin_pct": 17.22
+  }
+}

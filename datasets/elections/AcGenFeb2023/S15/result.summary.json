@@ -1,0 +1,114 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.summary.schema.json",
+  "$schema_version": "3.1",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "total_seats": 59,
+  "totals": {
+    "electors": 2144294,
+    "votes_polled": 1855373,
+    "turnout_pct": 86.53
+  },
+  "party_totals": [
+    {
+      "party_short": "NPEP",
+      "seats_contested": 56,
+      "seats_won": 26,
+      "votes": 584338,
+      "vote_share_pct": 31.49
+    },
+    {
+      "party_short": "UDP",
+      "seats_contested": 45,
+      "seats_won": 11,
+      "votes": 300747,
+      "vote_share_pct": 16.21
+    },
+    {
+      "party_short": "AITC",
+      "seats_contested": 55,
+      "seats_won": 5,
+      "votes": 255742,
+      "vote_share_pct": 13.78
+    },
+    {
+      "party_short": "INC",
+      "seats_contested": 59,
+      "seats_won": 5,
+      "votes": 243841,
+      "vote_share_pct": 13.14
+    },
+    {
+      "party_short": "VOTPP",
+      "seats_contested": 18,
+      "seats_won": 4,
+      "votes": 101264,
+      "vote_share_pct": 5.46
+    },
+    {
+      "party_short": "BJP",
+      "seats_contested": 59,
+      "seats_won": 2,
+      "votes": 173043,
+      "vote_share_pct": 9.33
+    },
+    {
+      "party_short": "IND",
+      "seats_contested": 28,
+      "seats_won": 2,
+      "votes": 66704,
+      "vote_share_pct": 3.6
+    },
+    {
+      "party_short": "HSPDP",
+      "seats_contested": 10,
+      "seats_won": 2,
+      "votes": 65989,
+      "vote_share_pct": 3.56
+    },
+    {
+      "party_short": "PDF",
+      "seats_contested": 9,
+      "seats_won": 2,
+      "votes": 34974,
+      "vote_share_pct": 1.89
+    },
+    {
+      "party_short": "GNC",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 9348,
+      "vote_share_pct": 0.5
+    },
+    {
+      "party_short": "RPI(A)",
+      "seats_contested": 6,
+      "seats_won": 0,
+      "votes": 1869,
+      "vote_share_pct": 0.1
+    },
+    {
+      "party_short": "GNASURKP",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 1375,
+      "vote_share_pct": 0.07
+    },
+    {
+      "party_short": "JD(U)",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 1025,
+      "vote_share_pct": 0.06
+    },
+    {
+      "party_short": "RPI",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 434,
+      "vote_share_pct": 0.02
+    }
+  ]
+}

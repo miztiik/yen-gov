@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 135,
+  "constituency_name": "Savli",
+  "totals": {
+    "electors": 211873,
+    "votes_polled": 164693,
+    "turnout_pct": 77.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "INAMDAR KETANBHAI MAHENDRABHAI",
+      "party_short": "BJP",
+      "votes": 97646,
+      "vote_share_pct": 59.29,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BRAHMBHATT SAGAR PRAKASH KOKO",
+      "party_short": "INC",
+      "votes": 56013,
+      "vote_share_pct": 34.01,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHAUHAN KHUMANSINH RAYSINH",
+      "party_short": "NCP",
+      "votes": 4060,
+      "vote_share_pct": 2.47,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAHIDA VIJAYSINH DALPATSINH",
+      "party_short": "SHS",
+      "votes": 1343,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ARPANKUMAR BHASKARBHAI PATEL",
+      "party_short": "IND",
+      "votes": 960,
+      "vote_share_pct": 0.58,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3208,
+    "vote_share_pct": 1.95
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 827,
+    "vote_share_pct": 0.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "INAMDAR KETANBHAI MAHENDRABHAI",
+    "party_short": "BJP",
+    "votes": 97646,
+    "margin_votes": 41633,
+    "margin_pct": 25.28
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 328,
+  "constituency_name": "Chillupar",
+  "totals": {
+    "electors": 431450,
+    "votes_polled": 220317,
+    "turnout_pct": 51.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VINAY SHANKAR TIWARI",
+      "party_short": "BSP",
+      "votes": 78177,
+      "vote_share_pct": 35.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJESH TRIPATHI",
+      "party_short": "BJP",
+      "votes": 74818,
+      "vote_share_pct": 33.96,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAM BHUAL NISHAD",
+      "party_short": "SP",
+      "votes": 55422,
+      "vote_share_pct": 25.16,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "YOGESH MANI TIWARI",
+      "party_short": "NINSHAD",
+      "votes": 3241,
+      "vote_share_pct": 1.47,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "POONAM GUPTA",
+      "party_short": "IND",
+      "votes": 1418,
+      "vote_share_pct": 0.64,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2512,
+    "vote_share_pct": 1.14
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4729,
+    "vote_share_pct": 2.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VINAY SHANKAR TIWARI",
+    "party_short": "BSP",
+    "votes": 78177,
+    "margin_votes": 3359,
+    "margin_pct": 1.52
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "Singjamei",
+  "totals": {
+    "electors": 19929,
+    "votes_polled": 17570,
+    "turnout_pct": 88.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "YUMNAM KHEMCHAND SINGH",
+      "party_short": "BJP",
+      "votes": 9459,
+      "vote_share_pct": 53.84,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "IRENGBAM HEMOCHANDRA SINGH",
+      "party_short": "INC",
+      "votes": 7625,
+      "vote_share_pct": 43.4,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HEIGRUJAM NABASHYAM",
+      "party_short": "AITC",
+      "votes": 176,
+      "vote_share_pct": 1.0,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THOKCHOM SARCHIL SINGH",
+      "party_short": "MPEP",
+      "votes": 104,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 206,
+    "vote_share_pct": 1.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "YUMNAM KHEMCHAND SINGH",
+    "party_short": "BJP",
+    "votes": 9459,
+    "margin_votes": 1834,
+    "margin_pct": 10.44
+  },
+  "others": null
+}

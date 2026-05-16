@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 89,
+  "constituency_name": "Jaitu",
+  "totals": {
+    "electors": 151797,
+    "votes_polled": 116318,
+    "turnout_pct": 76.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMOLAK SINGH",
+      "party_short": "AAAP",
+      "votes": 60242,
+      "vote_share_pct": 51.79,
+      "is_winner": true,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "MANJIT SINGH ALIAS SUBA SINGH",
+      "party_short": "SAD",
+      "votes": 27453,
+      "vote_share_pct": 23.6,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DARSHAN SINGH",
+      "party_short": "INC",
+      "votes": 19388,
+      "vote_share_pct": 16.67,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "GURDEEP SINGH",
+      "party_short": "SAD(M)",
+      "votes": 3138,
+      "vote_share_pct": 2.7,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PARAMJIT KAUR GULSHAN",
+      "party_short": "SADS",
+      "votes": 2005,
+      "vote_share_pct": 1.72,
+      "gender": "F",
+      "age": 72,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 894,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3198,
+    "vote_share_pct": 2.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMOLAK SINGH",
+    "party_short": "AAAP",
+    "votes": 60242,
+    "margin_votes": 32789,
+    "margin_pct": 28.19
+  }
+}

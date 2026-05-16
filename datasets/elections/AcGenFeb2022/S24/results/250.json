@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 250,
+  "constituency_name": "Raniganj",
+  "totals": {
+    "electors": 336072,
+    "votes_polled": 188715,
+    "turnout_pct": 56.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAKESH KUMAR VERMA ALIAS DR. R. K. VERMA",
+      "party_short": "SP",
+      "votes": 75583,
+      "vote_share_pct": 40.05,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ABHAY KUMAR ALIAS DHIRAJ OJHA",
+      "party_short": "BJP",
+      "votes": 72934,
+      "vote_share_pct": 38.65,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AJAY YADAV",
+      "party_short": "BSP",
+      "votes": 21411,
+      "vote_share_pct": 11.35,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANIL KUMAR",
+      "party_short": "AIMIM",
+      "votes": 11748,
+      "vote_share_pct": 6.23,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ABDUL WAHID",
+      "party_short": "INC",
+      "votes": 1085,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1139,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4815,
+    "vote_share_pct": 2.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAKESH KUMAR VERMA ALIAS DR. R. K. VERMA",
+    "party_short": "SP",
+    "votes": 75583,
+    "margin_votes": 2649,
+    "margin_pct": 1.4
+  }
+}

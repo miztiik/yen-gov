@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 51,
+  "constituency_name": "Baraut",
+  "totals": {
+    "electors": 288052,
+    "votes_polled": 185178,
+    "turnout_pct": 64.29
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KRISHANPAL MALIK URF KRISHANPAL MALIK",
+      "party_short": "BJP",
+      "votes": 79427,
+      "vote_share_pct": 42.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SAHAB SINGH",
+      "party_short": "RLD",
+      "votes": 52941,
+      "vote_share_pct": 28.59,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHOKENDRA",
+      "party_short": "SP",
+      "votes": 28376,
+      "vote_share_pct": 15.32,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "LOKESH DIXIT",
+      "party_short": "BSP",
+      "votes": 22071,
+      "vote_share_pct": 11.92,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ANISH",
+      "party_short": "IEMC",
+      "votes": 537,
+      "vote_share_pct": 0.29,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 870,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 956,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KRISHANPAL MALIK URF KRISHANPAL MALIK",
+    "party_short": "BJP",
+    "votes": 79427,
+    "margin_votes": 26486,
+    "margin_pct": 14.3
+  }
+}

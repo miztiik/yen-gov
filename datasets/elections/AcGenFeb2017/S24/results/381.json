@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 381,
+  "constituency_name": "Sakaldiha",
+  "totals": {
+    "electors": 317765,
+    "votes_polled": 202392,
+    "turnout_pct": 63.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRABHUNARAYAN YADAV",
+      "party_short": "SP",
+      "votes": 79875,
+      "vote_share_pct": 39.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURYAMUNI TIWARI",
+      "party_short": "BJP",
+      "votes": 64906,
+      "vote_share_pct": 32.07,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "UPENDRA",
+      "party_short": "BSP",
+      "votes": 52175,
+      "vote_share_pct": 25.78,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "HARIDWAR SINGH YADAV",
+      "party_short": "RLD",
+      "votes": 943,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMESH",
+      "party_short": "CPI(ML)(L)",
+      "votes": 679,
+      "vote_share_pct": 0.34,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1787,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2027,
+    "vote_share_pct": 0.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRABHUNARAYAN YADAV",
+    "party_short": "SP",
+    "votes": 79875,
+    "margin_votes": 14969,
+    "margin_pct": 7.4
+  }
+}

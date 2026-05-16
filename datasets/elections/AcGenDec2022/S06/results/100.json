@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 100,
+  "constituency_name": "Talaja",
+  "totals": {
+    "electors": 253947,
+    "votes_polled": 156640,
+    "turnout_pct": 61.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gautambhai Gopabhai Chauhan",
+      "party_short": "BJP",
+      "votes": 90255,
+      "vote_share_pct": 57.62,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kanubhai Mathurambhai Baraiya (kanubhai Baraiya)",
+      "party_short": "INC",
+      "votes": 46949,
+      "vote_share_pct": 29.97,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Laluben Narashibhai Chauhan",
+      "party_short": "AAAP",
+      "votes": 12727,
+      "vote_share_pct": 8.13,
+      "gender": "F",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Haribhai Bhimabhai Rathod",
+      "party_short": "IND",
+      "votes": 1684,
+      "vote_share_pct": 1.08,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Jilubhai Gigabhai Bhammar (ahir)",
+      "party_short": "IND",
+      "votes": 545,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2482,
+    "vote_share_pct": 1.58
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1998,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gautambhai Gopabhai Chauhan",
+    "party_short": "BJP",
+    "votes": 90255,
+    "margin_votes": 43306,
+    "margin_pct": 27.65
+  }
+}

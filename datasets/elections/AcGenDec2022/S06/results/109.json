@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 109,
+  "constituency_name": "Borsad",
+  "totals": {
+    "electors": 261464,
+    "votes_polled": 182254,
+    "turnout_pct": 69.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Solanki Ramanbhai Bhikhabhai",
+      "party_short": "BJP",
+      "votes": 91772,
+      "vote_share_pct": 50.35,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Parmar Rajendrasinh Dhirsinh",
+      "party_short": "INC",
+      "votes": 80607,
+      "vote_share_pct": 44.23,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ahir Ankurbhai Kanubhai",
+      "party_short": "BSP",
+      "votes": 2031,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Patel Manishbhai Ramanbhai",
+      "party_short": "AAAP",
+      "votes": 2003,
+      "vote_share_pct": 1.1,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Bhoi Ashishkumar Thakorbhai",
+      "party_short": "IND",
+      "votes": 1760,
+      "vote_share_pct": 0.97,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2093,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1988,
+    "vote_share_pct": 1.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Solanki Ramanbhai Bhikhabhai",
+    "party_short": "BJP",
+    "votes": 91772,
+    "margin_votes": 11165,
+    "margin_pct": 6.13
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 311,
+  "constituency_name": "Mahadewa",
+  "totals": {
+    "electors": 360632,
+    "votes_polled": 211187,
+    "turnout_pct": 58.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dudhram",
+      "party_short": "SBSP",
+      "votes": 83350,
+      "vote_share_pct": 39.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Ravi",
+      "party_short": "BJP",
+      "votes": 77855,
+      "vote_share_pct": 36.87,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "LAXMI CHANDRA KHARVAR",
+      "party_short": "BSP",
+      "votes": 40207,
+      "vote_share_pct": 19.04,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PURNIMA",
+      "party_short": "JANADIP",
+      "votes": 2907,
+      "vote_share_pct": 1.38,
+      "gender": "F",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Brijesh Kumar",
+      "party_short": "INC",
+      "votes": 2255,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 27,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1582,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3031,
+    "vote_share_pct": 1.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dudhram",
+    "party_short": "SBSP",
+    "votes": 83350,
+    "margin_votes": 5495,
+    "margin_pct": 2.6
+  }
+}

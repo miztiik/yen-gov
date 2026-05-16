@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 212,
+  "constituency_name": "Govindnagar",
+  "totals": {
+    "electors": 351663,
+    "votes_polled": 192202,
+    "turnout_pct": 54.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURENDRA MAITHANI",
+      "party_short": "BJP",
+      "votes": 117501,
+      "vote_share_pct": 61.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIKAS YADAV",
+      "party_short": "SP",
+      "votes": 36605,
+      "vote_share_pct": 19.05,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KARISHMA THAKUR",
+      "party_short": "INC",
+      "votes": 26267,
+      "vote_share_pct": 13.67,
+      "gender": "F",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ASHOK KUMAR KALIYA",
+      "party_short": "BSP",
+      "votes": 8333,
+      "vote_share_pct": 4.34,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KAWARDEEP SINGH",
+      "party_short": "AAAP",
+      "votes": 2141,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1094,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 261,
+    "vote_share_pct": 0.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURENDRA MAITHANI",
+    "party_short": "BJP",
+    "votes": 117501,
+    "margin_votes": 80896,
+    "margin_pct": 42.09
+  }
+}

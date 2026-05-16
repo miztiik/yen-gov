@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 65,
+  "constituency_name": "Bulandshahr",
+  "totals": {
+    "electors": 381340,
+    "votes_polled": 245082,
+    "turnout_pct": 64.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIRENDRA SINGH SIROHI",
+      "party_short": "BJP",
+      "votes": 111538,
+      "vote_share_pct": 45.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MOH ALEEM KHAN",
+      "party_short": "BSP",
+      "votes": 88454,
+      "vote_share_pct": 36.09,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHUJAT ALAM",
+      "party_short": "SP",
+      "votes": 24119,
+      "vote_share_pct": 9.84,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHRIBHAGWAN SHARMA",
+      "party_short": "RLD",
+      "votes": 17216,
+      "vote_share_pct": 7.02,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUSTKEEM",
+      "party_short": "IND",
+      "votes": 881,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1638,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1236,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIRENDRA SINGH SIROHI",
+    "party_short": "BJP",
+    "votes": 111538,
+    "margin_votes": 23084,
+    "margin_pct": 9.42
+  }
+}

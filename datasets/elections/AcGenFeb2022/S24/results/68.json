@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "Debai",
+  "totals": {
+    "electors": 348309,
+    "votes_polled": 219519,
+    "turnout_pct": 63.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHANDRAPAL SINGH",
+      "party_short": "BJP",
+      "votes": 128640,
+      "vote_share_pct": 58.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "HARISH LODHI",
+      "party_short": "SP",
+      "votes": 60615,
+      "vote_share_pct": 27.61,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KARAN PAL SINGH",
+      "party_short": "BSP",
+      "votes": 24516,
+      "vote_share_pct": 11.17,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUNITA SHARMA",
+      "party_short": "INC",
+      "votes": 1947,
+      "vote_share_pct": 0.89,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Dr. MANOJ KUMAR SHARMA",
+      "party_short": "AAAP",
+      "votes": 1032,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1218,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1551,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHANDRAPAL SINGH",
+    "party_short": "BJP",
+    "votes": 128640,
+    "margin_votes": 68025,
+    "margin_pct": 30.99
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "Barnala",
+  "totals": {
+    "electors": 171962,
+    "votes_polled": 134152,
+    "turnout_pct": 78.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GURMEET SINGH MEET HAHER",
+      "party_short": "AAAP",
+      "votes": 47606,
+      "vote_share_pct": 35.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KEWAL SINGH DHILLON",
+      "party_short": "INC",
+      "votes": 45174,
+      "vote_share_pct": 33.67,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SURINDER PAL SINGH SIBIA",
+      "party_short": "SAD",
+      "votes": 31111,
+      "vote_share_pct": 23.19,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SIMRANJIT SINGH MANN",
+      "party_short": "SAD(M)",
+      "votes": 5061,
+      "vote_share_pct": 3.77,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PARAMJIT KAUR",
+      "party_short": "BSP",
+      "votes": 2369,
+      "vote_share_pct": 1.77,
+      "gender": "F",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 889,
+    "vote_share_pct": 0.66
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1942,
+    "vote_share_pct": 1.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GURMEET SINGH MEET HAHER",
+    "party_short": "AAAP",
+    "votes": 47606,
+    "margin_votes": 2432,
+    "margin_pct": 1.81
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 349,
+  "constituency_name": "Phoolpur-Pawai",
+  "totals": {
+    "electors": 328807,
+    "votes_polled": 193244,
+    "turnout_pct": 58.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMAKANT YADAV",
+      "party_short": "SP",
+      "votes": 81164,
+      "vote_share_pct": 42.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAM SURAT",
+      "party_short": "BJP",
+      "votes": 55858,
+      "vote_share_pct": 28.91,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHAKEEL AHMAD",
+      "party_short": "BSP",
+      "votes": 49495,
+      "vote_share_pct": 25.61,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MO SHAHID",
+      "party_short": "INC",
+      "votes": 1558,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "YOGENDRA PRATAP",
+      "party_short": "JANADIP",
+      "votes": 1529,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1058,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2582,
+    "vote_share_pct": 1.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMAKANT YADAV",
+    "party_short": "SP",
+    "votes": 81164,
+    "margin_votes": 25306,
+    "margin_pct": 13.1
+  }
+}

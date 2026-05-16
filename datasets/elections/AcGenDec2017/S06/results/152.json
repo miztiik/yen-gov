@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 152,
+  "constituency_name": "Jhagadia",
+  "totals": {
+    "electors": 232305,
+    "votes_polled": 189974,
+    "turnout_pct": 81.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VASAVA CHHOTUBHAI AMARSINH",
+      "party_short": "BTP",
+      "votes": 113854,
+      "vote_share_pct": 59.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "RAVJIBHAI ISHVARBHAI VASAVA",
+      "party_short": "BJP",
+      "votes": 64906,
+      "vote_share_pct": 34.17,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "CHHOTUBHAI A.VASAVA",
+      "party_short": "JD(U)",
+      "votes": 5055,
+      "vote_share_pct": 2.66,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 5364,
+    "vote_share_pct": 2.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VASAVA CHHOTUBHAI AMARSINH",
+    "party_short": "BTP",
+    "votes": 113854,
+    "margin_votes": 48948,
+    "margin_pct": 25.77
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 82,
+  "constituency_name": "Dwarka",
+  "totals": {
+    "electors": 262232,
+    "votes_polled": 156485,
+    "turnout_pct": 59.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PABUBHA VIRAMBHA MANEK",
+      "party_short": "BJP",
+      "votes": 73431,
+      "vote_share_pct": 46.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AHIR MERAMAN MARKHI",
+      "party_short": "INC",
+      "votes": 67692,
+      "vote_share_pct": 43.26,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MADAM RANMALBHAI LAKHUBHAI",
+      "party_short": "NCP",
+      "votes": 2829,
+      "vote_share_pct": 1.81,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CHETARIYA RAMBHAI KARSHANBHAI",
+      "party_short": "BSP",
+      "votes": 1911,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KANJARIYA ARJAN KESHA",
+      "party_short": "IND",
+      "votes": 1584,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3213,
+    "vote_share_pct": 2.05
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4758,
+    "vote_share_pct": 3.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PABUBHA VIRAMBHA MANEK",
+    "party_short": "BJP",
+    "votes": 73431,
+    "margin_votes": 5739,
+    "margin_pct": 3.67
+  }
+}

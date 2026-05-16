@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 217,
+  "constituency_name": "Maharajpur",
+  "totals": {
+    "electors": 448458,
+    "votes_polled": 252262,
+    "turnout_pct": 56.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Satish Mahana",
+      "party_short": "BJP",
+      "votes": 152883,
+      "vote_share_pct": 60.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "FATEH BAHADUR SINGH GILL",
+      "party_short": "SP",
+      "votes": 70622,
+      "vote_share_pct": 28.0,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SURENDRA PAL SINGH",
+      "party_short": "BSP",
+      "votes": 15113,
+      "vote_share_pct": 5.99,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KANISHKA PANDEY",
+      "party_short": "INC",
+      "votes": 7280,
+      "vote_share_pct": 2.89,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AVDHESH KUMAR GUPTA",
+      "party_short": "BSCP",
+      "votes": 935,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1372,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4057,
+    "vote_share_pct": 1.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Satish Mahana",
+    "party_short": "BJP",
+    "votes": 152883,
+    "margin_votes": 82261,
+    "margin_pct": 32.61
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 222,
+  "constituency_name": "Babina",
+  "totals": {
+    "electors": 323440,
+    "votes_polled": 230162,
+    "turnout_pct": 71.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJEEV SINGH &QUOT;PARICHHA&QUOT;",
+      "party_short": "BJP",
+      "votes": 96713,
+      "vote_share_pct": 42.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "YASHPAL SINGH YADAV",
+      "party_short": "SP",
+      "votes": 79876,
+      "vote_share_pct": 34.7,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KRISHNA PAL SINGH RAJPOOT",
+      "party_short": "BSP",
+      "votes": 42614,
+      "vote_share_pct": 18.51,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KALICHARAN KUSHWAHA",
+      "party_short": "JAM",
+      "votes": 3282,
+      "vote_share_pct": 1.43,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "OMVEER SINGH KUSHWAH",
+      "party_short": "RLD",
+      "votes": 1052,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1982,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4643,
+    "vote_share_pct": 2.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJEEV SINGH &QUOT;PARICHHA&QUOT;",
+    "party_short": "BJP",
+    "votes": 96713,
+    "margin_votes": 16837,
+    "margin_pct": 7.32
+  }
+}

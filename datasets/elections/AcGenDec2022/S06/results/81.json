@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "Khambhalia",
+  "totals": {
+    "electors": 302785,
+    "votes_polled": 190017,
+    "turnout_pct": 62.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ayar Mulubhai Hardasbhai Bera",
+      "party_short": "BJP",
+      "votes": 77834,
+      "vote_share_pct": 40.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Isudan Gadhvi",
+      "party_short": "AAAP",
+      "votes": 59089,
+      "vote_share_pct": 31.1,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ahir Vikrambhai Arjanbhai Maadam",
+      "party_short": "INC",
+      "votes": 44715,
+      "vote_share_pct": 23.53,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Manjuben Karabhai Pingal",
+      "party_short": "IND",
+      "votes": 1250,
+      "vote_share_pct": 0.66,
+      "gender": "F",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Solanki Govind Hamirbhai",
+      "party_short": "BSP",
+      "votes": 1000,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2582,
+    "vote_share_pct": 1.36
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3547,
+    "vote_share_pct": 1.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ayar Mulubhai Hardasbhai Bera",
+    "party_short": "BJP",
+    "votes": 77834,
+    "margin_votes": 18745,
+    "margin_pct": 9.86
+  }
+}

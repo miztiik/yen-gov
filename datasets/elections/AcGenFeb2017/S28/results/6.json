@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Karnprayag",
+  "totals": {
+    "electors": 96579,
+    "votes_polled": 54442,
+    "turnout_pct": 56.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURENDRA SINGH NEGI",
+      "party_short": "BJP",
+      "votes": 28159,
+      "vote_share_pct": 51.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. ANSUYA PARSAD MAIKHURI",
+      "party_short": "INC",
+      "votes": 20610,
+      "vote_share_pct": 37.86,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "INDRESH MAIKHURI",
+      "party_short": "CPI(ML)(L)",
+      "votes": 1331,
+      "vote_share_pct": 2.44,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BALWANT SINGH NEGI",
+      "party_short": "UKKD",
+      "votes": 1232,
+      "vote_share_pct": 2.26,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JYOTI KANWASI",
+      "party_short": "BSP",
+      "votes": 857,
+      "vote_share_pct": 1.57,
+      "gender": "F",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 810,
+    "vote_share_pct": 1.49
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1443,
+    "vote_share_pct": 2.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURENDRA SINGH NEGI",
+    "party_short": "BJP",
+    "votes": 28159,
+    "margin_votes": 7549,
+    "margin_pct": 13.87
+  }
+}

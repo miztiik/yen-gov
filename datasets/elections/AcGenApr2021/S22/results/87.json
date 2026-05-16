@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "Sankari",
+  "totals": {
+    "electors": 274307,
+    "votes_polled": 232247,
+    "turnout_pct": 84.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUNDARARAJAN, S.",
+      "party_short": "ADMK",
+      "votes": 115472,
+      "vote_share_pct": 49.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJESH, K.M.",
+      "party_short": "DMK",
+      "votes": 95427,
+      "vote_share_pct": 41.09,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHOBANA, S.",
+      "party_short": "NTK",
+      "votes": 10862,
+      "vote_share_pct": 4.68,
+      "gender": "F",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SENGODAN, K.",
+      "party_short": "MNM",
+      "votes": 3175,
+      "vote_share_pct": 1.37,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHELLAMUTHU, A.",
+      "party_short": "AMMKMNKZ",
+      "votes": 1471,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1469,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 4371,
+    "vote_share_pct": 1.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUNDARARAJAN, S.",
+    "party_short": "ADMK",
+    "votes": 115472,
+    "margin_votes": 20045,
+    "margin_pct": 8.63
+  }
+}

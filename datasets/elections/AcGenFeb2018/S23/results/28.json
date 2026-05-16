@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "Teliamura",
+  "totals": {
+    "electors": 42907,
+    "votes_polled": 39525,
+    "turnout_pct": 92.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KALYANI ROY",
+      "party_short": "BJP",
+      "votes": 22077,
+      "vote_share_pct": 55.86,
+      "is_winner": true,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GOURI DAS",
+      "party_short": "CPM",
+      "votes": 14898,
+      "vote_share_pct": 37.69,
+      "gender": "F",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "NITYAGOPAL RUDRA PAL",
+      "party_short": "INC",
+      "votes": 438,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CHINTA KUMAR DEBBARMA",
+      "party_short": "TLSP",
+      "votes": 432,
+      "vote_share_pct": 1.09,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "GOPAL CHANDRA SARKAR",
+      "party_short": "AMB",
+      "votes": 328,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 359,
+    "vote_share_pct": 0.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KALYANI ROY",
+    "party_short": "BJP",
+    "votes": 22077,
+    "margin_votes": 7179,
+    "margin_pct": 18.16
+  },
+  "others": null
+}

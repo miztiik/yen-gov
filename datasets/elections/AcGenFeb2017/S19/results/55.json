@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "Fatehgarh Sahib",
+  "totals": {
+    "electors": 149715,
+    "votes_polled": 124777,
+    "turnout_pct": 83.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KULJIT SINGH NAGRA",
+      "party_short": "INC",
+      "votes": 58205,
+      "vote_share_pct": 46.65,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DIDAR SINGH BHATTI",
+      "party_short": "SAD",
+      "votes": 34338,
+      "vote_share_pct": 27.52,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "LAKHVIR SINGH RAI",
+      "party_short": "AAAP",
+      "votes": 29393,
+      "vote_share_pct": 23.56,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KULDIP SINGH",
+      "party_short": "SAD(M)",
+      "votes": 1589,
+      "vote_share_pct": 1.27,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "TARLOCHAN SINGH",
+      "party_short": "APPA",
+      "votes": 449,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 803,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KULJIT SINGH NAGRA",
+    "party_short": "INC",
+    "votes": 58205,
+    "margin_votes": 23867,
+    "margin_pct": 19.13
+  },
+  "others": null
+}

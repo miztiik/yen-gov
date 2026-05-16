@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "Deedwana",
+  "totals": {
+    "electors": 265866,
+    "votes_polled": 195933,
+    "turnout_pct": 73.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Yoonus Khan",
+      "party_short": "IND",
+      "votes": 70952,
+      "vote_share_pct": 36.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Chetan Singh Chaudhary",
+      "party_short": "INC",
+      "votes": 68560,
+      "vote_share_pct": 34.99,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Jitendra Singh",
+      "party_short": "BJP",
+      "votes": 48814,
+      "vote_share_pct": 24.91,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ramniwas Royal",
+      "party_short": "AAAP",
+      "votes": 2516,
+      "vote_share_pct": 1.28,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Virendar Jadam",
+      "party_short": "IND",
+      "votes": 1087,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1778,
+    "vote_share_pct": 0.91
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2226,
+    "vote_share_pct": 1.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Yoonus Khan",
+    "party_short": "IND",
+    "votes": 70952,
+    "margin_votes": 2392,
+    "margin_pct": 1.22
+  }
+}

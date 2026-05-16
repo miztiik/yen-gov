@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "Aliganj",
+  "totals": {
+    "electors": 333944,
+    "votes_polled": 216594,
+    "turnout_pct": 64.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATYAPAL SINGH RATHAUR",
+      "party_short": "BJP",
+      "votes": 88695,
+      "vote_share_pct": 40.95,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAMESHWAR SINGH YADAV",
+      "party_short": "SP",
+      "votes": 74844,
+      "vote_share_pct": 34.55,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AWADHPAL SINGH YADAV",
+      "party_short": "BSP",
+      "votes": 46275,
+      "vote_share_pct": 21.36,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "HARVESH",
+      "party_short": "IND",
+      "votes": 1305,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAM KISHORE",
+      "party_short": "MD",
+      "votes": 1070,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1572,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2833,
+    "vote_share_pct": 1.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATYAPAL SINGH RATHAUR",
+    "party_short": "BJP",
+    "votes": 88695,
+    "margin_votes": 13851,
+    "margin_pct": 6.39
+  }
+}

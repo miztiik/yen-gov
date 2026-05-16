@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 117,
+  "constituency_name": "Sojat (SC)",
+  "totals": {
+    "electors": 246238,
+    "votes_polled": 170105,
+    "turnout_pct": 69.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shobha Chauhan",
+      "party_short": "BJP",
+      "votes": 94852,
+      "vote_share_pct": 55.76,
+      "is_winner": true,
+      "gender": "F",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Niranjan Arya",
+      "party_short": "INC",
+      "votes": 63080,
+      "vote_share_pct": 37.08,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Ramchandre",
+      "party_short": "ASPKR",
+      "votes": 2266,
+      "vote_share_pct": 1.33,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Om Prakash",
+      "party_short": "AAAP",
+      "votes": 1993,
+      "vote_share_pct": 1.17,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Rekha Avinash Panwar",
+      "party_short": "IND",
+      "votes": 1474,
+      "vote_share_pct": 0.87,
+      "gender": "F",
+      "age": 35,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2024,
+    "vote_share_pct": 1.19
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4416,
+    "vote_share_pct": 2.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shobha Chauhan",
+    "party_short": "BJP",
+    "votes": 94852,
+    "margin_votes": 31772,
+    "margin_pct": 18.68
+  }
+}

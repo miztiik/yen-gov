@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 197,
+  "constituency_name": "Usilampatti",
+  "totals": {
+    "electors": 286453,
+    "votes_polled": 212513,
+    "turnout_pct": 74.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AYYAPPAN P",
+      "party_short": "ADMK",
+      "votes": 71255,
+      "vote_share_pct": 33.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KATHIRAVAN P V",
+      "party_short": "DMK",
+      "votes": 63778,
+      "vote_share_pct": 30.01,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MAHENDRAN I",
+      "party_short": "AMMKMNKZ",
+      "votes": 55491,
+      "vote_share_pct": 26.11,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "IYNDHUKOVILAN G",
+      "party_short": "NTK",
+      "votes": 15357,
+      "vote_share_pct": 7.23,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ARUMUGAM K",
+      "party_short": "IND",
+      "votes": 1247,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1032,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4353,
+    "vote_share_pct": 2.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AYYAPPAN P",
+    "party_short": "ADMK",
+    "votes": 71255,
+    "margin_votes": 7477,
+    "margin_pct": 3.52
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 270,
+  "constituency_name": "Dariyabad",
+  "totals": {
+    "electors": 412472,
+    "votes_polled": 273557,
+    "turnout_pct": 66.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Satish Chandra Sharma",
+      "party_short": "BJP",
+      "votes": 128219,
+      "vote_share_pct": 46.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Arvind Kumar Singh Gope",
+      "party_short": "SP",
+      "votes": 95817,
+      "vote_share_pct": 35.03,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Jagprasad Rawat",
+      "party_short": "BSP",
+      "votes": 28361,
+      "vote_share_pct": 10.37,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Ritesh Kumar Singh",
+      "party_short": "IND",
+      "votes": 9378,
+      "vote_share_pct": 3.43,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mubashshir Ahmad",
+      "party_short": "AIMIM",
+      "votes": 2642,
+      "vote_share_pct": 0.97,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2363,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 6777,
+    "vote_share_pct": 2.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Satish Chandra Sharma",
+    "party_short": "BJP",
+    "votes": 128219,
+    "margin_votes": 32402,
+    "margin_pct": 11.84
+  }
+}

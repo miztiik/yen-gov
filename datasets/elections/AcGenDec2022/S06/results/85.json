@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 85,
+  "constituency_name": "Manavadar",
+  "totals": {
+    "electors": 248763,
+    "votes_polled": 153497,
+    "turnout_pct": 61.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Arvindbhai Jinabhai Ladani",
+      "party_short": "INC",
+      "votes": 64690,
+      "vote_share_pct": 42.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Jawaharbhai Pethaljibhai Chavda",
+      "party_short": "BJP",
+      "votes": 61237,
+      "vote_share_pct": 39.89,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Karshan Parbat Bhadarka (bapu)",
+      "party_short": "AAAP",
+      "votes": 23297,
+      "vote_share_pct": 15.18,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Muchhadiya Devdanbhai Kanabhai",
+      "party_short": "BSP",
+      "votes": 1370,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Rathod Bhavinkumar Shantilal",
+      "party_short": "IND",
+      "votes": 731,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1568,
+    "vote_share_pct": 1.02
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 604,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Arvindbhai Jinabhai Ladani",
+    "party_short": "INC",
+    "votes": 64690,
+    "margin_votes": 3453,
+    "margin_pct": 2.25
+  }
+}

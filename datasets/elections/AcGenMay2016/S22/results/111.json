@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 111,
+  "constituency_name": "Mettuppalayam",
+  "totals": {
+    "electors": 279110,
+    "votes_polled": 210761,
+    "turnout_pct": 75.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHINNARAJ.O.K",
+      "party_short": "ADMK",
+      "votes": 93595,
+      "vote_share_pct": 44.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURENDRAN. S.",
+      "party_short": "DMK",
+      "votes": 77481,
+      "vote_share_pct": 36.76,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHANMUGA SUNDARAM.T.R",
+      "party_short": "TMC(M)",
+      "votes": 13324,
+      "vote_share_pct": 6.32,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JAGANATHAN. P.",
+      "party_short": "BJP",
+      "votes": 11036,
+      "vote_share_pct": 5.24,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHAMMED RAFI. S",
+      "party_short": "SDPI",
+      "votes": 2209,
+      "vote_share_pct": 1.05,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3408,
+    "vote_share_pct": 1.62
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 9708,
+    "vote_share_pct": 4.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHINNARAJ.O.K",
+    "party_short": "ADMK",
+    "votes": 93595,
+    "margin_votes": 16114,
+    "margin_pct": 7.65
+  }
+}

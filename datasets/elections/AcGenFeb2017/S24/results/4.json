@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 4,
+  "constituency_name": "Saharanpur",
+  "totals": {
+    "electors": 317413,
+    "votes_polled": 237468,
+    "turnout_pct": 74.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MASOOD AKHTAR",
+      "party_short": "INC",
+      "votes": 87689,
+      "vote_share_pct": 36.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAGPAL SINGH",
+      "party_short": "BSP",
+      "votes": 75365,
+      "vote_share_pct": 31.74,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MANOJ CHAUDHARY",
+      "party_short": "BJP",
+      "votes": 58752,
+      "vote_share_pct": 24.74,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAAD ALI KHAN",
+      "party_short": "IND",
+      "votes": 10950,
+      "vote_share_pct": 4.61,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AYYUB HASAN",
+      "party_short": "RLD",
+      "votes": 822,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 968,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2922,
+    "vote_share_pct": 1.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MASOOD AKHTAR",
+    "party_short": "INC",
+    "votes": 87689,
+    "margin_votes": 12324,
+    "margin_pct": 5.19
+  }
+}

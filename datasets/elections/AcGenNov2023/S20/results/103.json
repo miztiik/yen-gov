@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 103,
+  "constituency_name": "Beawar",
+  "totals": {
+    "electors": 258434,
+    "votes_polled": 181730,
+    "turnout_pct": 70.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shankersingh Rawat",
+      "party_short": "BJP",
+      "votes": 67623,
+      "vote_share_pct": 37.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Parasmal Jain (panch)",
+      "party_short": "INC",
+      "votes": 58745,
+      "vote_share_pct": 32.33,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Inder Singh Bagawas",
+      "party_short": "IND",
+      "votes": 28343,
+      "vote_share_pct": 15.6,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Mahendra Singh Rawat",
+      "party_short": "IND",
+      "votes": 11599,
+      "vote_share_pct": 6.38,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Manoj Chouhan",
+      "party_short": "IND",
+      "votes": 7940,
+      "vote_share_pct": 4.37,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1771,
+    "vote_share_pct": 0.97
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 5709,
+    "vote_share_pct": 3.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shankersingh Rawat",
+    "party_short": "BJP",
+    "votes": 67623,
+    "margin_votes": 8878,
+    "margin_pct": 4.89
+  }
+}

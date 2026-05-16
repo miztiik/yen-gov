@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 326,
+  "constituency_name": "Chauri-Chaura",
+  "totals": {
+    "electors": 339854,
+    "votes_polled": 193724,
+    "turnout_pct": 57.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANGEETA YADAV",
+      "party_short": "BJP",
+      "votes": 87863,
+      "vote_share_pct": 45.35,
+      "is_winner": true,
+      "gender": "F",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANUROJAN YADAV",
+      "party_short": "SP",
+      "votes": 42203,
+      "vote_share_pct": 21.79,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAI PRAKASH",
+      "party_short": "BSP",
+      "votes": 37478,
+      "vote_share_pct": 19.35,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ISHVAR CHAND",
+      "party_short": "NINSHAD",
+      "votes": 13048,
+      "vote_share_pct": 6.74,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DUDHNATH KEWAT",
+      "party_short": "NCP",
+      "votes": 2045,
+      "vote_share_pct": 1.06,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1150,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 9937,
+    "vote_share_pct": 5.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANGEETA YADAV",
+    "party_short": "BJP",
+    "votes": 87863,
+    "margin_votes": 45660,
+    "margin_pct": 23.57
+  }
+}

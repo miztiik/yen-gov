@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Roorkee",
+  "totals": {
+    "electors": 121681,
+    "votes_polled": 76714,
+    "turnout_pct": 63.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pradeep Batra",
+      "party_short": "BJP",
+      "votes": 36986,
+      "vote_share_pct": 48.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "YASHPAL RANA",
+      "party_short": "INC",
+      "votes": 34709,
+      "vote_share_pct": 45.24,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GULBAHAR",
+      "party_short": "ASPKR",
+      "votes": 1961,
+      "vote_share_pct": 2.56,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Tanveer Ahamad",
+      "party_short": "BSP",
+      "votes": 958,
+      "vote_share_pct": 1.25,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NARESH KUMAR (PRINCE)",
+      "party_short": "AAAP",
+      "votes": 753,
+      "vote_share_pct": 0.98,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 302,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1045,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pradeep Batra",
+    "party_short": "BJP",
+    "votes": 36986,
+    "margin_votes": 2277,
+    "margin_pct": 2.97
+  }
+}

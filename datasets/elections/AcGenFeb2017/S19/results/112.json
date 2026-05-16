@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 112,
+  "constituency_name": "Dera Bassi",
+  "totals": {
+    "electors": 239885,
+    "votes_polled": 178140,
+    "turnout_pct": 74.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NARINDER KUMAR SHARMA",
+      "party_short": "SAD",
+      "votes": 70792,
+      "vote_share_pct": 39.74,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DEEPINDER SINGH",
+      "party_short": "INC",
+      "votes": 68871,
+      "vote_share_pct": 38.66,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SARABJIT KAUR",
+      "party_short": "AAAP",
+      "votes": 33150,
+      "vote_share_pct": 18.61,
+      "gender": "F",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GURMEET SINGH",
+      "party_short": "BSP",
+      "votes": 1268,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DHARMINDER KUMAR",
+      "party_short": "SHS",
+      "votes": 892,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1345,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1822,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NARINDER KUMAR SHARMA",
+    "party_short": "SAD",
+    "votes": 70792,
+    "margin_votes": 1921,
+    "margin_pct": 1.08
+  }
+}

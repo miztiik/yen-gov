@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Fatehgarh Churian",
+  "totals": {
+    "electors": 177849,
+    "votes_polled": 128822,
+    "turnout_pct": 72.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TRIPT RAJINDER SINGH BAJWA",
+      "party_short": "INC",
+      "votes": 46311,
+      "vote_share_pct": 35.95,
+      "is_winner": true,
+      "gender": "M",
+      "age": 78,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "LAKHBIR SINGH LODHINANGAL",
+      "party_short": "SAD",
+      "votes": 40766,
+      "vote_share_pct": 31.65,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BALBIR SINGH",
+      "party_short": "AAAP",
+      "votes": 35819,
+      "vote_share_pct": 27.81,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KULWANT SINGH MAJHAIL",
+      "party_short": "SAD(M)",
+      "votes": 3390,
+      "vote_share_pct": 2.63,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BALJINDER SINGH",
+      "party_short": "IND",
+      "votes": 723,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 812,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1001,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TRIPT RAJINDER SINGH BAJWA",
+    "party_short": "INC",
+    "votes": 46311,
+    "margin_votes": 5545,
+    "margin_pct": 4.3
+  }
+}

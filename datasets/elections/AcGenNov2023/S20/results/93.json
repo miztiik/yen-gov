@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 93,
+  "constituency_name": "Khandar (SC)",
+  "totals": {
+    "electors": 247830,
+    "votes_polled": 180253,
+    "turnout_pct": 72.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jitendra Kumar Gothwal",
+      "party_short": "BJP",
+      "votes": 92059,
+      "vote_share_pct": 51.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Ashok",
+      "party_short": "INC",
+      "votes": 78044,
+      "vote_share_pct": 43.3,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Ankita Verma",
+      "party_short": "RLTP",
+      "votes": 2394,
+      "vote_share_pct": 1.33,
+      "gender": "F",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Manphool Bairwa",
+      "party_short": "AAAP",
+      "votes": 1992,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Mohan",
+      "party_short": "BSP",
+      "votes": 1165,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2056,
+    "vote_share_pct": 1.14
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2543,
+    "vote_share_pct": 1.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jitendra Kumar Gothwal",
+    "party_short": "BJP",
+    "votes": 92059,
+    "margin_votes": 14015,
+    "margin_pct": 7.78
+  }
+}

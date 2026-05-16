@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 152,
+  "constituency_name": "Vridhachalam",
+  "totals": {
+    "electors": 231740,
+    "votes_polled": 185125,
+    "turnout_pct": 79.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KALAISELVAN V T",
+      "party_short": "ADMK",
+      "votes": 72611,
+      "vote_share_pct": 39.22,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GOVINDASAMY P",
+      "party_short": "DMK",
+      "votes": 58834,
+      "vote_share_pct": 31.78,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "TAMIZHARASI P DR",
+      "party_short": "PMK",
+      "votes": 29340,
+      "vote_share_pct": 15.85,
+      "gender": "F",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MUTHUKUMAR V",
+      "party_short": "DMDK",
+      "votes": 18563,
+      "vote_share_pct": 10.03,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SIVARAJ S",
+      "party_short": "NTK",
+      "votes": 844,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2255,
+    "vote_share_pct": 1.22
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2678,
+    "vote_share_pct": 1.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KALAISELVAN V T",
+    "party_short": "ADMK",
+    "votes": 72611,
+    "margin_votes": 13777,
+    "margin_pct": 7.44
+  }
+}

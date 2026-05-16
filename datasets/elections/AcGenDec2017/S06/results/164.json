@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 164,
+  "constituency_name": "Udhna",
+  "totals": {
+    "electors": 233618,
+    "votes_polled": 142495,
+    "turnout_pct": 60.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PATEL VIVEK NAROTTAMBHAI",
+      "party_short": "BJP",
+      "votes": 87884,
+      "vote_share_pct": 61.68,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PATEL SATISHBHAI CHAMPAKBHAI",
+      "party_short": "INC",
+      "votes": 45356,
+      "vote_share_pct": 31.83,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VILAS SUBHASH PATIL",
+      "party_short": "SHS",
+      "votes": 2901,
+      "vote_share_pct": 2.04,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SONVANE SURYAVARDHAN RAMESH",
+      "party_short": "IND",
+      "votes": 1583,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BAISANE SHILABEN SUBHASHBHAI",
+      "party_short": "BMUP",
+      "votes": 555,
+      "vote_share_pct": 0.39,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1475,
+    "vote_share_pct": 1.04
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2342,
+    "vote_share_pct": 1.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PATEL VIVEK NAROTTAMBHAI",
+    "party_short": "BJP",
+    "votes": 87884,
+    "margin_votes": 42528,
+    "margin_pct": 29.85
+  }
+}

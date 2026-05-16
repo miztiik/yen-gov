@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "Khurai",
+  "totals": {
+    "electors": 35747,
+    "votes_polled": 33110,
+    "turnout_pct": 92.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LEISHANGTHEM SUSINDRO MEITEI",
+      "party_short": "BJP",
+      "votes": 11131,
+      "vote_share_pct": 33.62,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "LAITONJAM JAYANANDA SINGH",
+      "party_short": "NPEP",
+      "votes": 8894,
+      "vote_share_pct": 26.86,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KHAGOKPAM KHAMBA SINGH",
+      "party_short": "RPPRINAT",
+      "votes": 6792,
+      "vote_share_pct": 20.51,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "TOIJAM LOKENDRO SINGH",
+      "party_short": "JD(U)",
+      "votes": 2922,
+      "vote_share_pct": 8.83,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KHURAIJAM RATANKUMAR SINGH",
+      "party_short": "NCP",
+      "votes": 2461,
+      "vote_share_pct": 7.43,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 169,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 741,
+    "vote_share_pct": 2.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LEISHANGTHEM SUSINDRO MEITEI",
+    "party_short": "BJP",
+    "votes": 11131,
+    "margin_votes": 2237,
+    "margin_pct": 6.76
+  }
+}

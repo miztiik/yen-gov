@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 113,
+  "constituency_name": "Ghanaur",
+  "totals": {
+    "electors": 165161,
+    "votes_polled": 130423,
+    "turnout_pct": 78.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GURLAL GHANAUR",
+      "party_short": "AAAP",
+      "votes": 62783,
+      "vote_share_pct": 48.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MADAN LAL",
+      "party_short": "INC",
+      "votes": 31018,
+      "vote_share_pct": 23.78,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PREM SINGH CHANDUMAJRA",
+      "party_short": "SAD",
+      "votes": 24141,
+      "vote_share_pct": 18.51,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIKAS SHARMA",
+      "party_short": "BJP",
+      "votes": 5728,
+      "vote_share_pct": 4.39,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PREM SINGH BHANGU",
+      "party_short": "IND",
+      "votes": 1681,
+      "vote_share_pct": 1.29,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1306,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3766,
+    "vote_share_pct": 2.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GURLAL GHANAUR",
+    "party_short": "AAAP",
+    "votes": 62783,
+    "margin_votes": 31765,
+    "margin_pct": 24.36
+  }
+}

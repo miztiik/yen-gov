@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 263,
+  "constituency_name": "Allahabad South",
+  "totals": {
+    "electors": 392097,
+    "votes_polled": 177063,
+    "turnout_pct": 45.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAND GOPAL GUPTA NANDI",
+      "party_short": "BJP",
+      "votes": 93011,
+      "vote_share_pct": 52.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "HAJI PARVEZ  AHMAD TANKI",
+      "party_short": "SP",
+      "votes": 64424,
+      "vote_share_pct": 36.38,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MASHOOQ KHAN",
+      "party_short": "BSP",
+      "votes": 12162,
+      "vote_share_pct": 6.87,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AQEELUR RAHMAN",
+      "party_short": "PECP",
+      "votes": 872,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SYED AFZAL MUZIB",
+      "party_short": "AIMIM",
+      "votes": 868,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 665,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 5061,
+    "vote_share_pct": 2.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAND GOPAL GUPTA NANDI",
+    "party_short": "BJP",
+    "votes": 93011,
+    "margin_votes": 28587,
+    "margin_pct": 16.15
+  }
+}

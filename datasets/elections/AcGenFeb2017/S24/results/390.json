@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 390,
+  "constituency_name": "Varanasi Cantt.",
+  "totals": {
+    "electors": 412316,
+    "votes_polled": 227600,
+    "turnout_pct": 55.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAURABH SRIVASTAVA",
+      "party_short": "BJP",
+      "votes": 132609,
+      "vote_share_pct": 58.26,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANIL SRIVASTAVA",
+      "party_short": "INC",
+      "votes": 71283,
+      "vote_share_pct": 31.32,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RIJWAN AHMAD",
+      "party_short": "BSP",
+      "votes": 14118,
+      "vote_share_pct": 6.2,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AJOY MUKHERJEE",
+      "party_short": "CPI",
+      "votes": 1515,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DHURANDHAR SINGH",
+      "party_short": "IND",
+      "votes": 991,
+      "vote_share_pct": 0.44,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 758,
+    "vote_share_pct": 0.33
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 6326,
+    "vote_share_pct": 2.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAURABH SRIVASTAVA",
+    "party_short": "BJP",
+    "votes": 132609,
+    "margin_votes": 61326,
+    "margin_pct": 26.94
+  }
+}

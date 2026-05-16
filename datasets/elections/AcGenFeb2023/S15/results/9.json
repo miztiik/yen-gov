@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Nongpoh (ST)",
+  "totals": {
+    "electors": 37588,
+    "votes_polled": 32875,
+    "turnout_pct": 87.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mayralborn Syiem",
+      "party_short": "UDP",
+      "votes": 14940,
+      "vote_share_pct": 45.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Rona Khymdeit",
+      "party_short": "INC",
+      "votes": 8254,
+      "vote_share_pct": 25.11,
+      "gender": "F",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Macdalyn Sawkmie Mawlong",
+      "party_short": "NPEP",
+      "votes": 7446,
+      "vote_share_pct": 22.65,
+      "gender": "F",
+      "age": 36,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Marian Maring",
+      "party_short": "BJP",
+      "votes": 1079,
+      "vote_share_pct": 3.28,
+      "gender": "F",
+      "age": 36,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Long Singh Bey",
+      "party_short": "AITC",
+      "votes": 661,
+      "vote_share_pct": 2.01,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 300,
+    "vote_share_pct": 0.91
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 195,
+    "vote_share_pct": 0.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mayralborn Syiem",
+    "party_short": "UDP",
+    "votes": 14940,
+    "margin_votes": 6686,
+    "margin_pct": 20.34
+  }
+}

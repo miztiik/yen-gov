@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Ghanshali",
+  "totals": {
+    "electors": 99175,
+    "votes_polled": 49768,
+    "turnout_pct": 50.18
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHAKTI LAL SHAH",
+      "party_short": "BJP",
+      "votes": 20949,
+      "vote_share_pct": 42.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DHANI LAL SHAH",
+      "party_short": "INC",
+      "votes": 10664,
+      "vote_share_pct": 21.43,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BHEEM LAL ARYA",
+      "party_short": "IND",
+      "votes": 9204,
+      "vote_share_pct": 18.49,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "DARSHAN LAL DAS",
+      "party_short": "IND",
+      "votes": 4739,
+      "vote_share_pct": 9.52,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KAMAL DAS",
+      "party_short": "UKKD",
+      "votes": 1653,
+      "vote_share_pct": 3.32,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 742,
+    "vote_share_pct": 1.49
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1817,
+    "vote_share_pct": 3.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHAKTI LAL SHAH",
+    "party_short": "BJP",
+    "votes": 20949,
+    "margin_votes": 10285,
+    "margin_pct": 20.67
+  }
+}

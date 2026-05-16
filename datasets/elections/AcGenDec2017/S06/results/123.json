@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 123,
+  "constituency_name": "Santrampur",
+  "totals": {
+    "electors": 208640,
+    "votes_polled": 142061,
+    "turnout_pct": 68.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DINDOR KUBERBHAI MANSUKHBHAI",
+      "party_short": "BJP",
+      "votes": 68362,
+      "vote_share_pct": 48.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "DAMOR GENDALBHAI MOTIBHAI",
+      "party_short": "INC",
+      "votes": 61938,
+      "vote_share_pct": 43.6,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "VALAVAI RAJENDRAKUMAR BABALBHAI (RAJU VALAVAI)",
+      "party_short": "NCP",
+      "votes": 2378,
+      "vote_share_pct": 1.67,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "VAGADIYA YOGESHBHAI MASURBHAI",
+      "party_short": "AINHCP",
+      "votes": 2219,
+      "vote_share_pct": 1.56,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "BARIYA RAMABHAI  KOHYABHAI",
+      "party_short": "BSP",
+      "votes": 1416,
+      "vote_share_pct": 1.0,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3009,
+    "vote_share_pct": 2.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DINDOR KUBERBHAI MANSUKHBHAI",
+    "party_short": "BJP",
+    "votes": 68362,
+    "margin_votes": 6424,
+    "margin_pct": 4.52
+  },
+  "others": null
+}

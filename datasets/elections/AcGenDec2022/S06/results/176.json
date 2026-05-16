@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 176,
+  "constituency_name": "Gandevi (ST)",
+  "totals": {
+    "electors": 292704,
+    "votes_polled": 210659,
+    "turnout_pct": 71.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nareshbhai Maganbhai Patel",
+      "party_short": "BJP",
+      "votes": 131116,
+      "vote_share_pct": 62.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Ashokbhai Lallubhai Patel (karate)",
+      "party_short": "INC",
+      "votes": 37950,
+      "vote_share_pct": 18.01,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Pankajbhai Lallubhai Patel",
+      "party_short": "AAAP",
+      "votes": 37818,
+      "vote_share_pct": 17.95,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3775,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nareshbhai Maganbhai Patel",
+    "party_short": "BJP",
+    "votes": 131116,
+    "margin_votes": 93166,
+    "margin_pct": 44.23
+  },
+  "others": null
+}

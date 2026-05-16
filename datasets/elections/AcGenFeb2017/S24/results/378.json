@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 378,
+  "constituency_name": "Mohammadabad",
+  "totals": {
+    "electors": 394670,
+    "votes_polled": 230144,
+    "turnout_pct": 58.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ALKA RAI",
+      "party_short": "BJP",
+      "votes": 122156,
+      "vote_share_pct": 53.08,
+      "is_winner": true,
+      "gender": "F",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SIBGATULLA ANSARI",
+      "party_short": "BSP",
+      "votes": 89429,
+      "vote_share_pct": 38.86,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JANAK KUMAR",
+      "party_short": "INC",
+      "votes": 9910,
+      "vote_share_pct": 4.31,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SURENDRA",
+      "party_short": "CPI",
+      "votes": 2503,
+      "vote_share_pct": 1.09,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAIGOBIND",
+      "party_short": "IND",
+      "votes": 901,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2283,
+    "vote_share_pct": 0.99
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2962,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ALKA RAI",
+    "party_short": "BJP",
+    "votes": 122156,
+    "margin_votes": 32727,
+    "margin_pct": 14.22
+  }
+}

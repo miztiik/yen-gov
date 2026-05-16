@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Mannadipet",
+  "totals": {
+    "electors": 30709,
+    "votes_polled": 27560,
+    "turnout_pct": 89.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "T.P.R. SELVAME",
+      "party_short": "AINRC",
+      "votes": 7679,
+      "vote_share_pct": 27.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "A. KRISHNAN",
+      "party_short": "DMK",
+      "votes": 7260,
+      "vote_share_pct": 26.34,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MAHADEVI",
+      "party_short": "ADMK",
+      "votes": 5676,
+      "vote_share_pct": 20.6,
+      "gender": "F",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "K.P.K. ARUL MURUGAN",
+      "party_short": "IND",
+      "votes": 4913,
+      "vote_share_pct": 17.83,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CANDANE NAARAYANASSAAMY",
+      "party_short": "IND",
+      "votes": 784,
+      "vote_share_pct": 2.84,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 316,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 932,
+    "vote_share_pct": 3.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "T.P.R. SELVAME",
+    "party_short": "AINRC",
+    "votes": 7679,
+    "margin_votes": 419,
+    "margin_pct": 1.52
+  }
+}

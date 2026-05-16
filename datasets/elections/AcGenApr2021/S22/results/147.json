@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 147,
+  "constituency_name": "Perambalur",
+  "totals": {
+    "electors": 302758,
+    "votes_polled": 240026,
+    "turnout_pct": 79.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRABHAHARAN, M.",
+      "party_short": "DMK",
+      "votes": 122090,
+      "vote_share_pct": 50.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "THAMIZHSELVAN, R.",
+      "party_short": "ADMK",
+      "votes": 91056,
+      "vote_share_pct": 37.94,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MAHESHWARI, M.",
+      "party_short": "NTK",
+      "votes": 18673,
+      "vote_share_pct": 7.78,
+      "gender": "F",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAJENDRAN, K.",
+      "party_short": "DMDK",
+      "votes": 2932,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SASIKALA, M.",
+      "party_short": "IJK",
+      "votes": 1080,
+      "vote_share_pct": 0.45,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1884,
+    "vote_share_pct": 0.78
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2311,
+    "vote_share_pct": 0.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRABHAHARAN, M.",
+    "party_short": "DMK",
+    "votes": 122090,
+    "margin_votes": 31034,
+    "margin_pct": 12.93
+  }
+}

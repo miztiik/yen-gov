@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "Nighasan",
+  "totals": {
+    "electors": 340374,
+    "votes_polled": 236815,
+    "turnout_pct": 69.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shashank Verma",
+      "party_short": "BJP",
+      "votes": 126488,
+      "vote_share_pct": 53.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "R S Kushwaha",
+      "party_short": "SP",
+      "votes": 85479,
+      "vote_share_pct": 36.1,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "R A Usmani",
+      "party_short": "BSP",
+      "votes": 15392,
+      "vote_share_pct": 6.5,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Atal Kumar Shukla",
+      "party_short": "INC",
+      "votes": 2762,
+      "vote_share_pct": 1.17,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Qamrul Huda",
+      "party_short": "JANADIP",
+      "votes": 2707,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2191,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1796,
+    "vote_share_pct": 0.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shashank Verma",
+    "party_short": "BJP",
+    "votes": 126488,
+    "margin_votes": 41009,
+    "margin_pct": 17.32
+  }
+}

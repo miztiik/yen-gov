@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "Muradnagar",
+  "totals": {
+    "electors": 457759,
+    "votes_polled": 274689,
+    "turnout_pct": 60.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ajit Pal Tyagi",
+      "party_short": "BJP",
+      "votes": 169290,
+      "vote_share_pct": 61.63,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Surendra Kumar Munni",
+      "party_short": "RLD",
+      "votes": 72195,
+      "vote_share_pct": 26.28,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ayyuv Khan",
+      "party_short": "BSP",
+      "votes": 20589,
+      "vote_share_pct": 7.5,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vijendra Yadav",
+      "party_short": "INC",
+      "votes": 7055,
+      "vote_share_pct": 2.57,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mahesh Tyagi",
+      "party_short": "AAAP",
+      "votes": 2217,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1364,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1979,
+    "vote_share_pct": 0.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ajit Pal Tyagi",
+    "party_short": "BJP",
+    "votes": 169290,
+    "margin_votes": 97095,
+    "margin_pct": 35.35
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Anna Nagar",
+  "totals": {
+    "electors": 286090,
+    "votes_polled": 165096,
+    "turnout_pct": 57.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M.K. Mohan",
+      "party_short": "DMK",
+      "votes": 80054,
+      "vote_share_pct": 48.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "S. Gokula Indira",
+      "party_short": "ADMK",
+      "votes": 52609,
+      "vote_share_pct": 31.87,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "V. Ponraj",
+      "party_short": "MNM",
+      "votes": 17522,
+      "vote_share_pct": 10.61,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "S. Shankar",
+      "party_short": "NTK",
+      "votes": 10406,
+      "vote_share_pct": 6.3,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K.N. Gunasekaran",
+      "party_short": "AMMKMNKZ",
+      "votes": 1169,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1545,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 1791,
+    "vote_share_pct": 1.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M.K. Mohan",
+    "party_short": "DMK",
+    "votes": 80054,
+    "margin_votes": 27445,
+    "margin_pct": 16.62
+  }
+}

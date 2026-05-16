@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "Prantij",
+  "totals": {
+    "electors": 237328,
+    "votes_polled": 179467,
+    "turnout_pct": 75.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARMAR GAJENDRASINH UDESINH",
+      "party_short": "BJP",
+      "votes": 83482,
+      "vote_share_pct": 46.52,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BARAIYA MAHENDRASINH KACHARSINH (ADVOCATE)",
+      "party_short": "INC",
+      "votes": 80931,
+      "vote_share_pct": 45.1,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ZALA RAJENDRASINH KALUSINH",
+      "party_short": "NCP",
+      "votes": 3718,
+      "vote_share_pct": 2.07,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MASU RASIKBHAI PATEL",
+      "party_short": "IND",
+      "votes": 1762,
+      "vote_share_pct": 0.98,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ZALA DALPATSINH MOTISINH",
+      "party_short": "IND",
+      "votes": 1730,
+      "vote_share_pct": 0.96,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2907,
+    "vote_share_pct": 1.62
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2543,
+    "vote_share_pct": 1.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARMAR GAJENDRASINH UDESINH",
+    "party_short": "BJP",
+    "votes": 83482,
+    "margin_votes": 2551,
+    "margin_pct": 1.42
+  }
+}

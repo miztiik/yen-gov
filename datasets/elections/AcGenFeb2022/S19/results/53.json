@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "S.A.S. Nagar",
+  "totals": {
+    "electors": 239357,
+    "votes_polled": 155196,
+    "turnout_pct": 64.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KULWANT SINGH",
+      "party_short": "AAAP",
+      "votes": 77134,
+      "vote_share_pct": 49.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "BALBIR SINGH SIDHU",
+      "party_short": "INC",
+      "votes": 43037,
+      "vote_share_pct": 27.73,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANJEEV VASHISHT",
+      "party_short": "BJP",
+      "votes": 17020,
+      "vote_share_pct": 10.97,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PARVINDER SINGH BAIDWAN",
+      "party_short": "SAD",
+      "votes": 9628,
+      "vote_share_pct": 6.2,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAVNEET SINGH BRAR",
+      "party_short": "IND",
+      "votes": 2971,
+      "vote_share_pct": 1.91,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1192,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4214,
+    "vote_share_pct": 2.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KULWANT SINGH",
+    "party_short": "AAAP",
+    "votes": 77134,
+    "margin_votes": 34097,
+    "margin_pct": 21.97
+  }
+}

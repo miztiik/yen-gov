@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 98,
+  "constituency_name": "Shikohabad",
+  "totals": {
+    "electors": 357741,
+    "votes_polled": 235438,
+    "turnout_pct": 65.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MUKESH VERMA",
+      "party_short": "SP",
+      "votes": 106279,
+      "vote_share_pct": 45.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "OM PRAKASH VERMA",
+      "party_short": "BJP",
+      "votes": 96951,
+      "vote_share_pct": 41.18,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANIL KUMAR",
+      "party_short": "BSP",
+      "votes": 25445,
+      "vote_share_pct": 10.81,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRITY MISHRA",
+      "party_short": "AIMIM",
+      "votes": 2630,
+      "vote_share_pct": 1.12,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHASHI SHARMA",
+      "party_short": "INC",
+      "votes": 1428,
+      "vote_share_pct": 0.61,
+      "gender": "F",
+      "age": 65,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1181,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1524,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MUKESH VERMA",
+    "party_short": "SP",
+    "votes": 106279,
+    "margin_votes": 9328,
+    "margin_pct": 3.96
+  }
+}

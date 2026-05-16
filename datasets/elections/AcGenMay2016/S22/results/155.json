@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 155,
+  "constituency_name": "Cuddalore",
+  "totals": {
+    "electors": 231205,
+    "votes_polled": 172688,
+    "turnout_pct": 74.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAMPATH M C",
+      "party_short": "ADMK",
+      "votes": 70922,
+      "vote_share_pct": 41.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PUGAZHENDI ELA",
+      "party_short": "DMK",
+      "votes": 46509,
+      "vote_share_pct": 26.93,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHANDARASEKARAN A S",
+      "party_short": "TMC(M)",
+      "votes": 20608,
+      "vote_share_pct": 11.93,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THAMARAIKANNAN PAZHA",
+      "party_short": "PMK",
+      "votes": 16905,
+      "vote_share_pct": 9.79,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SEEMAN",
+      "party_short": "NTK",
+      "votes": 12497,
+      "vote_share_pct": 7.24,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2062,
+    "vote_share_pct": 1.19
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3185,
+    "vote_share_pct": 1.84
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAMPATH M C",
+    "party_short": "ADMK",
+    "votes": 70922,
+    "margin_votes": 24413,
+    "margin_pct": 14.14
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Thangmeiband",
+  "totals": {
+    "electors": 28482,
+    "votes_polled": 23745,
+    "turnout_pct": 83.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KHUMUKCHAM JOYKISAN SINGH",
+      "party_short": "INC",
+      "votes": 11596,
+      "vote_share_pct": 48.84,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JYOTIN WAIKHOM",
+      "party_short": "BJP",
+      "votes": 11439,
+      "vote_share_pct": 48.17,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ERENDRO LEICHOMBAM",
+      "party_short": "PRJA",
+      "votes": 573,
+      "vote_share_pct": 2.41,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 137,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KHUMUKCHAM JOYKISAN SINGH",
+    "party_short": "INC",
+    "votes": 11596,
+    "margin_votes": 157,
+    "margin_pct": 0.66
+  },
+  "others": null
+}

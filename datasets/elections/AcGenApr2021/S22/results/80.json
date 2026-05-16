@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 80,
+  "constituency_name": "Kallakurichi",
+  "totals": {
+    "electors": 286621,
+    "votes_polled": 225858,
+    "turnout_pct": 78.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Senthilkumar.M",
+      "party_short": "ADMK",
+      "votes": 110643,
+      "vote_share_pct": 48.99,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Manirathinem.K.I",
+      "party_short": "INC",
+      "votes": 84752,
+      "vote_share_pct": 37.52,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Dravidamuthamilselvi.D",
+      "party_short": "NTK",
+      "votes": 16474,
+      "vote_share_pct": 7.29,
+      "gender": "F",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Vijayakumar.N",
+      "party_short": "DMDK",
+      "votes": 6571,
+      "vote_share_pct": 2.91,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Devimangayarkarasi.K",
+      "party_short": "IND",
+      "votes": 1197,
+      "vote_share_pct": 0.53,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1257,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 4964,
+    "vote_share_pct": 2.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Senthilkumar.M",
+    "party_short": "ADMK",
+    "votes": 110643,
+    "margin_votes": 25891,
+    "margin_pct": 11.46
+  }
+}

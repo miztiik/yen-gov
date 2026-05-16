@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Jandiala",
+  "totals": {
+    "electors": 182255,
+    "votes_polled": 128681,
+    "turnout_pct": 70.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARBHAJAN SINGH E.T.O.",
+      "party_short": "AAAP",
+      "votes": 59724,
+      "vote_share_pct": 46.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SUKHWINDER SINGH \"DANNY\" BANDALA",
+      "party_short": "INC",
+      "votes": 34341,
+      "vote_share_pct": 26.69,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SATINDERJIT SINGH CHHAJJALWADDI",
+      "party_short": "SAD",
+      "votes": 26302,
+      "vote_share_pct": 20.44,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BAKHSHISH SINGH UPPAL",
+      "party_short": "SAD(M)",
+      "votes": 3361,
+      "vote_share_pct": 2.61,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "GURNAM SINGH DAUD",
+      "party_short": "IND",
+      "votes": 1315,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 918,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2720,
+    "vote_share_pct": 2.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARBHAJAN SINGH E.T.O.",
+    "party_short": "AAAP",
+    "votes": 59724,
+    "margin_votes": 25383,
+    "margin_pct": 19.73
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Thiyagarayanagar",
+  "totals": {
+    "electors": 245040,
+    "votes_polled": 138114,
+    "turnout_pct": 56.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARUNANITHI J",
+      "party_short": "DMK",
+      "votes": 56035,
+      "vote_share_pct": 40.57,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATHIYANAARAYANAN B",
+      "party_short": "ADMK",
+      "votes": 55898,
+      "vote_share_pct": 40.47,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KARUPPIAH PALA",
+      "party_short": "MNM",
+      "votes": 14567,
+      "vote_share_pct": 10.55,
+      "gender": "M",
+      "age": 77,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SIVASANKARI S",
+      "party_short": "NTK",
+      "votes": 8284,
+      "vote_share_pct": 6.0,
+      "gender": "F",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BHARANEESWARAN R",
+      "party_short": "AMMKMNKZ",
+      "votes": 782,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1617,
+    "vote_share_pct": 1.17
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 931,
+    "vote_share_pct": 0.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARUNANITHI J",
+    "party_short": "DMK",
+    "votes": 56035,
+    "margin_votes": 137,
+    "margin_pct": 0.1
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Raipur",
+  "totals": {
+    "electors": 178153,
+    "votes_polled": 109316,
+    "turnout_pct": 61.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UMESH SHARMA KAU",
+      "party_short": "BJP",
+      "votes": 65756,
+      "vote_share_pct": 60.15,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "HIRA SINGH BISHT",
+      "party_short": "INC",
+      "votes": 35704,
+      "vote_share_pct": 32.66,
+      "gender": "M",
+      "age": 81,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NAVIN PIRSHALI",
+      "party_short": "AAAP",
+      "votes": 3992,
+      "vote_share_pct": 3.65,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANIL DOBHAL",
+      "party_short": "UKKD",
+      "votes": 994,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SARMISTA PRALIYAN",
+      "party_short": "BSP",
+      "votes": 893,
+      "vote_share_pct": 0.82,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 956,
+    "vote_share_pct": 0.87
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1021,
+    "vote_share_pct": 0.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UMESH SHARMA KAU",
+    "party_short": "BJP",
+    "votes": 65756,
+    "margin_votes": 30052,
+    "margin_pct": 27.49
+  }
+}

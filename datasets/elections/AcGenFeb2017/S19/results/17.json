@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Amritsar Central",
+  "totals": {
+    "electors": 135954,
+    "votes_polled": 90708,
+    "turnout_pct": 66.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "OM PARKASH SONI",
+      "party_short": "INC",
+      "votes": 51242,
+      "vote_share_pct": 56.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "TARUN CHUGH",
+      "party_short": "BJP",
+      "votes": 30126,
+      "vote_share_pct": 33.21,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AJAY GUPTA",
+      "party_short": "AAAP",
+      "votes": 7171,
+      "vote_share_pct": 7.91,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJESH KUMAR",
+      "party_short": "BSP",
+      "votes": 500,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AVTAR SINGH",
+      "party_short": "IND",
+      "votes": 182,
+      "vote_share_pct": 0.2,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 919,
+    "vote_share_pct": 1.01
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 568,
+    "vote_share_pct": 0.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "OM PARKASH SONI",
+    "party_short": "INC",
+    "votes": 51242,
+    "margin_votes": 21116,
+    "margin_pct": 23.28
+  }
+}

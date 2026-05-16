@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 95,
+  "constituency_name": "Tundla",
+  "totals": {
+    "electors": 349702,
+    "votes_polled": 243591,
+    "turnout_pct": 69.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATYA PAL SINGH BAGHEL",
+      "party_short": "BJP",
+      "votes": 118584,
+      "vote_share_pct": 48.68,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAKESH BABU",
+      "party_short": "BSP",
+      "votes": 62514,
+      "vote_share_pct": 25.66,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SHIV SINGH CHAK",
+      "party_short": "SP",
+      "votes": 54888,
+      "vote_share_pct": 22.53,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "GANGA PRASHAD PUSHKAR",
+      "party_short": "RLD",
+      "votes": 2576,
+      "vote_share_pct": 1.06,
+      "gender": "M",
+      "age": 83,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SALONI",
+      "party_short": "IND",
+      "votes": 871,
+      "vote_share_pct": 0.36,
+      "gender": "F",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1381,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2777,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATYA PAL SINGH BAGHEL",
+    "party_short": "BJP",
+    "votes": 118584,
+    "margin_votes": 56070,
+    "margin_pct": 23.02
+  }
+}

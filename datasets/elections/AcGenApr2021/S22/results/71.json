@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 71,
+  "constituency_name": "Mailam",
+  "totals": {
+    "electors": 220324,
+    "votes_polled": 176989,
+    "turnout_pct": 80.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SIVAKUMAR C",
+      "party_short": "PMK",
+      "votes": 81044,
+      "vote_share_pct": 45.79,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. MASILAMANI R",
+      "party_short": "DMK",
+      "votes": 78814,
+      "vote_share_pct": 44.53,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "UMAMAHESWARI L",
+      "party_short": "NTK",
+      "votes": 8340,
+      "vote_share_pct": 4.71,
+      "gender": "F",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUNDARESAN A",
+      "party_short": "DMDK",
+      "votes": 3921,
+      "vote_share_pct": 2.22,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MASILAMANI V",
+      "party_short": "IND",
+      "votes": 807,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 884,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3179,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SIVAKUMAR C",
+    "party_short": "PMK",
+    "votes": 81044,
+    "margin_votes": 2230,
+    "margin_pct": 1.26
+  }
+}

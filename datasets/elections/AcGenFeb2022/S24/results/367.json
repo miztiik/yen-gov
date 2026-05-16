@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 367,
+  "constituency_name": "Malhani",
+  "totals": {
+    "electors": 379389,
+    "votes_polled": 228695,
+    "turnout_pct": 60.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LUCKY YADAV",
+      "party_short": "SP",
+      "votes": 97357,
+      "vote_share_pct": 42.57,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DHANANJAY SINGH",
+      "party_short": "JD(U)",
+      "votes": 79830,
+      "vote_share_pct": 34.91,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHAILENDRA YADAV",
+      "party_short": "BSP",
+      "votes": 24007,
+      "vote_share_pct": 10.5,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KRISHNA PRATAP SINGH K.P.",
+      "party_short": "BJP",
+      "votes": 18319,
+      "vote_share_pct": 8.01,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAY PRAKASH",
+      "party_short": "AAAP",
+      "votes": 2697,
+      "vote_share_pct": 1.18,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1333,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 5152,
+    "vote_share_pct": 2.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LUCKY YADAV",
+    "party_short": "SP",
+    "votes": 97357,
+    "margin_votes": 17527,
+    "margin_pct": 7.66
+  }
+}

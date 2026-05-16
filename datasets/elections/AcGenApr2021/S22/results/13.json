@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "Kolathur",
+  "totals": {
+    "electors": 281197,
+    "votes_polled": 173388,
+    "turnout_pct": 61.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M.K. STALIN",
+      "party_short": "DMK",
+      "votes": 105522,
+      "vote_share_pct": 60.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AADIRAJARAM",
+      "party_short": "ADMK",
+      "votes": 35138,
+      "vote_share_pct": 20.27,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "A.JAGADISH KUMAR",
+      "party_short": "MNM",
+      "votes": 14210,
+      "vote_share_pct": 8.2,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CAMILUS SELVA",
+      "party_short": "NTK",
+      "votes": 11304,
+      "vote_share_pct": 6.52,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MJS.JAMAL MOHAMED MEERA",
+      "party_short": "BSP",
+      "votes": 1295,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1529,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 31,
+    "votes": 4390,
+    "vote_share_pct": 2.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M.K. STALIN",
+    "party_short": "DMK",
+    "votes": 105522,
+    "margin_votes": 70384,
+    "margin_pct": 40.59
+  }
+}

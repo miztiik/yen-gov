@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Maninagar",
+  "totals": {
+    "electors": 251431,
+    "votes_polled": 163885,
+    "turnout_pct": 65.18
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PATEL SURESHBHAI DHANJIBHAI (SURESH PATEL)",
+      "party_short": "BJP",
+      "votes": 116113,
+      "vote_share_pct": 70.85,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BRAHMBHATT SHWETABEN NARENDRABHAI",
+      "party_short": "INC",
+      "votes": 40914,
+      "vote_share_pct": 24.97,
+      "gender": "F",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KESHRIA SHAILESHKUMAR VALJIBHAI",
+      "party_short": "BSP",
+      "votes": 1224,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "GOHEL RONAKBHAI PRAKASHBHAI",
+      "party_short": "YJJP",
+      "votes": 815,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BHATT SUNILKUMAR NARENDRABHAI",
+      "party_short": "IND",
+      "votes": 453,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2612,
+    "vote_share_pct": 1.59
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 849,
+    "vote_share_pct": 0.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PATEL SURESHBHAI DHANJIBHAI (SURESH PATEL)",
+    "party_short": "BJP",
+    "votes": 116113,
+    "margin_votes": 75199,
+    "margin_pct": 45.89
+  }
+}

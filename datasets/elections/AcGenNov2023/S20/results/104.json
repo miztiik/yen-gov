@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 104,
+  "constituency_name": "Masuda",
+  "totals": {
+    "electors": 272284,
+    "votes_polled": 200036,
+    "turnout_pct": 73.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Virendra Singh",
+      "party_short": "BJP",
+      "votes": 74266,
+      "vote_share_pct": 37.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rakesh",
+      "party_short": "INC",
+      "votes": 47550,
+      "vote_share_pct": 23.77,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vajid",
+      "party_short": "BSP",
+      "votes": 29508,
+      "vote_share_pct": 14.75,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Jasveer Singh",
+      "party_short": "IND",
+      "votes": 21375,
+      "vote_share_pct": 10.69,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sachin Jain",
+      "party_short": "RLTP",
+      "votes": 18554,
+      "vote_share_pct": 9.28,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1640,
+    "vote_share_pct": 0.82
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 7143,
+    "vote_share_pct": 3.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Virendra Singh",
+    "party_short": "BJP",
+    "votes": 74266,
+    "margin_votes": 26716,
+    "margin_pct": 13.36
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 134,
+  "constituency_name": "Devgadhbaria",
+  "totals": {
+    "electors": 266264,
+    "votes_polled": 194839,
+    "turnout_pct": 73.18
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Khabad Bachubhai Maganbhai",
+      "party_short": "BJP",
+      "votes": 113527,
+      "vote_share_pct": 58.27,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Vakhala Bharatsinh Pratapbhai",
+      "party_short": "AAAP",
+      "votes": 69326,
+      "vote_share_pct": 35.58,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Chauhan Samatsinh Mansukhbhai",
+      "party_short": "PRJVJP",
+      "votes": 5181,
+      "vote_share_pct": 2.66,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Patel Bhimsing Maganbhai",
+      "party_short": "IND",
+      "votes": 1984,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4821,
+    "vote_share_pct": 2.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Khabad Bachubhai Maganbhai",
+    "party_short": "BJP",
+    "votes": 113527,
+    "margin_votes": 44201,
+    "margin_pct": 22.69
+  },
+  "others": null
+}

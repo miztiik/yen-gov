@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Amraiwadi",
+  "totals": {
+    "electors": 268373,
+    "votes_polled": 173105,
+    "turnout_pct": 64.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PATEL HASMUKHBHAI SOMABHAI ( H. S. PATEL )",
+      "party_short": "BJP",
+      "votes": 105694,
+      "vote_share_pct": 61.06,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHAUHAN ARVINDSINH VISHVANATHSINH ( ARVIND CHAUHAN )",
+      "party_short": "INC",
+      "votes": 55962,
+      "vote_share_pct": 32.33,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RABARI BHIKHABHAI MAFABHAI",
+      "party_short": "BSP",
+      "votes": 4197,
+      "vote_share_pct": 2.42,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PATIL DIPAKBHAI BHIKHABHAI",
+      "party_short": "SHS",
+      "votes": 1308,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VISHVAKARMA GYANENDRA DAYANAND",
+      "party_short": "IND",
+      "votes": 496,
+      "vote_share_pct": 0.29,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2427,
+    "vote_share_pct": 1.4
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1589,
+    "vote_share_pct": 0.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PATEL HASMUKHBHAI SOMABHAI ( H. S. PATEL )",
+    "party_short": "BJP",
+    "votes": 105694,
+    "margin_votes": 49732,
+    "margin_pct": 28.73
+  }
+}

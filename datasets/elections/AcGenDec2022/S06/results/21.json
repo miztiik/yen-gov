@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Unjha",
+  "totals": {
+    "electors": 232996,
+    "votes_polled": 148218,
+    "turnout_pct": 63.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Patel Kiritkumar Keshavlal (k K Patel)",
+      "party_short": "BJP",
+      "votes": 88561,
+      "vote_share_pct": 59.75,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Patel Arvind Amrutlal (bhuro)",
+      "party_short": "INC",
+      "votes": 37093,
+      "vote_share_pct": 25.03,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Urvishkumar Babubhai Patel",
+      "party_short": "AAAP",
+      "votes": 18461,
+      "vote_share_pct": 12.46,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Arvindji Alkhaji Thakor",
+      "party_short": "IND",
+      "votes": 812,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rabari Rameshbhai Sukhabhai",
+      "party_short": "GAGUP",
+      "votes": 556,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1775,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 960,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Patel Kiritkumar Keshavlal (k K Patel)",
+    "party_short": "BJP",
+    "votes": 88561,
+    "margin_votes": 51468,
+    "margin_pct": 34.72
+  }
+}

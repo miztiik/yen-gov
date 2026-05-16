@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 219,
+  "constituency_name": "Sankarankovil",
+  "totals": {
+    "electors": 233672,
+    "votes_polled": 177510,
+    "turnout_pct": 75.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJALAKSHMI M",
+      "party_short": "ADMK",
+      "votes": 78751,
+      "vote_share_pct": 44.36,
+      "is_winner": true,
+      "gender": "F",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ANBUMANI G",
+      "party_short": "DMK",
+      "votes": 64262,
+      "vote_share_pct": 36.2,
+      "gender": "F",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SADHAN THIRUMALAIKUMAR T DR",
+      "party_short": "MDMK",
+      "votes": 20807,
+      "vote_share_pct": 11.72,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "GUNASEKARAN K",
+      "party_short": "BJP",
+      "votes": 4242,
+      "vote_share_pct": 2.39,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "AMUTHA",
+      "party_short": "NTK",
+      "votes": 2476,
+      "vote_share_pct": 1.39,
+      "gender": "F",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2258,
+    "vote_share_pct": 1.27
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4714,
+    "vote_share_pct": 2.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJALAKSHMI M",
+    "party_short": "ADMK",
+    "votes": 78751,
+    "margin_votes": 14489,
+    "margin_pct": 8.16
+  }
+}

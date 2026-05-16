@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Sidhpur",
+  "totals": {
+    "electors": 271304,
+    "votes_polled": 189216,
+    "turnout_pct": 69.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Balvantsinh Chandansinh Rajput",
+      "party_short": "BJP",
+      "votes": 91187,
+      "vote_share_pct": 48.19,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Chandanji Talaji Thakor",
+      "party_short": "INC",
+      "votes": 88373,
+      "vote_share_pct": 46.7,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Rajput Mahendrasinh Dalpatsinh",
+      "party_short": "AAAP",
+      "votes": 2082,
+      "vote_share_pct": 1.1,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Govindbhai Rathod",
+      "party_short": "BSP",
+      "votes": 2040,
+      "vote_share_pct": 1.08,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Abbasbhai Mohammadsharif Nodsola",
+      "party_short": "AIMIM",
+      "votes": 1137,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1857,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2540,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Balvantsinh Chandansinh Rajput",
+    "party_short": "BJP",
+    "votes": 91187,
+    "margin_votes": 2814,
+    "margin_pct": 1.49
+  }
+}

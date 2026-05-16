@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 181,
+  "constituency_name": "Thirumayam",
+  "totals": {
+    "electors": 208304,
+    "votes_polled": 158768,
+    "turnout_pct": 76.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "REGUPATHY S",
+      "party_short": "DMK",
+      "votes": 72373,
+      "vote_share_pct": 45.58,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VAIRAMUTHU PK",
+      "party_short": "ADMK",
+      "votes": 71607,
+      "vote_share_pct": 45.1,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHIDAMBARAM  PL.A",
+      "party_short": "TMC(M)",
+      "votes": 5096,
+      "vote_share_pct": 3.21,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KANAKARETHINAM M",
+      "party_short": "NTK",
+      "votes": 2323,
+      "vote_share_pct": 1.46,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VADAMALAI P",
+      "party_short": "BJP",
+      "votes": 2262,
+      "vote_share_pct": 1.42,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2114,
+    "vote_share_pct": 1.33
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2993,
+    "vote_share_pct": 1.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "REGUPATHY S",
+    "party_short": "DMK",
+    "votes": 72373,
+    "margin_votes": 766,
+    "margin_pct": 0.48
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Pynursla (ST)",
+  "totals": {
+    "electors": 38907,
+    "votes_polled": 34766,
+    "turnout_pct": 89.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Prestone Tynsong",
+      "party_short": "NPEP",
+      "votes": 13745,
+      "vote_share_pct": 39.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Nehru Suting",
+      "party_short": "INC",
+      "votes": 5605,
+      "vote_share_pct": 16.12,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Anthony Justine Kongwang",
+      "party_short": "UDP",
+      "votes": 5377,
+      "vote_share_pct": 15.47,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Don Kupar Massar",
+      "party_short": "IND",
+      "votes": 4828,
+      "vote_share_pct": 13.89,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Manbhalang Thabah",
+      "party_short": "VOTPP",
+      "votes": 3482,
+      "vote_share_pct": 10.02,
+      "gender": "M",
+      "age": 26,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 148,
+    "vote_share_pct": 0.43
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1581,
+    "vote_share_pct": 4.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Prestone Tynsong",
+    "party_short": "NPEP",
+    "votes": 13745,
+    "margin_votes": 8140,
+    "margin_pct": 23.41
+  }
+}

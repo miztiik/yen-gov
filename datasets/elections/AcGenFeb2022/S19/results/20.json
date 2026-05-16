@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Attari",
+  "totals": {
+    "electors": 190537,
+    "votes_polled": 128145,
+    "turnout_pct": 67.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JASWINDER SINGH",
+      "party_short": "AAAP",
+      "votes": 56798,
+      "vote_share_pct": 44.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "GULZAR SINGH RANIKE",
+      "party_short": "SAD",
+      "votes": 37004,
+      "vote_share_pct": 28.88,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "TARSEM SINGH SIALKA",
+      "party_short": "INC",
+      "votes": 26204,
+      "vote_share_pct": 20.45,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BALWINDER KAUR",
+      "party_short": "BJP",
+      "votes": 2548,
+      "vote_share_pct": 1.99,
+      "gender": "F",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RESHAM SINGH",
+      "party_short": "IND",
+      "votes": 1129,
+      "vote_share_pct": 0.88,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1381,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3081,
+    "vote_share_pct": 2.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JASWINDER SINGH",
+    "party_short": "AAAP",
+    "votes": 56798,
+    "margin_votes": 19794,
+    "margin_pct": 15.45
+  }
+}

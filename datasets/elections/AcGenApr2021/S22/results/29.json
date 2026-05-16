@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "Sriperumbudur",
+  "totals": {
+    "electors": 355267,
+    "votes_polled": 264262,
+    "turnout_pct": 74.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SELVAPERUNTHAGAI",
+      "party_short": "INC",
+      "votes": 115353,
+      "vote_share_pct": 43.65,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PALANI",
+      "party_short": "ADMK",
+      "votes": 104474,
+      "vote_share_pct": 39.53,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PUSHPARAJ",
+      "party_short": "NTK",
+      "votes": 22034,
+      "vote_share_pct": 8.34,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "THANIGAIVEL",
+      "party_short": "MNM",
+      "votes": 8870,
+      "vote_share_pct": 3.36,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "VAIRAMUTHU",
+      "party_short": "IND",
+      "votes": 6340,
+      "vote_share_pct": 2.4,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2139,
+    "vote_share_pct": 0.81
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5052,
+    "vote_share_pct": 1.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SELVAPERUNTHAGAI",
+    "party_short": "INC",
+    "votes": 115353,
+    "margin_votes": 10879,
+    "margin_pct": 4.12
+  }
+}

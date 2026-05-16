@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 283,
+  "constituency_name": "Nanpara",
+  "totals": {
+    "electors": 331660,
+    "votes_polled": 193040,
+    "turnout_pct": 58.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MADHURI VERMA",
+      "party_short": "BJP",
+      "votes": 86312,
+      "vote_share_pct": 44.71,
+      "is_winner": true,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "WARIS ALI",
+      "party_short": "INC",
+      "votes": 67643,
+      "vote_share_pct": 35.04,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ABDUL WAHEED",
+      "party_short": "BSP",
+      "votes": 25430,
+      "vote_share_pct": 13.17,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KULERAJ YADAV",
+      "party_short": "CPI",
+      "votes": 3131,
+      "vote_share_pct": 1.62,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KRIPARAM",
+      "party_short": "RLD",
+      "votes": 2281,
+      "vote_share_pct": 1.18,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3121,
+    "vote_share_pct": 1.62
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 5122,
+    "vote_share_pct": 2.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MADHURI VERMA",
+    "party_short": "BJP",
+    "votes": 86312,
+    "margin_votes": 18669,
+    "margin_pct": 9.67
+  }
+}

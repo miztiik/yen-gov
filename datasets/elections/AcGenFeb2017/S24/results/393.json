@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 393,
+  "constituency_name": "Gyanpur",
+  "totals": {
+    "electors": 368117,
+    "votes_polled": 208900,
+    "turnout_pct": 56.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIJAY MISHRA",
+      "party_short": "NINSHAD",
+      "votes": 66448,
+      "vote_share_pct": 31.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAHENDRA KUMAR BIND",
+      "party_short": "BJP",
+      "votes": 46218,
+      "vote_share_pct": 22.12,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJESH KUMAR YADAV",
+      "party_short": "BSP",
+      "votes": 44319,
+      "vote_share_pct": 21.22,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMRATI BIND",
+      "party_short": "SP",
+      "votes": 39205,
+      "vote_share_pct": 18.77,
+      "gender": "M",
+      "age": 80,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SEEMA DEVI",
+      "party_short": "IND",
+      "votes": 1698,
+      "vote_share_pct": 0.81,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1034,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 9978,
+    "vote_share_pct": 4.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIJAY MISHRA",
+    "party_short": "NINSHAD",
+    "votes": 66448,
+    "margin_votes": 20230,
+    "margin_pct": 9.68
+  }
+}

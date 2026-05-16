@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "Khanpur",
+  "totals": {
+    "electors": 147998,
+    "votes_polled": 113435,
+    "turnout_pct": 76.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UMESH KUMAR PATRKAR",
+      "party_short": "IND",
+      "votes": 38767,
+      "vote_share_pct": 34.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAVINDRA SINGH PANIYALA",
+      "party_short": "BSP",
+      "votes": 31915,
+      "vote_share_pct": 28.14,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RANI DEVYANI",
+      "party_short": "BJP",
+      "votes": 30834,
+      "vote_share_pct": 27.18,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUBHASH SINGH CHOUDHARY",
+      "party_short": "INC",
+      "votes": 6289,
+      "vote_share_pct": 5.54,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAMEEM AHMED SABRI",
+      "party_short": "ASPKR",
+      "votes": 2082,
+      "vote_share_pct": 1.84,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 544,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3004,
+    "vote_share_pct": 2.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UMESH KUMAR PATRKAR",
+    "party_short": "IND",
+    "votes": 38767,
+    "margin_votes": 6852,
+    "margin_pct": 6.04
+  }
+}

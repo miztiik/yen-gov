@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 128,
+  "constituency_name": "Halol",
+  "totals": {
+    "electors": 273045,
+    "votes_polled": 198709,
+    "turnout_pct": 72.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jaydrathsinhji Parmar",
+      "party_short": "BJP",
+      "votes": 100753,
+      "vote_share_pct": 50.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ramchandra Baria",
+      "party_short": "IND",
+      "votes": 58048,
+      "vote_share_pct": 29.21,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Bharatkumar Rathava",
+      "party_short": "AAAP",
+      "votes": 21788,
+      "vote_share_pct": 10.96,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Anishbhai Gordhanbhai Baria",
+      "party_short": "INC",
+      "votes": 6964,
+      "vote_share_pct": 3.5,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Solanki Ishvarbhai",
+      "party_short": "IND",
+      "votes": 2727,
+      "vote_share_pct": 1.37,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3460,
+    "vote_share_pct": 1.74
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4969,
+    "vote_share_pct": 2.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jaydrathsinhji Parmar",
+    "party_short": "BJP",
+    "votes": 100753,
+    "margin_votes": 42705,
+    "margin_pct": 21.49
+  }
+}

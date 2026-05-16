@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 133,
+  "constituency_name": "Pokaran",
+  "totals": {
+    "electors": 224665,
+    "votes_polled": 198794,
+    "turnout_pct": 88.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pratap Puri",
+      "party_short": "BJP",
+      "votes": 112989,
+      "vote_share_pct": 56.84,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Shale Mohmmad",
+      "party_short": "INC",
+      "votes": 77508,
+      "vote_share_pct": 38.99,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Devi Lal",
+      "party_short": "RLTP",
+      "votes": 4696,
+      "vote_share_pct": 2.36,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Punam Giri",
+      "party_short": "BTC",
+      "votes": 1113,
+      "vote_share_pct": 0.56,
+      "gender": "F",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Pemi Devi",
+      "party_short": "IND",
+      "votes": 937,
+      "vote_share_pct": 0.47,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 773,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 778,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pratap Puri",
+    "party_short": "BJP",
+    "votes": 112989,
+    "margin_votes": 35481,
+    "margin_pct": 17.85
+  }
+}

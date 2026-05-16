@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "Wadhwan",
+  "totals": {
+    "electors": 300511,
+    "votes_polled": 176168,
+    "turnout_pct": 58.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jagdishbhai Prabhubhai Makwana",
+      "party_short": "BJP",
+      "votes": 105903,
+      "vote_share_pct": 60.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "\"bajrang\" Hitendrakumar Bhagvanajibhai Patel",
+      "party_short": "AAAP",
+      "votes": 40414,
+      "vote_share_pct": 22.94,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Gadhvi Tarunbhai Biharidan",
+      "party_short": "INC",
+      "votes": 22385,
+      "vote_share_pct": 12.71,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Solanki Pravinbhai Motibhai",
+      "party_short": "BSP",
+      "votes": 1005,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Katiya Salimbhai Harunbhai",
+      "party_short": "IND",
+      "votes": 876,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2875,
+    "vote_share_pct": 1.63
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2710,
+    "vote_share_pct": 1.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jagdishbhai Prabhubhai Makwana",
+    "party_short": "BJP",
+    "votes": 105903,
+    "margin_votes": 65489,
+    "margin_pct": 37.17
+  }
+}

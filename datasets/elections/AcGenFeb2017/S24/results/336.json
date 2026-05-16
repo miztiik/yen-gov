@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 336,
+  "constituency_name": "Rudrapur",
+  "totals": {
+    "electors": 293183,
+    "votes_polled": 164353,
+    "turnout_pct": 56.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAI PRAKASH NISHAD",
+      "party_short": "BJP",
+      "votes": 77754,
+      "vote_share_pct": 47.31,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AKHILESH PRATAP SINGH",
+      "party_short": "INC",
+      "votes": 50965,
+      "vote_share_pct": 31.01,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHANDRIKA NISHAD",
+      "party_short": "BSP",
+      "votes": 23081,
+      "vote_share_pct": 14.04,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KAUSHAL PANDEY",
+      "party_short": "NINSHAD",
+      "votes": 2591,
+      "vote_share_pct": 1.58,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VEER SEN SINGH YADAV",
+      "party_short": "IND",
+      "votes": 1856,
+      "vote_share_pct": 1.13,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2561,
+    "vote_share_pct": 1.56
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 5545,
+    "vote_share_pct": 3.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAI PRAKASH NISHAD",
+    "party_short": "BJP",
+    "votes": 77754,
+    "margin_votes": 26789,
+    "margin_pct": 16.3
+  }
+}

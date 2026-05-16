@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 223,
+  "constituency_name": "Jhansi Nagar",
+  "totals": {
+    "electors": 398008,
+    "votes_polled": 242146,
+    "turnout_pct": 60.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAVI SHARMA",
+      "party_short": "BJP",
+      "votes": 117873,
+      "vote_share_pct": 48.68,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SITA RAM KUSHWAHA",
+      "party_short": "BSP",
+      "votes": 62095,
+      "vote_share_pct": 25.64,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAHUL RAI",
+      "party_short": "INC",
+      "votes": 51242,
+      "vote_share_pct": 21.16,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAKESH KUMAR SEN",
+      "party_short": "PSJP",
+      "votes": 1965,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "LAXMAN SINGH",
+      "party_short": "CPI",
+      "votes": 1249,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 953,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 6769,
+    "vote_share_pct": 2.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAVI SHARMA",
+    "party_short": "BJP",
+    "votes": 117873,
+    "margin_votes": 55778,
+    "margin_pct": 23.03
+  }
+}

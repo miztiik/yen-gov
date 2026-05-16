@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "Raja Sansi",
+  "totals": {
+    "electors": 178829,
+    "votes_polled": 133615,
+    "turnout_pct": 74.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUKHBINDER SINGH SARKARIA",
+      "party_short": "INC",
+      "votes": 46872,
+      "vote_share_pct": 35.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIR SINGH LOPOKE",
+      "party_short": "SAD",
+      "votes": 41398,
+      "vote_share_pct": 30.98,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BALDEV SINGH MIADIAN",
+      "party_short": "AAAP",
+      "votes": 37426,
+      "vote_share_pct": 28.01,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MUKHWINDER SINGH",
+      "party_short": "BJP",
+      "votes": 2409,
+      "vote_share_pct": 1.8,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SATNAM SINGH",
+      "party_short": "IND",
+      "votes": 1527,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 77,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1306,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2677,
+    "vote_share_pct": 2.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUKHBINDER SINGH SARKARIA",
+    "party_short": "INC",
+    "votes": 46872,
+    "margin_votes": 5474,
+    "margin_pct": 4.1
+  }
+}

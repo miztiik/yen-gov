@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 124,
+  "constituency_name": "Shergarh",
+  "totals": {
+    "electors": 275874,
+    "votes_polled": 207127,
+    "turnout_pct": 75.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Babu Singh Rathor",
+      "party_short": "BJP",
+      "votes": 102868,
+      "vote_share_pct": 49.66,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Meena Kanwar",
+      "party_short": "INC",
+      "votes": 77824,
+      "vote_share_pct": 37.57,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Jora Ram",
+      "party_short": "RLTP",
+      "votes": 16952,
+      "vote_share_pct": 8.18,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Junjaram",
+      "party_short": "BSP",
+      "votes": 2206,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Kheman Singh",
+      "party_short": "IPGP",
+      "votes": 1762,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1553,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3962,
+    "vote_share_pct": 1.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Babu Singh Rathor",
+    "party_short": "BJP",
+    "votes": 102868,
+    "margin_votes": 25044,
+    "margin_pct": 12.09
+  }
+}

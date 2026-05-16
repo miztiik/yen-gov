@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 350,
+  "constituency_name": "Didarganj",
+  "totals": {
+    "electors": 341579,
+    "votes_polled": 187419,
+    "turnout_pct": 54.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUKHDEV RAJBHAR",
+      "party_short": "BSP",
+      "votes": 62125,
+      "vote_share_pct": 33.15,
+      "is_winner": true,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ADIL SHAIKH",
+      "party_short": "SP",
+      "votes": 58480,
+      "vote_share_pct": 31.2,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KRISHNA MURARI",
+      "party_short": "BJP",
+      "votes": 49979,
+      "vote_share_pct": 26.67,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARCHANA",
+      "party_short": "IND",
+      "votes": 6828,
+      "vote_share_pct": 3.64,
+      "gender": "F",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JASHWANT",
+      "party_short": "MAHAD",
+      "votes": 2227,
+      "vote_share_pct": 1.19,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1653,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6127,
+    "vote_share_pct": 3.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUKHDEV RAJBHAR",
+    "party_short": "BSP",
+    "votes": 62125,
+    "margin_votes": 3645,
+    "margin_pct": 1.94
+  }
+}

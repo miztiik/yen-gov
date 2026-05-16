@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 311,
+  "constituency_name": "Mahadewa S.C",
+  "totals": {
+    "electors": 341194,
+    "votes_polled": 199317,
+    "turnout_pct": 58.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAVI KUMAR SONKAR",
+      "party_short": "BJP",
+      "votes": 82429,
+      "vote_share_pct": 41.36,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DOODHRAM",
+      "party_short": "BSP",
+      "votes": 56545,
+      "vote_share_pct": 28.37,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RAM KARAN ARYA",
+      "party_short": "SP",
+      "votes": 47914,
+      "vote_share_pct": 24.04,
+      "gender": "M",
+      "age": 73,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "GOVARDHAN",
+      "party_short": "NINSHAD",
+      "votes": 5639,
+      "vote_share_pct": 2.83,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MANSHARAM",
+      "party_short": "IND",
+      "votes": 1642,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2231,
+    "vote_share_pct": 1.12
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2917,
+    "vote_share_pct": 1.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAVI KUMAR SONKAR",
+    "party_short": "BJP",
+    "votes": 82429,
+    "margin_votes": 25884,
+    "margin_pct": 12.99
+  }
+}

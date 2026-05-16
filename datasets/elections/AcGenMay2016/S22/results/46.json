@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "Gudiyattam",
+  "totals": {
+    "electors": 263119,
+    "votes_polled": 194988,
+    "turnout_pct": 74.11
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAYANTHI PADMANABHAN .C",
+      "party_short": "ADMK",
+      "votes": 94689,
+      "vote_share_pct": 48.56,
+      "is_winner": true,
+      "gender": "F",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAJAMARTHANDAN, K.",
+      "party_short": "DMK",
+      "votes": 83219,
+      "vote_share_pct": 42.68,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DEEPA .B",
+      "party_short": "PMK",
+      "votes": 7505,
+      "vote_share_pct": 3.85,
+      "gender": "F",
+      "age": 26,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "LINGAMUTHU .K",
+      "party_short": "CPI",
+      "votes": 3140,
+      "vote_share_pct": 1.61,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "GANESAN .T",
+      "party_short": "IJK",
+      "votes": 891,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2241,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3303,
+    "vote_share_pct": 1.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAYANTHI PADMANABHAN .C",
+    "party_short": "ADMK",
+    "votes": 94689,
+    "margin_votes": 11470,
+    "margin_pct": 5.88
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 223,
+  "constituency_name": "Alangulam",
+  "totals": {
+    "electors": 260688,
+    "votes_polled": 203478,
+    "turnout_pct": 78.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PAUL MANOJ PANDIAN",
+      "party_short": "ADMK",
+      "votes": 74153,
+      "vote_share_pct": 36.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR.POONGOTHAI ALADI ARUNA",
+      "party_short": "DMK",
+      "votes": 70614,
+      "vote_share_pct": 34.7,
+      "gender": "F",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HARI NADAR.A",
+      "party_short": "IND",
+      "votes": 37727,
+      "vote_share_pct": 18.54,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M.SANGEETHA ESAK",
+      "party_short": "NTK",
+      "votes": 12519,
+      "vote_share_pct": 6.15,
+      "gender": "F",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJENDRANATHAN",
+      "party_short": "DMDK",
+      "votes": 2816,
+      "vote_share_pct": 1.38,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1786,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3863,
+    "vote_share_pct": 1.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PAUL MANOJ PANDIAN",
+    "party_short": "ADMK",
+    "votes": 74153,
+    "margin_votes": 3539,
+    "margin_pct": 1.74
+  }
+}

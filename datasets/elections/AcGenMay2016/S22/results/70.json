@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 70,
+  "constituency_name": "Gingee",
+  "totals": {
+    "electors": 251396,
+    "votes_polled": 201024,
+    "turnout_pct": 79.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MASTHAN K S",
+      "party_short": "DMK",
+      "votes": 88440,
+      "vote_share_pct": 43.99,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GOVINDASAMY A",
+      "party_short": "ADMK",
+      "votes": 66383,
+      "vote_share_pct": 33.02,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GANESH KUMAR A",
+      "party_short": "PMK",
+      "votes": 28515,
+      "vote_share_pct": 14.18,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANI A K",
+      "party_short": "MDMK",
+      "votes": 10672,
+      "vote_share_pct": 5.31,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJENDIRAN M S",
+      "party_short": "BJP",
+      "votes": 1443,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2326,
+    "vote_share_pct": 1.16
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3245,
+    "vote_share_pct": 1.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MASTHAN K S",
+    "party_short": "DMK",
+    "votes": 88440,
+    "margin_votes": 22057,
+    "margin_pct": 10.97
+  }
+}

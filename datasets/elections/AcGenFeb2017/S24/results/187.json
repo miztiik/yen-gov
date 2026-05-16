@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 187,
+  "constituency_name": "Isauli",
+  "totals": {
+    "electors": 339883,
+    "votes_polled": 191509,
+    "turnout_pct": 56.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABRAR AHMAD",
+      "party_short": "SP",
+      "votes": 51583,
+      "vote_share_pct": 26.94,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "OM PRAKASH PANDEY &QUOT;BAJRANGEE&QUOT;",
+      "party_short": "BJP",
+      "votes": 47342,
+      "vote_share_pct": 24.72,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "YASH BHADRA SINGH &QUOT;MONU&QUOT;",
+      "party_short": "RLD",
+      "votes": 43026,
+      "vote_share_pct": 22.47,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DR. SHAILENDRA TRIPATHI",
+      "party_short": "BSP",
+      "votes": 24961,
+      "vote_share_pct": 13.03,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHIV KUMAR SINGH",
+      "party_short": "MBCOI",
+      "votes": 11445,
+      "vote_share_pct": 5.98,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2256,
+    "vote_share_pct": 1.18
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 10896,
+    "vote_share_pct": 5.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABRAR AHMAD",
+    "party_short": "SP",
+    "votes": 51583,
+    "margin_votes": 4241,
+    "margin_pct": 2.21
+  }
+}

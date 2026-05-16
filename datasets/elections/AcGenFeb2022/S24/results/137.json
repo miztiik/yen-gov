@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 137,
+  "constituency_name": "Palia",
+  "totals": {
+    "electors": 360503,
+    "votes_polled": 236794,
+    "turnout_pct": 65.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Harvinder Kumar Sahni alias Romi Sahni",
+      "party_short": "BJP",
+      "votes": 118864,
+      "vote_share_pct": 50.2,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Pritinder Singh Kakku",
+      "party_short": "SP",
+      "votes": 80735,
+      "vote_share_pct": 34.1,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Jakir Husain",
+      "party_short": "BSP",
+      "votes": 27849,
+      "vote_share_pct": 11.76,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rishal Ahamad",
+      "party_short": "INC",
+      "votes": 4514,
+      "vote_share_pct": 1.91,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Arti Rai",
+      "party_short": "CPI(ML)(L)",
+      "votes": 1822,
+      "vote_share_pct": 0.77,
+      "gender": "F",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2010,
+    "vote_share_pct": 0.85
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1000,
+    "vote_share_pct": 0.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Harvinder Kumar Sahni alias Romi Sahni",
+    "party_short": "BJP",
+    "votes": 118864,
+    "margin_votes": 38129,
+    "margin_pct": 16.1
+  }
+}

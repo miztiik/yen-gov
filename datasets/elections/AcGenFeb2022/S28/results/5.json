@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Tharali",
+  "totals": {
+    "electors": 106614,
+    "votes_polled": 63592,
+    "turnout_pct": 59.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhupal Ram Tamta",
+      "party_short": "BJP",
+      "votes": 32852,
+      "vote_share_pct": 51.66,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Jeet Ram",
+      "party_short": "INC",
+      "votes": 24550,
+      "vote_share_pct": 38.61,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Guddu Lal",
+      "party_short": "AAAP",
+      "votes": 1866,
+      "vote_share_pct": 2.93,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Naini Ram",
+      "party_short": "UJPA",
+      "votes": 970,
+      "vote_share_pct": 1.53,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Kunwar Ram",
+      "party_short": "CPI(M)",
+      "votes": 834,
+      "vote_share_pct": 1.31,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 663,
+    "vote_share_pct": 1.04
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1857,
+    "vote_share_pct": 2.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhupal Ram Tamta",
+    "party_short": "BJP",
+    "votes": 32852,
+    "margin_votes": 8302,
+    "margin_pct": 13.06
+  }
+}

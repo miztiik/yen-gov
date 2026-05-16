@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Bijnor",
+  "totals": {
+    "electors": 390546,
+    "votes_polled": 252142,
+    "turnout_pct": 64.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Suchi",
+      "party_short": "BJP",
+      "votes": 97165,
+      "vote_share_pct": 38.54,
+      "is_winner": true,
+      "gender": "F",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Neeraj Chaudhary",
+      "party_short": "RLD",
+      "votes": 95720,
+      "vote_share_pct": 37.96,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ruchi Vira",
+      "party_short": "BSP",
+      "votes": 52035,
+      "vote_share_pct": 20.64,
+      "gender": "F",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Munir Ahmed",
+      "party_short": "AIMIM",
+      "votes": 2290,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Amiruddin",
+      "party_short": "BJSAP",
+      "votes": 661,
+      "vote_share_pct": 0.26,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1114,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3157,
+    "vote_share_pct": 1.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Suchi",
+    "party_short": "BJP",
+    "votes": 97165,
+    "margin_votes": 1445,
+    "margin_pct": 0.57
+  }
+}

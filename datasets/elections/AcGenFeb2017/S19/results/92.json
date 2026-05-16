@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 92,
+  "constituency_name": "Bathinda Urban",
+  "totals": {
+    "electors": 205590,
+    "votes_polled": 151392,
+    "turnout_pct": 73.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANPREET SINGH BADAL",
+      "party_short": "INC",
+      "votes": 63942,
+      "vote_share_pct": 42.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DEEPAK BANSAL",
+      "party_short": "AAAP",
+      "votes": 45462,
+      "vote_share_pct": 30.03,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SARUP CHAND SINGLA",
+      "party_short": "SAD",
+      "votes": 37177,
+      "vote_share_pct": 24.56,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SURESH KUMAR",
+      "party_short": "BSP",
+      "votes": 913,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SATISH KUMAR",
+      "party_short": "IND",
+      "votes": 526,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1208,
+    "vote_share_pct": 0.8
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2164,
+    "vote_share_pct": 1.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANPREET SINGH BADAL",
+    "party_short": "INC",
+    "votes": 63942,
+    "margin_votes": 18480,
+    "margin_pct": 12.21
+  }
+}

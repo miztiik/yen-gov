@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "Vejalpur",
+  "totals": {
+    "electors": 388893,
+    "votes_polled": 227943,
+    "turnout_pct": 58.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Amit Thaker",
+      "party_short": "BJP",
+      "votes": 128049,
+      "vote_share_pct": 56.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rajendra Patel (rajubhai Makaraba)",
+      "party_short": "INC",
+      "votes": 68398,
+      "vote_share_pct": 30.01,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kalpesh Patel (bholabhai)",
+      "party_short": "AAAP",
+      "votes": 22194,
+      "vote_share_pct": 9.74,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Saiyed Pirhusen (yasin Bapu)",
+      "party_short": "IND",
+      "votes": 2315,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Zainab Shaikh",
+      "party_short": "AIMIM",
+      "votes": 2313,
+      "vote_share_pct": 1.01,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2890,
+    "vote_share_pct": 1.27
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1784,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Amit Thaker",
+    "party_short": "BJP",
+    "votes": 128049,
+    "margin_votes": 59651,
+    "margin_pct": 26.17
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "Asarwa",
+  "totals": {
+    "electors": 202566,
+    "votes_polled": 134010,
+    "turnout_pct": 66.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARMAR PRADIPBHAI KHANABHAI",
+      "party_short": "BJP",
+      "votes": 87238,
+      "vote_share_pct": 65.1,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "VAGHELA KANUBHAI ATMARAM",
+      "party_short": "INC",
+      "votes": 37974,
+      "vote_share_pct": 28.34,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KARSANBHAI DANABHAI PARMAR (K.D. PARMAR)",
+      "party_short": "BSP",
+      "votes": 2790,
+      "vote_share_pct": 2.08,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "JADAV PRASHANTBHAI YAGNIKBHAI",
+      "party_short": "AINHCP",
+      "votes": 675,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SOLANKI ALPESHKUMAR SHANKARBHAI",
+      "party_short": "IND",
+      "votes": 598,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2067,
+    "vote_share_pct": 1.54
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1229,
+    "vote_share_pct": 0.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARMAR PRADIPBHAI KHANABHAI",
+    "party_short": "BJP",
+    "votes": 87238,
+    "margin_votes": 49264,
+    "margin_pct": 36.76
+  }
+}

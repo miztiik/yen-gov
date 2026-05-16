@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 210,
+  "constituency_name": "Tiruvadanai",
+  "totals": {
+    "electors": 273644,
+    "votes_polled": 186649,
+    "turnout_pct": 68.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARUNAAS",
+      "party_short": "ADMK",
+      "votes": 76786,
+      "vote_share_pct": 41.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "THIVAKARAN.  S.P",
+      "party_short": "DMK",
+      "votes": 68090,
+      "vote_share_pct": 36.48,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DHEVANATHAN YADAV.T",
+      "party_short": "BJP",
+      "votes": 11842,
+      "vote_share_pct": 6.34,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JOHN PANDIAN .B",
+      "party_short": "TMMK",
+      "votes": 9597,
+      "vote_share_pct": 5.14,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MANIMARAN.V",
+      "party_short": "DMDK",
+      "votes": 4913,
+      "vote_share_pct": 2.63,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 939,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 14482,
+    "vote_share_pct": 7.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARUNAAS",
+    "party_short": "ADMK",
+    "votes": 76786,
+    "margin_votes": 8696,
+    "margin_pct": 4.66
+  }
+}

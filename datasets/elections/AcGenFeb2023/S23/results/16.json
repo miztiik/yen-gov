@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Bishalgarh",
+  "totals": {
+    "electors": 49898,
+    "votes_polled": 45985,
+    "turnout_pct": 92.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sushanta Deb",
+      "party_short": "BJP",
+      "votes": 22314,
+      "vote_share_pct": 48.52,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Partha Pratim Majumder",
+      "party_short": "CPI(M)",
+      "votes": 20988,
+      "vote_share_pct": 45.64,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Md. Saha Alam Miah",
+      "party_short": "TMP",
+      "votes": 1606,
+      "vote_share_pct": 3.49,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Haradhan Deb Nath",
+      "party_short": "AITC",
+      "votes": 599,
+      "vote_share_pct": 1.3,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 478,
+    "vote_share_pct": 1.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sushanta Deb",
+    "party_short": "BJP",
+    "votes": 22314,
+    "margin_votes": 1326,
+    "margin_pct": 2.88
+  },
+  "others": null
+}

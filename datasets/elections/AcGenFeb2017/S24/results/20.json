@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Dhampur",
+  "totals": {
+    "electors": 282279,
+    "votes_polled": 192961,
+    "turnout_pct": 68.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ASHOK KUMAR RANA",
+      "party_short": "BJP",
+      "votes": 82169,
+      "vote_share_pct": 42.58,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "THA. MOOL CHAND CHAUHAN",
+      "party_short": "SP",
+      "votes": 64305,
+      "vote_share_pct": 33.33,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MUHAMMAD GHAZI",
+      "party_short": "BSP",
+      "votes": 42836,
+      "vote_share_pct": 22.2,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NAIMUDDIN",
+      "party_short": "RLD",
+      "votes": 659,
+      "vote_share_pct": 0.34,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "FIRASAT",
+      "party_short": "ANC",
+      "votes": 519,
+      "vote_share_pct": 0.27,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1020,
+    "vote_share_pct": 0.53
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1453,
+    "vote_share_pct": 0.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ASHOK KUMAR RANA",
+    "party_short": "BJP",
+    "votes": 82169,
+    "margin_votes": 17864,
+    "margin_pct": 9.26
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "Nagapattinam",
+  "totals": {
+    "electors": 197960,
+    "votes_polled": 143560,
+    "turnout_pct": 72.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "J. Mohamed Shanavas",
+      "party_short": "VCK",
+      "votes": 66281,
+      "vote_share_pct": 46.17,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Thanka.kathiravan",
+      "party_short": "ADMK",
+      "votes": 59043,
+      "vote_share_pct": 41.13,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S.Augustine Arputharaj",
+      "party_short": "NTK",
+      "votes": 9976,
+      "vote_share_pct": 6.95,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "C.Manjula",
+      "party_short": "AMMKMNKZ",
+      "votes": 3503,
+      "vote_share_pct": 2.44,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Syed Anas Mohideen Sahip",
+      "party_short": "MNM",
+      "votes": 2540,
+      "vote_share_pct": 1.77,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 895,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1322,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "J. Mohamed Shanavas",
+    "party_short": "VCK",
+    "votes": 66281,
+    "margin_votes": 7238,
+    "margin_pct": 5.04
+  }
+}

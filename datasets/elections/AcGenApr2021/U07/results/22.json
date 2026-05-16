@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "NETTAPAKKAM",
+  "totals": {
+    "electors": 32350,
+    "votes_polled": 28121,
+    "turnout_pct": 86.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P RAJAVELU",
+      "party_short": "AINRC",
+      "votes": 15978,
+      "vote_share_pct": 56.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "V VIZEAVENY",
+      "party_short": "INC",
+      "votes": 9340,
+      "vote_share_pct": 33.21,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "D GOVURY",
+      "party_short": "NTK",
+      "votes": 649,
+      "vote_share_pct": 2.31,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "C KRISHNAGOPAL",
+      "party_short": "IND",
+      "votes": 599,
+      "vote_share_pct": 2.13,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "S THIRUNAVUKKARASU",
+      "party_short": "IND",
+      "votes": 470,
+      "vote_share_pct": 1.67,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 282,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 803,
+    "vote_share_pct": 2.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P RAJAVELU",
+    "party_short": "AINRC",
+    "votes": 15978,
+    "margin_votes": 6638,
+    "margin_pct": 23.61
+  }
+}

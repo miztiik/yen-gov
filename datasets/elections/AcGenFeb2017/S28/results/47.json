@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 47,
+  "constituency_name": "Bageshwar",
+  "totals": {
+    "electors": 112712,
+    "votes_polled": 67479,
+    "turnout_pct": 59.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHANDAN RAM DASS",
+      "party_short": "BJP",
+      "votes": 33792,
+      "vote_share_pct": 50.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "BALKRISHAN",
+      "party_short": "INC",
+      "votes": 19225,
+      "vote_share_pct": 28.49,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BASANT KUMAR",
+      "party_short": "BSP",
+      "votes": 11038,
+      "vote_share_pct": 16.36,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "JEEVAN LAL",
+      "party_short": "UKKD",
+      "votes": 1207,
+      "vote_share_pct": 1.79,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BACHI LAL",
+      "party_short": "IND",
+      "votes": 676,
+      "vote_share_pct": 1.0,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1541,
+    "vote_share_pct": 2.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHANDAN RAM DASS",
+    "party_short": "BJP",
+    "votes": 33792,
+    "margin_votes": 14567,
+    "margin_pct": 21.59
+  },
+  "others": null
+}

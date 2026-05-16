@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 290,
+  "constituency_name": "Shrawasti",
+  "totals": {
+    "electors": 416147,
+    "votes_polled": 253077,
+    "turnout_pct": 60.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ram Feran",
+      "party_short": "BJP",
+      "votes": 98640,
+      "vote_share_pct": 38.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mohhamad Aslam Rainee",
+      "party_short": "SP",
+      "votes": 97183,
+      "vote_share_pct": 38.4,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Neetu Mishra",
+      "party_short": "BSP",
+      "votes": 41026,
+      "vote_share_pct": 16.21,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Muhammad Ramjan",
+      "party_short": "INC",
+      "votes": 4655,
+      "vote_share_pct": 1.84,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ahtishamul Haque Khan",
+      "party_short": "PECP",
+      "votes": 3478,
+      "vote_share_pct": 1.37,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3198,
+    "vote_share_pct": 1.26
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4897,
+    "vote_share_pct": 1.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ram Feran",
+    "party_short": "BJP",
+    "votes": 98640,
+    "margin_votes": 1457,
+    "margin_pct": 0.58
+  }
+}

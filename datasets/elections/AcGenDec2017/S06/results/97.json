@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 97,
+  "constituency_name": "Savarkundla",
+  "totals": {
+    "electors": 238362,
+    "votes_polled": 135434,
+    "turnout_pct": 56.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRATAP DUDHAT",
+      "party_short": "INC",
+      "votes": 66366,
+      "vote_share_pct": 49.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAMLESH RASIKBHAI KANANI",
+      "party_short": "BJP",
+      "votes": 57835,
+      "vote_share_pct": 42.7,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KHIMASURIYA RAMESHKUMAR SHAMJIBHAI",
+      "party_short": "BSP",
+      "votes": 1505,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "VALA HAKUBHAI MULUBHAI ( HAKU VALA )",
+      "party_short": "IND",
+      "votes": 1491,
+      "vote_share_pct": 1.1,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "TOTA NATHABHAI DAYABHAI (BHARVAD)",
+      "party_short": "NBNM",
+      "votes": 990,
+      "vote_share_pct": 0.73,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2989,
+    "vote_share_pct": 2.21
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3296,
+    "vote_share_pct": 2.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRATAP DUDHAT",
+    "party_short": "INC",
+    "votes": 66366,
+    "margin_votes": 8531,
+    "margin_pct": 6.3
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Chepauk-Thiruvallikeni",
+  "totals": {
+    "electors": 230619,
+    "votes_polled": 143665,
+    "turnout_pct": 62.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "J.ANBAZHAGAN",
+      "party_short": "DMK",
+      "votes": 67982,
+      "vote_share_pct": 47.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "A.NOORJAHAN",
+      "party_short": "ADMK",
+      "votes": 53818,
+      "vote_share_pct": 37.46,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "APN.THAMARAI GAJENDRAN",
+      "party_short": "BJP",
+      "votes": 6281,
+      "vote_share_pct": 4.37,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "V.ABDULLA SAIT",
+      "party_short": "DMDK",
+      "votes": 5507,
+      "vote_share_pct": 3.83,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "A.V.A.KASSALI",
+      "party_short": "PMK",
+      "votes": 2511,
+      "vote_share_pct": 1.75,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3494,
+    "vote_share_pct": 2.43
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 4072,
+    "vote_share_pct": 2.84
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "J.ANBAZHAGAN",
+    "party_short": "DMK",
+    "votes": 67982,
+    "margin_votes": 14164,
+    "margin_pct": 9.86
+  }
+}

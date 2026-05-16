@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "KARAIKAL NORTH",
+  "totals": {
+    "electors": 35661,
+    "votes_polled": 28324,
+    "turnout_pct": 79.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P.R.N. THIRUMURUGAN",
+      "party_short": "AINRC",
+      "votes": 12704,
+      "vote_share_pct": 44.85,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "A.V. SUBRAMANIAN",
+      "party_short": "INC",
+      "votes": 12569,
+      "vote_share_pct": 44.38,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "I. ANUSUYA",
+      "party_short": "NTK",
+      "votes": 1214,
+      "vote_share_pct": 4.29,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "A. Vengadesh",
+      "party_short": "IND",
+      "votes": 766,
+      "vote_share_pct": 2.7,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K. SURESH",
+      "party_short": "MNM",
+      "votes": 359,
+      "vote_share_pct": 1.27,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 282,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 430,
+    "vote_share_pct": 1.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P.R.N. THIRUMURUGAN",
+    "party_short": "AINRC",
+    "votes": 12704,
+    "margin_votes": 135,
+    "margin_pct": 0.48
+  }
+}

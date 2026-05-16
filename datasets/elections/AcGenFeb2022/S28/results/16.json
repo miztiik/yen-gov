@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Vikasnagar",
+  "totals": {
+    "electors": 108113,
+    "votes_polled": 81580,
+    "turnout_pct": 75.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Munna Singh Chauhan",
+      "party_short": "BJP",
+      "votes": 40819,
+      "vote_share_pct": 50.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Nav Prabhat",
+      "party_short": "INC",
+      "votes": 35626,
+      "vote_share_pct": 43.67,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Praveen Bansal",
+      "party_short": "AAAP",
+      "votes": 1883,
+      "vote_share_pct": 2.31,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Gurumel Singh Rathod",
+      "party_short": "IND",
+      "votes": 1336,
+      "vote_share_pct": 1.64,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Deshraj",
+      "party_short": "BSP",
+      "votes": 468,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 388,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1060,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Munna Singh Chauhan",
+    "party_short": "BJP",
+    "votes": 40819,
+    "margin_votes": 5193,
+    "margin_pct": 6.37
+  }
+}

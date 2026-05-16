@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 98,
+  "constituency_name": "Budhlada",
+  "totals": {
+    "electors": 196478,
+    "votes_polled": 160410,
+    "turnout_pct": 81.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BUDH RAM",
+      "party_short": "AAAP",
+      "votes": 88282,
+      "vote_share_pct": 55.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. NISHAN SINGH HAKAMWALA",
+      "party_short": "SAD",
+      "votes": 36591,
+      "vote_share_pct": 22.81,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. RANVIR KAUR MIAN",
+      "party_short": "INC",
+      "votes": 21492,
+      "vote_share_pct": 13.4,
+      "gender": "F",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PARAMJEET KAUR",
+      "party_short": "IND",
+      "votes": 6645,
+      "vote_share_pct": 4.14,
+      "gender": "F",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KRISHAN SINGH CHOUHAN",
+      "party_short": "CPI",
+      "votes": 2127,
+      "vote_share_pct": 1.33,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 935,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4338,
+    "vote_share_pct": 2.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BUDH RAM",
+    "party_short": "AAAP",
+    "votes": 88282,
+    "margin_votes": 51691,
+    "margin_pct": 32.22
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 98,
+  "constituency_name": "Rajula",
+  "totals": {
+    "electors": 274855,
+    "votes_polled": 179621,
+    "turnout_pct": 65.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Hirabhai Odhavjibhai Solanki",
+      "party_short": "BJP",
+      "votes": 78482,
+      "vote_share_pct": 43.69,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ambarishkumar Jivabhai Der",
+      "party_short": "INC",
+      "votes": 68019,
+      "vote_share_pct": 37.87,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Karanbhai Baraiya",
+      "party_short": "IND",
+      "votes": 19186,
+      "vote_share_pct": 10.68,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Bharatkumar Baldaniya",
+      "party_short": "AAAP",
+      "votes": 5294,
+      "vote_share_pct": 2.95,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Shwetaben Budhabhai Vaghela",
+      "party_short": "IND",
+      "votes": 1496,
+      "vote_share_pct": 0.83,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2829,
+    "vote_share_pct": 1.57
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4315,
+    "vote_share_pct": 2.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Hirabhai Odhavjibhai Solanki",
+    "party_short": "BJP",
+    "votes": 78482,
+    "margin_votes": 10463,
+    "margin_pct": 5.83
+  }
+}

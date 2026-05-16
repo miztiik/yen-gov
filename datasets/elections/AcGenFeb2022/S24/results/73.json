@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 73,
+  "constituency_name": "Atrauli",
+  "totals": {
+    "electors": 402493,
+    "votes_polled": 241581,
+    "turnout_pct": 60.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANDEEP KUMAR SINGH",
+      "party_short": "BJP",
+      "votes": 125691,
+      "vote_share_pct": 52.03,
+      "is_winner": true,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIRESH YADAV",
+      "party_short": "SP",
+      "votes": 86367,
+      "vote_share_pct": 35.75,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. OMVIR SINGH",
+      "party_short": "BSP",
+      "votes": 23134,
+      "vote_share_pct": 9.58,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DHARMENDRA KUMAR",
+      "party_short": "INC",
+      "votes": 1331,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MANJU DEVI URF MANJU RANI",
+      "party_short": "IND",
+      "votes": 948,
+      "vote_share_pct": 0.39,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1149,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2961,
+    "vote_share_pct": 1.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANDEEP KUMAR SINGH",
+    "party_short": "BJP",
+    "votes": 125691,
+    "margin_votes": 39324,
+    "margin_pct": 16.28
+  }
+}

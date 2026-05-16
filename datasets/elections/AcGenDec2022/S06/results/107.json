@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "Botad",
+  "totals": {
+    "electors": 291347,
+    "votes_polled": 187215,
+    "turnout_pct": 64.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Makwana Umeshbhai Naranbhai",
+      "party_short": "AAAP",
+      "votes": 80581,
+      "vote_share_pct": 43.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ghanshyambhai Pragjibhai Virani",
+      "party_short": "BJP",
+      "votes": 77802,
+      "vote_share_pct": 41.56,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Manharbhai Nagajibhai Patel",
+      "party_short": "INC",
+      "votes": 19058,
+      "vote_share_pct": 10.18,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Chauhan Champaben Zaverbhai",
+      "party_short": "IND",
+      "votes": 2033,
+      "vote_share_pct": 1.09,
+      "gender": "F",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Chauhan Mulshankarbhai Raghurambhai",
+      "party_short": "BSP",
+      "votes": 1057,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2433,
+    "vote_share_pct": 1.3
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4251,
+    "vote_share_pct": 2.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Makwana Umeshbhai Naranbhai",
+    "party_short": "AAAP",
+    "votes": 80581,
+    "margin_votes": 2779,
+    "margin_pct": 1.48
+  }
+}

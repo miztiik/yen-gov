@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Barauli",
+  "totals": {
+    "electors": 356744,
+    "votes_polled": 235107,
+    "turnout_pct": 65.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHRI DALVEER SINGH",
+      "party_short": "BJP",
+      "votes": 125545,
+      "vote_share_pct": 53.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "THAKUR JAIVIR SINGH",
+      "party_short": "BSP",
+      "votes": 86782,
+      "vote_share_pct": 36.91,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHRI KESHAV SINGH",
+      "party_short": "INC",
+      "votes": 17238,
+      "vote_share_pct": 7.33,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHRI NEERAJ SHARMA",
+      "party_short": "RLD",
+      "votes": 1829,
+      "vote_share_pct": 0.78,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHRI KUSHAL PAL SINGH",
+      "party_short": "IND",
+      "votes": 698,
+      "vote_share_pct": 0.3,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1338,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1677,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHRI DALVEER SINGH",
+    "party_short": "BJP",
+    "votes": 125545,
+    "margin_votes": 38763,
+    "margin_pct": 16.49
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 146,
+  "constituency_name": "Sitapur",
+  "totals": {
+    "electors": 378839,
+    "votes_polled": 234198,
+    "turnout_pct": 61.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAKESH RATHORE",
+      "party_short": "BJP",
+      "votes": 98850,
+      "vote_share_pct": 42.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RADHEY SHYAM JAISWAL",
+      "party_short": "SP",
+      "votes": 74011,
+      "vote_share_pct": 31.6,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASHFAQ KHAN",
+      "party_short": "BSP",
+      "votes": 52181,
+      "vote_share_pct": 22.28,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAKESH",
+      "party_short": "IND",
+      "votes": 1706,
+      "vote_share_pct": 0.73,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SATROHAN LAL",
+      "party_short": "RLD",
+      "votes": 1059,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1842,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4549,
+    "vote_share_pct": 1.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAKESH RATHORE",
+    "party_short": "BJP",
+    "votes": 98850,
+    "margin_votes": 24839,
+    "margin_pct": 10.61
+  }
+}

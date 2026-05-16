@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 172,
+  "constituency_name": "Papanasam",
+  "totals": {
+    "electors": 240357,
+    "votes_polled": 182548,
+    "turnout_pct": 75.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DORAIKKANNU R",
+      "party_short": "ADMK",
+      "votes": 82614,
+      "vote_share_pct": 45.26,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "LOGANATHAN T R",
+      "party_short": "INC",
+      "votes": 58249,
+      "vote_share_pct": 31.91,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAYAKUMAR S D",
+      "party_short": "TMC(M)",
+      "votes": 18599,
+      "vote_share_pct": 10.19,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ALAYAMANI G",
+      "party_short": "PMK",
+      "votes": 4963,
+      "vote_share_pct": 2.72,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HUMAYUN KABIR M I",
+      "party_short": "NTK",
+      "votes": 3864,
+      "vote_share_pct": 2.12,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1911,
+    "vote_share_pct": 1.05
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 12348,
+    "vote_share_pct": 6.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DORAIKKANNU R",
+    "party_short": "ADMK",
+    "votes": 82614,
+    "margin_votes": 24365,
+    "margin_pct": 13.35
+  }
+}

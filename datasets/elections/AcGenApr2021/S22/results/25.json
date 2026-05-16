@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Mylapore",
+  "totals": {
+    "electors": 270568,
+    "votes_polled": 153430,
+    "turnout_pct": 56.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VELU.DHA",
+      "party_short": "DMK",
+      "votes": 68392,
+      "vote_share_pct": 44.58,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NATARAJ.R",
+      "party_short": "ADMK",
+      "votes": 55759,
+      "vote_share_pct": 36.34,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SRIPRIYA",
+      "party_short": "MNM",
+      "votes": 14904,
+      "vote_share_pct": 9.71,
+      "gender": "F",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAHALAKSHMI.K",
+      "party_short": "NTK",
+      "votes": 10124,
+      "vote_share_pct": 6.6,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KARTHICK.D",
+      "party_short": "AMMKMNKZ",
+      "votes": 1118,
+      "vote_share_pct": 0.73,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1287,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 1846,
+    "vote_share_pct": 1.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VELU.DHA",
+    "party_short": "DMK",
+    "votes": 68392,
+    "margin_votes": 12633,
+    "margin_pct": 8.23
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 95,
+  "constituency_name": "Paramathi-Velur",
+  "totals": {
+    "electors": 208633,
+    "votes_polled": 175306,
+    "turnout_pct": 84.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOORTHIY K S",
+      "party_short": "DMK",
+      "votes": 74418,
+      "vote_share_pct": 42.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJENDHIRAN R",
+      "party_short": "ADMK",
+      "votes": 73600,
+      "vote_share_pct": 41.98,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MUTHUKUMAR  K",
+      "party_short": "DMDK",
+      "votes": 6014,
+      "vote_share_pct": 3.43,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BOOPATHI  C",
+      "party_short": "KMDK",
+      "votes": 5116,
+      "vote_share_pct": 2.92,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJKUMAR S",
+      "party_short": "BJP",
+      "votes": 4323,
+      "vote_share_pct": 2.47,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1658,
+    "vote_share_pct": 0.95
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 10177,
+    "vote_share_pct": 5.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOORTHIY K S",
+    "party_short": "DMK",
+    "votes": 74418,
+    "margin_votes": 818,
+    "margin_pct": 0.47
+  }
+}

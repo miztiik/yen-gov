@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "Mohanpur",
+  "totals": {
+    "electors": 46869,
+    "votes_polled": 43364,
+    "turnout_pct": 92.52
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ratan Lal Nath",
+      "party_short": "BJP",
+      "votes": 19663,
+      "vote_share_pct": 45.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Tapas Dey",
+      "party_short": "TMP",
+      "votes": 12278,
+      "vote_share_pct": 28.31,
+      "gender": "M",
+      "age": 78,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Prasanta Sen Chowdhury",
+      "party_short": "INC",
+      "votes": 10588,
+      "vote_share_pct": 24.42,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Joy Kumar Deb",
+      "party_short": "IND",
+      "votes": 483,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 352,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ratan Lal Nath",
+    "party_short": "BJP",
+    "votes": 19663,
+    "margin_votes": 7385,
+    "margin_pct": 17.03
+  },
+  "others": null
+}

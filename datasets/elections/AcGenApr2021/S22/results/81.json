@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "Gangavalli",
+  "totals": {
+    "electors": 239024,
+    "votes_polled": 186503,
+    "turnout_pct": 78.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NALLATHAMBI,A.",
+      "party_short": "ADMK",
+      "votes": 89568,
+      "vote_share_pct": 48.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "REKHA PRIYADHARSHINI,J.",
+      "party_short": "DMK",
+      "votes": 82207,
+      "vote_share_pct": 44.08,
+      "gender": "F",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "VINOTHINI,R.",
+      "party_short": "NTK",
+      "votes": 9323,
+      "vote_share_pct": 5.0,
+      "gender": "F",
+      "age": 26,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PANDIAN,A.",
+      "party_short": "AMMKMNKZ",
+      "votes": 1519,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "NAVAN,P.",
+      "party_short": "PT",
+      "votes": 609,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1251,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2026,
+    "vote_share_pct": 1.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NALLATHAMBI,A.",
+    "party_short": "ADMK",
+    "votes": 89568,
+    "margin_votes": 7361,
+    "margin_pct": 3.95
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 282,
+  "constituency_name": "BALHA (S.C.)",
+  "totals": {
+    "electors": 349485,
+    "votes_polled": 202367,
+    "turnout_pct": 57.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AKSHAYVARALAL",
+      "party_short": "BJP",
+      "votes": 104135,
+      "vote_share_pct": 51.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "KIRAN BHARTI",
+      "party_short": "BSP",
+      "votes": 57519,
+      "vote_share_pct": 28.42,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BANSHI DHAR BAUDH",
+      "party_short": "SP",
+      "votes": 29349,
+      "vote_share_pct": 14.5,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BECHELAL",
+      "party_short": "IND",
+      "votes": 1700,
+      "vote_share_pct": 0.84,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KAMLAVATI DEVI",
+      "party_short": "RPI(A)",
+      "votes": 1053,
+      "vote_share_pct": 0.52,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3382,
+    "vote_share_pct": 1.67
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 5229,
+    "vote_share_pct": 2.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AKSHAYVARALAL",
+    "party_short": "BJP",
+    "votes": 104135,
+    "margin_votes": 46616,
+    "margin_pct": 23.04
+  }
+}

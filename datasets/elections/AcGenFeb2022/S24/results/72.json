@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Barauli",
+  "totals": {
+    "electors": 380035,
+    "votes_polled": 244299,
+    "turnout_pct": 64.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Thakur Jaiveer Singh",
+      "party_short": "BJP",
+      "votes": 147984,
+      "vote_share_pct": 60.57,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NARENDRA KUMAR SHARMA",
+      "party_short": "BSP",
+      "votes": 57339,
+      "vote_share_pct": 23.47,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Pramod Gaur",
+      "party_short": "RLD",
+      "votes": 32781,
+      "vote_share_pct": 13.42,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Gaurang Dev",
+      "party_short": "INC",
+      "votes": 2377,
+      "vote_share_pct": 0.97,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Shakir Ali",
+      "party_short": "AIMIM",
+      "votes": 933,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1092,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1793,
+    "vote_share_pct": 0.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Thakur Jaiveer Singh",
+    "party_short": "BJP",
+    "votes": 147984,
+    "margin_votes": 90645,
+    "margin_pct": 37.1
+  }
+}

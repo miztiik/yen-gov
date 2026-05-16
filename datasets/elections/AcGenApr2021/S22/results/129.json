@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 129,
+  "constituency_name": "Athoor",
+  "totals": {
+    "electors": 291955,
+    "votes_polled": 229940,
+    "turnout_pct": 78.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PERIYASAMY I",
+      "party_short": "DMK",
+      "votes": 165809,
+      "vote_share_pct": 72.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "THILAGABAMA M",
+      "party_short": "PMK",
+      "votes": 30238,
+      "vote_share_pct": 13.15,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SIMON JUSTIN A",
+      "party_short": "NTK",
+      "votes": 17168,
+      "vote_share_pct": 7.47,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SIVASAKTHIVEL P",
+      "party_short": "MNM",
+      "votes": 3241,
+      "vote_share_pct": 1.41,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SELVAKUMAR P",
+      "party_short": "AMMKMNKZ",
+      "votes": 3017,
+      "vote_share_pct": 1.31,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1564,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 8903,
+    "vote_share_pct": 3.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PERIYASAMY I",
+    "party_short": "DMK",
+    "votes": 165809,
+    "margin_votes": 135571,
+    "margin_pct": 58.96
+  }
+}

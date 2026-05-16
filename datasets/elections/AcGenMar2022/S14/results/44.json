@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Ukhrul",
+  "totals": {
+    "electors": 48307,
+    "votes_polled": 40073,
+    "turnout_pct": 82.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM MUIVAH",
+      "party_short": "NPF",
+      "votes": 15503,
+      "vote_share_pct": 38.69,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "ALFRED KANNGAM S. ARTHUR",
+      "party_short": "INC",
+      "votes": 14561,
+      "vote_share_pct": 36.34,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SOMATAI SHAIZA",
+      "party_short": "BJP",
+      "votes": 9961,
+      "vote_share_pct": 24.86,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 48,
+    "vote_share_pct": 0.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM MUIVAH",
+    "party_short": "NPF",
+    "votes": 15503,
+    "margin_votes": 942,
+    "margin_pct": 2.35
+  },
+  "others": null
+}

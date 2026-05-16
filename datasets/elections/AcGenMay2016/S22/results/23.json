@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Saidapet",
+  "totals": {
+    "electors": 282052,
+    "votes_polled": 168018,
+    "turnout_pct": 59.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUBRAMANIAN.MA",
+      "party_short": "DMK",
+      "votes": 79279,
+      "vote_share_pct": 47.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PONNAYAN.C",
+      "party_short": "ADMK",
+      "votes": 63024,
+      "vote_share_pct": 37.51,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KALIDASS.V",
+      "party_short": "BJP",
+      "votes": 6000,
+      "vote_share_pct": 3.57,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAHADEVAN.T.R.",
+      "party_short": "PMK",
+      "votes": 5913,
+      "vote_share_pct": 3.52,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ELUMALAI.S",
+      "party_short": "CPI",
+      "votes": 5221,
+      "vote_share_pct": 3.11,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3541,
+    "vote_share_pct": 2.11
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 5040,
+    "vote_share_pct": 2.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUBRAMANIAN.MA",
+    "party_short": "DMK",
+    "votes": 79279,
+    "margin_votes": 16255,
+    "margin_pct": 9.67
+  }
+}

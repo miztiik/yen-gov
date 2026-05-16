@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 36,
+  "constituency_name": "Santirbazar (ST)",
+  "totals": {
+    "electors": 50535,
+    "votes_polled": 46720,
+    "turnout_pct": 92.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pramod Reang",
+      "party_short": "BJP",
+      "votes": 18709,
+      "vote_share_pct": 40.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Harendra Reang",
+      "party_short": "TMP",
+      "votes": 14615,
+      "vote_share_pct": 31.28,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Satyajit Reang",
+      "party_short": "CPI",
+      "votes": 12063,
+      "vote_share_pct": 25.82,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Narendra Reang",
+      "party_short": "AITC",
+      "votes": 697,
+      "vote_share_pct": 1.49,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 636,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pramod Reang",
+    "party_short": "BJP",
+    "votes": 18709,
+    "margin_votes": 4094,
+    "margin_pct": 8.76
+  },
+  "others": null
+}

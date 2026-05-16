@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "Phagwara",
+  "totals": {
+    "electors": 178370,
+    "votes_polled": 129849,
+    "turnout_pct": 72.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SOM PARKASH",
+      "party_short": "BJP",
+      "votes": 45479,
+      "vote_share_pct": 35.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "JOGINDER SINGH MANN",
+      "party_short": "INC",
+      "votes": 43470,
+      "vote_share_pct": 33.48,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "JARNAIL NANGAL",
+      "party_short": "AAAP",
+      "votes": 32374,
+      "vote_share_pct": 24.93,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SURINDER DHANDA",
+      "party_short": "BSP",
+      "votes": 6160,
+      "vote_share_pct": 4.74,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ASHWANI KUMAR SAHOTA",
+      "party_short": "IND",
+      "votes": 498,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 28,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1094,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 774,
+    "vote_share_pct": 0.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SOM PARKASH",
+    "party_short": "BJP",
+    "votes": 45479,
+    "margin_votes": 2009,
+    "margin_pct": 1.55
+  }
+}

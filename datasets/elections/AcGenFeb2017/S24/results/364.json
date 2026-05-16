@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 364,
+  "constituency_name": "Badlapur",
+  "totals": {
+    "electors": 312911,
+    "votes_polled": 190590,
+    "turnout_pct": 60.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMESH CHANDRA MISHRA",
+      "party_short": "BJP",
+      "votes": 60237,
+      "vote_share_pct": 31.61,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "LALJI YADAVA",
+      "party_short": "BSP",
+      "votes": 57865,
+      "vote_share_pct": 30.36,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "OMPRAKASH &AMP;AMP;AMP;#39;BABA&AMP;AMP;AMP;#39; DUBEY",
+      "party_short": "SP",
+      "votes": 46545,
+      "vote_share_pct": 24.42,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SABHAPATI",
+      "party_short": "NINSHAD",
+      "votes": 15565,
+      "vote_share_pct": 8.17,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MRIGENDRA SINGH ALIAS SHIVBABA",
+      "party_short": "RLD",
+      "votes": 3763,
+      "vote_share_pct": 1.97,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1612,
+    "vote_share_pct": 0.85
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5003,
+    "vote_share_pct": 2.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMESH CHANDRA MISHRA",
+    "party_short": "BJP",
+    "votes": 60237,
+    "margin_votes": 2372,
+    "margin_pct": 1.24
+  }
+}

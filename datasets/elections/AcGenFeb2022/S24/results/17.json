@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Najibabad",
+  "totals": {
+    "electors": 346687,
+    "votes_polled": 232615,
+    "turnout_pct": 67.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TASLEEM AHMAD",
+      "party_short": "SP",
+      "votes": 102675,
+      "vote_share_pct": 44.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJA BHARATENDRA SINGH",
+      "party_short": "BJP",
+      "votes": 78905,
+      "vote_share_pct": 33.92,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHAHNAWAZ ALAM",
+      "party_short": "BSP",
+      "votes": 44727,
+      "vote_share_pct": 19.23,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHD SALEEM ANSARI",
+      "party_short": "INC",
+      "votes": 1958,
+      "vote_share_pct": 0.84,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHD DANISH",
+      "party_short": "ASPKR",
+      "votes": 575,
+      "vote_share_pct": 0.25,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1372,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2403,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TASLEEM AHMAD",
+    "party_short": "SP",
+    "votes": 102675,
+    "margin_votes": 23770,
+    "margin_pct": 10.22
+  }
+}

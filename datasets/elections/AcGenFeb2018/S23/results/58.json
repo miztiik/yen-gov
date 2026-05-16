@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "Panisagar",
+  "totals": {
+    "electors": 36321,
+    "votes_polled": 33008,
+    "turnout_pct": 90.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BINAY BHUSHAN DAS",
+      "party_short": "BJP",
+      "votes": 15892,
+      "vote_share_pct": 48.15,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AJIT KUMAR DAS",
+      "party_short": "CPM",
+      "votes": 15331,
+      "vote_share_pct": 46.45,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GOURANGA DAS TALUKDAR",
+      "party_short": "INC",
+      "votes": 555,
+      "vote_share_pct": 1.68,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RANI SINGHA",
+      "party_short": "AITC",
+      "votes": 249,
+      "vote_share_pct": 0.75,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BINOD NATH",
+      "party_short": "AMB",
+      "votes": 162,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 269,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BINAY BHUSHAN DAS",
+    "party_short": "BJP",
+    "votes": 15892,
+    "margin_votes": 561,
+    "margin_pct": 1.7
+  },
+  "others": null
+}

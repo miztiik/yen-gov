@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 185,
+  "constituency_name": "Tiruppattur",
+  "totals": {
+    "electors": 268126,
+    "votes_polled": 198690,
+    "turnout_pct": 74.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PERIAKARUPPAN KR",
+      "party_short": "DMK",
+      "votes": 110719,
+      "vote_share_pct": 55.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ASOKAN  KR",
+      "party_short": "ADMK",
+      "votes": 68715,
+      "vote_share_pct": 34.58,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SATHIAH N",
+      "party_short": "CPI",
+      "votes": 7380,
+      "vote_share_pct": 3.71,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ASAISELVAN",
+      "party_short": "NTK",
+      "votes": 2801,
+      "vote_share_pct": 1.41,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUTHUSAMY M",
+      "party_short": "IND",
+      "votes": 1443,
+      "vote_share_pct": 0.73,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1939,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 5693,
+    "vote_share_pct": 2.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PERIAKARUPPAN KR",
+    "party_short": "DMK",
+    "votes": 110719,
+    "margin_votes": 42004,
+    "margin_pct": 21.14
+  }
+}

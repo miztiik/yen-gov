@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "Thanga",
+  "totals": {
+    "electors": 22984,
+    "votes_polled": 21135,
+    "turnout_pct": 91.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Tongbram Robindro Singh",
+      "party_short": "BJP",
+      "votes": 13095,
+      "vote_share_pct": 61.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Birla Haobijam",
+      "party_short": "INC",
+      "votes": 7844,
+      "vote_share_pct": 37.11,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 196,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Tongbram Robindro Singh",
+    "party_short": "BJP",
+    "votes": 13095,
+    "margin_votes": 5251,
+    "margin_pct": 24.85
+  },
+  "others": null
+}

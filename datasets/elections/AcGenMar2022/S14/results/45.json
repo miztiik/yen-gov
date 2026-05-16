@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "Chingai",
+  "totals": {
+    "electors": 47449,
+    "votes_polled": 40898,
+    "turnout_pct": 86.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KHASHIM VASHUM",
+      "party_short": "NPF",
+      "votes": 12837,
+      "vote_share_pct": 31.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "NINGAM CHAMROY",
+      "party_short": "NPEP",
+      "votes": 10501,
+      "vote_share_pct": 25.68,
+      "gender": "M",
+      "age": 64,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "PRESHOW MK SHIMRAY",
+      "party_short": "BJP",
+      "votes": 9349,
+      "vote_share_pct": 22.86,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SWORD VASHUM",
+      "party_short": "INC",
+      "votes": 8150,
+      "vote_share_pct": 19.93,
+      "gender": "M",
+      "age": 73,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 61,
+    "vote_share_pct": 0.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KHASHIM VASHUM",
+    "party_short": "NPF",
+    "votes": 12837,
+    "margin_votes": 2336,
+    "margin_pct": 5.71
+  },
+  "others": null
+}

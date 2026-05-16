@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "Bagbassa",
+  "totals": {
+    "electors": 42889,
+    "votes_polled": 37687,
+    "turnout_pct": 87.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BIJITA NATH",
+      "party_short": "CPM",
+      "votes": 18001,
+      "vote_share_pct": 47.76,
+      "is_winner": true,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PRADIP KUMAR NATH",
+      "party_short": "BJP",
+      "votes": 17731,
+      "vote_share_pct": 47.05,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JYOTIRMOY NATH",
+      "party_short": "INC",
+      "votes": 552,
+      "vote_share_pct": 1.46,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARABINDA TELI",
+      "party_short": "CPI(ML)(L)",
+      "votes": 277,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMARJIT SINGHA",
+      "party_short": "AITC",
+      "votes": 274,
+      "vote_share_pct": 0.73,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 257,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 90,
+    "vote_share_pct": 0.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BIJITA NATH",
+    "party_short": "CPM",
+    "votes": 18001,
+    "margin_votes": 270,
+    "margin_pct": 0.72
+  }
+}

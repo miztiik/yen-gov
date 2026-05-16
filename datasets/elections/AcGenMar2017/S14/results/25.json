@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Oinam",
+  "totals": {
+    "electors": 26415,
+    "votes_polled": 24516,
+    "turnout_pct": 92.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LAISHRAM RADHAKISHORE SINGH",
+      "party_short": "BJP",
+      "votes": 12029,
+      "vote_share_pct": 49.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. IRENGBAM IBOHALBI SINGH",
+      "party_short": "INC",
+      "votes": 11186,
+      "vote_share_pct": 45.63,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KHUNDRAKPAM ROMIO",
+      "party_short": "NCP",
+      "votes": 1030,
+      "vote_share_pct": 4.2,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "LAITONJAM THOIBA SINGH",
+      "party_short": "MNDF",
+      "votes": 190,
+      "vote_share_pct": 0.78,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 81,
+    "vote_share_pct": 0.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LAISHRAM RADHAKISHORE SINGH",
+    "party_short": "BJP",
+    "votes": 12029,
+    "margin_votes": 843,
+    "margin_pct": 3.44
+  },
+  "others": null
+}

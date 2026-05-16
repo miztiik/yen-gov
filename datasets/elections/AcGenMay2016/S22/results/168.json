@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 168,
+  "constituency_name": "Thiruvarur",
+  "totals": {
+    "electors": 253227,
+    "votes_polled": 196795,
+    "turnout_pct": 77.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARUNANIDHI .M",
+      "party_short": "DMK",
+      "votes": 121473,
+      "vote_share_pct": 61.73,
+      "is_winner": true,
+      "gender": "M",
+      "age": 92,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PANNERSELVAM .R",
+      "party_short": "ADMK",
+      "votes": 53107,
+      "vote_share_pct": 26.99,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MASILAMANI .P.S",
+      "party_short": "CPI",
+      "votes": 13158,
+      "vote_share_pct": 6.69,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SIVAKUMAR .R",
+      "party_short": "PMK",
+      "votes": 1787,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRASEKAR .THENDRAL",
+      "party_short": "NTK",
+      "votes": 1427,
+      "vote_share_pct": 0.73,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2177,
+    "vote_share_pct": 1.11
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3666,
+    "vote_share_pct": 1.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARUNANIDHI .M",
+    "party_short": "DMK",
+    "votes": 121473,
+    "margin_votes": 68366,
+    "margin_pct": 34.74
+  }
+}

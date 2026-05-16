@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "Kharar",
+  "totals": {
+    "electors": 267219,
+    "votes_polled": 176684,
+    "turnout_pct": 66.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Anmol Gagan Maan",
+      "party_short": "AAAP",
+      "votes": 78273,
+      "vote_share_pct": 44.3,
+      "is_winner": true,
+      "gender": "F",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ranjit Singh Gill",
+      "party_short": "SAD",
+      "votes": 40388,
+      "vote_share_pct": 22.86,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vijay Sharma Tinku",
+      "party_short": "INC",
+      "votes": 25291,
+      "vote_share_pct": 14.31,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Kamal Deep Singh Saini",
+      "party_short": "BJP",
+      "votes": 15249,
+      "vote_share_pct": 8.63,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Lakhvir Singh",
+      "party_short": "SAD(M)",
+      "votes": 7198,
+      "vote_share_pct": 4.07,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 735,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 9550,
+    "vote_share_pct": 5.4
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Anmol Gagan Maan",
+    "party_short": "AAAP",
+    "votes": 78273,
+    "margin_votes": 37885,
+    "margin_pct": 21.44
+  }
+}

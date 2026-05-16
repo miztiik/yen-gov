@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Mahesana",
+  "totals": {
+    "electors": 280757,
+    "votes_polled": 176222,
+    "turnout_pct": 62.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Patel Mukeshkumar D.",
+      "party_short": "BJP",
+      "votes": 98816,
+      "vote_share_pct": 56.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "P.k. Patel",
+      "party_short": "INC",
+      "votes": 53022,
+      "vote_share_pct": 30.09,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Patel Dishantbhai Dhanjibhai(bhagat)",
+      "party_short": "AAAP",
+      "votes": 15211,
+      "vote_share_pct": 8.63,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Raval Anandkumar Manilal",
+      "party_short": "IND",
+      "votes": 2722,
+      "vote_share_pct": 1.54,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Vasudev Tribhovandas Parmar",
+      "party_short": "BSP",
+      "votes": 819,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2449,
+    "vote_share_pct": 1.39
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3183,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Patel Mukeshkumar D.",
+    "party_short": "BJP",
+    "votes": 98816,
+    "margin_votes": 45794,
+    "margin_pct": 25.99
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 330,
+  "constituency_name": "Padrauna",
+  "totals": {
+    "electors": 382530,
+    "votes_polled": 229907,
+    "turnout_pct": 60.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANISH KUMAR URF MANTU",
+      "party_short": "BJP",
+      "votes": 114496,
+      "vote_share_pct": 49.8,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIKRAMA YADAV",
+      "party_short": "SP",
+      "votes": 72488,
+      "vote_share_pct": 31.53,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PAWAN KUMAR UPADHYAY",
+      "party_short": "BSP",
+      "votes": 20983,
+      "vote_share_pct": 9.13,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JAVED KHAN",
+      "party_short": "AIMIM",
+      "votes": 7976,
+      "vote_share_pct": 3.47,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MD JAHIRUDDIN",
+      "party_short": "INC",
+      "votes": 3338,
+      "vote_share_pct": 1.45,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1394,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 9232,
+    "vote_share_pct": 4.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANISH KUMAR URF MANTU",
+    "party_short": "BJP",
+    "votes": 114496,
+    "margin_votes": 42008,
+    "margin_pct": 18.27
+  }
+}

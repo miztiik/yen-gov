@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 147,
+  "constituency_name": "Hargaon",
+  "totals": {
+    "electors": 310182,
+    "votes_polled": 221261,
+    "turnout_pct": 71.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURESH RAHI",
+      "party_short": "BJP",
+      "votes": 101680,
+      "vote_share_pct": 45.95,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAMHET BHARTI",
+      "party_short": "BSP",
+      "votes": 56685,
+      "vote_share_pct": 25.62,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MANOJ KUMAR RAJVANSHI",
+      "party_short": "SP",
+      "votes": 50211,
+      "vote_share_pct": 22.69,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "AMIT KUMAR",
+      "party_short": "SARSAMP",
+      "votes": 2700,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAMNARESH",
+      "party_short": "PECP",
+      "votes": 2648,
+      "vote_share_pct": 1.2,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2220,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 5117,
+    "vote_share_pct": 2.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURESH RAHI",
+    "party_short": "BJP",
+    "votes": 101680,
+    "margin_votes": 44995,
+    "margin_pct": 20.34
+  }
+}

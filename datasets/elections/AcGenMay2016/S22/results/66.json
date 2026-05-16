@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "Polur",
+  "totals": {
+    "electors": 227936,
+    "votes_polled": 195714,
+    "turnout_pct": 85.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SEKARAN.K.V",
+      "party_short": "DMK",
+      "votes": 66588,
+      "vote_share_pct": 34.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MURUGAN.M",
+      "party_short": "ADMK",
+      "votes": 58315,
+      "vote_share_pct": 29.8,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ELUMALAI.C",
+      "party_short": "IND",
+      "votes": 38861,
+      "vote_share_pct": 19.86,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VELAYUTHAM.A",
+      "party_short": "PMK",
+      "votes": 17184,
+      "vote_share_pct": 8.78,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SELVAN.P",
+      "party_short": "CPM",
+      "votes": 5000,
+      "vote_share_pct": 2.55,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1230,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 8536,
+    "vote_share_pct": 4.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SEKARAN.K.V",
+    "party_short": "DMK",
+    "votes": 66588,
+    "margin_votes": 8273,
+    "margin_pct": 4.23
+  }
+}

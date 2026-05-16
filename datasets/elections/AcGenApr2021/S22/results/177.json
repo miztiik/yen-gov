@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 177,
+  "constituency_name": "Peravurani",
+  "totals": {
+    "electors": 220162,
+    "votes_polled": 170850,
+    "turnout_pct": 77.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ASHOKKUMAR, N.",
+      "party_short": "DMK",
+      "votes": 89130,
+      "vote_share_pct": 52.17,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "THIRUGNANASAMBANDAM, S.V.",
+      "party_short": "ADMK",
+      "votes": 65627,
+      "vote_share_pct": 38.41,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DELIPAN, K.",
+      "party_short": "NTK",
+      "votes": 12154,
+      "vote_share_pct": 7.11,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SIVAKUMAR, M.",
+      "party_short": "DMDK",
+      "votes": 1623,
+      "vote_share_pct": 0.95,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PACHAMUTHU, P.",
+      "party_short": "IJK",
+      "votes": 554,
+      "vote_share_pct": 0.32,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 770,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 992,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ASHOKKUMAR, N.",
+    "party_short": "DMK",
+    "votes": 89130,
+    "margin_votes": 23503,
+    "margin_pct": 13.76
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "Syana",
+  "totals": {
+    "electors": 387326,
+    "votes_polled": 253197,
+    "turnout_pct": 65.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Devendra Singh Lodhi",
+      "party_short": "BJP",
+      "votes": 149125,
+      "vote_share_pct": 58.9,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dilnawaz Khan",
+      "party_short": "RLD",
+      "votes": 59468,
+      "vote_share_pct": 23.49,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sunil Kumar",
+      "party_short": "BSP",
+      "votes": 36193,
+      "vote_share_pct": 14.29,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Km. Poonam",
+      "party_short": "INC",
+      "votes": 2914,
+      "vote_share_pct": 1.15,
+      "gender": "F",
+      "age": 25,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Gyanesh Kumar Chauhan",
+      "party_short": "HINUP",
+      "votes": 1237,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1402,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2858,
+    "vote_share_pct": 1.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Devendra Singh Lodhi",
+    "party_short": "BJP",
+    "votes": 149125,
+    "margin_votes": 89657,
+    "margin_pct": 35.41
+  }
+}

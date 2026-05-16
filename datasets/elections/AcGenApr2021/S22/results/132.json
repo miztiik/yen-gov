@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 132,
+  "constituency_name": "Dindigul",
+  "totals": {
+    "electors": 276820,
+    "votes_polled": 195118,
+    "turnout_pct": 70.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SREENIVASAN.C",
+      "party_short": "ADMK",
+      "votes": 90595,
+      "vote_share_pct": 46.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PANDI.N",
+      "party_short": "CPI(M)",
+      "votes": 72848,
+      "vote_share_pct": 37.34,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAYASUNDAR.R",
+      "party_short": "NTK",
+      "votes": 14860,
+      "vote_share_pct": 7.62,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJENDRAN.R",
+      "party_short": "MNM",
+      "votes": 9063,
+      "vote_share_pct": 4.64,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMUTHEVAR.P",
+      "party_short": "AMMKMNKZ",
+      "votes": 2427,
+      "vote_share_pct": 1.24,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1807,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 3518,
+    "vote_share_pct": 1.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SREENIVASAN.C",
+    "party_short": "ADMK",
+    "votes": 90595,
+    "margin_votes": 17747,
+    "margin_pct": 9.1
+  }
+}

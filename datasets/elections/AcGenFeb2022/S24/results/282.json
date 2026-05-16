@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 282,
+  "constituency_name": "Balha",
+  "totals": {
+    "electors": 362718,
+    "votes_polled": 214812,
+    "turnout_pct": 59.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAROJ SONKAR",
+      "party_short": "BJP",
+      "votes": 100483,
+      "vote_share_pct": 46.78,
+      "is_winner": true,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "AKSHAYBAR NATH KANAUJIYA",
+      "party_short": "SP",
+      "votes": 83910,
+      "vote_share_pct": 39.06,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RAMCHANDRA",
+      "party_short": "BSP",
+      "votes": 15578,
+      "vote_share_pct": 7.25,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KANTI",
+      "party_short": "AAAP",
+      "votes": 2650,
+      "vote_share_pct": 1.23,
+      "gender": "F",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Jitendra kumar",
+      "party_short": "JANADIP",
+      "votes": 2491,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2689,
+    "vote_share_pct": 1.25
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 7011,
+    "vote_share_pct": 3.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAROJ SONKAR",
+    "party_short": "BJP",
+    "votes": 100483,
+    "margin_votes": 16573,
+    "margin_pct": 7.72
+  }
+}

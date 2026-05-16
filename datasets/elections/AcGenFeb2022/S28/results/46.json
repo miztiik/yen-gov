@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "Kapkot",
+  "totals": {
+    "electors": 101772,
+    "votes_polled": 64052,
+    "turnout_pct": 62.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Suresh Gariya",
+      "party_short": "BJP",
+      "votes": 31275,
+      "vote_share_pct": 48.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Lalit Farswan",
+      "party_short": "INC",
+      "votes": 27229,
+      "vote_share_pct": 42.51,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Bhoopesh Upadhyay",
+      "party_short": "AAAP",
+      "votes": 3529,
+      "vote_share_pct": 5.51,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rajendra Singh",
+      "party_short": "IND",
+      "votes": 513,
+      "vote_share_pct": 0.8,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Har Govind Joshi",
+      "party_short": "BSP",
+      "votes": 506,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 785,
+    "vote_share_pct": 1.23
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 215,
+    "vote_share_pct": 0.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Suresh Gariya",
+    "party_short": "BJP",
+    "votes": 31275,
+    "margin_votes": 4046,
+    "margin_pct": 6.32
+  }
+}

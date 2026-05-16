@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "Dangs (ST)",
+  "totals": {
+    "electors": 193369,
+    "votes_polled": 131542,
+    "turnout_pct": 68.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vijaybhai Rameshbhai Patel",
+      "party_short": "BJP",
+      "votes": 62533,
+      "vote_share_pct": 47.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Patel Mukeshbhai Chandarbhai",
+      "party_short": "INC",
+      "votes": 42859,
+      "vote_share_pct": 32.58,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Gamit Sunilbhai Chandubhai",
+      "party_short": "AAAP",
+      "votes": 20822,
+      "vote_share_pct": 15.83,
+      "gender": "M",
+      "age": 31,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Sangitaben Maheshbhai Ahire",
+      "party_short": "BSP",
+      "votes": 1468,
+      "vote_share_pct": 1.12,
+      "gender": "F",
+      "age": 28,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Aestarben Kesharbhai Pawar",
+      "party_short": "IND",
+      "votes": 1103,
+      "vote_share_pct": 0.84,
+      "gender": "F",
+      "age": 27,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1910,
+    "vote_share_pct": 1.45
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 847,
+    "vote_share_pct": 0.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vijaybhai Rameshbhai Patel",
+    "party_short": "BJP",
+    "votes": 62533,
+    "margin_votes": 19674,
+    "margin_pct": 14.96
+  }
+}

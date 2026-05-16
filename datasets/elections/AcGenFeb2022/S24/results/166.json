@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 166,
+  "constituency_name": "Bhagwantnagar",
+  "totals": {
+    "electors": 417945,
+    "votes_polled": 247886,
+    "turnout_pct": 59.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ashutosh Shukla",
+      "party_short": "BJP",
+      "votes": 127118,
+      "vote_share_pct": 51.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ankit Parihar",
+      "party_short": "SP",
+      "votes": 84108,
+      "vote_share_pct": 33.93,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Brij Kishor",
+      "party_short": "BSP",
+      "votes": 28441,
+      "vote_share_pct": 11.47,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Jang Bahadur Singh",
+      "party_short": "INC",
+      "votes": 2580,
+      "vote_share_pct": 1.04,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ajay Singh",
+      "party_short": "IND",
+      "votes": 1028,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2319,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2292,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ashutosh Shukla",
+    "party_short": "BJP",
+    "votes": 127118,
+    "margin_votes": 43010,
+    "margin_pct": 17.35
+  }
+}

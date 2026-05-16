@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 131,
+  "constituency_name": "Natham",
+  "totals": {
+    "electors": 258718,
+    "votes_polled": 207011,
+    "turnout_pct": 80.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANDI AMBALAM M.A",
+      "party_short": "DMK",
+      "votes": 93822,
+      "vote_share_pct": 45.32,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHAJAHAN S",
+      "party_short": "ADMK",
+      "votes": 91712,
+      "vote_share_pct": 44.3,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KARTHIKEYAN G",
+      "party_short": "DMDK",
+      "votes": 9373,
+      "vote_share_pct": 4.53,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SIVASANKARAN V.DR",
+      "party_short": "NTK",
+      "votes": 2393,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VADIVEL M",
+      "party_short": "IND",
+      "votes": 1182,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1844,
+    "vote_share_pct": 0.89
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 6685,
+    "vote_share_pct": 3.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANDI AMBALAM M.A",
+    "party_short": "DMK",
+    "votes": 93822,
+    "margin_votes": 2110,
+    "margin_pct": 1.02
+  }
+}

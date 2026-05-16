@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Mylapore",
+  "totals": {
+    "electors": 262980,
+    "votes_polled": 156132,
+    "turnout_pct": 59.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NATARAJ.R IPS (RTD)",
+      "party_short": "ADMK",
+      "votes": 68176,
+      "vote_share_pct": 43.67,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KARATE THIAGARAJAN.R",
+      "party_short": "INC",
+      "votes": 53448,
+      "vote_share_pct": 34.23,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NAGARAJAN.K",
+      "party_short": "BJP",
+      "votes": 11720,
+      "vote_share_pct": 7.51,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SURESHKUMAR.N",
+      "party_short": "PMK",
+      "votes": 5806,
+      "vote_share_pct": 3.72,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUNAVAR BASHA A.S",
+      "party_short": "TMC(M)",
+      "votes": 4753,
+      "vote_share_pct": 3.04,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3788,
+    "vote_share_pct": 2.43
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 8441,
+    "vote_share_pct": 5.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NATARAJ.R IPS (RTD)",
+    "party_short": "ADMK",
+    "votes": 68176,
+    "margin_votes": 14728,
+    "margin_pct": 9.43
+  }
+}

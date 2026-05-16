@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 196,
+  "constituency_name": "Thirumangalam",
+  "totals": {
+    "electors": 261622,
+    "votes_polled": 204004,
+    "turnout_pct": 77.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UDHAYAKUMAR.R.B",
+      "party_short": "ADMK",
+      "votes": 95864,
+      "vote_share_pct": 46.99,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JEYARAM.R",
+      "party_short": "INC",
+      "votes": 72274,
+      "vote_share_pct": 35.43,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SRINIVASAN.M",
+      "party_short": "DMDK",
+      "votes": 20589,
+      "vote_share_pct": 10.09,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMAMOORTHY.V.R",
+      "party_short": "BJP",
+      "votes": 3261,
+      "vote_share_pct": 1.6,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MANIKANDAN.K",
+      "party_short": "NTK",
+      "votes": 1999,
+      "vote_share_pct": 0.98,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1572,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 8445,
+    "vote_share_pct": 4.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UDHAYAKUMAR.R.B",
+    "party_short": "ADMK",
+    "votes": 95864,
+    "margin_votes": 23590,
+    "margin_pct": 11.56
+  }
+}

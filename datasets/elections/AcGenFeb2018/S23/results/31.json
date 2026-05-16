@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Radhakishorepur",
+  "totals": {
+    "electors": 45648,
+    "votes_polled": 43562,
+    "turnout_pct": 95.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRANAJIT SINGHA ROY",
+      "party_short": "BJP",
+      "votes": 22414,
+      "vote_share_pct": 51.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SRIKANTA DATTA",
+      "party_short": "RSP",
+      "votes": 17568,
+      "vote_share_pct": 40.33,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MILAN CHANDRA KAR",
+      "party_short": "INC",
+      "votes": 843,
+      "vote_share_pct": 1.94,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PARTHA KARMAKAR",
+      "party_short": "CPI(ML)(L)",
+      "votes": 222,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MATILAL SIL",
+      "party_short": "AITC",
+      "votes": 201,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 899,
+    "vote_share_pct": 2.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRANAJIT SINGHA ROY",
+    "party_short": "BJP",
+    "votes": 22414,
+    "margin_votes": 4846,
+    "margin_pct": 11.12
+  },
+  "others": null
+}

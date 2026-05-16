@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 130,
+  "constituency_name": "Luni",
+  "totals": {
+    "electors": 335169,
+    "votes_polled": 244113,
+    "turnout_pct": 72.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jogaram Patel",
+      "party_short": "BJP",
+      "votes": 123498,
+      "vote_share_pct": 50.59,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mahendra Bishnoi",
+      "party_short": "INC",
+      "votes": 98820,
+      "vote_share_pct": 40.48,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Badrilal",
+      "party_short": "RLTP",
+      "votes": 16529,
+      "vote_share_pct": 6.77,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rajuram",
+      "party_short": "BSP",
+      "votes": 2079,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ugmaram Bheel",
+      "party_short": "BTC",
+      "votes": 1312,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1875,
+    "vote_share_pct": 0.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jogaram Patel",
+    "party_short": "BJP",
+    "votes": 123498,
+    "margin_votes": 24678,
+    "margin_pct": 10.11
+  },
+  "others": null
+}

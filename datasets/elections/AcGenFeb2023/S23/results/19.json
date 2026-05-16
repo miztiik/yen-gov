@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Charilam (ST)",
+  "totals": {
+    "electors": 39998,
+    "votes_polled": 36579,
+    "turnout_pct": 91.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Subodh Deb Barma",
+      "party_short": "TMP",
+      "votes": 13657,
+      "vote_share_pct": 37.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Jishnu Dev Varma",
+      "party_short": "BJP",
+      "votes": 12799,
+      "vote_share_pct": 34.99,
+      "gender": "M",
+      "age": 64,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Ashok Deb Barma",
+      "party_short": "INC",
+      "votes": 9627,
+      "vote_share_pct": 26.32,
+      "gender": "M",
+      "age": 72,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 496,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Subodh Deb Barma",
+    "party_short": "TMP",
+    "votes": 13657,
+    "margin_votes": 858,
+    "margin_pct": 2.35
+  },
+  "others": null
+}

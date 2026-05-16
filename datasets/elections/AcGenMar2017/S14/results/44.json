@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Ukhrul (st)",
+  "totals": {
+    "electors": 41673,
+    "votes_polled": 32078,
+    "turnout_pct": 76.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ALFRED KANNGAM ARTHUR",
+      "party_short": "INC",
+      "votes": 11510,
+      "vote_share_pct": 35.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SOMATAI SHAIZA",
+      "party_short": "BJP",
+      "votes": 11214,
+      "vote_share_pct": 34.96,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SAMUEL RISOM",
+      "party_short": "NPF",
+      "votes": 8883,
+      "vote_share_pct": 27.69,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "WORTHINGTON MAHUNG",
+      "party_short": "LJP",
+      "votes": 310,
+      "vote_share_pct": 0.97,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "LETSEI HAOKIP",
+      "party_short": "AITC",
+      "votes": 115,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 46,
+    "vote_share_pct": 0.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ALFRED KANNGAM ARTHUR",
+    "party_short": "INC",
+    "votes": 11510,
+    "margin_votes": 296,
+    "margin_pct": 0.92
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Simna",
+  "totals": {
+    "electors": 35967,
+    "votes_polled": 33567,
+    "turnout_pct": 93.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BRISHAKETU DEBBARMA",
+      "party_short": "IPFT",
+      "votes": 15977,
+      "vote_share_pct": 47.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "PRANAB DEBBARMA",
+      "party_short": "CPM",
+      "votes": 14014,
+      "vote_share_pct": 41.75,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "RABINDRA DEBBARMA",
+      "party_short": "INPT",
+      "votes": 1628,
+      "vote_share_pct": 4.85,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "PHANI LAL DEBBARMA",
+      "party_short": "INC",
+      "votes": 495,
+      "vote_share_pct": 1.47,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "ANANTA URANG",
+      "party_short": "TRIPP",
+      "votes": 388,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 27,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 382,
+    "vote_share_pct": 1.14
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 146,
+    "vote_share_pct": 0.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BRISHAKETU DEBBARMA",
+    "party_short": "IPFT",
+    "votes": 15977,
+    "margin_votes": 1963,
+    "margin_pct": 5.85
+  }
+}

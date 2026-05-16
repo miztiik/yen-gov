@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "Amloh",
+  "totals": {
+    "electors": 135525,
+    "votes_polled": 113454,
+    "turnout_pct": 83.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RANDEEP SINGH",
+      "party_short": "INC",
+      "votes": 39669,
+      "vote_share_pct": 34.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GURPREET SINGH RAJU KHANNA",
+      "party_short": "SAD",
+      "votes": 35723,
+      "vote_share_pct": 31.49,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GURPREET SINGH BHATTI",
+      "party_short": "AAAP",
+      "votes": 30573,
+      "vote_share_pct": 26.95,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JAGMEET SINGH SAHOTA",
+      "party_short": "IND",
+      "votes": 3187,
+      "vote_share_pct": 2.81,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "LAKHVIR SINGH",
+      "party_short": "SAD(M)",
+      "votes": 1144,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 841,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2317,
+    "vote_share_pct": 2.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RANDEEP SINGH",
+    "party_short": "INC",
+    "votes": 39669,
+    "margin_votes": 3946,
+    "margin_pct": 3.48
+  }
+}

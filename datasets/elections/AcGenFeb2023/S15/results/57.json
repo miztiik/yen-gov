@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Dalu (ST)",
+  "totals": {
+    "electors": 22157,
+    "votes_polled": 18940,
+    "turnout_pct": 85.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Brening A. Sangma",
+      "party_short": "NPEP",
+      "votes": 5834,
+      "vote_share_pct": 30.8,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Akki A Sangma",
+      "party_short": "BJP",
+      "votes": 5307,
+      "vote_share_pct": 28.02,
+      "gender": "M",
+      "age": 30,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Sengkal A Sangma",
+      "party_short": "AITC",
+      "votes": 3104,
+      "vote_share_pct": 16.39,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Sarbha R. Marak",
+      "party_short": "IND",
+      "votes": 2069,
+      "vote_share_pct": 10.92,
+      "gender": "M",
+      "age": 32,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Promod S. Koch",
+      "party_short": "IND",
+      "votes": 694,
+      "vote_share_pct": 3.66,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 162,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1770,
+    "vote_share_pct": 9.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Brening A. Sangma",
+    "party_short": "NPEP",
+    "votes": 5834,
+    "margin_votes": 527,
+    "margin_pct": 2.78
+  }
+}

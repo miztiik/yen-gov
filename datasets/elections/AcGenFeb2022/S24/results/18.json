@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Nagina",
+  "totals": {
+    "electors": 346910,
+    "votes_polled": 223282,
+    "turnout_pct": 64.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANOJ KUMAR PARAS",
+      "party_short": "SP",
+      "votes": 97155,
+      "vote_share_pct": 43.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DR YASHWANT SINGH",
+      "party_short": "BJP",
+      "votes": 70704,
+      "vote_share_pct": 31.67,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BRAJPAL",
+      "party_short": "BSP",
+      "votes": 40164,
+      "vote_share_pct": 17.99,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "LALITA",
+      "party_short": "AIMIM",
+      "votes": 9515,
+      "vote_share_pct": 4.26,
+      "gender": "F",
+      "age": 27,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SHRIMATI HENREITA",
+      "party_short": "INC",
+      "votes": 1685,
+      "vote_share_pct": 0.75,
+      "gender": "F",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1183,
+    "vote_share_pct": 0.53
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2876,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANOJ KUMAR PARAS",
+    "party_short": "SP",
+    "votes": 97155,
+    "margin_votes": 26451,
+    "margin_pct": 11.85
+  }
+}

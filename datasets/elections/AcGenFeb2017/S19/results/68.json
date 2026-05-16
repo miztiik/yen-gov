@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "Dakha",
+  "totals": {
+    "electors": 179549,
+    "votes_polled": 146287,
+    "turnout_pct": 81.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARVINDER SINGH PHOOLKA",
+      "party_short": "AAAP",
+      "votes": 58923,
+      "vote_share_pct": 40.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANPREET SINGH AYALI",
+      "party_short": "SAD",
+      "votes": 54754,
+      "vote_share_pct": 37.43,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MAJOR SINGH BHAINI",
+      "party_short": "INC",
+      "votes": 28571,
+      "vote_share_pct": 19.53,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "TARSEM JODHAN",
+      "party_short": "DEMSWP",
+      "votes": 888,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JASWINDER SINGH",
+      "party_short": "BSP",
+      "votes": 652,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 981,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1518,
+    "vote_share_pct": 1.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARVINDER SINGH PHOOLKA",
+    "party_short": "AAAP",
+    "votes": 58923,
+    "margin_votes": 4169,
+    "margin_pct": 2.85
+  }
+}

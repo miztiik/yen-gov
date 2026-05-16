@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 123,
+  "constituency_name": "Lohawat",
+  "totals": {
+    "electors": 268240,
+    "votes_polled": 208488,
+    "turnout_pct": 77.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gajendra Singh",
+      "party_short": "BJP",
+      "votes": 81415,
+      "vote_share_pct": 39.05,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kishna Ram Vishnoi",
+      "party_short": "INC",
+      "votes": 70866,
+      "vote_share_pct": 33.99,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Satya Narayan Bishnoi",
+      "party_short": "RLTP",
+      "votes": 49859,
+      "vote_share_pct": 23.91,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Bhanwarlal",
+      "party_short": "BSP",
+      "votes": 1703,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Jagdish",
+      "party_short": "BTC",
+      "votes": 1314,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1913,
+    "vote_share_pct": 0.92
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1418,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gajendra Singh",
+    "party_short": "BJP",
+    "votes": 81415,
+    "margin_votes": 10549,
+    "margin_pct": 5.06
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 76,
+  "constituency_name": "Firozpur City",
+  "totals": {
+    "electors": 178050,
+    "votes_polled": 125450,
+    "turnout_pct": 70.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARMINDER SINGH PINKI",
+      "party_short": "INC",
+      "votes": 67559,
+      "vote_share_pct": 53.85,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUKHPAL SINGH",
+      "party_short": "BJP",
+      "votes": 37972,
+      "vote_share_pct": 30.27,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NARINDER SINGH",
+      "party_short": "AAAP",
+      "votes": 16202,
+      "vote_share_pct": 12.92,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAKESH",
+      "party_short": "BSP",
+      "votes": 796,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "TEJINDER SINGH",
+      "party_short": "SAD(M)",
+      "votes": 470,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 934,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1517,
+    "vote_share_pct": 1.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARMINDER SINGH PINKI",
+    "party_short": "INC",
+    "votes": 67559,
+    "margin_votes": 29587,
+    "margin_pct": 23.58
+  }
+}

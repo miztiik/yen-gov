@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Gandhidham",
+  "totals": {
+    "electors": 277717,
+    "votes_polled": 152397,
+    "turnout_pct": 54.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAHESHWARI MALTI KISHOR",
+      "party_short": "BJP",
+      "votes": 79713,
+      "vote_share_pct": 52.31,
+      "is_winner": true,
+      "gender": "F",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "KISHOR GANGJIBHAI PINGOL",
+      "party_short": "INC",
+      "votes": 59443,
+      "vote_share_pct": 39.01,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BHANJIBHAI MYAJARBHAI DUNGARIYA",
+      "party_short": "BMUP",
+      "votes": 1965,
+      "vote_share_pct": 1.29,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BHARYA JUMABHAI SAVALI",
+      "party_short": "BSP",
+      "votes": 1233,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DANICHA GOVINDBHAI PUNAMCHAND",
+      "party_short": "AAAP",
+      "votes": 1101,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3578,
+    "vote_share_pct": 2.35
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4415,
+    "vote_share_pct": 2.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAHESHWARI MALTI KISHOR",
+    "party_short": "BJP",
+    "votes": 79713,
+    "margin_votes": 20270,
+    "margin_pct": 13.3
+  }
+}

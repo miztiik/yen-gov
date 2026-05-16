@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Mokokchung Town (ST)",
+  "totals": {
+    "electors": 8252,
+    "votes_polled": 6761,
+    "turnout_pct": 81.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Metsubo Jamir",
+      "party_short": "NDPP",
+      "votes": 5318,
+      "vote_share_pct": 78.66,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Alem Jongshi",
+      "party_short": "INC",
+      "votes": 1407,
+      "vote_share_pct": 20.81,
+      "gender": "M",
+      "age": 65,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 36,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Metsubo Jamir",
+    "party_short": "NDPP",
+    "votes": 5318,
+    "margin_votes": 3911,
+    "margin_pct": 57.85
+  },
+  "others": null
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Jolaibari (ST)",
+  "totals": {
+    "electors": 49025,
+    "votes_polled": 45719,
+    "turnout_pct": 93.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sukla Charan Noatia",
+      "party_short": "IPFT",
+      "votes": 17621,
+      "vote_share_pct": 38.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 30,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Debendra Tripura",
+      "party_short": "CPI(M)",
+      "votes": 17246,
+      "vote_share_pct": 37.72,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Gaurab Mog Choudhury",
+      "party_short": "TMP",
+      "votes": 8833,
+      "vote_share_pct": 19.32,
+      "gender": "M",
+      "age": 26,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Kangjari Mog",
+      "party_short": "AITC",
+      "votes": 1131,
+      "vote_share_pct": 2.47,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 888,
+    "vote_share_pct": 1.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sukla Charan Noatia",
+    "party_short": "IPFT",
+    "votes": 17621,
+    "margin_votes": 375,
+    "margin_pct": 0.82
+  },
+  "others": null
+}

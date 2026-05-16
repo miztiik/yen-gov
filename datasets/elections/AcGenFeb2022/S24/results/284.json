@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 284,
+  "constituency_name": "Matera",
+  "totals": {
+    "electors": 342204,
+    "votes_polled": 212372,
+    "turnout_pct": 62.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MARIYA",
+      "party_short": "SP",
+      "votes": 102255,
+      "vote_share_pct": 48.15,
+      "is_winner": true,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARUN VEER SINGH",
+      "party_short": "BJP",
+      "votes": 91827,
+      "vote_share_pct": 43.24,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AQIB ULLA KHAN",
+      "party_short": "BSP",
+      "votes": 8918,
+      "vote_share_pct": 4.2,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ALI AKBAR",
+      "party_short": "INC",
+      "votes": 2964,
+      "vote_share_pct": 1.4,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KRIPA SHANKAR",
+      "party_short": "LD",
+      "votes": 1132,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 28,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2759,
+    "vote_share_pct": 1.3
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2517,
+    "vote_share_pct": 1.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MARIYA",
+    "party_short": "SP",
+    "votes": 102255,
+    "margin_votes": 10428,
+    "margin_pct": 4.91
+  }
+}

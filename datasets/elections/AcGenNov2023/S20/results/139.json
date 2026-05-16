@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 139,
+  "constituency_name": "Gudha Malani",
+  "totals": {
+    "electors": 270134,
+    "votes_polled": 220316,
+    "turnout_pct": 81.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Krishan Kumar K.k. Vishnoi",
+      "party_short": "BJP",
+      "votes": 107632,
+      "vote_share_pct": 48.85,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Col. Sonaram Choudhary",
+      "party_short": "INC",
+      "votes": 92415,
+      "vote_share_pct": 41.95,
+      "gender": "M",
+      "age": 77,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Prabhuram",
+      "party_short": "ASPKR",
+      "votes": 9924,
+      "vote_share_pct": 4.5,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Achalaram Choudhary",
+      "party_short": "ARJP",
+      "votes": 2315,
+      "vote_share_pct": 1.05,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mahendra Kumar",
+      "party_short": "BSP",
+      "votes": 2198,
+      "vote_share_pct": 1.0,
+      "gender": "M",
+      "age": 27,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2358,
+    "vote_share_pct": 1.07
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3474,
+    "vote_share_pct": 1.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Krishan Kumar K.k. Vishnoi",
+    "party_short": "BJP",
+    "votes": 107632,
+    "margin_votes": 15217,
+    "margin_pct": 6.91
+  }
+}

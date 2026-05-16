@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 130,
+  "constituency_name": "Bisalpur",
+  "totals": {
+    "electors": 348282,
+    "votes_polled": 222924,
+    "turnout_pct": 64.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AGYASH RAM SARAN VERMA",
+      "party_short": "BJP",
+      "votes": 103498,
+      "vote_share_pct": 46.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANIS AHMAD KHAN ALIAS PHOOLBABU",
+      "party_short": "INC",
+      "votes": 62502,
+      "vote_share_pct": 28.04,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DIVYA GANGWAR",
+      "party_short": "BSP",
+      "votes": 45338,
+      "vote_share_pct": 20.34,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BHEEMSEN SHARMA",
+      "party_short": "CPI",
+      "votes": 2451,
+      "vote_share_pct": 1.1,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DR.NAGESH CHANDRA PATHAK",
+      "party_short": "RLD",
+      "votes": 2127,
+      "vote_share_pct": 0.95,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2301,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4707,
+    "vote_share_pct": 2.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AGYASH RAM SARAN VERMA",
+    "party_short": "BJP",
+    "votes": 103498,
+    "margin_votes": 40996,
+    "margin_pct": 18.39
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 208,
+  "constituency_name": "Bhognipur",
+  "totals": {
+    "electors": 350293,
+    "votes_polled": 218144,
+    "turnout_pct": 62.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAKESH SACHAN",
+      "party_short": "BJP",
+      "votes": 87809,
+      "vote_share_pct": 40.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NARENDRA PAL SINGH",
+      "party_short": "SP",
+      "votes": 75916,
+      "vote_share_pct": 34.8,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JUNED KHAN",
+      "party_short": "BSP",
+      "votes": 47332,
+      "vote_share_pct": 21.7,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GOVIND KUMAR",
+      "party_short": "INC",
+      "votes": 1518,
+      "vote_share_pct": 0.7,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ASHUTOSH",
+      "party_short": "AAAP",
+      "votes": 1465,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1292,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2812,
+    "vote_share_pct": 1.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAKESH SACHAN",
+    "party_short": "BJP",
+    "votes": 87809,
+    "margin_votes": 11893,
+    "margin_pct": 5.45
+  }
+}

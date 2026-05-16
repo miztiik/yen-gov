@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Mongoya (ST)",
+  "totals": {
+    "electors": 17448,
+    "votes_polled": 16268,
+    "turnout_pct": 93.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Imkongmar",
+      "party_short": "NDPP",
+      "votes": 6818,
+      "vote_share_pct": 41.91,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "S. Supongmeren Jamir",
+      "party_short": "INC",
+      "votes": 5776,
+      "vote_share_pct": 35.51,
+      "gender": "M",
+      "age": 59,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Moasangba Jamir",
+      "party_short": "NPF",
+      "votes": 3640,
+      "vote_share_pct": 22.38,
+      "gender": "M",
+      "age": 59,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 34,
+    "vote_share_pct": 0.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Imkongmar",
+    "party_short": "NDPP",
+    "votes": 6818,
+    "margin_votes": 1042,
+    "margin_pct": 6.41
+  },
+  "others": null
+}

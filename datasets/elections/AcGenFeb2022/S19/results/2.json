@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "Bhoa",
+  "totals": {
+    "electors": 186914,
+    "votes_polled": 137572,
+    "turnout_pct": 73.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LAL CHAND",
+      "party_short": "AAAP",
+      "votes": 50339,
+      "vote_share_pct": 36.59,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "JOGINDER PAL",
+      "party_short": "INC",
+      "votes": 49135,
+      "vote_share_pct": 35.72,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SEEMA KUMARI",
+      "party_short": "BJP",
+      "votes": 29132,
+      "vote_share_pct": 21.18,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAKESH KUMAR",
+      "party_short": "BSP",
+      "votes": 5046,
+      "vote_share_pct": 3.67,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MUNISH KUMAR",
+      "party_short": "SAD(M)",
+      "votes": 1118,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 749,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2053,
+    "vote_share_pct": 1.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LAL CHAND",
+    "party_short": "AAAP",
+    "votes": 50339,
+    "margin_votes": 1204,
+    "margin_pct": 0.88
+  }
+}

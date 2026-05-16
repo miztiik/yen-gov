@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 380,
+  "constituency_name": "Mughalsarai",
+  "totals": {
+    "electors": 400830,
+    "votes_polled": 241076,
+    "turnout_pct": 60.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMESH JAISWAL",
+      "party_short": "BJP",
+      "votes": 102216,
+      "vote_share_pct": 42.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHANDRA SHEKHAR YADAV",
+      "party_short": "SP",
+      "votes": 87295,
+      "vote_share_pct": 36.21,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "IRSHAD AHAMAD",
+      "party_short": "BSP",
+      "votes": 31602,
+      "vote_share_pct": 13.11,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CHHABBU",
+      "party_short": "INC",
+      "votes": 5344,
+      "vote_share_pct": 2.22,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ABID ALI",
+      "party_short": "AIMIM",
+      "votes": 4677,
+      "vote_share_pct": 1.94,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1700,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 8242,
+    "vote_share_pct": 3.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMESH JAISWAL",
+    "party_short": "BJP",
+    "votes": 102216,
+    "margin_votes": 14921,
+    "margin_pct": 6.19
+  }
+}

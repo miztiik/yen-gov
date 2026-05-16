@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 128,
+  "constituency_name": "Oddanchatram",
+  "totals": {
+    "electors": 223074,
+    "votes_polled": 189414,
+    "turnout_pct": 84.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAKKARAPANI R",
+      "party_short": "DMK",
+      "votes": 121715,
+      "vote_share_pct": 64.26,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KITTUSAMY K",
+      "party_short": "ADMK",
+      "votes": 55988,
+      "vote_share_pct": 29.56,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANTHANAM K",
+      "party_short": "CPI",
+      "votes": 3684,
+      "vote_share_pct": 1.94,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PALANISAMY S.K",
+      "party_short": "BJP",
+      "votes": 1909,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUTHUKUMAR K",
+      "party_short": "IND",
+      "votes": 1050,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1274,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3794,
+    "vote_share_pct": 2.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAKKARAPANI R",
+    "party_short": "DMK",
+    "votes": 121715,
+    "margin_votes": 65727,
+    "margin_pct": 34.7
+  }
+}

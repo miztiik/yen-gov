@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 112,
+  "constituency_name": "Anand",
+  "totals": {
+    "electors": 283123,
+    "votes_polled": 196895,
+    "turnout_pct": 69.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KANTIBHAI SODHAPARMAR (BHAGAT)",
+      "party_short": "INC",
+      "votes": 98168,
+      "vote_share_pct": 49.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "YOGESH PATEL (BAPAJI)",
+      "party_short": "BJP",
+      "votes": 92882,
+      "vote_share_pct": 47.17,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DAVE JATINBHAI DINESHCHANDRA",
+      "party_short": "IND",
+      "votes": 1009,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2646,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KANTIBHAI SODHAPARMAR (BHAGAT)",
+    "party_short": "INC",
+    "votes": 98168,
+    "margin_votes": 5286,
+    "margin_pct": 2.68
+  },
+  "others": null
+}
