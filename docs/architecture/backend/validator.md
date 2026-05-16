@@ -116,6 +116,33 @@ Symptoms that this pattern is missing:
 When you see those, refactor to inject the root before extending the
 test.
 
+## Frontend repo split: where the consumer-side test goes
+
+`frontend/src/contracts/datasets-conform.test.ts` is the consumer-side
+counterpart to backend Tier-B — it walks every `datasets/**/*.json`
+and validates against the declared `$schema`. Today it lives in this
+repo because the frontend is still co-located; per the deployment
+doctrine the frontend will move to a separate repo and pull
+`datasets/**` at runtime from `raw.githubusercontent`.
+
+When that split happens:
+
+1. `datasets-conform.test.ts` moves with the frontend, NOT with the
+   backend. It is the frontend's bet that the data it fetches over
+   HTTP conforms to the schemas it codes against.
+2. The backend repo's vitest suite goes away entirely.
+3. The "no test walks the real corpus" rule generalises from "no
+   pytest test" to "no test in the backend repo, period, regardless
+   of language". The producer-side gate stays local
+   (`python -m yen_gov validate --root .` before commit) and the
+   consumer-side gate stays in the frontend repo.
+
+Until the split: this test stays here, but it follows the same
+collect-vs-test discipline as everything else — file enumeration is
+cheap (glob only), JSON.parse runs inside each `it()` so the cost
+parallelises across vitest workers rather than blocking the collect
+phase.
+
 ## Rejected designs
 
 These were considered and explicitly NOT adopted; do not re-propose
