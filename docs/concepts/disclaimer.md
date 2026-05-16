@@ -11,7 +11,7 @@
 
 ## Intent
 
-yen-gov is an open, volunteer-run **curator** of Indian election data — not
+yen-gov is an open, volunteer-run **curator** of Indian data — not
 an authoritative publisher. The disclaimer exists to make three things
 unambiguous to anyone landing on the site:
 
