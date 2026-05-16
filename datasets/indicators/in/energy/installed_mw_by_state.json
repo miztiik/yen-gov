@@ -131,5 +131,52 @@
       "value": 900.0,
       "facet": "pumped_storage_hydro_power_plant"
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Nameplate capacity of power plants physically located within each state. NOT a measure of how much electricity each state consumes — much of the capacity feeds the regional grid and serves multiple states under CEA allocations. Read this map as 'where the plants stand', not 'who uses the power'.",
+    "expected_geographies": [
+      "S03",
+      "S11",
+      "S22",
+      "S25"
+    ],
+    "expected_periods": [
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Nameplate capacity of power plants physically located within each state. NOT a measure of how much electricity each state consumes — much of the capacity feeds the regional grid and serves multiple states under CEA allocations. Read this map as 'where the plants stand', not 'who uses the power'.",
+    "publisher": "joint",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-10T21:37:10Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

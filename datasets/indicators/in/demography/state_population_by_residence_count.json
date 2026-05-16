@@ -3111,5 +3111,141 @@
       "facet": "Urban",
       "vintage": "actual"
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Decennial census headcounts per state (and All-India), split by residence: Rural vs Urban. Census years 1961, 1971, 1981, 1991, 2001, 2011 (the 2021 census has been postponed). Use as the rural-urban share denominator and as a long-run urbanisation-trend series.",
+    "expected_geographies": [
+      "IN",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U01",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U07",
+      "U08",
+      "U09"
+    ],
+    "expected_periods": [
+      {
+        "key": "1961",
+        "label": "1961",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "1971",
+        "label": "1971",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "1981",
+        "label": "1981",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "1991",
+        "label": "1991",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2001",
+        "label": "2001",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Decennial census headcounts per state (and All-India), split by residence: Rural vs Urban. Census years 1961, 1971, 1981, 1991, 2001, 2011 (the 2021 census has been postponed). Use as the rural-urban share denominator and as a long-run urbanisation-trend series.",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "partial",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T23:24:24Z",
+    "refetch_requested": false,
+    "pending_periods": [
+      {
+        "key": "1991",
+        "label": "1991",
+        "frequency": "annual_cy"
+      }
+    ],
+    "observed_periods": [
+      {
+        "key": "1961",
+        "label": "1961",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "1971",
+        "label": "1971",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "1981",
+        "label": "1981",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "1991",
+        "label": "1991",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2001",
+        "label": "2001",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

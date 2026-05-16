@@ -136,5 +136,241 @@
       "time": "2025-04",
       "value": 2270812.3
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Total resources transferred from the Central Government to all State governments combined in each fiscal year, net of loan repayments and interest payments back to the Centre. The all-India aggregate equivalent of the per-state transfers indicators — useful for the macro question 'how big is the Centre's transfer envelope, and how has it grown?'. The number RBI publishes is Item VI of Appendix Table 2 ('Net Transfer of Resources from the Centre = Gross Transfer minus Repayments and Interest Liabilities').",
+    "expected_geographies": [
+      "IN"
+    ],
+    "expected_periods": [
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Total resources transferred from the Central Government to all State governments combined in each fiscal year, net of loan repayments and interest payments back to the Centre. The all-India aggregate equivalent of the per-state transfers indicators — useful for the macro question 'how big is the Centre's transfer envelope, and how has it grown?'. The number RBI publishes is Item VI of Appendix Table 2 ('Net Transfer of Resources from the Centre = Gross Transfer minus Repayments and Interest Liabilities').",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": [],
+    "related_indicators": [
+      "fiscal/centre_transfers_to_states_gross",
+      "fiscal/centre_transfers_to_states_tax_devolution",
+      "fiscal/centre_transfers_to_states_grants",
+      "fiscal/state_share_central_taxes_inr_crore"
+    ],
+    "editor_note_md": "'Net' = gross transfers minus loan repayments and interest the states pay back to the Centre. The gross-vs-net wedge has narrowed sharply since FY15 because most legacy Centre-state loans were converted to grants on 14th FC's recommendation; today net ≈ gross for most years, but the historical series shows the older ratio.",
+    "policy_context": [
+      "15th Finance Commission (FY21–FY26) pinned vertical devolution at 41% of the divisible pool — down from 14th FC's 42%, the 1pp shift accounting for J&K's UT-isation in 2019 (UTs aren't in the pool).",
+      "Cesses and surcharges sit *outside* the divisible pool — their share of Centre's gross tax receipts has risen from ~10% (FY12) to ~20%+ (FY24), shrinking the share of Centre's tax revenue states actually have a constitutional claim on. This is the single biggest structural states-vs-Centre fiscal grievance of the 2020s.",
+      "The 16th FC (constituted Dec 2023, award covers FY27–FY31) will revisit both vertical devolution and the south-vs-north horizontal-share formula — the latter is politically charged because population-2011 weighting penalises Tamil Nadu, Kerala, Karnataka, AP for successful demographic transition."
+    ]
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-11T14:50:50Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

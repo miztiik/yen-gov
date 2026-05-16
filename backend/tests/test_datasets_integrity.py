@@ -347,3 +347,25 @@ def test_topic_catalogue_peer_set_default_resolves():
                     f"declares unknown peer_set_default {art_default}; "
                     f"valid: {sorted(valid)}"
                 )
+
+
+def test_no_indicator_notes_sidecars_exist():
+    """Indicator metadata was folded into the indicator artifact itself
+    in the v1.5 -> v1.6 migration (commit 6 of the folded-indicator PR).
+
+    `.notes.json` sidecars are NO LONGER a supported overlay. Any new
+    sidecar appearing here would silently be ignored by the frontend
+    and would route hand-curated editorial content (editor_note_md,
+    policy_context, chart_defaults, related) into a dead file.
+
+    If this test fails, fold the sidecar's fields into the indicator's
+    inline `methodology` block and delete the sidecar.
+    """
+    indicators_root = DATASETS / "indicators"
+    sidecars = sorted(p.relative_to(REPO).as_posix() for p in indicators_root.rglob("*.notes.json"))
+    assert sidecars == [], (
+        "Found .notes.json sidecars under datasets/indicators/; these "
+        "must be folded into the indicator's inline `methodology` "
+        "block. Offenders: " + ", ".join(sidecars)
+    )
+

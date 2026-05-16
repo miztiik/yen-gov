@@ -241,5 +241,439 @@
       "time": "2025-04",
       "value": 292598.0
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Gross fiscal deficit minus interest payments. Strips out the legacy interest burden from past borrowing to show whether *this year's* spending decisions are themselves adding to or subtracting from debt. Positive = this year's policy choices are widening the debt; negative = this year is running a primary surplus that pays down some inherited interest. RBI HBS-IE Table 89, column 'Gross Primary Deficit' (which RBI labels 'Gross' to distinguish from the financing-adjusted Net Primary Deficit; in standard Indian fiscal language without modifier this IS the Primary Deficit).",
+    "expected_geographies": [
+      "IN"
+    ],
+    "expected_periods": [
+      {
+        "key": "1986-04",
+        "label": "1986-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1987-04",
+        "label": "1987-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1988-04",
+        "label": "1988-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1989-04",
+        "label": "1989-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1990-04",
+        "label": "1990-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1991-04",
+        "label": "1991-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1992-04",
+        "label": "1992-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1993-04",
+        "label": "1993-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1994-04",
+        "label": "1994-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1995-04",
+        "label": "1995-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1996-04",
+        "label": "1996-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1997-04",
+        "label": "1997-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1998-04",
+        "label": "1998-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1999-04",
+        "label": "1999-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2000-04",
+        "label": "2000-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2001-04",
+        "label": "2001-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2002-04",
+        "label": "2002-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2003-04",
+        "label": "2003-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2004-04",
+        "label": "2004-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2005-04",
+        "label": "2005-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2006-04",
+        "label": "2006-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Gross fiscal deficit minus interest payments. Strips out the legacy interest burden from past borrowing to show whether *this year's* spending decisions are themselves adding to or subtracting from debt. Positive = this year's policy choices are widening the debt; negative = this year is running a primary surplus that pays down some inherited interest. RBI HBS-IE Table 89, column 'Gross Primary Deficit' (which RBI labels 'Gross' to distinguish from the financing-adjusted Net Primary Deficit; in standard Indian fiscal language without modifier this IS the Primary Deficit).",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T20:59:30Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "1986-04",
+        "label": "1986-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1987-04",
+        "label": "1987-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1988-04",
+        "label": "1988-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1989-04",
+        "label": "1989-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1990-04",
+        "label": "1990-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1991-04",
+        "label": "1991-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1992-04",
+        "label": "1992-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1993-04",
+        "label": "1993-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1994-04",
+        "label": "1994-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1995-04",
+        "label": "1995-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1996-04",
+        "label": "1996-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1997-04",
+        "label": "1997-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1998-04",
+        "label": "1998-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "1999-04",
+        "label": "1999-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2000-04",
+        "label": "2000-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2001-04",
+        "label": "2001-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2002-04",
+        "label": "2002-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2003-04",
+        "label": "2003-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2004-04",
+        "label": "2004-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2005-04",
+        "label": "2005-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2006-04",
+        "label": "2006-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2007-04",
+        "label": "2007-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2008-04",
+        "label": "2008-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2009-04",
+        "label": "2009-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2010-04",
+        "label": "2010-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "annual_fy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "annual_fy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

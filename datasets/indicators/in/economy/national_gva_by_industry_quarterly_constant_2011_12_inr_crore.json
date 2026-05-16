@@ -3162,5 +3162,619 @@
       "facet": "Trade, Hotels, Transport, Communication & Services Related to Broadcasting",
       "vintage": null
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Quarterly Gross Value Added by 17-industry tier at constant 2011-12 prices. Time field is YYYY-MM at the quarter's start month (Q1 = YYYY-04, Q2 = YYYY-07, Q3 = YYYY-10, Q4 = (Y+1)-01). The high-frequency companion to the annual series; useful for monsoon / supply-shock narratives.",
+    "expected_geographies": [
+      "IN"
+    ],
+    "expected_periods": [
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2011-07",
+        "label": "2011-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2011-10",
+        "label": "2011-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2012-01",
+        "label": "2012-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2012-07",
+        "label": "2012-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2012-10",
+        "label": "2012-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2013-01",
+        "label": "2013-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2013-07",
+        "label": "2013-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2013-10",
+        "label": "2013-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2014-01",
+        "label": "2014-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2014-07",
+        "label": "2014-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2014-10",
+        "label": "2014-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2015-01",
+        "label": "2015-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2015-07",
+        "label": "2015-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2015-10",
+        "label": "2015-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2016-01",
+        "label": "2016-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2016-07",
+        "label": "2016-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2016-10",
+        "label": "2016-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2017-01",
+        "label": "2017-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2017-07",
+        "label": "2017-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2017-10",
+        "label": "2017-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2018-01",
+        "label": "2018-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2018-07",
+        "label": "2018-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2018-10",
+        "label": "2018-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2019-01",
+        "label": "2019-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2019-07",
+        "label": "2019-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2019-10",
+        "label": "2019-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2020-01",
+        "label": "2020-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2020-07",
+        "label": "2020-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2020-10",
+        "label": "2020-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2021-01",
+        "label": "2021-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2021-07",
+        "label": "2021-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2021-10",
+        "label": "2021-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2022-01",
+        "label": "2022-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2022-07",
+        "label": "2022-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2022-10",
+        "label": "2022-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2023-01",
+        "label": "2023-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2023-07",
+        "label": "2023-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2023-10",
+        "label": "2023-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2024-01",
+        "label": "2024-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2024-07",
+        "label": "2024-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2024-10",
+        "label": "2024-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2025-01",
+        "label": "2025-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2025-07",
+        "label": "2025-07",
+        "frequency": "quarterly_cy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Quarterly Gross Value Added by 17-industry tier at constant 2011-12 prices. Time field is YYYY-MM at the quarter's start month (Q1 = YYYY-04, Q2 = YYYY-07, Q3 = YYYY-10, Q4 = (Y+1)-01). The high-frequency companion to the annual series; useful for monsoon / supply-shock narratives.",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T15:02:37Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2011-04",
+        "label": "2011-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2011-07",
+        "label": "2011-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2011-10",
+        "label": "2011-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2012-01",
+        "label": "2012-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2012-04",
+        "label": "2012-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2012-07",
+        "label": "2012-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2012-10",
+        "label": "2012-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2013-01",
+        "label": "2013-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2013-04",
+        "label": "2013-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2013-07",
+        "label": "2013-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2013-10",
+        "label": "2013-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2014-01",
+        "label": "2014-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2014-04",
+        "label": "2014-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2014-07",
+        "label": "2014-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2014-10",
+        "label": "2014-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2015-01",
+        "label": "2015-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2015-04",
+        "label": "2015-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2015-07",
+        "label": "2015-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2015-10",
+        "label": "2015-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2016-01",
+        "label": "2016-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2016-04",
+        "label": "2016-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2016-07",
+        "label": "2016-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2016-10",
+        "label": "2016-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2017-01",
+        "label": "2017-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2017-04",
+        "label": "2017-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2017-07",
+        "label": "2017-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2017-10",
+        "label": "2017-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2018-01",
+        "label": "2018-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2018-04",
+        "label": "2018-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2018-07",
+        "label": "2018-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2018-10",
+        "label": "2018-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2019-01",
+        "label": "2019-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2019-04",
+        "label": "2019-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2019-07",
+        "label": "2019-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2019-10",
+        "label": "2019-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2020-01",
+        "label": "2020-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2020-04",
+        "label": "2020-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2020-07",
+        "label": "2020-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2020-10",
+        "label": "2020-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2021-01",
+        "label": "2021-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2021-04",
+        "label": "2021-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2021-07",
+        "label": "2021-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2021-10",
+        "label": "2021-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2022-01",
+        "label": "2022-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2022-04",
+        "label": "2022-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2022-07",
+        "label": "2022-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2022-10",
+        "label": "2022-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2023-01",
+        "label": "2023-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2023-04",
+        "label": "2023-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2023-07",
+        "label": "2023-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2023-10",
+        "label": "2023-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2024-01",
+        "label": "2024-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2024-04",
+        "label": "2024-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2024-07",
+        "label": "2024-07",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2024-10",
+        "label": "2024-10",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2025-01",
+        "label": "2025-01",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2025-04",
+        "label": "2025-04",
+        "frequency": "quarterly_cy"
+      },
+      {
+        "key": "2025-07",
+        "label": "2025-07",
+        "frequency": "quarterly_cy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

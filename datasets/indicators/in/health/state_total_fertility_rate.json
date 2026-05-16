@@ -2224,5 +2224,326 @@
       "time": "2023",
       "value": 1.5
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "Total Fertility Rate — average number of children a woman would bear over her lifetime at current age-specific fertility rates. Replacement level is conventionally 2.1; India's national TFR fell below replacement around 2020. Below-replacement TFR has direct downstream consequences for school-age population, working-age share, dependency ratio, and long-run fiscal pension sustainability — relevant context for `fiscal/state_pension_expenditure_inr_crore`.",
+    "expected_geographies": [
+      "S01",
+      "S03",
+      "S04",
+      "S06",
+      "S07",
+      "S08",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S18",
+      "S19",
+      "S20",
+      "S22",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "U05",
+      "U08"
+    ],
+    "expected_periods": [
+      {
+        "key": "2003",
+        "label": "2003",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2004",
+        "label": "2004",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2005",
+        "label": "2005",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2006",
+        "label": "2006",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2008",
+        "label": "2008",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2009",
+        "label": "2009",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2021",
+        "label": "2021",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2022",
+        "label": "2022",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2023",
+        "label": "2023",
+        "frequency": "annual_cy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "Total Fertility Rate — average number of children a woman would bear over her lifetime at current age-specific fertility rates. Replacement level is conventionally 2.1; India's national TFR fell below replacement around 2020. Below-replacement TFR has direct downstream consequences for school-age population, working-age share, dependency ratio, and long-run fiscal pension sustainability — relevant context for `fiscal/state_pension_expenditure_inr_crore`.",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "partial",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T19:00:00Z",
+    "refetch_requested": false,
+    "pending_periods": [
+      {
+        "key": "2003",
+        "label": "2003",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2004",
+        "label": "2004",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2005",
+        "label": "2005",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2006",
+        "label": "2006",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2008",
+        "label": "2008",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2009",
+        "label": "2009",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      }
+    ],
+    "observed_periods": [
+      {
+        "key": "2003",
+        "label": "2003",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2004",
+        "label": "2004",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2005",
+        "label": "2005",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2006",
+        "label": "2006",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2008",
+        "label": "2008",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2009",
+        "label": "2009",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2021",
+        "label": "2021",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2022",
+        "label": "2022",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2023",
+        "label": "2023",
+        "frequency": "annual_cy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

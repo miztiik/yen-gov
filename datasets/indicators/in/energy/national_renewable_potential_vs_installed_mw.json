@@ -100,5 +100,49 @@
       "value": 5171.36,
       "facet": "small-hydro | installed capacity"
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "India's installed renewable capacity compared with assessed potential, by source (Hydro, Wind, Solar, Small-Hydro, Biomass). The `facet` field encodes 'source | capacity_type' where capacity_type is 'installed capacity' or 'potential capacity'. Potential figures are MNRE/CEA assessed estimates (resource potential at typical conditions). Snapshot ingested from NITI Aayog ICED.",
+    "expected_geographies": [
+      "IN"
+    ],
+    "expected_periods": [
+      {
+        "key": "2026-05-14",
+        "label": "2026-05-14",
+        "frequency": "ad_hoc"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "India's installed renewable capacity compared with assessed potential, by source (Hydro, Wind, Solar, Small-Hydro, Biomass). The `facet` field encodes 'source | capacity_type' where capacity_type is 'installed capacity' or 'potential capacity'. Potential figures are MNRE/CEA assessed estimates (resource potential at typical conditions). Snapshot ingested from NITI Aayog ICED.",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T12:20:42Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "2026-05-14",
+        "label": "2026-05-14",
+        "frequency": "ad_hoc"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }

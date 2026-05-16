@@ -374,5 +374,179 @@
       "value": 75641.07,
       "facet": "Waste"
     }
-  ]
+  ],
+  "series_spec": {
+    "description": "National greenhouse-gas emissions broken down by sector (Energy, Industrial Processes & Product Use, Agriculture, Land-Use / Land-Use Change & Forestry, Waste). Reported as Gigagrams of CO₂-equivalent per year (1 Gg = 1000 tonnes; 1000 Gg = 1 Mt). LULUCF is shown net (forest absorption minus deforestation) and can therefore be negative — that is real, not an error.",
+    "expected_geographies": [
+      "IN"
+    ],
+    "expected_periods": [
+      {
+        "key": "1994",
+        "label": "1994",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2000",
+        "label": "2000",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      }
+    ],
+    "expected_periods_inference": {
+      "basis": "seeded_from_observed_rows",
+      "confidence": "none",
+      "series": null,
+      "note": "Auto-seeded by tools/migrate_indicators_v15_to_v20.py. Replace with publisher-catalogue-derived expectations when an editor reviews this indicator."
+    }
+  },
+  "methodology": {
+    "definition": "National greenhouse-gas emissions broken down by sector (Energy, Industrial Processes & Product Use, Agriculture, Land-Use / Land-Use Change & Forestry, Waste). Reported as Gigagrams of CO₂-equivalent per year (1 Gg = 1000 tonnes; 1000 Gg = 1 Mt). LULUCF is shown net (forest absorption minus deforestation) and can therefore be negative — that is real, not an error.",
+    "publisher": "centre",
+    "publisher_methodology_url": null,
+    "documentation_status": "stub",
+    "methodology_breaks": [],
+    "known_caveats": [],
+    "notes": []
+  },
+  "divergence": null,
+  "collection_inventory": {
+    "status": "complete",
+    "frozen": false,
+    "last_collected_at": "2026-05-14T22:00:52Z",
+    "refetch_requested": false,
+    "pending_periods": [],
+    "observed_periods": [
+      {
+        "key": "1994",
+        "label": "1994",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2000",
+        "label": "2000",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2007",
+        "label": "2007",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2010",
+        "label": "2010",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2011",
+        "label": "2011",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2012",
+        "label": "2012",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2013",
+        "label": "2013",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2014",
+        "label": "2014",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2015",
+        "label": "2015",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2016",
+        "label": "2016",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2017",
+        "label": "2017",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2018",
+        "label": "2018",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2019",
+        "label": "2019",
+        "frequency": "annual_cy"
+      },
+      {
+        "key": "2020",
+        "label": "2020",
+        "frequency": "annual_cy"
+      }
+    ],
+    "unavailable_periods": []
+  }
 }
