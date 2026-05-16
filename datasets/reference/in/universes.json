@@ -1,0 +1,34 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/universes.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "Hand-authored named sets of geo codes, $ref-able from indicator artifacts via `series_spec.expected_geographies = {\"$ref\": \"universes.json#/universes/<key>\"}`. Inline arrays remain allowed in indicator artifacts; this table is convenience for the common cases. Add entries opportunistically as new indicators land (e.g. pre_2014_states_only, CEA-35, J&K/Ladakh peer sets) rather than authoring exhaustively up front.",
+  "sources": [],
+  "universes": {
+    "all_states_and_uts": {
+      "description": "All 28 states + 8 union territories using their current ECI codes. The most common universe for nation-wide socio-economic indicators (RBI Handbook of Statistics on Indian States, ICED state-wise dashboards, MoSPI national accounts state series). Source-of-truth for the geo code list is datasets/reference/in/states.json (state.kind in {state, union_territory}); this entry is the snapshot derived from it at universes.schema.json v1.0 creation. Re-verify against states.json on any future reorganisation.",
+      "geo_codes": [
+        "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08",
+        "S10", "S11", "S12", "S13", "S14", "S15", "S16", "S17",
+        "S18", "S19", "S20", "S21", "S22", "S23", "S24", "S25",
+        "S26", "S27", "S28", "S29",
+        "U01", "U02", "U03", "U04", "U05", "U07", "U08", "U09"
+      ],
+      "expected_count": 36
+    },
+    "states_only_no_ut": {
+      "description": "28 states only (no union territories). Used when an indicator is published exclusively at the state level and union territories are not in scope (e.g. State Finances: A Study of Budgets, which excludes UTs without legislature). Source-of-truth derived from datasets/reference/in/states.json (state.kind == 'state').",
+      "geo_codes": [
+        "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08",
+        "S10", "S11", "S12", "S13", "S14", "S15", "S16", "S17",
+        "S18", "S19", "S20", "S21", "S22", "S23", "S24", "S25",
+        "S26", "S27", "S28", "S29"
+      ],
+      "expected_count": 28
+    },
+    "union_only": {
+      "description": "Union (national-level) indicator. Used by indicators that exist only at the all-India level with no per-state breakdown (e.g. national CPI Combined, national WPI, India aggregate GDP at constant prices).",
+      "geo_codes": ["IN"],
+      "expected_count": 1
+    }
+  }
+}

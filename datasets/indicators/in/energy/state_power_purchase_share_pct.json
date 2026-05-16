@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "1.5",
+  "$schema_version": "1.6",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/statelevel-power-purchase-quantum-and-cost",
