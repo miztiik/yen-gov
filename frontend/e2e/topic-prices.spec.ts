@@ -1,7 +1,7 @@
 // Phase 3.1 vertical — prices topic e2e smoke.
 //
 // Asserts the catalogue → render → honesty-component pipeline end-to-end:
-//   1. /t lists the new "Prices and inflation" topic card with the right
+//   1. /t lists the new "Prices & inflation" topic card with the right
 //      indicator count (drift detector covers presence; this covers the
 //      citizen-visible label).
 //   2. /t/prices route mounts without pageerror.
@@ -38,7 +38,7 @@ test.describe("topic: prices", () => {
   test("/t lists the prices topic card", async ({ page }) => {
     await page.goto("/t");
     await expect(
-      page.getByRole("heading", { level: 3, name: /Prices and inflation/i }),
+      page.getByRole("heading", { level: 3, name: /Prices & inflation/i }),
     ).toBeVisible();
     // Indicator count is part of the card copy. If this drifts, either
     // the catalogue lost an artifact or TopicIndex's count rendering
@@ -49,7 +49,7 @@ test.describe("topic: prices", () => {
   test("/t/prices renders title, list-badge, and Union-list framing", async ({ page }) => {
     await page.goto("/t/prices");
     await expect(
-      page.getByRole("heading", { level: 1, name: /Prices and inflation/i }),
+      page.getByRole("heading", { level: 1, name: /Prices & inflation/i }),
     ).toBeVisible();
     // Hans's mis-framing guard: monetary policy is centre/RBI, ranking
     // states by inflation misleads → topic.list = "union" surfaces this

@@ -37,6 +37,7 @@
     defaultEventForState,
     type ElectionEventsCatalogue,
   } from "./election-events";
+  import { fetchTopicCatalogue, type TopicCatalogue } from "./catalogue";
 
   // Per-state default election event for "Side by side". Resolves to null
   // when the state has no election data on disk; in that case the
@@ -45,6 +46,18 @@
   fetchElectionEvents()
     .then(c => (election_catalogue = c))
     .catch(() => (election_catalogue = null));
+
+  // Topic catalogue → topic.title map. The rail's THIS STATE topic items
+  // derive their labels from `topic.title` so that the rail label and the
+  // /s/<state>/t/<id> page H1 always agree (Jony 2026-05-16 review). On
+  // fetch failure the map stays null and the rail falls back to ids —
+  // not pretty but always present.
+  let topic_titles = $state<ReadonlyMap<string, string> | null>(null);
+  fetchTopicCatalogue()
+    .then((c: TopicCatalogue) => {
+      topic_titles = new Map(c.topics.map(t => [t.id, t.title]));
+    })
+    .catch(() => (topic_titles = null));
 
   const default_event = $derived(
     defaultEventForState(election_catalogue, scope.state)?.event_id ?? null,
@@ -55,6 +68,7 @@
       state: scope.state,
       defaultEvent: default_event,
       repoUrl: REPO_URL,
+      topicTitles: topic_titles,
     }),
   );
 

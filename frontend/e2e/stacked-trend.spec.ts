@@ -23,7 +23,7 @@ test.afterEach(() => {
 test.describe("stacked-trend on /t/energy", () => {
   test("renders the composed installed-capacity stacked chart", async ({ page }) => {
     await page.goto("/t/energy");
-    await expect(page.getByRole("heading", { name: "Energy", level: 1 })).toBeVisible({
+    await expect(page.getByRole("heading", { name: "Power & energy", level: 1 })).toBeVisible({
       timeout: 15_000,
     });
 

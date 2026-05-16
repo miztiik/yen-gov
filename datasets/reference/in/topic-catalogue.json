@@ -6,7 +6,7 @@
   "topics": [
     {
       "id": "fiscal",
-      "title": "Fiscal capacity",
+      "title": "Money & debt",
       "list": "state",
       "summary": "How states raise, borrow, and spend. Debt, deficit, transfers from the Centre. The baseline that contextualises every other state-level number.",
       "icon": "landmark",
@@ -174,7 +174,7 @@
     },
     {
       "id": "energy",
-      "title": "Energy",
+      "title": "Power & energy",
       "list": "concurrent",
       "summary": "Where electricity is generated. Installed capacity by state, by fuel.",
       "icon": "zap",
@@ -655,7 +655,7 @@
     },
     {
       "id": "human_development",
-      "title": "Human development",
+      "title": "People & development",
       "list": "state",
       "summary": "How states score on the composite of income, health and education — what an average resident's life chances look like, beyond pure income.",
       "icon": "users",
@@ -751,7 +751,7 @@
     },
     {
       "id": "prices",
-      "title": "Prices and inflation",
+      "title": "Prices & inflation",
       "list": "union",
       "summary": "What things cost, and how fast those prices are changing. Monetary policy is set by the Reserve Bank of India under a Union List mandate to keep headline inflation between 2% and 6% — states do not control inflation directly, so a higher state CPI usually reflects commodity composition, monsoon, and global oil prices, not state-government performance.",
       "icon": "trending-up",
@@ -812,7 +812,7 @@
     },
     {
       "id": "transport",
-      "title": "Transport — EV adoption",
+      "title": "Electric vehicles",
       "list": "concurrent",
       "summary": "How the Indian vehicle fleet is shifting to electric. Roads and motor-vehicle taxation are State List subjects but the EV push is centrally driven via FAME-II subsidies and PM E-Drive — adoption is the joint outcome of state road-tax waivers, charging infrastructure, and citizen affordability.",
       "icon": "car",
@@ -838,7 +838,7 @@
     },
     {
       "id": "health",
-      "title": "Public health",
+      "title": "People & health",
       "list": "state",
       "summary": "Vital rates and public spending on health. Public health is a State List subject (Entry 6) — state governments run primary health centres, district hospitals, and most preventive programmes — but the Centre funds about a third of the spend through centrally-sponsored schemes (NHM, Ayushman Bharat).",
       "icon": "heart-pulse",
