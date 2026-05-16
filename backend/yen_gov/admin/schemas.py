@@ -21,6 +21,7 @@ Path convention: POSIX-relative to repo root, per CLAUDE.md §2.
 from __future__ import annotations
 
 import json
+import os
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
@@ -37,10 +38,24 @@ from ..validate import (
 
 router = APIRouter()
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+_DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[3]
 
 
-def _classify_b_failure(msg: str, file_path: str, schema_files: list[str]) -> str | None:
+def _repo_root() -> Path:
+    """Repo root for validation walks.
+
+    Honours the ``YEN_GOV_REPO_ROOT`` env var so tests can point the
+    endpoint at a controlled fixture corpus instead of walking the real
+    ``datasets/**`` tree (which is the slow path we descoped from
+    pytest; see docs/architecture/backend/validator.md).
+    """
+    override = os.environ.get("YEN_GOV_REPO_ROOT")
+    if override:
+        return Path(override).resolve()
+    return _DEFAULT_REPO_ROOT
+
+
+def _classify_b_failure(msg: str, file_path: str, schema_files: list[str], repo_root: Path) -> str | None:
     """Best-effort attribution of a Tier-B failure to a schema basename.
 
     The validator records the failure against a *file*, not a schema. We
@@ -50,7 +65,7 @@ def _classify_b_failure(msg: str, file_path: str, schema_files: list[str]) -> st
     up in the orphan bucket.
     """
     try:
-        with (REPO_ROOT / file_path).open(encoding="utf-8") as fh:
+        with (repo_root / file_path).open(encoding="utf-8") as fh:
             data = json.load(fh)
     except (OSError, json.JSONDecodeError):
         return None
@@ -65,9 +80,10 @@ def _classify_b_failure(msg: str, file_path: str, schema_files: list[str]) -> st
 
 @router.get("/schemas")
 def schemas() -> dict[str, Any]:
-    schemas_dict, parse_failures = load_schemas(REPO_ROOT / SCHEMAS_SUBDIR)
+    repo_root = _repo_root()
+    schemas_dict, parse_failures = load_schemas(repo_root / SCHEMAS_SUBDIR)
     a_failures = tier_a(schemas_dict)
-    b_failures = tier_b(schemas_dict, REPO_ROOT)
+    b_failures = tier_b(schemas_dict, repo_root)
 
     # Index Tier-A failures by schema basename so a per-schema panel can
     # surface them without grepping the global list.
@@ -89,7 +105,7 @@ def schemas() -> dict[str, Any]:
     )
     orphans: list[dict[str, str]] = []
     for file_path, errs in b_by_file.items():
-        schema_id = _classify_b_failure(errs[0].message, file_path, schema_files)
+        schema_id = _classify_b_failure(errs[0].message, file_path, schema_files, repo_root)
         if schema_id is None:
             for e in errs[:3]:
                 orphans.append({"file": file_path, "message": e.message})
@@ -103,7 +119,7 @@ def schemas() -> dict[str, Any]:
 
     # Count data files claiming each schema (denominator for "% passing").
     data_counts: dict[str, int] = defaultdict(int)
-    for p in (REPO_ROOT / "datasets").rglob("*.json"):
+    for p in (repo_root / "datasets").rglob("*.json"):
         if p.name.endswith(".schema.json"):
             continue
         try:
