@@ -1,7 +1,8 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "1.1",
   "for": "centre_transfers_to_states_net.json",
+  "sources": [],
   "related": [
     "fiscal/centre_transfers_to_states_gross",
     "fiscal/centre_transfers_to_states_tax_devolution",

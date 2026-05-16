@@ -65,33 +65,40 @@ export interface BuildRailGroupsArgs {
    * rendered today (Repo moved to the About page in Step #1.5).
    */
   repoUrl: string;
+  /**
+   * `topic_id → topic.title` map, sourced from
+   * `datasets/reference/in/topic-catalogue.json`. The rail's THIS STATE
+   * topic items render `topicTitles.get(id) ?? id` so the rail label
+   * AND the page H1 on `/s/<state>/t/<id>` are SINGLE-SOURCED off the
+   * catalogue. Two surfaces showing the same thing show the same string
+   * (Jony 2026-05-16 design review — see TODO/20260515-state-page-ia-
+   * rework-plan.md §11 follow-up #5). Pass `null` while the catalogue is
+   * still loading; the builder will fall back to ids so the rail renders
+   * something (not pretty, but present) instead of blocking.
+   */
+  topicTitles: ReadonlyMap<string, string> | null;
 }
 
 /**
- * The fixed topic list under THIS STATE (in display order). Each topic ID
- * MUST exist in datasets/reference/in/topic-catalogue.json — entries are
- * deliberately ordered to put money + power first (highest citizen pull),
- * then economy → people → environment → transport → elections.
+ * The fixed topic id list under THIS STATE (in display order). Each id
+ * MUST exist in `datasets/reference/in/topic-catalogue.json` — labels are
+ * derived from `topic.title` via the `topicTitles` map (Jony 2026-05-16:
+ * the rail does not carry its own label dictionary; the catalogue IS the
+ * dictionary). Order is deliberate: money + power first (highest citizen
+ * pull), then economy → people → environment → transport → elections.
  *
- * Labels are citizen-readable noun phrases, NOT schema slugs. The slugs
- * stay opaque keys; labels are tuned for the rail width and Indian
- * citizen comprehension per docs/concepts/citizen-first.md.
- *
- * Catalogue alignment (verified 2026-05-16): no `human-development` topic
- * exists — `health` is its closest analogue and is used here with the
- * citizen-friendly label "People & health". Likewise `environment` and
- * `transport` are separate catalogue entries and surface as separate
- * rail entries rather than the plan-doc's combined "Environment &
- * transport" label.
+ * `human-development` and `demography` are intentionally absent — they
+ * exist in the catalogue (Topic Front Door surfaces them) but are NOT
+ * promoted into the per-state rail; this is a curatorial decision.
  */
-const THIS_STATE_TOPICS: ReadonlyArray<{ id: string; label: string }> = [
-  { id: "fiscal", label: "Money & debt" },
-  { id: "energy", label: "Power & energy" },
-  { id: "economy", label: "Economy" },
-  { id: "health", label: "People & health" },
-  { id: "environment", label: "Environment" },
-  { id: "transport", label: "Transport" },
-  { id: "elections", label: "Elections" },
+const THIS_STATE_TOPIC_IDS: ReadonlyArray<string> = [
+  "fiscal",
+  "energy",
+  "economy",
+  "health",
+  "environment",
+  "transport",
+  "elections",
 ];
 
 /**
@@ -101,7 +108,7 @@ const THIS_STATE_TOPICS: ReadonlyArray<{ id: string; label: string }> = [
  * already-resolved scope/event/repo and renders whatever comes back.
  */
 export function buildRailGroups(args: BuildRailGroupsArgs): RailGroup[] {
-  const { state } = args;
+  const { state, topicTitles } = args;
 
   const this_state: RailGroup = state
     ? {
@@ -120,14 +127,14 @@ export function buildRailGroups(args: BuildRailGroupsArgs): RailGroup[] {
               !p.includes("/party/") &&
               !p.includes("/t/"),
           },
-          ...THIS_STATE_TOPICS.map(t => ({
-            id: `this-state.topic.${t.id}`,
-            label: t.label,
+          ...THIS_STATE_TOPIC_IDS.map(id => ({
+            id: `this-state.topic.${id}`,
+            label: topicTitles?.get(id) ?? id,
             // IA-reset Step #2: with a state in scope, topic links go to
             // the per-state-topic view, not the national /t/<id> page.
-            href: url.stateTopic(state, t.id),
+            href: url.stateTopic(state, id),
             match: (p: string) =>
-              p.startsWith("/s/") && p.endsWith(`/t/${t.id}`),
+              p.startsWith("/s/") && p.endsWith(`/t/${id}`),
           })),
         ],
       }

@@ -3,16 +3,21 @@
   "$id": "https://yen-gov.github.io/schemas/indicator-notes.schema.json",
   "title": "Indicator notes — hand-curated sidecar",
   "description": "Optional sidecar for an indicator artifact, holding the small set of fields that do NOT belong inside the artifact's authoritative metadata: cross-indicator graph edges (`related[]`), a citizen-facing editorial voice (`editor_note_md`), policy-context bullets that change faster than the data itself (`policy_context[]`), and renderer chart hints (`chart_defaults`). Lives at `datasets/indicators/in/<topic>/<id>.notes.json` next to its sibling artifact `<id>.json`. Sidecar absent ⇒ corresponding sections are simply omitted from the per-indicator page. Per TODO/PER-INDICATOR-DOCS-PLAN.md §'Generation strategy — hybrid with thin seam' (Phase 4).",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-15",
       "description": "Initial schema. Locks the four optional fields (related, editor_note_md, policy_context, chart_defaults) plus the required `for` basename so the two-tier validator (CLAUDE.md §11) treats these files as first-class instead of orphans. All payload fields are optional — a sidecar with only `$schema`/`$schema_version`/`for` is valid (and useless, but forward-compatible for stub commits)."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-16",
+      "description": "Additive: add required `sources` array (the canonical §12 provenance envelope; allowed minItems is 0). Sidecars are hand-authored editorial overlays, so `sources: []` is the conventional empty-array signal per docs/concepts/data-provenance.md. Sidecars MAY also cite an external editorial source if the editor leans on one (no reason to slam that door). Pairs with ADR-0002 'Consequences' clarification 2026-05-16: any file declaring a $schema carries the full §12 envelope — no filename-pattern exemptions. Fixes the v1.0 inconsistency where additionalProperties=false forbade `sources` while the contract test required it."
     }
   ],
   "type": "object",
-  "required": ["$schema", "$schema_version", "for"],
+  "required": ["$schema", "$schema_version", "for", "sources"],
   "additionalProperties": false,
   "properties": {
     "$schema": { "type": "string", "format": "uri" },
@@ -23,6 +28,20 @@
       "minLength": 1,
       "pattern": "\\.json$",
       "description": "Basename of the sibling indicator artifact this sidecar annotates (e.g. \"state_pension_expenditure_inr_crore.json\"). The validator does not enforce that the sibling actually exists — that check belongs to the page generator (which silently drops orphan sidecars)."
+    },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 + ADR-0002. Sidecars are hand-authored editorial overlays so the conventional value is `[]` (the canonical empty-array signal for hand-authored content, with rationale in the commit message). A sidecar MAY cite an external editorial source if the editor leans on one (e.g. a CEA explainer that informed the policy_context bullets) — in that case populate the array with the usual {url, fetched_at} entries. minItems is 0; uniqueness is not enforced (a single source cited at multiple fetch times is legitimate).",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" }
+        }
+      }
     },
     "related": {
       "type": "array",

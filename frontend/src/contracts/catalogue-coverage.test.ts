@@ -70,11 +70,20 @@ function loadWiredIds(): Set<string> {
   return out;
 }
 
-/** Indicator ids physically present in datasets/indicators/in/. */
+/** Indicator ids physically present in datasets/indicators/in/.
+ *
+ * Excludes `*.notes.json` sidecars — those are editorial overlays for an
+ * indicator artifact (schema: indicator-notes.schema.json), not indicator
+ * artifacts themselves. They live next to the main `<id>.json` and are
+ * keyed off the same id; surfacing them here would generate spurious
+ * "<id>.notes" orphans that would have to be either wired (meaningless)
+ * or allowlisted (mass churn for no signal).
+ */
 function loadOnDiskIds(): Set<string> {
   const files = globSync("**/*.json", { cwd: indicatorsDir, absolute: false, posix: true });
   const out = new Set<string>();
   for (const rel of files) {
+    if (rel.endsWith(".notes.json")) continue;
     out.add(rel.replace(/\.json$/, ""));
   }
   return out;

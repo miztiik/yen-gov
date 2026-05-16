@@ -82,8 +82,20 @@ describe("canShowRank", () => {
     expect(canShowRank(m)).toBe(false);
   });
   it("suppresses for v1.5 comparability=directional_only", () => {
-    const m = { ...META_HIGHER, comparability: "directional_only" } as unknown as IndicatorMeta;
+    const m = { ...META_HIGHER, comparability: "directional_only" } as IndicatorMeta;
     expect(canShowRank(m)).toBe(false);
+  });
+  it("suppresses for v1.5 comparability=comparable_within_state_over_time (Hans: trace one state, do NOT rank)", () => {
+    const m = { ...META_HIGHER, comparability: "comparable_within_state_over_time" } as IndicatorMeta;
+    expect(canShowRank(m)).toBe(false);
+  });
+  it("permits rank for v1.5 comparability=comparable_across_states_and_time", () => {
+    const m = { ...META_HIGHER, comparability: "comparable_across_states_and_time" } as IndicatorMeta;
+    expect(canShowRank(m)).toBe(true);
+  });
+  it("permits rank for v1.5 comparability=comparable_across_states_snapshot_only (snapshot rank OK; trend lines should be suppressed elsewhere)", () => {
+    const m = { ...META_HIGHER, comparability: "comparable_across_states_snapshot_only" } as IndicatorMeta;
+    expect(canShowRank(m)).toBe(true);
   });
 });
 

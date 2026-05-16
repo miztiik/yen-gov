@@ -191,6 +191,58 @@ The v1 draft of this doc surfaced 4 dissents. They are pinned below (decided 202
 
 The two pending ingest handovers ([TODO/20260515-iced-aq-no2-so2-pm10-handover.md](../../TODO/20260515-iced-aq-no2-so2-pm10-handover.md) and [TODO/20260515-health-ingest-handover.md](../../TODO/20260515-health-ingest-handover.md)) inherit these pins immediately; the orchestrator will append the §9.4 naming-review paragraph to each before dispatching the subagent.
 
+## 10. v1.5 honest-renderer fields — `comparability` and `renderer_rules`
+
+Hans's v1.5 schema bump introduced two fields that bind the renderer to honest reading. They are NOT id-shape rules (so they don't belong in §2 or §3 strictly), but every ingest handover MUST set them and every renderer MUST honour them. This section is the canonical reference the schema description (`indicator.schema.json` `renderer_rules.description` and `comparability.description`) defers to.
+
+### 10.1 `comparability` — the 4-level honest ladder
+
+```
+comparable_across_states_and_time          // level 1 — rank states, trace trends. Best case.
+comparable_across_states_snapshot_only     // level 2 — rank states today; do NOT trace trends across the break.
+comparable_within_state_over_time          // level 3 — trace one state, do NOT rank states.
+directional_only                           // level 4 — read direction-of-change only; no rank, no growth math.
+```
+
+The three v1.0–v1.4 tokens remain valid for back-compat but are deprecated. Migration map (also annotated in the TypeScript union in `frontend/src/lib/indicators.ts`):
+
+| Deprecated (v1.4) | Replace with (v1.5) | Reasoning |
+| --- | --- | --- |
+| `comparable_across_states` | `comparable_across_states_and_time` | Old token was ambiguous on the time axis. The v1.5 split forces the choice. |
+| `not_comparable_across_states` | `directional_only` | Old token said only what was forbidden; the v1.5 token names what IS supported. |
+| `comparable_with_normalisation` | one of the 4 levels (per-artifact decision) | Old token punted to the renderer ("normalise me first"). v1.5 forces the artifact author to commit: if the normalised view is level 1, ship the normalised artifact AS level 1 (e.g. `outstanding_debt_pct_gsdp` is level 1, the raw `outstanding_debt_inr_crore` is level 3). |
+
+**Renderer contract (enforced today in `frontend/src/lib/indicator-card.ts:canShowRank`):**
+
+| Token | Rank line on `/s/<state>` card | Sparkline on `/s/<state>` card | Cross-state choropleth on `/t/<topic>` |
+| --- | :---: | :---: | :---: |
+| `comparable_across_states_and_time` | ✅ shown | ✅ shown | ✅ shown |
+| `comparable_across_states_snapshot_only` | ✅ shown | ⚠️ template-level rule (TODO: suppress trend across break) | ✅ shown (snapshot only) |
+| `comparable_within_state_over_time` | ❌ suppressed | ✅ shown (per-state trace) | ❌ refuse (no cross-state comparison) |
+| `directional_only` | ❌ suppressed | ✅ shown (direction only) | ⚠️ allowed with banner ("read direction only") |
+| `not_comparable_across_states` (deprecated) | ❌ suppressed | as above | as above |
+
+The `canShowRank` rule set is the single source of truth for the rank-suppression column. New comparability tokens or new `renderer_rules` slugs that should suppress ranking extend `canShowRank`, never the card template (see [indicator-card.md](indicator-card.md) §"Render decisions").
+
+### 10.2 `renderer_rules[]` — controlled slug vocabulary
+
+The schema validates the slug shape (`^[a-z][a-z0-9_]*$`) but does NOT enumerate the vocabulary (deliberately — new slugs need to land in data before the renderer learns them, not the other way around). The live vocabulary the frontend recognises today is mirrored in `frontend/src/lib/indicators.ts` as `RendererRuleSlug`:
+
+| Slug | Semantic | Enforcing renderer / helper |
+| --- | --- | --- |
+| `no_rank_table` | Suppress the rank line on `IndicatorCard` and refuse the ranked-table view. Use when the indicator's `comparability` is otherwise permissive (e.g. nominally `_and_time`) but a domain-specific reason still makes ranking misleading (e.g. an absolute-magnitude count where the largest state always wins by population, not by performance). | `canShowRank` in `frontend/src/lib/indicator-card.ts` |
+| `no_growth_across_break` | Refuse to compute YoY (or any period-over-period) growth that spans a `series_breaks[]` entry. Show the values either side of the break as separate runs, with the break annotation between them. | TODO: trend-line components (currently no live use — schema-defined, frontend-unimplemented). |
+| `mask_be_in_long_view` | Visually distinguish Budget-Estimate periods from Actuals in any long-view trend (lighter stroke / hatched fill / "BE" badge). Pairs with `revision_tier_by_period[]` which declares which periods are BE vs RE vs A. | TODO: trend-line components. |
+| `force_per_capita_choropleth` | Block raw-magnitude choropleth on `/t/<topic>`; the page MUST normalise by population before rendering. Use when an indicator is a raw count whose cross-state comparison is meaningless without per-capita normalisation. | TODO: `/t/<topic>` choropleth renderer. |
+
+**Adding a new slug** is a three-place change in a single commit (Holy Law #4):
+
+1. Add a row to the table above with the semantic and the enforcing renderer.
+2. Extend `RendererRuleSlug` in `frontend/src/lib/indicators.ts` (the union is `RendererRuleSlug | (string & {})` so unknown slugs already parse; this step is for type-aware call-sites).
+3. Implement the enforcement in the named renderer. A slug that has no enforcing renderer is documentation debt — citizens see no behaviour change.
+
+**Unknown slugs are tolerated, not validated.** A v1.6 ingest may ship a new slug before this doc is updated; the schema accepts it (just `^[a-z][a-z0-9_]*$`), and the renderer ignores what it does not recognise. This forward-compat is intentional — data-side and frontend-side evolve at different cadences. The Definition-of-Done rule (§9 of CLAUDE.md) catches the doc lag at PR review.
+
 ## See also
 
 - [`../../CLAUDE.md`](../../CLAUDE.md) — Holy Laws #4, #6; §11 schema versioning.

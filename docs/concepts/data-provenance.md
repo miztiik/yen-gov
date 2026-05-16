@@ -60,6 +60,8 @@ A maintainer wrote the content directly. No upstream URL was fetched. Empty `sou
 
 The commit message that introduces or modifies a hand-authored file MUST record the rationale and any reference materials consulted. Hand-authored is not a license to invent data; it is a declaration that the source is the author plus whatever materials they cite in the commit. If the reference materials are URLs the maintainer consulted but the pipeline did not fetch, put them in `notes` on the relevant rows or in the commit message — they do NOT belong in `sources`, which is reserved for URLs the pipeline actually pulled.
 
+**Canonical case: editorial sidecars (`*.notes.json`).** Indicator-notes sidecars are the textbook hand-authored case — they hold an editor's voice (`editor_note_md`, `policy_context[]`, chart hints) ABOUT the sibling indicator artifact. They ship with `"sources": []`; the editor is the source, the commit message records why. They MAY also cite an external editorial source if the editor leans on one (e.g. a CEA explainer that informed the policy bullets) — in that case the array is non-empty. See [indicator-notes.schema.json](../../datasets/schemas/indicator-notes.schema.json) (v1.1+) and the ADR-0002 "Consequences" clarification 2026-05-16: any file declaring a `$schema` carries the full `sources[]` envelope; there is no filename-pattern exemption.
+
 ## What does NOT live in `sources`
 
 - **Intermediate downloaded files** under `.runtime/raw/` (per ADR-0003) are not data files in the `datasets/` sense. They have no `sources` field and no schema; they are throwaway debug artifacts.

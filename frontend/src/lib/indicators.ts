@@ -44,6 +44,25 @@ export type Direction =
 export type ScaleHint =
   | "linear" | "log" | "quantile" | "symlog";
 
+/**
+ * Controlled vocabulary for `indicator.renderer_rules[]` (v1.5).
+ * The schema validates the slug shape (`^[a-z][a-z0-9_]*$`) but does not
+ * enumerate; this union is the live frontend-recognised set. Adding a new
+ * slug requires: (a) extend this union, (b) update the consuming renderer
+ * (e.g. `canShowRank` in indicator-card.ts), (c) document it in
+ * docs/concepts/indicator-naming.md §6.
+ *
+ *  - `no_rank_table`        — suppress rank line on IndicatorCard + ranked-table view.
+ *  - `no_growth_across_break` — refuse to compute YoY growth that spans a `series_break`.
+ *  - `mask_be_in_long_view` — visually distinguish Budget-Estimate periods from Actuals.
+ *  - `force_per_capita_choropleth` — block raw-magnitude choropleth for a not-comparable raw count.
+ */
+export type RendererRuleSlug =
+  | "no_rank_table"
+  | "no_growth_across_break"
+  | "mask_be_in_long_view"
+  | "force_per_capita_choropleth";
+
 export interface IndicatorMeta {
   id: string;
   title: string;
@@ -62,9 +81,29 @@ export interface IndicatorMeta {
     | "where_produced" | "where_consumed" | "where_billed"
     | "where_resident" | "where_administered";
   comparability?:
+    // v1.5 4-level ladder (preferred — see indicator.schema.json + docs/concepts/indicator-naming.md §5).
+    | "comparable_across_states_and_time"
+    | "comparable_across_states_snapshot_only"
+    | "comparable_within_state_over_time"
+    | "directional_only"
+    // v1.0–v1.4 tokens (deprecated; kept for back-compat per schema description).
+    // Migration map: comparable_across_states → comparable_across_states_and_time;
+    // not_comparable_across_states → directional_only;
+    // comparable_with_normalisation → splits per-artifact into one of the 4 new tokens on next touch.
     | "comparable_across_states"
     | "comparable_with_normalisation"
     | "not_comparable_across_states";
+
+  /**
+   * Optional v1.5 (Hans) field. Slug-strings from a controlled vocabulary
+   * (see docs/concepts/indicator-naming.md §6) that bind renderer
+   * behaviour to the indicator's data shape. Schema enforces the slug
+   * shape `^[a-z][a-z0-9_]*$`; the union below is the live vocabulary
+   * the frontend recognises today. Unknown slugs validate but are
+   * ignored by the renderer (forward-compat: new slugs land in the
+   * schema/data before the renderer learns them).
+   */
+  renderer_rules?: ReadonlyArray<RendererRuleSlug | (string & {})>;
   funding_split?: {
     centre_pct: number;
     state_pct: number;

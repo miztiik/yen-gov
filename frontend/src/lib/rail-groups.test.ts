@@ -21,6 +21,24 @@ import { buildRailGroups, type RailGroup } from "./rail-groups";
 
 const REPO = "https://example.com/repo";
 
+/**
+ * Title map mirroring `datasets/reference/in/topic-catalogue.json` for
+ * the ids the rail surfaces. Kept in this test file (not imported from
+ * the JSON) so tests stay fast and pure; the schema/contract suite
+ * separately guards that every id here is present in the real catalogue
+ * (`catalogue-coverage.test.ts`) and that titles fit the rail width
+ * budget (`topic-titles-rail-fit.test.ts`).
+ */
+const TITLES: ReadonlyMap<string, string> = new Map([
+  ["fiscal", "Money & debt"],
+  ["energy", "Power & energy"],
+  ["economy", "Economy"],
+  ["health", "People & health"],
+  ["environment", "Environment"],
+  ["transport", "Electric vehicles"],
+  ["elections", "Elections"],
+]);
+
 function find(groups: RailGroup[], id: string): RailGroup {
   const g = groups.find(x => x.id === id);
   if (!g) throw new Error(`group ${id} missing — got ${groups.map(g => g.id).join(", ")}`);
@@ -28,7 +46,7 @@ function find(groups: RailGroup[], id: string): RailGroup {
 }
 
 describe("buildRailGroups (no scope)", () => {
-  const groups = buildRailGroups({ state: null, defaultEvent: null, repoUrl: REPO });
+  const groups = buildRailGroups({ state: null, defaultEvent: null, repoUrl: REPO, topicTitles: TITLES });
 
   it("emits the three expected groups in order", () => {
     expect(groups.map(g => g.id)).toEqual([
@@ -95,7 +113,7 @@ describe("buildRailGroups (no scope)", () => {
 });
 
 describe("buildRailGroups (scoped state, no event)", () => {
-  const groups = buildRailGroups({ state: "S22", defaultEvent: null, repoUrl: REPO });
+  const groups = buildRailGroups({ state: "S22", defaultEvent: null, repoUrl: REPO, topicTitles: TITLES });
 
   it("This state group has Overview + the fixed topic list (no hint)", () => {
     const my = find(groups, "this-state");
@@ -156,6 +174,7 @@ describe("buildRailGroups (scoped state + event)", () => {
     state: "S22",
     defaultEvent: "AcGenMay2026",
     repoUrl: REPO,
+    topicTitles: TITLES,
   });
 
   it("does NOT add any state+event-aware item under Across states", () => {
@@ -171,7 +190,7 @@ describe("buildRailGroups (scoped state + event)", () => {
 });
 
 describe("RailItem.match predicates", () => {
-  const groups = buildRailGroups({ state: "S22", defaultEvent: "E1", repoUrl: REPO });
+  const groups = buildRailGroups({ state: "S22", defaultEvent: "E1", repoUrl: REPO, topicTitles: TITLES });
 
   it("This state Overview matches /s/<slug> but NOT its sub-pages", () => {
     const overview = find(groups, "this-state").items.find(
@@ -220,5 +239,56 @@ describe("RailItem.match predicates", () => {
     const a = find(groups, "about").items.find(i => i.id === "about.about")!;
     expect(a.match("/about")).toBe(true);
     expect(a.match("/")).toBe(false);
+  });
+});
+
+describe("buildRailGroups label sourcing (Jony 2026-05-16: rail title = catalogue title)", () => {
+  it("derives every THIS STATE topic label from the topicTitles map", () => {
+    const groups = buildRailGroups({
+      state: "S22",
+      defaultEvent: null,
+      repoUrl: REPO,
+      topicTitles: TITLES,
+    });
+    const my = find(groups, "this-state");
+    // For each topic item, the rendered label MUST equal the map's value
+    // for that id — there is no rail-local synonym dictionary.
+    for (const item of my.items) {
+      if (!item.id.startsWith("this-state.topic.")) continue;
+      const id = item.id.replace("this-state.topic.", "");
+      expect(item.label, `label for ${id} must come from titles map`).toBe(
+        TITLES.get(id),
+      );
+    }
+    // Spot-check one of the rewritten titles (regression guard against
+    // a hardcoded "Transport" / "Fiscal capacity" sneaking back in).
+    const transport = my.items.find(i => i.id === "this-state.topic.transport")!;
+    expect(transport.label).toBe("Electric vehicles");
+    const fiscal = my.items.find(i => i.id === "this-state.topic.fiscal")!;
+    expect(fiscal.label).toBe("Money & debt");
+  });
+
+  it("falls back to the topic id when the titles map is null (catalogue still loading)", () => {
+    const groups = buildRailGroups({
+      state: "S22",
+      defaultEvent: null,
+      repoUrl: REPO,
+      topicTitles: null,
+    });
+    const my = find(groups, "this-state");
+    const fiscal = my.items.find(i => i.id === "this-state.topic.fiscal")!;
+    expect(fiscal.label).toBe("fiscal");
+  });
+
+  it("falls back to the topic id when a specific id is missing from the map", () => {
+    const groups = buildRailGroups({
+      state: "S22",
+      defaultEvent: null,
+      repoUrl: REPO,
+      topicTitles: new Map([["fiscal", "Money & debt"]]),
+    });
+    const my = find(groups, "this-state");
+    const energy = my.items.find(i => i.id === "this-state.topic.energy")!;
+    expect(energy.label).toBe("energy");
   });
 });

@@ -60,9 +60,11 @@ The card is metadata-driven; nothing about its behaviour is per-indicator code. 
 | `canShowRank(meta) === false` | Rank line suppressed |
 | `rank_info.total <= 1` | Rank line suppressed (rank of 1 of 1 is meaningless) |
 | `meta.indicator.renderer_rules` includes `"no_rank_table"` | Suppresses rank (via `canShowRank`) |
-| `meta.indicator.comparability === "snapshot_only"` | Suppresses rank (via `canShowRank`) |
-| `meta.indicator.comparability === "directional_only"` | Suppresses rank (via `canShowRank`) |
-| `meta.indicator.comparability === "comparable_within_state_over_time"` | Suppresses rank (via `canShowRank`) |
+| `meta.indicator.comparability === "directional_only"` | Suppresses rank (via `canShowRank`) — read direction-of-change only |
+| `meta.indicator.comparability === "comparable_within_state_over_time"` | Suppresses rank (via `canShowRank`) — Hans rule: trace one state, do NOT rank states |
+| `meta.indicator.comparability === "not_comparable_across_states"` | Suppresses rank (via `canShowRank`) — deprecated v1.4 alias of `directional_only` |
+| `meta.indicator.comparability === "comparable_across_states_snapshot_only"` | Rank line **shown** — snapshot rank is the supported view; trend lines should be suppressed at template level (TODO, separate from `canShowRank`) |
+| `meta.indicator.comparability === "comparable_across_states_and_time"` | Rank line **shown** — fully comparable |
 
 `canShowRank` is the single funnel. New comparability tiers or new `renderer_rules` slugs that should suppress ranking extend `canShowRank`, never the card template.
 

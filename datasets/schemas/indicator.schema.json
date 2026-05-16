@@ -230,7 +230,7 @@
         },
         "renderer_rules": {
           "type": "array",
-          "description": "Optional v1.5 (Hans) field. Slug-strings from a controlled vocabulary (sibling reference doc; TBD) that bind renderer behaviour to the indicator's data shape. Examples (provisional vocabulary): 'no_growth_across_break' (refuse to compute YoY growth that spans a series_break), 'mask_be_in_long_view' (visually distinguish BE periods from A periods), 'force_per_capita_choropleth' (block raw-magnitude choropleth for a not-comparable raw count). Per Hans plan 2026-05-15.",
+          "description": "Optional v1.5 (Hans) field. Slug-strings from a controlled vocabulary defined in docs/concepts/indicator-naming.md §10.2 that bind renderer behaviour to the indicator's data shape. Live vocabulary today: 'no_rank_table' (suppress rank line), 'no_growth_across_break' (refuse YoY growth crossing a series_break), 'mask_be_in_long_view' (visually distinguish Budget-Estimate periods from Actuals), 'force_per_capita_choropleth' (block raw-magnitude choropleth for a not-comparable raw count). New slugs validate (slug shape only) and are ignored by older renderers — see §10.2 'Adding a new slug' for the 3-place change. Per Hans plan 2026-05-15.",
           "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
         },
         "series_breaks": {
