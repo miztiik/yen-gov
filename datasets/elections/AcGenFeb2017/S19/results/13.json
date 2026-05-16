@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "Majitha",
+  "totals": {
+    "electors": 158951,
+    "votes_polled": 122608,
+    "turnout_pct": 77.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BIKRAM SINGH MAJITHIA",
+      "party_short": "SAD",
+      "votes": 65803,
+      "vote_share_pct": 53.67,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUKHJINDER RAJ SINGH (LALLI)",
+      "party_short": "INC",
+      "votes": 42919,
+      "vote_share_pct": 35.01,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HIMMAT SINGH SHERGILL",
+      "party_short": "AAAP",
+      "votes": 10252,
+      "vote_share_pct": 8.36,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SURJIT SINGH",
+      "party_short": "BSP",
+      "votes": 700,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KULWANT SINGH",
+      "party_short": "SAD(M)",
+      "votes": 657,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 924,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1353,
+    "vote_share_pct": 1.1
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BIKRAM SINGH MAJITHIA",
+    "party_short": "SAD",
+    "votes": 65803,
+    "margin_votes": 22884,
+    "margin_pct": 18.66
+  }
+}

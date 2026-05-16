@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "Dimapur-III (ST)",
+  "totals": {
+    "electors": 38045,
+    "votes_polled": 31874,
+    "turnout_pct": 83.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Hekani Jakhalu",
+      "party_short": "NDPP",
+      "votes": 14395,
+      "vote_share_pct": 45.16,
+      "is_winner": true,
+      "gender": "F",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Azheto Zhimomi",
+      "party_short": "LJPRV",
+      "votes": 12859,
+      "vote_share_pct": 40.34,
+      "gender": "M",
+      "age": 67,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Lun Tungnung",
+      "party_short": "IND",
+      "votes": 2445,
+      "vote_share_pct": 7.67,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Kahuto Chishi Sumi",
+      "party_short": "IND",
+      "votes": 1671,
+      "vote_share_pct": 5.24,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Vetetso Lasuh",
+      "party_short": "INC",
+      "votes": 370,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 72,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 134,
+    "vote_share_pct": 0.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Hekani Jakhalu",
+    "party_short": "NDPP",
+    "votes": 14395,
+    "margin_votes": 1536,
+    "margin_pct": 4.82
+  },
+  "others": null
+}

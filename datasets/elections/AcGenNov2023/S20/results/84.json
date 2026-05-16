@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 84,
+  "constituency_name": "Sapotra (ST)",
+  "totals": {
+    "electors": 275004,
+    "votes_polled": 198042,
+    "turnout_pct": 72.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Hansraj Meena",
+      "party_short": "BJP",
+      "votes": 111385,
+      "vote_share_pct": 56.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Ramesh Chand Meena",
+      "party_short": "INC",
+      "votes": 67551,
+      "vote_share_pct": 34.11,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Vijay Kumar Urf Kallu",
+      "party_short": "BSP",
+      "votes": 11304,
+      "vote_share_pct": 5.71,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Prem Singh",
+      "party_short": "AAAP",
+      "votes": 1492,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Amit Kumar",
+      "party_short": "IND",
+      "votes": 1232,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1634,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3444,
+    "vote_share_pct": 1.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Hansraj Meena",
+    "party_short": "BJP",
+    "votes": 111385,
+    "margin_votes": 43834,
+    "margin_pct": 22.13
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "Chhata",
+  "totals": {
+    "electors": 340122,
+    "votes_polled": 227322,
+    "turnout_pct": 66.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LAXMI NARAYAN",
+      "party_short": "BJP",
+      "votes": 117537,
+      "vote_share_pct": 51.71,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ATUL SINGH",
+      "party_short": "IND",
+      "votes": 53699,
+      "vote_share_pct": 23.62,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MANOJ PATHAK",
+      "party_short": "BSP",
+      "votes": 41290,
+      "vote_share_pct": 18.16,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RISHI RAJ",
+      "party_short": "RLD",
+      "votes": 9801,
+      "vote_share_pct": 4.31,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DEEPAK PANDEY",
+      "party_short": "IND",
+      "votes": 1471,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1224,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2300,
+    "vote_share_pct": 1.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LAXMI NARAYAN",
+    "party_short": "BJP",
+    "votes": 117537,
+    "margin_votes": 63838,
+    "margin_pct": 28.08
+  }
+}

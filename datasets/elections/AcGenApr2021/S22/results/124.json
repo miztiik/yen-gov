@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 124,
+  "constituency_name": "Valparai",
+  "totals": {
+    "electors": 205530,
+    "votes_polled": 145172,
+    "turnout_pct": 70.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMULKANDASAMI T K",
+      "party_short": "ADMK",
+      "votes": 71672,
+      "vote_share_pct": 49.37,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ARUMUGAM M",
+      "party_short": "CPI",
+      "votes": 59449,
+      "vote_share_pct": 40.95,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KOHILA C",
+      "party_short": "NTK",
+      "votes": 7632,
+      "vote_share_pct": 5.26,
+      "gender": "F",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SENTHILRAJ D",
+      "party_short": "MNM",
+      "votes": 3314,
+      "vote_share_pct": 2.28,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MURUGARAJ M S",
+      "party_short": "DMDK",
+      "votes": 1335,
+      "vote_share_pct": 0.92,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1415,
+    "vote_share_pct": 0.97
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 355,
+    "vote_share_pct": 0.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMULKANDASAMI T K",
+    "party_short": "ADMK",
+    "votes": 71672,
+    "margin_votes": 12223,
+    "margin_pct": 8.42
+  }
+}

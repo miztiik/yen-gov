@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 224,
+  "constituency_name": "Tirunelveli",
+  "totals": {
+    "electors": 268968,
+    "votes_polled": 189576,
+    "turnout_pct": 70.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LAKSHMANAN A.L.S.",
+      "party_short": "DMK",
+      "votes": 81761,
+      "vote_share_pct": 43.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NAINAR NAGENTHRAN",
+      "party_short": "ADMK",
+      "votes": 81160,
+      "vote_share_pct": 42.81,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MADASAMY S.",
+      "party_short": "DMDK",
+      "votes": 8640,
+      "vote_share_pct": 4.56,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAHARAJAN A.",
+      "party_short": "BJP",
+      "votes": 6017,
+      "vote_share_pct": 3.17,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "VIYANARASU A.",
+      "party_short": "NTK",
+      "votes": 2106,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2218,
+    "vote_share_pct": 1.17
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 7674,
+    "vote_share_pct": 4.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LAKSHMANAN A.L.S.",
+    "party_short": "DMK",
+    "votes": 81761,
+    "margin_votes": 601,
+    "margin_pct": 0.32
+  }
+}

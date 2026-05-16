@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 254,
+  "constituency_name": "Phaphamau",
+  "totals": {
+    "electors": 366164,
+    "votes_polled": 210773,
+    "turnout_pct": 57.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GURU PRASAD MAURYA",
+      "party_short": "BJP",
+      "votes": 91186,
+      "vote_share_pct": 43.26,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANSAR AHMAD",
+      "party_short": "SP",
+      "votes": 76862,
+      "vote_share_pct": 36.47,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "OM PRAKASH",
+      "party_short": "BSP",
+      "votes": 27286,
+      "vote_share_pct": 12.95,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "LAKSHMI NARAYAN",
+      "party_short": "JDL",
+      "votes": 2897,
+      "vote_share_pct": 1.37,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DURGESH PANDEY",
+      "party_short": "INC",
+      "votes": 2391,
+      "vote_share_pct": 1.13,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 517,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 9634,
+    "vote_share_pct": 4.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GURU PRASAD MAURYA",
+    "party_short": "BJP",
+    "votes": 91186,
+    "margin_votes": 14324,
+    "margin_pct": 6.8
+  }
+}

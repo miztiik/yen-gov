@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 74,
+  "constituency_name": "Dharamkot",
+  "totals": {
+    "electors": 182302,
+    "votes_polled": 142204,
+    "turnout_pct": 78.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DEVINDERJEET SINGH LADDI DHOSE",
+      "party_short": "AAAP",
+      "votes": 65378,
+      "vote_share_pct": 45.97,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUKHJIT SINGH KAKA LOHGARH",
+      "party_short": "INC",
+      "votes": 35406,
+      "vote_share_pct": 24.9,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JATHEDAR TOTA SINGH",
+      "party_short": "SAD",
+      "votes": 30495,
+      "vote_share_pct": 21.44,
+      "gender": "M",
+      "age": 80,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BALRAJ SINGH KHALSA",
+      "party_short": "SAD(M)",
+      "votes": 6200,
+      "vote_share_pct": 4.36,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HARPREET SINGH HERO",
+      "party_short": "IND",
+      "votes": 1615,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 746,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2364,
+    "vote_share_pct": 1.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DEVINDERJEET SINGH LADDI DHOSE",
+    "party_short": "AAAP",
+    "votes": 65378,
+    "margin_votes": 29972,
+    "margin_pct": 21.08
+  }
+}

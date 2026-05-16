@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "Jamalpur - Khadia",
+  "totals": {
+    "electors": 217940,
+    "votes_polled": 127476,
+    "turnout_pct": 58.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Imran Khedawala",
+      "party_short": "INC",
+      "votes": 58487,
+      "vote_share_pct": 45.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Bhushan Ashok Bhatt",
+      "party_short": "BJP",
+      "votes": 44829,
+      "vote_share_pct": 35.17,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sabirbhai Kabliwala",
+      "party_short": "AIMIM",
+      "votes": 15677,
+      "vote_share_pct": 12.3,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Harunbhai. F. Nagori",
+      "party_short": "AAAP",
+      "votes": 5887,
+      "vote_share_pct": 4.62,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Bukeliya Hiteshbhai Sanjaybhai",
+      "party_short": "RPWP",
+      "votes": 432,
+      "vote_share_pct": 0.34,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1534,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 630,
+    "vote_share_pct": 0.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Imran Khedawala",
+    "party_short": "INC",
+    "votes": 58487,
+    "margin_votes": 13658,
+    "margin_pct": 10.71
+  }
+}

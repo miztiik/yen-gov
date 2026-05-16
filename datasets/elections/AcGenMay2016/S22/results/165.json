@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 165,
+  "constituency_name": "Vedaranyam",
+  "totals": {
+    "electors": 180294,
+    "votes_polled": 146803,
+    "turnout_pct": 81.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANIAN.O.S",
+      "party_short": "ADMK",
+      "votes": 60836,
+      "vote_share_pct": 41.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJENDIRAN.P.V",
+      "party_short": "INC",
+      "votes": 37838,
+      "vote_share_pct": 25.77,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VETHARATHINAM.S.K",
+      "party_short": "BJP",
+      "votes": 37086,
+      "vote_share_pct": 25.26,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VAIRAVANATHAN.T",
+      "party_short": "DMDK",
+      "votes": 4594,
+      "vote_share_pct": 3.13,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "USHA KANNAN",
+      "party_short": "PMK",
+      "votes": 2081,
+      "vote_share_pct": 1.42,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1206,
+    "vote_share_pct": 0.82
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3162,
+    "vote_share_pct": 2.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANIAN.O.S",
+    "party_short": "ADMK",
+    "votes": 60836,
+    "margin_votes": 22998,
+    "margin_pct": 15.67
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Pynthorumkhrah",
+  "totals": {
+    "electors": 34823,
+    "votes_polled": 26108,
+    "turnout_pct": 74.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Alexander Laloo Hek",
+      "party_short": "BJP",
+      "votes": 9321,
+      "vote_share_pct": 35.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Pynshngainlang Syiem",
+      "party_short": "INC",
+      "votes": 6783,
+      "vote_share_pct": 25.98,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Mayborn Grace Lyngdoh",
+      "party_short": "VOTPP",
+      "votes": 5720,
+      "vote_share_pct": 21.91,
+      "gender": "M",
+      "age": 30,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Rocky Hek",
+      "party_short": "NPEP",
+      "votes": 3356,
+      "vote_share_pct": 12.85,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Raymond Basaiawmoit",
+      "party_short": "AITC",
+      "votes": 247,
+      "vote_share_pct": 0.95,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 337,
+    "vote_share_pct": 1.29
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 344,
+    "vote_share_pct": 1.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Alexander Laloo Hek",
+    "party_short": "BJP",
+    "votes": 9321,
+    "margin_votes": 2538,
+    "margin_pct": 9.72
+  }
+}

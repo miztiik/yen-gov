@@ -1,0 +1,114 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.summary.schema.json",
+  "$schema_version": "3.1",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "total_seats": 60,
+  "totals": {
+    "electors": 2070113,
+    "votes_polled": 1857664,
+    "turnout_pct": 89.74
+  },
+  "party_totals": [
+    {
+      "party_short": "BJP",
+      "seats_contested": 60,
+      "seats_won": 32,
+      "votes": 702720,
+      "vote_share_pct": 37.83
+    },
+    {
+      "party_short": "NPEP",
+      "seats_contested": 38,
+      "seats_won": 7,
+      "votes": 321303,
+      "vote_share_pct": 17.3
+    },
+    {
+      "party_short": "JD(U)",
+      "seats_contested": 38,
+      "seats_won": 6,
+      "votes": 200103,
+      "vote_share_pct": 10.77
+    },
+    {
+      "party_short": "INC",
+      "seats_contested": 53,
+      "seats_won": 5,
+      "votes": 312705,
+      "vote_share_pct": 16.83
+    },
+    {
+      "party_short": "NPF",
+      "seats_contested": 10,
+      "seats_won": 5,
+      "votes": 150209,
+      "vote_share_pct": 8.09
+    },
+    {
+      "party_short": "IND",
+      "seats_contested": 22,
+      "seats_won": 3,
+      "votes": 94333,
+      "vote_share_pct": 5.08
+    },
+    {
+      "party_short": "KPA",
+      "seats_contested": 2,
+      "seats_won": 2,
+      "votes": 18808,
+      "vote_share_pct": 1.01
+    },
+    {
+      "party_short": "RPPRINAT",
+      "seats_contested": 9,
+      "seats_won": 0,
+      "votes": 25511,
+      "vote_share_pct": 1.37
+    },
+    {
+      "party_short": "NCP",
+      "seats_contested": 8,
+      "seats_won": 0,
+      "votes": 12512,
+      "vote_share_pct": 0.67
+    },
+    {
+      "party_short": "SHS",
+      "seats_contested": 9,
+      "seats_won": 0,
+      "votes": 6282,
+      "vote_share_pct": 0.34
+    },
+    {
+      "party_short": "KNA",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 1085,
+      "vote_share_pct": 0.06
+    },
+    {
+      "party_short": "CPI",
+      "seats_contested": 2,
+      "seats_won": 0,
+      "votes": 1032,
+      "vote_share_pct": 0.06
+    },
+    {
+      "party_short": "LJPRV",
+      "seats_contested": 3,
+      "seats_won": 0,
+      "votes": 626,
+      "vote_share_pct": 0.03
+    },
+    {
+      "party_short": "RJSNP",
+      "seats_contested": 1,
+      "seats_won": 0,
+      "votes": 86,
+      "vote_share_pct": 0.0
+    }
+  ]
+}

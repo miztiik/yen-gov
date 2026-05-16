@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 151,
+  "constituency_name": "Tittakudi",
+  "totals": {
+    "electors": 219415,
+    "votes_polled": 168184,
+    "turnout_pct": 76.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GANESAN, C.V.",
+      "party_short": "DMK",
+      "votes": 83726,
+      "vote_share_pct": 49.78,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PERIYASAMY, D.",
+      "party_short": "BJP",
+      "votes": 62163,
+      "vote_share_pct": 36.96,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KAMATCHI, N.",
+      "party_short": "NTK",
+      "votes": 10591,
+      "vote_share_pct": 6.3,
+      "gender": "F",
+      "age": 29,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "UMANATH, R.",
+      "party_short": "DMDK",
+      "votes": 4142,
+      "vote_share_pct": 2.46,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PRABAKARAN, R.",
+      "party_short": "MNM",
+      "votes": 1745,
+      "vote_share_pct": 1.04,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 999,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4818,
+    "vote_share_pct": 2.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GANESAN, C.V.",
+    "party_short": "DMK",
+    "votes": 83726,
+    "margin_votes": 21563,
+    "margin_pct": 12.82
+  }
+}

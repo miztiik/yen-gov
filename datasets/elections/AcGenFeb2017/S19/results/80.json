@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 80,
+  "constituency_name": "Fazilka",
+  "totals": {
+    "electors": 164322,
+    "votes_polled": 143073,
+    "turnout_pct": 87.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DAVINDER SINGH GHUBAYA",
+      "party_short": "INC",
+      "votes": 39276,
+      "vote_share_pct": 27.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURJIT KUMAR JYANI",
+      "party_short": "BJP",
+      "votes": 39011,
+      "vote_share_pct": 27.27,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJDEEP KAUR",
+      "party_short": "IND",
+      "votes": 38135,
+      "vote_share_pct": 26.65,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAMARBIR SINGH SIDHU",
+      "party_short": "AAAP",
+      "votes": 16404,
+      "vote_share_pct": 11.47,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KIRTI CHOUDHARY",
+      "party_short": "APPA",
+      "votes": 3892,
+      "vote_share_pct": 2.72,
+      "gender": "F",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 669,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5686,
+    "vote_share_pct": 3.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DAVINDER SINGH GHUBAYA",
+    "party_short": "INC",
+    "votes": 39276,
+    "margin_votes": 265,
+    "margin_pct": 0.19
+  }
+}

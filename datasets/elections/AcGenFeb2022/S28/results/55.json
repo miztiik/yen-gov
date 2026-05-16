@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "Champawat",
+  "totals": {
+    "electors": 97430,
+    "votes_polled": 64755,
+    "turnout_pct": 66.46
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kailash Chandra Gahtori",
+      "party_short": "BJP",
+      "votes": 32547,
+      "vote_share_pct": 50.26,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Hemesh Kharkwal",
+      "party_short": "INC",
+      "votes": 27243,
+      "vote_share_pct": 42.07,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Madan Singh Mahar",
+      "party_short": "AAAP",
+      "votes": 2557,
+      "vote_share_pct": 3.95,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rakesh Chandra Verma",
+      "party_short": "BSP",
+      "votes": 506,
+      "vote_share_pct": 0.78,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Jagdish Bhatt",
+      "party_short": "IND",
+      "votes": 465,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 946,
+    "vote_share_pct": 1.46
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 491,
+    "vote_share_pct": 0.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kailash Chandra Gahtori",
+    "party_short": "BJP",
+    "votes": 32547,
+    "margin_votes": 5304,
+    "margin_pct": 8.19
+  }
+}

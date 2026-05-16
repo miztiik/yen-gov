@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "Thiruvottiyur",
+  "totals": {
+    "electors": 306005,
+    "votes_polled": 199996,
+    "turnout_pct": 65.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.P.SHANKAR",
+      "party_short": "DMK",
+      "votes": 88185,
+      "vote_share_pct": 44.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K.KUPPAN",
+      "party_short": "ADMK",
+      "votes": 50524,
+      "vote_share_pct": 25.26,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SEEMAN",
+      "party_short": "NTK",
+      "votes": 48597,
+      "vote_share_pct": 24.3,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "D.MOHAN",
+      "party_short": "MNM",
+      "votes": 7053,
+      "vote_share_pct": 3.53,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "M.SOUNDARA PANDIAN",
+      "party_short": "AMMKMNKZ",
+      "votes": 1417,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1111,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 3109,
+    "vote_share_pct": 1.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.P.SHANKAR",
+    "party_short": "DMK",
+    "votes": 88185,
+    "margin_votes": 37661,
+    "margin_pct": 18.83
+  }
+}

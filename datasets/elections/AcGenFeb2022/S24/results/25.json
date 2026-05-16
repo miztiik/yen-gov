@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Kanth",
+  "totals": {
+    "electors": 390562,
+    "votes_polled": 273839,
+    "turnout_pct": 70.11
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kamal Akhtar",
+      "party_short": "SP",
+      "votes": 134692,
+      "vote_share_pct": 49.19,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rajesh Kumar Singh Urf Chunnu",
+      "party_short": "BJP",
+      "votes": 91514,
+      "vote_share_pct": 33.42,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Afaq Ali Khan",
+      "party_short": "BSP",
+      "votes": 36341,
+      "vote_share_pct": 13.27,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Raisuddin",
+      "party_short": "AIMIM",
+      "votes": 2886,
+      "vote_share_pct": 1.05,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Kailash Kumar",
+      "party_short": "LTSP",
+      "votes": 2208,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1031,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5167,
+    "vote_share_pct": 1.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kamal Akhtar",
+    "party_short": "SP",
+    "votes": 134692,
+    "margin_votes": 43178,
+    "margin_pct": 15.77
+  }
+}

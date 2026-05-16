@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 299,
+  "constituency_name": "Tarabganj",
+  "totals": {
+    "electors": 354551,
+    "votes_polled": 203268,
+    "turnout_pct": 57.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PREM NARAYAN PANDEY",
+      "party_short": "BJP",
+      "votes": 100294,
+      "vote_share_pct": 49.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VINOD KUMAR ALIS PANDIT SINGH",
+      "party_short": "SP",
+      "votes": 61852,
+      "vote_share_pct": 30.43,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "INDRA BAHADUR SINGH  ALIS PAPPU",
+      "party_short": "BSP",
+      "votes": 29332,
+      "vote_share_pct": 14.43,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DIGVIJAY",
+      "party_short": "MAHAD",
+      "votes": 1827,
+      "vote_share_pct": 0.9,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SURENDRA",
+      "party_short": "IND",
+      "votes": 1769,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3384,
+    "vote_share_pct": 1.66
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4810,
+    "vote_share_pct": 2.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PREM NARAYAN PANDEY",
+    "party_short": "BJP",
+    "votes": 100294,
+    "margin_votes": 38442,
+    "margin_pct": 18.91
+  }
+}

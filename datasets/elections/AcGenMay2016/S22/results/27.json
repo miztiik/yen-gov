@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Shozhinganallur",
+  "totals": {
+    "electors": 602472,
+    "votes_polled": 345697,
+    "turnout_pct": 57.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARAVIND RAMESH S",
+      "party_short": "DMK",
+      "votes": 147014,
+      "vote_share_pct": 42.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUNDARAM N",
+      "party_short": "ADMK",
+      "votes": 132101,
+      "vote_share_pct": 38.21,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAMKUMAR.K",
+      "party_short": "PMK",
+      "votes": 15595,
+      "vote_share_pct": 4.51,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PANEER DOSS R",
+      "party_short": "VCK",
+      "votes": 15129,
+      "vote_share_pct": 4.38,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "UJAGAR SINGH",
+      "party_short": "BJP",
+      "votes": 14915,
+      "vote_share_pct": 4.31,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 7332,
+    "vote_share_pct": 2.12
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 13611,
+    "vote_share_pct": 3.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARAVIND RAMESH S",
+    "party_short": "DMK",
+    "votes": 147014,
+    "margin_votes": 14913,
+    "margin_pct": 4.31
+  }
+}

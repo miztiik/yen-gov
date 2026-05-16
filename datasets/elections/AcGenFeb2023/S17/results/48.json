@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "Moka (ST)",
+  "totals": {
+    "electors": 18039,
+    "votes_polled": 17471,
+    "turnout_pct": 96.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A Nyamnyei Konyak",
+      "party_short": "NPEP",
+      "votes": 8857,
+      "vote_share_pct": 50.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Ee Pangteang",
+      "party_short": "NDPP",
+      "votes": 8301,
+      "vote_share_pct": 47.51,
+      "gender": "M",
+      "age": 69,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "D Yongnyak Konyak",
+      "party_short": "NPF",
+      "votes": 288,
+      "vote_share_pct": 1.65,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 25,
+    "vote_share_pct": 0.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A Nyamnyei Konyak",
+    "party_short": "NPEP",
+    "votes": 8857,
+    "margin_votes": 556,
+    "margin_pct": 3.18
+  },
+  "others": null
+}

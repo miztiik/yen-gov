@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "Pratapnagar",
+  "totals": {
+    "electors": 85980,
+    "votes_polled": 42823,
+    "turnout_pct": 49.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vikram Singh Negi",
+      "party_short": "INC",
+      "votes": 19131,
+      "vote_share_pct": 44.67,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Vijay Singh Panwar",
+      "party_short": "BJP",
+      "votes": 16790,
+      "vote_share_pct": 39.21,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Pankaj Vyas",
+      "party_short": "IND",
+      "votes": 4842,
+      "vote_share_pct": 11.31,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Sagar Singh Bhandari",
+      "party_short": "AAAP",
+      "votes": 895,
+      "vote_share_pct": 2.09,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Jaipal Singh Rana",
+      "party_short": "IND",
+      "votes": 262,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 691,
+    "vote_share_pct": 1.61
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 212,
+    "vote_share_pct": 0.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vikram Singh Negi",
+    "party_short": "INC",
+    "votes": 19131,
+    "margin_votes": 2341,
+    "margin_pct": 5.47
+  }
+}

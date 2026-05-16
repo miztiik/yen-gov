@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "Danta (ST)",
+  "totals": {
+    "electors": 257978,
+    "votes_polled": 183417,
+    "turnout_pct": 71.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kantibhai Kalabhai Kharadi",
+      "party_short": "INC",
+      "votes": 85134,
+      "vote_share_pct": 46.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Parghi Latubhai Chandabhai",
+      "party_short": "BJP",
+      "votes": 78807,
+      "vote_share_pct": 42.97,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Bumbadiya Mahendrabhai Kesharabhai",
+      "party_short": "AAAP",
+      "votes": 12181,
+      "vote_share_pct": 6.64,
+      "gender": "M",
+      "age": 70,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Dhrangi Kalabhai Mavabhai",
+      "party_short": "IND",
+      "votes": 2082,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 36,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 5213,
+    "vote_share_pct": 2.84
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kantibhai Kalabhai Kharadi",
+    "party_short": "INC",
+    "votes": 85134,
+    "margin_votes": 6327,
+    "margin_pct": 3.45
+  },
+  "others": null
+}

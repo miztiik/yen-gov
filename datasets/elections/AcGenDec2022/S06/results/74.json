@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 74,
+  "constituency_name": "Jetpur",
+  "totals": {
+    "electors": 275769,
+    "votes_polled": 175143,
+    "turnout_pct": 63.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jayeshbhai Vitthalbhai Radadiya",
+      "party_short": "BJP",
+      "votes": 106471,
+      "vote_share_pct": 60.79,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rohitbhai Vinubhai Bhuva",
+      "party_short": "AAAP",
+      "votes": 29545,
+      "vote_share_pct": 16.87,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Rajubhai Arjanbhai Sarvaiya",
+      "party_short": "SP",
+      "votes": 20788,
+      "vote_share_pct": 11.87,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Deepakbhai Keshavlal Vekariya (d.k. Vekariya)",
+      "party_short": "INC",
+      "votes": 12244,
+      "vote_share_pct": 6.99,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Jayendrasinh Govubha Chauhan",
+      "party_short": "IND",
+      "votes": 1923,
+      "vote_share_pct": 1.1,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2287,
+    "vote_share_pct": 1.31
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1885,
+    "vote_share_pct": 1.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jayeshbhai Vitthalbhai Radadiya",
+    "party_short": "BJP",
+    "votes": 106471,
+    "margin_votes": 76926,
+    "margin_pct": 43.92
+  }
+}

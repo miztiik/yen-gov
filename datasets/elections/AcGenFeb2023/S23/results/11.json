@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Mandaibazar (ST)",
+  "totals": {
+    "electors": 47642,
+    "votes_polled": 43293,
+    "turnout_pct": 90.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Swapna Debbarma",
+      "party_short": "TMP",
+      "votes": 28726,
+      "vote_share_pct": 66.35,
+      "is_winner": true,
+      "gender": "F",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Radhacharan Debbarma",
+      "party_short": "CPI(M)",
+      "votes": 7077,
+      "vote_share_pct": 16.35,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Tarit Debbarma",
+      "party_short": "BJP",
+      "votes": 6603,
+      "vote_share_pct": 15.25,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Hiramuni Debbarma",
+      "party_short": "IND",
+      "votes": 443,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 444,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Swapna Debbarma",
+    "party_short": "TMP",
+    "votes": 28726,
+    "margin_votes": 21649,
+    "margin_pct": 50.01
+  },
+  "others": null
+}

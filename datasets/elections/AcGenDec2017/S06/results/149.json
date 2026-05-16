@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 149,
+  "constituency_name": "Dediapada",
+  "totals": {
+    "electors": 193550,
+    "votes_polled": 166788,
+    "turnout_pct": 86.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VASAVA MAHESHBHAI CHHOTUBHAI",
+      "party_short": "BTP",
+      "votes": 83026,
+      "vote_share_pct": 49.78,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "VASAVA  MOTILAL  PUNIYABHAI",
+      "party_short": "BJP",
+      "votes": 61275,
+      "vote_share_pct": 36.74,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "DESHMUKH RAJENDRASINH  GUMANSINH",
+      "party_short": "INCP",
+      "votes": 6721,
+      "vote_share_pct": 4.03,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "VASAVA RAKESHKUMAR RAYJIBHAI",
+      "party_short": "IND",
+      "votes": 2824,
+      "vote_share_pct": 1.69,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "VASAVA AMARSINH  RAMSINH",
+      "party_short": "IND",
+      "votes": 2425,
+      "vote_share_pct": 1.45,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3357,
+    "vote_share_pct": 2.01
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 5705,
+    "vote_share_pct": 3.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VASAVA MAHESHBHAI CHHOTUBHAI",
+    "party_short": "BTP",
+    "votes": 83026,
+    "margin_votes": 21751,
+    "margin_pct": 13.04
+  }
+}

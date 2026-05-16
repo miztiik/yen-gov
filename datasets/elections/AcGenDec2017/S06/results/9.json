@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Dhanera",
+  "totals": {
+    "electors": 229012,
+    "votes_polled": 174383,
+    "turnout_pct": 76.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PATEL NATHABHAI HEGOLABHAI",
+      "party_short": "INC",
+      "votes": 82909,
+      "vote_share_pct": 47.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DESAI MAVJIBHAI MAGANBHAI",
+      "party_short": "BJP",
+      "votes": 80816,
+      "vote_share_pct": 46.34,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RABARI TEJABHAI NETHIBHAI",
+      "party_short": "AINHCP",
+      "votes": 2802,
+      "vote_share_pct": 1.61,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DABHI RUPABHAI CHENABHAI",
+      "party_short": "BSP",
+      "votes": 2790,
+      "vote_share_pct": 1.6,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAJPUT NARSINHJI BABUJI",
+      "party_short": "IND",
+      "votes": 1836,
+      "vote_share_pct": 1.05,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2341,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PATEL NATHABHAI HEGOLABHAI",
+    "party_short": "INC",
+    "votes": 82909,
+    "margin_votes": 2093,
+    "margin_pct": 1.2
+  },
+  "others": null
+}

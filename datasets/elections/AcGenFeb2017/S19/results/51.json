@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 51,
+  "constituency_name": "Chamkaur Sahib",
+  "totals": {
+    "electors": 186932,
+    "votes_polled": 145392,
+    "turnout_pct": 77.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHARANJIT SINGH CHANNI",
+      "party_short": "INC",
+      "votes": 61060,
+      "vote_share_pct": 42.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "CHARANJIT SINGH",
+      "party_short": "AAAP",
+      "votes": 48752,
+      "vote_share_pct": 33.53,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "JUSTICE NIRMAL SINGH",
+      "party_short": "SAD",
+      "votes": 31452,
+      "vote_share_pct": 21.63,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAJINDER SINGH",
+      "party_short": "BSP",
+      "votes": 1610,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "HARJINDER SINGH",
+      "party_short": "PDEMP",
+      "votes": 587,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 911,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1020,
+    "vote_share_pct": 0.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHARANJIT SINGH CHANNI",
+    "party_short": "INC",
+    "votes": 61060,
+    "margin_votes": 12308,
+    "margin_pct": 8.47
+  }
+}

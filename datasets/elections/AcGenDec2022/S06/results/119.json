@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 119,
+  "constituency_name": "Thasra",
+  "totals": {
+    "electors": 273310,
+    "votes_polled": 196497,
+    "turnout_pct": 71.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Yogendrasinh Parmar (bakabhai)",
+      "party_short": "BJP",
+      "votes": 121348,
+      "vote_share_pct": 61.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Parmar Kantibhai Shabhaibhai",
+      "party_short": "INC",
+      "votes": 59429,
+      "vote_share_pct": 30.24,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Maheshkumar Ramsinh Parmar",
+      "party_short": "IND",
+      "votes": 5655,
+      "vote_share_pct": 2.88,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rathod Natvarsinh Punjabhai",
+      "party_short": "AAAP",
+      "votes": 3213,
+      "vote_share_pct": 1.64,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rafiq Ahmedkhan",
+      "party_short": "IND",
+      "votes": 2325,
+      "vote_share_pct": 1.18,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2714,
+    "vote_share_pct": 1.38
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1813,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Yogendrasinh Parmar (bakabhai)",
+    "party_short": "BJP",
+    "votes": 121348,
+    "margin_votes": 61919,
+    "margin_pct": 31.51
+  }
+}

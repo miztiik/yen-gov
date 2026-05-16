@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 205,
+  "constituency_name": "Sivakasi",
+  "totals": {
+    "electors": 261809,
+    "votes_polled": 185047,
+    "turnout_pct": 70.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ashokan.G",
+      "party_short": "INC",
+      "votes": 78947,
+      "vote_share_pct": 42.66,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Lakshmi Ganesan",
+      "party_short": "ADMK",
+      "votes": 61628,
+      "vote_share_pct": 33.3,
+      "gender": "F",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kanagapriya.R",
+      "party_short": "NTK",
+      "votes": 20865,
+      "vote_share_pct": 11.28,
+      "gender": "F",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Samikkalai.G",
+      "party_short": "AMMKMNKZ",
+      "votes": 9893,
+      "vote_share_pct": 5.35,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mugunthan.S",
+      "party_short": "MNM",
+      "votes": 6090,
+      "vote_share_pct": 3.29,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1727,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 5897,
+    "vote_share_pct": 3.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ashokan.G",
+    "party_short": "INC",
+    "votes": 78947,
+    "margin_votes": 17319,
+    "margin_pct": 9.36
+  }
+}

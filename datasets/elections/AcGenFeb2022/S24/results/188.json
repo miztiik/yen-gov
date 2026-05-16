@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 188,
+  "constituency_name": "Sultanpur",
+  "totals": {
+    "electors": 380581,
+    "votes_polled": 219508,
+    "turnout_pct": 57.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VINOD SINGH",
+      "party_short": "BJP",
+      "votes": 92715,
+      "vote_share_pct": 42.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANOOP SANDA",
+      "party_short": "SP",
+      "votes": 91706,
+      "vote_share_pct": 41.78,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR. DEVI SAHAY MISHRA",
+      "party_short": "BSP",
+      "votes": 22521,
+      "vote_share_pct": 10.26,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MIRJA AKRAM BEG",
+      "party_short": "AIMIM",
+      "votes": 5251,
+      "vote_share_pct": 2.39,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "FIROZ KHAN",
+      "party_short": "INC",
+      "votes": 2655,
+      "vote_share_pct": 1.21,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1443,
+    "vote_share_pct": 0.66
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3217,
+    "vote_share_pct": 1.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VINOD SINGH",
+    "party_short": "BJP",
+    "votes": 92715,
+    "margin_votes": 1009,
+    "margin_pct": 0.46
+  }
+}

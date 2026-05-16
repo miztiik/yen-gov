@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 237,
+  "constituency_name": "Manikpur",
+  "totals": {
+    "electors": 325694,
+    "votes_polled": 194557,
+    "turnout_pct": 59.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "R.K. SINGH PATEL",
+      "party_short": "BJP",
+      "votes": 84988,
+      "vote_share_pct": 43.68,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SAMPAT PAL",
+      "party_short": "INC",
+      "votes": 40524,
+      "vote_share_pct": 20.83,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHANDRABHAN SINGH PATEL",
+      "party_short": "BSP",
+      "votes": 32498,
+      "vote_share_pct": 16.7,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DADDU PRASAD",
+      "party_short": "BMUP",
+      "votes": 9697,
+      "vote_share_pct": 4.98,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SUKHLAL NISHAD",
+      "party_short": "NINSHAD",
+      "votes": 5329,
+      "vote_share_pct": 2.74,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3752,
+    "vote_share_pct": 1.93
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 17769,
+    "vote_share_pct": 9.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "R.K. SINGH PATEL",
+    "party_short": "BJP",
+    "votes": 84988,
+    "margin_votes": 44464,
+    "margin_pct": 22.85
+  }
+}

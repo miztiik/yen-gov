@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Bholath",
+  "totals": {
+    "electors": 130808,
+    "votes_polled": 97940,
+    "turnout_pct": 74.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUKHPAL SINGH KHAIRA",
+      "party_short": "AAAP",
+      "votes": 48873,
+      "vote_share_pct": 49.9,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "YUVRAJ BHUPINDER SINGH",
+      "party_short": "SAD",
+      "votes": 40671,
+      "vote_share_pct": 41.53,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RANJIT SINGH RANA",
+      "party_short": "INC",
+      "votes": 5923,
+      "vote_share_pct": 6.05,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJINDER SINGH FAUJI",
+      "party_short": "SAD(M)",
+      "votes": 708,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SATPAL",
+      "party_short": "BSP",
+      "votes": 513,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 379,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 873,
+    "vote_share_pct": 0.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUKHPAL SINGH KHAIRA",
+    "party_short": "AAAP",
+    "votes": 48873,
+    "margin_votes": 8202,
+    "margin_pct": 8.37
+  }
+}

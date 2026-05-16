@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "Thakkarbapa Nagar",
+  "totals": {
+    "electors": 243623,
+    "votes_polled": 136164,
+    "turnout_pct": 55.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kanchanben Vinubhai Radadiya",
+      "party_short": "BJP",
+      "votes": 89409,
+      "vote_share_pct": 65.66,
+      "is_winner": true,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Vijaykumar C. Brahmabhatt (vijay Barot)",
+      "party_short": "INC",
+      "votes": 25610,
+      "vote_share_pct": 18.81,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sanjay Mori",
+      "party_short": "AAAP",
+      "votes": 17456,
+      "vote_share_pct": 12.82,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shaikh Usmanbhai Ibrahimbhai",
+      "party_short": "IND",
+      "votes": 460,
+      "vote_share_pct": 0.34,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Hitendrakumar Madhabhai Patel",
+      "party_short": "SWNTRABYKT",
+      "votes": 290,
+      "vote_share_pct": 0.21,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1910,
+    "vote_share_pct": 1.4
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1029,
+    "vote_share_pct": 0.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kanchanben Vinubhai Radadiya",
+    "party_short": "BJP",
+    "votes": 89409,
+    "margin_votes": 63799,
+    "margin_pct": 46.85
+  }
+}

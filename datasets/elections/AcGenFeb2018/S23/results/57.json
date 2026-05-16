@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Jubarajnagar",
+  "totals": {
+    "electors": 40987,
+    "votes_polled": 37647,
+    "turnout_pct": 91.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMENDRA CHANDRA DEBNATH",
+      "party_short": "CPM",
+      "votes": 18147,
+      "vote_share_pct": 48.2,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JADAB LAL DEBNATH",
+      "party_short": "BJP",
+      "votes": 17498,
+      "vote_share_pct": 46.48,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DIGBIJOY CHAKRABORTY",
+      "party_short": "INC",
+      "votes": 689,
+      "vote_share_pct": 1.83,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RATNESHBAR DEBNATH",
+      "party_short": "AITC",
+      "votes": 275,
+      "vote_share_pct": 0.73,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMESH CHANDRA DEBNATH",
+      "party_short": "AMB",
+      "votes": 242,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 259,
+    "vote_share_pct": 0.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMENDRA CHANDRA DEBNATH",
+    "party_short": "CPM",
+    "votes": 18147,
+    "margin_votes": 649,
+    "margin_pct": 1.72
+  },
+  "others": null
+}

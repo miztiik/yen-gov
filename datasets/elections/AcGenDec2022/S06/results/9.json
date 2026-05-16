@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Dhanera",
+  "totals": {
+    "electors": 268872,
+    "votes_polled": 204561,
+    "turnout_pct": 76.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mavjibhai Maganbhai Desai",
+      "party_short": "IND",
+      "votes": 96053,
+      "vote_share_pct": 46.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Patel Bhagvanbhai Hajabhai",
+      "party_short": "BJP",
+      "votes": 60357,
+      "vote_share_pct": 29.51,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Patel Nathabhai Hegolabhai",
+      "party_short": "INC",
+      "votes": 38260,
+      "vote_share_pct": 18.7,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Prakashbhai Revabhai Solanki",
+      "party_short": "BSP",
+      "votes": 2154,
+      "vote_share_pct": 1.05,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Dineshbhai Pataji Chauhan",
+      "party_short": "IND",
+      "votes": 1395,
+      "vote_share_pct": 0.68,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3811,
+    "vote_share_pct": 1.86
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2531,
+    "vote_share_pct": 1.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mavjibhai Maganbhai Desai",
+    "party_short": "IND",
+    "votes": 96053,
+    "margin_votes": 35696,
+    "margin_pct": 17.45
+  }
+}

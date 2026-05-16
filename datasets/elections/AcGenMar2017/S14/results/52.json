@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "Tamei (ST)",
+  "totals": {
+    "electors": 36427,
+    "votes_polled": 32295,
+    "turnout_pct": 88.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AWANGBOW NEWMAI",
+      "party_short": "NPF",
+      "votes": 15933,
+      "vote_share_pct": 49.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Z. KIKHONBOU NEWMAI",
+      "party_short": "BJP",
+      "votes": 15186,
+      "vote_share_pct": 47.02,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "G.N. KUMUITEUNG (DR. AKU)",
+      "party_short": "INC",
+      "votes": 1136,
+      "vote_share_pct": 3.52,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 40,
+    "vote_share_pct": 0.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AWANGBOW NEWMAI",
+    "party_short": "NPF",
+    "votes": 15933,
+    "margin_votes": 747,
+    "margin_pct": 2.31
+  },
+  "others": null
+}

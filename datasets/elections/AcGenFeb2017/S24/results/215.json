@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 215,
+  "constituency_name": "KIDWAI NAGAR",
+  "totals": {
+    "electors": 354693,
+    "votes_polled": 205134,
+    "turnout_pct": 57.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAHESH CHANDRA",
+      "party_short": "BJP",
+      "votes": 111407,
+      "vote_share_pct": 54.31,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AJAY KAPOOR",
+      "party_short": "INC",
+      "votes": 77424,
+      "vote_share_pct": 37.74,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANDEEP KUMAR",
+      "party_short": "BSP",
+      "votes": 13273,
+      "vote_share_pct": 6.47,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAM KARAN",
+      "party_short": "BSCP",
+      "votes": 610,
+      "vote_share_pct": 0.3,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUSHIL KUMAR VERMA",
+      "party_short": "IND",
+      "votes": 424,
+      "vote_share_pct": 0.21,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1117,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 879,
+    "vote_share_pct": 0.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAHESH CHANDRA",
+    "party_short": "BJP",
+    "votes": 111407,
+    "margin_votes": 33983,
+    "margin_pct": 16.57
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Avadi",
+  "totals": {
+    "electors": 398613,
+    "votes_polled": 270732,
+    "turnout_pct": 67.92
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PANDIA RAJAN K",
+      "party_short": "ADMK",
+      "votes": 108064,
+      "vote_share_pct": 39.92,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NASAR S M",
+      "party_short": "DMK",
+      "votes": 106669,
+      "vote_share_pct": 39.4,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANTHRIDOSS R",
+      "party_short": "MDMK",
+      "votes": 22848,
+      "vote_share_pct": 8.44,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANANDAKRISHNAN N",
+      "party_short": "PMK",
+      "votes": 12428,
+      "vote_share_pct": 4.59,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "LOGANATHAN J",
+      "party_short": "BJP",
+      "votes": 7232,
+      "vote_share_pct": 2.67,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4994,
+    "vote_share_pct": 1.84
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 8497,
+    "vote_share_pct": 3.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PANDIA RAJAN K",
+    "party_short": "ADMK",
+    "votes": 108064,
+    "margin_votes": 1395,
+    "margin_pct": 0.52
+  }
+}

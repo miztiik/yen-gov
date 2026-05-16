@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 280,
+  "constituency_name": "Jalalpur",
+  "totals": {
+    "electors": 384276,
+    "votes_polled": 240787,
+    "turnout_pct": 62.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RITESH PANDEY",
+      "party_short": "BSP",
+      "votes": 90309,
+      "vote_share_pct": 37.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. RAJESH SINGH",
+      "party_short": "BJP",
+      "votes": 77279,
+      "vote_share_pct": 32.09,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHANKHLAL MAJHI",
+      "party_short": "SP",
+      "votes": 58773,
+      "vote_share_pct": 24.41,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJESH KUMAR VERMA",
+      "party_short": "BMUP",
+      "votes": 2151,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAGDISH SINGH",
+      "party_short": "NINSHAD",
+      "votes": 2123,
+      "vote_share_pct": 0.88,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1531,
+    "vote_share_pct": 0.64
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 8621,
+    "vote_share_pct": 3.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RITESH PANDEY",
+    "party_short": "BSP",
+    "votes": 90309,
+    "margin_votes": 13030,
+    "margin_pct": 5.41
+  }
+}

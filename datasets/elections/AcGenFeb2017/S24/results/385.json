@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 385,
+  "constituency_name": "Ajagara",
+  "totals": {
+    "electors": 336882,
+    "votes_polled": 219858,
+    "turnout_pct": 65.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KAILASH NATH SONKAR",
+      "party_short": "SBSP",
+      "votes": 83778,
+      "vote_share_pct": 38.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "LALJI SONKAR",
+      "party_short": "SP",
+      "votes": 62429,
+      "vote_share_pct": 28.4,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "TRIBHUVAN RAM",
+      "party_short": "BSP",
+      "votes": 52480,
+      "vote_share_pct": 23.87,
+      "gender": "M",
+      "age": 68,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "ARTI",
+      "party_short": "IND",
+      "votes": 8639,
+      "vote_share_pct": 3.93,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SAURABH KUMAR",
+      "party_short": "IND",
+      "votes": 3539,
+      "vote_share_pct": 1.61,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2350,
+    "vote_share_pct": 1.07
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 6643,
+    "vote_share_pct": 3.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KAILASH NATH SONKAR",
+    "party_short": "SBSP",
+    "votes": 83778,
+    "margin_votes": 21349,
+    "margin_pct": 9.71
+  }
+}

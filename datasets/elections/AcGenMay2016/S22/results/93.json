@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 93,
+  "constituency_name": "Senthamangalam",
+  "totals": {
+    "electors": 229911,
+    "votes_polled": 189917,
+    "turnout_pct": 82.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHANDRASEKARAN C",
+      "party_short": "ADMK",
+      "votes": 91339,
+      "vote_share_pct": 48.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "PONNUSAMY K",
+      "party_short": "DMK",
+      "votes": 79006,
+      "vote_share_pct": 41.6,
+      "gender": "M",
+      "age": 64,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SATHIYA M",
+      "party_short": "DMDK",
+      "votes": 5609,
+      "vote_share_pct": 2.95,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "CHINNUSAMY M",
+      "party_short": "KMDK",
+      "votes": 4014,
+      "vote_share_pct": 2.11,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SUSILA K",
+      "party_short": "PMK",
+      "votes": 2447,
+      "vote_share_pct": 1.29,
+      "gender": "F",
+      "age": 32,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2664,
+    "vote_share_pct": 1.4
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4838,
+    "vote_share_pct": 2.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHANDRASEKARAN C",
+    "party_short": "ADMK",
+    "votes": 91339,
+    "margin_votes": 12333,
+    "margin_pct": 6.49
+  }
+}

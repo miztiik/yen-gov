@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Tamenglong (ST)",
+  "totals": {
+    "electors": 31970,
+    "votes_polled": 24371,
+    "turnout_pct": 76.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAMUEL JENDAI KAMEI",
+      "party_short": "BJP",
+      "votes": 13023,
+      "vote_share_pct": 53.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "JANGHEMLUNG PANMEI",
+      "party_short": "NPF",
+      "votes": 11019,
+      "vote_share_pct": 45.21,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "JANGAMLUNG PANMEI",
+      "party_short": "INC",
+      "votes": 215,
+      "vote_share_pct": 0.88,
+      "gender": "M",
+      "age": 68,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 114,
+    "vote_share_pct": 0.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAMUEL JENDAI KAMEI",
+    "party_short": "BJP",
+    "votes": 13023,
+    "margin_votes": 2004,
+    "margin_pct": 8.22
+  },
+  "others": null
+}

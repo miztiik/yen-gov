@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "Lilong",
+  "totals": {
+    "electors": 36006,
+    "votes_polled": 33969,
+    "turnout_pct": 94.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mohd Abdul Nasir",
+      "party_short": "JD(U)",
+      "votes": 16886,
+      "vote_share_pct": 49.71,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Y. Antas Khan",
+      "party_short": "BJP",
+      "votes": 16316,
+      "vote_share_pct": 48.03,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Syed Anwar Hussain",
+      "party_short": "INC",
+      "votes": 445,
+      "vote_share_pct": 1.31,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Abdul Manan",
+      "party_short": "IND",
+      "votes": 162,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Md Irshad Hussain",
+      "party_short": "IND",
+      "votes": 20,
+      "vote_share_pct": 0.06,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 140,
+    "vote_share_pct": 0.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mohd Abdul Nasir",
+    "party_short": "JD(U)",
+    "votes": 16886,
+    "margin_votes": 570,
+    "margin_pct": 1.68
+  },
+  "others": null
+}

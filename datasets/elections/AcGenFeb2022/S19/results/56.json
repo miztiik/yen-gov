@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "Amloh",
+  "totals": {
+    "electors": 144730,
+    "votes_polled": 113966,
+    "turnout_pct": 78.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gurinder Singh Garry Birring",
+      "party_short": "AAAP",
+      "votes": 52912,
+      "vote_share_pct": 46.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Gurpreet Singh Raju Khanna",
+      "party_short": "SAD",
+      "votes": 28249,
+      "vote_share_pct": 24.79,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kaka Randeep Singh Nabha",
+      "party_short": "INC",
+      "votes": 16077,
+      "vote_share_pct": 14.11,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Kanwarveer Singh Tohra",
+      "party_short": "BJP",
+      "votes": 9488,
+      "vote_share_pct": 8.33,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Lakhvir Singh Sounti",
+      "party_short": "SAD(M)",
+      "votes": 3793,
+      "vote_share_pct": 3.33,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 523,
+    "vote_share_pct": 0.46
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2924,
+    "vote_share_pct": 2.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gurinder Singh Garry Birring",
+    "party_short": "AAAP",
+    "votes": 52912,
+    "margin_votes": 24663,
+    "margin_pct": 21.64
+  }
+}

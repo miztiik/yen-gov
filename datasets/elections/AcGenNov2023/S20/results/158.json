@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 158,
+  "constituency_name": "Dungarpur (ST)",
+  "totals": {
+    "electors": 263301,
+    "votes_polled": 193756,
+    "turnout_pct": 73.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ganesh Ghogra",
+      "party_short": "INC",
+      "votes": 69338,
+      "vote_share_pct": 35.79,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Kantilal Roat",
+      "party_short": "BHRTADVSIP",
+      "votes": 50285,
+      "vote_share_pct": 25.95,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Banshilal Katara",
+      "party_short": "BJP",
+      "votes": 45602,
+      "vote_share_pct": 23.54,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Devram Roat",
+      "party_short": "IND",
+      "votes": 16165,
+      "vote_share_pct": 8.34,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Devendra Katara",
+      "party_short": "AAAP",
+      "votes": 2348,
+      "vote_share_pct": 1.21,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 4266,
+    "vote_share_pct": 2.2
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 5752,
+    "vote_share_pct": 2.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ganesh Ghogra",
+    "party_short": "INC",
+    "votes": 69338,
+    "margin_votes": 19053,
+    "margin_pct": 9.83
+  }
+}

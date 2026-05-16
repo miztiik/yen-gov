@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Deoband",
+  "totals": {
+    "electors": 327564,
+    "votes_polled": 234306,
+    "turnout_pct": 71.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BRIJESH",
+      "party_short": "BJP",
+      "votes": 102244,
+      "vote_share_pct": 43.64,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAJID ALI",
+      "party_short": "BSP",
+      "votes": 72844,
+      "vote_share_pct": 31.09,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MAVIA ALI",
+      "party_short": "SP",
+      "votes": 55385,
+      "vote_share_pct": 23.64,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BHUPESHWAR TYAGI",
+      "party_short": "RLD",
+      "votes": 1132,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DHARMAVIR",
+      "party_short": "BMUP",
+      "votes": 651,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 798,
+    "vote_share_pct": 0.34
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1252,
+    "vote_share_pct": 0.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BRIJESH",
+    "party_short": "BJP",
+    "votes": 102244,
+    "margin_votes": 29400,
+    "margin_pct": 12.55
+  }
+}

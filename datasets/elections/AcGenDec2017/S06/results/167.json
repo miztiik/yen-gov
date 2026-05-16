@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 167,
+  "constituency_name": "Surat West",
+  "totals": {
+    "electors": 222041,
+    "votes_polled": 150971,
+    "turnout_pct": 67.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PURNESH MODI",
+      "party_short": "BJP",
+      "votes": 111615,
+      "vote_share_pct": 73.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PATEL IQBAL DAUD",
+      "party_short": "INC",
+      "votes": 33733,
+      "vote_share_pct": 22.34,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ROCHANI SONAL CHETANBHAI",
+      "party_short": "IND",
+      "votes": 461,
+      "vote_share_pct": 0.31,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NILPESHKUMAR JASHVANTBHAI PATEL",
+      "party_short": "AINHCP",
+      "votes": 458,
+      "vote_share_pct": 0.3,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PALIWAL RAVISHANKAR CHUNILAL",
+      "party_short": "NCP",
+      "votes": 451,
+      "vote_share_pct": 0.3,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1986,
+    "vote_share_pct": 1.32
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1573,
+    "vote_share_pct": 1.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PURNESH MODI",
+    "party_short": "BJP",
+    "votes": 111615,
+    "margin_votes": 77882,
+    "margin_pct": 51.59
+  }
+}

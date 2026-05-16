@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "Debai",
+  "totals": {
+    "electors": 333390,
+    "votes_polled": 209809,
+    "turnout_pct": 62.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. ANITA LODHI RAJPUT",
+      "party_short": "BJP",
+      "votes": 111807,
+      "vote_share_pct": 53.29,
+      "is_winner": true,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "HARISH KUMAR",
+      "party_short": "SP",
+      "votes": 46177,
+      "vote_share_pct": 22.01,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DEVENDRA BHARDWAJ",
+      "party_short": "BSP",
+      "votes": 44974,
+      "vote_share_pct": 21.44,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SATYAVEER",
+      "party_short": "RLD",
+      "votes": 2647,
+      "vote_share_pct": 1.26,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NAVRATAN SINGH",
+      "party_short": "IND",
+      "votes": 1108,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2048,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1048,
+    "vote_share_pct": 0.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. ANITA LODHI RAJPUT",
+    "party_short": "BJP",
+    "votes": 111807,
+    "margin_votes": 65630,
+    "margin_pct": 31.28
+  }
+}

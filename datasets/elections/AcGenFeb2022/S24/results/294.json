@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 294,
+  "constituency_name": "Balrampur",
+  "totals": {
+    "electors": 428009,
+    "votes_polled": 206720,
+    "turnout_pct": 48.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PALTOO RAM",
+      "party_short": "BJP",
+      "votes": 101146,
+      "vote_share_pct": 48.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "JAGRAM PASWAN",
+      "party_short": "SP",
+      "votes": 90175,
+      "vote_share_pct": 43.62,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "HARI RAM",
+      "party_short": "BSP",
+      "votes": 5371,
+      "vote_share_pct": 2.6,
+      "gender": "M",
+      "age": 78,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BABITA",
+      "party_short": "INC",
+      "votes": 2576,
+      "vote_share_pct": 1.25,
+      "gender": "F",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAVINDRA KUMAR",
+      "party_short": "IND",
+      "votes": 1095,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2365,
+    "vote_share_pct": 1.14
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3992,
+    "vote_share_pct": 1.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PALTOO RAM",
+    "party_short": "BJP",
+    "votes": 101146,
+    "margin_votes": 10971,
+    "margin_pct": 5.31
+  }
+}

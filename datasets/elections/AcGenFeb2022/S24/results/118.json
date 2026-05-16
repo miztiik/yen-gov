@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 118,
+  "constituency_name": "Baheri",
+  "totals": {
+    "electors": 366445,
+    "votes_polled": 266003,
+    "turnout_pct": 72.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ATAUR REHMAN",
+      "party_short": "SP",
+      "votes": 124145,
+      "vote_share_pct": 46.67,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHHATRA PAL SINGH",
+      "party_short": "BJP",
+      "votes": 120790,
+      "vote_share_pct": 45.41,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ASEY RAM",
+      "party_short": "BSP",
+      "votes": 15814,
+      "vote_share_pct": 5.95,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANTOSH",
+      "party_short": "INC",
+      "votes": 1845,
+      "vote_share_pct": 0.69,
+      "gender": "F",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ASIF RAZA",
+      "party_short": "AAAP",
+      "votes": 519,
+      "vote_share_pct": 0.2,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1172,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1718,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ATAUR REHMAN",
+    "party_short": "SP",
+    "votes": 124145,
+    "margin_votes": 3355,
+    "margin_pct": 1.26
+  }
+}

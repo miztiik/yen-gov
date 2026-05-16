@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 144,
+  "constituency_name": "MOHAMMDI",
+  "totals": {
+    "electors": 315263,
+    "votes_polled": 219146,
+    "turnout_pct": 69.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LOKENDRA PRATAP SINGH",
+      "party_short": "BJP",
+      "votes": 93000,
+      "vote_share_pct": 42.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SANJAY SHARMA",
+      "party_short": "INC",
+      "votes": 59082,
+      "vote_share_pct": 26.96,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DAUD AHMAD",
+      "party_short": "BSP",
+      "votes": 57902,
+      "vote_share_pct": 26.42,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ADESH KUMAR",
+      "party_short": "JAM",
+      "votes": 1207,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NAR SINGH",
+      "party_short": "IND",
+      "votes": 1187,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2330,
+    "vote_share_pct": 1.06
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4438,
+    "vote_share_pct": 2.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LOKENDRA PRATAP SINGH",
+    "party_short": "BJP",
+    "votes": 93000,
+    "margin_votes": 33918,
+    "margin_pct": 15.48
+  }
+}

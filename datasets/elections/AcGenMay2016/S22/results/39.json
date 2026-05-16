@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Sholingur",
+  "totals": {
+    "electors": 257291,
+    "votes_polled": 211064,
+    "turnout_pct": 82.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARTHIBAN.N.G",
+      "party_short": "ADMK",
+      "votes": 77651,
+      "vote_share_pct": 36.79,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MUNIRATHINAM.A.M",
+      "party_short": "INC",
+      "votes": 67919,
+      "vote_share_pct": 32.18,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.SARAVANAN",
+      "party_short": "PMK",
+      "votes": 50827,
+      "vote_share_pct": 24.08,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANOGAR.P.R",
+      "party_short": "DMDK",
+      "votes": 6167,
+      "vote_share_pct": 2.92,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KUMAR.M",
+      "party_short": "BJP",
+      "votes": 1468,
+      "vote_share_pct": 0.7,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1691,
+    "vote_share_pct": 0.8
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 5341,
+    "vote_share_pct": 2.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARTHIBAN.N.G",
+    "party_short": "ADMK",
+    "votes": 77651,
+    "margin_votes": 9732,
+    "margin_pct": 4.61
+  }
+}

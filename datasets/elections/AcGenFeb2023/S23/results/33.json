@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "Kakraban-Shalgara (SC)",
+  "totals": {
+    "electors": 54358,
+    "votes_polled": 49048,
+    "turnout_pct": 90.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jitendra Majumder",
+      "party_short": "BJP",
+      "votes": 23625,
+      "vote_share_pct": 48.17,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Ratan Kr. Bhowmik",
+      "party_short": "CPI(M)",
+      "votes": 18574,
+      "vote_share_pct": 37.87,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Kshir Mohan Das",
+      "party_short": "TMP",
+      "votes": 5896,
+      "vote_share_pct": 12.02,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Uttam Das",
+      "party_short": "IND",
+      "votes": 316,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 637,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jitendra Majumder",
+    "party_short": "BJP",
+    "votes": 23625,
+    "margin_votes": 5051,
+    "margin_pct": 10.3
+  },
+  "others": null
+}

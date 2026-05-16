@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 4,
+  "constituency_name": "Badrinath",
+  "totals": {
+    "electors": 104795,
+    "votes_polled": 68211,
+    "turnout_pct": 65.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajendra Singh Bhandari",
+      "party_short": "INC",
+      "votes": 32661,
+      "vote_share_pct": 47.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mahendra Bhatt",
+      "party_short": "BJP",
+      "votes": 30595,
+      "vote_share_pct": 44.85,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Bhagwati Prasad Mandoli",
+      "party_short": "AAAP",
+      "votes": 871,
+      "vote_share_pct": 1.28,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vinod Joshi",
+      "party_short": "CPI",
+      "votes": 798,
+      "vote_share_pct": 1.17,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mukesh Lal Koshwal",
+      "party_short": "BSP",
+      "votes": 552,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 68,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 853,
+    "vote_share_pct": 1.25
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1881,
+    "vote_share_pct": 2.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajendra Singh Bhandari",
+    "party_short": "INC",
+    "votes": 32661,
+    "margin_votes": 2066,
+    "margin_pct": 3.03
+  }
+}

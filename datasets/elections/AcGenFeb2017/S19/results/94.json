@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 94,
+  "constituency_name": "Talwandi Sabo",
+  "totals": {
+    "electors": 149354,
+    "votes_polled": 128426,
+    "turnout_pct": 85.99
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PROF. BALJINDER KAUR",
+      "party_short": "AAAP",
+      "votes": 54553,
+      "vote_share_pct": 42.48,
+      "is_winner": true,
+      "gender": "F",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KHUSHBAZ SINGH JATANA",
+      "party_short": "INC",
+      "votes": 35260,
+      "vote_share_pct": 27.46,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JEETMOHINDER SINGH SIDHU",
+      "party_short": "SAD",
+      "votes": 34473,
+      "vote_share_pct": 26.84,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "HARJINDER SINGH MITHAN",
+      "party_short": "BSP",
+      "votes": 1346,
+      "vote_share_pct": 1.05,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KARAMJIT SINGH",
+      "party_short": "IND",
+      "votes": 660,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 578,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1556,
+    "vote_share_pct": 1.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PROF. BALJINDER KAUR",
+    "party_short": "AAAP",
+    "votes": 54553,
+    "margin_votes": 19293,
+    "margin_pct": 15.02
+  }
+}

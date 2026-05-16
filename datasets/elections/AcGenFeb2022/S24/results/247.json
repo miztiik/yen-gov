@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 247,
+  "constituency_name": "Vishwanath Ganj",
+  "totals": {
+    "electors": 399623,
+    "votes_polled": 200930,
+    "turnout_pct": 50.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JEET LAL",
+      "party_short": "ADAL",
+      "votes": 86829,
+      "vote_share_pct": 43.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SAURABH SINGH",
+      "party_short": "SP",
+      "votes": 38777,
+      "vote_share_pct": 19.3,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANJAY PANDEY",
+      "party_short": "IND",
+      "votes": 22962,
+      "vote_share_pct": 11.43,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHD ASHFAQ",
+      "party_short": "JANADIP",
+      "votes": 20271,
+      "vote_share_pct": 10.09,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SANJAY",
+      "party_short": "BSP",
+      "votes": 16633,
+      "vote_share_pct": 8.28,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1900,
+    "vote_share_pct": 0.95
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 13558,
+    "vote_share_pct": 6.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JEET LAL",
+    "party_short": "ADAL",
+    "votes": 86829,
+    "margin_votes": 48052,
+    "margin_pct": 23.91
+  }
+}

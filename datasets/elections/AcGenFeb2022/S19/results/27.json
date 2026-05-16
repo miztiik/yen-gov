@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Kapurthala",
+  "totals": {
+    "electors": 150129,
+    "votes_polled": 102700,
+    "turnout_pct": 68.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rana Gurjeet Singh",
+      "party_short": "INC",
+      "votes": 44096,
+      "vote_share_pct": 42.94,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Manju Rana",
+      "party_short": "AAAP",
+      "votes": 36792,
+      "vote_share_pct": 35.82,
+      "gender": "F",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Devinder Singh Dhapai",
+      "party_short": "BSP",
+      "votes": 8627,
+      "vote_share_pct": 8.4,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ranjit Singh Khojewal",
+      "party_short": "BJP",
+      "votes": 6745,
+      "vote_share_pct": 6.57,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Narinder Singh",
+      "party_short": "SAD(M)",
+      "votes": 3807,
+      "vote_share_pct": 3.71,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 622,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2011,
+    "vote_share_pct": 1.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rana Gurjeet Singh",
+    "party_short": "INC",
+    "votes": 44096,
+    "margin_votes": 7304,
+    "margin_pct": 7.11
+  }
+}

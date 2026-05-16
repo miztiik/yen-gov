@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 69,
+  "constituency_name": "Shikarpur",
+  "totals": {
+    "electors": 310888,
+    "votes_polled": 202785,
+    "turnout_pct": 65.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANIL KUMAR",
+      "party_short": "BJP",
+      "votes": 101912,
+      "vote_share_pct": 50.26,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MUKUL UPADHYAY",
+      "party_short": "BSP",
+      "votes": 51667,
+      "vote_share_pct": 25.48,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "UDAI KARAN SINGH DALAL",
+      "party_short": "INC",
+      "votes": 32914,
+      "vote_share_pct": 16.23,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MUKESH SHARMA",
+      "party_short": "RLD",
+      "votes": 7734,
+      "vote_share_pct": 3.81,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHANTI SWROOP SHARMA",
+      "party_short": "IND",
+      "votes": 2908,
+      "vote_share_pct": 1.43,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2115,
+    "vote_share_pct": 1.04
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3535,
+    "vote_share_pct": 1.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANIL KUMAR",
+    "party_short": "BJP",
+    "votes": 101912,
+    "margin_votes": 50245,
+    "margin_pct": 24.78
+  }
+}

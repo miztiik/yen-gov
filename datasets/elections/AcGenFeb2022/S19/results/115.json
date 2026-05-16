@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "Patiala",
+  "totals": {
+    "electors": 161609,
+    "votes_polled": 103468,
+    "turnout_pct": 64.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ajit Pal Singh Kohli",
+      "party_short": "AAAP",
+      "votes": 48104,
+      "vote_share_pct": 46.49,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Amarinder Singh",
+      "party_short": "PLCP",
+      "votes": 28231,
+      "vote_share_pct": 27.28,
+      "gender": "M",
+      "age": 79,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Harpal Juneja",
+      "party_short": "SAD",
+      "votes": 11835,
+      "vote_share_pct": 11.44,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vishnu Sharma",
+      "party_short": "INC",
+      "votes": 9871,
+      "vote_share_pct": 9.54,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Naunihal Singh",
+      "party_short": "SAD(M)",
+      "votes": 2191,
+      "vote_share_pct": 2.12,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 754,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 2482,
+    "vote_share_pct": 2.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ajit Pal Singh Kohli",
+    "party_short": "AAAP",
+    "votes": 48104,
+    "margin_votes": 19873,
+    "margin_pct": 19.21
+  }
+}

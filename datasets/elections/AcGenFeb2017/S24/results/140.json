@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 140,
+  "constituency_name": "SRI NAGAR",
+  "totals": {
+    "electors": 307964,
+    "votes_polled": 222865,
+    "turnout_pct": 72.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANJU TYAGI",
+      "party_short": "BJP",
+      "votes": 112941,
+      "vote_share_pct": 50.68,
+      "is_winner": true,
+      "gender": "F",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "MEERA BANO",
+      "party_short": "SP",
+      "votes": 58002,
+      "vote_share_pct": 26.03,
+      "gender": "F",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PRAVEEN KUMAR",
+      "party_short": "BSP",
+      "votes": 44757,
+      "vote_share_pct": 20.08,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "DINESH KUMAR",
+      "party_short": "SWPI",
+      "votes": 1914,
+      "vote_share_pct": 0.86,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRAVATI DEVI",
+      "party_short": "RLD",
+      "votes": 1810,
+      "vote_share_pct": 0.81,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2141,
+    "vote_share_pct": 0.96
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1300,
+    "vote_share_pct": 0.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANJU TYAGI",
+    "party_short": "BJP",
+    "votes": 112941,
+    "margin_votes": 54939,
+    "margin_pct": 24.65
+  }
+}

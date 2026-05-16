@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 168,
+  "constituency_name": "Choryasi",
+  "totals": {
+    "electors": 566545,
+    "votes_polled": 322785,
+    "turnout_pct": 56.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sandip Desai",
+      "party_short": "BJP",
+      "votes": 236033,
+      "vote_share_pct": 73.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Prakashbhai Vinodbhai Contractor",
+      "party_short": "AAAP",
+      "votes": 49615,
+      "vote_share_pct": 15.37,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kantilal Nanubhai Patel",
+      "party_short": "INC",
+      "votes": 25840,
+      "vote_share_pct": 8.01,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Malkhan Ramkishor Varma",
+      "party_short": "BSP",
+      "votes": 2061,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Chavada Hiteshbhai",
+      "party_short": "SABHP",
+      "votes": 1060,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4169,
+    "vote_share_pct": 1.29
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4007,
+    "vote_share_pct": 1.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sandip Desai",
+    "party_short": "BJP",
+    "votes": 236033,
+    "margin_votes": 186418,
+    "margin_pct": 57.75
+  }
+}

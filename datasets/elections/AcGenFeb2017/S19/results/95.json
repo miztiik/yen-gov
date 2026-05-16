@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 95,
+  "constituency_name": "Maur",
+  "totals": {
+    "electors": 162836,
+    "votes_polled": 137593,
+    "turnout_pct": 84.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAGDEV SINGH",
+      "party_short": "AAAP",
+      "votes": 62282,
+      "vote_share_pct": 45.27,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JANMEJA SINGH SEKHON",
+      "party_short": "SAD",
+      "votes": 47605,
+      "vote_share_pct": 34.6,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HARMINDER SINGH JASSI",
+      "party_short": "INC",
+      "votes": 23087,
+      "vote_share_pct": 16.78,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUKHRAJ SINGH NATT",
+      "party_short": "IND",
+      "votes": 1938,
+      "vote_share_pct": 1.41,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HARVINDER SINGH",
+      "party_short": "CPI(ML)(L)",
+      "votes": 570,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 853,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1258,
+    "vote_share_pct": 0.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAGDEV SINGH",
+    "party_short": "AAAP",
+    "votes": 62282,
+    "margin_votes": 14677,
+    "margin_pct": 10.67
+  }
+}

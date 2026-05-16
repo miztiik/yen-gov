@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 99,
+  "constituency_name": "Pushkar",
+  "totals": {
+    "electors": 251989,
+    "votes_polled": 189622,
+    "turnout_pct": 75.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Suresh Singh Rawat",
+      "party_short": "BJP",
+      "votes": 84619,
+      "vote_share_pct": 44.63,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Naseem Akhtar",
+      "party_short": "INC",
+      "votes": 70750,
+      "vote_share_pct": 37.31,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ashok Singh Rawat",
+      "party_short": "RLTP",
+      "votes": 16052,
+      "vote_share_pct": 8.47,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dr. Shrigopal Baheti",
+      "party_short": "IND",
+      "votes": 8457,
+      "vote_share_pct": 4.46,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mahaveer Singh",
+      "party_short": "IND",
+      "votes": 1410,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 882,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 7452,
+    "vote_share_pct": 3.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Suresh Singh Rawat",
+    "party_short": "BJP",
+    "votes": 84619,
+    "margin_votes": 13869,
+    "margin_pct": 7.31
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 7,
+  "constituency_name": "Vav",
+  "totals": {
+    "electors": 302189,
+    "votes_polled": 226502,
+    "turnout_pct": 74.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Thakor Geniben Nagaji",
+      "party_short": "INC",
+      "votes": 102513,
+      "vote_share_pct": 45.26,
+      "is_winner": true,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Thakor Swarupji Sardarji",
+      "party_short": "BJP",
+      "votes": 86912,
+      "vote_share_pct": 38.37,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Amirambhai Shankarlal Ashal",
+      "party_short": "IND",
+      "votes": 27346,
+      "vote_share_pct": 12.07,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shantibhai Hajabhai Rathod",
+      "party_short": "IND",
+      "votes": 2289,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Parmar Nayanaben Ranabhai",
+      "party_short": "BSP",
+      "votes": 1849,
+      "vote_share_pct": 0.82,
+      "gender": "F",
+      "age": 27,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3997,
+    "vote_share_pct": 1.76
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1596,
+    "vote_share_pct": 0.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Thakor Geniben Nagaji",
+    "party_short": "INC",
+    "votes": 102513,
+    "margin_votes": 15601,
+    "margin_pct": 6.89
+  }
+}

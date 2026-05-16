@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 213,
+  "constituency_name": "Vilathikulam",
+  "totals": {
+    "electors": 216923,
+    "votes_polled": 167169,
+    "turnout_pct": 77.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MARKANDAYAN V",
+      "party_short": "DMK",
+      "votes": 90348,
+      "vote_share_pct": 54.05,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHINNAPPAN P",
+      "party_short": "ADMK",
+      "votes": 51799,
+      "vote_share_pct": 30.99,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BALAJI R",
+      "party_short": "NTK",
+      "votes": 11828,
+      "vote_share_pct": 7.08,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SEENI SELVI K",
+      "party_short": "AMMKMNKZ",
+      "votes": 6657,
+      "vote_share_pct": 3.98,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "WILSON X",
+      "party_short": "MNM",
+      "votes": 1520,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1036,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3981,
+    "vote_share_pct": 2.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MARKANDAYAN V",
+    "party_short": "DMK",
+    "votes": 90348,
+    "margin_votes": 38549,
+    "margin_pct": 23.06
+  }
+}

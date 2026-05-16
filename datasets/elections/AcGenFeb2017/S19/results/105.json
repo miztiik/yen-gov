@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 105,
+  "constituency_name": "Malerkotla",
+  "totals": {
+    "electors": 149304,
+    "votes_polled": 126255,
+    "turnout_pct": 84.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAZIA SULTANA",
+      "party_short": "INC",
+      "votes": 58982,
+      "vote_share_pct": 46.72,
+      "is_winner": true,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MOHAMMAD OWAIS",
+      "party_short": "SAD",
+      "votes": 46280,
+      "vote_share_pct": 36.66,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MOHAMAD ARSHAD",
+      "party_short": "AAAP",
+      "votes": 17635,
+      "vote_share_pct": 13.97,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHAMSHAD ALI",
+      "party_short": "BSP",
+      "votes": 665,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAHMOOD AHMED THIND",
+      "party_short": "IUML",
+      "votes": 524,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 603,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1566,
+    "vote_share_pct": 1.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAZIA SULTANA",
+    "party_short": "INC",
+    "votes": 58982,
+    "margin_votes": 12702,
+    "margin_pct": 10.06
+  }
+}

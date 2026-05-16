@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 278,
+  "constituency_name": "Tanda",
+  "totals": {
+    "electors": 305077,
+    "votes_polled": 205700,
+    "turnout_pct": 67.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANJU DEVI",
+      "party_short": "BJP",
+      "votes": 74768,
+      "vote_share_pct": 36.35,
+      "is_winner": true,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AZEEMUL HAQ PAHALWAN",
+      "party_short": "SP",
+      "votes": 73043,
+      "vote_share_pct": 35.51,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MANOJ KUMAR VERMA",
+      "party_short": "BSP",
+      "votes": 49526,
+      "vote_share_pct": 24.08,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "IRFAN PATHAN",
+      "party_short": "AIMIM",
+      "votes": 2070,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ANIL MISHRA",
+      "party_short": "SHS",
+      "votes": 1043,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1530,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3720,
+    "vote_share_pct": 1.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANJU DEVI",
+    "party_short": "BJP",
+    "votes": 74768,
+    "margin_votes": 1725,
+    "margin_pct": 0.84
+  }
+}

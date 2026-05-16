@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 102,
+  "constituency_name": "Bhadaur",
+  "totals": {
+    "electors": 158573,
+    "votes_polled": 125247,
+    "turnout_pct": 78.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LABH SINGH UGOKE",
+      "party_short": "AAAP",
+      "votes": 63967,
+      "vote_share_pct": 51.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "CHARANJIT SINGH CHANNI",
+      "party_short": "INC",
+      "votes": 26409,
+      "vote_share_pct": 21.09,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SATNAM SINGH RAHI",
+      "party_short": "SAD",
+      "votes": 21183,
+      "vote_share_pct": 16.91,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "HANS SINGH",
+      "party_short": "SAD(M)",
+      "votes": 8600,
+      "vote_share_pct": 6.87,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MANJIT KAUR",
+      "party_short": "IND",
+      "votes": 800,
+      "vote_share_pct": 0.64,
+      "gender": "F",
+      "age": 64,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 858,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3430,
+    "vote_share_pct": 2.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LABH SINGH UGOKE",
+    "party_short": "AAAP",
+    "votes": 63967,
+    "margin_votes": 37558,
+    "margin_pct": 29.99
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 95,
+  "constituency_name": "Amreli",
+  "totals": {
+    "electors": 283793,
+    "votes_polled": 162215,
+    "turnout_pct": 57.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kaushik Kantibhai Vekariya",
+      "party_short": "BJP",
+      "votes": 89034,
+      "vote_share_pct": 54.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dhanani Pareshkumar Dhirajlal",
+      "party_short": "INC",
+      "votes": 42377,
+      "vote_share_pct": 26.12,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ravi Dhanani",
+      "party_short": "AAAP",
+      "votes": 26445,
+      "vote_share_pct": 16.3,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vinubhai Chavada",
+      "party_short": "IND",
+      "votes": 1385,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Gohil Mukeshbhai Khimajibhai",
+      "party_short": "VPP",
+      "votes": 836,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2138,
+    "vote_share_pct": 1.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kaushik Kantibhai Vekariya",
+    "party_short": "BJP",
+    "votes": 89034,
+    "margin_votes": 46657,
+    "margin_pct": 28.76
+  },
+  "others": null
+}

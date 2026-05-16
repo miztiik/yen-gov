@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 356,
+  "constituency_name": "Mau",
+  "totals": {
+    "electors": 442270,
+    "votes_polled": 266015,
+    "turnout_pct": 60.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MUKHTAR ANSHARI",
+      "party_short": "BSP",
+      "votes": 96793,
+      "vote_share_pct": 36.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAHENDRA RAJBHAR",
+      "party_short": "SBSP",
+      "votes": 88095,
+      "vote_share_pct": 33.12,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ALTAF ANSARI",
+      "party_short": "SP",
+      "votes": 72016,
+      "vote_share_pct": 27.07,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAM SOCH YADAV",
+      "party_short": "CPI",
+      "votes": 1514,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAHFUJURRAHMAN",
+      "party_short": "PECP",
+      "votes": 1301,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1725,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4571,
+    "vote_share_pct": 1.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MUKHTAR ANSHARI",
+    "party_short": "BSP",
+    "votes": 96793,
+    "margin_votes": 8698,
+    "margin_pct": 3.27
+  }
+}

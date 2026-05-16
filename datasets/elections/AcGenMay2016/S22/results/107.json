@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 107,
+  "constituency_name": "Bhavanisagar",
+  "totals": {
+    "electors": 239778,
+    "votes_polled": 196551,
+    "turnout_pct": 81.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ESWARAN.S",
+      "party_short": "ADMK",
+      "votes": 83006,
+      "vote_share_pct": 42.23,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SATHYA.R",
+      "party_short": "DMK",
+      "votes": 69902,
+      "vote_share_pct": 35.56,
+      "gender": "F",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SUNDARAM.P.L",
+      "party_short": "CPI",
+      "votes": 27965,
+      "vote_share_pct": 14.23,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PALANISWAMI.N.R",
+      "party_short": "BJP",
+      "votes": 3557,
+      "vote_share_pct": 1.81,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "VADIVEL.N.R",
+      "party_short": "PMK",
+      "votes": 1485,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2980,
+    "vote_share_pct": 1.52
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 7656,
+    "vote_share_pct": 3.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ESWARAN.S",
+    "party_short": "ADMK",
+    "votes": 83006,
+    "margin_votes": 13104,
+    "margin_pct": 6.67
+  }
+}

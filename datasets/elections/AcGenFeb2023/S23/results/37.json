@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "Hrishyamukh",
+  "totals": {
+    "electors": 47006,
+    "votes_polled": 43104,
+    "turnout_pct": 91.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Asoke Ch. Mitra",
+      "party_short": "CPI(M)",
+      "votes": 19986,
+      "vote_share_pct": 46.37,
+      "is_winner": true,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dipayan Choudhury",
+      "party_short": "BJP",
+      "votes": 18568,
+      "vote_share_pct": 43.08,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Arup Deb",
+      "party_short": "TMP",
+      "votes": 3856,
+      "vote_share_pct": 8.95,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 694,
+    "vote_share_pct": 1.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Asoke Ch. Mitra",
+    "party_short": "CPI(M)",
+    "votes": 19986,
+    "margin_votes": 1418,
+    "margin_pct": 3.29
+  },
+  "others": null
+}

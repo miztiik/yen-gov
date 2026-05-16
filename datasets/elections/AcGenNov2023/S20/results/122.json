@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 122,
+  "constituency_name": "Phalodi",
+  "totals": {
+    "electors": 257492,
+    "votes_polled": 178528,
+    "turnout_pct": 69.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pabba Ram Bishnoi",
+      "party_short": "BJP",
+      "votes": 80243,
+      "vote_share_pct": 44.95,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Prakash Chandra Chhangani",
+      "party_short": "INC",
+      "votes": 69459,
+      "vote_share_pct": 38.91,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Nirnjan Mehra",
+      "party_short": "IND",
+      "votes": 12549,
+      "vote_share_pct": 7.03,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Abdul Mehboob Urf Pappu Khiljee",
+      "party_short": "RLTP",
+      "votes": 8666,
+      "vote_share_pct": 4.85,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Subodh Urf S.l. Vyas",
+      "party_short": "IND",
+      "votes": 1356,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1860,
+    "vote_share_pct": 1.04
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4395,
+    "vote_share_pct": 2.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pabba Ram Bishnoi",
+    "party_short": "BJP",
+    "votes": 80243,
+    "margin_votes": 10784,
+    "margin_pct": 6.04
+  }
+}

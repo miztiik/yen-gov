@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Hapur",
+  "totals": {
+    "electors": 368481,
+    "votes_polled": 246567,
+    "turnout_pct": 66.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIJAYPAL (AADHTI)",
+      "party_short": "BJP",
+      "votes": 97862,
+      "vote_share_pct": 39.69,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "GAJRAJ SINGH",
+      "party_short": "RLD",
+      "votes": 90828,
+      "vote_share_pct": 36.84,
+      "gender": "M",
+      "age": 68,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MANISH SINGH",
+      "party_short": "BSP",
+      "votes": 50751,
+      "vote_share_pct": 20.58,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BHAVNA",
+      "party_short": "INC",
+      "votes": 3195,
+      "vote_share_pct": 1.3,
+      "gender": "F",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRAPAL SINGH",
+      "party_short": "IND",
+      "votes": 618,
+      "vote_share_pct": 0.25,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 930,
+    "vote_share_pct": 0.38
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2383,
+    "vote_share_pct": 0.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIJAYPAL (AADHTI)",
+    "party_short": "BJP",
+    "votes": 97862,
+    "margin_votes": 7034,
+    "margin_pct": 2.85
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "Khambhalia",
+  "totals": {
+    "electors": 264794,
+    "votes_polled": 160686,
+    "turnout_pct": 60.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AHIR VIKRAMBHAI ARJANBHAI MADAM",
+      "party_short": "INC",
+      "votes": 79779,
+      "vote_share_pct": 49.65,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KALUBHAI NARANBHAI CHAVDA",
+      "party_short": "BJP",
+      "votes": 68733,
+      "vote_share_pct": 42.77,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NAGASH KARSHANBHAI JESHABHAI",
+      "party_short": "IND",
+      "votes": 2513,
+      "vote_share_pct": 1.56,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PARMAR GIRISHBHAI MULJIBHAI",
+      "party_short": "IND",
+      "votes": 1433,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GAJJAN ABBAS UMAR",
+      "party_short": "NCP",
+      "votes": 882,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 962,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 5304,
+    "vote_share_pct": 3.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AHIR VIKRAMBHAI ARJANBHAI MADAM",
+    "party_short": "INC",
+    "votes": 79779,
+    "margin_votes": 11046,
+    "margin_pct": 6.87
+  }
+}

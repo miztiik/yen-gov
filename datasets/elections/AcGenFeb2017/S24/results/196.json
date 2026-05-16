@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 196,
+  "constituency_name": "Chhibramau",
+  "totals": {
+    "electors": 422147,
+    "votes_polled": 268754,
+    "turnout_pct": 63.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARCHANA PANDEY",
+      "party_short": "BJP",
+      "votes": 112209,
+      "vote_share_pct": 41.75,
+      "is_winner": true,
+      "gender": "F",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "TAHIR HUSSAIN SIDDIQUI",
+      "party_short": "BSP",
+      "votes": 74985,
+      "vote_share_pct": 27.9,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARVIND SINGH",
+      "party_short": "SP",
+      "votes": 72663,
+      "vote_share_pct": 27.04,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MEERA DEVI",
+      "party_short": "IND",
+      "votes": 1287,
+      "vote_share_pct": 0.48,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "TASKEEN",
+      "party_short": "IND",
+      "votes": 989,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1861,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4760,
+    "vote_share_pct": 1.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARCHANA PANDEY",
+    "party_short": "BJP",
+    "votes": 112209,
+    "margin_votes": 37224,
+    "margin_pct": 13.85
+  }
+}

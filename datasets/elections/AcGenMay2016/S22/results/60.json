@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "Pappireddippatti",
+  "totals": {
+    "electors": 243367,
+    "votes_polled": 208754,
+    "turnout_pct": 85.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PALANIYAPPAN. P",
+      "party_short": "ADMK",
+      "votes": 74234,
+      "vote_share_pct": 35.56,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATHIYAMOORTHY. A",
+      "party_short": "PMK",
+      "votes": 61521,
+      "vote_share_pct": 29.47,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRABHU RAJASEKAR. M",
+      "party_short": "DMK",
+      "votes": 56109,
+      "vote_share_pct": 26.88,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BASKAR . A",
+      "party_short": "DMDK",
+      "votes": 9441,
+      "vote_share_pct": 4.52,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ASHOKAN. G",
+      "party_short": "KMDK",
+      "votes": 1760,
+      "vote_share_pct": 0.84,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1467,
+    "vote_share_pct": 0.7
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4222,
+    "vote_share_pct": 2.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PALANIYAPPAN. P",
+    "party_short": "ADMK",
+    "votes": 74234,
+    "margin_votes": 12713,
+    "margin_pct": 6.09
+  }
+}

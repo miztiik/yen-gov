@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 75,
+  "constituency_name": "Zira",
+  "totals": {
+    "electors": 188313,
+    "votes_polled": 151211,
+    "turnout_pct": 80.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Naresh Kataria",
+      "party_short": "AAAP",
+      "votes": 64034,
+      "vote_share_pct": 42.35,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Janmeja Singh Sekhon",
+      "party_short": "SAD",
+      "votes": 41258,
+      "vote_share_pct": 27.29,
+      "gender": "M",
+      "age": 78,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KULBIR SINGH ZIRA",
+      "party_short": "INC",
+      "votes": 40615,
+      "vote_share_pct": 26.86,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Avtar Singh Zira",
+      "party_short": "BJP",
+      "votes": 2007,
+      "vote_share_pct": 1.33,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Naresh Kumar",
+      "party_short": "IND",
+      "votes": 791,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 676,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1830,
+    "vote_share_pct": 1.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Naresh Kataria",
+    "party_short": "AAAP",
+    "votes": 64034,
+    "margin_votes": 22776,
+    "margin_pct": 15.06
+  }
+}

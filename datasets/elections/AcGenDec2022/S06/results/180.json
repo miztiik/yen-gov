@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 180,
+  "constituency_name": "Pardi",
+  "totals": {
+    "electors": 260648,
+    "votes_polled": 166092,
+    "turnout_pct": 63.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kanubhai Mohanlal Desai",
+      "party_short": "BJP",
+      "votes": 121968,
+      "vote_share_pct": 73.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Jayshreeben Patel",
+      "party_short": "INC",
+      "votes": 24804,
+      "vote_share_pct": 14.93,
+      "gender": "F",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Ketanbhai Kishorbhai Patel",
+      "party_short": "AAAP",
+      "votes": 15306,
+      "vote_share_pct": 9.22,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Pravinkumar Bholaprasad Singh",
+      "party_short": "IND",
+      "votes": 784,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Patel Navinkumar Shankarbhai",
+      "party_short": "IND",
+      "votes": 460,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2316,
+    "vote_share_pct": 1.39
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 454,
+    "vote_share_pct": 0.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kanubhai Mohanlal Desai",
+    "party_short": "BJP",
+    "votes": 121968,
+    "margin_votes": 97164,
+    "margin_pct": 58.5
+  }
+}

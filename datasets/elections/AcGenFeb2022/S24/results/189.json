@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 189,
+  "constituency_name": "Sadar",
+  "totals": {
+    "electors": 344326,
+    "votes_polled": 203496,
+    "turnout_pct": 59.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJ PRASAD UPADHYAY",
+      "party_short": "BJP",
+      "votes": 85249,
+      "vote_share_pct": 41.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARUN VERMA",
+      "party_short": "SP",
+      "votes": 69495,
+      "vote_share_pct": 34.15,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "OM PRAKASH SINGH (O.P. SINGH)",
+      "party_short": "BSP",
+      "votes": 39920,
+      "vote_share_pct": 19.62,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ABHISHEK SINGH RANA",
+      "party_short": "INC",
+      "votes": 4133,
+      "vote_share_pct": 2.03,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ANIL KUMAR",
+      "party_short": "MBCOI",
+      "votes": 1443,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1439,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1817,
+    "vote_share_pct": 0.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJ PRASAD UPADHYAY",
+    "party_short": "BJP",
+    "votes": 85249,
+    "margin_votes": 15754,
+    "margin_pct": 7.74
+  }
+}

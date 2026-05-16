@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Royapuram",
+  "totals": {
+    "electors": 192635,
+    "votes_polled": 121191,
+    "turnout_pct": 62.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MURTHY.R.IDREAM",
+      "party_short": "DMK",
+      "votes": 64424,
+      "vote_share_pct": 53.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAYAKUMAR.D",
+      "party_short": "ADMK",
+      "votes": 36645,
+      "vote_share_pct": 30.24,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GUNASEKARAN.S",
+      "party_short": "MNM",
+      "votes": 8166,
+      "vote_share_pct": 6.74,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KAMALI.S",
+      "party_short": "NTK",
+      "votes": 7953,
+      "vote_share_pct": 6.56,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMAJAYAM.C",
+      "party_short": "AMMKMNKZ",
+      "votes": 1128,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 901,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 1974,
+    "vote_share_pct": 1.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MURTHY.R.IDREAM",
+    "party_short": "DMK",
+    "votes": 64424,
+    "margin_votes": 27779,
+    "margin_pct": 22.92
+  }
+}

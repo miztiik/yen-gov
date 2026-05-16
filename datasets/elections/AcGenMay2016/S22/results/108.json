@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "Udhagamandalam",
+  "totals": {
+    "electors": 202898,
+    "votes_polled": 140155,
+    "turnout_pct": 69.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GANESH, R.",
+      "party_short": "INC",
+      "votes": 67747,
+      "vote_share_pct": 48.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VINOTH",
+      "party_short": "ADMK",
+      "votes": 57329,
+      "vote_share_pct": 40.9,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAMAN",
+      "party_short": "BJP",
+      "votes": 5818,
+      "vote_share_pct": 4.15,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KING NARCISSUS, K.",
+      "party_short": "DMDK",
+      "votes": 3111,
+      "vote_share_pct": 2.22,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BALRAJ, M.",
+      "party_short": "PMK",
+      "votes": 781,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2912,
+    "vote_share_pct": 2.08
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2457,
+    "vote_share_pct": 1.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GANESH, R.",
+    "party_short": "INC",
+    "votes": 67747,
+    "margin_votes": 10418,
+    "margin_pct": 7.43
+  }
+}

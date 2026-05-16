@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 119,
+  "constituency_name": "Meerganj",
+  "totals": {
+    "electors": 324812,
+    "votes_polled": 210276,
+    "turnout_pct": 64.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. D.C. VERMA",
+      "party_short": "BJP",
+      "votes": 108789,
+      "vote_share_pct": 51.74,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SULTAN BEG",
+      "party_short": "BSP",
+      "votes": 54289,
+      "vote_share_pct": 25.82,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NARENDRA PAL SINGH",
+      "party_short": "INC",
+      "votes": 36938,
+      "vote_share_pct": 17.57,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BHANU PRATAP SINGH",
+      "party_short": "MD",
+      "votes": 2267,
+      "vote_share_pct": 1.08,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAKEEL AHMAD",
+      "party_short": "PECP",
+      "votes": 1696,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1749,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4548,
+    "vote_share_pct": 2.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. D.C. VERMA",
+    "party_short": "BJP",
+    "votes": 108789,
+    "margin_votes": 54500,
+    "margin_pct": 25.92
+  }
+}

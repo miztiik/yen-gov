@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "Heingang",
+  "totals": {
+    "electors": 34177,
+    "votes_polled": 31596,
+    "turnout_pct": 92.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NONGTHOMBAM BIREN SINGH",
+      "party_short": "BJP",
+      "votes": 24814,
+      "vote_share_pct": 78.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PANGEIJAM SARATCHANDRA SINGH",
+      "party_short": "INC",
+      "votes": 6543,
+      "vote_share_pct": 20.71,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 239,
+    "vote_share_pct": 0.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NONGTHOMBAM BIREN SINGH",
+    "party_short": "BJP",
+    "votes": 24814,
+    "margin_votes": 18271,
+    "margin_pct": 57.83
+  },
+  "others": null
+}

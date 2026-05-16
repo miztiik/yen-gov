@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 174,
+  "constituency_name": "Thanjavur",
+  "totals": {
+    "electors": 290936,
+    "votes_polled": 194859,
+    "turnout_pct": 66.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NEELAMEGAM, T.K.G.",
+      "party_short": "DMK",
+      "votes": 103772,
+      "vote_share_pct": 53.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARIVUDAINAMBI, V.",
+      "party_short": "ADMK",
+      "votes": 56623,
+      "vote_share_pct": 29.06,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUBADEVI, R.",
+      "party_short": "NTK",
+      "votes": 17366,
+      "vote_share_pct": 8.91,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUNDARAMOHAN, G.",
+      "party_short": "MNM",
+      "votes": 9681,
+      "vote_share_pct": 4.97,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DR.RAMANATHAN, P.",
+      "party_short": "DMDK",
+      "votes": 4246,
+      "vote_share_pct": 2.18,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1938,
+    "vote_share_pct": 0.99
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1233,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NEELAMEGAM, T.K.G.",
+    "party_short": "DMK",
+    "votes": 103772,
+    "margin_votes": 47149,
+    "margin_pct": 24.2
+  }
+}

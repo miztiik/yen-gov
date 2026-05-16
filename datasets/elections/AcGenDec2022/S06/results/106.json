@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 106,
+  "constituency_name": "Gadhada (SC)",
+  "totals": {
+    "electors": 263958,
+    "votes_polled": 136353,
+    "turnout_pct": 51.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mahant Shambhunath Tundiya",
+      "party_short": "BJP",
+      "votes": 64386,
+      "vote_share_pct": 47.22,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Parmar Rameshbhai Parbhubhai",
+      "party_short": "AAAP",
+      "votes": 37692,
+      "vote_share_pct": 27.64,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Jagdishkumar Motilal Chavda",
+      "party_short": "INC",
+      "votes": 29899,
+      "vote_share_pct": 21.93,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Solanki Babubhai Khimjibhai",
+      "party_short": "BSP",
+      "votes": 1388,
+      "vote_share_pct": 1.02,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Rajeshbhai Polabhai Parmar",
+      "party_short": "BTP",
+      "votes": 957,
+      "vote_share_pct": 0.7,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2031,
+    "vote_share_pct": 1.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mahant Shambhunath Tundiya",
+    "party_short": "BJP",
+    "votes": 64386,
+    "margin_votes": 26694,
+    "margin_pct": 19.58
+  },
+  "others": null
+}

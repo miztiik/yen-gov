@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 111,
+  "constituency_name": "Gunnaur",
+  "totals": {
+    "electors": 411191,
+    "votes_polled": 241292,
+    "turnout_pct": 58.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ramkhiladi Singh",
+      "party_short": "SP",
+      "votes": 123969,
+      "vote_share_pct": 51.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AJEET KUMAR URF RAJU YADAV",
+      "party_short": "BJP",
+      "votes": 94440,
+      "vote_share_pct": 39.14,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "FIROZ",
+      "party_short": "BSP",
+      "votes": 15068,
+      "vote_share_pct": 6.24,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vijay Sharma",
+      "party_short": "INC",
+      "votes": 1694,
+      "vote_share_pct": 0.7,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ramkhiladi",
+      "party_short": "IND",
+      "votes": 992,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2601,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2528,
+    "vote_share_pct": 1.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ramkhiladi Singh",
+    "party_short": "SP",
+    "votes": 123969,
+    "margin_votes": 29529,
+    "margin_pct": 12.24
+  }
+}

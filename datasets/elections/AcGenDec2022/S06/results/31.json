@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Modasa",
+  "totals": {
+    "electors": 270447,
+    "votes_polled": 185745,
+    "turnout_pct": 68.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhikhusinhji Chatursinhji Parmar",
+      "party_short": "BJP",
+      "votes": 98475,
+      "vote_share_pct": 53.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Thakor Rajendrasinh Shivsinh",
+      "party_short": "INC",
+      "votes": 63687,
+      "vote_share_pct": 34.29,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Professor, Rajendrasinh Himmatsinh Parmar",
+      "party_short": "AAAP",
+      "votes": 14771,
+      "vote_share_pct": 7.95,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rahulkumar Kacharabhai Solanki",
+      "party_short": "IND",
+      "votes": 1843,
+      "vote_share_pct": 0.99,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Dahyabhai Ramabhai Jadav",
+      "party_short": "CPI(M)",
+      "votes": 1044,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2585,
+    "vote_share_pct": 1.39
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3340,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhikhusinhji Chatursinhji Parmar",
+    "party_short": "BJP",
+    "votes": 98475,
+    "margin_votes": 34788,
+    "margin_pct": 18.73
+  }
+}

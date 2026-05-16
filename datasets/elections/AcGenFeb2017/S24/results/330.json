@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 330,
+  "constituency_name": "Padrauna",
+  "totals": {
+    "electors": 348913,
+    "votes_polled": 210742,
+    "turnout_pct": 60.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SWAMI PRASAD MAURYA",
+      "party_short": "BJP",
+      "votes": 93649,
+      "vote_share_pct": 44.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAVED IQBAL",
+      "party_short": "BSP",
+      "votes": 53097,
+      "vote_share_pct": 25.2,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHIVKUMARI DEVI",
+      "party_short": "INC",
+      "votes": 41162,
+      "vote_share_pct": 19.53,
+      "gender": "F",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJENDRA ALIAS MUNNA YADAV",
+      "party_short": "PECP",
+      "votes": 8329,
+      "vote_share_pct": 3.95,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJESH PRASAD SAINI",
+      "party_short": "IND",
+      "votes": 2196,
+      "vote_share_pct": 1.04,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1658,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 10651,
+    "vote_share_pct": 5.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SWAMI PRASAD MAURYA",
+    "party_short": "BJP",
+    "votes": 93649,
+    "margin_votes": 40552,
+    "margin_pct": 19.24
+  }
+}

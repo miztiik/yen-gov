@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 191,
+  "constituency_name": "Madurai North",
+  "totals": {
+    "electors": 243596,
+    "votes_polled": 156556,
+    "turnout_pct": 64.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "THALAPATHI G",
+      "party_short": "DMK",
+      "votes": 73010,
+      "vote_share_pct": 46.64,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SARAVANAN P",
+      "party_short": "BJP",
+      "votes": 50094,
+      "vote_share_pct": 32.0,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANBARASI S",
+      "party_short": "NTK",
+      "votes": 15311,
+      "vote_share_pct": 9.78,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ALAGAR M",
+      "party_short": "MNM",
+      "votes": 12102,
+      "vote_share_pct": 7.73,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JEYAPAL M",
+      "party_short": "AMMKMNKZ",
+      "votes": 3280,
+      "vote_share_pct": 2.1,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1564,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1195,
+    "vote_share_pct": 0.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "THALAPATHI G",
+    "party_short": "DMK",
+    "votes": 73010,
+    "margin_votes": 22916,
+    "margin_pct": 14.64
+  }
+}

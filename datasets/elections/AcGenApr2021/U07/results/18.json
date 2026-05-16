@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "MUDALIARPET",
+  "totals": {
+    "electors": 35583,
+    "votes_polled": 29536,
+    "turnout_pct": 83.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "L. SAMBATH",
+      "party_short": "DMK",
+      "votes": 15151,
+      "vote_share_pct": 51.3,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "A. BASKAR",
+      "party_short": "ADMK",
+      "votes": 10972,
+      "vote_share_pct": 37.15,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "M. ARIKRISHNAN",
+      "party_short": "MNM",
+      "votes": 1321,
+      "vote_share_pct": 4.47,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M. VELAVAN",
+      "party_short": "NTK",
+      "votes": 1304,
+      "vote_share_pct": 4.41,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "M. MANIKANDAN",
+      "party_short": "AMMKMNKZ",
+      "votes": 105,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 452,
+    "vote_share_pct": 1.53
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 231,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "L. SAMBATH",
+    "party_short": "DMK",
+    "votes": 15151,
+    "margin_votes": 4179,
+    "margin_pct": 14.15
+  }
+}

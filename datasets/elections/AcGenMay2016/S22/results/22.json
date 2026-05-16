@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Virugampakkam",
+  "totals": {
+    "electors": 292248,
+    "votes_polled": 171339,
+    "turnout_pct": 58.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V.N.VIRUGAI RAVI",
+      "party_short": "ADMK",
+      "votes": 65979,
+      "vote_share_pct": 38.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K THANASEKARAN",
+      "party_short": "DMK",
+      "votes": 63646,
+      "vote_share_pct": 37.15,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "TAMILIASI SOUNDRARAJAN.DR",
+      "party_short": "BJP",
+      "votes": 19167,
+      "vote_share_pct": 11.19,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "B.PARTHASARATHY",
+      "party_short": "DMDK",
+      "votes": 9730,
+      "vote_share_pct": 5.68,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "C.H. JAYARAO",
+      "party_short": "PMK",
+      "votes": 3945,
+      "vote_share_pct": 2.3,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3897,
+    "vote_share_pct": 2.27
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 4975,
+    "vote_share_pct": 2.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V.N.VIRUGAI RAVI",
+    "party_short": "ADMK",
+    "votes": 65979,
+    "margin_votes": 2333,
+    "margin_pct": 1.36
+  }
+}

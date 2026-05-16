@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "Jalandhar West",
+  "totals": {
+    "electors": 171691,
+    "votes_polled": 116247,
+    "turnout_pct": 67.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHEETAL ANGURAL",
+      "party_short": "AAAP",
+      "votes": 39213,
+      "vote_share_pct": 33.73,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SUSHIL KUMAR RINKU",
+      "party_short": "INC",
+      "votes": 34960,
+      "vote_share_pct": 30.07,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MOHINDER BHAGAT",
+      "party_short": "BJP",
+      "votes": 33486,
+      "vote_share_pct": 28.81,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "ANIL MEENIA",
+      "party_short": "BSP",
+      "votes": 4125,
+      "vote_share_pct": 3.55,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "JASBIR SINGH MANN",
+      "party_short": "SAD(M)",
+      "votes": 1701,
+      "vote_share_pct": 1.46,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 921,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1841,
+    "vote_share_pct": 1.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHEETAL ANGURAL",
+    "party_short": "AAAP",
+    "votes": 39213,
+    "margin_votes": 4253,
+    "margin_pct": 3.66
+  }
+}

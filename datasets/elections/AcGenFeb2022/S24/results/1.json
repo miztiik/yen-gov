@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 1,
+  "constituency_name": "Behat",
+  "totals": {
+    "electors": 372305,
+    "votes_polled": 281373,
+    "turnout_pct": 75.58
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Umar Ali Khan",
+      "party_short": "SP",
+      "votes": 134513,
+      "vote_share_pct": 47.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Naresh Saini",
+      "party_short": "BJP",
+      "votes": 96633,
+      "vote_share_pct": 34.34,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Rais Malik",
+      "party_short": "BSP",
+      "votes": 45075,
+      "vote_share_pct": 16.02,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Poonam Kamboj",
+      "party_short": "INC",
+      "votes": 1632,
+      "vote_share_pct": 0.58,
+      "gender": "F",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sushil Kumar",
+      "party_short": "AAAP",
+      "votes": 1162,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1117,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1241,
+    "vote_share_pct": 0.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Umar Ali Khan",
+    "party_short": "SP",
+    "votes": 134513,
+    "margin_votes": 37880,
+    "margin_pct": 13.46
+  }
+}

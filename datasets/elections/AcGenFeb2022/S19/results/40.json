@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 40,
+  "constituency_name": "Dasuya",
+  "totals": {
+    "electors": 201374,
+    "votes_polled": 133456,
+    "turnout_pct": 66.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARAMBIR SINGH",
+      "party_short": "AAAP",
+      "votes": 43272,
+      "vote_share_pct": 32.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARUN DOGRA",
+      "party_short": "INC",
+      "votes": 34685,
+      "vote_share_pct": 25.99,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAGHUNATH SINGH RANA",
+      "party_short": "BJP",
+      "votes": 25632,
+      "vote_share_pct": 19.21,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUSHEEL KUMAR SHARMA",
+      "party_short": "BSP",
+      "votes": 22883,
+      "vote_share_pct": 17.15,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUKHWINDER SINGH",
+      "party_short": "SAD(M)",
+      "votes": 3429,
+      "vote_share_pct": 2.57,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 824,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2731,
+    "vote_share_pct": 2.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARAMBIR SINGH",
+    "party_short": "AAAP",
+    "votes": 43272,
+    "margin_votes": 8587,
+    "margin_pct": 6.43
+  }
+}

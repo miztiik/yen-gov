@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "NIGHASAN",
+  "totals": {
+    "electors": 327486,
+    "votes_polled": 222147,
+    "turnout_pct": 67.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PATEL RAMKUMAR VERMA",
+      "party_short": "BJP",
+      "votes": 107487,
+      "vote_share_pct": 48.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KRISHNA GOPAL PATEL",
+      "party_short": "SP",
+      "votes": 61364,
+      "vote_share_pct": 27.62,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GIRJASHANKAR SINGH ALIAS G.S. SINGH",
+      "party_short": "BSP",
+      "votes": 40674,
+      "vote_share_pct": 18.31,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RADHEYSHYAM",
+      "party_short": "NINSHAD",
+      "votes": 2470,
+      "vote_share_pct": 1.11,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAHIPAL SINGH",
+      "party_short": "BSRD",
+      "votes": 1885,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2663,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 5604,
+    "vote_share_pct": 2.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PATEL RAMKUMAR VERMA",
+    "party_short": "BJP",
+    "votes": 107487,
+    "margin_votes": 46123,
+    "margin_pct": 20.76
+  }
+}

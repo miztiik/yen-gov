@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 157,
+  "constituency_name": "Gopamau",
+  "totals": {
+    "electors": 330381,
+    "votes_polled": 203032,
+    "turnout_pct": 61.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHYAM PRAKASH",
+      "party_short": "BJP",
+      "votes": 87871,
+      "vote_share_pct": 43.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAJESHWARI",
+      "party_short": "SP",
+      "votes": 56493,
+      "vote_share_pct": 27.82,
+      "gender": "F",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MEENA KUMARI",
+      "party_short": "BSP",
+      "votes": 49847,
+      "vote_share_pct": 24.55,
+      "gender": "F",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MEVARAM VERMA",
+      "party_short": "IND",
+      "votes": 1632,
+      "vote_share_pct": 0.8,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MUNSHI LAL",
+      "party_short": "RASHVIP",
+      "votes": 1386,
+      "vote_share_pct": 0.68,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2252,
+    "vote_share_pct": 1.11
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3551,
+    "vote_share_pct": 1.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHYAM PRAKASH",
+    "party_short": "BJP",
+    "votes": 87871,
+    "margin_votes": 31378,
+    "margin_pct": 15.45
+  }
+}

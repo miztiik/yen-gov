@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "Palanpur",
+  "totals": {
+    "electors": 284941,
+    "votes_polled": 180603,
+    "turnout_pct": 63.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Aniket Girishbhai Thaker",
+      "party_short": "BJP",
+      "votes": 95588,
+      "vote_share_pct": 52.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Maheshkumar Amrutlal Patel",
+      "party_short": "INC",
+      "votes": 68608,
+      "vote_share_pct": 37.99,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Rameshkumar Khemrajbhai Nabhani",
+      "party_short": "AAAP",
+      "votes": 9606,
+      "vote_share_pct": 5.32,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shaileshbhai Karshanbhai Parmar",
+      "party_short": "BSP",
+      "votes": 1267,
+      "vote_share_pct": 0.7,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Manish Brahmbhatt (krantikari)",
+      "party_short": "IND",
+      "votes": 964,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2702,
+    "vote_share_pct": 1.5
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1868,
+    "vote_share_pct": 1.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Aniket Girishbhai Thaker",
+    "party_short": "BJP",
+    "votes": 95588,
+    "margin_votes": 26980,
+    "margin_pct": 14.94
+  }
+}

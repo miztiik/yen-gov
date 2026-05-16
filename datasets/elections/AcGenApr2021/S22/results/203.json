@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 203,
+  "constituency_name": "Srivilliputhur",
+  "totals": {
+    "electors": 250640,
+    "votes_polled": 185039,
+    "turnout_pct": 73.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANRAJ, E.M.",
+      "party_short": "ADMK",
+      "votes": 70475,
+      "vote_share_pct": 38.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "MADHAVARAO, P.S.W.",
+      "party_short": "INC",
+      "votes": 57737,
+      "vote_share_pct": 31.2,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SANGEETHAPRIYA, S.",
+      "party_short": "AMMKMNKZ",
+      "votes": 23682,
+      "vote_share_pct": 12.8,
+      "gender": "F",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "ABINAYA, B.",
+      "party_short": "NTK",
+      "votes": 20348,
+      "vote_share_pct": 11.0,
+      "gender": "F",
+      "age": 27,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SHANTHI, S.",
+      "party_short": "PT",
+      "votes": 4985,
+      "vote_share_pct": 2.69,
+      "gender": "F",
+      "age": 35,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1666,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 6146,
+    "vote_share_pct": 3.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANRAJ, E.M.",
+    "party_short": "ADMK",
+    "votes": 70475,
+    "margin_votes": 12738,
+    "margin_pct": 6.88
+  }
+}

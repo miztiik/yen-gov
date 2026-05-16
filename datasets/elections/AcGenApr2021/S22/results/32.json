@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "Chengalpattu",
+  "totals": {
+    "electors": 428440,
+    "votes_polled": 274087,
+    "turnout_pct": 63.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VARALAKSHMI.M",
+      "party_short": "DMK",
+      "votes": 130573,
+      "vote_share_pct": 47.64,
+      "is_winner": true,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GAJENDRAN.M",
+      "party_short": "ADMK",
+      "votes": 103908,
+      "vote_share_pct": 37.91,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANJEEVINATHAN.K",
+      "party_short": "NTK",
+      "votes": 26868,
+      "vote_share_pct": 9.8,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MUTHAMILSELVAN.S",
+      "party_short": "IJK",
+      "votes": 4146,
+      "vote_share_pct": 1.51,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SATHISHKUMAR.A",
+      "party_short": "AMMKMNKZ",
+      "votes": 3069,
+      "vote_share_pct": 1.12,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3075,
+    "vote_share_pct": 1.12
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2448,
+    "vote_share_pct": 0.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VARALAKSHMI.M",
+    "party_short": "DMK",
+    "votes": 130573,
+    "margin_votes": 26665,
+    "margin_pct": 9.73
+  }
+}

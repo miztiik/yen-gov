@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 127,
+  "constituency_name": "Palani",
+  "totals": {
+    "electors": 277298,
+    "votes_polled": 205384,
+    "turnout_pct": 74.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SENTHIL KUMAR I.P",
+      "party_short": "DMK",
+      "votes": 108566,
+      "vote_share_pct": 52.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAVI MANOHARAN K",
+      "party_short": "ADMK",
+      "votes": 78510,
+      "vote_share_pct": 38.23,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VINOTH RAJASEKARAN G",
+      "party_short": "NTK",
+      "votes": 7656,
+      "vote_share_pct": 3.73,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "POOVENDHAN T",
+      "party_short": "MNM",
+      "votes": 3732,
+      "vote_share_pct": 1.82,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VEERAKUMAR V",
+      "party_short": "AMMKMNKZ",
+      "votes": 2255,
+      "vote_share_pct": 1.1,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1110,
+    "vote_share_pct": 0.54
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 3555,
+    "vote_share_pct": 1.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SENTHIL KUMAR I.P",
+    "party_short": "DMK",
+    "votes": 108566,
+    "margin_votes": 30056,
+    "margin_pct": 14.63
+  }
+}

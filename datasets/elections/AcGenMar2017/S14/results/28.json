@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 28,
+  "constituency_name": "Thanga",
+  "totals": {
+    "electors": 20921,
+    "votes_polled": 19547,
+    "turnout_pct": 93.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TONGBRAM ROBINDRO SINGH",
+      "party_short": "AITC",
+      "votes": 6462,
+      "vote_share_pct": 33.06,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "MOIRANGTHEM ASNIKUMAR SINGH",
+      "party_short": "BJP",
+      "votes": 5457,
+      "vote_share_pct": 27.92,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "TONGBRAM MANGIBABU SINGH",
+      "party_short": "INC",
+      "votes": 5070,
+      "vote_share_pct": 25.94,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "HEISNAM KULACHANDRA SINGH",
+      "party_short": "NCP",
+      "votes": 2461,
+      "vote_share_pct": 12.59,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 97,
+    "vote_share_pct": 0.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TONGBRAM ROBINDRO SINGH",
+    "party_short": "AITC",
+    "votes": 6462,
+    "margin_votes": 1005,
+    "margin_pct": 5.14
+  },
+  "others": null
+}

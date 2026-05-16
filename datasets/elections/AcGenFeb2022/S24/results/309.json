@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 309,
+  "constituency_name": "Rudhauli",
+  "totals": {
+    "electors": 430608,
+    "votes_polled": 234531,
+    "turnout_pct": 54.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rajendra Prasad Chaudhary",
+      "party_short": "SP",
+      "votes": 86360,
+      "vote_share_pct": 36.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sangeeta Devi Urf Sangeeta Pratap Jaiswal",
+      "party_short": "BJP",
+      "votes": 71134,
+      "vote_share_pct": 30.33,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ashok Kumar",
+      "party_short": "BSP",
+      "votes": 37618,
+      "vote_share_pct": 16.04,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Pushkaraditya Singh",
+      "party_short": "AAAP",
+      "votes": 24463,
+      "vote_share_pct": 10.43,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Basant Chaudhary",
+      "party_short": "INC",
+      "votes": 4451,
+      "vote_share_pct": 1.9,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1140,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 9365,
+    "vote_share_pct": 3.99
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rajendra Prasad Chaudhary",
+    "party_short": "SP",
+    "votes": 86360,
+    "margin_votes": 15226,
+    "margin_pct": 6.49
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 79,
+  "constituency_name": "Jamnagar South",
+  "totals": {
+    "electors": 230816,
+    "votes_polled": 132815,
+    "turnout_pct": 57.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Akbari Divyeshbhai Ranchhodbhai",
+      "party_short": "BJP",
+      "votes": 86492,
+      "vote_share_pct": 65.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kathiriya Manojbhai Gordhanbhai",
+      "party_short": "INC",
+      "votes": 23795,
+      "vote_share_pct": 17.92,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vishal Rajbal Tyagi",
+      "party_short": "AAAP",
+      "votes": 16585,
+      "vote_share_pct": 12.49,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Chauhan Juned Abdul Rajak",
+      "party_short": "IND",
+      "votes": 1109,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Makuben Kishorbhai Rathod (meenaben)",
+      "party_short": "BSP",
+      "votes": 866,
+      "vote_share_pct": 0.65,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2182,
+    "vote_share_pct": 1.64
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1786,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Akbari Divyeshbhai Ranchhodbhai",
+    "party_short": "BJP",
+    "votes": 86492,
+    "margin_votes": 62697,
+    "margin_pct": 47.21
+  }
+}

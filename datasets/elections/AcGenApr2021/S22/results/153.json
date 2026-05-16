@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 153,
+  "constituency_name": "Neyveli",
+  "totals": {
+    "electors": 218666,
+    "votes_polled": 164130,
+    "turnout_pct": 75.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SABA.RAJENDRAN",
+      "party_short": "DMK",
+      "votes": 75177,
+      "vote_share_pct": 45.8,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAGAN.K",
+      "party_short": "PMK",
+      "votes": 74200,
+      "vote_share_pct": 45.21,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAMESH.K",
+      "party_short": "NTK",
+      "votes": 7785,
+      "vote_share_pct": 4.74,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BAKTHARATCHAGAN.R",
+      "party_short": "AMMKMNKZ",
+      "votes": 2230,
+      "vote_share_pct": 1.36,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ILANGOVAN.R",
+      "party_short": "IJK",
+      "votes": 1011,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1171,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2556,
+    "vote_share_pct": 1.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SABA.RAJENDRAN",
+    "party_short": "DMK",
+    "votes": 75177,
+    "margin_votes": 977,
+    "margin_pct": 0.6
+  }
+}

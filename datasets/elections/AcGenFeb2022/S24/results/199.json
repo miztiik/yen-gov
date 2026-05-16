@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 199,
+  "constituency_name": "Jaswantnagar",
+  "totals": {
+    "electors": 392072,
+    "votes_polled": 253630,
+    "turnout_pct": 64.69
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHIVPAL SINGH YADAV",
+      "party_short": "SP",
+      "votes": 159718,
+      "vote_share_pct": 62.97,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIVEK SHAKYA",
+      "party_short": "BJP",
+      "votes": 68739,
+      "vote_share_pct": 27.1,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BRAJENDRA PRATAP SINGH Alias B.P. SINGH",
+      "party_short": "BSP",
+      "votes": 17515,
+      "vote_share_pct": 6.91,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MADHU",
+      "party_short": "JANADIP",
+      "votes": 4560,
+      "vote_share_pct": 1.8,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VISHWANATH PRATAP",
+      "party_short": "IND",
+      "votes": 719,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1180,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1199,
+    "vote_share_pct": 0.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHIVPAL SINGH YADAV",
+    "party_short": "SP",
+    "votes": 159718,
+    "margin_votes": 90979,
+    "margin_pct": 35.87
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 145,
+  "constituency_name": "Musiri",
+  "totals": {
+    "electors": 212655,
+    "votes_polled": 170909,
+    "turnout_pct": 80.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SELVARASU M",
+      "party_short": "ADMK",
+      "votes": 89398,
+      "vote_share_pct": 52.31,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIJAYA BABU S",
+      "party_short": "INC",
+      "votes": 57311,
+      "vote_share_pct": 33.53,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJASEKARAN M",
+      "party_short": "TMC(M)",
+      "votes": 8581,
+      "vote_share_pct": 5.02,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ASAITHAMBI E",
+      "party_short": "NTK",
+      "votes": 2446,
+      "vote_share_pct": 1.43,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAGAVAN S",
+      "party_short": "PMK",
+      "votes": 1423,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2485,
+    "vote_share_pct": 1.45
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 9265,
+    "vote_share_pct": 5.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SELVARASU M",
+    "party_short": "ADMK",
+    "votes": 89398,
+    "margin_votes": 32087,
+    "margin_pct": 18.77
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 362,
+  "constituency_name": "Bansdih",
+  "totals": {
+    "electors": 408263,
+    "votes_polled": 216698,
+    "turnout_pct": 53.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KETAKEE SINGH",
+      "party_short": "BJP",
+      "votes": 103305,
+      "vote_share_pct": 47.67,
+      "is_winner": true,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAM GOVIND",
+      "party_short": "SP",
+      "votes": 81953,
+      "vote_share_pct": 37.82,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MANTI",
+      "party_short": "BSP",
+      "votes": 10854,
+      "vote_share_pct": 5.01,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AJAY SHANKAR",
+      "party_short": "VSIP",
+      "votes": 7650,
+      "vote_share_pct": 3.53,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PUNEET",
+      "party_short": "INC",
+      "votes": 4354,
+      "vote_share_pct": 2.01,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2004,
+    "vote_share_pct": 0.92
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6578,
+    "vote_share_pct": 3.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KETAKEE SINGH",
+    "party_short": "BJP",
+    "votes": 103305,
+    "margin_votes": 21352,
+    "margin_pct": 9.85
+  }
+}

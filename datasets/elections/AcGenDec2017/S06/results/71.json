@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 71,
+  "constituency_name": "Rajkot Rural",
+  "totals": {
+    "electors": 300077,
+    "votes_polled": 194016,
+    "turnout_pct": 64.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LAKHABHAI SAGATHIYA",
+      "party_short": "BJP",
+      "votes": 92114,
+      "vote_share_pct": 47.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "VASHRAMBHAI ALABHAI SAGATHIYA",
+      "party_short": "INC",
+      "votes": 89935,
+      "vote_share_pct": 46.35,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KIRANBHAI DHANJIBHAI MAKWANA",
+      "party_short": "BSP",
+      "votes": 3323,
+      "vote_share_pct": 1.71,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SAGATHIYA JAYESH DINESHBHAI",
+      "party_short": "IND",
+      "votes": 922,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 26,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "HARSHAD RAGHUBHAI MAKWANA",
+      "party_short": "NCP",
+      "votes": 880,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2559,
+    "vote_share_pct": 1.32
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3466,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LAKHABHAI SAGATHIYA",
+    "party_short": "BJP",
+    "votes": 92114,
+    "margin_votes": 2179,
+    "margin_pct": 1.12
+  }
+}

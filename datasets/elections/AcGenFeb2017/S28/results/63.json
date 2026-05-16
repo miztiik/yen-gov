@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 63,
+  "constituency_name": "Kashipur",
+  "totals": {
+    "electors": 151069,
+    "votes_polled": 104918,
+    "turnout_pct": 69.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARBHAJAN SINGH CHEEMA",
+      "party_short": "BJP",
+      "votes": 50156,
+      "vote_share_pct": 47.8,
+      "is_winner": true,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANOJ JOSHI",
+      "party_short": "INC",
+      "votes": 30042,
+      "vote_share_pct": 28.63,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MOHD ASHRAF SIDDIQUI",
+      "party_short": "BSP",
+      "votes": 15426,
+      "vote_share_pct": 14.7,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJEEV KUMAR AGARWAL",
+      "party_short": "IND",
+      "votes": 7106,
+      "vote_share_pct": 6.77,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHIV SINGH RAWAT",
+      "party_short": "IND",
+      "votes": 416,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 655,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1117,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARBHAJAN SINGH CHEEMA",
+    "party_short": "BJP",
+    "votes": 50156,
+    "margin_votes": 20114,
+    "margin_pct": 19.17
+  }
+}

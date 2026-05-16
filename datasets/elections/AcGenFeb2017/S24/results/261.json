@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 261,
+  "constituency_name": "Allahabad West",
+  "totals": {
+    "electors": 418849,
+    "votes_polled": 198692,
+    "turnout_pct": 47.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SIDHARTH NATH SINGH",
+      "party_short": "BJP",
+      "votes": 85518,
+      "vote_share_pct": 43.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RICHA SINGH",
+      "party_short": "SP",
+      "votes": 60182,
+      "vote_share_pct": 30.29,
+      "gender": "F",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "POOJA PAL",
+      "party_short": "BSP",
+      "votes": 40499,
+      "vote_share_pct": 20.38,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "HASAN AKHLAQ ALIAS RIZWAN NIWAN",
+      "party_short": "IND",
+      "votes": 4018,
+      "vote_share_pct": 2.02,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRADEV SINGH ALIAS DAYA SINGH BISMARK",
+      "party_short": "NINSHAD",
+      "votes": 2974,
+      "vote_share_pct": 1.5,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1659,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3842,
+    "vote_share_pct": 1.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SIDHARTH NATH SINGH",
+    "party_short": "BJP",
+    "votes": 85518,
+    "margin_votes": 25336,
+    "margin_pct": 12.75
+  }
+}

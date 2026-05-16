@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Embalam",
+  "totals": {
+    "electors": 31386,
+    "votes_polled": 28668,
+    "turnout_pct": 91.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CANDASSAMY, M.",
+      "party_short": "INC",
+      "votes": 18945,
+      "vote_share_pct": 66.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "LAKSHMIKANDHAN, U.",
+      "party_short": "AINRC",
+      "votes": 7745,
+      "vote_share_pct": 27.02,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "GOVINDHARASU, K.",
+      "party_short": "ADMK",
+      "votes": 1193,
+      "vote_share_pct": 4.16,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "STEEBAN, S.",
+      "party_short": "DMDK",
+      "votes": 135,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAMADASS, M.",
+      "party_short": "BJP",
+      "votes": 107,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 333,
+    "vote_share_pct": 1.16
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 210,
+    "vote_share_pct": 0.74
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CANDASSAMY, M.",
+    "party_short": "INC",
+    "votes": 18945,
+    "margin_votes": 11200,
+    "margin_pct": 39.07
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 118,
+  "constituency_name": "Baheri",
+  "totals": {
+    "electors": 344388,
+    "votes_polled": 247785,
+    "turnout_pct": 71.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHHATRA PAL SINGH",
+      "party_short": "BJP",
+      "votes": 108846,
+      "vote_share_pct": 43.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NASEEM AHMAD",
+      "party_short": "BSP",
+      "votes": 66009,
+      "vote_share_pct": 26.64,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ATA UR REHMAN",
+      "party_short": "SP",
+      "votes": 63841,
+      "vote_share_pct": 25.76,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "UBAID ULLAH KHAN",
+      "party_short": "MD",
+      "votes": 2658,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SATISH CHANDRA",
+      "party_short": "IND",
+      "votes": 977,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1479,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3975,
+    "vote_share_pct": 1.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHHATRA PAL SINGH",
+    "party_short": "BJP",
+    "votes": 108846,
+    "margin_votes": 42837,
+    "margin_pct": 17.29
+  }
+}

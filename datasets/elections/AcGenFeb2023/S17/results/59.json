@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Seyochung Sitimi (ST)",
+  "totals": {
+    "electors": 24166,
+    "votes_polled": 22740,
+    "turnout_pct": 94.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "C. Kipili Sangtam",
+      "party_short": "NPEP",
+      "votes": 11694,
+      "vote_share_pct": 51.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "V. Kashiho Sangtam",
+      "party_short": "BJP",
+      "votes": 10962,
+      "vote_share_pct": 48.21,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Khaseo Sangtam",
+      "party_short": "INC",
+      "votes": 18,
+      "vote_share_pct": 0.08,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 66,
+    "vote_share_pct": 0.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "C. Kipili Sangtam",
+    "party_short": "NPEP",
+    "votes": 11694,
+    "margin_votes": 732,
+    "margin_pct": 3.22
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 211,
+  "constituency_name": "Kalyanpur",
+  "totals": {
+    "electors": 334240,
+    "votes_polled": 177912,
+    "turnout_pct": 53.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NILIMA KATIYAR",
+      "party_short": "BJP",
+      "votes": 86620,
+      "vote_share_pct": 48.69,
+      "is_winner": true,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATISH KUMAR NIGAM",
+      "party_short": "SP",
+      "votes": 63278,
+      "vote_share_pct": 35.57,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DEEPU KUMAR",
+      "party_short": "BSP",
+      "votes": 25706,
+      "vote_share_pct": 14.45,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHRI KULDEEP SINGH CHAUHAN",
+      "party_short": "SHS",
+      "votes": 367,
+      "vote_share_pct": 0.21,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHRIMATI VIJAY LAXMI",
+      "party_short": "BHAIP",
+      "votes": 337,
+      "vote_share_pct": 0.19,
+      "gender": "F",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 921,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 683,
+    "vote_share_pct": 0.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NILIMA KATIYAR",
+    "party_short": "BJP",
+    "votes": 86620,
+    "margin_votes": 23342,
+    "margin_pct": 13.12
+  }
+}

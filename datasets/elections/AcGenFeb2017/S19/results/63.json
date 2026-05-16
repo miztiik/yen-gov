@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 63,
+  "constituency_name": "Ludhiana Central",
+  "totals": {
+    "electors": 147646,
+    "votes_polled": 103012,
+    "turnout_pct": 69.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURINDER KUMAR DAWAR",
+      "party_short": "INC",
+      "votes": 47871,
+      "vote_share_pct": 46.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GURDEV SHARMA DEBI",
+      "party_short": "BJP",
+      "votes": 27391,
+      "vote_share_pct": 26.59,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VIPAN SOOD KAKA",
+      "party_short": "LIP",
+      "votes": 25001,
+      "vote_share_pct": 24.27,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUSHIL KUMAR",
+      "party_short": "AITC",
+      "votes": 638,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJEEV KUMAR",
+      "party_short": "DEMSWP",
+      "votes": 552,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1064,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 495,
+    "vote_share_pct": 0.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURINDER KUMAR DAWAR",
+    "party_short": "INC",
+    "votes": 47871,
+    "margin_votes": 20480,
+    "margin_pct": 19.88
+  }
+}

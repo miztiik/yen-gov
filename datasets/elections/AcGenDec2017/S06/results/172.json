@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 172,
+  "constituency_name": "Nizar",
+  "totals": {
+    "electors": 254673,
+    "votes_polled": 206890,
+    "turnout_pct": 81.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUNILBHAI RATANJIBHAI GAMIT",
+      "party_short": "INC",
+      "votes": 106234,
+      "vote_share_pct": 51.35,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "KANTILALBHAI RESHMABHAI GAMIT",
+      "party_short": "BJP",
+      "votes": 83105,
+      "vote_share_pct": 40.17,
+      "gender": "M",
+      "age": 65,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "DHAVALBHAI VIJAYBHAI CHAUDHARI",
+      "party_short": "IND",
+      "votes": 4137,
+      "vote_share_pct": 2.0,
+      "gender": "M",
+      "age": 28,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "CHUNILAL DHARUBHAI VALVI",
+      "party_short": "CPI",
+      "votes": 4066,
+      "vote_share_pct": 1.97,
+      "gender": "M",
+      "age": 32,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "SURESHBHAI NAVALSINGH VASAVE",
+      "party_short": "IND",
+      "votes": 2369,
+      "vote_share_pct": 1.15,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 4095,
+    "vote_share_pct": 1.98
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1461,
+    "vote_share_pct": 0.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUNILBHAI RATANJIBHAI GAMIT",
+    "party_short": "INC",
+    "votes": 106234,
+    "margin_votes": 23129,
+    "margin_pct": 11.18
+  }
+}

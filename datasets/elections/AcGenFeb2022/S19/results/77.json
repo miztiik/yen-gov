@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 77,
+  "constituency_name": "Firozpur Rural",
+  "totals": {
+    "electors": 196789,
+    "votes_polled": 151909,
+    "turnout_pct": 77.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJNEESH KUMAR DAHIYA",
+      "party_short": "AAAP",
+      "votes": 75293,
+      "vote_share_pct": 49.56,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "JOGINDER SINGH JINDU",
+      "party_short": "SAD",
+      "votes": 47547,
+      "vote_share_pct": 31.3,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ASHU BANGER",
+      "party_short": "INC",
+      "votes": 20396,
+      "vote_share_pct": 13.43,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "NASEEB KAUR",
+      "party_short": "SAD(M)",
+      "votes": 3196,
+      "vote_share_pct": 2.1,
+      "gender": "F",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MORDA SINGH",
+      "party_short": "IND",
+      "votes": 1749,
+      "vote_share_pct": 1.15,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 593,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3135,
+    "vote_share_pct": 2.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJNEESH KUMAR DAHIYA",
+    "party_short": "AAAP",
+    "votes": 75293,
+    "margin_votes": 27746,
+    "margin_pct": 18.26
+  }
+}

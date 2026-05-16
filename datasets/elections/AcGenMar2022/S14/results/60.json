@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 60,
+  "constituency_name": "Singhat",
+  "totals": {
+    "electors": 27832,
+    "votes_polled": 23532,
+    "turnout_pct": 84.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chinlunthang",
+      "party_short": "KPA",
+      "votes": 12098,
+      "vote_share_pct": 51.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Ginsuanhau Zou",
+      "party_short": "BJP",
+      "votes": 10079,
+      "vote_share_pct": 42.83,
+      "gender": "M",
+      "age": 62,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "T. Hangkhanpau",
+      "party_short": "JD(U)",
+      "votes": 1031,
+      "vote_share_pct": 4.38,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Tuankhan Kiamlo Hangzo",
+      "party_short": "INC",
+      "votes": 267,
+      "vote_share_pct": 1.13,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 57,
+    "vote_share_pct": 0.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chinlunthang",
+    "party_short": "KPA",
+    "votes": 12098,
+    "margin_votes": 2019,
+    "margin_pct": 8.58
+  },
+  "others": null
+}

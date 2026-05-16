@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Roorkee",
+  "totals": {
+    "electors": 113205,
+    "votes_polled": 72267,
+    "turnout_pct": 63.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRADEEP BATRA",
+      "party_short": "BJP",
+      "votes": 40000,
+      "vote_share_pct": 55.35,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURESH CHAND JAIN",
+      "party_short": "INC",
+      "votes": 27458,
+      "vote_share_pct": 38.0,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAM SUBHAG SINGH",
+      "party_short": "BSP",
+      "votes": 3239,
+      "vote_share_pct": 4.48,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUNITA SINGH",
+      "party_short": "SP",
+      "votes": 918,
+      "vote_share_pct": 1.27,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ADESH KUMAR SHARMA",
+      "party_short": "UKKD",
+      "votes": 169,
+      "vote_share_pct": 0.23,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 303,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 180,
+    "vote_share_pct": 0.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRADEEP BATRA",
+    "party_short": "BJP",
+    "votes": 40000,
+    "margin_votes": 12542,
+    "margin_pct": 17.36
+  }
+}

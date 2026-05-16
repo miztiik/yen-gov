@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "Ghatlodia",
+  "totals": {
+    "electors": 428583,
+    "votes_polled": 257411,
+    "turnout_pct": 60.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Patel Bhupendrabhai Rajnikant",
+      "party_short": "BJP",
+      "votes": 213530,
+      "vote_share_pct": 82.95,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dr.amee Yajnik",
+      "party_short": "INC",
+      "votes": 21267,
+      "vote_share_pct": 8.26,
+      "gender": "F",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Vijay Patel",
+      "party_short": "AAAP",
+      "votes": 16194,
+      "vote_share_pct": 6.29,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Nimesh Atmaram Patel",
+      "party_short": "GSNJP",
+      "votes": 779,
+      "vote_share_pct": 0.3,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Jayendra K. Rathod",
+      "party_short": "VPP",
+      "votes": 525,
+      "vote_share_pct": 0.2,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3993,
+    "vote_share_pct": 1.55
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1123,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Patel Bhupendrabhai Rajnikant",
+    "party_short": "BJP",
+    "votes": 213530,
+    "margin_votes": 192263,
+    "margin_pct": 74.69
+  }
+}

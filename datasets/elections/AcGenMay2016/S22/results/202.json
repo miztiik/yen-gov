@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 202,
+  "constituency_name": "Rajapalayam",
+  "totals": {
+    "electors": 224407,
+    "votes_polled": 170688,
+    "turnout_pct": 76.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "THANGAPPANDIAN. S.",
+      "party_short": "DMK",
+      "votes": 74787,
+      "vote_share_pct": 43.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHYAM, A.A.S.",
+      "party_short": "ADMK",
+      "votes": 69985,
+      "vote_share_pct": 41.0,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GURUSAMY. A.",
+      "party_short": "CPM",
+      "votes": 12505,
+      "vote_share_pct": 7.33,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMACHANDRA RAJA,  A.N.",
+      "party_short": "BJP",
+      "votes": 3435,
+      "vote_share_pct": 2.01,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JEYARAJ. V.",
+      "party_short": "NTK",
+      "votes": 2414,
+      "vote_share_pct": 1.41,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2290,
+    "vote_share_pct": 1.34
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 5272,
+    "vote_share_pct": 3.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "THANGAPPANDIAN. S.",
+    "party_short": "DMK",
+    "votes": 74787,
+    "margin_votes": 4802,
+    "margin_pct": 2.81
+  }
+}

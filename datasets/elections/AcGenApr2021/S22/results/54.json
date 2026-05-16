@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "Veppanahalli",
+  "totals": {
+    "electors": 252085,
+    "votes_polled": 205141,
+    "turnout_pct": 81.38
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.P.Munusamy",
+      "party_short": "ADMK",
+      "votes": 94104,
+      "vote_share_pct": 45.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "P.Murugan",
+      "party_short": "DMK",
+      "votes": 91050,
+      "vote_share_pct": 44.38,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sakthivel.M",
+      "party_short": "NTK",
+      "votes": 8310,
+      "vote_share_pct": 4.05,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "S.M.Murugesan",
+      "party_short": "DMDK",
+      "votes": 3601,
+      "vote_share_pct": 1.76,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Abdul Azeez Amanullah",
+      "party_short": "IND",
+      "votes": 3022,
+      "vote_share_pct": 1.47,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1662,
+    "vote_share_pct": 0.81
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3392,
+    "vote_share_pct": 1.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.P.Munusamy",
+    "party_short": "ADMK",
+    "votes": 94104,
+    "margin_votes": 3054,
+    "margin_pct": 1.49
+  }
+}

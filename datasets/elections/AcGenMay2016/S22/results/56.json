@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "Thalli",
+  "totals": {
+    "electors": 229749,
+    "votes_polled": 189350,
+    "turnout_pct": 82.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRAKAASH,Y.",
+      "party_short": "DMK",
+      "votes": 74429,
+      "vote_share_pct": 39.31,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAMACHANDRAN,T.",
+      "party_short": "CPI",
+      "votes": 68184,
+      "vote_share_pct": 36.01,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NAGESH,C.",
+      "party_short": "ADMK",
+      "votes": 31415,
+      "vote_share_pct": 16.59,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARUNRAJAN,D.",
+      "party_short": "PMK",
+      "votes": 5253,
+      "vote_share_pct": 2.77,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMACHANDRAN,B.",
+      "party_short": "BJP",
+      "votes": 2908,
+      "vote_share_pct": 1.54,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2450,
+    "vote_share_pct": 1.29
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4711,
+    "vote_share_pct": 2.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRAKAASH,Y.",
+    "party_short": "DMK",
+    "votes": 74429,
+    "margin_votes": 6245,
+    "margin_pct": 3.3
+  }
+}

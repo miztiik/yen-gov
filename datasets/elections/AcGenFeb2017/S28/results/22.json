@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Mussoorie",
+  "totals": {
+    "electors": 130488,
+    "votes_polled": 75572,
+    "turnout_pct": 57.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GANESH JOSHI",
+      "party_short": "BJP",
+      "votes": 41322,
+      "vote_share_pct": 54.68,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GODAWARI THAPLI",
+      "party_short": "INC",
+      "votes": 29245,
+      "vote_share_pct": 38.7,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJKUMAR JAISWAL",
+      "party_short": "IND",
+      "votes": 1692,
+      "vote_share_pct": 2.24,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ASHOK PANWAR",
+      "party_short": "BSP",
+      "votes": 862,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAI PRAKASH UPADHYAY",
+      "party_short": "UKKD",
+      "votes": 471,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 634,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1346,
+    "vote_share_pct": 1.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GANESH JOSHI",
+    "party_short": "BJP",
+    "votes": 41322,
+    "margin_votes": 12077,
+    "margin_pct": 15.98
+  }
+}

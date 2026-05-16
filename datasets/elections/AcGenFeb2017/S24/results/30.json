@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "Bilari",
+  "totals": {
+    "electors": 343939,
+    "votes_polled": 229116,
+    "turnout_pct": 66.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHD. FAEEM",
+      "party_short": "SP",
+      "votes": 85682,
+      "vote_share_pct": 37.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURESH SAINI",
+      "party_short": "BJP",
+      "votes": 72241,
+      "vote_share_pct": 31.53,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RISHIPAL SINGH",
+      "party_short": "BSP",
+      "votes": 60976,
+      "vote_share_pct": 26.61,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARIF HUSAIN",
+      "party_short": "PECP",
+      "votes": 2666,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ANIL CHAUDHARY",
+      "party_short": "RLD",
+      "votes": 2493,
+      "vote_share_pct": 1.09,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1123,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3935,
+    "vote_share_pct": 1.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHD. FAEEM",
+    "party_short": "SP",
+    "votes": 85682,
+    "margin_votes": 13441,
+    "margin_pct": 5.87
+  }
+}

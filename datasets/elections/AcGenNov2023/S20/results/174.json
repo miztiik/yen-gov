@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 174,
+  "constituency_name": "Kumbhalgarh",
+  "totals": {
+    "electors": 226463,
+    "votes_polled": 155916,
+    "turnout_pct": 68.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Surendra Singh Rathore",
+      "party_short": "BJP",
+      "votes": 78133,
+      "vote_share_pct": 50.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Yogendra Singh Parmar",
+      "party_short": "INC",
+      "votes": 56073,
+      "vote_share_pct": 35.96,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Ram Meena",
+      "party_short": "BHRTADVSIP",
+      "votes": 8813,
+      "vote_share_pct": 5.65,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Neeraj Singh Ranawat",
+      "party_short": "IND",
+      "votes": 4237,
+      "vote_share_pct": 2.72,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Chaman Dana",
+      "party_short": "BTP",
+      "votes": 1843,
+      "vote_share_pct": 1.18,
+      "gender": "M",
+      "age": 28,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1915,
+    "vote_share_pct": 1.23
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4902,
+    "vote_share_pct": 3.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Surendra Singh Rathore",
+    "party_short": "BJP",
+    "votes": 78133,
+    "margin_votes": 22060,
+    "margin_pct": 14.15
+  }
+}

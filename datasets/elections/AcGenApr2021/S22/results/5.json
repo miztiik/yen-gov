@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Poonamallee",
+  "totals": {
+    "electors": 358218,
+    "votes_polled": 263736,
+    "turnout_pct": 73.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Krishnaswamy A",
+      "party_short": "DMK",
+      "votes": 149578,
+      "vote_share_pct": 56.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Rajamannar S X",
+      "party_short": "PMK",
+      "votes": 55468,
+      "vote_share_pct": 21.03,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Manimekalai A",
+      "party_short": "NTK",
+      "votes": 29871,
+      "vote_share_pct": 11.33,
+      "gender": "F",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Revathi Manimegalai J",
+      "party_short": "MNM",
+      "votes": 11927,
+      "vote_share_pct": 4.52,
+      "gender": "F",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Elumalai T.A.",
+      "party_short": "AMMKMNKZ",
+      "votes": 8805,
+      "vote_share_pct": 3.34,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2871,
+    "vote_share_pct": 1.09
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 5216,
+    "vote_share_pct": 1.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Krishnaswamy A",
+    "party_short": "DMK",
+    "votes": 149578,
+    "margin_votes": 94110,
+    "margin_pct": 35.68
+  }
+}

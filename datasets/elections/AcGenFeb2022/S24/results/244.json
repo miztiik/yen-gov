@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 244,
+  "constituency_name": "Rampur Khas",
+  "totals": {
+    "electors": 320772,
+    "votes_polled": 167754,
+    "turnout_pct": 52.3
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Aradhana Mishra, Mona",
+      "party_short": "INC",
+      "votes": 84334,
+      "vote_share_pct": 50.27,
+      "is_winner": true,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NAGESH PRATAP SINGH URF CHHOTE SARKAR",
+      "party_short": "BJP",
+      "votes": 69593,
+      "vote_share_pct": 41.49,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BANKELAL PATEL",
+      "party_short": "BSP",
+      "votes": 4914,
+      "vote_share_pct": 2.93,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DEVENDR PRATAP",
+      "party_short": "IND",
+      "votes": 1509,
+      "vote_share_pct": 0.9,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMRAJ SAROJ",
+      "party_short": "BMUP",
+      "votes": 1383,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2438,
+    "vote_share_pct": 1.45
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3583,
+    "vote_share_pct": 2.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Aradhana Mishra, Mona",
+    "party_short": "INC",
+    "votes": 84334,
+    "margin_votes": 14741,
+    "margin_pct": 8.79
+  }
+}

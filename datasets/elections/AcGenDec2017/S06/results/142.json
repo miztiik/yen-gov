@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 142,
+  "constituency_name": "Sayajigunj",
+  "totals": {
+    "electors": 273249,
+    "votes_polled": 186232,
+    "turnout_pct": 68.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JITENDRA RATILAL SUKHADIA (JITUBHAI)",
+      "party_short": "BJP",
+      "votes": 99957,
+      "vote_share_pct": 53.67,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NARENDRA RAVAT",
+      "party_short": "INC",
+      "votes": 40825,
+      "vote_share_pct": 21.92,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJESH AYARE",
+      "party_short": "RSPS",
+      "votes": 40665,
+      "vote_share_pct": 21.84,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JAT SUBHASSING BRIJLAL",
+      "party_short": "AINHCP",
+      "votes": 459,
+      "vote_share_pct": 0.25,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAIKH TAMANNA IQUBAL",
+      "party_short": "IND",
+      "votes": 433,
+      "vote_share_pct": 0.23,
+      "gender": "F",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2294,
+    "vote_share_pct": 1.23
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 378,
+    "vote_share_pct": 0.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JITENDRA RATILAL SUKHADIA (JITUBHAI)",
+    "party_short": "BJP",
+    "votes": 99957,
+    "margin_votes": 59132,
+    "margin_pct": 31.75
+  }
+}

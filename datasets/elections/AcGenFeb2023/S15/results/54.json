@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "Mahendraganj (ST)",
+  "totals": {
+    "electors": 36609,
+    "votes_polled": 32870,
+    "turnout_pct": 89.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sanjay A. Sangma",
+      "party_short": "NPEP",
+      "votes": 13560,
+      "vote_share_pct": 41.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Dikkanchi D Shira",
+      "party_short": "AITC",
+      "votes": 11842,
+      "vote_share_pct": 36.03,
+      "gender": "F",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Tingku N Marak",
+      "party_short": "BJP",
+      "votes": 6701,
+      "vote_share_pct": 20.39,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Sayeedullah Nongrum",
+      "party_short": "INC",
+      "votes": 331,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 72,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Aditya Hajong",
+      "party_short": "IND",
+      "votes": 163,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 173,
+    "vote_share_pct": 0.53
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 100,
+    "vote_share_pct": 0.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sanjay A. Sangma",
+    "party_short": "NPEP",
+    "votes": 13560,
+    "margin_votes": 1718,
+    "margin_pct": 5.23
+  }
+}

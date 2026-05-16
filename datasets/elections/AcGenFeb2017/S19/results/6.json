@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Qadian",
+  "totals": {
+    "electors": 176309,
+    "votes_polled": 131829,
+    "turnout_pct": 74.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "FATEHJANG SINGH BAJWA",
+      "party_short": "INC",
+      "votes": 62596,
+      "vote_share_pct": 47.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SEWA SINGH",
+      "party_short": "SAD",
+      "votes": 50859,
+      "vote_share_pct": 38.58,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KANWAL PREET SINGH",
+      "party_short": "AAAP",
+      "votes": 14657,
+      "vote_share_pct": 11.12,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHINDER SINGH",
+      "party_short": "BSP",
+      "votes": 518,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GURBACHAN SINGH",
+      "party_short": "SAD(M)",
+      "votes": 436,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 953,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1810,
+    "vote_share_pct": 1.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "FATEHJANG SINGH BAJWA",
+    "party_short": "INC",
+    "votes": 62596,
+    "margin_votes": 11737,
+    "margin_pct": 8.9
+  }
+}

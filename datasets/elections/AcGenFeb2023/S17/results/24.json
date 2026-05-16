@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Angetyongpang (ST)",
+  "totals": {
+    "electors": 17946,
+    "votes_polled": 15734,
+    "turnout_pct": 87.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Tongpang Ozukum",
+      "party_short": "NDPP",
+      "votes": 8046,
+      "vote_share_pct": 51.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Er. K. Wati",
+      "party_short": "IND",
+      "votes": 5826,
+      "vote_share_pct": 37.03,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "S. Maongkaba Ozukum",
+      "party_short": "NPEP",
+      "votes": 1842,
+      "vote_share_pct": 11.71,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 20,
+    "vote_share_pct": 0.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Tongpang Ozukum",
+    "party_short": "NDPP",
+    "votes": 8046,
+    "margin_votes": 2220,
+    "margin_pct": 14.11
+  },
+  "others": null
+}

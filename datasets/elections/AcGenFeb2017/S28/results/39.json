@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Chaubattakhal",
+  "totals": {
+    "electors": 92610,
+    "votes_polled": 42850,
+    "turnout_pct": 46.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATPAL MAHARAJ",
+      "party_short": "BJP",
+      "votes": 20921,
+      "vote_share_pct": 48.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJPAL SINGH BISHT",
+      "party_short": "INC",
+      "votes": 13567,
+      "vote_share_pct": 31.66,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUNDER SINGH CHAUHAN",
+      "party_short": "IND",
+      "votes": 2545,
+      "vote_share_pct": 5.94,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KAVINDER ISTWAL",
+      "party_short": "IND",
+      "votes": 2339,
+      "vote_share_pct": 5.46,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SATENDRA SINGH",
+      "party_short": "IND",
+      "votes": 965,
+      "vote_share_pct": 2.25,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 210,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2303,
+    "vote_share_pct": 5.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATPAL MAHARAJ",
+    "party_short": "BJP",
+    "votes": 20921,
+    "margin_votes": 7354,
+    "margin_pct": 17.16
+  }
+}

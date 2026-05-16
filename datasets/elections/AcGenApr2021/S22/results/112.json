@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 112,
+  "constituency_name": "Avanashi",
+  "totals": {
+    "electors": 280560,
+    "votes_polled": 212627,
+    "turnout_pct": 75.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DHANAPAL, P",
+      "party_short": "ADMK",
+      "votes": 117284,
+      "vote_share_pct": 55.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ATHIYAMAAN RAJU",
+      "party_short": "DMK",
+      "votes": 66382,
+      "vote_share_pct": 31.22,
+      "gender": "M",
+      "age": 68,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SHOBA",
+      "party_short": "NTK",
+      "votes": 13256,
+      "vote_share_pct": 6.23,
+      "gender": "F",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "VENKATESWARAN, A",
+      "party_short": "MNM",
+      "votes": 8379,
+      "vote_share_pct": 3.94,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MEERA, K",
+      "party_short": "DMDK",
+      "votes": 2577,
+      "vote_share_pct": 1.21,
+      "gender": "F",
+      "age": 28,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2372,
+    "vote_share_pct": 1.12
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2377,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DHANAPAL, P",
+    "party_short": "ADMK",
+    "votes": 117284,
+    "margin_votes": 50902,
+    "margin_pct": 23.94
+  }
+}

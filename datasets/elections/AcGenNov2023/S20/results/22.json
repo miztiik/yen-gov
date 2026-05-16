@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Churu",
+  "totals": {
+    "electors": 256667,
+    "votes_polled": 198681,
+    "turnout_pct": 77.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Harlal Saharan",
+      "party_short": "BJP",
+      "votes": 99432,
+      "vote_share_pct": 50.05,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rafique Mandelia",
+      "party_short": "INC",
+      "votes": 92558,
+      "vote_share_pct": 46.59,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sanjay Khan",
+      "party_short": "AAAP",
+      "votes": 1418,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Dinesh Kumar",
+      "party_short": "RLTP",
+      "votes": 849,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Asharam",
+      "party_short": "BSP",
+      "votes": 764,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1151,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2509,
+    "vote_share_pct": 1.27
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Harlal Saharan",
+    "party_short": "BJP",
+    "votes": 99432,
+    "margin_votes": 6874,
+    "margin_pct": 3.46
+  }
+}

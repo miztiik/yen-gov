@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 264,
+  "constituency_name": "Bara",
+  "totals": {
+    "electors": 320594,
+    "votes_polled": 189974,
+    "turnout_pct": 59.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. AJAI KUMAR",
+      "party_short": "BJP",
+      "votes": 79209,
+      "vote_share_pct": 41.69,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "AJAY (BHARTI MUNNA BHAIYA)",
+      "party_short": "SP",
+      "votes": 45156,
+      "vote_share_pct": 23.77,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ASHOK KUMAR GAUTAM",
+      "party_short": "BSP",
+      "votes": 37052,
+      "vote_share_pct": 19.5,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PHOOL CHANDRA",
+      "party_short": "NINSHAD",
+      "votes": 10704,
+      "vote_share_pct": 5.63,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "HANSRAJ KOL",
+      "party_short": "IND",
+      "votes": 3729,
+      "vote_share_pct": 1.96,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2327,
+    "vote_share_pct": 1.22
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 11797,
+    "vote_share_pct": 6.21
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. AJAI KUMAR",
+    "party_short": "BJP",
+    "votes": 79209,
+    "margin_votes": 34053,
+    "margin_pct": 17.93
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 37,
+  "constituency_name": "Khandela",
+  "totals": {
+    "electors": 267504,
+    "votes_polled": 204003,
+    "turnout_pct": 76.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Subhash Meel",
+      "party_short": "BJP",
+      "votes": 114236,
+      "vote_share_pct": 56.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mahadev Singh",
+      "party_short": "INC",
+      "votes": 71597,
+      "vote_share_pct": 35.1,
+      "gender": "M",
+      "age": 80,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Banshidhar Khandela",
+      "party_short": "IND",
+      "votes": 11808,
+      "vote_share_pct": 5.79,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Meena Saini",
+      "party_short": "IND",
+      "votes": 1670,
+      "vote_share_pct": 0.82,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sardar Singh Arya",
+      "party_short": "JNJP",
+      "votes": 852,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1445,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2395,
+    "vote_share_pct": 1.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Subhash Meel",
+    "party_short": "BJP",
+    "votes": 114236,
+    "margin_votes": 42639,
+    "margin_pct": 20.9
+  }
+}

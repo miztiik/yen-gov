@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 226,
+  "constituency_name": "Palayamkottai",
+  "totals": {
+    "electors": 253520,
+    "votes_polled": 154648,
+    "turnout_pct": 61.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHIDEEN KHANT.P.M",
+      "party_short": "DMK",
+      "votes": 67463,
+      "vote_share_pct": 43.62,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "HYDER ALI S.K.A",
+      "party_short": "ADMK",
+      "votes": 51591,
+      "vote_share_pct": 33.36,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NIZAM MOHIDEEN K.M.A",
+      "party_short": "MDMK",
+      "votes": 12593,
+      "vote_share_pct": 8.14,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NIRMAL SINGH YADAV .M",
+      "party_short": "BJP",
+      "votes": 7063,
+      "vote_share_pct": 4.57,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAHUL HAMEED K.S",
+      "party_short": "SDPI",
+      "votes": 7008,
+      "vote_share_pct": 4.53,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2947,
+    "vote_share_pct": 1.91
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 5983,
+    "vote_share_pct": 3.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHIDEEN KHANT.P.M",
+    "party_short": "DMK",
+    "votes": 67463,
+    "margin_votes": 15872,
+    "margin_pct": 10.26
+  }
+}

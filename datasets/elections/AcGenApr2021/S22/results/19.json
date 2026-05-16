@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 19,
+  "constituency_name": "Chepauk-Thiruvallikeni",
+  "totals": {
+    "electors": 234067,
+    "votes_polled": 137405,
+    "turnout_pct": 58.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UDHAYANIDHI STALIN",
+      "party_short": "DMK",
+      "votes": 93285,
+      "vote_share_pct": 67.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KASSALI A.V.A",
+      "party_short": "PMK",
+      "votes": 23930,
+      "vote_share_pct": 17.42,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAYASIMMARAJA S M",
+      "party_short": "NTK",
+      "votes": 9193,
+      "vote_share_pct": 6.69,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHAMMED IDRIS K",
+      "party_short": "IJK",
+      "votes": 4096,
+      "vote_share_pct": 2.98,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJENDRAN L",
+      "party_short": "AMMKMNKZ",
+      "votes": 1873,
+      "vote_share_pct": 1.36,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2061,
+    "vote_share_pct": 1.5
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 2967,
+    "vote_share_pct": 2.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UDHAYANIDHI STALIN",
+    "party_short": "DMK",
+    "votes": 93285,
+    "margin_votes": 69355,
+    "margin_pct": 50.47
+  }
+}

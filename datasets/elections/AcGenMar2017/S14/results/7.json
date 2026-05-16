@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 7,
+  "constituency_name": "Andro",
+  "totals": {
+    "electors": 33075,
+    "votes_polled": 30049,
+    "turnout_pct": 90.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "THOUNAOJAM SHYAMKUMAR",
+      "party_short": "INC",
+      "votes": 18948,
+      "vote_share_pct": 63.06,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. NIMAICHAND LUWANG",
+      "party_short": "BJP",
+      "votes": 10787,
+      "vote_share_pct": 35.9,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KEISHAM NINGTHEMJAO SINGH",
+      "party_short": "MNDF",
+      "votes": 162,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 152,
+    "vote_share_pct": 0.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "THOUNAOJAM SHYAMKUMAR",
+    "party_short": "INC",
+    "votes": 18948,
+    "margin_votes": 8161,
+    "margin_pct": 27.16
+  },
+  "others": null
+}

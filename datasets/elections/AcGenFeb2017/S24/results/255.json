@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 255,
+  "constituency_name": "Soraon",
+  "totals": {
+    "electors": 365758,
+    "votes_polled": 212679,
+    "turnout_pct": 58.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR.JAMUNA PRASAD SAROJ",
+      "party_short": "ADAL",
+      "votes": 77814,
+      "vote_share_pct": 36.59,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "GEETA PASI",
+      "party_short": "BSP",
+      "votes": 60079,
+      "vote_share_pct": 28.25,
+      "gender": "F",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SATYAVEER MUNNA",
+      "party_short": "SP",
+      "votes": 54345,
+      "vote_share_pct": 25.55,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SURENDRA CHAUDHARI",
+      "party_short": "BJP",
+      "votes": 6522,
+      "vote_share_pct": 3.07,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "AJAY PASI",
+      "party_short": "IND",
+      "votes": 2907,
+      "vote_share_pct": 1.37,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2460,
+    "vote_share_pct": 1.16
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 8552,
+    "vote_share_pct": 4.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR.JAMUNA PRASAD SAROJ",
+    "party_short": "ADAL",
+    "votes": 77814,
+    "margin_votes": 17735,
+    "margin_pct": 8.34
+  }
+}

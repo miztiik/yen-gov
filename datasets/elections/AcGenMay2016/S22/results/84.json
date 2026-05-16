@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 84,
+  "constituency_name": "Omalur",
+  "totals": {
+    "electors": 265892,
+    "votes_polled": 227295,
+    "turnout_pct": 85.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VETRIVEL.S",
+      "party_short": "ADMK",
+      "votes": 89169,
+      "vote_share_pct": 39.23,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMMASI.S",
+      "party_short": "DMK",
+      "votes": 69213,
+      "vote_share_pct": 30.45,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "TAMILARASU.A",
+      "party_short": "PMK",
+      "votes": 48721,
+      "vote_share_pct": 21.44,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ELANGOVAN.A.R",
+      "party_short": "DMDK",
+      "votes": 9744,
+      "vote_share_pct": 4.29,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SELVARAJ.C",
+      "party_short": "IND",
+      "votes": 1486,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1739,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 7223,
+    "vote_share_pct": 3.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VETRIVEL.S",
+    "party_short": "ADMK",
+    "votes": 89169,
+    "margin_votes": 19956,
+    "margin_pct": 8.78
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "Wankaner",
+  "totals": {
+    "electors": 244664,
+    "votes_polled": 184530,
+    "turnout_pct": 75.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PIRZADA MAHAMADJAVID ABDULMUTALIB",
+      "party_short": "INC",
+      "votes": 72588,
+      "vote_share_pct": 39.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JITENDRA KANTILAL SOMANI (JITU SOMANI)",
+      "party_short": "BJP",
+      "votes": 71227,
+      "vote_share_pct": 38.6,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GORDHANBHAI POLABHAI SARAVAIYA",
+      "party_short": "IND",
+      "votes": 25547,
+      "vote_share_pct": 13.84,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BLOCH MUSTAKBHAI GULMAHMADBHAI",
+      "party_short": "BSP",
+      "votes": 3271,
+      "vote_share_pct": 1.77,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHERASIYA USMANGANI HUSHEN",
+      "party_short": "AAAP",
+      "votes": 2808,
+      "vote_share_pct": 1.52,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3170,
+    "vote_share_pct": 1.72
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4615,
+    "vote_share_pct": 2.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PIRZADA MAHAMADJAVID ABDULMUTALIB",
+    "party_short": "INC",
+    "votes": 72588,
+    "margin_votes": 1361,
+    "margin_pct": 0.74
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 169,
+  "constituency_name": "Bardoli (SC)",
+  "totals": {
+    "electors": 270071,
+    "votes_polled": 179194,
+    "turnout_pct": 66.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ishvarbhai Alias Anilbhai Ramanbhai Parmar",
+      "party_short": "BJP",
+      "votes": 118527,
+      "vote_share_pct": 66.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Pannaben Anilbhai Patel",
+      "party_short": "INC",
+      "votes": 28579,
+      "vote_share_pct": 15.95,
+      "gender": "F",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Rajendraprasad Solanki Alias Raju Morthana",
+      "party_short": "AAAP",
+      "votes": 24710,
+      "vote_share_pct": 13.79,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Rathod Dineshkumar Lallubhai",
+      "party_short": "IND",
+      "votes": 2074,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Sushilaben Rameshbhai Wagh",
+      "party_short": "BSP",
+      "votes": 1093,
+      "vote_share_pct": 0.61,
+      "gender": "F",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 4211,
+    "vote_share_pct": 2.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ishvarbhai Alias Anilbhai Ramanbhai Parmar",
+    "party_short": "BJP",
+    "votes": 118527,
+    "margin_votes": 89948,
+    "margin_pct": 50.2
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 223,
+  "constituency_name": "Alangulam",
+  "totals": {
+    "electors": 244588,
+    "votes_polled": 193326,
+    "turnout_pct": 79.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. POONGOTHAI ALADI ARUNA",
+      "party_short": "DMK",
+      "votes": 88891,
+      "vote_share_pct": 45.98,
+      "is_winner": true,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "HEPZI KARTHIKEYAN",
+      "party_short": "ADMK",
+      "votes": 84137,
+      "vote_share_pct": 43.52,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJENDRANATH",
+      "party_short": "DMDK",
+      "votes": 7784,
+      "vote_share_pct": 4.03,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "S.V.ANBURAJ",
+      "party_short": "BJP",
+      "votes": 4660,
+      "vote_share_pct": 2.41,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "R .VASANTHI RAMALINGAM",
+      "party_short": "NTK",
+      "votes": 2495,
+      "vote_share_pct": 1.29,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2089,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3270,
+    "vote_share_pct": 1.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. POONGOTHAI ALADI ARUNA",
+    "party_short": "DMK",
+    "votes": 88891,
+    "margin_votes": 4754,
+    "margin_pct": 2.46
+  }
+}

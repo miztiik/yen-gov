@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 136,
+  "constituency_name": "Baytoo",
+  "totals": {
+    "electors": 252401,
+    "votes_polled": 213370,
+    "turnout_pct": 84.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Harish Chaudhary",
+      "party_short": "INC",
+      "votes": 76821,
+      "vote_share_pct": 36.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ummeda Ram Beniwal",
+      "party_short": "RLTP",
+      "votes": 75911,
+      "vote_share_pct": 35.58,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Balaram Moondh",
+      "party_short": "BJP",
+      "votes": 51720,
+      "vote_share_pct": 24.24,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Hanif",
+      "party_short": "IND",
+      "votes": 2277,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Harish Choudhary",
+      "party_short": "IND",
+      "votes": 1389,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2173,
+    "vote_share_pct": 1.02
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3079,
+    "vote_share_pct": 1.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Harish Chaudhary",
+    "party_short": "INC",
+    "votes": 76821,
+    "margin_votes": 910,
+    "margin_pct": 0.43
+  }
+}

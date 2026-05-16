@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 104,
+  "constituency_name": "Bhavani",
+  "totals": {
+    "electors": 228069,
+    "votes_polled": 188950,
+    "turnout_pct": 82.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARUPPANAN K C",
+      "party_short": "ADMK",
+      "votes": 85748,
+      "vote_share_pct": 45.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SIVAKUMAR N",
+      "party_short": "DMK",
+      "votes": 60861,
+      "vote_share_pct": 32.21,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAMANATHAN K V",
+      "party_short": "PMK",
+      "votes": 20727,
+      "vote_share_pct": 10.97,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GOPAL P",
+      "party_short": "DMDK",
+      "votes": 6927,
+      "vote_share_pct": 3.67,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRASEKAR S",
+      "party_short": "KMDK",
+      "votes": 4389,
+      "vote_share_pct": 2.32,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2716,
+    "vote_share_pct": 1.44
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 7582,
+    "vote_share_pct": 4.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARUPPANAN K C",
+    "party_short": "ADMK",
+    "votes": 85748,
+    "margin_votes": 24887,
+    "margin_pct": 13.17
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 5,
+  "constituency_name": "Deoband",
+  "totals": {
+    "electors": 348944,
+    "votes_polled": 242193,
+    "turnout_pct": 69.41
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BRIJESH",
+      "party_short": "BJP",
+      "votes": 93890,
+      "vote_share_pct": 38.77,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kartikey Rana",
+      "party_short": "SP",
+      "votes": 86786,
+      "vote_share_pct": 35.83,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHOUDHARY RAJENDRA SINGH",
+      "party_short": "BSP",
+      "votes": 52732,
+      "vote_share_pct": 21.77,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "UMAIR MADANI",
+      "party_short": "AIMIM",
+      "votes": 3501,
+      "vote_share_pct": 1.45,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "YOGESH PRATAP SINGH",
+      "party_short": "ASPKR",
+      "votes": 1848,
+      "vote_share_pct": 0.76,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 729,
+    "vote_share_pct": 0.3
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2707,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BRIJESH",
+    "party_short": "BJP",
+    "votes": 93890,
+    "margin_votes": 7104,
+    "margin_pct": 2.93
+  }
+}

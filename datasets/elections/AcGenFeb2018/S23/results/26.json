@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Asharambari",
+  "totals": {
+    "electors": 36413,
+    "votes_polled": 33962,
+    "turnout_pct": 93.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MEVAR KR JAMATIA",
+      "party_short": "IPFT",
+      "votes": 19188,
+      "vote_share_pct": 56.5,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "AGHORE DEB BARMA",
+      "party_short": "CPM",
+      "votes": 12201,
+      "vote_share_pct": 35.93,
+      "gender": "M",
+      "age": 67,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "DILIP KUMAR MUNDA",
+      "party_short": "TLSP",
+      "votes": 501,
+      "vote_share_pct": 1.48,
+      "gender": "M",
+      "age": 28,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SURENDRA DEB BARMA",
+      "party_short": "INC",
+      "votes": 435,
+      "vote_share_pct": 1.28,
+      "gender": "M",
+      "age": 69,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "RAJESH KR. DEBBARMA",
+      "party_short": "IND",
+      "votes": 290,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 499,
+    "vote_share_pct": 1.47
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 282,
+    "vote_share_pct": 0.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MEVAR KR JAMATIA",
+    "party_short": "IPFT",
+    "votes": 19188,
+    "margin_votes": 6987,
+    "margin_pct": 20.57
+  }
+}

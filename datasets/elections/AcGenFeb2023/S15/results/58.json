@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "Rongara Siju (ST)",
+  "totals": {
+    "electors": 34468,
+    "votes_polled": 29431,
+    "turnout_pct": 85.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rakkam A. Sangma",
+      "party_short": "NPEP",
+      "votes": 11569,
+      "vote_share_pct": 39.31,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Rophul S Marak",
+      "party_short": "INC",
+      "votes": 8311,
+      "vote_share_pct": 28.24,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Dr Rajesh M Marak",
+      "party_short": "AITC",
+      "votes": 7938,
+      "vote_share_pct": 26.97,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Calis G Momin",
+      "party_short": "BJP",
+      "votes": 1279,
+      "vote_share_pct": 4.35,
+      "gender": "M",
+      "age": 31,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Teseng A Sangma",
+      "party_short": "UDP",
+      "votes": 197,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 137,
+    "vote_share_pct": 0.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rakkam A. Sangma",
+    "party_short": "NPEP",
+    "votes": 11569,
+    "margin_votes": 3258,
+    "margin_pct": 11.07
+  },
+  "others": null
+}

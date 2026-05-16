@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Keirao",
+  "totals": {
+    "electors": 27732,
+    "votes_polled": 26130,
+    "turnout_pct": 94.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LOUREMBAM RAMESHWOR MEETEI",
+      "party_short": "BJP",
+      "votes": 5959,
+      "vote_share_pct": 22.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MD. NASIRUDDIN KHAN",
+      "party_short": "IND",
+      "votes": 5421,
+      "vote_share_pct": 20.75,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KARAM THAMARJIT SINGH",
+      "party_short": "INC",
+      "votes": 4715,
+      "vote_share_pct": 18.04,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THONGRAM GOPEN",
+      "party_short": "NEINDP",
+      "votes": 4477,
+      "vote_share_pct": 17.13,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MD. ISLAMUDDIN KHAN",
+      "party_short": "NCP",
+      "votes": 3241,
+      "vote_share_pct": 12.4,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 80,
+    "vote_share_pct": 0.31
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2237,
+    "vote_share_pct": 8.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LOUREMBAM RAMESHWOR MEETEI",
+    "party_short": "BJP",
+    "votes": 5959,
+    "margin_votes": 538,
+    "margin_pct": 2.06
+  }
+}

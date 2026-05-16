@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Sahaspur",
+  "totals": {
+    "electors": 173115,
+    "votes_polled": 125850,
+    "turnout_pct": 72.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAHDEV SINGH PUNDIR",
+      "party_short": "BJP",
+      "votes": 64008,
+      "vote_share_pct": 50.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARYENDRA SHARMA",
+      "party_short": "INC",
+      "votes": 55653,
+      "vote_share_pct": 44.22,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BHARAT SINGH",
+      "party_short": "AAAP",
+      "votes": 2235,
+      "vote_share_pct": 1.78,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KAMRUDEEN",
+      "party_short": "CPI(M)",
+      "votes": 638,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMIT YADAV",
+      "party_short": "SP",
+      "votes": 503,
+      "vote_share_pct": 0.4,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1099,
+    "vote_share_pct": 0.87
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1714,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAHDEV SINGH PUNDIR",
+    "party_short": "BJP",
+    "votes": 64008,
+    "margin_votes": 8355,
+    "margin_pct": 6.64
+  }
+}

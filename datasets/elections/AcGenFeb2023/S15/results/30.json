@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 30,
+  "constituency_name": "Mairang (ST)",
+  "totals": {
+    "electors": 42402,
+    "votes_polled": 39282,
+    "turnout_pct": 92.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Metbah Lyngdoh",
+      "party_short": "UDP",
+      "votes": 19066,
+      "vote_share_pct": 48.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Batskhem Ryntathiang",
+      "party_short": "INC",
+      "votes": 18911,
+      "vote_share_pct": 48.14,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Shanlang Warjri",
+      "party_short": "VOTPP",
+      "votes": 944,
+      "vote_share_pct": 2.4,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Mark Rinaldy Sawkmie",
+      "party_short": "BJP",
+      "votes": 245,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 26,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 116,
+    "vote_share_pct": 0.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Metbah Lyngdoh",
+    "party_short": "UDP",
+    "votes": 19066,
+    "margin_votes": 155,
+    "margin_pct": 0.39
+  },
+  "others": null
+}

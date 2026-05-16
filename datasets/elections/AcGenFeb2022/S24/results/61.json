@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 61,
+  "constituency_name": "Noida",
+  "totals": {
+    "electors": 714072,
+    "votes_polled": 348228,
+    "turnout_pct": 48.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pankaj Singh",
+      "party_short": "BJP",
+      "votes": 244319,
+      "vote_share_pct": 70.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sunil Choudhary",
+      "party_short": "SP",
+      "votes": 62806,
+      "vote_share_pct": 18.04,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kripa Ram Sharma",
+      "party_short": "BSP",
+      "votes": 16292,
+      "vote_share_pct": 4.68,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Pankhuri Pathak",
+      "party_short": "INC",
+      "votes": 13494,
+      "vote_share_pct": 3.88,
+      "gender": "F",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Pankaj Avana",
+      "party_short": "AAAP",
+      "votes": 6551,
+      "vote_share_pct": 1.88,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2463,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2303,
+    "vote_share_pct": 0.65
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pankaj Singh",
+    "party_short": "BJP",
+    "votes": 244319,
+    "margin_votes": 181513,
+    "margin_pct": 52.12
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Patan",
+  "totals": {
+    "electors": 306328,
+    "votes_polled": 206352,
+    "turnout_pct": 67.36
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kiritkumar Chimanlal Patel",
+      "party_short": "INC",
+      "votes": 103505,
+      "vote_share_pct": 50.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Rajulben Desai",
+      "party_short": "BJP",
+      "votes": 86328,
+      "vote_share_pct": 41.84,
+      "gender": "F",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Laleshbhai Thakkar",
+      "party_short": "AAAP",
+      "votes": 6808,
+      "vote_share_pct": 3.3,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Shabbirhusen Aajambhai Malek",
+      "party_short": "IND",
+      "votes": 2333,
+      "vote_share_pct": 1.13,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rohit Senma Alias Nagji",
+      "party_short": "IND",
+      "votes": 1041,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2481,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 3856,
+    "vote_share_pct": 1.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kiritkumar Chimanlal Patel",
+    "party_short": "INC",
+    "votes": 103505,
+    "margin_votes": 17177,
+    "margin_pct": 8.32
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 317,
+  "constituency_name": "Siswa",
+  "totals": {
+    "electors": 389369,
+    "votes_polled": 255079,
+    "turnout_pct": 65.51
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Premsagar Patel",
+      "party_short": "BJP",
+      "votes": 127673,
+      "vote_share_pct": 50.05,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sushil Kumar Tibrewal",
+      "party_short": "SP",
+      "votes": 64942,
+      "vote_share_pct": 25.46,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dhirendra Pratap Singh",
+      "party_short": "BSP",
+      "votes": 33498,
+      "vote_share_pct": 13.13,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Ajay Kumar Srivastava",
+      "party_short": "IND",
+      "votes": 10723,
+      "vote_share_pct": 4.2,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rakesh Kumar Mishra",
+      "party_short": "IND",
+      "votes": 7521,
+      "vote_share_pct": 2.95,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1955,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 8767,
+    "vote_share_pct": 3.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Premsagar Patel",
+    "party_short": "BJP",
+    "votes": 127673,
+    "margin_votes": 62731,
+    "margin_pct": 24.59
+  }
+}

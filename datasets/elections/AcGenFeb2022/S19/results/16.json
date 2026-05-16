@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 16,
+  "constituency_name": "Amritsar West",
+  "totals": {
+    "electors": 214566,
+    "votes_polled": 118606,
+    "turnout_pct": 55.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. JASBIR SINGH SANDHU",
+      "party_short": "AAAP",
+      "votes": 69251,
+      "vote_share_pct": 58.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAJ KUMAR VERKA",
+      "party_short": "INC",
+      "votes": 25338,
+      "vote_share_pct": 21.36,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DALBIR SINGH",
+      "party_short": "SAD",
+      "votes": 10370,
+      "vote_share_pct": 8.74,
+      "gender": "M",
+      "age": 68,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KUMAR AMIT ADVOCATE",
+      "party_short": "BJP",
+      "votes": 8999,
+      "vote_share_pct": 7.59,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "AMARJIT SINGH ASAL",
+      "party_short": "CPI",
+      "votes": 1368,
+      "vote_share_pct": 1.15,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 987,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2293,
+    "vote_share_pct": 1.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. JASBIR SINGH SANDHU",
+    "party_short": "AAAP",
+    "votes": 69251,
+    "margin_votes": 43913,
+    "margin_pct": 37.02
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 78,
+  "constituency_name": "Rishivandiyam",
+  "totals": {
+    "electors": 244427,
+    "votes_polled": 196697,
+    "turnout_pct": 80.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARTHIKEYAN.K",
+      "party_short": "DMK",
+      "votes": 92607,
+      "vote_share_pct": 47.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DHANDAPANI.K",
+      "party_short": "ADMK",
+      "votes": 72104,
+      "vote_share_pct": 36.66,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VINCENT JAYARAJ.VJP",
+      "party_short": "DMDK",
+      "votes": 14239,
+      "vote_share_pct": 7.24,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PANDIYAN.KP",
+      "party_short": "PMK",
+      "votes": 8148,
+      "vote_share_pct": 4.14,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BARATH.S",
+      "party_short": "IND",
+      "votes": 1710,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 867,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 7022,
+    "vote_share_pct": 3.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARTHIKEYAN.K",
+    "party_short": "DMK",
+    "votes": 92607,
+    "margin_votes": 20503,
+    "margin_pct": 10.42
+  }
+}

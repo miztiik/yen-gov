@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 174,
+  "constituency_name": "Jalalpore",
+  "totals": {
+    "electors": 216288,
+    "votes_polled": 156422,
+    "turnout_pct": 72.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "R.C. PATEL",
+      "party_short": "BJP",
+      "votes": 86411,
+      "vote_share_pct": 55.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PARIMAL NANUBHAI PATEL",
+      "party_short": "INC",
+      "votes": 60747,
+      "vote_share_pct": 38.84,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BHATT DHANANJAYBHAI NANUBHAI",
+      "party_short": "IND",
+      "votes": 2808,
+      "vote_share_pct": 1.8,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RATHOD GUNVANT SHANABHAI",
+      "party_short": "BSP",
+      "votes": 912,
+      "vote_share_pct": 0.58,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PATIL ARJUN OMKAR",
+      "party_short": "IND",
+      "votes": 698,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3225,
+    "vote_share_pct": 2.06
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 771,
+    "vote_share_pct": 0.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "R.C. PATEL",
+    "party_short": "BJP",
+    "votes": 86411,
+    "margin_votes": 25664,
+    "margin_pct": 16.41
+  }
+}

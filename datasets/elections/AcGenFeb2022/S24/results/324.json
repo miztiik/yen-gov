@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 324,
+  "constituency_name": "Sahajanwa",
+  "totals": {
+    "electors": 379627,
+    "votes_polled": 224489,
+    "turnout_pct": 59.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRADEEP SHUKLA",
+      "party_short": "BJP",
+      "votes": 105981,
+      "vote_share_pct": 47.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "YASHPAL SINGH RAWAT",
+      "party_short": "SP",
+      "votes": 62575,
+      "vote_share_pct": 27.87,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUDHiR SINGH",
+      "party_short": "BSP",
+      "votes": 43905,
+      "vote_share_pct": 19.56,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANOJ YADAV",
+      "party_short": "INC",
+      "votes": 3338,
+      "vote_share_pct": 1.49,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SURJEET SINGH",
+      "party_short": "IND",
+      "votes": 1621,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1604,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5465,
+    "vote_share_pct": 2.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRADEEP SHUKLA",
+    "party_short": "BJP",
+    "votes": 105981,
+    "margin_votes": 43406,
+    "margin_pct": 19.34
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 134,
+  "constituency_name": "Aravakurichi",
+  "totals": {
+    "electors": 213969,
+    "votes_polled": 177114,
+    "turnout_pct": 82.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ELANGO. R",
+      "party_short": "DMK",
+      "votes": 93369,
+      "vote_share_pct": 52.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANNAMALAI. K",
+      "party_short": "BJP",
+      "votes": 68553,
+      "vote_share_pct": 38.71,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANITHA PARVEEN. M",
+      "party_short": "NTK",
+      "votes": 7188,
+      "vote_share_pct": 4.06,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THANGAVEL. P. S. N",
+      "party_short": "AMMKMNKZ",
+      "votes": 1599,
+      "vote_share_pct": 0.9,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHAMMED HANEEF SHAHIL. K. S",
+      "party_short": "MNM",
+      "votes": 1382,
+      "vote_share_pct": 0.78,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 869,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 35,
+    "votes": 4154,
+    "vote_share_pct": 2.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ELANGO. R",
+    "party_short": "DMK",
+    "votes": 93369,
+    "margin_votes": 24816,
+    "margin_pct": 14.01
+  }
+}

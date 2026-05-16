@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 162,
+  "constituency_name": "Bangermau",
+  "totals": {
+    "electors": 357452,
+    "votes_polled": 203527,
+    "turnout_pct": 56.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shrikant Katiyar",
+      "party_short": "BJP",
+      "votes": 90980,
+      "vote_share_pct": 44.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Munna",
+      "party_short": "SP",
+      "votes": 75187,
+      "vote_share_pct": 36.94,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ram Kishore Pal",
+      "party_short": "BSP",
+      "votes": 25543,
+      "vote_share_pct": 12.55,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Arti Bajpai",
+      "party_short": "INC",
+      "votes": 5285,
+      "vote_share_pct": 2.6,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Anil Kumar Mishra",
+      "party_short": "SP(I)",
+      "votes": 1385,
+      "vote_share_pct": 0.68,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1267,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3880,
+    "vote_share_pct": 1.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shrikant Katiyar",
+    "party_short": "BJP",
+    "votes": 90980,
+    "margin_votes": 15793,
+    "margin_pct": 7.76
+  }
+}

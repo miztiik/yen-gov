@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "Jalandhar West",
+  "totals": {
+    "electors": 151884,
+    "votes_polled": 110594,
+    "turnout_pct": 72.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUSHIL KUMAR RINKU",
+      "party_short": "INC",
+      "votes": 53983,
+      "vote_share_pct": 48.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "MAHINDER PAL BHAGAT",
+      "party_short": "BJP",
+      "votes": 36649,
+      "vote_share_pct": 33.14,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DARSHAN LAL BHAGAT",
+      "party_short": "AAAP",
+      "votes": 15364,
+      "vote_share_pct": 13.89,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SURINDER MAHEY",
+      "party_short": "IND",
+      "votes": 1345,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PARAMJEET MALL",
+      "party_short": "BSP",
+      "votes": 1099,
+      "vote_share_pct": 0.99,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1155,
+    "vote_share_pct": 1.04
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 999,
+    "vote_share_pct": 0.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUSHIL KUMAR RINKU",
+    "party_short": "INC",
+    "votes": 53983,
+    "margin_votes": 17334,
+    "margin_pct": 15.67
+  }
+}

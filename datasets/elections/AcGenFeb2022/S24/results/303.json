@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 303,
+  "constituency_name": "Kapilvastu",
+  "totals": {
+    "electors": 452988,
+    "votes_polled": 252356,
+    "turnout_pct": 55.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHYAMDHANI RAHI",
+      "party_short": "BJP",
+      "votes": 122940,
+      "vote_share_pct": 48.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "VIJAY KUMAR",
+      "party_short": "SP",
+      "votes": 92001,
+      "vote_share_pct": 36.46,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KANHAIYA PRASAD",
+      "party_short": "BSP",
+      "votes": 26662,
+      "vote_share_pct": 10.57,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BHAGGAN",
+      "party_short": "SDU",
+      "votes": 2698,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 68,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DEVENDRA KUMAR GUDDU",
+      "party_short": "INC",
+      "votes": 2484,
+      "vote_share_pct": 0.98,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2279,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3292,
+    "vote_share_pct": 1.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHYAMDHANI RAHI",
+    "party_short": "BJP",
+    "votes": 122940,
+    "margin_votes": 30939,
+    "margin_pct": 12.26
+  }
+}

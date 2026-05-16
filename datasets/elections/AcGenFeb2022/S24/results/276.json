@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 276,
+  "constituency_name": "Goshainganj",
+  "totals": {
+    "electors": 395118,
+    "votes_polled": 241298,
+    "turnout_pct": 61.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ABHAY SINGH",
+      "party_short": "SP",
+      "votes": 105863,
+      "vote_share_pct": 43.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARTI TIWARI",
+      "party_short": "BJP",
+      "votes": 92784,
+      "vote_share_pct": 38.45,
+      "gender": "F",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAM SAGAR VERMA",
+      "party_short": "BSP",
+      "votes": 37271,
+      "vote_share_pct": 15.45,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHARADA DEVI",
+      "party_short": "INC",
+      "votes": 1319,
+      "vote_share_pct": 0.55,
+      "gender": "F",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SARVESH KUMAR",
+      "party_short": "IND",
+      "votes": 662,
+      "vote_share_pct": 0.27,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1747,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1652,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ABHAY SINGH",
+    "party_short": "SP",
+    "votes": 105863,
+    "margin_votes": 13079,
+    "margin_pct": 5.42
+  }
+}

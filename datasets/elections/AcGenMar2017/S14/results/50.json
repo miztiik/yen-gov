@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Kangpokpi (Gen)",
+  "totals": {
+    "electors": 30088,
+    "votes_polled": 26065,
+    "turnout_pct": 86.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NEMCHA KIPGEN",
+      "party_short": "BJP",
+      "votes": 13485,
+      "vote_share_pct": 51.74,
+      "is_winner": true,
+      "gender": "F",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "KHARGA TAMANG",
+      "party_short": "IND",
+      "votes": 11188,
+      "vote_share_pct": 42.92,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "ATHIKHO SOLOMON ENAH",
+      "party_short": "NPF",
+      "votes": 875,
+      "vote_share_pct": 3.36,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "SOSHIM KEISHING",
+      "party_short": "NCP",
+      "votes": 228,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 289,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NEMCHA KIPGEN",
+    "party_short": "BJP",
+    "votes": 13485,
+    "margin_votes": 2297,
+    "margin_pct": 8.81
+  },
+  "others": null
+}

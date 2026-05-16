@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 24,
+  "constituency_name": "Noorpur",
+  "totals": {
+    "electors": 303478,
+    "votes_polled": 203108,
+    "turnout_pct": 66.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LOKENDRA SINGH",
+      "party_short": "BJP",
+      "votes": 79172,
+      "vote_share_pct": 38.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NAIM UL HASAN",
+      "party_short": "SP",
+      "votes": 66436,
+      "vote_share_pct": 32.71,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GOHAR IQBAL",
+      "party_short": "BSP",
+      "votes": 45902,
+      "vote_share_pct": 22.6,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIJAYPAL SINGH",
+      "party_short": "MD",
+      "votes": 5338,
+      "vote_share_pct": 2.63,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "YOGESH URF TILLU TYAGI",
+      "party_short": "RLD",
+      "votes": 2172,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1115,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2973,
+    "vote_share_pct": 1.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LOKENDRA SINGH",
+    "party_short": "BJP",
+    "votes": 79172,
+    "margin_votes": 12736,
+    "margin_pct": 6.27
+  }
+}

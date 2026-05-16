@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Kankrej",
+  "totals": {
+    "electors": 291577,
+    "votes_polled": 202088,
+    "turnout_pct": 69.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Amrutji Motiji Thakor",
+      "party_short": "INC",
+      "votes": 96624,
+      "vote_share_pct": 47.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Vaghela Kirtisinh Prabhatsinh",
+      "party_short": "BJP",
+      "votes": 91329,
+      "vote_share_pct": 45.19,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Mukeshkumar Somalal Thakkar",
+      "party_short": "AAAP",
+      "votes": 5061,
+      "vote_share_pct": 2.5,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Maheshbhai Vershibhai Makvana",
+      "party_short": "BSP",
+      "votes": 2139,
+      "vote_share_pct": 1.06,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Chaudhari Babubhai Mahdevbhai",
+      "party_short": "IND",
+      "votes": 1242,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3811,
+    "vote_share_pct": 1.89
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1882,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Amrutji Motiji Thakor",
+    "party_short": "INC",
+    "votes": 96624,
+    "margin_votes": 5295,
+    "margin_pct": 2.62
+  }
+}

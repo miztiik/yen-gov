@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 173,
+  "constituency_name": "Dangs",
+  "totals": {
+    "electors": 166443,
+    "votes_polled": 124451,
+    "turnout_pct": 74.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GAVIT MANGALBHAI GANGAJIBHAI",
+      "party_short": "INC",
+      "votes": 57820,
+      "vote_share_pct": 46.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "PATEL VIJAYBHAI RAMESHBHAI",
+      "party_short": "BJP",
+      "votes": 57052,
+      "vote_share_pct": 45.84,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "PAWAR DINESHBHAI GULABBHAI",
+      "party_short": "IND",
+      "votes": 3035,
+      "vote_share_pct": 2.44,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "CHAUDHARI TULSIRAMBHAI JANABHAI",
+      "party_short": "NCP",
+      "votes": 1304,
+      "vote_share_pct": 1.05,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "BHOYE YOGESHBHAI SONIRAVBHAI",
+      "party_short": "AINHCP",
+      "votes": 1277,
+      "vote_share_pct": 1.03,
+      "gender": "M",
+      "age": 44,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2184,
+    "vote_share_pct": 1.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GAVIT MANGALBHAI GANGAJIBHAI",
+    "party_short": "INC",
+    "votes": 57820,
+    "margin_votes": 768,
+    "margin_pct": 0.62
+  },
+  "others": null
+}

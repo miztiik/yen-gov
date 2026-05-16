@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 55,
+  "constituency_name": "Sahibabad",
+  "totals": {
+    "electors": 865641,
+    "votes_polled": 425868,
+    "turnout_pct": 49.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUNIL KUMAR SHARMA",
+      "party_short": "BJP",
+      "votes": 262741,
+      "vote_share_pct": 61.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMARPAL",
+      "party_short": "INC",
+      "votes": 112056,
+      "vote_share_pct": 26.31,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JALALUDDIN",
+      "party_short": "BSP",
+      "votes": 41654,
+      "vote_share_pct": 9.78,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJEEV SHARMA",
+      "party_short": "IND",
+      "votes": 1205,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAGDAMBA PRASAD",
+      "party_short": "CPM",
+      "votes": 1087,
+      "vote_share_pct": 0.26,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3057,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4068,
+    "vote_share_pct": 0.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUNIL KUMAR SHARMA",
+    "party_short": "BJP",
+    "votes": 262741,
+    "margin_votes": 150685,
+    "margin_pct": 35.38
+  }
+}

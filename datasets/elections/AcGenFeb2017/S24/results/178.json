@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 178,
+  "constituency_name": "Tiloi",
+  "totals": {
+    "electors": 339401,
+    "votes_polled": 195746,
+    "turnout_pct": 57.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAYANKESHWAR SHARAN SINGH",
+      "party_short": "BJP",
+      "votes": 96119,
+      "vote_share_pct": 49.1,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MOHD. SAOOD",
+      "party_short": "BSP",
+      "votes": 52072,
+      "vote_share_pct": 26.6,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VINOD KUMAR MISHRA",
+      "party_short": "INC",
+      "votes": 35837,
+      "vote_share_pct": 18.31,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MO. TABARAKH",
+      "party_short": "RLD",
+      "votes": 1967,
+      "vote_share_pct": 1.0,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SITARAM",
+      "party_short": "IND",
+      "votes": 1575,
+      "vote_share_pct": 0.8,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2567,
+    "vote_share_pct": 1.31
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 5609,
+    "vote_share_pct": 2.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAYANKESHWAR SHARAN SINGH",
+    "party_short": "BJP",
+    "votes": 96119,
+    "margin_votes": 44047,
+    "margin_pct": 22.5
+  }
+}

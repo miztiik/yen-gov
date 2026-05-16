@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 399,
+  "constituency_name": "Marihan",
+  "totals": {
+    "electors": 366489,
+    "votes_polled": 236733,
+    "turnout_pct": 64.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMA SHANKAR SINGH",
+      "party_short": "BJP",
+      "votes": 105377,
+      "vote_share_pct": 44.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NARENDRA SINGH KUSAWAHA",
+      "party_short": "BSP",
+      "votes": 42466,
+      "vote_share_pct": 17.94,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAVINDRA BAHADUR SINGH PATEL",
+      "party_short": "SP",
+      "votes": 42007,
+      "vote_share_pct": 17.74,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AWADHESH KUMAR SINGH ALIAS PAPPU PATEL",
+      "party_short": "APNDLK",
+      "votes": 23982,
+      "vote_share_pct": 10.13,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GITA DEVI KOL",
+      "party_short": "INC",
+      "votes": 4928,
+      "vote_share_pct": 2.08,
+      "gender": "F",
+      "age": 29,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2177,
+    "vote_share_pct": 0.92
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 15796,
+    "vote_share_pct": 6.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMA SHANKAR SINGH",
+    "party_short": "BJP",
+    "votes": 105377,
+    "margin_votes": 62911,
+    "margin_pct": 26.57
+  }
+}

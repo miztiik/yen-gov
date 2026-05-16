@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Viramgam",
+  "totals": {
+    "electors": 271166,
+    "votes_polled": 185712,
+    "turnout_pct": 68.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BHARWAD LAKHABHAI BHIKHABHAI",
+      "party_short": "INC",
+      "votes": 76178,
+      "vote_share_pct": 41.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. TEJSHRIBEN DILIPKUMAR PATEL",
+      "party_short": "BJP",
+      "votes": 69630,
+      "vote_share_pct": 37.49,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JADAV DHRUVKUMAR BAVALBHAI",
+      "party_short": "IND",
+      "votes": 12069,
+      "vote_share_pct": 6.5,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THAKOR KUNVARJI BABAJI",
+      "party_short": "IND",
+      "votes": 10836,
+      "vote_share_pct": 5.83,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PATEL BHAILALBHAI GANPATBHAI",
+      "party_short": "IND",
+      "votes": 2835,
+      "vote_share_pct": 1.53,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1412,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 11693,
+    "vote_share_pct": 6.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BHARWAD LAKHABHAI BHIKHABHAI",
+    "party_short": "INC",
+    "votes": 76178,
+    "margin_votes": 6548,
+    "margin_pct": 3.53
+  }
+}

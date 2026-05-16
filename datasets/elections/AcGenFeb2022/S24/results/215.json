@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 215,
+  "constituency_name": "Kidwai Nagar",
+  "totals": {
+    "electors": 348846,
+    "votes_polled": 206018,
+    "turnout_pct": 59.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAHESH TRIVEDI",
+      "party_short": "BJP",
+      "votes": 114111,
+      "vote_share_pct": 55.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AJAY KAPOOR",
+      "party_short": "INC",
+      "votes": 76351,
+      "vote_share_pct": 37.06,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ABHIMANYU GUPTA",
+      "party_short": "SP",
+      "votes": 8397,
+      "vote_share_pct": 4.08,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHAN MISHRA",
+      "party_short": "BSP",
+      "votes": 3846,
+      "vote_share_pct": 1.87,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VIVEK DWIVEDI",
+      "party_short": "AAAP",
+      "votes": 1129,
+      "vote_share_pct": 0.55,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1067,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1117,
+    "vote_share_pct": 0.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAHESH TRIVEDI",
+    "party_short": "BJP",
+    "votes": 114111,
+    "margin_votes": 37760,
+    "margin_pct": 18.33
+  }
+}

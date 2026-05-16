@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Kairana",
+  "totals": {
+    "electors": 322423,
+    "votes_polled": 241947,
+    "turnout_pct": 75.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nahid Hasan",
+      "party_short": "SP",
+      "votes": 131035,
+      "vote_share_pct": 54.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MRIGANKA SINGH",
+      "party_short": "BJP",
+      "votes": 105148,
+      "vote_share_pct": 43.46,
+      "gender": "F",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJENDERA",
+      "party_short": "BSP",
+      "votes": 2077,
+      "vote_share_pct": 0.86,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AKHLAK",
+      "party_short": "INC",
+      "votes": 1522,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SETHPAL",
+      "party_short": "IND",
+      "votes": 409,
+      "vote_share_pct": 0.17,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 593,
+    "vote_share_pct": 0.25
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1163,
+    "vote_share_pct": 0.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nahid Hasan",
+    "party_short": "SP",
+    "votes": 131035,
+    "margin_votes": 25887,
+    "margin_pct": 10.7
+  }
+}

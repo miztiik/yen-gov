@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 191,
+  "constituency_name": "Madurai North",
+  "totals": {
+    "electors": 233129,
+    "votes_polled": 154368,
+    "turnout_pct": 66.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJAN CHELLAPPA, V.V.",
+      "party_short": "ADMK",
+      "votes": 70460,
+      "vote_share_pct": 45.64,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KARTHIKEYAN, V.",
+      "party_short": "INC",
+      "votes": 51621,
+      "vote_share_pct": 33.44,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MUJUPUR RAHUMAN, S.",
+      "party_short": "DMDK",
+      "votes": 17732,
+      "vote_share_pct": 11.49,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SARAL, M.",
+      "party_short": "NTK",
+      "votes": 3541,
+      "vote_share_pct": 2.29,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AASAI KUMAR, R.",
+      "party_short": "PMK",
+      "votes": 2039,
+      "vote_share_pct": 1.32,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3479,
+    "vote_share_pct": 2.25
+  },
+  "others": {
+    "candidate_count": 16,
+    "votes": 5496,
+    "vote_share_pct": 3.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJAN CHELLAPPA, V.V.",
+    "party_short": "ADMK",
+    "votes": 70460,
+    "margin_votes": 18839,
+    "margin_pct": 12.2
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Surajgarh",
+  "totals": {
+    "electors": 291469,
+    "votes_polled": 200348,
+    "turnout_pct": 68.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sharwan Kumar S/o Gokal Ram",
+      "party_short": "INC",
+      "votes": 115684,
+      "vote_share_pct": 57.74,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Santosh Ahalawat",
+      "party_short": "BJP",
+      "votes": 78270,
+      "vote_share_pct": 39.07,
+      "gender": "F",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dara Singh",
+      "party_short": "BSP",
+      "votes": 1170,
+      "vote_share_pct": 0.58,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Norang Dangi",
+      "party_short": "IND",
+      "votes": 1050,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Omprakash Jharoda",
+      "party_short": "CPI(ML)(L)",
+      "votes": 820,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1024,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2330,
+    "vote_share_pct": 1.16
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sharwan Kumar S/o Gokal Ram",
+    "party_short": "INC",
+    "votes": 115684,
+    "margin_votes": 37414,
+    "margin_pct": 18.67
+  }
+}

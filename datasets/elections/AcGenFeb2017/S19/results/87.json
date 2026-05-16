@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 87,
+  "constituency_name": "Faridkot",
+  "totals": {
+    "electors": 154149,
+    "votes_polled": 126420,
+    "turnout_pct": 82.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KUSALDEEP SINGH KIKI DHILLON",
+      "party_short": "INC",
+      "votes": 51026,
+      "vote_share_pct": 40.36,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GURDIT SINGH SEKHON",
+      "party_short": "AAAP",
+      "votes": 39367,
+      "vote_share_pct": 31.14,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PARAMBANS SINGH BUNTY ROMANA",
+      "party_short": "SAD",
+      "votes": 32612,
+      "vote_share_pct": 25.8,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GURBAX SINGH CHAUHAN",
+      "party_short": "BSP",
+      "votes": 1031,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "HARDIP SINGH KINGRA",
+      "party_short": "APPA",
+      "votes": 456,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 759,
+    "vote_share_pct": 0.6
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1169,
+    "vote_share_pct": 0.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KUSALDEEP SINGH KIKI DHILLON",
+    "party_short": "INC",
+    "votes": 51026,
+    "margin_votes": 11659,
+    "margin_pct": 9.22
+  }
+}

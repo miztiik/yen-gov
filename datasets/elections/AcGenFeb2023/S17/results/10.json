@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "Northern Angami-I (ST)",
+  "totals": {
+    "electors": 17860,
+    "votes_polled": 13830,
+    "turnout_pct": 77.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr.kekhrielhoulie Yhome",
+      "party_short": "NDPP",
+      "votes": 7724,
+      "vote_share_pct": 55.85,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Khriehu Liezietsu",
+      "party_short": "NPF",
+      "votes": 6034,
+      "vote_share_pct": 43.63,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 72,
+    "vote_share_pct": 0.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr.kekhrielhoulie Yhome",
+    "party_short": "NDPP",
+    "votes": 7724,
+    "margin_votes": 1690,
+    "margin_pct": 12.22
+  },
+  "others": null
+}

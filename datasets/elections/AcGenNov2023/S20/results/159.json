@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 159,
+  "constituency_name": "Aspur (ST)",
+  "totals": {
+    "electors": 270023,
+    "votes_polled": 200715,
+    "turnout_pct": 74.33
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Umesh Meena",
+      "party_short": "BHRTADVSIP",
+      "votes": 93742,
+      "vote_share_pct": 46.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 30,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Gopichand",
+      "party_short": "BJP",
+      "votes": 64802,
+      "vote_share_pct": 32.29,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Rakesh Roat",
+      "party_short": "INC",
+      "votes": 31630,
+      "vote_share_pct": 15.76,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Mukesh Kumar Ahari",
+      "party_short": "AAAP",
+      "votes": 3043,
+      "vote_share_pct": 1.52,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Mukesh",
+      "party_short": "IND",
+      "votes": 3011,
+      "vote_share_pct": 1.5,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3086,
+    "vote_share_pct": 1.54
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1401,
+    "vote_share_pct": 0.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Umesh Meena",
+    "party_short": "BHRTADVSIP",
+    "votes": 93742,
+    "margin_votes": 28940,
+    "margin_pct": 14.42
+  }
+}

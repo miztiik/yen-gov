@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Ghanshali",
+  "totals": {
+    "electors": 91369,
+    "votes_polled": 44794,
+    "turnout_pct": 49.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHAKTI LAL SHAH",
+      "party_short": "BJP",
+      "votes": 22103,
+      "vote_share_pct": 49.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DHANILAL SHAH",
+      "party_short": "IND",
+      "votes": 10450,
+      "vote_share_pct": 23.33,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BHEEM LAL ARYA",
+      "party_short": "INC",
+      "votes": 4963,
+      "vote_share_pct": 11.08,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PREM LAL",
+      "party_short": "IND",
+      "votes": 3062,
+      "vote_share_pct": 6.84,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MAKAN LAL",
+      "party_short": "UTRM",
+      "votes": 1458,
+      "vote_share_pct": 3.25,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 995,
+    "vote_share_pct": 2.22
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1763,
+    "vote_share_pct": 3.94
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHAKTI LAL SHAH",
+    "party_short": "BJP",
+    "votes": 22103,
+    "margin_votes": 11653,
+    "margin_pct": 26.01
+  }
+}

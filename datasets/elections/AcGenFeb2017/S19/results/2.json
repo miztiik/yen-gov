@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "Bhoa",
+  "totals": {
+    "electors": 174313,
+    "votes_polled": 131091,
+    "turnout_pct": 75.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JOGINDER PAL",
+      "party_short": "INC",
+      "votes": 67865,
+      "vote_share_pct": 51.77,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SEEMA KUMARI",
+      "party_short": "BJP",
+      "votes": 40369,
+      "vote_share_pct": 30.79,
+      "gender": "F",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "LAL CHAND KATARUCHAK",
+      "party_short": "RMPOI",
+      "votes": 13353,
+      "vote_share_pct": 10.19,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "AMARJEET SINGH",
+      "party_short": "AAAP",
+      "votes": 3767,
+      "vote_share_pct": 2.87,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MAHASHA VINOD KUMAR",
+      "party_short": "IND",
+      "votes": 750,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 454,
+    "vote_share_pct": 0.35
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 4533,
+    "vote_share_pct": 3.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JOGINDER PAL",
+    "party_short": "INC",
+    "votes": 67865,
+    "margin_votes": 27496,
+    "margin_pct": 20.97
+  }
+}

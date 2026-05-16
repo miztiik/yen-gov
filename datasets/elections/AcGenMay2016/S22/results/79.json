@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 79,
+  "constituency_name": "Sankarapuram",
+  "totals": {
+    "electors": 250770,
+    "votes_polled": 203295,
+    "turnout_pct": 81.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UDHAYASURIYAN.T",
+      "party_short": "DMK",
+      "votes": 90920,
+      "vote_share_pct": 44.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MOHAN P",
+      "party_short": "ADMK",
+      "votes": 76392,
+      "vote_share_pct": 37.58,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SIVARAMAN S",
+      "party_short": "PMK",
+      "votes": 13612,
+      "vote_share_pct": 6.7,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GOVINTHAN.R",
+      "party_short": "DMDK",
+      "votes": 13343,
+      "vote_share_pct": 6.56,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJENDRAN S",
+      "party_short": "KMDK",
+      "votes": 1189,
+      "vote_share_pct": 0.58,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1032,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 6807,
+    "vote_share_pct": 3.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UDHAYASURIYAN.T",
+    "party_short": "DMK",
+    "votes": 90920,
+    "margin_votes": 14528,
+    "margin_pct": 7.15
+  }
+}

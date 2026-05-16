@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "S.A.S.Nagar",
+  "totals": {
+    "electors": 209473,
+    "votes_polled": 140803,
+    "turnout_pct": 67.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BALBIR SINGH SIDHU",
+      "party_short": "INC",
+      "votes": 66844,
+      "vote_share_pct": 47.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NARINDER SINGH",
+      "party_short": "AAAP",
+      "votes": 38971,
+      "vote_share_pct": 27.68,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "TEJINDER PAL SINGH",
+      "party_short": "SAD",
+      "votes": 30031,
+      "vote_share_pct": 21.33,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SARBJIT SINGH",
+      "party_short": "BSP",
+      "votes": 1027,
+      "vote_share_pct": 0.73,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "AMIT SHARMA",
+      "party_short": "HSS",
+      "votes": 370,
+      "vote_share_pct": 0.26,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1139,
+    "vote_share_pct": 0.81
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2421,
+    "vote_share_pct": 1.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BALBIR SINGH SIDHU",
+    "party_short": "INC",
+    "votes": 66844,
+    "margin_votes": 27873,
+    "margin_pct": 19.8
+  }
+}

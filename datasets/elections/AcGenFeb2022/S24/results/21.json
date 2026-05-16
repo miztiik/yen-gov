@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Nehtaur",
+  "totals": {
+    "electors": 303720,
+    "votes_polled": 199914,
+    "turnout_pct": 65.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "OMKUMAR",
+      "party_short": "BJP",
+      "votes": 77935,
+      "vote_share_pct": 38.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "MUNSHIRAM",
+      "party_short": "RLD",
+      "votes": 77677,
+      "vote_share_pct": 38.86,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PRIYA SINGH",
+      "party_short": "BSP",
+      "votes": 38020,
+      "vote_share_pct": 19.02,
+      "gender": "F",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MEENAKSHI",
+      "party_short": "INC",
+      "votes": 1343,
+      "vote_share_pct": 0.67,
+      "gender": "F",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ALOK KUMAR",
+      "party_short": "ASPKR",
+      "votes": 1338,
+      "vote_share_pct": 0.67,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1057,
+    "vote_share_pct": 0.53
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2544,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "OMKUMAR",
+    "party_short": "BJP",
+    "votes": 77935,
+    "margin_votes": 258,
+    "margin_pct": 0.13
+  }
+}

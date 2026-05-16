@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "Kartarpur",
+  "totals": {
+    "electors": 170852,
+    "votes_polled": 126350,
+    "turnout_pct": 73.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHAUDHARY SURINDER SINGH",
+      "party_short": "INC",
+      "votes": 46729,
+      "vote_share_pct": 36.98,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SETH SAT PAUL",
+      "party_short": "SAD",
+      "votes": 40709,
+      "vote_share_pct": 32.22,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "CHANDER KUMAR GREWAL",
+      "party_short": "AAAP",
+      "votes": 29981,
+      "vote_share_pct": 23.73,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BALWINDER KUMAR",
+      "party_short": "BSP",
+      "votes": 5208,
+      "vote_share_pct": 4.12,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KASHMIR SINGH GHUGSHORE",
+      "party_short": "IND",
+      "votes": 1383,
+      "vote_share_pct": 1.09,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1086,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1254,
+    "vote_share_pct": 0.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHAUDHARY SURINDER SINGH",
+    "party_short": "INC",
+    "votes": 46729,
+    "margin_votes": 6020,
+    "margin_pct": 4.76
+  }
+}

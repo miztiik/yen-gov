@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "Kichha",
+  "totals": {
+    "electors": 139845,
+    "votes_polled": 100088,
+    "turnout_pct": 71.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Tilak Raj Behar",
+      "party_short": "INC",
+      "votes": 49552,
+      "vote_share_pct": 49.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rajesh Shukla",
+      "party_short": "BJP",
+      "votes": 39475,
+      "vote_share_pct": 39.44,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ajay Kumar Tiwari",
+      "party_short": "IND",
+      "votes": 6219,
+      "vote_share_pct": 6.21,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Kulavanta Singh",
+      "party_short": "AAAP",
+      "votes": 1671,
+      "vote_share_pct": 1.67,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ubaid Ullah Khan alias Nawab Rashid Khan",
+      "party_short": "BSP",
+      "votes": 855,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 554,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 1762,
+    "vote_share_pct": 1.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Tilak Raj Behar",
+    "party_short": "INC",
+    "votes": 49552,
+    "margin_votes": 10077,
+    "margin_pct": 10.07
+  }
+}

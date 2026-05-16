@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 398,
+  "constituency_name": "Chunar",
+  "totals": {
+    "electors": 335557,
+    "votes_polled": 216603,
+    "turnout_pct": 64.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANURAG SINGH",
+      "party_short": "BJP",
+      "votes": 105608,
+      "vote_share_pct": 48.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAGTAMBA SINGH PATEL",
+      "party_short": "SP",
+      "votes": 43380,
+      "vote_share_pct": 20.03,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANMOL SINGH",
+      "party_short": "BSP",
+      "votes": 39067,
+      "vote_share_pct": 18.04,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMRAJ SINGH PATEL",
+      "party_short": "IND",
+      "votes": 17009,
+      "vote_share_pct": 7.85,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SARVESH KUMAR SINGH ALIAS RAJA BHAIYA",
+      "party_short": "IND",
+      "votes": 3898,
+      "vote_share_pct": 1.8,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2541,
+    "vote_share_pct": 1.17
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 5100,
+    "vote_share_pct": 2.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANURAG SINGH",
+    "party_short": "BJP",
+    "votes": 105608,
+    "margin_votes": 62228,
+    "margin_pct": 28.73
+  }
+}

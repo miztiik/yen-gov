@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 3,
+  "constituency_name": "Pathankot",
+  "totals": {
+    "electors": 145604,
+    "votes_polled": 110853,
+    "turnout_pct": 76.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMIT VIJ",
+      "party_short": "INC",
+      "votes": 56383,
+      "vote_share_pct": 50.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ASHWANI KUMAR SHARMA",
+      "party_short": "BJP",
+      "votes": 45213,
+      "vote_share_pct": 40.79,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJ KUMAR",
+      "party_short": "AAAP",
+      "votes": 6036,
+      "vote_share_pct": 5.45,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ASHOK SHARMA",
+      "party_short": "IND",
+      "votes": 703,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ANKUR KHAJURIA",
+      "party_short": "BSP",
+      "votes": 470,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 907,
+    "vote_share_pct": 0.82
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1141,
+    "vote_share_pct": 1.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMIT VIJ",
+    "party_short": "INC",
+    "votes": 56383,
+    "margin_votes": 11170,
+    "margin_pct": 10.08
+  }
+}

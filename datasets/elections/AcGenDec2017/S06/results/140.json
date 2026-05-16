@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 140,
+  "constituency_name": "Dabhoi",
+  "totals": {
+    "electors": 201868,
+    "votes_polled": 161860,
+    "turnout_pct": 80.18
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MEHTA SHAILESHBHAI KANAIYALAL (SHAILESH SOTTA)",
+      "party_short": "BJP",
+      "votes": 77945,
+      "vote_share_pct": 48.16,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PATEL SIDDHARTH CHIMANBHAI",
+      "party_short": "INC",
+      "votes": 75106,
+      "vote_share_pct": 46.4,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MADHUSUDAN MOHANBHAI ROHIT",
+      "party_short": "BSP",
+      "votes": 1095,
+      "vote_share_pct": 0.68,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KISHORBHAI NAGJIBHAI PATANVADIYA",
+      "party_short": "GJCP",
+      "votes": 959,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NAVINBHAI HIMANTBHAI RAI",
+      "party_short": "IND",
+      "votes": 794,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3046,
+    "vote_share_pct": 1.88
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1912,
+    "vote_share_pct": 1.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MEHTA SHAILESHBHAI KANAIYALAL (SHAILESH SOTTA)",
+    "party_short": "BJP",
+    "votes": 77945,
+    "margin_votes": 2839,
+    "margin_pct": 1.75
+  }
+}

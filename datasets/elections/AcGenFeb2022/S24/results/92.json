@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 92,
+  "constituency_name": "Kheragarh",
+  "totals": {
+    "electors": 328680,
+    "votes_polled": 205257,
+    "turnout_pct": 62.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhagwan Singh Kushwaha",
+      "party_short": "BJP",
+      "votes": 96574,
+      "vote_share_pct": 47.05,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ramnath Singh Sikarwar",
+      "party_short": "INC",
+      "votes": 60077,
+      "vote_share_pct": 29.27,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Gangadhar Kushwah",
+      "party_short": "BSP",
+      "votes": 28988,
+      "vote_share_pct": 14.12,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rohtan",
+      "party_short": "RLD",
+      "votes": 14133,
+      "vote_share_pct": 6.89,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Shyam Sundar",
+      "party_short": "IND",
+      "votes": 1085,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1331,
+    "vote_share_pct": 0.65
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3069,
+    "vote_share_pct": 1.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhagwan Singh Kushwaha",
+    "party_short": "BJP",
+    "votes": 96574,
+    "margin_votes": 36497,
+    "margin_pct": 17.78
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 84,
+  "constituency_name": "Mathura",
+  "totals": {
+    "electors": 459369,
+    "votes_polled": 263621,
+    "turnout_pct": 57.39
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHRIKANT SHARMA",
+      "party_short": "BJP",
+      "votes": 158859,
+      "vote_share_pct": 60.26,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PRADEEP MATHUR",
+      "party_short": "INC",
+      "votes": 49056,
+      "vote_share_pct": 18.61,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S.K.SHARMA",
+      "party_short": "BSP",
+      "votes": 31551,
+      "vote_share_pct": 11.97,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DAVENDRA AGRAWAL",
+      "party_short": "SP",
+      "votes": 18476,
+      "vote_share_pct": 7.01,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KRISHNA KUMAR SHARMA URF KRISHNA SHARMA",
+      "party_short": "AAAP",
+      "votes": 1024,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1078,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3577,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHRIKANT SHARMA",
+    "party_short": "BJP",
+    "votes": 158859,
+    "margin_votes": 109803,
+    "margin_pct": 41.65
+  }
+}

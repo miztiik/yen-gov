@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Agartala",
+  "totals": {
+    "electors": 49233,
+    "votes_polled": 45838,
+    "turnout_pct": 93.1
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUDIP ROY BARMAN",
+      "party_short": "BJP",
+      "votes": 25234,
+      "vote_share_pct": 55.05,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KRISHNA MAJUMDER",
+      "party_short": "CPM",
+      "votes": 17852,
+      "vote_share_pct": 38.95,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRASHANTA SEN CHOWDHURY",
+      "party_short": "INC",
+      "votes": 646,
+      "vote_share_pct": 1.41,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PANNA DEB",
+      "party_short": "AITC",
+      "votes": 302,
+      "vote_share_pct": 0.66,
+      "gender": "F",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PRABIN SINGHA",
+      "party_short": "TRIPP",
+      "votes": 215,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 344,
+    "vote_share_pct": 0.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUDIP ROY BARMAN",
+    "party_short": "BJP",
+    "votes": 25234,
+    "margin_votes": 7382,
+    "margin_pct": 16.1
+  },
+  "others": null
+}

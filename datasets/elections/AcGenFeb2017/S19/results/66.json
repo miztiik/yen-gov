@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 66,
+  "constituency_name": "Gill",
+  "totals": {
+    "electors": 239146,
+    "votes_polled": 181224,
+    "turnout_pct": 75.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KULDEEP SINGH VAID(BULARA)",
+      "party_short": "INC",
+      "votes": 67927,
+      "vote_share_pct": 37.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "JIWAN SINGH SANGOWAL",
+      "party_short": "AAAP",
+      "votes": 59286,
+      "vote_share_pct": 32.71,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DARSHAN SINGH SHIVALIK",
+      "party_short": "SAD",
+      "votes": 46476,
+      "vote_share_pct": 25.65,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "BIKKER SINGH",
+      "party_short": "BSP",
+      "votes": 3455,
+      "vote_share_pct": 1.91,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KARTINDER PAL SINGH",
+      "party_short": "IND",
+      "votes": 886,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1647,
+    "vote_share_pct": 0.91
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1547,
+    "vote_share_pct": 0.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KULDEEP SINGH VAID(BULARA)",
+    "party_short": "INC",
+    "votes": 67927,
+    "margin_votes": 8641,
+    "margin_pct": 4.77
+  }
+}

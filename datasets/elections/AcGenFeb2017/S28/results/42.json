@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "Dharchula",
+  "totals": {
+    "electors": 86441,
+    "votes_polled": 53825,
+    "turnout_pct": 62.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARISH SINGH",
+      "party_short": "INC",
+      "votes": 25597,
+      "vote_share_pct": 47.56,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIRENDRA SINGH PAL",
+      "party_short": "BJP",
+      "votes": 22512,
+      "vote_share_pct": 41.82,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DURGA PRASHAD",
+      "party_short": "IND",
+      "votes": 2717,
+      "vote_share_pct": 5.05,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "LAL SINGH",
+      "party_short": "UKKD",
+      "votes": 883,
+      "vote_share_pct": 1.64,
+      "gender": "M",
+      "age": 75,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "DEVINDRA SINGH",
+      "party_short": "IND",
+      "votes": 631,
+      "vote_share_pct": 1.17,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 500,
+    "vote_share_pct": 0.93
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 985,
+    "vote_share_pct": 1.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARISH SINGH",
+    "party_short": "INC",
+    "votes": 25597,
+    "margin_votes": 3085,
+    "margin_pct": 5.73
+  }
+}

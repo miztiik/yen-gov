@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 96,
+  "constituency_name": "Mansa",
+  "totals": {
+    "electors": 219264,
+    "votes_polled": 173756,
+    "turnout_pct": 79.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr.Vijay Singla",
+      "party_short": "AAAP",
+      "votes": 100023,
+      "vote_share_pct": 57.57,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Shubhdeep Singh Sidhu Moose Wala",
+      "party_short": "INC",
+      "votes": 36700,
+      "vote_share_pct": 21.12,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Prem Kumar Arora",
+      "party_short": "SAD",
+      "votes": 27180,
+      "vote_share_pct": 15.64,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rajinder Singh",
+      "party_short": "SAD(M)",
+      "votes": 4089,
+      "vote_share_pct": 2.35,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Jiwan Dass Bawa",
+      "party_short": "PLCP",
+      "votes": 1734,
+      "vote_share_pct": 1.0,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1099,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2931,
+    "vote_share_pct": 1.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr.Vijay Singla",
+    "party_short": "AAAP",
+    "votes": 100023,
+    "margin_votes": 63323,
+    "margin_pct": 36.44
+  }
+}

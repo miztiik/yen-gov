@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 327,
+  "constituency_name": "Bansgaon",
+  "totals": {
+    "electors": 370785,
+    "votes_polled": 178818,
+    "turnout_pct": 48.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIMLESH PASWAN",
+      "party_short": "BJP",
+      "votes": 71966,
+      "vote_share_pct": 40.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DHARMENDRA KUMAR",
+      "party_short": "BSP",
+      "votes": 49093,
+      "vote_share_pct": 27.45,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SHARADA DEVI",
+      "party_short": "SP",
+      "votes": 44051,
+      "vote_share_pct": 24.63,
+      "gender": "F",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "NANDLAL",
+      "party_short": "NINSHAD",
+      "votes": 7892,
+      "vote_share_pct": 4.41,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAMDHARI",
+      "party_short": "IND",
+      "votes": 1496,
+      "vote_share_pct": 0.84,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2143,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 2177,
+    "vote_share_pct": 1.22
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIMLESH PASWAN",
+    "party_short": "BJP",
+    "votes": 71966,
+    "margin_votes": 22873,
+    "margin_pct": 12.79
+  }
+}

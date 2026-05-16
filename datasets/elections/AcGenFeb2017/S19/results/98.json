@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 98,
+  "constituency_name": "Budhlada",
+  "totals": {
+    "electors": 185227,
+    "votes_polled": 162244,
+    "turnout_pct": 87.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BUDH RAM",
+      "party_short": "AAAP",
+      "votes": 52265,
+      "vote_share_pct": 32.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RANJIT KAUR BHATTI",
+      "party_short": "INC",
+      "votes": 50989,
+      "vote_share_pct": 31.43,
+      "gender": "F",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "NISHAN SINGH",
+      "party_short": "SAD",
+      "votes": 50477,
+      "vote_share_pct": 31.11,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KRISHAN SINGH",
+      "party_short": "CPI",
+      "votes": 1986,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BHAGWANT SINGH SAMAO",
+      "party_short": "CPI(ML)(L)",
+      "votes": 1601,
+      "vote_share_pct": 0.99,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 778,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4148,
+    "vote_share_pct": 2.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BUDH RAM",
+    "party_short": "AAAP",
+    "votes": 52265,
+    "margin_votes": 1276,
+    "margin_pct": 0.79
+  }
+}

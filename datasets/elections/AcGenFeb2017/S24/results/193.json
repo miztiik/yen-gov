@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 193,
+  "constituency_name": "Amritpur",
+  "totals": {
+    "electors": 298668,
+    "votes_polled": 174640,
+    "turnout_pct": 58.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUSHIL KUMAR SHAKYA",
+      "party_short": "BJP",
+      "votes": 93502,
+      "vote_share_pct": 53.54,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NARENDRA SINGH YADAV",
+      "party_short": "SP",
+      "votes": 52995,
+      "vote_share_pct": 30.35,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARUN KUMAR MISHRA",
+      "party_short": "BSP",
+      "votes": 16500,
+      "vote_share_pct": 9.45,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHISHU PRATAP SINGH",
+      "party_short": "IND",
+      "votes": 3252,
+      "vote_share_pct": 1.86,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SANJAY SOMBANSHI",
+      "party_short": "JAM",
+      "votes": 2091,
+      "vote_share_pct": 1.2,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1250,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5050,
+    "vote_share_pct": 2.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUSHIL KUMAR SHAKYA",
+    "party_short": "BJP",
+    "votes": 93502,
+    "margin_votes": 40507,
+    "margin_pct": 23.19
+  }
+}

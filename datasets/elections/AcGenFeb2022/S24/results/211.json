@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 211,
+  "constituency_name": "Kalyanpur",
+  "totals": {
+    "electors": 355100,
+    "votes_polled": 187814,
+    "turnout_pct": 52.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NEELIMA KATIYAR",
+      "party_short": "BJP",
+      "votes": 98997,
+      "vote_share_pct": 52.71,
+      "is_winner": true,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SATISH KUMAR NIGAM",
+      "party_short": "SP",
+      "votes": 77462,
+      "vote_share_pct": 41.24,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARUN MISHRA",
+      "party_short": "BSP",
+      "votes": 6615,
+      "vote_share_pct": 3.52,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NEHA TIWARI",
+      "party_short": "INC",
+      "votes": 2302,
+      "vote_share_pct": 1.23,
+      "gender": "F",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AROON KUMAR",
+      "party_short": "AAAP",
+      "votes": 721,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 894,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 823,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NEELIMA KATIYAR",
+    "party_short": "BJP",
+    "votes": 98997,
+    "margin_votes": 21535,
+    "margin_pct": 11.47
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Town Bordowali",
+  "totals": {
+    "electors": 45696,
+    "votes_polled": 40568,
+    "turnout_pct": 88.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ASISH KUMAR SAHA",
+      "party_short": "BJP",
+      "votes": 24293,
+      "vote_share_pct": 59.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BISWANATH SAHA",
+      "party_short": "AIFB",
+      "votes": 13115,
+      "vote_share_pct": 32.33,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RATNA DATTA",
+      "party_short": "INC",
+      "votes": 1303,
+      "vote_share_pct": 3.21,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHIBANI BHOWMIK",
+      "party_short": "SUCI",
+      "votes": 202,
+      "vote_share_pct": 0.5,
+      "gender": "F",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 303,
+    "vote_share_pct": 0.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ASISH KUMAR SAHA",
+    "party_short": "BJP",
+    "votes": 24293,
+    "margin_votes": 11178,
+    "margin_pct": 27.55
+  },
+  "others": null
+}

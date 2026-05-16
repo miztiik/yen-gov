@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Wangkhei",
+  "totals": {
+    "electors": 34914,
+    "votes_polled": 29660,
+    "turnout_pct": 84.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "OKRAM HENRY SINGH",
+      "party_short": "INC",
+      "votes": 16753,
+      "vote_share_pct": 56.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "YUMKHAM ERABOT SINGH",
+      "party_short": "BJP",
+      "votes": 12417,
+      "vote_share_pct": 41.86,
+      "gender": "M",
+      "age": 77,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJKUMAR PRIYOBARTA SINGH",
+      "party_short": "AITC",
+      "votes": 149,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 341,
+    "vote_share_pct": 1.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "OKRAM HENRY SINGH",
+    "party_short": "INC",
+    "votes": 16753,
+    "margin_votes": 4336,
+    "margin_pct": 14.62
+  },
+  "others": null
+}

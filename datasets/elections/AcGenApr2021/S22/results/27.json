@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Shozhinganallur",
+  "totals": {
+    "electors": 698893,
+    "votes_polled": 388355,
+    "turnout_pct": 55.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "S.ARAVINDRAMESH",
+      "party_short": "DMK",
+      "votes": 171558,
+      "vote_share_pct": 44.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "K.P.KANDAN",
+      "party_short": "ADMK",
+      "votes": 136153,
+      "vote_share_pct": 35.06,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S.MICHAEL",
+      "party_short": "NTK",
+      "votes": 38872,
+      "vote_share_pct": 10.01,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJIV KUMAR",
+      "party_short": "MNM",
+      "votes": 30284,
+      "vote_share_pct": 7.8,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "R.MURUGAN",
+      "party_short": "DMDK",
+      "votes": 3912,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3030,
+    "vote_share_pct": 0.78
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 4546,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "S.ARAVINDRAMESH",
+    "party_short": "DMK",
+    "votes": 171558,
+    "margin_votes": 35405,
+    "margin_pct": 9.12
+  }
+}

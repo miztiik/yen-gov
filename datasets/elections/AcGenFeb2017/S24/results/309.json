@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 309,
+  "constituency_name": "Rudhauli",
+  "totals": {
+    "electors": 408883,
+    "votes_polled": 222611,
+    "turnout_pct": 54.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANJAY PRATAP JAISWAL",
+      "party_short": "BJP",
+      "votes": 90228,
+      "vote_share_pct": 40.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJENDRA PRASAD CHAUDHARY",
+      "party_short": "BSP",
+      "votes": 68423,
+      "vote_share_pct": 30.74,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SAYEED AHMAD KHAN",
+      "party_short": "INC",
+      "votes": 51743,
+      "vote_share_pct": 23.24,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SURYAMANI",
+      "party_short": "IND",
+      "votes": 1705,
+      "vote_share_pct": 0.77,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KANTHRAM PRAJAPATI",
+      "party_short": "BASAP",
+      "votes": 1561,
+      "vote_share_pct": 0.7,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2221,
+    "vote_share_pct": 1.0
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6730,
+    "vote_share_pct": 3.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANJAY PRATAP JAISWAL",
+    "party_short": "BJP",
+    "votes": 90228,
+    "margin_votes": 21805,
+    "margin_pct": 9.8
+  }
+}

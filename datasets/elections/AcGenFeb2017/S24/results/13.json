@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "Purqazi",
+  "totals": {
+    "electors": 313968,
+    "votes_polled": 204319,
+    "turnout_pct": 65.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PRAMOD UTWAL",
+      "party_short": "BJP",
+      "votes": 77491,
+      "vote_share_pct": 37.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DEEPAK KUMAR",
+      "party_short": "INC",
+      "votes": 66238,
+      "vote_share_pct": 32.42,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ANIL KUMAR",
+      "party_short": "BSP",
+      "votes": 46401,
+      "vote_share_pct": 22.71,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "CHOTI",
+      "party_short": "RLD",
+      "votes": 8227,
+      "vote_share_pct": 4.03,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "UMA KIRAN",
+      "party_short": "SP",
+      "votes": 2570,
+      "vote_share_pct": 1.26,
+      "gender": "F",
+      "age": 51,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1139,
+    "vote_share_pct": 0.56
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2253,
+    "vote_share_pct": 1.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PRAMOD UTWAL",
+    "party_short": "BJP",
+    "votes": 77491,
+    "margin_votes": 11253,
+    "margin_pct": 5.51
+  }
+}

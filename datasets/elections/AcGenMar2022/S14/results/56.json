@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 56,
+  "constituency_name": "Thanlon",
+  "totals": {
+    "electors": 18042,
+    "votes_polled": 13340,
+    "turnout_pct": 73.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Vungzagin Valte",
+      "party_short": "BJP",
+      "votes": 4863,
+      "vote_share_pct": 36.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Khanthang Tonsing",
+      "party_short": "NPEP",
+      "votes": 4112,
+      "vote_share_pct": 30.82,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Langkhanpau Guite",
+      "party_short": "IND",
+      "votes": 2789,
+      "vote_share_pct": 20.91,
+      "gender": "M",
+      "age": 45,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Thangkhosei Guite",
+      "party_short": "JD(U)",
+      "votes": 797,
+      "vote_share_pct": 5.97,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Lalhlunsang Sungte",
+      "party_short": "SHS",
+      "votes": 658,
+      "vote_share_pct": 4.93,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 50,
+    "vote_share_pct": 0.37
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 71,
+    "vote_share_pct": 0.53
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Vungzagin Valte",
+    "party_short": "BJP",
+    "votes": 4863,
+    "margin_votes": 751,
+    "margin_pct": 5.63
+  }
+}

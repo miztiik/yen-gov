@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "Mon Town (ST)",
+  "totals": {
+    "electors": 20347,
+    "votes_polled": 19167,
+    "turnout_pct": 94.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Y Mankhao Konyak",
+      "party_short": "NCP",
+      "votes": 10870,
+      "vote_share_pct": 56.71,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Er. Cheong Konyak",
+      "party_short": "BJP",
+      "votes": 8259,
+      "vote_share_pct": 43.09,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 38,
+    "vote_share_pct": 0.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Y Mankhao Konyak",
+    "party_short": "NCP",
+    "votes": 10870,
+    "margin_votes": 2611,
+    "margin_pct": 13.62
+  },
+  "others": null
+}

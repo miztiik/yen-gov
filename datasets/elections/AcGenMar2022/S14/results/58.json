@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "Churachandpur",
+  "totals": {
+    "electors": 65325,
+    "votes_polled": 47671,
+    "turnout_pct": 72.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "L.M. KHAUTE",
+      "party_short": "JD(U)",
+      "votes": 18231,
+      "vote_share_pct": 38.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "V HANGKHANLIAN",
+      "party_short": "BJP",
+      "votes": 17607,
+      "vote_share_pct": 36.93,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "H. MANGCHINKHUP PAITE",
+      "party_short": "INC",
+      "votes": 8482,
+      "vote_share_pct": 17.79,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "JAMES KHUMA HAUZEL",
+      "party_short": "IND",
+      "votes": 2244,
+      "vote_share_pct": 4.71,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Th. THANGZALIAN",
+      "party_short": "NPEP",
+      "votes": 515,
+      "vote_share_pct": 1.08,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 174,
+    "vote_share_pct": 0.37
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 418,
+    "vote_share_pct": 0.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "L.M. KHAUTE",
+    "party_short": "JD(U)",
+    "votes": 18231,
+    "margin_votes": 624,
+    "margin_pct": 1.31
+  }
+}

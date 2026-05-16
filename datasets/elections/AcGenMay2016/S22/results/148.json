@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 148,
+  "constituency_name": "Kunnam",
+  "totals": {
+    "electors": 255823,
+    "votes_polled": 205044,
+    "turnout_pct": 80.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMACHANDRAN.R.T",
+      "party_short": "ADMK",
+      "votes": 78218,
+      "vote_share_pct": 38.15,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DURAIRAJ.T",
+      "party_short": "DMK",
+      "votes": 59422,
+      "vote_share_pct": 28.98,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VAITHILINGAM.G",
+      "party_short": "PMK",
+      "votes": 37271,
+      "vote_share_pct": 18.18,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHAMED SHANAVAS.J",
+      "party_short": "VCK",
+      "votes": 19853,
+      "vote_share_pct": 9.68,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ARUL.P",
+      "party_short": "NTK",
+      "votes": 1665,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3024,
+    "vote_share_pct": 1.47
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 5591,
+    "vote_share_pct": 2.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMACHANDRAN.R.T",
+    "party_short": "ADMK",
+    "votes": 78218,
+    "margin_votes": 18796,
+    "margin_pct": 9.17
+  }
+}

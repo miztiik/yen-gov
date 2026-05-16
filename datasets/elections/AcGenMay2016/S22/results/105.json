@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 105,
+  "constituency_name": "Anthiyur",
+  "totals": {
+    "electors": 207641,
+    "votes_polled": 169581,
+    "turnout_pct": 81.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "E.M.R.RAJA ALIAS RAJAKRISHNAN.K.R",
+      "party_short": "ADMK",
+      "votes": 71575,
+      "vote_share_pct": 42.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VENKATACHALAM A G",
+      "party_short": "DMK",
+      "votes": 66263,
+      "vote_share_pct": 39.07,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GOPAL.S.C.R",
+      "party_short": "PMK",
+      "votes": 11570,
+      "vote_share_pct": 6.82,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJA D",
+      "party_short": "KMDK",
+      "votes": 5995,
+      "vote_share_pct": 3.54,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJA SAMPATH M K",
+      "party_short": "DMDK",
+      "votes": 5828,
+      "vote_share_pct": 3.44,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1546,
+    "vote_share_pct": 0.91
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 6804,
+    "vote_share_pct": 4.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "E.M.R.RAJA ALIAS RAJAKRISHNAN.K.R",
+    "party_short": "ADMK",
+    "votes": 71575,
+    "margin_votes": 5312,
+    "margin_pct": 3.13
+  }
+}

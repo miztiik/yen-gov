@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 70,
+  "constituency_name": "Kaman",
+  "totals": {
+    "electors": 265803,
+    "votes_polled": 207982,
+    "turnout_pct": 78.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Nauksham",
+      "party_short": "BJP",
+      "votes": 78646,
+      "vote_share_pct": 37.81,
+      "is_winner": true,
+      "gender": "F",
+      "age": 33,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Mukhtyar Ahmad",
+      "party_short": "IND",
+      "votes": 64740,
+      "vote_share_pct": 31.13,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Zahida Khan",
+      "party_short": "INC",
+      "votes": 58130,
+      "vote_share_pct": 27.95,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Mohd Shakeel Khan",
+      "party_short": "BSP",
+      "votes": 1847,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Hapij",
+      "party_short": "IND",
+      "votes": 1260,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1076,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2283,
+    "vote_share_pct": 1.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Nauksham",
+    "party_short": "BJP",
+    "votes": 78646,
+    "margin_votes": 13906,
+    "margin_pct": 6.69
+  }
+}

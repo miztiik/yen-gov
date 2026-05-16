@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Sonamura",
+  "totals": {
+    "electors": 40447,
+    "votes_polled": 37617,
+    "turnout_pct": 93.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHYAMAL CHAKRABORTY",
+      "party_short": "CPM",
+      "votes": 19275,
+      "vote_share_pct": 51.24,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUBAL BHOWMIK",
+      "party_short": "BJP",
+      "votes": 15843,
+      "vote_share_pct": 42.12,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MAJIBUR ISLAM MAJUMDAR",
+      "party_short": "INC",
+      "votes": 684,
+      "vote_share_pct": 1.82,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JASIM UDDIN",
+      "party_short": "AITC",
+      "votes": 420,
+      "vote_share_pct": 1.12,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RUHUL AMIN",
+      "party_short": "TRIPP",
+      "votes": 231,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 300,
+    "vote_share_pct": 0.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHYAMAL CHAKRABORTY",
+    "party_short": "CPM",
+    "votes": 19275,
+    "margin_votes": 3432,
+    "margin_pct": 9.12
+  },
+  "others": null
+}

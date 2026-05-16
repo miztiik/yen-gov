@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 267,
+  "constituency_name": "Ram Nagar",
+  "totals": {
+    "electors": 338326,
+    "votes_polled": 235461,
+    "turnout_pct": 69.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "FAREED MAHFOOZ KIDWAI",
+      "party_short": "SP",
+      "votes": 98799,
+      "vote_share_pct": 41.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 77,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHARAD KUMAR AWASTHI",
+      "party_short": "BJP",
+      "votes": 98538,
+      "vote_share_pct": 41.85,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAM KISHOR",
+      "party_short": "BSP",
+      "votes": 23259,
+      "vote_share_pct": 9.88,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARUN KUMAR",
+      "party_short": "AIMIM",
+      "votes": 4940,
+      "vote_share_pct": 2.1,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GYANESH SHUKLA",
+      "party_short": "INC",
+      "votes": 4430,
+      "vote_share_pct": 1.88,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1822,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3673,
+    "vote_share_pct": 1.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "FAREED MAHFOOZ KIDWAI",
+    "party_short": "SP",
+    "votes": 98799,
+    "margin_votes": 261,
+    "margin_pct": 0.11
+  }
+}

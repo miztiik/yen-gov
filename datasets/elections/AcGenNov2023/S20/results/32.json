@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "Fatehpur",
+  "totals": {
+    "electors": 254795,
+    "votes_polled": 181512,
+    "turnout_pct": 71.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Hakam Ali Khan",
+      "party_short": "INC",
+      "votes": 84194,
+      "vote_share_pct": 46.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sharawan Choudhary S/o Prem Singh",
+      "party_short": "BJP",
+      "votes": 58201,
+      "vote_share_pct": 32.06,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Nand Kishore Maharia",
+      "party_short": "JNJP",
+      "votes": 23851,
+      "vote_share_pct": 13.14,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Madhu Sudan",
+      "party_short": "IND",
+      "votes": 8786,
+      "vote_share_pct": 4.84,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sharwan Choudhary S/o Pitharam",
+      "party_short": "IND",
+      "votes": 2221,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 762,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3497,
+    "vote_share_pct": 1.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Hakam Ali Khan",
+    "party_short": "INC",
+    "votes": 84194,
+    "margin_votes": 25993,
+    "margin_pct": 14.32
+  }
+}

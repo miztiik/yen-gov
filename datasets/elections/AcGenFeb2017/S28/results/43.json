@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "Didihat",
+  "totals": {
+    "electors": 84662,
+    "votes_polled": 51670,
+    "turnout_pct": 61.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VISHAN SINGH",
+      "party_short": "BJP",
+      "votes": 17392,
+      "vote_share_pct": 33.66,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KISHAN  BHANDARI",
+      "party_short": "IND",
+      "votes": 15024,
+      "vote_share_pct": 29.08,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRADEEP SINGH PAL",
+      "party_short": "INC",
+      "votes": 14470,
+      "vote_share_pct": 28.0,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KASHI SINGH AIRY",
+      "party_short": "UKKD",
+      "votes": 2896,
+      "vote_share_pct": 5.6,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "HAR GOVIND PANT",
+      "party_short": "BSP",
+      "votes": 631,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 737,
+    "vote_share_pct": 1.43
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 520,
+    "vote_share_pct": 1.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VISHAN SINGH",
+    "party_short": "BJP",
+    "votes": 17392,
+    "margin_votes": 2368,
+    "margin_pct": 4.58
+  }
+}

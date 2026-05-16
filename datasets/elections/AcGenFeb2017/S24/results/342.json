@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 342,
+  "constituency_name": "Barhaj",
+  "totals": {
+    "electors": 292657,
+    "votes_polled": 168628,
+    "turnout_pct": 57.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURESH TIWARI",
+      "party_short": "BJP",
+      "votes": 61996,
+      "vote_share_pct": 36.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MURLI MANOHAR JAISWAL",
+      "party_short": "BSP",
+      "votes": 50280,
+      "vote_share_pct": 29.82,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PURNENDU TIWARI URF P.D.TIWARI",
+      "party_short": "SP",
+      "votes": 27761,
+      "vote_share_pct": 16.46,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GIRENDRA PRATAP YADAV",
+      "party_short": "IND",
+      "votes": 18489,
+      "vote_share_pct": 10.96,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAI PRAKASH KUSHWAHA",
+      "party_short": "CPI",
+      "votes": 2106,
+      "vote_share_pct": 1.25,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1338,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 6658,
+    "vote_share_pct": 3.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURESH TIWARI",
+    "party_short": "BJP",
+    "votes": 61996,
+    "margin_votes": 11716,
+    "margin_pct": 6.95
+  }
+}

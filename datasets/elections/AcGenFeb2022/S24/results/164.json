@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 164,
+  "constituency_name": "Mohan",
+  "totals": {
+    "electors": 342858,
+    "votes_polled": 211963,
+    "turnout_pct": 61.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BRAJESH KUMAR",
+      "party_short": "BJP",
+      "votes": 113291,
+      "vote_share_pct": 53.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. ANCHAL",
+      "party_short": "SP",
+      "votes": 70112,
+      "vote_share_pct": 33.08,
+      "gender": "F",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SEWAK LAL RAWAT",
+      "party_short": "BSP",
+      "votes": 20806,
+      "vote_share_pct": 9.82,
+      "gender": "M",
+      "age": 57,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MADHU VERMA ALIAS MADHU RAWAT",
+      "party_short": "INC",
+      "votes": 2744,
+      "vote_share_pct": 1.29,
+      "gender": "F",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "NITU KANAUJIYA",
+      "party_short": "ASPKR",
+      "votes": 919,
+      "vote_share_pct": 0.43,
+      "gender": "F",
+      "age": 33,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1579,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2512,
+    "vote_share_pct": 1.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BRAJESH KUMAR",
+    "party_short": "BJP",
+    "votes": 113291,
+    "margin_votes": 43179,
+    "margin_pct": 20.37
+  }
+}

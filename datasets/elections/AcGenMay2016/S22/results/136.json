@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 136,
+  "constituency_name": "Krishnarayapuram",
+  "totals": {
+    "electors": 203049,
+    "votes_polled": 168559,
+    "turnout_pct": 83.01
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GEETHA , M.",
+      "party_short": "ADMK",
+      "votes": 83977,
+      "vote_share_pct": 49.82,
+      "is_winner": true,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "AIYYAR , V. K.",
+      "party_short": "PT",
+      "votes": 48676,
+      "vote_share_pct": 28.88,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SIVANANTHAM , K.",
+      "party_short": "TMC(M)",
+      "votes": 10043,
+      "vote_share_pct": 5.96,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "NAVEENKUMAR , P.",
+      "party_short": "BJP",
+      "votes": 5673,
+      "vote_share_pct": 3.37,
+      "gender": "M",
+      "age": 27,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PAGALAVAN , M.",
+      "party_short": "IND",
+      "votes": 5153,
+      "vote_share_pct": 3.06,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 4742,
+    "vote_share_pct": 2.81
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 10295,
+    "vote_share_pct": 6.11
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GEETHA , M.",
+    "party_short": "ADMK",
+    "votes": 83977,
+    "margin_votes": 35301,
+    "margin_pct": 20.94
+  }
+}

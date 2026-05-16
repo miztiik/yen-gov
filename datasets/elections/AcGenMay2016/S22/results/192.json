@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 192,
+  "constituency_name": "Madurai South",
+  "totals": {
+    "electors": 219349,
+    "votes_polled": 146611,
+    "turnout_pct": 66.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SARAVANAN .S.S.",
+      "party_short": "ADMK",
+      "votes": 62683,
+      "vote_share_pct": 42.75,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BALACHANDRAN .M",
+      "party_short": "DMK",
+      "votes": 38920,
+      "vote_share_pct": 26.55,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BOOMINATHAN. M",
+      "party_short": "MDMK",
+      "votes": 19443,
+      "vote_share_pct": 13.26,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MAHALAKSHMI .A.R",
+      "party_short": "BJP",
+      "votes": 16069,
+      "vote_share_pct": 10.96,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VIJAYAKUMAR. B",
+      "party_short": "NTK",
+      "votes": 2594,
+      "vote_share_pct": 1.77,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2918,
+    "vote_share_pct": 1.99
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3984,
+    "vote_share_pct": 2.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SARAVANAN .S.S.",
+    "party_short": "ADMK",
+    "votes": 62683,
+    "margin_votes": 23763,
+    "margin_pct": 16.21
+  }
+}

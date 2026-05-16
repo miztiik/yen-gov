@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "Abohar",
+  "totals": {
+    "electors": 159670,
+    "votes_polled": 125129,
+    "turnout_pct": 78.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARUN NARANG",
+      "party_short": "BJP",
+      "votes": 55091,
+      "vote_share_pct": 44.03,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUNIL JAKHAR",
+      "party_short": "INC",
+      "votes": 51812,
+      "vote_share_pct": 41.41,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ATUL NAGPAL",
+      "party_short": "AAAP",
+      "votes": 13888,
+      "vote_share_pct": 11.1,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRITHI RAJ",
+      "party_short": "BSP",
+      "votes": 642,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NATHU RAM",
+      "party_short": "IND",
+      "votes": 614,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1212,
+    "vote_share_pct": 0.97
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1870,
+    "vote_share_pct": 1.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARUN NARANG",
+    "party_short": "BJP",
+    "votes": 55091,
+    "margin_votes": 3279,
+    "margin_pct": 2.62
+  }
+}

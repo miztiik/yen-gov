@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 200,
+  "constituency_name": "Bodinayakanur",
+  "totals": {
+    "electors": 257500,
+    "votes_polled": 201579,
+    "turnout_pct": 78.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "O. PANNEERSELVAM",
+      "party_short": "ADMK",
+      "votes": 99531,
+      "vote_share_pct": 49.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "S. LAKSHMANAN",
+      "party_short": "DMK",
+      "votes": 83923,
+      "vote_share_pct": 41.63,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "A.VEERABADRAN",
+      "party_short": "DMDK",
+      "votes": 6889,
+      "vote_share_pct": 3.42,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "V. VENKATESWARAN",
+      "party_short": "BJP",
+      "votes": 3250,
+      "vote_share_pct": 1.61,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "P. ANBALAGAN",
+      "party_short": "NTK",
+      "votes": 1324,
+      "vote_share_pct": 0.66,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1966,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 4696,
+    "vote_share_pct": 2.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "O. PANNEERSELVAM",
+    "party_short": "ADMK",
+    "votes": 99531,
+    "margin_votes": 15608,
+    "margin_pct": 7.74
+  }
+}

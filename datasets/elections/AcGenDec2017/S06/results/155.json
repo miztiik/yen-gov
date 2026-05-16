@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 155,
+  "constituency_name": "Olpad",
+  "totals": {
+    "electors": 359736,
+    "votes_polled": 245116,
+    "turnout_pct": 68.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PATEL MUKESHBHAI ZINABHAI",
+      "party_short": "BJP",
+      "votes": 147828,
+      "vote_share_pct": 60.31,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BAKROLA YOGENDRASINH CHANDRASINH",
+      "party_short": "INC",
+      "votes": 86250,
+      "vote_share_pct": 35.19,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PATHAN SIRAJKHAN HOSIYARKHAN",
+      "party_short": "BSP",
+      "votes": 1454,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PATEL HITESHBHAI MOHANBHAI",
+      "party_short": "IND",
+      "votes": 1138,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SANGHANI KISHORBHAI DEVRAJBHAI",
+      "party_short": "NCP",
+      "votes": 1055,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3897,
+    "vote_share_pct": 1.59
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2899,
+    "vote_share_pct": 1.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PATEL MUKESHBHAI ZINABHAI",
+    "party_short": "BJP",
+    "votes": 147828,
+    "margin_votes": 61578,
+    "margin_pct": 25.12
+  }
+}

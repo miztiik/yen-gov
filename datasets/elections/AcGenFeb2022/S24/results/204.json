@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 204,
+  "constituency_name": "Auraiya",
+  "totals": {
+    "electors": 332885,
+    "votes_polled": 195746,
+    "turnout_pct": 58.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gudiya Katheriya",
+      "party_short": "BJP",
+      "votes": 88631,
+      "vote_share_pct": 45.28,
+      "is_winner": true,
+      "gender": "F",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Jitendra Kumar Dohare",
+      "party_short": "SP",
+      "votes": 66184,
+      "vote_share_pct": 33.81,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Ravi Shastri Dohrey",
+      "party_short": "BSP",
+      "votes": 36159,
+      "vote_share_pct": 18.47,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Sarita Dohare",
+      "party_short": "INC",
+      "votes": 1143,
+      "vote_share_pct": 0.58,
+      "gender": "F",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Vinay Gautam Advocate",
+      "party_short": "ASPKR",
+      "votes": 610,
+      "vote_share_pct": 0.31,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1192,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1827,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gudiya Katheriya",
+    "party_short": "BJP",
+    "votes": 88631,
+    "margin_votes": 22447,
+    "margin_pct": 11.47
+  }
+}

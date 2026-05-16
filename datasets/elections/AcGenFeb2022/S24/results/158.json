@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 158,
+  "constituency_name": "Sandi",
+  "totals": {
+    "electors": 332011,
+    "votes_polled": 195511,
+    "turnout_pct": 58.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Prabhash Kumar",
+      "party_short": "BJP",
+      "votes": 81519,
+      "vote_share_pct": 41.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Usha Verma",
+      "party_short": "SP",
+      "votes": 72286,
+      "vote_share_pct": 36.97,
+      "gender": "F",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Kamal Verma s/o Sundar Lal Verma",
+      "party_short": "BSP",
+      "votes": 30576,
+      "vote_share_pct": 15.64,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Akanksha Verma",
+      "party_short": "INC",
+      "votes": 3055,
+      "vote_share_pct": 1.56,
+      "gender": "F",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Kamal Verma s/o Niranjan Lal",
+      "party_short": "IND",
+      "votes": 1557,
+      "vote_share_pct": 0.8,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1689,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 4829,
+    "vote_share_pct": 2.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Prabhash Kumar",
+    "party_short": "BJP",
+    "votes": 81519,
+    "margin_votes": 9233,
+    "margin_pct": 4.72
+  }
+}

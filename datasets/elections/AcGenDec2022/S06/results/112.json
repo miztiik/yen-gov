@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 112,
+  "constituency_name": "Anand",
+  "totals": {
+    "electors": 314855,
+    "votes_polled": 193924,
+    "turnout_pct": 61.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Yogesh R. Patel (bapji)",
+      "party_short": "BJP",
+      "votes": 111859,
+      "vote_share_pct": 57.68,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kantibhai Sodha Parmar (bhagat)",
+      "party_short": "INC",
+      "votes": 70236,
+      "vote_share_pct": 36.22,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sedaliya Girishkumar Himmatlal",
+      "party_short": "AAAP",
+      "votes": 5071,
+      "vote_share_pct": 2.61,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Alpeshkumar Jayantibhai Makwana (appu)",
+      "party_short": "BSP",
+      "votes": 1344,
+      "vote_share_pct": 0.69,
+      "gender": "M",
+      "age": 27,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Vipulkumar Bipinbhai Macwan",
+      "party_short": "IND",
+      "votes": 624,
+      "vote_share_pct": 0.32,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2157,
+    "vote_share_pct": 1.11
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2633,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Yogesh R. Patel (bapji)",
+    "party_short": "BJP",
+    "votes": 111859,
+    "margin_votes": 41623,
+    "margin_pct": 21.46
+  }
+}

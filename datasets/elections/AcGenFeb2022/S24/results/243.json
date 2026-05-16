@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 243,
+  "constituency_name": "Khaga",
+  "totals": {
+    "electors": 342812,
+    "votes_polled": 199986,
+    "turnout_pct": 58.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KRISHNA PASWAN",
+      "party_short": "BJP",
+      "votes": 83735,
+      "vote_share_pct": 41.87,
+      "is_winner": true,
+      "gender": "F",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAMTHIRTH PARAMHANS",
+      "party_short": "SP",
+      "votes": 78226,
+      "vote_share_pct": 39.12,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DASHARATH LAL",
+      "party_short": "BSP",
+      "votes": 22115,
+      "vote_share_pct": 11.06,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "OMPRAKASH GIHAR",
+      "party_short": "INC",
+      "votes": 3773,
+      "vote_share_pct": 1.89,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAM KRISHNA HEGDE",
+      "party_short": "CPI",
+      "votes": 2171,
+      "vote_share_pct": 1.09,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2162,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 7804,
+    "vote_share_pct": 3.89
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KRISHNA PASWAN",
+    "party_short": "BJP",
+    "votes": 83735,
+    "margin_votes": 5509,
+    "margin_pct": 2.75
+  }
+}

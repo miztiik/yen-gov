@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "Churachandpur (ST)",
+  "totals": {
+    "electors": 54113,
+    "votes_polled": 33840,
+    "turnout_pct": 62.54
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "V. HANGKHANLIAN",
+      "party_short": "BJP",
+      "votes": 10246,
+      "vote_share_pct": 30.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "PHUNGZATHANG TONSING",
+      "party_short": "NPEP",
+      "votes": 9632,
+      "vote_share_pct": 28.46,
+      "gender": "M",
+      "age": 71,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "PAUKHANSUAN KHUPTONG",
+      "party_short": "NEINDP",
+      "votes": 6411,
+      "vote_share_pct": 18.95,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "THANGBIAKLIAN HANGZO",
+      "party_short": "RPI(A)",
+      "votes": 3712,
+      "vote_share_pct": 10.97,
+      "gender": "M",
+      "age": 36,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "CHINTWAHLIAN @ C.T. LIAN GUITE",
+      "party_short": "IND",
+      "votes": 3040,
+      "vote_share_pct": 8.98,
+      "gender": "M",
+      "age": 40,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 108,
+    "vote_share_pct": 0.32
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 691,
+    "vote_share_pct": 2.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "V. HANGKHANLIAN",
+    "party_short": "BJP",
+    "votes": 10246,
+    "margin_votes": 614,
+    "margin_pct": 1.81
+  }
+}

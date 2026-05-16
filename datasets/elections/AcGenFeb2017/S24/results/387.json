@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 387,
+  "constituency_name": "Rohaniya",
+  "totals": {
+    "electors": 379258,
+    "votes_polled": 233782,
+    "turnout_pct": 61.64
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURENDRA NARAYAN SINGH",
+      "party_short": "BJP",
+      "votes": 119885,
+      "vote_share_pct": 51.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MAHENDRA SINGH  PATEL",
+      "party_short": "SP",
+      "votes": 62332,
+      "vote_share_pct": 26.66,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRAMOD KUMAR SINGH",
+      "party_short": "BSP",
+      "votes": 30531,
+      "vote_share_pct": 13.06,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KRISHNA PATEL",
+      "party_short": "IND",
+      "votes": 9549,
+      "vote_share_pct": 4.08,
+      "gender": "F",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PARVATI DEVI",
+      "party_short": "IND",
+      "votes": 2926,
+      "vote_share_pct": 1.25,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2190,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 6369,
+    "vote_share_pct": 2.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURENDRA NARAYAN SINGH",
+    "party_short": "BJP",
+    "votes": 119885,
+    "margin_votes": 57553,
+    "margin_pct": 24.62
+  }
+}

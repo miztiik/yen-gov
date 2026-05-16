@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 151,
+  "constituency_name": "Vagra",
+  "totals": {
+    "electors": 198507,
+    "votes_polled": 153195,
+    "turnout_pct": 77.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARUNSINH AJITSINH RANA",
+      "party_short": "BJP",
+      "votes": 72331,
+      "vote_share_pct": 47.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PATEL SULEMANBHAI MUSABHAI",
+      "party_short": "INC",
+      "votes": 69703,
+      "vote_share_pct": 45.5,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GOHIL FATESANGBHAI RAYSANGBHAI",
+      "party_short": "IND",
+      "votes": 5601,
+      "vote_share_pct": 3.66,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GHASWALA ASARAF JAVID MUSABHAI",
+      "party_short": "IND",
+      "votes": 986,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PATHAN ALTAFKHAN DAUDKHAN",
+      "party_short": "AINHCP",
+      "votes": 555,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2807,
+    "vote_share_pct": 1.83
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 744,
+    "vote_share_pct": 0.47
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARUNSINH AJITSINH RANA",
+    "party_short": "BJP",
+    "votes": 72331,
+    "margin_votes": 2628,
+    "margin_pct": 1.72
+  }
+}

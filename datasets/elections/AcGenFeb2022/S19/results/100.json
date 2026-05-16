@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 100,
+  "constituency_name": "Dirba",
+  "totals": {
+    "electors": 183789,
+    "votes_polled": 145257,
+    "turnout_pct": 79.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Harpal Singh Cheema",
+      "party_short": "AAAP",
+      "votes": 82630,
+      "vote_share_pct": 56.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Gulzar Singh Moonak",
+      "party_short": "SAD",
+      "votes": 31975,
+      "vote_share_pct": 22.01,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Ajaib Singh Ratolan",
+      "party_short": "INC",
+      "votes": 10472,
+      "vote_share_pct": 7.21,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Mandeep Singh",
+      "party_short": "SAD(M)",
+      "votes": 9000,
+      "vote_share_pct": 6.2,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Soma Singh",
+      "party_short": "SADS",
+      "votes": 4760,
+      "vote_share_pct": 3.28,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1002,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5418,
+    "vote_share_pct": 3.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Harpal Singh Cheema",
+    "party_short": "AAAP",
+    "votes": 82630,
+    "margin_votes": 50655,
+    "margin_pct": 34.87
+  }
+}

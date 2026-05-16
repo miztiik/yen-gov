@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 61,
+  "constituency_name": "Limbdi",
+  "totals": {
+    "electors": 259915,
+    "votes_polled": 167465,
+    "turnout_pct": 64.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KOLIPATEL SOMABHAI GANDALAL",
+      "party_short": "INC",
+      "votes": 83909,
+      "vote_share_pct": 50.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 77,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KIRITSINH JITUBHA RANA",
+      "party_short": "BJP",
+      "votes": 69258,
+      "vote_share_pct": 41.36,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHAVDA ASHOKBHAI KARSHANBHAI",
+      "party_short": "BSP",
+      "votes": 2699,
+      "vote_share_pct": 1.61,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "VADHER HARSHADKUMAR MOHANLAL",
+      "party_short": "IND",
+      "votes": 2139,
+      "vote_share_pct": 1.28,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MER OGHADBHAI SAGRAMBHAI",
+      "party_short": "IND",
+      "votes": 747,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3356,
+    "vote_share_pct": 2.0
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3490,
+    "vote_share_pct": 2.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KOLIPATEL SOMABHAI GANDALAL",
+    "party_short": "INC",
+    "votes": 83909,
+    "margin_votes": 14651,
+    "margin_pct": 8.75
+  }
+}

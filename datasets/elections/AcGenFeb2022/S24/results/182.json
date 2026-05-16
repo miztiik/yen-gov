@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 182,
+  "constituency_name": "Sareni",
+  "totals": {
+    "electors": 371469,
+    "votes_polled": 216700,
+    "turnout_pct": 58.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DEVENDRA PRATAP SINGH",
+      "party_short": "SP",
+      "votes": 66166,
+      "vote_share_pct": 30.53,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DHIRENDRA BAHADUR SINGH",
+      "party_short": "BJP",
+      "votes": 62359,
+      "vote_share_pct": 28.78,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUDHA DWIVEDI",
+      "party_short": "INC",
+      "votes": 42702,
+      "vote_share_pct": 19.71,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THAKUR PRASAD YADAV",
+      "party_short": "BSP",
+      "votes": 38155,
+      "vote_share_pct": 17.61,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DEVENDRA PAL",
+      "party_short": "AAAP",
+      "votes": 1086,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1395,
+    "vote_share_pct": 0.64
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4837,
+    "vote_share_pct": 2.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DEVENDRA PRATAP SINGH",
+    "party_short": "SP",
+    "votes": 66166,
+    "margin_votes": 3807,
+    "margin_pct": 1.76
+  }
+}

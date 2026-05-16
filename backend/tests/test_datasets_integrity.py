@@ -33,6 +33,18 @@ ALLOWED_MISSING_RESULTS: dict[tuple[str, str], set[int]] = {
     # the general election. Bootstrap pulled S10 reference from AcGenMay2023
     # (which has all 224), so the AcGenMay2018 results legitimately miss 173.
     ("AcGenMay2018", "S10"): {173},
+    # Meghalaya 2023: AC 23 Sohiong was countermanded after a candidate's
+    # death; held as a by-election on 22 May 2023. Section 10 Statistical
+    # Report covers 59 of 60 ACs.
+    ("AcGenFeb2023", "S15"): {23},
+    # Nagaland 2023: AC 31 Akuluto was uncontested — Y. Patton (BJP) declared
+    # elected unopposed. Section 10 Statistical Report has no row for it
+    # (no poll = no result tally).
+    ("AcGenFeb2023", "S17"): {31},
+    # Tamil Nadu 2016: AC 134 Aravakurichi and AC 174 Thanjavur were
+    # countermanded due to cash-for-votes seizures; held as by-elections on
+    # 19 November 2016. Section 10 Report has 232 of 234 ACs.
+    ("AcGenMay2016", "S22"): {134, 174},
 }
 
 

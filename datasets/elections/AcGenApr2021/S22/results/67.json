@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "Arani",
+  "totals": {
+    "electors": 277727,
+    "votes_polled": 221422,
+    "turnout_pct": 79.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SEVOOR RAMACHANDRAN. S",
+      "party_short": "ADMK",
+      "votes": 102961,
+      "vote_share_pct": 46.5,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "S.S.ANBALAGAN",
+      "party_short": "DMK",
+      "votes": 99833,
+      "vote_share_pct": 45.09,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "D.PRAKALATHA",
+      "party_short": "NTK",
+      "votes": 10491,
+      "vote_share_pct": 4.74,
+      "gender": "F",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "V.MANIKANDAN",
+      "party_short": "MNM",
+      "votes": 2213,
+      "vote_share_pct": 1.0,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "G.BASKARAN",
+      "party_short": "DMDK",
+      "votes": 1861,
+      "vote_share_pct": 0.84,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1690,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2373,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SEVOOR RAMACHANDRAN. S",
+    "party_short": "ADMK",
+    "votes": 102961,
+    "margin_votes": 3128,
+    "margin_pct": 1.41
+  }
+}

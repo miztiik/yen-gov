@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 163,
+  "constituency_name": "Nagapattinam",
+  "totals": {
+    "electors": 183119,
+    "votes_polled": 134439,
+    "turnout_pct": 73.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "THAMIMUN ANSARI.M",
+      "party_short": "ADMK",
+      "votes": 64903,
+      "vote_share_pct": 48.28,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MOHAMED JAFARULLAH.A",
+      "party_short": "MAMAK",
+      "votes": 44353,
+      "vote_share_pct": 32.99,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DHAMEEM ANSARI SAHIB.A.B",
+      "party_short": "CPI",
+      "votes": 11088,
+      "vote_share_pct": 8.25,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NETHAJI.K",
+      "party_short": "BJP",
+      "votes": 6005,
+      "vote_share_pct": 4.47,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NIRAINTHA SELVAM.T",
+      "party_short": "NTK",
+      "votes": 1557,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 996,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 5537,
+    "vote_share_pct": 4.12
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "THAMIMUN ANSARI.M",
+    "party_short": "ADMK",
+    "votes": 64903,
+    "margin_votes": 20550,
+    "margin_pct": 15.29
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Thousand Lights",
+  "totals": {
+    "electors": 240096,
+    "votes_polled": 135940,
+    "turnout_pct": 56.62
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "EZHILAN N",
+      "party_short": "DMK",
+      "votes": 71867,
+      "vote_share_pct": 52.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KUSHBOO SUNDAR",
+      "party_short": "BJP",
+      "votes": 39405,
+      "vote_share_pct": 28.99,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K M SHARIFF",
+      "party_short": "MNM",
+      "votes": 11791,
+      "vote_share_pct": 8.67,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHERINE AJ",
+      "party_short": "NTK",
+      "votes": 8884,
+      "vote_share_pct": 6.54,
+      "gender": "F",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VAIDHYANATHAN N",
+      "party_short": "AMMKMNKZ",
+      "votes": 1155,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1385,
+    "vote_share_pct": 1.02
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 1453,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "EZHILAN N",
+    "party_short": "DMK",
+    "votes": 71867,
+    "margin_votes": 32462,
+    "margin_pct": 23.88
+  }
+}

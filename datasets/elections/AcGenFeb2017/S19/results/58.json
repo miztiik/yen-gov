@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 58,
+  "constituency_name": "Samrala",
+  "totals": {
+    "electors": 167423,
+    "votes_polled": 134986,
+    "turnout_pct": 80.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMRIK SINGH DHILLON",
+      "party_short": "INC",
+      "votes": 51930,
+      "vote_share_pct": 38.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SARBANS SINGH MANKI",
+      "party_short": "AAAP",
+      "votes": 40925,
+      "vote_share_pct": 30.32,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANTA SINGH UMAIDPUR",
+      "party_short": "SAD",
+      "votes": 38114,
+      "vote_share_pct": 28.24,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHINGARA SINGH",
+      "party_short": "SAD(M)",
+      "votes": 837,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DALVIR SINGH",
+      "party_short": "BSP",
+      "votes": 687,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1035,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1458,
+    "vote_share_pct": 1.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMRIK SINGH DHILLON",
+    "party_short": "INC",
+    "votes": 51930,
+    "margin_votes": 11005,
+    "margin_pct": 8.15
+  }
+}

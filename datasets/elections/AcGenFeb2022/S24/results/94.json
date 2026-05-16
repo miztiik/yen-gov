@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 94,
+  "constituency_name": "Bah",
+  "totals": {
+    "electors": 334525,
+    "votes_polled": 190382,
+    "turnout_pct": 56.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Rani Pakshalika Singh",
+      "party_short": "BJP",
+      "votes": 78360,
+      "vote_share_pct": 41.16,
+      "is_winner": true,
+      "gender": "F",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Madhusudan Sharma",
+      "party_short": "SP",
+      "votes": 54125,
+      "vote_share_pct": 28.43,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Nitin Verma",
+      "party_short": "BSP",
+      "votes": 50618,
+      "vote_share_pct": 26.59,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Manoj Dixit",
+      "party_short": "INC",
+      "votes": 1229,
+      "vote_share_pct": 0.65,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Neeraj Kumar Karauria",
+      "party_short": "AAAP",
+      "votes": 959,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1837,
+    "vote_share_pct": 0.96
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3254,
+    "vote_share_pct": 1.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Rani Pakshalika Singh",
+    "party_short": "BJP",
+    "votes": 78360,
+    "margin_votes": 24235,
+    "margin_pct": 12.73
+  }
+}

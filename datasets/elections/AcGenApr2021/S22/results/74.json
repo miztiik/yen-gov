@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 74,
+  "constituency_name": "Villupuram",
+  "totals": {
+    "electors": 262175,
+    "votes_polled": 204860,
+    "turnout_pct": 78.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "LAKSHMANAN R",
+      "party_short": "DMK",
+      "votes": 102271,
+      "vote_share_pct": 49.92,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHANMUGAM C Ve",
+      "party_short": "ADMK",
+      "votes": 87403,
+      "vote_share_pct": 42.66,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SELVAM J",
+      "party_short": "NTK",
+      "votes": 6375,
+      "vote_share_pct": 3.11,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DASS K",
+      "party_short": "MNM",
+      "votes": 3242,
+      "vote_share_pct": 1.58,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BALASUNDARAM R",
+      "party_short": "AMMKMNKZ",
+      "votes": 1695,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 970,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 2904,
+    "vote_share_pct": 1.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "LAKSHMANAN R",
+    "party_short": "DMK",
+    "votes": 102271,
+    "margin_votes": 14868,
+    "margin_pct": 7.26
+  }
+}

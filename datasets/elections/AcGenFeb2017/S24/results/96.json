@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 96,
+  "constituency_name": "Jasrana",
+  "totals": {
+    "electors": 340477,
+    "votes_polled": 230392,
+    "turnout_pct": 67.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMGOPAL PAPPU LODHI",
+      "party_short": "BJP",
+      "votes": 103426,
+      "vote_share_pct": 44.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHIVPRATAP SINGH",
+      "party_short": "SP",
+      "votes": 83098,
+      "vote_share_pct": 36.07,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHIVRAJ SINGH YADAV",
+      "party_short": "BSP",
+      "votes": 26274,
+      "vote_share_pct": 11.4,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAMVEER SINGH",
+      "party_short": "LD",
+      "votes": 11274,
+      "vote_share_pct": 4.89,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAVINDRA SINGH",
+      "party_short": "IND",
+      "votes": 1111,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1908,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3301,
+    "vote_share_pct": 1.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMGOPAL PAPPU LODHI",
+    "party_short": "BJP",
+    "votes": 103426,
+    "margin_votes": 20328,
+    "margin_pct": 8.82
+  }
+}

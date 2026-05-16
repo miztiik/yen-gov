@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 208,
+  "constituency_name": "Tiruchuli",
+  "totals": {
+    "electors": 207142,
+    "votes_polled": 167742,
+    "turnout_pct": 80.98
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "THANGAM THENARASU",
+      "party_short": "DMK",
+      "votes": 89927,
+      "vote_share_pct": 53.61,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DINESH BABU, K.",
+      "party_short": "ADMK",
+      "votes": 63350,
+      "vote_share_pct": 37.77,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJU, T.",
+      "party_short": "DMDK",
+      "votes": 5799,
+      "vote_share_pct": 3.46,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAVIRAJAN, B.",
+      "party_short": "BJP",
+      "votes": 1779,
+      "vote_share_pct": 1.06,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VAIRASEEMAN, G.",
+      "party_short": "IND",
+      "votes": 1074,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1328,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 4485,
+    "vote_share_pct": 2.66
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "THANGAM THENARASU",
+    "party_short": "DMK",
+    "votes": 89927,
+    "margin_votes": 26577,
+    "margin_pct": 15.84
+  }
+}

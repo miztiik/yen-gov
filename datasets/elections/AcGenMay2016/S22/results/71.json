@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 71,
+  "constituency_name": "Mailam",
+  "totals": {
+    "electors": 211372,
+    "votes_polled": 171211,
+    "turnout_pct": 81.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MASILAMANI R",
+      "party_short": "DMK",
+      "votes": 70880,
+      "vote_share_pct": 41.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANNADURAI K",
+      "party_short": "ADMK",
+      "votes": 58574,
+      "vote_share_pct": 34.21,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJASHEKARAN VR",
+      "party_short": "PMK",
+      "votes": 25711,
+      "vote_share_pct": 15.02,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BALAJI SS",
+      "party_short": "VCK",
+      "votes": 10866,
+      "vote_share_pct": 6.35,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJASEKAR J",
+      "party_short": "IND",
+      "votes": 753,
+      "vote_share_pct": 0.44,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1722,
+    "vote_share_pct": 1.01
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2705,
+    "vote_share_pct": 1.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MASILAMANI R",
+    "party_short": "DMK",
+    "votes": 70880,
+    "margin_votes": 12306,
+    "margin_pct": 7.19
+  }
+}

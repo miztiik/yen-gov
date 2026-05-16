@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 53,
+  "constituency_name": "Loni",
+  "totals": {
+    "electors": 456713,
+    "votes_polled": 274555,
+    "turnout_pct": 60.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NANDKISHOR",
+      "party_short": "BJP",
+      "votes": 113088,
+      "vote_share_pct": 41.19,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ZAKIR ALI",
+      "party_short": "BSP",
+      "votes": 70275,
+      "vote_share_pct": 25.6,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MADAN BHAIYA",
+      "party_short": "RLD",
+      "votes": 42539,
+      "vote_share_pct": 15.49,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RASHID MALIK",
+      "party_short": "SP",
+      "votes": 42302,
+      "vote_share_pct": 15.41,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMIT KUMAR",
+      "party_short": "IND",
+      "votes": 3808,
+      "vote_share_pct": 1.39,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1663,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 880,
+    "vote_share_pct": 0.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NANDKISHOR",
+    "party_short": "BJP",
+    "votes": 113088,
+    "margin_votes": 42813,
+    "margin_pct": 15.59
+  }
+}

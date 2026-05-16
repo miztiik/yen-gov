@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 23,
+  "constituency_name": "Dhanpur",
+  "totals": {
+    "electors": 50223,
+    "votes_polled": 45319,
+    "turnout_pct": 90.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pratima Bhoumik",
+      "party_short": "BJP",
+      "votes": 19148,
+      "vote_share_pct": 42.25,
+      "is_winner": true,
+      "gender": "F",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Kaushik Chanda",
+      "party_short": "CPI(M)",
+      "votes": 15648,
+      "vote_share_pct": 34.53,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Amiya Dayal Noatia",
+      "party_short": "TMP",
+      "votes": 8671,
+      "vote_share_pct": 19.13,
+      "gender": "M",
+      "age": 30,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Habil Mia",
+      "party_short": "AITC",
+      "votes": 651,
+      "vote_share_pct": 1.44,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rakesh Sukla Das",
+      "party_short": "IND",
+      "votes": 405,
+      "vote_share_pct": 0.89,
+      "gender": "M",
+      "age": 26,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 538,
+    "vote_share_pct": 1.19
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 258,
+    "vote_share_pct": 0.57
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pratima Bhoumik",
+    "party_short": "BJP",
+    "votes": 19148,
+    "margin_votes": 3500,
+    "margin_pct": 7.72
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Raj bhavan",
+  "totals": {
+    "electors": 25713,
+    "votes_polled": 19997,
+    "turnout_pct": 77.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K. LAKSHMINARAYANAN",
+      "party_short": "INC",
+      "votes": 9445,
+      "vote_share_pct": 47.23,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "P. KANNAN",
+      "party_short": "ADMK",
+      "votes": 7220,
+      "vote_share_pct": 36.11,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "A. ANNIBAL NEHRU",
+      "party_short": "AINRC",
+      "votes": 1517,
+      "vote_share_pct": 7.59,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "N. POUGAJENDY",
+      "party_short": "BJP",
+      "votes": 929,
+      "vote_share_pct": 4.65,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "R. VELAYUTHAM",
+      "party_short": "NTK",
+      "votes": 153,
+      "vote_share_pct": 0.77,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 487,
+    "vote_share_pct": 2.44
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 246,
+    "vote_share_pct": 1.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K. LAKSHMINARAYANAN",
+    "party_short": "INC",
+    "votes": 9445,
+    "margin_votes": 2225,
+    "margin_pct": 11.13
+  }
+}

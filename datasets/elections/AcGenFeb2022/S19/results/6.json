@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 6,
+  "constituency_name": "Qadian",
+  "totals": {
+    "electors": 184557,
+    "votes_polled": 133183,
+    "turnout_pct": 72.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PARTAP SINGH BAJWA",
+      "party_short": "INC",
+      "votes": 48679,
+      "vote_share_pct": 36.55,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GURIQBAL SINGH MAHAL",
+      "party_short": "SAD",
+      "votes": 41505,
+      "vote_share_pct": 31.16,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAGROOP SINGH SEKHWAN",
+      "party_short": "AAAP",
+      "votes": 34916,
+      "vote_share_pct": 26.22,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JATINDERBIR SINGH PANNU",
+      "party_short": "SAD(M)",
+      "votes": 4306,
+      "vote_share_pct": 3.23,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MASTER JOHAR SINGH",
+      "party_short": "SADS",
+      "votes": 747,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 77,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 777,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2253,
+    "vote_share_pct": 1.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PARTAP SINGH BAJWA",
+    "party_short": "INC",
+    "votes": 48679,
+    "margin_votes": 7174,
+    "margin_pct": 5.39
+  }
+}

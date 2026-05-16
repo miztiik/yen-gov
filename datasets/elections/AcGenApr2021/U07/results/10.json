@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "KAMARAJ NAGAR",
+  "totals": {
+    "electors": 37814,
+    "votes_polled": 29741,
+    "turnout_pct": 78.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "A. JOHNKUMAR",
+      "party_short": "BJP",
+      "votes": 16687,
+      "vote_share_pct": 56.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "M.O.H.F. SHAJAHAN",
+      "party_short": "INC",
+      "votes": 9458,
+      "vote_share_pct": 31.8,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "N. SHARMILA BEGUM",
+      "party_short": "NTK",
+      "votes": 1982,
+      "vote_share_pct": 6.66,
+      "gender": "F",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "L. MUNISAMY",
+      "party_short": "AMMKMNKZ",
+      "votes": 446,
+      "vote_share_pct": 1.5,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ANANDARAJ",
+      "party_short": "IND",
+      "votes": 121,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 658,
+    "vote_share_pct": 2.21
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 389,
+    "vote_share_pct": 1.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "A. JOHNKUMAR",
+    "party_short": "BJP",
+    "votes": 16687,
+    "margin_votes": 7229,
+    "margin_pct": 24.31
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 110,
+  "constituency_name": "Coonoor",
+  "totals": {
+    "electors": 188075,
+    "votes_polled": 134870,
+    "turnout_pct": 71.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMU, A.",
+      "party_short": "ADMK",
+      "votes": 61650,
+      "vote_share_pct": 45.71,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MUBARAK, B. M.",
+      "party_short": "DMK",
+      "votes": 57940,
+      "vote_share_pct": 42.96,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHIDAMBARAM, V.",
+      "party_short": "DMDK",
+      "votes": 3989,
+      "vote_share_pct": 2.96,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KUMARAN, B.",
+      "party_short": "BJP",
+      "votes": 3547,
+      "vote_share_pct": 2.63,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DHARMARAJ, S.",
+      "party_short": "IND",
+      "votes": 2319,
+      "vote_share_pct": 1.72,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2283,
+    "vote_share_pct": 1.69
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3142,
+    "vote_share_pct": 2.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMU, A.",
+    "party_short": "ADMK",
+    "votes": 61650,
+    "margin_votes": 3710,
+    "margin_pct": 2.75
+  }
+}

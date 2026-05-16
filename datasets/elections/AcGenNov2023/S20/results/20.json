@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 20,
+  "constituency_name": "Taranagar",
+  "totals": {
+    "electors": 263222,
+    "votes_polled": 218591,
+    "turnout_pct": 83.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Narendra Budania",
+      "party_short": "INC",
+      "votes": 108236,
+      "vote_share_pct": 49.52,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rajendra Rathore",
+      "party_short": "BJP",
+      "votes": 97891,
+      "vote_share_pct": 44.78,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Co. Nirmal Kumar",
+      "party_short": "CPI(M)",
+      "votes": 6815,
+      "vote_share_pct": 3.12,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Chhotu Ram",
+      "party_short": "BSP",
+      "votes": 1126,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Manju",
+      "party_short": "IND",
+      "votes": 1030,
+      "vote_share_pct": 0.47,
+      "gender": "F",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 867,
+    "vote_share_pct": 0.4
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2626,
+    "vote_share_pct": 1.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Narendra Budania",
+    "party_short": "INC",
+    "votes": 108236,
+    "margin_votes": 10345,
+    "margin_pct": 4.73
+  }
+}

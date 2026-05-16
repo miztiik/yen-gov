@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 128,
+  "constituency_name": "Oddanchatram",
+  "totals": {
+    "electors": 241240,
+    "votes_polled": 201756,
+    "turnout_pct": 83.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAKKARAPANI R",
+      "party_short": "DMK",
+      "votes": 109970,
+      "vote_share_pct": 54.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NATARAJ N.P",
+      "party_short": "ADMK",
+      "votes": 81228,
+      "vote_share_pct": 40.26,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SAKTHI DEVI T",
+      "party_short": "NTK",
+      "votes": 4944,
+      "vote_share_pct": 2.45,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SIVA KUMAR M",
+      "party_short": "DMDK",
+      "votes": 1427,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ABDUL HADI A",
+      "party_short": "MNM",
+      "votes": 1082,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1457,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1648,
+    "vote_share_pct": 0.82
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAKKARAPANI R",
+    "party_short": "DMK",
+    "votes": 109970,
+    "margin_votes": 28742,
+    "margin_pct": 14.25
+  }
+}

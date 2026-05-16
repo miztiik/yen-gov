@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 62,
+  "constituency_name": "Chengam",
+  "totals": {
+    "electors": 250015,
+    "votes_polled": 210403,
+    "turnout_pct": 84.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GIRI .M.P",
+      "party_short": "DMK",
+      "votes": 95939,
+      "vote_share_pct": 45.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "DINAGARAN. M",
+      "party_short": "ADMK",
+      "votes": 83248,
+      "vote_share_pct": 39.57,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MURUGAN. C",
+      "party_short": "PMK",
+      "votes": 15114,
+      "vote_share_pct": 7.18,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KALAIARASI .A",
+      "party_short": "DMDK",
+      "votes": 8007,
+      "vote_share_pct": 3.81,
+      "gender": "F",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DHINAKARAN. S",
+      "party_short": "IND",
+      "votes": 1255,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1403,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5437,
+    "vote_share_pct": 2.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GIRI .M.P",
+    "party_short": "DMK",
+    "votes": 95939,
+    "margin_votes": 12691,
+    "margin_pct": 6.03
+  }
+}

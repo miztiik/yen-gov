@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 200,
+  "constituency_name": "Etawah",
+  "totals": {
+    "electors": 406509,
+    "votes_polled": 245542,
+    "turnout_pct": 60.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sarita Bhadauriya",
+      "party_short": "BJP",
+      "votes": 98150,
+      "vote_share_pct": 39.97,
+      "is_winner": true,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sarvesh Kumar Shakya",
+      "party_short": "SP",
+      "votes": 94166,
+      "vote_share_pct": 38.35,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kuldeep Gupta alias Santu",
+      "party_short": "BSP",
+      "votes": 46525,
+      "vote_share_pct": 18.95,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Satya Prakash Rajput",
+      "party_short": "JANADIP",
+      "votes": 1751,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mohd Rashid",
+      "party_short": "INC",
+      "votes": 1476,
+      "vote_share_pct": 0.6,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1186,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2288,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sarita Bhadauriya",
+    "party_short": "BJP",
+    "votes": 98150,
+    "margin_votes": 3984,
+    "margin_pct": 1.62
+  }
+}

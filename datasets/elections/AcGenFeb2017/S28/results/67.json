@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "Kichha",
+  "totals": {
+    "electors": 120274,
+    "votes_polled": 88178,
+    "turnout_pct": 73.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJESH SHUKLA",
+      "party_short": "BJP",
+      "votes": 40363,
+      "vote_share_pct": 45.77,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "HARISH RAWAT",
+      "party_short": "INC",
+      "votes": 38236,
+      "vote_share_pct": 43.36,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJESH PRATAP SINGH",
+      "party_short": "BSP",
+      "votes": 7754,
+      "vote_share_pct": 8.79,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANJAY SINGH",
+      "party_short": "SP",
+      "votes": 459,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHD. JALEES",
+      "party_short": "IND",
+      "votes": 405,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 558,
+    "vote_share_pct": 0.63
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 403,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJESH SHUKLA",
+    "party_short": "BJP",
+    "votes": 40363,
+    "margin_votes": 2127,
+    "margin_pct": 2.41
+  }
+}

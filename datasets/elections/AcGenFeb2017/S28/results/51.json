@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 51,
+  "constituency_name": "Someshwar (s.c.)",
+  "totals": {
+    "electors": 85597,
+    "votes_polled": 45883,
+    "turnout_pct": 53.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "REKHA ARYA",
+      "party_short": "BJP",
+      "votes": 21780,
+      "vote_share_pct": 47.47,
+      "is_winner": true,
+      "gender": "F",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAJENDRA BARAKOTI",
+      "party_short": "INC",
+      "votes": 21070,
+      "vote_share_pct": 45.92,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PRADEEP KUMAR ARYA",
+      "party_short": "IND",
+      "votes": 841,
+      "vote_share_pct": 1.83,
+      "gender": "M",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "HIMANSHU KOHLI",
+      "party_short": "BSP",
+      "votes": 622,
+      "vote_share_pct": 1.36,
+      "gender": "M",
+      "age": 25,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PURAN CHANDRA",
+      "party_short": "IND",
+      "votes": 263,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1089,
+    "vote_share_pct": 2.37
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 218,
+    "vote_share_pct": 0.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "REKHA ARYA",
+    "party_short": "BJP",
+    "votes": 21780,
+    "margin_votes": 710,
+    "margin_pct": 1.55
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 139,
+  "constituency_name": "Srirangam",
+  "totals": {
+    "electors": 311716,
+    "votes_polled": 240240,
+    "turnout_pct": 77.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Palaniyandi.M",
+      "party_short": "DMK",
+      "votes": 113904,
+      "vote_share_pct": 47.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KuPa Krishnan",
+      "party_short": "ADMK",
+      "votes": 93989,
+      "vote_share_pct": 39.12,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.Selvarathi",
+      "party_short": "NTK",
+      "votes": 17911,
+      "vote_share_pct": 7.46,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Y.Jacob",
+      "party_short": "IND",
+      "votes": 4082,
+      "vote_share_pct": 1.7,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Sarubala.R.Thondaiman",
+      "party_short": "AMMKMNKZ",
+      "votes": 3487,
+      "vote_share_pct": 1.45,
+      "gender": "F",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2417,
+    "vote_share_pct": 1.01
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 4450,
+    "vote_share_pct": 1.86
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Palaniyandi.M",
+    "party_short": "DMK",
+    "votes": 113904,
+    "margin_votes": 19915,
+    "margin_pct": 8.29
+  }
+}

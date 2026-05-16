@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 76,
+  "constituency_name": "Kalavad (SC)",
+  "totals": {
+    "electors": 233479,
+    "votes_polled": 131119,
+    "turnout_pct": 56.16
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chavda Meghjibhai Amarabhai",
+      "party_short": "BJP",
+      "votes": 59292,
+      "vote_share_pct": 45.22,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Dr. Jignesh Solanki",
+      "party_short": "AAAP",
+      "votes": 43442,
+      "vote_share_pct": 33.13,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Pravin Narashibhai Musadiya",
+      "party_short": "INC",
+      "votes": 24337,
+      "vote_share_pct": 18.56,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Chouhan Mahendra Dineshbhai",
+      "party_short": "BSP",
+      "votes": 1256,
+      "vote_share_pct": 0.96,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Chauhan Pravinbhai Danabhai",
+      "party_short": "IND",
+      "votes": 665,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2127,
+    "vote_share_pct": 1.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chavda Meghjibhai Amarabhai",
+    "party_short": "BJP",
+    "votes": 59292,
+    "margin_votes": 15850,
+    "margin_pct": 12.09
+  },
+  "others": null
+}

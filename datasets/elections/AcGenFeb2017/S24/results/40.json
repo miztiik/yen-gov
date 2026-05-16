@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 40,
+  "constituency_name": "Naugawan Sadat",
+  "totals": {
+    "electors": 306855,
+    "votes_polled": 234190,
+    "turnout_pct": 76.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHETAN CHAUHAN",
+      "party_short": "BJP",
+      "votes": 97030,
+      "vote_share_pct": 41.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAVED ABBAS",
+      "party_short": "SP",
+      "votes": 76382,
+      "vote_share_pct": 32.62,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAIDEV",
+      "party_short": "BSP",
+      "votes": 40172,
+      "vote_share_pct": 17.15,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ASHFAQ ALI KHAN",
+      "party_short": "RLD",
+      "votes": 14597,
+      "vote_share_pct": 6.23,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SORAN SINGH",
+      "party_short": "RKMP",
+      "votes": 1528,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1132,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3349,
+    "vote_share_pct": 1.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHETAN CHAUHAN",
+    "party_short": "BJP",
+    "votes": 97030,
+    "margin_votes": 20648,
+    "margin_pct": 8.82
+  }
+}

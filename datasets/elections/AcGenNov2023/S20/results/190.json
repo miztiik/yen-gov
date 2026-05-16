@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 190,
+  "constituency_name": "Kota South",
+  "totals": {
+    "electors": 244959,
+    "votes_polled": 183199,
+    "turnout_pct": 74.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sandeep Sharma",
+      "party_short": "BJP",
+      "votes": 95393,
+      "vote_share_pct": 52.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rakhi Gautam",
+      "party_short": "INC",
+      "votes": 83431,
+      "vote_share_pct": 45.54,
+      "gender": "F",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Krishnanand Sharma",
+      "party_short": "BSP",
+      "votes": 1085,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Irshad Ahamad",
+      "party_short": "IND",
+      "votes": 381,
+      "vote_share_pct": 0.21,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Habibulla",
+      "party_short": "IND",
+      "votes": 357,
+      "vote_share_pct": 0.19,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1727,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 825,
+    "vote_share_pct": 0.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sandeep Sharma",
+    "party_short": "BJP",
+    "votes": 95393,
+    "margin_votes": 11962,
+    "margin_pct": 6.53
+  }
+}

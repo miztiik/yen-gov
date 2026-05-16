@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Bhagha Purana",
+  "totals": {
+    "electors": 172851,
+    "votes_polled": 133222,
+    "turnout_pct": 77.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AMRITPAL SINGH SUKHANAND",
+      "party_short": "AAAP",
+      "votes": 67143,
+      "vote_share_pct": 50.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "TIRATH SINGH MAHLA",
+      "party_short": "SAD",
+      "votes": 33384,
+      "vote_share_pct": 25.06,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DARSHAN SINGH BRAR",
+      "party_short": "INC",
+      "votes": 18042,
+      "vote_share_pct": 13.54,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BHOLA SINGH BRAR",
+      "party_short": "IND",
+      "votes": 8702,
+      "vote_share_pct": 6.53,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAGTAR SINGH RAJEANA",
+      "party_short": "SADS",
+      "votes": 3267,
+      "vote_share_pct": 2.45,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1170,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1514,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AMRITPAL SINGH SUKHANAND",
+    "party_short": "AAAP",
+    "votes": 67143,
+    "margin_votes": 33759,
+    "margin_pct": 25.34
+  }
+}

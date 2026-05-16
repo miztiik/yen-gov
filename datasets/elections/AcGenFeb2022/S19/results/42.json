@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 42,
+  "constituency_name": "Sham Chaurasi",
+  "totals": {
+    "electors": 178919,
+    "votes_polled": 124024,
+    "turnout_pct": 69.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR.RAVJOT SINGH",
+      "party_short": "AAAP",
+      "votes": 60730,
+      "vote_share_pct": 48.97,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PAWAN KUMAR ADIA",
+      "party_short": "INC",
+      "votes": 39374,
+      "vote_share_pct": 31.75,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MOHINDER SINGH SANDHAR",
+      "party_short": "BSP",
+      "votes": 13512,
+      "vote_share_pct": 10.89,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KARAMJIT SINGH BABLU JOSH",
+      "party_short": "IND",
+      "votes": 3459,
+      "vote_share_pct": 2.79,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DES RAJ DHUGGA",
+      "party_short": "SADS",
+      "votes": 3152,
+      "vote_share_pct": 2.54,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1095,
+    "vote_share_pct": 0.88
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2702,
+    "vote_share_pct": 2.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR.RAVJOT SINGH",
+    "party_short": "AAAP",
+    "votes": 60730,
+    "margin_votes": 21356,
+    "margin_pct": 17.22
+  }
+}

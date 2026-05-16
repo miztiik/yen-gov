@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 336,
+  "constituency_name": "Rudrapur",
+  "totals": {
+    "electors": 321349,
+    "votes_polled": 181863,
+    "turnout_pct": 56.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAI PRAKASH NISHAD",
+      "party_short": "BJP",
+      "votes": 78187,
+      "vote_share_pct": 42.99,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAMBHUAL NISHAD",
+      "party_short": "SP",
+      "votes": 36251,
+      "vote_share_pct": 19.93,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AKHILESH PRATAP SINGH",
+      "party_short": "INC",
+      "votes": 31177,
+      "vote_share_pct": 17.14,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SURESH TIWARI",
+      "party_short": "BSP",
+      "votes": 20093,
+      "vote_share_pct": 11.05,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PRADEEP YADAV",
+      "party_short": "IND",
+      "votes": 9598,
+      "vote_share_pct": 5.28,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1629,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4928,
+    "vote_share_pct": 2.7
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAI PRAKASH NISHAD",
+    "party_short": "BJP",
+    "votes": 78187,
+    "margin_votes": 41936,
+    "margin_pct": 23.06
+  }
+}

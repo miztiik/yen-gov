@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Bholath",
+  "totals": {
+    "electors": 136892,
+    "votes_polled": 90537,
+    "turnout_pct": 66.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUKHPAL SINGH KHAIRA",
+      "party_short": "INC",
+      "votes": 37254,
+      "vote_share_pct": 41.15,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BIBI JAGIR KAUR",
+      "party_short": "SAD",
+      "votes": 28029,
+      "vote_share_pct": 30.96,
+      "gender": "F",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RANJIT SINGH RANA",
+      "party_short": "AAAP",
+      "votes": 13612,
+      "vote_share_pct": 15.03,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJINDER SINGH FAUJI",
+      "party_short": "SAD(M)",
+      "votes": 7583,
+      "vote_share_pct": 8.38,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMANDEEP SINGH GORA GILL",
+      "party_short": "PLCP",
+      "votes": 1195,
+      "vote_share_pct": 1.32,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 720,
+    "vote_share_pct": 0.8
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2144,
+    "vote_share_pct": 2.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUKHPAL SINGH KHAIRA",
+    "party_short": "INC",
+    "votes": 37254,
+    "margin_votes": 9225,
+    "margin_pct": 10.19
+  }
+}

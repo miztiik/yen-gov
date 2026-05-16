@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Kairana",
+  "totals": {
+    "electors": 300659,
+    "votes_polled": 209134,
+    "turnout_pct": 69.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NAHID HASAN",
+      "party_short": "SP",
+      "votes": 98830,
+      "vote_share_pct": 47.26,
+      "is_winner": true,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MRIGANKA SINGH",
+      "party_short": "BJP",
+      "votes": 77668,
+      "vote_share_pct": 37.14,
+      "gender": "F",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANIL KUMAR",
+      "party_short": "RLD",
+      "votes": 19992,
+      "vote_share_pct": 9.56,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DIWAKAR DESHWAL",
+      "party_short": "BSP",
+      "votes": 6888,
+      "vote_share_pct": 3.29,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MASEEHULLA",
+      "party_short": "AIMIM",
+      "votes": 1365,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1060,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3331,
+    "vote_share_pct": 1.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NAHID HASAN",
+    "party_short": "SP",
+    "votes": 98830,
+    "margin_votes": 21162,
+    "margin_pct": 10.12
+  }
+}

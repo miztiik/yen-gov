@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Rupnagar",
+  "totals": {
+    "electors": 185516,
+    "votes_polled": 135793,
+    "turnout_pct": 73.2
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DINESH KUMAR CHADHA",
+      "party_short": "AAAP",
+      "votes": 59903,
+      "vote_share_pct": 44.11,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BRINDER SINGH DHILLON",
+      "party_short": "INC",
+      "votes": 36271,
+      "vote_share_pct": 26.71,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. DALJIT SINGH CHEEMA",
+      "party_short": "SAD",
+      "votes": 22338,
+      "vote_share_pct": 16.45,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "IQBAL SINGH LALPURA",
+      "party_short": "BJP",
+      "votes": 10067,
+      "vote_share_pct": 7.41,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUBEDAR AVTAR SINGH",
+      "party_short": "IND",
+      "votes": 3339,
+      "vote_share_pct": 2.46,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 686,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3189,
+    "vote_share_pct": 2.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DINESH KUMAR CHADHA",
+    "party_short": "AAAP",
+    "votes": 59903,
+    "margin_votes": 23632,
+    "margin_pct": 17.4
+  }
+}

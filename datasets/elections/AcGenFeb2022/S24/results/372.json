@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 372,
+  "constituency_name": "Kerakat",
+  "totals": {
+    "electors": 416720,
+    "votes_polled": 240258,
+    "turnout_pct": 57.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Tufani Saroj",
+      "party_short": "SP",
+      "votes": 94022,
+      "vote_share_pct": 39.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Dinesh Chaudhary",
+      "party_short": "BJP",
+      "votes": 84178,
+      "vote_share_pct": 35.04,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Lalbahadur",
+      "party_short": "BSP",
+      "votes": 51633,
+      "vote_share_pct": 21.49,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Rajesh",
+      "party_short": "INC",
+      "votes": 2688,
+      "vote_share_pct": 1.12,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Pappu",
+      "party_short": "VSIP",
+      "votes": 2590,
+      "vote_share_pct": 1.08,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2147,
+    "vote_share_pct": 0.89
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3000,
+    "vote_share_pct": 1.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Tufani Saroj",
+    "party_short": "SP",
+    "votes": 94022,
+    "margin_votes": 9844,
+    "margin_pct": 4.1
+  }
+}

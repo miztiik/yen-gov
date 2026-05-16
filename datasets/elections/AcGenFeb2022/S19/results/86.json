@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 86,
+  "constituency_name": "Muktsar",
+  "totals": {
+    "electors": 189276,
+    "votes_polled": 149390,
+    "turnout_pct": 78.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAGDEEP SINGH 'KAKA BRAR'",
+      "party_short": "AAAP",
+      "votes": 76321,
+      "vote_share_pct": 51.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KANWARJIT SINGH",
+      "party_short": "SAD",
+      "votes": 42127,
+      "vote_share_pct": 28.2,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KARAN KAUR",
+      "party_short": "INC",
+      "votes": 14290,
+      "vote_share_pct": 9.57,
+      "gender": "F",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAJESH PATHELA",
+      "party_short": "BJP",
+      "votes": 10634,
+      "vote_share_pct": 7.12,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUKHRAJ SINGH",
+      "party_short": "SAD(M)",
+      "votes": 1963,
+      "vote_share_pct": 1.31,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 820,
+    "vote_share_pct": 0.55
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3235,
+    "vote_share_pct": 2.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAGDEEP SINGH 'KAKA BRAR'",
+    "party_short": "AAAP",
+    "votes": 76321,
+    "margin_votes": 34194,
+    "margin_pct": 22.89
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 150,
+  "constituency_name": "Jambusar",
+  "totals": {
+    "electors": 222524,
+    "votes_polled": 157623,
+    "turnout_pct": 70.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANJAYBHAI JESANGBHAI SOLANKI",
+      "party_short": "INC",
+      "votes": 73216,
+      "vote_share_pct": 46.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHHATRASINHJI POOJABHAI MORI",
+      "party_short": "BJP",
+      "votes": 66804,
+      "vote_share_pct": 42.38,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KHUMANSINH KESHRISINH VANSIA",
+      "party_short": "IND",
+      "votes": 8782,
+      "vote_share_pct": 5.57,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JAMBU HIMANSHU ISHWARBHAI",
+      "party_short": "BSP",
+      "votes": 1206,
+      "vote_share_pct": 0.77,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PARMAR NARENDRASINH JESANGBHAI",
+      "party_short": "AINHCP",
+      "votes": 1182,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2833,
+    "vote_share_pct": 1.8
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2709,
+    "vote_share_pct": 1.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANJAYBHAI JESANGBHAI SOLANKI",
+    "party_short": "INC",
+    "votes": 73216,
+    "margin_votes": 6412,
+    "margin_pct": 4.07
+  }
+}

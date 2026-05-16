@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "Hoshiarpur",
+  "totals": {
+    "electors": 193247,
+    "votes_polled": 127907,
+    "turnout_pct": 66.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BRAM SHANKER (JIMPA)",
+      "party_short": "AAAP",
+      "votes": 51112,
+      "vote_share_pct": 39.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SUNDER SHAM ARORA",
+      "party_short": "INC",
+      "votes": 37253,
+      "vote_share_pct": 29.13,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "TIKSHAN SUD",
+      "party_short": "BJP",
+      "votes": 23973,
+      "vote_share_pct": 18.74,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIRINDER SINGH PARHAR",
+      "party_short": "BSP",
+      "votes": 12087,
+      "vote_share_pct": 9.45,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJVEER SINGH KALSI",
+      "party_short": "IND",
+      "votes": 1187,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1151,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1144,
+    "vote_share_pct": 0.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BRAM SHANKER (JIMPA)",
+    "party_short": "AAAP",
+    "votes": 51112,
+    "margin_votes": 13859,
+    "margin_pct": 10.84
+  }
+}

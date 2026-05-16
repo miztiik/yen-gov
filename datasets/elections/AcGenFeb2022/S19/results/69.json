@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 69,
+  "constituency_name": "Raikot",
+  "totals": {
+    "electors": 157186,
+    "votes_polled": 113599,
+    "turnout_pct": 72.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HAKAM SINGH THEKEDAR",
+      "party_short": "AAAP",
+      "votes": 63659,
+      "vote_share_pct": 56.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "KAMIL AMAR SINGH",
+      "party_short": "INC",
+      "votes": 36015,
+      "vote_share_pct": 31.7,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BALWINDER SINGH SANDHU",
+      "party_short": "BSP",
+      "votes": 8381,
+      "vote_share_pct": 7.38,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Dr. JAGTAR SINGH",
+      "party_short": "IND",
+      "votes": 1514,
+      "vote_share_pct": 1.33,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "GURPAL SINGH GOLDY",
+      "party_short": "SADS",
+      "votes": 1276,
+      "vote_share_pct": 1.12,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1232,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1522,
+    "vote_share_pct": 1.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HAKAM SINGH THEKEDAR",
+    "party_short": "AAAP",
+    "votes": 63659,
+    "margin_votes": 27644,
+    "margin_pct": 24.33
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 17,
+  "constituency_name": "Golaghati (ST)",
+  "totals": {
+    "electors": 42531,
+    "votes_polled": 38981,
+    "turnout_pct": 91.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Manab Debbarma",
+      "party_short": "TMP",
+      "votes": 19800,
+      "vote_share_pct": 50.79,
+      "is_winner": true,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Himani Debbarma",
+      "party_short": "BJP",
+      "votes": 10602,
+      "vote_share_pct": 27.2,
+      "gender": "F",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Brinda Rani Debbarma",
+      "party_short": "CPI(M)",
+      "votes": 7606,
+      "vote_share_pct": 19.51,
+      "gender": "F",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Amit Kumar Debbarma",
+      "party_short": "RPPRINAT",
+      "votes": 449,
+      "vote_share_pct": 1.15,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 524,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Manab Debbarma",
+    "party_short": "TMP",
+    "votes": 19800,
+    "margin_votes": 9198,
+    "margin_pct": 23.6
+  },
+  "others": null
+}

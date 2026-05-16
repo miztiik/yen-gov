@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Badharghat (SC)",
+  "totals": {
+    "electors": 62207,
+    "votes_polled": 56044,
+    "turnout_pct": 90.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mina Rani Sarkar",
+      "party_short": "BJP",
+      "votes": 27427,
+      "vote_share_pct": 48.94,
+      "is_winner": true,
+      "gender": "F",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Partha Ranjan Sarkar",
+      "party_short": "AIFB",
+      "votes": 26138,
+      "vote_share_pct": 46.64,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Sushil Chandra Das",
+      "party_short": "IND",
+      "votes": 1036,
+      "vote_share_pct": 1.85,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Mridul Kanti Sarkar",
+      "party_short": "IND",
+      "votes": 723,
+      "vote_share_pct": 1.29,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 720,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mina Rani Sarkar",
+    "party_short": "BJP",
+    "votes": 27427,
+    "margin_votes": 1289,
+    "margin_pct": 2.3
+  },
+  "others": null
+}

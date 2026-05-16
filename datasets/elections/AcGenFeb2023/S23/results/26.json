@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 26,
+  "constituency_name": "Asharambari (ST)",
+  "totals": {
+    "electors": 39901,
+    "votes_polled": 35815,
+    "turnout_pct": 89.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Animesh Debbarma",
+      "party_short": "TMP",
+      "votes": 23838,
+      "vote_share_pct": 66.56,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Jayanti Deb Barma",
+      "party_short": "IPFT",
+      "votes": 5510,
+      "vote_share_pct": 15.38,
+      "gender": "F",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Dilip Debbarma",
+      "party_short": "CPI(M)",
+      "votes": 4420,
+      "vote_share_pct": 12.34,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Archana Urang",
+      "party_short": "IND",
+      "votes": 1125,
+      "vote_share_pct": 3.14,
+      "gender": "F",
+      "age": 35,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Jappu Debbarma",
+      "party_short": "IND",
+      "votes": 432,
+      "vote_share_pct": 1.21,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 490,
+    "vote_share_pct": 1.37
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Animesh Debbarma",
+    "party_short": "TMP",
+    "votes": 23838,
+    "margin_votes": 18328,
+    "margin_pct": 51.17
+  },
+  "others": null
+}

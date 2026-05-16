@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 262,
+  "constituency_name": "Allahabad North",
+  "totals": {
+    "electors": 442351,
+    "votes_polled": 175941,
+    "turnout_pct": 39.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARSHVARDHAN BAJPAI",
+      "party_short": "BJP",
+      "votes": 96890,
+      "vote_share_pct": 55.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SANDEEP YADAV",
+      "party_short": "SP",
+      "votes": 42007,
+      "vote_share_pct": 23.88,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANUGRAH NARAIN SINGH",
+      "party_short": "INC",
+      "votes": 23571,
+      "vote_share_pct": 13.4,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANJAY GOSWAMI",
+      "party_short": "BSP",
+      "votes": 9614,
+      "vote_share_pct": 5.46,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SANJIV MISHRA",
+      "party_short": "AAAP",
+      "votes": 1249,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 919,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1691,
+    "vote_share_pct": 0.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARSHVARDHAN BAJPAI",
+    "party_short": "BJP",
+    "votes": 96890,
+    "margin_votes": 54883,
+    "margin_pct": 31.19
+  }
+}

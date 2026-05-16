@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 94,
+  "constituency_name": "Bah",
+  "totals": {
+    "electors": 321295,
+    "votes_polled": 192786,
+    "turnout_pct": 60.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RANI PAKSHALIKA SINGH",
+      "party_short": "BJP",
+      "votes": 80567,
+      "vote_share_pct": 41.79,
+      "is_winner": true,
+      "gender": "F",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MADHUSUDAN SHARMA",
+      "party_short": "BSP",
+      "votes": 57427,
+      "vote_share_pct": 29.79,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HANSKALI ALIAS ANSHU RANI NISHAD",
+      "party_short": "SP",
+      "votes": 46885,
+      "vote_share_pct": 24.32,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUDHIR DUBEY",
+      "party_short": "RLD",
+      "votes": 1665,
+      "vote_share_pct": 0.86,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMENDRA SINGH",
+      "party_short": "IND",
+      "votes": 1225,
+      "vote_share_pct": 0.64,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2214,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 2803,
+    "vote_share_pct": 1.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RANI PAKSHALIKA SINGH",
+    "party_short": "BJP",
+    "votes": 80567,
+    "margin_votes": 23140,
+    "margin_pct": 12.0
+  }
+}

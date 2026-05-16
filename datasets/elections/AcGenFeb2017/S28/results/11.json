@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "Narendranagar",
+  "totals": {
+    "electors": 84441,
+    "votes_polled": 52545,
+    "turnout_pct": 62.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUBODH UNIYAL",
+      "party_short": "BJP",
+      "votes": 24104,
+      "vote_share_pct": 45.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "OM GOPAL RAWAT",
+      "party_short": "IND",
+      "votes": 19132,
+      "vote_share_pct": 36.41,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HIMANSHU BIJALWAN",
+      "party_short": "INC",
+      "votes": 4328,
+      "vote_share_pct": 8.24,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SARDAR SINGH",
+      "party_short": "UKKD",
+      "votes": 3314,
+      "vote_share_pct": 6.31,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAGDISH KULIYAL",
+      "party_short": "CPI",
+      "votes": 427,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 563,
+    "vote_share_pct": 1.07
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 677,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUBODH UNIYAL",
+    "party_short": "BJP",
+    "votes": 24104,
+    "margin_votes": 4972,
+    "margin_pct": 9.46
+  }
+}

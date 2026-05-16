@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 321,
+  "constituency_name": "Pipraich",
+  "totals": {
+    "electors": 386459,
+    "votes_polled": 246015,
+    "turnout_pct": 63.66
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MAHENDRA PAL SINGH",
+      "party_short": "BJP",
+      "votes": 82739,
+      "vote_share_pct": 33.63,
+      "is_winner": true,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AFATAB ALAM URF GUDDU BHAIYA",
+      "party_short": "BSP",
+      "votes": 69930,
+      "vote_share_pct": 28.43,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AMRENDRA NISHAD",
+      "party_short": "SP",
+      "votes": 51031,
+      "vote_share_pct": 20.74,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANITA JAISWAL",
+      "party_short": "IND",
+      "votes": 31073,
+      "vote_share_pct": 12.63,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BHPUENDRA",
+      "party_short": "IND",
+      "votes": 1177,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1204,
+    "vote_share_pct": 0.49
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 8861,
+    "vote_share_pct": 3.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MAHENDRA PAL SINGH",
+    "party_short": "BJP",
+    "votes": 82739,
+    "margin_votes": 12809,
+    "margin_pct": 5.21
+  }
+}

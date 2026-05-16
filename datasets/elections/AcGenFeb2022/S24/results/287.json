@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 287,
+  "constituency_name": "Payagpur",
+  "totals": {
+    "electors": 390097,
+    "votes_polled": 230613,
+    "turnout_pct": 59.12
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Subhash Tripathi",
+      "party_short": "BJP",
+      "votes": 110162,
+      "vote_share_pct": 47.77,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Mukesh Srivastava",
+      "party_short": "SP",
+      "votes": 98106,
+      "vote_share_pct": 42.54,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Geeta",
+      "party_short": "BSP",
+      "votes": 11232,
+      "vote_share_pct": 4.87,
+      "gender": "F",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Raise Ahmad",
+      "party_short": "AIMIM",
+      "votes": 3586,
+      "vote_share_pct": 1.55,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rana Shivam Singh",
+      "party_short": "INC",
+      "votes": 2957,
+      "vote_share_pct": 1.28,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2322,
+    "vote_share_pct": 1.01
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 2248,
+    "vote_share_pct": 0.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Subhash Tripathi",
+    "party_short": "BJP",
+    "votes": 110162,
+    "margin_votes": 12056,
+    "margin_pct": 5.23
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 340,
+  "constituency_name": "Bhatpar Rani",
+  "totals": {
+    "electors": 315706,
+    "votes_polled": 181465,
+    "turnout_pct": 57.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ASHUTOSH",
+      "party_short": "SP",
+      "votes": 61862,
+      "vote_share_pct": 34.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAYNATH KUSHWAHA URF GUDDAN",
+      "party_short": "BJP",
+      "votes": 50765,
+      "vote_share_pct": 27.98,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SABHAKUNWAR",
+      "party_short": "BSP",
+      "votes": 44161,
+      "vote_share_pct": 24.34,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ASHWANI KUMAR SINGH",
+      "party_short": "IND",
+      "votes": 13497,
+      "vote_share_pct": 7.44,
+      "gender": "M",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAM PRAVESH YADAV",
+      "party_short": "IND",
+      "votes": 1421,
+      "vote_share_pct": 0.78,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2039,
+    "vote_share_pct": 1.12
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 7720,
+    "vote_share_pct": 4.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ASHUTOSH",
+    "party_short": "SP",
+    "votes": 61862,
+    "margin_votes": 11097,
+    "margin_pct": 6.12
+  }
+}

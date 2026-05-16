@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "Suar",
+  "totals": {
+    "electors": 295945,
+    "votes_polled": 205962,
+    "turnout_pct": 69.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHAMMAD ABDULLAH AZAM KHAN",
+      "party_short": "SP",
+      "votes": 106443,
+      "vote_share_pct": 51.68,
+      "is_winner": true,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "LAXMI SAINI",
+      "party_short": "BJP",
+      "votes": 53347,
+      "vote_share_pct": 25.9,
+      "gender": "F",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NAWAB KAZIM ALI KHAN",
+      "party_short": "BSP",
+      "votes": 42233,
+      "vote_share_pct": 20.51,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ARSHAD WARSI",
+      "party_short": "MNDP",
+      "votes": 1283,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NAVIN KUMAR",
+      "party_short": "RLD",
+      "votes": 902,
+      "vote_share_pct": 0.44,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 872,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 882,
+    "vote_share_pct": 0.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHAMMAD ABDULLAH AZAM KHAN",
+    "party_short": "SP",
+    "votes": 106443,
+    "margin_votes": 53096,
+    "margin_pct": 25.78
+  }
+}

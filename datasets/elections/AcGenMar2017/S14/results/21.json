@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 21,
+  "constituency_name": "Naoriya pakhanglakpa",
+  "totals": {
+    "electors": 32603,
+    "votes_polled": 30334,
+    "turnout_pct": 93.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SOIBAM SUBHASCHANDRA SINGH",
+      "party_short": "BJP",
+      "votes": 8609,
+      "vote_share_pct": 28.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "R.K. ANAND",
+      "party_short": "INC",
+      "votes": 6994,
+      "vote_share_pct": 23.06,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SORAISHAM MANAOTON SINGH",
+      "party_short": "AITC",
+      "votes": 6121,
+      "vote_share_pct": 20.18,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KONTHOUJAM MANORANJAN SINGH",
+      "party_short": "LJP",
+      "votes": 4777,
+      "vote_share_pct": 15.75,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "OINAM MALESH SINGH",
+      "party_short": "NEINDP",
+      "votes": 3610,
+      "vote_share_pct": 11.9,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 153,
+    "vote_share_pct": 0.5
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 70,
+    "vote_share_pct": 0.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SOIBAM SUBHASCHANDRA SINGH",
+    "party_short": "BJP",
+    "votes": 8609,
+    "margin_votes": 1615,
+    "margin_pct": 5.32
+  }
+}

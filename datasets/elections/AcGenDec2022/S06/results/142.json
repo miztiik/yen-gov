@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 142,
+  "constituency_name": "Sayajigunj",
+  "totals": {
+    "electors": 301098,
+    "votes_polled": 178336,
+    "turnout_pct": 59.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Keyur Narayandas Rokadia",
+      "party_short": "BJP",
+      "votes": 122066,
+      "vote_share_pct": 68.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ami Ravat",
+      "party_short": "INC",
+      "votes": 38053,
+      "vote_share_pct": 21.34,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Swejal Bharatbhai Vyas",
+      "party_short": "AAAP",
+      "votes": 13080,
+      "vote_share_pct": 7.33,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Neha Parmar",
+      "party_short": "BSP",
+      "votes": 1251,
+      "vote_share_pct": 0.7,
+      "gender": "F",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Dhaval Anil Chavan",
+      "party_short": "IND",
+      "votes": 454,
+      "vote_share_pct": 0.25,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3432,
+    "vote_share_pct": 1.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Keyur Narayandas Rokadia",
+    "party_short": "BJP",
+    "votes": 122066,
+    "margin_votes": 84013,
+    "margin_pct": 47.11
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 9,
+  "constituency_name": "Fatehgarh Churian",
+  "totals": {
+    "electors": 165313,
+    "votes_polled": 124045,
+    "turnout_pct": 75.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "TRIPT RAJINDER SINGH BAJWA",
+      "party_short": "INC",
+      "votes": 54348,
+      "vote_share_pct": 43.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 73,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NIRMAL SINGH KAHLON",
+      "party_short": "SAD",
+      "votes": 52349,
+      "vote_share_pct": 42.2,
+      "gender": "M",
+      "age": 80,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GURVINDER SINGH SHAMPURA",
+      "party_short": "AAAP",
+      "votes": 14665,
+      "vote_share_pct": 11.82,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GULZAR SINGH",
+      "party_short": "CPI(ML)(L)",
+      "votes": 857,
+      "vote_share_pct": 0.69,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AMARJIT SINGH",
+      "party_short": "BSP",
+      "votes": 605,
+      "vote_share_pct": 0.49,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 489,
+    "vote_share_pct": 0.39
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 732,
+    "vote_share_pct": 0.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "TRIPT RAJINDER SINGH BAJWA",
+    "party_short": "INC",
+    "votes": 54348,
+    "margin_votes": 1999,
+    "margin_pct": 1.61
+  }
+}

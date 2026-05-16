@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 218,
+  "constituency_name": "Kovilpatti",
+  "totals": {
+    "electors": 266625,
+    "votes_polled": 180928,
+    "turnout_pct": 67.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KADAMBUR RAJU",
+      "party_short": "ADMK",
+      "votes": 68556,
+      "vote_share_pct": 37.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "TTV DHINAKARAN",
+      "party_short": "AMMKMNKZ",
+      "votes": 56153,
+      "vote_share_pct": 31.04,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "K.Srinivasan",
+      "party_short": "CPI(M)",
+      "votes": 37380,
+      "vote_share_pct": 20.66,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M.Gomathi",
+      "party_short": "NTK",
+      "votes": 9213,
+      "vote_share_pct": 5.09,
+      "gender": "F",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K.Kathiravan",
+      "party_short": "MNM",
+      "votes": 3667,
+      "vote_share_pct": 2.03,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1124,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 21,
+    "votes": 4835,
+    "vote_share_pct": 2.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KADAMBUR RAJU",
+    "party_short": "ADMK",
+    "votes": 68556,
+    "margin_votes": 12403,
+    "margin_pct": 6.86
+  }
+}

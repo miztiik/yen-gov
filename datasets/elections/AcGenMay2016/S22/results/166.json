@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 166,
+  "constituency_name": "Thiruthuraipoondi",
+  "totals": {
+    "electors": 222916,
+    "votes_polled": 175620,
+    "turnout_pct": 78.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ADALARASAN. P",
+      "party_short": "DMK",
+      "votes": 72127,
+      "vote_share_pct": 41.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "UMAMAHESWARI. K",
+      "party_short": "ADMK",
+      "votes": 58877,
+      "vote_share_pct": 33.53,
+      "gender": "F",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ULAGANATHAN. K",
+      "party_short": "CPI",
+      "votes": 33038,
+      "vote_share_pct": 18.81,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "UDAYAKUMAR. G",
+      "party_short": "BJP",
+      "votes": 3937,
+      "vote_share_pct": 2.24,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAJAMOHAN. S",
+      "party_short": "PMK",
+      "votes": 2005,
+      "vote_share_pct": 1.14,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1768,
+    "vote_share_pct": 1.01
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3868,
+    "vote_share_pct": 2.2
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ADALARASAN. P",
+    "party_short": "DMK",
+    "votes": 72127,
+    "margin_votes": 13250,
+    "margin_pct": 7.54
+  }
+}

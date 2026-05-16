@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 175,
+  "constituency_name": "Orathanadu",
+  "totals": {
+    "electors": 243747,
+    "votes_polled": 191840,
+    "turnout_pct": 78.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VAITHILINGAM, R.",
+      "party_short": "ADMK",
+      "votes": 90063,
+      "vote_share_pct": 46.95,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAMCHANDRAN, M.",
+      "party_short": "DMK",
+      "votes": 61228,
+      "vote_share_pct": 31.92,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SEKAR, M.",
+      "party_short": "AMMKMNKZ",
+      "votes": 26022,
+      "vote_share_pct": 13.56,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KANDHASAMY, M.",
+      "party_short": "NTK",
+      "votes": 9050,
+      "vote_share_pct": 4.72,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOOKKAIYAN, V.",
+      "party_short": "IND",
+      "votes": 2041,
+      "vote_share_pct": 1.06,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 867,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2569,
+    "vote_share_pct": 1.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VAITHILINGAM, R.",
+    "party_short": "ADMK",
+    "votes": 90063,
+    "margin_votes": 28835,
+    "margin_pct": 15.03
+  }
+}

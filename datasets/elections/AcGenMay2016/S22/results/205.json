@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 205,
+  "constituency_name": "Sivakasi",
+  "totals": {
+    "electors": 237773,
+    "votes_polled": 175702,
+    "turnout_pct": 73.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJENTHRABHALAJI K.T",
+      "party_short": "ADMK",
+      "votes": 76734,
+      "vote_share_pct": 43.67,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SREERAJA, C.",
+      "party_short": "INC",
+      "votes": 61986,
+      "vote_share_pct": 35.28,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SUDHAKARAN R",
+      "party_short": "DMDK",
+      "votes": 17379,
+      "vote_share_pct": 9.89,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PARRATHASHAARATHI A.G",
+      "party_short": "BJP",
+      "votes": 6189,
+      "vote_share_pct": 3.52,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BABU, T.",
+      "party_short": "NTK",
+      "votes": 3245,
+      "vote_share_pct": 1.85,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2704,
+    "vote_share_pct": 1.54
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 7465,
+    "vote_share_pct": 4.25
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJENTHRABHALAJI K.T",
+    "party_short": "ADMK",
+    "votes": 76734,
+    "margin_votes": 14748,
+    "margin_pct": 8.39
+  }
+}

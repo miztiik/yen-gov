@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 130,
+  "constituency_name": "Bisalpur",
+  "totals": {
+    "electors": 360883,
+    "votes_polled": 239625,
+    "turnout_pct": 66.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIVEK KUMAR VERMA",
+      "party_short": "BJP",
+      "votes": 121142,
+      "vote_share_pct": 50.55,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DIVYA GANGWAR",
+      "party_short": "SP",
+      "votes": 70733,
+      "vote_share_pct": 29.52,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ANIS AHMED KHAN PHOOL BABU",
+      "party_short": "BSP",
+      "votes": 35983,
+      "vote_share_pct": 15.02,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "NITIN PATHAK",
+      "party_short": "IND",
+      "votes": 2880,
+      "vote_share_pct": 1.2,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BHEEMSEN SHARMA",
+      "party_short": "CPI",
+      "votes": 1774,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1238,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 5875,
+    "vote_share_pct": 2.45
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIVEK KUMAR VERMA",
+    "party_short": "BJP",
+    "votes": 121142,
+    "margin_votes": 50409,
+    "margin_pct": 21.04
+  }
+}

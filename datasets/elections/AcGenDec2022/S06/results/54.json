@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "Danilimda (SC)",
+  "totals": {
+    "electors": 266617,
+    "votes_polled": 156649,
+    "turnout_pct": 58.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shailesh Manubhai Parmar",
+      "party_short": "INC",
+      "votes": 69130,
+      "vote_share_pct": 44.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Nareshbhai Shankarbhai Vyas( Satish Vyas)",
+      "party_short": "BJP",
+      "votes": 55643,
+      "vote_share_pct": 35.52,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Kapadiya Dineshbhai Somabhai",
+      "party_short": "AAAP",
+      "votes": 23251,
+      "vote_share_pct": 14.84,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Kaushikabahen Dilipbhai Parmar",
+      "party_short": "AIMIM",
+      "votes": 2470,
+      "vote_share_pct": 1.58,
+      "gender": "F",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Jamnaben Sureshbhai Vegda",
+      "party_short": "IND",
+      "votes": 1501,
+      "vote_share_pct": 0.96,
+      "gender": "F",
+      "age": 57,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2181,
+    "vote_share_pct": 1.39
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2473,
+    "vote_share_pct": 1.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shailesh Manubhai Parmar",
+    "party_short": "INC",
+    "votes": 69130,
+    "margin_votes": 13487,
+    "margin_pct": 8.61
+  }
+}

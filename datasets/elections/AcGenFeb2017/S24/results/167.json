@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 167,
+  "constituency_name": "Purwa",
+  "totals": {
+    "electors": 390082,
+    "votes_polled": 244933,
+    "turnout_pct": 62.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANIL SINGH",
+      "party_short": "BSP",
+      "votes": 97567,
+      "vote_share_pct": 39.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "UTTAM CHANDRA URF RAKESH LODHI",
+      "party_short": "BJP",
+      "votes": 71084,
+      "vote_share_pct": 29.02,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "UDAY RAJ",
+      "party_short": "SP",
+      "votes": 68114,
+      "vote_share_pct": 27.81,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "CHHABINATH",
+      "party_short": "RLD",
+      "votes": 1318,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHIV SHANKAR KUSHWAHA",
+      "party_short": "BMUP",
+      "votes": 1033,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2719,
+    "vote_share_pct": 1.11
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 3098,
+    "vote_share_pct": 1.26
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANIL SINGH",
+    "party_short": "BSP",
+    "votes": 97567,
+    "margin_votes": 26483,
+    "margin_pct": 10.81
+  }
+}

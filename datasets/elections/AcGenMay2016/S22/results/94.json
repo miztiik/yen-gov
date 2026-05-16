@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 94,
+  "constituency_name": "Namakkal",
+  "totals": {
+    "electors": 242615,
+    "votes_polled": 194441,
+    "turnout_pct": 80.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BASKAR. K.P.P",
+      "party_short": "ADMK",
+      "votes": 89076,
+      "vote_share_pct": 45.81,
+      "is_winner": true,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHEZHIAN. R",
+      "party_short": "INC",
+      "votes": 75542,
+      "vote_share_pct": 38.85,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MATHESWARAN S",
+      "party_short": "KMDK",
+      "votes": 10506,
+      "vote_share_pct": 5.4,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ELANGO. N",
+      "party_short": "TMC(M)",
+      "votes": 4341,
+      "vote_share_pct": 2.23,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJENDRAN. V",
+      "party_short": "BJP",
+      "votes": 2751,
+      "vote_share_pct": 1.41,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3828,
+    "vote_share_pct": 1.97
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 8397,
+    "vote_share_pct": 4.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BASKAR. K.P.P",
+    "party_short": "ADMK",
+    "votes": 89076,
+    "margin_votes": 13534,
+    "margin_pct": 6.96
+  }
+}

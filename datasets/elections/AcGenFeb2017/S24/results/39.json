@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Dhanaura",
+  "totals": {
+    "electors": 321055,
+    "votes_polled": 225180,
+    "turnout_pct": 70.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJEEV KUMAR",
+      "party_short": "BJP",
+      "votes": 102943,
+      "vote_share_pct": 45.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "JAGRAM SINGH",
+      "party_short": "SP",
+      "votes": 64714,
+      "vote_share_pct": 28.74,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SANJEEV LAL",
+      "party_short": "BSP",
+      "votes": 51952,
+      "vote_share_pct": 23.07,
+      "gender": "M",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KAPIL CHANDRA",
+      "party_short": "RLD",
+      "votes": 3747,
+      "vote_share_pct": 1.66,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1824,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJEEV KUMAR",
+    "party_short": "BJP",
+    "votes": 102943,
+    "margin_votes": 38229,
+    "margin_pct": 16.98
+  },
+  "others": null
+}

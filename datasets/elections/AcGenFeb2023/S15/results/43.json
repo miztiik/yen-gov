@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "William Nagar (ST)",
+  "totals": {
+    "electors": 37359,
+    "votes_polled": 29749,
+    "turnout_pct": 79.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Marcuise N Marak",
+      "party_short": "NPEP",
+      "votes": 10976,
+      "vote_share_pct": 36.9,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Deborah C. Marak",
+      "party_short": "INC",
+      "votes": 7133,
+      "vote_share_pct": 23.98,
+      "gender": "F",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Rudreswar Ch. Momin",
+      "party_short": "IND",
+      "votes": 5137,
+      "vote_share_pct": 17.27,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Alphonsush R. Marak",
+      "party_short": "AITC",
+      "votes": 4809,
+      "vote_share_pct": 16.17,
+      "gender": "M",
+      "age": 41,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Robinus T Sangma",
+      "party_short": "JD(U)",
+      "votes": 733,
+      "vote_share_pct": 2.46,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 366,
+    "vote_share_pct": 1.23
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 595,
+    "vote_share_pct": 2.0
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Marcuise N Marak",
+    "party_short": "NPEP",
+    "votes": 10976,
+    "margin_votes": 3843,
+    "margin_pct": 12.92
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Villivakkam",
+  "totals": {
+    "electors": 250657,
+    "votes_polled": 150084,
+    "turnout_pct": 59.88
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B. RANGANATHAN",
+      "party_short": "DMK",
+      "votes": 65972,
+      "vote_share_pct": 43.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "THADI M.RAJU",
+      "party_short": "ADMK",
+      "votes": 56651,
+      "vote_share_pct": 37.75,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "T.PANDIYAN",
+      "party_short": "DMDK",
+      "votes": 8234,
+      "vote_share_pct": 5.49,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M.JAISHANKAR",
+      "party_short": "BJP",
+      "votes": 6438,
+      "vote_share_pct": 4.29,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "G.V.SUBRAMANIYAN",
+      "party_short": "PMK",
+      "votes": 4193,
+      "vote_share_pct": 2.79,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3409,
+    "vote_share_pct": 2.27
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 5187,
+    "vote_share_pct": 3.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B. RANGANATHAN",
+    "party_short": "DMK",
+    "votes": 65972,
+    "margin_votes": 9321,
+    "margin_pct": 6.21
+  }
+}

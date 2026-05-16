@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 391,
+  "constituency_name": "Sevapuri",
+  "totals": {
+    "electors": 346090,
+    "votes_polled": 220910,
+    "turnout_pct": 63.83
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Neel Ratan Singh",
+      "party_short": "BJP",
+      "votes": 105163,
+      "vote_share_pct": 47.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Surendra Singh Patel",
+      "party_short": "SP",
+      "votes": 82632,
+      "vote_share_pct": 37.41,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Arvind Kumar Tripathi",
+      "party_short": "BSP",
+      "votes": 24065,
+      "vote_share_pct": 10.89,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Anju Anand Singh",
+      "party_short": "INC",
+      "votes": 2974,
+      "vote_share_pct": 1.35,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Kailash Patel",
+      "party_short": "AAAP",
+      "votes": 1145,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1587,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3344,
+    "vote_share_pct": 1.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Neel Ratan Singh",
+    "party_short": "BJP",
+    "votes": 105163,
+    "margin_votes": 22531,
+    "margin_pct": 10.2
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 10,
+  "constituency_name": "Jirang (ST)",
+  "totals": {
+    "electors": 42206,
+    "votes_polled": 34851,
+    "turnout_pct": 82.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Sosthenes Sohtun",
+      "party_short": "NPEP",
+      "votes": 12690,
+      "vote_share_pct": 36.41,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Adrian Lambert Mylliem",
+      "party_short": "INC",
+      "votes": 11067,
+      "vote_share_pct": 31.76,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Badhok Nongmalieh",
+      "party_short": "UDP",
+      "votes": 4107,
+      "vote_share_pct": 11.78,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Sunmoon D. Marak",
+      "party_short": "AITC",
+      "votes": 3928,
+      "vote_share_pct": 11.27,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Riya Sangma",
+      "party_short": "BJP",
+      "votes": 2075,
+      "vote_share_pct": 5.95,
+      "gender": "F",
+      "age": 36,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 315,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 669,
+    "vote_share_pct": 1.92
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Sosthenes Sohtun",
+    "party_short": "NPEP",
+    "votes": 12690,
+    "margin_votes": 1623,
+    "margin_pct": 4.66
+  }
+}

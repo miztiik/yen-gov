@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 361,
+  "constituency_name": "Ballia Nagar",
+  "totals": {
+    "electors": 375300,
+    "votes_polled": 202812,
+    "turnout_pct": 54.04
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Daya Shankar Singh",
+      "party_short": "BJP",
+      "votes": 103873,
+      "vote_share_pct": 51.22,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NARAD RAI",
+      "party_short": "SP",
+      "votes": 77634,
+      "vote_share_pct": 38.28,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Shivdas Prasad Verma",
+      "party_short": "BSP",
+      "votes": 10023,
+      "vote_share_pct": 4.94,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Jitendra Tiwari",
+      "party_short": "VSIP",
+      "votes": 3872,
+      "vote_share_pct": 1.91,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Omprakash",
+      "party_short": "INC",
+      "votes": 2166,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1054,
+    "vote_share_pct": 0.52
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 4190,
+    "vote_share_pct": 2.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Daya Shankar Singh",
+    "party_short": "BJP",
+    "votes": 103873,
+    "margin_votes": 26239,
+    "margin_pct": 12.94
+  }
+}

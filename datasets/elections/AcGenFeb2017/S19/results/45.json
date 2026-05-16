@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 45,
+  "constituency_name": "Garhshankar",
+  "totals": {
+    "electors": 169609,
+    "votes_polled": 125658,
+    "turnout_pct": 74.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAI KRISHAN",
+      "party_short": "AAAP",
+      "votes": 41720,
+      "vote_share_pct": 33.2,
+      "is_winner": true,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SURINDER SINGH HEER",
+      "party_short": "SAD",
+      "votes": 40070,
+      "vote_share_pct": 31.89,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "LOV KUMAR GOLDY",
+      "party_short": "INC",
+      "votes": 31909,
+      "vote_share_pct": 25.39,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BAKHSHISH SINGH",
+      "party_short": "BSP",
+      "votes": 6031,
+      "vote_share_pct": 4.8,
+      "gender": "M",
+      "age": 61,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "HARBHAJAN SINGH",
+      "party_short": "CPM",
+      "votes": 2217,
+      "vote_share_pct": 1.76,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1121,
+    "vote_share_pct": 0.89
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 2590,
+    "vote_share_pct": 2.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAI KRISHAN",
+    "party_short": "AAAP",
+    "votes": 41720,
+    "margin_votes": 1650,
+    "margin_pct": 1.31
+  }
+}

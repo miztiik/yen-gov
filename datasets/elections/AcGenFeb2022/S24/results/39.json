@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Dhanaura",
+  "totals": {
+    "electors": 346449,
+    "votes_polled": 243697,
+    "turnout_pct": 70.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJEEV KUMAR",
+      "party_short": "BJP",
+      "votes": 103054,
+      "vote_share_pct": 42.29,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "VIVEK SINGH",
+      "party_short": "SP",
+      "votes": 91629,
+      "vote_share_pct": 37.6,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "HARPAL SINGH",
+      "party_short": "BSP",
+      "votes": 43974,
+      "vote_share_pct": 18.04,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SAMAR PAL SINGH",
+      "party_short": "INC",
+      "votes": 1385,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "GITA RANI",
+      "party_short": "AIMIM",
+      "votes": 941,
+      "vote_share_pct": 0.39,
+      "gender": "F",
+      "age": 48,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1176,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1538,
+    "vote_share_pct": 0.63
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJEEV KUMAR",
+    "party_short": "BJP",
+    "votes": 103054,
+    "margin_votes": 11425,
+    "margin_pct": 4.69
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 39,
+  "constituency_name": "Manu (ST)",
+  "totals": {
+    "electors": 47741,
+    "votes_polled": 44835,
+    "turnout_pct": 93.91
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mailafru Mog",
+      "party_short": "BJP",
+      "votes": 15469,
+      "vote_share_pct": 34.5,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Pravat Chowdhury",
+      "party_short": "CPI(M)",
+      "votes": 14922,
+      "vote_share_pct": 33.28,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Dhananjoy Tripura",
+      "party_short": "TMP",
+      "votes": 13650,
+      "vote_share_pct": 30.44,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 794,
+    "vote_share_pct": 1.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mailafru Mog",
+    "party_short": "BJP",
+    "votes": 15469,
+    "margin_votes": 547,
+    "margin_pct": 1.22
+  },
+  "others": null
+}

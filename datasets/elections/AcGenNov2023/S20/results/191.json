@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 191,
+  "constituency_name": "Ladpura",
+  "totals": {
+    "electors": 290305,
+    "votes_polled": 223405,
+    "turnout_pct": 76.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kalpana Devi",
+      "party_short": "BJP",
+      "votes": 121248,
+      "vote_share_pct": 54.27,
+      "is_winner": true,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Naimuddin Guddu",
+      "party_short": "INC",
+      "votes": 95726,
+      "vote_share_pct": 42.85,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Uchchhab Lal",
+      "party_short": "ASPKR",
+      "votes": 976,
+      "vote_share_pct": 0.44,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Harish Kumar Lahri",
+      "party_short": "BSP",
+      "votes": 917,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 70,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Mohammad Rafik",
+      "party_short": "IND",
+      "votes": 847,
+      "vote_share_pct": 0.38,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2440,
+    "vote_share_pct": 1.09
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1251,
+    "vote_share_pct": 0.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kalpana Devi",
+    "party_short": "BJP",
+    "votes": 121248,
+    "margin_votes": 25522,
+    "margin_pct": 11.42
+  }
+}

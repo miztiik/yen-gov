@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Lamlai",
+  "totals": {
+    "electors": 27210,
+    "votes_polled": 25696,
+    "turnout_pct": 94.44
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KSH. BIREN SINGH",
+      "party_short": "INC",
+      "votes": 12339,
+      "vote_share_pct": 48.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KHONGBANTABAM IBOMCHA",
+      "party_short": "BJP",
+      "votes": 11487,
+      "vote_share_pct": 44.7,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HUIREM BIMOL",
+      "party_short": "CPI",
+      "votes": 1712,
+      "vote_share_pct": 6.66,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 158,
+    "vote_share_pct": 0.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KSH. BIREN SINGH",
+    "party_short": "INC",
+    "votes": 12339,
+    "margin_votes": 852,
+    "margin_pct": 3.32
+  },
+  "others": null
+}

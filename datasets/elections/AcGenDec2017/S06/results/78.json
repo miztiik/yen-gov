@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 78,
+  "constituency_name": "Jamnagar North",
+  "totals": {
+    "electors": 218785,
+    "votes_polled": 144822,
+    "turnout_pct": 66.19
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JADEJA DHARMENDRASINH  MERUBHA (HAKUBHA)",
+      "party_short": "BJP",
+      "votes": 84327,
+      "vote_share_pct": 58.23,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AHIR JIVANBHAI KARUBHAI KUMBHARVADIYA",
+      "party_short": "INC",
+      "votes": 43364,
+      "vote_share_pct": 29.94,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "GUJARATISURYA KAMLESHBHAI LAXMANBHAI",
+      "party_short": "IND",
+      "votes": 4047,
+      "vote_share_pct": 2.79,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GOTAM ALABHAI VAGHELA",
+      "party_short": "BSP",
+      "votes": 1957,
+      "vote_share_pct": 1.35,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "JOGAL ARJAN",
+      "party_short": "IND",
+      "votes": 1568,
+      "vote_share_pct": 1.08,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1538,
+    "vote_share_pct": 1.06
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 6253,
+    "vote_share_pct": 4.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JADEJA DHARMENDRASINH  MERUBHA (HAKUBHA)",
+    "party_short": "BJP",
+    "votes": 84327,
+    "margin_votes": 40963,
+    "margin_pct": 28.29
+  }
+}

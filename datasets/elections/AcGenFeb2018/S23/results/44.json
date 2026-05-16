@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Raima Valley",
+  "totals": {
+    "electors": 43430,
+    "votes_polled": 40377,
+    "turnout_pct": 92.97
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DHANANJOY TRIPURA",
+      "party_short": "IPFT",
+      "votes": 18673,
+      "vote_share_pct": 46.25,
+      "is_winner": true,
+      "gender": "M",
+      "age": 27,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "LALIT MOHAN TRIPURA",
+      "party_short": "CPM",
+      "votes": 16751,
+      "vote_share_pct": 41.49,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SHIB CHANDRA DEBBARMA",
+      "party_short": "INPT",
+      "votes": 1815,
+      "vote_share_pct": 4.5,
+      "gender": "M",
+      "age": 63,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "KHAGENDRA REANG",
+      "party_short": "TRIPP",
+      "votes": 840,
+      "vote_share_pct": 2.08,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "BAKUL BIKASH CHAKMA",
+      "party_short": "INC",
+      "votes": 476,
+      "vote_share_pct": 1.18,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 584,
+    "vote_share_pct": 1.45
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 377,
+    "vote_share_pct": 0.93
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DHANANJOY TRIPURA",
+    "party_short": "IPFT",
+    "votes": 18673,
+    "margin_votes": 1922,
+    "margin_pct": 4.76
+  }
+}

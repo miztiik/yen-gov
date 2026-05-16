@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 101,
+  "constituency_name": "Amanpur",
+  "totals": {
+    "electors": 292812,
+    "votes_polled": 183778,
+    "turnout_pct": 62.76
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DEVENDRA PRATAP",
+      "party_short": "BJP",
+      "votes": 85199,
+      "vote_share_pct": 46.36,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VIRENDRA SINGH SOLANKI",
+      "party_short": "SP",
+      "votes": 43395,
+      "vote_share_pct": 23.61,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DEV PRAKASH",
+      "party_short": "BSP",
+      "votes": 33166,
+      "vote_share_pct": 18.05,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAHUL PANDAY",
+      "party_short": "MD",
+      "votes": 16967,
+      "vote_share_pct": 9.23,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SALIKRAM",
+      "party_short": "CPM",
+      "votes": 885,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1242,
+    "vote_share_pct": 0.68
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2924,
+    "vote_share_pct": 1.6
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DEVENDRA PRATAP",
+    "party_short": "BJP",
+    "votes": 85199,
+    "margin_votes": 41804,
+    "margin_pct": 22.75
+  }
+}

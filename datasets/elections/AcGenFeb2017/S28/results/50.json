@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 50,
+  "constituency_name": "Ranikhet",
+  "totals": {
+    "electors": 79537,
+    "votes_polled": 41010,
+    "turnout_pct": 51.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KARAN  MAHARA",
+      "party_short": "INC",
+      "votes": 19035,
+      "vote_share_pct": 46.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AJAY BHATT",
+      "party_short": "BJP",
+      "votes": 14054,
+      "vote_share_pct": 34.27,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PRAMOD NAINWAL",
+      "party_short": "IND",
+      "votes": 5701,
+      "vote_share_pct": 13.9,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KRIPAL RAM",
+      "party_short": "BSP",
+      "votes": 1169,
+      "vote_share_pct": 2.85,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PRATAP SINGH SHAHI",
+      "party_short": "UKKD",
+      "votes": 414,
+      "vote_share_pct": 1.01,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 637,
+    "vote_share_pct": 1.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KARAN  MAHARA",
+    "party_short": "INC",
+    "votes": 19035,
+    "margin_votes": 4981,
+    "margin_pct": 12.15
+  },
+  "others": null
+}

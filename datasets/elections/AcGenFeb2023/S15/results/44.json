@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S15",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Raksamgre (ST)",
+  "totals": {
+    "electors": 31175,
+    "votes_polled": 27651,
+    "turnout_pct": 88.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Limison D. Sangma",
+      "party_short": "NPEP",
+      "votes": 12184,
+      "vote_share_pct": 44.06,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Benedic R. Marak",
+      "party_short": "BJP",
+      "votes": 9366,
+      "vote_share_pct": 33.87,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Dr. Prabir D. Sangma",
+      "party_short": "AITC",
+      "votes": 4075,
+      "vote_share_pct": 14.74,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Frederick D. Sangma",
+      "party_short": "INC",
+      "votes": 1413,
+      "vote_share_pct": 5.11,
+      "gender": "M",
+      "age": 34,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Sushil Gayary",
+      "party_short": "UDP",
+      "votes": 261,
+      "vote_share_pct": 0.94,
+      "gender": "M",
+      "age": 42,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 184,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 168,
+    "vote_share_pct": 0.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Limison D. Sangma",
+    "party_short": "NPEP",
+    "votes": 12184,
+    "margin_votes": 2818,
+    "margin_pct": 10.19
+  }
+}

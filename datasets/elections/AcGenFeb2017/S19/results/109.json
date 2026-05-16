@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 109,
+  "constituency_name": "Nabha",
+  "totals": {
+    "electors": 175673,
+    "votes_polled": 142432,
+    "turnout_pct": 81.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SADHU SINGH",
+      "party_short": "INC",
+      "votes": 60861,
+      "vote_share_pct": 42.73,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "GURDEV SINGH DEV MANN",
+      "party_short": "AAAP",
+      "votes": 41866,
+      "vote_share_pct": 29.39,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KABIR DASS",
+      "party_short": "SAD",
+      "votes": 32482,
+      "vote_share_pct": 22.81,
+      "gender": "M",
+      "age": 58,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "JEET RAM",
+      "party_short": "IND",
+      "votes": 2689,
+      "vote_share_pct": 1.89,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KASHMIR SINGH",
+      "party_short": "CPI",
+      "votes": 1409,
+      "vote_share_pct": 0.99,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1280,
+    "vote_share_pct": 0.9
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1845,
+    "vote_share_pct": 1.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SADHU SINGH",
+    "party_short": "INC",
+    "votes": 60861,
+    "margin_votes": 18995,
+    "margin_pct": 13.34
+  }
+}

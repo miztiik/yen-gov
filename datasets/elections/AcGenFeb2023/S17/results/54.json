@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 54,
+  "constituency_name": "Tuensang Sadar-II (ST)",
+  "totals": {
+    "electors": 16671,
+    "votes_polled": 15237,
+    "turnout_pct": 91.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Imtichoba",
+      "party_short": "RPPRINAT",
+      "votes": 5514,
+      "vote_share_pct": 36.19,
+      "is_winner": true,
+      "gender": "M",
+      "age": 35,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "K. Odibendang Chang",
+      "party_short": "NDPP",
+      "votes": 5114,
+      "vote_share_pct": 33.56,
+      "gender": "M",
+      "age": 50,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "H. Zungkum Chang",
+      "party_short": "NPF",
+      "votes": 4487,
+      "vote_share_pct": 29.45,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Z. Throngso",
+      "party_short": "INC",
+      "votes": 87,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 53,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 35,
+    "vote_share_pct": 0.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Imtichoba",
+    "party_short": "RPPRINAT",
+    "votes": 5514,
+    "margin_votes": 400,
+    "margin_pct": 2.63
+  },
+  "others": null
+}

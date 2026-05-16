@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 88,
+  "constituency_name": "Agra South",
+  "totals": {
+    "electors": 367502,
+    "votes_polled": 208569,
+    "turnout_pct": 56.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "YOGENDRA UPADHYAYA",
+      "party_short": "BJP",
+      "votes": 109262,
+      "vote_share_pct": 52.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VINAY AGARWAL",
+      "party_short": "SP",
+      "votes": 52622,
+      "vote_share_pct": 25.23,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAVI BHARADWAJ",
+      "party_short": "BSP",
+      "votes": 38219,
+      "vote_share_pct": 18.32,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANUJ SHARMA",
+      "party_short": "INC",
+      "votes": 4867,
+      "vote_share_pct": 2.33,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMJANI",
+      "party_short": "AAAP",
+      "votes": 959,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 949,
+    "vote_share_pct": 0.46
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1691,
+    "vote_share_pct": 0.81
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "YOGENDRA UPADHYAYA",
+    "party_short": "BJP",
+    "votes": 109262,
+    "margin_votes": 56640,
+    "margin_pct": 27.16
+  }
+}

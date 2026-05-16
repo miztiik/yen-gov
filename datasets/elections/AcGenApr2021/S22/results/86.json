@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 86,
+  "constituency_name": "Edappadi",
+  "totals": {
+    "electors": 285298,
+    "votes_polled": 247301,
+    "turnout_pct": 86.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "EDAPPADI PALANISWAMI. K",
+      "party_short": "ADMK",
+      "votes": 163154,
+      "vote_share_pct": 65.97,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SAMBATHKUMAR. T",
+      "party_short": "DMK",
+      "votes": 69352,
+      "vote_share_pct": 28.04,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHRI RATHNA",
+      "party_short": "NTK",
+      "votes": 6626,
+      "vote_share_pct": 2.68,
+      "gender": "F",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THASAPPARAJ. D",
+      "party_short": "MNM",
+      "votes": 1547,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "JAMUNA. A",
+      "party_short": "BSP",
+      "votes": 815,
+      "vote_share_pct": 0.33,
+      "gender": "F",
+      "age": 25,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1109,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 23,
+    "votes": 4698,
+    "vote_share_pct": 1.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "EDAPPADI PALANISWAMI. K",
+    "party_short": "ADMK",
+    "votes": 163154,
+    "margin_votes": 93802,
+    "margin_pct": 37.93
+  }
+}

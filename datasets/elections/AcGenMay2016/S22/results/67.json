@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "Arani",
+  "totals": {
+    "electors": 256327,
+    "votes_polled": 209545,
+    "turnout_pct": 81.75
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAMACHANDRAN, S",
+      "party_short": "ADMK",
+      "votes": 94074,
+      "vote_share_pct": 44.89,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BABU, S",
+      "party_short": "DMK",
+      "votes": 86747,
+      "vote_share_pct": 41.4,
+      "gender": "M",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJASEKAR, S",
+      "party_short": "PMK",
+      "votes": 12877,
+      "vote_share_pct": 6.15,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BABU MURUGAVEL, R.M",
+      "party_short": "DMDK",
+      "votes": 7025,
+      "vote_share_pct": 3.35,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GOPI, P",
+      "party_short": "BJP",
+      "votes": 1304,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1749,
+    "vote_share_pct": 0.83
+  },
+  "others": {
+    "candidate_count": 17,
+    "votes": 5769,
+    "vote_share_pct": 2.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAMACHANDRAN, S",
+    "party_short": "ADMK",
+    "votes": 94074,
+    "margin_votes": 7327,
+    "margin_pct": 3.5
+  }
+}

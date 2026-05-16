@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Radhakishorpur",
+  "totals": {
+    "electors": 48532,
+    "votes_polled": 43552,
+    "turnout_pct": 89.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Pranajit Singha Roy",
+      "party_short": "BJP",
+      "votes": 24421,
+      "vote_share_pct": 56.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Srikanta Datta",
+      "party_short": "RSP",
+      "votes": 17007,
+      "vote_share_pct": 39.05,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Partha Karmakar",
+      "party_short": "CPI(ML)(L)",
+      "votes": 1020,
+      "vote_share_pct": 2.34,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Bibhu Lal Dey",
+      "party_short": "IND",
+      "votes": 377,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Ratan Debbarma",
+      "party_short": "IND",
+      "votes": 159,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 568,
+    "vote_share_pct": 1.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Pranajit Singha Roy",
+    "party_short": "BJP",
+    "votes": 24421,
+    "margin_votes": 7414,
+    "margin_pct": 17.02
+  },
+  "others": null
+}

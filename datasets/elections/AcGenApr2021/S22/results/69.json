@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 69,
+  "constituency_name": "Vandavasi",
+  "totals": {
+    "electors": 240654,
+    "votes_polled": 185974,
+    "turnout_pct": 77.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ambethkumar S",
+      "party_short": "DMK",
+      "votes": 102064,
+      "vote_share_pct": 54.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Murali S",
+      "party_short": "PMK",
+      "votes": 66111,
+      "vote_share_pct": 35.55,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Prabavathi G",
+      "party_short": "NTK",
+      "votes": 9284,
+      "vote_share_pct": 4.99,
+      "gender": "F",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Venkatesan P",
+      "party_short": "AMMKMNKZ",
+      "votes": 1728,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Suresh S",
+      "party_short": "MNM",
+      "votes": 1692,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1769,
+    "vote_share_pct": 0.95
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3326,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ambethkumar S",
+    "party_short": "DMK",
+    "votes": 102064,
+    "margin_votes": 35953,
+    "margin_pct": 19.33
+  }
+}

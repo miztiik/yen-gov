@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 148,
+  "constituency_name": "Reodar (SC)",
+  "totals": {
+    "electors": 283584,
+    "votes_polled": 198385,
+    "turnout_pct": 69.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Motiram",
+      "party_short": "INC",
+      "votes": 93120,
+      "vote_share_pct": 46.94,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Jagsi Ram",
+      "party_short": "BJP",
+      "votes": 89556,
+      "vote_share_pct": 45.14,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "Veena Ram",
+      "party_short": "BSP",
+      "votes": 3797,
+      "vote_share_pct": 1.91,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Gopal Dana",
+      "party_short": "IND",
+      "votes": 3179,
+      "vote_share_pct": 1.6,
+      "gender": "M",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ganpat Lal",
+      "party_short": "BHRTADVSIP",
+      "votes": 2319,
+      "vote_share_pct": 1.17,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 5178,
+    "vote_share_pct": 2.61
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 1236,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Motiram",
+    "party_short": "INC",
+    "votes": 93120,
+    "margin_votes": 3564,
+    "margin_pct": 1.8
+  }
+}

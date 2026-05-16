@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 320,
+  "constituency_name": "Caimpiyarganj",
+  "totals": {
+    "electors": 383702,
+    "votes_polled": 224393,
+    "turnout_pct": 58.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "FATEH BAHADUR",
+      "party_short": "BJP",
+      "votes": 122032,
+      "vote_share_pct": 54.38,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAJAL NISHAD",
+      "party_short": "SP",
+      "votes": 79376,
+      "vote_share_pct": 35.37,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHANDRA PRAKASH NISHAD",
+      "party_short": "BSP",
+      "votes": 13153,
+      "vote_share_pct": 5.86,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SURENDRA KUMAR NISHAD",
+      "party_short": "INC",
+      "votes": 2592,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ATAL BIHARI SINGH",
+      "party_short": "CPI",
+      "votes": 1632,
+      "vote_share_pct": 0.73,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1155,
+    "vote_share_pct": 0.51
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 4453,
+    "vote_share_pct": 1.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "FATEH BAHADUR",
+    "party_short": "BJP",
+    "votes": 122032,
+    "margin_votes": 42656,
+    "margin_pct": 19.01
+  }
+}

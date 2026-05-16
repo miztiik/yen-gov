@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Amritsar North",
+  "totals": {
+    "electors": 175908,
+    "votes_polled": 118084,
+    "turnout_pct": 67.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUNIL DUTTI",
+      "party_short": "INC",
+      "votes": 59212,
+      "vote_share_pct": 50.14,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANIL JOSHI",
+      "party_short": "BJP",
+      "votes": 44976,
+      "vote_share_pct": 38.09,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MANISH AGGARWAL",
+      "party_short": "AAAP",
+      "votes": 10966,
+      "vote_share_pct": 9.29,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANJIT SINGH",
+      "party_short": "BSP",
+      "votes": 603,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ROOP LAL",
+      "party_short": "IND",
+      "votes": 205,
+      "vote_share_pct": 0.17,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 972,
+    "vote_share_pct": 0.82
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 1150,
+    "vote_share_pct": 0.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUNIL DUTTI",
+    "party_short": "INC",
+    "votes": 59212,
+    "margin_votes": 14236,
+    "margin_pct": 12.06
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 48,
+  "constituency_name": "Balachaur",
+  "totals": {
+    "electors": 148292,
+    "votes_polled": 117422,
+    "turnout_pct": 79.18
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DARSHAN LAL",
+      "party_short": "INC",
+      "votes": 49558,
+      "vote_share_pct": 42.21,
+      "is_winner": true,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NAND LAL",
+      "party_short": "SAD",
+      "votes": 29918,
+      "vote_share_pct": 25.48,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAJ KUMAR",
+      "party_short": "AAAP",
+      "votes": 21656,
+      "vote_share_pct": 18.44,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BALJIT SINGH",
+      "party_short": "BSP",
+      "votes": 12372,
+      "vote_share_pct": 10.54,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PARMJIT SINGH",
+      "party_short": "CPM",
+      "votes": 1176,
+      "vote_share_pct": 1.0,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 877,
+    "vote_share_pct": 0.75
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1865,
+    "vote_share_pct": 1.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DARSHAN LAL",
+    "party_short": "INC",
+    "votes": 49558,
+    "margin_votes": 19640,
+    "margin_pct": 16.73
+  }
+}

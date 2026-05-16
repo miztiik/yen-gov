@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 4,
+  "constituency_name": "Suratgarh",
+  "totals": {
+    "electors": 256202,
+    "votes_polled": 209143,
+    "turnout_pct": 81.63
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dungarram Gedar",
+      "party_short": "INC",
+      "votes": 116841,
+      "vote_share_pct": 55.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rampratap Kasania",
+      "party_short": "BJP",
+      "votes": 66382,
+      "vote_share_pct": 31.74,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Rajender Singh Bhadu",
+      "party_short": "IND",
+      "votes": 9826,
+      "vote_share_pct": 4.7,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Prithviraj Meel",
+      "party_short": "JNJP",
+      "votes": 6840,
+      "vote_share_pct": 3.27,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mahinder Singh Bhadoo",
+      "party_short": "BSP",
+      "votes": 2153,
+      "vote_share_pct": 1.03,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1717,
+    "vote_share_pct": 0.82
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5384,
+    "vote_share_pct": 2.58
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dungarram Gedar",
+    "party_short": "INC",
+    "votes": 116841,
+    "margin_votes": 50459,
+    "margin_pct": 24.13
+  }
+}

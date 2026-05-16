@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 207,
+  "constituency_name": "Aruppukkottai",
+  "totals": {
+    "electors": 223820,
+    "votes_polled": 171201,
+    "turnout_pct": 76.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K.K.S.S.R.RAMACHANDRAN",
+      "party_short": "DMK",
+      "votes": 91040,
+      "vote_share_pct": 53.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VAIGAICHELVAN",
+      "party_short": "ADMK",
+      "votes": 52006,
+      "vote_share_pct": 30.38,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "UMA",
+      "party_short": "NTK",
+      "votes": 12392,
+      "vote_share_pct": 7.24,
+      "gender": "F",
+      "age": 28,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "V.UMADEVI",
+      "party_short": "MNM",
+      "votes": 7638,
+      "vote_share_pct": 4.46,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "R.RAMESH",
+      "party_short": "DMDK",
+      "votes": 2532,
+      "vote_share_pct": 1.48,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1323,
+    "vote_share_pct": 0.77
+  },
+  "others": {
+    "candidate_count": 24,
+    "votes": 4270,
+    "vote_share_pct": 2.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K.K.S.S.R.RAMACHANDRAN",
+    "party_short": "DMK",
+    "votes": 91040,
+    "margin_votes": 39034,
+    "margin_pct": 22.8
+  }
+}

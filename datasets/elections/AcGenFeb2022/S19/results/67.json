@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 67,
+  "constituency_name": "Payal",
+  "totals": {
+    "electors": 166299,
+    "votes_polled": 126822,
+    "turnout_pct": 76.26
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANWINDER SINGH GIASPURA",
+      "party_short": "AAAP",
+      "votes": 63633,
+      "vote_share_pct": 50.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "LAKHVIR SINGH",
+      "party_short": "INC",
+      "votes": 30624,
+      "vote_share_pct": 24.15,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "DOCTOR JASPREET SINGH BIJA",
+      "party_short": "BSP",
+      "votes": 20648,
+      "vote_share_pct": 16.28,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAMPAL SINGH DAULATPUR",
+      "party_short": "SAD(M)",
+      "votes": 5687,
+      "vote_share_pct": 4.48,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SIMARDEEP SINGH DOBURJI",
+      "party_short": "IND",
+      "votes": 1117,
+      "vote_share_pct": 0.88,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 521,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 4592,
+    "vote_share_pct": 3.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANWINDER SINGH GIASPURA",
+    "party_short": "AAAP",
+    "votes": 63633,
+    "margin_votes": 33009,
+    "margin_pct": 26.03
+  }
+}

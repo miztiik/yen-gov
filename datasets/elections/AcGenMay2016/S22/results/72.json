@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Tindivanam",
+  "totals": {
+    "electors": 221864,
+    "votes_polled": 175150,
+    "turnout_pct": 78.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SEETHAPATHY P",
+      "party_short": "DMK",
+      "votes": 61879,
+      "vote_share_pct": 35.33,
+      "is_winner": true,
+      "gender": "F",
+      "age": 66,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAJENDRAN S P",
+      "party_short": "ADMK",
+      "votes": 61778,
+      "vote_share_pct": 35.27,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KALIDOSS A",
+      "party_short": "PMK",
+      "votes": 29848,
+      "vote_share_pct": 17.04,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "UDHAYAKUMAR M",
+      "party_short": "DMDK",
+      "votes": 14928,
+      "vote_share_pct": 8.52,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "POOVAZHAGI B",
+      "party_short": "BJP",
+      "votes": 1509,
+      "vote_share_pct": 0.86,
+      "gender": "F",
+      "age": 32,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2112,
+    "vote_share_pct": 1.21
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3096,
+    "vote_share_pct": 1.77
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SEETHAPATHY P",
+    "party_short": "DMK",
+    "votes": 61879,
+    "margin_votes": 101,
+    "margin_pct": 0.06
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 341,
+  "constituency_name": "Salempur",
+  "totals": {
+    "electors": 309089,
+    "votes_polled": 162421,
+    "turnout_pct": 52.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KALI PRASAD",
+      "party_short": "BJP",
+      "votes": 76175,
+      "vote_share_pct": 46.9,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "VIJAY LAXMI GAUTAM",
+      "party_short": "SP",
+      "votes": 50521,
+      "vote_share_pct": 31.1,
+      "gender": "F",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RANVIJAY",
+      "party_short": "BSP",
+      "votes": 28152,
+      "vote_share_pct": 17.33,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SATISH KUMAR",
+      "party_short": "CPM",
+      "votes": 2280,
+      "vote_share_pct": 1.4,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAMKRIPAL",
+      "party_short": "IND",
+      "votes": 1055,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 46,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1951,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2287,
+    "vote_share_pct": 1.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KALI PRASAD",
+    "party_short": "BJP",
+    "votes": 76175,
+    "margin_votes": 25654,
+    "margin_pct": 15.79
+  }
+}

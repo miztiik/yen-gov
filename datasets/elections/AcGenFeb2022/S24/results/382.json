@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 382,
+  "constituency_name": "Saiyadraja",
+  "totals": {
+    "electors": 333280,
+    "votes_polled": 210031,
+    "turnout_pct": 63.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUSHIL SINGH",
+      "party_short": "BJP",
+      "votes": 87891,
+      "vote_share_pct": 41.85,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANOJ KUMAR",
+      "party_short": "SP",
+      "votes": 76974,
+      "vote_share_pct": 36.65,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "AMIT KUMAR YADAV URF LALA",
+      "party_short": "BSP",
+      "votes": 36848,
+      "vote_share_pct": 17.54,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIMLA",
+      "party_short": "INC",
+      "votes": 2155,
+      "vote_share_pct": 1.03,
+      "gender": "F",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAHZAMA KHAN SHAHI",
+      "party_short": "JANADIP",
+      "votes": 1749,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1647,
+    "vote_share_pct": 0.78
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2767,
+    "vote_share_pct": 1.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUSHIL SINGH",
+    "party_short": "BJP",
+    "votes": 87891,
+    "margin_votes": 10917,
+    "margin_pct": 5.2
+  }
+}

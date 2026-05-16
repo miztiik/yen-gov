@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "THIRUNALLAR",
+  "totals": {
+    "electors": 31276,
+    "votes_polled": 26874,
+    "turnout_pct": 85.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PR. SIVA",
+      "party_short": "IND",
+      "votes": 9796,
+      "vote_share_pct": 36.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "S. RAJASEKARAN",
+      "party_short": "BJP",
+      "votes": 8416,
+      "vote_share_pct": 31.32,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "R. KAMALAKKANNAN",
+      "party_short": "INC",
+      "votes": 7731,
+      "vote_share_pct": 28.77,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "M. SIKKANTHAR BATSHA",
+      "party_short": "NTK",
+      "votes": 347,
+      "vote_share_pct": 1.29,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "K. GURU @ SINTHA",
+      "party_short": "DMDK",
+      "votes": 127,
+      "vote_share_pct": 0.47,
+      "gender": "M",
+      "age": 26,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 173,
+    "vote_share_pct": 0.64
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 284,
+    "vote_share_pct": 1.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PR. SIVA",
+    "party_short": "IND",
+    "votes": 9796,
+    "margin_votes": 1380,
+    "margin_pct": 5.14
+  }
+}

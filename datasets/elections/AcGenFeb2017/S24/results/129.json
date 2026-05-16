@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 129,
+  "constituency_name": "Puranpur",
+  "totals": {
+    "electors": 369531,
+    "votes_polled": 246819,
+    "turnout_pct": 66.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BABU RAM PASWAN",
+      "party_short": "BJP",
+      "votes": 128493,
+      "vote_share_pct": 52.06,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "PEETAM RAM",
+      "party_short": "SP",
+      "votes": 89251,
+      "vote_share_pct": 36.16,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ER.K.K. ARVIND",
+      "party_short": "BSP",
+      "votes": 20139,
+      "vote_share_pct": 8.16,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "AYASHA BEGUM",
+      "party_short": "RLD",
+      "votes": 1658,
+      "vote_share_pct": 0.67,
+      "gender": "F",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "NATTHO DEVI",
+      "party_short": "SSKP",
+      "votes": 1502,
+      "vote_share_pct": 0.61,
+      "gender": "F",
+      "age": 44,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2246,
+    "vote_share_pct": 0.91
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 3530,
+    "vote_share_pct": 1.43
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BABU RAM PASWAN",
+    "party_short": "BJP",
+    "votes": 128493,
+    "margin_votes": 39242,
+    "margin_pct": 15.9
+  }
+}

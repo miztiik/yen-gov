@@ -886,20 +886,48 @@ def eci_statreport_emit_local(
         if not c.is_nota and not c.is_independent
     })
     registry = load_eci_party_registry(root / "datasets" / "elections")
-    resolved = [s for s in section_10_shorts if s in registry]
-    unresolved = [s for s in section_10_shorts if s not in registry]
+    # A short is "resolvable" only when the registry knows it AND has a
+    # non-null numeric eci_code for it. Master-registry entries with
+    # eci_code=None (party exists in ECI's recognised list but has never
+    # appeared in a partywise URL we have ingested) cannot be written into
+    # parties.json — PartyEntry schema-requires a string eci_code.
+    candidate_shorts = [
+        s for s in section_10_shorts
+        if s in registry and registry[s].eci_code is not None
+    ]
+    # Dedupe by eci_code: two different shorts in Section 10 can resolve
+    # via the master registry's aliases[] to the same canonical eci_code
+    # (e.g. ADMK + AIADMK both -> 0136). PartyEntry.eci_code is UNIQUE in
+    # party.schema.json, so we keep only the first short per eci_code.
+    seen_codes: set[str] = set()
+    resolved: list[str] = []
+    collapsed: list[tuple[str, str]] = []  # (dropped_short, kept_short)
+    for s in candidate_shorts:
+        code = registry[s].eci_code
+        if code in seen_codes:
+            kept = next(
+                k for k in resolved if registry[k].eci_code == code
+            )
+            collapsed.append((s, kept))
+            continue
+        seen_codes.add(code)
+        resolved.append(s)
+    unresolved = [s for s in section_10_shorts if s not in resolved
+                  and not any(d == s for d, _ in collapsed)]
     if resolved:
         # Aggregated artifact per ADR-0002: sources is the union of every
         # registry source-URL that contributed a resolved short. The local-
         # emit path itself was hand-authored (no upstream URL of its own),
         # so the only sources cited are the live cohorts whose published
-        # eci_code we are reusing.
+        # eci_code we are reusing. fetched_at on each SourceRef is a fixed
+        # registry-snapshot timestamp — the hand-import has no per-URL
+        # fetch event of its own to cite.
         contributing_urls: set[str] = set()
         for s in resolved:
             contributing_urls.update(registry[s].source_urls)
         snapshot = PartiesSnapshot(
             sources=[
-                SourceRef(url=url, fetched_at=registry[resolved[0]].source_urls and "2026-05-13T00:00:00Z")  # noqa: E501
+                SourceRef(url=url, fetched_at="2026-05-13T00:00:00Z")
                 for url in sorted(contributing_urls)
             ],
             election=event,

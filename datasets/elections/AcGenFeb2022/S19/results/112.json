@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 112,
+  "constituency_name": "Dera Bassi",
+  "totals": {
+    "electors": 288440,
+    "votes_polled": 199529,
+    "turnout_pct": 69.18
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KULJIT SINGH RANDHAWA",
+      "party_short": "AAAP",
+      "votes": 70032,
+      "vote_share_pct": 35.1,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DEEPINDER SINGH DHILLON",
+      "party_short": "INC",
+      "votes": 48311,
+      "vote_share_pct": 24.21,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "N. K. SHARMA",
+      "party_short": "SAD",
+      "votes": 47731,
+      "vote_share_pct": 23.92,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANJIV KHANNA",
+      "party_short": "BJP",
+      "votes": 26963,
+      "vote_share_pct": 13.51,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "AVTAR SINGH",
+      "party_short": "IND",
+      "votes": 1125,
+      "vote_share_pct": 0.56,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1412,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3955,
+    "vote_share_pct": 1.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KULJIT SINGH RANDHAWA",
+    "party_short": "AAAP",
+    "votes": 70032,
+    "margin_votes": 21721,
+    "margin_pct": 10.89
+  }
+}

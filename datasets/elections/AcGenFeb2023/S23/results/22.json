@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Sonamura",
+  "totals": {
+    "electors": 44540,
+    "votes_polled": 39703,
+    "turnout_pct": 89.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Shyamal Chakraborty",
+      "party_short": "CPI(M)",
+      "votes": 20039,
+      "vote_share_pct": 50.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Debabrata Bhattacharjee",
+      "party_short": "BJP",
+      "votes": 17624,
+      "vote_share_pct": 44.39,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Neel Kamal Saha",
+      "party_short": "AITC",
+      "votes": 1046,
+      "vote_share_pct": 2.63,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Premjit Sinha",
+      "party_short": "IND",
+      "votes": 377,
+      "vote_share_pct": 0.95,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 617,
+    "vote_share_pct": 1.55
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Shyamal Chakraborty",
+    "party_short": "CPI(M)",
+    "votes": 20039,
+    "margin_votes": 2415,
+    "margin_pct": 6.08
+  },
+  "others": null
+}

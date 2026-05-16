@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 138,
+  "constituency_name": "Jetpur",
+  "totals": {
+    "electors": 244930,
+    "votes_polled": 170484,
+    "turnout_pct": 69.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RATHVA SUKHRAMBHAI HARIYABHAI",
+      "party_short": "INC",
+      "votes": 77701,
+      "vote_share_pct": 45.58,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "RATHVA JAYANTIBHAI SAVAJIBHAI",
+      "party_short": "BJP",
+      "votes": 74649,
+      "vote_share_pct": 43.79,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "RATHVA SURAJBEN BHAGVATSINH",
+      "party_short": "IND",
+      "votes": 3314,
+      "vote_share_pct": 1.94,
+      "gender": "F",
+      "age": 46,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "RATHVA GANGABEN VITTHALBHAI",
+      "party_short": "GJCP",
+      "votes": 2947,
+      "vote_share_pct": 1.73,
+      "gender": "F",
+      "age": 47,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "KOLI AMITKUMAR ARVINDBHAI",
+      "party_short": "IND",
+      "votes": 1634,
+      "vote_share_pct": 0.96,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 6155,
+    "vote_share_pct": 3.61
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 3061,
+    "vote_share_pct": 1.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RATHVA SUKHRAMBHAI HARIYABHAI",
+    "party_short": "INC",
+    "votes": 77701,
+    "margin_votes": 3052,
+    "margin_pct": 1.79
+  }
+}

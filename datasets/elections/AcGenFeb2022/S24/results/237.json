@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 237,
+  "constituency_name": "Manikpur",
+  "totals": {
+    "electors": 338989,
+    "votes_polled": 207930,
+    "turnout_pct": 61.34
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AVINASH CHANDRA DWIVEDI",
+      "party_short": "ADAL",
+      "votes": 73132,
+      "vote_share_pct": 35.17,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "VEER SINGH PATEL",
+      "party_short": "SP",
+      "votes": 72084,
+      "vote_share_pct": 34.67,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BALVEER PAL",
+      "party_short": "BSP",
+      "votes": 45367,
+      "vote_share_pct": 21.82,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RANJANA BARATI LAL PANDEY",
+      "party_short": "INC",
+      "votes": 4110,
+      "vote_share_pct": 1.98,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHIVPOOJAN",
+      "party_short": "JANADIP",
+      "votes": 2849,
+      "vote_share_pct": 1.37,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3325,
+    "vote_share_pct": 1.6
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 7063,
+    "vote_share_pct": 3.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AVINASH CHANDRA DWIVEDI",
+    "party_short": "ADAL",
+    "votes": 73132,
+    "margin_votes": 1048,
+    "margin_pct": 0.5
+  }
+}

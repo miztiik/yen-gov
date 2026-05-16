@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 121,
+  "constituency_name": "Balasinor",
+  "totals": {
+    "electors": 258931,
+    "votes_polled": 173688,
+    "turnout_pct": 67.08
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AJITSINH PARVATSINH CHAUHAN",
+      "party_short": "INC",
+      "votes": 84620,
+      "vote_share_pct": 48.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHAUHAN MANSINH KOHYABHAI",
+      "party_short": "BJP",
+      "votes": 74018,
+      "vote_share_pct": 42.62,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PATEL HITENDRA(HITESH)KUMAR BALDEVBHAI",
+      "party_short": "NCP",
+      "votes": 5974,
+      "vote_share_pct": 3.44,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ZALA ABHESINH AMARBHAI",
+      "party_short": "IND",
+      "votes": 2058,
+      "vote_share_pct": 1.18,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAIKH MUSTAKBHAI AIYUBBHAI",
+      "party_short": "JD(U)",
+      "votes": 748,
+      "vote_share_pct": 0.43,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3727,
+    "vote_share_pct": 2.15
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AJITSINH PARVATSINH CHAUHAN",
+    "party_short": "INC",
+    "votes": 84620,
+    "margin_votes": 10602,
+    "margin_pct": 6.1
+  },
+  "others": null
+}

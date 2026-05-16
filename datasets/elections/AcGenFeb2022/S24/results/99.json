@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 99,
+  "constituency_name": "Sirsaganj",
+  "totals": {
+    "electors": 321298,
+    "votes_polled": 208192,
+    "turnout_pct": 64.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SARVESH SINGH",
+      "party_short": "SP",
+      "votes": 96224,
+      "vote_share_pct": 46.22,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "HARIOM YADAV",
+      "party_short": "BJP",
+      "votes": 87419,
+      "vote_share_pct": 41.99,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Pankaj Mishra",
+      "party_short": "BSP",
+      "votes": 18757,
+      "vote_share_pct": 9.01,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRATIMA PAL",
+      "party_short": "INC",
+      "votes": 1211,
+      "vote_share_pct": 0.58,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KEDAR SINGH KUSAWAHA",
+      "party_short": "BMUP",
+      "votes": 819,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 989,
+    "vote_share_pct": 0.48
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2773,
+    "vote_share_pct": 1.32
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SARVESH SINGH",
+    "party_short": "SP",
+    "votes": 96224,
+    "margin_votes": 8805,
+    "margin_pct": 4.23
+  }
+}

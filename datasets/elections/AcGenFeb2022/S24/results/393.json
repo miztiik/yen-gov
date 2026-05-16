@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 393,
+  "constituency_name": "Gyanpur",
+  "totals": {
+    "electors": 390971,
+    "votes_polled": 215254,
+    "turnout_pct": 55.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VIPUL DUBEY",
+      "party_short": "NINSHAD",
+      "votes": 73446,
+      "vote_share_pct": 34.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAM KISHORE BIND",
+      "party_short": "SP",
+      "votes": 67215,
+      "vote_share_pct": 31.23,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VIJAY MISHRA",
+      "party_short": "PMSP",
+      "votes": 34985,
+      "vote_share_pct": 16.25,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "UPENDRA KUMAR SINGH",
+      "party_short": "BSP",
+      "votes": 30753,
+      "vote_share_pct": 14.29,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SURESH CHANDRA MISHRA",
+      "party_short": "INC",
+      "votes": 1945,
+      "vote_share_pct": 0.9,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2469,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 4441,
+    "vote_share_pct": 2.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VIPUL DUBEY",
+    "party_short": "NINSHAD",
+    "votes": 73446,
+    "margin_votes": 6231,
+    "margin_pct": 2.89
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 25,
+  "constituency_name": "Kanth",
+  "totals": {
+    "electors": 355629,
+    "votes_polled": 253108,
+    "turnout_pct": 71.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJESH KUMAR SINGH (CHUNNU)",
+      "party_short": "BJP",
+      "votes": 76307,
+      "vote_share_pct": 30.15,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANEESURREHMAN",
+      "party_short": "SP",
+      "votes": 73959,
+      "vote_share_pct": 29.22,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MOHD. NASIR",
+      "party_short": "BSP",
+      "votes": 43820,
+      "vote_share_pct": 17.31,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "FIZAULLAH CHAUDHRY",
+      "party_short": "AIMIM",
+      "votes": 22908,
+      "vote_share_pct": 9.05,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MUHAMMED USMAN ALI",
+      "party_short": "PECP",
+      "votes": 13931,
+      "vote_share_pct": 5.5,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1199,
+    "vote_share_pct": 0.47
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 20984,
+    "vote_share_pct": 8.3
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJESH KUMAR SINGH (CHUNNU)",
+    "party_short": "BJP",
+    "votes": 76307,
+    "margin_votes": 2348,
+    "margin_pct": 0.93
+  }
+}

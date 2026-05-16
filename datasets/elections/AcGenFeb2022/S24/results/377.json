@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 377,
+  "constituency_name": "Zahoorabad",
+  "totals": {
+    "electors": 407091,
+    "votes_polled": 247266,
+    "turnout_pct": 60.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "OM PRAKASH RAJBHAR",
+      "party_short": "SBSP",
+      "votes": 114860,
+      "vote_share_pct": 46.45,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KALICHARAN",
+      "party_short": "BJP",
+      "votes": 69228,
+      "vote_share_pct": 28.0,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SAIYYADA SHADAB FATIMA",
+      "party_short": "BSP",
+      "votes": 53144,
+      "vote_share_pct": 21.49,
+      "gender": "F",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GYAN PRAKASH Alias \"MUNNA\"",
+      "party_short": "INC",
+      "votes": 1559,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAUKAT ALI",
+      "party_short": "AIMIM",
+      "votes": 1525,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1834,
+    "vote_share_pct": 0.74
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5116,
+    "vote_share_pct": 2.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "OM PRAKASH RAJBHAR",
+    "party_short": "SBSP",
+    "votes": 114860,
+    "margin_votes": 45632,
+    "margin_pct": 18.45
+  }
+}

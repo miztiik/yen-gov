@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "Jhotwara",
+  "totals": {
+    "electors": 429027,
+    "votes_polled": 309792,
+    "turnout_pct": 72.21
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Col. Rajyavardhan Rathore",
+      "party_short": "BJP",
+      "votes": 147913,
+      "vote_share_pct": 47.75,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Abhishek Choudhary",
+      "party_short": "INC",
+      "votes": 97746,
+      "vote_share_pct": 31.55,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ashu Singh Surpura",
+      "party_short": "IND",
+      "votes": 55159,
+      "vote_share_pct": 17.81,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Jeewanram Jat",
+      "party_short": "RLTP",
+      "votes": 1256,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Rajesh Kumar Yadav",
+      "party_short": "IND",
+      "votes": 1206,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1111,
+    "vote_share_pct": 0.36
+  },
+  "others": {
+    "candidate_count": 13,
+    "votes": 5401,
+    "vote_share_pct": 1.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Col. Rajyavardhan Rathore",
+    "party_short": "BJP",
+    "votes": 147913,
+    "margin_votes": 50167,
+    "margin_pct": 16.19
+  }
+}

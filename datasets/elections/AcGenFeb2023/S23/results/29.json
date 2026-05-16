@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 29,
+  "constituency_name": "Krishnapur (ST)",
+  "totals": {
+    "electors": 37929,
+    "votes_polled": 34525,
+    "turnout_pct": 91.03
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bikash Debbarma",
+      "party_short": "BJP",
+      "votes": 13800,
+      "vote_share_pct": 39.97,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Mahendra Debbarma",
+      "party_short": "TMP",
+      "votes": 11162,
+      "vote_share_pct": 32.33,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Swasti Debbarma",
+      "party_short": "CPI(M)",
+      "votes": 8679,
+      "vote_share_pct": 25.14,
+      "gender": "M",
+      "age": 54,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Atul Debbarma",
+      "party_short": "IND",
+      "votes": 413,
+      "vote_share_pct": 1.2,
+      "gender": "M",
+      "age": 58,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 471,
+    "vote_share_pct": 1.36
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bikash Debbarma",
+    "party_short": "BJP",
+    "votes": 13800,
+    "margin_votes": 2638,
+    "margin_pct": 7.64
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "Viratnagar",
+  "totals": {
+    "electors": 232401,
+    "votes_polled": 177596,
+    "turnout_pct": 76.42
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Kuldeep",
+      "party_short": "BJP",
+      "votes": 83262,
+      "vote_share_pct": 46.88,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Indraj Singh Gurjar",
+      "party_short": "INC",
+      "votes": 65673,
+      "vote_share_pct": 36.98,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ramchandra Saradhana",
+      "party_short": "ASPKR",
+      "votes": 18897,
+      "vote_share_pct": 10.64,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Chandra Prakash Saini",
+      "party_short": "IND",
+      "votes": 3258,
+      "vote_share_pct": 1.83,
+      "gender": "M",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Bheem Sahan Gurjar",
+      "party_short": "IND",
+      "votes": 2098,
+      "vote_share_pct": 1.18,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1344,
+    "vote_share_pct": 0.76
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3064,
+    "vote_share_pct": 1.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Kuldeep",
+    "party_short": "BJP",
+    "votes": 83262,
+    "margin_votes": 17589,
+    "margin_pct": 9.9
+  }
+}

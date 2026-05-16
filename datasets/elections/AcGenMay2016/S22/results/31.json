@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 31,
+  "constituency_name": "Tambaram",
+  "totals": {
+    "electors": 381359,
+    "votes_polled": 235355,
+    "turnout_pct": 61.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJA S R",
+      "party_short": "DMK",
+      "votes": 101835,
+      "vote_share_pct": 43.27,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJENDRAN C",
+      "party_short": "ADMK",
+      "votes": 87390,
+      "vote_share_pct": 37.13,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHEZHIYAN M",
+      "party_short": "DMDK",
+      "votes": 14559,
+      "vote_share_pct": 6.19,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VEDASUBRAMANIAM A",
+      "party_short": "BJP",
+      "votes": 10327,
+      "vote_share_pct": 4.39,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SURESH R",
+      "party_short": "PMK",
+      "votes": 7631,
+      "vote_share_pct": 3.24,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 5007,
+    "vote_share_pct": 2.13
+  },
+  "others": {
+    "candidate_count": 15,
+    "votes": 8606,
+    "vote_share_pct": 3.64
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJA S R",
+    "party_short": "DMK",
+    "votes": 101835,
+    "margin_votes": 14445,
+    "margin_pct": 6.14
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 219,
+  "constituency_name": "Madhaugarh",
+  "totals": {
+    "electors": 431297,
+    "votes_polled": 252621,
+    "turnout_pct": 58.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOOLCHANDRA SINGH",
+      "party_short": "BJP",
+      "votes": 108737,
+      "vote_share_pct": 43.04,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GIRISH KUMAR",
+      "party_short": "BSP",
+      "votes": 62752,
+      "vote_share_pct": 24.84,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "VINOD CHATURVEDI",
+      "party_short": "INC",
+      "votes": 46915,
+      "vote_share_pct": 18.57,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAVINDRA SINGH",
+      "party_short": "MD",
+      "votes": 22022,
+      "vote_share_pct": 8.72,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PRAHALAD SINGH",
+      "party_short": "RLD",
+      "votes": 1466,
+      "vote_share_pct": 0.58,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2582,
+    "vote_share_pct": 1.02
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 8147,
+    "vote_share_pct": 3.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOOLCHANDRA SINGH",
+    "party_short": "BJP",
+    "votes": 108737,
+    "margin_votes": 45985,
+    "margin_pct": 18.2
+  }
+}

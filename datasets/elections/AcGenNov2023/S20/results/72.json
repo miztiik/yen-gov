@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 72,
+  "constituency_name": "Deeg-Kumher",
+  "totals": {
+    "electors": 257527,
+    "votes_polled": 177818,
+    "turnout_pct": 69.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Dr. Shailesh Singh",
+      "party_short": "BJP",
+      "votes": 89063,
+      "vote_share_pct": 50.09,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Vishvendra Singh",
+      "party_short": "INC",
+      "votes": 81168,
+      "vote_share_pct": 45.65,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Hariom Sharma",
+      "party_short": "BSP",
+      "votes": 4487,
+      "vote_share_pct": 2.52,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Manudev",
+      "party_short": "RLTP",
+      "votes": 1015,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Harishankar",
+      "party_short": "IND",
+      "votes": 476,
+      "vote_share_pct": 0.27,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 734,
+    "vote_share_pct": 0.41
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 875,
+    "vote_share_pct": 0.49
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Dr. Shailesh Singh",
+    "party_short": "BJP",
+    "votes": 89063,
+    "margin_votes": 7895,
+    "margin_pct": 4.44
+  }
+}

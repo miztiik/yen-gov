@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 92,
+  "constituency_name": "Rasipuram",
+  "totals": {
+    "electors": 236580,
+    "votes_polled": 196904,
+    "turnout_pct": 83.23
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MATHIVENTHAN M",
+      "party_short": "DMK",
+      "votes": 90727,
+      "vote_share_pct": 46.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "SAROJA V. Dr",
+      "party_short": "ADMK",
+      "votes": 88775,
+      "vote_share_pct": 45.09,
+      "gender": "F",
+      "age": 72,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SILAMBARASI K",
+      "party_short": "NTK",
+      "votes": 11295,
+      "vote_share_pct": 5.74,
+      "gender": "F",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAMKUMAR R",
+      "party_short": "IJK",
+      "votes": 1133,
+      "vote_share_pct": 0.58,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "ANBALAGAN S",
+      "party_short": "AMMKMNKZ",
+      "votes": 1051,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 71,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2110,
+    "vote_share_pct": 1.07
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 1813,
+    "vote_share_pct": 0.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MATHIVENTHAN M",
+    "party_short": "DMK",
+    "votes": 90727,
+    "margin_votes": 1952,
+    "margin_pct": 0.99
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 203,
+  "constituency_name": "Srivilliputhur",
+  "totals": {
+    "electors": 233156,
+    "votes_polled": 178630,
+    "turnout_pct": 76.61
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHANDRA PRABHA. M",
+      "party_short": "ADMK",
+      "votes": 88103,
+      "vote_share_pct": 49.32,
+      "is_winner": true,
+      "gender": "F",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "MUTHUKUMAR.C",
+      "party_short": "PT",
+      "votes": 51430,
+      "vote_share_pct": 28.79,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "LINGAM.P",
+      "party_short": "CPI",
+      "votes": 19415,
+      "vote_share_pct": 10.87,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAMASAMY. I",
+      "party_short": "BJP",
+      "votes": 5497,
+      "vote_share_pct": 3.08,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KALYANASUNDARAM. A",
+      "party_short": "NTK",
+      "votes": 3833,
+      "vote_share_pct": 2.15,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2166,
+    "vote_share_pct": 1.21
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 8186,
+    "vote_share_pct": 4.59
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHANDRA PRABHA. M",
+    "party_short": "ADMK",
+    "votes": 88103,
+    "margin_votes": 36673,
+    "margin_pct": 20.53
+  }
+}

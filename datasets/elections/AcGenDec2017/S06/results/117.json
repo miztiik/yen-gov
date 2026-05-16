@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 117,
+  "constituency_name": "Mehmedabad",
+  "totals": {
+    "electors": 226493,
+    "votes_polled": 172444,
+    "turnout_pct": 76.14
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHAUHAN  ARJUNSINH UDESINH",
+      "party_short": "BJP",
+      "votes": 88913,
+      "vote_share_pct": 51.56,
+      "is_winner": true,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GAUTAMBHAI RAVJIBHAI CHAUHAN",
+      "party_short": "INC",
+      "votes": 67995,
+      "vote_share_pct": 39.43,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHUAHAN JUVANSINH GANDABHAI",
+      "party_short": "IND",
+      "votes": 9813,
+      "vote_share_pct": 5.69,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GOHEL HARSHADKUMAR DEVJIBHAI",
+      "party_short": "BSP",
+      "votes": 2203,
+      "vote_share_pct": 1.28,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2526,
+    "vote_share_pct": 1.46
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHAUHAN  ARJUNSINH UDESINH",
+    "party_short": "BJP",
+    "votes": 88913,
+    "margin_votes": 20918,
+    "margin_pct": 12.13
+  },
+  "others": null
+}

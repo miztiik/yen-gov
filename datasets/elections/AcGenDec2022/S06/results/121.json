@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 121,
+  "constituency_name": "Balasinor",
+  "totals": {
+    "electors": 288570,
+    "votes_polled": 182243,
+    "turnout_pct": 63.15
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Mansinh Kohyabhai Chauhan",
+      "party_short": "BJP",
+      "votes": 92501,
+      "vote_share_pct": 50.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Ajitsinh Parvatsinh Chauhan",
+      "party_short": "INC",
+      "votes": 41079,
+      "vote_share_pct": 22.54,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Udesinh Rayjibhai Chauhan",
+      "party_short": "AAAP",
+      "votes": 39569,
+      "vote_share_pct": 21.71,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Khant Ashvinbhai Ramanbhai (a.k.)",
+      "party_short": "GAGUP",
+      "votes": 3049,
+      "vote_share_pct": 1.67,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Chavda Natvarsinh Fulsinh",
+      "party_short": "IND",
+      "votes": 1427,
+      "vote_share_pct": 0.78,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2724,
+    "vote_share_pct": 1.49
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1894,
+    "vote_share_pct": 1.04
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Mansinh Kohyabhai Chauhan",
+    "party_short": "BJP",
+    "votes": 92501,
+    "margin_votes": 51422,
+    "margin_pct": 28.22
+  }
+}

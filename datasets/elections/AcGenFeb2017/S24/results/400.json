@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 400,
+  "constituency_name": "Ghorawal",
+  "totals": {
+    "electors": 366165,
+    "votes_polled": 239030,
+    "turnout_pct": 65.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANIL KUMAR MAURYA",
+      "party_short": "BJP",
+      "votes": 114305,
+      "vote_share_pct": 47.82,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAMESH CHANDRA DUBEY",
+      "party_short": "SP",
+      "votes": 56656,
+      "vote_share_pct": 23.7,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BEENA SINGH",
+      "party_short": "BSP",
+      "votes": 53090,
+      "vote_share_pct": 22.21,
+      "gender": "F",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BABA",
+      "party_short": "IND",
+      "votes": 1924,
+      "vote_share_pct": 0.8,
+      "gender": "M",
+      "age": 67,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "EN. VINAY  SINGH MAURYA",
+      "party_short": "IND",
+      "votes": 1801,
+      "vote_share_pct": 0.75,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 5225,
+    "vote_share_pct": 2.19
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 6029,
+    "vote_share_pct": 2.51
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANIL KUMAR MAURYA",
+    "party_short": "BJP",
+    "votes": 114305,
+    "margin_votes": 57649,
+    "margin_pct": 24.12
+  }
+}

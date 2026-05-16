@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 202,
+  "constituency_name": "Bidhuna",
+  "totals": {
+    "electors": 355368,
+    "votes_polled": 218376,
+    "turnout_pct": 61.45
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "VINAY SHAKYA",
+      "party_short": "BJP",
+      "votes": 81905,
+      "vote_share_pct": 37.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DINESH KUMAR VERMA",
+      "party_short": "SP",
+      "votes": 77995,
+      "vote_share_pct": 35.72,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHIV PRASAD YADAV",
+      "party_short": "BSP",
+      "votes": 53366,
+      "vote_share_pct": 24.44,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SANJEEV KUMAR SHAKYA",
+      "party_short": "JAM",
+      "votes": 1147,
+      "vote_share_pct": 0.53,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "UMAKANT",
+      "party_short": "DESP",
+      "votes": 964,
+      "vote_share_pct": 0.44,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1270,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 1729,
+    "vote_share_pct": 0.8
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "VINAY SHAKYA",
+    "party_short": "BJP",
+    "votes": 81905,
+    "margin_votes": 3910,
+    "margin_pct": 1.79
+  }
+}

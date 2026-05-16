@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 33,
+  "constituency_name": "Lachhmangarh",
+  "totals": {
+    "electors": 280028,
+    "votes_polled": 215757,
+    "turnout_pct": 77.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Govind Singh Dotasra",
+      "party_short": "INC",
+      "votes": 113304,
+      "vote_share_pct": 52.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Subhash Maharia",
+      "party_short": "BJP",
+      "votes": 94334,
+      "vote_share_pct": 43.72,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Comrade Vijendra Dhaka",
+      "party_short": "CPI(M)",
+      "votes": 1875,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vijay Pal Singh",
+      "party_short": "RLTP",
+      "votes": 1551,
+      "vote_share_pct": 0.72,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Govinda Ram Sheshma",
+      "party_short": "JAC",
+      "votes": 797,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1552,
+    "vote_share_pct": 0.72
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 2344,
+    "vote_share_pct": 1.08
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Govind Singh Dotasra",
+    "party_short": "INC",
+    "votes": 113304,
+    "margin_votes": 18970,
+    "margin_pct": 8.79
+  }
+}

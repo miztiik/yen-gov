@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 242,
+  "constituency_name": "Husainganj",
+  "totals": {
+    "electors": 286821,
+    "votes_polled": 175664,
+    "turnout_pct": 61.25
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RANVENDRA PRATAP SINGH URF DHUNNI BHAIYA",
+      "party_short": "BJP",
+      "votes": 73595,
+      "vote_share_pct": 41.9,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "USHA MAURYA",
+      "party_short": "INC",
+      "votes": 55002,
+      "vote_share_pct": 31.31,
+      "gender": "F",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MO. ASIF",
+      "party_short": "BSP",
+      "votes": 34415,
+      "vote_share_pct": 19.59,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "RAKESH PRAJAPATI",
+      "party_short": "CPI",
+      "votes": 3416,
+      "vote_share_pct": 1.94,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PAPPU SINGH",
+      "party_short": "RLD",
+      "votes": 2291,
+      "vote_share_pct": 1.3,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2361,
+    "vote_share_pct": 1.34
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 4584,
+    "vote_share_pct": 2.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RANVENDRA PRATAP SINGH URF DHUNNI BHAIYA",
+    "party_short": "BJP",
+    "votes": 73595,
+    "margin_votes": 18593,
+    "margin_pct": 10.58
+  }
+}

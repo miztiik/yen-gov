@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 371,
+  "constituency_name": "Zafrabad",
+  "totals": {
+    "electors": 368210,
+    "votes_polled": 206451,
+    "turnout_pct": 56.07
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR HARENDRA PRASAD SINGH",
+      "party_short": "BJP",
+      "votes": 85989,
+      "vote_share_pct": 41.65,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHACHINDRA NATH TRIPATHI",
+      "party_short": "SP",
+      "votes": 61124,
+      "vote_share_pct": 29.61,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANJIV KUAMR UPADHYAY",
+      "party_short": "BSP",
+      "votes": 45490,
+      "vote_share_pct": 22.03,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JAI PRAKASH",
+      "party_short": "CPI",
+      "votes": 2845,
+      "vote_share_pct": 1.38,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOTILAL BIND",
+      "party_short": "RLD",
+      "votes": 1351,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1198,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 8454,
+    "vote_share_pct": 4.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR HARENDRA PRASAD SINGH",
+    "party_short": "BJP",
+    "votes": 85989,
+    "margin_votes": 24865,
+    "margin_pct": 12.04
+  }
+}

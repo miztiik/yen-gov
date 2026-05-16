@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 189,
+  "constituency_name": "Madurai East",
+  "totals": {
+    "electors": 286766,
+    "votes_polled": 214473,
+    "turnout_pct": 74.79
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOORTHY P",
+      "party_short": "DMK",
+      "votes": 108569,
+      "vote_share_pct": 50.62,
+      "is_winner": true,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "P PANDI",
+      "party_short": "ADMK",
+      "votes": 75797,
+      "vote_share_pct": 35.34,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KALITHASAN, P.",
+      "party_short": "CPI",
+      "votes": 11599,
+      "vote_share_pct": 5.41,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SUSEENDRAN M",
+      "party_short": "BJP",
+      "votes": 6181,
+      "vote_share_pct": 2.88,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SENGANNAN",
+      "party_short": "NTK",
+      "votes": 3296,
+      "vote_share_pct": 1.54,
+      "gender": "M",
+      "age": 45,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 3246,
+    "vote_share_pct": 1.51
+  },
+  "others": {
+    "candidate_count": 14,
+    "votes": 5785,
+    "vote_share_pct": 2.71
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOORTHY P",
+    "party_short": "DMK",
+    "votes": 108569,
+    "margin_votes": 32772,
+    "margin_pct": 15.28
+  }
+}

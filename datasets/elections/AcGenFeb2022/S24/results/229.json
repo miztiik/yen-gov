@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 229,
+  "constituency_name": "Rath",
+  "totals": {
+    "electors": 399594,
+    "votes_polled": 259108,
+    "turnout_pct": 64.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANISHA",
+      "party_short": "BJP",
+      "votes": 139373,
+      "vote_share_pct": 53.79,
+      "is_winner": true,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "CHANDRAWATI VERMA",
+      "party_short": "SP",
+      "votes": 77394,
+      "vote_share_pct": 29.87,
+      "gender": "F",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PRASANNA BHUSHAN",
+      "party_short": "BSP",
+      "votes": 24266,
+      "vote_share_pct": 9.37,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "KAMLESH KUMAR VERMA",
+      "party_short": "INC",
+      "votes": 5164,
+      "vote_share_pct": 1.99,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "DHARMENDRA SINGH GAUTAM",
+      "party_short": "BSCP",
+      "votes": 3021,
+      "vote_share_pct": 1.17,
+      "gender": "M",
+      "age": 29,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 4268,
+    "vote_share_pct": 1.65
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 5622,
+    "vote_share_pct": 2.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANISHA",
+    "party_short": "BJP",
+    "votes": 139373,
+    "margin_votes": 61979,
+    "margin_pct": 23.92
+  }
+}

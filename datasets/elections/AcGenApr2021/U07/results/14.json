@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "RAJ BHAVAN",
+  "totals": {
+    "electors": 26329,
+    "votes_polled": 19466,
+    "turnout_pct": 73.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "K. LAKSHMINARAYANAN",
+      "party_short": "AINRC",
+      "votes": 10096,
+      "vote_share_pct": 51.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "S.P. SIVAKUMAR",
+      "party_short": "DMK",
+      "votes": 6364,
+      "vote_share_pct": 32.69,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "S. PARUVADHAVARDHNIE",
+      "party_short": "MNM",
+      "votes": 1462,
+      "vote_share_pct": 7.51,
+      "gender": "F",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ANTHONY SHARMILA",
+      "party_short": "NTK",
+      "votes": 975,
+      "vote_share_pct": 5.01,
+      "gender": "F",
+      "age": 35,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "S.K. SUBRAMANIAN",
+      "party_short": "IND",
+      "votes": 144,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 303,
+    "vote_share_pct": 1.56
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 122,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "K. LAKSHMINARAYANAN",
+    "party_short": "AINRC",
+    "votes": 10096,
+    "margin_votes": 3732,
+    "margin_pct": 19.17
+  }
+}

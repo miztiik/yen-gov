@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 333,
+  "constituency_name": "Kushinagar",
+  "totals": {
+    "electors": 354951,
+    "votes_polled": 203549,
+    "turnout_pct": 57.35
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJNIKANT MANI TRIPATHI",
+      "party_short": "BJP",
+      "votes": 97132,
+      "vote_share_pct": 47.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAJESH PRATAP RAV ALIAS BANTI BHAIYA",
+      "party_short": "BSP",
+      "votes": 49029,
+      "vote_share_pct": 24.09,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BRAHMASHANKAR TRIPATHI",
+      "party_short": "SP",
+      "votes": 46369,
+      "vote_share_pct": 22.78,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ZAKIR ALI",
+      "party_short": "NCP",
+      "votes": 1764,
+      "vote_share_pct": 0.87,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SATVANT YADAV",
+      "party_short": "PECP",
+      "votes": 1726,
+      "vote_share_pct": 0.85,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2208,
+    "vote_share_pct": 1.08
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 5321,
+    "vote_share_pct": 2.61
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJNIKANT MANI TRIPATHI",
+    "party_short": "BJP",
+    "votes": 97132,
+    "margin_votes": 48103,
+    "margin_pct": 23.63
+  }
+}

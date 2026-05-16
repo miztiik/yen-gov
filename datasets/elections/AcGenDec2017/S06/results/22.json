@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 22,
+  "constituency_name": "Visnagar",
+  "totals": {
+    "electors": 211833,
+    "votes_polled": 160685,
+    "turnout_pct": 75.85
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PATEL RUSHIKESH GANESHBHAI",
+      "party_short": "BJP",
+      "votes": 77496,
+      "vote_share_pct": 48.23,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PATEL MAHENDRAKUMAR S. (MAHESH PATEL)",
+      "party_short": "INC",
+      "votes": 74627,
+      "vote_share_pct": 46.44,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PATEL YATEENKUMAR HASMUKHBHAI (TEJASH)",
+      "party_short": "IND",
+      "votes": 1048,
+      "vote_share_pct": 0.65,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PARMAR NANJIBHAI KARSANBHAI",
+      "party_short": "BSP",
+      "votes": 677,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 38,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PATEL HIREN KUMAR VISHNU BHAI",
+      "party_short": "GJCP",
+      "votes": 419,
+      "vote_share_pct": 0.26,
+      "gender": "M",
+      "age": 33,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2992,
+    "vote_share_pct": 1.86
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1087,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PATEL RUSHIKESH GANESHBHAI",
+    "party_short": "BJP",
+    "votes": 77496,
+    "margin_votes": 2869,
+    "margin_pct": 1.79
+  }
+}

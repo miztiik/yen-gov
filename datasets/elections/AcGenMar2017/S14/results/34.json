@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2017",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 34,
+  "constituency_name": "Wangjing tentha",
+  "totals": {
+    "electors": 32097,
+    "votes_polled": 29585,
+    "turnout_pct": 92.17
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PAONAM BROJEN SINGH",
+      "party_short": "INC",
+      "votes": 12830,
+      "vote_share_pct": 43.37,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MOIRANGTHEM HEMANTA",
+      "party_short": "BJP",
+      "votes": 10967,
+      "vote_share_pct": 37.07,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HAOBAM ROBINDRO SINGH",
+      "party_short": "CPI",
+      "votes": 5562,
+      "vote_share_pct": 18.8,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAGOLSEM IBOCHOUBI SINGH",
+      "party_short": "MNDF",
+      "votes": 121,
+      "vote_share_pct": 0.41,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 105,
+    "vote_share_pct": 0.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PAONAM BROJEN SINGH",
+    "party_short": "INC",
+    "votes": 12830,
+    "margin_votes": 1863,
+    "margin_pct": 6.3
+  },
+  "others": null
+}

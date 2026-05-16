@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 159,
+  "constituency_name": "Surat East",
+  "totals": {
+    "electors": 201331,
+    "votes_polled": 135532,
+    "turnout_pct": 67.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARVIND SHANTILAL RANA",
+      "party_short": "BJP",
+      "votes": 72638,
+      "vote_share_pct": 53.59,
+      "is_winner": true,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BHARUCHA NITINKUMAR THAKORDAS",
+      "party_short": "INC",
+      "votes": 59291,
+      "vote_share_pct": 43.75,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KAPDIYA MOHAMMAD SALMAN MOHAMMAD IRFAN",
+      "party_short": "BSP",
+      "votes": 458,
+      "vote_share_pct": 0.34,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MEMAN BILKISHBANU RAFIKBHAI",
+      "party_short": "IND",
+      "votes": 307,
+      "vote_share_pct": 0.23,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SALIM AKBARBHAI MULTANI",
+      "party_short": "AAAP",
+      "votes": 299,
+      "vote_share_pct": 0.22,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1168,
+    "vote_share_pct": 0.86
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1229,
+    "vote_share_pct": 0.9
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARVIND SHANTILAL RANA",
+    "party_short": "BJP",
+    "votes": 72638,
+    "margin_votes": 13347,
+    "margin_pct": 9.85
+  }
+}

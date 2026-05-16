@@ -1,0 +1,71 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Kamalasagar",
+  "totals": {
+    "electors": 43634,
+    "votes_polled": 40199,
+    "turnout_pct": 92.13
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Antara Sarkar Deb",
+      "party_short": "BJP",
+      "votes": 19052,
+      "vote_share_pct": 47.39,
+      "is_winner": true,
+      "gender": "F",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Hiranmay Narayan Debnath",
+      "party_short": "CPI(M)",
+      "votes": 17308,
+      "vote_share_pct": 43.06,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ashis Das",
+      "party_short": "TMP",
+      "votes": 2311,
+      "vote_share_pct": 5.75,
+      "gender": "M",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Sutapa Ghosh",
+      "party_short": "AITC",
+      "votes": 858,
+      "vote_share_pct": 2.13,
+      "gender": "F",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 670,
+    "vote_share_pct": 1.67
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Antara Sarkar Deb",
+    "party_short": "BJP",
+    "votes": 19052,
+    "margin_votes": 1744,
+    "margin_pct": 4.34
+  },
+  "others": null
+}

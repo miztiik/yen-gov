@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 312,
+  "constituency_name": "Menhdawal",
+  "totals": {
+    "electors": 438464,
+    "votes_polled": 224820,
+    "turnout_pct": 51.27
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAKESH SINGH BAGHEL",
+      "party_short": "BJP",
+      "votes": 86976,
+      "vote_share_pct": 38.69,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANIL KUMAR TRIPATHI",
+      "party_short": "BSP",
+      "votes": 44062,
+      "vote_share_pct": 19.6,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAICHAND ALIAS JAIRAM PANDEY",
+      "party_short": "SP",
+      "votes": 37557,
+      "vote_share_pct": 16.71,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "ER. MOHAMMAD IRFAN",
+      "party_short": "PECP",
+      "votes": 25499,
+      "vote_share_pct": 11.34,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHD. TABISH KHAN",
+      "party_short": "AIMIM",
+      "votes": 19040,
+      "vote_share_pct": 8.47,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2663,
+    "vote_share_pct": 1.18
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 9023,
+    "vote_share_pct": 4.02
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAKESH SINGH BAGHEL",
+    "party_short": "BJP",
+    "votes": 86976,
+    "margin_votes": 42914,
+    "margin_pct": 19.09
+  }
+}

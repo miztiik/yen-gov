@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 331,
+  "constituency_name": "Tamkuhi Raj",
+  "totals": {
+    "electors": 378534,
+    "votes_polled": 215288,
+    "turnout_pct": 56.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "AJAY KUMAR LALLU",
+      "party_short": "INC",
+      "votes": 61211,
+      "vote_share_pct": 28.43,
+      "is_winner": true,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAGADISH MISHRA  ALIAS  BALTI BABA",
+      "party_short": "BJP",
+      "votes": 43097,
+      "vote_share_pct": 20.02,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BIJAY RAI",
+      "party_short": "BSP",
+      "votes": 41685,
+      "vote_share_pct": 19.36,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DR.P.K.RAI",
+      "party_short": "NINSHAD",
+      "votes": 29759,
+      "vote_share_pct": 13.82,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NANDKISHOR MISHRA",
+      "party_short": "IND",
+      "votes": 23423,
+      "vote_share_pct": 10.88,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3305,
+    "vote_share_pct": 1.54
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 12808,
+    "vote_share_pct": 5.96
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "AJAY KUMAR LALLU",
+    "party_short": "INC",
+    "votes": 61211,
+    "margin_votes": 18114,
+    "margin_pct": 8.41
+  }
+}

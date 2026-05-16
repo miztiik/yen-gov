@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 49,
+  "constituency_name": "Chawamanu",
+  "totals": {
+    "electors": 39348,
+    "votes_polled": 35421,
+    "turnout_pct": 90.02
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SAMBHU LAL CHAKMA",
+      "party_short": "BJP",
+      "votes": 18290,
+      "vote_share_pct": 51.64,
+      "is_winner": true,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "NIRAJOY TRIPURA",
+      "party_short": "CPM",
+      "votes": 14535,
+      "vote_share_pct": 41.03,
+      "gender": "M",
+      "age": 90,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "BIHARI BAISHNAB TRIPURA",
+      "party_short": "INPT",
+      "votes": 665,
+      "vote_share_pct": 1.88,
+      "gender": "M",
+      "age": 66,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "ASHOK MITRA KARBARI",
+      "party_short": "INC",
+      "votes": 432,
+      "vote_share_pct": 1.22,
+      "gender": "M",
+      "age": 68,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "BIKASH DEBBARMA",
+      "party_short": "TLSP",
+      "votes": 343,
+      "vote_share_pct": 0.97,
+      "gender": "M",
+      "age": 30,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 449,
+    "vote_share_pct": 1.27
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 244,
+    "vote_share_pct": 0.69
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SAMBHU LAL CHAKMA",
+    "party_short": "BJP",
+    "votes": 18290,
+    "margin_votes": 3755,
+    "margin_pct": 10.6
+  }
+}

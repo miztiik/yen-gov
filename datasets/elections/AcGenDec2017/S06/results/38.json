@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 38,
+  "constituency_name": "Kalol",
+  "totals": {
+    "electors": 224175,
+    "votes_polled": 165895,
+    "turnout_pct": 74.0
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "BALDEVJI CHANDUJI THAKOR",
+      "party_short": "INC",
+      "votes": 82886,
+      "vote_share_pct": 49.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR.ATULBHAI K. PATEL",
+      "party_short": "BJP",
+      "votes": 74921,
+      "vote_share_pct": 45.16,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MAHENDRASHEEL SOMABHAI UPASAK",
+      "party_short": "BSP",
+      "votes": 1183,
+      "vote_share_pct": 0.71,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "THAKOR KARSANJI MAGANJI",
+      "party_short": "NCP",
+      "votes": 1033,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 82,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MAKWANA ANILKUMAR SOMABHAI",
+      "party_short": "IND",
+      "votes": 853,
+      "vote_share_pct": 0.51,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2515,
+    "vote_share_pct": 1.52
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1298,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "BALDEVJI CHANDUJI THAKOR",
+    "party_short": "INC",
+    "votes": 82886,
+    "margin_votes": 7965,
+    "margin_pct": 4.8
+  }
+}

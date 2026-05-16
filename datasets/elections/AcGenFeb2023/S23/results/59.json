@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Pecharthal (ST)",
+  "totals": {
+    "electors": 45670,
+    "votes_polled": 39078,
+    "turnout_pct": 85.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Santana Chakma",
+      "party_short": "BJP",
+      "votes": 17781,
+      "vote_share_pct": 45.5,
+      "is_winner": true,
+      "gender": "F",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Sadhan Kumar Chakma",
+      "party_short": "CPI(M)",
+      "votes": 9808,
+      "vote_share_pct": 25.1,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Hollywood Chakma",
+      "party_short": "TMP",
+      "votes": 9644,
+      "vote_share_pct": 24.68,
+      "gender": "M",
+      "age": 37,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Purnita Chakma",
+      "party_short": "AITC",
+      "votes": 767,
+      "vote_share_pct": 1.96,
+      "gender": "F",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Karnadhan Chakma",
+      "party_short": "IND",
+      "votes": 551,
+      "vote_share_pct": 1.41,
+      "gender": "M",
+      "age": 51,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 527,
+    "vote_share_pct": 1.35
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Santana Chakma",
+    "party_short": "BJP",
+    "votes": 17781,
+    "margin_votes": 7973,
+    "margin_pct": 20.4
+  },
+  "others": null
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 220,
+  "constituency_name": "Kalpi",
+  "totals": {
+    "electors": 377554,
+    "votes_polled": 229331,
+    "turnout_pct": 60.74
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KU. NARENDRA PAL SINGH",
+      "party_short": "BJP",
+      "votes": 105988,
+      "vote_share_pct": 46.22,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "CHHOTE SINGH",
+      "party_short": "BSP",
+      "votes": 54504,
+      "vote_share_pct": 23.77,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "UMAKANTI",
+      "party_short": "INC",
+      "votes": 53160,
+      "vote_share_pct": 23.18,
+      "gender": "F",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BALGOVIND",
+      "party_short": "IND",
+      "votes": 6468,
+      "vote_share_pct": 2.82,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAHUL SHARMA",
+      "party_short": "RLD",
+      "votes": 1883,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2356,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 4972,
+    "vote_share_pct": 2.17
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KU. NARENDRA PAL SINGH",
+    "party_short": "BJP",
+    "votes": 105988,
+    "margin_votes": 51484,
+    "margin_pct": 22.45
+  }
+}

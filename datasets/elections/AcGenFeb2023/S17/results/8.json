@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2023",
+  "state": "S17",
+  "body": "AC",
+  "eci_no": 8,
+  "constituency_name": "Western Angami (ST)",
+  "totals": {
+    "electors": 17594,
+    "votes_polled": 14229,
+    "turnout_pct": 80.87
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Salhoutuonuo Kruse",
+      "party_short": "NDPP",
+      "votes": 7078,
+      "vote_share_pct": 49.74,
+      "is_winner": true,
+      "gender": "F",
+      "age": 56,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Keneizhakho Nakhro",
+      "party_short": "IND",
+      "votes": 7071,
+      "vote_share_pct": 49.69,
+      "gender": "M",
+      "age": 56,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 80,
+    "vote_share_pct": 0.56
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Salhoutuonuo Kruse",
+    "party_short": "NDPP",
+    "votes": 7078,
+    "margin_votes": 7,
+    "margin_pct": 0.05
+  },
+  "others": null
+}

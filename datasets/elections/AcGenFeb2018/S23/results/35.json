@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 35,
+  "constituency_name": "Belonia",
+  "totals": {
+    "electors": 41761,
+    "votes_polled": 40225,
+    "turnout_pct": 96.32
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ARUN CHANDRA BHAUMIK",
+      "party_short": "BJP",
+      "votes": 19307,
+      "vote_share_pct": 48.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BASUDEV MAJUMDER",
+      "party_short": "CPM",
+      "votes": 18554,
+      "vote_share_pct": 46.13,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "BHOLA NATH DHAR",
+      "party_short": "INC",
+      "votes": 399,
+      "vote_share_pct": 0.99,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRASANTA SEN",
+      "party_short": "AITC",
+      "votes": 323,
+      "vote_share_pct": 0.8,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GAURI SANKAR NANDI",
+      "party_short": "AMB",
+      "votes": 157,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 378,
+    "vote_share_pct": 0.94
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 124,
+    "vote_share_pct": 0.31
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ARUN CHANDRA BHAUMIK",
+    "party_short": "BJP",
+    "votes": 19307,
+    "margin_votes": 753,
+    "margin_pct": 1.87
+  }
+}

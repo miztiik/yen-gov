@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 11,
+  "constituency_name": "LAWSPET",
+  "totals": {
+    "electors": 32535,
+    "votes_polled": 26245,
+    "turnout_pct": 80.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "M. VAITHIANATHAN",
+      "party_short": "INC",
+      "votes": 14592,
+      "vote_share_pct": 55.6,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "V. SAMINATHAN",
+      "party_short": "BJP",
+      "votes": 8891,
+      "vote_share_pct": 33.88,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NIRMAL SINGH",
+      "party_short": "NTK",
+      "votes": 1168,
+      "vote_share_pct": 4.45,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "D. SATHIYAMOORTHY",
+      "party_short": "MNM",
+      "votes": 825,
+      "vote_share_pct": 3.14,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "A. BOOPALAN",
+      "party_short": "DMDK",
+      "votes": 73,
+      "vote_share_pct": 0.28,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 423,
+    "vote_share_pct": 1.61
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 273,
+    "vote_share_pct": 1.05
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "M. VAITHIANATHAN",
+    "party_short": "INC",
+    "votes": 14592,
+    "margin_votes": 5701,
+    "margin_pct": 21.72
+  }
+}

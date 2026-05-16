@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 44,
+  "constituency_name": "Chabbewal",
+  "totals": {
+    "electors": 162191,
+    "votes_polled": 115506,
+    "turnout_pct": 71.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DR. RAJ KUMAR",
+      "party_short": "INC",
+      "votes": 47375,
+      "vote_share_pct": 41.02,
+      "is_winner": true,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "HARMINDER SINGH",
+      "party_short": "AAAP",
+      "votes": 39729,
+      "vote_share_pct": 34.4,
+      "gender": "M",
+      "age": 35,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "SOHAN SINGH THANDAL",
+      "party_short": "SAD",
+      "votes": 19329,
+      "vote_share_pct": 16.73,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "DR. DILBAG RAI",
+      "party_short": "BJP",
+      "votes": 4073,
+      "vote_share_pct": 3.53,
+      "gender": "M",
+      "age": 63,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RASHPAL SINGH RAJU",
+      "party_short": "IND",
+      "votes": 1239,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 981,
+    "vote_share_pct": 0.85
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2780,
+    "vote_share_pct": 2.41
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DR. RAJ KUMAR",
+    "party_short": "INC",
+    "votes": 47375,
+    "margin_votes": 7646,
+    "margin_pct": 6.62
+  }
+}

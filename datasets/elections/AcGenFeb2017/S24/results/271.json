@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 271,
+  "constituency_name": "Rudauli",
+  "totals": {
+    "electors": 336229,
+    "votes_polled": 210239,
+    "turnout_pct": 62.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAM CHANDRA YADAV",
+      "party_short": "BJP",
+      "votes": 90311,
+      "vote_share_pct": 42.96,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ABBAS ALI ZAIDI URF RUSHDI MIYAN",
+      "party_short": "SP",
+      "votes": 59052,
+      "vote_share_pct": 28.09,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "FIROZ KHAN URF GABBAR",
+      "party_short": "BSP",
+      "votes": 47257,
+      "vote_share_pct": 22.48,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRAMOD KUMAR LODHI",
+      "party_short": "SDU",
+      "votes": 2104,
+      "vote_share_pct": 1.0,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BALRAM YADAV",
+      "party_short": "RLD",
+      "votes": 1707,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2225,
+    "vote_share_pct": 1.06
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 7583,
+    "vote_share_pct": 3.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAM CHANDRA YADAV",
+    "party_short": "BJP",
+    "votes": 90311,
+    "margin_votes": 31259,
+    "margin_pct": 14.87
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 171,
+  "constituency_name": "Lucknow West",
+  "totals": {
+    "electors": 387874,
+    "votes_polled": 217554,
+    "turnout_pct": 56.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SURESH KUMAR SHRIVASTAV",
+      "party_short": "BJP",
+      "votes": 93022,
+      "vote_share_pct": 42.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MOD REHAN",
+      "party_short": "SP",
+      "votes": 79950,
+      "vote_share_pct": 36.75,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ARMAAN KHAN",
+      "party_short": "BSP",
+      "votes": 36247,
+      "vote_share_pct": 16.66,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHAMMAD TAUHEED SIDDIQUI",
+      "party_short": "AIMIM",
+      "votes": 1770,
+      "vote_share_pct": 0.81,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MANOJ KUMAR GUPTA",
+      "party_short": "IND",
+      "votes": 1053,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 635,
+    "vote_share_pct": 0.29
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 4877,
+    "vote_share_pct": 2.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SURESH KUMAR SHRIVASTAV",
+    "party_short": "BJP",
+    "votes": 93022,
+    "margin_votes": 13072,
+    "margin_pct": 6.01
+  }
+}

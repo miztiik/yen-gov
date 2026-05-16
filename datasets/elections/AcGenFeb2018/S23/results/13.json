@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 13,
+  "constituency_name": "Pratapgarh",
+  "totals": {
+    "electors": 52884,
+    "votes_polled": 50931,
+    "turnout_pct": 96.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "REBATI MOHAN DAS",
+      "party_short": "BJP",
+      "votes": 25834,
+      "vote_share_pct": 50.72,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RAMU DAS",
+      "party_short": "CPM",
+      "votes": 22686,
+      "vote_share_pct": 44.54,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ARJUN DAS",
+      "party_short": "INC",
+      "votes": 628,
+      "vote_share_pct": 1.23,
+      "gender": "M",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MITHUN DAS",
+      "party_short": "AITC",
+      "votes": 322,
+      "vote_share_pct": 0.63,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BIRENDRA DAS",
+      "party_short": "AMB",
+      "votes": 290,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 374,
+    "vote_share_pct": 0.73
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "REBATI MOHAN DAS",
+    "party_short": "BJP",
+    "votes": 25834,
+    "margin_votes": 3148,
+    "margin_pct": 6.18
+  },
+  "others": null
+}

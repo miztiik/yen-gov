@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 172,
+  "constituency_name": "Pratapgarh (ST)",
+  "totals": {
+    "electors": 259074,
+    "votes_polled": 218922,
+    "turnout_pct": 84.5
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Hemant Meena",
+      "party_short": "BJP",
+      "votes": 87644,
+      "vote_share_pct": 40.03,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Ramlal Meena",
+      "party_short": "INC",
+      "votes": 62535,
+      "vote_share_pct": 28.56,
+      "gender": "M",
+      "age": 39,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Mangi Lal Meena",
+      "party_short": "BHRTADVSIP",
+      "votes": 62023,
+      "vote_share_pct": 28.33,
+      "gender": "M",
+      "age": 38,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Kamal Meena",
+      "party_short": "BSP",
+      "votes": 2000,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 33,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Rang Lal Meena",
+      "party_short": "CPI(ML)(L)",
+      "votes": 1618,
+      "vote_share_pct": 0.74,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2128,
+    "vote_share_pct": 0.97
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 974,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Hemant Meena",
+    "party_short": "BJP",
+    "votes": 87644,
+    "margin_votes": 25109,
+    "margin_pct": 11.47
+  }
+}

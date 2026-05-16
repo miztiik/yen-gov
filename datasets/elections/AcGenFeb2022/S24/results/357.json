@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 357,
+  "constituency_name": "Belthara Road",
+  "totals": {
+    "electors": 358231,
+    "votes_polled": 199617,
+    "turnout_pct": 55.72
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Hansu Ram",
+      "party_short": "SBSP",
+      "votes": 78995,
+      "vote_share_pct": 39.57,
+      "is_winner": true,
+      "gender": "M",
+      "age": 67,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "Chhathu Ram",
+      "party_short": "BJP",
+      "votes": 73481,
+      "vote_share_pct": 36.81,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "PRAVEEN PRAKASH",
+      "party_short": "BSP",
+      "votes": 38803,
+      "vote_share_pct": 19.44,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Ramlal",
+      "party_short": "JANADIP",
+      "votes": 2093,
+      "vote_share_pct": 1.05,
+      "gender": "M",
+      "age": 51,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Geeta",
+      "party_short": "INC",
+      "votes": 1529,
+      "vote_share_pct": 0.77,
+      "gender": "F",
+      "age": 47,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1219,
+    "vote_share_pct": 0.61
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 3497,
+    "vote_share_pct": 1.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Hansu Ram",
+    "party_short": "SBSP",
+    "votes": 78995,
+    "margin_votes": 5514,
+    "margin_pct": 2.76
+  }
+}

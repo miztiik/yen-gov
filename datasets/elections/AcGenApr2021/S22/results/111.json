@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 111,
+  "constituency_name": "Mettuppalayam",
+  "totals": {
+    "electors": 296937,
+    "votes_polled": 225083,
+    "turnout_pct": 75.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SELVARAJ A K",
+      "party_short": "ADMK",
+      "votes": 105231,
+      "vote_share_pct": 46.75,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SHANMUGASUNDARAM T R",
+      "party_short": "DMK",
+      "votes": 102775,
+      "vote_share_pct": 45.66,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "YASMIN K",
+      "party_short": "NTK",
+      "votes": 10954,
+      "vote_share_pct": 4.87,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SARAVANAN P",
+      "party_short": "AMMKMNKZ",
+      "votes": 1864,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SRINIVASAN S",
+      "party_short": "IND",
+      "votes": 660,
+      "vote_share_pct": 0.29,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2733,
+    "vote_share_pct": 1.21
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 866,
+    "vote_share_pct": 0.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SELVARAJ A K",
+    "party_short": "ADMK",
+    "votes": 105231,
+    "margin_votes": 2456,
+    "margin_pct": 1.09
+  }
+}

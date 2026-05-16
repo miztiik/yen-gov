@@ -1,0 +1,81 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2018",
+  "state": "S23",
+  "body": "AC",
+  "eci_no": 14,
+  "constituency_name": "Badharghat",
+  "totals": {
+    "electors": 57661,
+    "votes_polled": 54507,
+    "turnout_pct": 94.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DILIP SARKAR",
+      "party_short": "BJP",
+      "votes": 28561,
+      "vote_share_pct": 52.4,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "JHARNA DAS(BAIDYA)",
+      "party_short": "CPM",
+      "votes": 23113,
+      "vote_share_pct": 42.4,
+      "gender": "F",
+      "age": 53,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "RATAN CH. DAS",
+      "party_short": "INC",
+      "votes": 505,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 43,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MRIDUL KANTI SARKAR",
+      "party_short": "SUCI",
+      "votes": 246,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "BRAJENDRA DAS",
+      "party_short": "AMB",
+      "votes": 141,
+      "vote_share_pct": 0.26,
+      "gender": "M",
+      "age": 65,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 474,
+    "vote_share_pct": 0.87
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "DILIP SARKAR",
+    "party_short": "BJP",
+    "votes": 28561,
+    "margin_votes": 5448,
+    "margin_pct": 10.0
+  },
+  "others": null
+}

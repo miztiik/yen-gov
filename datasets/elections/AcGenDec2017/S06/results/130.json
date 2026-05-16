@@ -1,0 +1,51 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 130,
+  "constituency_name": "Jhalod",
+  "totals": {
+    "electors": 224394,
+    "votes_polled": 153220,
+    "turnout_pct": 68.28
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KATARA BHAVESHBHAI BABUBHAI",
+      "party_short": "INC",
+      "votes": 86077,
+      "vote_share_pct": 56.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 32,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "BHURIYA MAHESHBHAI SOMJIBHAI",
+      "party_short": "BJP",
+      "votes": 60667,
+      "vote_share_pct": 39.59,
+      "gender": "M",
+      "age": 47,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 5265,
+    "vote_share_pct": 3.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KATARA BHAVESHBHAI BABUBHAI",
+    "party_short": "INC",
+    "votes": 86077,
+    "margin_votes": 25410,
+    "margin_pct": 16.58
+  },
+  "others": null
+}

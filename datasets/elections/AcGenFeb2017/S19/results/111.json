@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 111,
+  "constituency_name": "Rajpura",
+  "totals": {
+    "electors": 166630,
+    "votes_polled": 128073,
+    "turnout_pct": 76.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "HARDIAL SINGH KAMBOJ",
+      "party_short": "INC",
+      "votes": 59107,
+      "vote_share_pct": 46.15,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ASHUTOSH JOSHI",
+      "party_short": "AAAP",
+      "votes": 26542,
+      "vote_share_pct": 20.72,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "HARJIT SINGH GREWAL",
+      "party_short": "BJP",
+      "votes": 19151,
+      "vote_share_pct": 14.95,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "JAGDISH KUMAR",
+      "party_short": "IND",
+      "votes": 15073,
+      "vote_share_pct": 11.77,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "NIRMALJIT SINGH",
+      "party_short": "IND",
+      "votes": 3939,
+      "vote_share_pct": 3.08,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1026,
+    "vote_share_pct": 0.8
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 3235,
+    "vote_share_pct": 2.52
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "HARDIAL SINGH KAMBOJ",
+    "party_short": "INC",
+    "votes": 59107,
+    "margin_votes": 32565,
+    "margin_pct": 25.43
+  }
+}

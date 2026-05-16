@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "Ganganagar",
+  "totals": {
+    "electors": 239157,
+    "votes_polled": 181386,
+    "turnout_pct": 75.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Jaydeep Bihani",
+      "party_short": "BJP",
+      "votes": 81001,
+      "vote_share_pct": 44.66,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Karuna Ashok Chandak",
+      "party_short": "IND",
+      "votes": 51222,
+      "vote_share_pct": 28.24,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Ankur Maglani",
+      "party_short": "INC",
+      "votes": 39006,
+      "vote_share_pct": 21.5,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Harish Raheja",
+      "party_short": "AAAP",
+      "votes": 1987,
+      "vote_share_pct": 1.1,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Aruna Chandak",
+      "party_short": "IND",
+      "votes": 1302,
+      "vote_share_pct": 0.72,
+      "gender": "F",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1277,
+    "vote_share_pct": 0.7
+  },
+  "others": {
+    "candidate_count": 11,
+    "votes": 5591,
+    "vote_share_pct": 3.06
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Jaydeep Bihani",
+    "party_short": "BJP",
+    "votes": 81001,
+    "margin_votes": 29779,
+    "margin_pct": 16.42
+  }
+}

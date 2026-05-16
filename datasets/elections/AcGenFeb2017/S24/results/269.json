@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 269,
+  "constituency_name": "Zaidpur",
+  "totals": {
+    "electors": 366659,
+    "votes_polled": 256287,
+    "turnout_pct": 69.9
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UPENDRA SINGH",
+      "party_short": "BJP",
+      "votes": 111064,
+      "vote_share_pct": 43.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "TANUJ PUNIA",
+      "party_short": "INC",
+      "votes": 81883,
+      "vote_share_pct": 31.95,
+      "gender": "M",
+      "age": 32,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "KM. MEETA GAUTAM",
+      "party_short": "BSP",
+      "votes": 48095,
+      "vote_share_pct": 18.77,
+      "gender": "F",
+      "age": 46,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAMGOPAL",
+      "party_short": "SP",
+      "votes": 4383,
+      "vote_share_pct": 1.71,
+      "gender": "M",
+      "age": 56,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "KUNJ BIHARI",
+      "party_short": "IND",
+      "votes": 2505,
+      "vote_share_pct": 0.98,
+      "gender": "M",
+      "age": 47,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2968,
+    "vote_share_pct": 1.16
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 5389,
+    "vote_share_pct": 2.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UPENDRA SINGH",
+    "party_short": "BJP",
+    "votes": 111064,
+    "margin_votes": 29181,
+    "margin_pct": 11.39
+  }
+}

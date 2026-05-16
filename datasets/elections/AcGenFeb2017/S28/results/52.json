@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 52,
+  "constituency_name": "Almora",
+  "totals": {
+    "electors": 88878,
+    "votes_polled": 51966,
+    "turnout_pct": 58.47
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAGHUNATH SINGH CHAUHAN",
+      "party_short": "BJP",
+      "votes": 26464,
+      "vote_share_pct": 50.93,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANOJ TEWARI",
+      "party_short": "INC",
+      "votes": 21085,
+      "vote_share_pct": 40.57,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "DR.SANJAY TAMTA",
+      "party_short": "BSP",
+      "votes": 1654,
+      "vote_share_pct": 3.18,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "VIRENDRA KUMAR",
+      "party_short": "IND",
+      "votes": 517,
+      "vote_share_pct": 0.99,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MOHD HABIB",
+      "party_short": "IND",
+      "votes": 514,
+      "vote_share_pct": 0.99,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 623,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 1109,
+    "vote_share_pct": 2.13
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAGHUNATH SINGH CHAUHAN",
+    "party_short": "BJP",
+    "votes": 26464,
+    "margin_votes": 5379,
+    "margin_pct": 10.35
+  }
+}

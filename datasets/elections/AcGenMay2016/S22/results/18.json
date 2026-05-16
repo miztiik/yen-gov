@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 18,
+  "constituency_name": "Harbour",
+  "totals": {
+    "electors": 188171,
+    "votes_polled": 104238,
+    "turnout_pct": 55.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SEKAR BABU P K",
+      "party_short": "DMK",
+      "votes": 42071,
+      "vote_share_pct": 40.36,
+      "is_winner": true,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "SREENIVASAN K S",
+      "party_short": "ADMK",
+      "votes": 37235,
+      "vote_share_pct": 35.72,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "KRISHNAKUMAR NADHANI",
+      "party_short": "BJP",
+      "votes": 13357,
+      "vote_share_pct": 12.81,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "AMEER HAMSA S",
+      "party_short": "SDPI",
+      "votes": 4161,
+      "vote_share_pct": 3.99,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MURAD BUHARI B",
+      "party_short": "MDMK",
+      "votes": 1970,
+      "vote_share_pct": 1.89,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2101,
+    "vote_share_pct": 2.02
+  },
+  "others": {
+    "candidate_count": 20,
+    "votes": 3343,
+    "vote_share_pct": 3.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SEKAR BABU P K",
+    "party_short": "DMK",
+    "votes": 42071,
+    "margin_votes": 4836,
+    "margin_pct": 4.64
+  }
+}

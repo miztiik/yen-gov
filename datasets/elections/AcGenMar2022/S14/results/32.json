@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 32,
+  "constituency_name": "Wangkhem",
+  "totals": {
+    "electors": 33866,
+    "votes_polled": 30277,
+    "turnout_pct": 89.4
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Keisham Meghachandra Singh",
+      "party_short": "INC",
+      "votes": 8889,
+      "vote_share_pct": 29.36,
+      "is_winner": true,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Yumnam Nabachandra Singh",
+      "party_short": "BJP",
+      "votes": 7597,
+      "vote_share_pct": 25.09,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Prof. (Dr.) Nimai Chand Luwang",
+      "party_short": "RPPRINAT",
+      "votes": 7100,
+      "vote_share_pct": 23.45,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Kharibam Jiban Singh",
+      "party_short": "NPEP",
+      "votes": 3474,
+      "vote_share_pct": 11.47,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Kangabam Jadu @ Jadumani Singh",
+      "party_short": "JD(U)",
+      "votes": 2891,
+      "vote_share_pct": 9.55,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 136,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 190,
+    "vote_share_pct": 0.62
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Keisham Meghachandra Singh",
+    "party_short": "INC",
+    "votes": 8889,
+    "margin_votes": 1292,
+    "margin_pct": 4.27
+  }
+}

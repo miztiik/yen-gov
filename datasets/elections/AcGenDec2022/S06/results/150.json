@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 150,
+  "constituency_name": "Jambusar",
+  "totals": {
+    "electors": 241860,
+    "votes_polled": 164207,
+    "turnout_pct": 67.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "D.k.swami",
+      "party_short": "BJP",
+      "votes": 91533,
+      "vote_share_pct": 55.74,
+      "is_winner": true,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Sanjaybhai Jesangbhai Solanki",
+      "party_short": "INC",
+      "votes": 64153,
+      "vote_share_pct": 39.07,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Sajidkhan Rehan",
+      "party_short": "AAAP",
+      "votes": 3418,
+      "vote_share_pct": 2.08,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Jambu Pramodbhai Bhagubhai",
+      "party_short": "BARESP",
+      "votes": 827,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "Ismail Ahmad Patel",
+      "party_short": "IND",
+      "votes": 821,
+      "vote_share_pct": 0.5,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2273,
+    "vote_share_pct": 1.38
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1182,
+    "vote_share_pct": 0.72
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "D.k.swami",
+    "party_short": "BJP",
+    "votes": 91533,
+    "margin_votes": 27380,
+    "margin_pct": 16.67
+  }
+}

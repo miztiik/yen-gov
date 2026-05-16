@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 36,
+  "constituency_name": "Yamkeshwar",
+  "totals": {
+    "electors": 86774,
+    "votes_polled": 45731,
+    "turnout_pct": 52.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RITU KHANDURI BHUSHAN",
+      "party_short": "BJP",
+      "votes": 19671,
+      "vote_share_pct": 43.01,
+      "is_winner": true,
+      "gender": "F",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RENU BISHT",
+      "party_short": "IND",
+      "votes": 10689,
+      "vote_share_pct": 23.37,
+      "gender": "F",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHAILENDRA SINGH RAWAT",
+      "party_short": "INC",
+      "votes": 10283,
+      "vote_share_pct": 22.49,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRASHANT BADONI",
+      "party_short": "IND",
+      "votes": 2698,
+      "vote_share_pct": 5.9,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHANTI PRASAD BHATT",
+      "party_short": "UKKD",
+      "votes": 542,
+      "vote_share_pct": 1.19,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 988,
+    "vote_share_pct": 2.16
+  },
+  "others": {
+    "candidate_count": 3,
+    "votes": 860,
+    "vote_share_pct": 1.88
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RITU KHANDURI BHUSHAN",
+    "party_short": "BJP",
+    "votes": 19671,
+    "margin_votes": 8982,
+    "margin_pct": 19.64
+  }
+}

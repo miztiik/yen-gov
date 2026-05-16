@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 82,
+  "constituency_name": "Attur",
+  "totals": {
+    "electors": 234136,
+    "votes_polled": 186788,
+    "turnout_pct": 79.78
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "CHINNATHAMBI R M",
+      "party_short": "ADMK",
+      "votes": 82827,
+      "vote_share_pct": 44.34,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "ARTHANARI S K",
+      "party_short": "INC",
+      "votes": 65493,
+      "vote_share_pct": 35.06,
+      "gender": "M",
+      "age": 39,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "AMSAVENI G",
+      "party_short": "PMK",
+      "votes": 18363,
+      "vote_share_pct": 9.83,
+      "gender": "F",
+      "age": 36,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "ADHITHYAN K P",
+      "party_short": "VCK",
+      "votes": 8532,
+      "vote_share_pct": 4.57,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "JAYASEELAN R",
+      "party_short": "KMDK",
+      "votes": 2413,
+      "vote_share_pct": 1.29,
+      "gender": "M",
+      "age": 37,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 2742,
+    "vote_share_pct": 1.47
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 6418,
+    "vote_share_pct": 3.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "CHINNATHAMBI R M",
+    "party_short": "ADMK",
+    "votes": 82827,
+    "margin_votes": 17334,
+    "margin_pct": 9.28
+  }
+}

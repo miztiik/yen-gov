@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 291,
+  "constituency_name": "Tulsipur",
+  "totals": {
+    "electors": 383960,
+    "votes_polled": 202787,
+    "turnout_pct": 52.81
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "KAILASH NATH",
+      "party_short": "BJP",
+      "votes": 87032,
+      "vote_share_pct": 42.92,
+      "is_winner": true,
+      "gender": "M",
+      "age": 62,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ZEBA RIZWAN",
+      "party_short": "IND",
+      "votes": 51251,
+      "vote_share_pct": 25.27,
+      "gender": "F",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ABDUL MASHHOOD KHAN",
+      "party_short": "SP",
+      "votes": 42815,
+      "vote_share_pct": 21.11,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BHUWAN PRATAP SINGH",
+      "party_short": "BSP",
+      "votes": 8118,
+      "vote_share_pct": 4.0,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DIPENDRA SINGH DIPANKAR",
+      "party_short": "INC",
+      "votes": 4171,
+      "vote_share_pct": 2.06,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2228,
+    "vote_share_pct": 1.1
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 7172,
+    "vote_share_pct": 3.54
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "KAILASH NATH",
+    "party_short": "BJP",
+    "votes": 87032,
+    "margin_votes": 35781,
+    "margin_pct": 17.64
+  }
+}

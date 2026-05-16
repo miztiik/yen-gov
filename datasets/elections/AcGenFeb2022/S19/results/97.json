@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 97,
+  "constituency_name": "Sardulgarh",
+  "totals": {
+    "electors": 182806,
+    "votes_polled": 152822,
+    "turnout_pct": 83.6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Gurpreet Singh Banawali",
+      "party_short": "AAAP",
+      "votes": 75817,
+      "vote_share_pct": 49.61,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Bikram Singh",
+      "party_short": "INC",
+      "votes": 34446,
+      "vote_share_pct": 22.54,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Dilraj Singh Bhundar",
+      "party_short": "SAD",
+      "votes": 31757,
+      "vote_share_pct": 20.78,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Baldev Singh",
+      "party_short": "SAD(M)",
+      "votes": 2345,
+      "vote_share_pct": 1.53,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Jagjit Singh Milkha",
+      "party_short": "BJP",
+      "votes": 2038,
+      "vote_share_pct": 1.33,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 684,
+    "vote_share_pct": 0.45
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 5735,
+    "vote_share_pct": 3.75
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Gurpreet Singh Banawali",
+    "party_short": "AAAP",
+    "votes": 75817,
+    "margin_votes": 41371,
+    "margin_pct": 27.07
+  }
+}

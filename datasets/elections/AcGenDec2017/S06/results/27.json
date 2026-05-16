@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Himatnagar",
+  "totals": {
+    "electors": 253254,
+    "votes_polled": 198950,
+    "turnout_pct": 78.56
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAJENDRASINH RANJITSINH CHAVDA(RAJUBHAI CHAVDA)",
+      "party_short": "BJP",
+      "votes": 94340,
+      "vote_share_pct": 47.42,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KAMLESHKUMAR JAYANTIBHAI PATEL",
+      "party_short": "INC",
+      "votes": 92628,
+      "vote_share_pct": 46.56,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SOLANKI MAGANBHAI LAKHABHAI",
+      "party_short": "BSP",
+      "votes": 1065,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 52,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "PARMAR DILIPSINH CHAKUSINH",
+      "party_short": "IND",
+      "votes": 739,
+      "vote_share_pct": 0.37,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "PATEL CHANDRASHEKHAR ANILBHAI",
+      "party_short": "NCP",
+      "votes": 692,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3334,
+    "vote_share_pct": 1.68
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2730,
+    "vote_share_pct": 1.38
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAJENDRASINH RANJITSINH CHAVDA(RAJUBHAI CHAVDA)",
+    "party_short": "BJP",
+    "votes": 94340,
+    "margin_votes": 1712,
+    "margin_pct": 0.86
+  }
+}

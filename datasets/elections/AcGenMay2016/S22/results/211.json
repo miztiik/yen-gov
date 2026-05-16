@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 211,
+  "constituency_name": "Ramanathapuram",
+  "totals": {
+    "electors": 284405,
+    "votes_polled": 193002,
+    "turnout_pct": 67.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MANIKANDAN.M",
+      "party_short": "ADMK",
+      "votes": 89365,
+      "vote_share_pct": 46.3,
+      "is_winner": true,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JAWAHIRULLAH.M.H",
+      "party_short": "MAMAK",
+      "votes": 56143,
+      "vote_share_pct": 29.09,
+      "gender": "M",
+      "age": 56,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SINGAI JINNAH M.A",
+      "party_short": "DMDK",
+      "votes": 16353,
+      "vote_share_pct": 8.47,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "KANNAN.D",
+      "party_short": "BJP",
+      "votes": 15029,
+      "vote_share_pct": 7.79,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SIVAKUMAR.K",
+      "party_short": "NTK",
+      "votes": 4001,
+      "vote_share_pct": 2.07,
+      "gender": "M",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1528,
+    "vote_share_pct": 0.79
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 10583,
+    "vote_share_pct": 5.5
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MANIKANDAN.M",
+    "party_short": "ADMK",
+    "votes": 89365,
+    "margin_votes": 33222,
+    "margin_pct": 17.21
+  }
+}

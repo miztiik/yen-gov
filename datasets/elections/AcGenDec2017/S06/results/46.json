@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 46,
+  "constituency_name": "Nikol",
+  "totals": {
+    "electors": 231586,
+    "votes_polled": 156528,
+    "turnout_pct": 67.59
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "JAGDISH PANCHAL",
+      "party_short": "BJP",
+      "votes": 87764,
+      "vote_share_pct": 56.07,
+      "is_winner": true,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GOHIL INDRAVIJAYSINH",
+      "party_short": "INC",
+      "votes": 62884,
+      "vote_share_pct": 40.17,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "PARMAR RAMESHBHAI GOVINDBHAI",
+      "party_short": "BSP",
+      "votes": 927,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "SONULE SHAILENDRABHAI RAMCHANDRA",
+      "party_short": "IND",
+      "votes": 615,
+      "vote_share_pct": 0.39,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SHAIKH SALIMUDEEN NIJAMUDEEN",
+      "party_short": "IND",
+      "votes": 267,
+      "vote_share_pct": 0.17,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1959,
+    "vote_share_pct": 1.25
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 1206,
+    "vote_share_pct": 0.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "JAGDISH PANCHAL",
+    "party_short": "BJP",
+    "votes": 87764,
+    "margin_votes": 24880,
+    "margin_pct": 15.89
+  }
+}

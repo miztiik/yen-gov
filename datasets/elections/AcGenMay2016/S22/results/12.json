@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 12,
+  "constituency_name": "Perambur",
+  "totals": {
+    "electors": 290522,
+    "votes_polled": 188681,
+    "turnout_pct": 64.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "P VETRIVEL",
+      "party_short": "ADMK",
+      "votes": 79974,
+      "vote_share_pct": 42.39,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "N R DHANAPALAN",
+      "party_short": "DMK",
+      "votes": 79455,
+      "vote_share_pct": 42.11,
+      "gender": "M",
+      "age": 64,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "A SOUNDARA RAJAN",
+      "party_short": "CPM",
+      "votes": 10281,
+      "vote_share_pct": 5.45,
+      "gender": "M",
+      "age": 69,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PRAKASH R",
+      "party_short": "BJP",
+      "votes": 4582,
+      "vote_share_pct": 2.43,
+      "gender": "M",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "M.VENKATESH  PERUMAL",
+      "party_short": "PMK",
+      "votes": 3685,
+      "vote_share_pct": 1.95,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3167,
+    "vote_share_pct": 1.68
+  },
+  "others": {
+    "candidate_count": 28,
+    "votes": 7537,
+    "vote_share_pct": 3.97
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "P VETRIVEL",
+    "party_short": "ADMK",
+    "votes": 79974,
+    "margin_votes": 519,
+    "margin_pct": 0.28
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 47,
+  "constituency_name": "Nawanshahr",
+  "totals": {
+    "electors": 168160,
+    "votes_polled": 128619,
+    "turnout_pct": 76.49
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANGAD SINGH",
+      "party_short": "INC",
+      "votes": 38197,
+      "vote_share_pct": 29.7,
+      "is_winner": true,
+      "gender": "M",
+      "age": 26,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "JARNAIL SINGH WAHID",
+      "party_short": "SAD",
+      "votes": 34874,
+      "vote_share_pct": 27.11,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "CHARANJIT SINGH CHANNI",
+      "party_short": "AAAP",
+      "votes": 32341,
+      "vote_share_pct": 25.14,
+      "gender": "M",
+      "age": 75,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "DR. NACHHATAR PAL",
+      "party_short": "BSP",
+      "votes": 19578,
+      "vote_share_pct": 15.22,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "HITESH KUMAR PATHAK",
+      "party_short": "CPM",
+      "votes": 881,
+      "vote_share_pct": 0.68,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 844,
+    "vote_share_pct": 0.66
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1904,
+    "vote_share_pct": 1.48
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANGAD SINGH",
+    "party_short": "INC",
+    "votes": 38197,
+    "margin_votes": 3323,
+    "margin_pct": 2.58
+  }
+}

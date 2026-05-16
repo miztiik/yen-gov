@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 81,
+  "constituency_name": "Todabhim (ST)",
+  "totals": {
+    "electors": 281647,
+    "votes_polled": 180079,
+    "turnout_pct": 63.94
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Ghanshyam",
+      "party_short": "INC",
+      "votes": 97389,
+      "vote_share_pct": 54.08,
+      "is_winner": true,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Ramniwas Meena",
+      "party_short": "BJP",
+      "votes": 68528,
+      "vote_share_pct": 38.05,
+      "gender": "M",
+      "age": 65,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Raghav Ram Meena",
+      "party_short": "IND",
+      "votes": 5311,
+      "vote_share_pct": 2.95,
+      "gender": "M",
+      "age": 60,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Rajnish Mehar",
+      "party_short": "ASPKR",
+      "votes": 3436,
+      "vote_share_pct": 1.91,
+      "gender": "M",
+      "age": 29,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Kalpana",
+      "party_short": "BSP",
+      "votes": 2529,
+      "vote_share_pct": 1.4,
+      "gender": "F",
+      "age": 50,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 1125,
+    "vote_share_pct": 0.62
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1761,
+    "vote_share_pct": 0.98
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Ghanshyam",
+    "party_short": "INC",
+    "votes": 97389,
+    "margin_votes": 28861,
+    "margin_pct": 16.03
+  }
+}

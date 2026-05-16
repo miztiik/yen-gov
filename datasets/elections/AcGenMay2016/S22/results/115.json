@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 115,
+  "constituency_name": "Palladam",
+  "totals": {
+    "electors": 331995,
+    "votes_polled": 237966,
+    "turnout_pct": 71.68
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NATARAJAN. A",
+      "party_short": "ADMK",
+      "votes": 111866,
+      "vote_share_pct": 47.01,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "KRISHNAMOORTHY. S",
+      "party_short": "DMK",
+      "votes": 79692,
+      "vote_share_pct": 33.49,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "MUTHURATHINAM. K",
+      "party_short": "MDMK",
+      "votes": 14841,
+      "vote_share_pct": 6.24,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "THANGARAJ. S",
+      "party_short": "BJP",
+      "votes": 13127,
+      "vote_share_pct": 5.52,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAJENDRAN. C",
+      "party_short": "KMDK",
+      "votes": 6572,
+      "vote_share_pct": 2.76,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3904,
+    "vote_share_pct": 1.64
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 7964,
+    "vote_share_pct": 3.33
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NATARAJAN. A",
+    "party_short": "ADMK",
+    "votes": 111866,
+    "margin_votes": 32174,
+    "margin_pct": 13.52
+  }
+}

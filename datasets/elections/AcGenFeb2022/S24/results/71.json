@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 71,
+  "constituency_name": "Khair",
+  "totals": {
+    "electors": 407399,
+    "votes_polled": 251380,
+    "turnout_pct": 61.7
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "ANOOP SINGH URF ANOOP PRADHAN VALMEEKI",
+      "party_short": "BJP",
+      "votes": 139643,
+      "vote_share_pct": 55.55,
+      "is_winner": true,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "CHARU KAIN KAIN",
+      "party_short": "BSP",
+      "votes": 65302,
+      "vote_share_pct": 25.98,
+      "gender": "F",
+      "age": 25,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "BHAGWATI PRASAD",
+      "party_short": "RLD",
+      "votes": 41644,
+      "vote_share_pct": 16.57,
+      "gender": "M",
+      "age": 59,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "MONIKA",
+      "party_short": "INC",
+      "votes": 1514,
+      "vote_share_pct": 0.6,
+      "gender": "F",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "MULCHAND",
+      "party_short": "IND",
+      "votes": 844,
+      "vote_share_pct": 0.34,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1454,
+    "vote_share_pct": 0.58
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 979,
+    "vote_share_pct": 0.39
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "ANOOP SINGH URF ANOOP PRADHAN VALMEEKI",
+    "party_short": "BJP",
+    "votes": 139643,
+    "margin_votes": 74341,
+    "margin_pct": 29.57
+  }
+}

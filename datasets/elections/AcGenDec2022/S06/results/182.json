@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 182,
+  "constituency_name": "Umbergaon (ST)",
+  "totals": {
+    "electors": 286027,
+    "votes_polled": 173238,
+    "turnout_pct": 60.57
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Patkar Ramanlal Nanubhai",
+      "party_short": "BJP",
+      "votes": 110088,
+      "vote_share_pct": 63.55,
+      "is_winner": true,
+      "gender": "M",
+      "age": 71,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "Nareshbhai Vajirbhai Vadvi",
+      "party_short": "INC",
+      "votes": 45302,
+      "vote_share_pct": 26.15,
+      "gender": "M",
+      "age": 48,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "Ashokbhai Mohanbhai Patel",
+      "party_short": "AAAP",
+      "votes": 10676,
+      "vote_share_pct": 6.16,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "Vaghat Ravindrabhai Somabhai",
+      "party_short": "BTP",
+      "votes": 1858,
+      "vote_share_pct": 1.07,
+      "gender": "M",
+      "age": 28,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "Bochal Hasmukhbhai Ramanbhai",
+      "party_short": "CPI(M)",
+      "votes": 1778,
+      "vote_share_pct": 1.03,
+      "gender": "M",
+      "age": 46,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2772,
+    "vote_share_pct": 1.6
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 764,
+    "vote_share_pct": 0.44
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Patkar Ramanlal Nanubhai",
+    "party_short": "BJP",
+    "votes": 110088,
+    "margin_votes": 64786,
+    "margin_pct": 37.4
+  }
+}

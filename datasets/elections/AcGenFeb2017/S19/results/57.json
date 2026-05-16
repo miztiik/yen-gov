@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 57,
+  "constituency_name": "Khanna",
+  "totals": {
+    "electors": 160323,
+    "votes_polled": 126582,
+    "turnout_pct": 78.95
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GURKIRAT SINGH KOTLI",
+      "party_short": "INC",
+      "votes": 55690,
+      "vote_share_pct": 44.0,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ANIL DUTT PHALLY",
+      "party_short": "AAAP",
+      "votes": 35099,
+      "vote_share_pct": 27.73,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RANJIT SINGH TALWANDI",
+      "party_short": "SAD",
+      "votes": 31845,
+      "vote_share_pct": 25.16,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHASHI VARDHAN",
+      "party_short": "BSP",
+      "votes": 1202,
+      "vote_share_pct": 0.95,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VIJAY DIAMOND",
+      "party_short": "APPA",
+      "votes": 451,
+      "vote_share_pct": 0.36,
+      "gender": "M",
+      "age": 65,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 850,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1445,
+    "vote_share_pct": 1.14
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GURKIRAT SINGH KOTLI",
+    "party_short": "INC",
+    "votes": 55690,
+    "margin_votes": 20591,
+    "margin_pct": 16.27
+  }
+}

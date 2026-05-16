@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 196,
+  "constituency_name": "Thirumangalam",
+  "totals": {
+    "electors": 279598,
+    "votes_polled": 220495,
+    "turnout_pct": 78.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UDHAYAKUMAR R B",
+      "party_short": "ADMK",
+      "votes": 100338,
+      "vote_share_pct": 45.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANIMARAN M",
+      "party_short": "DMK",
+      "votes": 86251,
+      "vote_share_pct": 39.12,
+      "gender": "M",
+      "age": 46,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "ATHI NARAYANAN K",
+      "party_short": "AMMKMNKZ",
+      "votes": 13780,
+      "vote_share_pct": 6.25,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SARAL M",
+      "party_short": "NTK",
+      "votes": 11593,
+      "vote_share_pct": 5.26,
+      "gender": "F",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RAMKUMAR M",
+      "party_short": "MNM",
+      "votes": 2775,
+      "vote_share_pct": 1.26,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 971,
+    "vote_share_pct": 0.44
+  },
+  "others": {
+    "candidate_count": 19,
+    "votes": 4787,
+    "vote_share_pct": 2.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UDHAYAKUMAR R B",
+    "party_short": "ADMK",
+    "votes": 100338,
+    "margin_votes": 14087,
+    "margin_pct": 6.39
+  }
+}

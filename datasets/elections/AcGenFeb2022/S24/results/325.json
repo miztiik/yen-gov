@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 325,
+  "constituency_name": "Khajani",
+  "totals": {
+    "electors": 380081,
+    "votes_polled": 198828,
+    "turnout_pct": 52.31
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SHRIRAM CHAUHAN",
+      "party_short": "BJP",
+      "votes": 90210,
+      "vote_share_pct": 45.37,
+      "is_winner": true,
+      "gender": "M",
+      "age": 64,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "RUPAWATI BELDAR",
+      "party_short": "SP",
+      "votes": 53109,
+      "vote_share_pct": 26.71,
+      "gender": "F",
+      "age": 45,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "VIDYASAGAR",
+      "party_short": "BSP",
+      "votes": 46427,
+      "vote_share_pct": 23.35,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "RAJANI",
+      "party_short": "INC",
+      "votes": 2197,
+      "vote_share_pct": 1.1,
+      "gender": "F",
+      "age": 40,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "RAMESH CHANDRA",
+      "party_short": "JANADIP",
+      "votes": 1629,
+      "vote_share_pct": 0.82,
+      "gender": "M",
+      "age": 33,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1453,
+    "vote_share_pct": 0.73
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 3803,
+    "vote_share_pct": 1.91
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SHRIRAM CHAUHAN",
+    "party_short": "BJP",
+    "votes": 90210,
+    "margin_votes": 37101,
+    "margin_pct": 18.66
+  }
+}

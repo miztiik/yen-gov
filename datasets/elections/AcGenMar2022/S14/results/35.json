@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMar2022",
+  "state": "S14",
+  "body": "AC",
+  "eci_no": 35,
+  "constituency_name": "Khangabo",
+  "totals": {
+    "electors": 37687,
+    "votes_polled": 35035,
+    "turnout_pct": 92.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Surjakumar Okram",
+      "party_short": "INC",
+      "votes": 17435,
+      "vote_share_pct": 49.76,
+      "is_winner": true,
+      "gender": "M",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Khundrakpam Menjor Mangang",
+      "party_short": "BJP",
+      "votes": 9632,
+      "vote_share_pct": 27.49,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Thokchom Jadumani Singh",
+      "party_short": "JD(U)",
+      "votes": 7555,
+      "vote_share_pct": 21.56,
+      "gender": "M",
+      "age": 57,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 413,
+    "vote_share_pct": 1.18
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Surjakumar Okram",
+    "party_short": "INC",
+    "votes": 17435,
+    "margin_votes": 7803,
+    "margin_pct": 22.27
+  },
+  "others": null
+}

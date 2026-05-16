@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 41,
+  "constituency_name": "Urmar",
+  "totals": {
+    "electors": 176265,
+    "votes_polled": 126075,
+    "turnout_pct": 71.53
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANGAT SINGH GILZIAN",
+      "party_short": "INC",
+      "votes": 51477,
+      "vote_share_pct": 40.83,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ARBINDER SINGH RASULPUR",
+      "party_short": "SAD",
+      "votes": 36523,
+      "vote_share_pct": 28.97,
+      "gender": "M",
+      "age": 67,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JASVIR SINGH GILL (RAJA)",
+      "party_short": "AAAP",
+      "votes": 32445,
+      "vote_share_pct": 25.73,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "GURBAKHASH SINGH",
+      "party_short": "BSP",
+      "votes": 1720,
+      "vote_share_pct": 1.36,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "KULDIP SINGH",
+      "party_short": "SAD(M)",
+      "votes": 1454,
+      "vote_share_pct": 1.15,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 840,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1616,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANGAT SINGH GILZIAN",
+    "party_short": "INC",
+    "votes": 51477,
+    "margin_votes": 14954,
+    "margin_pct": 11.86
+  }
+}

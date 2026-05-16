@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 93,
+  "constituency_name": "Senthamangalam",
+  "totals": {
+    "electors": 243556,
+    "votes_polled": 199235,
+    "turnout_pct": 81.8
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PONNUSAMY K",
+      "party_short": "DMK",
+      "votes": 90681,
+      "vote_share_pct": 45.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 69,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "CHANDRAN S",
+      "party_short": "ADMK",
+      "votes": 80188,
+      "vote_share_pct": 40.25,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "ROHINI T",
+      "party_short": "NTK",
+      "votes": 11654,
+      "vote_share_pct": 5.85,
+      "gender": "F",
+      "age": 31,
+      "category": "ST"
+    },
+    {
+      "rank": 4,
+      "name": "CHANDRASEKARAN C",
+      "party_short": "IND",
+      "votes": 11371,
+      "vote_share_pct": 5.71,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    },
+    {
+      "rank": 5,
+      "name": "CHANDRAN P",
+      "party_short": "AMMKMNKZ",
+      "votes": 831,
+      "vote_share_pct": 0.42,
+      "gender": "M",
+      "age": 59,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 2058,
+    "vote_share_pct": 1.03
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 2452,
+    "vote_share_pct": 1.24
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PONNUSAMY K",
+    "party_short": "DMK",
+    "votes": 90681,
+    "margin_votes": 10493,
+    "margin_pct": 5.27
+  }
+}

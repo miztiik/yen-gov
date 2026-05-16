@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 93,
+  "constituency_name": "Fatehabad",
+  "totals": {
+    "electors": 322495,
+    "votes_polled": 215626,
+    "turnout_pct": 66.86
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Chhotey Lal Verma",
+      "party_short": "BJP",
+      "votes": 108811,
+      "vote_share_pct": 50.46,
+      "is_winner": true,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Roopali Dixit",
+      "party_short": "SP",
+      "votes": 55576,
+      "vote_share_pct": 25.77,
+      "gender": "F",
+      "age": 34,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Shailendra Singh",
+      "party_short": "BSP",
+      "votes": 40958,
+      "vote_share_pct": 18.99,
+      "gender": "M",
+      "age": 41,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Rajesh Singh Kushwah",
+      "party_short": "JANADIP",
+      "votes": 3585,
+      "vote_share_pct": 1.66,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mahinder Singh Verma",
+      "party_short": "IND",
+      "votes": 1331,
+      "vote_share_pct": 0.62,
+      "gender": "M",
+      "age": 38,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2472,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2893,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Chhotey Lal Verma",
+    "party_short": "BJP",
+    "votes": 108811,
+    "margin_votes": 53235,
+    "margin_pct": 24.69
+  }
+}

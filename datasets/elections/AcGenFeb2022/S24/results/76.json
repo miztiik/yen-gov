@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 76,
+  "constituency_name": "Aligarh",
+  "totals": {
+    "electors": 395352,
+    "votes_polled": 252587,
+    "turnout_pct": 63.89
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MUKTA RAJA",
+      "party_short": "BJP",
+      "votes": 120389,
+      "vote_share_pct": 47.66,
+      "is_winner": true,
+      "gender": "F",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "ZAFAR ALAM",
+      "party_short": "SP",
+      "votes": 107603,
+      "vote_share_pct": 42.6,
+      "gender": "M",
+      "age": 76,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "RAZIA KHAN",
+      "party_short": "BSP",
+      "votes": 18273,
+      "vote_share_pct": 7.23,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MOHD SALMAN IMTIAZ",
+      "party_short": "INC",
+      "votes": 2292,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 31,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MONIKA THAPAR",
+      "party_short": "AAAP",
+      "votes": 861,
+      "vote_share_pct": 0.34,
+      "gender": "F",
+      "age": 39,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1056,
+    "vote_share_pct": 0.42
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2113,
+    "vote_share_pct": 0.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MUKTA RAJA",
+    "party_short": "BJP",
+    "votes": 120389,
+    "margin_votes": 12786,
+    "margin_pct": 5.06
+  }
+}

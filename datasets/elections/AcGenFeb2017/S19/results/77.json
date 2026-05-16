@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S19",
+  "body": "AC",
+  "eci_no": 77,
+  "constituency_name": "Firozpur Rural",
+  "totals": {
+    "electors": 185748,
+    "votes_polled": 156712,
+    "turnout_pct": 84.37
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATKAR KAUR",
+      "party_short": "INC",
+      "votes": 71037,
+      "vote_share_pct": 45.33,
+      "is_winner": true,
+      "gender": "F",
+      "age": 37,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "JOGINDER SINGH JINDU",
+      "party_short": "SAD",
+      "votes": 49657,
+      "vote_share_pct": 31.69,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "MOHAN SINGH PHALLIAN WALA",
+      "party_short": "AAAP",
+      "votes": 32011,
+      "vote_share_pct": 20.43,
+      "gender": "M",
+      "age": 62,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "JOGINDER SINGH",
+      "party_short": "IND",
+      "votes": 924,
+      "vote_share_pct": 0.59,
+      "gender": "M",
+      "age": 27,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "PURAN",
+      "party_short": "BSP",
+      "votes": 698,
+      "vote_share_pct": 0.45,
+      "gender": "M",
+      "age": 50,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 920,
+    "vote_share_pct": 0.59
+  },
+  "others": {
+    "candidate_count": 5,
+    "votes": 1465,
+    "vote_share_pct": 0.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATKAR KAUR",
+    "party_short": "INC",
+    "votes": 71037,
+    "margin_votes": 21380,
+    "margin_pct": 13.64
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "U07",
+  "body": "AC",
+  "eci_no": 2,
+  "constituency_name": "Thirubhuvanai",
+  "totals": {
+    "electors": 30424,
+    "votes_polled": 27150,
+    "turnout_pct": 89.24
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B. KOBIGA",
+      "party_short": "AINRC",
+      "votes": 12143,
+      "vote_share_pct": 44.73,
+      "is_winner": true,
+      "gender": "F",
+      "age": 34,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "P. ANGALANE",
+      "party_short": "INC",
+      "votes": 10711,
+      "vote_share_pct": 39.45,
+      "gender": "M",
+      "age": 48,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "M. SANKAR @ VADIVELAN",
+      "party_short": "ADMK",
+      "votes": 1618,
+      "vote_share_pct": 5.96,
+      "gender": "M",
+      "age": 49,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "L. KALIVARATHAN",
+      "party_short": "CPM",
+      "votes": 1484,
+      "vote_share_pct": 5.47,
+      "gender": "M",
+      "age": 69,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "S.T.PARAMASIVAM ALIAS CALE",
+      "party_short": "IND",
+      "votes": 213,
+      "vote_share_pct": 0.78,
+      "gender": "M",
+      "age": 42,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 496,
+    "vote_share_pct": 1.83
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 485,
+    "vote_share_pct": 1.79
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "B. KOBIGA",
+    "party_short": "AINRC",
+    "votes": 12143,
+    "margin_votes": 1432,
+    "margin_pct": 5.27
+  }
+}

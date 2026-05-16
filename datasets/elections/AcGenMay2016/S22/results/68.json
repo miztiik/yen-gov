@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 68,
+  "constituency_name": "Cheyyar",
+  "totals": {
+    "electors": 243084,
+    "votes_polled": 205813,
+    "turnout_pct": 84.67
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "MOHAN K",
+      "party_short": "ADMK",
+      "votes": 77766,
+      "vote_share_pct": 37.78,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. VISHNUPRASAD M K",
+      "party_short": "INC",
+      "votes": 69239,
+      "vote_share_pct": 33.64,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SRINIVASAN G",
+      "party_short": "PMK",
+      "votes": 37491,
+      "vote_share_pct": 18.22,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SARVANAN P",
+      "party_short": "DMDK",
+      "votes": 10855,
+      "vote_share_pct": 5.27,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "BHASKARAN.B",
+      "party_short": "BJP",
+      "votes": 2388,
+      "vote_share_pct": 1.16,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2248,
+    "vote_share_pct": 1.09
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 5826,
+    "vote_share_pct": 2.83
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "MOHAN K",
+    "party_short": "ADMK",
+    "votes": 77766,
+    "margin_votes": 8527,
+    "margin_pct": 4.14
+  }
+}

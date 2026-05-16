@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 259,
+  "constituency_name": "Meja",
+  "totals": {
+    "electors": 325904,
+    "votes_polled": 186497,
+    "turnout_pct": 57.22
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SANDEEP SINGH",
+      "party_short": "SP",
+      "votes": 78555,
+      "vote_share_pct": 42.12,
+      "is_winner": true,
+      "gender": "M",
+      "age": 51,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "NEELAM KARVARIYA",
+      "party_short": "BJP",
+      "votes": 75116,
+      "vote_share_pct": 40.28,
+      "gender": "F",
+      "age": 52,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SARVESH CHANDRA TIWARI",
+      "party_short": "BSP",
+      "votes": 22933,
+      "vote_share_pct": 12.3,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHALINI DWIVEDI",
+      "party_short": "INC",
+      "votes": 1553,
+      "vote_share_pct": 0.83,
+      "gender": "F",
+      "age": 27,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "DAYASHANKAR",
+      "party_short": "VSIP",
+      "votes": 1060,
+      "vote_share_pct": 0.57,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1768,
+    "vote_share_pct": 0.95
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 5512,
+    "vote_share_pct": 2.95
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SANDEEP SINGH",
+    "party_short": "SP",
+    "votes": 78555,
+    "margin_votes": 3439,
+    "margin_pct": 1.84
+  }
+}

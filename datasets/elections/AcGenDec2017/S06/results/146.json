@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 146,
+  "constituency_name": "Padra",
+  "totals": {
+    "electors": 215128,
+    "votes_polled": 174367,
+    "turnout_pct": 81.05
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "THAKOR JASHPALSINH MAHENDRASINH (PADHIYAR)",
+      "party_short": "INC",
+      "votes": 92998,
+      "vote_share_pct": 53.33,
+      "is_winner": true,
+      "gender": "M",
+      "age": 36,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "PATEL DINESHBHAI BALUBHAI (DINUMAMA)",
+      "party_short": "BJP",
+      "votes": 73971,
+      "vote_share_pct": 42.42,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SOLANKI KAILASBEN SURESHBHAI",
+      "party_short": "IND",
+      "votes": 1018,
+      "vote_share_pct": 0.58,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "PARMAR NAVNEETBHAI MANUBHAI",
+      "party_short": "BSP",
+      "votes": 797,
+      "vote_share_pct": 0.46,
+      "gender": "M",
+      "age": 28,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "GOHIL VINUBHAI",
+      "party_short": "GJCP",
+      "votes": 504,
+      "vote_share_pct": 0.29,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 3167,
+    "vote_share_pct": 1.82
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1180,
+    "vote_share_pct": 0.68
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "THAKOR JASHPALSINH MAHENDRASINH (PADHIYAR)",
+    "party_short": "INC",
+    "votes": 92998,
+    "margin_votes": 19027,
+    "margin_pct": 10.91
+  }
+}

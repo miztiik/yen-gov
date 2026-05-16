@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 212,
+  "constituency_name": "Govindnagar",
+  "totals": {
+    "electors": 349180,
+    "votes_polled": 185258,
+    "turnout_pct": 53.06
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SATYA DEV PACHAURI",
+      "party_short": "BJP",
+      "votes": 112029,
+      "vote_share_pct": 60.47,
+      "is_winner": true,
+      "gender": "M",
+      "age": 70,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMBUJ SHIKLA",
+      "party_short": "INC",
+      "votes": 40520,
+      "vote_share_pct": 21.87,
+      "gender": "M",
+      "age": 49,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "NIRMAL TIWARI",
+      "party_short": "BSP",
+      "votes": 28795,
+      "vote_share_pct": 15.54,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "VIRENDRA KUMAR SARVARIA",
+      "party_short": "BMUP",
+      "votes": 998,
+      "vote_share_pct": 0.54,
+      "gender": "M",
+      "age": 31,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SHAIL MISHRA",
+      "party_short": "BSCP",
+      "votes": 900,
+      "vote_share_pct": 0.49,
+      "gender": "F",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1247,
+    "vote_share_pct": 0.67
+  },
+  "others": {
+    "candidate_count": 1,
+    "votes": 769,
+    "vote_share_pct": 0.42
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SATYA DEV PACHAURI",
+    "party_short": "BJP",
+    "votes": 112029,
+    "margin_votes": 71509,
+    "margin_pct": 38.6
+  }
+}

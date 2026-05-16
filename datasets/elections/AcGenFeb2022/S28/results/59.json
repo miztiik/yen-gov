@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S28",
+  "body": "AC",
+  "eci_no": 59,
+  "constituency_name": "Haldwani",
+  "totals": {
+    "electors": 151985,
+    "votes_polled": 99869,
+    "turnout_pct": 65.71
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SUMIT HRIDAYESH",
+      "party_short": "INC",
+      "votes": 50116,
+      "vote_share_pct": 50.18,
+      "is_winner": true,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "DR. JOGENDER PAL SINGH RAUTELA",
+      "party_short": "BJP",
+      "votes": 42302,
+      "vote_share_pct": 42.36,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SHOEB AHMED",
+      "party_short": "SP",
+      "votes": 2196,
+      "vote_share_pct": 2.2,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAMIT TIKKOO",
+      "party_short": "AAAP",
+      "votes": 1759,
+      "vote_share_pct": 1.76,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "ABDUL MATEEN SIDDIQUI",
+      "party_short": "AIMIM",
+      "votes": 910,
+      "vote_share_pct": 0.91,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 567,
+    "vote_share_pct": 0.57
+  },
+  "others": {
+    "candidate_count": 8,
+    "votes": 2019,
+    "vote_share_pct": 2.03
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SUMIT HRIDAYESH",
+    "party_short": "INC",
+    "votes": 50116,
+    "margin_votes": 7814,
+    "margin_pct": 7.82
+  }
+}

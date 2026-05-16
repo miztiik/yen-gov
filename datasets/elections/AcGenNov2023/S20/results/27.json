@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenNov2023",
+  "state": "S20",
+  "body": "AC",
+  "eci_no": 27,
+  "constituency_name": "Jhunjhunu",
+  "totals": {
+    "electors": 272359,
+    "votes_polled": 195142,
+    "turnout_pct": 71.65
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Brijendra Singh Ola",
+      "party_short": "INC",
+      "votes": 86798,
+      "vote_share_pct": 44.48,
+      "is_winner": true,
+      "gender": "M",
+      "age": 72,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Nisheet Kumar",
+      "party_short": "BJP",
+      "votes": 57935,
+      "vote_share_pct": 29.69,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Rajendra Singh Bhamboo",
+      "party_short": "IND",
+      "votes": 42407,
+      "vote_share_pct": 21.73,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Pankaj Dhankhar",
+      "party_short": "ASPKR",
+      "votes": 3095,
+      "vote_share_pct": 1.59,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Mahendra Singh",
+      "party_short": "BSP",
+      "votes": 1193,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1385,
+    "vote_share_pct": 0.71
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 2329,
+    "vote_share_pct": 1.19
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Brijendra Singh Ola",
+    "party_short": "INC",
+    "votes": 86798,
+    "margin_votes": 28863,
+    "margin_pct": 14.79
+  }
+}

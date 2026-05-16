@@ -1,0 +1,61 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2017",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 176,
+  "constituency_name": "Gandevi",
+  "totals": {
+    "electors": 270785,
+    "votes_polled": 202661,
+    "turnout_pct": 74.84
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "PATEL NARESHBHAI MAGANBHAI",
+      "party_short": "BJP",
+      "votes": 124010,
+      "vote_share_pct": 61.19,
+      "is_winner": true,
+      "gender": "M",
+      "age": 49,
+      "category": "ST"
+    },
+    {
+      "rank": 2,
+      "name": "SURESHBHAI MAGANBHAI HALPATI",
+      "party_short": "INC",
+      "votes": 66749,
+      "vote_share_pct": 32.94,
+      "gender": "M",
+      "age": 57,
+      "category": "ST"
+    },
+    {
+      "rank": 3,
+      "name": "SUNILKUMAR KANJIBHAI PATEL",
+      "party_short": "IND",
+      "votes": 6077,
+      "vote_share_pct": 3.0,
+      "gender": "M",
+      "age": 55,
+      "category": "ST"
+    }
+  ],
+  "nota": {
+    "votes": 3572,
+    "vote_share_pct": 1.76
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "PATEL NARESHBHAI MAGANBHAI",
+    "party_short": "BJP",
+    "votes": 124010,
+    "margin_votes": 57261,
+    "margin_pct": 28.25
+  },
+  "others": null
+}

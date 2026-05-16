@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 380,
+  "constituency_name": "Mughalsarai",
+  "totals": {
+    "electors": 376583,
+    "votes_polled": 232617,
+    "turnout_pct": 61.77
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SADHANA SINGH",
+      "party_short": "BJP",
+      "votes": 87401,
+      "vote_share_pct": 37.57,
+      "is_winner": true,
+      "gender": "F",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BABULAL",
+      "party_short": "SP",
+      "votes": 74158,
+      "vote_share_pct": 31.88,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "TILAK DHARI",
+      "party_short": "BSP",
+      "votes": 57219,
+      "vote_share_pct": 24.6,
+      "gender": "M",
+      "age": 42,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "BABBAN",
+      "party_short": "PMSP",
+      "votes": 7811,
+      "vote_share_pct": 3.36,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "GOVIND LAL",
+      "party_short": "BMUP",
+      "votes": 1109,
+      "vote_share_pct": 0.48,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1950,
+    "vote_share_pct": 0.84
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2969,
+    "vote_share_pct": 1.28
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SADHANA SINGH",
+    "party_short": "BJP",
+    "votes": 87401,
+    "margin_votes": 13243,
+    "margin_pct": 5.69
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 179,
+  "constituency_name": "Harchandpur",
+  "totals": {
+    "electors": 319603,
+    "votes_polled": 201651,
+    "turnout_pct": 63.09
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "RAHUL RAJPOOT urf RAHUL LODHI",
+      "party_short": "SP",
+      "votes": 92498,
+      "vote_share_pct": 45.87,
+      "is_winner": true,
+      "gender": "M",
+      "age": 25,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "RAKESH SINGH",
+      "party_short": "BJP",
+      "votes": 78009,
+      "vote_share_pct": 38.69,
+      "gender": "M",
+      "age": 47,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SURENDRA VIKRAM SINGH",
+      "party_short": "INC",
+      "votes": 16230,
+      "vote_share_pct": 8.05,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SHER BAHADUR",
+      "party_short": "BSP",
+      "votes": 7335,
+      "vote_share_pct": 3.64,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "RUPESH CHANDRA VISHWAKARMA",
+      "party_short": "IND",
+      "votes": 1600,
+      "vote_share_pct": 0.79,
+      "gender": "M",
+      "age": 30,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2411,
+    "vote_share_pct": 1.2
+  },
+  "others": {
+    "candidate_count": 9,
+    "votes": 3568,
+    "vote_share_pct": 1.78
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "RAHUL RAJPOOT urf RAHUL LODHI",
+    "party_short": "SP",
+    "votes": 92498,
+    "margin_votes": 14489,
+    "margin_pct": 7.19
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 43,
+  "constituency_name": "Vellore",
+  "totals": {
+    "electors": 253536,
+    "votes_polled": 179899,
+    "turnout_pct": 70.96
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Karthikeyan .P",
+      "party_short": "DMK",
+      "votes": 84299,
+      "vote_share_pct": 46.86,
+      "is_winner": true,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Appu S.R.K",
+      "party_short": "ADMK",
+      "votes": 75118,
+      "vote_share_pct": 41.76,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Poonkundran .N",
+      "party_short": "NTK",
+      "votes": 8530,
+      "vote_share_pct": 4.74,
+      "gender": "M",
+      "age": 44,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Vikram Chakravarthy .G",
+      "party_short": "MNM",
+      "votes": 7243,
+      "vote_share_pct": 4.03,
+      "gender": "M",
+      "age": 43,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Naresh Kumar .R",
+      "party_short": "TNLK",
+      "votes": 928,
+      "vote_share_pct": 0.52,
+      "gender": "M",
+      "age": 29,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1441,
+    "vote_share_pct": 0.8
+  },
+  "others": {
+    "candidate_count": 12,
+    "votes": 2340,
+    "vote_share_pct": 1.29
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Karthikeyan .P",
+    "party_short": "DMK",
+    "votes": 84299,
+    "margin_votes": 9181,
+    "margin_pct": 5.1
+  }
+}

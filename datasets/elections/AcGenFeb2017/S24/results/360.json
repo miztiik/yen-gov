@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2017",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 360,
+  "constituency_name": "Phephana",
+  "totals": {
+    "electors": 314893,
+    "votes_polled": 178647,
+    "turnout_pct": 56.73
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "UPENDRA TIWARI",
+      "party_short": "BJP",
+      "votes": 70588,
+      "vote_share_pct": 39.51,
+      "is_winner": true,
+      "gender": "M",
+      "age": 45,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "AMBIKA CHOUDHARY",
+      "party_short": "BSP",
+      "votes": 52691,
+      "vote_share_pct": 29.49,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SANGRAM SINGH YADAV",
+      "party_short": "SP",
+      "votes": 50016,
+      "vote_share_pct": 28.0,
+      "gender": "M",
+      "age": 66,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "SAUDAGAR YADAV",
+      "party_short": "RLD",
+      "votes": 1083,
+      "vote_share_pct": 0.61,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "MATADEEN",
+      "party_short": "JAM",
+      "votes": 628,
+      "vote_share_pct": 0.35,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1473,
+    "vote_share_pct": 0.82
+  },
+  "others": {
+    "candidate_count": 6,
+    "votes": 2168,
+    "vote_share_pct": 1.23
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "UPENDRA TIWARI",
+    "party_short": "BJP",
+    "votes": 70588,
+    "margin_votes": 17897,
+    "margin_pct": 10.02
+  }
+}

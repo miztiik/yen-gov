@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 108,
+  "constituency_name": "Udhagamandalam",
+  "totals": {
+    "electors": 206039,
+    "votes_polled": 141102,
+    "turnout_pct": 68.48
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "GANESH, R.",
+      "party_short": "INC",
+      "votes": 65530,
+      "vote_share_pct": 46.44,
+      "is_winner": true,
+      "gender": "M",
+      "age": 58,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "BHOJARAJAN, M.",
+      "party_short": "BJP",
+      "votes": 60182,
+      "vote_share_pct": 42.65,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JAYAKUMAR, A.",
+      "party_short": "NTK",
+      "votes": 6381,
+      "vote_share_pct": 4.52,
+      "gender": "M",
+      "age": 41,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "Dr.SURESH BABU, S.",
+      "party_short": "MNM",
+      "votes": 4935,
+      "vote_share_pct": 3.5,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "LAKSHMANAN, T.",
+      "party_short": "AMMKMNKZ",
+      "votes": 1273,
+      "vote_share_pct": 0.9,
+      "gender": "M",
+      "age": 68,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 1376,
+    "vote_share_pct": 0.98
+  },
+  "others": {
+    "candidate_count": 4,
+    "votes": 1425,
+    "vote_share_pct": 1.01
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "GANESH, R.",
+    "party_short": "INC",
+    "votes": 65530,
+    "margin_votes": 5348,
+    "margin_pct": 3.79
+  }
+}

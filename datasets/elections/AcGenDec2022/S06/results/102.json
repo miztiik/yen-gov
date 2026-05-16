@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenDec2022",
+  "state": "S06",
+  "body": "AC",
+  "eci_no": 102,
+  "constituency_name": "Palitana",
+  "totals": {
+    "electors": 280875,
+    "votes_polled": 167255,
+    "turnout_pct": 59.55
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Bhikhabhai Ravajibhai Baraiya",
+      "party_short": "BJP",
+      "votes": 81568,
+      "vote_share_pct": 48.77,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "Rathod Pravinbhai Jinabhai",
+      "party_short": "INC",
+      "votes": 53991,
+      "vote_share_pct": 32.28,
+      "gender": "M",
+      "age": 50,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "Kheni Jinabhai Parshottambhai (dr.z.p. Kheni)",
+      "party_short": "AAAP",
+      "votes": 25019,
+      "vote_share_pct": 14.96,
+      "gender": "M",
+      "age": 74,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "Narshibhai Ukabhai Chauhan",
+      "party_short": "IND",
+      "votes": 1557,
+      "vote_share_pct": 0.93,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "Parmar Nareshbhai Ravjibhai",
+      "party_short": "BSP",
+      "votes": 1395,
+      "vote_share_pct": 0.83,
+      "gender": "M",
+      "age": 36,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1930,
+    "vote_share_pct": 1.15
+  },
+  "others": {
+    "candidate_count": 2,
+    "votes": 1795,
+    "vote_share_pct": 1.07
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "Bhikhabhai Ravajibhai Baraiya",
+    "party_short": "BJP",
+    "votes": 81568,
+    "margin_votes": 27577,
+    "margin_pct": 16.49
+  }
+}

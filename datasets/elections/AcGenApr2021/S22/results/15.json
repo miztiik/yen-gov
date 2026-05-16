@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenApr2021",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 15,
+  "constituency_name": "Thiru-Vi-Ka-Nagar",
+  "totals": {
+    "electors": 219438,
+    "votes_polled": 133696,
+    "turnout_pct": 60.93
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "SIVAKUMAR.P ALIAS THAYAGAMKAVI",
+      "party_short": "DMK",
+      "votes": 81727,
+      "vote_share_pct": 61.13,
+      "is_winner": true,
+      "gender": "M",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 2,
+      "name": "KALYANI.P.L",
+      "party_short": "ADMK",
+      "votes": 26714,
+      "vote_share_pct": 19.98,
+      "gender": "F",
+      "age": 55,
+      "category": "SC"
+    },
+    {
+      "rank": 3,
+      "name": "ILLAVANJI.Dr.R",
+      "party_short": "NTK",
+      "votes": 10921,
+      "vote_share_pct": 8.17,
+      "gender": "F",
+      "age": 44,
+      "category": "SC"
+    },
+    {
+      "rank": 4,
+      "name": "OBATH.S",
+      "party_short": "MNM",
+      "votes": 9710,
+      "vote_share_pct": 7.26,
+      "gender": "M",
+      "age": 30,
+      "category": "SC"
+    },
+    {
+      "rank": 5,
+      "name": "SEKAR.M.P",
+      "party_short": "DMDK",
+      "votes": 1787,
+      "vote_share_pct": 1.34,
+      "gender": "M",
+      "age": 40,
+      "category": "SC"
+    }
+  ],
+  "nota": {
+    "votes": 1046,
+    "vote_share_pct": 0.78
+  },
+  "others": {
+    "candidate_count": 18,
+    "votes": 1791,
+    "vote_share_pct": 1.34
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "SIVAKUMAR.P ALIAS THAYAGAMKAVI",
+    "party_short": "DMK",
+    "votes": 81727,
+    "margin_votes": 55013,
+    "margin_pct": 41.15
+  }
+}

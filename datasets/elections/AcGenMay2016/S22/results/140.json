@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenMay2016",
+  "state": "S22",
+  "body": "AC",
+  "eci_no": 140,
+  "constituency_name": "Tiruchirappalli (West)",
+  "totals": {
+    "electors": 254751,
+    "votes_polled": 179423,
+    "turnout_pct": 70.43
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "NEHRU.K.N",
+      "party_short": "DMK",
+      "votes": 92049,
+      "vote_share_pct": 51.3,
+      "is_winner": true,
+      "gender": "M",
+      "age": 63,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "MANOHARAN.R",
+      "party_short": "ADMK",
+      "votes": 63634,
+      "vote_share_pct": 35.47,
+      "gender": "M",
+      "age": 60,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "JOSEPH JERALD.A",
+      "party_short": "DMDK",
+      "votes": 11469,
+      "vote_share_pct": 6.39,
+      "gender": "M",
+      "age": 48,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "MANOHARAN.SETHU",
+      "party_short": "NTK",
+      "votes": 3080,
+      "vote_share_pct": 1.72,
+      "gender": "M",
+      "age": 53,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "VIJAYARAGHAVAN.K",
+      "party_short": "PMK",
+      "votes": 1780,
+      "vote_share_pct": 0.99,
+      "gender": "M",
+      "age": 40,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 4100,
+    "vote_share_pct": 2.29
+  },
+  "others": {
+    "candidate_count": 10,
+    "votes": 3311,
+    "vote_share_pct": 1.85
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "NEHRU.K.N",
+    "party_short": "DMK",
+    "votes": 92049,
+    "margin_votes": 28415,
+    "margin_pct": 15.84
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
+  "$schema_version": "3.2",
+  "sources": [],
+  "election": "AcGenFeb2022",
+  "state": "S24",
+  "body": "AC",
+  "eci_no": 169,
+  "constituency_name": "Bakshi Kaa Talab",
+  "totals": {
+    "electors": 456965,
+    "votes_polled": 319052,
+    "turnout_pct": 69.82
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "YOGESH SHUKLA",
+      "party_short": "BJP",
+      "votes": 147922,
+      "vote_share_pct": 46.36,
+      "is_winner": true,
+      "gender": "M",
+      "age": 61,
+      "category": "GEN"
+    },
+    {
+      "rank": 2,
+      "name": "GOMTI YADAV",
+      "party_short": "SP",
+      "votes": 120134,
+      "vote_share_pct": 37.65,
+      "gender": "M",
+      "age": 59,
+      "category": "GEN"
+    },
+    {
+      "rank": 3,
+      "name": "SALAUDDIN 'MUSSAN'",
+      "party_short": "BSP",
+      "votes": 35167,
+      "vote_share_pct": 11.02,
+      "gender": "M",
+      "age": 54,
+      "category": "GEN"
+    },
+    {
+      "rank": 4,
+      "name": "LALAN KUMAR",
+      "party_short": "INC",
+      "votes": 9056,
+      "vote_share_pct": 2.84,
+      "gender": "M",
+      "age": 32,
+      "category": "GEN"
+    },
+    {
+      "rank": 5,
+      "name": "SUNIL KUMAR Alias S. K. SINGHANIYA",
+      "party_short": "ASPKR",
+      "votes": 1066,
+      "vote_share_pct": 0.33,
+      "gender": "M",
+      "age": 37,
+      "category": "GEN"
+    }
+  ],
+  "nota": {
+    "votes": 2204,
+    "vote_share_pct": 0.69
+  },
+  "others": {
+    "candidate_count": 7,
+    "votes": 3503,
+    "vote_share_pct": 1.09
+  },
+  "top_n_cutoff": 5,
+  "winner": {
+    "name": "YOGESH SHUKLA",
+    "party_short": "BJP",
+    "votes": 147922,
+    "margin_votes": 27788,
+    "margin_pct": 8.71
+  }
+}
