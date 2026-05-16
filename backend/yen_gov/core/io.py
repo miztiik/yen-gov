@@ -137,8 +137,6 @@ def _maintain_folded_blocks(document: dict[str, Any], path: Path) -> dict[str, A
         except (OSError, json.JSONDecodeError):
             prior = {}
 
-    universes = _load_universes(path)
-
     # methodology / series_spec / divergence: caller wins, then prior, then stub.
     if "methodology" not in document:
         document["methodology"] = prior.get("methodology") or _stub_methodology(document)
@@ -150,36 +148,13 @@ def _maintain_folded_blocks(document: dict[str, Any], path: Path) -> dict[str, A
     # collection_inventory: always recompute from the now-final
     # series_spec + rows. Splice in operator-set fields from the prior
     # so a re-run doesn't clobber `frozen: true` / `unavailable_periods`.
-    document["collection_inventory"] = derive_collection_inventory(document, universes)
+    document["collection_inventory"] = derive_collection_inventory(document)
     prior_inv = prior.get("collection_inventory") or {}
     for op_field in ("frozen", "refetch_requested", "unavailable_periods"):
         if op_field in prior_inv:
             document["collection_inventory"][op_field] = prior_inv[op_field]
 
     return document
-
-
-def _load_universes(path: Path) -> dict[str, Any]:
-    """Load `datasets/reference/in/universes.json` relative to the artifact path.
-
-    Walks up from `path` until it finds a directory containing
-    `datasets/reference/in/universes.json`. Returns `{}` when not
-    found (legitimate during unit tests with a tmp_path tree).
-    """
-    cur = path.resolve().parent
-    for _ in range(10):
-        candidate = cur / "datasets" / "reference" / "in" / "universes.json"
-        if candidate.is_file():
-            try:
-                loaded = json.loads(candidate.read_text(encoding="utf-8"))
-                if isinstance(loaded, dict):
-                    return loaded
-            except (OSError, json.JSONDecodeError):
-                return {}
-        if cur.parent == cur:
-            break
-        cur = cur.parent
-    return {}
 
 
 def _stub_methodology(document: dict[str, Any]) -> dict[str, Any]:

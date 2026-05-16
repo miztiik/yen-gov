@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "2.0",
+  "x-version": "3.0",
   "x-changelog": [
     {
       "version": "1.0",
@@ -41,6 +41,11 @@
       "version": "2.0",
       "date": "2026-05-17",
       "description": "Contract phase for the folded indicator model. The four blocks introduced as optional in v1.6 — `methodology`, `series_spec`, `collection_inventory`, `divergence` — are now `required`. The companion `indicator-notes.schema.json` sidecar contract is deleted in this commit; the 10 `.notes.json` sidecars under `datasets/indicators/in/` were folded losslessly into the inline `methodology` block in the preceding commit. `divergence` remains a reserved `null` slot until the divergence-reporting subsystem ships. All 110 existing indicators are mechanically bumped to `$schema_version: 2.0` in the same commit (see `tools/bump_indicators_to_2_0.py`); their content is unchanged because the fold migration already populated the new blocks. Per the working contract: schema bumps remain breaking — there is no `additionalProperties: true` escape hatch, and `$schema_version` MUST equal `x-version`."
+    },
+    {
+      "version": "3.0",
+      "date": "2026-05-17",
+      "description": "Narrowed constraint: `series_spec.expected_geographies` is inline-array-only; the `{\"$ref\": \"universes.json#/universes/<key>\"}` form added in v1.6 is removed. The companion `datasets/reference/in/universes.json` reference file and `datasets/schemas/universes.schema.json` are deleted in this commit because they had zero consumers — every existing indicator's `expected_geographies` was auto-seeded inline by the v1.6 fold migration, so dropping the indirection is a no-op for current data. Rationale: a level of indirection that no artifact uses is dead weight; each indicator declares its own geographic universe inline so the contract surface stays self-contained. All 110 indicators are mechanically bumped to `$schema_version: 3.0` via `tools/bump_indicator_schema_to_current.py`; no content change. Per the working contract: narrowing a constraint is MAJOR (CLAUDE.md §11) even when no on-disk artifact would have failed under the new shape."
     }
   ],
   "type": "object",
@@ -311,11 +316,10 @@
       "properties": {
         "description": { "type": "string", "minLength": 10 },
         "expected_geographies": {
-          "description": "Either an inline array of geo codes (ECI state codes, district LGD codes, or 'IN' for union), OR a {\"$ref\": \"<universes.json#/universes/KEY>\"} reference.",
-          "oneOf": [
-            { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
-            { "type": "object", "additionalProperties": false, "required": ["$ref"], "properties": { "$ref": { "type": "string" } } }
-          ]
+          "description": "Inline array of geo codes (ECI state codes, district LGD codes, or 'IN' for union). Each indicator declares its own universe — no shared reference file. v1.6 briefly allowed a `{\"$ref\": \"universes.json#/universes/<key>\"}` indirection; v3.0 removed it (zero consumers).",
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
         },
         "expected_periods": {
           "type": "array",

@@ -47,11 +47,6 @@ def mig():
     return _load_migration_module()
 
 
-@pytest.fixture(scope="module")
-def universes() -> dict[str, object]:
-    return json.loads((REPO_ROOT / "datasets" / "reference" / "in" / "universes.json").read_text(encoding="utf-8"))
-
-
 def _v15_indicator() -> dict[str, object]:
     return {
         "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
@@ -103,10 +98,10 @@ def _full_sidecar() -> dict[str, object]:
 # --------------------------------------------------------------------- #
 
 
-def test_sidecar_fields_fold_losslessly(mig, universes) -> None:
+def test_sidecar_fields_fold_losslessly(mig) -> None:
     doc = _v15_indicator()
     sidecar = _full_sidecar()
-    folded = mig.fold_indicator(doc, sidecar, universes)
+    folded = mig.fold_indicator(doc, sidecar)
     m = folded["methodology"]
     assert m["related_indicators"] == sidecar["related"]
     assert m["editor_note_md"] == sidecar["editor_note_md"]
@@ -114,8 +109,8 @@ def test_sidecar_fields_fold_losslessly(mig, universes) -> None:
     assert m["chart_defaults"] == sidecar["chart_defaults"]
 
 
-def test_absent_sidecar_omits_optional_fields(mig, universes) -> None:
-    folded = mig.fold_indicator(_v15_indicator(), None, universes)
+def test_absent_sidecar_omits_optional_fields(mig) -> None:
+    folded = mig.fold_indicator(_v15_indicator(), None)
     m = folded["methodology"]
     # Per schema, these are optional; they should NOT appear when no sidecar exists.
     for optional_key in ("related_indicators", "editor_note_md", "policy_context", "chart_defaults"):
@@ -127,10 +122,10 @@ def test_absent_sidecar_omits_optional_fields(mig, universes) -> None:
 # --------------------------------------------------------------------- #
 
 
-def test_re_migration_is_no_op(mig, universes) -> None:
+def test_re_migration_is_no_op(mig) -> None:
     """fold_indicator(fold_indicator(x)) == fold_indicator(x). Bytes-identical."""
-    once = mig.fold_indicator(_v15_indicator(), None, universes)
-    twice = mig.fold_indicator(once, None, universes)
+    once = mig.fold_indicator(_v15_indicator(), None)
+    twice = mig.fold_indicator(once, None)
     assert json.dumps(once, sort_keys=True) == json.dumps(twice, sort_keys=True)
 
 
@@ -150,14 +145,14 @@ def test_is_migrated_detects_all_four_blocks(mig) -> None:
 # --------------------------------------------------------------------- #
 
 
-def test_folded_output_validates_against_v16_schema(mig, universes) -> None:
+def test_folded_output_validates_against_v16_schema(mig) -> None:
     """Real regression target: a wrong frequency enum or missing required
     sub-field in build_series_spec/build_methodology would only surface
     after running --write on 110 indicators. Catch it at the unit level.
     """
     jsonschema = pytest.importorskip("jsonschema")
     schema = json.loads((REPO_ROOT / "datasets" / "schemas" / "indicator.schema.json").read_text(encoding="utf-8"))
-    folded = mig.fold_indicator(_v15_indicator(), _full_sidecar(), universes)
+    folded = mig.fold_indicator(_v15_indicator(), _full_sidecar())
     jsonschema.Draft202012Validator(schema).validate(folded)
 
 

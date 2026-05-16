@@ -2,10 +2,10 @@
 
 Per CLAUDE.md anti-ceremony: each test below either catches a real
 regression a future reviewer could plausibly ship (status enum mis-derived,
-operator-set flags clobbered by re-derivation, $ref non-resolution, or
-list-ordering non-determinism that would silently churn 110 artifact
-files in CI) or is the byte-stability contract the wiring in commit 8
-relies on. No `f(x) == f(x)` ceremonies.
+operator-set flags clobbered by re-derivation, or list-ordering
+non-determinism that would silently churn 110 artifact files in CI) or
+is the byte-stability contract the wiring in commit 8 relies on. No
+`f(x) == f(x)` ceremonies.
 """
 
 from __future__ import annotations
@@ -13,17 +13,6 @@ from __future__ import annotations
 import json
 
 from yen_gov.inventory import derive_collection_inventory
-
-
-_UNIVERSES = {
-    "universes": {
-        "tiny": {
-            "description": "three-state synthetic universe for unit tests",
-            "geo_codes": ["S01", "S02", "S03"],
-            "expected_count": 3,
-        }
-    }
-}
 
 
 def _periods(*specs: tuple[str, str, str]) -> list[dict[str, str]]:
@@ -34,7 +23,7 @@ def _row(entity_id: str, time: str, value: float | None = 1.0) -> dict[str, obje
     return {"entity_id": entity_id, "time": time, "value": value}
 
 
-def _indicator(*, geographies: list[str] | dict[str, str], periods: list[dict[str, str]], rows: list[dict[str, object]], prior: dict[str, object] | None = None) -> dict[str, object]:
+def _indicator(*, geographies: list[str], periods: list[dict[str, str]], rows: list[dict[str, object]], prior: dict[str, object] | None = None) -> dict[str, object]:
     doc: dict[str, object] = {
         "sources": [{"url": "https://example/x", "fetched_at": "2026-01-01T00:00:00Z"}],
         "series_spec": {
@@ -63,7 +52,6 @@ def test_complete_series_inline_geographies() -> None:
             periods=_periods(("2024", "FY 2024-25", "annual_fy"), ("2025", "FY 2025-26", "annual_fy")),
             rows=[_row("S01", "2024"), _row("S01", "2025"), _row("S02", "2024"), _row("S02", "2025")],
         ),
-        universes={},
     )
     assert inv["status"] == "complete"
     assert inv["pending_periods"] == []
@@ -74,14 +62,13 @@ def test_partial_series_lists_only_missing_periods() -> None:
     """Period 2025 is missing 1 of 3 expected geographies -> appears in pending; 2024 fully collected does not."""
     inv = derive_collection_inventory(
         _indicator(
-            geographies={"$ref": "universes.json#/universes/tiny"},
+            geographies=["S01", "S02", "S03"],
             periods=_periods(("2024", "FY 2024-25", "annual_fy"), ("2025", "FY 2025-26", "annual_fy")),
             rows=[
                 _row("S01", "2024"), _row("S02", "2024"), _row("S03", "2024"),
                 _row("S01", "2025"), _row("S02", "2025"),  # S03 missing
             ],
         ),
-        universes=_UNIVERSES,
     )
     assert inv["status"] == "partial"
     assert [p["key"] for p in inv["pending_periods"]] == ["2025"]
@@ -94,7 +81,6 @@ def test_empty_series_has_status_empty() -> None:
             periods=_periods(("2024", "FY 2024-25", "annual_fy")),
             rows=[_row("S01", "2024", value=None)],
         ),
-        universes={},
     )
     assert inv["status"] == "empty"
 
@@ -114,7 +100,6 @@ def test_unavailable_periods_excluded_from_pending() -> None:
                 }],
             },
         ),
-        universes={},
     )
     assert inv["status"] == "complete"
     assert inv["pending_periods"] == []
@@ -145,7 +130,6 @@ def test_operator_set_flags_preserved_across_redivation() -> None:
             rows=[_row("S01", "2025")],
             prior=prior,
         ),
-        universes={},
     )
     assert inv["frozen"] is True
     assert inv["refetch_requested"] is True
@@ -176,6 +160,6 @@ def test_byte_identical_re_derivation() -> None:
         ),
         rows=[_row("S02", "2023"), _row("S01", "2024"), _row("S03", "2025")],
     )
-    a = json.dumps(derive_collection_inventory(doc, universes={}), sort_keys=False)
-    b = json.dumps(derive_collection_inventory(doc, universes={}), sort_keys=False)
+    a = json.dumps(derive_collection_inventory(doc), sort_keys=False)
+    b = json.dumps(derive_collection_inventory(doc), sort_keys=False)
     assert a == b

@@ -7,18 +7,17 @@ set of fields (`frozen`, `refetch_requested`, `unavailable_periods`)
 are *operator-set* and preserved across re-derivation.
 
 This module is intentionally a single file with internal helpers
-(`_collected_cells`, `_resolve_expected_geographies`,
-`_pending_periods`, `_derive_status`, `_max_fetched_at`) rather than a
-4-file mini-package. The algorithm is small enough that splitting it
-just inflates import surface area. See
-`TODO/20260517-folded-indicator-and-collection-inventory-handover.md`
-\u00a75.4 for the spec.
+(`_collected_cells`, `_pending_periods`, `_derive_status`,
+`_max_fetched_at`) rather than a 4-file mini-package. The algorithm
+is small enough that splitting it just inflates import surface area.
+See `TODO/20260517-folded-indicator-and-collection-inventory-handover.md`
+§5.4 for the spec.
 
-Determinism contract: given the same `indicator_dict` and `universes`
-inputs, returns a byte-stable structure. List ordering is sorted
-(period `key`, geography code, source url) so JSON re-serialisation is
-identical between runs. This is what lets the wiring in commit 8
-re-derive on every refresh without producing `git status` churn.
+Determinism contract: given the same `indicator_dict` input, returns
+a byte-stable structure. List ordering is sorted (period `key`,
+geography code, source url) so JSON re-serialisation is identical
+between runs. This is what lets the wiring in commit 8 re-derive on
+every refresh without producing `git status` churn.
 """
 
 from __future__ import annotations
@@ -32,7 +31,7 @@ from typing import Any
 _OPERATOR_SET_FIELDS: tuple[str, ...] = ("frozen", "refetch_requested", "unavailable_periods")
 
 
-def derive_collection_inventory(indicator_dict: dict[str, Any], universes: dict[str, Any]) -> dict[str, Any]:
+def derive_collection_inventory(indicator_dict: dict[str, Any]) -> dict[str, Any]:
     """Derive a fresh `collection_inventory` block for an indicator.
 
     Parameters
@@ -43,11 +42,6 @@ def derive_collection_inventory(indicator_dict: dict[str, Any], universes: dict[
         `collection_inventory` (if any) is read only for the
         operator-set fields listed in `_OPERATOR_SET_FIELDS`; the rest
         is re-derived.
-    universes:
-        The parsed `datasets/reference/in/universes.json` document.
-        Used to resolve `series_spec.expected_geographies` when it is
-        a `{"$ref": "universes.json#/universes/<key>"}` reference.
-        Pass `{}` if the indicator inlines its geographies.
 
     Returns
     -------
@@ -60,7 +54,7 @@ def derive_collection_inventory(indicator_dict: dict[str, Any], universes: dict[
     sources = indicator_dict.get("sources") or []
     prior = indicator_dict.get("collection_inventory") or {}
 
-    expected_geographies = _resolve_expected_geographies(series_spec, universes)
+    expected_geographies = list(series_spec.get("expected_geographies") or [])
     expected_periods = list(series_spec.get("expected_periods") or [])
 
     collected = _collected_cells(rows)
@@ -94,35 +88,6 @@ def derive_collection_inventory(indicator_dict: dict[str, Any], universes: dict[
 # --------------------------------------------------------------------- #
 # helpers                                                               #
 # --------------------------------------------------------------------- #
-
-
-def _resolve_expected_geographies(series_spec: dict[str, Any], universes: dict[str, Any]) -> list[str]:
-    """Resolve `series_spec.expected_geographies` to a flat list.
-
-    Supports either an inline array of geo codes or a single-key
-    `{"$ref": "universes.json#/universes/<key>"}` reference. Returns
-    `[]` when `series_spec` lacks the field (an indicator without
-    series_spec is pre-migration; the caller produces an empty
-    inventory and that is correct).
-    """
-    expected = series_spec.get("expected_geographies")
-    if expected is None:
-        return []
-    if isinstance(expected, list):
-        return list(expected)
-    if isinstance(expected, dict) and "$ref" in expected:
-        ref = expected["$ref"]
-        # Form: "universes.json#/universes/<key>" (the leading file
-        # part is informational; the lookup is by the JSON pointer
-        # tail under `universes`).
-        _, _, pointer = ref.partition("#")
-        parts = [p for p in pointer.split("/") if p]
-        if len(parts) == 2 and parts[0] == "universes":
-            entry = universes.get("universes", {}).get(parts[1])
-            if entry is not None:
-                return list(entry.get("geo_codes") or [])
-        raise ValueError(f"unresolvable expected_geographies $ref: {ref!r}")
-    raise TypeError(f"unexpected expected_geographies shape: {type(expected).__name__}")
 
 
 def _collected_cells(rows: list[dict[str, Any]]) -> set[tuple[str, str]]:

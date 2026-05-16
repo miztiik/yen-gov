@@ -168,9 +168,9 @@ export interface PeriodToken {
 
 export interface SeriesSpec {
   description: string;
-  /** Either an inline list of entity ids (e.g. ECI state codes) OR a
-   *  `$ref` to a named universe in `datasets/reference/in/universes.json`. */
-  expected_geographies: string[] | { $ref: string };
+  /** Inline list of entity ids (e.g. ECI state codes). Schema v3.0
+   *  removed the briefly-allowed `{$ref}` form — no consumers ever used it. */
+  expected_geographies: string[];
   expected_periods: PeriodToken[];
   expected_periods_inference: {
     basis: string;

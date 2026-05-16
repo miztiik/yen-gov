@@ -53,7 +53,6 @@ from urllib.parse import urlparse
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 INDICATORS_ROOT = REPO_ROOT / "datasets" / "indicators" / "in"
-UNIVERSES_PATH = REPO_ROOT / "datasets" / "reference" / "in" / "universes.json"
 
 # Mapping from the existing `indicator.time_grain` vocabulary to the
 # schema v1.6 `frequency` enum. `quarter` and `date` are ambiguous; we
@@ -166,7 +165,7 @@ def build_methodology(doc: dict[str, Any], sidecar: dict[str, Any] | None) -> di
     return block
 
 
-def fold_indicator(doc: dict[str, Any], sidecar: dict[str, Any] | None, universes: dict[str, Any]) -> dict[str, Any]:
+def fold_indicator(doc: dict[str, Any], sidecar: dict[str, Any] | None) -> dict[str, Any]:
     """Return a new indicator dict with v1.6 folded blocks added.
 
     Pure function. Does NOT touch the filesystem. Idempotent on an
@@ -185,7 +184,7 @@ def fold_indicator(doc: dict[str, Any], sidecar: dict[str, Any] | None, universe
     new_doc["methodology"] = build_methodology(doc, sidecar)
     new_doc["divergence"] = None
     # collection_inventory depends on series_spec being present.
-    new_doc["collection_inventory"] = derive_collection_inventory(new_doc, universes)
+    new_doc["collection_inventory"] = derive_collection_inventory(new_doc)
     return new_doc
 
 
@@ -213,7 +212,6 @@ def main() -> int:
 
     sys.path.insert(0, str(REPO_ROOT / "backend"))  # for yen_gov.inventory import
 
-    universes = _load_json(UNIVERSES_PATH)
     paths = _walk_indicators()
 
     counts = {"already": 0, "migrated": 0, "sidecars_folded": 0, "sidecars_deleted": 0}
@@ -227,7 +225,7 @@ def main() -> int:
             counts["already"] += 1
             continue
 
-        new_doc = fold_indicator(doc, sidecar, universes)
+        new_doc = fold_indicator(doc, sidecar)
         verb = "MIGRATED" if args.write else "WOULD MIGRATE"
         print(f"  {verb}: {rel}")
         if sidecar is not None:

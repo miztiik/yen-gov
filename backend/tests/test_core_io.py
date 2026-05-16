@@ -154,36 +154,11 @@ def _indicator_payload(rows: list[dict] | None = None) -> dict:
     }
 
 
-def _write_universes_into(repo_root: Path) -> None:
-    """Place a minimal universes.json at the conventional location so the
-    write_artifact loader can find it from the test's tmp tree."""
-    target = repo_root / "datasets" / "reference" / "in" / "universes.json"
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(
-        json.dumps(
-            {
-                "$schema": "https://yen-gov.github.io/schemas/universes.schema.json",
-                "$schema_version": "1.0",
-                "sources": [],
-                "universes": {
-                    "states_only_no_ut": {
-                        "description": "Synthetic test universe with two states.",
-                        "geo_codes": ["S01", "S02"],
-                        "expected_count": 2,
-                    }
-                },
-            }
-        ),
-        encoding="utf-8",
-    )
-
-
 def test_write_artifact_derives_folded_blocks_when_payload_omits_them(tmp_path: Path) -> None:
     """Composer that emits a v1.5-shape payload (no series_spec / methodology /
     collection_inventory / divergence) still produces a valid v2.0 artifact —
     write_artifact derives stubs and validates."""
     schema = _load_schema("indicator.schema.json")
-    _write_universes_into(tmp_path)
     target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
 
     write_artifact(
@@ -213,7 +188,6 @@ def test_write_artifact_preserves_operator_set_inventory_fields(tmp_path: Path) 
     if the merge logic regressed, every refresh would silently clear an
     operator's `frozen: true` flag."""
     schema = _load_schema("indicator.schema.json")
-    _write_universes_into(tmp_path)
     target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
 
     write_artifact(
@@ -260,7 +234,6 @@ def test_write_artifact_caller_provided_methodology_wins_over_prior(tmp_path: Pa
     and the stub. Catches a regression where the carry-forward logic
     accidentally overwrote a caller-supplied block."""
     schema = _load_schema("indicator.schema.json")
-    _write_universes_into(tmp_path)
     target = tmp_path / "datasets" / "indicators" / "in" / "fiscal" / "write_artifact_smoke.json"
 
     write_artifact(
