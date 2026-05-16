@@ -4,7 +4,7 @@
 
 **Title**: India's greenhouse-gas emissions by sub-sector (Gg CO₂-equivalent)  
 **One-line**: National greenhouse-gas emissions one level deeper than the headline by-sector view: each row is a (sector, sub-sector) pair, e.g.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json`](../../../../datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json)
 
 ## Definition

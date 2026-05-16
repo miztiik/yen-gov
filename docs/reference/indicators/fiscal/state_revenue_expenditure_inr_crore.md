@@ -4,7 +4,7 @@
 
 **Title**: States' revenue expenditure  
 **One-line**: Total revenue (current) expenditure by the State Government — salaries, pensions, interest, subsidies, scheme outlays, grants to local bodies.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json)
 
 ## Definition

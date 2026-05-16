@@ -456,7 +456,12 @@ def _ensure_cache(
     body = _fetch_one(fy_label=fy_label, all_states=all_states)
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     cache_path.write_bytes(body)
-    ts = datetime.now(tz=timezone.utc).replace(microsecond=0)
+    # Derive the source timestamp from the cache file's mtime symmetrically
+    # with the cache-hit branch above. Using ``datetime.now()`` here would
+    # leak operator wall-clock into artifact content (CLAUDE.md §10
+    # anti-pattern), making re-runs that re-fetch byte-identical bodies
+    # advance the ``fetched_at`` stamp and churn ``git status``.
+    ts = datetime.fromtimestamp(cache_path.stat().st_mtime, tz=timezone.utc).replace(microsecond=0)
     return body, ts
 
 

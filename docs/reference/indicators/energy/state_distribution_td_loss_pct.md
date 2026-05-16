@@ -4,7 +4,7 @@
 
 **Title**: Transmission & Distribution losses (%, by state)  
 **One-line**: Energy lost between the point of generation/import into the state grid and the point of metered sale to consumers, as a percentage of total energy input.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_distribution_td_loss_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_td_loss_pct.json)
 
 ## Definition

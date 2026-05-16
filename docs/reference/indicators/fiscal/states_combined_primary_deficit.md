@@ -4,7 +4,7 @@
 
 **Title**: Primary deficit (all states, all-India)  
 **One-line**: Gross fiscal deficit minus interest payments.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/states_combined_primary_deficit.json`](../../../../datasets/indicators/in/fiscal/states_combined_primary_deficit.json)
 
 ## Definition

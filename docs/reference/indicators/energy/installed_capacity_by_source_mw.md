@@ -4,7 +4,7 @@
 
 **Title**: Installed capacity by source (fuel mix)  
 **One-line**: Installed electricity-generation capacity per state, broken down by fuel source: coal, gas, nuclear, hydro (large), renewable (solar + wind + small hydro + biomass + WtE per MNRE), and a residual 'other_thermal' bucket (lignite + diesel) where applicable.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_by_source_mw.json)
 
 ## Definition

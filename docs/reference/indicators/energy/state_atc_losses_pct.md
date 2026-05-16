@@ -4,7 +4,7 @@
 
 **Title**: Aggregate Technical & Commercial losses (%, by state)  
 **One-line**: Combined technical losses (transmission + distribution heat and ageing-equipment losses) and commercial losses (theft + billing/collection inefficiencies) as a percentage of total energy input to the distribution system.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_atc_losses_pct.json`](../../../../datasets/indicators/in/energy/state_atc_losses_pct.json)
 
 ## Definition

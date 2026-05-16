@@ -4,7 +4,7 @@
 
 **Title**: State-wise CPI inflation (Food and Beverages)  
 **One-line**: State-wise CPI inflation in the Food and Beverages sub-basket — the single biggest household expenditure category (~46% of CPI-Combined).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/state_cpi_food_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_food_inflation_pct.json)
 
 ## Definition

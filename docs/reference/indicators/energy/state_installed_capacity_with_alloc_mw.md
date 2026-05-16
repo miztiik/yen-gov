@@ -4,7 +4,7 @@
 
 **Title**: Installed electricity capacity (with allocated shares, by state)  
 **One-line**: Same as the geographical-location capacity, but with each state credited its share of joint-sector and central-sector plants according to the regional allocation formulas.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json)
 
 ## Definition

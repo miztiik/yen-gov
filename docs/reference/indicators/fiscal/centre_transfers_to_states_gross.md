@@ -4,7 +4,7 @@
 
 **Title**: Gross transfers from Centre to states (all-India)  
 **One-line**: Total gross flow of resources from the Centre to all states before the Centre claws back loan repayments and interest (Item IV = Item I devolution + Item II grants + Item III gross loans).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/centre_transfers_to_states_gross.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_to_states_gross.json)
 
 ## Definition

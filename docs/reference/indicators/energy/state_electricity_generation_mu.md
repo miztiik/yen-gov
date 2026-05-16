@@ -4,7 +4,7 @@
 
 **Title**: Annual electricity generation (by state)  
 **One-line**: Gross electricity generated in the state during the fiscal year, in million units (MU = GWh).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_electricity_generation_mu.json`](../../../../datasets/indicators/in/energy/state_electricity_generation_mu.json)
 
 ## Definition

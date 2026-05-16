@@ -4,7 +4,7 @@
 
 **Title**: State Plant Load Factor (PLF), by fuel source (%)  
 **One-line**: Plant Load Factor — the share of nameplate capacity actually delivered as energy over a fiscal year.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_plant_load_factor_pct.json`](../../../../datasets/indicators/in/energy/state_plant_load_factor_pct.json)
 
 ## Definition

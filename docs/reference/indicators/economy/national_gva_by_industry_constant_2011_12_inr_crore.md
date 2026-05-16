@@ -4,7 +4,7 @@
 
 **Title**: National Gross Value Added by industry, constant 2011-12 prices (annual)  
 **One-line**: Annual Gross Value Added by 17-industry NIC-1-digit tier (Agriculture / Mining / Manufacturing / Electricity-Gas-Water / Construction / Trade-Hotels-Transport-Communication / Financial-Real-Estate-Professional / Public Admin / Other Services and their published variants), at constant 2011-12 prices.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json`](../../../../datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json)
 
 ## Definition

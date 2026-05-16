@@ -226,12 +226,44 @@ def compute_coverage(root: Path) -> CoverageReport:
         ]
 
     return CoverageReport(
-        generated_at=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        generated_at=_max_input_mtime_date(root),
         slices=tuple(slices),
         missing_states=tuple(missing),
         indicators=tuple(indicators),
         state_elections=tuple(_project_state_first(slices, state_names)),
     )
+
+
+def _max_input_mtime_date(root: Path) -> str:
+    """Return ``YYYY-MM-DD`` derived from the newest input the report reads.
+
+    Wall-clock at write time would couple ``data-inventory.md`` bytes to
+    when the operator ran ``coverage``, producing a daily git-status churn
+    even when nothing about the data changed (CLAUDE.md §10 anti-pattern).
+    The report is a pure function of the inputs we scan: the election
+    catalogue, states reference, topic catalogue, election artifacts and
+    indicator artifacts. Deriving the footer date from
+    ``max(input.st_mtime)`` makes re-runs with unchanged inputs produce
+    byte-identical output.
+
+    Falls back to ``"unknown"`` when no input exists (fresh checkout or
+    sparse fixture tree) so the function stays total.
+    """
+    inputs: list[Path] = []
+    for rel in (CATALOGUE_REL, STATES_REL, TOPIC_CATALOGUE_REL):
+        p = root / rel
+        if p.is_file():
+            inputs.append(p)
+    for tree_rel in (INDICATORS_REL, ELECTIONS_REL):
+        base = root / tree_rel
+        if base.is_dir():
+            for path in base.rglob("*.json"):
+                if path.is_file():
+                    inputs.append(path)
+    if not inputs:
+        return "unknown"
+    newest = max(p.stat().st_mtime for p in inputs)
+    return datetime.fromtimestamp(newest, tz=timezone.utc).strftime("%Y-%m-%d")
 
 
 def _load_wired_indicator_ids(root: Path) -> set[str] | None:

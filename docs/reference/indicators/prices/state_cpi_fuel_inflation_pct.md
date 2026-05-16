@@ -4,7 +4,7 @@
 
 **Title**: State-wise CPI inflation (Fuel and Light)  
 **One-line**: State-wise CPI inflation in the Fuel and Light sub-basket (LPG, kerosene, electricity tariffs, firewood).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/state_cpi_fuel_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_fuel_inflation_pct.json)
 
 ## Definition

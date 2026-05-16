@@ -4,7 +4,7 @@
 
 **Title**: Net transfers from the Centre  
 **One-line**: Total devolution + grants flowing from the Central Government to each State / Union Territory in a fiscal year, net of items returned or adjusted (RBI's 'Net' column).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/net_transfers_from_centre.json`](../../../../datasets/indicators/in/fiscal/net_transfers_from_centre.json)
 
 ## Definition

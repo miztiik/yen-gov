@@ -4,7 +4,7 @@
 
 **Title**: States' total external debt outstanding  
 **One-line**: Total external debt outstanding against each State / UT, as reported in the Rajya Sabha Session 259 Unstarred Question 1480 answer (≈ Jul-Aug 2023).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_external_debt_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_external_debt_inr_crore.json)
 
 ## Definition

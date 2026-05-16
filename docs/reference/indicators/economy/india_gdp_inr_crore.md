@@ -4,7 +4,7 @@
 
 **Title**: India GDP (₹ crore, current and constant prices)  
 **One-line**: National Gross Domestic Product, ₹ crore, faceted by price basis: 'current' (nominal, contemporaneous prices) and 'constant' (real, base 2011-12).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/india_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/india_gdp_inr_crore.json)
 
 ## Definition

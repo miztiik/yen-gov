@@ -4,7 +4,7 @@
 
 **Title**: India thermal generating capacity retired, by fuel (MW per year)  
 **One-line**: National total of generating capacity retired each fiscal year, broken down by fuel source (largely coal and oil-gas).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json`](../../../../datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json)
 
 ## Definition

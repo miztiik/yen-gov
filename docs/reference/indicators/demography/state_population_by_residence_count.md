@@ -4,7 +4,7 @@
 
 **Title**: Census population by state, faceted Rural / Urban  
 **One-line**: Decennial census headcounts per state (and All-India), split by residence: Rural vs Urban.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/demography/state_population_by_residence_count.json`](../../../../datasets/indicators/in/demography/state_population_by_residence_count.json)
 
 ## Definition

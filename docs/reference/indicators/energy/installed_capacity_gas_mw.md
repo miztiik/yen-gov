@@ -4,7 +4,7 @@
 
 **Title**: Installed gas-based capacity  
 **One-line**: Natural-gas-based thermal capacity in megawatts, per state.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_gas_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_gas_mw.json)
 
 ## Definition

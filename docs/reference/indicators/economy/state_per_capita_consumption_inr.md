@@ -4,7 +4,7 @@
 
 **Title**: State per-capita private consumption (₹ per person per year)  
 **One-line**: Per-capita Private Final Consumption Expenditure (PFCE) at the state level — what an average resident spends per year on goods and services.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_per_capita_consumption_inr.json`](../../../../datasets/indicators/in/economy/state_per_capita_consumption_inr.json)
 
 ## Definition

@@ -4,7 +4,7 @@
 
 **Title**: Gross fiscal deficit (all states, all-India)  
 **One-line**: The consolidated borrowing requirement of all State governments combined in each fiscal year.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/states_combined_gross_fiscal_deficit.json`](../../../../datasets/indicators/in/fiscal/states_combined_gross_fiscal_deficit.json)
 
 ## Definition

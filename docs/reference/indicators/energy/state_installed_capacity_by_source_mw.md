@@ -4,7 +4,7 @@
 
 **Title**: State installed electricity capacity, by fuel source (MW)  
 **One-line**: Per-state installed electricity-generation capacity broken down by fuel source — coal, hydro, large-hydro, small-hydro, wind, solar, bio-power, oil-gas, nuclear.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json)
 
 ## Definition

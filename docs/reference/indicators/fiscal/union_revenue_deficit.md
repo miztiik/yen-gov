@@ -4,7 +4,7 @@
 
 **Title**: Revenue deficit (Union Government)  
 **One-line**: Revenue expenditure minus revenue receipts for the Union Government.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/union_revenue_deficit.json`](../../../../datasets/indicators/in/fiscal/union_revenue_deficit.json)
 
 ## Definition

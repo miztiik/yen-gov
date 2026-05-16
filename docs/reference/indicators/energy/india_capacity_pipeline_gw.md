@@ -4,7 +4,7 @@
 
 **Title**: India under-construction electricity capacity pipeline (GW per year)  
 **One-line**: National total of generating capacity that is either under construction and on track, or under construction but on hold, by year of expected commissioning.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/india_capacity_pipeline_gw.json`](../../../../datasets/indicators/in/energy/india_capacity_pipeline_gw.json)
 
 ## Definition

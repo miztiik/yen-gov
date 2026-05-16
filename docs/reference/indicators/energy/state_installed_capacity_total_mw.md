@@ -4,7 +4,7 @@
 
 **Title**: State-wise installed capacity of power (MW)  
 **One-line**: Total installed electricity-generation capacity located in the state (MW), end-of-fiscal-year.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_installed_capacity_total_mw.json`](../../../../datasets/indicators/in/energy/state_installed_capacity_total_mw.json)
 
 ## Definition

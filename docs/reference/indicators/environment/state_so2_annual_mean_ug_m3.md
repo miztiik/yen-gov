@@ -4,7 +4,7 @@
 
 **Title**: SO₂ — annual mean (state)  
 **One-line**: Annual mean concentration of sulphur dioxide (SO₂) in micrograms per cubic metre, averaged across all CPCB monitoring stations in each state.  
-**Last Updated**: 2026-05-16 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/environment/state_so2_annual_mean_ug_m3.json`](../../../../datasets/indicators/in/environment/state_so2_annual_mean_ug_m3.json)
 
 ## Definition

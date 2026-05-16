@@ -4,7 +4,7 @@
 
 **Title**: State GDP (current prices)  
 **One-line**: Gross Domestic Product of the state at current (nominal) prices, in Lakh Crore Rupees.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json)
 
 ## Definition

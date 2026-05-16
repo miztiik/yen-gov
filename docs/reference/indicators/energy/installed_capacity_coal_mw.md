@@ -4,7 +4,7 @@
 
 **Title**: Installed coal-fired capacity  
 **One-line**: Coal-fired thermal generation capacity in megawatts, per state.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_coal_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_coal_mw.json)
 
 ## Definition

@@ -4,7 +4,7 @@
 
 **Title**: Centre transfers to states (gross)  
 **One-line**: Gross transfers from the Central Government to each State / Union Territory in a fiscal year, computed as the sum of (a) the state's share in central taxes (Finance Commission devolution) and (b) Grants-in-Aid (Finance Commission grants + centrally-sponsored scheme grants + special-purpose transfers).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/centre_transfers_gross.json`](../../../../datasets/indicators/in/fiscal/centre_transfers_gross.json)
 
 ## Definition

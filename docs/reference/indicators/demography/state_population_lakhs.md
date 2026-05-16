@@ -4,7 +4,7 @@
 
 **Title**: State population (Lakhs)  
 **One-line**: Estimated total resident population of the state in Lakhs (1 Lakh = 100,000).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/demography/state_population_lakhs.json`](../../../../datasets/indicators/in/demography/state_population_lakhs.json)
 
 ## Definition

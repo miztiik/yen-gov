@@ -4,7 +4,7 @@
 
 **Title**: Outstanding liabilities (% of GSDP)  
 **One-line**: Stock of state-government debt outstanding at the end of each fiscal year, expressed as a share of Gross State Domestic Product.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json`](../../../../datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json)
 
 ## Definition

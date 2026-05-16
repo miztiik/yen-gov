@@ -4,7 +4,7 @@
 
 **Title**: Crude Death Rate (per 1,000 population)  
 **One-line**: Crude Death Rate — deaths per 1,000 mid-year population, calendar-year.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/health/state_death_rate_per_1000.json`](../../../../datasets/indicators/in/health/state_death_rate_per_1000.json)
 
 ## Definition

@@ -4,7 +4,7 @@
 
 **Title**: Public health spend (% of state total expenditure)  
 **One-line**: Share of each State / UT government's total annual budget spent on Medical & Public Health and Family Welfare — covering primary health centres, district hospitals, disease-control programmes, immunisation, maternal & child health, and family planning.  
-**Last Updated**: 2026-05-16 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json`](../../../../datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json)
 
 ## Definition

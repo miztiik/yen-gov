@@ -4,7 +4,7 @@
 
 **Title**: States' own tax revenue  
 **One-line**: Tax revenue raised by the State Government from sources within its constitutional jurisdiction (state GST share, state excise, stamp duties, motor vehicle tax, etc.).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json)
 
 ## Definition

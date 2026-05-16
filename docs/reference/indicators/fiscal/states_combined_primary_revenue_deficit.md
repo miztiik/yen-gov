@@ -4,7 +4,7 @@
 
 **Title**: Primary revenue deficit (all states, all-India)  
 **One-line**: Revenue deficit minus interest payments — the strictest fiscal-discipline indicator.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/states_combined_primary_revenue_deficit.json`](../../../../datasets/indicators/in/fiscal/states_combined_primary_revenue_deficit.json)
 
 ## Definition

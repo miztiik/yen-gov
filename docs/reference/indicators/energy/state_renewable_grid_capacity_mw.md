@@ -4,7 +4,7 @@
 
 **Title**: State-wise installed grid-interactive renewable capacity (MW)  
 **One-line**: Cumulative grid-connected renewable-power generation capacity installed in the state, MW, as at end-March of the calendar year.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json`](../../../../datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json)
 
 ## Definition

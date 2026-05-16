@@ -4,7 +4,7 @@
 
 **Title**: Renewable Purchase Obligation compliance (%, by state)  
 **One-line**: Share of the state's regulatory Renewable Purchase Obligation (RPO) target actually met in a given fiscal year, faceted by solar, non-solar, and total.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_rpo_compliance_pct.json`](../../../../datasets/indicators/in/energy/state_rpo_compliance_pct.json)
 
 ## Definition

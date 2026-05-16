@@ -4,7 +4,7 @@
 
 **Title**: Net State Domestic Product (current prices)  
 **One-line**: Net State Domestic Product (NSDP) of each state and union territory, in Lakh Rupees Crore at current (nominal) prices.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_nsdp_current_inr_crore.json`](../../../../datasets/indicators/in/economy/state_nsdp_current_inr_crore.json)
 
 ## Definition

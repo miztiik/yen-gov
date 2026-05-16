@@ -4,7 +4,7 @@
 
 **Title**: Distribution collection efficiency (%, by state)  
 **One-line**: Share of billed revenue that was actually collected from consumers.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json`](../../../../datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json)
 
 ## Definition

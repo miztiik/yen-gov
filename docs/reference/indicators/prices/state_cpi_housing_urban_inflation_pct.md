@@ -4,7 +4,7 @@
 
 **Title**: State-wise CPI inflation (Housing — Urban only)  
 **One-line**: State-wise CPI Housing inflation, URBAN ONLY — NSO does not publish a rural housing CPI because rural housing in the CPI methodology is imputed from owner-occupied dwellings differently.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json`](../../../../datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json)
 
 ## Definition

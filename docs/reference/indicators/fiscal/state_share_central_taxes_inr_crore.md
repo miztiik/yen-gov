@@ -4,7 +4,7 @@
 
 **Title**: States' share in central taxes (Finance Commission devolution)  
 **One-line**: The state's share in the divisible pool of central taxes, transferred under the Finance Commission devolution formula.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/fiscal/state_share_central_taxes_inr_crore.json`](../../../../datasets/indicators/in/fiscal/state_share_central_taxes_inr_crore.json)
 
 ## Definition

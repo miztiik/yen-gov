@@ -4,7 +4,7 @@
 
 **Title**: EV share of total vehicle registrations by state and category  
 **One-line**: EVs as a share of total new vehicle registrations in each state, by vehicle category.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json`](../../../../datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json)
 
 ## Definition

@@ -4,7 +4,7 @@
 
 **Title**: State-wise peak power supplied (MW)  
 **One-line**: Maximum instantaneous power actually supplied in the state during the fiscal year (MW).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_peak_met_mw.json`](../../../../datasets/indicators/in/energy/state_peak_met_mw.json)
 
 ## Definition

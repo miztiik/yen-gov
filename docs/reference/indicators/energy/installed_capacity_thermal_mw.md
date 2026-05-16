@@ -4,7 +4,7 @@
 
 **Title**: Installed thermal capacity (coal + lignite + gas + diesel)  
 **One-line**: Total fossil-fuel thermal generation capacity (coal + lignite + gas + diesel), in megawatts, per state.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/installed_capacity_thermal_mw.json`](../../../../datasets/indicators/in/energy/installed_capacity_thermal_mw.json)
 
 ## Definition

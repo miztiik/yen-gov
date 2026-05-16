@@ -4,7 +4,7 @@
 
 **Title**: State GDP (₹ crore, current and constant prices)  
 **One-line**: Per-state GSDP (Gross State Domestic Product) in ₹ crore, faceted by price basis.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_gdp_inr_crore.json`](../../../../datasets/indicators/in/economy/state_gdp_inr_crore.json)
 
 ## Definition

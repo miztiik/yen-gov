@@ -4,7 +4,7 @@
 
 **Title**: State-wise power requirement (MU)  
 **One-line**: Annual energy requirement assessed by the state (MU = million units = GWh), fiscal year — the demand-side counterpart to Availability (T139).  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/energy/state_power_requirement_mu.json`](../../../../datasets/indicators/in/energy/state_power_requirement_mu.json)
 
 ## Definition

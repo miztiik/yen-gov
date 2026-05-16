@@ -4,7 +4,7 @@
 
 **Title**: State per-capita NSDP (constant prices, long series, spliced)  
 **One-line**: Real per-capita NSDP, 2000-01 -> 2024-25, spliced across MoSPI's 1999-2000, 2004-05, and 2011-12 base years.  
-**Last Updated**: 2026-05-15 (auto-generated)  
+**Source artifact last modified**: 2026-05-16 (auto-generated)  
 **Source artifact**: [`datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json`](../../../../datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json)
 
 ## Definition
