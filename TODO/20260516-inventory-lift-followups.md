@@ -1,4 +1,4 @@
-# Deferred follow-ups from ADR-0026 (inventory lift)
+# Inventory lift follow-ups (post-ADR-0026)
 
 **Created**: 2026-05-16
 **Status**: deferred backlog
