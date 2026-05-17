@@ -45,9 +45,28 @@ class Endpoint:
     notes: str = ""
     path_params: tuple[str, ...] = field(default_factory=tuple)
     query_params: tuple[str, ...] = field(default_factory=tuple)
+    host_variant: str = "base"
+    """Which API host serves this endpoint.
+
+    The ICED bundle uses two hosts: the bare ``https://icedapi.niti.gov.in``
+    (the default, ``"base"``) and the ``/v1`` sub-API
+    (``https://icedapi.niti.gov.in/v1``, marked ``"v1"``). A handful of
+    endpoints — e.g. ``capacity-metatable-data``, ``retired-capacity-plants``,
+    ``plantPipelineInfo``, ``discoms``, ``homeMap`` — live only under v1.
+    Consumers (the mirror, the client, parsers) pick the right host by
+    inspecting this field; we deliberately do NOT bake ``/v1/`` into the
+    ``path`` string so the path stays verbatim from the bundle.
+    """
 
 
-def _ep(name: str, path: str, page_hint: str = "", notes: str = "") -> Endpoint:
+def _ep(
+    name: str,
+    path: str,
+    page_hint: str = "",
+    notes: str = "",
+    *,
+    host_variant: str = "base",
+) -> Endpoint:
     """Helper: derive path_params / query_params from ``${...}`` placeholders."""
     import re as _re
 
@@ -64,6 +83,7 @@ def _ep(name: str, path: str, page_hint: str = "", notes: str = "") -> Endpoint:
         notes=notes,
         path_params=path_holes,
         query_params=query_holes,
+        host_variant=host_variant,
     )
 
 
@@ -82,10 +102,13 @@ ENDPOINT_CATALOGUE: tuple[Endpoint, ...] = (
         notes="Headline KPI tiles shown on the home dashboard."),
     _ep("infographics", "/infographics", page_hint="(global)",
         notes="Static infographic listing."),
-    _ep("distinct_values", "/distinct-values", page_hint="(filters)",
-        notes="Distinct value catalogues for dropdowns."),
+    # `distinct_values` was in the 2026-05-14 recon but has no parser
+    # consumer and rotated away (400 on /distinct-values, 404 elsewhere)
+    # by 2026-05-17. Deleted from catalogue — re-recon the bundle if a
+    # dropdown-population use-case emerges.
     _ep("home_map", "/homeMap", page_hint="(homepage)",
-        notes="Home-page map markers — high-level country-wide view."),
+        notes="Home-page map markers — high-level country-wide view.",
+        host_variant="v1"),
 
     # ----- Climate / GHG -----------------------------------------------
     _ep("ghg_economy_wide", "/climate-environment/ghg-emissions/economy-wide-emission",
@@ -137,31 +160,40 @@ ENDPOINT_CATALOGUE: tuple[Endpoint, ...] = (
         notes="Actual demography figures (population pyramid, age distribution)."),
 
     # ----- Power: capacity & generation -------------------------------
-    _ep("power_generation", "/energy/generation", page_hint="/energy/electricity/capacity",
-        notes="National generation by source, time series."),
+    # `power_generation` (/energy/generation), `power_plants_listing`
+    # (/powerPlantsListing) and `plant_list_by_source` (/plantListBySource)
+    # were in the 2026-05-14 recon but had rotated away (all 404 on both
+    # base and /v1 hosts) by 2026-05-17 and no parser bound them. Deleted
+    # from catalogue — re-recon the bundle if these page-bindings come
+    # back. Per-source generation is already covered by power_statistics's
+    # `data[].generation` field; the dedicated endpoint is redundant.
     _ep("power_statistics", "/energy/powerStatistics",
         page_hint="(global)",
         notes="Power-sector summary statistics block."),
     _ep("retired_capacity_plants", "/retired-capacity-plants",
         page_hint="/energy/electricity/capacity/retired",
-        notes="Retired thermal plants with state, source, capacity, year-of-retirement."),
+        notes="Retired thermal plants with state, source, capacity, year-of-retirement. "
+              "Returns PLAINTEXT JSON (not the encrypted envelope) — IcedClient "
+              "raises ICEDShapeError; consumer must `requests.get` directly or "
+              "the client must learn the plaintext-v1 shape (see 2026-05-17 mirror).",
+        host_variant="v1"),
     _ep("plant_pipeline_info", "/plantPipelineInfo",
         page_hint="/energy/electricity/capacity/upcoming",
-        notes="Under-construction / pipeline plant capacity additions."),
-    _ep("power_plants_listing", "/powerPlantsListing",
-        page_hint="/energy/electricity/power-plant-details",
-        notes="Master plant list (search-friendly subset of plant registry)."),
-    _ep("plant_list_by_source", "/plantListBySource",
-        page_hint="/energy/electricity/power-plant-details",
-        notes="Plant list grouped by primary energy source."),
+        notes="Under-construction / pipeline plant capacity additions.",
+        host_variant="v1"),
     _ep("capacity_metatable", "/capacity-metatable-data",
         page_hint="/energy/electricity/capacity",
-        notes="Tabular capacity overview by state × source × year."),
+        notes="Tabular capacity overview by state × source × year. "
+              "Returns PLAINTEXT JSON (not the encrypted envelope) — IcedClient "
+              "raises ICEDShapeError; consumer must `requests.get` directly or "
+              "the client must learn the plaintext-v1 shape (see 2026-05-17 mirror).",
+        host_variant="v1"),
 
     # ----- Power: consumer / discom -----------------------------------
     _ep("discoms_list", "/discoms",
         page_hint="/energy/electricity/distribution",
-        notes="Master list of distribution utilities."),
+        notes="Master list of distribution utilities.",
+        host_variant="v1"),
 
     # ----- Daily / monthly granular series ----------------------------
     _ep("daily_peak_demand_last_30",
@@ -216,9 +248,10 @@ ENDPOINT_CATALOGUE: tuple[Endpoint, ...] = (
     _ep("aq_power_plant_list",
         "/climate-environment/environment/air-quality/power-plant-list",
         page_hint="/climate-and-environment/environment/air-quality",
-        notes="322 power plants with geometry. Subset/duplicate of the "
-              "energy-section power_plants_listing — kept distinct because "
-              "this is the list ICED's AQ pages bind to."),
+        notes="322 power plants with geometry. AQ-specific subset of ICED's "
+              "plant registry; the formerly-catalogued `power_plants_listing` "
+              "endpoint rotated away in 2026-05-17 recon so this is now the "
+              "only plant-list endpoint we use."),
     _ep("aq_coal_plant_impact",
         "/analytics/aqi-impact-due-to-coal-plants-list",
         page_hint="/climate-and-environment/environment/air-quality",

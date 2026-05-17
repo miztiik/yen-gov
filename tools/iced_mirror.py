@@ -158,11 +158,27 @@ def main() -> int:
 
     print(f"mirroring {len(endpoints)} endpoint(s)")
 
-    client = IcedClient(runtime_root=REPO_ROOT, polite_delay=0.4)
+    # ICED's Angular bundle uses two API hosts: the bare host serves most
+    # endpoints; a `/v1` sub-API serves a handful (capacity-metatable-data,
+    # plantPipelineInfo, retired-capacity-plants, discoms, homeMap). The
+    # Endpoint dataclass carries `host_variant` ∈ {"base","v1"}; we pick
+    # the right client per endpoint so the mirror reflects what's actually
+    # reachable. See 2026-05-17 Phase 1 step 2 reconciliation in
+    # TODO/20260517-iced-bulk-ingest-and-parity-oracle.md.
+    client_base = IcedClient(runtime_root=REPO_ROOT, polite_delay=0.4)
+    client_v1 = IcedClient(
+        host="https://icedapi.niti.gov.in/v1",
+        runtime_root=REPO_ROOT,
+        polite_delay=0.4,
+    )
+
+    def _client_for(ep: Any) -> IcedClient:
+        return client_v1 if getattr(ep, "host_variant", "base") == "v1" else client_base
 
     triage_rows: list[dict[str, Any]] = []
     ok, fail = 0, 0
     for ep in endpoints:
+        client = _client_for(ep)
         url_print = f"{client._host}{ep.path}"  # noqa: SLF001 — read-only for log
         try:
             r = client.get(ep.path)
