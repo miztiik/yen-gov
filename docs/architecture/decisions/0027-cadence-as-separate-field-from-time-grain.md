@@ -1,6 +1,7 @@
 # ADR-0027 — `indicator.cadence` as a separate field from `indicator.time_grain`
 
 **Status**: Accepted
+**Superseded by**: [ADR-0030](0030-canonical-store-duckdb-wasm.md) (2026-05-17). Cadence now lives on the indicator catalogue row (D15) alongside `default_period_seq_for_cadence`; `period_seq:int` is the machine sort key and `period_label` is the citizen-visible string verbatim (D3).
 **Date**: 2026-05-17
 **Deciders**: User; agent-deliberation included Fowler (Engineering), Gregor (Architect), Max (Indicator Scout)
 **Supersedes / supersedes**: builds on ADR-0026 (lift `collection_inventory` out of artifact); resolves an open question surfaced by the [TODO/20260517-coverage-temporal-range-plan.md](../../../TODO/20260517-coverage-temporal-range-plan.md) Phase #1 spike

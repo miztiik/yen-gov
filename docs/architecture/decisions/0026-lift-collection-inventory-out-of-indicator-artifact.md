@@ -1,6 +1,7 @@
 # ADR-0026 — Lift `collection_inventory` and `series_spec.expected_*` out of the indicator artifact
 
 **Status**: Accepted
+**Superseded by**: [ADR-0030](0030-canonical-store-duckdb-wasm.md) (2026-05-17). The collection-inventory-as-overlay concept is replaced by `datasets/manifest.json` (D21) plus denormalised `coverage_*` columns on `taxonomy/indicators.parquet` (D15).
 **Date**: 2026-05-17
 **Deciders**: User; agent-deliberation included Gregor (Architect), Fowler (Engineering), Hans (Governance)
 **Supersedes / supersedes**: builds on ADR-0020 (indicator artifact as data contract); related to lesson-2026-05-16 (fetched_at smear)
