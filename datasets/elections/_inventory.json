@@ -1,0 +1,20 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/elections-inventory.schema.json",
+  "$schema_version": "1.0",
+  "sources": [],
+  "ingested": [
+    {
+      "election_id": "AcGenApr2021",
+      "state": "S22",
+      "source_input": "tn_ae_panel_1971_2021",
+      "ingested_at": "2026-05-17",
+      "discrepancy_summary": {
+        "acs_total": 234,
+        "acs_with_mismatch": 2,
+        "coverage_pct": 0.8547,
+        "mean_delta_pp": 0.0201,
+        "halted": false
+      }
+    }
+  ]
+}

@@ -1289,3 +1289,77 @@ def ingest_iced_state_wise(
         typer.echo(f"    rows written: {r.row_count}")
         typer.echo(f"    artifact:     {r.artifact_path.relative_to(root).as_posix()}")
 
+
+@app.command("ingest-people-panel")
+def ingest_people_panel(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+    input_csv: Path = typer.Option(
+        ..., "--input", "-i",
+        help="Panel CSV path (e.g. datasets/ephemeral/Tamil_Nadu_AE.csv).",
+        exists=True, dir_okay=False,
+    ),
+    election: str = typer.Option(
+        ..., "--election",
+        help="ECI election event id (e.g. AcGenApr2021).",
+    ),
+    state: str = typer.Option(
+        ..., "--state",
+        help="ECI state code (e.g. S22).",
+    ),
+    year: int = typer.Option(
+        ..., "--year",
+        help="Election year (used to filter the panel CSV).",
+    ),
+    source_input: str = typer.Option(
+        ..., "--source-input",
+        help="Stable identifier for this CSV input (e.g. tn_ae_panel_1971_2021).",
+    ),
+    source_url: str = typer.Option(
+        ..., "--source-url",
+        help="ECI Statistical Report URL this data originates from.",
+    ),
+    force: bool = typer.Option(
+        False, "--force",
+        help="Re-ingest even if the inventory already records this triple.",
+    ),
+) -> None:
+    """Ingest a panel CSV into per-person artifacts under datasets/people/.
+
+    Source authority is ECI; the CSV is a frozen input the operator
+    obtains once. Vote totals are compared against existing
+    result.constituency artifacts; discrepancy thresholds in
+    config/elections.json decide halt vs warn. On success, an entry
+    is upserted in datasets/elections/_inventory.json as the
+    'done and tested' marker.
+    """
+    from yen_gov.pipeline.people_ingest import IngestHalted, run_people_ingest
+
+    try:
+        result = run_people_ingest(
+            repo_root=root,
+            csv_path=input_csv,
+            election_id=election,
+            state=state,
+            year=year,
+            source_input=source_input,
+            source_url=source_url,
+            force=force,
+        )
+    except IngestHalted as exc:
+        typer.echo(f"ingest-people-panel: HALTED — {exc}", err=True)
+        raise typer.Exit(code=2) from exc
+
+    typer.echo(f"ingest-people-panel: OK")
+    typer.echo(f"  people written: {result.people_written}")
+    typer.echo(f"  inventory:      {result.inventory_path.relative_to(root).as_posix()}")
+    if result.report_path != Path():
+        typer.echo(f"  discrepancy:    {result.report_path.relative_to(root).as_posix()}")
+    typer.echo(
+        f"  ACs total/mismatch: {result.report.acs_total}/{result.report.acs_with_mismatch} "
+        f"({result.report.coverage_pct:.2f}%); mean delta {result.report.mean_delta_pp:.3f}pp"
+    )
+

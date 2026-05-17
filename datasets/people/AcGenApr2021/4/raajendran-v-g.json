@@ -1,0 +1,33 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/people.entity.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/statistical-report",
+      "fetched_at": "2026-05-17T12:58:18Z"
+    }
+  ],
+  "election_id": "AcGenApr2021",
+  "state": "S22",
+  "ac_code": 4,
+  "candidate_slug": "raajendran-v-g",
+  "name": "RAAJENDRAN, V.G.",
+  "party_short": "DMK",
+  "sex": "Male",
+  "age": 53,
+  "constituency_type": "GEN",
+  "field_provenance": {
+    "sex": {
+      "grade": "issuing_authority",
+      "source_id": "eci_statreport"
+    },
+    "age": {
+      "grade": "sworn_declaration",
+      "source_id": "eci_statreport"
+    },
+    "constituency_type": {
+      "grade": "issuing_authority",
+      "source_id": "eci_statreport"
+    }
+  }
+}

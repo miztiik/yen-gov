@@ -1,0 +1,43 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/people.entity.schema.json",
+  "$schema_version": "1.0",
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/statistical-report",
+      "fetched_at": "2026-05-17T12:58:18Z"
+    }
+  ],
+  "election_id": "AcGenApr2021",
+  "state": "S22",
+  "ac_code": 154,
+  "candidate_slug": "rajendran-r",
+  "name": "RAJENDRAN.R",
+  "party_short": "ADMK",
+  "sex": "Male",
+  "age": 60,
+  "constituency_type": "GEN",
+  "education": "12th Pass",
+  "profession": "Agriculture",
+  "field_provenance": {
+    "sex": {
+      "grade": "issuing_authority",
+      "source_id": "eci_statreport"
+    },
+    "age": {
+      "grade": "sworn_declaration",
+      "source_id": "eci_statreport"
+    },
+    "constituency_type": {
+      "grade": "issuing_authority",
+      "source_id": "eci_statreport"
+    },
+    "education": {
+      "grade": "sworn_declaration",
+      "source_id": "eci_statreport"
+    },
+    "profession": {
+      "grade": "sworn_declaration",
+      "source_id": "eci_statreport"
+    }
+  }
+}
