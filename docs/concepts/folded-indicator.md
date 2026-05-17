@@ -1,7 +1,9 @@
 # Folded indicator
 
-**Last Updated**: 2026-05-16
-**Status**: canonical (since `indicator.schema.json` v4.0, [ADR-0026](../architecture/decisions/0026-lift-collection-inventory-out-of-indicator-artifact.md))
+**Last Updated**: 2026-05-17
+**Status**: ⚠️ **OBSOLETE under [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md)**. Superseded by [canonical store (Parquet + DuckDB-WASM)](../architecture/data/canonical-store.md). This document describes the pre-pivot per-shard JSON model that lives in `datasets/_old/` read-only during the pivot; deleted at end of Phase 1. Do not use as guidance for new writers. Retained only so agents can interpret legacy artifacts.
+
+---
 
 ## What it is
 

@@ -13,8 +13,9 @@ Canonical backend rationale lives in `docs/architecture/backend/`; this file is 
 - [ECI source adapter](../../docs/architecture/backend/sources-eci.md)
 - [Data provenance](../../docs/concepts/data-provenance.md)
 - [Dataset shapes](../../docs/concepts/dataset-shapes.md)
-- [Folded indicator](../../docs/concepts/folded-indicator.md)
-- [Collection inventory](../../docs/concepts/collection-inventory.md)
+- [Canonical store (Parquet + DuckDB-WASM)](../../docs/architecture/data/canonical-store.md) — current model
+- [Folded indicator](../../docs/concepts/folded-indicator.md) — **obsolete under ADR-0030**, kept for `_old/` reader context only
+- [Collection inventory](../../docs/concepts/collection-inventory.md) — **obsolete under ADR-0030**
 - [Data quality stance](../../docs/concepts/data-quality.md)
 
 ## Invariants
@@ -25,10 +26,9 @@ Canonical backend rationale lives in `docs/architecture/backend/`; this file is 
 - Core/domain code must not import adapters or infrastructure.
 - Persisted paths are POSIX-relative, never absolute or Windows-style.
 - Every emitted data file carries `sources[]` and schema metadata.
-- Provenance timestamps (`fetched_at`, `generated_at`, doc footers) are DERIVED from upstream content change, never from `datetime.now()` at write time. Use a content-hash identity check at the Fetcher or input-mtime at the doc emitter. Composers union `sources[]` per-`url`, not per-`(url, fetched_at)`. Counter-example to copy: `sources/datagovin_ogd/ingest.py` derives `fetched_at` from cached file `st_mtime`. See [data provenance](../../docs/concepts/data-provenance.md) and `TODO/20260516-fetched-at-content-hash-gate-handover.md`.
-- Indicators are folded: a single JSON per indicator carries `indicator + rows[] + license + coverage + sources` AND `methodology + series_spec + divergence`. No sidecars. `series_spec` is `{description}` only since schema v4.0. `write_artifact` derives nothing operational into the artifact — `methodology` / `series_spec` / `divergence` are caller-wins-then-prior-then-stub. Per-indicator operator state (`frozen`, `refetch_requested`, `unavailable_periods`) lives in the sparse overlay `datasets/reference/in/indicators-operator-state.json`. Citizen completeness lives in the derived index `datasets/reference/in/indicators-completeness.json`. See [folded indicator](../../docs/concepts/folded-indicator.md) and [ADR-0026](../../docs/architecture/decisions/0026-lift-collection-inventory-out-of-indicator-artifact.md).
-- Adapter owns its source's period vocabulary. Planner round-trips `{key, label, frequency}` tokens opaquely. No normaliser, no LLM, no canonical-form transformer.
-- Planner reads operator state from the overlay (`indicators-operator-state.json` — `frozen`, `refetch_requested`) and observed periods from the artifact's `rows[]`. Pending = (publisher schedule) − (observed); the publisher schedule is adapter-owned, not in the artifact. `rm` of `.runtime/raw/` is the only force-recollect — see [how-to: force re-collection](../../docs/how-to/force-recollect.md).
+- **Canonical pivot (ADR-0030).** New writes target Hive-partitioned Parquet under `datasets/<family>/` written by UPSERT-into-DuckDB. Canonical row = `(observation_id, entity_id, year:int, period_label:text, indicator_id, value, source_id)`. Time axis is **OWID `year:int`** (end-year for FY); `period_label` is the verbatim publisher string. Sources are a **table** (`datasets/taxonomy/sources.parquet`) keyed by `(url, content_hash)`; observation rows carry `source_id` FK. `first_fetched_at` (immutable) + `last_seen_at` (mutable) replace `fetched_at`. See [canonical store](../../docs/architecture/data/canonical-store.md).
+- **Legacy folded JSON** (`datasets/indicators/in/<topic>/<id>.json` and its sidecar inventory/operator-state files) is **read-only** under `datasets/_old/` during the pivot; deleted at end of Phase 1. No new writers in that shape. The pre-pivot rule "adapter owns opaque `{key, label, frequency}` tokens; no normaliser" is **withdrawn** for canonical artifacts — under OWID adoption, adapters write `year:int` + verbatim `period_label`, and indicators carry `cadence` on the indicator row.
+- Per Holy Law #9 + CLAUDE.md §12: every emitted Parquet observation carries a `source_id` FK (legacy JSON files in `_old/` still use their existing `sources[]` array until deletion).
 
 ## Validation
 

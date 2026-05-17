@@ -1,7 +1,9 @@
 # Collection inventory
 
-**Last Updated**: 2026-05-16
-**Status**: canonical (since `indicator.schema.json` v4.0, [ADR-0026](../architecture/decisions/0026-lift-collection-inventory-out-of-indicator-artifact.md))
+**Last Updated**: 2026-05-17
+**Status**: ⚠️ **OBSOLETE under [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md)**. Superseded by [canonical store (Parquet + DuckDB-WASM)](../architecture/data/canonical-store.md). Under the canonical pivot, "what we have collected" is a `SELECT DISTINCT entity_id, year FROM <family>` query against the canonical Parquet — no separate inventory file. Operator state (frozen / refetch_requested / unavailable) becomes an `operator_state.parquet` table keyed by `indicator_id`. The opaque `{key, label, frequency}` period-token rule is **withdrawn**: under OWID, time is `year:int` and `period_label` is the verbatim publisher string on every observation row. Retained only so agents can interpret legacy `datasets/_old/reference/in/indicators-*.json` artifacts.
+
+---
 
 Collection inventory answers "where do we stand on collecting this
 series?". Since v4.0 it no longer lives **inside** the indicator
