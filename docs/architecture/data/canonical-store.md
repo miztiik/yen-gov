@@ -298,63 +298,123 @@ Target shard size: ≤ 4 MB; aim for ~1.5 MB. Re-evaluate at each phase exit; if
 
 ## 11. Parquet schema-version mechanism (D21)
 
-JSON Schema `$schema_version` does not apply to Parquet. Mechanism:
+JSON Schema `$schema_version` does not apply to Parquet — Parquet carries its schema in file-level key-value metadata. Mechanism:
 
-1. **Writer stamps Parquet key-value metadata** on every emit:
-   ```
-   {
-     "table_id": "<family>.observations" | "taxonomy.<table>",
-     "schema_version": "1.0"
-   }
-   ```
-2. **Reader fails loud** on unsupported `schema_version`. No silent best-effort.
-3. Bump rules mirror JSON-Schema §11 of CLAUDE.md — minor for additive, major for breaking. Same-commit `x-changelog` entry on the matching `*.schema.json`.
+### 11.1 Writer responsibility (producer contract)
+
+On every emit, the writer MUST stamp the following key-value pairs into the Parquet file's footer metadata:
+
+| Key | Value | Required |
+| --- | --- | --- |
+| `table_id` | The same `<family>.<table>` identifier listed in `manifest.json` (e.g. `elections.observations`, `taxonomy.indicators`) | yes |
+| `schema_version` | `"<major>.<minor>"` matching the `x-version` of the row schema in `datasets/schemas/` | yes |
+| `row_schema_id` | Relative `$id` of the row schema (e.g. `./observation.schema.json`) — lets the reader resolve the contract without name guessing | yes |
+| `writer_version` | yen-gov git short-sha of the writer that emitted this file | optional but recommended |
+| `sort_columns` | JSON-encoded ordered list of column names the file is sorted by (e.g. `["indicator_id","entity_id","year","period_seq"]`) | yes for `observations.*` tables |
+
+DuckDB exposes file-level KV via `parquet_metadata('path').key_value_metadata`. The writer uses the `KV_METADATA` clause on `COPY (FORMAT PARQUET, KV_METADATA {...})`.
+
+A missing or unparseable `schema_version` makes the file **unreadable** by the reader (§11.2). The writer MUST NOT emit a Parquet file without this stamp.
+
+### 11.2 Reader responsibility (consumer contract)
+
+Before issuing any query against a Parquet file, the DuckDB-WASM reader:
+
+1. Looks up the file's `table_id` + `schema_version` from `manifest.json` (the control plane).
+2. Reads the Parquet file's KV metadata via `parquet_metadata(...)` and asserts `table_id` and `schema_version` match the manifest.
+3. Asserts the file's `schema_version` is in the reader's compatible set (this build's `SUPPORTED_SCHEMA_VERSIONS`).
+4. If any check fails, the reader emits `LoaderResult.failed` with reason `schema_version_unsupported` (§16). **No silent best-effort, no version coercion, no partial reads.**
+
+### 11.3 Bump rules
+
+Mirror JSON-Schema §11 of CLAUDE.md — minor for additive, major for breaking. Same-commit `x-changelog` entry on the matching `*.schema.json`. The writer also bumps the value it stamps; readers from prior builds will fail-loud and the user sees the failure-state copy. Production rollouts upgrade the reader first, then the writer.
 
 ---
 
 ## 12. Manifest contract (D21)
 
-`datasets/manifest.json` is the control-plane the frontend reads first. Shape:
+`datasets/manifest.json` is the single control-plane the frontend reads first. Frontend NEVER guesses file paths (R23). Discovery is always: load `manifest.json` → resolve table → fetch listed files via HTTP Range.
+
+### 12.1 Shape
+
+Canonical shape (see [`datasets/schemas/manifest.schema.json`](../../../datasets/schemas/manifest.schema.json) for the authoritative contract):
 
 ```json
 {
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.0",
-  "generated_at_first": "2026-05-20T00:00:00Z",
-  "generated_at_last": "2026-05-20T00:00:00Z",
+  "manifest_version": "1.0",
+  "generated_at": "2026-05-20T00:00:00Z",
   "tables": [
     {
       "table_id": "elections.observations",
       "family": "elections",
+      "format": "parquet",
       "schema_version": "1.0",
       "partition_columns": [],
       "files": [
         { "path": "elections/observations.parquet", "row_count": 12345, "size_bytes": 2483712 }
-      ]
+      ],
+      "row_count_total": 12345
     },
     {
       "table_id": "taxonomy.indicators",
       "family": "taxonomy",
+      "format": "parquet",
       "schema_version": "1.0",
       "partition_columns": [],
       "files": [
         { "path": "taxonomy/indicators.parquet", "row_count": 110, "size_bytes": 41216 }
+      ],
+      "row_count_total": 110
+    },
+    {
+      "table_id": "energy.observations",
+      "family": "energy",
+      "format": "parquet",
+      "schema_version": "1.0",
+      "partition_columns": ["indicator_id"],
+      "files": [
+        {
+          "path": "energy/indicator_id=state-installed-capacity-mw-coal/observations.parquet",
+          "row_count": 9100,
+          "size_bytes": 1462272,
+          "partition_values": { "indicator_id": "state-installed-capacity-mw-coal" }
+        }
       ]
     },
     {
-      "table_id": "boundaries.in",
+      "table_id": "boundaries.in.states",
       "family": "boundaries",
+      "format": "geojson",
       "schema_version": "1.0",
-      "partition_columns": ["layer"],
+      "partition_columns": [],
       "files": [
-        { "path": "boundaries/in/geojson/india-states.geojson", "format": "geojson", "size_bytes": 1234567 }
+        { "path": "boundaries/in/geojson/india-states.geojson", "size_bytes": 1234567 }
       ]
     }
   ]
 }
 ```
 
-Frontend NEVER guesses file paths (rejected as R23). Discovery is always: load `manifest.json` → resolve table → fetch listed files via HTTP Range.
+### 12.2 Table identifier convention
+
+`table_id` is `<family>.<table>` for canonical observation + taxonomy tables, and `<family>.<region>.<layer>` for boundary layers (e.g. `boundaries.in.states`). Stable; the frontend loader keys on this. Lowercase; dotted; matches `^[a-z][a-z0-9_.]*$`.
+
+### 12.3 Writer regen invariants (producer contract)
+
+On every emit, after writing the affected Parquet files, the writer MUST:
+
+1. Re-enumerate every table the writer is responsible for (not just the one it just wrote). Stale entries from a prior shape change cannot persist.
+2. For each `format=parquet` table, sum `row_count` across files to populate `row_count_total`.
+3. Stamp `generated_at` with the current UTC wall-clock at write-time. **Manifest `generated_at` is operator telemetry, NOT row-level provenance** (CLAUDE.md §10) — it is the single moment the control plane was last refreshed, not a per-observation timestamp.
+4. Validate the regenerated manifest against `manifest.schema.json` BEFORE replacing the on-disk file (a corrupt manifest breaks every reader).
+5. Replace `datasets/manifest.json` atomically (write to `manifest.json.tmp`, fsync, rename).
+6. For boundary entries, the writer does NOT recompute them — boundaries are emitted by a separate flow (ADR-0031). The writer reads existing boundary entries from a side-file (`datasets/boundaries/_manifest_fragment.json`, format TBD in Phase 0.14) and re-stamps them into the unified manifest without modification.
+
+### 12.4 Reader bootstrap (consumer contract)
+
+The frontend loader's first network operation in any session is `GET datasets/manifest.json`. If it 404s, times out, or fails schema validation, the loader emits `LoaderResult.failed` for every downstream view-model. There is no fallback path-guessing (R23).
 
 The manifest also enumerates boundary files alongside Parquet so the frontend has one control-plane (D25).
 

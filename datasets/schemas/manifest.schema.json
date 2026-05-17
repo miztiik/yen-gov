@@ -37,7 +37,7 @@
           "table_id": {
             "type": "string",
             "pattern": "^[a-z][a-z0-9_.]*$",
-            "description": "Dotted identifier (e.g. 'observations.elections', 'taxonomy.indicators', 'boundaries.in.states'). Stable; the frontend loader keys on this."
+            "description": "Dotted identifier <family>.<table> for canonical tables (e.g. 'elections.observations', 'taxonomy.indicators') and <family>.<region>.<layer> for boundary layers (e.g. 'boundaries.in.states'). Stable; the frontend loader keys on this. Convention pinned in docs/architecture/data/canonical-store.md §12.2."
           },
           "family": {
             "type": "string",
