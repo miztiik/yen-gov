@@ -20,7 +20,7 @@
     | "observed_count"
     | "pending_count"
     | "unavailable_count"
-    | "last_collected_at";
+    | "last_polled_at";
 
   let data = $state<IndicatorsInventoryResponse | null>(null);
   let error = $state<string | null>(null);
@@ -184,7 +184,7 @@
             <th class="px-3 py-2 font-normal text-right cursor-pointer" onclick={() => toggle_sort("observed_count")}>obs</th>
             <th class="px-3 py-2 font-normal text-right cursor-pointer" onclick={() => toggle_sort("pending_count")}>pend</th>
             <th class="px-3 py-2 font-normal text-right cursor-pointer" onclick={() => toggle_sort("unavailable_count")}>unav</th>
-            <th class="px-3 py-2 font-normal cursor-pointer" onclick={() => toggle_sort("last_collected_at")}>Last collected</th>
+            <th class="px-3 py-2 font-normal cursor-pointer" onclick={() => toggle_sort("last_polled_at")}>Last polled</th>
             <th class="px-3 py-2 font-normal">Path</th>
           </tr>
         </thead>
@@ -208,7 +208,7 @@
               <td class="px-3 py-1.5 text-right text-slate-300">{r.observed_count}</td>
               <td class="px-3 py-1.5 text-right text-slate-400">{r.pending_count}</td>
               <td class="px-3 py-1.5 text-right text-slate-500">{r.unavailable_count}</td>
-              <td class="px-3 py-1.5 text-slate-400">{fmt_date(r.last_collected_at)}</td>
+              <td class="px-3 py-1.5 text-slate-400">{fmt_date(r.last_polled_at)}</td>
               <td class="px-3 py-1.5 font-mono text-[10px] text-slate-500 truncate max-w-[28ch]" title={r.path}>{r.path}</td>
             </tr>
           {/each}

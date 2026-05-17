@@ -170,10 +170,28 @@ export interface IndicatorIndexRow {
   documentation_status: "stub" | "partial" | "authored";
   inventory_status: "empty" | "partial" | "complete";
   frozen: boolean;
-  last_collected_at: string | null;
+  last_polled_at: string | null;
   observed_count: number;
   pending_count: number;
   unavailable_count: number;
+  // Structured temporal range (schema v2.0, all optional).
+  min_time?: string;
+  max_time?: string;
+  min_period_label?: string;
+  max_period_label?: string;
+  observed_periods_within_range?: number;
+  gap_count_within_range?: number;
+  time_grain?: string;
+  cadence?:
+    | "annual_cy"
+    | "annual_fy"
+    | "quarterly_cy"
+    | "quarterly_fy"
+    | "monthly"
+    | "weekly"
+    | "daily"
+    | "decennial"
+    | "ad_hoc";
 }
 
 export interface IndicatorsInventoryResponse {

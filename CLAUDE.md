@@ -1,10 +1,25 @@
 # CLAUDE.md — yen-gov Engineering Contract
 
-**Last Updated**: 2026-05-15
+**Last Updated**: 2026-05-17
 
 This file is the non-negotiable contract for any human or AI agent working in this repository. The full standard it derives from lives in [docs/reference/documentation-structure.md](docs/reference/documentation-structure.md). When the two disagree, **this file wins for yen-gov**; the standard is generic.
 
-> Project description: Indian election data — schema-first ingestion, processing, and static visualization. First slice: Tamil Nadu - Macro and Micro, later other states and national. Depth first before breadth. Phase 0: election results; Phase A: socio-economic expansion starting with energy.
+> Project description: Indian socio-economic + election data — schema-first ingestion, processing, and static visualization. Canonical store is Hive-partitioned Parquet read by DuckDB-WASM in the browser. First slice: Tamil Nadu (elections), then national/state socio-economic indicators. Depth first before breadth.
+
+## 0a. The One Rule (project canonical reference)
+
+**OWID is the canonical reference for socio-economic data modelling.** Our World in Data has solved most of the data-shape questions yen-gov faces: long-format observations, integer year axis, indicator metadata, source provenance, methodology breaks, entity taxonomy. When any data-shape question arises, first check OWID. If OWID has solved it, adopt verbatim. If yen-gov must deviate (India-specific need), document the deviation explicitly in [`docs/architecture/data/canonical-store.md`](docs/architecture/data/canonical-store.md) with rationale signed off by Hans + Max.
+
+**Authority assignment** (when an agent debate stalls, this resolves it):
+
+| Decision class | Authority |
+| --- | --- |
+| Data shape — column types, enums, period axis, entity IDs, indicator metadata, source schema, taxonomy choices | **Hans + Max** (data + governance + OWID precedent) |
+| Contract / integration — schema versioning mechanics, write seams, layer boundaries, pipes-and-filters topology | **Gregor** |
+| Engineering craft — refactor safety, test tiers, module structure, code organisation, deletion discipline | **Fowler** |
+| UX — URL grammar, visual bounds, copy, gestures, citizen-readable framing | **Jony + Citizen** |
+
+**User approval supersedes every agent and every rule in this file.** If the user has approved a direction, follow it. Do not re-debate. Amend the rules that conflict in the same commit as the change.
 
 ## 0. Non-Goals (Project-Level Descopes)
 
@@ -28,13 +43,15 @@ Explicit non-goals for yen-gov. Anything in this list is **out of scope** — do
 
 ## 2. Path Rules (Mandatory)
 
-For anything **leaving the process** (JSON, logs, DB rows, emitted artifacts, agent memory):
+For anything **leaving the process** (JSON, logs, DB rows, emitted artifacts, agent memory, error messages, sources rows, ADR cross-links, dataset references):
 
-- Relative paths only. No absolute paths.
+- Relative paths only. No absolute paths. No drive letters (`C:\...`). No `/home/...`.
 - POSIX separators only (`/`). Never `\`.
 - Minimal reconstructable form (no redundant prefixes).
 
-In-memory `Path` objects for local I/O may stay platform-native. The rule applies to persisted/transmitted data only.
+In-memory `Path` objects for local I/O may stay platform-native. The rule applies to the moment a path leaves the process.
+
+**Ephemeral runtime.** Anything written under `.runtime/` is ephemeral by definition. Agents MUST NOT reference `.runtime/` paths from any committed artifact (schema, doc, dataset, code comment, log record that ships). State that needs to outlive a single run belongs in `datasets/`, `config/`, or `docs/`.
 
 ## 3. Repository Topology
 
@@ -43,7 +60,7 @@ In-memory `Path` objects for local I/O may stay platform-native. The rule applie
 | `docs/`         | created    | Canonical knowledge (Diataxis tiers, 3-level depth)  |
 | `README.md`     | created    | Entry point                                          |
 | `CLAUDE.md`     | created    | This file                                            |
-| `datasets/`     | created    | Schemas, reference data, generated election outputs. Owned by neither runtime; written by `backend/`, read by `frontend/` at build time. |
+| `datasets/`     | created    | Canonical store + schemas + reference data + upstream snapshots. Hive-partitioned Parquet per family (`elections/`, `energy/`, `demography/`, …) read by DuckDB-WASM in the browser. Sole writer is `backend/`. Sole reader at runtime is the static frontend via the Pages domain. See [`docs/architecture/data/canonical-store.md`](docs/architecture/data/canonical-store.md). |
 | `config/`       | created    | Human-edited tunable knobs only (e.g. fetch concurrency, top-N cutoff). Schemas live in `datasets/schemas/`, not here. |
 | `backend/`      | created    | Local Python pipeline (fetch / parse / validate / emit). FastAPI admin wrapper at `backend/yen_gov/admin/` (Phase 4 v0 — Inventory only). |
 | `frontend/`     | created    | Static GitHub Pages app (Svelte 5 + Vite 6 + Tailwind + d3 + maplibre-gl). UI code only — never commits data files. |
@@ -138,11 +155,11 @@ A change is not done until ALL hold:
 - Build custom HTTP / retry / parsing / validation when an OSS library exists.
 - Swallow exceptions or silently coerce invalid input — fail fast at the boundary.
 - Mock in tests by default.
-- Use `datetime.now()` as input to artifact CONTENT (`fetched_at`, `generated_at`, doc footers, vintage years). Wall-clock at write time is operational telemetry, NOT provenance. Provenance fields must be DERIVED from the thing they describe — upstream content hash (via a Fetcher-level identity check + `.runtime/` sidecar), input file `st_mtime`, or source release vintage. Re-running ingest with byte-identical upstream bytes MUST leave artifact bytes and mtimes unchanged. Composers union `sources[]` per-`url`, not per-`(url, fetched_at)`, or the bug smears one layer up. See [data provenance](docs/concepts/data-provenance.md); diagnosis archive: `TODO/20260516-fetched-at-content-hash-gate-handover.md`.
-- Propose `write_text_if_changed`-style byte-compare helpers at write seams. Bytes ≠ data; if a re-run produces different bytes from identical upstream, the non-determinism is upstream of the write seam — fix it there. See [folded indicator](docs/concepts/folded-indicator.md) §"Why folded" for the rejected SHA-gate / `.meta.json` design.
-- Propose normalising publisher period vocabularies into a canonical ISO form. Indian publishers print `FY 2024-25`, `as on 31.03.2025`, `Census 2011`, `Q3 2024-25` — adapter owns those labels; planner round-trips `{key, label, frequency}` opaquely; citizen reads as-published. No normaliser, no LLM canonicaliser, no canonical-form transformer anywhere in the path. See [collection-inventory](docs/concepts/collection-inventory.md).
-- Parse `coverage.temporal` strings (the free-text `"YYYY-MM..YYYY-MM"` / `"YYYY"` forms once rendered into `docs/reference/data-inventory.md`) to learn an indicator's range. The structured replacements live on the completeness index per row: `min_time` / `max_time` / `min_period_label` / `max_period_label` / `observed_periods_within_range` / `gap_count_within_range` / `time_grain` / `cadence` (datasets/schemas/indicators-completeness.schema.json v2.0+, populated by `yen_gov.inventory.derive.derive_temporal_range`). Read those structured fields; do not regex a markdown surface. Per [ADR-0027](docs/architecture/decisions/0027-cadence-as-separate-field-from-time-grain.md) and [TODO/20260517-coverage-temporal-range-plan.md](TODO/20260517-coverage-temporal-range-plan.md).
-- Walk the real on-disk corpus (`datasets/**`, `config/**`) from a `pytest` test, or from an HTTP smoke test that hits a live FastAPI route which itself walks the corpus. That is Tier-B conformance (§11), which is local-only via `python -m yen_gov validate --root .`. Pytest tests assert CODE correctness against `tmp_path` fixtures; they MUST NOT assert DATA quality against the real repo. Symptoms of this anti-pattern: a single test takes >5s; the fix is "add the missing file" not "change the code"; the test fails on a teammate's machine after they pull a corpus-only change. Doctrine fix pattern: inject the root via a `_repo_root()` helper reading an env var (e.g. `YEN_GOV_REPO_ROOT`), default to the real repo at runtime, and in tests `monkeypatch.setenv(...)` to point at a `tmp_path` fixture corpus. Reference fix: `backend/yen_gov/admin/schemas.py` + `backend/tests/test_admin_schemas.py` (commit `7d407d0`). Doctrine: [`docs/architecture/backend/validator.md`](docs/architecture/backend/validator.md).
+- Use `datetime.now()` as input to artifact CONTENT (`fetched_at`, `generated_at`, doc footers, vintage years). Wall-clock at write time is operational telemetry, NOT provenance. Under the canonical pivot, this dissolves entirely: `sources` is a TABLE keyed by `(url, content_hash)`; per-row provenance is `source_id` (FK). `first_fetched_at` (immutable, citizen-facing) + `last_seen_at` (mutable telemetry) replace the smeared `fetched_at` field. Re-running ingest with byte-identical upstream MUST leave artifact bytes unchanged. See [data provenance](docs/concepts/data-provenance.md).
+- Propose `write_text_if_changed`-style byte-compare helpers at write seams. Bytes ≠ data; if a re-run produces different bytes from identical upstream, fix the non-determinism upstream of the write seam. Canonical writer uses UPSERT-into-DuckDB + sorted Parquet emit (ADR-0030).
+- Walk the real on-disk corpus (`datasets/**`, `config/**`) from a `pytest` test, or from an HTTP smoke test that hits a live FastAPI route which itself walks the corpus. That is Tier-B conformance (§11), which is local-only via `python -m yen_gov validate --root .`. Pytest tests assert CODE correctness against `tmp_path` fixtures; they MUST NOT assert DATA quality against the real repo. Symptoms: a single test takes >5s; the fix is "add the missing file" not "change the code"; the test fails on a teammate's machine after they pull a corpus-only change. Doctrine fix pattern: inject the root via a `_repo_root()` helper reading an env var (e.g. `YEN_GOV_REPO_ROOT`), default to the real repo at runtime, in tests `monkeypatch.setenv(...)` to point at a `tmp_path` fixture corpus. Reference fix: commit `7d407d0`. Doctrine: [`docs/architecture/backend/validator.md`](docs/architecture/backend/validator.md).
+- Emit JSON projections of canonical data for the citizen frontend. Under the canonical pivot, frontend reads Parquet via DuckDB-WASM only. No precomputed per-shard JSON, no parallel projection tree, no JSON shadow of the Parquet rows. Pre-pivot per-shard JSON under `datasets/_old/` is read-only and deleted at end of Phase 1.
+- Run CI that processes `datasets/**`. The publish pipeline is plain static-file copy via GitHub Pages from `main`. The only CI gates are lint, type-check, pytest, frontend build, Playwright — none of which touch `datasets/` contents.
 - Use forbidden git commands (Section 8).
 - Let `TODO/` or chat logs become the source of truth for architecture.
 - Let `AGENTS.md` or `/memories/` become a shadow source of truth instead of linking back to `docs/`.
@@ -155,7 +172,7 @@ A change is not done until ALL hold:
 Every JSON Schema under `datasets/schemas/` carries:
 
 - `$schema`: `https://json-schema.org/draft/2020-12/schema`
-- `$id`: stable URL identifying the schema.
+- `$id`: relative path to the schema file (`./<name>.schema.json`). Local `$id` so VS Code / IDE JSON-Schema plugins validate offline. No URL `$id`.
 - `title`, `description`: human-readable.
 - `x-version`: `"<major>.<minor>"` only. No patch component.
 - `x-changelog`: non-empty array, oldest first. Each entry: `{ "version", "date", "description" }`. The last entry's `version` MUST equal `x-version`.
@@ -176,37 +193,34 @@ Validation has two tiers with different homes:
 
 ## 12. Data Provenance (Mandatory)
 
-Every data file under `datasets/` (and `config/`) MUST carry a top-level `sources` array declaring where its content came from. This is non-negotiable: published artifacts are only trustworthy when their lineage is visible.
+Every data artifact under `datasets/` carries provenance. Under the canonical pivot ([ADR-0030](docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md)), provenance lives in **two shapes** depending on the artifact type:
 
-```json
-"sources": [
-  { "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseS22167.htm",
-    "fetched_at": "2026-05-08T14:30:12Z" }
-]
-```
+### 12.1 Canonical Parquet (current artifacts)
 
-Each entry has two required fields:
+Provenance is a **table**: `datasets/taxonomy/sources.parquet`. Each observation row carries a `source_id` FK pointing at a row in that table. The sources table adopts OWID's `origin.*` field schema verbatim (per §0a "The One Rule"):
 
-| Field        | Meaning                                                                                       |
-| ------------ | --------------------------------------------------------------------------------------------- |
-| `url`        | The exact `http(s)://…` URL our pipeline fetched. Not a portal landing page when a deeper page is the real source. |
-| `fetched_at` | RFC 3339 UTC timestamp of when our pipeline read that URL. Re-fetches update or extend the array. |
+| Field | Meaning |
+| --- | --- |
+| `source_id` | stable PK |
+| `url` | the exact `http(s)://…` URL our pipeline fetched |
+| `content_hash` | sha256 of fetched bytes (idempotency anchor) |
+| `producer` | publisher org (e.g. "Election Commission of India") |
+| `citation_full` | full citation string |
+| `url_main` | landing/about page URL |
+| `url_download` | direct download URL (same as `url` for HTML scrapes) |
+| `date_accessed` | UTC date pipeline first read this URL |
+| `first_fetched_at` | RFC 3339 UTC, immutable, citizen-facing |
+| `last_seen_at` | RFC 3339 UTC, updated every re-fetch, telemetry |
+| `license` | OWID-style license code (e.g. "OGL-IN-1.0", "CC-BY-4.0", "unknown-public") |
+| `vintage` | source's own period label (e.g. "FY 2024-25"); preserved verbatim |
 
-Three valid array shapes:
+Hand-authored content: `url` is empty string; `producer` = "yen-gov"; `license` = "internal".
 
-- **One entry** — the simple case: one upstream, one fetch.
-- **Multiple entries** — composed/aggregated artifacts (e.g. a state-level summary citing the partywise page plus every contributing constituency page). Each entry has its own `fetched_at`.
-- **Empty array** — the canonical signal for **hand-authored** content. The commit message MUST record the rationale and any reference materials. There is no `hand-authored: true` flag and no sentinel string; absence of upstream URLs *is* the statement.
+### 12.2 Legacy JSON files (`datasets/_old/`)
 
-What does NOT live in `sources`:
+Pre-pivot per-shard JSON files use a top-level `sources` array of `{url, fetched_at}` entries. They are read-only during the canonical pivot transition and deleted at end of Phase 1. No new files in this shape.
 
-- Intermediate downloaded files under `.runtime/raw/` (per ADR-0003) — they are throwaway debug artifacts, not published data.
-- Reference materials a maintainer consulted — those go in commit messages or `notes` fields, not `sources` (which is reserved for URLs the pipeline actually pulled).
-- Item-level provenance overrides — removed in v3.0. Aggregated artifacts list every contributing URL at file level.
-
-Schemas enforce this with an `array of {url, fetched_at}` constraint; the validator (CLAUDE.md §11) rejects any file missing `sources` or violating its shape.
-
-Canonical doc: [`docs/concepts/data-provenance.md`](docs/concepts/data-provenance.md). Design rationale: [ADR-0002](docs/architecture/decisions/0002-provenance-as-sources-list.md).
+Canonical doc: [`docs/concepts/data-provenance.md`](docs/concepts/data-provenance.md). Design rationale: [ADR-0002](docs/architecture/decisions/0002-provenance-as-sources-list.md) (legacy), [ADR-0030](docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) (canonical).
 
 ## 13. UI Verification (Mandatory for Frontend / Admin Changes)
 
@@ -228,11 +242,13 @@ If a 404 / console error pre-exists the change and is unrelated, note it but do 
 
 ## 14. Open Questions (TBD)
 
-These are unresolved and must be answered before the corresponding work starts:
+These are unresolved and must be answered before the corresponding work starts. When an open question is resolved, promote the decision into the relevant architecture doc and remove the entry here.
 
-- District identifier source: LGD codes (gov.in Local Government Directory) preferred; Wikipedia slug as fallback. Confirm during Phase 0 taxonomy build.
-- "Top-N + others" cutoff for per-AC results: provisional default = top 5 candidates + NOTA + collapsed "others". Confirm with real data in Phase 2.
-- Data-ingest automation cadence: local/manual only for now (results don't change post-declaration). Production Pages deploy is hourly plus manual dispatch, and only publishes CI-green `main`; see `docs/architecture/deployment.md`. Revisit ingest automation if we add live event tracking.
+- District identifier source: LGD codes (gov.in Local Government Directory) preferred; Wikipedia slug as fallback for unmapped districts. Confirm during Phase 0 taxonomy seed (ADR-0030).
+- "Top-N + others" cutoff for per-AC results: provisional default = top 5 candidates + NOTA + collapsed "others". Confirm with real data when first per-AC chart lands in Phase 1.5.
+- Data-ingest automation cadence: local/manual only for now. Production Pages deploy is hourly plus manual dispatch, and only publishes CI-green `main`; see `docs/architecture/deployment.md`. Revisit ingest automation if we add live event tracking.
+- Git repo size with committed Parquet: monitor clone time at end of Phase 1. If >60s or repo >2 GB, convene Fowler + Gregor on Git LFS vs Pages-only build artifact.
+- Time-window queries on the canonical store: resolved by §0a (OWID year:int axis); SLM safety gate (sqlglot allowlist or DuckDB `EXPLAIN` dry-run) deferred to Phase 4 per ADR-0030.
 
 Update this section as decisions are made; promote each decision into an architecture doc under `docs/architecture/`.
 

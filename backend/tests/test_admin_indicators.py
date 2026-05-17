@@ -47,7 +47,7 @@ def test_indicators_endpoint_row_shape() -> None:
         "documentation_status",
         "inventory_status",
         "frozen",
-        "last_collected_at",
+        "last_polled_at",
         "observed_count",
         "pending_count",
         "unavailable_count",
