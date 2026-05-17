@@ -27,24 +27,58 @@ const schemasDir = resolve(datasetsDir, "schemas");
 interface SchemaMeta {
   path: string;
   id: string;
+  basename: string;
   version: string;
   raw: Record<string, unknown>;
 }
 
-/** Build an $id → schema map by scanning datasets/schemas/. */
+/** Build a (basename + $id) → schema map by scanning datasets/schemas/.
+ *
+ * Canonical pivot schemas use a local relative $id (`./entity.schema.json`),
+ * while data files reference them via a path relative to themselves
+ * (`../schemas/entity.schema.json`). Both must resolve to the same schema
+ * — we index by basename so either form lands the right validator.
+ */
 function loadSchemas(): Map<string, SchemaMeta> {
   const out = new Map<string, SchemaMeta>();
   for (const file of globSync("*.schema.json", { cwd: schemasDir, absolute: true })) {
     const raw = JSON.parse(readFileSync(file, "utf-8")) as Record<string, unknown>;
     const id = String(raw["$id"] ?? "");
     const version = String(raw["x-version"] ?? "");
+    const basename = file.split(/[\\/]/).pop()!;
     if (!id || !version) {
       throw new Error(`schema ${file} missing $id or x-version`);
     }
-    out.set(id, { path: file, id, version, raw });
+    const meta: SchemaMeta = { path: file, id, basename, version, raw };
+    out.set(id, meta);
+    out.set(basename, meta);
   }
   return out;
 }
+
+/** Resolve a data file's $schema string against the loaded schemas, accepting
+ * the full $id form or the basename form. */
+function resolveSchema(declared: string): SchemaMeta | undefined {
+  if (SCHEMAS.has(declared)) return SCHEMAS.get(declared);
+  const basename = declared.split(/[\\/]/).pop()!;
+  return SCHEMAS.get(basename);
+}
+
+/** Schemas whose row shape carries per-row source_id (FK to taxonomy/sources)
+ * rather than a top-level `sources` array. Per the canonical pivot
+ * (CLAUDE.md §12.1, D18), reference taxonomy files don't carry a legacy
+ * sources[] — provenance moves onto each row via source_id. */
+const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
+  "entity.schema.json",
+  "facet-axes.schema.json",
+  "indicator-catalogue.schema.json",
+  "source.schema.json",
+  "observation.schema.json",
+  "caveat.schema.json",
+  "methodology-break.schema.json",
+  "operator-state.schema.json",
+  "manifest.schema.json",
+]);
 
 const SCHEMAS = loadSchemas();
 
@@ -52,7 +86,13 @@ const SCHEMAS = loadSchemas();
 const ajv = new Ajv2020({ strict: false, allErrors: true, allowUnionTypes: true });
 addFormats(ajv);
 for (const meta of SCHEMAS.values()) {
-  ajv.addSchema(meta.raw, meta.id);
+  // Register under both keys (full $id and basename) so ajv.getSchema resolves
+  // either form. addSchema is idempotent by content but throws on duplicate id;
+  // skip if already added.
+  if (!ajv.getSchema(meta.id)) ajv.addSchema(meta.raw, meta.id);
+  if (meta.basename !== meta.id && !ajv.getSchema(meta.basename)) {
+    ajv.addSchema(meta.raw, meta.basename);
+  }
 }
 
 interface DataFileRef {
@@ -127,14 +167,14 @@ describe("contract — every datasets/*.json validates against its declared $sch
       if (!f.schema) {
         return;
       }
-      const schema = SCHEMAS.get(f.schema);
+      const schema = resolveSchema(f.schema);
       expect(schema, `unknown $schema ${f.schema} in ${f.rel}`).toBeDefined();
       // §11: $schema_version MUST match the schema's current x-version.
       expect(f.schemaVersion, `${f.rel} missing $schema_version`).toBeDefined();
       expect(f.schemaVersion, `${f.rel}: $schema_version=${f.schemaVersion} != x-version=${schema!.version}`)
         .toBe(schema!.version);
 
-      const validate = ajv.getSchema(f.schema);
+      const validate = ajv.getSchema(f.schema) ?? ajv.getSchema(schema!.basename) ?? ajv.getSchema(schema!.id);
       expect(validate, `compiled validator missing for ${f.schema}`).toBeDefined();
       const ok = validate!(f.body);
       if (!ok) {
@@ -148,15 +188,17 @@ describe("contract — every datasets/*.json validates against its declared $sch
 });
 
 describe("contract — provenance (CLAUDE.md §12)", () => {
-  // Every file that declares a $schema MUST also carry a `sources` array
-  // (per §12 — empty array is the canonical "hand-authored" signal).
-  // We iterate over every file (cheap glob result) and short-circuit inside
-  // the test when no $schema is declared; this avoids a second parse pass
-  // at collect time just to filter the list.
+  // Every file that declares a legacy schema MUST carry a `sources` array
+  // (§12.2 — legacy JSON shape). Canonical-pivot files use per-row source_id
+  // FK instead (§12.1, D18) — those are skipped here; their provenance is
+  // checked downstream by the writer's FK gate (D22) and by Tier-A schema
+  // sanity on the `source_id` field itself.
   for (const ref of DATA_FILE_REFS) {
     it(`${ref.rel} has a sources array (if it declares $schema)`, () => {
       const f = parseDataFile(ref);
       if (!f.schema) return;
+      const schemaBasename = f.schema.split(/[\\/]/).pop()!;
+      if (PER_ROW_PROVENANCE_SCHEMAS.has(schemaBasename)) return;
       expect(Array.isArray(f.body.sources), `${f.rel} missing sources[]`).toBe(true);
     });
   }
