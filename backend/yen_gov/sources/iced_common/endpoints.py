@@ -225,6 +225,158 @@ ENDPOINT_CATALOGUE: tuple[Endpoint, ...] = (
         notes="951 plant rows from ICED's modelled AQI-impact-of-coal-plants "
               "analytic. Modelled, not measured — treat with the same "
               "caution as any model output before binding to an indicator."),
+
+    # ----- Wave-2 catalogue expansion (2026-05-17) ---------------------
+    # Sourced from .runtime/iced_recon/full_triage_20260515073024.md
+    # ("ok new (unbound)" list — 94 endpoints responded OK but no parser
+    # was bound). The 20 below were selected against the same priority
+    # criteria the doc lists in High-priority surfaces §: state-level
+    # coverage, distinct topical territory (not just more power), and
+    # year+state facet keys so they're citizen-renderable. Catalogue-only
+    # for now — adding a parser is a separate per-indicator commit.
+    # See docs/architecture/backend/sources-iced-api.md.
+
+    # Energy: aggregate consumption / supply ---------------------------
+    _ep("energy_sector_wise_consumption",
+        "/energy/sectorWiseEnergyConsumption",
+        page_hint="/energy/sources-and-end-use",
+        notes="Sector × source × year, 360 rows / 33 KB. End-use energy "
+              "consumption by sector (industry, transport, agriculture, "
+              "residential, commercial). Unblocks ephemeral candidate #19 "
+              "in notes/ephemeral-datasets-triage-2026-05-14.md ("
+              "sectorwise_energy_consumption). MoSPI Energy Statistics."),
+    _ep("energy_source_wise_supply",
+        "/energy/sourceWiseEnergySupply",
+        page_hint="/energy/sources-and-end-use",
+        notes="Source × year, 120 rows / 8 KB. National primary energy "
+              "supply by source (coal, oil, gas, nuclear, hydro, RE). "
+              "Companion to sector_wise_consumption for an energy-balance "
+              "view. Country-entity only — needs Phase 4 renderer."),
+
+    # Power: state-level purchase quantum & cost -----------------------
+    _ep("quantum_state_year",
+        "/quantum-state-year",
+        page_hint="/energy/electricity/distribution/power-purchase",
+        notes="State × source × year, 2700 rows / 174 KB. Power purchased "
+              "(quantum, MU) by source per state per year. Citizen "
+              "question: where does my state's electricity come from?"),
+    _ep("statelevel_power_purchase_quantum_and_cost",
+        "/statelevel-power-purchase-quantum-and-cost",
+        page_hint="/energy/electricity/distribution/power-purchase",
+        notes="State × source × year, 2788 rows / 516 KB. Companion to "
+              "quantum_state_year adding cost (₹/kWh). Lets a citizen "
+              "ask: what does my state pay for each source it buys?"),
+
+    # Power: discom operations ----------------------------------------
+    _ep("discom_operational_performance_states",
+        "/energy/electricity/distribution/operationalPerformanceStates",
+        page_hint="/energy/electricity/distribution",
+        notes="State × FY × category × type, 2656 rows / 427 KB. Discom "
+              "operational performance (AT&C losses, ACS-ARR gap, billing "
+              "efficiency). Pairs with the existing UDAY/RPO indicators."),
+    _ep("discom_rpo_compliance",
+        "/energy/electricity/distribution/rpo",
+        page_hint="/energy/electricity/distribution/rpo",
+        notes="State × FY, 106 rows / 27 KB. Renewable Purchase Obligation "
+              "compliance by state and year. Citizen question: is my "
+              "state meeting its mandatory RE-buying targets?"),
+
+    # Power: transmission infrastructure ------------------------------
+    _ep("transmission_substation_list",
+        "/energy/electricity/transmission/substation-list",
+        page_hint="/energy/electricity/transmission",
+        notes="Sector × type, 2743 rows / 708 KB. National substation "
+              "registry with geolocation. Useful for the eventual "
+              "infrastructure layer on the map."),
+
+    # Power: captive generation ---------------------------------------
+    _ep("captive_power_industry",
+        "/energy/electricity/captive-power/captive-power-industry",
+        page_hint="/energy/electricity/captive-power",
+        notes="State × industry × year, 15048 rows / 2.0 MB. Captive "
+              "(self-generated) power capacity by industry per state. "
+              "The 'shadow' grid that doesn't show up in DISCOM stats."),
+
+    # Climate: biodiversity & climate variability ---------------------
+    _ep("forest_cover_by_state",
+        "/climate-environment/bio-diversity/forest-cover-by-state",
+        page_hint="/climate-and-environment/biodiversity",
+        notes="State × year, 330 rows / 54 KB. Forest cover by state per "
+              "ISFR (India State of Forest Report). NEW topic for yen-gov "
+              "(no environment/forest indicator yet). FSI biannual cadence."),
+    _ep("climate_rainfall_district",
+        "/climate-environment/climate-variability/rainfall",
+        page_hint="/climate-and-environment/climate-variability",
+        notes="State × district × type, 563 rows / 62 KB. Rainfall data "
+              "at district granularity. NEW topic. IMD-sourced."),
+    _ep("climate_temperature_annual",
+        "/climate-environment/climate-variability/temperatureAnnual",
+        page_hint="/climate-and-environment/climate-variability",
+        notes="Year, 495 rows / 42 KB. National annual mean temperature "
+              "anomaly series. Country-entity (needs Phase 4 renderer)."),
+    _ep("land_use_by_state",
+        "/climate-environment/environment/land",
+        page_hint="/climate-and-environment/environment/land",
+        notes="State × year, 2109 rows / 242 KB. Land-use classification "
+              "(forest, cultivable waste, non-agri, etc.) per state. "
+              "MoA Land Use Statistics."),
+
+    # Fuel sources: coal ---------------------------------------------
+    _ep("coal_consumption_domestic_state",
+        "/energy/fuel-sources/coal/consumption-domestic-state",
+        page_hint="/energy/fuel-sources/coal",
+        notes="State × year × source × type, 936 rows / 89 KB. Domestic "
+              "coal consumption by state (washed/raw, coking/non-coking)."),
+    _ep("coal_consumption_domestic_sector_wise",
+        "/energy/fuel-sources/coal/consumption-domestic-sector-wise",
+        page_hint="/energy/fuel-sources/coal",
+        notes="Sector × source × state × type × year, 3977 rows / 480 KB. "
+              "Coal consumption split by end-use sector (power, steel, "
+              "cement, sponge iron, etc.). Companion to the state view."),
+
+    # Fuel sources: oil ----------------------------------------------
+    _ep("oil_consumption_state_product_trend",
+        "/energy/fuel-sources/oil/consumptionStateProductTrend",
+        page_hint="/energy/fuel-sources/oil",
+        notes="State × year × source × type × region, 3683 rows / 621 KB. "
+              "State-level oil-product consumption (HSD, MS, LPG, ATF). "
+              "PPAC-sourced."),
+
+    # Fuel sources: RE potential (3 — finishes the renewable-potential set) -
+    _ep("solar_potential_by_state",
+        "/energy/fuel-sources/solar/potential",
+        page_hint="/energy/fuel-sources/renewables/solar",
+        notes="State × source × region × year, 67 rows / 12 KB. Solar "
+              "potential by state (MNRE/NREL). Unblocks ephemeral "
+              "candidate #16 (re_potential) in the triage doc."),
+    _ep("wind_potential_by_state",
+        "/energy/fuel-sources/wind/potential",
+        page_hint="/energy/fuel-sources/renewables/wind",
+        notes="State × source × region × year, 67 rows / 12 KB. Wind "
+              "potential at multiple hub heights (50m/80m/100m/120m). "
+              "Companion to solar_potential_by_state."),
+    _ep("bio_energy_potential_by_state",
+        "/energy/fuel-sources/bio-energy/potential",
+        page_hint="/energy/fuel-sources/renewables/bio-energy",
+        notes="State × source × region × year, 66 rows / 12 KB. Biomass "
+              "and bagasse cogen potential by state."),
+
+    # Transport / EV -------------------------------------------------
+    _ep("ice_ev_vahan",
+        "/analytics/ice-ev-vahan",
+        page_hint="/transport/electric-vehicles",
+        notes="Large blob (~6.3 MB). VAHAN-sourced ICE vs EV registration "
+              "trends. Unblocks ephemeral candidate #5 (ev_trend). "
+              "Filter aggressively before emitting — raw payload is huge."),
+
+    # Cross-cutting analytic -----------------------------------------
+    _ep("per_capita_gdp_vs_consumption",
+        "/analytics/per-capita-gdp-vs-consumption",
+        page_hint="/economy-and-demography/key-economic-indicators/socio-economic",
+        notes="State × year/fyear, 432 rows / 55 KB. Pre-computed "
+              "scatter: per-capita GDP vs per-capita consumption. Useful "
+              "as a cross-check fixture for our independently-computed "
+              "per-capita NSDP and PFCE artifacts."),
 )
 
 

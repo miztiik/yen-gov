@@ -266,6 +266,53 @@ would be implying NITI as the publisher.
 - `aq_coal_plant_impact` is **modelled**, not measured. Treat with the
   same caution as any model output before binding to an indicator.
 
+### Wave-2 catalogue expansion (2026-05-17)
+
+Twenty further parameter-free endpoints from the
+`tools/iced_full_triage.py` recon (94 "ok new (unbound)" survivors)
+were added to `endpoints.py` as catalogue-only entries, raising the
+bound catalogue from 35 to 55. Selection criteria: state-level
+coverage, distinct topical territory, year+state facet keys so the
+endpoint is citizen-renderable without aggregation gymnastics.
+
+Notable groups in the wave:
+- **Energy aggregates** (`energy_sector_wise_consumption`,
+  `energy_source_wise_supply`) — unblock ephemeral-dataset triage
+  candidate #19 (`sectorwise_energy_consumption`) which had no
+  publishable source URL before.
+- **Discom operations** (`discom_operational_performance_states`,
+  `discom_rpo_compliance`) — pair with the existing UDAY/ATC artifacts.
+- **RE potential** (`solar_potential_by_state`,
+  `wind_potential_by_state`, `bio_energy_potential_by_state`) — unblock
+  ephemeral candidate #16 (`re_potential`).
+- **Climate variability** (`climate_rainfall_district`,
+  `climate_temperature_annual`, `forest_cover_by_state`,
+  `land_use_by_state`) — first environment-domain entries beyond air
+  quality and GHG.
+- **Transport** (`ice_ev_vahan`) — unblocks ephemeral candidate #5
+  (`ev_trend`); raw payload is ~6.3 MB so the eventual parser MUST
+  filter before emit.
+
+These are **catalogue-only** — no parser binds them yet. The doctrine
+unchanged: each indicator that ships from one of these endpoints is a
+separate per-indicator commit with its own schema-conformant artifact
+and §12 provenance, not a bulk emit.
+
+### `chart_title` snapshot as canonical attribution source
+
+The 296 KB `/chart-title` endpoint catalogues every chart on the ICED
+dashboard with its publisher-printed `chart_title`, `footnote`, and
+`source` strings. Rather than each adapter re-paraphrasing ICED's
+attribution, yen-gov snapshots that catalogue to
+`datasets/reference/in/iced-chart-titles.json` via
+`tools/emit_iced_chart_titles.py` (schema
+`iced-chart-titles.schema.json` v1.0). New ICED-backed indicators
+SHOULD look up their backing chart by `id` (or `(page, section)`) and
+quote ICED's own `footnote`/`source` strings verbatim in their
+`indicator.notes` — per CLAUDE.md §10, the adapter owns the
+publisher's vocabulary, no normalisation. The snapshot is
+re-emittable; rerun the tool when ICED ships new charts.
+
 ## Conventions for new ICED adapters
 
 1. **One module per dashboard page family.** Don't put GHG and HDI in

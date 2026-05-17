@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/iced-chart-titles.schema.json",
+  "title": "ICED chart-title metadata catalogue",
+  "description": "Mirror of NITI Aayog's ICED `/chart-title` endpoint — every chart shown anywhere on the ICED dashboard with its page path, section, title, subtitle, footnote, and source attribution. Acts as the canonical source for `indicator.notes` text on any yen-gov indicator built from an ICED endpoint: rather than each adapter re-paraphrasing ICED's attribution, look the chart up here by `id` (or by `(page, section)`) and quote ICED's own footnote/source verbatim. This is a derived snapshot of an upstream catalogue, NOT hand-authored — `sources[]` carries the ICED URL. See docs/architecture/backend/sources-iced-api.md §chart_title.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-17",
+      "description": "Initial schema. Wraps the 581-entry chart-title catalogue ICED publishes at `/chart-title`. List shape (preserving ICED's array order) keyed implicitly by index; each entry carries the publisher-printed `chart_title`/`section_title`/`footnote`/`source` strings verbatim per CLAUDE.md §10 (adapter owns publisher vocabulary; no normalisation). Emitted by `tools/emit_iced_chart_titles.py`."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "entries"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+
+    "sources": {
+      "type": "array",
+      "description": "Per CLAUDE.md §12. Exactly one entry: the ICED /chart-title URL this snapshot was derived from.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+
+    "entries": {
+      "type": "array",
+      "description": "One entry per chart in the ICED catalogue. Order preserved from upstream — same index ICED ships, so downstream consumers can diff snapshots by position.",
+      "items": {
+        "type": "object",
+        "required": ["id", "page", "section"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ICED's chart identifier (stable across deployments). Use as the natural join key when binding to an indicator artifact."
+          },
+          "page": {
+            "type": "string",
+            "description": "Which ICED dashboard page hosts this chart (e.g. `homepage`, `state-wise-deep-dive`, `air-quality`)."
+          },
+          "section": {
+            "type": "string",
+            "description": "Section within the page (chart container slug). Multiple charts may share a section."
+          },
+          "url": {
+            "type": ["string", "null"],
+            "description": "ICED endpoint backing this chart, as ICED records it. Null when ICED doesn't expose the backing endpoint metadata. Useful for reverse-mapping our endpoints.py catalogue against what ICED actually renders."
+          },
+          "tabs": {
+            "type": ["string", "integer", "null"],
+            "description": "Tab identifier when the chart appears under a tabbed container, else null. ICED ships either a string slug or a numeric year (e.g. 2007) depending on the chart type."
+          },
+          "section_title": {
+            "type": ["string", "null"],
+            "description": "Section heading as ICED prints it. Often the headline a citizen would see ('Cumulative electric power Installed capacity from non-fossil fuel by 2030')."
+          },
+          "section_subtitle": { "type": ["string", "null"] },
+          "chart_title": { "type": ["string", "null"] },
+          "chart_subtitle": { "type": ["string", "null"] },
+          "footnote": {
+            "type": ["string", "null"],
+            "description": "Publisher's footnote, period qualifier, or methodology note as ICED prints it. Reuse verbatim in indicator.notes per CLAUDE.md §10 — do NOT normalise."
+          },
+          "source": {
+            "type": ["string", "null"],
+            "description": "Publisher's source attribution string (e.g. 'MNRE & CEA', 'MoSPI'). The CANONICAL source label for any yen-gov indicator built off this chart. Pass through verbatim."
+          }
+        }
+      }
+    }
+  }
+}
