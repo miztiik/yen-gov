@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./observation.schema.json",
+  "title": "Observation row (canonical long-format)",
+  "description": "Logical contract for a single observation. The canonical store materialises these rows as Hive-partitioned Parquet under datasets/<family>/observations.parquet; this JSON schema is the typed shape adapters emit into the batch envelope (D20) and the writer UPSERTs into DuckDB on the logical key (D7). It is NOT used to validate Parquet files directly (Parquet carries its schema in key-value metadata per D21); it is the authoritative description of a row's columns, used by adapter unit tests, fixture corpora, and the writer's typed batch envelope schema.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial canonical observation row schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). Carries the §1 canonical row exactly: (observation_id, entity_id, year:int, period_label, period_seq:int, indicator_id, value_numeric|value_text, source_id). Logical key (D7) = (entity_id, year, period_label, indicator_id); source_id is row-attribute provenance (R16), NOT in the key. value_numeric and value_text are split so administrative codes ('Nil', 'N.A.') stay distinct from null/zero (R17)."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "observation_id",
+    "entity_id",
+    "year",
+    "period_label",
+    "period_seq",
+    "indicator_id",
+    "source_id"
+  ],
+  "properties": {
+    "observation_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "sha256(entity_id || year || period_label || indicator_id). Stable UPSERT key; recomputable from the logical key (D7). Does NOT include source_id (R16)."
+    },
+    "entity_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "FK -> taxonomy/entities.json. e.g. 'IN-S22' (Tamil Nadu state), 'IN-S22-167' (district), 'IN' (country)."
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 1850,
+      "maximum": 2100,
+      "description": "End-year convention per D2: FY 2024-25 -> 2025, Q3 2024-25 -> 2025, Census 2011 -> 2011. Integer axis enables WHERE year >= 2020 in SQL."
+    },
+    "period_label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Verbatim publisher string per D3 (e.g. 'FY 2024-25', 'Q3 2024-25', 'as on 31.03.2025', 'Census 2011'). Citizen-facing axis label; never normalised."
+    },
+    "period_seq": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Intra-year sort key. annual_* / decennial -> 1; quarterly_fy -> 1..4 (Q1=Apr-Jun=1); monthly_cy -> 1..12. Renderer sorts by (year, period_seq); citizen sees period_label."
+    },
+    "indicator_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      "maxLength": 60,
+      "description": "FK -> taxonomy/indicators.json. D30 naming convention: kebab-case, single segment, <entity>-<measure>-<unit>-<facet>, max 60 chars. e.g. 'state-installed-capacity-mw-coal', 'state-gsdp-base-2011-12-inr-crore'."
+    },
+    "value_numeric": {
+      "type": ["number", "null"],
+      "description": "Numeric reading. Nullable. Exactly one of value_numeric / value_text MUST be populated per row (writer-enforced, not a JSON Schema constraint)."
+    },
+    "value_text": {
+      "type": ["string", "null"],
+      "description": "Textual reading for meaningful publisher codes like 'Nil', 'N.A.', 'Not Reported', categorical labels. Distinct from null (no data) and 0 (zero observed). Exactly one of value_numeric / value_text MUST be populated."
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "FK -> taxonomy/sources.json. Provenance pointer; NOT part of the logical key (R16). A corrected upstream value rolls source_id but keeps observation_id; the UPSERT updates the row in place."
+    }
+  }
+}

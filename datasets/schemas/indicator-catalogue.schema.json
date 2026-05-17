@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./indicator-catalogue.schema.json",
+  "title": "Indicator catalogue (canonical)",
+  "description": "Hand-authored canonical indicator catalogue (taxonomy/indicators.json). One row per indicator_id. Carries the full Hans honesty surface (D15) plus D29 catalogue additions (parent_indicator_id self-FK, dimension_values:STRUCT for facet-explode children, per-child source_id, methodology_version FK). id field enforces the D30 naming convention. Pipeline compiles to taxonomy/indicators.parquet. NOTE: this is the canonical replacement for the pre-pivot datasets/schemas/indicator.schema.json (which validates per-shard JSON under datasets/indicators/in/). The legacy file stays in place through Phase 0.13; rename of this file to indicator.schema.json happens when the pre-pivot artifacts move to _old/.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial canonical indicator catalogue schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). Carries D15 honesty surface + D29 additions: parent_indicator_id self-FK for facet-explode parents/children (D26), dimension_values:STRUCT populated iff parent_indicator_id IS NOT NULL, per-child source_id (D29 — siblings can have different upstreams), methodology_version FK to methodology-breaks.json (D28). id pattern enforces D30 kebab-case, single-segment, <=60 chars. dimension_values keys MUST appear in taxonomy/facet-axes.json registry (D31 — enforced by validator, not by JSON Schema). coverage_* columns are denormalised at every emit so the catalogue stays browseable from DuckDB-WASM without scanning observation Parquet."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "indicators"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "indicators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "indicator_id",
+          "label_short",
+          "label_long",
+          "description_short",
+          "unit",
+          "cadence",
+          "family",
+          "pillar",
+          "value_kind",
+          "direction",
+          "attribution_geography",
+          "comparability",
+          "parent_indicator_id"
+        ],
+        "properties": {
+          "indicator_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+            "maxLength": 60,
+            "description": "PK. D30 naming convention: <entity>-<measure>-<unit>-<facet>, kebab-case, single segment, max 60 chars. Approved abbreviations: nsdp, gsdp, cpi, imr, mmr, tfr, mw, gwh, mu, inr, pct. New abbreviations require Max sign-off. Methodology-version children encode the version (e.g. 'state-gsdp-base-2011-12-inr-crore'). Greppable; deterministic; no hash."
+          },
+          "label_short": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60,
+            "description": "Axis text. Citizen-readable."
+          },
+          "label_long": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Tooltip / heading text. Citizen-readable."
+          },
+          "description_short": {
+            "type": "string",
+            "minLength": 10,
+            "description": "One-line summary of what the indicator IS. OWID separates label from description."
+          },
+          "description_long": {
+            "type": ["string", "null"],
+            "description": "Paragraph-form definition + methodology pointer. Surfaced on the indicator page."
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Display unit (e.g. '%', 'INR crore', 'per 1,000 live births', 'MW')."
+          },
+          "cadence": {
+            "enum": [
+              "annual_fy",
+              "annual_cy",
+              "quarterly_fy",
+              "quarterly_cy",
+              "monthly_fy",
+              "monthly_cy",
+              "weekly",
+              "daily",
+              "decennial",
+              "ad_hoc"
+            ],
+            "description": "Per ADR-0027 + D15. Publisher's release cadence. decennial / ad_hoc series have no defined inter-observation interval — derive_temporal_range() omits gap_count for these."
+          },
+          "default_period_seq_for_cadence": {
+            "type": ["integer", "null"],
+            "description": "When multiple cadences coexist for this indicator (e.g. monthly + annual), the period_seq the chart picks by default. Null when not applicable."
+          },
+          "family": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "description": "Storage axis (e.g. 'elections', 'energy', 'fiscal'). Partition column when family Parquet > 15 MB (D8)."
+          },
+          "pillar": {
+            "enum": ["people", "money", "infrastructure", "politics"],
+            "description": "Curation axis for the citizen-facing browse. Distinct from family (storage axis)."
+          },
+          "topic_tags": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+            "description": "Free-tagged for catalogue browse (e.g. ['renewables', 'climate', 'fuel_mix'])."
+          },
+          "value_kind": {
+            "enum": ["absolute", "rate", "ratio", "count", "index", "percentage", "currency"],
+            "description": "Drives chart formatter selection."
+          },
+          "direction": {
+            "enum": ["higher_is_better", "lower_is_better", "neutral"],
+            "description": "Drives colour-ramp selection."
+          },
+          "denominator": {
+            "type": ["string", "null"],
+            "description": "For rates/ratios: what they are per (e.g. 'population_total', 'gsdp_current_inr_crore'). Free-text; may be an indicator_id or a publisher-defined denominator."
+          },
+          "attribution_geography": {
+            "enum": [
+              "where_produced",
+              "where_allocated",
+              "where_consumed",
+              "where_billed",
+              "where_resident",
+              "where_administered"
+            ],
+            "description": "What the entity_id geographically represents per Hans review. Renderer surfaces banner for where_produced / where_allocated / where_billed to prevent siting-as-service misreading."
+          },
+          "comparability": {
+            "enum": [
+              "comparable_across_states_and_time",
+              "comparable_across_states_snapshot_only",
+              "comparable_within_state_over_time",
+              "directional_only"
+            ],
+            "description": "Hans 4-level honesty ladder. directional_only suppresses rank-table views and labels the choropleth 'illustrative, not a ranking'."
+          },
+          "implementing_authority": {
+            "enum": ["state", "centre", "joint", "local_body", "parastatal", "private", "unspecified"],
+            "description": "Who actually executes vs who funds (see funding_split). Many CSS schemes are centre-funded but state-implemented = joint."
+          },
+          "funding_split": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["centre_pct", "state_pct", "source"],
+            "properties": {
+              "centre_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+              "state_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+              "other_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+              "source": { "type": "string", "minLength": 1 }
+            },
+            "description": "Centre-vs-state attribution. Critical so a citizen reading 'state X is doing well' knows whether the state government, the Centre, or a CSS drove it."
+          },
+          "methodology_vintage": {
+            "type": ["string", "null"],
+            "description": "Short string naming the methodology revision (e.g. 'GSDP base 2011-12'). Distinct from observation year — a 2024 NFHS-6 figure has the same year as a 2024 NFHS-5 backcast but different vintage."
+          },
+          "revision_tier": {
+            "enum": ["first_release", "revised", "final", "mixed"],
+            "description": "Publisher's revision-tier discipline for this indicator. 'mixed' when rows span tiers (each row carries its own vintage on the observation)."
+          },
+          "excluded_notes": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "description": "Citizen-facing what's-NOT-counted bullets (Hans framing). e.g. 'IGNOAPS / IGNWPS social pensions excluded'."
+          },
+          "parent_indicator_id": {
+            "type": ["string", "null"],
+            "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+            "maxLength": 60,
+            "description": "D26 facet-explode self-FK. null for parent indicators; populated for facet-explode children. When non-null, dimension_values MUST be non-null (validator-enforced)."
+          },
+          "dimension_values": {
+            "type": ["object", "null"],
+            "additionalProperties": { "type": "string", "minLength": 1 },
+            "description": "D29. Populated iff parent_indicator_id IS NOT NULL. Keys MUST appear in taxonomy/facet-axes.json registry (D31 — validator-enforced, not JSON Schema). e.g. {fuel_type: 'coal'} for a 'state-installed-capacity-mw-coal' child of 'state-installed-capacity-mw'."
+          },
+          "methodology_version": {
+            "type": ["string", "null"],
+            "description": "D28. FK to methodology-breaks.json. Together with id-encoded break (D30 puts the version in the id) gives the chart shell both the splice-marker (visible vertical rule via D32) and the prose narrative."
+          },
+          "methodology_break_ids": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "description": "FK[] -> methodology-breaks.json. All breaks active across this series (a long series can cross multiple)."
+          },
+          "source_id": {
+            "type": ["string", "null"],
+            "description": "D29 — per-child source_id (NOT shared across siblings). coal-capacity from CEA and solar-capacity from MNRE are siblings of one parent with different sources. null on the parent row; required on each child."
+          },
+          "coverage_states_count": {
+            "type": ["integer", "null"],
+            "description": "Denormalised at every emit. Supports the catalogue's 'has data for >=80% states' filter without scanning observation Parquet from the browser."
+          },
+          "coverage_year_min": {
+            "type": ["integer", "null"],
+            "description": "Denormalised. Earliest observation year for this indicator."
+          },
+          "coverage_year_max": {
+            "type": ["integer", "null"],
+            "description": "Denormalised. Latest observation year."
+          },
+          "coverage_density": {
+            "type": ["number", "null"],
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Denormalised. Fraction of (eligible_entity x year) cells observed. 1.0 = complete; 0.0 = empty."
+          },
+          "renderer_rules": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+            "description": "Controlled-vocab slugs binding renderer behaviour (e.g. 'no_rank_table', 'no_growth_across_break', 'mask_be_in_long_view'). Vocabulary lives in docs/concepts/indicator-naming.md."
+          }
+        }
+      }
+    }
+  }
+}

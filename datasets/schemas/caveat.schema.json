@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./caveat.schema.json",
+  "title": "Caveats table (cross-cadence misleading-join banners)",
+  "description": "Hand-authored caveat catalogue. Per D16 this surface is for CROSS-CADENCE MISLEADING-JOIN banners ONLY (e.g. 'this chart joins monthly RBI cash data against annual MoSPI accruals — magnitudes are not directly comparable'). Methodology / base-year breaks live on the SEPARATE methodology-breaks.json surface — conflating them merges two distinct citizen risks into one ambiguous banner. Authoring shape JSON (D18); pipeline compiles to taxonomy/caveats.parquet.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial canonical caveats table schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). Scope per D16: cross-cadence misleading-join banners only. Carries the (indicator_ids[] or family) trigger condition + the banner body text. Loader joins caveats to chart-shell view-model (D19); chart renders one banner per matched caveat."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "caveats"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "caveats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["caveat_id", "kind", "trigger", "banner_short", "banner_long"],
+        "properties": {
+          "caveat_id": {
+            "type": "string",
+            "pattern": "^cv-[a-z0-9_-]+$",
+            "description": "PK. Convention: 'cv-<slug>' (e.g. 'cv-monthly-vs-annual-fiscal')."
+          },
+          "kind": {
+            "enum": [
+              "cross_cadence_join",
+              "cross_attribution_geography",
+              "cross_methodology_vintage_within_series",
+              "denominator_mismatch"
+            ],
+            "description": "Type of misleading-join risk this caveat warns about. cross_methodology_vintage_within_series is for the rare case where a single indicator's vintage drifts within the displayed range — distinct from a hard methodology BREAK (which lives on methodology-breaks.json)."
+          },
+          "trigger": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Condition the loader matches against the active chart's view-model to decide whether to surface this banner. Exactly one of (indicator_ids[], indicator_pair, family) is populated.",
+            "properties": {
+              "indicator_ids": {
+                "type": "array",
+                "items": { "type": "string", "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$" },
+                "description": "Triggers when ANY of these indicator_ids appears in the view-model."
+              },
+              "indicator_pair": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": { "type": "string", "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$" },
+                "description": "Triggers when BOTH indicator_ids are present in the same view-model (a join condition)."
+              },
+              "family": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*$",
+                "description": "Triggers for any view-model drawing from this family."
+              }
+            }
+          },
+          "banner_short": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 200,
+            "description": "Citizen-readable short copy (inline above the chart)."
+          },
+          "banner_long": {
+            "type": "string",
+            "minLength": 20,
+            "description": "Citizen-readable expanded copy (revealed on 'why' tap)."
+          },
+          "source_url": {
+            "type": ["string", "null"],
+            "description": "Optional pointer to the authoritative explainer (publisher methodology doc, Hans note, etc.)."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./source.schema.json",
+  "title": "Sources table (canonical provenance)",
+  "description": "Hand-authored / adapter-generated provenance catalogue. One row per (url, content_hash). Replaces per-file sources[] smearing (R6/R7) — observations reference rows here via source_id FK (D5/D6). Field set = OWID origin.* verbatim + yen-gov extensions explicitly tagged. Authored shape is JSON (PR-reviewable, D18); pipeline compiles to taxonomy/sources.parquet for DuckDB consumption.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial canonical sources table schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). OWID origin.* fields verbatim (producer, citation_full, url_main, url_download, date_accessed, license, vintage). yen-gov extensions tagged in property descriptions: source_id (PK), content_hash, first_fetched_at, last_seen_at, confidence_tier, is_issuing_authority. Per D5/D6."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "sources"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "url",
+          "content_hash",
+          "producer",
+          "license",
+          "first_fetched_at",
+          "last_seen_at",
+          "confidence_tier",
+          "is_issuing_authority"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9]{8,}$",
+            "description": "yen-gov extension (not OWID). PK; stable across re-fetches. Convention: 'src-<8+ hex chars of stable hash>'. Adapters generate; never renumbered."
+          },
+          "url": {
+            "type": "string",
+            "description": "yen-gov extension. The exact http(s)://... URL the pipeline fetched. Empty string for hand-authored content (producer='yen-gov'). Together with content_hash forms the natural dedup key before source_id is assigned."
+          },
+          "content_hash": {
+            "type": "string",
+            "pattern": "^(sha256:[0-9a-f]{64}|)$",
+            "description": "yen-gov extension. sha256 of the fetched bytes, hex, prefixed 'sha256:'. Empty string for hand-authored. Idempotency anchor: a re-fetch yielding the same hash updates last_seen_at and nothing else."
+          },
+          "producer": {
+            "type": "string",
+            "minLength": 1,
+            "description": "OWID origin.producer verbatim. Publisher org (e.g. 'Election Commission of India', 'Ministry of Statistics and Programme Implementation', 'Reserve Bank of India'). For hand-authored: 'yen-gov'."
+          },
+          "citation_full": {
+            "type": "string",
+            "description": "OWID origin.citation_full verbatim. Full bibliographic citation string."
+          },
+          "url_main": {
+            "type": "string",
+            "description": "OWID origin.url_main verbatim. Landing / about page (often distinct from the bytes URL)."
+          },
+          "url_download": {
+            "type": "string",
+            "description": "OWID origin.url_download verbatim. Direct download URL; equals `url` for HTML scrapes."
+          },
+          "date_accessed": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "OWID origin.date_accessed verbatim. UTC date (YYYY-MM-DD) the pipeline first read this URL. Distinct from first_fetched_at by intent: date_accessed is OWID-conformant for citation; first_fetched_at is RFC 3339 with time."
+          },
+          "first_fetched_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "yen-gov extension. RFC 3339 UTC; immutable; citizen-facing. Set once on first observation of (url, content_hash); never updated. Per D6."
+          },
+          "last_seen_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "yen-gov extension. RFC 3339 UTC; updated on every re-fetch that confirms the same content_hash. Operational telemetry; NOT citizen-facing. Per D6 — dissolves the fetched_at smear."
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1,
+            "description": "OWID origin.license verbatim. Short code: 'OGL-IN-1.0', 'CC-BY-4.0', 'CC0-1.0', 'public-domain', 'unknown-public', 'internal' (hand-authored)."
+          },
+          "vintage": {
+            "type": ["string", "null"],
+            "description": "OWID origin.vintage verbatim. Source's own period / revision label (e.g. 'FY 2024-25', 'Provisional Estimates', '2025 release'). Preserved as-published; never normalised."
+          },
+          "confidence_tier": {
+            "enum": ["gold", "silver", "bronze"],
+            "description": "yen-gov extension (not OWID). gold = issuing authority publishing its own primary data (ECI, MoSPI, RBI). silver = reputable secondary republisher / research aggregator (PRS, CMIE, OWID-imported). bronze = single-paper / unverified mirror — surface with caveat. Curation discipline for Indian mixed-quality data shelves; OWID's editorial gate happens upstream of the table so they don't need this."
+          },
+          "is_issuing_authority": {
+            "type": "boolean",
+            "description": "yen-gov extension (not OWID). True iff producer is the official issuing authority for this data (e.g. ECI for election results, NCRB for crime). False for republishers. Often implied by confidence_tier=gold but explicit for the rare gold-republisher case."
+          }
+        }
+      }
+    }
+  }
+}

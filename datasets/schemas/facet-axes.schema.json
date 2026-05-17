@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./facet-axes.schema.json",
+  "title": "Facet axes registry (D31)",
+  "description": "datasets/taxonomy/facet-axes.json. Per D31, the canonical registry of every allowed key that may appear in an indicator-catalogue row's dimension_values:STRUCT (D26 facet-explode children). The catalogue validator REJECTS any dimension_values key not in this registry — a guardrail against ad-hoc dimension proliferation as the corpus grows (§0b 500-1,000+ indicators path). New axes require a deliberate PR to this file, not an ad-hoc adapter choice. Each axis carries the controlled-vocabulary of allowed VALUES (so 'fuel_type' can only take 'coal', 'solar', etc.) so the validator catches typos and the renderer can pre-compute legends without scanning observation Parquet.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial canonical facet axes registry schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). Per D31 — Gregor's R2 concession term. Seeded axes (populated Phase 0.4): fuel_type, sector, head_of_account, gender, residence, prices_basis, methodology_version, transfer_type, category, crime_category, cpi_category, loss_type. Each axis declares allowed values + a citizen-readable label per value. New axes added by Phase 2/3 ingestion via PR."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "axes"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "axes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["axis_id", "label", "description", "values"],
+        "properties": {
+          "axis_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "description": "PK. Snake_case. The key that appears in indicator-catalogue row's dimension_values:STRUCT (e.g. 'fuel_type')."
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Citizen-readable axis name (e.g. 'Fuel type', 'Head of account'). Used as legend / facet-picker heading when surfaced."
+          },
+          "description": {
+            "type": "string",
+            "minLength": 10,
+            "description": "What this axis MEANS — distinguishes overlapping axes (e.g. 'sector' (industrial / agricultural) vs 'head_of_account' (revenue / capital))."
+          },
+          "values": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["value_id", "label"],
+              "properties": {
+                "value_id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9_-]*$",
+                  "description": "The value as it appears in dimension_values (e.g. 'coal', 'solar_utility', 'base-2011-12'). kebab-case or snake_case; <=40 chars."
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Citizen-readable label (e.g. 'Coal', 'Solar (utility scale)'). Renderer uses this in legends."
+                },
+                "description": {
+                  "type": ["string", "null"],
+                  "description": "Optional editorial note (e.g. 'Excludes captive coal capacity')."
+                },
+                "deprecated": {
+                  "type": "boolean",
+                  "description": "When true, the value is grandfathered but no new ingest should use it. Validator warns; doesn't reject."
+                }
+              }
+            }
+          },
+          "allow_compute_on_read_total": {
+            "type": "boolean",
+            "description": "Per D33.8 — when true, the renderer MAY synthesise a 'total' row via SUM(value) GROUP BY entity, year over the children. When false, a published 'total' was authoritative and should be carried as its own indicator (not synthesised)."
+          }
+        }
+      }
+    }
+  }
+}
