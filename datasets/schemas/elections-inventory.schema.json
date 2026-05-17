@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/elections-inventory.schema.json",
+  "title": "Elections ingest inventory",
+  "description": "Declarative record of which (election_id, state, source_input) tuples have been ingested and validated. Re-runs trust this file and skip; operators delete an entry (or pass --force) to re-ingest deliberately. Replaces per-run corpus validation per CLAUDE.md §10 doctrine (Tier-B is local pre-emit, not CI-gated).",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-17",
+      "description": "Initial schema. Per-entry record of ingest completion with discrepancy summary; treated as the 'done and tested' marker for a state-election-source triple."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "sources", "ingested"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "sources": {
+      "type": "array",
+      "description": "Hand-authored inventory file — empty array per CLAUDE.md §12. Maintained by the ingest pipeline; entries reflect what was emitted, not a re-fetched upstream.",
+      "maxItems": 0
+    },
+    "ingested": {
+      "type": "array",
+      "description": "One entry per completed ingest. Identity = (election_id, state, source_input).",
+      "items": {
+        "type": "object",
+        "required": [
+          "election_id",
+          "state",
+          "source_input",
+          "ingested_at"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "election_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "ECI election event id (e.g. AcGenApr2021)."
+          },
+          "state": {
+            "type": "string",
+            "pattern": "^[SU]\\d{2}$"
+          },
+          "source_input": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Adapter input identifier (e.g. tn_ae_panel_1971_2021). Stable across re-runs of the same input; bumped when a fundamentally new input replaces it."
+          },
+          "ingested_at": {
+            "type": "string",
+            "format": "date",
+            "description": "Date the ingest completed. Date precision only — operator wall-clock is not provenance (CLAUDE.md §10)."
+          },
+          "discrepancy_summary": {
+            "type": "object",
+            "description": "Headline numbers from the discrepancy report (full detail in .runtime/reports/). Lets a human scan the inventory and spot regressions without opening reports.",
+            "required": ["acs_total", "acs_with_mismatch", "halted"],
+            "additionalProperties": false,
+            "properties": {
+              "acs_total": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "acs_with_mismatch": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "coverage_pct": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "mean_delta_pp": {
+                "type": "number",
+                "minimum": 0
+              },
+              "halted": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

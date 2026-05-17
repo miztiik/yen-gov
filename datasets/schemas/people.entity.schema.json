@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/people.entity.schema.json",
+  "title": "Person entity (candidate)",
+  "description": "Source-agnostic record for one person who appeared on the ballot in one election. Identity is (election_id, ac_code, candidate_slug). Per-field provenance under field_provenance lets multiple adapters contribute different fields with different trust grades. Vote facts live on result.constituency artifacts; this file carries the biographics ECI Section 10 does not publish in machine-readable form.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-17",
+      "description": "Initial schema. Identity (election_id, state, ac_code, candidate_slug), biographics (sex, age, education, profession, party_type), per-field provenance grade markers."
+    }
+  ],
+  "type": "object",
+  "required": [
+    "$schema",
+    "$schema_version",
+    "sources",
+    "election_id",
+    "state",
+    "ac_code",
+    "candidate_slug",
+    "name"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12 / ADR-0002. Each entry is one upstream URL plus the timestamp our pipeline first ingested it. ECI is the authority for all election data; carrier-only inputs are not named.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "fetched_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable upstream name (e.g. \"Statistical Report on General Election to Legislative Assembly of Tamil Nadu, 2021\")."
+          },
+          "authority": {
+            "type": "string",
+            "description": "Issuing authority (e.g. \"Election Commission of India\")."
+          }
+        }
+      }
+    },
+    "election_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "ECI election event id (e.g. AcGenApr2021). Matches result.constituency.election."
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[SU]\\d{2}$",
+      "description": "ECI state code (e.g. S22 for Tamil Nadu)."
+    },
+    "ac_code": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "ECI AC/PC number. Matches result.constituency.eci_no."
+    },
+    "candidate_slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "minLength": 1,
+      "description": "Lowercase slug of candidate name, derived once at first emit and stable thereafter."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "party_short": {
+      "type": "string",
+      "minLength": 1
+    },
+    "party_eci_code": {
+      "type": ["string", "null"],
+      "pattern": "^\\d+$",
+      "description": "Null for independents."
+    },
+    "party_type": {
+      "type": ["string", "null"],
+      "enum": [
+        "NATIONAL",
+        "STATE",
+        "OTHER_STATE",
+        "REGISTERED_UNRECOGNISED",
+        "INDEPENDENT",
+        null
+      ],
+      "description": "ECI's 5-bucket party classification (ECI codebook). Null when not declared."
+    },
+    "sex": {
+      "type": ["string", "null"],
+      "enum": ["Male", "Female", "Other", null],
+      "description": "Normalised from ECI codebook values. Optional; null when not declared."
+    },
+    "age": {
+      "type": ["integer", "null"],
+      "minimum": 18,
+      "maximum": 120,
+      "description": "Candidate age at nomination. Lower bound 18 = constitutional minimum (Art. 173(b)). Null when not declared."
+    },
+    "constituency_type": {
+      "type": ["string", "null"],
+      "enum": ["GEN", "SC", "ST", null],
+      "description": "Seat reservation category. Null when not declared."
+    },
+    "education": {
+      "type": ["string", "null"],
+      "enum": [
+        "Illiterate",
+        "Literate",
+        "5th Pass",
+        "8th Pass",
+        "10th Pass",
+        "12th Pass",
+        "Graduate",
+        "Graduate Professional",
+        "Post Graduate",
+        "Doctorate",
+        "Others",
+        null
+      ],
+      "description": "Indian credential ladder. Self-declared on Form-26 affidavit; no authority verifies. Optional; null when blank."
+    },
+    "profession": {
+      "type": ["string", "null"],
+      "enum": [
+        "Agriculture",
+        "Agricultural Labour",
+        "Business",
+        "Education",
+        "Former Government",
+        "Labourer or Daily Wage",
+        "Liberal Profession or Professional",
+        "Other",
+        "Politics",
+        "Religious Occupation",
+        "Retired or Pension",
+        "Salaried Work or Employed",
+        "Small Business or Self-employed",
+        "Social Work",
+        "Student",
+        "Traditional Occupation",
+        "Unemployed",
+        null
+      ],
+      "description": "Self-declared profession category. 17 verbatim values + null when blank. Class distinctions (Agriculture vs Agricultural Labour) preserved deliberately."
+    },
+    "field_provenance": {
+      "type": "object",
+      "description": "Per-field trust grade. Key = field name on this artifact; value carries the universal 4-tier grade (issuing_authority / sworn_declaration / third_party_curated / derived) plus the source_id (matches an entry in sources[]).",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["grade", "source_id"],
+        "additionalProperties": false,
+        "properties": {
+          "grade": {
+            "enum": [
+              "issuing_authority",
+              "sworn_declaration",
+              "third_party_curated",
+              "derived"
+            ]
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Identifier matching the publisher/adapter id (e.g. eci_html, eci_statreport). Never the carrier name."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/elections-config.schema.json",
+  "title": "Elections tuning config",
+  "description": "Operator-tunable knobs for the elections ingest pipeline: provenance grade priorities, field-level adapter precedence, discrepancy thresholds. Enums (sex, party_type, education, profession) deliberately live in artifact schemas (people.entity.schema.json), NOT here — taxonomy is contract, not tuning. Mixing the two invites someone to 'tune' an enum value and break consumers.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-17",
+      "description": "Initial schema. provenance_grades, field_priority, discrepancy_thresholds."
+    }
+  ],
+  "type": "object",
+  "required": [
+    "$schema",
+    "$schema_version",
+    "sources",
+    "provenance_grades",
+    "field_priority",
+    "discrepancy_thresholds"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "sources": {
+      "type": "array",
+      "description": "Hand-authored config per CLAUDE.md §12 — empty array.",
+      "maxItems": 0
+    },
+    "provenance_grades": {
+      "type": "object",
+      "description": "Universal 4-tier grades with numeric priority. Higher priority wins in field merge. Source-agnostic by design.",
+      "required": [
+        "issuing_authority",
+        "sworn_declaration",
+        "third_party_curated",
+        "derived"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "issuing_authority":   { "$ref": "#/$defs/grade_entry" },
+        "sworn_declaration":   { "$ref": "#/$defs/grade_entry" },
+        "third_party_curated": { "$ref": "#/$defs/grade_entry" },
+        "derived":             { "$ref": "#/$defs/grade_entry" }
+      }
+    },
+    "field_priority": {
+      "type": "object",
+      "description": "Per-field ordered list of adapter ids. First adapter in the list wins when multiple adapters contribute the same field. Adapter ids are publishers/transports (eci_html, eci_statreport), never carriers.",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        }
+      }
+    },
+    "discrepancy_thresholds": {
+      "type": "object",
+      "description": "Per-(state, election_year) thresholds. Halt aborts the ingest run; warn writes the artifact and flags the report. Never aggregated across years — hides regime-specific methodology breaks (Hans).",
+      "required": ["ac_mismatch_pct", "mean_delta_pp"],
+      "additionalProperties": false,
+      "properties": {
+        "ac_mismatch_pct": { "$ref": "#/$defs/threshold_pair" },
+        "mean_delta_pp":   { "$ref": "#/$defs/threshold_pair" }
+      }
+    }
+  },
+  "$defs": {
+    "grade_entry": {
+      "type": "object",
+      "required": ["priority"],
+      "additionalProperties": false,
+      "properties": {
+        "priority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "threshold_pair": {
+      "type": "object",
+      "required": ["warn", "halt"],
+      "additionalProperties": false,
+      "properties": {
+        "warn": {
+          "type": "number",
+          "minimum": 0
+        },
+        "halt": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    }
+  }
+}

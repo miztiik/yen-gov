@@ -1,0 +1,25 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/elections-config.schema.json",
+  "$schema_version": "1.0",
+  "sources": [],
+  "provenance_grades": {
+    "issuing_authority":   { "priority": 100 },
+    "sworn_declaration":   { "priority": 80 },
+    "third_party_curated": { "priority": 60 },
+    "derived":             { "priority": 40 }
+  },
+  "field_priority": {
+    "votes":      ["eci_html", "eci_statreport"],
+    "electors":   ["eci_html", "eci_statreport"],
+    "turnout":    ["eci_html", "eci_statreport"],
+    "sex":        ["eci_html", "eci_statreport"],
+    "age":        ["eci_html", "eci_statreport"],
+    "education":  ["eci_statreport"],
+    "profession": ["eci_statreport"],
+    "party_type": ["eci_html", "eci_statreport"]
+  },
+  "discrepancy_thresholds": {
+    "ac_mismatch_pct": { "warn": 0.5, "halt": 2.0 },
+    "mean_delta_pp":   { "warn": 0.1, "halt": 0.5 }
+  }
+}
