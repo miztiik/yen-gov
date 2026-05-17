@@ -23,6 +23,12 @@
     extractLakshadweepGeometry,
     geometryToSvgPath,
   } from "./lakshadweep";
+  import UnmappedRegionChips from "./UnmappedRegionChips.svelte";
+  import {
+    fetchUnmappedRegions,
+    buildPopulationMap,
+    type UnmappedRegion,
+  } from "./unmapped-region-chips";
   import {
     initialDrillState,
     drillTo,
@@ -276,6 +282,46 @@
       const geom = extractLakshadweepGeometry(fc);
       lakshadweep_path = geometryToSvgPath(geom, { width: 80, height: 80, padding: 6 });
     });
+    return () => {
+      cancelled = true;
+    };
+  });
+
+  // Unmapped-region chip subsystem (ADR-0029). Replaces the legacy 80×80
+  // polygon inset for sub-readability UTs (Lakshadweep, Andaman & Nicobar):
+  // the inset's polygon fill is sub-pixel, so it shows the islands but
+  // fails to communicate the legend bucket — the chip on the legend strip
+  // surfaces the value + bucket colour + population anchor instead.
+  // Behind VITE_UNMAPPED_REGION_CHIPS (default "on"); setting to "off"
+  // restores the legacy inset rendering byte-identically. See
+  // docs/concepts/unmapped-regions.md.
+  const unmapped_chips_enabled =
+    import.meta.env.VITE_UNMAPPED_REGION_CHIPS !== "off";
+
+  // Absolute people counts for the chip strip, derived from the same
+  // state-population indicator artifact the rest of the project consumes
+  // (single source of truth — CLAUDE.md §6, Holy Law #6). Loader failure
+  // is non-fatal: the chip falls through to the "—" pop variant.
+  let unmapped_regions = $state<UnmappedRegion[]>([]);
+  let unmapped_populations = $state<Map<string, number>>(new Map());
+  $effect(() => {
+    if (!unmapped_chips_enabled) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const regions = await fetchUnmappedRegions();
+        if (cancelled) return;
+        unmapped_regions = regions;
+        const pop_artifact = await fetchIndicator(
+          "/indicators/in/demography/state_population_lakhs.json",
+        );
+        if (cancelled) return;
+        unmapped_populations = buildPopulationMap(pop_artifact.rows, regions);
+      } catch {
+        // Graceful degradation — chips render with "—" in the pop slot,
+        // or the strip stays empty if even the regions list failed to load.
+      }
+    })();
     return () => {
       cancelled = true;
     };
@@ -794,12 +840,14 @@
             >dismiss</button>
           </div>
         {/if}
-        <!-- Lakshadweep callout (Phase 3 §c, Jony edit). Visible at
-             national zoom only; the labelled border carries the meaning
-             ("shown 10×"), no connecting line — the line would imply
-             geographic continuity that isn't there. Pure SVG inset, no
-             second maplibre instance. -->
-        {#if drill_state.level === "state" && lakshadweep_path}
+        <!-- Lakshadweep callout — LEGACY render path (Phase 3 §c, original
+             Jony edit). Retained behind the unmapped-region-chip feature
+             flag so a single env-var flip (VITE_UNMAPPED_REGION_CHIPS=off)
+             restores the historical behaviour byte-identically. The chip
+             subsystem (ADR-0029) supersedes this: the 80×80 polygon's fill
+             is sub-pixel and cannot communicate a legend bucket; the chip
+             on the legend strip does. -->
+        {#if !unmapped_chips_enabled && drill_state.level === "state" && lakshadweep_path}
           <div
             class="absolute bottom-2 left-2 pointer-events-none flex flex-col items-stretch"
             style:width="84px"
@@ -875,6 +923,32 @@
           <span>{legend_stops[2]?.label ?? ""}</span>
           <span>{legend_stops[4]?.label ?? ""}</span>
         </div>
+        {#if unmapped_chips_enabled && drill_state.level === "state" && artifact}
+          {@const ind = artifact.indicator}
+          {@const scale = ind.scale_hint ?? "linear"}
+          <!-- Unmapped-region chip strip (ADR-0029). Surfaces sub-pixel UTs
+               (Lakshadweep, A&N) as legend-bound value chips: same swatch
+               colour the polygon would have, plus a population anchor so
+               per-capita rankings are read honestly. Hidden below the
+               state-level zoom (deeper levels render a single state). -->
+          <div class="mt-2">
+            <UnmappedRegionChips
+              regions={unmapped_regions}
+              {values}
+              populations={unmapped_populations}
+              fillFor={(v) =>
+                fillForValue(v, domain.min, domain.max, ind.direction, scale)}
+              formatValueFn={(v) => formatValue(v, ind)}
+              onSelect={() => {
+                /* No-op for v0 — sub-readability UTs are not currently a
+                   drill target. The button still gives tap-feedback so the
+                   chip reads as interactive (consistent with the rest of
+                   the legend); destination wiring follows when a UT detail
+                   route exists. */
+              }}
+            />
+          </div>
+        {/if}
       </div>
 
       <!-- Notes promoted to high priority: it shapes interpretation. -->

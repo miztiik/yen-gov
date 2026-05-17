@@ -68,6 +68,20 @@ test.describe("golden path", () => {
       caption_text,
       `Temporal caption empty or missing cadence vocabulary: "${caption_text}"`,
     ).toMatch(/(annual|quarterly|monthly|every 10 years|irregular updates|As of)/i);
+
+    // Unmapped-region chip strip (ADR-0029): Lakshadweep + A&N Islands are
+    // sub-pixel on the India choropleth, so their indicator value is
+    // surfaced as a value chip on the legend strip instead. Assert the
+    // strip mounts and the Lakshadweep chip carries its label — proves
+    // both the runtime fetch of datasets/reference/in/unmapped_regions.json
+    // and the chip render path.
+    const chip_strip = page
+      .getByTestId("unmapped-region-chip-strip")
+      .first();
+    await expect(chip_strip).toBeVisible({ timeout: 15_000 });
+    await expect(
+      chip_strip.locator('[data-entity-id="U04"]'),
+    ).toContainText(/Lakshadweep/i);
   });
 
   test("state overview renders party totals and AC list for Tamil Nadu", async ({ page }) => {

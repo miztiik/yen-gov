@@ -370,6 +370,10 @@ A connecting line from the inset to the islands' true location would suggest the
 
 Vitest cannot mount maplibre, but the projection math is the actual logic worth testing — bbox walking, MultiPolygon flattening, Y-flip orientation, aspect-preserving centring. Carving the helper out of the Svelte component lets `lakshadweep.test.ts` (11 cases) assert the path string directly. The component-side wiring is a single `$effect` and a conditional render, both verified manually per CLAUDE.md §13.
 
+### Superseded by value chips (ADR-0029, 2026-05-17)
+
+The polygon inset above ships behind `VITE_UNMAPPED_REGION_CHIPS=off`; the default surface is now a horizontal **value-chip strip** on the legend area carrying UT name + indicator value + bucket-colour swatch + population anchor. The chip mechanism solves the legend-bucket-readability job the inset failed (sub-pixel fill at any inset scale). The earlier "no leader line" reasoning is preserved — chips live outside the map and make no geographic claim. See [docs/concepts/unmapped-regions.md](../../concepts/unmapped-regions.md) and [ADR-0029](../decisions/0029-unmapped-region-chips.md).
+
 ## See also
 
 - [Frontend overview](overview.md) — visualization catalog, personas.
