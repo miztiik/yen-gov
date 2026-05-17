@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/boundary.no-geometry-registry.schema.json",
+  "title": "No-geometry place registry entry",
+  "description": "Declares a place (currently only the country level) that exists as an entity in the place hierarchy but has NO choropleth geometry attached. Consumed by the frontend country-entity router so `/india` and `/india/<indicator-slug>` routes can render line/scalar primitives without ever asking the map layer for a polygon. Per TODO/20260517-iced-bulk-ingest-and-parity-oracle.md Phase 1 step 3 and ADR-0028 (place-first URL cascade). Distinct from `boundary.sources.schema.json`: that file carries provenance for a sibling GeoJSON; this file declares the deliberate absence of one.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-17",
+      "description": "Initial schema. Locks the no-geometry registry-entry shape (name, iso3166, no_geometry, plus §12 envelope). Created for the country-entity rollout — first user is `datasets/boundaries/in/country/IN.json`."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "name", "iso3166", "no_geometry", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string" },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable place name in citizen-facing English (e.g. \"India\")."
+    },
+    "iso3166": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "ISO 3166-1 alpha-2 country code (e.g. \"IN\"). Alpha-2 matches the convention already used in `state.schema.json`'s top-level `country` field; alpha-3 is intentionally not carried here to keep one canonical form."
+    },
+    "no_geometry": {
+      "type": "boolean",
+      "const": true,
+      "description": "Must be `true`. The whole point of this schema is to be the explicit declaration that this place has no choropleth geometry; entries with geometry belong in `frontend/src/lib/maplibre/sources.ts` and the `datasets/boundaries/in/geojson/` snapshot, not here."
+    },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12. Hand-authored registry entries use the empty-array convention.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  }
+}

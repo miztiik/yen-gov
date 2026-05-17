@@ -1,0 +1,9 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/boundary.no-geometry-registry.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "Country-level place registry entry for India. The country renders to line/scalar primitives only (never a choropleth), so it deliberately carries no GeoJSON. Created 2026-05-17 for the country-entity URL rollout (ADR-0028, TODO/20260517-iced-bulk-ingest-and-parity-oracle.md Phase 1 step 3). When the country-entity loader (Phase 3b) lands, it reads this file to validate `/india` / `/india/<indicator-slug>` routes.",
+  "name": "India",
+  "iso3166": "IN",
+  "no_geometry": true,
+  "sources": []
+}
