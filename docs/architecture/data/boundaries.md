@@ -1,9 +1,11 @@
 # Boundaries — disk topology, identifier discipline, sidecars
 
-**Last Updated**: 2026-05-15
+**Last Updated**: 2026-05-18
 **Owner**: data layer (`backend/yen_gov/pipelines/boundaries_*` + `tools/lgd/`)
 
 This doc captures the rationale behind every design choice that touched the boundary stack as it evolved from "one `india.geojson` outline" through "LGD-coded states + districts" to TN-granular sub-district + village layers (TODO/TN-GRANULAR-GEO-PLAN.md). When the plan and this doc disagree, **this doc wins** (Holy Law #4 — docs are agent memory; the plan is a working artifact).
+
+> **Canonical pivot stance (2026-05-18)**: under the canonical long-format pivot ([ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md)), the boundary tree is a **sibling family** to the canonical Parquet store — not pre-pivot legacy. Geometry stays in GeoJSON / PMTiles (per-layer cutover spec in [ADR-0031](../decisions/0031-boundary-geometry-strategy.md)) and `datasets/boundaries/` is **excluded from the Phase 0.13 `_old/` move and from the Phase 1.8 `_old/` deletion** (R25). No file under `datasets/boundaries/` is moved, renamed, or deleted by any pivot step. Frontend boundary discovery shifts from hardcoded paths to `datasets/manifest.json` (D21) in Phase 0.8 — operational detail in this doc otherwise unchanged.
 
 ## Disk layout
 
@@ -106,6 +108,9 @@ Disk layout sits OUTSIDE the LGD `geojson/` tree to make the orthogonality visib
 ## See also
 
 - [TODO/TN-GRANULAR-GEO-PLAN.md](../../../TODO/TN-GRANULAR-GEO-PLAN.md) — implementation plan that drove this doc.
+- [ADR-0030 — canonical store on Parquet + DuckDB-WASM](../decisions/0030-canonical-store-duckdb-wasm.md) — sibling-family rationale (D25).
+- [ADR-0031 — boundary geometry strategy](../decisions/0031-boundary-geometry-strategy.md) — format-per-layer, GeoJSON→PMTiles cutover, no-move rule.
+- [canonical-store.md §17](canonical-store.md) — resolution path from observation row to boundary file.
 - [ADR-0019: dataset topology + canonical column names](../decisions/0019-dataset-topology-and-column-discipline.md) — `subdistrict_lgd_code` and `village_lgd_code` first-class promotion.
 - [ADR-0015: constituency hierarchy fields](../decisions/0015-constituency-hierarchy-fields.md) — `district_id` lifecycle.
 - [ADR-0003: ephemeral raw under `.runtime/`](../decisions/0003-ephemeral-raw-under-runtime.md) — why fetch caches are not committed.
