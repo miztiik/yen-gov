@@ -18,89 +18,24 @@ ICED-specific quirks every parser handles:
   artifact still ships with the entities that do map.
 * Source names are kebab-case in ICED ("oil-gas", "small-hydro",
   "bio-power"). We pass them through unchanged for the ``facet``
-  field — the renderer is the right layer to decide display casing.
+  field â€” the renderer is the right layer to decide display casing.
 """
 from __future__ import annotations
 
 import re
 from typing import Any
 
-from yen_gov.sources.iced_common import ENTITY_MAP, ICEDShapeError, coerce_numeric
+from yen_gov.sources.iced_common import ENTITY_MAP, ICEDShapeError, coerce_numeric, parser_kit
 
 
 # ---------------------------------------------------------------------------
-# Time helpers
+# 1. capacity-metatable-data â†’ state_installed_capacity_by_source_mw
 # ---------------------------------------------------------------------------
 
-
-_FY_RE = re.compile(r"^(\d{4})-(\d{2})$")
-_YEAR_RE = re.compile(r"^(\d{4})$")
-
-
-def _fy_to_period(raw: Any) -> str | None:
-    """Normalise ``"YYYY-YY"`` / ``"YYYY"`` / int year → ``"YYYY-04"``."""
-    if isinstance(raw, int):
-        s = str(raw)
-    elif isinstance(raw, str):
-        s = raw.strip()
-    else:
-        return None
-    fy = _FY_RE.match(s)
-    if fy:
-        return f"{int(fy.group(1)):04d}-04"
-    yr = _YEAR_RE.match(s)
-    if yr:
-        return f"{int(yr.group(1)):04d}-04"
-    return None
-
-
-def _year_to_period(raw: Any) -> str | None:
-    """Normalise calendar-year input → ``"YYYY"``."""
-    if isinstance(raw, int):
-        return f"{raw:04d}"
-    if isinstance(raw, str):
-        s = raw.strip()
-        yr = _YEAR_RE.match(s)
-        if yr:
-            return f"{int(yr.group(1)):04d}"
-        fy = _FY_RE.match(s)
-        if fy:
-            return f"{int(fy.group(1)):04d}"
-    return None
-
-
-def _row(
-    *,
-    entity_id: str,
-    time: str,
-    value: float | None,
-    facet: str | None = None,
-) -> dict[str, Any]:
-    out: dict[str, Any] = {"entity_id": entity_id, "time": time, "value": value}
-    if facet is not None:
-        out["facet"] = facet
-    return out
-
-
-def _dedup_sort(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Stable last-write-wins dedup on (entity_id, time, facet); sorted output."""
-    by_key: dict[tuple[str, str, str], dict[str, Any]] = {}
-    for r in rows:
-        key = (r["entity_id"], r["time"], r.get("facet") or "")
-        by_key[key] = r
-    return sorted(
-        by_key.values(),
-        key=lambda r: (r["entity_id"], r["time"], r.get("facet") or ""),
-    )
-
-
-# ---------------------------------------------------------------------------
-# 1. capacity-metatable-data → state_installed_capacity_by_source_mw
-# ---------------------------------------------------------------------------
 
 
 def parse_capacity_metatable(decrypted: Any) -> tuple[list[dict[str, Any]], int]:
-    """Parse ``/v1/capacity-metatable-data`` → per-state per-fuel capacity rows.
+    """Parse ``/v1/capacity-metatable-data`` â†’ per-state per-fuel capacity rows.
 
     Returns ``(rows, skipped_unmapped_state_count)``. Each row has facet
     set to the fuel source string (kebab-case as ICED ships it).
@@ -122,7 +57,7 @@ def parse_capacity_metatable(decrypted: Any) -> tuple[list[dict[str, Any]], int]
         if entity_id is None:
             skipped += 1
             continue
-        period = _fy_to_period(item.get("fyear"))
+        period = parser_kit.fy_to_period(item.get("fyear"))
         if period is None:
             continue
         source = item.get("source")
@@ -131,12 +66,12 @@ def parse_capacity_metatable(decrypted: Any) -> tuple[list[dict[str, Any]], int]
         capacity = coerce_numeric(item.get("capacity"))
         if capacity is None:
             continue
-        rows.append(_row(entity_id=entity_id, time=period, value=capacity, facet=source))
-    return _dedup_sort(rows), skipped
+        rows.append(parser_kit.row(entity_id=entity_id, time=period, value=capacity, facet=source))
+    return parser_kit.dedup_sort(rows), skipped
 
 
 # ---------------------------------------------------------------------------
-# 2 + 3. powerStatistics → generation_by_source + peak_demand
+# 2 + 3. powerStatistics â†’ generation_by_source + peak_demand
 # ---------------------------------------------------------------------------
 
 
@@ -152,21 +87,21 @@ def parse_power_statistics(decrypted: Any) -> tuple[
     The endpoint returns one snapshot row per state for the latest fiscal
     year, where each row carries:
 
-    * ``state``                — state name
-    * ``fyear``                — ``"YYYY-YYYY"``
-    * ``peakDemand``           — MW (already in megawatts)
-    * ``energyMet``            — MU (gigawatt-hours, but called MU upstream)
+    * ``state``                â€” state name
+    * ``fyear``                â€” ``"YYYY-YYYY"``
+    * ``peakDemand``           â€” MW (already in megawatts)
+    * ``energyMet``            â€” MU (gigawatt-hours, but called MU upstream)
     * ``data: list[{source, capacity, generation}]``
-                                — per-fuel breakdown for that state-year
+                                â€” per-fuel breakdown for that state-year
 
     We emit two indicators from this:
 
-    * ``state_electricity_generation_by_source_gwh`` — facet = source,
+    * ``state_electricity_generation_by_source_gwh`` â€” facet = source,
       value = ``generation`` (MU, equivalent to GWh).
-    * ``state_peak_electricity_demand_mw`` — value = ``peakDemand``.
+    * ``state_peak_electricity_demand_mw`` â€” value = ``peakDemand``.
 
     The ``data[].capacity`` field overlaps with capacity-metatable-data
-    (and is more recent — only one fiscal year — so capacity-metatable
+    (and is more recent â€” only one fiscal year â€” so capacity-metatable
     is the long-history canonical source). We do NOT emit a separate
     capacity artifact from here; the metatable feed wins.
     """
@@ -193,11 +128,11 @@ def parse_power_statistics(decrypted: Any) -> tuple[
             skipped += 1
             continue
 
-        # ICED here ships fyear as "2025-2026" (full 4-4) — accept that too.
+        # ICED here ships fyear as "2025-2026" (full 4-4) â€” accept that too.
         raw_fy = item.get("fyear")
-        period = _fy_to_period(raw_fy)
+        period = parser_kit.fy_to_period(raw_fy)
         if period is None and isinstance(raw_fy, str):
-            # Try "YYYY-YYYY" → take the start year.
+            # Try "YYYY-YYYY" â†’ take the start year.
             m = re.match(r"^(\d{4})-\d{4}$", raw_fy.strip())
             if m:
                 period = f"{int(m.group(1)):04d}-04"
@@ -207,7 +142,7 @@ def parse_power_statistics(decrypted: Any) -> tuple[
         # Peak demand
         peak = coerce_numeric(item.get("peakDemand"))
         if peak is not None:
-            peak_rows.append(_row(entity_id=entity_id, time=period, value=peak))
+            peak_rows.append(parser_kit.row(entity_id=entity_id, time=period, value=peak))
 
         # Per-source generation
         sub = item.get("data")
@@ -220,19 +155,19 @@ def parse_power_statistics(decrypted: Any) -> tuple[
                 if not isinstance(source, str) or not source or gen is None:
                     continue
                 generation_rows.append(
-                    _row(entity_id=entity_id, time=period, value=gen, facet=source)
+                    parser_kit.row(entity_id=entity_id, time=period, value=gen, facet=source)
                 )
 
-    return _dedup_sort(generation_rows), _dedup_sort(peak_rows), skipped
+    return parser_kit.dedup_sort(generation_rows), parser_kit.dedup_sort(peak_rows), skipped
 
 
 # ---------------------------------------------------------------------------
-# 4. retired-capacity-plants → india_thermal_capacity_retired_mw
+# 4. retired-capacity-plants â†’ india_thermal_capacity_retired_mw
 # ---------------------------------------------------------------------------
 
 
 def parse_retired_capacity(decrypted: Any) -> list[dict[str, Any]]:
-    """Parse ``/v1/retired-capacity-plants`` → national rows (entity_id="IN").
+    """Parse ``/v1/retired-capacity-plants`` â†’ national rows (entity_id="IN").
 
     Expected shape (already-JSON-parsed): ``{"data": [ {totalCapacity, year, source}, ... ]}``.
     Each row is the total MW of plants of one fuel source retired in one
@@ -256,7 +191,7 @@ def parse_retired_capacity(decrypted: Any) -> list[dict[str, Any]]:
     for item in items:
         if not isinstance(item, dict):
             continue
-        period = _fy_to_period(item.get("year"))
+        period = parser_kit.fy_to_period(item.get("year"))
         if period is None:
             continue
         source = item.get("source")
@@ -265,17 +200,17 @@ def parse_retired_capacity(decrypted: Any) -> list[dict[str, Any]]:
         cap = coerce_numeric(item.get("totalCapacity"))
         if cap is None:
             continue
-        rows.append(_row(entity_id="IN", time=period, value=cap, facet=source))
-    return _dedup_sort(rows)
+        rows.append(parser_kit.row(entity_id="IN", time=period, value=cap, facet=source))
+    return parser_kit.dedup_sort(rows)
 
 
 # ---------------------------------------------------------------------------
-# 5. plantPipelineInfo → india_capacity_pipeline_gw
+# 5. plantPipelineInfo â†’ india_capacity_pipeline_gw
 # ---------------------------------------------------------------------------
 
 
 def parse_pipeline(decrypted: Any) -> list[dict[str, Any]]:
-    """Parse ``/v1/plantPipelineInfo`` → national rows (entity_id="IN").
+    """Parse ``/v1/plantPipelineInfo`` â†’ national rows (entity_id="IN").
 
     Expected shape: ``{"category": ["YYYY", ...], "seriesData": [{"name": str, "data": [num, ...]}, ...]}``.
     Time grain is calendar year. Faceted by series name (e.g.
@@ -293,7 +228,7 @@ def parse_pipeline(decrypted: Any) -> list[dict[str, Any]]:
             "plantPipelineInfo: missing 'category' or 'seriesData' arrays"
         )
 
-    years = [_year_to_period(y) for y in category]
+    years = [parser_kit.fy_to_period(y, time_grain="year") for y in category]
     rows: list[dict[str, Any]] = []
     for s in series:
         if not isinstance(s, dict):
@@ -311,5 +246,5 @@ def parse_pipeline(decrypted: Any) -> list[dict[str, Any]]:
             value = coerce_numeric(raw)
             if value is None:
                 continue
-            rows.append(_row(entity_id="IN", time=period, value=value, facet=name))
-    return _dedup_sort(rows)
+            rows.append(parser_kit.row(entity_id="IN", time=period, value=value, facet=name))
+    return parser_kit.dedup_sort(rows)

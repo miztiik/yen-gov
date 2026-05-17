@@ -29,8 +29,10 @@ from .crypto import (
 )
 from .client import IcedClient, ICEDFetchError
 from .entities import ENTITY_MAP, fy_to_period, coerce_numeric, lookup_entity
+from . import parser_kit
 
 __all__ = (
+    "parser_kit",
     "PASSPHRASE",
     "ICEDShapeError",
     "ICEDFetchError",
