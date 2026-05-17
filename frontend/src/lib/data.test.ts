@@ -7,6 +7,8 @@ import {
   fetchDistricts,
   fetchConstituencyResult,
   fetchPartyRegistry,
+  fetchPersonEntity,
+  slugifyCandidate,
 } from "./data";
 
 // All loaders go through `${DATA_BASE}<path>` where DATA_BASE = `${BASE_URL}data`.
@@ -199,6 +201,39 @@ describe("fetchPartyRegistry — master + discovered merge", () => {
       .mockImplementationOnce(() => Promise.resolve(jsonResponse(discoveredFile([]))));
     const reg = await fetchPartyRegistry();
     expect(reg.byShort.DMK.eci_code).toBe("582"); // canonical, not the alias hijack
+  });
+});
+
+describe("slugifyCandidate — mirrors backend people_panel.slugify", () => {
+  it("ASCII-folds, lowercases, collapses non-alphanumerics to hyphens", () => {
+    expect(slugifyCandidate("GOVINDARAJAN T.J")).toBe("govindarajan-t-j");
+    expect(slugifyCandidate("Dr. A. P. J. Abdul Kalam")).toBe("dr-a-p-j-abdul-kalam");
+    expect(slugifyCandidate("José Ñoño")).toBe("jose-nono");
+    expect(slugifyCandidate("USHA")).toBe("usha");
+  });
+});
+
+describe("fetchPersonEntity — the 404-as-null contract", () => {
+  it("composes election + ac_code + slug into the people sidecar path", async () => {
+    fetchSpy.mockResolvedValueOnce(jsonResponse({ candidate_slug: "govindarajan-t-j" }));
+    const out = await fetchPersonEntity("AcGenApr2021", 1, "govindarajan-t-j");
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${BASE}/people/AcGenApr2021/1/govindarajan-t-j.json`,
+    );
+    expect(out).toMatchObject({ candidate_slug: "govindarajan-t-j" });
+  });
+
+  it("returns null on 404 (candidate has no biographic sidecar yet)", async () => {
+    fetchSpy.mockResolvedValueOnce(new Response("not found", { status: 404 }));
+    const out = await fetchPersonEntity("AcGenApr2021", 1, "nobody");
+    expect(out).toBeNull();
+  });
+
+  it("throws on other non-OK responses", async () => {
+    fetchSpy.mockResolvedValueOnce(new Response("err", { status: 500, statusText: "Internal" }));
+    await expect(
+      fetchPersonEntity("AcGenApr2021", 1, "x"),
+    ).rejects.toThrow(/failed: 500/);
   });
 });
 

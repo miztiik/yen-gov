@@ -71,3 +71,11 @@ Per `(state, election_year)`, never aggregated across years (Hans: aggregation h
 - **Warn** (write artifact, flag in report) at `0.5%` / `0.1pp`.
 
 When biographic adapters (e.g. a future CSV-derived adapter) ship vote columns too, those are compared against ECI HTML; ECI wins, the discrepancy is reported, biographics survive the merge.
+
+## Frontend rendering
+
+The constituency route (`frontend/src/routes/Constituency.svelte`) fetches the per-candidate sidecar via `fetchPersonEntity(event, ac_code, slugifyCandidate(name))` in `frontend/src/lib/data.ts`. The loader is 404-tolerant — most (election, AC, candidate) triples have no sidecar yet (only TN AE 2021 is ingested at time of writing), and absence renders as `Not declared` rather than as an error.
+
+`slugifyCandidate` is a verbatim mirror of the backend's `yen_gov.sources.eci.people_panel.slugify` (ASCII-fold → lowercase → collapse non-alphanumerics to hyphens). Both sides MUST stay in lockstep — the slug is the join key between the result.constituency `candidates[].name` field and the people sidecar filename. The vitest suite (`frontend/src/lib/data.test.ts`) covers the same fixtures as the pytest suite (`backend/tests/test_people_panel.py::test_slugify_*`) so drift is caught at unit-test tier.
+
+The biographic line under each candidate name shows only fields that are populated (`Male · age 60 · 10th Pass · Business`), in field order matching the schema. Null fields are omitted entirely from the join — no "Unknown" sentinel, no per-field `Not declared` label — and the whole line collapses to `Not declared` only when ALL biographic fields are absent. This is the citizen-honest treatment Hans asked for: don't manufacture a value where the candidate didn't declare one.

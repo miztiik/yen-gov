@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { fetchConstituencyResult, type ConstituencyResult } from "../lib/data";
+  import {
+    fetchConstituencyResult,
+    fetchPersonEntity,
+    slugifyCandidate,
+    type ConstituencyResult,
+    type PersonEntity,
+  } from "../lib/data";
   import {
     fetchElectionEvents,
     defaultEventForState,
@@ -31,9 +37,13 @@
   let result = $state<ConstituencyResult | null>(null);
   let not_published = $state(false);
   let error = $state<string | null>(null);
+  // Biographics sidecar: keyed by candidate_slug; null = fetched + 404
+  // (no sidecar for this candidate yet); undefined = not fetched yet.
+  let people = $state<Record<string, PersonEntity | null>>({});
 
   $effect(() => {
     result = null; error = null; not_published = false;
+    people = {};
     const sc = state_code;
     const ev = event;
     if (!sc || !ev || params.eci_no <= 0) return;
@@ -44,6 +54,30 @@
       })
       .catch(e => (error = String(e)));
   });
+
+  // Once the constituency result loads, fan out to the people sidecars in
+  // parallel. Each candidate that has a sidecar populates `people[slug]`;
+  // 404s store `null` (citizen sees "Not declared" for missing fields).
+  $effect(() => {
+    const ev = event;
+    if (!ev || !result) return;
+    for (const c of result.candidates) {
+      const slug = slugifyCandidate(c.name);
+      fetchPersonEntity(ev, result.eci_no, slug)
+        .then(p => (people = { ...people, [slug]: p }))
+        .catch(() => (people = { ...people, [slug]: null }));
+    }
+  });
+
+  function fmtBiographic(p: PersonEntity | null | undefined): string {
+    if (!p) return "";
+    const parts: string[] = [];
+    if (p.sex) parts.push(p.sex);
+    if (p.age) parts.push(`age ${p.age}`);
+    if (p.education) parts.push(p.education);
+    if (p.profession) parts.push(p.profession);
+    return parts.join(" · ");
+  }
 
   function pct(n: number): string { return n.toFixed(2) + "%"; }
 </script>
@@ -121,16 +155,26 @@
         </thead>
         <tbody class="divide-y">
           {#each result.candidates as c}
+            {@const slug = slugifyCandidate(c.name)}
+            {@const p = people[slug]}
+            {@const bio = fmtBiographic(p)}
             <tr class={c.is_winner ? "bg-emerald-50" : ""}>
-              <td class="py-2 text-slate-400">{c.rank}</td>
-              <td class="font-medium">{c.name}</td>
-              <td>
+              <td class="py-2 text-slate-400 align-top">{c.rank}</td>
+              <td class="font-medium align-top">
+                <div>{c.name}</div>
+                {#if p !== undefined}
+                  <div class="text-xs text-slate-500 mt-0.5" data-testid="candidate-biographics">
+                    {#if bio}{bio}{:else}Not declared{/if}
+                  </div>
+                {/if}
+              </td>
+              <td class="align-top">
                 {#if c.party_eci_code && state_code}
                   <a class="hover:underline" href={url.party(state_code, c.party_eci_code, c.party_short)}>{c.party_short}</a>
                 {:else}{c.party_short}{/if}
               </td>
-              <td class="text-right tabular-nums">{c.votes.toLocaleString()}</td>
-              <td class="text-right tabular-nums">{pct(c.vote_share_pct)}</td>
+              <td class="text-right tabular-nums align-top">{c.votes.toLocaleString()}</td>
+              <td class="text-right tabular-nums align-top">{pct(c.vote_share_pct)}</td>
             </tr>
           {/each}
           <tr class="text-slate-500">

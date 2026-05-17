@@ -131,6 +131,18 @@ test.describe("golden path", () => {
     await expect(page.getByRole("columnheader", { name: "Candidate" })).toBeVisible();
     await expect(page.getByRole("columnheader", { name: "Party" })).toBeVisible();
     await expect(page.getByRole("columnheader", { name: "Votes" })).toBeVisible();
+
+    // people.entity sidecar: AC 1 winner GOVINDARAJAN T.J has a sidecar
+    // shipped via the TN AE 2021 ingest (datasets/people/AcGenApr2021/1/
+    // govindarajan-t-j.json). The biographic line "Male · age 60 · 10th
+    // Pass · Business" must surface in the candidates table. Asserts both
+    // (a) the loader composed the right URL and (b) the renderer joins
+    // populated biographics rather than showing "Not declared".
+    const bio = page.getByTestId("candidate-biographics").first();
+    await expect(bio).toBeVisible({ timeout: 15_000 });
+    await expect(bio).toContainText(/Male/);
+    await expect(bio).toContainText(/age 60/);
+    await expect(bio).toContainText(/Business/);
   });
 
   test("explore page lazy-loads sqlite without error", async ({ page }) => {

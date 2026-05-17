@@ -297,6 +297,71 @@ export function fetchDistricts(state: string): Promise<DistrictsCollection> {
   return fetchJson<DistrictsCollection>(`/reference/in/states/${state}/districts.json`);
 }
 
+// people.entity sidecar — biographics ECI publishes only in PDF Statistical
+// Reports (sex/age/education/profession) keyed off (election, ac, slug).
+// Mirrors datasets/schemas/people.entity.schema.json v1.0. Optional fields
+// are absent (not "Unknown") when not declared; field_provenance carries a
+// grade entry only for populated fields.
+export type ProvenanceGrade =
+  | "issuing_authority"
+  | "sworn_declaration"
+  | "third_party_curated"
+  | "derived";
+export interface FieldProvenance { grade: ProvenanceGrade; source_id: string; }
+
+export interface PersonEntity {
+  $schema: string;
+  $schema_version: string;
+  sources: SourceRef[];
+  election_id: string;
+  state: string;
+  ac_code: number;
+  candidate_slug: string;
+  name: string;
+  party_short: string;
+  sex?: "Male" | "Female" | "Other";
+  age?: number;
+  constituency_type?: "GEN" | "SC" | "ST";
+  education?: string;
+  profession?: string;
+  field_provenance?: Record<string, FieldProvenance>;
+}
+
+// Stable lowercase slug — must mirror backend's
+// yen_gov.sources.eci.people_panel.slugify so the URL composer here lines
+// up with the artifact filename written on the producer side. Citizen
+// never sees this slug; it is purely the join key.
+export function slugifyCandidate(name: string): string {
+  return name
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export function fetchPersonEntity(
+  election: string,
+  ac_code: number,
+  candidate_slug: string,
+): Promise<PersonEntity | null> {
+  // 404-tolerant: not every (election, AC, candidate) triple has a
+  // biographic sidecar (only ingested ECI Statistical Report slices do,
+  // currently TN AE 2021). Absence is the normal "not yet ingested" path,
+  // not an error.
+  return fetch(
+    `${DATA_BASE}/people/${election}/${ac_code}/${candidate_slug}.json`,
+  ).then(async res => {
+    if (res.status === 404) return null;
+    if (!res.ok) {
+      throw new Error(
+        `fetch /people/${election}/${ac_code}/${candidate_slug}.json failed: ${res.status} ${res.statusText}`,
+      );
+    }
+    return (await res.json()) as PersonEntity;
+  });
+}
+
 export function fetchConstituencyResult(
   event: string,
   state: string,
