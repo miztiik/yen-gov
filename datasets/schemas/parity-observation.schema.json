@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yen-gov.github.io/schemas/parity-observation.schema.json",
+  "title": "Parity observation (ledger line)",
+  "description": "ONE LINE of an append-only parity ledger at `datasets/parity/in/<indicator-id>.ledger.jsonl`. The file is JSONL (one record per line) per the design in TODO/20260517-iced-bulk-ingest-and-parity-oracle.md §2/§4 (Phase 2 step 5); each line is the result of one cell-for-cell comparison between OUR artifact value and the UPSTREAM (ICED) value for a single (entity_id, time, facet?) cell, performed by `tools/iced_parity/`. The ledger file itself is JSONL and is NOT walked by `python -m yen_gov validate --root .` (which only walks `*.json`); validation of individual records is the responsibility of `tools/iced_parity/ledger.py`. Per-record provenance lives inline on each record as `upstream_url` + `sampled_at` (the same shape as a `sources[]` entry) — there is no file-level `sources[]` envelope because there is no file-level object, only a stream of records. The aggregate roll-up across indicators lives in the sibling `indicators-parity.schema.json` (which IS a regular `.json` file with the §12 envelope).",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-17",
+      "description": "Initial schema (Phase 2 step 5 of TODO/20260517-iced-bulk-ingest-and-parity-oracle.md). One line per parity observation in `datasets/parity/in/<id>.ledger.jsonl`. Required fields: `entity_id`, `time`, `value_ours`, `value_upstream`, `status` (six-value enum per §5(a) — `match`, `near_match`, `diverge`, `revised_upstream`, `missing_upstream`, `missing_ours` — never collapsed into a boolean per rejected-design #9), `sampled_at`, `upstream_url`. Optional fields: `facet` (composite sub-metric id per v4.3 `sub_metrics[]`), `value_prior_upstream` (needed for `revised_upstream` classification), `delta`, `delta_pct`, `tolerance_used`, `run_id`. Ledger is append-only; `git log datasets/parity/in/<id>.ledger.jsonl` answers Hans's 'when did this cell last match' natively (resolution §5(b))."
+    }
+  ],
+  "type": "object",
+  "required": [
+    "entity_id",
+    "time",
+    "value_ours",
+    "value_upstream",
+    "status",
+    "sampled_at",
+    "upstream_url"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "entity_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identifier of the entity this cell measures (state code, district code, country code, etc.). Matches the `entity_id` on the corresponding row in the indicator artifact."
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$",
+      "description": "Time stamp of the cell at the indicator's `time_grain`. Matches the `time` on the corresponding row in the indicator artifact. Same pattern as `indicator.schema.json` `rows[].time`."
+    },
+    "facet": {
+      "type": ["string", "null"],
+      "description": "Optional sub-category. For facetted indicators (stacked-trend) carries the facet value (e.g. fuel source). For v4.3+ composites, carries the matching `sub_metric.id`. Null when the indicator is not faceted."
+    },
+    "value_ours": {
+      "type": ["number", "null"],
+      "description": "The value our pipeline emitted for this cell. `null` when our artifact is missing this cell (paired with status `missing_ours`)."
+    },
+    "value_upstream": {
+      "type": ["number", "null"],
+      "description": "The value upstream (ICED API or rendered page) currently returns for this cell. `null` when upstream is missing this cell (paired with status `missing_upstream`)."
+    },
+    "value_prior_upstream": {
+      "type": ["number", "null"],
+      "description": "Optional. The value upstream returned for this cell in the PREVIOUS observation of this ledger. Populated by `classify.py` when the prior observation exists; needed to distinguish `revised_upstream` (`value_upstream != value_prior_upstream AND value_ours == value_prior_upstream`) from `diverge` (`value_ours != value_upstream AND value_ours != value_prior_upstream`) per resolution §5(a)."
+    },
+    "status": {
+      "enum": [
+        "match",
+        "near_match",
+        "diverge",
+        "revised_upstream",
+        "missing_upstream",
+        "missing_ours"
+      ],
+      "description": "The classifier's verdict. `match` — exact equality. `near_match` — within `tolerance_used` (rounding / float precision). `diverge` — our pipeline disagrees with upstream and the disagreement is NOT explained by an upstream revision (operator regression suspect). `revised_upstream` — upstream changed since the last observation and our prior value matched the prior upstream (silent upstream revision; operator action: re-ingest). `missing_upstream` — upstream no longer returns this cell. `missing_ours` — our artifact does not contain this cell but upstream does. Six values, never collapsed into a boolean `is_ok` (rejected-design #9 in TODO §8)."
+    },
+    "delta": {
+      "type": ["number", "null"],
+      "description": "Optional. `value_ours - value_upstream` for the convenience of downstream consumers. Null when either value is null."
+    },
+    "delta_pct": {
+      "type": ["number", "null"],
+      "description": "Optional. Relative delta `(value_ours - value_upstream) / value_upstream * 100`, in percent. Null when `value_upstream` is null or zero."
+    },
+    "tolerance_used": {
+      "type": ["number", "null"],
+      "description": "Optional. The absolute or relative tolerance the classifier applied to distinguish `match` from `near_match`. Recorded inline so historical ledger lines remain interpretable after the tolerance policy evolves."
+    },
+    "sampled_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC 3339 UTC timestamp of when `tools/iced_parity/probe.py` fetched the upstream value for this cell. Per-record provenance — analogous to `sources[].fetched_at` on regular artifacts."
+    },
+    "upstream_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The exact upstream URL (ICED endpoint, raw API or rendered page) the probe fetched to obtain `value_upstream`. Per-record provenance — analogous to `sources[].url` on regular artifacts."
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Optional. Free-form identifier linking this observation to a single `tools/iced_parity/` run (e.g. a UTC timestamp slug). Multiple observations from the same run share the same `run_id`."
+    }
+  }
+}
