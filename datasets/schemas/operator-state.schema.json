@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./operator-state.schema.json",
+  "title": "Operator state overlay (canonical)",
+  "description": "Hand-authored operator overlay (taxonomy/operator_state.json). Carries operator-axis flags about indicators that have NO place on the citizen-facing artifact (the pre-pivot lesson per ADR-0026: 2026-05-16 fetched_at smear). Distinct from the indicator catalogue: the catalogue is citizen-axis; this file is operator-axis. Flags include 'frozen' (don't auto-re-fetch), 'refetch_requested' (operator forced a re-pull), 'unavailable_periods' (operator-confirmed gaps that are NOT 'data missing' but 'publisher does not publish for these periods'). Authoring shape JSON (D18); pipeline compiles to taxonomy/operator_state.parquet.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial canonical operator-state overlay schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). Replaces pre-pivot indicators-operator-state.schema.json (slated for retirement Phase 0.12 per deletion manifest §3a). Operator-axis only — no fields here should ever bleed into the citizen view-model (D19)."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "indicators"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "indicators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["indicator_id"],
+        "properties": {
+          "indicator_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+            "maxLength": 60,
+            "description": "FK -> indicator catalogue. The indicator this overlay row applies to."
+          },
+          "frozen": {
+            "type": "boolean",
+            "description": "When true, the ingest scheduler skips this indicator. Used when an upstream is broken / mid-migration / temporarily off-limits."
+          },
+          "frozen_reason": {
+            "type": ["string", "null"],
+            "description": "Required when frozen=true. Operator-readable explanation surfaced in admin v0."
+          },
+          "refetch_requested": {
+            "type": "boolean",
+            "description": "When true, the next scheduler pass re-pulls the upstream regardless of cache. Operator self-clears after the re-pull confirms."
+          },
+          "unavailable_periods": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["from_year", "to_year", "reason"],
+              "properties": {
+                "from_year": { "type": "integer", "minimum": 1850, "maximum": 2100 },
+                "to_year": { "type": "integer", "minimum": 1850, "maximum": 2100 },
+                "reason": {
+                  "type": "string",
+                  "minLength": 10,
+                  "description": "Why the publisher doesn't publish for these years (e.g. 'NCRB Crime in India series 1990-1993 not digitised'). Surfaced as renderer caption so the citizen sees 'publisher did not collect' rather than 'data missing'."
+                }
+              }
+            },
+            "description": "Operator-confirmed periods for which no value exists upstream. Renderer renders these as 'not collected' rather than a null gap."
+          },
+          "owner": {
+            "type": ["string", "null"],
+            "description": "Operator handle (e.g. 'max') responsible for this indicator's ingest. Routing for admin v0."
+          },
+          "last_review_date": {
+            "type": ["string", "null"],
+            "format": "date",
+            "description": "YYYY-MM-DD. Last time an operator confirmed the overlay state is current. Stale-flag trigger after N days."
+          }
+        }
+      }
+    }
+  }
+}

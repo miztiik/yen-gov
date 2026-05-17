@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./entity.schema.json",
+  "title": "Entities table (canonical taxonomy)",
+  "description": "Hand-authored entity catalogue. Every observation row's entity_id is an FK into this table. Carries entity_type enum per D27 (single entity_id discriminated by type, OWID-precedent), validity windows per D23 (Telangana 2014, J&K/Ladakh 2019 etc.), and parent_entity_id for hierarchy traversal. Authoring shape JSON (D18); pipeline compiles to taxonomy/entities.parquet.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial canonical entities table schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). entity_type enum per D27. entity_valid_from/to per D23 — choropleth greys (not hides) entities outside their window. parent_entity_id for hierarchy. entity_level enum drives boundary-file resolution per ADR-0031 §resolution path."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "entities"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "entity_id",
+          "entity_type",
+          "entity_level",
+          "entity_code",
+          "display_name",
+          "entity_valid_from"
+        ],
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}(-[A-Z0-9]+)*$",
+            "description": "Stable PK. Convention: 'IN' (country), 'IN-S22' (state, ECI code), 'IN-S22-167' (AC under state), 'IN-S22-D603' (district under state, LGD code with D prefix). All segments uppercase; dash-separated. Never reused."
+          },
+          "entity_type": {
+            "enum": [
+              "country",
+              "state",
+              "ut",
+              "district",
+              "subdistrict",
+              "village",
+              "ulb",
+              "constituency_ac",
+              "constituency_pc",
+              "union_govt",
+              "state_govt",
+              "discom",
+              "psu",
+              "ministry"
+            ],
+            "description": "Per D27. Discriminator for what kind of thing this row represents. Geographic entities (country/state/ut/district/subdistrict/village/constituency_*) join to boundary files (ADR-0031); fiscal actors (union_govt/state_govt/discom/psu/ministry) do not. ULB = urban local body."
+          },
+          "entity_level": {
+            "enum": [
+              "country",
+              "state",
+              "district",
+              "subdistrict",
+              "village",
+              "ulb",
+              "ac",
+              "pc",
+              "fiscal_actor"
+            ],
+            "description": "Resolution axis for choropleth rendering and boundary-file lookup. Geographic entities map to a boundary layer in datasets/manifest.json; fiscal_actor signals 'no geometry, render as table only'."
+          },
+          "entity_code": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The issuing authority's own code (ECI state code 'S22', LGD district code '603', constituency number '167'). Stable handle for the join; never a display name. Per CLAUDE.md §3 identifier convention."
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Citizen-readable name (e.g. 'Tamil Nadu', 'Chennai District'). Not an identifier; names drift, codes don't."
+          },
+          "display_name_local": {
+            "type": ["string", "null"],
+            "description": "Optional local-script name (e.g. 'தமிழ்நாடு'). Tooltip / search affordance only."
+          },
+          "parent_entity_id": {
+            "type": ["string", "null"],
+            "description": "FK back into this table for hierarchy traversal. country -> null; state -> 'IN'; district -> 'IN-S22'; AC -> 'IN-S22' (or district). Allows the loader to render breadcrumbs without re-querying."
+          },
+          "entity_valid_from": {
+            "type": "integer",
+            "minimum": 1800,
+            "maximum": 2100,
+            "description": "Per D23. Year the entity legally came into existence (e.g. Telangana 2014, J&K UT 2019). For pre-1947 / always-existed entities, use 1947 (India formation) or the earliest year the catalogue cares about. Renderer greys (not hides) the entity for observation years < entity_valid_from."
+          },
+          "entity_valid_to": {
+            "type": ["integer", "null"],
+            "minimum": 1800,
+            "maximum": 2100,
+            "description": "Per D23. Year the entity ceased to exist (or null if extant). e.g. composite J&K state has entity_valid_to=2019. Renderer greys observation years > entity_valid_to."
+          },
+          "iso_3166_2": {
+            "type": ["string", "null"],
+            "pattern": "^IN-[A-Z]{2}$",
+            "description": "Optional ISO 3166-2 code for states/UTs (e.g. 'IN-TN'). Cross-reference only; entity_code (ECI) is canonical."
+          },
+          "lgd_code": {
+            "type": ["string", "null"],
+            "description": "Optional LGD numeric code for state/district/subdistrict/village. Cross-reference / boundary join key for LGD-keyed GeoJSONs (see docs/architecture/data/boundaries.md)."
+          },
+          "notes": {
+            "type": ["string", "null"],
+            "description": "Free-text editorial note (e.g. 'Chengalpattu carved from Kancheepuram in 2019 — parent_lgd_codes=[571,572,587]'). Citizen-facing only when surfaced by renderer."
+          }
+        }
+      }
+    }
+  }
+}

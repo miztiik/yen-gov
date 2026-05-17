@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./methodology-break.schema.json",
+  "title": "Methodology breaks table",
+  "description": "Hand-authored typed catalogue of methodology breaks per D16/D28. Distinct from caveats.json (D16): methodology breaks are RUPTURES IN A SINGLE SERIES (base-year rebases, definition changes, frame/coverage changes — e.g. GSDP NAS 2004-05 -> 2011-12, CPI rebase, Census rebase). Surfaced as visible vertical rule on the time axis (D32) — never tooltip-only. The renderer MUST refuse to compute growth rates that cross a break (Bhattacharya rule, R31). Composes with D28 id-encoded breaks: the URL/id carries the visible split (`state-gsdp-base-2011-12-inr-crore` separate from `state-gsdp-base-2004-05-inr-crore`); this table carries the narrative prose. Authoring shape JSON (D18); pipeline compiles to taxonomy/methodology_breaks.parquet.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial canonical methodology-breaks table schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). Each row has methodology_version (FK target from indicators.json), the (year, period_seq) coordinate of the break, kind enum, and citizen-readable note. Series the break applies to is the set of indicator_ids that point at this methodology_version (resolved at chart time, not stored here — keeps the table normalised)."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "methodology_breaks"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "methodology_breaks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["methodology_version", "at_year", "at_period_seq", "kind", "note"],
+        "properties": {
+          "methodology_version": {
+            "type": "string",
+            "minLength": 1,
+            "description": "PK. Stable handle (e.g. 'gsdp-base-2011-12', 'cpi-base-2012', 'census-2011-frame'). Indicators in indicators.json reference this via methodology_version FK."
+          },
+          "at_year": {
+            "type": "integer",
+            "minimum": 1850,
+            "maximum": 2100,
+            "description": "Year of the break — the FIRST year the new methodology applies. The vertical rule is drawn between (at_year - 1, period_seq=N) and (at_year, at_period_seq) on the time axis."
+          },
+          "at_period_seq": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Intra-year sequence the break takes effect. For annual breaks: 1. For quarterly/monthly: the period_seq of the first new-methodology observation."
+          },
+          "kind": {
+            "enum": ["rebase", "definition_change", "frame_change", "coverage_change", "reclassification"],
+            "description": "Type of rupture. rebase = price/base-year shift. definition_change = the thing measured changed. frame_change = sampling frame moved. coverage_change = geographic / population scope shifted. reclassification = enum/category labels regrouped."
+          },
+          "note": {
+            "type": "string",
+            "minLength": 20,
+            "description": "Citizen-readable explanation surfaced when the user taps the break marker. Plain language: 'Base year shifted from 2004-05 to 2011-12; values before and after are not directly comparable.'"
+          },
+          "publisher_url": {
+            "type": ["string", "null"],
+            "description": "Optional pointer to the authoritative publisher methodology note announcing the break."
+          },
+          "supersedes_methodology_version": {
+            "type": ["string", "null"],
+            "description": "Optional pointer to the previous methodology_version. Lets the renderer trace the chain (NAS-2011-12 supersedes NAS-2004-05 supersedes NAS-1999-2000)."
+          }
+        }
+      }
+    }
+  }
+}
