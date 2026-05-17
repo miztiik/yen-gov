@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.0",
+  "$schema_version": "4.2",
   "sources": [
     {
       "url": "https://cea.nic.in/installed-capacity-report/?lang=en",
@@ -29,7 +29,7 @@
     "scale_hint": "linear",
     "unit": "MW",
     "icon": "zap",
-    "attribution_geography": "where_produced",
+    "attribution_geography": "where_allocated",
     "comparability": "comparable_with_normalisation",
     "implementing_authority": "joint",
     "methodology_vintage": "CEA Monthly Executive Summary, IC sheet, snapshot 2026-03; cached file mtime 2026-05-13T21:54:16Z",

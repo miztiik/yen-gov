@@ -78,7 +78,7 @@ export interface IndicatorMeta {
   // v1.1 (2026-05-11) — governance/honesty metadata. All optional.
   icon?: string;
   attribution_geography?:
-    | "where_produced" | "where_consumed" | "where_billed"
+    | "where_produced" | "where_allocated" | "where_consumed" | "where_billed"
     | "where_resident" | "where_administered";
   comparability?:
     // v1.5 4-level ladder (preferred — see indicator.schema.json + docs/concepts/indicator-naming.md §5).

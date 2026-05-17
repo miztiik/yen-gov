@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.0",
+  "$schema_version": "4.2",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/climate-environment/ghg-emissions/energy",
@@ -24,6 +24,7 @@
     "description": "National greenhouse-gas emissions one level deeper than the headline by-sector view: each row is a (sector, sub-sector) pair, e.g. 'Energy / Transport' or 'Agriculture / Rice Cultivation'. Reported as Gigagrams of CO₂-equivalent per year (1 Gg = 1 kt = 1000 tonnes). Drawn from the same India BUR submissions to UNFCCC as the parent sector indicator; the sector totals here will reconcile to `environment/india_ghg_emissions_mtco2e_by_sector` when summed within each sector.",
     "entity_kind": "country",
     "time_grain": "year",
+    "cadence": "ad_hoc",
     "value_kind": "raw",
     "direction": "lower_is_better",
     "scale_hint": "linear",

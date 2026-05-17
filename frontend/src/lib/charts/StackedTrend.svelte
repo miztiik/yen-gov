@@ -67,6 +67,10 @@
     <div class="rounded border border-amber-300 bg-amber-50 p-2 text-xs text-amber-900">
       Read this carefully — ranking by this number is misleading.
     </div>
+  {:else if model.honesty?.attribution_geography === "where_allocated"}
+    <div class="rounded border border-amber-300 bg-amber-50 p-2 text-xs text-amber-900">
+      Values are this state's allocated share of central-sector capacity, not the location of the plant.
+    </div>
   {:else if model.honesty?.attribution_geography === "where_produced"}
     <div class="rounded border border-amber-300 bg-amber-50 p-2 text-xs text-amber-900">
       This shows where the asset is sited, not who uses it.

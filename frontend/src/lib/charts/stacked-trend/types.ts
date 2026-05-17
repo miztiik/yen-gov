@@ -44,6 +44,7 @@ export const StackedTrendHonesty = z.object({
   ]).optional(),
   attribution_geography: z.enum([
     "where_produced",
+    "where_allocated",
     "where_consumed",
     "where_billed",
     "where_resident",

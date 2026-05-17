@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "4.0",
+  "x-version": "4.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -51,6 +51,16 @@
       "version": "4.0",
       "date": "2026-05-17",
       "description": "Inventory lift (TODO/20260517 §16). Removed block `collection_inventory` and removed sub-fields `series_spec.expected_geographies`, `series_spec.expected_periods`, `series_spec.expected_periods_inference`. Status / observed periods / observed geographies / unavailable periods / last_attempt now live in the external index `datasets/reference/in/indicators-completeness.json` (its own schema, v2.0). Operator-set flags (`frozen`, `refetch_requested`, `unavailable_periods`) move to the operator overlay `datasets/reference/in/indicators-operator-state.json` (its own schema, v1.0). Rationale: ADR-0026 — derived/operational state is operator-axis, not citizen-axis; folding it into the citizen-facing artifact violated the separation and caused the 2026-05-16 fetched_at smear (every re-derive of inventory pushed `last_collected_at` into every artifact). The 110 indicator artifacts retain only the citizen-axis surface: `series_spec` shrinks to `{description}` only; everything else is unchanged. Mechanical migration via `tools/rip_to_v4.py`."
+    },
+    {
+      "version": "4.1",
+      "date": "2026-05-17",
+      "description": "Additive: optional `indicator.cadence` field declaring the publisher's release cadence, distinct from `indicator.time_grain` (which describes per-row time-token resolution). Enum: annual_cy | annual_fy | quarterly_cy | quarterly_fy | monthly | weekly | daily | decennial | ad_hoc. Per ADR-0027. Driven by the Phase #1 spike of TODO/20260517-coverage-temporal-range-plan.md, which surfaced eight artifacts whose `time_grain=year` falsely implied annual cadence (Census x2, BUR-GHG x2, HDI, etc.) and would otherwise have produced citizen-misleading 'gap_count' captions. The companion `derive_temporal_range()` reads this field and omits `gap_count_within_range`/`observed_periods_within_range` for `decennial`/`ad_hoc`. Optional — existing v4.0 artifacts remain valid; the four unambiguous witnesses (Census x2, BUR-GHG x2) are retagged in the same commit. The paired TypeScript union in `frontend/src/lib/indicators.ts` is widened in the same commit per /memories/lessons.md 2026-05-17 #1."
+    },
+    {
+      "version": "4.2",
+      "date": "2026-05-17",
+      "description": "Additive: extend `indicator.attribution_geography` enum with `where_allocated` for central-sector / pooled-allocation series where the value represents a state's allocated SHARE of an asset that is physically sited elsewhere. Driven by the CEA Monthly Executive Summary IC sheet: every state receives a non-zero nuclear / hydro / coal allocation via the regional grid even when no plant is sited inside its boundary, so the existing `where_produced` value (which triggers a 'Values reflect siting' banner) was actively misleading on the all-India choropleth (J&K showed 95 MW with a 'where the asset is located' caveat). The 8 CEA `installed_capacity_*` artifacts under `datasets/indicators/in/energy/` are retagged to `where_allocated` in the same commit. Renderer behaviour: `IndicatorChoropleth` and `StackedTrend` surface a tailored banner — 'Values are this state's allocated share of central-sector capacity, not the location of the plant.' The paired TypeScript union in `frontend/src/lib/indicators.ts` and the Zod enum in `frontend/src/lib/charts/stacked-trend/types.ts` are widened in the same Tier-A commit per /memories/lessons.md 2026-05-16 #1. All v4.1 artifacts remain valid; the 110 indicator artifacts are mechanically bumped to `$schema_version: 4.2` via `tools/bump_indicator_schema_to_current.py`."
     }
   ],
   "type": "object",
@@ -137,7 +147,21 @@
         },
         "time_grain": {
           "enum": ["year", "fiscal_year", "quarter", "month", "date"],
-          "description": "Resolution of the `time` field on each row. `year`/`fiscal_year` → YYYY; `quarter`/`month` → YYYY-MM; `date` → YYYY-MM-DD. Per Q3 (TODO/SOCIO-ECONOMIC-EXPANSION.md)."
+          "description": "Resolution of the `time` field on each row. `year`/`fiscal_year` → YYYY; `quarter`/`month` → YYYY-MM; `date` → YYYY-MM-DD. Per Q3 (TODO/SOCIO-ECONOMIC-EXPANSION.md). DISTINCT FROM `cadence`: `time_grain` is the stamp resolution of one row; `cadence` is how often the publisher releases new rows. See ADR-0027."
+        },
+        "cadence": {
+          "enum": [
+            "annual_cy",
+            "annual_fy",
+            "quarterly_cy",
+            "quarterly_fy",
+            "monthly",
+            "weekly",
+            "daily",
+            "decennial",
+            "ad_hoc"
+          ],
+          "description": "Optional (v4.1+). Publisher's release cadence — how often a new observation is published. DISTINCT FROM `time_grain` (which is the resolution of one row's `time` token). Examples: Census is decennial (cadence=decennial, time_grain=year, token='1961'); RBI quarterly statements are quarterly_fy with monthly stamps (cadence=quarterly_fy, time_grain=quarter, token='2024-04'); UNFCCC GHG inventory is ad-hoc. `decennial`/`ad_hoc` series have no defined inter-observation interval; the `derive_temporal_range()` consumer omits gap_count/observed_periods for these because asserting them would mislead. When absent, the consumer falls back to inferring cadence from `time_grain`. Per ADR-0027."
         },
         "value_kind": {
           "enum": ["count", "rate", "share", "currency", "index", "duration", "raw"],
@@ -184,8 +208,8 @@
           "description": "Optional icon hint (lucide-svelte name or path under frontend/src/lib/icons/indicators/). The chart shows it next to the title to make the indicator scannable in lists. When absent, a generic dot is used. Examples: \"zap\" (energy), \"factory\" (manufacturing), \"heart-pulse\" (health), \"book-open\" (education)."
         },
         "attribution_geography": {
-          "enum": ["where_produced", "where_consumed", "where_billed", "where_resident", "where_administered"],
-          "description": "What the entity_id geographically represents. `where_produced`: asset is sited in this state but may serve a region (e.g. installed power capacity). `where_consumed`: end-use happens in this state (e.g. per-capita electricity consumption). `where_billed`: financial/billing residence (e.g. GST collection). `where_resident`: persons resident in the state (e.g. population, NFHS). `where_administered`: administrative jurisdiction regardless of where the activity happens (e.g. cases filed in state HC). When this is `where_produced` or `where_billed`, the chart MUST surface a citizen-facing banner clarifying that the map shows siting/billing, not service. Per Governance review 2026-05-11."
+          "enum": ["where_produced", "where_allocated", "where_consumed", "where_billed", "where_resident", "where_administered"],
+          "description": "What the entity_id geographically represents. `where_produced`: asset is physically sited in this state (e.g. nameplate of plants whose coordinates fall inside the state). `where_allocated`: state's allocated SHARE of a centrally-pooled asset that is sited elsewhere (e.g. CEA's per-state nuclear / central-sector capacity flowing back via the regional grid — every state shows non-zero even with no plant inside its boundary). `where_consumed`: end-use happens in this state (e.g. per-capita electricity consumption). `where_billed`: financial/billing residence (e.g. GST collection). `where_resident`: persons resident in the state (e.g. population, NFHS). `where_administered`: administrative jurisdiction regardless of where the activity happens (e.g. cases filed in state HC). When this is `where_produced`, `where_allocated`, or `where_billed`, the chart MUST surface a citizen-facing banner clarifying that the map shows siting / allocation / billing, not service. Per Governance review 2026-05-11; `where_allocated` added v4.2 (2026-05-17)."
         },
         "comparability": {
           "enum": [

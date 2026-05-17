@@ -46,6 +46,8 @@
     sequentialSwatch,
     fillForValue,
     formatValue,
+    deriveTemporalRange,
+    buildTemporalCaption,
     type IndicatorArtifact,
   } from "./indicators";
 
@@ -537,9 +539,35 @@
     return { year: yr, age };
   });
 
+  // Citizen temporal caption (Phase #3 of TODO/20260517-coverage-temporal-
+  // range-plan.md). Derived directly from `rows[]` + indicator metadata —
+  // no dependency on the operator-side completeness index. Mirrors the
+  // Python `derive_temporal_range`; shared fixture polices parity. Returns
+  // empty string when the derivation can't produce a meaningful range
+  // (e.g. zero rows).
+  const temporal_caption = $derived.by(() => {
+    if (!artifact) return "";
+    try {
+      const range = deriveTemporalRange(artifact.rows, artifact.indicator);
+      return range ? buildTemporalCaption(range) : "";
+    } catch (e) {
+      // Heterogeneous-vocabulary adapter bugs surface as console
+      // warnings (loud enough for a dev with DevTools open, quiet
+      // enough that the citizen page keeps rendering). Per Fowler
+      // review 2026-05-17: errors should be loud at the level that
+      // can fix them, silent at the level that can't.
+      // eslint-disable-next-line no-console
+      console.warn(
+        `[indicator] temporal caption derivation failed for ${artifact.indicator?.id ?? "<unknown>"}:`,
+        e,
+      );
+      return "";
+    }
+  });
+
   // Comparability banner (Governance §1 + Citizen): if the indicator declares
-  // not_comparable_across_states OR attribution_geography is where_produced,
-  // tell the citizen the choropleth is illustrative, not a ranking.
+  // not_comparable_across_states OR attribution_geography is where_produced /
+  // where_allocated, tell the citizen the choropleth is illustrative, not a ranking.
   const comparability_banner = $derived.by(() => {
     if (!artifact) return null;
     const ind = artifact.indicator;
@@ -548,7 +576,15 @@
         kind: "amber" as const,
         text: ind.attribution_geography === "where_produced"
           ? "This map shows where the asset is sited, not who uses it. Ranking states by this number is misleading."
+          : ind.attribution_geography === "where_allocated"
+          ? "This map shows each state's allocated share of central-sector capacity, not the location of the plant. Ranking states by this number is misleading."
           : "Values are not directly comparable across states without normalisation. Treat the colour ramp as illustrative.",
+      };
+    }
+    if (ind.attribution_geography === "where_allocated") {
+      return {
+        kind: "slate" as const,
+        text: "Values are this state's allocated share of central-sector capacity (via the regional grid), not the location of the plant.",
       };
     }
     if (ind.attribution_geography === "where_produced") {
@@ -639,7 +675,11 @@
            for currency/rate/share/count series. -->
       <RebaseBanner meta={artifact.indicator} />
 
-      <!-- Coverage + temporal: first-class info, not a footnote. -->
+      <!-- Coverage (spatial) + freshness (temporal) chip. Per Phase #3
+           of TODO/20260517-coverage-temporal-range-plan.md the temporal
+           caption (date span + cadence word) renders separately below;
+           this row keeps the "X of Y states" honesty + the stale-vs-
+           current-election chip. -->
       <div class="flex justify-between items-center gap-3 flex-wrap text-[11px]">
         {#if coverage_summary}
           <span class="text-amber-800">
@@ -790,6 +830,19 @@
     </div>
 
     <div class="px-4 py-3 border-t border-slate-100 space-y-3">
+      <!-- Citizen temporal caption — date span + cadence word, sitting
+           directly under the chart. Phase #3 of TODO/20260517-coverage-
+           temporal-range-plan.md (caption is the answer to "when does
+           this data cover?" without making the citizen click a chip).
+           Renders nothing when derivation can't produce a meaningful
+           range (empty rows / mixed-vocabulary adapter bug). -->
+      {#if temporal_caption}
+        <p
+          class="text-[12px] text-slate-700 tabular-nums"
+          data-testid="indicator-temporal-caption"
+        >{temporal_caption}</p>
+      {/if}
+
       <!-- Legend: continuous gradient bar + single 3-tick numeric axis,
            replacing 5 separate swatches with 5 separately-formatted unit
            labels (UX P0-1). One eye-stop, one numeric reading. -->
