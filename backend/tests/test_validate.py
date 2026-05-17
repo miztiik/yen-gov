@@ -96,3 +96,28 @@ def test_tier_b_rejects_unknown_schema(tmp_path: Path):
     schemas, _ = load_schemas(schemas_dir)
     fails = tier_b(schemas, tmp_path)
     assert any("unknown schema" in f.message for f in fails), fails
+
+
+def test_tier_b_skips_test_fixture_subtree_only(tmp_path: Path):
+    """`datasets/_test/...` is exempt (shared cross-language fixtures);
+    other leading-underscore paths (e.g. `_scratch/`) are NOT exempt and
+    MUST still raise. Per Fowler review 2026-05-17 — guards the
+    validator from a quiet-drift escape hatch.
+    """
+    schemas_dir = _seed_repo(tmp_path)
+    fixtures_dir = tmp_path / "datasets/_test/temporal-range-fixtures"
+    fixtures_dir.mkdir(parents=True)
+    # Fixture: no $schema, deliberately not a contract surface.
+    (fixtures_dir / "cases.json").write_text(json.dumps({"cases": []}), encoding="utf-8")
+    # Scratch sibling under an underscore-prefixed dir that is NOT _test.
+    scratch_dir = tmp_path / "datasets/_scratch"
+    scratch_dir.mkdir(parents=True)
+    (scratch_dir / "stray.json").write_text(json.dumps({"hello": "world"}), encoding="utf-8")
+    schemas, _ = load_schemas(schemas_dir)
+    fails = tier_b(schemas, tmp_path)
+    paths = [f.file for f in fails]
+    assert not any("_test" in p for p in paths), \
+        f"datasets/_test/ subtree must be skipped, got: {paths}"
+    assert any("_scratch" in p for p in paths), \
+        f"datasets/_scratch/ must NOT be silently skipped, got: {paths}"
+

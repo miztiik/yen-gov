@@ -1,4 +1,7 @@
 import { describe, it, expect } from "vitest";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, resolve } from "node:path";
 import {
   uniqueTimes,
   rollupByEntity,
@@ -10,7 +13,12 @@ import {
   fillForValue,
   formatValue,
   formatCompact,
+  cadenceWord,
+  buildTemporalCaption,
+  deriveTemporalRange,
   type IndicatorRow,
+  type IndicatorMeta,
+  type TemporalRange,
 } from "./indicators";
 
 const ROWS: IndicatorRow[] = [
@@ -156,3 +164,118 @@ describe("formatValue", () => {
     expect(s).toContain("11.2k");
   });
 });
+
+// -- Temporal range + caption ------------------------------------------------
+
+describe("cadenceWord", () => {
+  it("prefers cadence over time_grain", () => {
+    expect(cadenceWord("annual_fy", "year")).toBe("annual (fiscal year)");
+    expect(cadenceWord("decennial", "year")).toBe("every 10 years");
+    expect(cadenceWord("ad_hoc", "year")).toBe("irregular updates");
+  });
+  it("falls back to time_grain when cadence absent", () => {
+    expect(cadenceWord(undefined, "year")).toBe("annual");
+    expect(cadenceWord(undefined, "fiscal_year")).toBe("annual (fiscal year)");
+    expect(cadenceWord(undefined, "month")).toBe("monthly");
+    expect(cadenceWord(undefined, "quarter")).toBe("quarterly");
+  });
+  it("returns empty string for date snapshots with no cadence", () => {
+    expect(cadenceWord(undefined, "date")).toBe("");
+  });
+});
+
+describe("buildTemporalCaption", () => {
+  const baseMulti: TemporalRange = {
+    min_time: "2018",
+    max_time: "2022",
+    min_period_label: "2018",
+    max_period_label: "2022",
+    time_grain: "year",
+  };
+  it("multi-period uses arrow + middle-dot + cadence word", () => {
+    expect(buildTemporalCaption(baseMulti)).toBe("2018 \u2192 2022 \u00b7 annual");
+  });
+  it("single-period collapses to 'As of ...'", () => {
+    expect(
+      buildTemporalCaption({
+        ...baseMulti,
+        min_time: "2024",
+        max_time: "2024",
+        min_period_label: "2024",
+        max_period_label: "2024",
+      }),
+    ).toBe("As of 2024 \u00b7 annual");
+  });
+  it("decennial cadence uses 'every 10 years'", () => {
+    expect(
+      buildTemporalCaption({
+        ...baseMulti,
+        min_time: "1991",
+        max_time: "2011",
+        min_period_label: "1991",
+        max_period_label: "2011",
+        cadence: "decennial",
+      }),
+    ).toBe("1991 \u2192 2011 \u00b7 every 10 years");
+  });
+  it("ad_hoc cadence uses 'irregular updates'", () => {
+    expect(
+      buildTemporalCaption({
+        ...baseMulti,
+        cadence: "ad_hoc",
+      }),
+    ).toBe("2018 \u2192 2022 \u00b7 irregular updates");
+  });
+  it("FY publisher labels round-trip verbatim", () => {
+    expect(
+      buildTemporalCaption({
+        min_time: "2018-04",
+        max_time: "2020-04",
+        min_period_label: "FY 2018-19",
+        max_period_label: "FY 2020-21",
+        time_grain: "fiscal_year",
+      }),
+    ).toBe("FY 2018-19 \u2192 FY 2020-21 \u00b7 annual (fiscal year)");
+  });
+  it("snapshot date with no cadence drops the cadence segment", () => {
+    expect(
+      buildTemporalCaption({
+        min_time: "2026-05-14",
+        max_time: "2026-05-14",
+        min_period_label: "as on 14 May 2026",
+        max_period_label: "as on 14 May 2026",
+        time_grain: "date",
+      }),
+    ).toBe("As of as on 14 May 2026");
+  });
+});
+
+// Shared-fixture parity: same cases drive backend pytest
+// (`test_derive_temporal_range_shared_fixture`) so any rule drift between
+// the Python derivation and the TS mirror fails BOTH suites. Per
+// TODO/20260517-coverage-temporal-range-plan.md Phase #3.
+interface FixtureCase {
+  name: string;
+  indicator: Pick<IndicatorMeta, "id" | "time_grain" | "cadence">;
+  rows: IndicatorRow[];
+  expected: TemporalRange | null;
+}
+interface FixtureFile { cases: FixtureCase[]; }
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const FIXTURES_PATH = resolve(
+  __dirname,
+  "../../../datasets/_test/temporal-range-fixtures/cases.json",
+);
+const FIXTURES: FixtureFile = JSON.parse(readFileSync(FIXTURES_PATH, "utf-8"));
+
+describe("deriveTemporalRange (shared-fixture parity with Python)", () => {
+  for (const fc of FIXTURES.cases) {
+    it(fc.name, () => {
+      const got = deriveTemporalRange(fc.rows, fc.indicator);
+      expect(got).toEqual(fc.expected);
+    });
+  }
+});
+

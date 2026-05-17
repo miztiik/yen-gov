@@ -54,6 +54,20 @@ test.describe("golden path", () => {
     const joined = option_text.join(" | ");
     expect(joined, `Theme dropdown leaked raw slugs:\n${joined}`).not.toMatch(/fiscal\//);
     expect(joined, `Theme dropdown leaked raw slugs:\n${joined}`).not.toMatch(/energy\//);
+
+    // Phase #3 of TODO/20260517-coverage-temporal-range-plan.md: every
+    // IndicatorChoropleth renders a citizen-facing temporal caption
+    // ("YYYY → YYYY · cadence-word") directly under the chart. Asserting
+    // its presence + shape pins both the wiring (deriveTemporalRange +
+    // buildTemporalCaption are reachable) and the contract (cadence
+    // vocabulary surfaces in the citizen's reading path).
+    const caption = page.getByTestId("indicator-temporal-caption").first();
+    await expect(caption).toBeVisible({ timeout: 15_000 });
+    const caption_text = (await caption.textContent())?.trim() ?? "";
+    expect(
+      caption_text,
+      `Temporal caption empty or missing cadence vocabulary: "${caption_text}"`,
+    ).toMatch(/(annual|quarterly|monthly|every 10 years|irregular updates|As of)/i);
   });
 
   test("state overview renders party totals and AC list for Tamil Nadu", async ({ page }) => {

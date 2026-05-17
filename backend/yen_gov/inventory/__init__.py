@@ -7,6 +7,6 @@ See `docs/concepts/collection-inventory.md` (added in commit \u00a75.9) and
 \u00a75.4 for the algorithm rationale.
 """
 
-from .derive import derive_collection_inventory
+from .derive import derive_collection_inventory, derive_temporal_range
 
-__all__ = ["derive_collection_inventory"]
+__all__ = ["derive_collection_inventory", "derive_temporal_range"]

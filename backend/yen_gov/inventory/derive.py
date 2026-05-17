@@ -215,3 +215,216 @@ def _max_fetched_at(sources: list[dict[str, Any]]) -> str | None:
     if not stamps:
         return None
     return max(str(s) for s in stamps)
+
+
+# ===================================================================== #
+# derive_temporal_range — pure derivation of observed temporal range    #
+# from rows[].time + rows[].period_label + indicator.time_grain.        #
+#                                                                       #
+# Consumers: completeness index emitter (operator surface) and the      #
+# citizen indicator card caption (via a TS mirror in lib/indicators.ts  #
+# whose rule is policed by a shared fixture under                       #
+# datasets/_test/temporal-range-fixtures/).                             #
+#                                                                       #
+# Design notes:                                                         #
+#   - Publisher-vocabulary preservation: rows[].time tokens are the     #
+#     publisher's own form (`2015-04`, `2011`, `2026-05-14`). We do     #
+#     NOT normalise; lexicographic min/max preserves chronological      #
+#     order for every ISO-anchored shape we have today.                 #
+#   - Fail-loud on mixed vocabularies inside ONE artifact (debate       #
+#     consensus 2026-05-17): heterogeneous rows[].time is an adapter    #
+#     bug, not a feature. Silent-omit would overload the null signal.   #
+#   - gap_count_within_range is omitted for time_grain="date"           #
+#     (snapshot dates have no meaningful cadence between samples).      #
+# ===================================================================== #
+
+import re
+
+# Shape detectors. Order matters: more specific first.
+_SHAPE_PATS: tuple[tuple[str, "re.Pattern[str]"], ...] = (
+    ("date",       re.compile(r"^\d{4}-\d{2}-\d{2}$")),
+    ("year_month", re.compile(r"^\d{4}-\d{2}$")),
+    ("year",       re.compile(r"^\d{4}$")),
+    # NOTE: no "fy" shape ("FY YYYY-YY" as rows[].time). No production
+    # artifact emits that token directly in rows[].time — fiscal-year
+    # artifacts emit ISO-anchored YYYY-04 and carry the printable FY
+    # label in rows[].period_label. Per Fowler review 2026-05-17; YAGNI
+    # — if an adapter ever does emit FY-prefixed time tokens the
+    # heterogeneous-vocabulary guard will fail loud rather than guess.
+)
+
+
+def _detect_shape(token: str) -> str:
+    for name, pat in _SHAPE_PATS:
+        if pat.match(token.strip()):
+            return name
+    return "other"
+
+
+def _expected_period_count(
+    *, min_time: str, max_time: str, shape: str, time_grain: str
+) -> int | None:
+    """Inclusive count of expected periods between min and max at `time_grain` cadence.
+
+    Returns None when the cadence is undefined (snapshot dates) or when
+    the shape/grain combination is not supported.
+    """
+    if min_time == max_time:
+        return 1
+    if shape == "year":
+        return int(max_time) - int(min_time) + 1
+    if shape == "year_month":
+        miny, minm = int(min_time[:4]), int(min_time[5:7])
+        maxy, maxm = int(max_time[:4]), int(max_time[5:7])
+        total_months = (maxy * 12 + maxm) - (miny * 12 + minm) + 1
+        if time_grain == "month":
+            return total_months
+        if time_grain == "fiscal_year":
+            # FY tokens are emitted as YYYY-04 (April-anchored).
+            # Stride = 12 months; count years inclusive.
+            return (maxy - miny) + 1
+        if time_grain == "quarter":
+            # Stride = 3 months; expect aligned starts.
+            if total_months % 3 != 0 and (total_months - 1) % 3 != 0:
+                # Quarter cadence inferred but observed months don't align.
+                # Fall through to None rather than guess.
+                return None
+            return ((total_months - 1) // 3) + 1
+        # Unknown grain on YYYY-MM shape — caller decides.
+        return None
+    if shape == "date":
+        return None
+    return None
+
+
+# Cadences for which the publisher has no defined inter-observation
+# interval. For these, derive_temporal_range omits both
+# `gap_count_within_range` and `observed_periods_within_range`: asserting
+# them against an inferred-from-time_grain cadence would mislead the
+# citizen into reading patchiness into a complete record (Census-on-year,
+# UNFCCC BUR, ad-hoc NEP tables). Per ADR-0027.
+_UNDEFINED_CADENCE: frozenset[str] = frozenset({"decennial", "ad_hoc"})
+
+
+def derive_temporal_range(indicator_dict: dict[str, Any]) -> dict[str, Any] | None:
+    """Derive observed temporal-range fields from an indicator artifact.
+
+    Parameters
+    ----------
+    indicator_dict:
+        The parsed indicator JSON. Reads ``rows[]`` (uses ``.time`` and
+        ``.period_label``), ``indicator.time_grain`` (per-row stamp
+        resolution), and ``indicator.cadence`` (publisher release
+        cadence, optional — added in indicator schema v4.1 per
+        ADR-0027).
+
+    Returns
+    -------
+    A dict with the following keys, or ``None`` when ``rows == []``:
+
+    - ``min_time`` / ``max_time``: lexicographic min/max of distinct
+      ``rows[].time`` tokens. Same string vocabulary as the publisher.
+    - ``min_period_label`` / ``max_period_label``: ``period_label`` of
+      any row holding that ``time`` (falls back to the token itself).
+    - ``observed_periods_within_range``: count of distinct ``time``
+      tokens in the artifact. **Omitted** when ``indicator.cadence``
+      is ``decennial`` or ``ad_hoc`` (those series have no defined
+      cadence, so an observed count framed against a range is
+      misleading).
+    - ``gap_count_within_range``: ``expected - observed`` at the
+      cadence implied by ``indicator.cadence`` (preferred) or
+      ``indicator.time_grain`` (fallback). **Omitted** for
+      ``decennial``/``ad_hoc`` cadence, for ``time_grain="date"``,
+      and when the cadence cannot be inferred.
+    - ``time_grain``: mirrored from ``indicator.time_grain``.
+    - ``cadence``: mirrored from ``indicator.cadence`` when present
+      (so the completeness index can filter by cadence without
+      joining the artifact). Omitted when the field is absent.
+
+    Raises
+    ------
+    ValueError
+        When ``rows[].time`` tokens span more than one detected
+        vocabulary shape. This indicates an adapter bug — silent omit
+        would overload the meaning of "no range" (CLAUDE.md \u00a710).
+    """
+    rows = indicator_dict.get("rows") or []
+    if not rows:
+        return None
+
+    ind = indicator_dict.get("indicator") or {}
+    grain = str(ind.get("time_grain") or "")
+    cadence_raw = ind.get("cadence")
+    cadence = str(cadence_raw) if cadence_raw else ""
+    ind_id = str(ind.get("id") or "<unknown>")
+
+    times: list[str] = []
+    label_for: dict[str, str] = {}
+    for row in rows:
+        if not isinstance(row, dict) or "time" not in row:
+            continue
+        t = str(row["time"])
+        times.append(t)
+        if t not in label_for:
+            label_for[t] = str(row.get("period_label") or t)
+
+    if not times:
+        return None
+
+    distinct_times = sorted(set(times))
+    shapes = {_detect_shape(t) for t in distinct_times}
+    if len(shapes) > 1:
+        raise ValueError(
+            f"indicator {ind_id}: heterogeneous rows[].time vocabulary: "
+            f"shapes={sorted(shapes)}, sample_tokens={distinct_times[:5]}"
+        )
+    (shape,) = shapes
+
+    min_time = distinct_times[0]
+    max_time = distinct_times[-1]
+
+    out: dict[str, Any] = {
+        "min_time": min_time,
+        "max_time": max_time,
+        "min_period_label": label_for[min_time],
+        "max_period_label": label_for[max_time],
+    }
+    # Mirror time_grain ONLY when set on the indicator. Writing the
+    # empty string would conflate "indicator has no grain" with "grain
+    # is the empty string" and drift from the TS mirror, which already
+    # omits the key on empty. Per Fowler review 2026-05-17.
+    if grain:
+        out["time_grain"] = grain
+    if cadence:
+        out["cadence"] = cadence
+
+    # decennial / ad_hoc series have no defined inter-observation
+    # interval; omit BOTH observed_periods_within_range and
+    # gap_count_within_range so the consumer never frames their
+    # complete-by-publisher record as patchy. Per ADR-0027.
+    if cadence in _UNDEFINED_CADENCE:
+        return out
+
+    out["observed_periods_within_range"] = len(distinct_times)
+
+    expected = _expected_period_count(
+        min_time=min_time, max_time=max_time, shape=shape, time_grain=grain
+    )
+    # `date` grain has no meaningful cadence even on a single snapshot;
+    # gap_count_within_range stays absent so the consumer knows not to
+    # render a "gaps" pill.
+    if expected is not None and grain != "date":
+        # Gap count cannot be negative; if observed > expected the cadence
+        # inference was wrong (e.g. month grain but artifact has irregular
+        # monthly + weekly mix). Surface as ValueError so the operator
+        # discovers the inconsistency at emit time, not on the page.
+        gap = expected - len(distinct_times)
+        if gap < 0:
+            raise ValueError(
+                f"indicator {ind_id}: observed periods ({len(distinct_times)}) "
+                f"exceed expected ({expected}) at grain={grain!r}, shape={shape!r}; "
+                f"check cadence assumptions"
+            )
+        out["gap_count_within_range"] = gap
+
+    return out

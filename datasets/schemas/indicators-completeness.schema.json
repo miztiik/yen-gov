@@ -3,12 +3,17 @@
   "$id": "https://yen-gov.github.io/schemas/indicators-completeness.schema.json",
   "title": "Indicators completeness index",
   "description": "Per-indicator summary of editorial documentation status, collection completeness, and operator flags. Derived from every artifact under `datasets/indicators/in/**/*.json` by `tools/emit_indicators_completeness_index.py`. Consumed by the `/data-completeness` citizen-facing route. Re-emit after any indicator-content change or schema bump.",
-  "x-version": "1.0",
+  "x-version": "2.0",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-17",
       "description": "Initial schema for the `/data-completeness` index. One row per indicator with `id`, `topic`, `title`, `documentation_status` (stub|partial|authored), `inventory_status` (empty|partial|complete), `frozen`, `last_collected_at`, `observed_count`, `pending_count`, `unavailable_count`. Indices change as artifacts change; this is a generated artifact, not hand-edited."
+    },
+    {
+      "version": "2.0",
+      "date": "2026-05-17",
+      "description": "BREAKING: renamed `last_collected_at` -> `last_polled_at` (per TODO/20260517-coverage-temporal-range-plan.md Phase #2; the field is max(sources[].fetched_at) -- when WE last polled, not when data changed upstream). Added optional structured temporal range fields populated from yen_gov.inventory.derive.derive_temporal_range: `min_time`, `max_time`, `min_period_label`, `max_period_label`, `observed_periods_within_range`, `gap_count_within_range`, `time_grain`, `cadence`. These replace the hand-parsed `coverage.temporal` markdown surface in docs/reference/data-inventory.md; consumers MUST read these structured fields, not parse a markdown report (CLAUDE.md \u00a710 anti-pattern). `observed_periods_within_range` / `gap_count_within_range` are omitted for indicators whose `indicator.cadence` is `decennial` or `ad_hoc` (per ADR-0027)."
     }
   ],
   "type": "object",
@@ -42,7 +47,7 @@
         "required": [
           "id", "topic", "path", "title",
           "documentation_status", "inventory_status",
-          "frozen", "last_collected_at",
+          "frozen", "last_polled_at",
           "observed_count", "pending_count", "unavailable_count"
         ],
         "additionalProperties": false,
@@ -54,10 +59,51 @@
           "documentation_status": { "enum": ["stub", "partial", "authored"] },
           "inventory_status": { "enum": ["empty", "partial", "complete"] },
           "frozen": { "type": "boolean" },
-          "last_collected_at": { "type": ["string", "null"] },
+          "last_polled_at": {
+            "type": ["string", "null"],
+            "description": "max(sources[].fetched_at) from the source artifact: when WE last polled. NOT data-vintage (which is min_time..max_time below). Named `last_polled_at` so operators don't accidentally show it to citizens as a freshness signal -- upstream `Last-Modified` plumbing is a separate arc."
+          },
           "observed_count": { "type": "integer", "minimum": 0 },
           "pending_count": { "type": "integer", "minimum": 0 },
-          "unavailable_count": { "type": "integer", "minimum": 0 }
+          "unavailable_count": { "type": "integer", "minimum": 0 },
+          "min_time": {
+            "type": "string",
+            "description": "Lexicographic min of distinct rows[].time tokens (publisher's vocabulary, e.g. `2000-04`, `2011`, `2026-05-14`). Per ADR-0027 we do not normalise."
+          },
+          "max_time": {
+            "type": "string",
+            "description": "Lexicographic max of distinct rows[].time tokens."
+          },
+          "min_period_label": {
+            "type": "string",
+            "description": "Citizen-readable label for the min_time row (e.g. `FY 2000-01`, `Census 2011`)."
+          },
+          "max_period_label": {
+            "type": "string",
+            "description": "Citizen-readable label for the max_time row."
+          },
+          "observed_periods_within_range": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Count of distinct rows[].time tokens. Omitted when indicator.cadence is `decennial` or `ad_hoc` (per ADR-0027 -- those have no defined cadence so framing observed-vs-expected misleads)."
+          },
+          "gap_count_within_range": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "expected_periods - observed_periods at the cadence implied by indicator.cadence (preferred) or indicator.time_grain (fallback). Omitted for `decennial`/`ad_hoc` cadence, for `time_grain=date` (snapshots), and when cadence cannot be inferred."
+          },
+          "time_grain": {
+            "type": "string",
+            "description": "Mirrored from indicator.time_grain (per-row stamp resolution: year, month, fiscal_year, quarter, date). Surfaced here so the operator can filter the index by grain without joining the artifact."
+          },
+          "cadence": {
+            "type": "string",
+            "enum": [
+              "annual_cy", "annual_fy", "quarterly_cy", "quarterly_fy",
+              "monthly", "weekly", "daily", "decennial", "ad_hoc"
+            ],
+            "description": "Mirrored from indicator.cadence (publisher release cadence, optional on the source artifact -- present here only when set there). Per ADR-0027."
+          }
         }
       }
     }

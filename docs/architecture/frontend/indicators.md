@@ -59,6 +59,7 @@ Every field on the `indicator` block is metadata that drives rendering. The fron
 | `implementing_authority` | Chip next to the title: "Centre + state" / "Central" / "Local body" / "Parastatal" — surfaces the governance attribution honestly. |
 | `funding_split` | Shown as a tooltip on the implementing-authority chip ("Centre 60% / state 40%"). |
 | `methodology_vintage` | Footer caption: "Methodology · GSDP base 2011-12". |
+| `cadence` | (v4.1+, optional) Publisher release cadence — `annual_cy`/`annual_fy`/`quarterly_*`/`monthly`/`weekly`/`daily`/`decennial`/`ad_hoc`. **Distinct from `time_grain`** (which is the resolution of one row's `time` token). Drives the temporal-range caption: `decennial`/`ad_hoc` suppress any gap/completeness pill because the cadence is undefined. Per [ADR-0027](../decisions/0027-cadence-as-separate-field-from-time-grain.md). |
 | `series_breaks[]` | Footer captions: "Series break · 2011-12 (rebase): GSDP series moved from 2004-05 to 2011-12 base." Charts must refuse to compute trends across breaks (planned).  |
 | `icon` | Lucide icon name OR path under `frontend/src/lib/icons/indicators/`. Currently optional and not yet rendered (icon system landing in Phase 6A).  |
 | `notes` | Promoted from "buried in footer" to high-priority caption directly below the legend. Shapes interpretation. |

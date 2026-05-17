@@ -1,6 +1,6 @@
 # Health
 
-> Topic spine for the [`health/`](../indicators/health/) indicator family.
+> Topic spine for the [`health/`](../../../datasets/indicators/in/health/) indicator family.
 > Per-indicator pages link UP to this page for shared methodology that
 > would otherwise repeat across siblings.
 
@@ -14,7 +14,7 @@ The `health` topic carries **vital-statistics rates and public-health expenditur
 
 What is **adjacent but NOT here**:
 
-- **Population denominators** for any per-capita health-spend or per-1000 derivation are in [`demography/`](../indicators/demography/) — `demography/state_population_lakhs` is the canonical denominator.
+- **Population denominators** for any per-capita health-spend or per-1000 derivation are in [`demography/`](../../../datasets/indicators/in/demography/) — `demography/state_population_lakhs` is the canonical denominator.
 - **NFHS (National Family Health Survey)** indicators — anaemia, child stunting, contraceptive prevalence, full immunisation, institutional-delivery, ANC coverage. These exist in periodic survey rounds (NFHS-5 in 2019-21; NFHS-6 fieldwork ongoing). Out of scope until ingested.
 - **Hospital-level / facility-level data** from the Health Management Information System (HMIS) and the National Health Authority (PM-JAY claims). HMIS is monthly facility-reported data of variable quality; PM-JAY is procedural-volume data only for the empanelled-hospital subset. Both deferred per the per-indicator-docs plan.
 - **Disease surveillance** (IDSP, COVID dashboards, dengue / malaria reports). Real-time epidemic signal, not the long-run vital-statistics lens this topic covers.
@@ -35,12 +35,12 @@ The yen-gov pipeline ingests SRS rates via the RBI HBS-IS (Tables 2, 3, 4, 6) ra
 
 | Question | Canonical answer | Why |
 | --- | --- | --- |
-| "How healthy is this state's mother-and-child ecosystem?" | [`health/state_infant_mortality_rate_per_1000`](../indicators/health/state_infant_mortality_rate_per_1000.md) | Single most cited summary of state public-health performance. Integrates antenatal care, institutional-delivery quality, neonatal nutrition, and immunisation coverage in one number. |
-| "What stage of demographic transition is this state in?" | [`health/state_total_fertility_rate`](../indicators/health/state_total_fertility_rate.md) | Replacement-level (2.1) crossing is the demographic-transition milestone. Below-2.1 carries downstream consequences for school-age population, working-age share, dependency ratio, and pension fiscal stress (see [`fiscal/state_pension_expenditure_inr_crore`](../indicators/fiscal/state_pension_expenditure_inr_crore.md)). |
-| "Is this state ageing?" | [`health/state_total_fertility_rate`](../indicators/health/state_total_fertility_rate.md) trended down + [`health/state_death_rate_per_1000`](../indicators/health/state_death_rate_per_1000.md) trending **up** for age-structural reasons | Once TFR is below replacement and CDR starts rising again, that is the population-pyramid inversion (Kerala's CDR has been creeping up since ~2017 for exactly this reason — not because public health is worsening). |
-| "How much is this state spending on health from its own budget?" | [`health/state_public_health_expenditure_inr_crore`](../indicators/health/state_public_health_expenditure_inr_crore.md) | Captures Medical & Public Health + Family Welfare + Water Supply & Sanitation revenue+capital heads. Is a fiscal artifact at heart; its economic interpretation needs `economy/` denominators. |
-| "Why is this state's CDR rising even as healthcare improves?" | Pair [`health/state_death_rate_per_1000`](../indicators/health/state_death_rate_per_1000.md) (rises) with [`health/state_total_fertility_rate`](../indicators/health/state_total_fertility_rate.md) (falls) and [`demography/state_population_age_bands`](../indicators/demography/) (older share rising) | CDR is *crude*: it is the per-1000 death count, unadjusted for age structure. A state with a higher share of >60 will *always* show a higher CDR even with identical age-specific mortality. |
-| "How does fertility decline match birth-rate decline?" | [`health/state_birth_rate_per_1000`](../indicators/health/state_birth_rate_per_1000.md) and [`health/state_total_fertility_rate`](../indicators/health/state_total_fertility_rate.md) together | CBR is a stock outcome (births per 1000 of *all* population, including non-fertile age bands); TFR is the per-woman intensity. Both fall as a state's transition matures, but at different speeds. |
+| "How healthy is this state's mother-and-child ecosystem?" | [`health/state_infant_mortality_rate_per_1000`](../../../datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json) | Single most cited summary of state public-health performance. Integrates antenatal care, institutional-delivery quality, neonatal nutrition, and immunisation coverage in one number. |
+| "What stage of demographic transition is this state in?" | [`health/state_total_fertility_rate`](../../../datasets/indicators/in/health/state_total_fertility_rate.json) | Replacement-level (2.1) crossing is the demographic-transition milestone. Below-2.1 carries downstream consequences for school-age population, working-age share, dependency ratio, and pension fiscal stress (see [`fiscal/state_pension_expenditure_inr_crore`](../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)). |
+| "Is this state ageing?" | [`health/state_total_fertility_rate`](../../../datasets/indicators/in/health/state_total_fertility_rate.json) trended down + [`health/state_death_rate_per_1000`](../../../datasets/indicators/in/health/state_death_rate_per_1000.json) trending **up** for age-structural reasons | Once TFR is below replacement and CDR starts rising again, that is the population-pyramid inversion (Kerala's CDR has been creeping up since ~2017 for exactly this reason — not because public health is worsening). |
+| "How much is this state spending on health from its own budget?" | [`health/state_public_health_expenditure_inr_crore`](../../../datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json) | Captures Medical & Public Health + Family Welfare + Water Supply & Sanitation revenue+capital heads. Is a fiscal artifact at heart; its economic interpretation needs `economy/` denominators. |
+| "Why is this state's CDR rising even as healthcare improves?" | Pair [`health/state_death_rate_per_1000`](../../../datasets/indicators/in/health/state_death_rate_per_1000.json) (rises) with [`health/state_total_fertility_rate`](../../../datasets/indicators/in/health/state_total_fertility_rate.json) (falls) and [`demography/state_population_age_bands`](../../../datasets/indicators/in/demography/) (older share rising) | CDR is *crude*: it is the per-1000 death count, unadjusted for age structure. A state with a higher share of >60 will *always* show a higher CDR even with identical age-specific mortality. |
+| "How does fertility decline match birth-rate decline?" | [`health/state_birth_rate_per_1000`](../../../datasets/indicators/in/health/state_birth_rate_per_1000.json) and [`health/state_total_fertility_rate`](../../../datasets/indicators/in/health/state_total_fertility_rate.json) together | CBR is a stock outcome (births per 1000 of *all* population, including non-fertile age bands); TFR is the per-woman intensity. Both fall as a state's transition matures, but at different speeds. |
 
 ## Conceptual taxonomy
 
@@ -90,7 +90,7 @@ Once a state crosses the replacement transition, the policy-relevant question sh
 
 ### Public health expenditure and the National Health Mission
 
-[`health/state_public_health_expenditure_inr_crore`](../indicators/health/state_public_health_expenditure_inr_crore.md) sums the Medical & Public Health, Family Welfare, and Water Supply & Sanitation heads from the state revenue + capital accounts. Three structural points:
+[`health/state_public_health_expenditure_inr_crore`](../../../datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json) sums the Medical & Public Health, Family Welfare, and Water Supply & Sanitation heads from the state revenue + capital accounts. Three structural points:
 
 - The 2017 National Health Policy committed health spending (Centre + states combined) to 2.5% of GDP by 2025. This series tracks the state share of that target and almost no state is on track.
 - A large share of state health spending is centrally co-funded under the **National Health Mission (NHM)** — so a state's "public health expenditure" is partially Centre money flowing through the state budget. The artifact does not currently disentangle the Centre-funded and state-funded shares.
@@ -109,22 +109,22 @@ Once a state crosses the replacement transition, the policy-relevant question sh
 - **J&K UT-isation (October 2019).** SRS continues to report J&K as a single entity post-UT-isation; Ladakh is *not* separately broken out in the SRS Statistical Report. So the entity layer in this topic is more stable than the [fiscal](./fiscal.md) topic across the J&K change.
 - **Crude rates are NOT directly state-rankable.** As noted above, CBR and CDR depend on age structure. Rank states on IMR or TFR (which are largely free of age-structure confound) for citizen-facing comparisons. Hans's 4-level comparability ladder would put CBR and CDR at level 3 (`comparable_within_state_over_time`) rather than level 1 (`comparable_across_states_and_time`).
 - **Small-state noise.** Sikkim, Goa, Mizoram, Manipur, Arunachal, Nagaland have small SRS sample frames. Year-on-year wiggles of 5–15% in TFR or 2–4 in IMR for these states are largely sampling noise. Use 3-year moving averages for any small-state trend assertion.
-- **Public-health expenditure denominators.** The [`health/state_public_health_expenditure_inr_crore`](../indicators/health/state_public_health_expenditure_inr_crore.md) artifact is a nominal ₹ Crore series. Per-capita health spend needs `demography/state_population_lakhs`; share-of-state-spend needs `fiscal/state_revenue_expenditure_inr_crore`; share-of-GSDP needs an `economy/` denominator. The artifact ships the raw level on purpose so each downstream ratio is composable.
+- **Public-health expenditure denominators.** The [`health/state_public_health_expenditure_inr_crore`](../../../datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json) artifact is a nominal ₹ Crore series. Per-capita health spend needs `demography/state_population_lakhs`; share-of-state-spend needs `fiscal/state_revenue_expenditure_inr_crore`; share-of-GSDP needs an `economy/` denominator. The artifact ships the raw level on purpose so each downstream ratio is composable.
 
 ## Related topic spines
 
-- **[Demography](../indicators/demography/)** — population denominators for any per-capita derivation. The vital-statistics rates here describe the *flows* into and out of the population stocks the demography topic carries.
-- **[Fiscal](./fiscal.md)** — `state_public_health_expenditure_inr_crore` is itself a fiscal series at heart. The downstream pension-stress consequence of low TFR is a fiscal artifact ([`fiscal/state_pension_expenditure_inr_crore`](../indicators/fiscal/state_pension_expenditure_inr_crore.md)).
-- **[Education](../indicators/education/)** (when ingested) — the school-age population denominator changes with TFR; literacy and enrolment are the next-decade downstream of today's birth rates.
-- **[Environment](../indicators/environment/)** — air pollution, water quality, climate-shock health-burden. Conceptually adjacent but with different data lineage.
+- **[Demography](../../../datasets/indicators/in/demography/)** — population denominators for any per-capita derivation. The vital-statistics rates here describe the *flows* into and out of the population stocks the demography topic carries.
+- **[Fiscal](./fiscal.md)** — `state_public_health_expenditure_inr_crore` is itself a fiscal series at heart. The downstream pension-stress consequence of low TFR is a fiscal artifact ([`fiscal/state_pension_expenditure_inr_crore`](../../../datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json)).
+- **[Education](../../../datasets/indicators/in/education/)** (when ingested) — the school-age population denominator changes with TFR; literacy and enrolment are the next-decade downstream of today's birth rates.
+- **[Environment](../../../datasets/indicators/in/environment/)** — air pollution, water quality, climate-shock health-burden. Conceptually adjacent but with different data lineage.
 
 ## Indicator pages in this topic
 
-- [`health/state_birth_rate_per_1000`](../indicators/health/state_birth_rate_per_1000.md) — Crude Birth Rate, per 1,000 mid-year population, calendar year, 2004 onwards. Demographic-transition reading; trends down across all states.
-- [`health/state_death_rate_per_1000`](../indicators/health/state_death_rate_per_1000.md) — Crude Death Rate, per 1,000 mid-year population, calendar year, 2004 onwards. Age-confounded — do not rank states without an age-adjustment caveat.
-- [`health/state_infant_mortality_rate_per_1000`](../indicators/health/state_infant_mortality_rate_per_1000.md) — Infant Mortality Rate, per 1,000 live births, calendar year, 2004 onwards. The single most-cited public-health-performance indicator.
-- [`health/state_public_health_expenditure_inr_crore`](../indicators/health/state_public_health_expenditure_inr_crore.md) — Per-state public expenditure on health (medical + family welfare + water/sanitation), ₹ Crore, FY13–FY20.
-- [`health/state_total_fertility_rate`](../indicators/health/state_total_fertility_rate.md) — Total Fertility Rate, children per woman, calendar year, 2003 onwards. The demographic-transition lens.
+- [`health/state_birth_rate_per_1000`](../../../datasets/indicators/in/health/state_birth_rate_per_1000.json) — Crude Birth Rate, per 1,000 mid-year population, calendar year, 2004 onwards. Demographic-transition reading; trends down across all states.
+- [`health/state_death_rate_per_1000`](../../../datasets/indicators/in/health/state_death_rate_per_1000.json) — Crude Death Rate, per 1,000 mid-year population, calendar year, 2004 onwards. Age-confounded — do not rank states without an age-adjustment caveat.
+- [`health/state_infant_mortality_rate_per_1000`](../../../datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json) — Infant Mortality Rate, per 1,000 live births, calendar year, 2004 onwards. The single most-cited public-health-performance indicator.
+- [`health/state_public_health_expenditure_inr_crore`](../../../datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json) — Per-state public expenditure on health (medical + family welfare + water/sanitation), ₹ Crore, FY13–FY20.
+- [`health/state_total_fertility_rate`](../../../datasets/indicators/in/health/state_total_fertility_rate.json) — Total Fertility Rate, children per woman, calendar year, 2003 onwards. The demographic-transition lens.
 
 ## Further reading
 

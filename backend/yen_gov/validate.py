@@ -28,6 +28,12 @@ from jsonschema.exceptions import SchemaError
 
 SCHEMAS_SUBDIR = Path("datasets/schemas")
 DATA_ROOTS = (Path("datasets"), Path("config"))
+
+# Path segments under DATA_ROOTS whose entire subtree is exempt from
+# Tier-B conformance. Today only `_test/` (shared cross-language test
+# fixtures). Adding to this set is a doctrine decision -- see
+# `_iter_data_files` and docs/architecture/backend/validator.md.
+_EXCLUDED_PATH_SEGMENTS: frozenset[str] = frozenset({"_test"})
 VERSION_RE = re.compile(r"\d+\.\d+")
 
 
@@ -122,6 +128,18 @@ def _iter_data_files(root: Path) -> Iterable[Path]:
             continue
         for p in sorted(d.rglob("*.json")):
             if p.name.endswith(".schema.json"):
+                continue
+            # Skip the shared cross-language test-fixture subtree
+            # (datasets/_test/...). These files back unit tests that
+            # consume them via plain JSON loads (e.g. the
+            # `derive_temporal_range` parity fixtures consumed by both
+            # pytest and vitest); they are NOT citizen-facing artifacts
+            # and intentionally carry no `$schema`. Match the literal
+            # `_test` segment -- not any leading-underscore segment --
+            # so future stray underscore-prefixed dirs (e.g. accidental
+            # `_scratch/`) keep failing Tier B loudly. Per Fowler
+            # review 2026-05-17.
+            if any(part in _EXCLUDED_PATH_SEGMENTS for part in p.relative_to(d).parts[:-1]):
                 continue
             yield p
 

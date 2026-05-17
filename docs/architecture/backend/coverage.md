@@ -1,6 +1,29 @@
 # Coverage report (data inventory)
 
-**Last Updated**: 2026-05-14
+**Last Updated**: 2026-05-17
+
+> **Status (2026-05-17):** the per-indicator markdown surface
+> previously emitted under `docs/reference/indicators/` (Phase 1 of
+> the old PER-INDICATOR-DOCS-PLAN) has been **retired** in Phase #4a
+> of [TODO/20260517-coverage-temporal-range-plan.md](../../../TODO/20260517-coverage-temporal-range-plan.md).
+> Structured temporal range data now lives on
+> [`datasets/reference/in/indicators-completeness.json`](../../../datasets/reference/in/indicators-completeness.json)
+> (schema [`indicators-completeness.schema.json`](../../../datasets/schemas/indicators-completeness.schema.json)
+> v2.0+) as `min_time` / `max_time` / `min_period_label` /
+> `max_period_label` / `observed_periods_within_range` /
+> `gap_count_within_range` / `time_grain` / `cadence` per row,
+> populated by
+> [`yen_gov.inventory.derive.derive_temporal_range`](../../../backend/yen_gov/inventory/derive.py).
+> Consumers MUST read those structured fields rather than parsing the
+> markdown surface this module emits (CLAUDE.md §10 anti-pattern). The
+> elections half of the report continues unchanged. The narrative
+> remainder of the per-indicator section (`_scan_indicators` /
+> `_parse_temporal` helpers + the indicator-table block in
+> `data-inventory.md`) is scheduled for retirement in Phase #4b — a
+> separate decision once the citizen-facing per-indicator route ships
+> and has covered the same operator need for one cycle. See
+> [`docs/reference/indicators/README.md`](../../reference/indicators/README.md)
+> for the tombstone redirect.
 
 `backend/yen_gov/coverage.py` produces the single source of truth at
 [`docs/reference/data-inventory.md`](../../reference/data-inventory.md). It is

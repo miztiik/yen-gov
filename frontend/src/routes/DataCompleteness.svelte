@@ -25,10 +25,29 @@
     documentation_status: "stub" | "partial" | "authored";
     inventory_status: "empty" | "partial" | "complete";
     frozen: boolean;
-    last_collected_at: string | null;
+    last_polled_at: string | null;
     observed_count: number;
     pending_count: number;
     unavailable_count: number;
+    // Structured temporal range (schema v2.0, all optional --
+    // omitted when rows[]==[] or when cadence is decennial/ad_hoc).
+    min_time?: string;
+    max_time?: string;
+    min_period_label?: string;
+    max_period_label?: string;
+    observed_periods_within_range?: number;
+    gap_count_within_range?: number;
+    time_grain?: string;
+    cadence?:
+      | "annual_cy"
+      | "annual_fy"
+      | "quarterly_cy"
+      | "quarterly_fy"
+      | "monthly"
+      | "weekly"
+      | "daily"
+      | "decennial"
+      | "ad_hoc";
   }
 
   interface CompletenessIndex {
@@ -165,7 +184,7 @@
               </td>
               <td class="py-2 pr-4 text-right tabular-nums text-slate-700">{row.observed_count}</td>
               <td class="py-2 pr-4 text-right tabular-nums text-slate-700">{row.pending_count}</td>
-              <td class="py-2 pr-4 text-slate-700">{row.last_collected_at ?? "—"}</td>
+              <td class="py-2 pr-4 text-slate-700">{row.last_polled_at ?? "—"}</td>
             </tr>
           {/each}
         </tbody>

@@ -1,0 +1,147 @@
+{
+  "$comment": "Shared fixtures for derive_temporal_range parity. Consumed by backend/tests/test_derive_temporal_range.py AND frontend/src/lib/indicators.test.ts. The point: prevent rule drift between the Python derivation (operator-side, populates indicators-completeness.json) and the TypeScript derivation (citizen-side, drives the IndicatorChoropleth caption). When the rules disagree, this file fails BOTH suites at once. Per TODO/20260517-coverage-temporal-range-plan.md Phase #3.",
+  "cases": [
+    {
+      "name": "yyyy-mm range, monthly grain — multi-period basic",
+      "indicator": { "id": "test/monthly_a", "time_grain": "month" },
+      "rows": [
+        { "time": "2020-01", "period_label": "Jan 2020" },
+        { "time": "2020-02", "period_label": "Feb 2020" },
+        { "time": "2020-03", "period_label": "Mar 2020" }
+      ],
+      "expected": {
+        "min_time": "2020-01",
+        "max_time": "2020-03",
+        "min_period_label": "Jan 2020",
+        "max_period_label": "Mar 2020",
+        "observed_periods_within_range": 3,
+        "gap_count_within_range": 0,
+        "time_grain": "month"
+      }
+    },
+    {
+      "name": "year grain, single observation — collapses to one period",
+      "indicator": { "id": "test/single_year", "time_grain": "year" },
+      "rows": [
+        { "time": "2024", "period_label": "2024" }
+      ],
+      "expected": {
+        "min_time": "2024",
+        "max_time": "2024",
+        "min_period_label": "2024",
+        "max_period_label": "2024",
+        "observed_periods_within_range": 1,
+        "gap_count_within_range": 0,
+        "time_grain": "year"
+      }
+    },
+    {
+      "name": "year grain with gap — gap_count=2",
+      "indicator": { "id": "test/yearly_with_gap", "time_grain": "year" },
+      "rows": [
+        { "time": "2018", "period_label": "2018" },
+        { "time": "2019", "period_label": "2019" },
+        { "time": "2022", "period_label": "2022" }
+      ],
+      "expected": {
+        "min_time": "2018",
+        "max_time": "2022",
+        "min_period_label": "2018",
+        "max_period_label": "2022",
+        "observed_periods_within_range": 3,
+        "gap_count_within_range": 2,
+        "time_grain": "year"
+      }
+    },
+    {
+      "name": "decennial cadence — observed/gap suppressed per ADR-0027",
+      "indicator": { "id": "test/census", "time_grain": "year", "cadence": "decennial" },
+      "rows": [
+        { "time": "1991", "period_label": "1991" },
+        { "time": "2001", "period_label": "2001" },
+        { "time": "2011", "period_label": "2011" }
+      ],
+      "expected": {
+        "min_time": "1991",
+        "max_time": "2011",
+        "min_period_label": "1991",
+        "max_period_label": "2011",
+        "time_grain": "year",
+        "cadence": "decennial"
+      }
+    },
+    {
+      "name": "ad_hoc cadence — observed/gap suppressed per ADR-0027",
+      "indicator": { "id": "test/bur_ghg", "time_grain": "year", "cadence": "ad_hoc" },
+      "rows": [
+        { "time": "1994", "period_label": "1994" },
+        { "time": "2000", "period_label": "2000" },
+        { "time": "2010", "period_label": "2010" },
+        { "time": "2016", "period_label": "2016" },
+        { "time": "2020", "period_label": "2020" }
+      ],
+      "expected": {
+        "min_time": "1994",
+        "max_time": "2020",
+        "min_period_label": "1994",
+        "max_period_label": "2020",
+        "time_grain": "year",
+        "cadence": "ad_hoc"
+      }
+    },
+    {
+      "name": "fiscal_year grain, FY tokens emitted as YYYY-04",
+      "indicator": { "id": "test/fy_series", "time_grain": "fiscal_year" },
+      "rows": [
+        { "time": "2018-04", "period_label": "FY 2018-19" },
+        { "time": "2019-04", "period_label": "FY 2019-20" },
+        { "time": "2020-04", "period_label": "FY 2020-21" }
+      ],
+      "expected": {
+        "min_time": "2018-04",
+        "max_time": "2020-04",
+        "min_period_label": "FY 2018-19",
+        "max_period_label": "FY 2020-21",
+        "observed_periods_within_range": 3,
+        "gap_count_within_range": 0,
+        "time_grain": "fiscal_year"
+      }
+    },
+    {
+      "name": "date grain — snapshot, gap_count omitted",
+      "indicator": { "id": "test/snapshot", "time_grain": "date" },
+      "rows": [
+        { "time": "2026-05-14", "period_label": "as on 14 May 2026" }
+      ],
+      "expected": {
+        "min_time": "2026-05-14",
+        "max_time": "2026-05-14",
+        "min_period_label": "as on 14 May 2026",
+        "max_period_label": "as on 14 May 2026",
+        "observed_periods_within_range": 1,
+        "time_grain": "date"
+      }
+    },
+    {
+      "name": "empty rows returns null",
+      "indicator": { "id": "test/empty", "time_grain": "year" },
+      "rows": [],
+      "expected": null
+    },
+    {
+      "name": "indicator without time_grain omits the key entirely",
+      "indicator": { "id": "test/no_grain" },
+      "rows": [
+        { "time": "2024", "period_label": "2024" }
+      ],
+      "expected": {
+        "min_time": "2024",
+        "max_time": "2024",
+        "min_period_label": "2024",
+        "max_period_label": "2024",
+        "observed_periods_within_range": 1,
+        "gap_count_within_range": 0
+      }
+    }
+  ]
+}

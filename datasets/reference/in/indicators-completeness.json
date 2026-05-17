@@ -1,8 +1,8 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicators-completeness.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "2.0",
   "sources": [],
-  "generated_at": "2026-05-16",
+  "generated_at": "2026-05-17",
   "indicators": [
     {
       "id": "demography/state_population_by_residence_count",
@@ -12,10 +12,16 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T23:24:24Z",
+      "last_polled_at": "2026-05-14T23:24:24Z",
       "observed_count": 6,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1961",
+      "max_time": "2011",
+      "min_period_label": "1961",
+      "max_period_label": "2011",
+      "time_grain": "year",
+      "cadence": "decennial"
     },
     {
       "id": "demography/state_population_by_sex_count",
@@ -25,10 +31,16 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T22:00:51Z",
+      "last_polled_at": "2026-05-14T22:00:51Z",
       "observed_count": 6,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1961",
+      "max_time": "2011",
+      "min_period_label": "1961",
+      "max_period_label": "2011",
+      "time_grain": "year",
+      "cadence": "decennial"
     },
     {
       "id": "demography/state_population_lakhs",
@@ -38,10 +50,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2025-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/india_external_balance_inr_crore",
@@ -51,10 +70,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T23:40:41Z",
+      "last_polled_at": "2026-05-14T23:40:41Z",
       "observed_count": 15,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2000-04",
+      "max_time": "2023-04",
+      "min_period_label": "2000-04",
+      "max_period_label": "2023-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 15,
+      "gap_count_within_range": 9
     },
     {
       "id": "economy/india_gdp_inr_crore",
@@ -64,10 +90,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T23:24:21Z",
+      "last_polled_at": "2026-05-14T23:24:21Z",
       "observed_count": 75,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1950-04",
+      "max_time": "2024-04",
+      "min_period_label": "1950-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 75,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/india_gva_by_industry_constant_inr_crore",
@@ -77,10 +110,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T23:40:40Z",
+      "last_polled_at": "2026-05-14T23:40:40Z",
       "observed_count": 14,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2011-04",
+      "max_time": "2024-04",
+      "min_period_label": "2011-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 14,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/india_iip_index_2011_12",
@@ -90,10 +130,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T23:24:22Z",
+      "last_polled_at": "2026-05-14T23:24:22Z",
       "observed_count": 13,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2012-04",
+      "max_time": "2024-04",
+      "min_period_label": "2012-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 13,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/national_gdp_current_inr_lakh_crore",
@@ -103,10 +150,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T14:11:06Z",
+      "last_polled_at": "2026-05-14T14:11:06Z",
       "observed_count": 13,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2011-04",
+      "max_time": "2023-04",
+      "min_period_label": "2011-04",
+      "max_period_label": "2023-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 13,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/national_gva_by_industry_constant_2011_12_inr_crore",
@@ -116,10 +170,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T15:02:37Z",
+      "last_polled_at": "2026-05-14T15:02:37Z",
       "observed_count": 15,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2011-04",
+      "max_time": "2025-04",
+      "min_period_label": "2011-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 15,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore",
@@ -129,10 +190,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T15:02:37Z",
+      "last_polled_at": "2026-05-14T15:02:37Z",
       "observed_count": 58,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2011-04",
+      "max_time": "2025-07",
+      "min_period_label": "2011-04",
+      "max_period_label": "2025-07",
+      "time_grain": "quarter",
+      "observed_periods_within_range": 58,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/national_macro_aggregates_constant_2011_12_inr_crore",
@@ -142,10 +210,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T15:02:37Z",
+      "last_polled_at": "2026-05-14T15:02:37Z",
       "observed_count": 15,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2011-04",
+      "max_time": "2025-04",
+      "min_period_label": "2011-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 15,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_gdp_constant_2011_12_inr_lakh_crore",
@@ -155,10 +230,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2024-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 10,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_gdp_current_inr_lakh_crore",
@@ -168,10 +250,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T14:11:06Z",
+      "last_polled_at": "2026-05-14T14:11:06Z",
       "observed_count": 14,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2011-04",
+      "max_time": "2024-04",
+      "min_period_label": "2011-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 14,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_gdp_inr_crore",
@@ -181,10 +270,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T23:24:21Z",
+      "last_polled_at": "2026-05-14T23:24:21Z",
       "observed_count": 14,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2011-04",
+      "max_time": "2024-04",
+      "min_period_label": "2011-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 14,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_nsdp_constant_inr_crore",
@@ -194,10 +290,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T18:00:00Z",
+      "last_polled_at": "2026-05-14T18:00:00Z",
       "observed_count": 31,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1994-04",
+      "max_time": "2024-04",
+      "min_period_label": "1994-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 31,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_nsdp_current_inr_crore",
@@ -207,10 +310,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T18:00:00Z",
+      "last_polled_at": "2026-05-14T18:00:00Z",
       "observed_count": 31,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1994-04",
+      "max_time": "2024-04",
+      "min_period_label": "1994-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 31,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_per_capita_consumption_inr",
@@ -220,10 +330,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T22:00:50Z",
+      "last_polled_at": "2026-05-14T22:00:50Z",
       "observed_count": 15,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2009-04",
+      "max_time": "2023-04",
+      "min_period_label": "2009-04",
+      "max_period_label": "2023-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 15,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_per_capita_nsdp_constant_2011_12_inr",
@@ -233,10 +350,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T22:00:48Z",
+      "last_polled_at": "2026-05-14T22:00:48Z",
       "observed_count": 20,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2004-04",
+      "max_time": "2023-04",
+      "min_period_label": "2004-04",
+      "max_period_label": "2023-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 20,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_per_capita_nsdp_constant_inr_long",
@@ -246,10 +370,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T18:00:00Z",
+      "last_polled_at": "2026-05-14T18:00:00Z",
       "observed_count": 25,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2000-04",
+      "max_time": "2024-04",
+      "min_period_label": "2000-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 25,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_per_capita_nsdp_current_inr",
@@ -259,10 +390,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 20,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2004-04",
+      "max_time": "2023-04",
+      "min_period_label": "2004-04",
+      "max_period_label": "2023-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 20,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_per_capita_nsdp_current_inr_long",
@@ -272,10 +410,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T18:00:00Z",
+      "last_polled_at": "2026-05-14T18:00:00Z",
       "observed_count": 25,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2000-04",
+      "max_time": "2024-04",
+      "min_period_label": "2000-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 25,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore",
@@ -285,10 +430,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2024-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 10,
+      "gap_count_within_range": 0
     },
     {
       "id": "economy/state_sectoral_gva_current_inr_lakh_crore",
@@ -298,10 +450,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2024-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 10,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/india_capacity_pipeline_gw",
@@ -311,10 +470,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T22:53:31Z",
+      "last_polled_at": "2026-05-14T22:53:31Z",
       "observed_count": 20,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2011",
+      "max_time": "2031",
+      "min_period_label": "2011",
+      "max_period_label": "2031",
+      "time_grain": "year",
+      "observed_periods_within_range": 20,
+      "gap_count_within_range": 1
     },
     {
       "id": "energy/india_thermal_capacity_retired_mw",
@@ -324,10 +490,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T22:53:30Z",
+      "last_polled_at": "2026-05-14T22:53:30Z",
       "observed_count": 21,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2005-04",
+      "max_time": "2025-04",
+      "min_period_label": "2005-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 21,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/installed_capacity_by_source_mw",
@@ -337,10 +510,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-13T21:54:16Z",
+      "last_polled_at": "2026-05-13T21:54:16Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-03",
+      "max_time": "2026-03",
+      "min_period_label": "2026-03",
+      "max_period_label": "2026-03",
+      "time_grain": "month",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/installed_capacity_coal_mw",
@@ -350,10 +530,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-13T21:54:16Z",
+      "last_polled_at": "2026-05-13T21:54:16Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-03",
+      "max_time": "2026-03",
+      "min_period_label": "2026-03",
+      "max_period_label": "2026-03",
+      "time_grain": "month",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/installed_capacity_gas_mw",
@@ -363,10 +550,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-13T21:54:16Z",
+      "last_polled_at": "2026-05-13T21:54:16Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-03",
+      "max_time": "2026-03",
+      "min_period_label": "2026-03",
+      "max_period_label": "2026-03",
+      "time_grain": "month",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/installed_capacity_hydro_mw",
@@ -376,10 +570,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-13T21:54:16Z",
+      "last_polled_at": "2026-05-13T21:54:16Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-03",
+      "max_time": "2026-03",
+      "min_period_label": "2026-03",
+      "max_period_label": "2026-03",
+      "time_grain": "month",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/installed_capacity_nuclear_mw",
@@ -389,10 +590,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-13T21:54:16Z",
+      "last_polled_at": "2026-05-13T21:54:16Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-03",
+      "max_time": "2026-03",
+      "min_period_label": "2026-03",
+      "max_period_label": "2026-03",
+      "time_grain": "month",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/installed_capacity_renewable_mw",
@@ -402,10 +610,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-13T21:54:16Z",
+      "last_polled_at": "2026-05-13T21:54:16Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-03",
+      "max_time": "2026-03",
+      "min_period_label": "2026-03",
+      "max_period_label": "2026-03",
+      "time_grain": "month",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/installed_capacity_thermal_mw",
@@ -415,10 +630,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-13T21:54:16Z",
+      "last_polled_at": "2026-05-13T21:54:16Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-03",
+      "max_time": "2026-03",
+      "min_period_label": "2026-03",
+      "max_period_label": "2026-03",
+      "time_grain": "month",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/installed_capacity_total_mw",
@@ -428,10 +650,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-13T21:54:16Z",
+      "last_polled_at": "2026-05-13T21:54:16Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-03",
+      "max_time": "2026-03",
+      "min_period_label": "2026-03",
+      "max_period_label": "2026-03",
+      "time_grain": "month",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/installed_mw_by_state",
@@ -441,10 +670,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-10T21:37:10Z",
+      "last_polled_at": "2026-05-10T21:37:10Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2019",
+      "max_time": "2019",
+      "min_period_label": "2019",
+      "max_period_label": "2019",
+      "time_grain": "year",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/national_final_energy_consumption_by_sector_mtoe",
@@ -454,10 +690,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 20,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2005-04",
+      "max_time": "2024-04",
+      "min_period_label": "2005-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 20,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/national_primary_energy_supply_mtoe",
@@ -467,10 +710,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 20,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2005-04",
+      "max_time": "2024-04",
+      "min_period_label": "2005-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 20,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/national_renewable_potential_vs_installed_mw",
@@ -480,10 +730,16 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-05-14",
+      "max_time": "2026-05-14",
+      "min_period_label": "2026-05-14",
+      "max_period_label": "2026-05-14",
+      "time_grain": "date",
+      "observed_periods_within_range": 1
     },
     {
       "id": "energy/state_acs_arr_gap_inr_per_kwh",
@@ -493,10 +749,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2024-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 10,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_atc_losses_pct",
@@ -506,10 +769,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2024-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 10,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_coal_consumption_mt",
@@ -519,10 +789,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T18:16:07Z",
+      "last_polled_at": "2026-05-15T18:16:07Z",
       "observed_count": 20,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2005-04",
+      "max_time": "2024-04",
+      "min_period_label": "2005-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 20,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_distribution_billing_efficiency_pct",
@@ -532,10 +809,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T17:53:06Z",
+      "last_polled_at": "2026-05-15T17:53:06Z",
       "observed_count": 16,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2009-04",
+      "max_time": "2024-04",
+      "min_period_label": "2009-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 16,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_distribution_collection_efficiency_pct",
@@ -545,10 +829,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T17:53:06Z",
+      "last_polled_at": "2026-05-15T17:53:06Z",
       "observed_count": 16,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2009-04",
+      "max_time": "2024-04",
+      "min_period_label": "2009-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 16,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_distribution_td_loss_pct",
@@ -558,10 +849,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T17:53:06Z",
+      "last_polled_at": "2026-05-15T17:53:06Z",
       "observed_count": 16,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2009-04",
+      "max_time": "2024-04",
+      "min_period_label": "2009-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 16,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_electricity_generation_by_source_gwh",
@@ -571,10 +869,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T11:53:39Z",
+      "last_polled_at": "2026-05-15T11:53:39Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2025-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_electricity_generation_mu",
@@ -584,10 +889,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2025-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_electricity_peak_demand_mw",
@@ -597,10 +909,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 9,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2017-04",
+      "max_time": "2025-04",
+      "min_period_label": "2017-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 9,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_electricity_sales_mu",
@@ -610,10 +929,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 10,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2024-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 10,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_installed_capacity_by_source_mw",
@@ -623,10 +949,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T22:53:28Z",
+      "last_polled_at": "2026-05-14T22:53:28Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2025-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_installed_capacity_geographical_mw",
@@ -636,10 +969,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2025-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_installed_capacity_total_mw",
@@ -649,10 +989,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:30:00Z",
+      "last_polled_at": "2026-05-14T19:30:00Z",
       "observed_count": 21,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2004-04",
+      "max_time": "2024-04",
+      "min_period_label": "2004-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 21,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_installed_capacity_with_alloc_mw",
@@ -662,10 +1009,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2025-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_oil_product_consumption_kt",
@@ -675,10 +1029,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T18:16:10Z",
+      "last_polled_at": "2026-05-15T18:16:10Z",
       "observed_count": 15,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2010-04",
+      "max_time": "2024-04",
+      "min_period_label": "2010-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 15,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_peak_demand_mw",
@@ -688,10 +1049,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:30:00Z",
+      "last_polled_at": "2026-05-14T19:30:00Z",
       "observed_count": 12,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2013-04",
+      "max_time": "2024-04",
+      "min_period_label": "2013-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 12,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_peak_electricity_demand_mw",
@@ -701,10 +1069,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T22:53:29Z",
+      "last_polled_at": "2026-05-14T22:53:29Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2025-04",
+      "max_time": "2025-04",
+      "min_period_label": "2025-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 1,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_peak_met_mw",
@@ -714,10 +1089,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:30:00Z",
+      "last_polled_at": "2026-05-14T19:30:00Z",
       "observed_count": 12,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2013-04",
+      "max_time": "2024-04",
+      "min_period_label": "2013-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 12,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_per_capita_availability_kwh",
@@ -727,10 +1109,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:30:00Z",
+      "last_polled_at": "2026-05-14T19:30:00Z",
       "observed_count": 21,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2004-04",
+      "max_time": "2024-04",
+      "min_period_label": "2004-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 21,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_per_capita_electricity_consumption_kwh",
@@ -740,10 +1129,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 15,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2009-04",
+      "max_time": "2023-04",
+      "min_period_label": "2009-04",
+      "max_period_label": "2023-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 15,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_plant_load_factor_pct",
@@ -753,10 +1149,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T11:53:41Z",
+      "last_polled_at": "2026-05-15T11:53:41Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2025-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_power_availability_mu",
@@ -766,10 +1169,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:30:00Z",
+      "last_polled_at": "2026-05-14T19:30:00Z",
       "observed_count": 21,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2004-04",
+      "max_time": "2024-04",
+      "min_period_label": "2004-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 21,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_power_purchase_share_pct",
@@ -779,10 +1189,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T18:16:12Z",
+      "last_polled_at": "2026-05-15T18:16:12Z",
       "observed_count": 10,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2015-04",
+      "max_time": "2024-04",
+      "min_period_label": "2015-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 10,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_power_requirement_mu",
@@ -792,10 +1209,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:30:00Z",
+      "last_polled_at": "2026-05-14T19:30:00Z",
       "observed_count": 21,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2004-04",
+      "max_time": "2024-04",
+      "min_period_label": "2004-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 21,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_renewable_grid_capacity_mw",
@@ -805,10 +1229,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:30:00Z",
+      "last_polled_at": "2026-05-14T19:30:00Z",
       "observed_count": 18,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2007",
+      "max_time": "2024",
+      "min_period_label": "2007",
+      "max_period_label": "2024",
+      "time_grain": "year",
+      "observed_periods_within_range": 18,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_rooftop_solar_capacity_mw",
@@ -818,10 +1249,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T07:51:49Z",
+      "last_polled_at": "2026-05-14T07:51:49Z",
       "observed_count": 9,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2017-04",
+      "max_time": "2025-04",
+      "min_period_label": "2017-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 9,
+      "gap_count_within_range": 0
     },
     {
       "id": "energy/state_rpo_compliance_pct",
@@ -831,10 +1269,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T17:53:07Z",
+      "last_polled_at": "2026-05-15T17:53:07Z",
       "observed_count": 3,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2018-04",
+      "max_time": "2020-04",
+      "min_period_label": "2018-04",
+      "max_period_label": "2020-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 3,
+      "gap_count_within_range": 0
     },
     {
       "id": "environment/india_ghg_emissions_by_subsector_ggco2e",
@@ -844,10 +1289,16 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T23:14:02Z",
+      "last_polled_at": "2026-05-14T23:14:02Z",
       "observed_count": 14,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1994",
+      "max_time": "2020",
+      "min_period_label": "1994",
+      "max_period_label": "2020",
+      "time_grain": "year",
+      "cadence": "ad_hoc"
     },
     {
       "id": "environment/india_ghg_emissions_mtco2e_by_sector",
@@ -857,10 +1308,16 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T22:00:52Z",
+      "last_polled_at": "2026-05-14T22:00:52Z",
       "observed_count": 14,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1994",
+      "max_time": "2020",
+      "min_period_label": "1994",
+      "max_period_label": "2020",
+      "time_grain": "year",
+      "cadence": "ad_hoc"
     },
     {
       "id": "environment/state_no2_annual_mean_ug_m3",
@@ -870,10 +1327,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T14:44:39Z",
+      "last_polled_at": "2026-05-15T14:44:39Z",
       "observed_count": 14,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2010",
+      "max_time": "2023",
+      "min_period_label": "2010",
+      "max_period_label": "2023",
+      "time_grain": "year",
+      "observed_periods_within_range": 14,
+      "gap_count_within_range": 0
     },
     {
       "id": "environment/state_pm10_annual_mean_ug_m3",
@@ -883,10 +1347,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T14:44:39Z",
+      "last_polled_at": "2026-05-15T14:44:39Z",
       "observed_count": 14,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2010",
+      "max_time": "2023",
+      "min_period_label": "2010",
+      "max_period_label": "2023",
+      "time_grain": "year",
+      "observed_periods_within_range": 14,
+      "gap_count_within_range": 0
     },
     {
       "id": "environment/state_pm25_annual_mean_ug_m3",
@@ -896,10 +1367,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T14:44:39Z",
+      "last_polled_at": "2026-05-15T14:44:39Z",
       "observed_count": 9,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2014",
+      "max_time": "2023",
+      "min_period_label": "2014",
+      "max_period_label": "2023",
+      "time_grain": "year",
+      "observed_periods_within_range": 9,
+      "gap_count_within_range": 1
     },
     {
       "id": "environment/state_power_sector_co2_emissions_mtco2",
@@ -909,10 +1387,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T11:53:52Z",
+      "last_polled_at": "2026-05-15T11:53:52Z",
       "observed_count": 18,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2008-04",
+      "max_time": "2025-04",
+      "min_period_label": "2008-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 18,
+      "gap_count_within_range": 0
     },
     {
       "id": "environment/state_so2_annual_mean_ug_m3",
@@ -922,10 +1407,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T14:44:39Z",
+      "last_polled_at": "2026-05-15T14:44:39Z",
       "observed_count": 14,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2010",
+      "max_time": "2023",
+      "min_period_label": "2010",
+      "max_period_label": "2023",
+      "time_grain": "year",
+      "observed_periods_within_range": 14,
+      "gap_count_within_range": 0
     },
     {
       "id": "environment/state_thermal_fgd_installed_share_pct",
@@ -935,10 +1427,16 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-15T14:28:41Z",
+      "last_polled_at": "2026-05-15T14:28:41Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-05-15",
+      "max_time": "2026-05-15",
+      "min_period_label": "2026-05-15",
+      "max_period_label": "2026-05-15",
+      "time_grain": "date",
+      "observed_periods_within_range": 1
     },
     {
       "id": "fiscal/centre_transfers_gross",
@@ -948,10 +1446,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-13T21:02:24Z",
+      "last_polled_at": "2026-05-13T21:02:24Z",
       "observed_count": 7,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2016-04",
+      "max_time": "2022-04",
+      "min_period_label": "2016-04",
+      "max_period_label": "2022-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 7,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/centre_transfers_to_states_grants",
@@ -961,10 +1466,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-11T14:50:50Z",
+      "last_polled_at": "2026-05-11T14:50:50Z",
       "observed_count": 19,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2007-04",
+      "max_time": "2025-04",
+      "min_period_label": "2007-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 19,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/centre_transfers_to_states_gross",
@@ -974,10 +1486,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-11T14:50:50Z",
+      "last_polled_at": "2026-05-11T14:50:50Z",
       "observed_count": 19,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2007-04",
+      "max_time": "2025-04",
+      "min_period_label": "2007-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 19,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/centre_transfers_to_states_net",
@@ -987,10 +1506,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-11T14:50:50Z",
+      "last_polled_at": "2026-05-11T14:50:50Z",
       "observed_count": 19,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2007-04",
+      "max_time": "2025-04",
+      "min_period_label": "2007-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 19,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/centre_transfers_to_states_tax_devolution",
@@ -1000,10 +1526,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-11T14:50:50Z",
+      "last_polled_at": "2026-05-11T14:50:50Z",
       "observed_count": 19,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2007-04",
+      "max_time": "2025-04",
+      "min_period_label": "2007-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 19,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/net_transfers_from_centre",
@@ -1013,10 +1546,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-11T15:18:58Z",
+      "last_polled_at": "2026-05-11T15:18:58Z",
       "observed_count": 3,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2023-04",
+      "max_time": "2025-04",
+      "min_period_label": "2023-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 3,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/outstanding_debt_pct_gsdp",
@@ -1026,10 +1566,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-11T15:18:58Z",
+      "last_polled_at": "2026-05-11T15:18:58Z",
       "observed_count": 19,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2008-03",
+      "max_time": "2026-03",
+      "min_period_label": "2008-03",
+      "max_period_label": "2026-03",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 19,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/state_external_debt_inr_crore",
@@ -1039,10 +1586,16 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 1,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2026-05-14",
+      "max_time": "2026-05-14",
+      "min_period_label": "2026-05-14",
+      "max_period_label": "2026-05-14",
+      "time_grain": "date",
+      "observed_periods_within_range": 1
     },
     {
       "id": "fiscal/state_grants_in_aid_inr_crore",
@@ -1052,10 +1605,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 7,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2016-04",
+      "max_time": "2022-04",
+      "min_period_label": "2016-04",
+      "max_period_label": "2022-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 7,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/state_non_tax_revenue_inr_crore",
@@ -1065,10 +1625,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 7,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2016-04",
+      "max_time": "2022-04",
+      "min_period_label": "2016-04",
+      "max_period_label": "2022-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 7,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/state_own_tax_revenue_inr_crore",
@@ -1078,10 +1645,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 7,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2016-04",
+      "max_time": "2022-04",
+      "min_period_label": "2016-04",
+      "max_period_label": "2022-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 7,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/state_pension_expenditure_inr_crore",
@@ -1091,10 +1665,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 21,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2004-04",
+      "max_time": "2024-04",
+      "min_period_label": "2004-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 21,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/state_revenue_expenditure_inr_crore",
@@ -1104,10 +1685,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 7,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2016-04",
+      "max_time": "2022-04",
+      "min_period_label": "2016-04",
+      "max_period_label": "2022-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 7,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/state_share_central_taxes_inr_crore",
@@ -1117,10 +1705,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:20:42Z",
+      "last_polled_at": "2026-05-14T12:20:42Z",
       "observed_count": 7,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2016-04",
+      "max_time": "2022-04",
+      "min_period_label": "2016-04",
+      "max_period_label": "2022-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 7,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/states_combined_gross_fiscal_deficit",
@@ -1130,10 +1725,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-11T06:28:31Z",
+      "last_polled_at": "2026-05-11T06:28:31Z",
       "observed_count": 19,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2007-04",
+      "max_time": "2025-04",
+      "min_period_label": "2007-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 19,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/states_combined_primary_deficit",
@@ -1143,10 +1745,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-11T06:28:31Z",
+      "last_polled_at": "2026-05-11T06:28:31Z",
       "observed_count": 19,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2007-04",
+      "max_time": "2025-04",
+      "min_period_label": "2007-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 19,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/states_combined_primary_revenue_deficit",
@@ -1156,10 +1765,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-11T06:28:31Z",
+      "last_polled_at": "2026-05-11T06:28:31Z",
       "observed_count": 19,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2007-04",
+      "max_time": "2025-04",
+      "min_period_label": "2007-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 19,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/states_combined_revenue_deficit",
@@ -1169,10 +1785,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-11T06:28:31Z",
+      "last_polled_at": "2026-05-11T06:28:31Z",
       "observed_count": 19,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2007-04",
+      "max_time": "2025-04",
+      "min_period_label": "2007-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 19,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/union_gross_fiscal_deficit",
@@ -1182,10 +1805,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T20:59:30Z",
+      "last_polled_at": "2026-05-14T20:59:30Z",
       "observed_count": 40,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1986-04",
+      "max_time": "2025-04",
+      "min_period_label": "1986-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 40,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/union_primary_deficit",
@@ -1195,10 +1825,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T20:59:30Z",
+      "last_polled_at": "2026-05-14T20:59:30Z",
       "observed_count": 40,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1986-04",
+      "max_time": "2025-04",
+      "min_period_label": "1986-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 40,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/union_primary_revenue_deficit",
@@ -1208,10 +1845,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T20:59:30Z",
+      "last_polled_at": "2026-05-14T20:59:30Z",
       "observed_count": 40,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1986-04",
+      "max_time": "2025-04",
+      "min_period_label": "1986-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 40,
+      "gap_count_within_range": 0
     },
     {
       "id": "fiscal/union_revenue_deficit",
@@ -1221,10 +1865,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T20:59:30Z",
+      "last_polled_at": "2026-05-14T20:59:30Z",
       "observed_count": 40,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1986-04",
+      "max_time": "2025-04",
+      "min_period_label": "1986-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 40,
+      "gap_count_within_range": 0
     },
     {
       "id": "health/state_birth_rate_per_1000",
@@ -1234,10 +1885,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 20,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2004",
+      "max_time": "2023",
+      "min_period_label": "2004",
+      "max_period_label": "2023",
+      "time_grain": "year",
+      "observed_periods_within_range": 20,
+      "gap_count_within_range": 0
     },
     {
       "id": "health/state_death_rate_per_1000",
@@ -1247,10 +1905,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 20,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2004",
+      "max_time": "2023",
+      "min_period_label": "2004",
+      "max_period_label": "2023",
+      "time_grain": "year",
+      "observed_periods_within_range": 20,
+      "gap_count_within_range": 0
     },
     {
       "id": "health/state_health_expenditure_pct_total_expenditure",
@@ -1260,10 +1925,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-16T08:00:34Z",
+      "last_polled_at": "2026-05-16T08:00:34Z",
       "observed_count": 18,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2008-04",
+      "max_time": "2025-04",
+      "min_period_label": "2008-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 18,
+      "gap_count_within_range": 0
     },
     {
       "id": "health/state_infant_mortality_rate_per_1000",
@@ -1273,10 +1945,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 20,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2004",
+      "max_time": "2023",
+      "min_period_label": "2004",
+      "max_period_label": "2023",
+      "time_grain": "year",
+      "observed_periods_within_range": 20,
+      "gap_count_within_range": 0
     },
     {
       "id": "health/state_public_health_expenditure_inr_crore",
@@ -1286,10 +1965,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 8,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2012-04",
+      "max_time": "2019-04",
+      "min_period_label": "2012-04",
+      "max_period_label": "2019-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 8,
+      "gap_count_within_range": 0
     },
     {
       "id": "health/state_total_fertility_rate",
@@ -1299,10 +1985,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 21,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2003",
+      "max_time": "2023",
+      "min_period_label": "2003",
+      "max_period_label": "2023",
+      "time_grain": "year",
+      "observed_periods_within_range": 21,
+      "gap_count_within_range": 0
     },
     {
       "id": "human_development/state_hdi",
@@ -1312,10 +2005,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T22:00:49Z",
+      "last_polled_at": "2026-05-14T22:00:49Z",
       "observed_count": 2,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2011-04",
+      "max_time": "2017-04",
+      "min_period_label": "2011-04",
+      "max_period_label": "2017-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 2,
+      "gap_count_within_range": 5
     },
     {
       "id": "prices/national_cpi_combined_index_annual",
@@ -1325,10 +2025,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 14,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2011-04",
+      "max_time": "2024-04",
+      "min_period_label": "2011-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 14,
+      "gap_count_within_range": 0
     },
     {
       "id": "prices/national_cpi_iw_index_annual",
@@ -1338,10 +2045,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 32,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1993-04",
+      "max_time": "2024-04",
+      "min_period_label": "1993-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 32,
+      "gap_count_within_range": 0
     },
     {
       "id": "prices/national_wpi_all_commodities_index_annual",
@@ -1351,10 +2065,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 51,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "1974-04",
+      "max_time": "2024-04",
+      "min_period_label": "1974-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 51,
+      "gap_count_within_range": 0
     },
     {
       "id": "prices/state_cpi_food_inflation_pct",
@@ -1364,10 +2085,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2014-04",
+      "max_time": "2024-04",
+      "min_period_label": "2014-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "prices/state_cpi_fuel_inflation_pct",
@@ -1377,10 +2105,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2014-04",
+      "max_time": "2024-04",
+      "min_period_label": "2014-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "prices/state_cpi_general_inflation_pct",
@@ -1390,10 +2125,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2014-04",
+      "max_time": "2024-04",
+      "min_period_label": "2014-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "prices/state_cpi_housing_urban_inflation_pct",
@@ -1403,10 +2145,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T19:00:00Z",
+      "last_polled_at": "2026-05-14T19:00:00Z",
       "observed_count": 11,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2014-04",
+      "max_time": "2024-04",
+      "min_period_label": "2014-04",
+      "max_period_label": "2024-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 11,
+      "gap_count_within_range": 0
     },
     {
       "id": "transport/state_ev_registrations_count",
@@ -1416,10 +2165,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:22:08Z",
+      "last_polled_at": "2026-05-14T12:22:08Z",
       "observed_count": 26,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2000-04",
+      "max_time": "2025-04",
+      "min_period_label": "2000-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 26,
+      "gap_count_within_range": 0
     },
     {
       "id": "transport/state_ev_share_total_registrations_pct",
@@ -1429,10 +2185,17 @@
       "documentation_status": "stub",
       "inventory_status": "complete",
       "frozen": false,
-      "last_collected_at": "2026-05-14T12:22:08Z",
+      "last_polled_at": "2026-05-14T12:22:08Z",
       "observed_count": 26,
       "pending_count": 0,
-      "unavailable_count": 0
+      "unavailable_count": 0,
+      "min_time": "2000-04",
+      "max_time": "2025-04",
+      "min_period_label": "2000-04",
+      "max_period_label": "2025-04",
+      "time_grain": "fiscal_year",
+      "observed_periods_within_range": 26,
+      "gap_count_within_range": 0
     }
   ]
 }

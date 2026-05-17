@@ -1,6 +1,6 @@
 # Prices
 
-> Topic spine for the [`prices/`](../indicators/prices/) indicator family.
+> Topic spine for the [`prices/`](../../../datasets/indicators/in/prices/) indicator family.
 > Per-indicator pages link UP to this page for shared methodology that
 > would otherwise repeat across siblings.
 
@@ -14,8 +14,8 @@ The `prices` topic carries **price-level indices and inflation rates** at the na
 
 What is **adjacent but NOT here**:
 
-- **CPI sub-baskets that NSO does not publish per-state** — most notably *rural* housing CPI (NSO publishes urban-only because rural housing is imputed differently in the methodology). The [`prices/state_cpi_housing_urban_inflation_pct`](../indicators/prices/state_cpi_housing_urban_inflation_pct.md) artifact carries the urban-only series with the rural absence flagged inline.
-- **GDP deflator** (the implicit price-level deflator for nominal GDP) lives under [`economy/`](../indicators/economy/). It is conceptually the broadest inflation measure but it's a *derived* number from National Accounts, not a directly-collected price series.
+- **CPI sub-baskets that NSO does not publish per-state** — most notably *rural* housing CPI (NSO publishes urban-only because rural housing is imputed differently in the methodology). The [`prices/state_cpi_housing_urban_inflation_pct`](../../../datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json) artifact carries the urban-only series with the rural absence flagged inline.
+- **GDP deflator** (the implicit price-level deflator for nominal GDP) lives under [`economy/`](../../../datasets/indicators/in/economy/). It is conceptually the broadest inflation measure but it's a *derived* number from National Accounts, not a directly-collected price series.
 - **Food procurement prices** (MSP, central-issue price, FCI economic cost) are agriculture-policy artifacts and live elsewhere; they influence WPI and CPI-Food but are not price-level indices in their own right.
 - **Asset prices** — equities, real-estate transaction prices, gold — are not in scope for the consumer / producer inflation lens this topic covers.
 
@@ -34,13 +34,13 @@ The yen-gov pipeline reads RBI HBS-IE annual averages (Tables 36 and 37) for the
 
 | Question | Canonical answer | Why |
 | --- | --- | --- |
-| "What is India's official inflation rate?" | [`prices/national_cpi_combined_index_annual`](../indicators/prices/national_cpi_combined_index_annual.md), converted to YoY in the renderer | RBI's monetary-policy anchor since the Feb 2015 framework agreement and the 2016 Monetary Policy Committee Act. The 4% ± 2% inflation target is on this series. |
-| "How much have prices risen for an industrial worker over a 30-year window?" | [`prices/national_cpi_iw_index_annual`](../indicators/prices/national_cpi_iw_index_annual.md) | The deepest continuous CPI India publishes, FY94 onwards. Used for DA (Dearness Allowance) calculations for Centre and PSU employees. |
-| "What was producer-stage inflation 40 years ago?" | [`prices/national_wpi_all_commodities_index_annual`](../indicators/prices/national_wpi_all_commodities_index_annual.md) | The deepest historical price series (FY75 onwards), but spliced across 5 base years and weakly comparable across the splices. Read directionally only. |
-| "Which state has the highest food inflation this year?" | [`prices/state_cpi_food_inflation_pct`](../indicators/prices/state_cpi_food_inflation_pct.md) | The Food and Beverages sub-basket carries ~46% weight in CPI-Combined; food shocks (tomato, onion, pulses) drive headline CPI volatility. |
-| "How are LPG / electricity tariff hikes hitting households?" | [`prices/state_cpi_fuel_inflation_pct`](../indicators/prices/state_cpi_fuel_inflation_pct.md) | The Fuel and Light sub-basket bundles LPG cylinder, kerosene, electricity tariff, firewood — captures the per-state pass-through from the Centre's LPG subsidy regime and SERC tariff orders. |
-| "How fast are urban housing rents rising?" | [`prices/state_cpi_housing_urban_inflation_pct`](../indicators/prices/state_cpi_housing_urban_inflation_pct.md) | NSO's Housing CPI is urban-only by methodology; it captures owner-equivalent rent and actual contract rent in urban centres. |
-| "What is general headline CPI by state?" | [`prices/state_cpi_general_inflation_pct`](../indicators/prices/state_cpi_general_inflation_pct.md) | The state-level YoY corresponding to national CPI-Combined. |
+| "What is India's official inflation rate?" | [`prices/national_cpi_combined_index_annual`](../../../datasets/indicators/in/prices/national_cpi_combined_index_annual.json), converted to YoY in the renderer | RBI's monetary-policy anchor since the Feb 2015 framework agreement and the 2016 Monetary Policy Committee Act. The 4% ± 2% inflation target is on this series. |
+| "How much have prices risen for an industrial worker over a 30-year window?" | [`prices/national_cpi_iw_index_annual`](../../../datasets/indicators/in/prices/national_cpi_iw_index_annual.json) | The deepest continuous CPI India publishes, FY94 onwards. Used for DA (Dearness Allowance) calculations for Centre and PSU employees. |
+| "What was producer-stage inflation 40 years ago?" | [`prices/national_wpi_all_commodities_index_annual`](../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json) | The deepest historical price series (FY75 onwards), but spliced across 5 base years and weakly comparable across the splices. Read directionally only. |
+| "Which state has the highest food inflation this year?" | [`prices/state_cpi_food_inflation_pct`](../../../datasets/indicators/in/prices/state_cpi_food_inflation_pct.json) | The Food and Beverages sub-basket carries ~46% weight in CPI-Combined; food shocks (tomato, onion, pulses) drive headline CPI volatility. |
+| "How are LPG / electricity tariff hikes hitting households?" | [`prices/state_cpi_fuel_inflation_pct`](../../../datasets/indicators/in/prices/state_cpi_fuel_inflation_pct.json) | The Fuel and Light sub-basket bundles LPG cylinder, kerosene, electricity tariff, firewood — captures the per-state pass-through from the Centre's LPG subsidy regime and SERC tariff orders. |
+| "How fast are urban housing rents rising?" | [`prices/state_cpi_housing_urban_inflation_pct`](../../../datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json) | NSO's Housing CPI is urban-only by methodology; it captures owner-equivalent rent and actual contract rent in urban centres. |
+| "What is general headline CPI by state?" | [`prices/state_cpi_general_inflation_pct`](../../../datasets/indicators/in/prices/state_cpi_general_inflation_pct.json) | The state-level YoY corresponding to national CPI-Combined. |
 
 ## Conceptual taxonomy
 
@@ -101,9 +101,9 @@ WPI, CPI-IW, and CPI-Rural/Urban all undergo periodic **base-year revisions**: t
 
 The full splice history this corpus tracks:
 
-- **WPI** ([`prices/national_wpi_all_commodities_index_annual`](../indicators/prices/national_wpi_all_commodities_index_annual.md)): 1970-71 → 1981-82 (FY82), 1981-82 → 1993-94 (FY94), 1993-94 → 2004-05 (FY05), 2004-05 → 2011-12 (FY12). The current base is 2011-12. A fifth rebase to base 2017-18 has been long pending — the WPI revision committee report exists but the new series has not gone live; when it does, expect another splice entry.
-- **CPI-IW** ([`prices/national_cpi_iw_index_annual`](../indicators/prices/national_cpi_iw_index_annual.md)): 1960-61 → 1982 (FY82), 1982 → 2001 (FY01), 2001 → 2016 (FY16). The current base is 2016, with the centre coverage expanded from 78 to 88.
-- **CPI-Combined** ([`prices/national_cpi_combined_index_annual`](../indicators/prices/national_cpi_combined_index_annual.md)): single base (2012) so far. A rebase to base 2024 (or thereabouts) is in the NSO pipeline but not yet released; when it does, the new base will be tagged in `series_breaks[]`.
+- **WPI** ([`prices/national_wpi_all_commodities_index_annual`](../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json)): 1970-71 → 1981-82 (FY82), 1981-82 → 1993-94 (FY94), 1993-94 → 2004-05 (FY05), 2004-05 → 2011-12 (FY12). The current base is 2011-12. A fifth rebase to base 2017-18 has been long pending — the WPI revision committee report exists but the new series has not gone live; when it does, expect another splice entry.
+- **CPI-IW** ([`prices/national_cpi_iw_index_annual`](../../../datasets/indicators/in/prices/national_cpi_iw_index_annual.json)): 1960-61 → 1982 (FY82), 1982 → 2001 (FY01), 2001 → 2016 (FY16). The current base is 2016, with the centre coverage expanded from 78 to 88.
+- **CPI-Combined** ([`prices/national_cpi_combined_index_annual`](../../../datasets/indicators/in/prices/national_cpi_combined_index_annual.json)): single base (2012) so far. A rebase to base 2024 (or thereabouts) is in the NSO pipeline but not yet released; when it does, the new base will be tagged in `series_breaks[]`.
 
 The `no_growth_across_break` renderer rule is the correctness guard: a YoY computation that crosses a splice point produces a number that is *not* an inflation rate; it is the ratio of two indices on different baskets, weights and methodologies. The chart must skip that bar / draw a hatched gap, not pretend the values are commensurable.
 
@@ -121,24 +121,24 @@ Every price artifact at fiscal_year time-grain in this corpus is the **simple ar
 - **State-wise CPI sub-baskets are level 2 (`comparable_across_states_snapshot_only`) at best.** State-CPI weights are the all-India weights re-applied to state-collected price data; states with very different consumption patterns (Northeast vs Punjab, Goa vs Bihar) carry methodological noise in the weighted aggregate. A state with rapidly-shifting consumption (e.g. Kerala, where remittance-driven demand has reshaped the basket) is harder to read than a state where consumption patterns track the all-India average.
 - **CPI-IW and CPI-Combined are NOT spliceable to each other in level terms.** They have different baskets, different weights, different population universes. Charting them on the same axis as "the CPI" is technically wrong; doing it as two separate series with their own labels is fine.
 - **WPI vs CPI divergence is a real economic signal, not a data error.** WPI captures producer prices (commodities + manufactured); CPI captures consumer prices (heavy services + housing). When global commodity prices fall and services inflation stays sticky, WPI prints negative while CPI prints +5%. Both numbers are correct.
-- **State-wise rural housing inflation does not exist in the corpus or the upstream data.** [`prices/state_cpi_housing_urban_inflation_pct`](../indicators/prices/state_cpi_housing_urban_inflation_pct.md) is urban-only because NSO's CPI-Rural methodology imputes housing differently (it does not publish a rural housing sub-index at all). This is not a yen-gov omission; it is an upstream methodology choice that any rural-housing question must respect.
+- **State-wise rural housing inflation does not exist in the corpus or the upstream data.** [`prices/state_cpi_housing_urban_inflation_pct`](../../../datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json) is urban-only because NSO's CPI-Rural methodology imputes housing differently (it does not publish a rural housing sub-index at all). This is not a yen-gov omission; it is an upstream methodology choice that any rural-housing question must respect.
 
 ## Related topic spines
 
 - **[Fiscal](./fiscal.md)** — every nominal fiscal time-series benefits from price-deflation; CPI-Combined is the right deflator for post-2012 reads, spliced CPI-IW for the longer back-history. Centre and state subsidy-formula indexation (LPG, fertiliser, food) reach into prices for inflation triggers.
-- **[Economy](../indicators/economy/)** — real GDP and real per-capita NSDP series are deflated using the GDP deflator (NSO derived), not directly using these CPI / WPI artifacts; but the deflator is closely related to WPI for goods sectors and CPI for services sectors.
+- **[Economy](../../../datasets/indicators/in/economy/)** — real GDP and real per-capita NSDP series are deflated using the GDP deflator (NSO derived), not directly using these CPI / WPI artifacts; but the deflator is closely related to WPI for goods sectors and CPI for services sectors.
 - **[Energy](./energy.md)** — fuel inflation in CPI is driven by LPG subsidy resets, ATF excise pass-through, and SERC tariff orders, all of which originate in the energy topic's regulatory artifacts.
-- **[Agriculture](../indicators/agriculture/)** — CPI-Food volatility is driven by kharif / rabi crop outcomes, MSP changes, and global commodity prices; the agriculture topic carries the upstream causes of the food-inflation prints in this topic.
+- **[Agriculture](../../../datasets/indicators/in/agriculture/)** — CPI-Food volatility is driven by kharif / rabi crop outcomes, MSP changes, and global commodity prices; the agriculture topic carries the upstream causes of the food-inflation prints in this topic.
 
 ## Indicator pages in this topic
 
-- [`prices/national_cpi_combined_index_annual`](../indicators/prices/national_cpi_combined_index_annual.md) — All-India CPI-Combined (Rural + Urban), base 2012=100, annual average from FY15. The RBI monetary-policy anchor.
-- [`prices/national_cpi_iw_index_annual`](../indicators/prices/national_cpi_iw_index_annual.md) — CPI for Industrial Workers, spliced 1982 / 2001 / 2016 base years, annual average from FY94. Used for Centre/PSU DA indexation.
-- [`prices/national_wpi_all_commodities_index_annual`](../indicators/prices/national_wpi_all_commodities_index_annual.md) — Wholesale Price Index, All Commodities, spliced across 5 base years, annual average from FY75. Read directionally only across splices.
-- [`prices/state_cpi_food_inflation_pct`](../indicators/prices/state_cpi_food_inflation_pct.md) — State-wise CPI Food and Beverages YoY %, FY15 onwards.
-- [`prices/state_cpi_fuel_inflation_pct`](../indicators/prices/state_cpi_fuel_inflation_pct.md) — State-wise CPI Fuel and Light YoY %, FY15 onwards.
-- [`prices/state_cpi_general_inflation_pct`](../indicators/prices/state_cpi_general_inflation_pct.md) — State-wise headline CPI YoY %, FY15 onwards.
-- [`prices/state_cpi_housing_urban_inflation_pct`](../indicators/prices/state_cpi_housing_urban_inflation_pct.md) — State-wise CPI Housing (urban only) YoY %, FY15 onwards.
+- [`prices/national_cpi_combined_index_annual`](../../../datasets/indicators/in/prices/national_cpi_combined_index_annual.json) — All-India CPI-Combined (Rural + Urban), base 2012=100, annual average from FY15. The RBI monetary-policy anchor.
+- [`prices/national_cpi_iw_index_annual`](../../../datasets/indicators/in/prices/national_cpi_iw_index_annual.json) — CPI for Industrial Workers, spliced 1982 / 2001 / 2016 base years, annual average from FY94. Used for Centre/PSU DA indexation.
+- [`prices/national_wpi_all_commodities_index_annual`](../../../datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json) — Wholesale Price Index, All Commodities, spliced across 5 base years, annual average from FY75. Read directionally only across splices.
+- [`prices/state_cpi_food_inflation_pct`](../../../datasets/indicators/in/prices/state_cpi_food_inflation_pct.json) — State-wise CPI Food and Beverages YoY %, FY15 onwards.
+- [`prices/state_cpi_fuel_inflation_pct`](../../../datasets/indicators/in/prices/state_cpi_fuel_inflation_pct.json) — State-wise CPI Fuel and Light YoY %, FY15 onwards.
+- [`prices/state_cpi_general_inflation_pct`](../../../datasets/indicators/in/prices/state_cpi_general_inflation_pct.json) — State-wise headline CPI YoY %, FY15 onwards.
+- [`prices/state_cpi_housing_urban_inflation_pct`](../../../datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json) — State-wise CPI Housing (urban only) YoY %, FY15 onwards.
 
 ## Further reading
 
