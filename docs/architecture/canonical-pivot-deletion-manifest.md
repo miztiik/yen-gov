@@ -1,8 +1,9 @@
 # Canonical-pivot deletion manifest
 
-**Last Updated**: 2026-05-17
+**Last Updated**: 2026-05-18
 **Status**: Phase 0 step 0.0 deliverable — doc-only. **No deletions in this PR.** Lists every file / module / concept the canonical long-format pivot retires, the phase in which retirement happens, and the replacement that supersedes it.
 **Owner**: Fowler (engineering craft / deletion discipline).
+**Companion**: [Migration ledger](canonical-pivot-migration-ledger.md) — covers the 137 pre-pivot **data artifacts** (110 indicators + 27 elections); this manifest covers files / modules / concepts.
 **THE PLAN**: [`TODO/20260517-canonical-long-format-pivot.md`](../../TODO/20260517-canonical-long-format-pivot.md). On conflict, THE PLAN wins; update this manifest.
 
 ---
