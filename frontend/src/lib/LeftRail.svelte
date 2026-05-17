@@ -75,11 +75,21 @@
   let mobile_open = $state(false);
   const current_path = $derived(route.path);
 
-  // Close the mobile drawer whenever navigation happens.
-  $effect(() => {
-    void current_path;
-    mobile_open = false;
-  });
+  // Close the mobile drawer when the user activates any nav link inside
+  // the rail. A click handler on the <aside> wrapper (delegated below)
+  // is the structural alternative to a $effect-on-route.path watcher:
+  // dev-mode HMR wraps the top-level mount() call in a branch() effect
+  // whose context $effect cannot validate against, producing a noisy
+  // `effect_orphan` pageerror on every page load (svelte#15332-class
+  // issue, dev-only — production build is clean). The handler also
+  // closes on programmatic in-app navigation, since the router's
+  // delegated click handler in router.svelte.ts fires from the same
+  // bubble path; the only case it misses is browser back/forward, where
+  // the drawer being open on mobile is a marginal scenario anyway.
+  function on_rail_click(e: MouseEvent): void {
+    const a = (e.target as HTMLElement | null)?.closest("a");
+    if (a) mobile_open = false;
+  }
 
   // Ashoka Chakra (Dharmachakra) — 24 navy-blue spokes inscribed in a
   // ring, per the Indian national flag specification. See
@@ -171,6 +181,7 @@
 
 <!-- Rail. On lg+ it's a fixed left column; below lg it's a slide-in drawer. -->
 <aside
+  onclick={on_rail_click}
   class="bg-white border-r border-slate-200 flex flex-col
          lg:w-60 lg:h-screen lg:sticky lg:top-0
          fixed lg:static top-12 bottom-0 left-0 w-64 z-30
