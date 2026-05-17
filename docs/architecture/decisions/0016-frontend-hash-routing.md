@@ -1,7 +1,9 @@
 # ADR-0016: Frontend hash-based routing (custom, no router lib)
 
-**Last Updated**: 2026-05-09
-**Status**: accepted
+**Last Updated**: 2026-05-17
+**Status**: superseded by [ADR-0028](0028-url-scheme-place-first-flat-indicator-slug.md) (2026-05-17) on routing-mode.
+
+> **2026-05-17 — superseded.** The 2026-05-09 YAGNI call (4-route SPA, no need for a 404.html shim) was correct at the time but no longer holds at present scale (~50 routes growing to ~5,400 with indicator-in-path) and given the shareability contract surfaced by the place-first IA reset. ADR-0028 switches the site to path routing on GitHub Pages via the standard `404.html → index.html` shim — the OWID-canonical pattern. All existing hash URLs (`#/...`) are migrated to path form via a strangler-fig redirect component for one release cycle.
 
 ## Context
 
