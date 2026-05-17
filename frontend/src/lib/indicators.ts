@@ -131,6 +131,15 @@ export interface IndicatorMeta {
    */
   min_grain?: "country" | "state" | "district" | "subdistrict" | "village";
   /**
+   * Publisher release cadence (v4.1, ADR-0027). Separate from `time_grain`:
+   * a Census frame has `time_grain: year` but `cadence: decennial`; an
+   * ad-hoc emissions inventory has `time_grain: year` but `cadence:
+   * ad_hoc`. Used by `deriveTemporalRange` to know when omitting the gap
+   * count is the honest treatment (decennial/ad_hoc have no defined
+   * inter-observation interval, so "gaps" framing is misleading).
+   */
+  cadence?: "annual" | "annual_fy" | "quarterly" | "monthly" | "decennial" | "ad_hoc" | (string & {});
+  /**
    * v4.3 (Phase 1 step 4) optional registry of distinct measurable
    * quantities that share this indicator's (entity, time) axis. A composite
    * (e.g. `discom_health`) lists one entry per quantity; rows bind to a
@@ -412,4 +421,179 @@ export function formatCompact(value: number): string {
   if (abs >= 1e3) return `${(value / 1e3).toFixed(1)}k`;
   if (abs >= 10) return value.toFixed(0);
   return value.toFixed(2);
+}
+
+// -- Temporal range derivation -----------------------------------------------
+// TS mirror of backend/yen_gov/inventory/derive.py::derive_temporal_range.
+// Shared-fixture parity test in indicators.test.ts asserts both sides agree
+// on every case under datasets/_test/temporal-range-fixtures/cases.json.
+
+export interface TemporalRange {
+  min_time: string;
+  max_time: string;
+  min_period_label: string;
+  max_period_label: string;
+  observed_periods_within_range?: number;
+  gap_count_within_range?: number;
+  time_grain?: string;
+  cadence?: string;
+}
+
+type _Shape = "date" | "year_month" | "year" | "other";
+
+const _SHAPE_DATE = /^\d{4}-\d{2}-\d{2}$/;
+const _SHAPE_YYYYMM = /^\d{4}-\d{2}$/;
+const _SHAPE_YYYY = /^\d{4}$/;
+
+function _detectShape(token: string): _Shape {
+  const t = token.trim();
+  if (_SHAPE_DATE.test(t)) return "date";
+  if (_SHAPE_YYYYMM.test(t)) return "year_month";
+  if (_SHAPE_YYYY.test(t)) return "year";
+  return "other";
+}
+
+function _expectedPeriodCount(args: {
+  min_time: string;
+  max_time: string;
+  shape: _Shape;
+  time_grain: string;
+}): number | null {
+  const { min_time, max_time, shape, time_grain } = args;
+  if (min_time === max_time) return 1;
+  if (shape === "year") return Number(max_time) - Number(min_time) + 1;
+  if (shape === "year_month") {
+    const miny = Number(min_time.slice(0, 4));
+    const minm = Number(min_time.slice(5, 7));
+    const maxy = Number(max_time.slice(0, 4));
+    const maxm = Number(max_time.slice(5, 7));
+    const total_months = (maxy * 12 + maxm) - (miny * 12 + minm) + 1;
+    if (time_grain === "month") return total_months;
+    if (time_grain === "fiscal_year") return (maxy - miny) + 1;
+    if (time_grain === "quarter") {
+      if (total_months % 3 !== 0 && (total_months - 1) % 3 !== 0) return null;
+      return Math.floor((total_months - 1) / 3) + 1;
+    }
+    return null;
+  }
+  return null;
+}
+
+const _UNDEFINED_CADENCE: ReadonlySet<string> = new Set(["decennial", "ad_hoc"]);
+
+/**
+ * Derive observed temporal-range fields from an indicator's rows + header.
+ *
+ * Mirrors `derive_temporal_range` in `backend/yen_gov/inventory/derive.py`.
+ * Returns `null` when rows is empty or no row carries a `time` field.
+ * Throws when rows[].time tokens span more than one detected shape — that
+ * is an adapter bug (CLAUDE.md §10 fail-loud) and silent-omit would
+ * overload the null signal.
+ */
+export function deriveTemporalRange(
+  rows: readonly IndicatorRow[],
+  indicator: Pick<IndicatorMeta, "id" | "time_grain" | "cadence">,
+): TemporalRange | null {
+  if (!rows || rows.length === 0) return null;
+  const grain = String(indicator?.time_grain ?? "");
+  const cadence = indicator?.cadence ? String(indicator.cadence) : "";
+  const ind_id = String(indicator?.id ?? "<unknown>");
+
+  const times: string[] = [];
+  const label_for: Record<string, string> = {};
+  for (const row of rows) {
+    if (!row || row.time === undefined || row.time === null) continue;
+    const t = String(row.time);
+    times.push(t);
+    if (!(t in label_for)) {
+      const lbl = (row as IndicatorRow & { period_label?: string }).period_label;
+      label_for[t] = String(lbl ?? t);
+    }
+  }
+  if (times.length === 0) return null;
+
+  const distinct_times = Array.from(new Set(times)).sort();
+  const shapes = new Set(distinct_times.map(_detectShape));
+  if (shapes.size > 1) {
+    const sample = distinct_times.slice(0, 5);
+    throw new Error(
+      `indicator ${ind_id}: heterogeneous rows[].time vocabulary: ` +
+        `shapes=${JSON.stringify([...shapes].sort())}, sample_tokens=${JSON.stringify(sample)}`,
+    );
+  }
+  const [shape] = [...shapes] as [_Shape];
+
+  const min_time = distinct_times[0];
+  const max_time = distinct_times[distinct_times.length - 1];
+
+  const out: TemporalRange = {
+    min_time,
+    max_time,
+    min_period_label: label_for[min_time],
+    max_period_label: label_for[max_time],
+  };
+  if (grain) out.time_grain = grain;
+  if (cadence) out.cadence = cadence;
+
+  if (cadence && _UNDEFINED_CADENCE.has(cadence)) return out;
+
+  out.observed_periods_within_range = distinct_times.length;
+
+  const expected = _expectedPeriodCount({ min_time, max_time, shape, time_grain: grain });
+  if (expected !== null && grain !== "date") {
+    const gap = expected - distinct_times.length;
+    if (gap < 0) {
+      throw new Error(
+        `indicator ${ind_id}: observed periods (${distinct_times.length}) ` +
+          `exceed expected (${expected}) at grain=${JSON.stringify(grain)}, shape=${JSON.stringify(shape)}; ` +
+          `check cadence assumptions`,
+      );
+    }
+    out.gap_count_within_range = gap;
+  }
+
+  return out;
+}
+
+/**
+ * Citizen-readable cadence word. Prefers the publisher's declared
+ * `cadence` over the per-row `time_grain` (a Census artifact's grain
+ * is `year` but its cadence is `decennial` — the citizen should read
+ * "every 10 years", not "annual").
+ */
+export function cadenceWord(
+  cadence: string | undefined,
+  time_grain: string | undefined,
+): string {
+  switch (cadence) {
+    case "annual": return "annual";
+    case "annual_fy": return "annual (fiscal year)";
+    case "quarterly": return "quarterly";
+    case "monthly": return "monthly";
+    case "decennial": return "every 10 years";
+    case "ad_hoc": return "irregular updates";
+  }
+  switch (time_grain) {
+    case "year": return "annual";
+    case "fiscal_year": return "annual (fiscal year)";
+    case "quarter": return "quarterly";
+    case "month": return "monthly";
+    case "date": return "";
+  }
+  return "";
+}
+
+/**
+ * Build the temporal caption string rendered under each IndicatorChoropleth.
+ * Multi-period: "2018 → 2022 · annual". Single-period: "As of 2024 · annual".
+ * When `cadenceWord` returns empty (date snapshot with no cadence), the
+ * cadence segment is dropped.
+ */
+export function buildTemporalCaption(range: TemporalRange): string {
+  const word = cadenceWord(range.cadence, range.time_grain);
+  const single = range.min_period_label === range.max_period_label;
+  const body = single
+    ? `As of ${range.min_period_label}`
+    : `${range.min_period_label} \u2192 ${range.max_period_label}`;
+  return word ? `${body} \u00b7 ${word}` : body;
 }
