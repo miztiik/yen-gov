@@ -1,0 +1,359 @@
+"""Contract tests for the canonical writer (Phase 0.10).
+
+Per CLAUDE.md §15 + THE PLAN §6 step 0.10: tmp_path fixtures only, no
+mocks, no corpus walk. Each test builds a tiny synthetic envelope, asks
+the writer to emit, then asserts a contract: column types, sort order,
+FK gate, idempotency, KV metadata stamp, manifest regen.
+
+Why this file is single-purpose: these tests pin the writer's emit
+contract. A future change to `backend/yen_gov/canonical/writer.py` that
+breaks any assertion here is breaking the producer/consumer binding
+defined in `docs/architecture/data/canonical-store.md` §11–§12, and
+should be reviewed at that doc's seam first.
+"""
+
+from __future__ import annotations
+
+import json
+import shutil
+from pathlib import Path
+
+import duckdb
+import pytest
+
+from yen_gov.canonical import (
+    BatchEnvelope,
+    ObservationRow,
+    ReplacementSemantics,
+    SourceRow,
+    write_batch,
+)
+from yen_gov.canonical.writer import WriterError
+
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+ENTITIES_FIXTURE = REPO_ROOT / "datasets" / "taxonomy" / "entities.json"
+
+
+def _seed_taxonomy(datasets_root: Path) -> None:
+    """Copy the entity catalogue into a tmp datasets root so FK gate has
+    something to check. We do NOT copy indicators.json — Phase 0.9
+    deliberately runs the writer with indicator FK skipped + warned."""
+    (datasets_root / "taxonomy").mkdir(parents=True, exist_ok=True)
+    shutil.copy(ENTITIES_FIXTURE, datasets_root / "taxonomy" / "entities.json")
+
+
+def _src(source_id: str = "src-test0001") -> SourceRow:
+    return SourceRow(
+        source_id=source_id,
+        url="https://example.gov.in/test",
+        content_hash="",
+        producer="yen-gov",
+        first_fetched_at="2026-05-18T00:00:00Z",
+        last_seen_at="2026-05-18T00:00:00Z",
+        license="internal",
+        confidence_tier="gold",
+        is_issuing_authority=False,
+    )
+
+
+def _obs(
+    entity_id: str = "IN-S22",
+    year: int = 2025,
+    period_label: str = "FY 2024-25",
+    period_seq: int = 1,
+    indicator_id: str = "state-test-dummy-int",
+    value_numeric: float | None = 42.0,
+    value_text: str | None = None,
+    source_id: str = "src-test0001",
+) -> ObservationRow:
+    return ObservationRow(
+        entity_id=entity_id,
+        year=year,
+        period_label=period_label,
+        period_seq=period_seq,
+        indicator_id=indicator_id,
+        value_numeric=value_numeric,
+        value_text=value_text,
+        source_id=source_id,
+    )
+
+
+def _envelope(observations: list[ObservationRow], sources: list[SourceRow] | None = None,
+              family: str = "test", semantics: ReplacementSemantics = ReplacementSemantics.upsert) -> BatchEnvelope:
+    return BatchEnvelope(
+        target_family=family,
+        source_rows=sources if sources is not None else [_src()],
+        observation_rows=observations,
+        replacement_semantics=semantics,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Column shape + types
+# ---------------------------------------------------------------------------
+
+
+def test_observations_parquet_has_canonical_columns_and_types(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    result = write_batch(_envelope([_obs()]), tmp_path)
+
+    con = duckdb.connect(":memory:")
+    schema = con.execute(
+        f"DESCRIBE SELECT * FROM read_parquet('{result.observations_path.as_posix()}')"
+    ).fetchall()
+    cols = {row[0]: row[1] for row in schema}
+
+    assert list(cols.keys()) == [
+        "observation_id", "entity_id", "year", "period_label", "period_seq",
+        "indicator_id", "value_numeric", "value_text", "source_id",
+    ]
+    assert cols["year"] == "INTEGER"
+    assert cols["period_seq"] == "INTEGER"
+    assert cols["value_numeric"] == "DOUBLE"
+    assert cols["value_text"] == "VARCHAR"
+    assert cols["entity_id"] == "VARCHAR"
+
+
+def test_value_text_and_value_numeric_are_both_nullable(tmp_path: Path) -> None:
+    """R17 split: 'Nil'/'N.A.' goes to value_text; numeric reading goes to
+    value_numeric; the unused side is null."""
+    _seed_taxonomy(tmp_path)
+    env = _envelope([
+        _obs(value_numeric=10.0, value_text=None, indicator_id="state-test-a"),
+        _obs(value_numeric=None, value_text="Nil", indicator_id="state-test-b"),
+    ])
+    result = write_batch(env, tmp_path)
+    con = duckdb.connect(":memory:")
+    rows = con.execute(
+        f"SELECT indicator_id, value_numeric, value_text "
+        f"FROM read_parquet('{result.observations_path.as_posix()}') "
+        f"ORDER BY indicator_id"
+    ).fetchall()
+    assert rows == [("state-test-a", 10.0, None), ("state-test-b", None, "Nil")]
+
+
+# ---------------------------------------------------------------------------
+# Sort order (D7)
+# ---------------------------------------------------------------------------
+
+
+def test_observations_emit_sorted_by_indicator_entity_year_period_seq(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    # Insert deliberately out of order.
+    env = _envelope([
+        _obs(indicator_id="state-test-b", entity_id="IN-S22", year=2024, period_seq=2,
+             period_label="Q2", value_numeric=2.0),
+        _obs(indicator_id="state-test-a", entity_id="IN-S22", year=2025, period_seq=1,
+             period_label="Q1", value_numeric=1.0),
+        _obs(indicator_id="state-test-b", entity_id="IN-S22", year=2024, period_seq=1,
+             period_label="Q1", value_numeric=3.0),
+        _obs(indicator_id="state-test-a", entity_id="IN-S08", year=2025, period_seq=1,
+             period_label="Q1", value_numeric=4.0),
+    ])
+    result = write_batch(env, tmp_path)
+    con = duckdb.connect(":memory:")
+    rows = con.execute(
+        f"SELECT indicator_id, entity_id, year, period_seq "
+        f"FROM read_parquet('{result.observations_path.as_posix()}')"
+    ).fetchall()
+    assert rows == [
+        ("state-test-a", "IN-S08", 2025, 1),
+        ("state-test-a", "IN-S22", 2025, 1),
+        ("state-test-b", "IN-S22", 2024, 1),
+        ("state-test-b", "IN-S22", 2024, 2),
+    ]
+
+
+# ---------------------------------------------------------------------------
+# FK gate (D22)
+# ---------------------------------------------------------------------------
+
+
+def test_dangling_source_id_aborts_write(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    env = BatchEnvelope(
+        target_family="test",
+        source_rows=[_src("src-aaaaaaaa")],
+        observation_rows=[_obs(source_id="src-zzzzzzzz")],  # not in envelope or store
+    )
+    with pytest.raises(WriterError, match="dangling source_id"):
+        write_batch(env, tmp_path)
+    # No file should have been emitted.
+    assert not (tmp_path / "test" / "observations.parquet").exists()
+
+
+def test_dangling_entity_id_aborts_write(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    env = _envelope([_obs(entity_id="IN-S99")])  # not a real state code
+    with pytest.raises(WriterError, match="dangling entity_id"):
+        write_batch(env, tmp_path)
+    assert not (tmp_path / "test" / "observations.parquet").exists()
+
+
+def test_indicator_fk_skipped_with_warning_when_taxonomy_missing(tmp_path: Path) -> None:
+    """Phase 0.9 transitional: indicators.json not seeded yet, so indicator
+    FK gate warns + skips rather than failing every write."""
+    _seed_taxonomy(tmp_path)
+    result = write_batch(_envelope([_obs()]), tmp_path)
+    assert any("indicators.json" in w for w in result.warnings)
+
+
+# ---------------------------------------------------------------------------
+# Exactly-one-of(value_numeric, value_text)
+# ---------------------------------------------------------------------------
+
+
+def test_both_value_fields_populated_rejected(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    env = _envelope([_obs(value_numeric=1.0, value_text="oops")])
+    with pytest.raises(WriterError, match="exactly one of value_numeric"):
+        write_batch(env, tmp_path)
+
+
+def test_neither_value_field_populated_rejected(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    env = _envelope([_obs(value_numeric=None, value_text=None)])
+    with pytest.raises(WriterError, match="exactly one of value_numeric"):
+        write_batch(env, tmp_path)
+
+
+# ---------------------------------------------------------------------------
+# UPSERT semantics (D7, R16)
+# ---------------------------------------------------------------------------
+
+
+def test_rerun_with_identical_envelope_is_byte_identical(tmp_path: Path) -> None:
+    """Idempotency: same upstream -> same Parquet bytes. Sort + UPSERT
+    on logical key guarantee this."""
+    _seed_taxonomy(tmp_path)
+    env = _envelope([_obs(), _obs(indicator_id="state-test-other", value_numeric=99.0)])
+    r1 = write_batch(env, tmp_path)
+    bytes1 = r1.observations_path.read_bytes()
+
+    r2 = write_batch(env, tmp_path)
+    bytes2 = r2.observations_path.read_bytes()
+    assert bytes1 == bytes2, "re-run with identical envelope produced different Parquet bytes"
+
+
+def test_corrected_value_with_new_source_id_keeps_logical_row(tmp_path: Path) -> None:
+    """R16: source_id is row-attribute, not identity. Two envelopes with
+    same logical key but different source_id -> one row, latest source_id."""
+    _seed_taxonomy(tmp_path)
+    env1 = _envelope([_obs(value_numeric=10.0, source_id="src-aaaaaaaa")],
+                     sources=[_src("src-aaaaaaaa")])
+    write_batch(env1, tmp_path)
+
+    env2 = _envelope([_obs(value_numeric=11.0, source_id="src-bbbbbbbb")],
+                     sources=[_src("src-bbbbbbbb")])
+    r2 = write_batch(env2, tmp_path)
+
+    con = duckdb.connect(":memory:")
+    rows = con.execute(
+        f"SELECT value_numeric, source_id FROM read_parquet('{r2.observations_path.as_posix()}')"
+    ).fetchall()
+    assert rows == [(11.0, "src-bbbbbbbb")]
+
+
+def test_replace_partition_clears_existing_rows_for_indicator(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    initial = _envelope([
+        _obs(indicator_id="state-test-x", value_numeric=1.0, entity_id="IN-S22"),
+        _obs(indicator_id="state-test-x", value_numeric=2.0, entity_id="IN-S08"),
+        _obs(indicator_id="state-test-y", value_numeric=3.0, entity_id="IN-S22"),
+    ])
+    write_batch(initial, tmp_path)
+
+    replacement = _envelope(
+        [_obs(indicator_id="state-test-x", value_numeric=99.0, entity_id="IN-S22")],
+        semantics=ReplacementSemantics.replace_partition,
+    )
+    r2 = write_batch(replacement, tmp_path)
+
+    con = duckdb.connect(":memory:")
+    rows = con.execute(
+        f"SELECT indicator_id, entity_id, value_numeric "
+        f"FROM read_parquet('{r2.observations_path.as_posix()}') "
+        f"ORDER BY indicator_id, entity_id"
+    ).fetchall()
+    # state-test-x kept only the one replacement row; state-test-y untouched.
+    assert rows == [
+        ("state-test-x", "IN-S22", 99.0),
+        ("state-test-y", "IN-S22", 3.0),
+    ]
+
+
+# ---------------------------------------------------------------------------
+# Parquet KV metadata stamp (§11.1)
+# ---------------------------------------------------------------------------
+
+
+def test_parquet_kv_metadata_carries_writer_contract_keys(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    result = write_batch(_envelope([_obs()]), tmp_path)
+    con = duckdb.connect(":memory:")
+    kv_raw = con.execute(
+        f"SELECT key, value FROM parquet_kv_metadata('{result.observations_path.as_posix()}')"
+    ).fetchall()
+    kv = {(k.decode() if isinstance(k, bytes) else k):
+          (v.decode() if isinstance(v, bytes) else v)
+          for k, v in kv_raw}
+    assert kv.get("table_id") == "test.observations"
+    assert kv.get("schema_version") == "1.0"
+    assert kv.get("row_schema_id") == "./observation.schema.json"
+    assert "writer_version" in kv
+    assert json.loads(kv["sort_columns"]) == [
+        "indicator_id", "entity_id", "year", "period_seq"
+    ]
+
+
+def test_sources_parquet_kv_metadata(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    result = write_batch(_envelope([_obs()]), tmp_path)
+    con = duckdb.connect(":memory:")
+    kv_raw = con.execute(
+        f"SELECT key, value FROM parquet_kv_metadata('{result.sources_path.as_posix()}')"
+    ).fetchall()
+    kv = {(k.decode() if isinstance(k, bytes) else k):
+          (v.decode() if isinstance(v, bytes) else v)
+          for k, v in kv_raw}
+    assert kv.get("table_id") == "taxonomy.sources"
+    assert kv.get("schema_version") == "1.0"
+
+
+# ---------------------------------------------------------------------------
+# Manifest regeneration (§12.3)
+# ---------------------------------------------------------------------------
+
+
+def test_manifest_regenerates_with_correct_table_entries(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    write_batch(_envelope([_obs()]), tmp_path)
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+
+    assert manifest["$schema"] == "./schemas/manifest.schema.json"
+    assert manifest["manifest_version"] == "1.0"
+    table_ids = {t["table_id"] for t in manifest["tables"]}
+    assert "test.observations" in table_ids
+    assert "taxonomy.sources" in table_ids
+
+    test_table = next(t for t in manifest["tables"] if t["table_id"] == "test.observations")
+    assert test_table["family"] == "test"
+    assert test_table["format"] == "parquet"
+    assert test_table["schema_version"] == "1.0"
+    assert test_table["files"][0]["path"] == "test/observations.parquet"
+    assert test_table["files"][0]["row_count"] == 1
+    assert test_table["row_count_total"] == 1
+
+
+def test_manifest_path_is_posix_no_backslashes(tmp_path: Path) -> None:
+    """CLAUDE.md §2: paths leaving the process are POSIX-only."""
+    _seed_taxonomy(tmp_path)
+    write_batch(_envelope([_obs()]), tmp_path)
+    manifest_text = (tmp_path / "manifest.json").read_text(encoding="utf-8")
+    assert "\\\\" not in manifest_text
+    assert "\\/" not in manifest_text
+    manifest = json.loads(manifest_text)
+    for table in manifest["tables"]:
+        for f in table["files"]:
+            assert "\\" not in f["path"], f"backslash in manifest path: {f['path']}"
