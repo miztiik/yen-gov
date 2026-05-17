@@ -407,7 +407,7 @@ Idempotency: re-running with identical upstream bytes → identical Parquet byte
 
 | Step | Deliverable | Owner agent |
 | --- | --- | --- |
-| 0.0 | **Deletion manifest** — doc-only PR listing every file/module/concept the pivot retires (folded-indicator doc, period-token helpers, `iced_parity` if subsumed, parity schemas, completeness emitter, operator-state-as-JSON-overlay legacy, `_old/` tree path). Land before any code. | Fowler |
+| 0.0 | **Deletion manifest** — doc-only PR listing every file/module/concept the pivot retires (folded-indicator doc, period-token helpers, `iced_parity` if subsumed, parity schemas, completeness emitter, operator-state-as-JSON-overlay legacy, `_old/` tree path). Land before any code. **Output: [`docs/architecture/canonical-pivot-deletion-manifest.md`](../docs/architecture/canonical-pivot-deletion-manifest.md) (drafted 2026-05-17).** | Fowler |
 | 0.1 | Author ADR-0030 (canonical store + DuckDB-WASM) with full rejected-alternatives table from §3 | Gregor + Hans + Max |
 | 0.2 | Author `docs/architecture/data/canonical-store.md` (target architecture, partition rules, OWID `origin.*` mapping with yen-gov extensions tagged, Parquet schema-version mechanism, manifest contract, failure-state UX) | Hans + Max + Gregor |
 | 0.3 | Author 9 schemas (`observation`, `indicator`, `source`, `entity`, `caveat`, `methodology-break`, `operator-state`, `manifest`, **`facet-axes` (D31)**) with local `$id` and `x-version 1.0`; **indicator schema carries the full D15 honesty surface + D29 additions (`parent_indicator_id`, `dimension_values:STRUCT`, per-child `source_id`, `methodology_version` FK)**; **id-format rule in indicator schema enforces D30 naming convention** | Gregor + Hans + Max |
