@@ -130,6 +130,26 @@ export interface IndicatorMeta {
    * producer starts emitting it.
    */
   min_grain?: "country" | "state" | "district" | "subdistrict" | "village";
+  /**
+   * v4.3 (Phase 1 step 4) optional registry of distinct measurable
+   * quantities that share this indicator's (entity, time) axis. A composite
+   * (e.g. `discom_health`) lists one entry per quantity; rows bind to a
+   * sub_metric by setting `IndicatorRow.facet` to the sub_metric's `id`,
+   * and may carry `IndicatorRow.unit` to override the indicator-level unit
+   * (different sub_metrics typically have different units). When absent
+   * (the common case), behaviour is unchanged from v4.2.
+   */
+  sub_metrics?: ReadonlyArray<IndicatorSubMetric>;
+}
+
+/** v4.3 sub_metric registry entry. See `IndicatorMeta.sub_metrics`. */
+export interface IndicatorSubMetric {
+  id: string;
+  label: string;
+  unit: string;
+  value_kind?: ValueKind;
+  direction?: Direction;
+  description?: string;
 }
 
 export interface IndicatorRow {
@@ -140,6 +160,11 @@ export interface IndicatorRow {
   /** v1.6+: optional adapter-owned citizen label for the period token.
    *  When present, frontend prefers this over re-deriving from `time`. */
   period_label?: string | null;
+  /** v4.3+ (Phase 1 step 4): optional row-level override of
+   *  `IndicatorMeta.unit`. Takes precedence for THIS row's formatter
+   *  selection. Required for composites whose sub_metrics carry
+   *  heterogeneous units; absent for single-unit indicators. */
+  unit?: string | null;
 }
 
 // -- Folded blocks (schema v2.0) ---------------------------------------------

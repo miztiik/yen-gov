@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.2",
+  "$schema_version": "4.3",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/energy/electricity/distribution/rpo",

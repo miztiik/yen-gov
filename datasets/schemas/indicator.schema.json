@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "4.2",
+  "x-version": "4.3",
   "x-changelog": [
     {
       "version": "1.0",
@@ -61,6 +61,11 @@
       "version": "4.2",
       "date": "2026-05-17",
       "description": "Additive: extend `indicator.attribution_geography` enum with `where_allocated` for central-sector / pooled-allocation series where the value represents a state's allocated SHARE of an asset that is physically sited elsewhere. Driven by the CEA Monthly Executive Summary IC sheet: every state receives a non-zero nuclear / hydro / coal allocation via the regional grid even when no plant is sited inside its boundary, so the existing `where_produced` value (which triggers a 'Values reflect siting' banner) was actively misleading on the all-India choropleth (J&K showed 95 MW with a 'where the asset is located' caveat). The 8 CEA `installed_capacity_*` artifacts under `datasets/indicators/in/energy/` are retagged to `where_allocated` in the same commit. Renderer behaviour: `IndicatorChoropleth` and `StackedTrend` surface a tailored banner — 'Values are this state's allocated share of central-sector capacity, not the location of the plant.' The paired TypeScript union in `frontend/src/lib/indicators.ts` and the Zod enum in `frontend/src/lib/charts/stacked-trend/types.ts` are widened in the same Tier-A commit per /memories/lessons.md 2026-05-16 #1. All v4.1 artifacts remain valid; the 110 indicator artifacts are mechanically bumped to `$schema_version: 4.2` via `tools/bump_indicator_schema_to_current.py`."
+    },
+    {
+      "version": "4.3",
+      "date": "2026-05-17",
+      "description": "Additive (Phase 1 step 4 of TODO/20260517-iced-bulk-ingest-and-parity-oracle.md): two generalisations that unblock composite indicators (`discom_health`, `re_potential`, `coal_consumption`) without per-composite unicorns. (a) Optional top-level `indicator.sub_metrics[]` registry — each item declares one distinct measurable quantity that shares the (entity, time) axis with the others: `{id, label, unit, value_kind?, direction?, description?}`. The existing `rows[].facet` field carries the sub_metric id when faceting represents 'which quantity is this', not 'which slice of one quantity'. (b) Optional `rows[].unit` override of the indicator-level `unit` — when present, takes precedence for THIS row's formatter selection. Without it, a composite carrying loss-percent and tariff-rupees on the same axis would have to pick a single misleading indicator-level unit. Both fields are GENERAL: any indicator may use them; nothing is composite-specific. NO contraction phase planned — `sub_metrics[]` is opt-in metadata, `rows[].unit` is opt-in row-level override; existing 110 indicator artifacts that omit both remain valid. The 110 artifacts are mechanically bumped to `$schema_version: 4.3` via `tools/bump_indicator_schema_to_current.py`; their content is unchanged because both new fields are optional. The paired TypeScript types (`IndicatorMeta.sub_metrics`, `IndicatorRow.unit`) in `frontend/src/lib/indicators.ts` are widened in the same Tier-A commit per /memories/lessons.md 2026-05-17 #1."
     }
   ],
   "type": "object",
@@ -293,6 +298,44 @@
               "note":    { "type": "string", "minLength": 1 }
             }
           }
+        },
+        "sub_metrics": {
+          "type": "array",
+          "description": "Optional v4.3 (Phase 1 step 4) registry of distinct measurable quantities that share this indicator's (entity, time) axis. A composite indicator (e.g. `discom_health` carrying AT&C loss %, tariff subsidy ₹, ACS-ARR gap ₹/kWh) declares one entry per quantity; the value of `rows[].facet` for each row is the `id` of the sub_metric that row measures. This is the GENERAL pattern for composites — no per-composite unicorn fields. When `sub_metrics[]` is populated, rows MAY carry `rows[].unit` to override the indicator-level `unit` (different sub_metrics typically have different units); when absent, behaviour is unchanged from v4.2. The indicator-level `value_kind` / `direction` / `unit` remain the defaults; each sub_metric overrides only what differs.",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "unit"],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*$",
+                "description": "Slug used as the `rows[].facet` value to bind a row to this sub_metric. Stable; do not rename in place."
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Citizen-readable name (e.g. \"Aggregated AT&C loss\")."
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Unit string for rows measuring this sub_metric (e.g. \"%\", \"INR (crore)\", \"INR per kWh\"). Mirrors `indicator.unit` shape."
+              },
+              "value_kind": {
+                "enum": ["count", "rate", "share", "currency", "index", "duration", "raw"],
+                "description": "Optional override of `indicator.value_kind` for this sub_metric. Omit when the indicator-level default applies."
+              },
+              "direction": {
+                "enum": ["higher_is_better", "lower_is_better", "neutral"],
+                "description": "Optional override of `indicator.direction` for this sub_metric. Omit when the indicator-level default applies."
+              },
+              "description": {
+                "type": "string",
+                "description": "Optional one-paragraph methodology note specific to this sub_metric."
+              }
+            }
+          }
         }
       }
     },
@@ -326,7 +369,11 @@
           },
           "facet": {
             "type": ["string", "null"],
-            "description": "Optional sub-category for stacked/grouped views (e.g. fuel type for installed capacity: \"coal\" / \"hydro\" / \"solar\"). Null when not faceted."
+            "description": "Optional sub-category for stacked/grouped views (e.g. fuel type for installed capacity: \"coal\" / \"hydro\" / \"solar\"). Null when not faceted. When the indicator declares `sub_metrics[]` (v4.3+), `facet` carries the `sub_metric.id` this row measures."
+          },
+          "unit": {
+            "type": ["string", "null"],
+            "description": "Optional v4.3 (Phase 1 step 4) row-level override of `indicator.unit`. When present, takes precedence for THIS row's formatter selection — required for composites whose sub_metrics have heterogeneous units (e.g. discom_health rows carrying both '%' and 'INR (crore)'). When absent, `indicator.unit` applies. GENERAL: any indicator may use this; it is not composite-specific. For artifacts that declare `sub_metrics[]`, the row's `unit` SHOULD equal the matching `sub_metric.unit` (validator-side cross-check, not a JSON Schema constraint)."
           },
           "vintage": {
             "type": ["string", "null"],
