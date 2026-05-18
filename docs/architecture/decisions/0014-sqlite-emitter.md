@@ -23,7 +23,7 @@ Open questions to settle before writing code:
 
 3. **Commit the `.sqlite`.** Reasons:
    - Symmetric to the JSON: both ship together, both are byte-for-byte reproducible from upstream.
-   - The deploy step (ADR-0013) already does `cp -r datasets _site/data`. Adding a regeneration step in `site.yml` would couple deploy to a Python install, defeating the simplicity of pure file staging.
+   - The deploy step (ADR-0013) already does `cp -r datasets _site/data`. Adding a regeneration step in `deploy-site.yml` would couple deploy to a Python install, defeating the simplicity of pure file staging.
    - A 234-row state DB is ~200 kB; even the full 36-state corpus would be a few MB, well within git's comfort zone.
    - Reviewers see the data diff in the maintainer's data-refresh PR; the `.sqlite` diff is opaque but the JSON diff next to it is not. Combined, the PR is auditable.
 
@@ -90,7 +90,7 @@ The `election` and `state` codes are NOT stored as columns: the file path encode
 
 - **Single `all.sqlite` covering every event/state**: rejected. Forces all consumers to download the full corpus to query one state, contradicts the per-state lazy-load story for `/explore`. Cross-state aggregation can `ATTACH` multiple DBs.
 - **Treat SQLite as a contract surface (JSON Schema + `x-version`)**: rejected. JSON Schema doesn't describe SQL — the natural versioning surface is `PRAGMA user_version`. A duplicate "schema-of-the-schema" adds maintenance with no consumer benefit.
-- **Regenerate `.sqlite` in `site.yml` from committed JSON**: rejected. Couples deploy to a Python install, makes the deploy artifact non-reproducible from a checkout, and slows the deploy. Marginal disk savings (a few MB) don't justify it.
+- **Regenerate `.sqlite` in `deploy-site.yml` from committed JSON**: rejected. Couples deploy to a Python install, makes the deploy artifact non-reproducible from a checkout, and slows the deploy. Marginal disk savings (a few MB) don't justify it.
 - **Emitter as a step in `pipeline/run.py`**: rejected. The emitter is a projection of validated JSON, not part of the fetch/parse/compose chain. Keeping it in a sibling `emit/` subpackage means a parser regression doesn't break the SQLite path and vice versa.
 
 ## See also
