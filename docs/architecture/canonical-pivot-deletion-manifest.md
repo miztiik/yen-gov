@@ -155,9 +155,11 @@ The §6c "5-day local observation" deletion gate is therefore moot. The actual c
 When every sub-row above is either DONE or explicitly closed-deferred, run:
 
 1. `git ls-files datasets/elections | grep -v '\.parquet$'` returns zero entries. (Per the directory invariant in [canonical-store.md §2](data/canonical-store.md).)
-2. Admin Inventory panel reports zero `kind=other` files across `datasets/<family>/`.
-3. `python -m yen_gov validate --root .` Tier-B clean.
-4. Cross-reference: every legacy path enumerated in this §6a table is either gone OR has an explicit deferral row in THE PLAN naming a future phase.
+2. `find datasets -type d -empty` returns zero entries. (Per the empty-parent-pruning rule in [canonical-store.md §2](data/canonical-store.md) — no shell directories left behind after the JSON sweep.)
+3. `find datasets -name 'observations.parquet' -o -name 'data.parquet' -o -name 'facts.parquet' -o -name 'main.parquet'` returns zero entries. (Per the naming convention in [canonical-store.md §2a](data/canonical-store.md) — no layer-noun filenames anywhere under `datasets/`.)
+4. Admin Inventory panel reports zero `kind=other` files across `datasets/<family>/`.
+5. `python -m yen_gov validate --root .` Tier-B clean.
+6. Cross-reference: every legacy path enumerated in this §6a table is either gone OR has an explicit deferral row in THE PLAN naming a future phase.
 
 ---
 
