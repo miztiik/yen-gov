@@ -6,6 +6,7 @@
     type PersonEntity,
   } from "../lib/data";
   import { loadConstituencyResult } from "../lib/view-models/constituency";
+  import { loadStateAcWinners, type AcWinner } from "../lib/view-models/state-overview";
   import type { LoaderResult } from "../lib/loader-result";
   import {
     fetchElectionEvents,
@@ -52,13 +53,23 @@
   // (no sidecar for this candidate yet); undefined = not fetched yet.
   let people = $state<Record<string, PersonEntity | null>>({});
 
+  // State-map context for the "Location in {state}" panel. Lean loader —
+  // pulls only ac_winners[] (no party totals / state scope / sources), so
+  // the constituency page doesn't pay for queries it never renders.
+  // `null` = still loading; `[]` = loaded with no rows (not_published).
+  let ac_winners = $state<AcWinner[] | null>(null);
+
   $effect(() => {
     loaderResult = { status: "loading" };
     people = {};
+    ac_winners = null;
     const sc = state_code;
     const ev = event;
     if (!sc || !ev || params.eci_no <= 0) return;
     loadConstituencyResult(ev, sc, params.eci_no).then(r => (loaderResult = r));
+    loadStateAcWinners(ev, sc).then(r => {
+      ac_winners = r.status === "ok" || r.status === "partial" ? r.data : [];
+    });
   });
 
   async function retryLoad() {
@@ -156,7 +167,7 @@
     {#if event && state_code && STATE_AC[state_code]}
       <section class="bg-white rounded-lg shadow-sm p-4">
         <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Location in {states.name(state_code)}</h2>
-        <StateAcMap {event} state={state_code} highlight_eci_no={params.eci_no} height="360px" />
+        <StateAcMap state={state_code} rows={ac_winners} highlight_eci_no={params.eci_no} height="360px" />
         <p class="text-xs text-slate-400 mt-2">
           Highlighted: AC #{params.eci_no}. Other constituencies are dimmed for context. Click any to drill in.
         </p>

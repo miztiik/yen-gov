@@ -193,26 +193,39 @@ async function runQueries(
     ORDER BY s.first_fetched_at
   `);
 
-  // Per-AC winners + margin. AC observations use entity_id pattern
-  // `IN-<state>-AC-<delim_year>-<eci_no>` (no event in the id; period_label
-  // distinguishes events). `ac-winner-party-id` carries the winning party_id
-  // in value_text; `ac-margin-pct` carries the margin in value_numeric. We
-  // pivot via two CTEs and join to dim_acs (for eci_no + name) and
-  // dim_parties (for the citizen-visible short_name + eci_code).
-  const acWinners = await query<AcWinnerRow>(`
+  const acWinners = await queryAcWinners(evt, sc);
+
+  return { parties, stateScope, sources, acWinners };
+}
+
+// Per-AC winners + margin. AC observations use entity_id pattern
+// `IN-<state>-AC-<delim_year>-<eci_no>` (no event in the id; period_label
+// distinguishes events). `ac-winner-party-id` carries the winning party_id
+// in value_text; `ac-margin-pct` carries the margin in value_numeric. We
+// pivot via two CTEs and join to dim_acs (for eci_no + name) and
+// dim_parties (for the citizen-visible short_name + eci_code).
+//
+// Extracted so `loadStateAcWinners` can reuse it for the Constituency route's
+// state-map context without paying for the party/scope/sources queries
+// `loadStateOverview` also runs.
+async function queryAcWinners(
+  evtLiteral: string,
+  stateLiteral: string,
+): Promise<AcWinnerRow[]> {
+  return query<AcWinnerRow>(`
     WITH winner AS (
       SELECT entity_id AS ac_id, value_text AS party_id
       FROM observations
       WHERE indicator_id = 'ac-winner-party-id'
-        AND period_label = ${evt}
-        AND entity_id LIKE 'IN-' || ${sc} || '-AC-%'
+        AND period_label = ${evtLiteral}
+        AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
     ),
     margin AS (
       SELECT entity_id AS ac_id, value_numeric AS margin_pct
       FROM observations
       WHERE indicator_id = 'ac-margin-pct'
-        AND period_label = ${evt}
-        AND entity_id LIKE 'IN-' || ${sc} || '-AC-%'
+        AND period_label = ${evtLiteral}
+        AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
     )
     SELECT da.eci_no       AS ac_eci_no,
            da.name         AS ac_name,
@@ -224,8 +237,18 @@ async function runQueries(
     JOIN dim_acs da ON da.ac_id = w.ac_id
     LEFT JOIN dim_parties dp ON dp.party_id = w.party_id
   `);
+}
 
-  return { parties, stateScope, sources, acWinners };
+function toAcWinners(rows: AcWinnerRow[]): AcWinner[] {
+  return rows
+    .filter((r) => r.ac_eci_no != null && r.margin_pct != null)
+    .map((r) => ({
+      ac_eci_no: Number(r.ac_eci_no),
+      ac_name: r.ac_name ?? "",
+      party_eci_code: r.party_eci_code ?? null,
+      party_short: r.party_short ?? "",
+      margin_pct: Number(r.margin_pct),
+    }));
 }
 
 function assembleResult(
@@ -268,15 +291,7 @@ function assembleResult(
       fetched_at: s.first_fetched_at ?? "",
     }));
 
-  const ac_winners: AcWinner[] = rows.acWinners
-    .filter((r) => r.ac_eci_no != null && r.margin_pct != null)
-    .map((r) => ({
-      ac_eci_no: Number(r.ac_eci_no),
-      ac_name: r.ac_name ?? "",
-      party_eci_code: r.party_eci_code ?? null,
-      party_short: r.party_short ?? "",
-      margin_pct: Number(r.margin_pct),
-    }));
+  const ac_winners = toAcWinners(rows.acWinners);
 
   return {
     election: event,
@@ -327,6 +342,36 @@ export async function loadStateOverview(
       status: "failed",
       reason: describeFailure(err),
       retry: () => loadStateOverview(event, state_code),
+    };
+  }
+}
+
+// Standalone lean loader — returns only the per-AC winners slice. Used by
+// the Constituency route to populate its state-map context without paying
+// for the party / state-scope / sources queries `loadStateOverview` runs.
+// The StateOverview route still uses `loadStateOverview` (it needs the
+// full view-model) and passes `summary.ac_winners` to its child charts.
+export async function loadStateAcWinners(
+  event: string,
+  state_code: string,
+): Promise<LoaderResult<AcWinner[]>> {
+  try {
+    await Promise.all([
+      registerTable("elections.observations"),
+      registerTable("elections.dim_parties"),
+      registerTable("elections.dim_acs"),
+    ]);
+    const rows = await queryAcWinners(sqlString(event), sqlString(state_code));
+    const winners = toAcWinners(rows);
+    if (winners.length === 0) {
+      return { status: "partial", data: [], reason: "not_published" };
+    }
+    return { status: "ok", data: winners };
+  } catch (err) {
+    return {
+      status: "failed",
+      reason: describeFailure(err),
+      retry: () => loadStateAcWinners(event, state_code),
     };
   }
 }
