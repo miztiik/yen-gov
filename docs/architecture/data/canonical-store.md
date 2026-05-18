@@ -510,7 +510,9 @@ type LoaderResult<T> =
 
 Renderers MUST handle all four. The `failed` state renders plain-language copy ("This data could not load right now") with a retry button. No raw stack traces. Source / provenance still visible where it can be resolved (e.g. when the catalogue loaded but the observation Parquet 404'd, the source for that indicator can still be shown).
 
-Phase 0.11 ships a forced-failure harness exercising 404 / timeout / bad-schema-Parquet. Phase 1 cannot ship without this contract honoured (CLAUDE.md §13).
+Shipped Phase 0.11 (`frontend/src/lib/canonical/failure-state.ts` + `FailureState.svelte`): SINGLE `copyForError(ManifestError) → FailureCopy` mapping is the only place citizen-facing failure copy lives. Each `ManifestErrorKind` has a frozen `{headline, body, showRetry}` triple; renderers MUST NOT hand-roll their own copy or surface the raw `message` field (which carries URLs / schema versions / table ids). `showRetry` is `true` only for transient kinds (`network`, `schema_version_unsupported`); terminal kinds (`not_found`, `malformed`, `table_not_found`) suppress the button because retry would be a lie. Adding a new `ManifestErrorKind` to `types.ts` requires a same-commit `COPY_BY_KIND` entry — guarded by `failure-state.test.ts`.
+
+Forced-failure end-to-end harness (404 / timeout / bad-schema-Parquet against a real route) is deferred to Phase 1, when the first view-model binds against the canonical store and there is a route to mount it on. Phase 1 cannot ship without that harness (CLAUDE.md §13).
 
 ---
 

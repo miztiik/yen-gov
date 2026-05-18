@@ -23,6 +23,9 @@ export type {
   CanonicalTable,
   Manifest,
   ManifestError,
+  ManifestErrorKind,
   TableId,
 } from "./types";
 export { SUPPORTED_SCHEMA_VERSIONS } from "./types";
+export { allFailureCopyKeys, copyForError } from "./failure-state";
+export type { FailureCopy, LoaderResult } from "./failure-state";
