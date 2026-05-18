@@ -145,6 +145,14 @@ test.describe("golden path", () => {
       .toHaveCount(1, { timeout: 15_000 });
     await expect(page.locator('[data-testid="indicator-card"]').first())
       .toBeVisible({ timeout: 15_000 });
+
+    // PR-F (Phase 1.3b) — canonical JOIN evidence. StateOverview now reads
+    // party totals through view-models/state-overview.ts (DuckDB-WASM →
+    // observations ⋈ dim_parties ⋈ sources). DMK is the largest seat-winning
+    // party in every TN assembly election in the canonical store; if the
+    // pivot JOIN regresses, the party directory + PartyBar lose its name.
+    await expect(page.getByText(/\bDMK\b/).first())
+      .toBeVisible({ timeout: 15_000 });
   });
 
   test("constituency page renders top-N candidates via DuckDB-WASM loader", async ({ page }) => {

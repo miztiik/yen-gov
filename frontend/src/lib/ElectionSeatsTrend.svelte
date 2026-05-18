@@ -9,6 +9,9 @@
     type ResultSummaryDoc,
   } from "./charts/stacked-trend/adapter-elections";
   import type { StackedTrendModel } from "./charts/stacked-trend/types";
+  // TODO(PR-G / Phase 1.3c): migrate off fetchResultSummary onto a view-model
+  // loader (election-seats-trend.ts) that JOINs the canonical Parquet store
+  // via DuckDB-WASM, mirroring PR-E / PR-F.
   import { fetchResultSummary, type ResultSummary } from "./data";
   import { fetchElectionEvents, listEventsForState } from "./election-events";
 

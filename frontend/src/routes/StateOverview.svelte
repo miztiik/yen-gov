@@ -1,8 +1,18 @@
 <script lang="ts">
   import {
-    fetchResultSummary, fetchConstituencies, fetchDistricts,
-    type ResultSummary, type ConstituencyEntry, type DistrictEntry,
+    fetchConstituencies, fetchDistricts,
+    type ConstituencyEntry, type DistrictEntry,
   } from "../lib/data";
+  // PR-F (Phase 1.3b): StateOverview now reads state-hub data through the
+  // canonical Parquet store via DuckDB-WASM (view-models/state-overview.ts),
+  // replacing the per-shard result.summary.json fetch. Other routes (Party,
+  // ElectionSeatsTrend, Settings, IndiaMap) still consume fetchResultSummary
+  // / fetchParties; they migrate in PR-G.
+  import {
+    loadStateOverview,
+    type StateOverviewViewModel,
+  } from "../lib/view-models/state-overview";
+  import type { LoaderResult } from "../lib/loader-result";
   import {
     fetchTopicCatalogue,
     indicatorPathForArtifact,
@@ -100,11 +110,16 @@
   });
   const cur_term = $derived<GovernmentTerm | null>(currentTerm(government));
 
-  let summary = $state<ResultSummary | null>(null);
+  // Four-arm LoaderResult from the canonical view-model loader. `summary` is
+  // a thin $derived that exposes `.data` on the `ok` arm only, so the
+  // downstream renderer (PartyBar, SeatDonut, KPI tiles, party directory)
+  // continues to read the same shape it always did. partial/failed/loading
+  // get their own render arms below.
+  let summaryResult = $state<LoaderResult<StateOverviewViewModel>>({ status: "loading" });
+  const summary = $derived(summaryResult.status === "ok" ? summaryResult.data : null);
   let acs = $state<ConstituencyEntry[] | null>(null);
   let districts = $state<DistrictEntry[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
-  let error = $state<string | null>(null);
 
   // Indicator sections on the state hub are now data-driven (P2.4 of the
   // IA reset, ADR-0022): each topic in the catalogue that ships at least
@@ -136,11 +151,10 @@
   let winners = $state<Map<number, AcWinner>>(new Map());
 
   $effect(() => {
-    summary = null;
+    summaryResult = { status: "loading" };
     acs = null;
     districts = null;
     winners = new Map();
-    error = null;
     const sc = state_code;
     const ev = event;
     if (!sc) return; // wait for slug → code resolution
@@ -150,14 +164,31 @@
     // Reference-data 404s are non-fatal: the AC directory simply won't render
     // for states whose reference files haven't been built yet (e.g. recently
     // ingested states). Government card + indicator sections still appear.
-    const summary_p =
-      ev && event_status !== "pending_upstream"
-        ? fetchResultSummary(ev, sc).catch(e => { error = String(e); return null; })
-        : Promise.resolve(null);
+    if (ev && event_status !== "pending_upstream") {
+      loadStateOverview(ev, sc).then(r => {
+        if (state_code === sc && event === ev) summaryResult = r;
+      });
+    } else {
+      // No election event for this state, or upstream is still pending.
+      // Mark as partial/not_published so the renderer falls through to the
+      // existing pending-upstream notice rather than spinning forever.
+      summaryResult = {
+        status: "partial",
+        data: {
+          election: ev ?? "",
+          state: sc,
+          total_seats: 0,
+          totals: null,
+          party_totals: [],
+          sources: [],
+        },
+        reason: "not_published",
+      };
+    }
     const acs_p = fetchConstituencies(sc).then(c => c.constituencies).catch(() => null);
     const districts_p = fetchDistricts(sc).then(d => d.districts).catch(() => null);
-    Promise.all([summary_p, acs_p, districts_p])
-      .then(([s, c, d]) => { summary = s; acs = c; districts = d; });
+    Promise.all([acs_p, districts_p])
+      .then(([c, d]) => { acs = c; districts = d; });
     // Winners load is independent of the JSON fetches so the page renders
     // even if the SQLite is briefly unavailable -- the badges just stay
     // empty rather than blocking everything else.
@@ -188,6 +219,19 @@
       }
     })();
   });
+
+  // Retry callable for the failed arm (PR-E pattern). Captures current
+  // event + state_code at click-time; re-invokes the loader and re-routes
+  // the result back into summaryResult.
+  function retryStateLoad(): void {
+    const sc = state_code;
+    const ev = event;
+    if (!sc || !ev) return;
+    summaryResult = { status: "loading" };
+    loadStateOverview(ev, sc).then(r => {
+      if (state_code === sc && event === ev) summaryResult = r;
+    });
+  }
 
   // Show every party from the actuals — no threshold. Earlier the bar
   // dropped parties with no seats AND <1% vote share, which silently
@@ -345,10 +389,6 @@
 
   {#if !state_code}
     <div class="text-slate-500">Resolving state …</div>
-  {:else if error}
-    <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900">
-      Failed to load: <code>{error}</code>
-    </div>
   {:else}
     <!-- Recency banner (ADR-0023 §3 recency rule). When polling closed
          within the last 90 days, the citizen wants to know about the
@@ -467,7 +507,32 @@
         the official Statistical Reports rather than partial day-of
         feeds, so this page will populate as soon as ECI publishes.
       </section>
-    {:else if event_row && !summary && !error}
+    {:else if event_row && summaryResult.status === "failed"}
+      <!-- PR-F: failed arm — DuckDB-WASM / fetch / SQL error reading the
+           canonical store. describeFailure() already mapped the raw error
+           to citizen-readable copy; retry re-invokes loadStateOverview. -->
+      <section class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900 text-sm space-y-2">
+        <p>{summaryResult.reason}</p>
+        <button
+          class="text-xs underline hover:no-underline"
+          onclick={retryStateLoad}
+        >Retry</button>
+      </section>
+    {:else if event_row && summaryResult.status === "partial"}
+      <!-- PR-F: partial arm — the cohort is not yet ingested into the
+           canonical store. Honest "no data" notice; reference-data sections
+           (indicator cards, government card, AC directory) above and below
+           still render. -->
+      <section class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700">
+        <strong class="font-semibold">Election results not yet in the canonical store.</strong>
+        {#if event_row}
+          {event_row.display} — polled {event_row.polled_on}.
+        {/if}
+        The pipeline has not yet ingested this cohort into the canonical
+        Parquet store. The AC directory below still reflects the constituency
+        reference file for this state.
+      </section>
+    {:else if event_row && summaryResult.status === "loading"}
       <div class="text-slate-500">Loading election data…</div>
     {:else if event_row && summary && !acs}
       <section class="bg-white rounded-lg shadow-sm p-6 text-sm text-slate-600">
@@ -532,7 +597,7 @@
               </div>
             </div>
           </div>
-          <SourceList sources={summary.sources} schema_version={summary.$schema_version} />
+          <SourceList sources={summary.sources} />
         </div>
       </div>
     </section>

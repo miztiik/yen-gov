@@ -6,6 +6,8 @@
   // manage existing overrides and tweak colors for the canonical TN palette.
   import { colors } from "../lib/colors/store.svelte";
   import { ANCHORS } from "../lib/colors/anchors";
+  // TODO(PR-G / Phase 1.3c): migrate off fetchParties onto a view-model
+  // loader reading canonical Parquet via DuckDB-WASM (mirroring PR-E / PR-F).
   import { fetchParties, type PartyEntry } from "../lib/data";
 
   // Load TN parties as the seed list for the editor — every party that has
