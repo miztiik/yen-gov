@@ -3,9 +3,11 @@
 // Reads the canonical Parquet store via DuckDB-WASM (see lib/duckdb.ts) and
 // assembles a state-hub view-model — party totals + state totals + sources —
 // to replace the per-shard `result.summary.json` projection for the
-// StateOverview surface. Other consumers of `fetchResultSummary` (Party,
-// ElectionSeatsTrend, Settings, IndiaMap) still read the JSON; they migrate
-// in PR-G. Until then, `fetchResultSummary` in lib/data.ts stays alive.
+// StateOverview surface. PR-G (Phase 1.3c) also routes Party.svelte's
+// summary side here, plus migrated ElectionSeatsTrend, IndiaMap, and
+// Settings onto their own dedicated view-model loaders; `fetchResultSummary`
+// is now deleted. `fetchParties` survives for Party.svelte's
+// recognition/alliance metadata until PR-H extends dim_parties.
 //
 // What is JOINed:
 //   elections.observations  — numeric facts (party-* + state-* indicators)

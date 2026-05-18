@@ -4,6 +4,9 @@
   // datasets/reference/in/election-events.json. Hover shows seat-and-vote
   // summary; click navigates to the state overview.
   //
+  // Migrated off ~36 per-state fetchResultSummary calls onto one bulk
+  // DuckDB-WASM JOIN in PR-G (Phase 1.3c).
+  //
   // The optional `event` prop, when set, forces every state to that single
   // cohort (used for cohort-comparison views). When unset (the default
   // home-page case), each state resolves its own most-recent assembly
@@ -17,14 +20,14 @@
     INDIA_STATES,
     STATE_NAME_TO_ECI,
   } from "./sources";
-  // TODO(PR-G / Phase 1.3c): migrate off fetchResultSummary onto a view-model
-  // loader (india-map.ts) that JOINs the canonical Parquet store via
-  // DuckDB-WASM, mirroring PR-E / PR-F.
-  import { fetchResultSummary, type ResultSummary } from "../data";
+  import {
+    loadIndiaLeadingParties,
+    type IndiaLeadingPartiesViewModel,
+  } from "../view-models/india-leading-parties";
+  import type { LoaderResult } from "../loader-result";
   import {
     defaultEventForState,
     fetchElectionEvents,
-    type ElectionEventsCatalogue,
   } from "../election-events";
   import { colors } from "../colors/store.svelte";
   import { navigate, url } from "../url";
@@ -36,53 +39,51 @@
   }
   let { event }: Props = $props();
 
-  // Per-state summary AND the event_id it was loaded from (so the tooltip
-  // can show "AcGenNov2023" for MP next to "AcGenMay2026" for TN without
-  // misattributing).
-  type Loaded = { summary: ResultSummary; event_id: string };
-  let summaries = $state<Record<string, Loaded>>({});
-  let load_error = $state<string | null>(null);
-
-  $effect(() => {
-    summaries = {};
-    load_error = null;
-    const force_event = event;
-    fetchElectionEvents()
-      .then(catalogue => {
-        const tasks: Promise<readonly [string, Loaded] | null>[] = [];
-        for (const code of Object.values(STATE_NAME_TO_ECI)) {
-          const ev = force_event ?? defaultEventForState(catalogue, code)?.event_id;
-          if (!ev) continue;  // state has no entry in the catalogue → no data path
-          tasks.push(
-            fetchResultSummary(ev, code)
-              .then(s => [code, { summary: s, event_id: ev }] as const)
-              .catch(() => null),
-          );
-        }
-        return Promise.all(tasks);
-      })
-      .then(results => {
-        const out: Record<string, Loaded> = {};
-        for (const r of results) if (r) out[r[0]] = r[1];
-        summaries = out;
-      })
-      .catch(e => (load_error = String(e)));
+  // Loader result keyed by state_code. The derived expressions below read
+  // from this single source of truth.
+  let result = $state<LoaderResult<IndiaLeadingPartiesViewModel>>({
+    status: "loading",
   });
 
-  // Pick the leading party (max seats_won, tiebreak votes) per state.
-  // Use colors.forSet for a single, set-aware allocation across all
-  // leading parties on the map — avoids two unanchored regional parties
-  // landing on visually similar hues that the choropleth would conflate.
+  function retryLoad(): void {
+    const force_event = event;
+    result = { status: "loading" };
+    (async () => {
+      try {
+        const catalogue = await fetchElectionEvents();
+        const state_event_map: Record<string, string> = {};
+        for (const code of Object.values(STATE_NAME_TO_ECI)) {
+          const ev = force_event ?? defaultEventForState(catalogue, code)?.event_id;
+          if (ev) state_event_map[code] = ev;
+        }
+        result = await loadIndiaLeadingParties(state_event_map);
+      } catch (err) {
+        result = {
+          status: "failed",
+          reason: String(err),
+          retry: retryLoad,
+        };
+      }
+    })();
+  }
+
+  $effect(() => {
+    void event;
+    retryLoad();
+  });
+
+  // Pick the leading party (max seats_won) per state. Loader already sorts
+  // party_totals desc by seats_won.
   const fills = $derived.by(() => {
     const out: Record<string, string> = {};
     void colors.overrides; // declare reactive read
+    if (result.status !== "ok") return out;
+    const per_state = result.data.per_state;
     const tops: { name: string; key: string; eci: string | null; short: string }[] = [];
     for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
-      const loaded = summaries[code];
+      const loaded = per_state[code];
       if (!loaded) continue;
-      const top = [...loaded.summary.party_totals]
-        .filter(p => p.seats_won > 0)
-        .sort((a, b) => b.seats_won - a.seats_won || b.votes - a.votes)[0];
+      const top = loaded.party_totals.find((p) => p.seats_won > 0);
       if (top) {
         tops.push({
           name,
@@ -92,7 +93,7 @@
         });
       }
     }
-    const palette = colors.forSet(tops.map(t => t.key));
+    const palette = colors.forSet(tops.map((t) => t.key));
     for (const t of tops) {
       out[t.name] = palette.get(t.key)?.fill ?? colors.fill(t.eci, t.short);
     }
@@ -101,18 +102,18 @@
 
   const tooltips = $derived.by(() => {
     const out: Record<string, string> = {};
+    const per_state = result.status === "ok" ? result.data.per_state : {};
     for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
-      const loaded = summaries[code];
+      const loaded = per_state[code];
       if (!loaded) {
         out[name] = `<div class="font-semibold">${escape_html(name)}</div><div class="text-slate-500">no data loaded</div>`;
         continue;
       }
-      const top = [...loaded.summary.party_totals]
-        .filter(p => p.seats_won > 0)
-        .sort((a, b) => b.seats_won - a.seats_won)
+      const top = loaded.party_totals
+        .filter((p) => p.seats_won > 0)
         .slice(0, 3);
       const rows = top
-        .map(p => `<div>${escape_html(p.party_short)} · ${p.seats_won}</div>`)
+        .map((p) => `<div>${escape_html(p.party_short)} · ${p.seats_won}</div>`)
         .join("");
       out[name] =
         `<div class="font-semibold">${escape_html(name)} <span class="text-slate-400 font-mono text-[10px]">${code}</span></div>` +
@@ -137,9 +138,14 @@
   }
 </script>
 
-{#if load_error}
+{#if result.status === "failed"}
   <div class="p-3 text-sm bg-rose-50 border border-rose-200 rounded text-rose-900">
-    Failed to load state summaries: <code>{load_error}</code>
+    <p>Failed to load state summaries: {result.reason}</p>
+    <button
+      type="button"
+      onclick={() => result.status === "failed" && result.retry?.()}
+      class="mt-2 px-3 py-1 text-xs rounded bg-rose-100 hover:bg-rose-200"
+    >Retry</button>
   </div>
 {/if}
 

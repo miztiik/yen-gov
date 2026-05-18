@@ -17,18 +17,6 @@ export interface PartyTotals {
   vote_share_pct: number;
 }
 
-export interface ResultSummary {
-  $schema: string;
-  $schema_version: string;
-  sources: SourceRef[];
-  election: string;
-  state: string;
-  body: string;
-  total_seats: number;
-  totals: { electors?: number; votes_polled?: number; turnout_pct?: number } | null;
-  party_totals: PartyTotals[];
-}
-
 export interface CandidateResult {
   rank: number;
   name: string;
@@ -211,10 +199,6 @@ async function fetchJson<T>(path: string): Promise<T> {
 
 export function fetchStates(): Promise<StatesCollection> {
   return fetchJson<StatesCollection>("/reference/in/states.json");
-}
-
-export function fetchResultSummary(event: string, state: string): Promise<ResultSummary> {
-  return fetchJson<ResultSummary>(`/elections/${event}/${state}/result.summary.json`);
 }
 
 export function fetchParties(event: string, state: string): Promise<PartiesSnapshot> {

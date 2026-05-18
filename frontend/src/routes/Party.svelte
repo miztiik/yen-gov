@@ -1,11 +1,13 @@
 <script lang="ts">
+  // TODO(PR-H / Phase 1.3d): migrate `fetchParties` onto a view-model that
+  // extends dim_parties with `recognition` + `alliance` columns. The summary
+  // side is already on the canonical store via `loadStateOverview` (PR-F).
+  import { fetchParties, type PartyEntry, type PartyTotals } from "../lib/data";
   import {
-    // TODO(PR-G / Phase 1.3c): migrate off fetchResultSummary + fetchParties
-    // onto a view-models/party.ts loader reading canonical Parquet via
-    // DuckDB-WASM, mirroring PR-E (constituency) / PR-F (state-overview).
-    fetchResultSummary, fetchParties,
-    type ResultSummary, type PartyEntry, type PartyTotals,
-  } from "../lib/data";
+    loadStateOverview,
+    type StateOverviewViewModel,
+  } from "../lib/view-models/state-overview";
+  import type { LoaderResult } from "../lib/loader-result";
   import {
     fetchElectionEvents,
     defaultEventForState,
@@ -35,19 +37,29 @@
     defaultEventForState(election_catalogue, state_code)?.event_id ?? null,
   );
 
-  let summary = $state<ResultSummary | null>(null);
+  let summaryResult = $state<LoaderResult<StateOverviewViewModel>>({
+    status: "loading",
+  });
   let parties = $state<PartyEntry[] | null>(null);
   let error = $state<string | null>(null);
 
   $effect(() => {
-    summary = null; parties = null; error = null;
+    summaryResult = { status: "loading" };
+    parties = null;
+    error = null;
     const sc = state_code;
     const ev = event;
     if (!sc || !ev) return;
-    Promise.all([fetchResultSummary(ev, sc), fetchParties(ev, sc)])
-      .then(([s, p]) => { summary = s; parties = p.parties; })
+    Promise.all([loadStateOverview(ev, sc), fetchParties(ev, sc)])
+      .then(([s, p]) => { summaryResult = s; parties = p.parties; })
       .catch(e => (error = String(e)));
   });
+
+  const summary = $derived(
+    summaryResult.status === "ok" || summaryResult.status === "partial"
+      ? summaryResult.data
+      : null,
+  );
 
   /**
    * Resolve the party from the slug. We try (1) match by ECI code in the
@@ -100,9 +112,9 @@
     {/if}
   </header>
 
-  {#if error}
+  {#if error || summaryResult.status === "failed"}
     <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900">
-      Failed to load: <code>{error}</code>
+      Failed to load: <code>{error ?? (summaryResult.status === "failed" ? summaryResult.reason : "")}</code>
     </div>
   {:else if !summary || !parties}
     <div class="text-slate-500">Loading…</div>

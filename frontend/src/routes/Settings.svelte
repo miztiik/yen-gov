@@ -1,43 +1,37 @@
 <script lang="ts">
-  // Color overrides editor. Lists the union of (default canonical palette
-  // entries with at least one occurrence in loaded data) and current overrides.
-  // For Phase 1 we don't pre-load every state's parties.json — the user can
-  // override any party they encounter while browsing. This page lets them
-  // manage existing overrides and tweak colors for the canonical TN palette.
+  // Color overrides editor. Lists the union of (canonical dim_parties +
+  // observations-fallback parties) and current overrides. Migrated off the
+  // 5-state hardcoded fetchParties fan-out onto the parties-palette
+  // view-model loader in PR-G (Phase 1.3c) — net coverage is now every
+  // party that has ever scored a party-totals row, not just 5 states.
   import { colors } from "../lib/colors/store.svelte";
   import { ANCHORS } from "../lib/colors/anchors";
-  // TODO(PR-G / Phase 1.3c): migrate off fetchParties onto a view-model
-  // loader reading canonical Parquet via DuckDB-WASM (mirroring PR-E / PR-F).
-  import { fetchParties, type PartyEntry } from "../lib/data";
+  import {
+    loadPartiesPalette,
+    type PartiesPaletteViewModel,
+  } from "../lib/view-models/parties-palette";
+  import type { LoaderResult } from "../lib/loader-result";
 
-  // Load TN parties as the seed list for the editor — every party that has
-  // any 2026 results will eventually appear here. Browsing a different state
-  // will (in a later phase) merge its parties into this list; for v1 we just
-  // show the canonical defaults and the user's overrides.
-  const event = "AcGenMay2026";
-  let known_parties = $state<PartyEntry[] | null>(null);
-  let load_error = $state<string | null>(null);
-
-  $effect(() => {
-    Promise.all(["S22", "S11", "S25", "S03", "U07"].map(s =>
-      fetchParties(event, s).then(p => p.parties).catch(() => [] as PartyEntry[]),
-    ))
-      .then(arrays => {
-        const seen = new Map<string, PartyEntry>();
-        for (const arr of arrays) for (const p of arr) {
-          if (!seen.has(p.eci_code)) seen.set(p.eci_code, p);
-        }
-        known_parties = [...seen.values()].sort((a, b) => a.short_name.localeCompare(b.short_name));
-      })
-      .catch(e => (load_error = String(e)));
+  let result = $state<LoaderResult<PartiesPaletteViewModel>>({
+    status: "loading",
   });
 
-  // Always include any party that has an override but isn't in the parties.json
-  // seed (e.g. NOTA, IND, or a party loaded from a future state).
+  function retryLoad(): void {
+    result = { status: "loading" };
+    loadPartiesPalette().then((r) => (result = r));
+  }
+
+  $effect(() => {
+    retryLoad();
+  });
+
+  // Always include any party that has an override but isn't in the palette
+  // (e.g. a party loaded from a state not yet ingested into observations).
   const editable = $derived.by(() => {
     const list: { eci_code: string; short_name: string; full_name: string | null }[] = [];
     const seen = new Set<string>();
-    for (const p of known_parties ?? []) {
+    const palette = result.status === "ok" ? result.data.parties : [];
+    for (const p of palette) {
       list.push({ eci_code: p.eci_code, short_name: p.short_name, full_name: p.full_name });
       seen.add(p.eci_code);
     }
@@ -74,9 +68,16 @@
       >Reset all</button>
     </div>
 
-    {#if load_error}
-      <p class="text-sm text-rose-700">Could not load parties: <code>{load_error}</code></p>
-    {:else if !known_parties}
+    {#if result.status === "failed"}
+      <div class="rounded border border-rose-200 bg-rose-50 p-3 text-sm text-rose-900">
+        <p>Could not load parties: {result.reason}</p>
+        <button
+          type="button"
+          onclick={() => result.status === "failed" && result.retry?.()}
+          class="mt-2 px-3 py-1 text-xs rounded bg-rose-100 hover:bg-rose-200"
+        >Retry</button>
+      </div>
+    {:else if result.status === "loading"}
       <p class="text-sm text-slate-500">Loading parties…</p>
     {:else}
       <ul class="divide-y">

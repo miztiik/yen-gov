@@ -189,7 +189,7 @@ Three reasons:
 
 ### Phase 1.3b — StateOverview (PR-F)
 
-**Status (2026-05-18)**: live on `/s/:state`. The legacy `fetchResultSummary` survives in `lib/data.ts` because four other routes still consume it (Party, ElectionSeatsTrend, Settings, IndiaMap); they migrate in PR-G (Phase 1.3c). Each remaining call site is annotated with a `// TODO(PR-G / Phase 1.3c)` comment so the cleanup PR is one grep away.
+**Status (2026-05-18)**: live on `/s/:state`. PR-G (Phase 1.3c, below) migrated the four remaining callers — `fetchResultSummary` is now deleted from `lib/data.ts`. `fetchParties` survives solely for `Party.svelte`'s `recognition` + `alliance` metadata until PR-H extends `dim_parties` (Phase 1.3d).
 
 The state hub reads through [`frontend/src/lib/view-models/state-overview.ts`](../../../frontend/src/lib/view-models/state-overview.ts):
 
@@ -237,6 +237,32 @@ Three SQL statements:
 | any thrown error | `failed` | rose banner + retry button on the route |
 
 The per-AC winners SQL (`results.sqlite` via `getDb()`) is parallel to the canonical pivot and out of scope for PR-F. The StateAcMap canvas does not depend on either loader.
+
+### Phase 1.3c — Multi-route migration (PR-G)
+
+**Status (2026-05-18)**: live on `/` (IndiaMap), `/s/:state` (ElectionSeatsTrend), `/settings`, and the summary side of `/s/:state/p/:party`. Three new view-model loaders ship under `frontend/src/lib/view-models/`, and `fetchResultSummary` is deleted from `lib/data.ts`.
+
+| Loader | Consumer | SQL shape |
+| --- | --- | --- |
+| [`election-seats-trend.ts`](../../../frontend/src/lib/view-models/election-seats-trend.ts) | `lib/ElectionSeatsTrend.svelte` | one pivot keyed on `(state_code, event_ids[])` — `WHERE entity_id LIKE 'IN-<state>-%-PARTY-%' AND period_label IN (…)`, groups by `(period_label, short_name)`. The `electionsToStackedTrend` adapter is preserved — the route reshapes the loader's `events[]` into the `ResultSummaryDoc[]` shape the adapter expects, so the chart code is untouched. |
+| [`india-leading-parties.ts`](../../../frontend/src/lib/view-models/india-leading-parties.ts) | `lib/maplibre/IndiaMap.svelte` | one bulk query keyed on a `state_event_map: Record<state_code, event_id>` — `WHERE (entity_id LIKE 'IN-S22-AcGenMay2026-PARTY-%' OR …)` composed per (state, event) pair. Replaces ~36 per-state `fetchResultSummary` calls with one round-trip. Loader pre-sorts `party_totals` desc by `seats_won` so the `fills` and `tooltips` derivations read `tops[0]` naturally. |
+| [`parties-palette.ts`](../../../frontend/src/lib/view-models/parties-palette.ts) | `routes/Settings.svelte` | `dim_parties` UNION fallback `regexp_extract(entity_id, '-PARTY-(.+)$', 1) FROM observations` for parties not in the dim (NOTA, IND). Coverage improvement: today's 5-state hardcoded fan-out becomes "every party that has ever scored a row". |
+
+**Why one bulk query for IndiaMap.** The fan-out version made 36 sequential `fetchResultSummary` HTTP calls (one per state); the bulk version is one DuckDB-WASM query against the in-browser Parquet view. The OR-list is bounded by the catalogue (~36 states), well inside DuckDB's planner limits. The alternative — `period_label IN (…) AND entity_id LIKE 'IN-_%-PARTY-%'` with an in-loader filter — was rejected because it would over-fetch when multiple states share an event (most do).
+
+**The palette UNION pattern.** `dim_parties` is the curated source of truth, but it currently has 32 rows while the observations corpus references more party short-names (NOTA, IND, plus parties seeded only by observations). Settings tolerates `short_name` as a stand-in `eci_code` for those fallback rows; the surface only uses `eci_code` as a unique key for the color override map. PartyTotals consumers (StateOverview, Party) always have a real `eci_code` because they come through `dim_parties` LEFT JOIN.
+
+**Why Party.svelte is deferred to PR-H.** Party.svelte renders `party_meta.recognition` and `party_meta.alliance` (template lines ~109-111). `dim_parties` already carries `recognition`, but does NOT carry `alliance`. Migrating without the column would drop a visible UI label — a regression that violates the no-regression constraint locked in for this pivot. PR-H extends `dim_parties.alliance`, migrates Party.svelte, and deletes `fetchParties`. The summary side of Party.svelte (party totals + seats won) is already on the canonical store via `loadStateOverview` (PR-F), so PR-G migrated that one path off `fetchResultSummary` to enable the deletion.
+
+#### Coverage parity (no-regression check)
+
+Verified pre-merge against `datasets/elections/observations/**/*.parquet` and `datasets/reference/in/election-events.json`:
+
+| Surface | Check | Outcome |
+| --- | --- | --- |
+| ElectionSeatsTrend | every `has_partywise=true` event in the catalogue has corresponding `IN-<state>-<event>-PARTY-%` rows for the three test-bed states (S22, S11, S03) | ✅ superset |
+| IndiaMap | every state whose default event is `has_partywise=true` has ≥1 party row in the canonical store | ✅ 31 states with party rows; every catalogue default-event has matching observations |
+| Settings | the union of party `short_name`s in `dim_parties` ∪ `observations` ≥ today's 5-state JSON union | ✅ coverage improvement (32 dim rows + observations-only fallbacks vs 5-state fan-out) |
 
 ## See also
 
