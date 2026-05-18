@@ -20,6 +20,7 @@ const CONTENT_TYPES: Record<string, string> = {
   ".sqlite": "application/vnd.sqlite3",
   ".csv": "text/csv; charset=utf-8",
   ".geojson": "application/geo+json; charset=utf-8",
+  ".parquet": "application/vnd.apache.parquet",
 };
 
 // In-place serve of <repoRoot>/datasets at the URL prefix /data/. Production

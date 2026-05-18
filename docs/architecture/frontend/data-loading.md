@@ -1,6 +1,6 @@
 # Frontend Data Loading
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-18
 
 How the frontend bundle reads `datasets/` artifacts. Covers the dev-time Vite middleware, the production CI staging step, and the `/explore` page's in-browser SQL via `sql.js`.
 
@@ -126,4 +126,41 @@ This split-by-resource policy beats a generic "404 → null everywhere" rule: it
 
 - [Frontend overview](overview.md), [SQLite emitter](../backend/emit-sqlite.md), [Deployment](../deployment.md)
 - [`docs/how-to/release.md`](../../how-to/release.md)
+- [Canonical store](../data/canonical-store.md) — the Parquet store the new loader reads.
 - CLAUDE.md §1 (static-first), §4 (layer rules).
+
+## DuckDB-WASM loader (Phase 0.8 — isolated harness)
+
+**Status (2026-05-18)**: module landed; not yet consumed by citizen routes. Phase 1.3 will swap routes behind a view-model loader (D19) built on top of this seam.
+
+The canonical Parquet store ([`docs/architecture/data/canonical-store.md`](../data/canonical-store.md)) is read in the browser via `@duckdb/duckdb-wasm`. The Phase 0.8 deliverable is the *seam* — a singleton DuckDB-WASM boot, manifest-aware table registration, and a thin typed query helper — with no view-model policy baked in.
+
+The module lives at [`frontend/src/lib/duckdb.ts`](../../../frontend/src/lib/duckdb.ts). It owns three concerns and only three:
+
+1. **Singleton DuckDB-WASM boot.** One `AsyncDuckDB` per tab; one `Connection` per `AsyncDuckDB`. WASM + worker URLs come from Vite `?url` imports so they ship as hashed assets in production builds. Bundle selection uses `duckdb.selectBundle({ mvp, eh })` for browser feature detection (exception-handling vs MVP).
+2. **Manifest fetch + URL resolution (D21).** `loadManifest()` fetches `/data/manifest.json` (cached); `tableFromManifest(m, table_id)` finds a table by id; `fileUrls(table)` produces the absolute URLs for its Parquet files via `DATA_BASE`. Failure does not poison the cache — a failed `loadManifest()` clears its promise so the next call retries cleanly. This is the same "don't poison the cache" pattern the sql.js loader (`sql.ts:43`) already uses.
+3. **`registerTable(table_id)`.** Calls `db.registerFileURL(url, url, DuckDBDataProtocol.HTTP, false)` for each Parquet file, then `CREATE OR REPLACE VIEW <viewName> AS SELECT * FROM read_parquet([...])`. Idempotent per `table_id::viewName`. After this, citizen-route loaders just write SQL against the view.
+
+The query helper `query<T>(sql)` returns plain JS objects via Arrow's `toJSON()`. For chart-sized result sets only (<50k rows). Larger scans should drop down to `(await getConnection()).query(sql)` and keep the Arrow Table.
+
+### Why a singleton
+
+Each DuckDB-WASM init pulls a ~5 MB wasm and spins a worker; multiple inits would race on file registration and waste memory. The SPA model is one navigation tree, one DB.
+
+### Why no Range support in the dev middleware (yet)
+
+The Vite middleware (`vite.config.ts > serveDatasets`) still serves whole files with `readFileSync`. DuckDB-WASM gracefully falls back to full-file fetch when `Accept-Ranges` is absent. For Phase 0.8 the elections observations Parquet is ~13 MB — full-file fetch on first query is acceptable in dev. Phase 0.7 (Range/MIME verification against the Pages preview) is the moment to add Range support to the dev middleware too, if the prod surface needs it.
+
+### Test stance
+
+[`frontend/src/lib/duckdb.test.ts`](../../../frontend/src/lib/duckdb.test.ts) covers the pure helpers (`loadManifest`, `tableFromManifest`, `fileUrls`) with `fetch` mocked — explicitly allowed by CLAUDE.md §15 ("the loader's contract IS the fetch boundary"). It does **not** boot DuckDB-WASM under vitest; wasm + worker + Arrow round-trip is a Playwright shape, and the smoke round-trip against a real Parquet shard lands in Phase 0.11 (failure-state harness).
+
+### Boundaries this module does not cross
+
+- No SQL composition for citizen views — that lives in the Phase 1.3 view-model loader.
+- No caveats / methodology-breaks join — same.
+- No failure-state UX surface — that's Phase 0.11.
+- No write path — the browser never writes; canonical writes go through `backend/yen_gov/canonical/writer.py`.
+
+If new responsibilities accrete here, push them up into the view-model loader instead. This file should stay the seam, not the policy.
+
