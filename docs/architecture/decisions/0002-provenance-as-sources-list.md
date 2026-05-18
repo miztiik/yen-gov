@@ -1,7 +1,9 @@
 # ADR-0002: Provenance as a list of `{url, fetched_at}` entries
 
-**Last Updated**: 2026-05-16
-**Status**: accepted (replaces the earlier sentinel-string approach used in schemas v2.0)
+**Last Updated**: 2026-05-18
+**Status**: **superseded by [ADR-0030](0030-canonical-store-duckdb-wasm.md)** as of 2026-05-18. Retained for historical context.
+
+> The per-shard `sources` array described below is no longer the contract. Under the canonical pivot, provenance lives in `datasets/taxonomy/sources.parquet` as a single OWID-aligned table, and every observation row carries a `source_id` foreign key into it. See [`docs/concepts/data-provenance.md`](../../concepts/data-provenance.md) for the current model and [`docs/architecture/data/canonical-store.md` §5](../data/canonical-store.md#5-sources-schema-d5) for the full schema. The rest of this ADR is preserved unchanged because ADRs are immutable once accepted; the rationale below explains the shape that came before the pivot.
 
 ## Context
 

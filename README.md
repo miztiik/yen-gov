@@ -55,7 +55,7 @@ The rest of this file is for people who want to run, modify, or contribute to th
 
 ### Architecture in one paragraph
 
-Static-first. The deployed site is a build-time bundle on GitHub Pages — there is **no production server**. A local Python pipeline under `backend/` fetches data from official sources, validates every artifact against a JSON Schema, writes the result into `datasets/`, and the Vite frontend copies `datasets/` into the deployed bundle. Every artifact carries a `sources` array of `{url, fetched_at}` entries. Every schema is versioned with a changelog. The engineering contract that makes this all non-negotiable lives in [CLAUDE.md](CLAUDE.md).
+Static-first. The deployed site is a build-time bundle on GitHub Pages — there is **no production server**. A local Python pipeline under `backend/` fetches data from official sources, validates every artifact against a JSON Schema, writes the result into `datasets/`, and the Vite frontend copies `datasets/` into the deployed bundle. Every observation row carries a `source_id` foreign key to `datasets/taxonomy/sources.parquet` — a single sources table that adopts OWID's `origin.*` field shape (CLAUDE.md §12). Every schema is versioned with a changelog. The engineering contract that makes this all non-negotiable lives in [CLAUDE.md](CLAUDE.md).
 
 ### Repository layout
 
@@ -121,7 +121,7 @@ Start here:
 - [CLAUDE.md](CLAUDE.md) — engineering contract. Read first, every session.
 - [`docs/architecture/data-flow.md`](docs/architecture/data-flow.md) — how data moves through the system.
 - [`docs/architecture/data-model.md`](docs/architecture/data-model.md) — entities and relationships.
-- [`docs/concepts/data-provenance.md`](docs/concepts/data-provenance.md) — every data file carries a `sources` array.
+- [`docs/concepts/data-provenance.md`](docs/concepts/data-provenance.md) — every observation carries a `source_id` FK to `datasets/taxonomy/sources.parquet`.
 - [`docs/concepts/cross-state-comparison.md`](docs/concepts/cross-state-comparison.md) — why ranked tables, not composite indices.
 - [`docs/concepts/schema-is-the-design-system.md`](docs/concepts/schema-is-the-design-system.md) — closed renderer set, schema-driven UI.
 - [`docs/reference/schemas.md`](docs/reference/schemas.md) — current schemas with versions.
@@ -133,7 +133,7 @@ Start here:
 Read [CLAUDE.md](CLAUDE.md) first. Highlights:
 
 - Contracts before logic — every cross-boundary payload gets a typed schema first.
-- Every data file carries `sources[]` (Holy Law #9).
+- Every observation carries a `source_id` FK to `datasets/taxonomy/sources.parquet` (Holy Law #9).
 - Schemas are versioned with a changelog (CLAUDE.md §11).
 - Tests ship with the feature (§15) — unit, contract, integration, end-to-end as appropriate.
 - No band-aids, no mocks (unless explicitly asked), no hardcoded magic values.

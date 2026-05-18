@@ -1,6 +1,6 @@
 # Architecture Decision Records (ADRs)
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-18
 
 This directory holds the **few** decisions that earn an immutable, append-only record of their own:
 
@@ -28,7 +28,7 @@ Keep ADRs short. They are immutable once accepted; a later ADR supersedes (and t
 
 | ID  | Title | Status |
 | --- | ----- | ------ |
-| [0002](0002-provenance-as-sources-list.md) | Provenance as a list of `{url, fetched_at}` entries | accepted |
+| [0002](0002-provenance-as-sources-list.md) | Provenance as a list of `{url, fetched_at}` entries | **superseded by [0030](0030-canonical-store-duckdb-wasm.md)** |
 | [0003](0003-no-fetch-cache.md) | No HTTP cache layer; intermediates live in `.runtime/raw/` | accepted |
 | [0021](0021-no-implementation-disclosure-on-public-pages.md) | No implementation or security-boundary disclosure on public pages | accepted |
 
@@ -64,7 +64,7 @@ When work began, every design choice was documented as an ADR — 18 of them in 
 
 The two surviving ADRs both fail the "could it live in one subsystem doc?" test:
 
-- **Provenance** (`sources` array) is enforced by the JSON validator, the pydantic models (`core/`), the IO chokepoint (`core/io.py`), every emitter (`pipeline/`, `emit/`), every source adapter, the schemas themselves, and the deploy story. There is no single subsystem doc that owns it.
+- **Provenance** — ADR-0002 originally enforced a per-shard `sources` array across the JSON validator, the pydantic models, the IO chokepoint, every emitter, every source adapter, the schemas, and the deploy story; no single subsystem owned it. Under the canonical pivot (ADR-0030, 2026-05-18), provenance is now a single OWID-aligned table at `datasets/taxonomy/sources.parquet` and the contract is owned by [`docs/architecture/data/canonical-store.md` §5](../data/canonical-store.md#5-sources-schema-d5). ADR-0002 is retained for historical context.
 - **No fetch cache** is enforced by the HTTP fetcher (`core/`), the orchestrator (`pipeline/`), the `.runtime/` topology (CLAUDE.md §3), and every source adapter that writes to `.runtime/raw/`.
 
 If a future decision passes the same bar — cross-cutting policy with a real rejected alternative — it gets a new ADR. If it can live in one subsystem doc, it does.

@@ -1,6 +1,6 @@
 # Agent Guardrails
 
-**Last Updated**: 2026-05-17
+**Last Updated**: 2026-05-18
 
 This is the rules-only digest every persona must honour. It restates `CLAUDE.md` constraints in one place so an agent can scan the constraints quickly and so other docs (ADRs, agent files, code reviews) can link to specific rules. The authoritative source remains [`CLAUDE.md`](../../CLAUDE.md); if this doc and `CLAUDE.md` disagree, `CLAUDE.md` wins and this digest gets updated.
 
@@ -31,7 +31,7 @@ Loaded by [`bootstrap.md`](bootstrap.md) as part of every persona's startup ritu
 6. **No hardcoding.** Tunable knobs in `config/`; reference data in `datasets/`. Both schema-validated.
 7. **No mocks unless asked.** Real fixtures.
 8. **Open source first.** Mature OSS over custom builds.
-9. **Provenance is mandatory.** Every data file carries a `sources` array.
+9. **Provenance is mandatory.** Every observation row carries a `source_id` FK to `datasets/taxonomy/sources.parquet`.
 10. **Tests ship with the feature.** Unit / contract / integration / e2e — pick the tier that matches the surface (`CLAUDE.md §15`). Full suite green at merge.
 
 ## Project-level non-goals (do NOT raise these)
@@ -86,12 +86,7 @@ Never invent IDs when an issuing authority publishes one. ISO 3166 for countries
 
 ## Data provenance (rules only — see `CLAUDE.md §12` and [`docs/concepts/data-provenance.md`](../concepts/data-provenance.md))
 
-Under [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md), provenance has two shapes:
-
-- **Canonical Parquet** (current): `datasets/taxonomy/sources.parquet` is a TABLE adopting OWID `origin.*` fields (`source_id`, `url`, `content_hash`, `producer`, `citation_full`, `url_main`, `url_download`, `date_accessed`, `first_fetched_at`, `last_seen_at`, `license`, `vintage`). Observation rows carry `source_id` FK. `first_fetched_at` is immutable + citizen-facing; `last_seen_at` is mutable telemetry.
-- **Legacy JSON in `datasets/_old/`**: top-level `sources` array of `{url, fetched_at}` entries. Read-only; deleted at end of Phase 1.
-
-No new files in the legacy shape.
+Per [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md), `datasets/taxonomy/sources.parquet` is the single sources table for the whole repo. It adopts OWID `origin.*` fields (`url_main`, `url_download`, `producer`, `citation_full`, `date_accessed`, `license`, `vintage`) plus yen-gov extensions (`source_id` PK, `content_hash`, `first_fetched_at` immutable + citizen-facing, `last_seen_at` mutable telemetry, `confidence_tier`, `is_issuing_authority`). Every observation row carries a `source_id` FK to one row in this table. No per-shard sources array. No embedded URL on the observation row.
 
 ## UI verification (for `frontend/` or `admin/` runtime changes)
 

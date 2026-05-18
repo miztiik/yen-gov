@@ -38,7 +38,7 @@ Explicit non-goals for yen-gov. Anything in this list is **out of scope** — do
 6. **No hardcoding.** No magic strings, magic numbers, or hardcoded taxonomy. Tunable knobs live in `config/`; reference data and generated artifacts live in `datasets/`. Both are schema-validated.
 7. **No mocks unless asked.** Use real implementations and real fixtures. Mocks are allowed only on the user's explicit request, or for genuinely untestable external boundaries.
 8. **Open source first.** Prefer mature OSS (Tailwind, Zod/Pydantic, httpx/fetch, tenacity/p-retry, lxml, sqlite, etc.) over custom builds.
-9. **Provenance is mandatory.** No anonymous data ships. Canonical Parquet carries `source_id` FK to `datasets/taxonomy/sources.parquet`; legacy JSON carries a top-level `sources` array. See §12.
+9. **Provenance is mandatory.** No anonymous data ships. Every observation row carries a `source_id` FK to `datasets/taxonomy/sources.parquet`. See §12.
 10. **Tests ship with the feature.** Every behaviour-changing commit lands with the tests that prove it works AND the tests that would have caught the bug had it existed before. The full suite (`npm test` in `frontend/`, `pytest -q` in `backend/`) MUST be green at merge. Coverage is measured across four tiers — unit, contract, integration, end-to-end — and a feature is incomplete if the tier appropriate to its surface is missing. "I'll add tests later" is a band-aid (§5). See §15 for the per-tier policy.
 
 ## 2. Path Rules (Mandatory)
@@ -140,7 +140,7 @@ A change is not done until ALL hold:
 - [ ] **For any change touching `frontend/` or `admin/` runtime behaviour: smoke-tested via the agent's integrated browser tools** against a running dev server (`http://localhost:5173/` for frontend, `5174` for admin). Verify both the page actually changed (`read_page` snapshot, not just code diff) AND no new console errors / 404s appeared on the affected route. See §13 for the policy.
 - [ ] Canonical docs updated in `docs/` (right tier).
 - [ ] Schemas bumped/migrated if any persisted contract changed.
-- [ ] Every new/changed data artifact carries provenance per §12 (`source_id` FK to `sources.parquet` for canonical Parquet; top-level `sources[]` for legacy JSON).
+- [ ] Every new/changed observation row carries a `source_id` FK to `datasets/taxonomy/sources.parquet` per §12.
 - [ ] Module `AGENTS.md` updated if structure or invariants changed.
 - [ ] No `[DEBUG]` markers left in code.
 - [ ] No new hardcoded values.
@@ -193,34 +193,27 @@ Validation has two tiers with different homes:
 
 ## 12. Data Provenance (Mandatory)
 
-Every data artifact under `datasets/` carries provenance. Under the canonical pivot ([ADR-0030](docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md)), provenance lives in **two shapes** depending on the artifact type:
+Every observation row in every Parquet family under `datasets/` carries a `source_id` foreign key pointing at one row in `datasets/taxonomy/sources.parquet`. Provenance is a **table**, not a per-shard array. The sources table adopts OWID's `origin.*` field schema verbatim (per §0a "The One Rule") plus a small set of yen-gov extensions:
 
-### 12.1 Canonical Parquet (current artifacts)
+| Field | Source | Meaning |
+| --- | --- | --- |
+| `source_id` (PK) | yen-gov | stable identifier; FK target on every observation row |
+| `url_main` | OWID | landing / about page URL |
+| `url_download` | OWID | direct download URL (same as `url_main` for HTML scrapes) |
+| `producer` | OWID | publisher org (e.g. "Election Commission of India") |
+| `citation_full` | OWID | full citation string |
+| `date_accessed` | OWID | UTC date pipeline first read this URL |
+| `license` | OWID | license code (e.g. "OGL-IN-1.0", "CC-BY-4.0", "unknown-public", "internal") |
+| `vintage` | OWID | source's own period label (e.g. "FY 2024-25"); preserved verbatim |
+| `content_hash` | yen-gov | sha256 of fetched bytes (idempotency anchor) |
+| `first_fetched_at` | yen-gov | RFC 3339 UTC, immutable, citizen-facing |
+| `last_seen_at` | yen-gov | RFC 3339 UTC, mutable telemetry; never citizen-facing |
+| `confidence_tier` | yen-gov | `gold` / `silver` / `bronze` — issuing authority vs re-publisher vs single-paper source |
+| `is_issuing_authority` | yen-gov | bool — distinguishes ECI on votes (true) from a research aggregator republishing the same numbers (false) |
 
-Provenance is a **table**: `datasets/taxonomy/sources.parquet`. Each observation row carries a `source_id` FK pointing at a row in that table. The sources table adopts OWID's `origin.*` field schema verbatim (per §0a "The One Rule"):
+Hand-authored content: `url_main` and `url_download` are empty strings; `producer` = "yen-gov"; `license` = "internal"; `is_issuing_authority` = false; `confidence_tier` = "gold" (we know our own provenance).
 
-| Field | Meaning |
-| --- | --- |
-| `source_id` | stable PK |
-| `url` | the exact `http(s)://…` URL our pipeline fetched |
-| `content_hash` | sha256 of fetched bytes (idempotency anchor) |
-| `producer` | publisher org (e.g. "Election Commission of India") |
-| `citation_full` | full citation string |
-| `url_main` | landing/about page URL |
-| `url_download` | direct download URL (same as `url` for HTML scrapes) |
-| `date_accessed` | UTC date pipeline first read this URL |
-| `first_fetched_at` | RFC 3339 UTC, immutable, citizen-facing |
-| `last_seen_at` | RFC 3339 UTC, updated every re-fetch, telemetry |
-| `license` | OWID-style license code (e.g. "OGL-IN-1.0", "CC-BY-4.0", "unknown-public") |
-| `vintage` | source's own period label (e.g. "FY 2024-25"); preserved verbatim |
-
-Hand-authored content: `url` is empty string; `producer` = "yen-gov"; `license` = "internal".
-
-### 12.2 Legacy JSON files (`datasets/_old/`)
-
-Pre-pivot per-shard JSON files use a top-level `sources` array of `{url, fetched_at}` entries. They are read-only during the canonical pivot transition and deleted at end of Phase 1. No new files in this shape.
-
-Canonical doc: [`docs/concepts/data-provenance.md`](docs/concepts/data-provenance.md). Design rationale: [ADR-0002](docs/architecture/decisions/0002-provenance-as-sources-list.md) (legacy), [ADR-0030](docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) (canonical).
+Canonical concept: [`docs/concepts/data-provenance.md`](docs/concepts/data-provenance.md). Full schema with column-by-column rationale: [`docs/architecture/data/canonical-store.md` §5](docs/architecture/data/canonical-store.md). Design rationale: [ADR-0030](docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md).
 
 ## 13. UI Verification (Mandatory for Frontend / Admin Changes)
 

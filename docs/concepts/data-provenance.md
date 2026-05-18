@@ -1,103 +1,86 @@
 # Data Provenance
 
-**Last Updated**: 2026-05-08
+**Last Updated**: 2026-05-18
 
-> Every byte yen-gov publishes must be traceable to where it came from. This is non-negotiable (CLAUDE.md Holy Law #9, §12). The mechanism is the `sources` array on every data file (ADR-0002).
+> Every observation yen-gov publishes carries a `source_id` foreign key to one row in `datasets/taxonomy/sources.parquet`. This is non-negotiable (CLAUDE.md Holy Law #9, §12). The mechanism is the canonical sources table, adopted from OWID (CLAUDE.md §0a "The One Rule") plus a small set of yen-gov extensions.
 
 ## The contract
 
-Every JSON file under `datasets/` and `config/` carries a top-level `sources` array. The validator (CLAUDE.md §11) rejects any file missing it.
+`datasets/taxonomy/sources.parquet` is the **one** sources table for the whole repo. Every observation row in every Parquet family — `elections/`, `energy/`, `demography/`, `fiscal/`, `education/`, `health/`, … — carries a `source_id` that points at exactly one row in that table.
 
-```json
-"sources": [
-  { "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseS22167.htm",
-    "fetched_at": "2026-05-08T14:30:00Z" }
-]
-```
+There is no per-shard sources array. There is no embedded URL on an observation row. There is no second provenance table for a particular family. One table, one FK, one shape.
 
-Each entry has two required fields:
+This is enforced at the writer (UPSERT into DuckDB with a FK guard) and at the consumer (frontend contract tests reject any observation with NULL or dangling `source_id`).
 
-- **`url`** — the exact page our pipeline fetched. Not a portal landing page when a deeper page is the real source. Not a search result. The URL bytes were retrieved from.
-- **`fetched_at`** — RFC 3339 UTC timestamp of when our pipeline read that URL. Re-fetches update this value (or add a new entry, depending on the writer).
+## The sources table
 
-## Three shapes a `sources` array can take
+The full schema lives in [`docs/architecture/data/canonical-store.md` §5](../architecture/data/canonical-store.md#5-sources-schema-d5). Citizen-facing fields (OWID `origin.*`, verbatim):
 
-### 1. One source — the simple case
+| Column | Meaning |
+| --- | --- |
+| `url_main` | Landing / about page URL the citizen can open. |
+| `url_download` | Direct download URL (same as `url_main` for HTML scrapes). |
+| `producer` | Publisher organisation — e.g. "Election Commission of India", "Reserve Bank of India". |
+| `citation_full` | Full citation string suitable for the footer of a chart. |
+| `date_accessed` | UTC date of first read. |
+| `license` | License code (e.g. `OGL-IN-1.0`, `CC-BY-4.0`, `unknown-public`, `internal`). |
+| `vintage` | The source's own period label (e.g. "FY 2024-25"), preserved verbatim. |
 
-Most downloaded files. One upstream, one fetch.
+yen-gov extensions (NOT OWID):
 
-```json
-"sources": [
-  { "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
-    "fetched_at": "2026-05-08T14:30:00Z" }
-]
-```
+| Column | Meaning |
+| --- | --- |
+| `source_id` (PK) | Stable identifier; the FK target on every observation row. |
+| `content_hash` | sha256 of fetched bytes. Idempotency anchor: re-running ingest with byte-identical upstream is a no-op. |
+| `first_fetched_at` | RFC 3339 UTC, **immutable**, citizen-facing — when the pipeline first saw this URL. |
+| `last_seen_at` | RFC 3339 UTC, **mutable** telemetry — when re-fetch last confirmed the URL still resolves. Never citizen-facing. |
+| `confidence_tier` | `gold` / `silver` / `bronze` — issuing authority vs research re-publisher vs single-paper source. |
+| `is_issuing_authority` | bool — distinguishes ECI on votes (true) from a research aggregator republishing the same numbers (false). |
 
-### 2. Multiple sources — composed/aggregated artifacts
+The deviations from OWID are documented in `canonical-store.md` §5.2 and signed off per §0a (Hans + Max).
 
-A state-level summary aggregated from per-constituency results carries every contributing URL plus the partywise summary URL. Each entry has its own `fetched_at` (the moments may differ across a long pipeline run).
+## Four lifecycles, one table
 
-```json
-"sources": [
-  { "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
-    "fetched_at": "2026-05-08T14:30:00Z" },
-  { "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseS22001.htm",
-    "fetched_at": "2026-05-08T14:30:12Z" },
-  { "url": "https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseS22002.htm",
-    "fetched_at": "2026-05-08T14:30:13Z" }
-]
-```
+Every observation row's provenance is one of four shapes. All four go through the same table:
 
-This is the canonical way to express composition. There is no "primary" entry; all contributing URLs are peers. Downstream tools that need to render lineage can iterate the array.
+1. **Fetched (most rows).** Pipeline pulled bytes from a URL. The sources row carries the URL, the producer, and the content hash; the observation row carries the `source_id` FK.
+2. **Hand-authored.** A maintainer wrote the content directly. The sources row carries `url_main = ""`, `url_download = ""`, `producer = "yen-gov"`, `license = "internal"`, `is_issuing_authority = false`, `confidence_tier = "gold"` (we know our own provenance). The commit message records the rationale and any reference materials consulted.
+3. **Derived / composed.** A rollup (e.g. state aggregate from per-constituency results) is computed by `backend/`. Each derived observation row points at the same sources row(s) as its inputs — the FK composes naturally. Aggregations join through the sources table at query time; no de-normalised URL list is materialised on the rollup row.
+4. **Control-plane (operator telemetry).** `datasets/manifest.json` and run logs under `.runtime/logs/` are operator state, not citizen-facing data. They MAY stamp `generated_at` with wall-clock; they do NOT participate in the `sources.parquet` FK contract (CLAUDE.md §10 carve-out).
 
-### 3. Empty array — hand-authored
+## Idempotency
 
-```json
-"sources": []
-```
+`content_hash` is the anchor that makes re-running ingest safe.
 
-A maintainer wrote the content directly. No upstream URL was fetched. Empty `sources` is the canonical signal — there is no separate `hand-authored: true` flag, no sentinel string. The absence of upstream URLs *is* the statement.
+- If the pipeline re-fetches a URL and gets byte-identical bytes, the sources row's `content_hash` is unchanged. `last_seen_at` advances; `first_fetched_at` does not. No observation row changes; no Parquet bytes change.
+- If the bytes change, the writer either updates the existing sources row in place (same logical URL, new content) or inserts a new sources row, depending on the adapter's semantics. Observations that re-derive from the new content UPSERT through their `observation_id` (canonical-store.md §4) and pick up the new `source_id`.
 
-The commit message that introduces or modifies a hand-authored file MUST record the rationale and any reference materials consulted. Hand-authored is not a license to invent data; it is a declaration that the source is the author plus whatever materials they cite in the commit. If the reference materials are URLs the maintainer consulted but the pipeline did not fetch, put them in `notes` on the relevant rows or in the commit message — they do NOT belong in `sources`, which is reserved for URLs the pipeline actually pulled.
+Wall-clock at write time is operator telemetry, NOT provenance. Using `datetime.now()` as input to observation content is forbidden (CLAUDE.md §10). All citizen-facing timestamps derive from `first_fetched_at` on the sources row, which itself derives from upstream content identity, not from when the script ran.
 
-**Canonical case: editorial sidecars (`*.notes.json`).** Indicator-notes sidecars are the textbook hand-authored case — they hold an editor's voice (`editor_note_md`, `policy_context[]`, chart hints) ABOUT the sibling indicator artifact. They ship with `"sources": []`; the editor is the source, the commit message records why. They MAY also cite an external editorial source if the editor leans on one (e.g. a CEA explainer that informed the policy bullets) — in that case the array is non-empty. See [indicator-notes.schema.json](../../datasets/schemas/indicator-notes.schema.json) (v1.1+) and the ADR-0002 "Consequences" clarification 2026-05-16: any file declaring a `$schema` carries the full `sources[]` envelope; there is no filename-pattern exemption.
+## What does NOT live in `sources.parquet`
 
-## What does NOT live in `sources`
-
-- **Intermediate downloaded files** under `.runtime/raw/` (per ADR-0003) are not data files in the `datasets/` sense. They have no `sources` field and no schema; they are throwaway debug artifacts.
-- **Reference materials a human consulted** to write a hand-authored file. Those go in commit messages or `notes` fields.
-- **Provenance of identifiers** (e.g. "S22 is the ECI code for Tamil Nadu, confirmed by URL X"). The identifier convention is documented in [`identifiers.md`](../reference/identifiers.md); per-file `sources` is for the *content*, not for the *naming*. When a per-row claim *about* an identifier needs to be machine-readable (e.g. "this code-to-name pair was confirmed by a live URL probe vs. only by a published ECI report"), that belongs in a typed schema field — see `verification_status` on `state.schema.json` v3.1 — not in `sources` and not in `notes`. Gregor architecture review 2026-05-11 sums this up: `sources[]` records *what was fetched*; row-level verification summaries are typed fields the schema anticipates.
-
-## Why an array, not a single string
-
-Earlier (schemas v2.0) we used a single `source: string` with a sentinel grammar (`hand-authored`, `derived-from:<path>`, `inherited-from:<id>`, `unknown`). It was discarded in favor of the array because:
-
-- A single string can't honestly express composed/aggregated artifacts. State summaries genuinely have many contributing URLs.
-- The sentinel zoo was ceremony for cases that don't actually arise (the `unknown` and `inherited-from:` sentinels were rarely needed in practice).
-- The array form has one shape, one parser, no special cases. Empty array carries the hand-authored meaning more cleanly than a string sentinel.
-
-See ADR-0002 for the full rationale.
-
-## Why a per-entry `fetched_at`, not a top-level `fetched_at`
-
-A composed artifact's contributing URLs may be fetched at different moments — sometimes minutes apart in a long pipeline run, sometimes hours apart in a re-fetch scenario. A single top-level `fetched_at` would have to either lie (claim the latest moment for everything) or pick an arbitrary one. Per-entry timestamps avoid both.
+- **Intermediate downloaded files** under `.runtime/raw/` (per [ADR-0003](../architecture/decisions/0003-no-fetch-cache.md)). These are throwaway debug artifacts; they have no `source_id`, no schema, and no place in `datasets/`.
+- **Reference materials a human consulted** to write a hand-authored entity. Those go in commit messages, not as sources rows. A sources row records what the *pipeline* fetched, not what the maintainer read.
+- **Identifier conventions** — "S22 is the ECI code for Tamil Nadu" is documented in [`identifiers.md`](../reference/identifiers.md), not as a per-row source.
+- **Editorial notes about an indicator** — these are typed fields on `taxonomy/indicators.json` (`description_short`, `description_long`, `excluded_notes`, methodology break narratives), not provenance.
 
 ## Why this is mandatory
 
-Election data published without provenance is anti-data. A reader cannot:
+Civic data without provenance is anti-data. A reader cannot:
 
-- assess whether the underlying source has been updated since,
+- assess whether the upstream has been updated since,
 - reproduce the result by re-fetching,
 - argue with the source if a number looks wrong,
 - trust the publisher.
 
-Treating provenance as a hard contract — enforced by the validator, surfaced in `CLAUDE.md` Holy Laws, captured in every Definition of Done — is what separates a publishing pipeline from a data-laundering one.
+Treating provenance as a hard contract — enforced by the writer, surfaced in `CLAUDE.md` Holy Laws, captured in every Definition of Done — is what separates a publishing pipeline from a data-laundering one.
 
 ## See also
 
 - `CLAUDE.md` Holy Law #9, §12 — authoritative statement.
-- [`docs/architecture/decisions/0002-provenance-as-sources-list.md`](../architecture/decisions/0002-provenance-as-sources-list.md) — why this shape.
-- [`docs/architecture/decisions/0003-no-fetch-cache.md`](../architecture/decisions/0003-no-fetch-cache.md) — why intermediates in `.runtime/raw/` are excluded.
-- [`docs/reference/schemas.md`](../reference/schemas.md) — every schema enforces `sources`.
-- [`docs/reference/identifiers.md`](../reference/identifiers.md) — code conventions used inside payloads (separate from the provenance of the payload itself).
-- [`docs/architecture/data-flow.md`](../architecture/data-flow.md) — pipeline that emits these files.
+- [`docs/architecture/data/canonical-store.md` §5](../architecture/data/canonical-store.md#5-sources-schema-d5) — full sources schema with column-by-column rationale.
+- [ADR-0030 — Canonical store on Hive-partitioned Parquet read by DuckDB-WASM](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) — the design decision that established this contract.
+- [ADR-0003 — No HTTP cache layer; intermediates live in `.runtime/raw/`](../architecture/decisions/0003-no-fetch-cache.md) — why intermediates are excluded.
+- [`docs/concepts/owid-alignment.md`](owid-alignment.md) — OWID is the canonical reference (§0a).
+- [`docs/reference/identifiers.md`](../reference/identifiers.md) — code conventions for entities inside payloads (separate from the provenance of the payload itself).
+- [ADR-0002 — Provenance as a list of `{url, fetched_at}` entries](../architecture/decisions/0002-provenance-as-sources-list.md) — **superseded** by ADR-0030; retained for historical context.
