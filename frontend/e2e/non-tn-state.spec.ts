@@ -27,9 +27,11 @@ test.describe("non-TN states", () => {
   test("kerala (S11) renders state overview with provenance", async ({ page }) => {
     await page.goto("/s/kerala");
     await page.waitForLoadState("networkidle", { timeout: 15_000 });
-    // Either an "Assembly election" heading (May-2026 cohort) or the
-    // catalogue topic shell — we accept either as proof of mount.
-    await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeVisible({ timeout: 15_000 });
+    // SourceList now sits inside the AboutThisData <details> accordion
+    // (default collapsed), so it is attached to the DOM but not visible
+    // until the citizen opens the disclosure. CLAUDE.md §15 only requires
+    // the surface exists. Mirrors golden-path.spec.ts:108.
+    await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeAttached({ timeout: 15_000 });
   });
 
   test("bihar (S04) degrades gracefully for pending_upstream state", async ({ page }) => {

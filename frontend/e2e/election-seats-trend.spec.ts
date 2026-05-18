@@ -23,7 +23,11 @@ test.describe("election seats trend", () => {
     await expect(
       page.getByRole("heading", { name: /Seat composition over time/i }),
     ).toBeVisible({ timeout: 20_000 });
-    // Provenance row is rendered by StackedTrend.
-    await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeVisible({ timeout: 15_000 });
+    // Provenance row is rendered by StackedTrend. SourceList now sits
+    // inside the AboutThisData <details> accordion (default collapsed),
+    // so it is attached to the DOM but not visible until the citizen
+    // opens the disclosure. CLAUDE.md §15 only requires the surface
+    // exists. Mirrors golden-path.spec.ts:108.
+    await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeAttached({ timeout: 15_000 });
   });
 });

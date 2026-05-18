@@ -29,12 +29,19 @@ test.describe("stacked-trend on /t/energy", () => {
 
     // Mode chip is rendered by StackedTrend.svelte once the model resolves.
     // CSS uppercases it visually, but the DOM text remains lowercase.
-    await expect(page.getByText(/^percent$|^absolute$/)).toBeVisible({ timeout: 15_000 });
+    // /t/energy now mounts multiple StackedTrend charts (one per fuel
+    // breakdown) plus table column headers also named "percent"/"absolute",
+    // so the bare regex matches many elements; .first() honours the
+    // "at least one mode chip rendered" intent.
+    await expect(page.getByText(/^percent$|^absolute$/).first()).toBeVisible({ timeout: 15_000 });
 
     // Legend includes at least one of the known fuel labels.
     await expect(page.getByText("Coal").first()).toBeVisible();
 
     // Provenance: the chart is data-bearing, so SourceList must appear.
-    await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeVisible();
+    // It sits inside the AboutThisData <details> accordion (default
+    // collapsed) — toBeAttached honours that without depending on the
+    // collapsed-by-default UX choice. Mirrors golden-path.spec.ts:108.
+    await expect(page.getByText(SOURCE_LIST_TEXT).first()).toBeAttached();
   });
 });
