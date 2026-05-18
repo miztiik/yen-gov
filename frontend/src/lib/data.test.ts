@@ -5,7 +5,6 @@ import {
   fetchParties,
   fetchConstituencies,
   fetchDistricts,
-  fetchConstituencyResult,
   fetchPartyRegistry,
   fetchPersonEntity,
   slugifyCandidate,
@@ -84,26 +83,13 @@ describe("fetchConstituencies / fetchDistricts", () => {
   });
 });
 
-describe("fetchConstituencyResult — the 404-as-null contract", () => {
-  it("composes event + state + eci_no into the per-AC result path", async () => {
-    fetchSpy.mockResolvedValueOnce(jsonResponse({ eci_no: 167 }));
-    const out = await fetchConstituencyResult("AcGenMay2026", "S22", 167);
-    expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/elections/AcGenMay2026/S22/results/167.json`,
-    );
-    expect(out).toMatchObject({ eci_no: 167 });
-  });
-
-  it("returns null on 404 (countermanded / postponed AC — not an error)", async () => {
-    fetchSpy.mockResolvedValueOnce(new Response("not found", { status: 404 }));
-    const out = await fetchConstituencyResult("AcGenMay2026", "S22", 999);
-    expect(out).toBeNull();
-  });
-
-  it("throws on other non-OK responses (500, etc.)", async () => {
-    fetchSpy.mockResolvedValueOnce(new Response("err", { status: 500, statusText: "Internal" }));
-    await expect(fetchConstituencyResult("AcGenMay2026", "S22", 1)).rejects.toThrow(/failed: 500/);
-  });
+describe("fetchConstituencyResult — moved to view-model loader", () => {
+  // PR-E (Phase 1.3a) retired the per-shard JSON loader. The Constituency
+  // route now reads through `lib/view-models/constituency.ts` against the
+  // canonical Parquet store via DuckDB-WASM. Unit coverage lives in
+  // `view-models/constituency.test.ts`; the 404-as-null contract is now
+  // a "zero candidate rows → partial / not_published" SQL-shape contract.
+  it.skip("legacy contract replaced by view-model loader", () => {});
 });
 
 describe("fetchPartyRegistry — master + discovered merge", () => {

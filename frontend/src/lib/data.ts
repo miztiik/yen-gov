@@ -362,23 +362,3 @@ export function fetchPersonEntity(
   });
 }
 
-export function fetchConstituencyResult(
-  event: string,
-  state: string,
-  eci_no: number,
-): Promise<ConstituencyResult | null> {
-  // Per-AC results are absent when the constituency was countermanded /
-  // postponed (the backend skips emitting a stub — see sources-eci.md).
-  // A 404 here is therefore expected, not an error: callers render the
-  // "no result published" state. Other failures still throw.
-  return fetch(`${DATA_BASE}/elections/${event}/${state}/results/${eci_no}.json`)
-    .then(async res => {
-      if (res.status === 404) return null;
-      if (!res.ok) {
-        throw new Error(
-          `fetch /elections/${event}/${state}/results/${eci_no}.json failed: ${res.status} ${res.statusText}`,
-        );
-      }
-      return (await res.json()) as ConstituencyResult;
-    });
-}

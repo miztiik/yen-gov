@@ -114,13 +114,78 @@ Acknowledged costs:
 - **DuckDB-Wasm.** Overkill for 150 KB and adds analytic-DB semantics we don't need. Bundle ~2 MB.
 - **Re-emit the DB as JSON** and skip SQL entirely. Rejected: it duplicates the work of the SQLite emitter and removes the user-facing affordance the /explore page exists to provide.
 
-## Per-AC 404 contract: countermanded constituencies
+## Per-AC 404 contract: countermanded constituencies (retired in PR-E)
 
-`fetchConstituencyResult()` returns `Promise<ConstituencyResult | null>` rather than throwing on a 404. A missing per-AC file is the *expected* state for any constituency the backend's Section 10 parser skipped — countermanded or postponed ACs (e.g. WB 2026 AC #144 FALTA). The backend documents this skip policy in [sources-eci.md](../backend/sources-eci.md); the frontend honours the same convention by treating absence as data, not as failure.
+**Historical** — see "View-model loader (Phase 1.3a)" below for the current shape. The legacy contract is preserved here because the other `fetch*` helpers in `lib/data.ts` still follow the same split-by-resource policy.
 
-`Constituency.svelte` distinguishes three terminal states: `error` (real fetch/network failure — red banner), `not_published` (404 — amber banner explaining the countermandment policy), and `result` (the normal render). All other `fetch*` helpers continue to throw on a non-OK response, because their resources are required — a missing `result.summary.json` or `parties.json` is a real bug.
+`fetchConstituencyResult()` used to return `Promise<ConstituencyResult | null>` rather than throwing on a 404. A missing per-AC file was the *expected* state for any constituency the backend's Section 10 parser skipped — countermanded or postponed ACs (e.g. WB 2026 AC #144 FALTA). The backend documents this skip policy in [sources-eci.md](../backend/sources-eci.md); the frontend honoured the same convention by treating absence as data, not as failure.
 
-This split-by-resource policy beats a generic "404 → null everywhere" rule: it preserves loud failure for genuinely broken state while making the one expected absence non-scary for the user. It also avoids leaking HTTP-status concerns into every caller — only the helper that has a documented absence case knows about it.
+PR-E (Phase 1.3a) retired `fetchConstituencyResult` along with the per-shard JSON contract. The view-model loader now answers the same question by counting `dim_candidates` rows: zero rows for `(state_code, eci_no, period_label)` means the contest was not published, and the loader returns `{ status: "partial", reason: "not_published", data: <skeleton> }`.
+
+The other `fetch*` helpers in `lib/data.ts` continue to throw on a non-OK response, because their resources are required — a missing `result.summary.json` or `parties.json` is a real bug. This split-by-resource policy beats a generic "404 → null everywhere" rule: it preserves loud failure for genuinely broken state while making the one expected absence non-scary for the user.
+
+## View-model loader (Phase 1.3a — PR-E)
+
+**Status (2026-05-18)**: live on `/s/:state/ac/:slug`. State hub + map loaders (`StateOverview.svelte`) follow in PR-F (Phase 1.3b).
+
+The Constituency route reads through [`frontend/src/lib/view-models/constituency.ts`](../../../frontend/src/lib/view-models/constituency.ts). The loader's signature is the contract:
+
+```ts
+export async function loadConstituencyResult(
+  event: string, state_code: string, eci_no: number,
+): Promise<LoaderResult<ConstituencyResult>>
+```
+
+Routes never touch SQL or DuckDB-WASM directly — they consume `LoaderResult<T>` (see "Failure-state UX contract" above) and render the four arms.
+
+### What is JOINed
+
+Five canonical tables get registered (idempotent per session) via `registerTable()` from `lib/duckdb.ts`:
+
+| Table | Role in this view |
+| --- | --- |
+| `elections.dim_acs` | AC identity + display name |
+| `elections.dim_candidates` | per-contest candidate rows; PK byte-equal to `observations.entity_id` |
+| `elections.dim_parties` | party labels (`short_name`, `full_name`, `eci_code`) |
+| `elections.observations` | numeric facts (`candidate-votes-polled`, `candidate-vote-share-pct`, `ac-*` scope) |
+| `taxonomy.sources` | provenance — `(url, first_fetched_at)` projected into the legacy `SourceRef` shape |
+
+The loader composes three SQL statements:
+
+1. **Candidate JOIN** — `dim_candidates` → `dim_acs` (filter on `state_code` + `eci_no`) → `dim_parties` → two LEFT JOINs onto `observations` for `candidate-votes-polled` and `candidate-vote-share-pct`, ordered by `dc.rank`. Returns one row per candidate.
+2. **AC-scope facts** — `SELECT … FROM observations WHERE entity_id = <ac_id> AND indicator_id LIKE 'ac-%'` to pick up turnout, votes-polled, NOTA, winner refs, margin. `ac_id` is derived from the first candidate row (avoids needing `delim_year` ahead of time).
+3. **Provenance** — `SELECT DISTINCT s.url, s.first_fetched_at FROM observations JOIN sources` across both AC-scope and candidate-scope rows for this `period_label`.
+
+`assembleResult()` folds the three result sets into the legacy `ConstituencyResult` interface (`frontend/src/lib/data.ts`) — the interface itself stays as the view-model shape so the Svelte template needs no structural rewrite.
+
+### LoaderResult arm mapping
+
+| Outcome | Arm | Notes |
+| --- | --- | --- |
+| 1+ candidate rows | `ok` | full `ConstituencyResult` assembled |
+| zero candidate rows | `partial` with `reason: "not_published"` | ECI did not publish a contest for this `(state, eci_no, event)` — countermanded / postponed AC. Returns a skeleton + the existing amber "No result published" pane renders unchanged. |
+| any thrown error (DuckDB boot, fetch, SQL) | `failed` | `describeFailure(err)` maps to citizen-readable copy; `retry` field is a callable that re-invokes `loadConstituencyResult` with the same args |
+
+The "zero rows ⇒ partial" rule is the canonical replacement for the legacy "404 ⇒ null" contract. Same citizen surface; the signal moved from HTTP layer to SQL shape.
+
+### Why split into a view-model module (and not inline in the route)
+
+Three reasons:
+
+- **Testability** — the loader's contract is the `query<T>` boundary, so vitest can mock that single seam (Holy Law #7 carve-out: "the loader's contract IS the fetch boundary") and exercise the full ok / partial / failed surface without booting wasm. See [`frontend/src/lib/view-models/constituency.test.ts`](../../../frontend/src/lib/view-models/constituency.test.ts).
+- **Symmetry for PR-F** — `StateOverview.svelte` will get its own sibling `view-models/state-overview.ts`. Each citizen surface owns one loader file; the route stays presentation-only.
+- **No SQL in templates** — keeps Svelte components rendering, not composing queries. Pushes JOIN policy out of `.svelte` files and into typed TypeScript where contract drift surfaces at compile time.
+
+### Boundaries this loader does not cross
+
+- No DuckDB-WASM boot policy — that lives in `lib/duckdb.ts` and is reused unchanged.
+- No `LoaderResult<T>` definition — owned by `lib/loader-result.ts` (D17).
+- No failure-state UX copy beyond what `describeFailure()` already returns.
+- No per-AC JSON read fallback — the legacy contract is gone, not coexisting.
+
+### SQL composition (no parameter binding)
+
+`@duckdb/duckdb-wasm`'s `query<T>` takes a SQL string, not bound parameters. The loader interpolates literals via a `sqlString()` helper that single-quote-escapes (doubling `'`). Inputs are constrained: `state_code` and `event` are catalogue-validated tokens (`S\d\d`, event IDs), `eci_no` is a parsed integer. The interpolation surface is bounded by the route param parser; there is no user-supplied free text reaching the SQL.
 
 ## See also
 
