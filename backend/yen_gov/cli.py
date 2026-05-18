@@ -1363,3 +1363,80 @@ def ingest_people_panel(
         f"({result.report.coverage_pct:.2f}%); mean delta {result.report.mean_delta_pp:.3f}pp"
     )
 
+
+@app.command("canonical-backfill-eci")
+def canonical_backfill_eci(
+    root: Path = typer.Option(
+        Path.cwd(), "--root", "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False, dir_okay=True, exists=True,
+    ),
+    event: list[str] = typer.Option(
+        None, "--event",
+        help="Restrict to one or more event_ids (e.g. AcGenMay2026). Repeat flag.",
+    ),
+    state: list[str] = typer.Option(
+        None, "--state",
+        help="Restrict to one or more ECI state codes (e.g. S22). Repeat flag.",
+    ),
+) -> None:
+    """Backfill datasets/elections/observations.parquet from per-AC JSON corpus.
+
+    Phase 1.1 step 5. Each (event, state) slice is one atomic UPSERT; a
+    failure in one slice is recorded and the run continues. Progress is
+    printed live per slice so long runs are observable.
+    """
+    from yen_gov.pipeline.canonical_eci_backfill import (
+        SliceResult,
+        backfill_elections,
+    )
+
+    def _print(s: SliceResult) -> None:
+        if s.error:
+            typer.echo(f"  [FAIL] {s.event_id}/{s.state_code}: {s.error}", err=True)
+            return
+        typer.echo(
+            f"  [ok]   {s.event_id}/{s.state_code}: "
+            f"{s.acs_processed:4d} ACs, {s.observation_rows_written:6d} obs, "
+            f"{s.source_rows_written:3d} sources"
+        )
+
+    def _print_write_start(n_obs: int, n_sources: int) -> None:
+        typer.echo(f"  [WRITE] event start: {n_obs} obs, {n_sources} sources ...")
+
+    def _print_event_written(event_id: str, n_obs: int, n_sources: int, dt: float) -> None:
+        typer.echo(
+            f"  [WRITE] {event_id}: persisted {n_obs} obs, {n_sources} sources "
+            f"in {dt:.2f}s"
+        )
+
+    res = backfill_elections(
+        datasets_root=root / "datasets",
+        events=event or None,
+        states=state or None,
+        on_slice=_print,
+        on_write_start=_print_write_start,
+        on_event_written=_print_event_written,
+    )
+    typer.echo("canonical-backfill-eci: done")
+    typer.echo(f"  events processed:     {res.events_processed}")
+    typer.echo(f"  states processed:     {res.states_processed}")
+    typer.echo(f"  ACs processed:        {res.acs_processed}")
+    typer.echo(f"  observation rows:     {res.observation_rows_written}")
+    typer.echo(f"  source rows:          {res.source_rows_written}")
+    if res.failed_slices:
+        typer.echo(f"  FAILED slices ({len(res.failed_slices)}):", err=True)
+        for s in res.failed_slices:
+            typer.echo(f"    - {s.event_id}/{s.state_code}: {s.error}", err=True)
+    if res.unresolved_parties:
+        top = sorted(res.unresolved_parties.items(), key=lambda kv: -kv[1])[:20]
+        total_misses = sum(res.unresolved_parties.values())
+        typer.echo(
+            f"  unresolved party_shorts: {len(res.unresolved_parties)} unique, "
+            f"{total_misses} candidate rows -> parties.IN.UNK"
+        )
+        for short, n in top:
+            typer.echo(f"    {short:24s} {n}")
+    if res.failed_slices:
+        raise typer.Exit(code=1)
+

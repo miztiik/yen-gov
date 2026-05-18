@@ -1,0 +1,198 @@
+legacy_path,topic_or_family,status,target_phase,replacement_indicator_id,replacement_facet_values,notes
+# yen-gov canonical-pivot migration ledger
+# Phase 0.5 of THE PLAN (TODO/20260517-canonical-long-format-pivot.md).
+# Authority: Max owns indicator decisions; Hans owns governance framing.
+# Lines starting with # are comments.
+#
+# Columns:
+#   legacy_path                — current path under datasets/ (pre-pivot).
+#   topic_or_family            — destination canonical family.
+#   status                     — migrate | consolidate | drop | queue
+#                                 migrate     = port verbatim into canonical store with the named replacement_indicator_id.
+#                                 consolidate = merge into a parent indicator via facet-explode (D26); replacement_facet_values populated.
+#                                 drop        = retire with reason in notes; gets a row in datasets/_old/DELETED.md (D36) at deletion time.
+#                                 queue       = legitimate but deferred to a later phase; Max + Hans revisit before that phase begins.
+#   target_phase               — phase in which the migrate/consolidate ingest lands (per THE PLAN §6-§11).
+#   replacement_indicator_id   — canonical id per D30 naming convention. Empty for drop/queue.
+#   replacement_facet_values   — JSON literal of dimension_values when status=consolidate. Empty otherwise.
+#   notes                      — rationale, Hans/Max question flags, consolidation pass markers.
+#
+# This ledger is the contract for what canonical store must absorb before
+# datasets/_old/ can be deleted (D14 checklist). Empty target_phase or
+# unresolved 'queue' rows BLOCK Phase 1.8 deletion.
+#
+# ----- ELECTIONS (Phase 1) — one row per election_id; all migrate into
+# ----- datasets/elections/observations.parquet via ECI adapter rewrite (§7 step 1.1).
+datasets/elections/AcGenApr2016,elections,migrate,1,elections,,Kerala 2016 + TN 2016 + WB 2016 + PY 2016 + AS 2016.
+datasets/elections/AcGenMay2016,elections,migrate,1,elections,,WB phase tail + KL phase tail.
+datasets/elections/AcGenFeb2017,elections,migrate,1,elections,,Punjab 2017 + Goa 2017.
+datasets/elections/AcGenMar2017,elections,migrate,1,elections,,UP 2017 + UK 2017 + MN 2017.
+datasets/elections/AcGenNov2017,elections,migrate,1,elections,,HP 2017.
+datasets/elections/AcGenDec2017,elections,migrate,1,elections,,Gujarat 2017.
+datasets/elections/AcGenFeb2018,elections,migrate,1,elections,,Tripura 2018 + Nagaland 2018 + Meghalaya 2018.
+datasets/elections/AcGenMay2018,elections,migrate,1,elections,,Karnataka 2018.
+datasets/elections/AcGenApr2019,elections,migrate,1,elections,,AP 2019 + AR 2019 + OD 2019 + SK 2019 (with LS).
+datasets/elections/AcGenOct2019,elections,migrate,1,elections,,Maharashtra 2019 + Haryana 2019.
+datasets/elections/AcGenDec2019,elections,migrate,1,elections,,Jharkhand 2019.
+datasets/elections/AcGenFeb2020,elections,migrate,1,elections,,Delhi 2020.
+datasets/elections/AcGenNov2020,elections,migrate,1,elections,,Bihar 2020.
+datasets/elections/AcGenApr2021,elections,migrate,1,elections,,TN 2021 + KL 2021 + WB 2021 + PY 2021 + AS 2021.
+datasets/elections/AcGenFeb2022,elections,migrate,1,elections,,UP 2022 + UK 2022 + Goa 2022 + PB 2022 + MN 2022.
+datasets/elections/AcGenMar2022,elections,migrate,1,elections,,UP/PB tail.
+datasets/elections/AcGenNov2022,elections,migrate,1,elections,,Himachal 2022 + Gujarat 2022.
+datasets/elections/AcGenDec2022,elections,migrate,1,elections,,Gujarat tail.
+datasets/elections/AcGenFeb2023,elections,migrate,1,elections,,Tripura 2023 + Nagaland 2023 + Meghalaya 2023.
+datasets/elections/AcGenMay2023,elections,migrate,1,elections,,Karnataka 2023.
+datasets/elections/AcGenNov2023,elections,migrate,1,elections,,MP 2023 + RJ 2023 + CG 2023 + TG 2023 + MZ 2023.
+datasets/elections/AcGenApr2019,elections,migrate,1,elections,,duplicate row guarded by writer UPSERT — kept for ledger completeness.
+datasets/elections/AcGenJun2024,elections,migrate,1,elections,,AP 2024 + AR 2024 + OD 2024 + SK 2024 (with LS 2024).
+datasets/elections/AcGenOct2024,elections,migrate,1,elections,,Haryana 2024 + J&K 2024.
+datasets/elections/AcGenNov2024,elections,migrate,1,elections,,Maharashtra 2024 + Jharkhand 2024.
+datasets/elections/AcGenFeb2025,elections,migrate,1,elections,,Delhi 2025.
+datasets/elections/AcGenNov2025,elections,migrate,1,elections,,Bihar 2025.
+datasets/elections/AcGenMay2026,elections,migrate,1,elections,,TN 2026 + KL 2026 + WB 2026 + PY 2026 + AS 2026 (current cycle when ingested).
+#
+# ----- ENERGY (Phase 2) — 41 legacy artifacts; heavy consolidation via D26 facet-explode.
+# ----- See D33.2 (distribution losses), D33.8 (fuel_type=total → compute-on-read).
+datasets/indicators/in/energy/installed_capacity_by_source_mw.json,energy,consolidate,2,state-installed-capacity-mw,{},Parent indicator. Facet-explode children carry fuel_type. See D33.8: fuel_type=total is computed at read time not stored.
+datasets/indicators/in/energy/installed_capacity_coal_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""coal""}",Facet-explode child of state-installed-capacity-mw.
+datasets/indicators/in/energy/installed_capacity_gas_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""gas""}",Facet-explode child.
+datasets/indicators/in/energy/installed_capacity_hydro_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""hydro""}",Facet-explode child.
+datasets/indicators/in/energy/installed_capacity_nuclear_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""nuclear""}",Facet-explode child.
+datasets/indicators/in/energy/installed_capacity_renewable_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""renewable""}",Facet-explode child. May further explode into solar/wind/biomass once MNRE adapter lands.
+datasets/indicators/in/energy/installed_capacity_thermal_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""thermal""}",Facet-explode child (covers coal+gas+lignite+diesel under CEA total-thermal definition).
+datasets/indicators/in/energy/installed_capacity_total_mw.json,energy,drop,2,,,D33.8 — total is compute-on-read SUM(value) GROUP BY state year. Drop reason: redundant with parent + children.
+datasets/indicators/in/energy/installed_mw_by_state.json,energy,drop,2,,,Duplicate of state-installed-capacity-mw with different source vintage; reconcile via UPSERT logical key.
+datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json,energy,drop,2,,,Duplicate of installed_capacity_by_source_mw.json — same parent.
+datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""allocation_basis"":""geographical""}",NEW facet axis 'allocation_basis' required — add to facet-axes.json in Phase 0.4. Max sign-off pending.
+datasets/indicators/in/energy/state_installed_capacity_total_mw.json,energy,drop,2,,,Duplicate of installed_capacity_total_mw.
+datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""allocation_basis"":""contractual""}",With central-share allocation. Pairs with geographical above.
+datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""renewable""}",Likely subsumed by renewable child; reconcile source vintages.
+datasets/indicators/in/energy/state_rooftop_solar_capacity_mw.json,energy,consolidate,2,state-installed-capacity-mw,"{""fuel_type"":""solar_rooftop""}",Distinct from utility-scale solar; treat as own fuel_type sub-value.
+datasets/indicators/in/energy/india_capacity_pipeline_gw.json,energy,migrate,2,india-capacity-pipeline-gw,,Forward-looking pipeline; separate parent (unit GW not MW).
+datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json,energy,migrate,2,india-thermal-capacity-retired-mw,,Retired capacity; semantically distinct from current installed.
+datasets/indicators/in/energy/state_atc_losses_pct.json,energy,consolidate,2,state-distribution-losses-pct,"{""loss_type"":""atc""}",D33.2 — ONE parent + loss_type facet.
+datasets/indicators/in/energy/state_distribution_td_loss_pct.json,energy,consolidate,2,state-distribution-losses-pct,"{""loss_type"":""tnd""}",D33.2.
+datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json,energy,migrate,2,state-distribution-billing-efficiency-pct,,Distinct measure from losses; separate parent.
+datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json,energy,migrate,2,state-distribution-collection-efficiency-pct,,Distinct measure.
+datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json,energy,migrate,2,state-acs-arr-gap-inr-per-kwh,,Discom financial health indicator.
+datasets/indicators/in/energy/state_plant_load_factor_pct.json,energy,migrate,2,state-plf-pct,,PLF is canonical thermal-fleet utilisation measure.
+datasets/indicators/in/energy/state_rpo_compliance_pct.json,energy,migrate,2,state-rpo-compliance-pct,,Renewable Purchase Obligation compliance.
+datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json,energy,consolidate,2,state-electricity-generation-gwh,{},Parent. Facet-explode children carry fuel_type. D33.8 total = compute-on-read.
+datasets/indicators/in/energy/state_electricity_generation_mu.json,energy,drop,2,,,Same measure different unit (MU vs GWh). 1 MU = 1 GWh; keep GWh as canonical unit per OWID convention.
+datasets/indicators/in/energy/state_coal_consumption_mt.json,energy,migrate,2,state-coal-consumption-mt,,Fuel input; distinct from generation output.
+datasets/indicators/in/energy/state_oil_product_consumption_kt.json,energy,migrate,2,state-oil-product-consumption-kt,,Petroleum products; PPAC source.
+datasets/indicators/in/energy/state_power_sector_co2_emissions_mtco2.json,environment,migrate,2,state-power-sector-co2-mt,,Bridges energy + environment families; classified under environment per D32 emission-source convention.
+datasets/indicators/in/energy/state_electricity_peak_demand_mw.json,energy,consolidate,2,state-peak-demand-mw,"{""cadence_view"":""annual_max""}",Same logical measure as state_peak_demand_mw with explicit cadence view.
+datasets/indicators/in/energy/state_peak_demand_mw.json,energy,migrate,2,state-peak-demand-mw,,Canonical peak-demand parent.
+datasets/indicators/in/energy/state_peak_electricity_demand_mw.json,energy,drop,2,,,Triplicate of state-peak-demand-mw; reconcile via UPSERT.
+datasets/indicators/in/energy/state_peak_met_mw.json,energy,migrate,2,state-peak-met-mw,,Distinct from demand — supply that was actually met; gap = demand - met.
+datasets/indicators/in/energy/state_electricity_sales_mu.json,energy,migrate,2,state-electricity-sales-gwh,,Convert MU→GWh on migrate; preserve original in source.vintage.
+datasets/indicators/in/energy/state_power_availability_mu.json,energy,migrate,2,state-power-availability-gwh,,Convert MU→GWh on migrate.
+datasets/indicators/in/energy/state_power_requirement_mu.json,energy,migrate,2,state-power-requirement-gwh,,Convert MU→GWh on migrate.
+datasets/indicators/in/energy/state_power_purchase_share_pct.json,energy,migrate,2,state-power-purchase-share-pct,,Discom procurement mix.
+datasets/indicators/in/energy/state_per_capita_availability_kwh.json,energy,migrate,2,state-per-capita-electricity-kwh,,D33.5 — derived indicator first-class.
+datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json,energy,drop,2,,,Same measure as state-per-capita-electricity-kwh with different source vintage; reconcile.
+datasets/indicators/in/energy/national_primary_energy_supply_mtoe.json,energy,migrate,2,india-primary-energy-supply-mtoe,,National-level. Hans flag: confirm entity_type=country in entities.json.
+datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json,energy,consolidate,2,india-final-energy-consumption-mtoe,{},Parent. Children explode by sector facet.
+datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json,energy,migrate,2,india-renewable-potential-vs-installed-mw,,Two-series indicator (potential + installed); explode TBD in Phase 2 by Max.
+#
+# ----- FISCAL (Phase 3) — 22 legacy artifacts; fiscal-actor doctrine applies (§9 of THE PLAN).
+# ----- Each row needs attribution_geography + implementing_authority in indicator catalogue.
+datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json,fiscal,migrate,3,state-own-tax-revenue-inr-crore,,attribution_geography=where_billed; implementing_authority=state.
+datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json,fiscal,migrate,3,state-non-tax-revenue-inr-crore,,implementing_authority=state.
+datasets/indicators/in/fiscal/state_share_central_taxes_inr_crore.json,fiscal,consolidate,3,state-centre-transfers-inr-crore,"{""transfer_type"":""tax_devolution""}",D31 transfer_type facet.
+datasets/indicators/in/fiscal/state_grants_in_aid_inr_crore.json,fiscal,consolidate,3,state-centre-transfers-inr-crore,"{""transfer_type"":""grants""}",D31 transfer_type facet.
+datasets/indicators/in/fiscal/net_transfers_from_centre.json,fiscal,consolidate,3,state-centre-transfers-inr-crore,"{""transfer_type"":""net""}",D31 transfer_type facet.
+datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json,fiscal,migrate,3,state-revenue-expenditure-inr-crore,,implementing_authority=state.
+datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json,fiscal,migrate,3,state-pension-expenditure-inr-crore,,implementing_authority=state; head_of_account=pension.
+datasets/indicators/in/fiscal/state_external_debt_inr_crore.json,fiscal,migrate,3,state-external-debt-inr-crore,,
+datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json,fiscal,migrate,3,state-outstanding-debt-pct-gsdp,,Derived ratio first-class per D33.5.
+datasets/indicators/in/fiscal/centre_transfers_gross.json,fiscal,consolidate,3,centre-transfers-to-states-inr-crore,"{""transfer_type"":""gross""}",Centre-side view of same flow.
+datasets/indicators/in/fiscal/centre_transfers_to_states_gross.json,fiscal,drop,3,,,Duplicate of centre_transfers_gross.
+datasets/indicators/in/fiscal/centre_transfers_to_states_grants.json,fiscal,consolidate,3,centre-transfers-to-states-inr-crore,"{""transfer_type"":""grants""}",
+datasets/indicators/in/fiscal/centre_transfers_to_states_net.json,fiscal,consolidate,3,centre-transfers-to-states-inr-crore,"{""transfer_type"":""net""}",
+datasets/indicators/in/fiscal/centre_transfers_to_states_tax_devolution.json,fiscal,consolidate,3,centre-transfers-to-states-inr-crore,"{""transfer_type"":""tax_devolution""}",
+datasets/indicators/in/fiscal/states_combined_gross_fiscal_deficit.json,fiscal,migrate,3,states-combined-gross-fiscal-deficit-inr-crore,,entity_id=IN-states-combined; attribution_geography=states_combined.
+datasets/indicators/in/fiscal/states_combined_revenue_deficit.json,fiscal,migrate,3,states-combined-revenue-deficit-inr-crore,,
+datasets/indicators/in/fiscal/states_combined_primary_deficit.json,fiscal,migrate,3,states-combined-primary-deficit-inr-crore,,
+datasets/indicators/in/fiscal/states_combined_primary_revenue_deficit.json,fiscal,migrate,3,states-combined-primary-revenue-deficit-inr-crore,,
+datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json,fiscal,migrate,3,union-gross-fiscal-deficit-inr-crore,,implementing_authority=union.
+datasets/indicators/in/fiscal/union_revenue_deficit.json,fiscal,migrate,3,union-revenue-deficit-inr-crore,,
+datasets/indicators/in/fiscal/union_primary_deficit.json,fiscal,migrate,3,union-primary-deficit-inr-crore,,
+datasets/indicators/in/fiscal/union_primary_revenue_deficit.json,fiscal,migrate,3,union-primary-revenue-deficit-inr-crore,,
+#
+# ----- HEALTH (Phase 3) — 6 legacy artifacts.
+datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json,health,migrate,3,state-imr-per-1000-live-births,,SRS source canonical.
+datasets/indicators/in/health/state_birth_rate_per_1000.json,health,migrate,3,state-crude-birth-rate-per-1000,,
+datasets/indicators/in/health/state_death_rate_per_1000.json,health,migrate,3,state-crude-death-rate-per-1000,,
+datasets/indicators/in/health/state_total_fertility_rate.json,health,migrate,3,state-tfr-births-per-woman,,
+datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json,fiscal,migrate,3,state-public-health-expenditure-inr-crore,,Reclassified to fiscal family — it is an expenditure indicator that happens to be on health.
+datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json,fiscal,migrate,3,state-health-expenditure-share-pct,,Reclassified to fiscal; derived ratio first-class.
+#
+# ----- DEMOGRAPHY (Phase 3) — 3 legacy artifacts.
+datasets/indicators/in/demography/state_population_by_residence_count.json,demography,consolidate,3,state-population-count,"{""residence"":""facet_split""}",Parent state-population-count carries total; children carry residence=rural|urban. NEW: explode rural/urban as children at ingest.
+datasets/indicators/in/demography/state_population_by_sex_count.json,demography,consolidate,3,state-population-count,"{""gender"":""facet_split""}",Children carry gender=male|female. D33.4: Census H-series vs NFHS = two parents (this is Census-only).
+datasets/indicators/in/demography/state_population_lakhs.json,demography,drop,3,,,Same measure as state-population-count in different unit (lakhs); convert and reconcile via UPSERT.
+#
+# ----- ECONOMY (Phase 3 — splits into fiscal/economy classification by Max).
+datasets/indicators/in/economy/state_gdp_inr_crore.json,economy,consolidate,3,state-gsdp-inr-crore,"{""prices_basis"":""current""}",D33.1 — GSDP base-year revisions via methodology_version + id-encoded variants; current vs constant prices via prices_basis facet.
+datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json,economy,drop,3,,,Same as state_gdp_inr_crore unit conversion; reconcile.
+datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json,economy,consolidate,3,state-gsdp-inr-crore,"{""prices_basis"":""constant_2011_12""}",D33.1 — base-year-encoded child.
+datasets/indicators/in/economy/state_nsdp_current_inr_crore.json,economy,consolidate,3,state-nsdp-inr-crore,"{""prices_basis"":""current""}",
+datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json,economy,consolidate,3,state-nsdp-inr-crore,"{""prices_basis"":""constant_2011_12""}",
+datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json,economy,consolidate,3,state-per-capita-nsdp-inr,"{""prices_basis"":""current""}",D33.5 derived first-class.
+datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json,economy,consolidate,3,state-per-capita-nsdp-inr,"{""prices_basis"":""constant_2011_12""}",
+datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json,economy,drop,3,,,'_long' suffix = long-format intermediate; not authoritative. Drop.
+datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json,economy,drop,3,,,'_long' suffix; drop.
+datasets/indicators/in/economy/state_per_capita_consumption_inr.json,economy,migrate,3,state-per-capita-consumption-inr,,Distinct measure (consumption vs income); first-class.
+datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json,economy,consolidate,3,state-sectoral-gva-inr-crore,"{""prices_basis"":""current""}",Parent + sector + prices_basis facets.
+datasets/indicators/in/economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore.json,economy,consolidate,3,state-sectoral-gva-inr-crore,"{""prices_basis"":""constant_2011_12""}",
+datasets/indicators/in/economy/india_gdp_inr_crore.json,economy,migrate,3,india-gdp-inr-crore,,National parent.
+datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json,economy,drop,3,,,Duplicate of india_gdp_inr_crore (unit conversion).
+datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json,economy,consolidate,3,india-gva-by-industry-inr-crore,"{""prices_basis"":""constant_2011_12""}",
+datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json,economy,drop,3,,,Duplicate of india_gva_by_industry_constant.
+datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json,economy,consolidate,3,india-gva-by-industry-inr-crore,"{""prices_basis"":""constant_2011_12"",""cadence"":""quarterly_fy""}",Same parent with quarterly cadence; period_seq 1..4 per year.
+datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json,economy,migrate,3,india-macro-aggregates-inr-crore,,Multi-measure rollup; explode TBD in Phase 3 by Max.
+datasets/indicators/in/economy/india_external_balance_inr_crore.json,economy,migrate,3,india-external-balance-inr-crore,,BoP indicator.
+datasets/indicators/in/economy/india_iip_index_2011_12.json,economy,migrate,3,india-iip-index-2011-12,,IIP base 2011-12 in id per D28; future rebases get new id.
+#
+# ----- ENVIRONMENT (queued — not in §9 Phase 3 family list; revisit before Phase 4).
+datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json,environment,queue,4,,,Phase 4 candidate; CPCB source. Max: assess priority before Phase 4 kickoff.
+datasets/indicators/in/environment/state_pm10_annual_mean_ug_m3.json,environment,queue,4,,,
+datasets/indicators/in/environment/state_no2_annual_mean_ug_m3.json,environment,queue,4,,,
+datasets/indicators/in/environment/state_so2_annual_mean_ug_m3.json,environment,queue,4,,,
+datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json,environment,queue,4,,,Power-sector environmental compliance; pair with power-sector CO2.
+datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json,environment,queue,4,,,BUR vintage; check methodology_version applicability.
+datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json,environment,queue,4,,,Higher-resolution variant of above; consolidate at ingest.
+#
+# ----- PRICES (queued — Phase 3 has fiscal/demography/education/health; prices follows).
+datasets/indicators/in/prices/national_cpi_combined_index.json,prices,queue,3.5,,,Phase 3.5 (between fiscal and education by §9 §13 ordering). National-level CPI base 2012.
+datasets/indicators/in/prices/national_cpi_iw_index.json,prices,queue,3.5,,,CPI-IW base shift indicator; D28 methodology_version applies.
+datasets/indicators/in/prices/national_wpi_all_commodities.json,prices,queue,3.5,,,WPI base 2011-12.
+datasets/indicators/in/prices/state_cpi_general_inflation.json,prices,queue,3.5,,,D33.7 — CPI categories with combined_yoy as facet value.
+datasets/indicators/in/prices/state_cpi_food_inflation.json,prices,queue,3.5,,,Same parent + cpi_category facet.
+datasets/indicators/in/prices/state_cpi_fuel_inflation.json,prices,queue,3.5,,,Same parent + cpi_category facet.
+datasets/indicators/in/prices/state_cpi_housing_inflation.json,prices,queue,3.5,,,Same parent + cpi_category facet.
+#
+# ----- HUMAN DEVELOPMENT (queued — single artifact; UNDP source).
+datasets/indicators/in/human_development/state_hdi.json,human_development,queue,4,,,Phase 4 candidate; UNDP NHDR. Cadence ad_hoc.
+#
+# ----- TRANSPORT (queued — Phase 3.5/4).
+datasets/indicators/in/transport/state_ev_registrations_count.json,transport,queue,4,,,VAHAN dashboard source; cadence monthly_cy.
+datasets/indicators/in/transport/state_ev_share_total_vehicle_registrations_pct.json,transport,queue,4,,,D33.5 derived first-class.
+#
+# ----- EOF
+# Counts:
+#   migrate     — see status column
+#   consolidate — see status column
+#   drop        — see status column
+#   queue       — see status column
+#
+# Open consolidation questions flagged in 'notes' — Max + Hans pre-Phase-2 sweep:
+#   1. installed-capacity 'allocation_basis' facet axis (geographical vs contractual) — register in facet-axes.json?
+#   2. renewable fuel_type sub-split (solar utility / solar rooftop / wind / biomass / SHP) — drive from MNRE adapter or pre-declare?
+#   3. india vs state national-level totals — confirm entity_type=country convention in entities.json for national rows.
+#   4. national_renewable_potential_vs_installed_mw — explode into two parents (potential, installed) or single parent with measure facet?
+#   5. india-macro-aggregates explosion — Max to enumerate constituent series before Phase 3 ingest.
+#   6. CPI combined_yoy as cpi_category facet value (D33.7) vs first-class indicator — confirm at Phase 3.5 kickoff.

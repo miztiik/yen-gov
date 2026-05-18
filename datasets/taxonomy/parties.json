@@ -17,6 +17,19 @@
       "notes": "Sentinel for non-party candidates. All independent candidates collapse to this id; their per-contest distinctiveness is preserved via candidate-level entity_ids."
     },
     {
+      "party_id": "parties.IN.UNK",
+      "short_name": "UNK",
+      "full_name": "Unresolved Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": ["IN"],
+      "founded_year": null,
+      "dissolved_year": null,
+      "predecessor_of": null,
+      "successor_of": null,
+      "notes": "Sentinel for ECI party_shorts not yet mapped in this roster. Collapses many distinct minor/regional parties — party-* rollups for UNK are NOT meaningful and must not be surfaced in citizen UI. Backfill drivers use this as fallback to keep candidate-* + ac-* observations complete. Triage by promoting verified entries (with eci_code) to dedicated party_id rows."
+    },
+    {
       "party_id": "parties.IN.NOTA",
       "short_name": "NOTA",
       "full_name": "None of the Above",
