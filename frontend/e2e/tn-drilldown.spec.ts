@@ -26,7 +26,12 @@ test.afterEach(() => {
 test.describe("TN drill-down", () => {
   test("Tamil Nadu hub renders without a drill breadcrumb in the initial state", async ({ page }) => {
     await page.goto("/s/tamil-nadu");
-    await expect(page.getByText(/Assembly election/i)).toBeVisible({ timeout: 15_000 });
+    // Use the more-specific heading text — bare /Assembly election/i now
+    // matches both the state-hub heading ("Most recent assembly election")
+    // and a downstream caption ("Each bar = one assembly election …"),
+    // which trips Playwright strict mode. Mirrors the fix already shipped
+    // in golden-path.spec.ts:97.
+    await expect(page.getByText(/Most recent assembly election/i)).toBeVisible({ timeout: 15_000 });
     // No breadcrumb is visible until a state polygon is clicked. The
     // breadcrumb root carries the aria-label "map drill breadcrumb" when
     // the drill state has advanced; absence at initial render is the

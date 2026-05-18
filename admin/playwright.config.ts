@@ -35,11 +35,20 @@ export default defineConfig({
   ],
   webServer: {
     // bun is the canonical runner (mirrors frontend/playwright.config.ts).
-    command: "bun run dev",
+    // Explicit --host 127.0.0.1 --strictPort matches HOST exactly so the
+    // URL probe doesn't race IPv6 (::1) vs IPv4 (127.0.0.1) binding on
+    // fresh CI runners — without this vite's default "localhost" binding
+    // can resolve to ::1 while the probe hits 127.0.0.1 and times out.
+    // Timeout matches frontend (120s) — bun + vite cold-start on a CI
+    // runner regularly takes 30-90s before the dev server is reachable.
+    // stdout: "pipe" surfaces vite startup logs so a real failure is
+    // diagnosable from CI output rather than appearing as a silent
+    // timeout.
+    command: "bun run dev -- --host 127.0.0.1 --port 5174 --strictPort",
     url: HOST,
     reuseExistingServer: !process.env.CI,
-    timeout: 60_000,
-    stdout: "ignore",
+    timeout: 120_000,
+    stdout: "pipe",
     stderr: "pipe",
   },
 });

@@ -34,9 +34,12 @@ Sources of each field (schema v2.0):
 
 Output is sorted (deterministic), validates against
 `datasets/schemas/indicators-completeness.schema.json` v2.0, and
-inherits its `generated_at` from the maximum input mtime so re-running
-on an unchanged tree produces a byte-identical file (CLAUDE.md
-provenance rule).
+inherits its `generated_at` from the maximum `sources[].fetched_at`
+across every input artifact so re-running on byte-identical inputs
+produces a byte-identical file (CLAUDE.md §10 provenance rule — see
+also /memories/lessons.md 2026-05-16 "fetched_at smear"). File mtimes
+are NOT used: `git clone` does not preserve them, so deriving
+`generated_at` from `st_mtime` would drift across machines and CI runs.
 
 Modes:
 - default: dry-run, prints plan, exits 1 if a write would change bytes.
@@ -48,7 +51,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from datetime import date, datetime, timezone
+from datetime import date, datetime
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -129,7 +132,7 @@ def _index_row(path: Path, doc: dict, op_state: dict[str, dict]) -> dict:
 def build_index() -> dict:
     op_state = _load_operator_state()
     rows: list[dict] = []
-    max_mtime = 0.0
+    max_fetched_at: str | None = None
     for path in sorted(INDICATORS_ROOT.rglob("*.json")):
         if path.name.endswith(".notes.json"):
             continue
@@ -138,10 +141,17 @@ def build_index() -> dict:
         except (OSError, json.JSONDecodeError):
             continue
         rows.append(_index_row(path, doc, op_state))
-        max_mtime = max(max_mtime, path.stat().st_mtime)
+        # generated_at is derived from input *content* not file mtime
+        # (git clone does not preserve mtimes; see module docstring).
+        doc_max = _max_fetched_at(doc.get("sources") or [])
+        if doc_max and (max_fetched_at is None or doc_max > max_fetched_at):
+            max_fetched_at = doc_max
 
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
-    generated_at = datetime.fromtimestamp(max_mtime, tz=timezone.utc).date().isoformat() if max_mtime else date.today().isoformat()
+    if max_fetched_at:
+        generated_at = datetime.fromisoformat(max_fetched_at.replace("Z", "+00:00")).date().isoformat()
+    else:
+        generated_at = date.today().isoformat()
     return {
         "$schema": schema["$id"],
         "$schema_version": schema["x-version"],

@@ -2,7 +2,7 @@
   "$schema": "https://yen-gov.github.io/schemas/indicators-completeness.schema.json",
   "$schema_version": "2.0",
   "sources": [],
-  "generated_at": "2026-05-17",
+  "generated_at": "2026-05-16",
   "indicators": [
     {
       "id": "demography/state_population_by_residence_count",
