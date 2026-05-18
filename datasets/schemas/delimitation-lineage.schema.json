@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./delimitation-lineage.schema.json",
+  "title": "Delimitation lineage (AC successor map)",
+  "description": "Hand-authored lineage overlay at taxonomy/delimitation_lineage.json. Each row connects an AC entity_id under one delimitation cycle to its closest successor entity_id under a later cycle. Per canonical-store.md §3a (D-elections, Phase 1.1): delimitation = new entity. This file does NOT redraw boundaries; it gives charts a soft hint so 'this seat continued as...' UX is possible. Confidence is required because lineage is often partial (boundary overlap < 100%); the frontend MUST surface the break and never silently splice across it.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial schema. Hand-authored editorial overlay for the 2008 delimitation cycle (and back-mapping to 1976). Re-compilation of taxonomy/acs.parquet from ECI artefacts never touches this file — re-running ingest is byte-stable (Holy Law #10), but editorial lineage is preserved across re-runs."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "sources", "lineage"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12. Typical entries: Delimitation Commission of India order PDFs, ECI delimitation notes.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+    "lineage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "to", "relation", "confidence"],
+        "properties": {
+          "from": {
+            "type": "string",
+            "pattern": "^IN-[SU]\\d{2}-AC-\\d{4}-\\d+$",
+            "description": "Source AC entity_id (older delimitation), per §3a: IN-<state>-AC-<delim_year>-<eci_no>."
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^IN-[SU]\\d{2}-AC-\\d{4}-\\d+$",
+            "description": "Successor AC entity_id (newer delimitation). MUST belong to the same state_code as `from` (Telangana split is handled at the state-rollup layer, not via lineage)."
+          },
+          "relation": {
+            "enum": [
+              "successor_full",
+              "successor_partial",
+              "successor_merged",
+              "successor_split"
+            ],
+            "description": "successor_full: boundaries materially identical. successor_partial: boundaries shifted but the seat number/locale roughly continues. successor_merged: this `from` AC was absorbed alongside another into `to`. successor_split: this `from` AC was divided; one of N pieces is `to` (emit N rows, one per piece)."
+          },
+          "confidence": {
+            "enum": ["high", "medium", "low"],
+            "description": "Editorial confidence in this lineage row. Frontend MAY surface confidence; charts MUST surface the break regardless."
+          },
+          "overlap_pct": {
+            "type": ["number", "null"],
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Optional geographic overlap percentage between `from` and `to` boundaries. Null when not computable from available boundary geometry."
+          },
+          "notes": {
+            "type": ["string", "null"],
+            "description": "Editorial note (e.g. 'Mylapore (167) renumbered to 173 post-2008; partial boundary shift to absorb Triplicane wards')."
+          }
+        }
+      }
+    }
+  }
+}

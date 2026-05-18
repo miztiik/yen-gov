@@ -96,6 +96,48 @@ Writer invariants (enforced at emit, FK-checked per D22):
 
 ---
 
+## 3a. Election entity identity (D-elections, Phase 1.1)
+
+Election artefacts (ACs, parties, candidates) need entity IDs that are stable, citizen-comprehensible, and honest about India's boundary and identity churn. OWID precedent: opaque-stable ID in the data, display name as a field. Decided 2026-05-18 (Hans governance pass + Max indicator-scout pass + user sign-off).
+
+**AC entity_id** — ECI-native, delimitation-stamped: `IN-<state_code>-AC-<delim_year>-<eci_no>`.
+
+Examples: `IN-S22-AC-2008-167` (Mylapore as numbered since the 2008 delimitation); `IN-S22-AC-1976-138` (the constituency that occupied roughly that geography in 1991). `state_code` matches the existing ECI form used in `entities.json` (`S22`, not `TN`). `eci_no` is the integer ECI publishes on every results PDF. Display names live in `acs.parquet` columns, never in the ID.
+
+Frontend URLs are the citizen-readable layer: `/tn/ac/mylapore` resolves via a slug table to the canonical ID. Slug renames never break stored observations.
+
+Rejected: `IN-S22-AC-MYLAPORE` (renames silently rewrite history); LGD codes (LGD does not yet cover ACs canonically).
+
+**Delimitation = new entity.** When boundaries redraw, the post-redraw seat is a *different* `entity_id`, even if the name and number coincide. Each AC carries `entity_valid_from`/`_to` (years). Soft lineage in `taxonomy/delimitation_lineage.json`: `{from: IN-S22-AC-1976-138, to: IN-S22-AC-2008-167, relation: "successor_partial", confidence: "high|medium|low"}`. Charts that span a delimitation MUST surface the break as a vertical marker, never interpolate.
+
+**Party entity_id** — yen-gov slug, hand-authored: `parties.IN.<SHORT_SLUG>` (e.g. `parties.IN.AIADMK`). The party roster lives in `taxonomy/parties.json` because political identity is contested and needs editorial judgment. Each row carries: `aliases: [ADMK, A.I.A.D.M.K.]`, `eci_codes: [...]` (a list — ECI reassigns codes), `state_scope`, `founded_year`, `dissolved_year?`, `predecessor_of?`, `successor_of?`. Independent candidates collapse to `parties.IN.IND`; NOTA to `parties.IN.NOTA`.
+
+Rejected: `parties.IN.<eci_code>` (ECI codes are internal serials that mutate).
+
+**Candidate entity_id** — per-contest only: `<AC_ID>-<period_label>-C<eci_serial>`, e.g. `IN-S22-AC-2008-167-AcGenMay2026-C03`. The `C<NN>` suffix is the per-AC ECI serial (the order candidates appear on the ballot). Cross-election person identity is explicitly NOT a Phase 1.1 capability — yen-gov has no signal to solve it today (no affidavit fingerprinting, no Aadhaar mapping). Querying "every contest S. Vijayakumar fought" is flagged as open follow-up under §14.
+
+Candidate attributes (name, party_id, gender, age, education, profession) live in a sibling dim table `datasets/elections/candidates.parquet`, joined on candidate `entity_id`. Observations.parquet stays one-fact-per-row.
+
+**Per-state-per-election party rollup entity_id**: `<state_id>-<period_label>-PARTY-<party_slug>`, e.g. `IN-S22-AcGenMay2026-PARTY-DMK`. Carries `elections.party.*` aggregates (seats_won, vote_share_pct, etc.).
+
+**State-level rollup entity_id**: `<state_id>-<period_label>`, e.g. `IN-S22-AcGenMay2026`. Carries `elections.state.*` rollups (total_electors, turnout_pct, etc.).
+
+**Roster authorship — hybrid**:
+
+| Layer | Authorship | File |
+| --- | --- | --- |
+| Country / states / UTs | hand | `taxonomy/entities.json` |
+| Parties (~500) | hand | `taxonomy/parties.json` |
+| ACs (~4,123 × delim cycles) | auto-compiled from ECI source | `taxonomy/acs.parquet` |
+| Delimitation lineage | hand overlay | `taxonomy/delimitation_lineage.json` |
+| Candidates (per contest) | auto-compiled from ECI source | `elections/candidates.parquet` |
+
+Auto-compilation is deterministic from ECI artefacts (Holy Law #10 byte-stability). Hand-edits to `delimitation_lineage.json` land in a separate file so re-compile never clobbers editorial judgment.
+
+**Comparability across reorganisations**: when a query spans a year in which an AC did not exist (Telangana ACs pre-2014, post-2008-delimitation Mylapore in 1991), the answer is **null** — not zero, not extrapolated. Choropleth: render the geography greyed with tooltip "constituency did not exist under the YYYY delimitation". Time-series: render a gap with a dated annotation. This is the single most common trap in published electoral charts and the one citizens are least equipped to detect.
+
+---
+
 ## 4. Identity vs provenance
 
 The **logical key** is `(entity_id, year, period_label, indicator_id)`. `source_id` is NOT in the key.
@@ -328,6 +370,21 @@ Before issuing any query against a Parquet file, the DuckDB-WASM reader:
 ### 11.3 Bump rules
 
 Mirror JSON-Schema §11 of CLAUDE.md — minor for additive, major for breaking. Same-commit `x-changelog` entry on the matching `*.schema.json`. The writer also bumps the value it stamps; readers from prior builds will fail-loud and the user sees the failure-state copy. Production rollouts upgrade the reader first, then the writer.
+
+### 11.4 Materialisation rule (D-elections, Phase 1.1)
+
+Per §0a OWID precedent + Max's Phase 1.1 indicator-scout pass (user-approved 2026-05-18): **aggressive materialisation**. Rollups (party-per-state-per-election, state-per-election, winner flags, vote-share %, margin %, top-N + NOTA + others) are computed once by the writer and emitted as first-class observation rows, not deferred to the citizen's browser.
+
+Rationale: DuckDB-WASM over Range-fetched Parquet is fast for projections of materialised facts, slow and bandwidth-expensive for repeated aggregation over candidate-level rows. A citizen loading a state hub page should not download every per-candidate fact in the state to discover who won.
+
+**Provenance rule for materialised rows**:
+
+- A materialised observation row carries `source_id` of the **primary input** — the ECI artefact the rollup was computed from (typically the per-AC results PDF for that contest).
+- When a single rollup draws on multiple sources of the same family (e.g. state-level turnout aggregates 234 per-AC PDFs), the writer picks the **contest-scoping source**: the ECI election-level summary PDF if one exists, else the first per-AC source in `(entity_id, period_label)` order. The rule is deterministic so re-runs produce byte-identical Parquet (Holy Law #10).
+- Multi-source rollups MUST NOT fan out into one row per source — that breaks the logical key (§4). The contest-scoping source is canonical.
+- A `derivation` column on materialised rows names the rule applied (e.g. `"sum(votes_polled) per (state,party)"`, `"argmax(votes_polled) per AC"`). Lets the citizen — and the validator — see what arithmetic produced the number. Schema-stable enum, not free text.
+
+What gets materialised in Phase 1.1: see [`docs/architecture/data/elections-indicators.md`](elections-indicators.md). What does NOT get materialised: anything a citizen would ad-hoc filter (e.g. "all candidates aged < 35 with > 10,000 votes") — those stay query-time over the candidate-level table.
 
 ---
 

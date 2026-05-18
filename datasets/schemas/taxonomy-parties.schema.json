@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./taxonomy-parties.schema.json",
+  "title": "Parties taxonomy (canonical hand-authored roster)",
+  "description": "Hand-authored canonical party roster at taxonomy/parties.json. Phase 1.1 of TODO/20260517-canonical-long-format-pivot.md. Replaces the pre-pivot parties-master.schema.json (which lived under datasets/elections/<event>/<state>/parties.json shards). Each party_id is yen-gov-issued (parties.IN.<SHORT_SLUG>) because ECI codes mutate and are not citizen-readable. ECI codes are kept as aliases (a list — ECI reassigns them over time). The compiled Parquet form is datasets/taxonomy/parties.parquet, joined into observations on (party_id <= entity_id_party_rollup). See canonical-store.md §3a.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial canonical party roster schema. Per canonical-store.md §3a (D-elections, Phase 1.1) + Hans + Max + user 2026-05-18. party_id = parties.IN.<SHORT_SLUG>, hand-authored. aliases capture name variants (AIADMK vs ADMK vs A.I.A.D.M.K.). eci_codes is a list because ECI reassigns codes over time. predecessor_of / successor_of capture splits and mergers (DMK -> MDMK split; Janata Dal lineage chain). Independent collapses to parties.IN.IND; NOTA to parties.IN.NOTA."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "sources", "parties"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md §12. Hand-authored taxonomy: empty array OR a single entry naming the editorial-judgement source (e.g. ECI's recognised-party list).",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+    "parties": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["party_id", "short_name", "full_name", "state_scope"],
+        "properties": {
+          "party_id": {
+            "type": "string",
+            "pattern": "^parties\\.IN\\.[A-Z][A-Z0-9_]*$",
+            "maxLength": 60,
+            "description": "PK. yen-gov slug: parties.IN.<SHORT_SLUG> (e.g. parties.IN.DMK, parties.IN.BJP, parties.IN.IND, parties.IN.NOTA). Hand-authored, stable across time. The id is yen-gov's; aliases / eci_codes are how upstream rows resolve to it."
+          },
+          "short_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Canonical abbreviation (DMK, AIADMK, BJP). Display label."
+          },
+          "full_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Full legal/registered name. Display label on detail pages."
+          },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "description": "Alternative short_names that resolve to this row during ECI ingest lookup (e.g. AIADMK <-> ADMK <-> A.I.A.D.M.K.)."
+          },
+          "eci_codes": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^\\d+$" },
+            "description": "List of ECI numeric party codes ever observed for this party. ECI reassigns codes over time, so this is a list, not a single value. Empty for Independent/NOTA which carry no ECI code."
+          },
+          "state_scope": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^(IN|[SU]\\d{2})$" },
+            "minItems": 1,
+            "description": "Where the party is politically active. 'IN' = national; '[SU]\\d{2}' = ECI state code. National parties carry ['IN']. State parties carry their state codes (DMK -> ['S22']). Pan-state regional parties carry multiple."
+          },
+          "founded_year": {
+            "type": ["integer", "null"],
+            "minimum": 1850,
+            "maximum": 2100,
+            "description": "Year founded. Null if unknown."
+          },
+          "dissolved_year": {
+            "type": ["integer", "null"],
+            "minimum": 1850,
+            "maximum": 2100,
+            "description": "Year dissolved / merged / deregistered. Null if active."
+          },
+          "predecessor_of": {
+            "type": ["string", "null"],
+            "pattern": "^parties\\.IN\\.[A-Z][A-Z0-9_]*$",
+            "description": "FK to the successor party_id (e.g. Janata Party.predecessor_of = parties.IN.JANATA_DAL). Captures splits/mergers. Frontend lineage walker traverses this."
+          },
+          "successor_of": {
+            "type": ["string", "null"],
+            "pattern": "^parties\\.IN\\.[A-Z][A-Z0-9_]*$",
+            "description": "FK to the predecessor party_id. Reverse pointer of predecessor_of."
+          },
+          "alliance_history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["period_label", "alliance"],
+              "properties": {
+                "period_label": { "type": "string", "minLength": 1, "description": "ECI event id (e.g. AcGenMay2026) the alliance was declared for." },
+                "alliance": { "type": ["string", "null"], "description": "Pre-poll alliance name (SPA, NDA, INDIA). Null for non-aligned that event." }
+              }
+            },
+            "description": "Optional per-event alliance history. Lets a citizen track which front a party was on without scanning every per-event result file."
+          },
+          "notes": {
+            "type": ["string", "null"],
+            "description": "Editorial note (e.g. 'Recognised state party in TN since 1973'). Citizen-facing on the party detail page."
+          }
+        }
+      }
+    }
+  }
+}
