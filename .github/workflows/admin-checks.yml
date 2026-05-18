@@ -1,0 +1,134 @@
+name: admin checks
+
+# Local-only operator console (CLAUDE.md §3: "Separate dev-only Svelte
+# app ... Never deployed publicly"). Nothing from admin/ ever ships in
+# the deployed Pages bundle, so admin failures MUST NOT block the
+# public-site deploy. This workflow lives outside the publish pipeline;
+# site.yml never depends on it.
+#
+# Cadence: very low frequency by design.
+#
+# Triggers:
+#   - push / pull_request with a paths filter so only commits that
+#     actually touch admin code re-run admin coverage. Non-admin
+#     commits skip this workflow entirely (zero CI minutes spent).
+#   - workflow_dispatch for explicit manual runs (operator sanity
+#     check before a local admin session).
+#
+# Jobs:
+#   - admin-api-pytest      : pytest of backend/tests/test_admin_*.py
+#                             (FastAPI route contracts for the admin
+#                             API). Installed with the [admin] extra
+#                             so fastapi / uvicorn imports resolve.
+#   - admin-console-vitest  : svelte-check + vitest on admin/src/**
+#                             (UI contract against admin/src/lib/api.ts).
+#   - admin-console-e2e     : Playwright against the admin SPA on its
+#                             dev server (port 5174). /api/* is mocked
+#                             via page.route() in the specs themselves
+#                             -- no FastAPI backend boot required.
+
+on:
+  push:
+    paths:
+      - "admin/**"
+      - "backend/yen_gov/admin/**"
+      - "backend/tests/test_admin_*.py"
+      - ".github/workflows/admin-checks.yml"
+  pull_request:
+    paths:
+      - "admin/**"
+      - "backend/yen_gov/admin/**"
+      - "backend/tests/test_admin_*.py"
+      - ".github/workflows/admin-checks.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  admin-api-pytest:
+    name: pytest (admin FastAPI routes)
+    runs-on: ubuntu-latest
+    env:
+      YEN_GOV_NO_NET: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/pyproject.toml
+
+      - name: install backend with admin extra
+        working-directory: backend
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,admin]"
+
+      - name: pytest (admin only)
+        working-directory: backend
+        run: |
+          pytest -q \
+            tests/test_admin_indicators.py \
+            tests/test_admin_inventory.py \
+            tests/test_admin_pipeline.py \
+            tests/test_admin_schemas.py
+
+  admin-console-vitest:
+    name: vitest (admin console unit + contract)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install
+        working-directory: admin
+        run: bun install --frozen-lockfile
+
+      - name: type-check
+        working-directory: admin
+        run: bun run check
+
+      - name: vitest (api contract)
+        working-directory: admin
+        run: bun run test
+
+  admin-console-e2e:
+    name: Playwright e2e (admin operator console)
+    runs-on: ubuntu-latest
+    needs: [admin-console-vitest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install
+        working-directory: admin
+        run: bun install --frozen-lockfile
+
+      # Admin e2e mocks /api/* via page.route -- no FastAPI backend needed.
+      - name: install playwright browser
+        working-directory: admin
+        run: bunx playwright install --with-deps chromium
+
+      - name: admin panels e2e
+        working-directory: admin
+        run: bun run test:e2e
+
+      - name: upload playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: admin-console-playwright-report
+          path: admin/playwright-report/
+          retention-days: 7

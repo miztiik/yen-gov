@@ -41,7 +41,7 @@ The deploy artifact MUST physically include `datasets/` at the right place, or t
 
 GitHub Pages serves a static origin, so for `fetch('/data/elections/...')` to resolve in the deployed bundle, the bytes must physically exist at that path on the origin.
 
-The deploy workflow (`deploy-site.yml`) is responsible for placing `datasets/` next to `dist/` in the Pages artifact. The shape:
+The deploy workflow (the `deploy-pages` job in `site.yml`) is responsible for placing `datasets/` next to `dist/` in the Pages artifact. The shape:
 
 ```
 <pages artifact root>/

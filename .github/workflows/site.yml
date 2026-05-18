@@ -1,0 +1,201 @@
+name: site
+
+# ONE workflow for the public citizen site:
+#   - On pull_request: tests + a verification build. NO deploy.
+#   - On push to main: tests + build + publish to GitHub Pages.
+#   - On workflow_dispatch (manual): same as push to main, lets the
+#     operator republish without a new commit.
+#
+# Why one workflow instead of separate gate + deploy:
+#   - One build per run. The build IS the verification; on green main
+#     the same artifact is the deploy artifact. No throwaway rebuild.
+#   - Natural batching via `concurrency.cancel-in-progress: true`. A
+#     burst of N commits to main only finishes the latest run (older
+#     queued runs are cancelled), so Pages does not republish for every
+#     small commit in a stream without needing a cron.
+#   - Branch protection should require: pytest, frontend-vitest,
+#     frontend-build, citizen-site-e2e. NOT deploy-pages (it does not
+#     run on PRs, so requiring it would block every PR).
+#
+# What is NOT in this workflow: the dev-only admin operator console
+# (admin/, backend/yen_gov/admin/, backend/tests/test_admin_*.py).
+# Admin coverage lives in admin-checks.yml and never gates this
+# workflow -- admin is dev-only per CLAUDE.md §3 and nothing under
+# admin/ ever ships in the deployed bundle. See
+# docs/architecture/deployment.md.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Default permissions for every job: read-only.
+# The deploy-pages job upgrades its own permissions locally.
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pytest:
+    name: pytest (backend, non-admin)
+    runs-on: ubuntu-latest
+    env:
+      YEN_GOV_NO_NET: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/pyproject.toml
+
+      - name: install backend
+        working-directory: backend
+        # [dev] only -- the [admin] extra (fastapi/uvicorn) is installed
+        # in admin-checks.yml, not here. Keeps admin coverage out of the
+        # publish gate by construction.
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: pytest (non-admin)
+        working-directory: backend
+        # --ignore enumerates admin test files explicitly. Adding a new
+        # test_admin_*.py is a one-line update here and shows up in code
+        # review as an admin-shaped change.
+        run: |
+          pytest -q \
+            --ignore=tests/test_admin_indicators.py \
+            --ignore=tests/test_admin_inventory.py \
+            --ignore=tests/test_admin_pipeline.py \
+            --ignore=tests/test_admin_schemas.py
+
+  frontend-vitest:
+    name: vitest (frontend unit + contract + integration)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install
+        working-directory: frontend
+        run: bun install --frozen-lockfile
+
+      - name: vitest
+        working-directory: frontend
+        run: bun run test
+
+  frontend-build:
+    name: build citizen site (Pages artifact)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install
+        working-directory: frontend
+        # BASE_URL must match the Pages publish path. For project sites
+        # this is `/<repo>/`; for user/org sites or custom domains, drop
+        # the variable (default `/`). See docs/architecture/deployment.md.
+        env:
+          BASE_URL: /yen-gov/
+        run: |
+          bun install --frozen-lockfile
+          bun run build
+
+      - name: stage Pages artifact (ADR-0013)
+        # The bundle that ships: frontend/dist/ + datasets/ mounted at
+        # /data/. The sanity check enforces the dev-time middleware
+        # contract (frontend/data-loading.md) at deploy time.
+        run: |
+          mkdir -p _site
+          cp -r frontend/dist/. _site/
+          cp -r datasets _site/data
+          test -f _site/data/elections/AcGenMay2026/S22/result.summary.json
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        # Uploaded on every run (including PRs). The deploy-pages job
+        # only consumes it on push to main / workflow_dispatch on main.
+        # PR uploads expire from artifact storage automatically.
+        with:
+          path: _site
+
+  citizen-site-e2e:
+    name: Playwright e2e (public citizen site)
+    runs-on: ubuntu-latest
+    # Independent of frontend-build: Playwright runs against `bun run dev`
+    # (vite middleware), not against the built bundle. Ordering with
+    # frontend-vitest is optional but keeps the failure-mode tidy
+    # (cheaper jobs report first).
+    needs: [frontend-vitest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install
+        working-directory: frontend
+        run: bun install --frozen-lockfile
+
+      # Chromium + Pixel-5 mobile project (see frontend/playwright.config.ts).
+      - name: install playwright browser
+        working-directory: frontend
+        run: bunx playwright install --with-deps chromium
+
+      - name: golden-path e2e
+        working-directory: frontend
+        run: bun run test:e2e
+
+      - name: upload playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: citizen-site-playwright-report
+          path: frontend/playwright-report/
+          retention-days: 7
+
+  deploy-pages:
+    name: deploy to GitHub Pages
+    # Runs only when ALL gating jobs are green AND the trigger is a
+    # main-branch push or a manual dispatch on main. PRs never deploy.
+    needs: [pytest, frontend-vitest, frontend-build, citizen-site-e2e]
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: smoke check (deployed result.summary.json)
+        # Round-trips the deployed bundle: fetch a known shard from the
+        # live URL and assert its shape. Defends the Pages MIME/Range
+        # contract that DuckDB-WASM depends on (see deployment.md).
+        run: |
+          base="${{ steps.deployment.outputs.page_url }}"
+          url="${base}data/elections/AcGenMay2026/S22/result.summary.json"
+          for i in 1 2 3; do
+            if curl -fsSL "$url" -o /tmp/summary.json; then break; fi
+            sleep 10
+          done
+          test -s /tmp/summary.json
+          python3 -c "import json; d=json.load(open('/tmp/summary.json')); assert d['state']=='S22', d"
