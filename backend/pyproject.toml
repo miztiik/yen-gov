@@ -16,6 +16,8 @@ dependencies = [
   "lxml>=5.0",
   "openpyxl>=3.1",
   "duckdb>=1.1",
+  # Required by yen_gov.sources.iced_common.crypto for ICED API decryption.
+  "pycryptodome>=3.20",
 ]
 
 [project.optional-dependencies]

@@ -37,9 +37,11 @@ jobs:
 
       - name: install backend
         working-directory: backend
+        # [admin] pulls in fastapi/uvicorn which the admin tests
+        # (backend/tests/test_admin_*.py) import unconditionally.
         run: |
           python -m pip install --upgrade pip
-          pip install -e ".[dev]"
+          pip install -e ".[dev,admin]"
 
       - name: pytest
         working-directory: backend
