@@ -21,8 +21,33 @@ from yen_gov.core.models import (
     WinnerInfo,
 )
 
-# Reuse the party-lookup fixture seed
-from tests.test_canonical_eci_party_lookup import _write_parties
+import json
+
+
+def _write_parties(tmp: Path) -> Path:
+    tax = tmp / "taxonomy"
+    tax.mkdir(parents=True)
+    payload = {
+        "$schema": "../schemas/taxonomy-parties.schema.json",
+        "$schema_version": "1.0",
+        "sources": [],
+        "parties": [
+            {"party_id": "parties.IN.IND", "short_name": "IND",
+             "full_name": "Independent", "aliases": [], "eci_codes": [],
+             "state_scope": ["IN"]},
+            {"party_id": "parties.IN.NOTA", "short_name": "NOTA",
+             "full_name": "None of the Above", "aliases": [], "eci_codes": [],
+             "state_scope": ["IN"]},
+            {"party_id": "parties.IN.DMK", "short_name": "DMK",
+             "full_name": "Dravida Munnetra Kazhagam", "aliases": [],
+             "eci_codes": ["1234"], "state_scope": ["S22"]},
+            {"party_id": "parties.IN.BJP", "short_name": "BJP",
+             "full_name": "Bharatiya Janata Party", "aliases": [],
+             "eci_codes": ["742"], "state_scope": ["IN"]},
+        ],
+    }
+    (tax / "parties.json").write_text(json.dumps(payload), encoding="utf-8")
+    return tmp
 
 
 SOURCE = "src-abc12345"
