@@ -17,6 +17,10 @@ The canonical store is a Hive-partitioned set of Parquet files under `datasets/`
 
 Scope: every numeric observation yen-gov publishes — elections, energy, demography, fiscal, education, health, plus the §0b growth domains (judiciary, healthcare-deep, water, crime, education-deep, welfare, local-govt-finance). Out of scope: boundary geometry (sibling family — see [boundaries.md](boundaries.md) and ADR-0031).
 
+### 1.1 SQL vs SQLite (Hans + Fowler, 2026-05-18)
+
+**The pivot kept SQL. It dropped SQLite.** DuckDB IS a SQL engine — DuckDB-WASM in the browser, DuckDB CLI locally, DuckDB Python in the pipeline. The canonical contract surface is **Parquet-on-disk + SQL-in-browser**, which mirrors OWID Grapher's own direction of travel. What the canonical pivot retires is **SQLite as a shipped artifact** (the per-state `datasets/elections/<event>/<state>/results.sqlite` files and the `backend/yen_gov/emit/sqlite.py` emitter that produces them) — deferred to row 1.8e until `psephlab` no longer imports those files. Researchers and citizens can point any DuckDB client at the public Parquet URLs and run the same SQL the site runs — strictly better than the per-state SQLite shards. Anyone claiming the pivot "moves away from SQL" is wrong; correct it on sight.
+
 ---
 
 ## 2. Disk layout
