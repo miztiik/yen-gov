@@ -12,6 +12,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   __resetForTests,
+  defaultViewName,
   fileUrls,
   loadManifest,
   tableFromManifest,
@@ -25,6 +26,8 @@ const SAMPLE_MANIFEST: Manifest = {
     {
       table_id: "elections.observations",
       family: "elections",
+      table_name: "observations",
+      kind: "observations",
       format: "parquet",
       schema_version: "1.1",
       partition_columns: [],
@@ -36,6 +39,8 @@ const SAMPLE_MANIFEST: Manifest = {
     {
       table_id: "taxonomy.sources",
       family: "taxonomy",
+      table_name: "sources",
+      kind: "taxonomy",
       format: "parquet",
       schema_version: "1.0",
       partition_columns: [],
@@ -103,5 +108,27 @@ describe("manifest helpers", () => {
     const urls = fileUrls(t);
     expect(urls).toHaveLength(1);
     expect(urls[0].endsWith("/data/elections/observations.parquet")).toBe(true);
+  });
+});
+
+describe("registerTable view name resolution", () => {
+  // Pure-helper coverage of the manifest-driven defaulting rule introduced
+  // with manifest.schema.json v1.1 (THE PLAN row 1.8a-bis). Boots no
+  // DuckDB-WASM — same separation as `manifest helpers` above; the real
+  // round-trip lives in Playwright (Phase 0.11).
+
+  it("defaultViewName prefers manifest table_name when present", () => {
+    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.observations");
+    expect(defaultViewName(t, "elections.observations")).toBe("observations");
+  });
+
+  it("defaultViewName falls back to last table_id segment when table_name missing", () => {
+    // Simulate a pre-v1.1 manifest entry where the writer hasn't yet been
+    // upgraded. The reader must still produce a sensible view name so old
+    // bundles keep working after a writer-only revert.
+    const legacy = tableFromManifest(SAMPLE_MANIFEST, "elections.observations");
+    const { table_name: _omit, ...stripped } = legacy;
+    expect(defaultViewName(stripped, "elections.observations")).toBe("observations");
+    expect(defaultViewName(stripped, "energy.energy_capacity")).toBe("energy_capacity");
   });
 });

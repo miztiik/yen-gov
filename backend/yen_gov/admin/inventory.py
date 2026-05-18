@@ -36,6 +36,8 @@ repo root** (CLAUDE.md §2).
 
 from __future__ import annotations
 
+import json
+import logging
 import os
 from datetime import UTC, datetime
 from pathlib import Path, PurePosixPath
@@ -45,6 +47,8 @@ import duckdb
 from fastapi import APIRouter, HTTPException
 
 router = APIRouter()
+
+log = logging.getLogger(__name__)
 
 
 _DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -77,7 +81,10 @@ def _mtime_iso(p: Path) -> str:
 _SKIP_DIR_PREFIXES: tuple[str, ...] = ("_test", "_old", "schemas", "patches")
 
 
-def _classify(rel_path: PurePosixPath) -> tuple[str, str]:
+def _classify(
+    rel_path: PurePosixPath,
+    manifest_index: dict[str, tuple[str, str]] | None = None,
+) -> tuple[str, str]:
     """Return ``(family, kind)`` for a Parquet path under ``datasets/``.
 
     Family = top-level dir under ``datasets/`` (e.g. ``elections``,
@@ -87,10 +94,25 @@ def _classify(rel_path: PurePosixPath) -> tuple[str, str]:
     * ``dim``          — a denormalised dim_* lookup table.
     * ``taxonomy``     — anything under ``datasets/taxonomy/``.
     * ``other``        — Parquet we recognise but don't introspect.
+
+    Resolution order: if ``manifest_index`` carries an entry for this file's
+    POSIX-relative-under-datasets path, return its (family, kind) directly
+    (the writer is the authority — see ``manifest.schema.json`` v1.1's
+    ``kind`` field + canonical-store.md §2a). Otherwise fall back to the
+    historical filename string-matching rules so orphan files and missing
+    manifests do not crash the endpoint.
     """
     parts = rel_path.parts
     # parts[0] == 'datasets', parts[1] == family
     family = parts[1] if len(parts) >= 2 else "?"
+    if manifest_index is not None:
+        # Manifest paths are relative to datasets/, not to the repo root.
+        datasets_rel = PurePosixPath(*parts[1:]).as_posix() if len(parts) >= 2 else ""
+        hit = manifest_index.get(datasets_rel)
+        if hit is not None:
+            mf_family, mf_kind = hit
+            if mf_kind:
+                return mf_family or family, mf_kind
     fname = parts[-1]
     if family == "taxonomy":
         return family, "taxonomy"
@@ -99,6 +121,37 @@ def _classify(rel_path: PurePosixPath) -> tuple[str, str]:
     if fname.startswith("dim_") and fname.endswith(".parquet"):
         return family, "dim"
     return family, "other"
+
+
+def _load_manifest_index(
+    datasets_dir: Path,
+) -> dict[str, tuple[str, str]] | None:
+    """Build ``{posix_path_under_datasets -> (family, kind)}`` from
+    ``datasets/manifest.json``.
+
+    Returns ``None`` if the manifest is missing or unreadable so the
+    endpoint degrades gracefully to the filename-string-matching fallback
+    (same precedent as the existing missing-``datasets/`` behaviour).
+    Only reads ``tables[].family``, ``tables[].kind``, and
+    ``tables[].files[].path`` — no pydantic, no full validation.
+    """
+    manifest_path = datasets_dir / "manifest.json"
+    if not manifest_path.is_file():
+        return None
+    try:
+        doc = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        log.warning("inventory: cannot read manifest.json (%s); using fallback classifier", exc)
+        return None
+    index: dict[str, tuple[str, str]] = {}
+    for table in doc.get("tables", []) or []:
+        family = table.get("family") or ""
+        kind = table.get("kind") or ""
+        for f in table.get("files", []) or []:
+            path = f.get("path")
+            if isinstance(path, str) and path:
+                index[path] = (family, kind)
+    return index
 
 
 def _observations_stats(con: duckdb.DuckDBPyConnection, abs_path: Path) -> dict[str, Any]:
@@ -225,6 +278,8 @@ def inventory() -> dict[str, Any]:
             ),
         )
 
+    manifest_index = _load_manifest_index(datasets_dir)
+
     con = duckdb.connect()
     try:
         stores: list[dict[str, Any]] = []
@@ -232,7 +287,7 @@ def inventory() -> dict[str, Any]:
 
         for p in parquets:
             rel = PurePosixPath(_rel(p, root))
-            family, kind = _classify(rel)
+            family, kind = _classify(rel, manifest_index)
             entry: dict[str, Any] = {
                 "family": family,
                 "kind": kind,
