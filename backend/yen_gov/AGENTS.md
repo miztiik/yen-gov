@@ -14,7 +14,7 @@ Canonical backend rationale lives in `docs/architecture/backend/`; this file is 
 - [Data provenance](../../docs/concepts/data-provenance.md)
 - [Dataset shapes](../../docs/concepts/dataset-shapes.md)
 - [Canonical store (Parquet + DuckDB-WASM)](../../docs/architecture/data/canonical-store.md) — current model
-- [Folded indicator](../../docs/concepts/folded-indicator.md) — **obsolete under ADR-0030**, kept for `_old/` reader context only
+- [Folded indicator](../../docs/concepts/folded-indicator.md) — **obsolete under ADR-0030**, retained as historical reference
 - [Collection inventory](../../docs/concepts/collection-inventory.md) — **obsolete under ADR-0030**
 - [Data quality stance](../../docs/concepts/data-quality.md)
 
@@ -27,8 +27,8 @@ Canonical backend rationale lives in `docs/architecture/backend/`; this file is 
 - Persisted paths are POSIX-relative, never absolute or Windows-style.
 - Every emitted data file carries `sources[]` and schema metadata.
 - **Canonical pivot (ADR-0030).** New writes target Hive-partitioned Parquet under `datasets/<family>/` written by UPSERT-into-DuckDB. Canonical row = `(observation_id, entity_id, year:int, period_label:text, indicator_id, value, source_id)`. Time axis is **OWID `year:int`** (end-year for FY); `period_label` is the verbatim publisher string. Sources are a **table** (`datasets/taxonomy/sources.parquet`) keyed by `(url, content_hash)`; observation rows carry `source_id` FK. `first_fetched_at` (immutable) + `last_seen_at` (mutable) replace `fetched_at`. See [canonical store](../../docs/architecture/data/canonical-store.md).
-- **Legacy folded JSON** (`datasets/indicators/in/<topic>/<id>.json` and its sidecar inventory/operator-state files) is **read-only** under `datasets/_old/` during the pivot; deleted at end of Phase 1. No new writers in that shape. The pre-pivot rule "adapter owns opaque `{key, label, frequency}` tokens; no normaliser" is **withdrawn** for canonical artifacts — under OWID adoption, adapters write `year:int` + verbatim `period_label`, and indicators carry `cadence` on the indicator row.
-- Per Holy Law #9 + CLAUDE.md §12: every emitted Parquet observation carries a `source_id` FK (legacy JSON files in `_old/` still use their existing `sources[]` array until deletion).
+- **Legacy folded JSON** (`datasets/indicators/in/<topic>/<id>.json` and its sidecar inventory/operator-state files) was migrated into the canonical Parquet store during the pivot and **deleted from `datasets/`** at end of Phase 1 (1.8 / PR-N, 2026-05-18); git history is the rollback path. No new writers in that shape. The pre-pivot rule "adapter owns opaque `{key, label, frequency}` tokens; no normaliser" is **withdrawn** for canonical artifacts — under OWID adoption, adapters write `year:int` + verbatim `period_label`, and indicators carry `cadence` on the indicator row.
+- Per Holy Law #9 + CLAUDE.md §12: every emitted Parquet observation carries a `source_id` FK to `datasets/taxonomy/sources.parquet`.
 
 ## Validation
 
