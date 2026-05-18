@@ -1,7 +1,20 @@
 {
   "$schema": "../schemas/taxonomy-parties.schema.json",
   "$schema_version": "1.0",
-  "sources": [],
+  "sources": [
+    {
+      "url": "https://www.eci.gov.in/affidavit-information-of-candidate/",
+      "fetched_at": "2026-05-18T00:00:00Z",
+      "name": "ECI candidate affidavits (partywise)",
+      "authority": "Election Commission of India"
+    },
+    {
+      "url": "https://www.thehindu.com/elections/tamil-nadu-assembly/",
+      "fetched_at": "2026-05-18T00:00:00Z",
+      "name": "Tamil Nadu Assembly Election 2026 — alliance coverage",
+      "authority": "The Hindu"
+    }
+  ],
   "parties": [
     {
       "party_id": "parties.IN.IND",
@@ -53,6 +66,9 @@
       "dissolved_year": null,
       "predecessor_of": null,
       "successor_of": "parties.IN.BJS",
+      "alliance_history": [
+        {"period_label": "AcGenMay2026", "alliance": "NDA"}
+      ],
       "notes": "National party. Successor to Bharatiya Jana Sangh via the Janata Party interregnum."
     },
     {
@@ -66,6 +82,9 @@
       "dissolved_year": null,
       "predecessor_of": null,
       "successor_of": null,
+      "alliance_history": [
+        {"period_label": "AcGenMay2026", "alliance": "SPA"}
+      ],
       "notes": "National party. Oldest major political party in India."
     },
     {
@@ -78,7 +97,10 @@
       "founded_year": 1925,
       "dissolved_year": null,
       "predecessor_of": null,
-      "successor_of": null
+      "successor_of": null,
+      "alliance_history": [
+        {"period_label": "AcGenMay2026", "alliance": "SPA"}
+      ]
     },
     {
       "party_id": "parties.IN.CPIM",
@@ -91,6 +113,9 @@
       "dissolved_year": null,
       "predecessor_of": null,
       "successor_of": "parties.IN.CPI",
+      "alliance_history": [
+        {"period_label": "AcGenMay2026", "alliance": "SPA"}
+      ],
       "notes": "Split from CPI in 1964."
     },
     {
@@ -127,7 +152,10 @@
       "founded_year": 1949,
       "dissolved_year": null,
       "predecessor_of": null,
-      "successor_of": null
+      "successor_of": null,
+      "alliance_history": [
+        {"period_label": "AcGenMay2026", "alliance": "SPA"}
+      ]
     },
     {
       "party_id": "parties.IN.AIADMK",
@@ -140,6 +168,9 @@
       "dissolved_year": null,
       "predecessor_of": null,
       "successor_of": "parties.IN.DMK",
+      "alliance_history": [
+        {"period_label": "AcGenMay2026", "alliance": "AIADMK+"}
+      ],
       "notes": "Split from DMK in 1972 by M. G. Ramachandran."
     },
     {
@@ -152,7 +183,10 @@
       "founded_year": 1989,
       "dissolved_year": null,
       "predecessor_of": null,
-      "successor_of": null
+      "successor_of": null,
+      "alliance_history": [
+        {"period_label": "AcGenMay2026", "alliance": "NDA"}
+      ]
     },
     {
       "party_id": "parties.IN.MDMK",
@@ -164,7 +198,10 @@
       "founded_year": 1994,
       "dissolved_year": null,
       "predecessor_of": null,
-      "successor_of": "parties.IN.DMK"
+      "successor_of": "parties.IN.DMK",
+      "alliance_history": [
+        {"period_label": "AcGenMay2026", "alliance": "SPA"}
+      ]
     },
     {
       "party_id": "parties.IN.DMDK",
@@ -176,7 +213,10 @@
       "founded_year": 2005,
       "dissolved_year": null,
       "predecessor_of": null,
-      "successor_of": null
+      "successor_of": null,
+      "alliance_history": [
+        {"period_label": "AcGenMay2026", "alliance": "AIADMK+"}
+      ]
     },
     {
       "party_id": "parties.IN.NTK",
@@ -188,7 +228,10 @@
       "founded_year": 1958,
       "dissolved_year": null,
       "predecessor_of": null,
-      "successor_of": null
+      "successor_of": null,
+      "alliance_history": [
+        {"period_label": "AcGenMay2026", "alliance": null}
+      ]
     },
     {
       "party_id": "parties.IN.TMC_M",

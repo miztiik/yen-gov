@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import {
   fetchStates,
-  fetchParties,
   fetchConstituencies,
   fetchDistricts,
   fetchPartyRegistry,
@@ -46,14 +45,12 @@ describe("fetchStates", () => {
   });
 });
 
-describe("fetchParties", () => {
-  it("composes event + state for parties.json", async () => {
-    fetchSpy.mockResolvedValueOnce(jsonResponse({}));
-    await fetchParties("AcGenMay2026", "S22");
-    expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/elections/AcGenMay2026/S22/parties.json`,
-    );
-  });
+describe("fetchParties — deleted in PR-H (Phase 1.3d)", () => {
+  // Party.svelte now derives party_meta (recognition + alliance) from
+  // loadStateOverview's PartyTotals, which JOINs dim_parties +
+  // dim_party_alliances. The per-event parties.json shard is no longer
+  // consumed by any frontend surface.
+  it.skip("legacy fetcher replaced by canonical view-model", () => {});
 });
 
 describe("fetchResultSummary — moved to view-model loader", () => {

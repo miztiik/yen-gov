@@ -40,6 +40,7 @@ from yen_gov.canonical.adapters.eci import (
     load_party_lookup,
     observations_from_constituency,
     parse_period_label,
+    party_alliance_dim_rows,
     party_dim_rows,
     state_rollup_observations,
 )
@@ -50,6 +51,7 @@ from yen_gov.canonical.envelope import (
     BatchEnvelope,
     CandidateDimRow,
     ObservationRow,
+    PartyAllianceDimRow,
     PartyDimRow,
     SourceRow,
 )
@@ -238,6 +240,17 @@ def backfill_elections(
             if first_source_id
             else []
         )
+        # Alliance dim mirrors party_dim: emit the full alliance_history roster
+        # on every envelope. Writer UPSERTs on composite PK (party_id,
+        # period_label), so multiple events re-emitting are idempotent.
+        party_alliance_payload = (
+            [
+                PartyAllianceDimRow(**r)
+                for r in party_alliance_dim_rows(party_lookup, source_id=first_source_id)
+            ]
+            if first_source_id
+            else []
+        )
 
         envelope = BatchEnvelope(
             target_family="elections",
@@ -247,6 +260,7 @@ def backfill_elections(
             candidate_dim_rows=event_candidate_dims,
             ac_dim_rows=list(event_ac_dims.values()),
             party_dim_rows=party_dim_payload,
+            party_alliance_dim_rows=party_alliance_payload,
         )
         t0 = time.time()
         try:

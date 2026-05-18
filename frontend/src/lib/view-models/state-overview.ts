@@ -3,21 +3,26 @@
 // Reads the canonical Parquet store via DuckDB-WASM (see lib/duckdb.ts) and
 // assembles a state-hub view-model — party totals + state totals + sources —
 // to replace the per-shard `result.summary.json` projection for the
-// StateOverview surface. PR-G (Phase 1.3c) also routes Party.svelte's
-// summary side here, plus migrated ElectionSeatsTrend, IndiaMap, and
-// Settings onto their own dedicated view-model loaders; `fetchResultSummary`
-// is now deleted. `fetchParties` survives for Party.svelte's
-// recognition/alliance metadata until PR-H extends dim_parties.
+// StateOverview surface. PR-G (Phase 1.3c) routes Party.svelte's summary side
+// here, plus migrated ElectionSeatsTrend, IndiaMap, and Settings onto their
+// own dedicated view-model loaders; `fetchResultSummary` was deleted.
+// PR-H (Phase 1.3d) extends the party JOIN with `dim_party_alliances` so
+// `PartyTotals` carries `recognition` (from dim_parties) and per-event
+// `alliance` (from dim_party_alliances). Party.svelte now derives party_meta
+// from this single loader and `fetchParties` is gone.
 //
 // What is JOINed:
-//   elections.observations  — numeric facts (party-* + state-* indicators)
-//   elections.dim_parties   — party labels (short_name, full_name, eci_code)
-//   taxonomy.sources        — provenance URLs + first_fetched_at
+//   elections.observations         — numeric facts (party-* + state-* indicators)
+//   elections.dim_parties          — party identity (short_name, full_name, eci_code, recognition)
+//   elections.dim_party_alliances  — per-event alliance (LEFT JOIN on (party_id, period_label))
+//   taxonomy.sources               — provenance URLs + first_fetched_at
 //
 // Party JOIN key: entity_id is `IN-<state>-<event>-PARTY-<short_name>`, so
 // `regexp_extract(entity_id, '-PARTY-(.+)$', 1) = dim_parties.short_name`.
 // LEFT JOIN so parties without a dim row still render with their extracted
-// short_name (a recognised gap in the current dim_parties seed).
+// short_name (a recognised gap in the current dim_parties seed). The alliance
+// LEFT JOIN then keys on dim_parties.party_id; parties without a dim row OR
+// without an alliance_history entry for the event surface alliance=NULL.
 //
 // LoaderResult arms (mirror PR-E / constituency.ts):
 //   ok       — JOIN produced 1+ party rows; full StateOverviewViewModel.
@@ -62,6 +67,8 @@ interface PartyRow {
   short_name: string | null;
   full_name: string | null;
   eci_code: string | null;
+  recognition: string | null;
+  alliance: string | null;
   seats_contested: number | null;
   seats_won: number | null;
   votes: number | null;
@@ -93,6 +100,7 @@ async function runQueries(
   await Promise.all([
     registerTable("elections.observations"),
     registerTable("elections.dim_parties"),
+    registerTable("elections.dim_party_alliances"),
     registerTable("taxonomy.sources"),
   ]);
 
@@ -111,6 +119,8 @@ async function runQueries(
       dp.short_name     AS short_name,
       dp.full_name      AS full_name,
       dp.eci_code       AS eci_code,
+      dp.recognition    AS recognition,
+      dpa.alliance      AS alliance,
       MAX(CASE WHEN o.indicator_id = 'party-contested-acs'  THEN o.value_numeric END) AS seats_contested,
       MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS seats_won,
       MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS votes,
@@ -118,6 +128,9 @@ async function runQueries(
     FROM observations o
     LEFT JOIN dim_parties dp
       ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
+    LEFT JOIN dim_party_alliances dpa
+      ON dpa.party_id = dp.party_id
+      AND dpa.period_label = ${evt}
     WHERE o.entity_id LIKE ${partyPrefix} || '%'
       AND o.period_label = ${evt}
       AND o.indicator_id IN (
@@ -126,7 +139,7 @@ async function runQueries(
         'party-votes-polled',
         'party-vote-share-pct'
       )
-    GROUP BY 1, 2, 3, 4
+    GROUP BY 1, 2, 3, 4, 5, 6
   `;
   const parties = await query<PartyRow>(partySql);
 
@@ -184,6 +197,8 @@ function assembleResult(
     party_eci_code: r.eci_code ?? null,
     party_short: r.short_name ?? r.short_name_key,
     party_full: r.full_name ?? null,
+    recognition: r.recognition ?? null,
+    alliance: r.alliance ?? null,
     seats_contested:
       r.seats_contested == null ? null : Number(r.seats_contested),
     seats_won: num(r.seats_won),

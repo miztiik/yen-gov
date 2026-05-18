@@ -365,7 +365,7 @@ def test_manifest_path_is_posix_no_backslashes(tmp_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-from yen_gov.canonical.envelope import AcDimRow, CandidateDimRow, PartyDimRow
+from yen_gov.canonical.envelope import AcDimRow, CandidateDimRow, PartyAllianceDimRow, PartyDimRow
 
 
 def _cand_dim(cid: str = "IN-S22-AC-2008-167-AcGenApr2021-C01",
@@ -404,6 +404,16 @@ def _party_dim() -> PartyDimRow:
     )
 
 
+def _party_alliance_dim(period: str = "AcGenApr2021", alliance: str | None = "UPA") -> PartyAllianceDimRow:
+    return PartyAllianceDimRow(
+        party_id="parties.IN.DMK",
+        short_name="DMK",
+        period_label=period,
+        alliance=alliance,
+        source_id="src-test0001",
+    )
+
+
 def _dim_envelope(family: str = "elections") -> BatchEnvelope:
     return BatchEnvelope(
         target_family=family,
@@ -414,6 +424,7 @@ def _dim_envelope(family: str = "elections") -> BatchEnvelope:
         candidate_dim_rows=[_cand_dim()],
         ac_dim_rows=[_ac_dim()],
         party_dim_rows=[_party_dim()],
+        party_alliance_dim_rows=[_party_alliance_dim()],
     )
 
 
@@ -424,6 +435,49 @@ def test_dimension_parquets_emit_under_family_dir(tmp_path: Path) -> None:
     assert (family_dir / "dim_candidates.parquet").is_file()
     assert (family_dir / "dim_acs.parquet").is_file()
     assert (family_dir / "dim_parties.parquet").is_file()
+    assert (family_dir / "dim_party_alliances.parquet").is_file()
+
+
+def test_dim_party_alliances_composite_pk_upserts(tmp_path: Path) -> None:
+    """Composite PK (party_id, period_label): two events for the same party
+    coexist, and re-emitting the same key overwrites in place."""
+    _seed_taxonomy(tmp_path)
+    env = _dim_envelope()
+    env = env.model_copy(update={
+        "party_alliance_dim_rows": [
+            _party_alliance_dim(period="AcGenApr2021", alliance="UPA"),
+            _party_alliance_dim(period="AcGenMay2026", alliance="SPA"),
+        ]
+    })
+    write_batch(env, tmp_path)
+
+    con = duckdb.connect(":memory:")
+    rows = con.execute(
+        f"SELECT party_id, period_label, alliance FROM read_parquet('"
+        f"{(tmp_path / 'elections' / 'dim_party_alliances.parquet').as_posix()}') "
+        f"ORDER BY period_label"
+    ).fetchall()
+    assert rows == [
+        ("parties.IN.DMK", "AcGenApr2021", "UPA"),
+        ("parties.IN.DMK", "AcGenMay2026", "SPA"),
+    ]
+
+    # Re-emit with one PK overwritten; the other untouched.
+    env2 = env.model_copy(update={
+        "party_alliance_dim_rows": [
+            _party_alliance_dim(period="AcGenMay2026", alliance="SPA-corrected"),
+        ]
+    })
+    write_batch(env2, tmp_path)
+    rows2 = con.execute(
+        f"SELECT party_id, period_label, alliance FROM read_parquet('"
+        f"{(tmp_path / 'elections' / 'dim_party_alliances.parquet').as_posix()}') "
+        f"ORDER BY period_label"
+    ).fetchall()
+    assert rows2 == [
+        ("parties.IN.DMK", "AcGenApr2021", "UPA"),
+        ("parties.IN.DMK", "AcGenMay2026", "SPA-corrected"),
+    ]
 
 
 def test_dim_candidates_pk_join_reconstructs_observation_entity(tmp_path: Path) -> None:
@@ -490,7 +544,7 @@ def test_dim_tables_appear_in_manifest(tmp_path: Path) -> None:
     manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
     table_ids = {t["table_id"] for t in manifest["tables"]}
     assert {"elections.dim_candidates", "elections.dim_acs",
-            "elections.dim_parties"}.issubset(table_ids)
+            "elections.dim_parties", "elections.dim_party_alliances"}.issubset(table_ids)
     cand = next(t for t in manifest["tables"]
                 if t["table_id"] == "elections.dim_candidates")
     assert cand["format"] == "parquet"

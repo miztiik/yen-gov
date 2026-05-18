@@ -254,6 +254,30 @@ The per-AC winners SQL (`results.sqlite` via `getDb()`) is parallel to the canon
 
 **Why Party.svelte is deferred to PR-H.** Party.svelte renders `party_meta.recognition` and `party_meta.alliance` (template lines ~109-111). `dim_parties` already carries `recognition`, but does NOT carry `alliance`. Migrating without the column would drop a visible UI label — a regression that violates the no-regression constraint locked in for this pivot. PR-H extends `dim_parties.alliance`, migrates Party.svelte, and deletes `fetchParties`. The summary side of Party.svelte (party totals + seats won) is already on the canonical store via `loadStateOverview` (PR-F), so PR-G migrated that one path off `fetchResultSummary` to enable the deletion.
 
+### Phase 1.3d — Party.svelte migration (PR-H)
+
+**Status (2026-05-18)**: live on `/s/:state/p/:party_slug`. `fetchParties` deleted from `lib/data.ts`. Phase 1.3 closes — only `fetchPartyRegistry` (master/discovered overlay, a different concern) survives in the legacy JSON helpers.
+
+**Data-shape decision (Hans + Max).** Alliance is per-event: DMK was UPA in 2019 and SPA in 2026. Putting it on `dim_parties` would either smear those facts or force a multi-valued column. The taxonomy schema (`taxonomy-parties.schema.json`) already models it correctly as `alliance_history[]` keyed on `period_label`. The canonical store mirrors that shape: a new `elections.dim_party_alliances` Parquet table with composite PK `(party_id, period_label)`, one row per (party, event) pair where an alliance was declared. Recognition stays on `dim_parties` because it IS time-invariant party identity.
+
+**Loader extension.** `loadStateOverview` (the same loader behind `StateOverview.svelte`) now also serves `Party.svelte`. Its `partySql` LEFT JOINs both dim tables:
+
+```sql
+LEFT JOIN dim_parties dp
+  ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
+LEFT JOIN dim_party_alliances dpa
+  ON dpa.party_id = dp.party_id
+  AND dpa.period_label = ${evt}
+```
+
+Both `dp.recognition` and `dpa.alliance` ride on the existing `PartyTotals` contract — additive, optional, nullable. Parties without a dim row (the recognised gap noted under `dim_parties`) surface with `recognition=null`; parties without an alliance entry for the event surface with `alliance=null`. Party.svelte's template guards on `{#if totals.recognition}` / `{#if totals.alliance}`, so no party regresses.
+
+**Why one loader serves two routes.** Both StateOverview and Party need the same `(state, event) → party totals + recognition + alliance` rollup. Splitting them into two loaders would force two SQL paths against the same Parquet, two cache entries in DuckDB, and two contract surfaces to keep in sync. The loader name stays `state-overview` because the question it answers IS "what happened in this state at this event"; Party.svelte just zooms into one row of the result.
+
+**Citizen-visible coverage improvement.** Before PR-H, `{#if party_meta.alliance}` was dead code — no `parties.json` shard or `taxonomy/parties.json` entry carried a non-null alliance. PR-H seeded the AcGenMay2026 cohort (TN/KL/WB — DMK→SPA, BJP→NDA, AIADMK→AIADMK+, …) so alliance now renders for the first time. Historical events get their alliance roster in a data-only follow-up; their UI is unchanged today.
+
+**Deleted from `lib/data.ts`.** `fetchParties`, `PartyEntry`, `PartiesSnapshot`. The per-event `datasets/elections/<event>/<state>/parties.json` shard becomes a Phase 1.8 delete candidate (no remaining frontend consumer).
+
 #### Coverage parity (no-regression check)
 
 Verified pre-merge against `datasets/elections/observations/**/*.parquet` and `datasets/reference/in/election-events.json`:

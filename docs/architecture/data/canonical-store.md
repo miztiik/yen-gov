@@ -395,6 +395,9 @@ The materialisation rule above covers **numeric facts**. Citizen pages also need
 | `elections.dim_candidates` | `candidate_id` = per-contest `entity_id` | name, party_id, rank, ballot serial |
 | `elections.dim_acs` | `ac_id` = `IN-S{NN}-AC-{delim_year}-{eci_no}` | constituency name, state, eci_no |
 | `elections.dim_parties` | `party_id` = `parties.IN.{SHORT}` | short_name, full_name, recognition, eci_code |
+| `elections.dim_party_alliances` | composite `(party_id, period_label)` | per-event `alliance` label (nullable — explicit "non-aligned this event") |
+
+**Why alliance is per-event, not a column on `dim_parties`.** Alliance is time-varying: DMK sat in UPA in 2019 and SPA in 2026; AIADMK joined NDA in 2014 and left in 2024. Cramming it onto party identity would either smear those facts or force a multi-valued column. The taxonomy schema (`taxonomy-parties.schema.json`) already models it correctly as `alliance_history[]` keyed on `period_label`; `dim_party_alliances` is the canonical-store mirror of that shape — one row per (party, event) where an alliance was declared. The state-overview view-model LEFT JOINs on `(party_id, period_label = <event>)` so parties without an entry surface with `alliance = NULL` (citizen UI guards on `{#if}`). Recognition stays on `dim_parties` because it IS a time-invariant identity field.
 
 **Why not observations.** `name` and `short_name` are per-entity attributes, not time-varying numeric facts. Forcing them through `value_text` would inflate `observations.parquet` row count by ~3× (one row per attribute per entity), break the long-format aggregation contract, and offer no upside over a small wide table the citizen browser JOINs once.
 
