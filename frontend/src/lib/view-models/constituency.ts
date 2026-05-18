@@ -32,23 +32,23 @@ import type {
   SourceRef,
 } from "../data";
 
-// Top-N cutoff matches the legacy per-AC contract (datasets/_old). The
-// frontend already truncates display via this number; the canonical store
-// does NOT materialise an "others" bucket because it's a UX concern, not a
-// fact (see docs/architecture/data/elections-indicators.md §"What is NOT
-// materialised"). For Phase 1.3a we surface every candidate the dim table
-// holds and set cutoff to the row count, so Constituency.svelte's `Top {N}
-// candidates` heading stays truthful.
+// Top-N cutoff matches the legacy per-AC contract (datasets/_old). Phase 1.6
+// added `ac-candidates-total` + `ac-others-{votes,pct}` to the canonical
+// observations so the view-model can reconstruct the real `others` bucket
+// (count = total - kept) and expose the full field size on `candidates_total`.
+// `top_n_cutoff` reflects the number of rows actually kept in dim_candidates.
 function buildOthersBucket(
   candidates: CandidateResult[],
-  cutoff: number,
+  totalContested: number,
+  othersVotes: number | undefined,
+  othersPct: number | undefined,
 ): ConstituencyResult["others"] {
-  const tail = candidates.slice(cutoff);
-  if (tail.length === 0) return null;
+  const tail = totalContested - candidates.length;
+  if (tail <= 0) return null;
   return {
-    candidate_count: tail.length,
-    votes: tail.reduce((s, c) => s + c.votes, 0),
-    vote_share_pct: +tail.reduce((s, c) => s + c.vote_share_pct, 0).toFixed(2),
+    candidate_count: tail,
+    votes: othersVotes ?? 0,
+    vote_share_pct: +(othersPct ?? 0).toFixed(2),
   };
 }
 
@@ -215,7 +215,14 @@ function assembleResult(
   }));
 
   const top_n_cutoff = candidates.length;
-  const others = buildOthersBucket(candidates, top_n_cutoff);
+  const totalContested =
+    acNum("ac-candidates-total") ?? candidates.length;
+  const others = buildOthersBucket(
+    candidates,
+    totalContested,
+    acNum("ac-others-votes"),
+    acNum("ac-others-pct"),
+  );
 
   const sources: SourceRef[] = rows.sources
     .filter((s) => !!s.url)
@@ -245,6 +252,7 @@ function assembleResult(
     },
     others,
     top_n_cutoff,
+    candidates_total: totalContested,
     winner: {
       name: winnerRow?.candidate_name ?? "",
       party_eci_code: winnerRow?.party_eci_code ?? null,

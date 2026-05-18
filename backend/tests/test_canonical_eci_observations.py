@@ -209,3 +209,31 @@ class TestObservationsFromConstituency:
         assert all(r.source_id == SOURCE for r in rows)
         assert all(r.period_label == "AcGenMay2026" for r in rows)
         assert all(r.year == 2026 for r in rows)
+
+    def test_candidates_total_equals_kept_when_no_others(self, lookup):
+        # Phase 1.6: field-size disclosure. With no `others` bucket the total
+        # equals the number of CandidateResult rows on the artifact.
+        rows = observations_from_constituency(
+            result=_result(), period=Period("AcGenMay2026", 2026, 5),
+            delim_year=2008, party_lookup=lookup, source_id=SOURCE,
+        )
+        [r] = _by_indicator(rows, "ac-candidates-total")
+        assert r.value_numeric == 3.0
+        assert _by_indicator(rows, "ac-others-votes") == []
+        assert _by_indicator(rows, "ac-others-pct") == []
+
+    def test_candidates_total_includes_others_bucket(self, lookup):
+        from yen_gov.core.models import OthersBucket
+        r = _result().model_copy(update={
+            "others": OthersBucket(candidate_count=7, votes=4_000, vote_share_pct=4.0),
+        })
+        rows = observations_from_constituency(
+            result=r, period=Period("AcGenMay2026", 2026, 5),
+            delim_year=2008, party_lookup=lookup, source_id=SOURCE,
+        )
+        [total] = _by_indicator(rows, "ac-candidates-total")
+        [ov] = _by_indicator(rows, "ac-others-votes")
+        [op] = _by_indicator(rows, "ac-others-pct")
+        assert total.value_numeric == 10.0
+        assert ov.value_numeric == 4_000.0
+        assert op.value_numeric == pytest.approx(4.0)

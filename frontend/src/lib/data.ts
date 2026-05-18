@@ -54,6 +54,11 @@ export interface ConstituencyResult {
   nota: NotaResult;
   others: OthersBucket | null;
   top_n_cutoff: number;
+  /** Total candidates contesting the AC seat — kept rows + collapsed tail.
+   *  Sourced from `ac-candidates-total` observation; equals `candidates.length`
+   *  when no tail exists. Optional for back-compat with fixtures that predate
+   *  Phase 1.6. */
+  candidates_total?: number;
   winner: WinnerInfo;
 }
 

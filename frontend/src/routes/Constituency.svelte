@@ -180,7 +180,13 @@
     </section>
 
     <section class="bg-white rounded-lg shadow-sm p-5">
-      <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Top {result.top_n_cutoff} candidates</h2>
+      <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">
+        {#if result.candidates_total && result.candidates_total > result.top_n_cutoff}
+          Top {result.top_n_cutoff} of {result.candidates_total} candidates
+        {:else}
+          {result.top_n_cutoff} candidate{result.top_n_cutoff === 1 ? "" : "s"}
+        {/if}
+      </h2>
       <table class="w-full text-sm">
         <thead class="text-left text-xs text-slate-500 uppercase">
           <tr><th class="py-2 w-10">#</th><th>Candidate</th><th>Party</th><th class="text-right">Votes</th><th class="text-right">Share</th></tr>

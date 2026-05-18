@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.0",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-18T17:44:13Z",
+  "generated_at": "2026-05-18T19:08:14Z",
   "tables": [
     {
       "table_id": "elections.observations",
@@ -13,11 +13,11 @@
       "files": [
         {
           "path": "elections/observations.parquet",
-          "size_bytes": 13472657,
-          "row_count": 179746
+          "size_bytes": 14772201,
+          "row_count": 199330
         }
       ],
-      "row_count_total": 179746
+      "row_count_total": 199330
     },
     {
       "table_id": "elections.dim_acs",
