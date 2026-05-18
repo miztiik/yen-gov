@@ -1,6 +1,6 @@
 # Deployment
 
-**Last Updated**: 2026-05-15
+**Last Updated**: 2026-05-18
 
 yen-gov deploys as a single static bundle to GitHub Pages. There is no production backend (CLAUDE.md Holy Law #1). This page is the operator-level overview; the design rationale lives in [frontend/data-loading > production placement](frontend/data-loading.md#production-placement).
 
@@ -53,6 +53,33 @@ The bundle is served under a project Pages subpath (`https://miztiik.github.io/y
 To move the bundle (custom domain, user/org Pages, CDN, S3 origin) change **only** the `BASE_URL` env var in the workflow — the value flows through Vite to every URL builder. Local `bun run dev` / `bun run preview` keep their root mount because `BASE_URL` is unset.
 
 Hardcoding the repo name in source is forbidden (CLAUDE.md §6); the env var is the structural seam.
+
+## HTTP Range + MIME (canonical Parquet contract)
+
+DuckDB-WASM in the browser reads Parquet via HTTP `Range:` requests so it never has to download a full file to project a few columns. The canonical store therefore depends on GitHub Pages honouring two HTTP properties:
+
+1. `Accept-Ranges: bytes` on every static asset.
+2. `206 Partial Content` + a correct `Content-Range` header when the client sends `Range: bytes=N-M`.
+3. A non-`text/html` content type for `.parquet` so DuckDB-WASM does not try to parse it as HTML on error pages. Pages defaults unknown extensions to `application/octet-stream`, which is the contract DuckDB-WASM expects.
+
+Verified Phase 0.7 (2026-05-18) against the live Pages deploy:
+
+```
+$ curl -sI https://miztiik.github.io/yen-gov/data/elections/AcGenMay2026/S22/result.summary.json
+HTTP/1.1 200 OK
+Content-Length: 15909
+Content-Type: application/json; charset=utf-8
+Accept-Ranges: bytes
+
+$ curl -s -o /dev/null -w "%{http_code} %header{content-range}\n" \
+    -H "Range: bytes=100-199" \
+    https://miztiik.github.io/yen-gov/data/elections/AcGenMay2026/S22/result.summary.json
+206 bytes 100-199/15909
+```
+
+The Parquet-MIME probe lives at `datasets/_test/range-mime-probe.parquet` (363 bytes, hand-emitted via DuckDB COPY with KV metadata `purpose=pages-range-mime-probe-phase-0.7`). It is the single asset under `datasets/_test/` whose sole purpose is to keep the Pages MIME contract observable after every deploy. Do not delete it; do not consume it from frontend code.
+
+If the Pages contract ever regresses (any of `Accept-Ranges`, `206`, or `Content-Type != text/html` on the probe), the canonical store is unreadable in the browser and the deploy MUST be rolled back. Add a curl-based smoke check to `deploy-site.yml` if that ever happens.
 
 ## What is NOT deployed
 
