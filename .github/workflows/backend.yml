@@ -1,0 +1,168 @@
+name: backend
+
+# All dev-only tooling that NEVER ships in the deployed Pages bundle.
+# Two concerns under one umbrella:
+#
+#   1. Ingest pipeline (backend/yen_gov/**): the local Python pipeline
+#      that fetches upstream sources and writes datasets/**. Tested by
+#      `pipeline-pytest`.
+#
+#   2. Operator console (admin/** + backend/yen_gov/admin/**): the
+#      dev-only Svelte SPA on port 5174 + its FastAPI shim. Tested by
+#      `admin-api-pytest`, `admin-console-vitest`, `admin-console-e2e`.
+#      Per CLAUDE.md \u00a73 the admin console is never deployed publicly.
+#
+# By design this workflow MUST NOT gate the public-site deploy. The
+# deploy lives in deploy-site.yml and depends only on front-end build /
+# test / e2e. Any failure here means "dev tooling is broken on my
+# laptop", not "the citizen site is broken in prod". A green public
+# bundle with a red backend run is still a deployable state.
+#
+# Triggers:
+#   - push / pull_request with a paths filter on backend code, admin
+#     code, datasets (for integrity cross-checks), and this workflow.
+#     A pure frontend-only commit skips this workflow entirely.
+#   - workflow_dispatch for explicit manual runs.
+#
+# Cadence: low frequency by design. No cron.
+
+on:
+  push:
+    paths:
+      - "backend/**"
+      - "admin/**"
+      - "datasets/**"
+      - ".github/workflows/backend.yml"
+  pull_request:
+    paths:
+      - "backend/**"
+      - "admin/**"
+      - "datasets/**"
+      - ".github/workflows/backend.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pipeline-pytest:
+    name: pytest (ingest pipeline, non-admin)
+    runs-on: ubuntu-latest
+    env:
+      YEN_GOV_NO_NET: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/pyproject.toml
+
+      - name: install backend
+        working-directory: backend
+        # [dev] only -- the [admin] extra (fastapi/uvicorn) is installed
+        # in the admin-api-pytest job, not here. Keeps the two test
+        # surfaces' dependency closures honest.
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: pytest (non-admin)
+        working-directory: backend
+        # --ignore enumerates admin test files explicitly. Adding a new
+        # test_admin_*.py is a one-line update here and shows up in code
+        # review as an admin-shaped change.
+        run: |
+          pytest -q \
+            --ignore=tests/test_admin_indicators.py \
+            --ignore=tests/test_admin_inventory.py \
+            --ignore=tests/test_admin_pipeline.py \
+            --ignore=tests/test_admin_schemas.py
+
+  admin-api-pytest:
+    name: pytest (admin FastAPI routes)
+    runs-on: ubuntu-latest
+    env:
+      YEN_GOV_NO_NET: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/pyproject.toml
+
+      - name: install backend with admin extra
+        working-directory: backend
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,admin]"
+
+      - name: pytest (admin only)
+        working-directory: backend
+        run: |
+          pytest -q \
+            tests/test_admin_indicators.py \
+            tests/test_admin_inventory.py \
+            tests/test_admin_pipeline.py \
+            tests/test_admin_schemas.py
+
+  admin-console-vitest:
+    name: vitest (admin console unit + contract)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install
+        working-directory: admin
+        run: bun install --frozen-lockfile
+
+      - name: type-check
+        working-directory: admin
+        run: bun run check
+
+      - name: vitest (api contract)
+        working-directory: admin
+        run: bun run test
+
+  admin-console-e2e:
+    name: Playwright e2e (admin operator console)
+    runs-on: ubuntu-latest
+    needs: [admin-console-vitest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install
+        working-directory: admin
+        run: bun install --frozen-lockfile
+
+      # Admin e2e mocks /api/* via page.route -- no FastAPI backend needed.
+      - name: install playwright browser
+        working-directory: admin
+        run: bunx playwright install --with-deps chromium
+
+      - name: admin panels e2e
+        working-directory: admin
+        run: bun run test:e2e
+
+      - name: upload playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: admin-console-playwright-report
+          path: admin/playwright-report/
+          retention-days: 7

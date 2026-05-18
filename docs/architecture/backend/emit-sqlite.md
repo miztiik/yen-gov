@@ -10,7 +10,7 @@
 2. **Derived, not a contract.** No JSON Schema; layout versioned via `PRAGMA user_version` (integer; bumped on any layout change). The Tier-B validator ignores `.sqlite` files.
 3. **Committed to git.** Reasons:
    - Symmetric to the JSON: both ship together, both are byte-for-byte reproducible from upstream.
-   - The deploy step ([prod data placement](../frontend/data-loading.md#production-placement)) already does `cp -r datasets _site/data`. Adding a regeneration step in `site.yml` would couple deploy to a Python install.
+   - The deploy step ([prod data placement](../frontend/data-loading.md#production-placement)) already does `cp -r datasets _site/data`. Adding a regeneration step in `deploy-site.yml` would couple deploy to a Python install.
    - A 234-row state DB is ~200 kB; even the full 36-state corpus is a few MB.
    - Reviewers see the JSON diff next to the opaque `.sqlite` diff in the maintainer's data-refresh PR. Combined, the PR is auditable.
 4. **New subpackage `backend/yen_gov/emit/`.** Reads validated JSON from `datasets/elections/<event>/<state>/`, writes the `.sqlite` next to it. Does NOT import from `pipeline/` — the emitter is a *projection* of the canonical JSON, not a step in the fetch/parse/validate chain. A failure in the emitter must not block JSON emission.
@@ -73,7 +73,7 @@ The `election` and `state` codes are NOT stored as columns: the file path encode
 
 - **Single `all.sqlite` covering every event/state.** Rejected: forces all consumers to download the full corpus to query one state, contradicts the per-state lazy-load story for `/explore`. Cross-state aggregation can `ATTACH` multiple DBs.
 - **Treat SQLite as a contract surface (JSON Schema + `x-version`).** Rejected: JSON Schema doesn't describe SQL — the natural versioning surface is `PRAGMA user_version`. A duplicate "schema-of-the-schema" adds maintenance with no consumer benefit.
-- **Regenerate `.sqlite` in `site.yml` from committed JSON.** Rejected: couples deploy to a Python install, makes the deploy artifact non-reproducible from a checkout, and slows the deploy. Marginal disk savings (a few MB) don't justify it.
+- **Regenerate `.sqlite` in `deploy-site.yml` from committed JSON.** Rejected: couples deploy to a Python install, makes the deploy artifact non-reproducible from a checkout, and slows the deploy. Marginal disk savings (a few MB) don't justify it.
 - **Emitter as a step in `pipeline/run.py`.** Rejected: the emitter is a projection of validated JSON, not part of the fetch/parse/compose chain. Keeping it in a sibling `emit/` subpackage means a parser regression doesn't break the SQLite path and vice versa.
 
 ## See also
