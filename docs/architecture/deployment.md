@@ -75,6 +75,17 @@ $ curl -s -o /dev/null -w "%{http_code} %header{content-range}\n" \
     -H "Range: bytes=100-199" \
     https://miztiik.github.io/yen-gov/data/elections/AcGenMay2026/S22/result.summary.json
 206 bytes 100-199/15909
+
+$ curl -sI https://miztiik.github.io/yen-gov/data/_test/range-mime-probe.parquet
+HTTP/1.1 200 OK
+Content-Length: 363
+Content-Type: application/octet-stream
+Accept-Ranges: bytes
+
+$ curl -s -o /dev/null -w "%{http_code} %{content_type} %header{content-range}\n" \
+    -H "Range: bytes=0-99" \
+    https://miztiik.github.io/yen-gov/data/_test/range-mime-probe.parquet
+206 application/octet-stream bytes 0-99/363
 ```
 
 The Parquet-MIME probe lives at `datasets/_test/range-mime-probe.parquet` (363 bytes, hand-emitted via DuckDB COPY with KV metadata `purpose=pages-range-mime-probe-phase-0.7`). It is the single asset under `datasets/_test/` whose sole purpose is to keep the Pages MIME contract observable after every deploy. Do not delete it; do not consume it from frontend code.
