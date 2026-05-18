@@ -226,3 +226,57 @@ def _winner_rank(result: ConstituencyResult) -> int:
 
 def _winner_is_independent(result: ConstituencyResult) -> bool:
     return result.winner.party_short.strip().lower() in {"ind", "independent"}
+
+
+def dim_rows_from_constituency(
+    *,
+    result: ConstituencyResult,
+    period: Period,
+    delim_year: int,
+    party_lookup: PartyLookup,
+    source_id: str,
+) -> dict[str, list[dict]]:
+    """Emit candidate + AC dim rows for one AC contest (Phase 1.2b).
+
+    Returns plain dicts to avoid the canonical->adapter import cycle. The
+    driver wraps these in CandidateDimRow / AcDimRow before envelope construction.
+
+    - dim_candidates: one row per CandidateResult; PK matches the per-contest
+      entity_id used by observations_from_constituency (so a JOIN on
+      observations.entity_id = dim_candidates.candidate_id reconstructs the
+      citizen-facing candidate name + party_id).
+    - dim_acs: one row per AC, carrying constituency_name. Period-stable; the
+      writer UPSERT keeps the first observed name across re-emit.
+    """
+    ac_id = ac_entity_id(result.state, delim_year, result.eci_no)
+
+    candidate_rows: list[dict] = []
+    for cand in result.candidates:
+        cand_id = candidate_entity_id(ac_id, period.period_label, cand.rank)
+        is_ind = cand.party_short.strip().lower() in {"ind", "independent"}
+        party_id = party_lookup.resolve(
+            party_short=cand.party_short,
+            eci_code=str(cand.party_eci_code) if cand.party_eci_code else None,
+            is_independent=is_ind,
+        )
+        candidate_rows.append({
+            "candidate_id": cand_id,
+            "ac_id": ac_id,
+            "period_label": period.period_label,
+            "ballot_serial": cand.rank,
+            "name": cand.name,
+            "party_id": party_id,
+            "rank": cand.rank,
+            "source_id": source_id,
+        })
+
+    ac_rows: list[dict] = [{
+        "ac_id": ac_id,
+        "state_code": result.state,
+        "delim_year": delim_year,
+        "eci_no": result.eci_no,
+        "name": result.constituency_name,
+        "source_id": source_id,
+    }]
+
+    return {"candidate": candidate_rows, "ac": ac_rows}

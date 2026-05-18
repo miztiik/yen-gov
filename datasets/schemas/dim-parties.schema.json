@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./dim-parties.schema.json",
+  "title": "Party dimension row (canonical, time-invariant)",
+  "description": "Logical contract for one row of datasets/elections/dim_parties.parquet. One row per party_id. Mirror of the citizen-relevant subset of datasets/taxonomy/parties.json (short_name, full_name, recognition); the JSON registry remains the operator-editable source-of-truth, this Parquet table is the frontend-readable canonical view. Sub-phase 1.2b of TODO/20260517-canonical-long-format-pivot.md.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial dim_parties schema. Columns: party_id PK, eci_code, short_name, full_name, recognition, source_id."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["party_id", "short_name", "full_name", "source_id"],
+  "properties": {
+    "party_id": {
+      "type": "string",
+      "pattern": "^parties\\.IN\\.[A-Z][A-Z0-9_]*$",
+      "description": "PK. Stable canonical id (e.g. 'parties.IN.DMK', 'parties.IN.IND', 'parties.IN.NOTA')."
+    },
+    "eci_code": {
+      "type": ["string", "null"],
+      "description": "ECI numeric/alpha party code if known. Multiple aliases collapse to one party_id; this carries the primary code only."
+    },
+    "short_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display abbreviation (e.g. 'DMK', 'BJP'). Citizens see this in result tables."
+    },
+    "full_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Full registered name (e.g. 'Dravida Munnetra Kazhagam')."
+    },
+    "recognition": {
+      "type": ["string", "null"],
+      "enum": [null, "national", "state", "registered_unrecognised", "unknown"],
+      "description": "ECI recognition status. Nullable when not yet classified."
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "FK -> taxonomy/sources.parquet. The provenance row for the parties.json registry that seeded this entry."
+    }
+  }
+}

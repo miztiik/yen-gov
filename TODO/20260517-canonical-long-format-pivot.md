@@ -442,6 +442,7 @@ Idempotency: re-running with identical upstream bytes → identical Parquet byte
 | --- | --- | --- |
 | 1.1 | ECI adapter rewrite: emit canonical batch envelope (D20) instead of per-shard JSON | Hans + Fowler |
 | 1.2 | Backfill all existing ECI elections (AcGenMay2026 + history) into `datasets/elections/observations.parquet` | Hans |
+| 1.2b | **Dimension tables**: emit `elections.dim_candidates` + `elections.dim_acs` + `elections.dim_parties` (denormalised name / party / AC-name strings the fact table deliberately omits). PKs byte-equal to `observations.entity_id` so view-model loader reconstructs citizen shape via single LEFT JOIN. Unblocks 1.3. | Hans + Max |
 | 1.3 | Swap citizen routes (`/state/tn/...`, `/election/AcGenMay2026/...`) loaders from JSON-fetch to DuckDB-WASM **view-model loader** (D19); URLs unchanged; failure-state copy wired (D17) | Fowler + Jony |
 | 1.4 | Playwright golden-path passes against new loader; **new assertions**: failure-state copy on forced 404; provenance visible in tooltip; `period_label` displayed verbatim | Fowler |
 | 1.5 | **Migration parity oracle (test-only harness)**: compare legacy `_old/` JSON shapes against DuckDB queries over canonical Parquet for representative election summaries, per-AC results, NOTA/others/top-N, winners/margins, provenance presence. Acceptance: identical row counts and value-by-value match within rounding tolerance for elections corpus. | Fowler + Citizen |

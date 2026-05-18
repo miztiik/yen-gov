@@ -48,8 +48,11 @@ from pathlib import Path
 import duckdb
 
 from yen_gov.canonical.envelope import (
+    AcDimRow,
     BatchEnvelope,
+    CandidateDimRow,
     ObservationRow,
+    PartyDimRow,
     ReplacementSemantics,
     SourceRow,
 )
@@ -74,6 +77,7 @@ class WriteResult:
     manifest_path: Path
     observation_rows_written: int
     source_rows_written: int
+    dim_rows_written: dict[str, int] = field(default_factory=dict)
     warnings: list[str] = field(default_factory=list)
 
 
@@ -106,6 +110,8 @@ def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
     finally:
         con.close()
 
+    dim_written = _write_dimensions(envelope, family_dir)
+
     manifest_path = _regenerate_manifest(datasets_root)
 
     return WriteResult(
@@ -115,6 +121,7 @@ def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
         manifest_path=manifest_path,
         observation_rows_written=obs_written,
         source_rows_written=src_written,
+        dim_rows_written=dim_written,
         warnings=warnings,
     )
 
@@ -424,6 +431,125 @@ def _emit_sources(con: duckdb.DuckDBPyConnection, out_path: Path) -> int:
     )
 
 
+# ---------------------------------------------------------------------------
+# Dimension tables (Phase 1.2b)
+# ---------------------------------------------------------------------------
+
+# (table_stem, pk_col, schema_file, sort_cols, ddl)
+_DIM_SPECS: dict[str, dict] = {
+    "candidate": {
+        "stem": "dim_candidates",
+        "pk": "candidate_id",
+        "schema_file": "dim-candidates.schema.json",
+        "sort_cols": ["candidate_id"],
+        "columns": [
+            ("candidate_id", "VARCHAR NOT NULL"),
+            ("ac_id", "VARCHAR NOT NULL"),
+            ("period_label", "VARCHAR NOT NULL"),
+            ("ballot_serial", "INTEGER NOT NULL"),
+            ("name", "VARCHAR"),
+            ("party_id", "VARCHAR NOT NULL"),
+            ("rank", "INTEGER NOT NULL"),
+            ("source_id", "VARCHAR NOT NULL"),
+        ],
+    },
+    "ac": {
+        "stem": "dim_acs",
+        "pk": "ac_id",
+        "schema_file": "dim-acs.schema.json",
+        "sort_cols": ["ac_id"],
+        "columns": [
+            ("ac_id", "VARCHAR NOT NULL"),
+            ("state_code", "VARCHAR NOT NULL"),
+            ("delim_year", "INTEGER NOT NULL"),
+            ("eci_no", "INTEGER NOT NULL"),
+            ("name", "VARCHAR"),
+            ("source_id", "VARCHAR NOT NULL"),
+        ],
+    },
+    "party": {
+        "stem": "dim_parties",
+        "pk": "party_id",
+        "schema_file": "dim-parties.schema.json",
+        "sort_cols": ["party_id"],
+        "columns": [
+            ("party_id", "VARCHAR NOT NULL"),
+            ("eci_code", "VARCHAR"),
+            ("short_name", "VARCHAR NOT NULL"),
+            ("full_name", "VARCHAR NOT NULL"),
+            ("recognition", "VARCHAR"),
+            ("source_id", "VARCHAR NOT NULL"),
+        ],
+    },
+}
+
+
+def _write_dimensions(envelope: BatchEnvelope, family_dir: Path) -> dict[str, int]:
+    """Emit dim_*.parquet siblings for each non-empty dim list.
+
+    UPSERT semantics on PK: existing file is loaded into DuckDB, envelope rows
+    overwrite matching PKs, the merged table is COPYed back out sorted by PK.
+    Empty list -> existing file untouched.
+    """
+    written: dict[str, int] = {}
+    dim_payloads = {
+        "candidate": [r.model_dump() for r in envelope.candidate_dim_rows],
+        "ac": [r.model_dump() for r in envelope.ac_dim_rows],
+        "party": [r.model_dump() for r in envelope.party_dim_rows],
+    }
+    for kind, rows in dim_payloads.items():
+        if not rows:
+            continue
+        spec = _DIM_SPECS[kind]
+        out_path = family_dir / f"{spec['stem']}.parquet"
+        written[spec["stem"]] = _upsert_dim(
+            out_path=out_path,
+            rows=rows,
+            spec=spec,
+            table_id=f"{envelope.target_family}.{spec['stem']}",
+        )
+    return written
+
+
+def _upsert_dim(*, out_path: Path, rows: list[dict], spec: dict, table_id: str) -> int:
+    con = duckdb.connect(":memory:")
+    try:
+        col_defs = ", ".join(f"{name} {typ}" for name, typ in spec["columns"])
+        con.execute(f"CREATE TABLE dim ({col_defs})")
+        if out_path.is_file():
+            con.execute(
+                f"INSERT INTO dim SELECT * FROM read_parquet('{out_path.as_posix()}')"
+            )
+        # Dedupe envelope-internal collisions: last row wins per PK.
+        deduped: dict[str, dict] = {}
+        pk = spec["pk"]
+        for r in rows:
+            deduped[r[pk]] = r
+        env_rows = list(deduped.values())
+        env_pks = [r[pk] for r in env_rows]
+        placeholders = ", ".join(["?"] * len(env_pks))
+        con.execute(f"DELETE FROM dim WHERE {pk} IN ({placeholders})", env_pks)
+        col_names = [c[0] for c in spec["columns"]]
+        ph = ", ".join(["?"] * len(col_names))
+        con.executemany(
+            f"INSERT INTO dim VALUES ({ph})",
+            [tuple(r[c] for c in col_names) for r in env_rows],
+        )
+        select_sql = (
+            f"SELECT * FROM dim ORDER BY " + ", ".join(spec["sort_cols"])
+        )
+        return _emit_table(
+            con=con,
+            select_sql=select_sql,
+            out_path=out_path,
+            table_id=table_id,
+            row_schema_file=spec["schema_file"],
+            sort_cols=spec["sort_cols"],
+        )
+    finally:
+        con.close()
+
+
 def _emit_table(
     con: duckdb.DuckDBPyConnection,
     select_sql: str,
@@ -497,6 +623,23 @@ def _regenerate_manifest(datasets_root: Path) -> Path:
             row_schema_file="observation.schema.json",
         ))
 
+    # Dimension siblings: datasets/<family>/dim_*.parquet
+    for parquet_path in sorted(datasets_root.glob("*/dim_*.parquet")):
+        family = parquet_path.parent.name
+        if family in {"taxonomy", "boundaries", "_old", "ephemeral", "schemas"}:
+            continue
+        stem = parquet_path.stem  # e.g. "dim_candidates"
+        schema_file = _dim_schema_file(stem)
+        if schema_file is None:
+            continue
+        tables.append(_describe_parquet_table(
+            datasets_root=datasets_root,
+            parquet_path=parquet_path,
+            table_id=f"{family}.{stem}",
+            family=family,
+            row_schema_file=schema_file,
+        ))
+
     taxonomy_dir = datasets_root / "taxonomy"
     for parquet_path in sorted(taxonomy_dir.glob("*.parquet")):
         stem = parquet_path.stem
@@ -568,5 +711,14 @@ def _taxonomy_schema_file(stem: str) -> str | None:
         "caveats": "caveat.schema.json",
         "methodology_breaks": "methodology-break.schema.json",
         "facet-axes": "facet-axes.schema.json",
+    }
+    return mapping.get(stem)
+
+
+def _dim_schema_file(stem: str) -> str | None:
+    mapping = {
+        "dim_candidates": "dim-candidates.schema.json",
+        "dim_acs": "dim-acs.schema.json",
+        "dim_parties": "dim-parties.schema.json",
     }
     return mapping.get(stem)
