@@ -1,6 +1,6 @@
 # CLAUDE.md — yen-gov Engineering Contract
 
-**Last Updated**: 2026-05-17
+**Last Updated**: 2026-05-18
 
 This file is the non-negotiable contract for any human or AI agent working in this repository. The full standard it derives from lives in [docs/reference/documentation-structure.md](docs/reference/documentation-structure.md). When the two disagree, **this file wins for yen-gov**; the standard is generic.
 
@@ -38,7 +38,7 @@ Explicit non-goals for yen-gov. Anything in this list is **out of scope** — do
 6. **No hardcoding.** No magic strings, magic numbers, or hardcoded taxonomy. Tunable knobs live in `config/`; reference data and generated artifacts live in `datasets/`. Both are schema-validated.
 7. **No mocks unless asked.** Use real implementations and real fixtures. Mocks are allowed only on the user's explicit request, or for genuinely untestable external boundaries.
 8. **Open source first.** Prefer mature OSS (Tailwind, Zod/Pydantic, httpx/fetch, tenacity/p-retry, lxml, sqlite, etc.) over custom builds.
-9. **Provenance is mandatory.** Every data file carries a `sources` array. No anonymous data ships. See §12.
+9. **Provenance is mandatory.** No anonymous data ships. Canonical Parquet carries `source_id` FK to `datasets/taxonomy/sources.parquet`; legacy JSON carries a top-level `sources` array. See §12.
 10. **Tests ship with the feature.** Every behaviour-changing commit lands with the tests that prove it works AND the tests that would have caught the bug had it existed before. The full suite (`npm test` in `frontend/`, `pytest -q` in `backend/`) MUST be green at merge. Coverage is measured across four tiers — unit, contract, integration, end-to-end — and a feature is incomplete if the tier appropriate to its surface is missing. "I'll add tests later" is a band-aid (§5). See §15 for the per-tier policy.
 
 ## 2. Path Rules (Mandatory)
@@ -76,7 +76,7 @@ Create each "not yet" folder only when real code is about to land in it. Empty s
 ## 4. Layer & Dependency Rules
 
 - `frontend/` MUST NOT import from `backend/`.
-- `frontend/` MUST NOT commit data files. It consumes `datasets/` at build time via Vite (e.g. `vite-plugin-static-copy`), producing a self-contained bundle.
+- `frontend/` MUST NOT commit data files. At dev time a Vite middleware (`serveDatasets()` in [`frontend/vite.config.ts`](frontend/vite.config.ts)) serves `datasets/` under `/data/`; at deploy time the workflow copies `datasets/` into `_site/data/`. Same `fetch('/data/<rel>')` URL in both modes. See [`docs/architecture/frontend/data-loading.md`](docs/architecture/frontend/data-loading.md).
 - `backend/` MUST NOT include UI/DOM logic.
 - `backend/` writes to `datasets/`; it is the only writer. Any reader (frontend build, downstream tool) treats `datasets/` as a contract surface.
 - Cross-runtime sharing is via **data contracts** (schema-validated JSON / SQLite under `datasets/`), never code imports.
@@ -140,7 +140,7 @@ A change is not done until ALL hold:
 - [ ] **For any change touching `frontend/` or `admin/` runtime behaviour: smoke-tested via the agent's integrated browser tools** against a running dev server (`http://localhost:5173/` for frontend, `5174` for admin). Verify both the page actually changed (`read_page` snapshot, not just code diff) AND no new console errors / 404s appeared on the affected route. See §13 for the policy.
 - [ ] Canonical docs updated in `docs/` (right tier).
 - [ ] Schemas bumped/migrated if any persisted contract changed.
-- [ ] Every new/changed data file has a `source` field per §12.
+- [ ] Every new/changed data artifact carries provenance per §12 (`source_id` FK to `sources.parquet` for canonical Parquet; top-level `sources[]` for legacy JSON).
 - [ ] Module `AGENTS.md` updated if structure or invariants changed.
 - [ ] No `[DEBUG]` markers left in code.
 - [ ] No new hardcoded values.
@@ -155,7 +155,7 @@ A change is not done until ALL hold:
 - Build custom HTTP / retry / parsing / validation when an OSS library exists.
 - Swallow exceptions or silently coerce invalid input — fail fast at the boundary.
 - Mock in tests by default.
-- Use `datetime.now()` as input to artifact CONTENT (`fetched_at`, `generated_at`, doc footers, vintage years). Wall-clock at write time is operational telemetry, NOT provenance. Under the canonical pivot, this dissolves entirely: `sources` is a TABLE keyed by `(url, content_hash)`; per-row provenance is `source_id` (FK). `first_fetched_at` (immutable, citizen-facing) + `last_seen_at` (mutable telemetry) replace the smeared `fetched_at` field. Re-running ingest with byte-identical upstream MUST leave artifact bytes unchanged. See [data provenance](docs/concepts/data-provenance.md).
+- Use `datetime.now()` as input to **data-row CONTENT** (observation provenance, indicator vintage, citizen-facing doc footers). Wall-clock at write time is operational telemetry, NOT provenance. Under the canonical pivot, `sources` is a TABLE keyed by `(url, content_hash)`; per-row provenance is `source_id` (FK); `first_fetched_at` (immutable, citizen-facing) + `last_seen_at` (mutable telemetry) replace the smeared `fetched_at` field. Re-running ingest with byte-identical upstream MUST leave observation/dimension Parquet bytes unchanged. **Carve-out**: control-plane artifacts (`datasets/manifest.json`, run logs under `.runtime/logs/`) MAY stamp `generated_at` with wall-clock — they describe operator state, not citizen-facing data, and the writer that consumes them tolerates churn. See [data provenance](docs/concepts/data-provenance.md).
 - Propose `write_text_if_changed`-style byte-compare helpers at write seams. Bytes ≠ data; if a re-run produces different bytes from identical upstream, fix the non-determinism upstream of the write seam. Canonical writer uses UPSERT-into-DuckDB + sorted Parquet emit (ADR-0030).
 - Walk the real on-disk corpus (`datasets/**`, `config/**`) from a `pytest` test, or from an HTTP smoke test that hits a live FastAPI route which itself walks the corpus. That is Tier-B conformance (§11), which is local-only via `python -m yen_gov validate --root .`. Pytest tests assert CODE correctness against `tmp_path` fixtures; they MUST NOT assert DATA quality against the real repo. Symptoms: a single test takes >5s; the fix is "add the missing file" not "change the code"; the test fails on a teammate's machine after they pull a corpus-only change. Doctrine fix pattern: inject the root via a `_repo_root()` helper reading an env var (e.g. `YEN_GOV_REPO_ROOT`), default to the real repo at runtime, in tests `monkeypatch.setenv(...)` to point at a `tmp_path` fixture corpus. Reference fix: commit `7d407d0`. Doctrine: [`docs/architecture/backend/validator.md`](docs/architecture/backend/validator.md).
 - Emit JSON projections of canonical data for the citizen frontend. Under the canonical pivot, frontend reads Parquet via DuckDB-WASM only. No precomputed per-shard JSON, no parallel projection tree, no JSON shadow of the Parquet rows. Pre-pivot per-shard JSON under `datasets/_old/` is read-only and deleted at end of Phase 1.
@@ -189,7 +189,7 @@ Every emitted data file under `datasets/` carries `"$schema"` (URL to the schema
 Validation has two tiers with different homes:
 
 - **Tier A — schema sanity** (always-on, in `pytest -q`): every `*.schema.json` validates against the JSON Schema 2020-12 meta-schema; all `$ref`s resolve; `x-version`/`x-changelog` invariants hold; the validator rejects malformed JSON. Tested with `tmp_path` fixtures in `backend/tests/test_validate.py` — fast, code-driven, runs on every commit.
-- **Tier B — corpus conformance** (on-demand, local): every `*.json` under `datasets/` and `config/` validates against its declared `$schema`. Run via `python -m yen_gov validate --root .` before committing changes to `datasets/**`, `config/**`, or `datasets/schemas/**`. Not gated in CI here: the production frontend lives in a separate repo and pulls `datasets/**` at runtime via raw.githubusercontent, so this repo's CI has no build that consumes the corpus to defend. See [`docs/architecture/backend/validator.md`](docs/architecture/backend/validator.md).
+- **Tier B — corpus conformance** (on-demand, local): every `*.json` under `datasets/` and `config/` validates against its declared `$schema`. Run via `python -m yen_gov validate --root .` before committing changes to `datasets/**`, `config/**`, or `datasets/schemas/**`. Not gated in CI: the publish workflow ([`deploy-site.yml`](.github/workflows/deploy-site.yml)) copies `datasets/` into `_site/data/` as static bytes and never re-validates them; the consumer-side ajv contract test ([`frontend/src/contracts/datasets-conform.test.ts`](frontend/src/contracts/datasets-conform.test.ts)) is the runtime-shape gate that runs in `frontend-vitest`. See [`docs/architecture/backend/validator.md`](docs/architecture/backend/validator.md).
 
 ## 12. Data Provenance (Mandatory)
 
@@ -245,7 +245,7 @@ If a 404 / console error pre-exists the change and is unrelated, note it but do 
 These are unresolved and must be answered before the corresponding work starts. When an open question is resolved, promote the decision into the relevant architecture doc and remove the entry here.
 
 - District identifier source: LGD codes (gov.in Local Government Directory) preferred; Wikipedia slug as fallback for unmapped districts. Confirm during Phase 0 taxonomy seed (ADR-0030).
-- "Top-N + others" cutoff for per-AC results: provisional default = top 5 candidates + NOTA + collapsed "others". Confirm with real data when first per-AC chart lands in Phase 1.5.
+- "Top-N + others" cutoff for per-AC results: **resolved 2026-05-18 (Phase 1.6 / PR-K)**. Keep top-5 + NOTA + collapsed others (`config/processing.json:results.top_n_candidates`). Canonical store materialises `ac-candidates-total` + `ac-others-{votes,pct}` so the citizen sees full field size and tail aggregate even when only the top 5 candidate rows are persisted. See [`docs/architecture/data/elections-indicators.md`](docs/architecture/data/elections-indicators.md).
 - Data-ingest automation cadence: local/manual only for now. Production Pages deploy is hourly plus manual dispatch, and only publishes CI-green `main`; see `docs/architecture/deployment.md`. Revisit ingest automation if we add live event tracking.
 - Git repo size with committed Parquet: monitor clone time at end of Phase 1. If >60s or repo >2 GB, convene Fowler + Gregor on Git LFS vs Pages-only build artifact.
 - Time-window queries on the canonical store: resolved by §0a (OWID year:int axis); SLM safety gate (sqlglot allowlist or DuckDB `EXPLAIN` dry-run) deferred to Phase 4 per ADR-0030.
@@ -261,7 +261,9 @@ Every feature lands with tests at the tier(s) appropriate to its surface. Covera
 | **Unit** | `frontend/src/**/*.test.ts` (vitest), `backend/tests/test_*.py` (pytest) | Pure functions, formatters, parsers, slug round-trips, math invariants. No I/O, no DOM, no network. | Any change to a pure function or pure module. |
 | **Contract** | `frontend/src/contracts/*.test.ts` (ajv against `datasets/schemas/`), `backend/tests/test_validate.py`, `backend/tests/test_datasets_integrity.py` | Every `datasets/**/*.json` validates against its declared `$schema`; `$schema_version` matches `x-version` (§11); `sources` array shape (§12); cross-registry consistency (frontend catalogue ↔ backend events). | Any schema bump, new emitted artifact, or new loader — producer AND consumer side. |
 | **Integration** | `frontend/src/**/*.test.ts` for loader+fixture composition; `backend/tests/test_pipeline_*.py` for adapter+pipeline composition | Loaders compose paths correctly, mock `fetch` returns the expected shape, the 404-as-null and other graceful-degradation contracts hold; pipeline adapters compose end-to-end against fixture pages. | Any new loader, adapter, or composed pipeline step. |
-| **End-to-end** | `frontend/e2e/*.spec.ts` (Playwright) for citizen routes; `admin/e2e/*.spec.ts` (when added) for the (fixture-based validator-logic tests), `backend/tests/test_datasets_integrity.py` | Validator code correctly rejects bad schemas/data (Tier A always-on; fixture tests in pytest); cross-registry consistency (frontend catalogue ↔ backend events); `sources` array shape (§12). Full-corpus Tier-B conformance is a LOCAL pre-emit check via `python -m yen_gov validate --root .`, not a CI gate — see [`docs/architecture/backend/validator.md`](docs/architecture/backend/validator.md). | Any schema bump, new emitted artifact, or new loader — producer (local pre-commit `yen_gov validate`) AND consumer side (frontend contract test)
+| **End-to-end** | `frontend/e2e/*.spec.ts` (Playwright, public citizen site on port 5173); `admin/e2e/*.spec.ts` (Playwright, admin operator console on port 5174, mocks `/api/*` via `page.route`) | Citizen-visible route loads without `pageerror`; one DOM assertion that proves the route's content is there; one `SourceList` provenance assertion if the route surfaces data. Admin panels render and exercise their typed API contract via mocked routes. | Any new citizen-visible route or meaningful change to an existing one; any admin panel addition. |
+
+Repo-integrity tests (`backend/tests/test_datasets_integrity.py`) live in the **Contract** row above, not E2E. They are targeted cross-registry drift checks (catalogue ↔ events, tiers partition, allowlisted missing ACs) that defend named runtime contracts — NOT a full-corpus walk (§10 forbids that). New integrity tests need a named contract they defend; otherwise they belong in Tier-B local validation, not pytest.
 
 Non-negotiables:
 
