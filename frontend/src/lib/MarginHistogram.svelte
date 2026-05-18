@@ -6,16 +6,18 @@
   // bar is colored by the winning party (or grey when multiple parties share
   // a bucket — see `dominant_party` below).
   //
-  // Source: results.sqlite via lib/sql.svelte.ts. Computes margin from rank-1
-  // and rank-2 candidate rows (NOTA excluded; matches what `result.summary`
-  // would call the winner's margin).
-  import { getDb } from "./sql";
+  // Source (PR-I, Phase 1.4): receives `rows` as a prop from the parent
+  // route, which sources `ac_winners` from the canonical view-model loader
+  // (lib/view-models/state-overview.ts). Margin already computed upstream
+  // from `ac-margin-pct` observations — no SQLite roundtrip in this
+  // component anymore.
   import { colors } from "./colors/store.svelte";
   import * as d3 from "d3";
   import { onMount } from "svelte";
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
   import ChartTooltip, { type TooltipState } from "./ChartTooltip.svelte";
+  import type { AcWinner } from "./view-models/state-overview";
 
   interface Row {
     eci_no: number;
@@ -25,41 +27,24 @@
     margin_pct: number;
   }
 
-  let { event, state: state_code }: { event: string; state: string } = $props();
+  let { rows: input_rows }: { rows: AcWinner[] | null } = $props();
 
-  let rows: Row[] | null = $state(null);
-  let error: string | null = $state(null);
-
-  $effect(() => {
-    rows = null; error = null;
-    const ev = event, st = state_code;
-    (async () => {
-      try {
-        const db = await getDb(ev, st);
-        // votes_polled denominator matches result.summary's margin_pct convention.
-        const sql = `
-          SELECT c.ac_eci_no AS eci_no, c.name,
-                 w.party_eci_code AS winner_party_eci_code,
-                 w.party_short    AS winner_party_short,
-                 100.0 * (w.votes - r2.votes) / NULLIF(c.votes_polled, 0) AS margin_pct
-          FROM constituencies c
-          JOIN candidates w  ON w.ac_eci_no  = c.ac_eci_no AND w.is_winner = 1
-          JOIN candidates r2 ON r2.ac_eci_no = c.ac_eci_no AND r2.rank = 2 AND r2.is_nota = 0
-          ORDER BY margin_pct ASC;
-        `;
-        const res = db.exec(sql);
-        if (!res[0]) { rows = []; return; }
-        const cols = res[0].columns;
-        rows = res[0].values.map(v => {
-          const r: Record<string, unknown> = {};
-          cols.forEach((c, i) => (r[c] = v[i]));
-          return r as unknown as Row;
-        });
-      } catch (e) {
-        error = String(e);
-      }
-    })();
-  });
+  // Adapt canonical AcWinner shape to the histogram's internal Row shape.
+  // Sorted ascending by margin so the tightest race is index 0 (used by the
+  // insights strip).
+  const rows = $derived<Row[] | null>(
+    input_rows == null
+      ? null
+      : [...input_rows]
+          .map((w) => ({
+            eci_no: w.ac_eci_no,
+            name: w.ac_name,
+            winner_party_eci_code: w.party_eci_code,
+            winner_party_short: w.party_short,
+            margin_pct: w.margin_pct,
+          }))
+          .sort((a, b) => a.margin_pct - b.margin_pct),
+  );
 
   // Bucket edges: [0,5), [5,10), ..., [45,50), [50,∞)
   const BUCKETS = 11;
@@ -96,7 +81,9 @@
   // a chip to mute that party's contribution; the bars re-stack to show
   // only the visible parties. The bucket count label updates accordingly.
   let muted_parties = $state<Set<string>>(new Set());
-  $effect(() => { void state_code; muted_parties = new Set(); });
+  // Reset the chip-mute set whenever the input rows change identity (state
+  // or event switch) so a previous-state's filter doesn't carry over.
+  $effect(() => { void input_rows; muted_parties = new Set(); });
 
   function party_key(r: Row): string {
     return r.winner_party_eci_code ?? r.winner_party_short;
@@ -290,9 +277,7 @@
 </script>
 
 <div class="space-y-3">
-  {#if error}
-    <p class="text-sm text-rose-700">Could not load margins: <code>{error}</code></p>
-  {:else if !rows}
+  {#if !rows}
     <p class="text-sm text-slate-500">Loading margins…</p>
   {:else if total_acs === 0}
     <p class="text-sm text-slate-500">No margin data available.</p>

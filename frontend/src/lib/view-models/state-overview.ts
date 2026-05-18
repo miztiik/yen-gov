@@ -10,6 +10,11 @@
 // `PartyTotals` carries `recognition` (from dim_parties) and per-event
 // `alliance` (from dim_party_alliances). Party.svelte now derives party_meta
 // from this single loader and `fetchParties` is gone.
+// PR-I (Phase 1.4) adds `ac_winners[]` to the view-model — per-AC winning
+// party + margin assembled from `ac-winner-party-id` + `ac-margin-pct`
+// observations joined to `dim_acs` + `dim_parties`. StateOverview's per-AC
+// badges and `MarginHistogram` now consume this slice; both surfaces drop
+// their `results.sqlite` queries.
 //
 // What is JOINed:
 //   elections.observations         — numeric facts (party-* + state-* indicators)
@@ -40,11 +45,19 @@ import { query, registerTable } from "../duckdb";
 import type { PartyTotals, SourceRef } from "../data";
 
 // View-model shape. Distinct from the legacy `ResultSummary` (which other
-// routes still consume): no per-AC `winners` map (StateAcMap and the margin
-// histogram still pull that from results.sqlite via getDb), and `body` is
-// elided — StateOverview never reads it. `party_totals` reuses the legacy
-// `PartyTotals` shape so PartyBar / SeatDonut / the party directory render
-// with zero prop changes.
+// routes still consume): `body` is elided — StateOverview never reads it.
+// `party_totals` reuses the legacy `PartyTotals` shape so PartyBar /
+// SeatDonut / the party directory render with zero prop changes. PR-I adds
+// `ac_winners[]` so the per-AC winning party + margin can flow through one
+// loader; StateAcMap still has its own getDb path (Phase 1.5).
+export interface AcWinner {
+  ac_eci_no: number;
+  ac_name: string;
+  party_eci_code: string | null;
+  party_short: string;
+  margin_pct: number;
+}
+
 export interface StateOverviewViewModel {
   election: string;
   state: string;
@@ -55,6 +68,7 @@ export interface StateOverviewViewModel {
     turnout_pct?: number;
   } | null;
   party_totals: PartyTotals[];
+  ac_winners: AcWinner[];
   sources: SourceRef[];
 }
 
@@ -85,6 +99,14 @@ interface SourceJoinRow {
   first_fetched_at: string | null;
 }
 
+interface AcWinnerRow {
+  ac_eci_no: number | null;
+  ac_name: string | null;
+  party_eci_code: string | null;
+  party_short: string | null;
+  margin_pct: number | null;
+}
+
 const num = (v: unknown): number => (v == null ? 0 : Number(v));
 const numOrUndef = (v: unknown): number | undefined =>
   v == null ? undefined : Number(v);
@@ -96,11 +118,13 @@ async function runQueries(
   parties: PartyRow[];
   stateScope: StateScopeRow[];
   sources: SourceJoinRow[];
+  acWinners: AcWinnerRow[];
 }> {
   await Promise.all([
     registerTable("elections.observations"),
     registerTable("elections.dim_parties"),
     registerTable("elections.dim_party_alliances"),
+    registerTable("elections.dim_acs"),
     registerTable("taxonomy.sources"),
   ]);
 
@@ -144,7 +168,7 @@ async function runQueries(
   const parties = await query<PartyRow>(partySql);
 
   if (parties.length === 0) {
-    return { parties, stateScope: [], sources: [] };
+    return { parties, stateScope: [], sources: [], acWinners: [] };
   }
 
   const stateScope = await query<StateScopeRow>(`
@@ -169,11 +193,39 @@ async function runQueries(
     ORDER BY s.first_fetched_at
   `);
 
-  // State variable referenced by the loader caller; suppress unused warning
-  // when sc is not referenced after string composition.
-  void sc;
+  // Per-AC winners + margin. AC observations use entity_id pattern
+  // `IN-<state>-AC-<delim_year>-<eci_no>` (no event in the id; period_label
+  // distinguishes events). `ac-winner-party-id` carries the winning party_id
+  // in value_text; `ac-margin-pct` carries the margin in value_numeric. We
+  // pivot via two CTEs and join to dim_acs (for eci_no + name) and
+  // dim_parties (for the citizen-visible short_name + eci_code).
+  const acWinners = await query<AcWinnerRow>(`
+    WITH winner AS (
+      SELECT entity_id AS ac_id, value_text AS party_id
+      FROM observations
+      WHERE indicator_id = 'ac-winner-party-id'
+        AND period_label = ${evt}
+        AND entity_id LIKE 'IN-' || ${sc} || '-AC-%'
+    ),
+    margin AS (
+      SELECT entity_id AS ac_id, value_numeric AS margin_pct
+      FROM observations
+      WHERE indicator_id = 'ac-margin-pct'
+        AND period_label = ${evt}
+        AND entity_id LIKE 'IN-' || ${sc} || '-AC-%'
+    )
+    SELECT da.eci_no       AS ac_eci_no,
+           da.name         AS ac_name,
+           dp.eci_code     AS party_eci_code,
+           dp.short_name   AS party_short,
+           m.margin_pct    AS margin_pct
+    FROM winner w
+    JOIN margin m ON m.ac_id = w.ac_id
+    JOIN dim_acs da ON da.ac_id = w.ac_id
+    LEFT JOIN dim_parties dp ON dp.party_id = w.party_id
+  `);
 
-  return { parties, stateScope, sources };
+  return { parties, stateScope, sources, acWinners };
 }
 
 function assembleResult(
@@ -183,6 +235,7 @@ function assembleResult(
     parties: PartyRow[];
     stateScope: StateScopeRow[];
     sources: SourceJoinRow[];
+    acWinners: AcWinnerRow[];
   },
 ): StateOverviewViewModel {
   const scopeMap = new Map<string, StateScopeRow>();
@@ -215,6 +268,16 @@ function assembleResult(
       fetched_at: s.first_fetched_at ?? "",
     }));
 
+  const ac_winners: AcWinner[] = rows.acWinners
+    .filter((r) => r.ac_eci_no != null && r.margin_pct != null)
+    .map((r) => ({
+      ac_eci_no: Number(r.ac_eci_no),
+      ac_name: r.ac_name ?? "",
+      party_eci_code: r.party_eci_code ?? null,
+      party_short: r.party_short ?? "",
+      margin_pct: Number(r.margin_pct),
+    }));
+
   return {
     election: event,
     state: state_code,
@@ -225,6 +288,7 @@ function assembleResult(
       turnout_pct: scopeNum("state-turnout-pct"),
     },
     party_totals,
+    ac_winners,
     sources,
   };
 }
@@ -239,6 +303,7 @@ function notPublishedSkeleton(
     total_seats: 0,
     totals: null,
     party_totals: [],
+    ac_winners: [],
     sources: [],
   };
 }
