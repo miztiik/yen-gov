@@ -17,6 +17,10 @@ The canonical store is a Hive-partitioned set of Parquet files under `datasets/`
 
 Scope: every numeric observation yen-gov publishes — elections, energy, demography, fiscal, education, health, plus the §0b growth domains (judiciary, healthcare-deep, water, crime, education-deep, welfare, local-govt-finance). Out of scope: boundary geometry (sibling family — see [boundaries.md](boundaries.md) and ADR-0031).
 
+### 1.1 SQL vs SQLite (Hans + Fowler, 2026-05-18)
+
+**The pivot kept SQL. It dropped SQLite.** DuckDB IS a SQL engine — DuckDB-WASM in the browser, DuckDB CLI locally, DuckDB Python in the pipeline. The canonical contract surface is **Parquet-on-disk + SQL-in-browser**, which mirrors OWID Grapher's own direction of travel. What the canonical pivot retires is **SQLite as a shipped artifact** (the per-state `datasets/elections/<event>/<state>/results.sqlite` files and the `backend/yen_gov/emit/sqlite.py` emitter that produces them) — deferred to row 1.8e until `psephlab` no longer imports those files. Researchers and citizens can point any DuckDB client at the public Parquet URLs and run the same SQL the site runs — strictly better than the per-state SQLite shards. Anyone claiming the pivot "moves away from SQL" is wrong; correct it on sight.
+
 ---
 
 ## 2. Disk layout
@@ -60,10 +64,71 @@ datasets/
   education/
   health/
   boundaries/                         # SIBLING family — NOT canonical store (D25)
-  _old/                               # pre-pivot JSON; deletion gated on D14 checklist
 ```
 
-`_old/` exclusions (R25): `datasets/boundaries/`, `datasets/taxonomy/`, `datasets/schemas/`, `datasets/manifest.json` are NEVER moved into `_old/`.
+**Directory invariant (Gregor, Phase 1.8a — 2026-05-18).** For any indicator family `F`:
+
+- `datasets/F/` MUST contain only canonical Parquet (`<family>_<role>.parquet`, `dim_*.parquet`, partitioned variants where size demands).
+- `datasets/F/` MUST NOT contain per-event nested JSON shards, per-state sqlite, or any other pre-pivot artifact once that family's THE PLAN 1.8 sub-row lands.
+- `datasets/taxonomy/`, `datasets/schemas/`, `datasets/boundaries/`, `datasets/manifest.json` are NOT canonical-family directories; the invariant does not apply to them.
+- **Empty-parent pruning (Phase 1.8a, user directive)**: when a sub-PR deletes the last JSON shard from a `datasets/<family>/<event>/<state>/...` subtree, the deletion PR MUST also remove every parent directory that becomes empty as a result. The whole point of the canonical pivot is a lean, scannable `datasets/` tree; shell directories left behind defeat that goal. Verification: `find datasets -type d -empty` returns zero in the affected family at the end of each 1.8 sub-PR.
+
+The admin Inventory panel ([`backend/yen_gov/admin/inventory.py`](../../../backend/yen_gov/admin/inventory.py)) walks `datasets/<family>/*.parquet`, classifies every file, and surfaces unknown kinds — the operational check that the invariant holds. Per-family deletion gates live in [`docs/architecture/canonical-pivot-deletion-manifest.md`](../canonical-pivot-deletion-manifest.md); end-of-pivot validation cross-references that manifest against the on-disk tree.
+
+`_old/` was originally planned as a staging directory for pre-pivot JSON during the pivot, but no migration step ever moved the legacy elections JSON tree into it (the per-event shards were written straight into `datasets/elections/<event>/<state>/...` and the canonical Parquet later landed alongside them). The placeholder was removed; the actual cleanup is sequenced under THE PLAN 1.8b–1.8f.
+
+### 2a. Parquet naming convention (Hans + Max + Gregor + Fowler, Phase 1.8a-bis — 2026-05-18)
+
+`observations.parquet` is a **layer noun** (it names the role in a star schema, not the thing inside the file). When five families each ship an `observations.parquet`, file listings tell a researcher nothing about content; `find datasets -name 'energy_*'` returns nothing useful; and copying a file out of its directory strips its identity. Below is the rule yen-gov adopts for every Parquet under `datasets/`.
+
+**Rule** (citizen-readable, scout-friendly):
+
+```
+datasets/<family>/<family>_<role>.parquet      # fact tables
+datasets/<family>/dim_<entity>.parquet         # dimension tables (Kimball)
+datasets/taxonomy/<role>.parquet               # registry — directory IS the role, no prefix
+datasets/_ops/<role>.parquet                   # control-plane / operator state (Hans, see below)
+```
+
+- **Fact-table filename** = `<family>_<role>.parquet`. The `<family>` segment is repeated even though the directory carries it — so `find datasets -name 'energy_*' -type f` works in a flat search, and a file copied out of context is still self-identifying. The `<role>` is a domain noun for what the rows describe, never a star-schema layer noun.
+  - **Banned filenames anywhere under `datasets/<family>/`**: `observations.parquet`, `data.parquet`, `main.parquet`, `facts.parquet`. These name the *role in a schema*, not the *thing*. The validator (when authored) MUST reject them.
+- **Dimension-table filename** = `dim_<entity>.parquet`. Keep the `dim_` prefix — it's a Kimball-standard load-bearing signal that this is a lookup table, not a fact table. Do NOT add the family prefix; the directory plus `dim_` is unambiguous (`elections/dim_candidates.parquet`).
+- **Taxonomy exception**: `datasets/taxonomy/` is itself the role descriptor (registry / reference), so files inside keep flat names (`sources.parquet`, `entities.parquet`, `indicators.parquet`). `taxonomy/taxonomy_sources.parquet` would stutter without adding information.
+- **Operator state moves out** (Hans): `taxonomy/operator_state.parquet` is control-plane (mutable per-run scratch) not citizen-facing reference data. It moves to `datasets/_ops/operator_state.parquet` so `taxonomy/` stays a pure registry directory.
+- **SQL identifier decoupling** (Gregor): the DuckDB-WASM view name that frontend view-models pass to `registerTable()` is decoupled from the on-disk filename. `datasets/manifest.json` carries `table_name` per Parquet entry; `frontend/src/lib/duckdb.ts` derives the view name from that field, not from the filename stem. Decoupling lets the filename evolve for citizen-readability without churning every view-model. This decoupling is the prerequisite for the rename (THE PLAN 1.8a-bis).
+
+**Applied to today's files**:
+
+| Old path | New path | Notes |
+| --- | --- | --- |
+| `datasets/elections/observations.parquet` | `datasets/elections/election_results.parquet` | One row per (candidate × AC × event). User's seed term. |
+| `datasets/elections/dim_acs.parquet` | unchanged | Kimball-standard. |
+| `datasets/elections/dim_candidates.parquet` | unchanged | Kimball-standard. |
+| `datasets/elections/dim_parties.parquet` | unchanged | Kimball-standard. |
+| `datasets/elections/dim_party_alliances.parquet` | unchanged | Kimball-standard. |
+| `datasets/taxonomy/sources.parquet` | unchanged | Taxonomy exception. |
+| `datasets/taxonomy/entities.parquet` | unchanged | Taxonomy exception. |
+| `datasets/taxonomy/indicators.parquet` | unchanged | Taxonomy exception. |
+| `datasets/taxonomy/methodology_breaks.parquet` | unchanged | Taxonomy exception. |
+| `datasets/taxonomy/caveats.parquet` | unchanged | Taxonomy exception. |
+| `datasets/taxonomy/operator_state.parquet` | `datasets/_ops/operator_state.parquet` | Control-plane, not reference. |
+
+**Future families** (codified seed — the rule auto-generalises):
+
+```
+datasets/energy/energy_generation.parquet      datasets/energy/energy_capacity.parquet
+datasets/fiscal/fiscal_receipts.parquet        datasets/fiscal/fiscal_expenditure.parquet
+                                                datasets/fiscal/fiscal_transfers.parquet
+datasets/health/health_nfhs.parquet            datasets/health/health_hmis.parquet
+datasets/education/education_udise.parquet
+datasets/demography/demography_census_2011.parquet   datasets/demography/demography_nfhs.parquet
+```
+
+(Census 2011 keeps the year in the filename because Hans flagged a methodology break severe enough that a researcher must not accidentally union it with the annual SRS / NFHS surveys. Filename signals a methodology break only when the break demands it; not as a default — period framing (`year_fy` vs `year_cy`) stays a column, never a filename axis.)
+
+**Indicator-id grain is enforced inside the file, not at the filename level.** A single `energy_generation.parquet` can carry every indicator whose row grain is (plant × month × fuel); the indicator_id column distinguishes them. The rule is about row grain, not about indicator count.
+
+**Migration sequencing** (Fowler): the rename is a *Tidy First* structural change (byte-identical content, only paths and string identifiers move). Per family it lands big-bang in that family's 1.8 sub-PR (no strangler ceremony — yen-gov owns every consumer). The cross-cutting decoupling (manifest `table_name` field + `duckdb.ts` rewrite + `_DIM_SPECS` audit) is THE PLAN row 1.8a-bis and lands BEFORE 1.8b.
 
 ---
 

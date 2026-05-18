@@ -125,25 +125,23 @@ These either back boundary geometry (preserved per D25 / §0c) or back contracts
 
 ---
 
-## §6. Datasets — `_old/` move (Phase 0.13)
+## §6. Datasets — `_old/` move (Phase 0.13) — **SUPERSEDED 2026-05-18**
 
-Single commit per Phase 0.13 moves pre-pivot per-shard JSON under `datasets/_old/`. The move applies ONLY to the paths listed below. Final deletion of `_old/` is gated on the D14 / §7 step 1.6 explicit checklist.
+**Status note (Phase 1.8a, 2026-05-18)**: the planned Phase 0.13 move never happened. No commit ever ran `git mv datasets/<legacy>/** datasets/_old/`. The per-event elections JSON tree was written straight into `datasets/elections/<event>/<state>/...` and the canonical Parquet later landed alongside it. `_old/` was an empty placeholder; the placeholder directory has since been removed from disk and from HEAD.
 
-### 6a. Move into `datasets/_old/`
+The §6c "5-day local observation" deletion gate is therefore moot. The actual cleanup is sequenced under THE PLAN rows 1.8b–1.8f as a per-family, per-target sweep; the sub-row tables below are the audit log replacing the planned `DELETED.md` ledger.
 
-| Source path | Notes |
-| --- | --- |
-| `datasets/indicators/in/**` | 110 indicator artifacts (per corpus survey) |
-| `datasets/elections/in/**` | 7,279 JSON files (per corpus survey §H) |
-| `datasets/people/AcGenApr2021/**` | TN AE 2021 people sidecars |
-| `datasets/governments/in/**` | legacy governments artifacts |
-| `datasets/events/in/**` | legacy election events |
-| `datasets/features/in/**` | legacy features |
-| `datasets/reference/in/**` | legacy reference (e.g. `indicators-completeness.json`); **NOT** canonical taxonomy |
-| `datasets/_test/temporal-range-fixtures/` | fixtures for `derive_temporal_range` (the completeness-emitter parity oracle between `backend/tests/test_derive_temporal_range.py` and `frontend/src/lib/indicators.test.ts`); both consumers retire with the completeness emitter (§4, §7a) — move with `_old/` |
-| `datasets/ephemeral/` | re-check — currently holds frozen upstream inputs (PDFs, XLS, CSV). May survive in place OR move to `.runtime/inputs/` per §2 ephemeral rule. **Decision deferred to Phase 0.13.** |
+### 6a. Per-family deletion plan (replaces the §6a single-shot move)
 
-### 6b. EXCLUDED from move (preserve in place — R25 / §0c)
+| THE PLAN row | Target paths | Replacement | Gate before delete | Status |
+| --- | --- | --- | --- | --- |
+| 1.8b (PR-O) | `datasets/elections/<event>/<state>/parties.json`, `result.summary.json`, `_inventory.json` | `dim_parties.parquet` + `dim_party_alliances.parquet` + party-totals observations (PRs G/H/I) | `git grep` shows zero live readers in `frontend/src` and `admin/src`; backend pytest + frontend vitest green | pending |
+| 1.8c (PR-P) | `datasets/elections/<event>/<state>/results/<ac>.json` (~7,254 files) | `observations.parquet` + `dim_candidates.parquet` + `dim_acs.parquet` consumed via `loadConstituencyResult` (PR-E) | extended-routes Playwright green after deletion for TN + KL + WB sample ACs | pending |
+| 1.8d (PR-Q) | `datasets/events/in/eci/`, `datasets/taxonomy/delimitation_lineage.json`, `datasets/taxonomy/facet-axes.json` | `taxonomy/entities.parquet` event rows; `taxonomy/*.parquet` siblings | git-grep + frontend/backend test pass | pending |
+| 1.8e (PR-R) | `datasets/elections/<event>/<state>/results.sqlite` (41 files) | DuckDB-WASM views (or retirement of `/psephlab` Compare/Psephlab routes) | psephlab Compare/Psephlab migrated off `frontend/src/lib/sql.ts` / `getDb` OR routes retired | **deferred** (blocker) |
+| 1.8f (PR-S) | `datasets/people/<event>/<ac>/<cand>.json` (~3,983 files) | extended `dim_candidates.parquet` (or new `dim_candidate_bio.parquet`) OR retired candidate-detail page | `fetchPerson` (`frontend/src/lib/data.ts:323`) removed or repointed | **deferred** to Phase 2+ |
+
+### 6b. EXCLUDED from deletion (preserve in place — R25 / §0c)
 
 | Path | Reason |
 | --- | --- |
@@ -152,18 +150,16 @@ Single commit per Phase 0.13 moves pre-pivot per-shard JSON under `datasets/_old
 | `datasets/schemas/` | Schema definitions — managed individually per §3, not bulk-moved. |
 | `datasets/manifest.json` | Control-plane file (D21) — written by canonical writer, read by frontend. |
 
-### 6c. `_old/` deletion gate (Phase 1.8)
+### 6c. End-of-pivot validation check (Phase 1.8 closeout)
 
-Per D14 + §7 step 1.6 explicit checklist:
+When every sub-row above is either DONE or explicitly closed-deferred, run:
 
-- Every reader rewritten and tested (Phase 1.3 + future phases for non-election data).
-- Golden-path Playwright green (§7 step 1.4).
-- `python -m yen_gov validate --root .` clean (Tier-B local conformance).
-- Migration parity oracle (§7 step 1.5) green.
-- Admin v0 not blocking on `_old/` (Q10 resolution).
-- 5 days local observation.
-
-Until those six hold, `_old/` stays. Deletion ledger (D36) records what gets removed: `datasets/_old/DELETED.md` columns = `path | deleted_in_commit | replacement_indicator_id | replacement_facet_values (JSON object literal) | notes`.
+1. `git ls-files datasets/elections | grep -v '\.parquet$'` returns zero entries. (Per the directory invariant in [canonical-store.md §2](data/canonical-store.md).)
+2. `find datasets -type d -empty` returns zero entries. (Per the empty-parent-pruning rule in [canonical-store.md §2](data/canonical-store.md) — no shell directories left behind after the JSON sweep.)
+3. `find datasets -name 'observations.parquet' -o -name 'data.parquet' -o -name 'facts.parquet' -o -name 'main.parquet'` returns zero entries. (Per the naming convention in [canonical-store.md §2a](data/canonical-store.md) — no layer-noun filenames anywhere under `datasets/`.)
+4. Admin Inventory panel reports zero `kind=other` files across `datasets/<family>/`.
+5. `python -m yen_gov validate --root .` Tier-B clean.
+6. Cross-reference: every legacy path enumerated in this §6a table is either gone OR has an explicit deferral row in THE PLAN naming a future phase.
 
 ---
 

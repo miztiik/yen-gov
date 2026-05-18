@@ -32,11 +32,11 @@ import type {
   SourceRef,
 } from "../data";
 
-// Top-N cutoff matches the legacy per-AC contract (datasets/_old). Phase 1.6
-// added `ac-candidates-total` + `ac-others-{votes,pct}` to the canonical
-// observations so the view-model can reconstruct the real `others` bucket
-// (count = total - kept) and expose the full field size on `candidates_total`.
-// `top_n_cutoff` reflects the number of rows actually kept in dim_candidates.
+// Phase 1.6 added `ac-candidates-total` + `ac-others-{votes,pct}` to the
+// canonical observations so the view-model can reconstruct the real `others`
+// bucket (count = total - kept) and expose the full field size on
+// `candidates_total`. `top_n_cutoff` reflects the number of rows actually
+// kept in dim_candidates.
 function buildOthersBucket(
   candidates: CandidateResult[],
   totalContested: number,
