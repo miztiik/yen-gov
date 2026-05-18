@@ -84,6 +84,10 @@ class ObservationRow(BaseModel):
     value_numeric: float | None = None
     value_text: str | None = None
     source_id: str = Field(min_length=1)
+    derivation: str | None = Field(
+        default=None,
+        pattern=r"^(raw|sum|argmax|join|ratio_pct|diff|count|count_where|laakso_taagepera|constant)$",
+    )
 
     @field_validator("value_text")
     @classmethod

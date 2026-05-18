@@ -106,13 +106,14 @@ def test_observations_parquet_has_canonical_columns_and_types(tmp_path: Path) ->
 
     assert list(cols.keys()) == [
         "observation_id", "entity_id", "year", "period_label", "period_seq",
-        "indicator_id", "value_numeric", "value_text", "source_id",
+        "indicator_id", "value_numeric", "value_text", "source_id", "derivation",
     ]
     assert cols["year"] == "INTEGER"
     assert cols["period_seq"] == "INTEGER"
     assert cols["value_numeric"] == "DOUBLE"
     assert cols["value_text"] == "VARCHAR"
     assert cols["entity_id"] == "VARCHAR"
+    assert cols["derivation"] == "VARCHAR"
 
 
 def test_value_text_and_value_numeric_are_both_nullable(tmp_path: Path) -> None:
@@ -299,7 +300,7 @@ def test_parquet_kv_metadata_carries_writer_contract_keys(tmp_path: Path) -> Non
           (v.decode() if isinstance(v, bytes) else v)
           for k, v in kv_raw}
     assert kv.get("table_id") == "test.observations"
-    assert kv.get("schema_version") == "1.0"
+    assert kv.get("schema_version") == "1.1"
     assert kv.get("row_schema_id") == "./observation.schema.json"
     assert "writer_version" in kv
     assert json.loads(kv["sort_columns"]) == [
@@ -340,7 +341,7 @@ def test_manifest_regenerates_with_correct_table_entries(tmp_path: Path) -> None
     test_table = next(t for t in manifest["tables"] if t["table_id"] == "test.observations")
     assert test_table["family"] == "test"
     assert test_table["format"] == "parquet"
-    assert test_table["schema_version"] == "1.0"
+    assert test_table["schema_version"] == "1.1"
     assert test_table["files"][0]["path"] == "test/observations.parquet"
     assert test_table["files"][0]["row_count"] == 1
     assert test_table["row_count_total"] == 1

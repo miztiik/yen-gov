@@ -214,7 +214,8 @@ CREATE TABLE observations (
     indicator_id   VARCHAR NOT NULL,
     value_numeric  DOUBLE,
     value_text     VARCHAR,
-    source_id      VARCHAR NOT NULL
+    source_id      VARCHAR NOT NULL,
+    derivation     VARCHAR
 )
 """
 
@@ -293,11 +294,12 @@ def _upsert_source(con: duckdb.DuckDBPyConnection, s: SourceRow) -> None:
 def _upsert_observation(con: duckdb.DuckDBPyConnection, r: ObservationRow) -> None:
     con.execute(
         """
-        INSERT OR REPLACE INTO observations VALUES (?,?,?,?,?,?,?,?,?)
+        INSERT OR REPLACE INTO observations VALUES (?,?,?,?,?,?,?,?,?,?)
         """,
         [
             r.observation_id, r.entity_id, r.year, r.period_label, r.period_seq,
             r.indicator_id, r.value_numeric, r.value_text, r.source_id,
+            r.derivation,
         ],
     )
 

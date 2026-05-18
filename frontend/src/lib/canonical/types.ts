@@ -36,7 +36,7 @@ export interface Manifest {
 // a new schema_version, add it here in the same commit that ships the
 // reader's adaptation logic. NEVER coerce / silently best-effort.
 export const SUPPORTED_SCHEMA_VERSIONS: Record<string, ReadonlyArray<string>> = {
-  "observation.schema.json": ["1.0"],
+  "observation.schema.json": ["1.0", "1.1"],
   "source.schema.json": ["1.0"],
   "entity.schema.json": ["1.0"],
   "indicator-catalogue.schema.json": ["1.0"],
@@ -45,6 +45,8 @@ export const SUPPORTED_SCHEMA_VERSIONS: Record<string, ReadonlyArray<string>> = 
   "methodology-break.schema.json": ["1.0"],
   "facet-axes.schema.json": ["1.0"],
   "manifest.schema.json": ["1.0"],
+  "taxonomy-parties.schema.json": ["1.0"],
+  "delimitation-lineage.schema.json": ["1.0"],
 };
 
 export type ManifestErrorKind =

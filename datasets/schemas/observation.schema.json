@@ -3,12 +3,17 @@
   "$id": "./observation.schema.json",
   "title": "Observation row (canonical long-format)",
   "description": "Logical contract for a single observation. The canonical store materialises these rows as Hive-partitioned Parquet under datasets/<family>/observations.parquet; this JSON schema is the typed shape adapters emit into the batch envelope (D20) and the writer UPSERTs into DuckDB on the logical key (D7). It is NOT used to validate Parquet files directly (Parquet carries its schema in key-value metadata per D21); it is the authoritative description of a row's columns, used by adapter unit tests, fixture corpora, and the writer's typed batch envelope schema.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-18",
       "description": "Initial canonical observation row schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). Carries the §1 canonical row exactly: (observation_id, entity_id, year:int, period_label, period_seq:int, indicator_id, value_numeric|value_text, source_id). Logical key (D7) = (entity_id, year, period_label, indicator_id); source_id is row-attribute provenance (R16), NOT in the key. value_numeric and value_text are split so administrative codes ('Nil', 'N.A.') stay distinct from null/zero (R17)."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-18",
+      "description": "Additive: optional derivation column per canonical-store.md §11.4 (materialisation rule, D-elections). Names the arithmetic that produced a materialised rollup row (e.g. 'sum(candidate-votes-polled) per (state,party)', 'argmax(candidate-votes-polled) per AC'). Null for raw observations sourced 1:1 from an upstream publisher row. Controlled-vocab enum, not free text."
     }
   ],
   "type": "object",
@@ -67,6 +72,23 @@
       "type": "string",
       "minLength": 1,
       "description": "FK -> taxonomy/sources.json. Provenance pointer; NOT part of the logical key (R16). A corrected upstream value rolls source_id but keeps observation_id; the UPSERT updates the row in place."
+    },
+    "derivation": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "raw",
+        "sum",
+        "argmax",
+        "join",
+        "ratio_pct",
+        "diff",
+        "count",
+        "count_where",
+        "laakso_taagepera",
+        "constant"
+      ],
+      "description": "D-elections §11.4 materialisation rule. Names the arithmetic that produced this row. 'raw' (or null) = sourced 1:1 from publisher. 'sum' = sum over child entities. 'argmax' = winner-selection. 'ratio_pct' = percentage of a denominator. 'count'/'count_where' = cardinality. 'laakso_taagepera' = effective number index. 'constant' = derived from delim-cycle invariants. The validator MAY enforce per-indicator allowed derivations once the indicator catalogue carries the mapping."
     }
   }
 }
