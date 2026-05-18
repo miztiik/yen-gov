@@ -170,6 +170,40 @@ def observations_from_constituency(
         derivation="ratio_pct",
     ))
 
+    # Field-size + collapsed-tail rollups (Phase 1.6 — Q5 resolution).
+    # The canonical store previously dropped the others bucket the parser
+    # already computes (constituencywise.py / statistical_report_detailed.py),
+    # so the frontend "Top 5 candidates" heading was silent about whether 6
+    # or 60 candidates contested. Emit:
+    #   - ac-candidates-total: full field size including the collapsed tail.
+    #   - ac-others-votes / ac-others-pct: only when there IS a tail.
+    others_count = result.others.candidate_count if result.others else 0
+    rows.append(_obs(
+        entity_id=ac_id,
+        period=period,
+        indicator_id="ac-candidates-total",
+        value_numeric=float(len(result.candidates) + others_count),
+        source_id=source_id,
+        derivation="sum",
+    ))
+    if result.others is not None:
+        rows.append(_obs(
+            entity_id=ac_id,
+            period=period,
+            indicator_id="ac-others-votes",
+            value_numeric=float(result.others.votes),
+            source_id=source_id,
+            derivation="sum",
+        ))
+        rows.append(_obs(
+            entity_id=ac_id,
+            period=period,
+            indicator_id="ac-others-pct",
+            value_numeric=float(result.others.vote_share_pct),
+            source_id=source_id,
+            derivation="ratio_pct",
+        ))
+
     # Effective candidates (Laakso-Taagepera). Computed from candidate shares
     # plus the NOTA share when present.
     shares = [c.vote_share_pct / 100.0 for c in result.candidates]

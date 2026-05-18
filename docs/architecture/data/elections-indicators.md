@@ -47,6 +47,9 @@ Candidate dim attributes (name, party_id, gender, age, education, profession, cr
 | `ac-margin-votes` | votes | `winner.votes - runner_up.votes` | absolute |
 | `ac-margin-pct` | % of votes_polled | `margin_votes / votes_polled * 100` | 2 dp |
 | `ac-effective-candidates-laakso` | count | Laakso-Taagepera N | `1 / sum(share^2)` |
+| `ac-candidates-total` | candidates | `len(kept) + len(others)` | full field size; emitted even when no tail |
+| `ac-others-votes` | votes | `sum(votes) of tail` | absent when no tail |
+| `ac-others-pct` | % of votes_polled | `sum(share_pct) of tail` | 2 dp; absent when no tail |
 
 ### Party scope (materialised per-state-per-election rollups)
 
@@ -84,7 +87,7 @@ Per [canonical-store §11.5](canonical-store.md#115-dimension-tables-phase-12b):
 
 ## What is NOT materialised (query-time only)
 
-- Per-AC top-N candidate cutoffs ("top 5 + NOTA + others"). The cutoff is a UX concern (§14 open question), not a fact. Frontend computes it from `candidate-*` rows on demand.
+- ~~Per-AC top-N candidate cutoffs ("top 5 + NOTA + others"). The cutoff is a UX concern (§14 open question), not a fact. Frontend computes it from `candidate-*` rows on demand.~~ **Resolved Phase 1.6 (2026-05-18)**: the cutoff is still a UX concern, but the *consequences* of the cutoff are facts. `ac-candidates-total` + `ac-others-{votes,pct}` are now materialised so the citizen can see field size and aggregate tail without the canonical store having to keep every losing candidate row.
 - Demographic cross-tabs ("votes by candidate age band"). Open-ended; combinatorial explosion.
 - Cross-election personal histories ("every contest candidate X ran"). Blocked by candidate-identity being per-contest only (§3a).
 - Geographic aggregates above state (regional, all-India party shares from AC data). Phase 2 once Lok Sabha is in.

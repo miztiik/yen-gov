@@ -62,6 +62,9 @@ const acScopeRows = [
   { indicator_id: "ac-nota-pct", value_numeric: 0.8, value_text: null },
   { indicator_id: "ac-margin-votes", value_numeric: 50_938, value_text: null },
   { indicator_id: "ac-margin-pct", value_numeric: 22.94, value_text: null },
+  { indicator_id: "ac-candidates-total", value_numeric: 9, value_text: null },
+  { indicator_id: "ac-others-votes", value_numeric: 17_882, value_text: null },
+  { indicator_id: "ac-others-pct", value_numeric: 8.05, value_text: null },
   {
     indicator_id: "ac-winner-candidate-id",
     value_numeric: null,
@@ -122,6 +125,12 @@ describe("loadConstituencyResult — happy path", () => {
     expect(res.data.sources).toEqual([
       { url: "https://eci.gov.in/example.xlsx", fetched_at: "2026-05-01T00:00:00Z" },
     ]);
+    expect(res.data.candidates_total).toBe(9);
+    expect(res.data.others).toEqual({
+      candidate_count: 7,
+      votes: 17_882,
+      vote_share_pct: 8.05,
+    });
   });
 
   it("registers all five canonical tables before querying", async () => {

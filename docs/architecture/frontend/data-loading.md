@@ -312,6 +312,22 @@ Verified pre-merge against `datasets/elections/observations/**/*.parquet` and `d
 | IndiaMap | every state whose default event is `has_partywise=true` has ≥1 party row in the canonical store | ✅ 31 states with party rows; every catalogue default-event has matching observations |
 | Settings | the union of party `short_name`s in `dim_parties` ∪ `observations` ≥ today's 5-state JSON union | ✅ coverage improvement (32 dim rows + observations-only fallbacks vs 5-state fan-out) |
 
+### Phase 1.6 — top-N field-size honesty (PR-K)
+
+**Status (2026-05-18)**: live. Resolves Q5 in TODO/20260517-canonical-long-format-pivot.md.
+
+The canonical observations now carry three new `ac-*` indicators:
+
+- `ac-candidates-total` — full field size (kept + collapsed tail). Always emitted.
+- `ac-others-votes` — sum of votes for the collapsed tail. Emitted only when a tail exists.
+- `ac-others-pct` — aggregate vote-share % of the tail. Emitted only when a tail exists.
+
+`loadConstituencyResult` reads these via the existing `ac-%` scope query (no new round-trip) and reconstructs a real `others: OthersBucket | null` plus a new `candidates_total` field on `ConstituencyResult`. `Constituency.svelte` swaps its `Top {N} candidates` heading for `Top {N} of {M} candidates` when `M > N`, so the citizen sees that 79 candidates contested even when we only render the top 5.
+
+**Why this matters (real data).** Re-emitting AcGenMay2026 produces these field-size buckets across 823 ACs: 9 ACs with 2 contestants, 21 with 3, 45 with 4, 55 with exactly 5; *764 with 6 or more — including one AC with 79 contestants*. The pre-PR heading silently hid the tail on 87% of ACs (6208 / 7168 in the full corpus). The fix is one line of HTML and one new view-model field; it removes a Hans-factfulness violation that had been present since Phase 1.3a.
+
+**Test stance.** Extends the existing `constituency.test.ts` happy-path fixture with the three new `ac-*` rows + an `others` + `candidates_total` assertion. No new test file, no new Playwright spec — the change is a fixture extension, not a new contract.
+
 ## See also
 
 - [Frontend overview](overview.md), [SQLite emitter](../backend/emit-sqlite.md), [Deployment](../deployment.md)
