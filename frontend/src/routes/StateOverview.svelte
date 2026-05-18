@@ -543,7 +543,7 @@
       {#if event && STATE_AC[state_code]}
         <div class="bg-white rounded-lg shadow-sm p-4 min-w-0">
           <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Constituency map</h2>
-          <StateAcMap {event} state={state_code} />
+          <StateAcMap state={state_code} rows={summary?.ac_winners ?? null} />
           <p class="text-xs text-slate-400 mt-2">
             Hover for winner & margin · click an AC to drill in. Darker fill = larger winning margin.
           </p>
@@ -652,7 +652,7 @@
            column heights are themselves the headline. -->
       <section class="bg-white rounded-lg shadow-sm p-5">
         <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Races by competitiveness</h2>
-        <RacesBoard {event} state={state_code} />
+        <RacesBoard state={state_code} rows={summary?.ac_winners ?? null} />
       </section>
     {/if}
 

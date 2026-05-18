@@ -12,13 +12,16 @@
 
   import MapChoropleth from "./MapChoropleth.svelte";
   import { STATE_AC } from "./sources";
-  import { getDb } from "../sql";
   import { colors } from "../colors/store.svelte";
   import { navigate, url } from "../url";
+  import type { AcWinner } from "../view-models/state-overview";
 
   interface Props {
-    event: string;
     state: string;
+    /** Per-AC winners + margin. Parent loads via `loadStateOverview` (state hub)
+     *  or `loadStateAcWinners` (constituency drill-down) and passes them in.
+     *  `null` = still loading; `[]` = loaded but empty (not_published). */
+    rows: AcWinner[] | null;
     /**
      * When set, the map dims every other AC to a low opacity so this one
      * stands out. Used by the per-AC drill-down page to render a state map
@@ -29,7 +32,7 @@
      * overview; the per-AC page can pass a shorter value. */
     height?: string;
   }
-  let { event, state: state_code, highlight_eci_no, height = "520px" }: Props = $props();
+  let { state: state_code, rows: input_rows, highlight_eci_no, height = "520px" }: Props = $props();
 
   interface Row {
     eci_no: number;
@@ -39,38 +42,21 @@
     margin_pct: number;
   }
 
-  let rows = $state<Row[] | null>(null);
-  let error = $state<string | null>(null);
-
-  $effect(() => {
-    rows = null;
-    error = null;
-    const ev = event, st = state_code;
-    (async () => {
-      try {
-        const db = await getDb(ev, st);
-        const sql = `
-          SELECT c.ac_eci_no AS eci_no, c.name,
-                 w.party_eci_code AS winner_party_eci_code,
-                 w.party_short    AS winner_party_short,
-                 100.0 * (w.votes - r2.votes) / NULLIF(c.votes_polled, 0) AS margin_pct
-          FROM constituencies c
-          JOIN candidates w  ON w.ac_eci_no  = c.ac_eci_no AND w.is_winner = 1
-          LEFT JOIN candidates r2 ON r2.ac_eci_no = c.ac_eci_no AND r2.rank = 2 AND r2.is_nota = 0;
-        `;
-        const res = db.exec(sql);
-        if (!res[0]) { rows = []; return; }
-        const cols = res[0].columns;
-        rows = res[0].values.map(v => {
-          const r: Record<string, unknown> = {};
-          cols.forEach((c, i) => (r[c] = v[i]));
-          return r as unknown as Row;
-        });
-      } catch (e) {
-        error = String(e);
-      }
-    })();
-  });
+  // PR-J (Phase 1.5): rows now flow in from the parent via the canonical
+  // view-model loaders (loadStateOverview / loadStateAcWinners). The
+  // legacy `getDb` + `results.sqlite` query is gone — this is a pure
+  // presentational map.
+  const rows = $derived<Row[] | null>(
+    input_rows == null
+      ? null
+      : input_rows.map((w) => ({
+          eci_no: w.ac_eci_no,
+          name: w.ac_name,
+          winner_party_eci_code: w.party_eci_code,
+          winner_party_short: w.party_short,
+          margin_pct: w.margin_pct,
+        })),
+  );
 
   const entry = $derived(STATE_AC[state_code]);
 
@@ -142,10 +128,6 @@
 {#if !entry}
   <div class="p-3 text-sm text-slate-500">
     No boundary source registered for state <code>{state_code}</code>.
-  </div>
-{:else if error}
-  <div class="p-3 text-sm bg-rose-50 border border-rose-200 rounded text-rose-900">
-    Failed to load winners: <code>{error}</code>
   </div>
 {:else}
   <MapChoropleth

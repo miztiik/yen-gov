@@ -292,6 +292,16 @@ Both `dp.recognition` and `dpa.alliance` ride on the existing `PartyTotals` cont
 
 **What this removes from the bundle.** Two of the four remaining `getDb` callers on the citizen path. `results.sqlite` is still loaded by `RacesBoard`, `StateAcMap`, `psephlab/actuals`, and `/explore`; those move in subsequent PRs (Phase 1.5–1.7). Phase 1.8 closes when no citizen-path code imports `getDb`.
 
+### Phase 1.5 — RacesBoard + StateAcMap off `results.sqlite` (PR-J)
+
+**Status (2026-05-18)**: live. `RacesBoard.svelte` and `StateAcMap.svelte` are pure presentational components now (`rows: AcWinner[] | null` prop). Both state-hub child charts and the constituency-page state map run off canonical Parquet.
+
+**New lean loader.** `state-overview.ts` exports `loadStateAcWinners(event, state) → LoaderResult<AcWinner[]>` — just the AC-winners CTE + dim joins, no party totals / state scope / sources queries. The state hub doesn't use it (it already has `summary.ac_winners` via `loadStateOverview`); the constituency page does, because it only needs the state-map context, not the full hub roll-up. Splitting the query out cost ~30 lines (`queryAcWinners` + `toAcWinners` helpers) and saves three SQL round-trips per constituency-page render.
+
+**No new tests.** The AC-winners SQL is unchanged from PR-I; only the consumer wiring moves. Existing `loadStateOverview` happy-path / partial / failed tests cover the shared query. Per user direction (2026-05-18): "be rational about tests" — the migration touches presentational components whose data shape is asserted by the parent's loader test.
+
+**What's left on `results.sqlite`.** `psephlab/actuals` (full per-AC candidate-level data — needs per-candidate observations migration first) and `/explore` (the SQL playground; conceptually different, may keep its own SQLite seam). Both are out of the citizen-hub path.
+
 #### Coverage parity (no-regression check)
 
 Verified pre-merge against `datasets/elections/observations/**/*.parquet` and `datasets/reference/in/election-events.json`:

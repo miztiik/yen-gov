@@ -21,15 +21,16 @@
   // Each row in a column shows: AC name (link), winner party chip, margin.
   // Click a row → opens the AC drill-down page (same target as the map).
 
-  import { getDb } from "./sql";
   import { colors } from "./colors/store.svelte";
   import { url } from "./url";
+  import type { AcWinner } from "./view-models/state-overview";
 
-  interface Props {
-    event: string;
-    state: string;
-  }
-  let { event, state: state_code }: Props = $props();
+  // PR-J (Phase 1.5): RacesBoard is now a pure presentational component.
+  // The parent (StateOverview) loads `ac_winners[]` via `loadStateOverview`
+  // and passes them in here; MarginHistogram does the same. No `getDb`,
+  // no SQL, no fetch — failure / loading arms live on the parent's
+  // `LoaderResult`.
+  let { rows: input_rows, state: state_code }: { rows: AcWinner[] | null; state: string } = $props();
 
   interface Row {
     eci_no: number;
@@ -39,39 +40,17 @@
     margin_pct: number;
   }
 
-  let rows = $state<Row[] | null>(null);
-  let error = $state<string | null>(null);
-
-  $effect(() => {
-    rows = null;
-    error = null;
-    const ev = event, st = state_code;
-    (async () => {
-      try {
-        const db = await getDb(ev, st);
-        const sql = `
-          SELECT c.ac_eci_no AS eci_no,
-                 c.name      AS name,
-                 w.party_eci_code AS winner_party_eci_code,
-                 w.party_short    AS winner_party_short,
-                 100.0 * (w.votes - r2.votes) / NULLIF(c.votes_polled, 0) AS margin_pct
-          FROM constituencies c
-          JOIN candidates w  ON w.ac_eci_no = c.ac_eci_no AND w.is_winner = 1
-          JOIN candidates r2 ON r2.ac_eci_no = c.ac_eci_no AND r2.rank = 2 AND r2.is_nota = 0;
-        `;
-        const res = db.exec(sql);
-        if (!res[0]) { rows = []; return; }
-        const cols = res[0].columns;
-        rows = res[0].values.map(v => {
-          const r: Record<string, unknown> = {};
-          cols.forEach((c, i) => (r[c] = v[i]));
-          return r as unknown as Row;
-        });
-      } catch (e) {
-        error = String(e);
-      }
-    })();
-  });
+  const rows = $derived<Row[] | null>(
+    input_rows == null
+      ? null
+      : input_rows.map((w) => ({
+          eci_no: w.ac_eci_no,
+          name: w.ac_name,
+          winner_party_eci_code: w.party_eci_code,
+          winner_party_short: w.party_short,
+          margin_pct: w.margin_pct,
+        })),
+  );
 
   // Top-3 parties by total seats won. Computed off the rows themselves so
   // the panel is self-contained — no need to thread `summary` from the
@@ -208,9 +187,7 @@
 </script>
 
 <div class="space-y-3">
-  {#if error}
-    <p class="text-sm text-rose-700">Could not load races: <code>{error}</code></p>
-  {:else if !rows}
+  {#if !rows}
     <p class="text-sm text-slate-500">Loading races…</p>
   {:else if columns.length === 0}
     <p class="text-sm text-slate-500">No races to show.</p>
