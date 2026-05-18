@@ -60,10 +60,17 @@ datasets/
   education/
   health/
   boundaries/                         # SIBLING family — NOT canonical store (D25)
-  _old/                               # pre-pivot JSON; deletion gated on D14 checklist
 ```
 
-`_old/` exclusions (R25): `datasets/boundaries/`, `datasets/taxonomy/`, `datasets/schemas/`, `datasets/manifest.json` are NEVER moved into `_old/`.
+**Directory invariant (Gregor, Phase 1.8a — 2026-05-18).** For any indicator family `F`:
+
+- `datasets/F/` MUST contain only canonical Parquet (`observations.parquet`, `dim_*.parquet`, partitioned variants where size demands).
+- `datasets/F/` MUST NOT contain per-event nested JSON shards, per-state sqlite, or any other pre-pivot artifact once that family's THE PLAN 1.8 sub-row lands.
+- `datasets/taxonomy/`, `datasets/schemas/`, `datasets/boundaries/`, `datasets/manifest.json` are NOT canonical-family directories; the invariant does not apply to them.
+
+The admin Inventory panel ([`backend/yen_gov/admin/inventory.py`](../../../backend/yen_gov/admin/inventory.py)) walks `datasets/<family>/*.parquet`, classifies every file, and surfaces unknown kinds — the operational check that the invariant holds. Per-family deletion gates live in [`docs/architecture/canonical-pivot-deletion-manifest.md`](../canonical-pivot-deletion-manifest.md); end-of-pivot validation cross-references that manifest against the on-disk tree.
+
+`_old/` was originally planned as a staging directory for pre-pivot JSON during the pivot, but no migration step ever moved the legacy elections JSON tree into it (the per-event shards were written straight into `datasets/elections/<event>/<state>/...` and the canonical Parquet later landed alongside them). The placeholder was removed; the actual cleanup is sequenced under THE PLAN 1.8b–1.8f.
 
 ---
 
