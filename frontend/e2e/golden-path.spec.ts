@@ -176,7 +176,11 @@ test.describe("golden path", () => {
     // backend test covers; the canonical dim_candidates table holds the
     // AcGenMay2026 contest (TN's default event).
     await page.goto("/s/tamil-nadu/ac/1-gummidipoondi");
-    await expect(page.getByRole("heading", { level: 2, name: /Top \d+ candidates/i }))
+    // Phase 1.6 (PR-K): heading is "Top N of M candidates" when a tail
+    // exists, else "N candidate(s)". AC#1 has more than top_n_cutoff
+    // contestants so the "Top N of M" form is expected here; the regex
+    // tolerates the no-tail form too in case the seed shrinks.
+    await expect(page.getByRole("heading", { level: 2, name: /(Top \d+ of \d+ candidates|^\d+ candidates?$)/i }))
       .toBeVisible({ timeout: 30_000 });
     // Header row of the candidates table
     await expect(page.getByRole("columnheader", { name: "Candidate" })).toBeVisible();
