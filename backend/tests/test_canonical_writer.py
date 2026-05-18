@@ -358,3 +358,141 @@ def test_manifest_path_is_posix_no_backslashes(tmp_path: Path) -> None:
     for table in manifest["tables"]:
         for f in table["files"]:
             assert "\\" not in f["path"], f"backslash in manifest path: {f['path']}"
+
+
+# ---------------------------------------------------------------------------
+# Dimension tables (Phase 1.2b)
+# ---------------------------------------------------------------------------
+
+
+from yen_gov.canonical.envelope import AcDimRow, CandidateDimRow, PartyDimRow
+
+
+def _cand_dim(cid: str = "IN-S22-AC-2008-167-AcGenApr2021-C01",
+              party_id: str = "parties.IN.DMK", rank: int = 1) -> CandidateDimRow:
+    return CandidateDimRow(
+        candidate_id=cid,
+        ac_id="IN-S22-AC-2008-167",
+        period_label="AcGenApr2021",
+        ballot_serial=rank,
+        name="A. Alpha",
+        party_id=party_id,
+        rank=rank,
+        source_id="src-test0001",
+    )
+
+
+def _ac_dim() -> AcDimRow:
+    return AcDimRow(
+        ac_id="IN-S22-AC-2008-167",
+        state_code="S22",
+        delim_year=2008,
+        eci_no=167,
+        name="Mylapore",
+        source_id="src-test0001",
+    )
+
+
+def _party_dim() -> PartyDimRow:
+    return PartyDimRow(
+        party_id="parties.IN.DMK",
+        eci_code="1234",
+        short_name="DMK",
+        full_name="Dravida Munnetra Kazhagam",
+        recognition="state",
+        source_id="src-test0001",
+    )
+
+
+def _dim_envelope(family: str = "elections") -> BatchEnvelope:
+    return BatchEnvelope(
+        target_family=family,
+        source_rows=[_src()],
+        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
+                               indicator_id="candidate-votes-polled",
+                               year=2021, period_label="AcGenApr2021")],
+        candidate_dim_rows=[_cand_dim()],
+        ac_dim_rows=[_ac_dim()],
+        party_dim_rows=[_party_dim()],
+    )
+
+
+def test_dimension_parquets_emit_under_family_dir(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    write_batch(_dim_envelope(), tmp_path)
+    family_dir = tmp_path / "elections"
+    assert (family_dir / "dim_candidates.parquet").is_file()
+    assert (family_dir / "dim_acs.parquet").is_file()
+    assert (family_dir / "dim_parties.parquet").is_file()
+
+
+def test_dim_candidates_pk_join_reconstructs_observation_entity(tmp_path: Path) -> None:
+    """The JOIN that unblocks the route swap (PR-E) must hold byte-equal PKs."""
+    _seed_taxonomy(tmp_path)
+    write_batch(_dim_envelope(), tmp_path)
+    con = duckdb.connect(":memory:")
+    rows = con.execute(
+        f"""
+        SELECT c.name, o.value_numeric
+        FROM read_parquet('{(tmp_path / "elections" / "observations.parquet").as_posix()}') o
+        JOIN read_parquet('{(tmp_path / "elections" / "dim_candidates.parquet").as_posix()}') c
+          ON c.candidate_id = o.entity_id
+        WHERE o.indicator_id = 'candidate-votes-polled'
+        """
+    ).fetchall()
+    assert rows == [("A. Alpha", 42.0)]
+
+
+def test_dim_upsert_overwrites_pk_on_rerun(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    write_batch(_dim_envelope(), tmp_path)
+
+    updated = _cand_dim()
+    updated = updated.model_copy(update={"name": "A. Alpha (corrected)"})
+    env2 = BatchEnvelope(
+        target_family="elections",
+        source_rows=[_src()],
+        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
+                               indicator_id="candidate-votes-polled",
+                               year=2021, period_label="AcGenApr2021")],
+        candidate_dim_rows=[updated],
+    )
+    write_batch(env2, tmp_path)
+
+    con = duckdb.connect(":memory:")
+    [(name,)] = con.execute(
+        f"SELECT name FROM read_parquet('"
+        f"{(tmp_path / 'elections' / 'dim_candidates.parquet').as_posix()}')"
+    ).fetchall()
+    assert name == "A. Alpha (corrected)"
+
+
+def test_empty_dim_lists_do_not_touch_existing_dim_files(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    write_batch(_dim_envelope(), tmp_path)
+    dim_path = tmp_path / "elections" / "dim_candidates.parquet"
+    bytes_before = dim_path.read_bytes()
+
+    env2 = BatchEnvelope(
+        target_family="elections",
+        source_rows=[_src()],
+        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
+                               indicator_id="candidate-votes-polled",
+                               year=2021, period_label="AcGenApr2021")],
+    )
+    write_batch(env2, tmp_path)
+    assert dim_path.read_bytes() == bytes_before
+
+
+def test_dim_tables_appear_in_manifest(tmp_path: Path) -> None:
+    _seed_taxonomy(tmp_path)
+    write_batch(_dim_envelope(), tmp_path)
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    table_ids = {t["table_id"] for t in manifest["tables"]}
+    assert {"elections.dim_candidates", "elections.dim_acs",
+            "elections.dim_parties"}.issubset(table_ids)
+    cand = next(t for t in manifest["tables"]
+                if t["table_id"] == "elections.dim_candidates")
+    assert cand["format"] == "parquet"
+    assert cand["schema_version"] == "1.0"
+    assert cand["row_count_total"] == 1

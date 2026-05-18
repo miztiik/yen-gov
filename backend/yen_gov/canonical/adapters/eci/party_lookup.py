@@ -78,7 +78,9 @@ def load_party_lookup(datasets_root: Path) -> PartyLookup:
     """Load ``datasets/taxonomy/parties.json`` into a PartyLookup.
 
     Builds both indexes in a single pass. Aliases include short_name + full_name
-    + every entry in the explicit ``aliases`` list.
+    + every entry in the explicit ``aliases`` list. The raw roster is stashed
+    on the instance so ``registry()`` can emit dim_parties rows without a
+    second read.
     """
     path = datasets_root / "taxonomy" / "parties.json"
     raw = json.loads(path.read_text(encoding="utf-8"))
@@ -90,4 +92,32 @@ def load_party_lookup(datasets_root: Path) -> PartyLookup:
             by_alias[alias.strip().lower()] = pid
         for code in row.get("eci_codes", []):
             by_eci[code] = pid
-    return PartyLookup(by_alias=by_alias, by_eci_code=by_eci)
+    lookup = PartyLookup(by_alias=by_alias, by_eci_code=by_eci)
+    # Stash raw roster on the (frozen) dataclass via object.__setattr__ —
+    # registry() needs it; we don't want to break the frozen-shared-safe
+    # contract for the resolution path.
+    object.__setattr__(lookup, "_roster", raw["parties"])
+    return lookup
+
+
+def party_dim_rows(lookup: PartyLookup, *, source_id: str) -> list[dict]:
+    """Build dim_parties payload dicts from a loaded lookup.
+
+    Returns plain dicts (not PartyDimRow) to avoid a circular import with
+    canonical/envelope; the driver wraps these in PartyDimRow before envelope
+    construction. ``source_id`` is the provenance row for the parties.json
+    registry itself, NOT the per-AC contest sources.
+    """
+    roster: list[dict] = getattr(lookup, "_roster", [])
+    out: list[dict] = []
+    for row in roster:
+        eci_codes = row.get("eci_codes") or []
+        out.append({
+            "party_id": row["party_id"],
+            "eci_code": eci_codes[0] if eci_codes else None,
+            "short_name": row["short_name"],
+            "full_name": row["full_name"],
+            "recognition": row.get("recognition"),
+            "source_id": source_id,
+        })
+    return out

@@ -25,18 +25,25 @@ from yen_gov.canonical.adapters.eci.identity import (
     state_rollup_entity_id,
 )
 from yen_gov.canonical.adapters.eci.observations import (
+    dim_rows_from_constituency,
     observations_from_constituency,
 )
-from yen_gov.canonical.adapters.eci.party_lookup import PartyLookup, load_party_lookup
+from yen_gov.canonical.adapters.eci.party_lookup import (
+    PartyLookup,
+    load_party_lookup,
+    party_dim_rows,
+)
 from yen_gov.canonical.adapters.eci.rollups import state_rollup_observations
 
 __all__ = [
     "PartyLookup",
     "ac_entity_id",
     "candidate_entity_id",
+    "dim_rows_from_constituency",
     "load_party_lookup",
     "observations_from_constituency",
     "parse_period_label",
+    "party_dim_rows",
     "party_rollup_entity_id",
     "state_rollup_entity_id",
     "state_rollup_observations",

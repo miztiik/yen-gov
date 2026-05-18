@@ -113,11 +113,74 @@ def compute_observation_id(row: ObservationRow) -> str:
     return hashlib.sha256(key.encode("utf-8")).hexdigest()
 
 
+class CandidateDimRow(BaseModel):
+    """A row destined for ``datasets/elections/dim_candidates.parquet``.
+
+    Mirrors datasets/schemas/dim-candidates.schema.json. PK = candidate_id
+    (matches observations.entity_id for candidate-* rows).
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    candidate_id: str = Field(
+        pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+-(?:AcGen|LsGen|AcBye|LsBye)"
+        r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-C\d{2}$"
+    )
+    ac_id: str = Field(pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+$")
+    period_label: str = Field(min_length=1)
+    ballot_serial: int = Field(ge=1, le=99)
+    name: str | None = None
+    party_id: str = Field(pattern=r"^parties\.IN\.[A-Z][A-Z0-9_]*$")
+    rank: int = Field(ge=1)
+    source_id: str = Field(min_length=1)
+
+
+class AcDimRow(BaseModel):
+    """A row destined for ``datasets/elections/dim_acs.parquet``.
+
+    Mirrors datasets/schemas/dim-acs.schema.json. PK = ac_id.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    ac_id: str = Field(pattern=r"^IN-[SU]\d{2}-AC-\d{4}-\d+$")
+    state_code: str = Field(pattern=r"^[SU]\d{2}$")
+    delim_year: int = Field(ge=1850, le=2100)
+    eci_no: int = Field(ge=1)
+    name: str | None = None
+    source_id: str = Field(min_length=1)
+
+
+class PartyDimRow(BaseModel):
+    """A row destined for ``datasets/elections/dim_parties.parquet``.
+
+    Mirrors datasets/schemas/dim-parties.schema.json. PK = party_id.
+    Sourced from the in-memory PartyLookup registry (taxonomy/parties.json),
+    NOT re-fetched.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    party_id: str = Field(pattern=r"^parties\.IN\.[A-Z][A-Z0-9_]*$")
+    eci_code: str | None = None
+    short_name: str = Field(min_length=1)
+    full_name: str = Field(min_length=1)
+    recognition: str | None = Field(
+        default=None,
+        pattern=r"^(national|state|registered_unrecognised|unknown)$",
+    )
+    source_id: str = Field(min_length=1)
+
+
 class BatchEnvelope(BaseModel):
     """The one shape adapters hand to the writer.
 
     ``schema_version`` is the writer-contract version (not a row-schema
     version). Bump when this envelope's own shape changes.
+
+    Dimension lists are optional. Each is UPSERTed on its own PK and emits a
+    sibling Parquet under datasets/<target_family>/dim_*.parquet. Empty lists
+    are a no-op (existing dim Parquet untouched).
     """
 
     model_config = ConfigDict(extra="forbid")
@@ -127,3 +190,6 @@ class BatchEnvelope(BaseModel):
     replacement_semantics: ReplacementSemantics = ReplacementSemantics.upsert
     source_rows: list[SourceRow] = Field(default_factory=list)
     observation_rows: list[ObservationRow]
+    candidate_dim_rows: list[CandidateDimRow] = Field(default_factory=list)
+    ac_dim_rows: list[AcDimRow] = Field(default_factory=list)
+    party_dim_rows: list[PartyDimRow] = Field(default_factory=list)

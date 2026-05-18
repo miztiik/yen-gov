@@ -72,6 +72,16 @@ Candidate dim attributes (name, party_id, gender, age, education, profession, cr
 | `state-winning-party-seats` | ACs | max `party-seats-won` | |
 | `state-majority-threshold-acs` | ACs | `floor(total_acs / 2) + 1` | constant per state per delim cycle, but emitted so the citizen doesn't have to look it up |
 
+## Dimension tables (Phase 1.2b — denormalised strings, not observations)
+
+Per [canonical-store §11.5](canonical-store.md#115-dimension-tables-phase-12b): citizen-facing strings (candidate name, AC name, party labels) live in sibling Parquets, NOT in `observations.parquet`. PKs are byte-equal to the `entity_id`s on the corresponding observation rows so a single `LEFT JOIN` reconstructs the citizen shape.
+
+| Table | PK | Columns | Source |
+| --- | --- | --- | --- |
+| `elections.dim_candidates` | `candidate_id` (= per-contest `entity_id`) | `ac_id`, `period_label`, `ballot_serial`, `name`, `party_id`, `rank`, `source_id` | per-AC ECI source |
+| `elections.dim_acs` | `ac_id` | `state_code`, `delim_year`, `eci_no`, `name`, `source_id` | per-AC ECI source |
+| `elections.dim_parties` | `party_id` | `eci_code`, `short_name`, `full_name`, `recognition`, `source_id` | `datasets/taxonomy/parties.json` registry |
+
 ## What is NOT materialised (query-time only)
 
 - Per-AC top-N candidate cutoffs ("top 5 + NOTA + others"). The cutoff is a UX concern (§14 open question), not a fact. Frontend computes it from `candidate-*` rows on demand.

@@ -36,14 +36,23 @@ from pathlib import Path
 
 from yen_gov.canonical.adapters.eci import (
     PartyLookup,
+    dim_rows_from_constituency,
     load_party_lookup,
     observations_from_constituency,
     parse_period_label,
+    party_dim_rows,
     state_rollup_observations,
 )
 from yen_gov.canonical.adapters.eci.party_lookup import UnknownPartyError
 from yen_gov.canonical.adapters.eci.rollups import ACContestSummary
-from yen_gov.canonical.envelope import BatchEnvelope, ObservationRow, SourceRow
+from yen_gov.canonical.envelope import (
+    AcDimRow,
+    BatchEnvelope,
+    CandidateDimRow,
+    ObservationRow,
+    PartyDimRow,
+    SourceRow,
+)
 from yen_gov.canonical.writer import WriteResult, write_batch
 from yen_gov.core.models import ConstituencyResult
 
@@ -160,6 +169,8 @@ def backfill_elections(
 
         event_obs: list[ObservationRow] = []
         event_sources: dict[str, SourceRow] = {}
+        event_candidate_dims: list[CandidateDimRow] = []
+        event_ac_dims: dict[str, AcDimRow] = {}  # ac_id -> row (UPSERT-dedupe)
 
         state_dirs = sorted(
             p for p in event_dir.iterdir()
@@ -172,7 +183,7 @@ def backfill_elections(
             if not results_dir.is_dir():
                 continue
             try:
-                rows, sources, ac_count, slice_unresolved = _process_slice(
+                rows, sources, ac_count, slice_unresolved, cand_dims, ac_dims = _process_slice(
                     results_dir=results_dir,
                     state_code=state_code,
                     period=period,
@@ -194,6 +205,9 @@ def backfill_elections(
             event_obs.extend(rows)
             for sid, srow in sources.items():
                 event_sources.setdefault(sid, srow)
+            event_candidate_dims.extend(cand_dims)
+            for ad in ac_dims:
+                event_ac_dims.setdefault(ad.ac_id, ad)
             for short, n in slice_unresolved.items():
                 unresolved[short] += n
             seen_states.add((event_id, state_code))
@@ -215,11 +229,24 @@ def backfill_elections(
         if on_write_start is not None:
             on_write_start(len(event_obs), len(event_sources))
 
+        # Party dims are seeded once per event from the (event-wide) registry.
+        # The first source row of the event is used as the provenance pointer
+        # for the parties.json registry — UPSERT keeps later events idempotent.
+        first_source_id = sorted(event_sources.keys())[0] if event_sources else ""
+        party_dim_payload = (
+            [PartyDimRow(**r) for r in party_dim_rows(party_lookup, source_id=first_source_id)]
+            if first_source_id
+            else []
+        )
+
         envelope = BatchEnvelope(
             target_family="elections",
             schema_version="1.0",
             source_rows=sorted(event_sources.values(), key=lambda s: s.source_id),
             observation_rows=event_obs,
+            candidate_dim_rows=event_candidate_dims,
+            ac_dim_rows=list(event_ac_dims.values()),
+            party_dim_rows=party_dim_payload,
         )
         t0 = time.time()
         try:
@@ -263,12 +290,17 @@ def _process_slice(
     state_code: str,
     period,
     party_lookup: PartyLookup,
-) -> tuple[list[ObservationRow], dict[str, SourceRow], int, dict[str, int]]:
-    """Process one (event, state) slice → observations + sources + AC count."""
+) -> tuple[
+    list[ObservationRow], dict[str, SourceRow], int, dict[str, int],
+    list[CandidateDimRow], list[AcDimRow],
+]:
+    """Process one (event, state) slice → observations + sources + dims + AC count."""
     rows: list[ObservationRow] = []
     sources: dict[str, SourceRow] = {}
     summaries: list[ACContestSummary] = []
     unresolved: dict[str, int] = defaultdict(int)
+    candidate_dims: list[CandidateDimRow] = []
+    ac_dims_by_id: dict[str, AcDimRow] = {}
 
     ac_files = sorted(
         results_dir.glob("*.json"), key=lambda p: int(p.stem)
@@ -283,7 +315,6 @@ def _process_slice(
         source_id, source_row = _source_for_result(cr, period_label=period.period_label)
         sources.setdefault(source_id, source_row)
 
-        # Wrap party_lookup to swallow unknown parties → UNK fallback.
         proxy_lookup = _LenientPartyLookup(party_lookup, unresolved)
         ac_rows = observations_from_constituency(
             result=cr,
@@ -293,6 +324,18 @@ def _process_slice(
             source_id=source_id,
         )
         rows.extend(ac_rows)
+
+        dims = dim_rows_from_constituency(
+            result=cr,
+            period=period,
+            delim_year=DEFAULT_DELIM_YEAR,
+            party_lookup=proxy_lookup,
+            source_id=source_id,
+        )
+        candidate_dims.extend(CandidateDimRow(**d) for d in dims["candidate"])
+        for d in dims["ac"]:
+            ac_dims_by_id.setdefault(d["ac_id"], AcDimRow(**d))
+
         summaries.append(_summary_for_result(
             result=cr,
             period=period,
@@ -303,7 +346,10 @@ def _process_slice(
     if summaries:
         rows.extend(state_rollup_observations(summaries=summaries))
 
-    return rows, sources, len(ac_files), dict(unresolved)
+    return (
+        rows, sources, len(ac_files), dict(unresolved),
+        candidate_dims, list(ac_dims_by_id.values()),
+    )
 
 
 def _load_constituency_result(path: Path) -> ConstituencyResult:

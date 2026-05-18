@@ -386,6 +386,26 @@ Rationale: DuckDB-WASM over Range-fetched Parquet is fast for projections of mat
 
 What gets materialised in Phase 1.1: see [`docs/architecture/data/elections-indicators.md`](elections-indicators.md). What does NOT get materialised: anything a citizen would ad-hoc filter (e.g. "all candidates aged < 35 with > 10,000 votes") — those stay query-time over the candidate-level table.
 
+### 11.5 Dimension tables (Phase 1.2b)
+
+The materialisation rule above covers **numeric facts**. Citizen pages also need **denormalised strings** the fact table deliberately does not carry — candidate name, AC name, party `short_name` / `full_name` / `recognition`. Per §0a (OWID precedent), these are not modelled as observations; OWID keeps facts long-format and entity attributes in wide dimension tables. yen-gov follows the same split:
+
+| Table | Grain (PK) | Purpose |
+| --- | --- | --- |
+| `elections.dim_candidates` | `candidate_id` = per-contest `entity_id` | name, party_id, rank, ballot serial |
+| `elections.dim_acs` | `ac_id` = `IN-S{NN}-AC-{delim_year}-{eci_no}` | constituency name, state, eci_no |
+| `elections.dim_parties` | `party_id` = `parties.IN.{SHORT}` | short_name, full_name, recognition, eci_code |
+
+**Why not observations.** `name` and `short_name` are per-entity attributes, not time-varying numeric facts. Forcing them through `value_text` would inflate `observations.parquet` row count by ~3× (one row per attribute per entity), break the long-format aggregation contract, and offer no upside over a small wide table the citizen browser JOINs once.
+
+**PK equality is load-bearing.** `dim_candidates.candidate_id` is byte-equal to `observations.entity_id` for `candidate-*` rows. `dim_acs.ac_id` is byte-equal to `observations.entity_id` for `ac-*` rows. A view-model loader reconstructs the citizen shape with one `LEFT JOIN`. No bespoke ID re-derivation in the frontend.
+
+**Provenance.** Every dim row carries `source_id` like every observation. For dim_candidates / dim_acs that is the per-AC contest source; for dim_parties it is the provenance row for the `parties.json` registry itself, NOT a per-AC source.
+
+**UPSERT on PK.** The writer's `_write_dimensions` path mirrors observations: load existing Parquet into in-memory DuckDB, DELETE matching PKs, INSERT envelope rows, COPY out sorted by PK. Empty dim list = no-op (existing file untouched). Re-emitting with byte-identical input produces byte-identical Parquet (Holy Law #10).
+
+**Unresolved parties.** `dim_candidates.party_id` falls back to `parties.IN.UNK` for party strings not in `datasets/taxonomy/parties.json`. The backfill driver records counts in `BackfillResult.unresolved_parties` for operator triage; the fix is to extend `parties.json`, not to silently coerce to IND. Until the unresolved tail is closed, citizen UI shows `UNK` rather than a wrong party.
+
 ---
 
 ## 12. Manifest contract (D21)
