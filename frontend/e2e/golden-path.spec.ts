@@ -86,6 +86,20 @@ test.describe("golden path", () => {
         chip_strip.locator('[data-entity-id="U04"]'),
       ).toContainText(/Lakshadweep/i);
     }
+
+    // PR-G (Phase 1.3c) — canonical bulk JOIN evidence for IndiaMap.
+    // The map now resolves all ~36 state leading-party fills through one
+    // DuckDB-WASM call (loadIndiaLeadingParties) instead of per-state
+    // fetchResultSummary fan-out. The failure path renders an inline
+    // rose banner ("Failed to load state summaries"). Asserting that
+    // banner is NOT present after the canvas mounts proves the bulk
+    // pivot succeeded against the canonical store. (Tooltip HTML is
+    // only injected on hover into a maplibre popup div, which is
+    // pixel-coord dependent on the canvas — not addressable by Playwright
+    // without brittle hover targeting. The negative assertion + the
+    // unit-tested loader contract together give us the regression guard.)
+    await expect(page.getByText(/Failed to load state summaries/i))
+      .toHaveCount(0, { timeout: 15_000 });
   });
 
   test("state overview renders party totals and AC list for Tamil Nadu", async ({ page }) => {

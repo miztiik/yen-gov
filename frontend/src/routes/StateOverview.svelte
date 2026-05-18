@@ -3,11 +3,13 @@
     fetchConstituencies, fetchDistricts,
     type ConstituencyEntry, type DistrictEntry,
   } from "../lib/data";
-  // PR-F (Phase 1.3b): StateOverview now reads state-hub data through the
+  // PR-F (Phase 1.3b): StateOverview reads state-hub data through the
   // canonical Parquet store via DuckDB-WASM (view-models/state-overview.ts),
-  // replacing the per-shard result.summary.json fetch. Other routes (Party,
-  // ElectionSeatsTrend, Settings, IndiaMap) still consume fetchResultSummary
-  // / fetchParties; they migrate in PR-G.
+  // replacing the per-shard result.summary.json fetch. PR-G (Phase 1.3c)
+  // migrated ElectionSeatsTrend, Settings, IndiaMap and the Party-page
+  // summary side onto view-models too; `fetchResultSummary` is now deleted.
+  // The remaining `fetchParties` consumer is `routes/Party.svelte` and
+  // migrates in PR-H once dim_parties carries `alliance`.
   import {
     loadStateOverview,
     type StateOverviewViewModel,

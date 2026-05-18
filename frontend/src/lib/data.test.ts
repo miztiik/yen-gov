@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import {
   fetchStates,
-  fetchResultSummary,
   fetchParties,
   fetchConstituencies,
   fetchDistricts,
@@ -47,15 +46,7 @@ describe("fetchStates", () => {
   });
 });
 
-describe("fetchResultSummary / fetchParties", () => {
-  it("composes event + state into the per-election path", async () => {
-    fetchSpy.mockResolvedValueOnce(jsonResponse({}));
-    await fetchResultSummary("AcGenMay2026", "S22");
-    expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/elections/AcGenMay2026/S22/result.summary.json`,
-    );
-  });
-
+describe("fetchParties", () => {
   it("composes event + state for parties.json", async () => {
     fetchSpy.mockResolvedValueOnce(jsonResponse({}));
     await fetchParties("AcGenMay2026", "S22");
@@ -63,6 +54,15 @@ describe("fetchResultSummary / fetchParties", () => {
       `${BASE}/elections/AcGenMay2026/S22/parties.json`,
     );
   });
+});
+
+describe("fetchResultSummary — moved to view-model loader", () => {
+  // PR-G (Phase 1.3c) retired the per-shard JSON loader. StateOverview,
+  // Party, ElectionSeatsTrend, IndiaMap all read through view-model loaders
+  // in `lib/view-models/` against the canonical Parquet store via
+  // DuckDB-WASM. The `result.summary.json` shards under datasets/_old/ are
+  // read-only legacy projections, slated for deletion in Phase 1.8.
+  it.skip("legacy contract replaced by view-model loaders", () => {});
 });
 
 describe("fetchConstituencies / fetchDistricts", () => {

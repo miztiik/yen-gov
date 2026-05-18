@@ -1,7 +1,8 @@
 <script lang="ts">
-  // Self-fetching wrapper that pulls every result.summary.json available
-  // for one state (across all elections in the catalogue) and renders the
-  // chronological seat-composition timeline as a StackedTrend.
+  // Self-fetching wrapper that pulls every available party-totals event for
+  // one state from the canonical Parquet store (one DuckDB-WASM JOIN) and
+  // renders the chronological seat-composition timeline as a StackedTrend.
+  // Migrated off per-shard result.summary.json in PR-G (Phase 1.3c).
 
   import StackedTrend from "./charts/StackedTrend.svelte";
   import {
@@ -9,10 +10,11 @@
     type ResultSummaryDoc,
   } from "./charts/stacked-trend/adapter-elections";
   import type { StackedTrendModel } from "./charts/stacked-trend/types";
-  // TODO(PR-G / Phase 1.3c): migrate off fetchResultSummary onto a view-model
-  // loader (election-seats-trend.ts) that JOINs the canonical Parquet store
-  // via DuckDB-WASM, mirroring PR-E / PR-F.
-  import { fetchResultSummary, type ResultSummary } from "./data";
+  import {
+    loadElectionSeatsTrend,
+    type ElectionSeatsTrendViewModel,
+  } from "./view-models/election-seats-trend";
+  import type { LoaderResult } from "./loader-result";
   import { fetchElectionEvents, listEventsForState } from "./election-events";
 
   interface Props {
@@ -30,29 +32,55 @@
     max_named_categories = 8,
   }: Props = $props();
 
-  let summaries = $state<ResultSummaryDoc[] | null>(null);
-  let load_error = $state<string | null>(null);
+  let result = $state<LoaderResult<ElectionSeatsTrendViewModel>>({
+    status: "loading",
+  });
 
-  $effect(() => {
-    summaries = null;
-    load_error = null;
+  function retryLoad(): void {
+    const sc = state_code;
+    result = { status: "loading" };
     (async () => {
       try {
         const cat = await fetchElectionEvents();
-        const events = listEventsForState(cat, state_code);
-        // Pull every event the catalogue lists for this state; tolerate
-        // 404s (event known to catalogue but result.summary.json not yet
-        // ingested) by skipping that event rather than failing the chart.
-        const results = await Promise.allSettled(
-          events.map(e => fetchResultSummary(e.event_id, state_code)),
+        const events = listEventsForState(cat, sc);
+        result = await loadElectionSeatsTrend(
+          sc,
+          events.map((e) => e.event_id),
         );
-        summaries = results
-          .filter((r): r is PromiseFulfilledResult<ResultSummary> => r.status === "fulfilled")
-          .map(r => r.value as unknown as ResultSummaryDoc);
-      } catch (e) {
-        load_error = String(e);
+      } catch (err) {
+        result = {
+          status: "failed",
+          reason: String(err),
+          retry: retryLoad,
+        };
       }
     })();
+  }
+
+  $effect(() => {
+    // Reactive read of state_code so the effect re-runs when the prop changes.
+    void state_code;
+    retryLoad();
+  });
+
+  const summaries = $derived.by<ResultSummaryDoc[] | null>(() => {
+    if (result.status !== "ok" && result.status !== "partial") return null;
+    const vm = result.data;
+    if (vm.events.length === 0) return null;
+    return vm.events.map((e) => ({
+      sources: vm.sources,
+      election: e.event_id,
+      state: vm.state,
+      body: "assembly",
+      total_seats: e.total_seats,
+      party_totals: e.party_totals.map((p) => ({
+        party_short: p.party_short,
+        seats_contested: p.seats_contested ?? 0,
+        seats_won: p.seats_won,
+        votes: p.votes,
+        vote_share_pct: p.vote_share_pct,
+      })),
+    }));
   });
 
   const model = $derived.by<StackedTrendModel | null>(() => {
@@ -64,11 +92,16 @@
   });
 </script>
 
-{#if load_error}
+{#if result.status === "failed"}
   <div class="rounded border border-rose-200 bg-rose-50 p-3 text-sm text-rose-900">
-    Failed to load election summaries: <code>{load_error}</code>
+    <p>Failed to load election history: {result.reason}</p>
+    <button
+      type="button"
+      onclick={() => result.status === "failed" && result.retry?.()}
+      class="mt-2 px-3 py-1 text-xs rounded bg-rose-100 hover:bg-rose-200"
+    >Retry</button>
   </div>
-{:else if !summaries}
+{:else if result.status === "loading"}
   <p class="text-sm text-slate-500">Loading election history…</p>
 {:else if !model}
   <p class="text-sm text-slate-500">No election summaries available for this state yet.</p>
