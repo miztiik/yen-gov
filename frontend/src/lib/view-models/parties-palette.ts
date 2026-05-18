@@ -3,10 +3,10 @@
 //
 // Today's Settings page fetches parties.json across 5 hardcoded states. The
 // new loader reads the canonical dim_parties table AND unions in the
-// distinct short_name_key from observations for any party not in the dim
-// (NOTA, IND, CPIM today). Net coverage is a strict superset of the legacy
-// 5-state union — every party that has ever scored a party-totals row in
-// the canonical store appears in the palette.
+// distinct short_name_key from election_results for any party not in the
+// dim (NOTA, IND, CPIM today). Net coverage is a strict superset of the
+// legacy 5-state union — every party that has ever scored a party-totals
+// row in the canonical store appears in the palette.
 
 import { describeFailure, type LoaderResult } from "../loader-result";
 import { query, registerTable } from "../duckdb";
@@ -40,7 +40,7 @@ async function runQueries(): Promise<{
   fallback: FallbackRow[];
 }> {
   await Promise.all([
-    registerTable("elections.observations"),
+    registerTable("elections.election_results"),
     registerTable("elections.dim_parties"),
   ]);
 
@@ -50,10 +50,10 @@ async function runQueries(): Promise<{
     WHERE short_name IS NOT NULL
   `);
 
-  // Parties present in observations but absent from dim_parties.
+  // Parties present in election_results but absent from dim_parties.
   const fallback = await query<FallbackRow>(`
     SELECT DISTINCT regexp_extract(entity_id, '-PARTY-(.+)$', 1) AS short_name_key
-    FROM observations
+    FROM election_results
     WHERE entity_id LIKE 'IN-%-PARTY-%'
       AND regexp_extract(entity_id, '-PARTY-(.+)$', 1) NOT IN (
         SELECT short_name FROM dim_parties WHERE short_name IS NOT NULL

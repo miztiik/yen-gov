@@ -85,7 +85,7 @@ describe("loadIndiaLeadingParties — happy path", () => {
     const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
     expect(registered).toEqual([
       "elections.dim_parties",
-      "elections.observations",
+      "elections.election_results",
     ]);
   });
 

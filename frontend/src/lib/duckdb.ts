@@ -139,8 +139,8 @@ export function getConnection(): Promise<duckdb.AsyncDuckDBConnection> {
  * the manifest's Parquet files. Idempotent per table_id within this session.
  *
  * After this call, `SELECT * FROM <view_name>` queries the canonical store.
- * View name defaults to the last segment of table_id (e.g. "elections.observations"
- * -> "observations"); pass a custom name when two tables would collide.
+ * View name defaults to the last segment of table_id (e.g. "elections.election_results"
+ * -> "election_results"); pass a custom name when two tables would collide.
  */
 export async function registerTable(
   table_id: string,

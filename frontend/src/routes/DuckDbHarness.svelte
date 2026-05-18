@@ -4,7 +4,7 @@
   // Lives at /dev/duckdb-harness. NOT a citizen route. Its job is to prove,
   // end-to-end in a real browser, that:
   //   1. The Phase 0.8 loader can boot DuckDB-WASM, register the canonical
-  //      elections.observations Parquet via HTTP, and run a query.
+  //      elections.election_results Parquet via HTTP, and run a query.
   //   2. The D17 failure-state contract holds — forced failures render
   //      plain-language copy with a retry, no stack traces.
   //
@@ -24,9 +24,9 @@
     try {
       // Force a fresh manifest fetch each run so "Force 404" recovers cleanly.
       await loadManifest();
-      await registerTable("elections.observations", { viewName: "observations" });
+      await registerTable("elections.election_results");
       const rows = await query<{ n: bigint; events: bigint }>(
-        "SELECT COUNT(*) AS n, COUNT(DISTINCT period_label) AS events FROM observations",
+        "SELECT COUNT(*) AS n, COUNT(DISTINCT period_label) AS events FROM election_results",
       );
       const r = rows[0];
       result = {

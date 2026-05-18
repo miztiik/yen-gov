@@ -2,7 +2,7 @@
 // item shape; bumps there must update these in the same commit per
 // CLAUDE.md §11.
 
-export type TableId = string; // <family>.<table>, e.g. "elections.observations"
+export type TableId = string; // <family>.<table>, e.g. "elections.election_results"
 
 export interface CanonicalFile {
   path: string;          // POSIX relative under datasets/

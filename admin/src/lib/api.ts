@@ -15,12 +15,13 @@ export interface ProvenanceSource {
  * Family-agnostic inventory of the canonical Parquet store.
  *
  * Backend walks every `datasets/*.parquet` and `datasets/<family>/*.parquet`,
- * surfaces one `InventoryStore` per file, and rolls every observations
+ * surfaces one `InventoryStore` per file, and rolls every fact-table
  * parquet up into `InventoryIndicator[]`. Election-specific (event ×
  * state) drill-downs are NOT in this surface — those belong to a future
  * family-specific panel; the generic inventory stays generic so the day
- * energy / demography / fiscal / health ship their own
- * `observations.parquet`, they appear here automatically.
+ * energy / demography / fiscal / health ship their own fact-table
+ * parquet (per-family stem, e.g. `elections/election_results.parquet`),
+ * they appear here automatically.
  */
 export interface InventoryStoreStats {
   indicators: number;

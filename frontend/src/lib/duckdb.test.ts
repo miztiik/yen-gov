@@ -24,15 +24,15 @@ const SAMPLE_MANIFEST: Manifest = {
   generated_at: "2026-05-18T12:00:00Z",
   tables: [
     {
-      table_id: "elections.observations",
+      table_id: "elections.election_results",
       family: "elections",
-      table_name: "observations",
+      table_name: "election_results",
       kind: "observations",
       format: "parquet",
       schema_version: "1.1",
       partition_columns: [],
       files: [
-        { path: "elections/observations.parquet", size_bytes: 13_472_657, row_count: 179_746 },
+        { path: "elections/election_results.parquet", size_bytes: 13_472_657, row_count: 179_746 },
       ],
       row_count_total: 179_746,
     },
@@ -67,7 +67,7 @@ describe("manifest helpers", () => {
     );
     const m = await loadManifest();
     expect(m.tables).toHaveLength(2);
-    expect(m.tables[0].table_id).toBe("elections.observations");
+    expect(m.tables[0].table_id).toBe("elections.election_results");
     expect(fetchSpy).toHaveBeenCalledTimes(1);
     expect((fetchSpy.mock.calls[0][0] as string).endsWith("/data/manifest.json")).toBe(true);
   });
@@ -93,7 +93,7 @@ describe("manifest helpers", () => {
   });
 
   it("tableFromManifest returns the matching table", () => {
-    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.observations");
+    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
     expect(t.row_count_total).toBe(179_746);
   });
 
@@ -104,10 +104,10 @@ describe("manifest helpers", () => {
   });
 
   it("fileUrls prepends DATA_BASE to each manifest path", () => {
-    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.observations");
+    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
     const urls = fileUrls(t);
     expect(urls).toHaveLength(1);
-    expect(urls[0].endsWith("/data/elections/observations.parquet")).toBe(true);
+    expect(urls[0].endsWith("/data/elections/election_results.parquet")).toBe(true);
   });
 });
 
@@ -118,17 +118,17 @@ describe("registerTable view name resolution", () => {
   // round-trip lives in Playwright (Phase 0.11).
 
   it("defaultViewName prefers manifest table_name when present", () => {
-    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.observations");
-    expect(defaultViewName(t, "elections.observations")).toBe("observations");
+    const t = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
+    expect(defaultViewName(t, "elections.election_results")).toBe("election_results");
   });
 
   it("defaultViewName falls back to last table_id segment when table_name missing", () => {
     // Simulate a pre-v1.1 manifest entry where the writer hasn't yet been
     // upgraded. The reader must still produce a sensible view name so old
     // bundles keep working after a writer-only revert.
-    const legacy = tableFromManifest(SAMPLE_MANIFEST, "elections.observations");
+    const legacy = tableFromManifest(SAMPLE_MANIFEST, "elections.election_results");
     const { table_name: _omit, ...stripped } = legacy;
-    expect(defaultViewName(stripped, "elections.observations")).toBe("observations");
+    expect(defaultViewName(stripped, "elections.election_results")).toBe("election_results");
     expect(defaultViewName(stripped, "energy.energy_capacity")).toBe("energy_capacity");
   });
 });

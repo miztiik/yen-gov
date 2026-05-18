@@ -29,7 +29,8 @@ Scope guard: this is the Phase 0.9 skeleton. Not yet wired:
   - Idempotency: identical input -> identical Parquet bytes. Implemented
     via deterministic sort + DuckDB COPY. Phase 0.10 contract tests assert
     byte-equality on re-run.
-  - Partitioning: emits a single observations.parquet per family. >15 MB
+  - Partitioning: emits a single fact-table Parquet per family. The stem is
+    citizen-honest per family (see ``FAMILY_FACT_TABLE_STEM`` below). >15 MB
     partitioning (D8) deferred until any family crosses the threshold.
 """
 
@@ -65,6 +66,24 @@ log = logging.getLogger(__name__)
 SORT_COLUMNS = ["indicator_id", "entity_id", "year", "period_seq"]
 
 
+# Per-family fact-table stem. The fact-table parquet for family ``F`` lives at
+# ``datasets/<F>/<stem>.parquet`` and registers in the manifest as
+# ``<F>.<stem>`` with ``kind="observations"``. Adding a family means adding a
+# row here (or accepting the default ``"observations"`` stem). PR-O.1 (TODO
+# row 1.8b-i) introduced the per-family override so the stem can be
+# citizen-honest (``election_results`` reads as a citizen artefact name in
+# both the URL and any ``FROM`` clause in view-model SQL). Defaulting to
+# ``"observations"`` keeps the contract additive for families that have not
+# yet earned a domain-specific name.
+FAMILY_FACT_TABLE_STEM: dict[str, str] = {
+    "elections": "election_results",
+}
+
+
+def _fact_table_stem(family: str) -> str:
+    return FAMILY_FACT_TABLE_STEM.get(family, "observations")
+
+
 class WriterError(Exception):
     """Raised when the writer refuses an envelope. Always pre-emit; never
     after a partial write (atomicity is part of the contract)."""
@@ -97,7 +116,7 @@ def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
     family_dir.mkdir(parents=True, exist_ok=True)
     taxonomy_dir.mkdir(parents=True, exist_ok=True)
 
-    observations_path = family_dir / "observations.parquet"
+    observations_path = family_dir / f"{_fact_table_stem(envelope.target_family)}.parquet"
     sources_path = taxonomy_dir / "sources.parquet"
 
     con = duckdb.connect(":memory:")
@@ -649,14 +668,22 @@ def _regenerate_manifest(datasets_root: Path) -> Path:
     """
     tables: list[dict] = []
 
-    for parquet_path in sorted(datasets_root.glob("*/observations.parquet")):
-        family = parquet_path.parent.name
-        if family in {"taxonomy", "boundaries", "_old", "ephemeral", "schemas"}:
+    # Iterate over family directories (one fact-table per family, per-family
+    # stem from FAMILY_FACT_TABLE_STEM). PR-O.1 (1.8b-i) generalised the
+    # earlier hardcoded "observations.parquet" glob — the stem is now
+    # citizen-honest per family (elections → election_results, etc.).
+    for family_dir in sorted(p for p in datasets_root.iterdir() if p.is_dir()):
+        family = family_dir.name
+        if family in {"taxonomy", "boundaries", "_old", "_test", "ephemeral", "schemas"}:
+            continue
+        stem = _fact_table_stem(family)
+        fact_path = family_dir / f"{stem}.parquet"
+        if not fact_path.is_file():
             continue
         tables.append(_describe_parquet_table(
             datasets_root=datasets_root,
-            parquet_path=parquet_path,
-            table_id=f"{family}.observations",
+            parquet_path=fact_path,
+            table_id=f"{family}.{stem}",
             family=family,
             row_schema_file="observation.schema.json",
         ))
@@ -747,14 +774,15 @@ def _classify_kind(parquet_path: Path, family: str) -> str:
     (admin Inventory, etc.) need not string-match filenames. See
     docs/architecture/data/canonical-store.md §2a.
 
-    Today the fact-table stem is always ``observations``. PR-O renames it
-    per-family (e.g. ``elections/election_results.parquet``); the rule
-    extends THEN, not now.
+    The fact-table stem is per-family (``FAMILY_FACT_TABLE_STEM``). Any
+    parquet whose stem matches the registered fact-table stem for its
+    family is classified ``observations`` regardless of the literal filename
+    (e.g. ``elections/election_results.parquet`` → ``observations``).
     """
     if family == "taxonomy":
         return "taxonomy"
     stem = parquet_path.stem
-    if stem == "observations":
+    if stem == _fact_table_stem(family):
         return "observations"
     if stem.startswith("dim_"):
         return "dim"

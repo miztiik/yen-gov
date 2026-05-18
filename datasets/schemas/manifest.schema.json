@@ -42,7 +42,7 @@
           "table_id": {
             "type": "string",
             "pattern": "^[a-z][a-z0-9_.]*$",
-            "description": "Dotted identifier <family>.<table> for canonical tables (e.g. 'elections.observations', 'taxonomy.indicators') and <family>.<region>.<layer> for boundary layers (e.g. 'boundaries.in.states'). Stable; the frontend loader keys on this. Convention pinned in docs/architecture/data/canonical-store.md §12.2."
+            "description": "Dotted identifier <family>.<table> for canonical tables (e.g. 'elections.election_results', 'taxonomy.indicators') and <family>.<region>.<layer> for boundary layers (e.g. 'boundaries.in.states'). Stable; the frontend loader keys on this. Convention pinned in docs/architecture/data/canonical-store.md §12.2."
           },
           "family": {
             "type": "string",
@@ -78,7 +78,7 @@
                 "path": {
                   "type": "string",
                   "pattern": "^[a-z][a-zA-Z0-9_./-]*$",
-                  "description": "POSIX-relative path under datasets/ (e.g. 'elections/observations.parquet', 'boundaries/in/geojson/india-states.geojson'). No leading slash; no .. segments."
+                  "description": "POSIX-relative path under datasets/ (e.g. 'elections/election_results.parquet', 'boundaries/in/geojson/india-states.geojson'). No leading slash; no .. segments."
                 },
                 "size_bytes": {
                   "type": "integer",

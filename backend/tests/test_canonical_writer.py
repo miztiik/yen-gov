@@ -376,6 +376,32 @@ def test_manifest_kind_for_taxonomy_table(tmp_path: Path) -> None:
     assert sources_table["kind"] == "taxonomy"
 
 
+def test_elections_family_uses_election_results_stem(tmp_path: Path) -> None:
+    """PR-O.1 (TODO row 1.8b-i): the elections family writes its fact-table
+    to ``election_results.parquet`` (citizen-honest stem) and registers in
+    the manifest as ``elections.election_results`` with
+    ``kind="observations"``. The default ``observations`` stem is the
+    correct fallback for families NOT listed in ``FAMILY_FACT_TABLE_STEM``
+    (asserted by the ``test.observations`` table elsewhere in this file).
+    """
+    _seed_taxonomy(tmp_path)
+    env = _envelope([_obs()])
+    env = env.model_copy(update={"target_family": "elections"})
+    result = write_batch(env, tmp_path)
+    # File on disk uses the per-family stem.
+    assert result.observations_path.name == "election_results.parquet"
+    assert (tmp_path / "elections" / "election_results.parquet").is_file()
+    assert not (tmp_path / "elections" / "observations.parquet").exists()
+    # Manifest entry uses the per-family stem.
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    elections_table = next(t for t in manifest["tables"]
+                           if t["table_id"] == "elections.election_results")
+    assert elections_table["family"] == "elections"
+    assert elections_table["table_name"] == "election_results"
+    assert elections_table["kind"] == "observations"
+    assert elections_table["files"][0]["path"] == "elections/election_results.parquet"
+
+
 def test_manifest_path_is_posix_no_backslashes(tmp_path: Path) -> None:
     """CLAUDE.md §2: paths leaving the process are POSIX-only."""
     _seed_taxonomy(tmp_path)
@@ -517,7 +543,7 @@ def test_dim_candidates_pk_join_reconstructs_observation_entity(tmp_path: Path) 
     rows = con.execute(
         f"""
         SELECT c.name, o.value_numeric
-        FROM read_parquet('{(tmp_path / "elections" / "observations.parquet").as_posix()}') o
+        FROM read_parquet('{(tmp_path / "elections" / "election_results.parquet").as_posix()}') o
         JOIN read_parquet('{(tmp_path / "elections" / "dim_candidates.parquet").as_posix()}') c
           ON c.candidate_id = o.entity_id
         WHERE o.indicator_id = 'candidate-votes-polled'

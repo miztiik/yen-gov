@@ -7,7 +7,7 @@
 // and untouched.
 //
 // What is JOINed:
-//   elections.observations  — numeric facts (party-* indicators only)
+//   elections.election_results  — numeric facts (party-* indicators only)
 //   elections.dim_parties   — party labels (short_name, eci_code)
 //   taxonomy.sources        — provenance for the union across events
 //
@@ -60,7 +60,7 @@ async function runQueries(
   event_ids: string[],
 ): Promise<{ parties: PartyRow[]; sources: SourceJoinRow[] }> {
   await Promise.all([
-    registerTable("elections.observations"),
+    registerTable("elections.election_results"),
     registerTable("elections.dim_parties"),
     registerTable("taxonomy.sources"),
   ]);
@@ -79,7 +79,7 @@ async function runQueries(
       MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS seats_won,
       MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS votes,
       MAX(CASE WHEN o.indicator_id = 'party-vote-share-pct' THEN o.value_numeric END) AS vote_share_pct
-    FROM observations o
+    FROM election_results o
     LEFT JOIN dim_parties dp
       ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
     WHERE o.entity_id LIKE ${partyPrefix} || '%-PARTY-%'
@@ -96,7 +96,7 @@ async function runQueries(
 
   const sources = await query<SourceJoinRow>(`
     SELECT DISTINCT s.url, s.first_fetched_at
-    FROM observations o
+    FROM election_results o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label IN (${eventList})
       AND o.entity_id LIKE ${partyPrefix} || '%'

@@ -189,7 +189,7 @@ describe("loadStateOverview — happy path", () => {
       "elections.dim_acs",
       "elections.dim_parties",
       "elections.dim_party_alliances",
-      "elections.observations",
+      "elections.election_results",
       "taxonomy.sources",
     ]);
   });

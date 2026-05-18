@@ -21,7 +21,7 @@
 import { getConnection, registerTable } from "../duckdb";
 
 const REQUIRED_TABLES = [
-  "elections.observations",
+  "elections.election_results",
   "elections.dim_acs",
   "elections.dim_candidates",
   "elections.dim_parties",
@@ -53,7 +53,7 @@ export async function buildExploreViews(
   `);
 
   // constituencies: one row per AC in this state, with AC-scope totals
-  // pivoted out of observations.
+  // pivoted out of the fact-table rows.
   await conn.query(`
     CREATE OR REPLACE VIEW constituencies AS
     SELECT
@@ -63,7 +63,7 @@ export async function buildExploreViews(
       CAST(MAX(CASE WHEN o.indicator_id = 'ac-total-electors' THEN o.value_numeric END) AS BIGINT)  AS total_electors,
            MAX(CASE WHEN o.indicator_id = 'ac-turnout-pct'    THEN o.value_numeric END)             AS turnout_pct
     FROM dim_acs da
-    LEFT JOIN observations o
+    LEFT JOIN election_results o
       ON o.entity_id = da.ac_id
      AND o.period_label = ${evt}
     WHERE da.state_code = ${sc}
@@ -80,14 +80,14 @@ export async function buildExploreViews(
         o.entity_id AS candidate_id,
         MAX(CASE WHEN o.indicator_id = 'candidate-votes-polled'   THEN o.value_numeric END) AS votes,
         MAX(CASE WHEN o.indicator_id = 'candidate-vote-share-pct' THEN o.value_numeric END) AS vote_share_pct
-      FROM observations o
+      FROM election_results o
       WHERE o.period_label = ${evt}
         AND o.indicator_id IN ('candidate-votes-polled', 'candidate-vote-share-pct')
       GROUP BY o.entity_id
     ),
     ac_winner AS (
       SELECT entity_id AS ac_id, value_text AS winner_candidate_id
-      FROM observations
+      FROM election_results
       WHERE indicator_id = 'ac-winner-candidate-id'
         AND period_label = ${evt}
     )
@@ -122,7 +122,7 @@ export async function buildExploreViews(
       0                                                                                      AS is_winner,
       1                                                                                      AS is_nota
     FROM dim_acs da
-    JOIN observations o
+    JOIN election_results o
       ON o.entity_id = da.ac_id
      AND o.period_label = ${evt}
     WHERE da.state_code = ${sc}
@@ -141,7 +141,7 @@ export async function buildExploreViews(
       CAST(MAX(CASE WHEN o.indicator_id = 'party-seats-won'    THEN o.value_numeric END) AS INTEGER)       AS seats_won,
       CAST(MAX(CASE WHEN o.indicator_id = 'party-votes-polled' THEN o.value_numeric END) AS BIGINT)        AS votes,
            MAX(CASE WHEN o.indicator_id = 'party-vote-share-pct' THEN o.value_numeric END)                 AS vote_share_pct
-    FROM observations o
+    FROM election_results o
     WHERE o.entity_id LIKE ${partyPrefix} || '%'
       AND o.period_label = ${evt}
       AND o.indicator_id IN ('party-seats-won', 'party-votes-polled', 'party-vote-share-pct')

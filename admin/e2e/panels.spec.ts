@@ -18,7 +18,7 @@ const FIXTURES = {
     generated_at: "2026-05-18T00:00:00Z",
     stores: [{
       family: "elections", kind: "observations",
-      path: "datasets/elections/observations.parquet",
+      path: "datasets/elections/election_results.parquet",
       size_bytes: 14_772_201, mtime: "2026-05-18T00:00:00Z",
       row_count: 199_330,
       stats: { indicators: 30, entities: 39_568, periods: 27, min_year: 2016, max_year: 2026, sources: 84 },

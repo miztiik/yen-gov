@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "./dim-candidates.schema.json",
   "title": "Candidate dimension row (canonical, per-contest)",
-  "description": "Logical contract for one row of datasets/elections/dim_candidates.parquet. One row per (ac_id, period_label, ballot_serial). Holds the denormalised strings (candidate name, party_id) that elections/observations.parquet does not carry. PK = candidate_id, which matches the per-contest entity_id constructed by canonical/adapters/eci/identity.candidate_entity_id. Read by frontend view-model loaders that JOIN observations + dim_candidates to reconstruct citizen-facing shapes (per TODO/20260517-canonical-long-format-pivot.md sub-phase 1.2b). NOT modelled as observations because name/party are per-entity attributes, not time-varying numeric facts (OWID fact/dim separation).",
+  "description": "Logical contract for one row of datasets/elections/dim_candidates.parquet. One row per (ac_id, period_label, ballot_serial). Holds the denormalised strings (candidate name, party_id) that elections/election_results.parquet does not carry. PK = candidate_id, which matches the per-contest entity_id constructed by canonical/adapters/eci/identity.candidate_entity_id. Read by frontend view-model loaders that JOIN election_results + dim_candidates to reconstruct citizen-facing shapes (per TODO/20260517-canonical-long-format-pivot.md sub-phase 1.2b). NOT modelled as observations because name/party are per-entity attributes, not time-varying numeric facts (OWID fact/dim separation).",
   "x-version": "1.0",
   "x-changelog": [
     {
