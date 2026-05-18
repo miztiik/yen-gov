@@ -278,6 +278,20 @@ Both `dp.recognition` and `dpa.alliance` ride on the existing `PartyTotals` cont
 
 **Deleted from `lib/data.ts`.** `fetchParties`, `PartyEntry`, `PartiesSnapshot`. The per-event `datasets/elections/<event>/<state>/parties.json` shard becomes a Phase 1.8 delete candidate (no remaining frontend consumer).
 
+### Phase 1.4 — per-AC winners + margin histogram (PR-I)
+
+**Status (2026-05-18)**: live on `/s/:state`. `StateOverview.svelte` and `MarginHistogram.svelte` no longer call `getDb` (`results.sqlite`); both consume `ac_winners[]` from `loadStateOverview`.
+
+**Loader extension.** `runQueries` now also registers `elections.dim_acs` and runs a fourth SQL — two CTEs over `observations` for `ac-winner-party-id` and `ac-margin-pct`, joined to `dim_acs` (for `eci_no` + `name`) and LEFT JOINed to `dim_parties` (for citizen-visible `short_name` + `eci_code`). Keyed on the canonical AC entity_id `IN-<state>-AC-<delim_year>-<eci_no>` and filtered by `period_label = ${event}`. The result is a slim `AcWinner` row (`ac_eci_no`, `ac_name`, `party_eci_code`, `party_short`, `margin_pct`) — exactly what both consumers need, no more.
+
+**StateOverview consumer.** The page used to spin up a per-route `getDb` IIFE that built a `Map<eci_no, {party, margin_pct}>` from raw SQLite rows. That entire block is gone; the map is now a one-line `$derived.by` over `summary.ac_winners`. The downstream template (per-AC badges with party color + tooltip) is unchanged.
+
+**MarginHistogram consumer.** Was self-fetching (`event` + `state` props, internal `getDb` query). Now a pure presentational component: takes `rows: AcWinner[] | null` as a prop, adapts to its internal `Row` shape inside a `$derived`. No SQL, no `getDb`, no `error` arm — the parent's `LoaderResult` already handles failure.
+
+**Why the loader name stays.** `state-overview` answers "what happened in this state at this event"; per-AC winners are a slice of that same question. Splitting them into a separate loader would force two queries against the same Parquet for one page render. The chunk is small (~234 AC rows for TN), so co-locating is cheap.
+
+**What this removes from the bundle.** Two of the four remaining `getDb` callers on the citizen path. `results.sqlite` is still loaded by `RacesBoard`, `StateAcMap`, `psephlab/actuals`, and `/explore`; those move in subsequent PRs (Phase 1.5–1.7). Phase 1.8 closes when no citizen-path code imports `getDb`.
+
 #### Coverage parity (no-regression check)
 
 Verified pre-merge against `datasets/elections/observations/**/*.parquet` and `datasets/reference/in/election-events.json`:

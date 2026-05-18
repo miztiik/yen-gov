@@ -8,8 +8,11 @@
   // replacing the per-shard result.summary.json fetch. PR-G (Phase 1.3c)
   // migrated ElectionSeatsTrend, Settings, IndiaMap and the Party-page
   // summary side onto view-models too; `fetchResultSummary` is now deleted.
-  // The remaining `fetchParties` consumer is `routes/Party.svelte` and
-  // migrates in PR-H once dim_parties carries `alliance`.
+  // PR-H (Phase 1.3d) closed Party.svelte off `fetchParties`. PR-I (Phase
+  // 1.4) extends the view-model with `ac_winners[]` so the per-AC badges +
+  // MarginHistogram both consume canonical data — the page no longer fetches
+  // `results.sqlite` for its own winners chunk (StateAcMap + RacesBoard
+  // still do, migrating in Phase 1.5).
   import {
     loadStateOverview,
     type StateOverviewViewModel,
@@ -30,7 +33,6 @@
   import ElectionSeatsTrend from "../lib/ElectionSeatsTrend.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
-  import { getDb } from "../lib/sql";
   import { colors } from "../lib/colors/store.svelte";
   import { url } from "../lib/url";
   import {
@@ -141,22 +143,21 @@
     .then(c => (catalogue = c))
     .catch(() => (catalogue = null));
 
-  // Per-AC winner & margin lookup. Loaded from results.sqlite (same DB the
-  // map and histogram use; the lib/sql cache means this is a single fetch
-  // shared across components on this page). Indexed by ac_eci_no so the
-  // constituency list can render a coloured dot + margin badge inline.
+  // Per-AC winner & margin lookup. Comes from the view-model loader (PR-I,
+  // Phase 1.4) — `summary.ac_winners` is assembled from `ac-winner-party-id`
+  // + `ac-margin-pct` observations JOINed to dim_acs + dim_parties. The
+  // Map<eci_no, AcWinner> shape is preserved so the constituency list
+  // template (line ~770) can stay unchanged.
   interface AcWinner {
     party_eci_code: string | null;
     party_short: string;
     margin_pct: number;
   }
-  let winners = $state<Map<number, AcWinner>>(new Map());
 
   $effect(() => {
     summaryResult = { status: "loading" };
     acs = null;
     districts = null;
-    winners = new Map();
     const sc = state_code;
     const ev = event;
     if (!sc) return; // wait for slug → code resolution
@@ -182,6 +183,7 @@
           total_seats: 0,
           totals: null,
           party_totals: [],
+          ac_winners: [],
           sources: [],
         },
         reason: "not_published",
@@ -191,35 +193,22 @@
     const districts_p = fetchDistricts(sc).then(d => d.districts).catch(() => null);
     Promise.all([acs_p, districts_p])
       .then(([c, d]) => { acs = c; districts = d; });
-    // Winners load is independent of the JSON fetches so the page renders
-    // even if the SQLite is briefly unavailable -- the badges just stay
-    // empty rather than blocking everything else.
-    if (!ev || event_status === "pending_upstream") return;
-    (async () => {
-      try {
-        if (!sc) return;
-        const db = await getDb(ev, sc);
-        const sql = `
-          SELECT c.ac_eci_no AS ac, w.party_eci_code, w.party_short,
-                 100.0 * (w.votes - r2.votes) / NULLIF(c.votes_polled, 0) AS margin_pct
-          FROM constituencies c
-          JOIN candidates w  ON w.ac_eci_no = c.ac_eci_no AND w.is_winner = 1
-          JOIN candidates r2 ON r2.ac_eci_no = c.ac_eci_no AND r2.rank = 2 AND r2.is_nota = 0;
-        `;
-        const res = db.exec(sql);
-        const m = new Map<number, AcWinner>();
-        if (res[0]) for (const v of res[0].values) {
-          m.set(v[0] as number, {
-            party_eci_code: v[1] as string | null,
-            party_short: v[2] as string,
-            margin_pct: v[3] as number,
-          });
-        }
-        if (state_code === sc) winners = m;
-      } catch {
-        // Non-fatal: list still renders without badges.
-      }
-    })();
+  });
+
+  // Map<eci_no, AcWinner> derived from the view-model. Keeps the template
+  // lookup `winners.get(ac.eci_no)` unchanged; empty for events with no
+  // per-AC observations (older cohorts) or while the loader is in flight.
+  const winners = $derived.by<Map<number, AcWinner>>(() => {
+    const m = new Map<number, AcWinner>();
+    if (!summary) return m;
+    for (const w of summary.ac_winners) {
+      m.set(w.ac_eci_no, {
+        party_eci_code: w.party_eci_code,
+        party_short: w.party_short,
+        margin_pct: w.margin_pct,
+      });
+    }
+    return m;
   });
 
   // Retry callable for the failed arm (PR-E pattern). Captures current
@@ -653,7 +642,7 @@
     {#if event}
       <section class="bg-white rounded-lg shadow-sm p-5">
         <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Margin of victory</h2>
-        <MarginHistogram {event} state={state_code} />
+        <MarginHistogram rows={summary?.ac_winners ?? null} />
       </section>
 
       <!-- Races by competitiveness. Same per-AC margin data as the

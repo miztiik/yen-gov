@@ -83,6 +83,23 @@ const sourceRows = [
   },
 ];
 
+const acWinnerRows = [
+  {
+    ac_eci_no: 1,
+    ac_name: "GUMMIDIPOONDI",
+    party_eci_code: "1234",
+    party_short: "DMK",
+    margin_pct: 12.5,
+  },
+  {
+    ac_eci_no: 2,
+    ac_name: "PONNERI",
+    party_eci_code: null,
+    party_short: "AIADMK",
+    margin_pct: 3.4,
+  },
+];
+
 beforeEach(() => {
   mockedQuery.mockReset();
   mockedRegister.mockReset();
@@ -94,7 +111,8 @@ describe("loadStateOverview — happy path", () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(stateScopeRows)
-      .mockResolvedValueOnce(sourceRows);
+      .mockResolvedValueOnce(sourceRows)
+      .mockResolvedValueOnce(acWinnerRows);
 
     const res = await loadStateOverview("AcGenApr2021", "S22");
     expect(res.status).toBe("ok");
@@ -141,16 +159,34 @@ describe("loadStateOverview — happy path", () => {
         fetched_at: "2026-05-02T00:00:00Z",
       },
     ]);
+    expect(res.data.ac_winners).toEqual([
+      {
+        ac_eci_no: 1,
+        ac_name: "GUMMIDIPOONDI",
+        party_eci_code: "1234",
+        party_short: "DMK",
+        margin_pct: 12.5,
+      },
+      {
+        ac_eci_no: 2,
+        ac_name: "PONNERI",
+        party_eci_code: null,
+        party_short: "AIADMK",
+        margin_pct: 3.4,
+      },
+    ]);
   });
 
-  it("registers all four canonical tables before querying", async () => {
+  it("registers all five canonical tables before querying", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(stateScopeRows)
-      .mockResolvedValueOnce(sourceRows);
+      .mockResolvedValueOnce(sourceRows)
+      .mockResolvedValueOnce(acWinnerRows);
     await loadStateOverview("AcGenApr2021", "S22");
     const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
     expect(registered).toEqual([
+      "elections.dim_acs",
       "elections.dim_parties",
       "elections.dim_party_alliances",
       "elections.observations",
@@ -201,7 +237,8 @@ describe("loadStateOverview — failed arm", () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(stateScopeRows)
-      .mockResolvedValueOnce(sourceRows);
+      .mockResolvedValueOnce(sourceRows)
+      .mockResolvedValueOnce(acWinnerRows);
     if (first.status !== "failed" || !first.retry) throw new Error("no retry");
     const second = await first.retry();
     expect(second.status).toBe("ok");
