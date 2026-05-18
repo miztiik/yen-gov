@@ -121,3 +121,28 @@ def party_dim_rows(lookup: PartyLookup, *, source_id: str) -> list[dict]:
             "source_id": source_id,
         })
     return out
+
+
+def party_alliance_dim_rows(lookup: PartyLookup, *, source_id: str) -> list[dict]:
+    """Build dim_party_alliances payload dicts from a loaded lookup.
+
+    Flattens each party's ``alliance_history[]`` into one row per
+    (party_id, period_label) pair. Parties without an ``alliance_history``
+    entry contribute zero rows (absence rather than nulls). An explicit
+    ``{"period_label": ..., "alliance": null}`` history entry surfaces as
+    a row with alliance=None — that is "non-aligned this event", distinct
+    from "alliance was never declared".
+    """
+    roster: list[dict] = getattr(lookup, "_roster", [])
+    out: list[dict] = []
+    for row in roster:
+        history = row.get("alliance_history") or []
+        for entry in history:
+            out.append({
+                "party_id": row["party_id"],
+                "short_name": row["short_name"],
+                "period_label": entry["period_label"],
+                "alliance": entry.get("alliance"),
+                "source_id": source_id,
+            })
+    return out

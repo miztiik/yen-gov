@@ -33,6 +33,8 @@ const partyRows = [
     short_name: "DMK",
     full_name: "Dravida Munnetra Kazhagam",
     eci_code: "1234",
+    recognition: "state",
+    alliance: "SPA",
     seats_contested: 173,
     seats_won: 133,
     votes: 22_350_000,
@@ -43,17 +45,20 @@ const partyRows = [
     short_name: "AIADMK",
     full_name: "All India Anna Dravida Munnetra Kazhagam",
     eci_code: "742",
+    recognition: "state",
+    alliance: "AIADMK+",
     seats_contested: 191,
     seats_won: 66,
     votes: 19_300_000,
     vote_share_pct: 33.3,
   },
   {
-    // dim_parties has no row for CPIM today — LEFT JOIN yields null cols.
     short_name_key: "CPIM",
     short_name: null,
     full_name: null,
     eci_code: null,
+    recognition: null,
+    alliance: null,
     seats_contested: 6,
     seats_won: 2,
     votes: 1_100_000,
@@ -102,16 +107,21 @@ describe("loadStateOverview — happy path", () => {
       party_short: "DMK",
       party_full: "Dravida Munnetra Kazhagam",
       party_eci_code: "1234",
+      recognition: "state",
+      alliance: "SPA",
       seats_contested: 173,
       seats_won: 133,
       votes: 22_350_000,
       vote_share_pct: 37.7,
     });
-    // CPIM falls back to the extracted short_name_key when dim row absent.
+    // CPIM falls back to the extracted short_name_key when dim row absent;
+    // recognition + alliance both surface as null.
     expect(res.data.party_totals[2]).toMatchObject({
       party_short: "CPIM",
       party_full: null,
       party_eci_code: null,
+      recognition: null,
+      alliance: null,
       seats_won: 2,
     });
     // total_seats is derived in-loader, not a fourth query.
@@ -133,7 +143,7 @@ describe("loadStateOverview — happy path", () => {
     ]);
   });
 
-  it("registers all three canonical tables before querying", async () => {
+  it("registers all four canonical tables before querying", async () => {
     mockedQuery
       .mockResolvedValueOnce(partyRows)
       .mockResolvedValueOnce(stateScopeRows)
@@ -142,6 +152,7 @@ describe("loadStateOverview — happy path", () => {
     const registered = mockedRegister.mock.calls.map((c) => c[0]).sort();
     expect(registered).toEqual([
       "elections.dim_parties",
+      "elections.dim_party_alliances",
       "elections.observations",
       "taxonomy.sources",
     ]);

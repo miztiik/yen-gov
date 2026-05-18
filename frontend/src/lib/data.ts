@@ -11,6 +11,8 @@ export interface PartyTotals {
   party_eci_code: string | null;
   party_short: string;
   party_full: string | null;
+  recognition?: string | null;
+  alliance?: string | null;
   seats_contested: number | null;
   seats_won: number;
   votes: number;
@@ -53,23 +55,6 @@ export interface ConstituencyResult {
   others: OthersBucket | null;
   top_n_cutoff: number;
   winner: WinnerInfo;
-}
-
-export interface PartyEntry {
-  eci_code: string;
-  short_name: string;
-  full_name: string;
-  symbol?: string;
-  recognition?: "national" | "state" | "registered_unrecognised" | "unknown";
-  alliance?: string;
-}
-
-export interface PartiesSnapshot {
-  $schema: string;
-  $schema_version: string;
-  sources: SourceRef[];
-  election: string;
-  parties: PartyEntry[];
 }
 
 /**
@@ -199,10 +184,6 @@ async function fetchJson<T>(path: string): Promise<T> {
 
 export function fetchStates(): Promise<StatesCollection> {
   return fetchJson<StatesCollection>("/reference/in/states.json");
-}
-
-export function fetchParties(event: string, state: string): Promise<PartiesSnapshot> {
-  return fetchJson<PartiesSnapshot>(`/elections/${event}/${state}/parties.json`);
 }
 
 /**

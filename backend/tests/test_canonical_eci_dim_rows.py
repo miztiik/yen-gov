@@ -25,6 +25,7 @@ from yen_gov.canonical.adapters.eci.observations import (
 )
 from yen_gov.canonical.adapters.eci.party_lookup import (
     load_party_lookup,
+    party_alliance_dim_rows,
     party_dim_rows,
 )
 from yen_gov.core.models import (
@@ -183,3 +184,71 @@ class TestPartyRegistry:
         assert by_id["parties.IN.DMK"]["recognition"] == "state"
         assert by_id["parties.IN.DMK"]["eci_code"] == "1234"
         assert by_id["parties.IN.IND"]["eci_code"] is None
+
+
+def _write_parties_with_alliance(tmp: Path) -> Path:
+    """Roster with alliance_history populated for PR-H tests."""
+    tax = tmp / "taxonomy"
+    tax.mkdir(parents=True)
+    payload = {
+        "$schema": "../schemas/taxonomy-parties.schema.json",
+        "$schema_version": "1.0",
+        "sources": [],
+        "parties": [
+            {"party_id": "parties.IN.DMK", "short_name": "DMK",
+             "full_name": "Dravida Munnetra Kazhagam", "aliases": [],
+             "eci_codes": ["1234"], "state_scope": ["S22"],
+             "recognition": "state",
+             "alliance_history": [
+                 {"period_label": "AcGenApr2021", "alliance": "UPA"},
+                 {"period_label": "AcGenMay2026", "alliance": "SPA"},
+             ]},
+            {"party_id": "parties.IN.IND", "short_name": "IND",
+             "full_name": "Independent", "aliases": [], "eci_codes": [],
+             "state_scope": ["IN"]},
+            {"party_id": "parties.IN.NTK", "short_name": "NTK",
+             "full_name": "Naam Tamilar Katchi", "aliases": [],
+             "eci_codes": ["999"], "state_scope": ["S22"],
+             "alliance_history": [
+                 {"period_label": "AcGenMay2026", "alliance": None},
+             ]},
+        ],
+    }
+    (tax / "parties.json").write_text(json.dumps(payload), encoding="utf-8")
+    return tmp
+
+
+class TestPartyAllianceDim:
+    def test_emits_one_row_per_event_per_party(self, tmp_path):
+        lookup = load_party_lookup(_write_parties_with_alliance(tmp_path))
+        rows = party_alliance_dim_rows(lookup, source_id=SOURCE)
+        # DMK has 2 events; NTK has 1; IND has no alliance_history -> 0.
+        assert len(rows) == 3
+        keys = {(r["party_id"], r["period_label"]) for r in rows}
+        assert keys == {
+            ("parties.IN.DMK", "AcGenApr2021"),
+            ("parties.IN.DMK", "AcGenMay2026"),
+            ("parties.IN.NTK", "AcGenMay2026"),
+        }
+
+    def test_skips_party_with_no_history(self, tmp_path):
+        lookup = load_party_lookup(_write_parties_with_alliance(tmp_path))
+        rows = party_alliance_dim_rows(lookup, source_id=SOURCE)
+        # IND deliberately has no alliance_history field at all.
+        assert all(r["party_id"] != "parties.IN.IND" for r in rows)
+
+    def test_preserves_null_alliance(self, tmp_path):
+        """Explicit alliance=null entries are non-aligned-this-event rows,
+        distinct from 'never declared'. Writer stores them as NULL."""
+        lookup = load_party_lookup(_write_parties_with_alliance(tmp_path))
+        rows = party_alliance_dim_rows(lookup, source_id=SOURCE)
+        by_key = {(r["party_id"], r["period_label"]): r for r in rows}
+        assert by_key[("parties.IN.NTK", "AcGenMay2026")]["alliance"] is None
+        assert by_key[("parties.IN.DMK", "AcGenMay2026")]["alliance"] == "SPA"
+
+    def test_carries_short_name_and_source_id(self, tmp_path):
+        lookup = load_party_lookup(_write_parties_with_alliance(tmp_path))
+        rows = party_alliance_dim_rows(lookup, source_id=SOURCE)
+        assert all(r["source_id"] == SOURCE for r in rows)
+        by_key = {(r["party_id"], r["period_label"]): r for r in rows}
+        assert by_key[("parties.IN.DMK", "AcGenMay2026")]["short_name"] == "DMK"

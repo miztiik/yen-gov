@@ -52,6 +52,7 @@ from yen_gov.canonical.envelope import (
     BatchEnvelope,
     CandidateDimRow,
     ObservationRow,
+    PartyAllianceDimRow,
     PartyDimRow,
     ReplacementSemantics,
     SourceRow,
@@ -481,6 +482,21 @@ _DIM_SPECS: dict[str, dict] = {
             ("source_id", "VARCHAR NOT NULL"),
         ],
     },
+    "party_alliance": {
+        "stem": "dim_party_alliances",
+        # Composite PK: (party_id, period_label). _upsert_dim accepts pk as
+        # either a string (scalar PK) or a list (composite PK).
+        "pk": ["party_id", "period_label"],
+        "schema_file": "dim-party-alliances.schema.json",
+        "sort_cols": ["party_id", "period_label"],
+        "columns": [
+            ("party_id", "VARCHAR NOT NULL"),
+            ("short_name", "VARCHAR NOT NULL"),
+            ("period_label", "VARCHAR NOT NULL"),
+            ("alliance", "VARCHAR"),
+            ("source_id", "VARCHAR NOT NULL"),
+        ],
+    },
 }
 
 
@@ -496,6 +512,7 @@ def _write_dimensions(envelope: BatchEnvelope, family_dir: Path) -> dict[str, in
         "candidate": [r.model_dump() for r in envelope.candidate_dim_rows],
         "ac": [r.model_dump() for r in envelope.ac_dim_rows],
         "party": [r.model_dump() for r in envelope.party_dim_rows],
+        "party_alliance": [r.model_dump() for r in envelope.party_alliance_dim_rows],
     }
     for kind, rows in dim_payloads.items():
         if not rows:
@@ -520,15 +537,36 @@ def _upsert_dim(*, out_path: Path, rows: list[dict], spec: dict, table_id: str) 
             con.execute(
                 f"INSERT INTO dim SELECT * FROM read_parquet('{out_path.as_posix()}')"
             )
-        # Dedupe envelope-internal collisions: last row wins per PK.
-        deduped: dict[str, dict] = {}
+        # PK is either a string (scalar) or a list (composite). Normalise to
+        # a tuple of column names; the dedupe key is a tuple of values.
         pk = spec["pk"]
+        pk_cols: tuple[str, ...] = (pk,) if isinstance(pk, str) else tuple(pk)
+        # Dedupe envelope-internal collisions: last row wins per PK.
+        deduped: dict[tuple, dict] = {}
         for r in rows:
-            deduped[r[pk]] = r
+            deduped[tuple(r[c] for c in pk_cols)] = r
         env_rows = list(deduped.values())
-        env_pks = [r[pk] for r in env_rows]
-        placeholders = ", ".join(["?"] * len(env_pks))
-        con.execute(f"DELETE FROM dim WHERE {pk} IN ({placeholders})", env_pks)
+        if len(pk_cols) == 1:
+            (pk_col,) = pk_cols
+            env_pks = [r[pk_col] for r in env_rows]
+            placeholders = ", ".join(["?"] * len(env_pks))
+            con.execute(
+                f"DELETE FROM dim WHERE {pk_col} IN ({placeholders})", env_pks
+            )
+        else:
+            # Composite PK: (col1, col2) IN ((?,?), (?,?), ...)
+            tuple_placeholders = ", ".join(
+                ["(" + ", ".join(["?"] * len(pk_cols)) + ")"] * len(env_rows)
+            )
+            flat: list = []
+            for r in env_rows:
+                for c in pk_cols:
+                    flat.append(r[c])
+            cols_csv = ", ".join(pk_cols)
+            con.execute(
+                f"DELETE FROM dim WHERE ({cols_csv}) IN ({tuple_placeholders})",
+                flat,
+            )
         col_names = [c[0] for c in spec["columns"]]
         ph = ", ".join(["?"] * len(col_names))
         con.executemany(
@@ -720,5 +758,6 @@ def _dim_schema_file(stem: str) -> str | None:
         "dim_candidates": "dim-candidates.schema.json",
         "dim_acs": "dim-acs.schema.json",
         "dim_parties": "dim-parties.schema.json",
+        "dim_party_alliances": "dim-party-alliances.schema.json",
     }
     return mapping.get(stem)

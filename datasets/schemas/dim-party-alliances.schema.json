@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./dim-party-alliances.schema.json",
+  "title": "Party alliance dimension row (per-event)",
+  "description": "Logical contract for one row of datasets/elections/dim_party_alliances.parquet. One row per (party_id, period_label) pair where an alliance is declared in datasets/taxonomy/parties.json's alliance_history[]. Alliance is per-event (e.g. DMK was 'UPA' in 2019, 'SPA' in 2026), so it lives on its own dim table rather than as a column on dim_parties (party identity). The view-model layer LEFT JOINs this on (party_id, period_label) so parties without an entry render with alliance=NULL. Sub-phase 1.3d of TODO/20260517-canonical-long-format-pivot.md (PR-H).",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-18",
+      "description": "Initial dim_party_alliances schema. Composite PK = (party_id, period_label). Columns: party_id FK -> dim_parties, short_name (denormalised for JOIN debugging), period_label (election event), alliance (nullable -- explicit non-aligned this event), source_id FK -> sources."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["party_id", "short_name", "period_label", "source_id"],
+  "properties": {
+    "party_id": {
+      "type": "string",
+      "pattern": "^parties\\.IN\\.[A-Z][A-Z0-9_]*$",
+      "description": "FK -> dim_parties.party_id. Half of the composite PK."
+    },
+    "short_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display abbreviation, denormalised from dim_parties for JOIN-free debugging of the alliance table."
+    },
+    "period_label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Election event id (e.g. 'AcGenMay2026'). Half of the composite PK."
+    },
+    "alliance": {
+      "type": ["string", "null"],
+      "description": "Alliance name as declared in alliance_history[] for that event (e.g. 'SPA', 'NDA', 'UDF', 'LDF'). NULL means an explicit 'non-aligned this event' entry was authored; absence of any row means alliance was never declared and the view-model also returns NULL."
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "FK -> taxonomy/sources.parquet. The provenance row backing the alliance_history entry."
+    }
+  }
+}

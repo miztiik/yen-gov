@@ -172,6 +172,25 @@ class PartyDimRow(BaseModel):
     source_id: str = Field(min_length=1)
 
 
+class PartyAllianceDimRow(BaseModel):
+    """A row destined for ``datasets/elections/dim_party_alliances.parquet``.
+
+    Mirrors datasets/schemas/dim-party-alliances.schema.json. Composite PK =
+    (party_id, period_label). Alliance is per-event (DMK was 'UPA' in 2019,
+    'SPA' in 2026), so it sits on its own dim table rather than as a column
+    on dim_parties (party identity). Sourced from the alliance_history[]
+    field of taxonomy/parties.json entries.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    party_id: str = Field(pattern=r"^parties\.IN\.[A-Z][A-Z0-9_]*$")
+    short_name: str = Field(min_length=1)
+    period_label: str = Field(min_length=1)
+    alliance: str | None = None
+    source_id: str = Field(min_length=1)
+
+
 class BatchEnvelope(BaseModel):
     """The one shape adapters hand to the writer.
 
@@ -193,3 +212,4 @@ class BatchEnvelope(BaseModel):
     candidate_dim_rows: list[CandidateDimRow] = Field(default_factory=list)
     ac_dim_rows: list[AcDimRow] = Field(default_factory=list)
     party_dim_rows: list[PartyDimRow] = Field(default_factory=list)
+    party_alliance_dim_rows: list[PartyAllianceDimRow] = Field(default_factory=list)

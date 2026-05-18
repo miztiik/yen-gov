@@ -67,11 +67,16 @@ test.describe("extended routes", () => {
   test("party page renders for DMK in Tamil Nadu", async ({ page }) => {
     // Slug shape: <short-slug>-<eci-code-lower>. DMK is short=DMK, eci=DMK.
     await page.goto("/s/tamil-nadu/party/dmk-DMK");
-    // Wait for at least one of: party heading, summary table, or "no
-    // matching party" fallback. We don't pin exact copy because the
-    // Party.svelte template may evolve; the pageerror trap is the real
-    // assertion.
     await page.waitForLoadState("networkidle", { timeout: 15_000 });
+    // PR-H (Phase 1.3d): per-event alliance now rides on PartyTotals via
+    // the dim_party_alliances LEFT JOIN. DMK for AcGenMay2026 surfaces
+    // with alliance=SPA — the citizen-visible coverage improvement (this
+    // line never rendered before PR-H). Recognition is NOT asserted: the
+    // taxonomy/parties.json seed currently leaves `recognition` unset on
+    // every entry, so `dim_parties.recognition` is uniformly NULL today;
+    // populating it is a content-only follow-up.
+    const meta = page.locator("header p.text-sm");
+    await expect(meta).toContainText(/alliance: SPA/);
   });
 
   test("psephlab loads actuals for tamil-nadu / AcGenMay2026", async ({ page }) => {

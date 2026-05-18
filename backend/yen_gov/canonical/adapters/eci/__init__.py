@@ -31,6 +31,7 @@ from yen_gov.canonical.adapters.eci.observations import (
 from yen_gov.canonical.adapters.eci.party_lookup import (
     PartyLookup,
     load_party_lookup,
+    party_alliance_dim_rows,
     party_dim_rows,
 )
 from yen_gov.canonical.adapters.eci.rollups import state_rollup_observations
@@ -43,6 +44,7 @@ __all__ = [
     "load_party_lookup",
     "observations_from_constituency",
     "parse_period_label",
+    "party_alliance_dim_rows",
     "party_dim_rows",
     "party_rollup_entity_id",
     "state_rollup_entity_id",
