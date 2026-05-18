@@ -37,6 +37,8 @@ export interface ManifestFile {
 export interface ManifestTable {
   table_id: string;
   family: string;
+  table_name?: string;
+  kind?: "observations" | "dim" | "taxonomy" | "other";
   format: "parquet";
   schema_version: string;
   partition_columns: string[];
@@ -77,6 +79,21 @@ export function tableFromManifest(m: Manifest, table_id: string): ManifestTable 
 
 export function fileUrls(table: ManifestTable): string[] {
   return table.files.map(f => `${DATA_BASE}/${f.path}`);
+}
+
+/**
+ * Default DuckDB view name for a manifest table when the caller does not
+ * pass an explicit `viewName`. Prefers the manifest's `table_name` field
+ * (added in manifest.schema.json v1.1 per THE PLAN row 1.8a-bis); falls
+ * back to the last dotted segment of `table_id` for back-compat with
+ * older manifests that pre-date the field.
+ *
+ * Pure helper — exported so contract tests can assert the defaulting rule
+ * without booting DuckDB-WASM in vitest (Phase 0.11 Playwright owns the
+ * real round-trip).
+ */
+export function defaultViewName(table: ManifestTable, table_id: string): string {
+  return table.table_name ?? table_id.split(".").pop()!;
 }
 
 // -----------------------------------------------------------------------------
@@ -129,16 +146,15 @@ export async function registerTable(
   table_id: string,
   opts: { viewName?: string } = {},
 ): Promise<string> {
-  const viewName = opts.viewName ?? table_id.split(".").pop()!;
-  const key = `${table_id}::${viewName}`;
-  if (registeredTables.has(key)) return viewName;
-
   const [db, conn, manifest] = await Promise.all([
     dbPromise ?? (dbPromise = bootDB()),
     getConnection(),
     loadManifest(),
   ]);
   const table = tableFromManifest(manifest, table_id);
+  const viewName = opts.viewName ?? defaultViewName(table, table_id);
+  const key = `${table_id}::${viewName}`;
+  if (registeredTables.has(key)) return viewName;
 
   // Register each Parquet file by its URL so DuckDB-WASM can issue HTTP Range
   // reads. We DON'T pre-buffer the bytes — partitioned tables can be large

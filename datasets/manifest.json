@@ -1,12 +1,14 @@
 {
   "$schema": "./schemas/manifest.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "1.1",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-18T19:08:14Z",
+  "generated_at": "2026-05-18T22:04:44Z",
   "tables": [
     {
       "table_id": "elections.observations",
       "family": "elections",
+      "table_name": "observations",
+      "kind": "observations",
       "format": "parquet",
       "schema_version": "1.1",
       "partition_columns": [],
@@ -22,6 +24,8 @@
     {
       "table_id": "elections.dim_acs",
       "family": "elections",
+      "table_name": "dim_acs",
+      "kind": "dim",
       "format": "parquet",
       "schema_version": "1.0",
       "partition_columns": [],
@@ -37,6 +41,8 @@
     {
       "table_id": "elections.dim_candidates",
       "family": "elections",
+      "table_name": "dim_candidates",
+      "kind": "dim",
       "format": "parquet",
       "schema_version": "1.0",
       "partition_columns": [],
@@ -52,6 +58,8 @@
     {
       "table_id": "elections.dim_parties",
       "family": "elections",
+      "table_name": "dim_parties",
+      "kind": "dim",
       "format": "parquet",
       "schema_version": "1.0",
       "partition_columns": [],
@@ -67,6 +75,8 @@
     {
       "table_id": "elections.dim_party_alliances",
       "family": "elections",
+      "table_name": "dim_party_alliances",
+      "kind": "dim",
       "format": "parquet",
       "schema_version": "1.0",
       "partition_columns": [],
@@ -82,6 +92,8 @@
     {
       "table_id": "taxonomy.sources",
       "family": "taxonomy",
+      "table_name": "sources",
+      "kind": "taxonomy",
       "format": "parquet",
       "schema_version": "1.0",
       "partition_columns": [],

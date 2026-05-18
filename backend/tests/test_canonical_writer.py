@@ -29,6 +29,7 @@ from yen_gov.canonical import (
     write_batch,
 )
 from yen_gov.canonical.writer import WriterError
+from yen_gov.core.schema_registry import schema_version
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -342,9 +343,37 @@ def test_manifest_regenerates_with_correct_table_entries(tmp_path: Path) -> None
     assert test_table["family"] == "test"
     assert test_table["format"] == "parquet"
     assert test_table["schema_version"] == "1.1"
+    assert test_table["table_name"] == "observations"
+    assert test_table["kind"] == "observations"
     assert test_table["files"][0]["path"] == "test/observations.parquet"
     assert test_table["files"][0]["row_count"] == 1
     assert test_table["row_count_total"] == 1
+
+
+def test_manifest_schema_version_is_current(tmp_path: Path) -> None:
+    """manifest.json must declare $schema_version equal to manifest.schema.json's
+    current x-version (CLAUDE.md §11 strict equality — the validator rejects
+    any drift). Sourcing through schema_registry catches hand-typed literal
+    drift in the writer (see lessons.md 2026-05-16 ¶“Schema enum extension”).
+    """
+    _seed_taxonomy(tmp_path)
+    write_batch(_envelope([_obs()]), tmp_path)
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["$schema_version"] == schema_version("manifest.schema.json")
+    assert manifest["$schema_version"] == "1.1"
+
+
+def test_manifest_kind_for_taxonomy_table(tmp_path: Path) -> None:
+    """taxonomy/*.parquet entries carry kind="taxonomy" regardless of stem —
+    the family wins (canonical-store.md §2a: taxonomy exception, flat names).
+    """
+    _seed_taxonomy(tmp_path)
+    write_batch(_envelope([_obs()]), tmp_path)
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    sources_table = next(t for t in manifest["tables"] if t["table_id"] == "taxonomy.sources")
+    assert sources_table["family"] == "taxonomy"
+    assert sources_table["table_name"] == "sources"
+    assert sources_table["kind"] == "taxonomy"
 
 
 def test_manifest_path_is_posix_no_backslashes(tmp_path: Path) -> None:
@@ -549,4 +578,6 @@ def test_dim_tables_appear_in_manifest(tmp_path: Path) -> None:
                 if t["table_id"] == "elections.dim_candidates")
     assert cand["format"] == "parquet"
     assert cand["schema_version"] == "1.0"
+    assert cand["table_name"] == "dim_candidates"
+    assert cand["kind"] == "dim"
     assert cand["row_count_total"] == 1

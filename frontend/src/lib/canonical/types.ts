@@ -44,7 +44,7 @@ export const SUPPORTED_SCHEMA_VERSIONS: Record<string, ReadonlyArray<string>> = 
   "caveat.schema.json": ["1.0"],
   "methodology-break.schema.json": ["1.0"],
   "facet-axes.schema.json": ["1.0"],
-  "manifest.schema.json": ["1.0"],
+  "manifest.schema.json": ["1.0", "1.1"],
   "taxonomy-parties.schema.json": ["1.0"],
   "delimitation-lineage.schema.json": ["1.0"],
 };

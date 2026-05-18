@@ -730,6 +730,8 @@ def _describe_parquet_table(
     return {
         "table_id": table_id,
         "family": family,
+        "table_name": parquet_path.stem,
+        "kind": _classify_kind(parquet_path, family),
         "format": "parquet",
         "schema_version": schema_version(row_schema_file),
         "partition_columns": [],
@@ -738,6 +740,25 @@ def _describe_parquet_table(
         ],
         "row_count_total": int(row_count),
     }
+
+
+def _classify_kind(parquet_path: Path, family: str) -> str:
+    """Coarse classification surfaced into manifest.tables[].kind so consumers
+    (admin Inventory, etc.) need not string-match filenames. See
+    docs/architecture/data/canonical-store.md §2a.
+
+    Today the fact-table stem is always ``observations``. PR-O renames it
+    per-family (e.g. ``elections/election_results.parquet``); the rule
+    extends THEN, not now.
+    """
+    if family == "taxonomy":
+        return "taxonomy"
+    stem = parquet_path.stem
+    if stem == "observations":
+        return "observations"
+    if stem.startswith("dim_"):
+        return "dim"
+    return "other"
 
 
 def _taxonomy_schema_file(stem: str) -> str | None:
