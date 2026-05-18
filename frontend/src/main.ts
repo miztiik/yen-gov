@@ -18,6 +18,7 @@ import TopicIndex from "./routes/TopicIndex.svelte";
 import TopicLanding from "./routes/TopicLanding.svelte";
 import StateTopic from "./routes/StateTopic.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
+import DuckDbHarness from "./routes/DuckDbHarness.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -77,6 +78,9 @@ startRouter({
     { pattern: "/t/:topic", component: TopicLanding },
     // Citizen transparency surface (folded-indicator PR commit 10).
     { pattern: "/data-completeness", component: DataCompleteness },
+    // Phase 0.11 — DuckDB-WASM failure-state UX harness. Not a citizen
+    // route; driven by frontend/e2e/duckdb-harness.spec.ts.
+    { pattern: "/dev/duckdb-harness", component: DuckDbHarness },
   ],
   notFound: { pattern: "*", component: NotFound },
 });

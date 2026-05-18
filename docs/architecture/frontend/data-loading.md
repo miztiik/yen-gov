@@ -159,8 +159,35 @@ The Vite middleware (`vite.config.ts > serveDatasets`) still serves whole files 
 
 - No SQL composition for citizen views — that lives in the Phase 1.3 view-model loader.
 - No caveats / methodology-breaks join — same.
-- No failure-state UX surface — that's Phase 0.11.
+- No failure-state UX surface — covered by `lib/loader-result.ts` (D17 contract).
 - No write path — the browser never writes; canonical writes go through `backend/yen_gov/canonical/writer.py`.
 
 If new responsibilities accrete here, push them up into the view-model loader instead. This file should stay the seam, not the policy.
+
+## Failure-state UX contract (Phase 0.11 — D17)
+
+Every loader that fronts a citizen surface returns the `LoaderResult<T>` discriminated union defined in [`frontend/src/lib/loader-result.ts`](../../../frontend/src/lib/loader-result.ts):
+
+```ts
+type LoaderResult<T> =
+  | { status: "loading" }
+  | { status: "ok"; data: T }
+  | { status: "partial"; data: T; reason: string }
+  | { status: "failed"; reason: string; retry?: () => void };
+```
+
+Renderers MUST handle all four arms. Per D17, the `failed` arm renders plain-language copy citizens can read — never the raw `Error.message` and never a stack trace. `describeFailure(err)` does the mapping; the raw reason is logged to `console.warn` for developers.
+
+### The harness
+
+A dev-only Svelte page at `/dev/duckdb-harness` ([`frontend/src/routes/DuckDbHarness.svelte`](../../../frontend/src/routes/DuckDbHarness.svelte)) drives the DuckDB-WASM loader through three paths so the contract can be asserted in a real browser:
+
+1. **Real query** — boots DuckDB-WASM, registers `elections.observations`, runs `SELECT COUNT(*)`. Proves the wasm + Arrow + HTTP `read_parquet` round-trip works end-to-end.
+2. **Forced manifest 404** — overrides `fetch` for `/data/manifest.json` to return 404. Asserts the catalogue-unavailable copy + Retry button.
+3. **Forced unknown table** — asks for a `table_id` not in the manifest. Asserts the dataset-not-available copy + Retry button.
+
+Playwright assertions live in [`frontend/e2e/duckdb-harness.spec.ts`](../../../frontend/e2e/duckdb-harness.spec.ts) and run on both `chromium` and `mobile-pixel-5` projects. The spec also asserts the failure copy does NOT contain stacky markers (`at `, `.js:`, `file://`, `Error:`) — that's the line the citizen-facing contract draws.
+
+The harness is **not** a citizen route — it lives under `/dev/` and is not linked from any other page. It exists purely to make the contract testable and to give the team a quick "is wasm working?" sanity check.
+
 
