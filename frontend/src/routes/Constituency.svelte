@@ -1,11 +1,12 @@
 <script lang="ts">
   import {
-    fetchConstituencyResult,
     fetchPersonEntity,
     slugifyCandidate,
     type ConstituencyResult,
     type PersonEntity,
   } from "../lib/data";
+  import { loadConstituencyResult } from "../lib/view-models/constituency";
+  import type { LoaderResult } from "../lib/loader-result";
   import {
     fetchElectionEvents,
     defaultEventForState,
@@ -34,26 +35,39 @@
   const state_code = $derived(states.codeFromSlug(params.state));
   const event_row = $derived(defaultEventForState(election_catalogue, state_code));
   const event = $derived(event_row?.event_id ?? null);
-  let result = $state<ConstituencyResult | null>(null);
-  let not_published = $state(false);
-  let error = $state<string | null>(null);
+
+  // PR-E (Phase 1.3a): the canonical view-model loader fronts DuckDB-WASM.
+  // The result is a discriminated union — render all four arms.
+  let loaderResult = $state<LoaderResult<ConstituencyResult>>({ status: "loading" });
+  const result = $derived(
+    loaderResult.status === "ok" || loaderResult.status === "partial"
+      ? loaderResult.data
+      : null,
+  );
+  const not_published = $derived(
+    loaderResult.status === "partial" && loaderResult.reason === "not_published",
+  );
+
   // Biographics sidecar: keyed by candidate_slug; null = fetched + 404
   // (no sidecar for this candidate yet); undefined = not fetched yet.
   let people = $state<Record<string, PersonEntity | null>>({});
 
   $effect(() => {
-    result = null; error = null; not_published = false;
+    loaderResult = { status: "loading" };
     people = {};
     const sc = state_code;
     const ev = event;
     if (!sc || !ev || params.eci_no <= 0) return;
-    fetchConstituencyResult(ev, sc, params.eci_no)
-      .then(r => {
-        if (r === null) not_published = true;
-        else result = r;
-      })
-      .catch(e => (error = String(e)));
+    loadConstituencyResult(ev, sc, params.eci_no).then(r => (loaderResult = r));
   });
+
+  async function retryLoad() {
+    const sc = state_code;
+    const ev = event;
+    if (!sc || !ev || params.eci_no <= 0) return;
+    loaderResult = { status: "loading" };
+    loaderResult = await loadConstituencyResult(ev, sc, params.eci_no);
+  }
 
   // Once the constituency result loads, fan out to the people sidecars in
   // parallel. Each candidate that has a sidecar populates `people[slug]`;
@@ -93,9 +107,16 @@
     </p>
   </header>
 
-  {#if error}
-    <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900">
-      Failed to load: <code>{error}</code>
+  {#if loaderResult.status === "failed"}
+    <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900 space-y-2">
+      <p>{loaderResult.reason}</p>
+      {#if loaderResult.retry}
+        <button
+          type="button"
+          class="text-sm font-semibold underline hover:no-underline"
+          onclick={retryLoad}
+        >Retry</button>
+      {/if}
     </div>
   {:else if not_published}
     <div class="p-5 bg-amber-50 border border-amber-200 rounded space-y-2">

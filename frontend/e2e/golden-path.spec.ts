@@ -147,16 +147,32 @@ test.describe("golden path", () => {
       .toBeVisible({ timeout: 15_000 });
   });
 
-  test("constituency page renders top-N candidates", async ({ page }) => {
-    // S22 AC #1 = Gummidipoondi (the slice that the live backend test
-    // covers; the published artifact is guaranteed to exist).
+  test("constituency page renders top-N candidates via DuckDB-WASM loader", async ({ page }) => {
+    // PR-E (Phase 1.3a): /ac/* now reads through the canonical Parquet
+    // store via DuckDB-WASM (`lib/view-models/constituency.ts`) rather
+    // than per-shard JSON. AC #1 (Gummidipoondi) is the slice the live
+    // backend test covers; the canonical dim_candidates table holds the
+    // AcGenMay2026 contest (TN's default event).
     await page.goto("/s/tamil-nadu/ac/1-gummidipoondi");
     await expect(page.getByRole("heading", { level: 2, name: /Top \d+ candidates/i }))
-      .toBeVisible({ timeout: 15_000 });
+      .toBeVisible({ timeout: 30_000 });
     // Header row of the candidates table
     await expect(page.getByRole("columnheader", { name: "Candidate" })).toBeVisible();
     await expect(page.getByRole("columnheader", { name: "Party" })).toBeVisible();
     await expect(page.getByRole("columnheader", { name: "Votes" })).toBeVisible();
+
+    // The JOIN actually fired: a known AcGenMay2026 AC#1 candidate must
+    // render in the table cell. "Vijayakumar" is the winning candidate
+    // for AC#1 in the canonical dim_candidates 2026 partition. If the
+    // dim → observations JOIN regresses, this row will be missing.
+    await expect(page.getByRole("cell", { name: /Vijayakumar/i }).first())
+      .toBeVisible({ timeout: 30_000 });
+
+    // Provenance: the canonical loader projects URLs from taxonomy/sources
+    // into the legacy SourceList shape. Asserting an ECI link is present
+    // proves the sources JOIN to taxonomy/sources.parquet wired up.
+    await expect(page.locator('a[href*="eci.gov.in"]').first())
+      .toBeVisible({ timeout: 30_000 });
 
     // people.entity sidecar: AC 1 winner GOVINDARAJAN T.J has a sidecar
     // shipped via the TN AE 2021 ingest (datasets/people/AcGenApr2021/1/
@@ -168,7 +184,7 @@ test.describe("golden path", () => {
     // candidate; the populated-fields path is covered by vitest
     // (frontend/src/lib/data.test.ts — fetchPersonEntity contract).
     const bio = page.getByTestId("candidate-biographics").first();
-    await expect(bio).toBeVisible({ timeout: 15_000 });
+    await expect(bio).toBeVisible({ timeout: 30_000 });
   });
 
   test("explore page lazy-loads sqlite without error", async ({ page }) => {
