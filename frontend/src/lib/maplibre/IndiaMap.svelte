@@ -17,6 +17,9 @@
     INDIA_STATES,
     STATE_NAME_TO_ECI,
   } from "./sources";
+  // TODO(PR-G / Phase 1.3c): migrate off fetchResultSummary onto a view-model
+  // loader (india-map.ts) that JOINs the canonical Parquet store via
+  // DuckDB-WASM, mirroring PR-E / PR-F.
   import { fetchResultSummary, type ResultSummary } from "../data";
   import {
     defaultEventForState,

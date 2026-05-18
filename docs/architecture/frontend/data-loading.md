@@ -187,6 +187,57 @@ Three reasons:
 
 `@duckdb/duckdb-wasm`'s `query<T>` takes a SQL string, not bound parameters. The loader interpolates literals via a `sqlString()` helper that single-quote-escapes (doubling `'`). Inputs are constrained: `state_code` and `event` are catalogue-validated tokens (`S\d\d`, event IDs), `eci_no` is a parsed integer. The interpolation surface is bounded by the route param parser; there is no user-supplied free text reaching the SQL.
 
+### Phase 1.3b — StateOverview (PR-F)
+
+**Status (2026-05-18)**: live on `/s/:state`. The legacy `fetchResultSummary` survives in `lib/data.ts` because four other routes still consume it (Party, ElectionSeatsTrend, Settings, IndiaMap); they migrate in PR-G (Phase 1.3c). Each remaining call site is annotated with a `// TODO(PR-G / Phase 1.3c)` comment so the cleanup PR is one grep away.
+
+The state hub reads through [`frontend/src/lib/view-models/state-overview.ts`](../../../frontend/src/lib/view-models/state-overview.ts):
+
+```ts
+export async function loadStateOverview(
+  event: string, state_code: string,
+): Promise<LoaderResult<StateOverviewViewModel>>
+```
+
+Three tables get registered (subset of PR-E — no per-AC dim needed for the hub):
+
+| Table | Role in this view |
+| --- | --- |
+| `elections.observations` | numeric facts — `party-*` (per-party-per-state) + `state-*` (state-scope) indicator rows |
+| `elections.dim_parties` | party labels — joined on the extracted short_name (LEFT JOIN; falls back to the extracted key when no dim row exists, e.g. CPIM today) |
+| `taxonomy.sources` | provenance for every `IN-<state>-*` observation in this event |
+
+Three SQL statements:
+
+1. **Party pivot** — `MAX(CASE WHEN indicator_id = 'party-…' THEN value_numeric END)` across the four `party-*` indicators (`contested-acs`, `seats-won`, `votes-polled`, `vote-share-pct`), filtered on `entity_id LIKE 'IN-<state>-<event>-PARTY-%'`. JOIN key is `regexp_extract(entity_id, '-PARTY-(.+)$', 1) = dim_parties.short_name`.
+2. **State-scope facts** — `SELECT indicator_id, value_numeric FROM observations WHERE entity_id = 'IN-<state>-<event>' AND indicator_id IN ('state-electors-total', 'state-votes-polled', 'state-turnout-pct')`.
+3. **Provenance** — `SELECT DISTINCT s.url, s.first_fetched_at` across every observation under this `(state, event)`.
+
+`total_seats` is derived in-loader as `sum(party_totals.seats_won)` rather than a fourth query — sum equals the assembly size by construction (TN = 234).
+
+#### How `StateOverviewViewModel` differs from the legacy `ResultSummary`
+
+| Field | `ResultSummary` (legacy JSON) | `StateOverviewViewModel` (canonical) |
+| --- | --- | --- |
+| `election`, `state` | ✅ | ✅ |
+| `total_seats` | ✅ | ✅ (derived) |
+| `totals.{electors, votes_polled, turnout_pct}` | ✅ | ✅ |
+| `party_totals: PartyTotals[]` | ✅ | ✅ (same shape — `PartyBar` / `SeatDonut` need zero prop changes) |
+| `sources: SourceRef[]` | ✅ | ✅ |
+| `body[]` (per-AC mini summaries) | ✅ | ❌ — not read by `StateOverview.svelte`; per-AC winners come from `results.sqlite` via `lib/sql.ts`, the StateAcMap + MarginHistogram already use that direct seam |
+| `winners` (per-AC) | ✅ | ❌ — same reason; `StateOverview.svelte:165-189` still reads SQLite directly |
+| `$schema_version` | ✅ | ❌ — no JSON schema; the canonical store has its own pivot doctrine. `SourceList` accepts `schema_version` as optional |
+
+#### LoaderResult arm mapping (same shape as PR-E)
+
+| Outcome | Arm | Notes |
+| --- | --- | --- |
+| 1+ party rows | `ok` | full `StateOverviewViewModel` |
+| zero party rows | `partial` with `reason: "not_published"` | cohort not yet ingested into the canonical store; reference-data sections (indicator cards, government card, AC directory) still render |
+| any thrown error | `failed` | rose banner + retry button on the route |
+
+The per-AC winners SQL (`results.sqlite` via `getDb()`) is parallel to the canonical pivot and out of scope for PR-F. The StateAcMap canvas does not depend on either loader.
+
 ## See also
 
 - [Frontend overview](overview.md), [SQLite emitter](../backend/emit-sqlite.md), [Deployment](../deployment.md)

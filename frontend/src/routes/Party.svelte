@@ -1,5 +1,8 @@
 <script lang="ts">
   import {
+    // TODO(PR-G / Phase 1.3c): migrate off fetchResultSummary + fetchParties
+    // onto a view-models/party.ts loader reading canonical Parquet via
+    // DuckDB-WASM, mirroring PR-E (constituency) / PR-F (state-overview).
     fetchResultSummary, fetchParties,
     type ResultSummary, type PartyEntry, type PartyTotals,
   } from "../lib/data";
