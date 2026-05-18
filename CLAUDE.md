@@ -65,7 +65,7 @@ In-memory `Path` objects for local I/O may stay platform-native. The rule applie
 | `backend/`      | created    | Local Python pipeline (fetch / parse / validate / emit). FastAPI admin wrapper at `backend/yen_gov/admin/` (Phase 4 v0 — Inventory only). |
 | `frontend/`     | created    | Static GitHub Pages app (Svelte 5 + Vite 6 + Tailwind + d3 + maplibre-gl). UI code only — never commits data files. |
 | `admin/`        | created    | Separate dev-only Svelte app (Vite, port 5174) for the operator console. Never deployed publicly. v0 ships the Inventory panel; Schemas / Pipeline / Patches panels follow. |
-| `tools/`        | created    | Standalone dev/ops tooling (`tools/eci_recon/`, `tools/boundaries/`). No `backend/` imports. |
+| `tools/`        | created    | Standalone dev/ops tooling (`tools/boundaries/`). No `backend/` imports. |
 | `.runtime/`     | gitignored | Ephemeral run state. `.runtime/raw/<source>/...` holds intermediate downloaded HTML for debugging (ADR-0003); `.runtime/logs/<run-id>/` holds structured logs. Never a contract surface. |
 | `TODO/` `notes/`| optional   | Working scratchpads — non-authoritative              |
 

@@ -1,8 +1,8 @@
 # Admin app — overview
 
-**Last Updated**: 2026-05-09 (status: walking skeleton + Inventory + Schemas + Pipeline panels shipped — Phase 4 v0)
+**Last Updated**: 2026-05-18 (status: Phase 1.7 — Inventory rewritten family-agnostic for the canonical Parquet store; ECI Recon panel retired)
 
-> **Status note.** Phase 4 v0 has landed: `admin/` Svelte app, `backend/yen_gov/admin/` FastAPI module, and the **Inventory**, **Schemas**, and **Pipeline** panels are live. **Patches panel is still design-only.** When it lands, promote its subsection in this doc into a sibling file (`admin/patches.md`).
+> **Status note.** Phase 4 v0 has landed: `admin/` Svelte app, `backend/yen_gov/admin/` FastAPI module, and the **Inventory**, **Indicators**, **Schemas**, and **Pipeline** panels are live. **Phase 1.7 (2026-05-18)** rewrote Inventory to walk the canonical `datasets/<family>/observations.parquet` store via DuckDB introspection (family-agnostic — elections today, energy / demography / fiscal / health automatic when their parquets land) and retired the **ECI Recon** panel + `tools/eci_recon/` scanner entirely (operator now hand-loads upstream XLS/CSV into the ingest path; no live website scan). **Patches panel is still design-only.** When it lands, promote its subsection in this doc into a sibling file (`admin/patches.md`).
 
 The admin app is a **separate, dev-only Svelte application** that lives alongside the public frontend but ships in its own bundle, talks to a local **FastAPI** wrapper around the existing pipeline, and is **never deployed to GitHub Pages**. It is the operator's cockpit: dataset inventory, schema health, pipeline status, and a patch-file editor for data corrections.
 
@@ -93,20 +93,37 @@ The admin Vite config proxies `/api/*` to `127.0.0.1:8000` so the bundle has no 
 
 ## Panels (v1)
 
-### Inventory ✅ shipped (2026-05-09)
+### Inventory ✅ shipped (2026-05-09); rewritten family-agnostic 2026-05-18 (Phase 1.7)
 
 Implemented in [`backend/yen_gov/admin/inventory.py`](../../../backend/yen_gov/admin/inventory.py) (endpoint `GET /api/inventory`) and [`admin/src/routes/Inventory.svelte`](../../../admin/src/routes/Inventory.svelte) (UI).
 
-The backend walks `datasets/elections/<event>/<state>/`, and for every cell reports:
-- `summary.schema_version`, `summary.sources[]` (provenance), `summary.path`, `summary.mtime` from `result.summary.json`.
-- `ac_results.found` (count of files in `results/*.json`) vs `ac_results.expected` (length of the matching `datasets/reference/in/states/<state>/constituencies.json`); `missing` if any.
-- Whether `parties.json` and `results.sqlite` exist alongside.
+Under the canonical pivot ([ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md)) every indicator family lands on the same on-disk shape:
 
-UI is a single dark-themed table sorted by event, then state, with completeness coloured (emerald 100% / amber partial / rose 0%). State codes are joined to display names from `datasets/reference/in/states.json` so the table reads "S22 Tamil Nadu", not just "S22" — same fix as the public app.
+```
+datasets/<family>/observations.parquet     # long-format facts
+datasets/<family>/dim_<*>.parquet          # denormalised dim tables
+datasets/taxonomy/<*>.parquet              # cross-family taxonomy
+```
 
-A real bug was caught during the first browser walkthrough: WB renders `293 / 294 ACs` but `Math.round` was rounding to 100%; the UI now uses `Math.floor` so any missing AC drops below 100. Lesson: completeness UIs must round *down*, never up.
+The Inventory backend walks every `*.parquet` under `datasets/` (skipping sentinel dirs `_old/`, `_test/`, `schemas/`, `patches/`), classifies each by directory + filename into `(family, kind)` where `kind ∈ {observations, dim, taxonomy, other}`, and runs a single DuckDB query per file:
 
-Drives a coverage table: rows are (event, state) pairs; aggregating into a state × election matrix is deferred until a second event lands (today only one event exists; a 1-column matrix would just be the list).
+- For `observations` parquets — `row_count`, `count(DISTINCT indicator_id|entity_id|period_label|source_id)`, `min/max(year)`. Cheap because DuckDB reads only Parquet column metadata + sampled stats.
+- For `dim` / `taxonomy` parquets — `row_count` only (content is structure, not facts).
+
+The response is `{generated_at, stores[], indicators[]}`:
+
+- `stores[]` — one entry per Parquet file. Family-agnostic: the day `datasets/energy/observations.parquet` lands it appears here with zero code change.
+- `indicators[]` — per-`(family, indicator_id)` rollup across every `observations.parquet`, complementary to the docs/completeness-driven Indicators panel.
+
+Election-specific (event × state) coverage is deliberately **not** built in here. That is one drill among many a future family-specific panel could ask; the generic Inventory stays generic so coverage parity holds across families as they land.
+
+The UI is two tables in [`admin/src/routes/Inventory.svelte`](../../../admin/src/routes/Inventory.svelte): a **Stores** table (one row per Parquet, kind badge colours observations / dim / taxonomy, sizes formatted KB/MB/GB) and an **Indicators** table (one row per family × indicator).
+
+### ECI Recon — retired 2026-05-18 (Phase 1.7)
+
+The ECI Recon panel + `tools/eci_recon/` scanner were removed. They had been built to enumerate `https://results.eci.gov.in/...` URLs and download HTML on the fly; under the canonical pivot the ingest seam is the file path, not the website. The operator now hand-supplies the upstream XLS / CSV / HTML (whatever the ECI portal makes downloadable for a given event) and the ingest code (`backend/yen_gov/sources/eci/categories.py`, `config/eci-pins.json`, the per-year pin map) loads from disk. The scanner / sweep / probe / compare UI was dead weight under that workflow.
+
+Deleted in this phase: `backend/yen_gov/admin/eci_recon.py`, `admin/src/routes/EciRecon.svelte`, `tools/eci_recon/` (entire directory), the `EciRecon` panel nav button and its types/api methods in `admin/src/lib/api.ts`, and the corresponding `panels.spec.ts` e2e block. **Not deleted** (still load-bearing for ingest): `backend/yen_gov/sources/eci/categories.py`, `datasets/schemas/eci_pins.schema.json`, `config/eci-pins.json`, the pins-loading code path inside the pipeline.
 
 ### Schemas (planned)
 

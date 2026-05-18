@@ -49,22 +49,32 @@ describe("api.health", () => {
 });
 
 describe("api.inventory", () => {
-  test("returns the cells array as-is", async () => {
+  test("returns stores and indicators arrays as-is", async () => {
     const fixture: Inventory = {
-      events: ["AcGenMay2026"],
-      states: { S22: "Tamil Nadu" },
-      cells: [{
-        event: "AcGenMay2026", state: "S22",
-        summary: { total_seats: 234, schema_version: "5.0", path: "datasets/elections/AcGenMay2026/S22/result.summary.json", mtime: "2026-05-01T00:00:00Z" },
-        parties: "datasets/elections/AcGenMay2026/S22/parties.json",
-        sqlite: "datasets/elections/AcGenMay2026/S22/results.sqlite",
-        ac_results: { found: 234, expected: 234, missing: 0 },
+      generated_at: "2026-05-18T00:00:00Z",
+      stores: [{
+        family: "elections",
+        kind: "observations",
+        path: "datasets/elections/observations.parquet",
+        size_bytes: 14_772_201,
+        mtime: "2026-05-18T00:00:00Z",
+        row_count: 199_330,
+        stats: {
+          indicators: 30, entities: 39_568, periods: 27,
+          min_year: 2016, max_year: 2026, sources: 84,
+        },
+      }],
+      indicators: [{
+        family: "elections", indicator_id: "ac-winner-party-id",
+        obs_count: 4112, entity_count: 4112, period_count: 27,
+        min_year: 2016, max_year: 2026,
       }],
     };
     installFetchMock(() => ({ ok: true, json: async () => fixture }));
     const out = await api.inventory();
-    expect(out.events).toEqual(["AcGenMay2026"]);
-    expect(out.cells[0].ac_results.missing).toBe(0);
+    expect(out.stores[0].family).toBe("elections");
+    expect(out.stores[0].stats?.indicators).toBe(30);
+    expect(out.indicators[0].indicator_id).toBe("ac-winner-party-id");
   });
 });
 
@@ -92,18 +102,5 @@ describe("api.triggerPipeline", () => {
     // legitimate command that the server happens to reject.
     await expect(api.triggerPipeline({ command: "validate", args: [], confirm: true }))
       .rejects.toThrow(/422.*command 'rm -rf \/' is not allowed/);
-  });
-});
-
-describe("api.eciUpsertPin", () => {
-  test("auto-injects confirm: true alongside pin entry", async () => {
-    const { calls } = installFetchMock(() => ({
-      ok: true,
-      json: async () => ({ replaced: false, entry: { state: "S22", year: 2026, category_id: 1, cat_name: "AC", confirmed_at: "2026-05-12T00:00:00Z" }, total_pins: 1 }),
-    }));
-    await api.eciUpsertPin({ state: "S22", year: 2026, category_id: 1, cat_name: "AC" });
-    const body = JSON.parse(calls[0].init?.body as string);
-    expect(body.confirm).toBe(true);
-    expect(body.state).toBe("S22");
   });
 });

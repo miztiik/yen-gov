@@ -16,7 +16,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .. import __version__
-from .eci_recon import router as eci_recon_router
 from .indicators import router as indicators_router
 from .inventory import router as inventory_router
 from .pipeline import router as pipeline_router
@@ -55,4 +54,3 @@ app.include_router(inventory_router, prefix="/api", tags=["inventory"])
 app.include_router(indicators_router, prefix="/api", tags=["indicators"])
 app.include_router(schemas_router, prefix="/api", tags=["schemas"])
 app.include_router(pipeline_router, prefix="/api", tags=["pipeline"])
-app.include_router(eci_recon_router, prefix="/api", tags=["eci-recon"])
