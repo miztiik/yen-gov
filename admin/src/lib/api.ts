@@ -11,33 +11,56 @@ export interface ProvenanceSource {
   fetched_at: string;
 }
 
-export interface InventoryCellSummary {
-  schema_version?: string | null;
-  sources?: ProvenanceSource[];
-  total_seats?: number | null;
-  path?: string;
-  mtime?: string;
+/**
+ * Family-agnostic inventory of the canonical Parquet store.
+ *
+ * Backend walks every `datasets/*.parquet` and `datasets/<family>/*.parquet`,
+ * surfaces one `InventoryStore` per file, and rolls every observations
+ * parquet up into `InventoryIndicator[]`. Election-specific (event ×
+ * state) drill-downs are NOT in this surface — those belong to a future
+ * family-specific panel; the generic inventory stays generic so the day
+ * energy / demography / fiscal / health ship their own
+ * `observations.parquet`, they appear here automatically.
+ */
+export interface InventoryStoreStats {
+  indicators: number;
+  entities: number;
+  periods: number;
+  min_year: number | null;
+  max_year: number | null;
+  sources: number;
+}
+
+export interface InventoryStore {
+  /** Top-level directory under `datasets/` (e.g. `elections`, `taxonomy`). */
+  family: string;
+  /** `observations` | `dim` | `taxonomy` | `other`. */
+  kind: "observations" | "dim" | "taxonomy" | "other";
+  /** Repo-relative POSIX path. */
+  path: string;
+  size_bytes: number;
+  mtime: string;
+  row_count: number | null;
+  /** Populated only for `kind === "observations"`. */
+  stats: InventoryStoreStats | null;
+  /** Set when DuckDB rejects the file (corrupt / unreadable). */
   error?: string;
 }
 
-export interface InventoryCell {
-  event: string;
-  state: string;
-  summary: InventoryCellSummary | null;
-  parties: string | null;
-  sqlite: string | null;
-  ac_results: {
-    found: number;
-    expected: number | null;
-    missing: number | null;
-  };
+export interface InventoryIndicator {
+  family: string;
+  indicator_id: string;
+  obs_count: number;
+  entity_count: number;
+  period_count: number;
+  min_year: number | null;
+  max_year: number | null;
 }
 
 export interface Inventory {
-  events: string[];
-  /** ECI code → display name (e.g. S22 → "Tamil Nadu"). */
-  states: Record<string, string>;
-  cells: InventoryCell[];
+  generated_at: string;
+  stores: InventoryStore[];
+  indicators: InventoryIndicator[];
 }
 
 export interface SchemaIssue {
@@ -110,54 +133,6 @@ export interface TriggerRequest {
     | "eci-statreport-emit";
   args: string[];
   confirm: true;
-}
-
-// ---------- ECI Recon ----------
-
-export interface EciHit {
-  id: number;
-  kind: "hit";
-  cat_name: string;
-  index_name: string;
-  index_url: string;
-  title_headline: string;
-}
-export interface EciMissOrError {
-  id: number;
-  kind: "miss" | "error";
-  error?: string;
-}
-export type EciProbe = EciHit | EciMissOrError;
-
-export interface EciSweepResult {
-  available?: boolean;
-  ts: string;
-  range: [number, number];
-  hits: EciHit[];
-  misses: number[];
-  errors: { id: number; error: string }[];
-}
-
-export interface EciPinEntry {
-  state: string;
-  year: number;
-  category_id: number;
-  cat_name: string;
-  confirmed_at: string;
-  notes?: string;
-}
-
-export interface EciPinsResponse {
-  payload: {
-    $schema: string;
-    $schema_version: string;
-    sources: ProvenanceSource[];
-    pins: EciPinEntry[];
-  };
-  path: string;
-  schema_id: string;
-  loaded_in_process: { state: string; year: number; category_id: number }[];
-  events: { state: string; year: number; event_id: string; has_partywise: boolean }[];
 }
 
 // ---------- Indicators inventory ----------
@@ -235,21 +210,6 @@ export const api = {
     getJson(`/api/pipeline/runs/${encodeURIComponent(run_id)}`),
   triggerPipeline: (req: TriggerRequest): Promise<{ run_id: string; meta: Record<string, unknown> }> =>
     postJson("/api/pipeline/runs", req),
-
-  // ECI Recon
-  eciLastSweep: (): Promise<EciSweepResult & { available: boolean }> =>
-    getJson("/api/eci/recon/last-sweep"),
-  eciSweep: (start: number, end: number, sleep_ms = 300): Promise<EciSweepResult> =>
-    postJson("/api/eci/recon/sweep", { start, end, sleep_ms }),
-  eciProbe: (id: number): Promise<EciProbe> =>
-    getJson(`/api/eci/recon/probe/${id}`),
-  eciCompare: (a: number, b: number): Promise<{ a: EciProbe; b: EciProbe }> =>
-    postJson("/api/eci/recon/compare", { a, b }),
-  eciPins: (): Promise<EciPinsResponse> => getJson("/api/eci/pins"),
-  eciUpsertPin: (entry: Omit<EciPinEntry, "confirmed_at"> & { confirmed_at?: string; notes?: string }): Promise<{ replaced: boolean; entry: EciPinEntry; total_pins: number }> =>
-    postJson("/api/eci/pins", { ...entry, confirm: true }),
-  eciDeletePin: (state: string, year: number): Promise<{ removed: boolean; total_pins: number }> =>
-    postJson("/api/eci/pins/delete", { state, year, confirm: true }),
 
   // Indicators inventory
   indicators: (): Promise<IndicatorsInventoryResponse> =>

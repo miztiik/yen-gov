@@ -15,14 +15,18 @@ import { test, expect, type Page } from "@playwright/test";
 const FIXTURES = {
   health: { status: "ok", version: "0.1.0" },
   inventory: {
-    events: ["AcGenMay2026"],
-    states: { S22: "Tamil Nadu" },
-    cells: [{
-      event: "AcGenMay2026", state: "S22",
-      summary: { total_seats: 234, schema_version: "5.0", path: "datasets/elections/AcGenMay2026/S22/result.summary.json", mtime: "2026-05-01T00:00:00Z", sources: [] },
-      parties: "datasets/elections/AcGenMay2026/S22/parties.json",
-      sqlite: "datasets/elections/AcGenMay2026/S22/results.sqlite",
-      ac_results: { found: 234, expected: 234, missing: 0 },
+    generated_at: "2026-05-18T00:00:00Z",
+    stores: [{
+      family: "elections", kind: "observations",
+      path: "datasets/elections/observations.parquet",
+      size_bytes: 14_772_201, mtime: "2026-05-18T00:00:00Z",
+      row_count: 199_330,
+      stats: { indicators: 30, entities: 39_568, periods: 27, min_year: 2016, max_year: 2026, sources: 84 },
+    }],
+    indicators: [{
+      family: "elections", indicator_id: "ac-winner-party-id",
+      obs_count: 4112, entity_count: 4112, period_count: 27,
+      min_year: 2016, max_year: 2026,
     }],
   },
   schemas: {
@@ -41,17 +45,6 @@ const FIXTURES = {
     active: null,
     allowed_commands: { validate: "Validate datasets" },
   },
-  eciLastSweep: {
-    available: false,
-    ts: "1970-01-01T00:00:00Z",
-    range: [0, 0],
-    hits: [], misses: [], errors: [],
-  },
-  eciPins: {
-    payload: { $schema: "x", $schema_version: "1.0", sources: [], pins: [] },
-    path: "config/eci-pins.json", schema_id: "x",
-    loaded_in_process: [], events: [],
-  },
 };
 
 async function mockApi(page: Page) {
@@ -63,8 +56,6 @@ async function mockApi(page: Page) {
     else if (path === "/api/inventory") body = FIXTURES.inventory;
     else if (path === "/api/schemas") body = FIXTURES.schemas;
     else if (path === "/api/pipeline/runs") body = FIXTURES.pipelineRuns;
-    else if (path === "/api/eci/recon/last-sweep") body = FIXTURES.eciLastSweep;
-    else if (path === "/api/eci/pins") body = FIXTURES.eciPins;
     else body = {};
     await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(body) });
   });
@@ -108,13 +99,5 @@ test.describe("admin panels", () => {
     await page.goto("/");
     await page.getByRole("button", { name: /Pipeline/ }).click();
     await expect(page.getByRole("heading", { name: "Pipeline", level: 1 })).toBeVisible();
-  });
-
-  test("clicking ECI Recon nav switches to EciRecon panel", async ({ page }) => {
-    await page.goto("/");
-    await page.getByRole("button", { name: /ECI Recon/ }).click();
-    await expect(page.getByRole("heading", { name: /ECI Recon/, level: 1 })).toBeVisible();
-    // Sub-section heading proves the panel actually mounted (not just the title).
-    await expect(page.getByRole("heading", { name: /1\. Enumerate/, level: 2 })).toBeVisible();
   });
 });

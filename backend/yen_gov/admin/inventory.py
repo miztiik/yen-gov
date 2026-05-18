@@ -1,167 +1,263 @@
-"""Inventory endpoint — read-only listing of state × election coverage.
+"""Inventory endpoint — family-agnostic walk of the canonical Parquet store.
 
-For every published election under ``datasets/elections/<event>/<state>/``,
-report:
+The canonical pivot ([ADR-0030]) standardised every indicator family —
+elections today, energy / demography / fiscal / health next — on the same
+on-disk shape:
 
-* counts of expected vs found per-AC result files (compared against
-  ``datasets/reference/in/states/<state>/constituencies.json``);
-* the summary file's ``$schema_version`` and ``sources[]`` (provenance);
-* file mtime as a freshness proxy;
-* whether a sqlite emit and parties.json sit alongside.
+    datasets/<family>/observations.parquet     # long-format facts
+    datasets/<family>/dim_<*>.parquet          # denormalised dim tables
+    datasets/taxonomy/<*>.parquet              # cross-family taxonomy
 
-This is the walking-skeleton panel for Phase 4 (see
-docs/architecture/admin/overview.md). Subsequent endpoints (schema
-health, pipeline runs, patches) live in sibling modules.
+Because the observations schema is family-invariant
+(``observation_id, entity_id, year, period_label, period_seq,
+indicator_id, value_numeric, value_text, source_id, derivation``), the
+operator's "what's in my store?" question is one query against any
+``observations.parquet`` regardless of family. This endpoint walks every
+Parquet under ``datasets/`` and answers it in two passes:
+
+* ``stores[]`` — one row per Parquet file. Family inferred from the
+  top-level directory; kind inferred from filename. Stats are populated
+  only for ``observations`` parquets; ``dim_*`` and taxonomy stores
+  report row count + mtime only (their content is structure, not facts).
+
+* ``indicators[]`` — one row per ``(family, indicator_id)`` across every
+  ``observations.parquet``. This is the cross-family "is this indicator
+  populated?" surface, complementary to the docs/completeness-driven
+  Indicators panel.
+
+Election-specific (event × state) coverage is deliberately NOT a
+built-in here. That question is one drill among many a family-specific
+panel could ask; the generic Inventory stays family-agnostic so the day
+energy/demography land they appear automatically.
 
 Path convention: every path emitted here is **POSIX-relative to the
-repo root** (CLAUDE.md §2). The admin frontend renders them as-is.
+repo root** (CLAUDE.md §2).
 """
 
 from __future__ import annotations
 
-import json
-from dataclasses import dataclass
-from datetime import datetime, timezone
+import os
+from datetime import UTC, datetime
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+import duckdb
 from fastapi import APIRouter, HTTPException
 
 router = APIRouter()
 
-# Resolve repo root once. The package lives at
-# <repo>/backend/yen_gov/admin/inventory.py — three .parent hops up
-# from yen_gov/, plus one more to leave backend/.
-REPO_ROOT = Path(__file__).resolve().parents[3]
-DATASETS = REPO_ROOT / "datasets"
+
+_DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[3]
 
 
-def _rel(p: Path) -> str:
-    """Repo-relative POSIX path, per CLAUDE.md §2."""
-    return PurePosixPath(p.resolve().relative_to(REPO_ROOT.resolve())).as_posix()
+def _repo_root() -> Path:
+    """Repo root used for filesystem walks.
+
+    Honours ``YEN_GOV_REPO_ROOT`` so pytest can point the endpoint at a
+    controlled fixture corpus (CLAUDE.md §10 / Holy Law #7 — no real-corpus
+    walks from pytest). Same pattern as ``schemas.py``.
+    """
+    override = os.environ.get("YEN_GOV_REPO_ROOT")
+    if override:
+        return Path(override).resolve()
+    return _DEFAULT_REPO_ROOT
+
+
+def _rel(p: Path, root: Path) -> str:
+    return PurePosixPath(p.resolve().relative_to(root.resolve())).as_posix()
 
 
 def _mtime_iso(p: Path) -> str:
-    return datetime.fromtimestamp(p.stat().st_mtime, tz=timezone.utc).isoformat()
+    return datetime.fromtimestamp(p.stat().st_mtime, tz=UTC).isoformat()
 
 
-def _load_json(p: Path) -> Any:
-    with p.open(encoding="utf-8") as f:
-        return json.load(f)
+# Directory prefixes under ``datasets/`` that the inventory ignores. These
+# are sentinel / transitional spaces and the operator shouldn't see them
+# alongside the real canonical stores.
+_SKIP_DIR_PREFIXES: tuple[str, ...] = ("_test", "_old", "schemas", "patches")
 
 
-@dataclass
-class _StateEntry:
-    eci_code: str
-    name: str
+def _classify(rel_path: PurePosixPath) -> tuple[str, str]:
+    """Return ``(family, kind)`` for a Parquet path under ``datasets/``.
+
+    Family = top-level dir under ``datasets/`` (e.g. ``elections``,
+    ``taxonomy``, ``energy`` once it lands). Kind is one of:
+
+    * ``observations`` — the long-format facts table for a family.
+    * ``dim``          — a denormalised dim_* lookup table.
+    * ``taxonomy``     — anything under ``datasets/taxonomy/``.
+    * ``other``        — Parquet we recognise but don't introspect.
+    """
+    parts = rel_path.parts
+    # parts[0] == 'datasets', parts[1] == family
+    family = parts[1] if len(parts) >= 2 else "?"
+    fname = parts[-1]
+    if family == "taxonomy":
+        return family, "taxonomy"
+    if fname == "observations.parquet":
+        return family, "observations"
+    if fname.startswith("dim_") and fname.endswith(".parquet"):
+        return family, "dim"
+    return family, "other"
 
 
-def _load_states() -> dict[str, str]:
-    """ECI code → display name from the reference file."""
-    f = DATASETS / "reference" / "in" / "states.json"
-    if not f.exists():
-        return {}
-    doc = _load_json(f)
-    return {s["eci_code"]: s["name"] for s in doc.get("states", [])}
+def _observations_stats(con: duckdb.DuckDBPyConnection, abs_path: Path) -> dict[str, Any]:
+    """One-shot summary of an ``observations.parquet``.
 
-
-def _expected_acs(state: str) -> int | None:
-    """Expected AC count from the constituencies reference file, or None
-    when no reference is bootstrapped for this state yet."""
-    f = DATASETS / "reference" / "in" / "states" / state / "constituencies.json"
-    if not f.exists():
-        return None
-    doc = _load_json(f)
-    return len(doc.get("constituencies", []))
-
-
-def _scan_state(event: str, state: str) -> dict[str, Any]:
-    base = DATASETS / "elections" / event / state
-    summary_p = base / "result.summary.json"
-    parties_p = base / "parties.json"
-    sqlite_p = base / "results.sqlite"
-    results_dir = base / "results"
-
-    summary: dict[str, Any] = {}
-    if summary_p.exists():
-        try:
-            doc = _load_json(summary_p)
-            summary = {
-                "schema_version": doc.get("$schema_version"),
-                "sources": doc.get("sources", []),
-                "total_seats": doc.get("total_seats"),
-                "path": _rel(summary_p),
-                "mtime": _mtime_iso(summary_p),
-            }
-        except (OSError, json.JSONDecodeError) as e:
-            summary = {"error": f"{type(e).__name__}: {e}"}
-
-    ac_files = (
-        sorted(p.stem for p in results_dir.glob("*.json"))
-        if results_dir.exists()
-        else []
-    )
-    expected = _expected_acs(state)
-
+    Single SQL round-trip over the file; DuckDB reads only the column
+    statistics + sampled metadata it needs, so this is cheap even at
+    hundreds-of-MB Parquet sizes.
+    """
+    row = con.execute(
+        """
+        SELECT
+            count(*)                       AS row_count,
+            count(DISTINCT indicator_id)   AS indicators,
+            count(DISTINCT entity_id)      AS entities,
+            count(DISTINCT period_label)   AS periods,
+            min(year)                      AS min_year,
+            max(year)                      AS max_year,
+            count(DISTINCT source_id)      AS sources
+        FROM read_parquet(?)
+        """,
+        [str(abs_path)],
+    ).fetchone()
+    assert row is not None
     return {
-        "event": event,
-        "state": state,
-        "summary": summary or None,
-        "parties": _rel(parties_p) if parties_p.exists() else None,
-        "sqlite": _rel(sqlite_p) if sqlite_p.exists() else None,
-        "ac_results": {
-            "found": len(ac_files),
-            "expected": expected,
-            "missing": (
-                None
-                if expected is None
-                else max(expected - len(ac_files), 0)
-            ),
-        },
+        "row_count": int(row[0]),
+        "indicators": int(row[1]),
+        "entities": int(row[2]),
+        "periods": int(row[3]),
+        "min_year": None if row[4] is None else int(row[4]),
+        "max_year": None if row[5] is None else int(row[5]),
+        "sources": int(row[6]),
     }
+
+
+def _plain_row_count(con: duckdb.DuckDBPyConnection, abs_path: Path) -> int:
+    row = con.execute("SELECT count(*) FROM read_parquet(?)", [str(abs_path)]).fetchone()
+    assert row is not None
+    return int(row[0])
+
+
+def _indicator_breakdown(
+    con: duckdb.DuckDBPyConnection, family: str, abs_path: Path
+) -> list[dict[str, Any]]:
+    """Per-indicator stats for one observations.parquet."""
+    rows = con.execute(
+        """
+        SELECT
+            indicator_id,
+            count(*)                       AS obs_count,
+            count(DISTINCT entity_id)      AS entity_count,
+            count(DISTINCT period_label)   AS period_count,
+            min(year)                      AS min_year,
+            max(year)                      AS max_year
+        FROM read_parquet(?)
+        GROUP BY indicator_id
+        ORDER BY indicator_id
+        """,
+        [str(abs_path)],
+    ).fetchall()
+    return [
+        {
+            "family": family,
+            "indicator_id": r[0],
+            "obs_count": int(r[1]),
+            "entity_count": int(r[2]),
+            "period_count": int(r[3]),
+            "min_year": None if r[4] is None else int(r[4]),
+            "max_year": None if r[5] is None else int(r[5]),
+        }
+        for r in rows
+    ]
+
+
+def _discover_parquets(datasets_dir: Path) -> list[Path]:
+    """Every Parquet under ``datasets/`` worth surfacing, sorted.
+
+    Filtering rules sit here, not in the route handler, so the test can
+    seed a fixture corpus and trust the same discovery logic the live
+    endpoint uses.
+    """
+    if not datasets_dir.exists():
+        return []
+    out: list[Path] = []
+    for p in datasets_dir.rglob("*.parquet"):
+        # Skip files inside any sentinel top-level directory.
+        try:
+            rel = p.resolve().relative_to(datasets_dir.resolve())
+        except ValueError:
+            continue
+        if rel.parts and rel.parts[0] in _SKIP_DIR_PREFIXES:
+            continue
+        out.append(p)
+    return sorted(out)
 
 
 @router.get("/inventory")
 def inventory() -> dict[str, Any]:
-    """Coverage matrix: every (event × state) folder under
-    ``datasets/elections/`` with summary + AC counts.
+    """Family-agnostic inventory of the canonical Parquet store.
 
     Returns
     -------
     dict
-        ``events``: ordered list of event ids found on disk.
-        ``states``: ECI code → display name mapping (subset present in
-        the reference file; states not in the reference still appear in
-        ``cells`` keyed by their code).
-        ``cells``: list of per-(event, state) summary records.
+        ``generated_at`` : RFC 3339 UTC, when this response was built.
+        ``stores``       : one entry per Parquet under ``datasets/``
+                           (excluding sentinel dirs). Observations parquets
+                           carry a ``stats`` block; dim / taxonomy carry
+                           ``row_count`` + ``size_bytes`` only.
+        ``indicators``   : per-indicator stats rolled up across every
+                           ``observations.parquet`` in the store. Family
+                           is preserved so a future multi-family operator
+                           can group by it.
     """
-    elections_root = DATASETS / "elections"
-    if not elections_root.exists():
+    root = _repo_root()
+    datasets_dir = root / "datasets"
+    parquets = _discover_parquets(datasets_dir)
+
+    if not datasets_dir.exists():
         raise HTTPException(
             status_code=500,
             detail=(
-                f"datasets/elections does not exist at {elections_root!s}; "
+                f"datasets/ does not exist at {datasets_dir!s}; "
                 "run from the repo root."
             ),
         )
 
-    state_names = _load_states()
-    events = sorted(p.name for p in elections_root.iterdir() if p.is_dir())
+    con = duckdb.connect()
+    try:
+        stores: list[dict[str, Any]] = []
+        indicators: list[dict[str, Any]] = []
 
-    cells: list[dict[str, Any]] = []
-    seen_states: set[str] = set()
-    for event in events:
-        event_dir = elections_root / event
-        for state_dir in sorted(event_dir.iterdir()):
-            if not state_dir.is_dir():
-                continue
-            state = state_dir.name
-            seen_states.add(state)
-            cells.append(_scan_state(event, state))
+        for p in parquets:
+            rel = PurePosixPath(_rel(p, root))
+            family, kind = _classify(rel)
+            entry: dict[str, Any] = {
+                "family": family,
+                "kind": kind,
+                "path": str(rel),
+                "size_bytes": p.stat().st_size,
+                "mtime": _mtime_iso(p),
+                "row_count": None,
+                "stats": None,
+            }
+            try:
+                if kind == "observations":
+                    stats = _observations_stats(con, p)
+                    entry["row_count"] = stats.pop("row_count")
+                    entry["stats"] = stats
+                    indicators.extend(_indicator_breakdown(con, family, p))
+                else:
+                    entry["row_count"] = _plain_row_count(con, p)
+            except duckdb.Error as e:  # pragma: no cover — surfaces corrupt files
+                entry["error"] = f"{type(e).__name__}: {e}"
+            stores.append(entry)
+    finally:
+        con.close()
 
-    # Names dict only includes states actually present in cells (plus any
-    # extra reference entries — useful for the admin to spot states with
-    # reference data but no election data yet).
-    names = {code: state_names.get(code, code) for code in sorted(seen_states | state_names.keys())}
-
-    return {"events": events, "states": names, "cells": cells}
+    return {
+        "generated_at": datetime.now(tz=UTC).isoformat(),
+        "stores": stores,
+        "indicators": indicators,
+    }
