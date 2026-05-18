@@ -23,7 +23,7 @@ function makeError(kind: ManifestErrorKind): ManifestError {
   return {
     kind,
     message: `https://internal.example/path?schema_version=9.9 — stack trace at line 42`,
-    table_id: "elections.observations",
+    table_id: "elections.election_results",
   };
 }
 
@@ -49,7 +49,7 @@ describe("copyForError", () => {
     expect(combined).not.toContain("9.9");
     expect(combined).not.toContain("stack");
     expect(combined).not.toContain("line 42");
-    expect(combined).not.toContain("elections.observations");
+    expect(combined).not.toContain("elections.election_results");
   });
 
   it("offers retry for transient kinds (network, schema_version_unsupported)", () => {

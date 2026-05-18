@@ -55,7 +55,7 @@ describe("api.inventory", () => {
       stores: [{
         family: "elections",
         kind: "observations",
-        path: "datasets/elections/observations.parquet",
+        path: "datasets/elections/election_results.parquet",
         size_bytes: 14_772_201,
         mtime: "2026-05-18T00:00:00Z",
         row_count: 199_330,

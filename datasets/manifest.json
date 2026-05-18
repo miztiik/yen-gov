@@ -2,19 +2,19 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.1",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-18T22:04:44Z",
+  "generated_at": "2026-05-18T22:40:39Z",
   "tables": [
     {
-      "table_id": "elections.observations",
+      "table_id": "elections.election_results",
       "family": "elections",
-      "table_name": "observations",
+      "table_name": "election_results",
       "kind": "observations",
       "format": "parquet",
       "schema_version": "1.1",
       "partition_columns": [],
       "files": [
         {
-          "path": "elections/observations.parquet",
+          "path": "elections/election_results.parquet",
           "size_bytes": 14772201,
           "row_count": 199330
         }

@@ -1380,7 +1380,7 @@ def canonical_backfill_eci(
         help="Restrict to one or more ECI state codes (e.g. S22). Repeat flag.",
     ),
 ) -> None:
-    """Backfill datasets/elections/observations.parquet from per-AC JSON corpus.
+    """Backfill datasets/elections/election_results.parquet from per-AC JSON corpus.
 
     Phase 1.1 step 5. Each (event, state) slice is one atomic UPSERT; a
     failure in one slice is recorded and the run continues. Progress is

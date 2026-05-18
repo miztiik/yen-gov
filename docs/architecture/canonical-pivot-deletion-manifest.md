@@ -96,7 +96,7 @@ These either back boundary geometry (preserved per D25 / §0c) or back contracts
 | `backend/yen_gov/composers/energy_capacity_by_source.py` | delete | Phase 2 (energy migration) | Facet-explode pattern per D26; no backend aggregator |
 | `backend/yen_gov/composers/__init__.py` | delete with the last composer | Phase 2 | — |
 | `backend/yen_gov/core/io.py::write_artifact` (dict-equal write-skip gate) | delete | Phase 1.8 | UPSERT-into-DuckDB writer (R6, R7, D7) |
-| `backend/yen_gov/core/events.py` | re-check; survives Phase 1, may retire when elections fully on canonical | Phase 1.8 | `datasets/elections/observations.parquet` + `taxonomy/sources.parquet` |
+| `backend/yen_gov/core/events.py` | re-check; survives Phase 1, may retire when elections fully on canonical | Phase 1.8 | `datasets/elections/election_results.parquet` + `taxonomy/sources.parquet` |
 | `backend/yen_gov/admin/inventory.py` | retire / rewrite per Q10 (Phase 1 step 1.7 decision) | Phase 1.7 OR Phase 5.1 | canonical Inventory panel reads `taxonomy/indicators.parquet` via DuckDB |
 | `backend/yen_gov/admin/pipeline.py` | retire / rewrite per Q10 | Phase 1.7 OR Phase 5.3 | canonical Pipeline panel |
 | `backend/yen_gov/admin/indicators.py` | retire / rewrite per Q10 | Phase 1.7 OR Phase 5 | canonical operator-state edit UI (D18 writes `taxonomy/operator_state.json` text) |

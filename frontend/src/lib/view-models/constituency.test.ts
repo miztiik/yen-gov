@@ -144,7 +144,7 @@ describe("loadConstituencyResult — happy path", () => {
       "elections.dim_acs",
       "elections.dim_candidates",
       "elections.dim_parties",
-      "elections.observations",
+      "elections.election_results",
       "taxonomy.sources",
     ]);
   });

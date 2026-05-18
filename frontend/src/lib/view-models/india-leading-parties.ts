@@ -51,7 +51,7 @@ async function runQueries(
   state_event_map: Record<string, string>,
 ): Promise<PartyRow[]> {
   await Promise.all([
-    registerTable("elections.observations"),
+    registerTable("elections.election_results"),
     registerTable("elections.dim_parties"),
   ]);
 
@@ -77,7 +77,7 @@ async function runQueries(
       MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS seats_won,
       MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS votes,
       MAX(CASE WHEN o.indicator_id = 'party-vote-share-pct' THEN o.value_numeric END) AS vote_share_pct
-    FROM observations o
+    FROM election_results o
     LEFT JOIN dim_parties dp
       ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
     WHERE (${clauses.join(" OR ")})

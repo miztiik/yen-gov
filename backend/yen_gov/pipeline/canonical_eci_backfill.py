@@ -120,7 +120,7 @@ def backfill_elections(
 
     - Parse every (event, state) slice belonging to one event into a single
       in-memory envelope, then call ``write_batch`` once for that event.
-    - Each event's rows are persisted to ``datasets/elections/observations.parquet``
+    - Each event's rows are persisted to ``datasets/elections/election_results.parquet``
       before the next event starts. If the run aborts mid-corpus, work done
       so far is on disk; a re-run skips events whose observation_ids are
       already present (UPSERT semantics make it a no-op).

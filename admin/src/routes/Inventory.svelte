@@ -4,12 +4,14 @@
   // Two tables, one query:
   //   1. Stores  — every Parquet under `datasets/` (observations, dim,
   //                taxonomy). Family = top-level dir. The day energy /
-  //                demography / fiscal / health land their own
-  //                `<family>/observations.parquet`, they show up here
+  //                demography / fiscal / health land their own fact-table
+  //                parquet (per-family stem, e.g.
+  //                `elections/election_results.parquet`), they show up here
   //                automatically with zero code change.
-  //   2. Indicators — per-indicator rollup across every observations.parquet.
-  //                   Complementary to the docs-completeness Indicators
-  //                   panel: this one says "is there data for it on disk".
+  //   2. Indicators — per-indicator rollup across every family's fact-table
+  //                   parquet. Complementary to the docs-completeness
+  //                   Indicators panel: this one says "is there data for it
+  //                   on disk".
 
   import { api, type Inventory, type InventoryStore, type InventoryIndicator } from "../lib/api";
 
@@ -37,7 +39,7 @@
     return d.toISOString().replace("T", " ").slice(0, 16) + "Z";
   }
 
-  // Bytes shown as KB / MB / GB so a 14 MB observations.parquet doesn't
+  // Bytes shown as KB / MB / GB so a 14 MB election_results.parquet doesn't
   // render as "14772201" and crowd the column.
   function fmtBytes(n: number): string {
     if (n < 1024) return `${n} B`;
@@ -72,7 +74,8 @@
       <h2 class="text-lg font-semibold">Inventory</h2>
       <p class="text-xs text-slate-400">
         Canonical Parquet store under <code class="font-mono">datasets/</code>.
-        Every <code class="font-mono">&lt;family&gt;/observations.parquet</code>
+        Every family's fact-table parquet (per-family stem, e.g.
+        <code class="font-mono">elections/election_results.parquet</code>)
         is summarised by DuckDB; <code class="font-mono">dim_*</code> and
         <code class="font-mono">taxonomy/*</code> show row counts only.
       </p>
@@ -162,7 +165,7 @@
         </span>
       </h3>
       {#if data.indicators.length === 0}
-        <p class="text-sm text-slate-400">No <code class="font-mono">observations.parquet</code> found.</p>
+        <p class="text-sm text-slate-400">No fact-table parquet found.</p>
       {:else}
         <div class="overflow-x-auto rounded border border-slate-800">
           <table class="w-full text-xs tabular-nums">

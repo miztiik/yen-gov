@@ -6,11 +6,11 @@
 // the per-shard JSON contract is retired by the canonical pivot (ADR-0030).
 //
 // What is JOINed:
-//   elections.dim_acs        — AC identity + display name
-//   elections.dim_candidates — per-contest candidate rows (PK = entity_id)
-//   elections.dim_parties    — party labels (short / full / eci_code)
-//   elections.observations   — numeric facts (votes, share, AC totals)
-//   taxonomy.sources         — provenance URLs + first_fetched_at
+//   elections.dim_acs           — AC identity + display name
+//   elections.dim_candidates    — per-contest candidate rows (PK = entity_id)
+//   elections.dim_parties       — party labels (short / full / eci_code)
+//   elections.election_results  — numeric facts (votes, share, AC totals)
+//   taxonomy.sources            — provenance URLs + first_fetched_at
 //
 // LoaderResult arms:
 //   ok       — JOIN produced 1+ candidate rows; full ConstituencyResult built.
@@ -82,7 +82,7 @@ interface SourceJoinRow {
 }
 
 // Numeric coercion: DuckDB-WASM returns BIGINT as BigInt and DOUBLE as
-// number. Candidate vote counts are stored as DOUBLE in observations.parquet
+// number. Candidate vote counts are stored as DOUBLE in election_results.parquet
 // (see canonical-store.md §11.1 — value_numeric is DOUBLE), so we just need
 // `Number(x ?? 0)` to flatten. Kept in one helper so a future BIGINT switch
 // in the schema doesn't scatter coercions across the loader.
@@ -99,7 +99,7 @@ async function runQueries(
 }> {
   // Register every Parquet view we need (idempotent per session).
   await Promise.all([
-    registerTable("elections.observations"),
+    registerTable("elections.election_results"),
     registerTable("elections.dim_candidates"),
     registerTable("elections.dim_acs"),
     registerTable("elections.dim_parties"),
@@ -126,11 +126,11 @@ async function runQueries(
     FROM dim_candidates dc
     JOIN dim_acs da ON da.ac_id = dc.ac_id
     LEFT JOIN dim_parties dp ON dp.party_id = dc.party_id
-    LEFT JOIN observations obs_v
+    LEFT JOIN election_results obs_v
       ON obs_v.entity_id = dc.candidate_id
      AND obs_v.indicator_id = 'candidate-votes-polled'
      AND obs_v.period_label = dc.period_label
-    LEFT JOIN observations obs_s
+    LEFT JOIN election_results obs_s
       ON obs_s.entity_id = dc.candidate_id
      AND obs_s.indicator_id = 'candidate-vote-share-pct'
      AND obs_s.period_label = dc.period_label
@@ -151,7 +151,7 @@ async function runQueries(
   // AC-scope facts: turnout, totals, NOTA, winner refs, margin.
   const acScope = await query<AcScopeRow>(`
     SELECT indicator_id, value_numeric, value_text
-    FROM observations
+    FROM election_results
     WHERE entity_id = ${ac}
       AND period_label = ${evt}
       AND indicator_id LIKE 'ac-%'
@@ -166,7 +166,7 @@ async function runQueries(
     .join(", ");
   const sources = await query<SourceJoinRow>(`
     SELECT DISTINCT s.url, s.first_fetched_at
-    FROM observations o
+    FROM election_results o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label = ${evt}
       AND (

@@ -10,6 +10,7 @@ flip per-test is enough.
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import duckdb
@@ -71,9 +72,16 @@ def _write_dim(path: Path, n_rows: int = 3) -> None:
 
 @pytest.fixture()
 def fixture_corpus(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
-    """Seed a tiny, family-agnostic Parquet corpus and pin the env var."""
+    """Seed a tiny, family-agnostic Parquet corpus and pin the env var.
+
+    Writes a minimal ``datasets/manifest.json`` alongside the parquet files
+    so the inventory's manifest-driven classifier resolves the fact-table
+    kind authoritatively (PR-O.1 / TODO row 1.8b-i — the legacy
+    ``observations.parquet`` filename fallback was retired because per-family
+    fact-table stems break it).
+    """
     datasets = tmp_path / "datasets"
-    obs_path = datasets / "elections" / "observations.parquet"
+    obs_path = datasets / "elections" / "election_results.parquet"
     _write_observations(
         obs_path,
         rows=[
@@ -88,6 +96,55 @@ def fixture_corpus(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
     # Sentinel dirs that MUST be skipped.
     _write_dim(datasets / "_old" / "ignored.parquet", n_rows=99)
     _write_dim(datasets / "_test" / "ignored.parquet", n_rows=99)
+
+    # Minimal manifest so the manifest-driven classifier (admin/inventory.py
+    # _classify) recognises the fact-table by table_id + kind. Only fields
+    # the classifier reads (family, kind, files[].path) are populated.
+    manifest = {
+        "$schema": "./schemas/manifest.schema.json",
+        "$schema_version": "1.1",
+        "manifest_version": "1.0",
+        "generated_at": "2026-05-18T00:00:00Z",
+        "tables": [
+            {
+                "table_id": "elections.election_results",
+                "family": "elections",
+                "table_name": "election_results",
+                "kind": "observations",
+                "format": "parquet",
+                "schema_version": "1.1",
+                "partition_columns": [],
+                "files": [{"path": "elections/election_results.parquet",
+                           "size_bytes": 0, "row_count": 4}],
+                "row_count_total": 4,
+            },
+            {
+                "table_id": "elections.dim_parties",
+                "family": "elections",
+                "table_name": "dim_parties",
+                "kind": "dim",
+                "format": "parquet",
+                "schema_version": "1.0",
+                "partition_columns": [],
+                "files": [{"path": "elections/dim_parties.parquet",
+                           "size_bytes": 0, "row_count": 5}],
+                "row_count_total": 5,
+            },
+            {
+                "table_id": "taxonomy.sources",
+                "family": "taxonomy",
+                "table_name": "sources",
+                "kind": "taxonomy",
+                "format": "parquet",
+                "schema_version": "1.0",
+                "partition_columns": [],
+                "files": [{"path": "taxonomy/sources.parquet",
+                           "size_bytes": 0, "row_count": 2}],
+                "row_count_total": 2,
+            },
+        ],
+    }
+    (datasets / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
     monkeypatch.setenv("YEN_GOV_REPO_ROOT", str(tmp_path))
     return tmp_path

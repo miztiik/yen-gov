@@ -18,12 +18,12 @@ const goodManifest: Manifest = {
   generated_at: "2026-05-18T00:00:00Z",
   tables: [
     {
-      table_id: "elections.observations",
+      table_id: "elections.election_results",
       family: "elections",
       format: "parquet",
       schema_version: "1.0",
       partition_columns: [],
-      files: [{ path: "elections/observations.parquet", size_bytes: 1024, row_count: 10 }],
+      files: [{ path: "elections/election_results.parquet", size_bytes: 1024, row_count: 10 }],
       row_count_total: 10,
     },
     {
@@ -112,8 +112,8 @@ describe("fetchManifest", () => {
 
 describe("lookupTable", () => {
   it("returns the table when id matches and version is compatible", () => {
-    const out = lookupTable(goodManifest, "elections.observations", "observation.schema.json");
-    expect(out).toMatchObject({ table_id: "elections.observations", format: "parquet" });
+    const out = lookupTable(goodManifest, "elections.election_results", "observation.schema.json");
+    expect(out).toMatchObject({ table_id: "elections.election_results", format: "parquet" });
   });
 
   it("returns table_not_found when id is absent (R23 — no fallback)", () => {
@@ -126,12 +126,12 @@ describe("lookupTable", () => {
       ...goodManifest,
       tables: [{ ...goodManifest.tables[0], schema_version: "9.9" }],
     };
-    const out = lookupTable(m, "elections.observations", "observation.schema.json");
+    const out = lookupTable(m, "elections.election_results", "observation.schema.json");
     expect(out).toMatchObject({ kind: "schema_version_unsupported" });
   });
 
   it("rejects when the row schema file is unknown", () => {
-    const out = lookupTable(goodManifest, "elections.observations", "made-up.schema.json");
+    const out = lookupTable(goodManifest, "elections.election_results", "made-up.schema.json");
     expect(out).toMatchObject({ kind: "schema_version_unsupported" });
   });
 });

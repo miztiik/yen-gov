@@ -4,24 +4,31 @@ The canonical pivot ([ADR-0030]) standardised every indicator family —
 elections today, energy / demography / fiscal / health next — on the same
 on-disk shape:
 
-    datasets/<family>/observations.parquet     # long-format facts
+    datasets/<family>/<fact_stem>.parquet      # long-format facts
     datasets/<family>/dim_<*>.parquet          # denormalised dim tables
     datasets/taxonomy/<*>.parquet              # cross-family taxonomy
+
+The fact-table stem is per-family (PR-O.1 / TODO row 1.8b-i) —
+``elections/election_results.parquet`` today, default ``observations.parquet``
+for families that have not yet earned a domain-specific stem. The mapping
+lives in ``backend/yen_gov/canonical/writer.py::FAMILY_FACT_TABLE_STEM`` and
+reaches consumers via ``manifest.tables[].kind``, never via filename guessing.
 
 Because the observations schema is family-invariant
 (``observation_id, entity_id, year, period_label, period_seq,
 indicator_id, value_numeric, value_text, source_id, derivation``), the
 operator's "what's in my store?" question is one query against any
-``observations.parquet`` regardless of family. This endpoint walks every
+fact-table parquet regardless of family. This endpoint walks every
 Parquet under ``datasets/`` and answers it in two passes:
 
 * ``stores[]`` — one row per Parquet file. Family inferred from the
-  top-level directory; kind inferred from filename. Stats are populated
-  only for ``observations`` parquets; ``dim_*`` and taxonomy stores
-  report row count + mtime only (their content is structure, not facts).
+  top-level directory; kind looked up in ``manifest.json`` (the writer is
+  the authority). Stats are populated only for ``observations`` parquets;
+  ``dim_*`` and taxonomy stores report row count + mtime only (their
+  content is structure, not facts).
 
 * ``indicators[]`` — one row per ``(family, indicator_id)`` across every
-  ``observations.parquet``. This is the cross-family "is this indicator
+  fact-table parquet. This is the cross-family "is this indicator
   populated?" surface, complementary to the docs/completeness-driven
   Indicators panel.
 
@@ -98,9 +105,12 @@ def _classify(
     Resolution order: if ``manifest_index`` carries an entry for this file's
     POSIX-relative-under-datasets path, return its (family, kind) directly
     (the writer is the authority — see ``manifest.schema.json`` v1.1's
-    ``kind`` field + canonical-store.md §2a). Otherwise fall back to the
-    historical filename string-matching rules so orphan files and missing
-    manifests do not crash the endpoint.
+    ``kind`` field + canonical-store.md §2a). Otherwise fall back to a
+    family-agnostic filename rule covering ``dim_*`` + taxonomy; anything
+    else is ``other``. The historical ``observations.parquet`` filename
+    fallback was retired in PR-O.1 (TODO row 1.8b-i) because per-family
+    fact-table stems (e.g. ``elections/election_results.parquet``) broke
+    the string match — manifest is now the sole authority for fact tables.
     """
     parts = rel_path.parts
     # parts[0] == 'datasets', parts[1] == family
@@ -116,8 +126,6 @@ def _classify(
     fname = parts[-1]
     if family == "taxonomy":
         return family, "taxonomy"
-    if fname == "observations.parquet":
-        return family, "observations"
     if fname.startswith("dim_") and fname.endswith(".parquet"):
         return family, "dim"
     return family, "other"

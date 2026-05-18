@@ -17,7 +17,7 @@
 // their `results.sqlite` queries.
 //
 // What is JOINed:
-//   elections.observations         — numeric facts (party-* + state-* indicators)
+//   elections.election_results     — numeric facts (party-* + state-* indicators)
 //   elections.dim_parties          — party identity (short_name, full_name, eci_code, recognition)
 //   elections.dim_party_alliances  — per-event alliance (LEFT JOIN on (party_id, period_label))
 //   taxonomy.sources               — provenance URLs + first_fetched_at
@@ -121,7 +121,7 @@ async function runQueries(
   acWinners: AcWinnerRow[];
 }> {
   await Promise.all([
-    registerTable("elections.observations"),
+    registerTable("elections.election_results"),
     registerTable("elections.dim_parties"),
     registerTable("elections.dim_party_alliances"),
     registerTable("elections.dim_acs"),
@@ -149,7 +149,7 @@ async function runQueries(
       MAX(CASE WHEN o.indicator_id = 'party-seats-won'      THEN o.value_numeric END) AS seats_won,
       MAX(CASE WHEN o.indicator_id = 'party-votes-polled'   THEN o.value_numeric END) AS votes,
       MAX(CASE WHEN o.indicator_id = 'party-vote-share-pct' THEN o.value_numeric END) AS vote_share_pct
-    FROM observations o
+    FROM election_results o
     LEFT JOIN dim_parties dp
       ON dp.short_name = regexp_extract(o.entity_id, '-PARTY-(.+)$', 1)
     LEFT JOIN dim_party_alliances dpa
@@ -173,7 +173,7 @@ async function runQueries(
 
   const stateScope = await query<StateScopeRow>(`
     SELECT indicator_id, value_numeric
-    FROM observations
+    FROM election_results
     WHERE entity_id = ${stateEntity}
       AND period_label = ${evt}
       AND indicator_id IN (
@@ -185,7 +185,7 @@ async function runQueries(
 
   const sources = await query<SourceJoinRow>(`
     SELECT DISTINCT s.url, s.first_fetched_at
-    FROM observations o
+    FROM election_results o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label = ${evt}
       AND o.entity_id LIKE ${statePrefix} || '%'
@@ -215,14 +215,14 @@ async function queryAcWinners(
   return query<AcWinnerRow>(`
     WITH winner AS (
       SELECT entity_id AS ac_id, value_text AS party_id
-      FROM observations
+      FROM election_results
       WHERE indicator_id = 'ac-winner-party-id'
         AND period_label = ${evtLiteral}
         AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
     ),
     margin AS (
       SELECT entity_id AS ac_id, value_numeric AS margin_pct
-      FROM observations
+      FROM election_results
       WHERE indicator_id = 'ac-margin-pct'
         AND period_label = ${evtLiteral}
         AND entity_id LIKE 'IN-' || ${stateLiteral} || '-AC-%'
@@ -357,7 +357,7 @@ export async function loadStateAcWinners(
 ): Promise<LoaderResult<AcWinner[]>> {
   try {
     await Promise.all([
-      registerTable("elections.observations"),
+      registerTable("elections.election_results"),
       registerTable("elections.dim_parties"),
       registerTable("elections.dim_acs"),
     ]);

@@ -82,7 +82,7 @@ Vite config stays UI-only. The dev middleware (`serveDatasets()`) and the deploy
 
 ### How it works
 
-On state navigation, [`lib/explore/duckdb-views.ts`](../../../frontend/src/lib/explore/duckdb-views.ts) calls `registerTable()` for `elections.observations`, `elections.dim_acs`, `elections.dim_candidates`, `elections.dim_parties` (idempotent across navigation), then issues four `CREATE OR REPLACE VIEW` statements scoped to the current (event, state) pair:
+On state navigation, [`lib/explore/duckdb-views.ts`](../../../frontend/src/lib/explore/duckdb-views.ts) calls `registerTable()` for `elections.election_results`, `elections.dim_acs`, `elections.dim_candidates`, `elections.dim_parties` (idempotent across navigation), then issues four `CREATE OR REPLACE VIEW` statements scoped to the current (event, state) pair:
 
 - `parties` — `dim_parties` verbatim
 - `constituencies` — `dim_acs` filtered by `state_code`, joined to AC-scope observations (`ac-votes-polled`, `ac-total-electors`, `ac-turnout-pct`)
@@ -176,16 +176,16 @@ Five canonical tables get registered (idempotent per session) via `registerTable
 | Table | Role in this view |
 | --- | --- |
 | `elections.dim_acs` | AC identity + display name |
-| `elections.dim_candidates` | per-contest candidate rows; PK byte-equal to `observations.entity_id` |
+| `elections.dim_candidates` | per-contest candidate rows; PK byte-equal to `election_results.entity_id` |
 | `elections.dim_parties` | party labels (`short_name`, `full_name`, `eci_code`) |
-| `elections.observations` | numeric facts (`candidate-votes-polled`, `candidate-vote-share-pct`, `ac-*` scope) |
+| `elections.election_results` | numeric facts (`candidate-votes-polled`, `candidate-vote-share-pct`, `ac-*` scope) |
 | `taxonomy.sources` | provenance — `(url, first_fetched_at)` projected into the legacy `SourceRef` shape |
 
 The loader composes three SQL statements:
 
-1. **Candidate JOIN** — `dim_candidates` → `dim_acs` (filter on `state_code` + `eci_no`) → `dim_parties` → two LEFT JOINs onto `observations` for `candidate-votes-polled` and `candidate-vote-share-pct`, ordered by `dc.rank`. Returns one row per candidate.
-2. **AC-scope facts** — `SELECT … FROM observations WHERE entity_id = <ac_id> AND indicator_id LIKE 'ac-%'` to pick up turnout, votes-polled, NOTA, winner refs, margin. `ac_id` is derived from the first candidate row (avoids needing `delim_year` ahead of time).
-3. **Provenance** — `SELECT DISTINCT s.url, s.first_fetched_at FROM observations JOIN sources` across both AC-scope and candidate-scope rows for this `period_label`.
+1. **Candidate JOIN** — `dim_candidates` → `dim_acs` (filter on `state_code` + `eci_no`) → `dim_parties` → two LEFT JOINs onto `election_results` for `candidate-votes-polled` and `candidate-vote-share-pct`, ordered by `dc.rank`. Returns one row per candidate.
+2. **AC-scope facts** — `SELECT … FROM election_results WHERE entity_id = <ac_id> AND indicator_id LIKE 'ac-%'` to pick up turnout, votes-polled, NOTA, winner refs, margin. `ac_id` is derived from the first candidate row (avoids needing `delim_year` ahead of time).
+3. **Provenance** — `SELECT DISTINCT s.url, s.first_fetched_at FROM election_results JOIN sources` across both AC-scope and candidate-scope rows for this `period_label`.
 
 `assembleResult()` folds the three result sets into the legacy `ConstituencyResult` interface (`frontend/src/lib/data.ts`) — the interface itself stays as the view-model shape so the Svelte template needs no structural rewrite.
 
@@ -234,14 +234,14 @@ Three tables get registered (subset of PR-E — no per-AC dim needed for the hub
 
 | Table | Role in this view |
 | --- | --- |
-| `elections.observations` | numeric facts — `party-*` (per-party-per-state) + `state-*` (state-scope) indicator rows |
+| `elections.election_results` | numeric facts — `party-*` (per-party-per-state) + `state-*` (state-scope) indicator rows |
 | `elections.dim_parties` | party labels — joined on the extracted short_name (LEFT JOIN; falls back to the extracted key when no dim row exists, e.g. CPIM today) |
 | `taxonomy.sources` | provenance for every `IN-<state>-*` observation in this event |
 
 Three SQL statements:
 
 1. **Party pivot** — `MAX(CASE WHEN indicator_id = 'party-…' THEN value_numeric END)` across the four `party-*` indicators (`contested-acs`, `seats-won`, `votes-polled`, `vote-share-pct`), filtered on `entity_id LIKE 'IN-<state>-<event>-PARTY-%'`. JOIN key is `regexp_extract(entity_id, '-PARTY-(.+)$', 1) = dim_parties.short_name`.
-2. **State-scope facts** — `SELECT indicator_id, value_numeric FROM observations WHERE entity_id = 'IN-<state>-<event>' AND indicator_id IN ('state-electors-total', 'state-votes-polled', 'state-turnout-pct')`.
+2. **State-scope facts** — `SELECT indicator_id, value_numeric FROM election_results WHERE entity_id = 'IN-<state>-<event>' AND indicator_id IN ('state-electors-total', 'state-votes-polled', 'state-turnout-pct')`.
 3. **Provenance** — `SELECT DISTINCT s.url, s.first_fetched_at` across every observation under this `(state, event)`.
 
 `total_seats` is derived in-loader as `sum(party_totals.seats_won)` rather than a fourth query — sum equals the assembly size by construction (TN = 234).
@@ -419,7 +419,7 @@ Renderers MUST handle all four arms. Per D17, the `failed` arm renders plain-lan
 
 A dev-only Svelte page at `/dev/duckdb-harness` ([`frontend/src/routes/DuckDbHarness.svelte`](../../../frontend/src/routes/DuckDbHarness.svelte)) drives the DuckDB-WASM loader through three paths so the contract can be asserted in a real browser:
 
-1. **Real query** — boots DuckDB-WASM, registers `elections.observations`, runs `SELECT COUNT(*)`. Proves the wasm + Arrow + HTTP `read_parquet` round-trip works end-to-end.
+1. **Real query** — boots DuckDB-WASM, registers `elections.election_results`, runs `SELECT COUNT(*)`. Proves the wasm + Arrow + HTTP `read_parquet` round-trip works end-to-end.
 2. **Forced manifest 404** — overrides `fetch` for `/data/manifest.json` to return 404. Asserts the catalogue-unavailable copy + Retry button.
 3. **Forced unknown table** — asks for a `table_id` not in the manifest. Asserts the dataset-not-available copy + Retry button.
 

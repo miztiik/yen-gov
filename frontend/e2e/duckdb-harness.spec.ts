@@ -1,7 +1,7 @@
 // Phase 0.11 — failure-state UX harness assertions.
 //
 // Drives /dev/duckdb-harness through three paths:
-//   1. Real query — boots DuckDB-WASM, registers elections.observations,
+//   1. Real query — boots DuckDB-WASM, registers elections.election_results,
 //      runs COUNT(*) against the canonical Parquet. Asserts the row count
 //      matches the manifest (proves the wasm + Arrow round-trip works
 //      end-to-end against a real Parquet shard over HTTP).
@@ -41,7 +41,7 @@ test.describe("duckdb harness", () => {
     // boot + ~13 MB Parquet fetch + Arrow round-trip.
     await expect(page.getByTestId("state-ok")).toBeVisible({ timeout: 60_000 });
 
-    // datasets/manifest.json row_count_total for elections.observations is
+    // datasets/manifest.json row_count_total for elections.election_results is
     // 179,746 as of Phase 1.2 backfill. If the canonical store grows, this
     // assertion is the right place to learn we forgot to update the test.
     const rowText = await page.getByTestId("row-count").innerText();
