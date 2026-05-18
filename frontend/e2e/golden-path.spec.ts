@@ -213,11 +213,12 @@ test.describe("golden path", () => {
     await expect(bio).toBeVisible({ timeout: 30_000 });
   });
 
-  test("explore page lazy-loads sqlite without error", async ({ page }) => {
-    // The /explore route mounts sql.js (sqlite-wasm). If the chunk fails
-    // to load, the route shows an error banner rather than crashing. The
-    // beforeEach pageerror trap covers the failure mode; here we just
-    // wait for network idle to confirm the wasm chunk + db both fetched.
+  test("explore page lazy-loads DuckDB-WASM without error", async ({ page }) => {
+    // The /explore route mounts DuckDB-WASM (Phase 1.6b — migrated off
+    // sql.js / results.sqlite). If the wasm chunk fails to load, the route
+    // shows an error banner rather than crashing. The beforeEach pageerror
+    // trap covers the failure mode; here we just wait for network idle to
+    // confirm the wasm + Parquet HTTP-range reads both succeeded.
     await page.goto("/s/tamil-nadu/explore");
     await page.waitForLoadState("networkidle", { timeout: 30_000 });
   });

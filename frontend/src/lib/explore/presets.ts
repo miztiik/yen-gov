@@ -21,7 +21,7 @@ export interface Preset {
   label: string;
   /** One-line tooltip / "selected query" caption explaining the question. */
   blurb: string;
-  /** Single SQLite-compatible statement. Read-only (SELECT/WITH only). */
+  /** Single read-only statement (SELECT / WITH only). DuckDB SQL dialect. */
   sql: string;
 }
 
@@ -256,8 +256,8 @@ LIMIT 10;`,
         blurb: "How often each pair of parties faced off in the top two.",
         sql: `WITH pairs AS (
   SELECT
-    MIN(w.party_short, r2.party_short) AS party_a,
-    MAX(w.party_short, r2.party_short) AS party_b,
+    LEAST(w.party_short, r2.party_short) AS party_a,
+    GREATEST(w.party_short, r2.party_short) AS party_b,
     CASE WHEN w.party_short < r2.party_short THEN 1 ELSE 0 END AS a_won
   ${WR_JOIN.trim()}
 )
