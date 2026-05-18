@@ -76,11 +76,42 @@ Vite config stays UI-only. The dev middleware (`serveDatasets()`) and the deploy
 - **Two Pages sites (one for app, one for data) with CORS.** Doubles infrastructure and adds a cross-origin failure mode that doesn't exist today. Rejected.
 - **Inline the data into `index.html` as JSON.** Fine for the 12-row party totals, fails the moment the per-AC pages need 234 files. Rejected as a general pattern.
 
-## The `/explore` page uses sql.js
+## The `/explore` page uses DuckDB-WASM (Phase 1.6b — PR-L)
 
-`/explore` lets the user run ad-hoc SQL against the per-state SQLite database emitted by [`backend/yen_gov/emit/`](../backend/emit-sqlite.md). The per-state file is small (~150 KB for TN, similar for KL), read-only, and already shipped with the static bundle.
+`/explore` lets the user run ad-hoc SQL against the canonical Parquet store. Phase 1.6b migrated it off `sql.js` / per-state `results.sqlite` onto the same DuckDB-WASM singleton every other citizen route uses, closing the third of four citizen-path `getDb` callers (Phase 1.4 closed two; only `psephlab/actuals` remains).
 
-We use **`sql.js`**, not `@sqlite.org/sqlite-wasm`.
+### How it works
+
+On state navigation, [`lib/explore/duckdb-views.ts`](../../../frontend/src/lib/explore/duckdb-views.ts) calls `registerTable()` for `elections.observations`, `elections.dim_acs`, `elections.dim_candidates`, `elections.dim_parties` (idempotent across navigation), then issues four `CREATE OR REPLACE VIEW` statements scoped to the current (event, state) pair:
+
+- `parties` — `dim_parties` verbatim
+- `constituencies` — `dim_acs` filtered by `state_code`, joined to AC-scope observations (`ac-votes-polled`, `ac-total-electors`, `ac-turnout-pct`)
+- `candidates` — `dim_candidates` joined to per-candidate observations (`candidate-votes-polled`, `candidate-vote-share-pct`) and `ac-winner-candidate-id`; UNION ALL with one synthetic NOTA row per AC, materialised from `ac-nota-{votes,pct}` observations so legacy presets querying `WHERE is_nota = 1` keep working
+- `party_totals` — pivoted from the materialised `party-*` indicators
+
+`is_winner` / `is_nota` stay as INTEGER 0/1 (not booleans) to preserve preset SQL verbatim.
+
+### Why convenience views, not raw canonical queries
+
+The footer schema doc on the page tells citizens what columns exist; presets are the worked examples. Rewriting every preset to query long-format observations directly would have shipped a more honest playground at the cost of a much larger semantic break for any citizen who'd hand-edited a preset. The view layer is small, generated, and one place to evolve; presets stay as templates a journalist can copy verbatim.
+
+### DuckDB dialect adjustments
+
+Two presets used SQLite's scalar `MIN(a, b)` / `MAX(a, b)` overloads (head-to-head pairs). These are aggregate-only in DuckDB; rewritten to `LEAST` / `GREATEST`. No other preset SQL changed.
+
+`fmtCell` in [`lib/explore/format.ts`](../../../frontend/src/lib/explore/format.ts) gained a `bigint` branch: DuckDB-WASM surfaces SQL `BIGINT` as JS `bigint`, which would otherwise miss the thousand-separator formatting path.
+
+### What this removes from the bundle
+
+`/explore` no longer fetches `results.sqlite`. The `sql.js` runtime still ships because `lib/psephlab/actuals.ts` (consumed by Compare and Psephlab routes) imports `getDb`. That migration is a separate concern — psephlab needs per-candidate observations rolled into a different shape — and is tracked under Phase 1.8 alongside the `_old/` deletion.
+
+## The `/explore` page (legacy notes — pre-PR-L)
+
+[Historical context retained below for the migration ledger.]
+
+`/explore` originally ran on `sql.js` against per-state `results.sqlite`. That file was small (~150 KB for TN, similar for KL), read-only, shipped with the static bundle.
+
+We used **`sql.js`**, not `@sqlite.org/sqlite-wasm`.
 
 | | `sql.js` | `@sqlite.org/sqlite-wasm` |
 |--|--|--|

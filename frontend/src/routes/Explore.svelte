@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Database, QueryExecResult } from "sql.js";
-  import { getDb } from "../lib/sql";
+  import { query } from "../lib/duckdb";
+  import { buildExploreViews } from "../lib/explore/duckdb-views";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
   import {
@@ -17,19 +17,26 @@
     type ElectionEventsCatalogue,
   } from "../lib/election-events";
 
-  // Component responsibility: load the per-state SQLite, hold UI state
-  // (selected preset, editor content, last result), and render.
+  // Component responsibility: register per-(event, state) DuckDB views over
+  // the canonical Parquet store, hold UI state (selected preset, editor
+  // content, last result), and render.
+  //
+  // Phase 1.6b: migrated off sql.js / results.sqlite onto DuckDB-WASM. The
+  // documented schema (`parties`, `constituencies`, `candidates`,
+  // `party_totals`) is now expressed as DuckDB views built from the canonical
+  // observations + dim Parquets — see lib/explore/duckdb-views.ts.
   //
   // Everything else lives in `lib/explore/`:
-  //   - presets.ts   — the preset/group catalog (pure data).
-  //   - sqlGuard.ts  — the read-only / single-statement validator.
-  //   - format.ts    — column-name based cell formatting helpers.
+  //   - presets.ts        — the preset/group catalog (pure data).
+  //   - sqlGuard.ts       — the read-only / single-statement validator.
+  //   - format.ts         — column-name based cell formatting helpers.
+  //   - duckdb-views.ts   — per-(event, state) view DDL.
 
   interface Props { params: { state: string } }
   let { params }: Props = $props();
 
-  // Per-state event resolution (ADR-0023): the per-state SQLite (and the
-  // SQL preset queries that read it) are scoped to the state's default
+  // Per-state event resolution (ADR-0023): the per-state DuckDB views (and
+  // the SQL preset queries that read them) are scoped to the state's default
   // election. States with no election data render a graceful empty state.
   let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
   fetchElectionEvents()
@@ -41,30 +48,34 @@
     defaultEventForState(election_catalogue, state_code)?.event_id ?? null,
   );
 
-  let db = $state<Database | null>(null);
+  // `ready` flips true once the per-(event, state) views are built. We don't
+  // hold a Database handle anymore — DuckDB-WASM is a process-wide singleton
+  // exposed via `query()`.
+  let ready = $state(false);
   let loading = $state(true);
   let error = $state<string | null>(null);
   let selectedId = $state<string>(ALL_PRESETS[0].id);
   let sql = $state(ALL_PRESETS[0].sql);
-  let result = $state<QueryExecResult | null>(null);
+  type RunResult = { columns: string[]; values: unknown[][] };
+  let result = $state<RunResult | null>(null);
   let runError = $state<string | null>(null);
   let runtimeMs = $state<number | null>(null);
 
   $effect(() => {
     loading = true;
     error = null;
-    db = null;
+    ready = false;
     const sc = state_code;
     const ev = event;
     if (!sc || !ev) { loading = false; return; }
-    getDb(ev, sc)
-      .then(d => { db = d; })
+    buildExploreViews(ev, sc)
+      .then(() => { ready = true; })
       .catch(e => { error = String(e); })
       .finally(() => { loading = false; });
   });
 
-  function run(): void {
-    if (!db) return;
+  async function run(): Promise<void> {
+    if (!ready) return;
     runError = null;
     const guard = validateSql(sql);
     if (!guard.ok) {
@@ -75,8 +86,10 @@
     }
     const t0 = performance.now();
     try {
-      const out = db.exec(sql);
-      result = out.length > 0 ? out[0] : null;
+      const rows = await query<Record<string, unknown>>(sql);
+      const columns = rows.length > 0 ? Object.keys(rows[0]) : [];
+      const values = rows.map(r => columns.map(c => r[c]));
+      result = { columns, values };
       runtimeMs = performance.now() - t0;
     } catch (e) {
       result = null;
@@ -88,11 +101,11 @@
   function pick(p: Preset): void {
     selectedId = p.id;
     sql = p.sql;
-    run();
+    void run();
   }
 
   $effect(() => {
-    if (db) run();
+    if (ready) void run();
   });
 
   // Tailwind class helpers depend on the column name; keep them inline since

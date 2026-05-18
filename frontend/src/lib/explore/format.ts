@@ -19,6 +19,10 @@ export function isNumericCol(name: string): boolean {
 
 export function fmtCell(value: unknown, col: string): string {
   if (value === null || value === undefined) return "—";
+  // DuckDB-WASM surfaces BIGINT as JS bigint. Promote to number for the
+  // thousand-separator path; safe because vote / seat counts comfortably
+  // fit Number.MAX_SAFE_INTEGER.
+  if (typeof value === "bigint") return Number(value).toLocaleString();
   if (typeof value === "number") {
     if (isPctCol(col)) return `${value.toFixed(2)}%`;
     if (Number.isInteger(value)) return value.toLocaleString();
