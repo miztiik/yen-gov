@@ -254,24 +254,6 @@ Update this section as decisions are made; promote each decision into an archite
 
 ## 15. Test Coverage Policy (Mandatory)
 
-Every feature lands with tests at the tier(s) appropriate to its surface. Coverage is split into four tiers; missing the tier that matches your change is a Definition-of-Done failure (§9).
+Four tiers — **Unit / Contract / Integration / End-to-end**. A change without the appropriate-tier test in the same commit is a Definition-of-Done failure (§9). The only mock carve-outs are (a) `fetch` in unit tests of loaders (the loader's contract IS the fetch boundary) and (b) explicit user request — Holy Law #7. No pytest test walks the real on-disk corpus (§10); use a `tmp_path` fixture corpus injected via env var. A red test at commit time blocks the commit; "skip for now" is a structural-fix request (§5).
 
-| Tier | Where it lives | What it asserts | When it's required |
-| --- | --- | --- | --- |
-| **Unit** | `frontend/src/**/*.test.ts` (vitest), `backend/tests/test_*.py` (pytest) | Pure functions, formatters, parsers, slug round-trips, math invariants. No I/O, no DOM, no network. | Any change to a pure function or pure module. |
-| **Contract** | `frontend/src/contracts/*.test.ts` (ajv against `datasets/schemas/`), `backend/tests/test_validate.py`, `backend/tests/test_datasets_integrity.py` | Every `datasets/**/*.json` validates against its declared `$schema`; `$schema_version` matches `x-version` (§11); `sources` array shape (§12); cross-registry consistency (frontend catalogue ↔ backend events). | Any schema bump, new emitted artifact, or new loader — producer AND consumer side. |
-| **Integration** | `frontend/src/**/*.test.ts` for loader+fixture composition; `backend/tests/test_pipeline_*.py` for adapter+pipeline composition | Loaders compose paths correctly, mock `fetch` returns the expected shape, the 404-as-null and other graceful-degradation contracts hold; pipeline adapters compose end-to-end against fixture pages. | Any new loader, adapter, or composed pipeline step. |
-| **End-to-end** | `frontend/e2e/*.spec.ts` (Playwright, public citizen site on port 5173); `admin/e2e/*.spec.ts` (Playwright, admin operator console on port 5174, mocks `/api/*` via `page.route`) | Citizen-visible route loads without `pageerror`; one DOM assertion that proves the route's content is there; one `SourceList` provenance assertion if the route surfaces data. Admin panels render and exercise their typed API contract via mocked routes. | Any new citizen-visible route or meaningful change to an existing one; any admin panel addition. |
-
-Repo-integrity tests (`backend/tests/test_datasets_integrity.py`) live in the **Contract** row above, not E2E. They are targeted cross-registry drift checks (catalogue ↔ events, tiers partition, allowlisted missing ACs) that defend named runtime contracts — NOT a full-corpus walk (§10 forbids that). New integrity tests need a named contract they defend; otherwise they belong in Tier-B local validation, not pytest.
-
-Non-negotiables:
-
-- A change that touches `frontend/src/lib/**` MUST have a corresponding `*.test.ts` covering the new or changed behaviour, in the same commit.
-- A new `datasets/**/*.json` artifact (or a schema bump) MUST be covered by the consumer-side contract test (`frontend/src/contracts/datasets-conform.test.ts`) AND validated locally by `python -m yen_gov validate --root .` before commit. Both sides validate; never just one.
-- A new citizen-visible route or a meaningful change to an existing one MUST extend `frontend/e2e/golden-path.spec.ts` (or add a sibling spec) with at least: route loads, no `pageerror`, one DOM assertion that proves the new content is there, one provenance (`SourceList`) assertion if the route surfaces data.
-- Mocks remain forbidden (Holy Law #7) except: (a) `fetch` in unit tests of loaders — the loader's contract IS the fetch boundary, mocking it is testing the contract; (b) explicit user request.
-- **No pytest test walks the real on-disk corpus.** Any test that opens files under `datasets/**` or `config/**` of the real repo (directly, via a CLI subprocess, or via an HTTP route that itself walks) is Tier-B conformance smuggled into Tier A — see §10. Use a `tmp_path` fixture corpus and inject the root through an env var (e.g. `YEN_GOV_REPO_ROOT`). Red flag for review: any single backend test with a duration > 5s. Reference fix: commit `7d407d0` (admin/schemas.py + test_admin_schemas.py).
-- A red test at commit time blocks the commit. "Skip this for now" is a structural fix request (§5), not a casual override.
-
-New tiers (component, mobile, visual regression) tracked under §14 Open Questions until they ship; once shipped they get a row in the table above. Accessibility is a project-level non-goal per §0 and is intentionally absent from this table.
+Full per-tier matrix (where each tier's tests live, what they assert, when they are required), command snippets, fixture conventions, and the deprecated-alias note ("Tier-A" / "Tier 2" → use word names) live in [docs/architecture/testing.md](docs/architecture/testing.md). Existing `CLAUDE.md §15` cross-references resolve here via this pointer; rename to `docs/architecture/testing.md` when next editing those files.
