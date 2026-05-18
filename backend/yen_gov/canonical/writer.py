@@ -38,6 +38,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 import subprocess
 import tempfile
 from dataclasses import dataclass, field
@@ -156,7 +157,11 @@ def _validate_fks(envelope: BatchEnvelope, datasets_root: Path) -> list[str]:
     entities_path = datasets_root / "taxonomy" / "entities.json"
     if entities_path.is_file():
         entity_ids = _load_taxonomy_ids(entities_path, "entities", "entity_id")
-        dangling = {r.entity_id for r in envelope.observation_rows if r.entity_id not in entity_ids}
+        dangling = {
+            r.entity_id for r in envelope.observation_rows
+            if r.entity_id not in entity_ids
+            and not _is_derived_entity_id(r.entity_id)
+        }
         if dangling:
             raise WriterError(
                 f"dangling entity_id FKs: {sorted(dangling)[:5]} (total {len(dangling)})"
@@ -185,6 +190,26 @@ def _load_taxonomy_ids(path: Path, top_key: str, id_field: str) -> set[str]:
     return {row[id_field] for row in doc.get(top_key, [])}
 
 
+# Derived entity_id patterns per canonical-store.md §3a.
+# AC, candidate, state-rollup, and party-rollup entities are auto-compiled
+# from source data (acs.parquet / candidates.parquet) rather than enumerated
+# in the hand-authored taxonomy/entities.json. The FK gate recognises them
+# by pattern until those sibling tables exist as FK targets.
+_DERIVED_ENTITY_PATTERNS = (
+    re.compile(r"^IN-[SU]\d{2}-AC-\d{4}-\d+$"),
+    re.compile(r"^IN-[SU]\d{2}-AC-\d{4}-\d+-(?:AcGen|LsGen|AcBye|LsBye)"
+               r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-C\d{2}$"),
+    re.compile(r"^IN-[SU]\d{2}-(?:AcGen|LsGen|AcBye|LsBye)"
+               r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}$"),
+    re.compile(r"^IN-[SU]\d{2}-(?:AcGen|LsGen|AcBye|LsBye)"
+               r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-PARTY-[A-Z][A-Z0-9_]*$"),
+)
+
+
+def _is_derived_entity_id(entity_id: str) -> bool:
+    return any(p.match(entity_id) for p in _DERIVED_ENTITY_PATTERNS)
+
+
 def _read_existing_source_ids(datasets_root: Path) -> set[str]:
     p = datasets_root / "taxonomy" / "sources.parquet"
     if not p.is_file():
@@ -204,9 +229,14 @@ def _read_existing_source_ids(datasets_root: Path) -> set[str]:
 # ---------------------------------------------------------------------------
 
 
+# NOTE: no PRIMARY KEY on the in-memory tables. DuckDB enforces PK with a
+# row-by-row index update that makes 180k INSERT OR REPLACE take >10 minutes
+# (Phase 1.1 corpus). Parquet has no PK anyway; uniqueness is enforced by
+# DELETE-then-INSERT in _apply_envelope (envelope wins on PK collision) and
+# asserted post-emit via _assert_unique_pk before COPY out.
 _OBS_DDL = """
 CREATE TABLE observations (
-    observation_id VARCHAR PRIMARY KEY,
+    observation_id VARCHAR NOT NULL,
     entity_id      VARCHAR NOT NULL,
     year           INTEGER NOT NULL,
     period_label   VARCHAR NOT NULL,
@@ -221,7 +251,7 @@ CREATE TABLE observations (
 
 _SRC_DDL = """
 CREATE TABLE sources (
-    source_id            VARCHAR PRIMARY KEY,
+    source_id            VARCHAR NOT NULL,
     url                  VARCHAR,
     content_hash         VARCHAR,
     producer             VARCHAR,
@@ -257,9 +287,32 @@ def _load_existing(
 
 
 def _apply_envelope(con: duckdb.DuckDBPyConnection, envelope: BatchEnvelope) -> None:
-    # Sources first (FK target for observations).
-    for s in envelope.source_rows:
-        _upsert_source(con, s)
+    # Bulk-load path: write envelope rows to a temp CSV, then COPY FROM into
+    # a staging table. DuckDB's CSV bulk reader handles 180k rows in <1s;
+    # executemany on the same data takes >10 min (PK or no PK). The temp CSV
+    # is the only bulk-insert path that scales without pandas/pyarrow deps.
+
+    if envelope.source_rows:
+        src_tuples = [
+            (
+                s.source_id, s.url, s.content_hash, s.producer, s.citation_full,
+                s.url_main, s.url_download, s.date_accessed, s.first_fetched_at,
+                s.last_seen_at, s.license, s.vintage, s.confidence_tier,
+                s.is_issuing_authority,
+            )
+            for s in envelope.source_rows
+        ]
+        envelope_src_ids = [s.source_id for s in envelope.source_rows]
+        placeholders = ", ".join(["?"] * len(envelope_src_ids))
+        con.execute(
+            f"DELETE FROM sources WHERE source_id IN ({placeholders})",
+            envelope_src_ids,
+        )
+        # Sources are few (<200); executemany is fine here.
+        con.executemany(
+            "INSERT INTO sources VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            src_tuples,
+        )
 
     if envelope.replacement_semantics is ReplacementSemantics.replace_partition:
         indicator_ids = sorted({r.indicator_id for r in envelope.observation_rows})
@@ -270,38 +323,75 @@ def _apply_envelope(con: duckdb.DuckDBPyConnection, envelope: BatchEnvelope) -> 
                 indicator_ids,
             )
 
-    for r in envelope.observation_rows:
-        row = r.with_id()
-        _upsert_observation(con, row)
+    if envelope.observation_rows:
+        _bulk_load_observations(con, envelope.observation_rows)
 
 
-def _upsert_source(con: duckdb.DuckDBPyConnection, s: SourceRow) -> None:
-    con.execute(
-        """
-        INSERT OR REPLACE INTO sources VALUES (
-            ?,?,?,?,?,?,?,?,?,?,?,?,?,?
-        )
-        """,
-        [
-            s.source_id, s.url, s.content_hash, s.producer, s.citation_full,
-            s.url_main, s.url_download, s.date_accessed, s.first_fetched_at,
-            s.last_seen_at, s.license, s.vintage, s.confidence_tier,
-            s.is_issuing_authority,
-        ],
+_OBS_COLUMNS = (
+    "observation_id", "entity_id", "year", "period_label", "period_seq",
+    "indicator_id", "value_numeric", "value_text", "source_id", "derivation",
+)
+
+
+def _bulk_load_observations(
+    con: duckdb.DuckDBPyConnection,
+    rows: list[ObservationRow],
+) -> None:
+    # Dedupe envelope-internal collisions (last-wins by observation_id).
+    obs_by_id: dict[str, ObservationRow] = {}
+    for r in rows:
+        rr = r.with_id()
+        obs_by_id[rr.observation_id] = rr
+    deduped = list(obs_by_id.values())
+
+    tmpf = tempfile.NamedTemporaryFile(
+        mode="w", suffix=".csv", delete=False, newline="", encoding="utf-8"
     )
+    try:
+        import csv as _csv
+        writer = _csv.writer(tmpf, lineterminator="\n")
+        writer.writerow(_OBS_COLUMNS)
+        for r in deduped:
+            writer.writerow([
+                r.observation_id, r.entity_id, r.year, r.period_label, r.period_seq,
+                r.indicator_id,
+                "" if r.value_numeric is None else r.value_numeric,
+                "" if r.value_text is None else r.value_text,
+                r.source_id,
+                "" if r.derivation is None else r.derivation,
+            ])
+        tmpf.close()
 
-
-def _upsert_observation(con: duckdb.DuckDBPyConnection, r: ObservationRow) -> None:
-    con.execute(
-        """
-        INSERT OR REPLACE INTO observations VALUES (?,?,?,?,?,?,?,?,?,?)
-        """,
-        [
-            r.observation_id, r.entity_id, r.year, r.period_label, r.period_seq,
-            r.indicator_id, r.value_numeric, r.value_text, r.source_id,
-            r.derivation,
-        ],
-    )
+        csv_path = Path(tmpf.name).as_posix()
+        con.execute(f"""
+            CREATE TEMP TABLE staging_obs AS
+            SELECT * FROM read_csv('{csv_path}',
+                header=true,
+                columns={{
+                    'observation_id': 'VARCHAR',
+                    'entity_id': 'VARCHAR',
+                    'year': 'INTEGER',
+                    'period_label': 'VARCHAR',
+                    'period_seq': 'INTEGER',
+                    'indicator_id': 'VARCHAR',
+                    'value_numeric': 'DOUBLE',
+                    'value_text': 'VARCHAR',
+                    'source_id': 'VARCHAR',
+                    'derivation': 'VARCHAR'
+                }})
+        """)
+        # Envelope wins: drop existing rows for these PKs, then insert staging.
+        con.execute("""
+            DELETE FROM observations
+            WHERE observation_id IN (SELECT observation_id FROM staging_obs)
+        """)
+        con.execute("INSERT INTO observations SELECT * FROM staging_obs")
+        con.execute("DROP TABLE staging_obs")
+    finally:
+        try:
+            os.unlink(tmpf.name)
+        except OSError:
+            pass
 
 
 def _emit_observations(

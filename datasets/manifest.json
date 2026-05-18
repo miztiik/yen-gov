@@ -1,0 +1,38 @@
+{
+  "$schema": "./schemas/manifest.schema.json",
+  "$schema_version": "1.0",
+  "manifest_version": "1.0",
+  "generated_at": "2026-05-18T12:20:30Z",
+  "tables": [
+    {
+      "table_id": "elections.observations",
+      "family": "elections",
+      "format": "parquet",
+      "schema_version": "1.1",
+      "partition_columns": [],
+      "files": [
+        {
+          "path": "elections/observations.parquet",
+          "size_bytes": 13472657,
+          "row_count": 179746
+        }
+      ],
+      "row_count_total": 179746
+    },
+    {
+      "table_id": "taxonomy.sources",
+      "family": "taxonomy",
+      "format": "parquet",
+      "schema_version": "1.0",
+      "partition_columns": [],
+      "files": [
+        {
+          "path": "taxonomy/sources.parquet",
+          "size_bytes": 10730,
+          "row_count": 84
+        }
+      ],
+      "row_count_total": 84
+    }
+  ]
+}
