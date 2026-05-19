@@ -213,6 +213,50 @@ test.describe("golden path", () => {
     await expect(bio).toBeVisible({ timeout: 30_000 });
   });
 
+  // PR-P (row 1.8c) gate: the canonical loader (`view-models/constituency.ts`)
+  // is the sole reader of /ac/* after the per-AC `results/<n>.json` shards
+  // are deleted. The TN test above proves the dim-tables/observations JOIN
+  // shape works for one state. KL + WB are added as the "3-state representative
+  // sample" the row 1.8c gate calls for: different state codes (S11, S25),
+  // different AC numbering/slug families, and (for WB) a reservation suffix
+  // in the AC name (MEKLIGANJ (SC) → slug `1-mekliganj-sc`) that exercises the
+  // url.ts slug-roundtrip on a non-trivial source string. These tests are
+  // intentionally structural-only (no per-state winner-name assertions) — TN
+  // owns the data-correctness assertion; KL/WB own the route-resolution +
+  // canonical-loader-fan-out-across-states assertion.
+  for (const [state_label, state_slug, ac_slug] of [
+    ["Kerala", "kerala", "1-manjeshwar"],
+    ["West Bengal", "west-bengal", "1-mekliganj-sc"],
+  ] as const) {
+    test(`constituency page renders via canonical loader for ${state_label} AC#1`, async ({ page }) => {
+      await page.goto(`/s/${state_slug}/ac/${ac_slug}`);
+      // Same Phase 1.6 (PR-K) "Top N of M candidates" heading shape the TN
+      // test asserts; the loader's reconstruction of `others` (when the
+      // canonical adapter ships an `ac-others-{votes,pct}` pair) is what
+      // produces the "of M" tail. Both KL and WB AcGenMay2026 slices have
+      // >5 contestants per AC so the "Top N of M" form is expected.
+      await expect(page.getByRole("heading", { level: 2, name: /(Top \d+ of \d+ candidates|^\d+ candidates?$)/i }))
+        .toBeVisible({ timeout: 30_000 });
+      // Header row of the candidates table — proves dim_candidates JOIN
+      // returned at least one row.
+      await expect(page.getByRole("columnheader", { name: "Candidate" })).toBeVisible();
+      await expect(page.getByRole("columnheader", { name: "Party" })).toBeVisible();
+      await expect(page.getByRole("columnheader", { name: "Votes" })).toBeVisible();
+      // Provenance: taxonomy/sources rows for AcGenMay2026 carry ECI URLs;
+      // asserting the link surfaced proves the canonical sources JOIN ran
+      // for non-TN states too (the most likely regression mode if the
+      // loader hard-coded an event/state filter).
+      await expect(page.locator('a[href*="eci.gov.in"]').first())
+        .toBeVisible({ timeout: 30_000 });
+      // Biographics testid presence (404-as-null contract — see TN test
+      // above). KL/WB AcGenMay2026 have no biographics sidecar ingest yet
+      // so all candidates render "Not declared", but the testid must still
+      // be in the DOM for at least the first row.
+      const bio = page.getByTestId("candidate-biographics").first();
+      await expect(bio).toBeVisible({ timeout: 30_000 });
+    });
+  }
+
   test("explore page lazy-loads DuckDB-WASM without error", async ({ page }) => {
     // The /explore route mounts DuckDB-WASM (Phase 1.6b — migrated off
     // sql.js / results.sqlite). If the wasm chunk fails to load, the route
