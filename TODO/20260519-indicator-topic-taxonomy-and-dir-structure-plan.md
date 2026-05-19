@@ -1,7 +1,9 @@
 # Indicator topic taxonomy + dir-structure plan
 
+> **STATUS (updated 2026-05-19 post-user-review)**: ⊘ **SUPERSEDED AS A PLAN — RETAINED AS DEBATE TRANSCRIPT.** The live design has been folded into [TODO/20260517-canonical-long-format-pivot.md §0e](20260517-canonical-long-format-pivot.md) (sequencing + override decisions) and [docs/architecture/data/canonical-store.md §2b](../docs/architecture/data/canonical-store.md) (full target tree as contract surface). User overrides applied: (1) **Option B in one shot** for persons fork — `dim_candidates` → `dim_persons` + `elections_candidacies` fact + `governments_office_holdings` fact, day-one `person_id` rule per Max (hybrid B-ii + TCPD seed); (2) entity slug = **`office_bearer`** not `public_servant`; (3) topic slug = **`governance`** not `accountability`. Authority for all data-shape / OWID / structural questions consolidated to **Max** per CLAUDE.md §0a + user direction 2026-05-19. **Do not edit this doc** — it is preserved as the record of the 3-agent design conversation that produced the live decisions. Edit `canonical-long-format-pivot.md §0e` or `canonical-store.md §2b` instead.
+
 **Date**: 2026-05-19
-**Status**: ⏳ PROPOSED — awaiting user sign-off before any PR ships
+**Status (original)**: ⏳ PROPOSED — awaiting user sign-off before any PR ships
 **Correction level**: 4 (structural, 4+ files, cross-cutting per CLAUDE.md §6 — "Propose breakdown first")
 **Agents consulted**: Hans (Governance), Max (Indicator Scout / OWID), Fowler (Engineering) — dispatched in parallel as read-only subagents on 2026-05-19
 **Replaces**: nothing (this is the long-arc design ahead of Phase 2 of the canonical pivot)

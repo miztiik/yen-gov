@@ -139,6 +139,223 @@ datasets/demography/demography_census_2011.parquet   datasets/demography/demogra
 
 ---
 
+## 2b. Full target disk layout (LOCKED 2026-05-19 — extends §2a)
+
+**What this is.** §2 captures *today's* on-disk shape. §2a captures the naming rule. **§2b captures the full target tree** that Phase 2 of [THE PLAN](../../../TODO/20260517-canonical-long-format-pivot.md) and every family thereafter is committed to landing in. This is the doc to fall back on when asking "are we still building toward what we agreed?"
+
+**Authority**: Max (Indicator Scout — OWID precedent) is the lead voice for indicator identity / topic taxonomy / directory shape per CLAUDE.md §0a, with Hans (Governance) on Indian-citizen framing and Fowler (Engineering) on refactor safety. User direction 2026-05-19: *"For all the questions … you should accept Max's recommendation."*
+
+**Cross-ref**: [THE PLAN §0e](../../../TODO/20260517-canonical-long-format-pivot.md) covers the migration sequence (T.1 → T.2 → T.3 → S.1 → G.1 → P.\*), the persons-fork resolution, the override decisions, and the debate cross-ref. This doc (§2b) is the disk-layout contract; THE PLAN §0e is the sequencing plan.
+
+### §2b.1 — Top-level families (locked)
+
+```
+datasets/
+  manifest.json                       # control-plane (D21)
+  CHANGELOG.md   migration-ledger.csv
+
+  schemas/                            # JSON Schemas — contracts
+    observation.schema.json   indicator.schema.json
+    source.schema.json        entity.schema.json
+    caveat.schema.json        methodology-break.schema.json
+    operator-state.schema.json  manifest.schema.json
+    dim-persons.schema.json   # post-S.1 (was dim-candidates)
+    topics.schema.json        # post-T.2
+
+  taxonomy/                           # REGISTRIES — identity, slow-changing
+    entities.json    entities.parquet         # hand source + compiled (D18 + §8.3)
+                                              #   entity_type ∈ {state, district, block,
+                                              #                  panchayat, ulb, ward,
+                                              #                  constituency, person,
+                                              #                  party, office, office_bearer,
+                                              #                  scheme}
+    indicators.json  indicators.parquet       # catalogue + denormalised topic_tags[] projection
+    indicator_topic_tags.parquet              # M:N join — source of truth (post-T.3)
+    topics.json      topics.parquet           # ← lifted from reference/in/ (post-T.2)
+    parties.json     parties.parquet
+    person_aliases.json  persons.parquet      # post-S.1 — TCPD-seeded merge overlay
+    sources.parquet                           # adapter-generated; no JSON source
+    facet-axes.parquet                        # compiled from facet_axes_seed.py (§8.3)
+    methodology_breaks.json  ....parquet
+    caveats.json             ....parquet
+    delimitation_lineage.parquet
+
+  boundaries/                         # SIBLING family (ADR-0031, D25) — geometry
+    in/geojson/...  in/pmtiles/...
+
+  elections/                          # CANONICAL family — politics
+    election_results.parquet                  # fact: candidate × AC × event
+    elections_candidacies.parquet             # post-S.1 — fact: person × contest
+    dim_acs.parquet                           # constituency dim
+    dim_persons.parquet                       # post-S.1 (renamed from dim_candidates)
+    dim_parties.parquet                       # event-scoped party recognition
+    dim_party_alliances.parquet
+
+  governments/                        # CANONICAL family — institutions
+    governments_office_holdings.parquet       # post-G.1 — fact: person × office × tenure
+    dim_offices.parquet                       # PM-IN, CM-S22, MLA-<ac_id>, Collector-<dist_lgd>...
+
+  schemes/                            # NEW (T.2) — "Where the money goes"
+    schemes_mgnrega_person_days.parquet       # one fact table per scheme (Q3 — granular)
+    schemes_pmay_g_sanctions.parquet
+    schemes_pmay_u_sanctions.parquet
+    schemes_pm_kisan_disbursements.parquet
+    schemes_pmgsy_road_completions.parquet
+    schemes_nfsa_offtake.parquet
+    schemes_icds_attendance.parquet
+    schemes_pm_poshan_meals.parquet
+    dim_schemes.parquet                       # scheme identity + parent_ministry + funding_pattern
+
+  governance/                         # NEW (T.2) — "Measuring the government" (broader than 'accountability')
+    governance_cag_audit_findings.parquet     # CAG state audit
+    governance_cag_performance_audits.parquet
+    governance_rti_compliance.parquet         # CIC
+    governance_prs_bill_tracker.parquet
+    governance_cic_complaints.parquet
+    governance_lokpal_cvc_complaints.parquet
+    governance_phc_vacancy.parquet            # service-quality measurement of the government
+    governance_teacher_absenteeism.parquet
+    governance_njdg_pendency.parquet          # also tagged under judiciary topic
+    governance_fir_chargesheet_ratio.parquet  # also tagged under crime topic
+
+  local_govt_finance/                 # NEW (T.2) — user's panchayat-budget hot button
+    local_govt_finance_panchayat_budgets.parquet      # from e-GramSwaraj
+    local_govt_finance_15thfc_grant_flows.parquet
+    local_govt_finance_sfc_transfers.parquet
+    local_govt_finance_ulb_own_revenue.parquet
+    local_govt_finance_cag_local_bodies_audit.parquet
+    dim_panchayats.parquet                            # LGD-coded panchayat dim
+    dim_ulbs.parquet                                  # LGD-coded urban-local-body dim
+
+  fiscal/                             # P.* — pivots from indicators/in/fiscal/
+    fiscal_state_finances.parquet
+    fiscal_centre_transfers.parquet
+    fiscal_union_deficit.parquet
+    fiscal_state_own_revenue.parquet
+    dim_fiscal_heads.parquet
+
+  energy/                             # P.*
+    energy_installed_capacity.parquet
+    energy_generation.parquet
+    energy_distribution_performance.parquet   # ATC losses, billing/collection efficiency
+    dim_plants.parquet
+    dim_discoms.parquet
+
+  health/                             # NEW (T.2 split out of human_development per Max Q2)
+    health_births_deaths.parquet              # CRS/SRS
+    health_disease_surveillance.parquet       # HMIS, IDSP
+    health_nfhs_indicators.parquet            # NFHS-5 + future rounds
+    health_public_expenditure.parquet
+    dim_health_facilities.parquet             # PHC/CHC/sub-centre
+
+  education/                          # NEW (T.2 split out of human_development per Max Q2)
+    education_udise_school_metrics.parquet
+    education_aishe_higher_ed.parquet
+    education_aser_learning_outcomes.parquet
+    education_literacy.parquet
+
+  amenities/                          # NEW (T.2 split out of human_development per Max Q2)
+    amenities_water_jjm.parquet               # Jal Jeevan Mission
+    amenities_sanitation_sbm.parquet          # Swachh Bharat
+    amenities_electricity_access.parquet
+    amenities_cooking_fuel.parquet            # NFHS + Ujjwala
+    amenities_housing_condition.parquet       # NSS-78 Housing
+
+  work/                               # NEW (T.2 — user Q4 confirmed own family)
+    work_plfs_employment.parquet
+    work_plfs_unemployment.parquet
+    work_wages.parquet                        # Labour Bureau
+    work_female_lfpr.parquet
+    work_self_employment.parquet
+    work_migration.parquet
+
+  demography/                         # P.*
+    demography_population.parquet
+    demography_age_structure.parquet
+    demography_migration.parquet
+    demography_sex_ratio.parquet
+
+  economy/                            # P.*
+    economy_gdp_gva.parquet
+    economy_household_consumption.parquet     # HCES 2022-23 (Max Q7 sequencing — MAJOR)
+    economy_poverty.parquet                   # NITI MPI + HCES-derived
+    economy_inflation.parquet                 # CPI/WPI from prices/ if not cross-tagged
+
+  prices/                             # P.*
+    prices_cpi.parquet
+    prices_wpi.parquet
+    prices_food_retail.parquet
+
+  judiciary/                          # NEW (T.2 — Law gap per Max §5.3)
+    judiciary_njdg_pendency.parquet
+    judiciary_njdg_disposal.parquet
+    judiciary_ecourts_metrics.parquet
+
+  crime/                              # NEW (T.2 — Law gap per Max §5.3)
+    crime_ncrb_ipc.parquet
+    crime_ncrb_sll.parquet
+    crime_ncrb_prisons.parquet
+
+  technology/                         # NEW (T.2 — Max §5.3)
+    technology_trai_telecom.parquet
+    technology_nfhs_ict.parquet
+
+  environment/                        # P.* — AQ already in via legacy
+    environment_air_quality.parquet
+    environment_ghg_emissions.parquet
+    environment_water_quality.parquet
+
+  transport/                          # P.*
+    transport_road_network.parquet
+    transport_road_accidents.parquet
+
+  human_development/                  # SHRINKS to composites only post-split (Max Q2)
+    human_development_hdi.parquet             # UNDP HDI (states)
+    human_development_mpi.parquet             # NITI MPI
+    human_development_hci.parquet             # World Bank Human Capital Index (queued — Max open follow-up)
+
+  _ops/                               # control plane — operator-mutable, NOT citizen-facing
+    operator_state.parquet                    # ← lifted from taxonomy/ (T.1)
+
+  ephemeral/                          # gitignored runtime
+```
+
+### §2b.2 — Naming applied per layer
+
+| Layer | Path pattern | Example |
+| --- | --- | --- |
+| Contract | `datasets/schemas/<name>.schema.json` | `dim-persons.schema.json` |
+| Taxonomy registry (compiled) | `datasets/taxonomy/<role>.parquet` | `taxonomy/topics.parquet` |
+| Taxonomy hand source | `datasets/taxonomy/<role>.json` | `taxonomy/topics.json` |
+| Family fact | `datasets/<family>/<family>_<role>.parquet` | `schemes/schemes_mgnrega_person_days.parquet` |
+| Family dim | `datasets/<family>/dim_<entity>.parquet` | `elections/dim_persons.parquet` |
+| Geometry (sibling family) | `datasets/boundaries/<region>/<format>/<layer>.<ext>` | `boundaries/in/geojson/states.geojson` |
+| Control plane | `datasets/_ops/<role>.parquet` | `_ops/operator_state.parquet` |
+| Citizen URL slug | hyphen-separated, no topic prefix (OWID) | `outstanding-debt-pct-gsdp` |
+| Parquet column | `snake_case` | `value_numeric` |
+| Topic slug (machine) | `snake_case`, stable, never displayed | `fiscal`, `governance`, `schemes` |
+| Topic title (citizen) | Title Case + Indian-citizen voice | "Money & debt", "Measuring the government" |
+| Entity type | `snake_case` enum | `state`, `panchayat`, `office_bearer`, `scheme` |
+
+### §2b.3 — What retires (compared to today's §2)
+
+| Old path | Replacement | Retired by |
+| --- | --- | --- |
+| `datasets/_test/` | (deleted) | T.1 |
+| `datasets/reference/in/` | `datasets/taxonomy/` (editorial) or `datasets/_ops/` (telemetry) | T.2 |
+| `datasets/indicators/in/<topic>/` | per-family Parquet at `datasets/<family>/<family>_<role>.parquet` | P.\* (per family) |
+| `datasets/people/AcGenApr2021/` | `datasets/elections/dim_persons.parquet` + `taxonomy/persons.parquet` | S.1 |
+| `datasets/governments/in/states/` | `datasets/governments/governments_office_holdings.parquet` + `taxonomy/entities.parquet` (`entity_type='office_bearer'`) | G.1 |
+| `datasets/features/` | audit pending — delete or relocate | T.1 |
+
+### §2b.4 — Three rules to evaluate yourself against
+
+1. **Single-parent file system, faceted topic metadata.** Every Parquet has ONE physical home (its publisher family); topic membership is M:N via `taxonomy/indicator_topic_tags.parquet`. If a file is duplicated across topic dirs, that's a smell — collapse to one home, add topic tags.
+2. **Identity vs occupancy split.** Office *identity* (PM-IN, CM-S22) is taxonomy; office *occupancy* (Modi was PM 2014–) is a fact in `governments/`. Person identity is taxonomy (`persons.parquet`); person candidacy is a fact in `elections/`. If a file mixes both, split it.
+3. **Hand-authored is text + compiled Parquet** (D18 + §8.3). If a `.json` exists in `taxonomy/` without a sibling `.parquet`, the compile step is missing. If a `.parquet` exists in `taxonomy/` without a sibling `.json` (and isn't adapter-generated like `sources.parquet`), there is no editorial trail — that's a smell.
+
+---
+
 ## 3. Canonical observation row
 
 One row per observation. Long-format only.

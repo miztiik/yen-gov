@@ -93,6 +93,135 @@ The "~60 parents / ~80–120 indicator_ids" figure in the consolidation audit is
 
 ---
 
+## §0e. Indicator topic taxonomy + directory structure (LOCKED 2026-05-19)
+
+**What this is.** The full topic-taxonomy + directory-structure design that governs Phase 2 and every family that lands after it. All 7 questions raised in the 3-agent debate are resolved here. **No sibling plan doc lives outside this file** (per §0a: "single source of truth").
+
+**Debate transcript** (3-agent synthesis, OWID screenshot taxonomy captured verbatim, all rejected designs archived): [TODO/20260519-indicator-topic-taxonomy-and-dir-structure-plan.md](20260519-indicator-topic-taxonomy-and-dir-structure-plan.md). That doc is **history**, not contract; do not edit its body. The contract is here (§0e) + [docs/architecture/data/canonical-store.md §2b](../docs/architecture/data/canonical-store.md).
+
+**Authority for everything below**: Max (Indicator Scout — OWID precedent) is the lead voice per CLAUDE.md §0a for data-shape / indicator-identity / topic-taxonomy / directory questions, with Hans (Governance) framing the Indian-citizen surface and Fowler (Engineering) holding refactor safety. User direction 2026-05-19: *"Almost always when there is a structural setup of indicators or OWID data or structure, Max's authority [dominates]."*
+
+### §0e.1 — User overrides (locked, do not re-debate)
+
+| # | Default in PR #56 (3-agent debate) | User override 2026-05-19 | Live decision |
+| - | --- | --- | --- |
+| 1 | Persons fork — Fowler picked Option A first (smallest-reversible-step), Max picked Option B | **Option B in one shot** — rename `dim_candidates` → `dim_persons`, add `elections/elections_candidacies.parquet` fact, add `governments/governments_office_holdings.parquet` fact | **B, in one shot.** Day-one `person_id` strategy = Max §0e.5 (hybrid B-ii + TCPD seed). |
+| 2 | Hans recommended `public_servant` per IPC §21 + Lokpal Act §14 | **`office_bearer`** — more nuanced as a citizen term; IPC reference stays as a footnote | Entity slug = **`office_bearer`**. IPC §21 / Lokpal Act §14 cited in `taxonomy/entities.json` row description, not the slug. |
+| 3 | Hans proposed topic slug `accountability` | **`governance`** — broader umbrella; covers accountability + responsibility + service-quality measurement of the government | Topic slug = **`governance`**. "Audits & accountability" becomes one sub-area within `governance`, alongside service-quality (PHC vacancy %, teacher absenteeism, NJDG pendency, FIR-to-chargesheet ratio). |
+
+### §0e.2 — The 7 questions resolved
+
+| Q | Question | Resolution | Authority |
+| - | --- | --- | --- |
+| 1 | Persons fork — A first or B in one shot? | **B in one shot** | user override (§0e.1 #1) |
+| 2 | `human_development` split granularity | **Three-way split now**: `health/`, `education/`, `amenities/` as top-level families; `human_development/` keeps composites only (HDI, MPI, HCI). `nutrition` + `gender` are `topic_tags[]`, NOT top-level families (they cross-cut multiple families). | Max (user delegated explicitly) |
+| 3 | `schemes` granularity | **Per-scheme fact tables** (`schemes_mgnrega_person_days.parquet`, `schemes_pmay_g_sanctions.parquet`, etc.) — keeps independent enrichment per scheme. | user direction |
+| 4 | `work` as own top-level family | **Yes** — Max + Hans both want it; PLFS / NSS-EUS / wages cadence + methodology break vs old NSS warrants its own family. | Max + Hans convergent |
+| 5 | `accountability` vs `governance` naming | **`governance`** — broader umbrella; `accountability` is one sub-area within it. | user override (§0e.1 #3) |
+| 6 | PR-S.1 timing — parallel with T.1 + T.2, or after? | **Parallel** (no contention — S.1 only touches `elections/` + deletes `people/`; T.1/T.2 touch `taxonomy/` + `_ops/` + `reference/`). | user direction |
+| 7 | Phase 2 sub-PR ordering | **Accept Max's ordering**: NFHS-5 → PLFS → UDISE+ → AISHE → NCRB → HCES 2022-23 → IMD → e-GramSwaraj/PFMS → TRAI → CAG. | Max (user delegated explicitly) |
+
+### §0e.3 — The naming convention (ONE rule for the whole tree)
+
+Extends [`canonical-store.md` §2a](../docs/architecture/data/canonical-store.md) verbatim:
+
+> **Inside `datasets/<family>/`**: facts are `<family>_<role>.parquet`, dims are `dim_<entity>.parquet`.
+> **Inside `datasets/taxonomy/`**: registries are flat `<role>.parquet` (directory IS the role).
+> **Hand-authored taxonomy** is `<role>.json` text source-of-truth alongside compiled `<role>.parquet` (per D18 + §8.3 Python seed).
+> **Geometry** is sibling family `datasets/boundaries/<region>/<format>/<layer>.<ext>` (D25, ADR-0031, never Parquet).
+> **Control-plane** operator state lives at `datasets/_ops/<role>.parquet`.
+> **Contracts** live at `datasets/schemas/<name>.schema.json`.
+> **There are no other top-level concept dirs.**
+
+**Citizen URL slugs**: hyphen-separated, no topic prefix, OWID convention (`outstanding-debt-pct-gsdp`, `gdp-per-capita-mospi`). Topic in URL is a single-parent lie when topics are M:N — drop it.
+
+**Topic display layer**: stable machine slug (`fiscal`, `governance`, `schemes`) + citizen-readable title (`"Money & debt"`, `"Measuring the government"`, `"Where the money goes"`). Two columns on `taxonomy/topics.parquet`; renames touch the title column only.
+
+### §0e.4 — New top-level topic slugs (locked)
+
+Added net of today's 7 (`fiscal`, `energy`, `elections`, `economy`, `demography`, `human_development`, `environment`):
+
+| Slug | Citizen title | Hosts | Notes |
+| --- | --- | --- | --- |
+| `governance` | Measuring the government | CAG state audit findings + CAG performance audits; PRS bill tracker; RTI compliance (CIC); Lokpal/CVC; PHC vacancy %; teacher absenteeism; NJDG pendency; FIR-to-chargesheet ratio | Override #3 above — replaces `accountability` |
+| `schemes` | Where the money goes | MGNREGA; PMAY-G/U; PM-KISAN; ICDS; PM-POSHAN; NFSA; CSS + CS scheme delivery | Per-scheme fact tables (Q3) |
+| `local_govt_finance` | Panchayats & local bodies | e-GramSwaraj; 15th FC grant flows; SFC transfers; ULB own revenue; ZP/BP receipts-payments; CAG Local Bodies Audit | User hot-button |
+| `work` | Work & jobs | PLFS quarterly + annual; NSS-EUS (methodology break vs PLFS); wages; female LFPR; self-employment; migration for work | Q4: own family (not folded into human_development) |
+| `judiciary` | Courts | NJDG pendency + disposal; eCourts metrics | Max §5.3 Law gap |
+| `crime` | Crime | NCRB IPC; NCRB SLL; Prison Statistics India; FIR-to-chargesheet ratio | Max §5.3 Law gap |
+| `health` | Health | NFHS-5; HMIS monthly; SRS annual; CRS births/deaths; public health expenditure | Q2: split out of human_development |
+| `education` | Education | UDISE+ school metrics; AISHE higher-ed; ASER learning outcomes; literacy | Q2: split out of human_development |
+| `amenities` | Household amenities | NFHS HH module (water, sanitation, electricity, cooking fuel); JJM; SBM; PMAY-U/G housing | Q2: split out of human_development |
+| `technology` | Telecom & internet | TRAI quarterly performance; broadband penetration; mobile subscribers; NFHS ICT module | Max §5.3 |
+
+`human_development/` shrinks to **composite indices only** (HDI, MPI, HCI) once health/education/amenities split out. `nutrition` and `gender` are `topic_tags[]` strings on the indicator catalogue, NOT top-level families — they cross-cut multiple homes (nutrition spans `health` + `schemes`; gender spans `health` + `education` + `work` + `crime` + `governance`).
+
+### §0e.5 — Persons fork resolution (Option B, day-one rule)
+
+User override: **rename `dim_candidates` → `dim_persons`, in one shot**, plus add two sibling facts:
+
+- `elections/elections_candidacies.parquet` — fact: one row per `(person_id, election_id, ac_id, party_id, vote_share, won)`.
+- `governments/governments_office_holdings.parquet` — fact: one row per `(person_id, office_id, tenure_start, tenure_end, party_id_at_tenure)`. Office identity is taxonomy (`taxonomy/entities.parquet` with `entity_type='office'`); occupancy is the fact.
+
+**Day-one `person_id` strategy** (Max, hybrid B-ii + TCPD seed):
+
+1. **Default**: one person per candidacy row. `person_id = sha256(state_code || ac_id || election_id || normalised_candidate_name)[:16]`. Honest about uncertainty — `M. Kumar (TN, 1962)` and `M. Kumar (TN, 1989)` start as two persons until evidence merges them.
+2. **Merge overlay**: `taxonomy/person_aliases.json` (hand source per D18 + §8.3) → compiles to `taxonomy/persons.parquet` + a `(candidacy_key → person_id)` lookup. Each cluster carries `cluster_id`, `candidacy_keys[]`, `display_name`, `source_id` (FK to `sources.parquet`), `evidence_note_md`, `confidence_tier` ∈ {gold, silver, bronze}.
+3. **Seed layer**: bulk-import **TCPD `Candidate_ID`** (Trivedi Centre for Political Data, Ashoka — 5+ years of curated merge work for Indian candidates) for the TN-AE corpus as the first batch of `person_aliases.json` rows. `source_id` = TCPD dataset row in `sources.parquet`; `confidence_tier: silver` (republisher, not issuing authority); `is_issuing_authority: false`.
+4. **Merged `person_id`** for clustered rows: `sha256(sorted_candidacy_keys || sorted_source_ids)[:16]`. Content-addressable on cluster contents — splits are recoverable.
+5. **False-merge recovery**: edit `person_aliases.json` (remove bad cluster entry) → recompile → split person gets fresh `person_id`; remaining cluster keeps identity. Logged in `migration-ledger.csv` as `person_id_split: old → new1, new2`. Frontend `/person/<old>` renders one-release `301 → see [new1] / [new2]` then 404. Same shape as the indicator-id-alias mechanism in T.3.
+6. **`gold` tier waits for ECI Form 26 affidavits**. When affidavit ingest unblocks (currently blocked per `TODO/20260517-iced-bulk-ingest-and-parity-oracle.md`), affidavit DOB + father's name + permanent address promote merges from silver/bronze to gold *without re-issuing `person_id`* (cluster gains a new `source_id` row; cluster hash stable).
+
+**Open follow-up — TCPD license**: TCPD is CC-BY-NC-SA 4.0. yen-gov is non-commercial public-good but the SA clause means downstream Parquet derivatives inherit CC-BY-NC-SA. **Hans must confirm** before S.1 ships and record license in `sources.parquet`.
+
+### §0e.6 — Office-bearer entity term (override #2)
+
+Slug = **`office_bearer`** (user override; user preferred it to `public_servant`). The IPC §21 / Lokpal & Lokayuktas Act 2013 §14 statutory citation moves into the row description of `taxonomy/entities.json` for the `entity_type='office_bearer'` rows, not into the slug itself.
+
+Attributes (from Hans's original framing, retained):
+
+- `role` (CM, MLA, Collector, Sarpanch, …)
+- `tenure_start`, `tenure_end`
+- `office_type` ∈ {`elected`, `appointed_political`, `civil_service`, `statutory_authority`}
+- `place` (LGD-coded)
+
+Tenure overlap allowed (one person concurrently Collector + DM + DRDA CEO = three `office_holdings` rows, one `person_id`). Office identity is taxonomy; office occupancy is a fact (`governments/governments_office_holdings.parquet` per §0e.5).
+
+### §0e.7 — Migration sequence (the 6-PR strangler-fig)
+
+Each PR independently mergeable, each reversible. **Two-hat discipline**: purely structural (paths/renames/no row content change) OR purely behavioural (schema rows change). Fused atomic per /memories/lessons.md 2026-05-17 ENTRY when `$schema_version == x-version` strict check applies.
+
+| # | PR | Hat | Tier-A pair | Depends on |
+| - | --- | --- | --- | --- |
+| **T.1** | **Tidy first — dir hygiene.** Delete `_test/`. Create `_ops/`. Move operator state → `_ops/`. Audit `features/` (delete or document). Update `manifest.json` `path` fields. | structural | no | — |
+| **T.2** | **Lift topic catalogue into taxonomy.** Move `reference/in/topic-catalogue.json` → `taxonomy/topics.json`. Add `backend/yen_gov/canonical/topics_seed.py` per §8.3. Compile `taxonomy/topics.parquet`. Update consumers in `frontend/src/lib/`. **Add new top-level topics** per §0e.4 (`governance`, `schemes`, `local_govt_finance`, `work`, `judiciary`, `crime`, `health`, `education`, `amenities`, `technology`). Retire `reference/in/`. | structural | yes (seed module) | T.1 |
+| **T.3** | **Indicator catalogue widens for topic tags + drops topic prefix.** Bump `indicator.schema.json` minor: add `topic_tags: string[]` (FK → `taxonomy/topics.parquet`), add `id_aliases: string[]` (one-release back-compat), enforce new id shape per §0e.3. Migrate 110 legacy ids; populate `id_aliases` with old `<topic>/<id>` form; frontend dereferences via alias. Add `taxonomy/indicator_topic_tags.parquet` M:N join (source of truth) + `topic_tags[]` denormalised projection on `taxonomy/indicators.parquet` (compiled). **Fused atomic commit.** | structural + behavioural (fused) | yes (TS `IndicatorMeta` widen + Zod `stacked-trend/types.ts` widen — /memories/lessons.md 2026-05-16 #1) | T.2 |
+| **S.1** | **Persons Option B — one shot.** Rename `dim_candidates` → `dim_persons` (schema bump major on `dim-candidates.schema.json` → `dim-persons.schema.json`; `id_aliases` keeps old shape for one release). Add `elections/elections_candidacies.parquet` fact. Add `taxonomy/person_aliases.json` + compiled `taxonomy/persons.parquet`. Seed TCPD `Candidate_ID` clusters for TN-AE. Delete `datasets/people/AcGenApr2021/`. Fused atomic commit. Runs in parallel with T.1+T.2 (no contention — touches `elections/` + `taxonomy/persons*` only). | structural + behavioural (fused) | yes (`DimCandidate` → `DimPerson` TS rename + new `Candidacy` type) | independent (parallel with T.1+T.2) |
+| **G.1** | **Office-bearers consolidation.** Create `governments/governments_office_holdings.parquet` fact (one row per `(person_id, office_id, tenure_start, tenure_end)`). Create `governments/dim_offices.parquet`. Add `entity_type='office_bearer'` rows to `taxonomy/entities.json` per §0e.6. Migrate `governments/in/states/<state>/cm_terms.json` → fact rows. Delete `governments/in/states/`. | structural + behavioural (fused) | yes if frontend consumes (today: `cm_terms` only — check usages) | T.3 + S.1 |
+| **P.\*** | **Per-family pivot** — Phase 2 of this plan. Each family from §0e.4 becomes its own sub-PR following §2a naming rule + FK contract + empty-parent pruning. Order per Q7: NFHS-5 → PLFS → UDISE+ → AISHE → NCRB → HCES 2022-23 → IMD → e-GramSwaraj/PFMS → TRAI → CAG. Drops `datasets/indicators/in/<family>/` per sub-PR. | structural + behavioural (fused per family) | yes per family | T.3 |
+
+**T.1 + T.2 + S.1** are pure Tidy First / structural — worth landing first, zero behavioural risk on the live citizen surface. **T.3** is the largest single behavioural change in this arc; it earns its own Correction Level 4 review.
+
+### §0e.8 — What retires
+
+| Old path | Replacement | Retiring PR |
+| --- | --- | --- |
+| `datasets/_test/` | (deleted, no replacement) | T.1 |
+| `datasets/reference/in/` | `datasets/taxonomy/` (editorial) or `datasets/_ops/` (telemetry) | T.2 |
+| `datasets/indicators/in/<topic>/` | per-family Parquet at `datasets/<family>/<family>_<role>.parquet` | P.\* (per family) |
+| `datasets/people/AcGenApr2021/` | `datasets/elections/dim_persons.parquet` + `taxonomy/persons.parquet` | S.1 |
+| `datasets/governments/in/states/` | `datasets/governments/governments_office_holdings.parquet` + `datasets/taxonomy/entities.parquet` (`entity_type='office_bearer'`) | G.1 |
+| `datasets/features/` | (audit pending — delete or relocate by T.1) | T.1 |
+
+### §0e.9 — Cross-refs
+
+- **Full target disk layout** (contract surface): [`docs/architecture/data/canonical-store.md` §2b](../docs/architecture/data/canonical-store.md).
+- **Debate transcript** (3-agent synthesis, OWID screenshot taxonomy verbatim, all rejected designs archived): [TODO/20260519-indicator-topic-taxonomy-and-dir-structure-plan.md](20260519-indicator-topic-taxonomy-and-dir-structure-plan.md).
+- **Naming-rule origin**: [`canonical-store.md` §2a](../docs/architecture/data/canonical-store.md) — §0e.3 extends it.
+- **Phase 2 sequencing**: §0e.7 P.\* row drives §7 row 1.8 sub-rows for each new family.
+
+---
+
 ## §1. The One Rule (read first; any coding agent)
 
 > **OWID is the canonical reference for socio-economic data modelling.** Adopt verbatim. Deviate only with Hans + Max sign-off documented in [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md).
