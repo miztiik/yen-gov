@@ -38,8 +38,7 @@ Lives under `frontend/src/lib/psephlab/`. Files marked *(planned)* are listed fo
 ```
 psephlab/
 ├── types.ts            Tallies, MutationConfig, CountingRule, Scenario, RunResult
-├── canonical-loaders.ts loadActuals(event, state) — JOINs dim_acs × dim_candidates × dim_parties × election_results via DuckDB-WASM (PR-R.1, live as of PR-R.2)
-├── actuals.ts          ⛔ legacy sql.js + results.sqlite loader, no longer called by any route (deletes in PR-R.3 along with lib/sql.ts + backend/yen_gov/emit/sqlite.py)
+├── canonical-loaders.ts loadActuals(event, state) — JOINs dim_acs × dim_candidates × dim_parties × election_results via DuckDB-WASM (PR-R.1, live as of PR-R.2; sole loader as of PR-R.3 — the legacy sql.js + results.sqlite seam was deleted)
 ├── mutations/
 │   ├── index.ts        MUTATIONS registry + mutationById()
 │   ├── perAcSwing.ts

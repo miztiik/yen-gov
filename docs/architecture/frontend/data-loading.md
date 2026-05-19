@@ -1,8 +1,8 @@
 # Frontend Data Loading
 
-**Last Updated**: 2026-05-18
+**Last Updated**: 2026-05-19
 
-How the frontend bundle reads `datasets/` artifacts. Covers the dev-time Vite middleware, the production CI staging step, and the `/explore` page's in-browser SQL via `sql.js`.
+How the frontend bundle reads `datasets/` artifacts. Covers the dev-time Vite middleware, the production CI staging step, and the `/explore` page's in-browser SQL via DuckDB-WASM.
 
 The contract URL is the same in both environments: `fetch('/data/<rel>')` returns the bytes of `<repoRoot>/datasets/<rel>`.
 
@@ -103,9 +103,9 @@ Two presets used SQLite's scalar `MIN(a, b)` / `MAX(a, b)` overloads (head-to-he
 
 ### What this removes from the bundle
 
-`/explore` no longer fetches `results.sqlite`. The `sql.js` runtime still ships because `lib/psephlab/actuals.ts` (consumed by Compare and Psephlab routes) imports `getDb`. That migration is a separate concern — psephlab needs per-candidate observations rolled into a different shape — and is tracked under Phase 1.8 alongside the `_old/` deletion.
+`/explore` no longer fetches `results.sqlite` (Phase 1.6b / PR-L). Psephlab's Compare / Psephlab routes also moved onto DuckDB-WASM in Phase 1.7 (PR-R.2). The shared DuckDB-WASM singleton is now the only path on the citizen runtime.
 
-**Status (2026-05-19, PR-R.2)**: closed. `Psephlab.svelte` and `Compare.svelte` now import `loadActuals` from `lib/psephlab/canonical-loaders.ts` (DuckDB-WASM over Parquet, same `Tallies` shape) instead of `lib/psephlab/actuals.ts` (sql.js over `results.sqlite`). The legacy module is dead code on disk pending PR-R.3, which also deletes `lib/sql.ts`, `backend/yen_gov/emit/sqlite.py`, and the 41 `datasets/elections/<event>/<state>/results.sqlite` files. After PR-R.3 the citizen bundle no longer ships the `sql.js` runtime.
+**Status (2026-05-19, PR-R.3)**: complete. `frontend/src/lib/sql.ts`, `frontend/src/lib/psephlab/actuals.ts`, `backend/yen_gov/emit/sqlite.py`, and the 41 `datasets/elections/<event>/<state>/results.sqlite` files have been deleted. The `sql.js` and `@types/sql.js` packages have been removed from `frontend/package.json`; the citizen bundle no longer carries any sqlite runtime. The legacy `/explore` sql.js notes below are retained for the migration ledger only.
 
 ## The `/explore` page (legacy notes — pre-PR-L)
 
@@ -257,8 +257,8 @@ Three SQL statements:
 | `totals.{electors, votes_polled, turnout_pct}` | ✅ | ✅ |
 | `party_totals: PartyTotals[]` | ✅ | ✅ (same shape — `PartyBar` / `SeatDonut` need zero prop changes) |
 | `sources: SourceRef[]` | ✅ | ✅ |
-| `body[]` (per-AC mini summaries) | ✅ | ❌ — not read by `StateOverview.svelte`; per-AC winners come from `results.sqlite` via `lib/sql.ts`, the StateAcMap + MarginHistogram already use that direct seam |
-| `winners` (per-AC) | ✅ | ❌ — same reason; `StateOverview.svelte:165-189` still reads SQLite directly |
+| `body[]` (per-AC mini summaries) | ✅ | ❌ — not read by `StateOverview.svelte`; per-AC winners come from the canonical Parquet store via `loadStateAcWinners` (Phase 1.5, PR-J) |
+| `winners` (per-AC) | ✅ | ❌ — same reason; the legacy SQLite read in `StateOverview.svelte` was retired in PR-J |
 | `$schema_version` | ✅ | ❌ — no JSON schema; the canonical store has its own pivot doctrine. `SourceList` accepts `schema_version` as optional |
 
 #### LoaderResult arm mapping (same shape as PR-E)
@@ -269,7 +269,7 @@ Three SQL statements:
 | zero party rows | `partial` with `reason: "not_published"` | cohort not yet ingested into the canonical store; reference-data sections (indicator cards, government card, AC directory) still render |
 | any thrown error | `failed` | rose banner + retry button on the route |
 
-The per-AC winners SQL (`results.sqlite` via `getDb()`) is parallel to the canonical pivot and out of scope for PR-F. The StateAcMap canvas does not depend on either loader.
+The per-AC winners SQL was parallel to PR-F's canonical pivot and out of scope at the time; it landed in PR-J (Phase 1.5) and the SQLite seam is gone. The StateAcMap canvas does not depend on either loader.
 
 ### Phase 1.3c — Multi-route migration (PR-G)
 
@@ -323,7 +323,7 @@ Both `dp.recognition` and `dpa.alliance` ride on the existing `PartyTotals` cont
 
 **Why the loader name stays.** `state-overview` answers "what happened in this state at this event"; per-AC winners are a slice of that same question. Splitting them into a separate loader would force two queries against the same Parquet for one page render. The chunk is small (~234 AC rows for TN), so co-locating is cheap.
 
-**What this removes from the bundle.** Two of the four remaining `getDb` callers on the citizen path. `results.sqlite` is still loaded by `RacesBoard`, `StateAcMap`, `psephlab/actuals`, and `/explore`; those move in subsequent PRs (Phase 1.5–1.7). Phase 1.8 closes when no citizen-path code imports `getDb`.
+**What this removes from the bundle.** Two of the four remaining `getDb` callers on the citizen path. `results.sqlite` was still loaded by `RacesBoard`, `StateAcMap`, `psephlab/actuals`, and `/explore` at the time of PR-I; those moved in subsequent PRs (Phase 1.5–1.7) and the entire sql.js runtime was retired in PR-R.3 (Phase 1.8e, 2026-05-19).
 
 ### Phase 1.5 — RacesBoard + StateAcMap off `results.sqlite` (PR-J)
 
@@ -333,7 +333,7 @@ Both `dp.recognition` and `dpa.alliance` ride on the existing `PartyTotals` cont
 
 **No new tests.** The AC-winners SQL is unchanged from PR-I; only the consumer wiring moves. Existing `loadStateOverview` happy-path / partial / failed tests cover the shared query. Per user direction (2026-05-18): "be rational about tests" — the migration touches presentational components whose data shape is asserted by the parent's loader test.
 
-**What's left on `results.sqlite`.** `psephlab/actuals` (full per-AC candidate-level data — needs per-candidate observations migration first) and `/explore` (the SQL playground; conceptually different, may keep its own SQLite seam). Both are out of the citizen-hub path.
+**What's left on `results.sqlite`.** Nothing on the citizen-hub path — `psephlab/actuals` moved to canonical-loaders in PR-R.2 (Phase 1.7) and the entire sql.js runtime + the 41 `results.sqlite` files were deleted in PR-R.3 (Phase 1.8e, 2026-05-19). `/explore` runs on DuckDB-WASM over canonical Parquet (PR-L, Phase 1.6b).
 
 #### Coverage parity (no-regression check)
 
@@ -363,7 +363,7 @@ The canonical observations now carry three new `ac-*` indicators:
 
 ## See also
 
-- [Frontend overview](overview.md), [SQLite emitter](../backend/emit-sqlite.md), [Deployment](../deployment.md)
+- [Frontend overview](overview.md), [Deployment](../deployment.md)
 - [`docs/how-to/release.md`](../../how-to/release.md)
 - [Canonical store](../data/canonical-store.md) — the Parquet store the new loader reads.
 - CLAUDE.md §1 (static-first), §4 (layer rules).
@@ -377,7 +377,7 @@ The canonical Parquet store ([`docs/architecture/data/canonical-store.md`](../da
 The module lives at [`frontend/src/lib/duckdb.ts`](../../../frontend/src/lib/duckdb.ts). It owns three concerns and only three:
 
 1. **Singleton DuckDB-WASM boot.** One `AsyncDuckDB` per tab; one `Connection` per `AsyncDuckDB`. WASM + worker URLs come from Vite `?url` imports so they ship as hashed assets in production builds. Bundle selection uses `duckdb.selectBundle({ mvp, eh })` for browser feature detection (exception-handling vs MVP).
-2. **Manifest fetch + URL resolution (D21).** `loadManifest()` fetches `/data/manifest.json` (cached); `tableFromManifest(m, table_id)` finds a table by id; `fileUrls(table)` produces the absolute URLs for its Parquet files via `DATA_BASE`. Failure does not poison the cache — a failed `loadManifest()` clears its promise so the next call retries cleanly. This is the same "don't poison the cache" pattern the sql.js loader (`sql.ts:43`) already uses.
+2. **Manifest fetch + URL resolution (D21).** `loadManifest()` fetches `/data/manifest.json` (cached); `tableFromManifest(m, table_id)` finds a table by id; `fileUrls(table)` produces the absolute URLs for its Parquet files via `DATA_BASE`. Failure does not poison the cache — a failed `loadManifest()` clears its promise so the next call retries cleanly. (This is the same "don't poison the cache" pattern the now-retired `sql.ts` loader used.)
 3. **`registerTable(table_id)`.** Calls `db.registerFileURL(url, url, DuckDBDataProtocol.HTTP, false)` for each Parquet file, then `CREATE OR REPLACE VIEW <viewName> AS SELECT * FROM read_parquet([...])`. Idempotent per `table_id::viewName`. After this, citizen-route loaders just write SQL against the view.
 
 The query helper `query<T>(sql)` returns plain JS objects via Arrow's `toJSON()`. For chart-sized result sets only (<50k rows). Larger scans should drop down to `(await getConnection()).query(sql)` and keep the Arrow Table.

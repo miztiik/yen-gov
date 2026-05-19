@@ -668,7 +668,7 @@ The per-family cleanup that replaces Phase 0.13. A reviewing agent can re-verify
 | 1.8c | delete 7,168 per-AC `results/<ac>.json` | 0 files | 0 files (`Get-ChildItem datasets\elections\*\*\results\*.json`) | ✅ |
 | 1.8d | delete 27 `events/in/eci/<event>/election.json` | 0 files | 0 files (`Get-ChildItem datasets\events\in\eci\*\election.json`) | ✅ |
 | 1.8d-ii | retire `facet-axes.json` + `delimitation_lineage.json`; ship Python-compiles-to-parquet pattern | 0 of those JSONs | 0 JSONs; `facet-axes.parquet` 8,090 B present | ✅ |
-| **1.8e** | **delete 41 per-state `results.sqlite`** | **0 files** | **41 files still on disk** | **⏳** |
+| **1.8e** | **delete 41 per-state `results.sqlite`** + `frontend/src/lib/sql.ts` + `frontend/src/lib/psephlab/actuals.ts` + `backend/yen_gov/emit/sqlite.py` + tests; **folded in 2026-05-19**: retire `datasets/reference/in/parties.json` + `parties-discovered.json` + their schemas + `compose.append_to_discovered_overlay` + `frontend.fetchPartyRegistry` | **0 files** | **0 files** | **✅ (PR-R.3, 2026-05-19; see canonical-pivot-deletion-manifest.md §6a row 1.8e)** |
 | **1.8f** | **delete 3,983 per-candidate person JSONs** | **0 files** | **3,983 files still on disk** | **⏳** |
 
 ### §7.2. Original Phase 1 spec table (preserved; status normalized in rows 1.8e + 1.8f only)

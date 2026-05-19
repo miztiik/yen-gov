@@ -1,7 +1,9 @@
 # ADR-0014: SQLite emitter — derived per-state artifact
 
-**Last Updated**: 2026-05-09
-**Status**: accepted
+**Last Updated**: 2026-05-19
+**Status**: superseded (by [ADR-0030 — canonical store on DuckDB-WASM + Parquet](0030-canonical-store-duckdb-wasm.md), 2026-05-19)
+
+> **Superseded 2026-05-19 (PR-R.3, TODO row `1.8e`).** The per-state `datasets/elections/<event>/<state>/results.sqlite` artifact, the `backend/yen_gov/emit/sqlite.py` emitter, and the matching frontend reader (`frontend/src/lib/sql.ts` over sql.js) have all been deleted. Researcher SQL now runs against the canonical Parquet store via DuckDB-WASM on `/explore` (or against the public Parquet URLs with any DuckDB client). See [canonical-store.md \u00a71.1](../data/canonical-store.md) and the deletion manifest row 1.8e in [canonical-pivot-deletion-manifest.md](../canonical-pivot-deletion-manifest.md). The body below is preserved as the audit trail for the original 2026-05-09 decision.
 
 ## Context
 

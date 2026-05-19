@@ -16,7 +16,7 @@ Three buckets, three different paths:
 | --- | --- | --- |
 | **Indicator view** (one number per state, possibly time-series) | per-capita NSDP, literacy %, installed MW | use the existing primitives — see §2 |
 | **Election view** (party / candidate / constituency facts for a single event) | seats donut, margin histogram, AC stacked bar | new bespoke Svelte component — see §3 |
-| **Cross-cutting query** (joins across files / arbitrary SQL) | "every AC where the winner won by < 1%" | extend `/explore` (sql.js / sqlite-wasm) — see §4 |
+| **Cross-cutting query** (joins across files / arbitrary SQL) | "every AC where the winner won by < 1%" | extend `/explore` (DuckDB-WASM over canonical Parquet) — see §4 |
 
 If your data fits the **indicator** bucket, you almost never need new component code. The metadata-driven primitives ([`IndicatorChoropleth`](../../frontend/src/lib/IndicatorChoropleth.svelte), [`IndicatorRanked`](../../frontend/src/lib/IndicatorRanked.svelte), [`IndicatorSmallMultiples`](../../frontend/src/lib/IndicatorSmallMultiples.svelte)) read everything they need from the artifact's `value_kind` / `direction` / `comparability` / `scale_hint` fields. Adding a new indicator is a backend ingest job + one line to wire it into [`StateOverview.svelte`](../../frontend/src/routes/StateOverview.svelte).
 
@@ -108,13 +108,13 @@ Pure helpers belong in vitest (`*.test.ts` colocated with the source). End-to-en
 
 ## 4. Cross-cutting query — extending `/explore`
 
-The Explore route lazy-loads `sql.js` and queries the per-state `results.sqlite` snapshot ([`docs/reference/sqlite-schema.md`](../reference/sqlite-schema.md), ADR-0014). To add a new prebuilt query:
+The Explore route runs ad-hoc SQL against the canonical Parquet store via the shared DuckDB-WASM singleton (see [`docs/architecture/frontend/data-loading.md`](../architecture/frontend/data-loading.md), [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md)). To add a new prebuilt query:
 
 1. Add the SQL + a one-line label under `frontend/src/lib/explore/`.
 2. The Explore route picks it up automatically.
-3. **Do not** make any other route depend on sqlite-wasm. The lazy-load decision is route-scoped (locked decision, 2026-05-08): only `/explore` may pull the wasm chunk.
+3. The DuckDB-WASM singleton is shared with every other route that reads canonical Parquet — there is no per-route loader cost any more.
 
-If your query needs data that isn't in `results.sqlite`, the SQLite emitter under `backend/yen_gov/emit/` is the place to add it — never compute derived columns in the browser to fill gaps in the file.
+If your query needs columns that aren't yet in the canonical store, the right place to add them is the canonical writer (`backend/yen_gov/canonical/writer.py`) and the matching observation / dimension schemas — never compute derived columns in the browser to fill gaps in the data.
 
 ---
 

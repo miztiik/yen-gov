@@ -22,7 +22,7 @@ backend/yen_gov/
     run.py         run_state_slice orchestrator
     reference.py   reference-data scrape (districts, constituencies)
   emit/        — projections of validated JSON into derived artifacts
-    sqlite.py      writes results.sqlite next to result.summary.json
+    csv_bundle.py  writes results.csv next to the per-state directory (the `sqlite.py` sibling retired in PR-R.3 / row 1.8e, 2026-05-19)
 ```
 
 The package details for each layer live in:
@@ -31,7 +31,8 @@ The package details for each layer live in:
 - [ECI source adapter](sources-eci.md) — the `sources/eci/` subpackage.
 - [Wikipedia source adapter](sources-wikipedia.md) — the `sources/wikipedia/` subpackage.
 - [Pipeline orchestration](pipeline.md) — composers, orchestrator, fail-loud policy.
-- [SQLite emitter](emit-sqlite.md) — derived per-state `.sqlite` artifact.
+
+> The per-state SQLite emitter (`emit/sqlite.py`) and its companion doc `emit-sqlite.md` were retired in PR-R.3 (TODO row `1.8e`, 2026-05-19); psephlab + the per-AC winners overlay now read the canonical Parquet store via DuckDB-WASM.
 
 ## Dependency rules
 
@@ -40,7 +41,7 @@ The dependency direction is the same one CLAUDE.md §4 declares for the whole re
 - `sources/` MAY import from `core/` but NOT from `pipeline/` or other `sources/*`.
 - `pipeline/` MAY import from `core/` and `sources/` but pipeline modules do not import each other except to compose upward.
 - `core/` MUST NOT import from `sources/` or `pipeline/`.
-- `emit/` MAY import from `core/` only. It reads what `pipeline/` wrote via the filesystem; a parser regression must not break the SQLite path and vice versa.
+- `emit/` MAY import from `core/` only. It reads what `pipeline/` wrote via the filesystem; a parser regression must not break the CSV path and vice versa.
 - Cross-source data passes through pydantic models defined in `core/models.py`, never through raw dicts or HTML strings.
 
 These rules are the canonical home for *why* the package is shaped this way — see CLAUDE.md §4 for the project-wide formulation.
@@ -66,6 +67,6 @@ The cost is a handful of layers' worth of ceremony for code that could otherwise
 
 ## See also
 
-- [Core infrastructure](core.md), [ECI adapter](sources-eci.md), [Wikipedia adapter](sources-wikipedia.md), [Pipeline](pipeline.md), [SQLite emitter](emit-sqlite.md)
+- [Core infrastructure](core.md), [ECI adapter](sources-eci.md), [Wikipedia adapter](sources-wikipedia.md), [Pipeline](pipeline.md)
 - [Data flow](../data-flow.md) — the system-level picture this fits into.
 - CLAUDE.md §4 — repo-wide layer & dependency rules.

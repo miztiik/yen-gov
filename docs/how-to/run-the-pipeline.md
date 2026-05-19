@@ -33,14 +33,11 @@ python -m yen_gov run AcGenMay2026 S22
 # → datasets/elections/AcGenMay2026/S22/parties.json
 # → datasets/elections/AcGenMay2026/S22/result.summary.json
 # → datasets/elections/AcGenMay2026/S22/results/1.json … 234.json
-# → datasets/elections/AcGenMay2026/S22/results.sqlite
 ```
 
 Each constituency is fetched and emitted in order; a single AC failure aborts the run with the underlying `ValueError` (per [pipeline fail-loud policy](../architecture/backend/pipeline.md#fail-loud-whole-run)). Bytes for every URL are persisted under `.runtime/raw/eci/...` for offline debugging (per [ADR-0003](../architecture/decisions/0003-no-fetch-cache.md)) — but the orchestrator does not consult them on rerun.
 
 The composer's reconciler (`reconcile_winners_against_partywise`) cross-checks per-AC winners against the partywise seat counts; a mismatch raises before any artifact is written. This catches both ECI page corruption and parser drift.
-
-After the JSON is validated and persisted, the SQLite emitter (see [backend/emit-sqlite.md](../architecture/backend/emit-sqlite.md)) writes `results.sqlite` next to it. Pass `--no-sqlite` to skip this step during JSON-only iterations. The layout is documented in [`docs/reference/sqlite-schema.md`](../reference/sqlite-schema.md).
 
 ### Knobs
 

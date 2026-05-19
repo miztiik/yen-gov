@@ -18,7 +18,7 @@ its own plumbing to every visitor:
 Two distinct mistakes are bundled in there:
 
 1. **Implementation tour.** Naming `sql.js`, `wasm`, `results.sqlite`,
-   `lib/explore/sqlGuard.ts`, the doc path `docs/reference/sqlite-schema.md`,
+   `lib/explore/sqlGuard.ts`, the (since-retired) doc path `docs/reference/sqlite-schema.md`,
    and the exact set of blocked keywords tells a casual visitor things they
    neither asked for nor benefit from.
 2. **Security-boundary disclosure.** Stating *what is enforced and where it
@@ -76,10 +76,10 @@ narrating them on the public surface.
 Internally — and only internally — we are explicit:
 
 - **What is supported / not supported** in the Data Explorer:
-  documented in [docs/reference/sqlite-schema.md](../../reference/sqlite-schema.md)
-  (schema and supported query shapes) and in source comments in
+  documented in [docs/architecture/data/canonical-store.md](../data/canonical-store.md)
+  (the Parquet + DuckDB-WASM store that replaced the per-state SQLite shards) and in source comments in
   [`frontend/src/lib/explore/sqlGuard.ts`](../../../frontend/src/lib/explore/sqlGuard.ts)
-  and [ADR-0017](0017-explore-page-uses-sql-js.md) (engine choice).
+  and [ADR-0017](0017-explore-page-uses-sql-js.md) (engine choice; superseded by ADR-0030).
 - **Why the keyword guard exists** (typo defence, not a hardened
   sandbox) is in the source comment at the top of `sqlGuard.ts`.
 - **The static-bundle / no-production-backend stance** is the first Holy

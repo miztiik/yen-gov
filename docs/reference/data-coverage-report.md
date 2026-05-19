@@ -48,8 +48,7 @@ The May 2026 wave (the project's primary "live" target — TN, WB, Kerala, Assam
 | ----- | ---------- | ----- |
 | `reference/in/states.json` | 28 states + 8 UTs registry | ECI codes (S01..S29, U01..U08) |
 | `reference/in/state-tiers.json` | State grouping for the IA | Tiered by Lok Sabha seat count |
-| `reference/in/parties.json` | Master party list | ECI party codes + display |
-| `reference/in/parties-discovered.json` | Auto-discovered new parties from per-AC results | Promotion candidates |
+| `taxonomy/parties.json` | Canonical party roster (was `reference/in/parties.json` + `parties-discovered.json`, both retired in PR-R.3 / row 1.8e) | 108 parties; primary + aliases; `eci_codes[]` per party |
 | `reference/in/election-events.json` | Master event index | Event id, name, dates |
 | `reference/in/topic-catalogue.json` | UI topic taxonomy | Indicator-id → topic |
 | `reference/in/upstream-sources.json` | **Upstream registry (new, 2026-05-14)** | 21 upstreams, statuses, adapters, indicator ids |

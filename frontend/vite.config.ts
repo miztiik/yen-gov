@@ -13,11 +13,9 @@ import { readFileSync, statSync, existsSync, writeFileSync } from "node:fs";
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 
 // Map file extension → Content-Type. Anything not listed defaults to
-// application/octet-stream (correct for opaque binaries; sqlite-wasm needs
-// this for results.sqlite).
+// application/octet-stream (correct for opaque binaries).
 const CONTENT_TYPES: Record<string, string> = {
   ".json": "application/json; charset=utf-8",
-  ".sqlite": "application/vnd.sqlite3",
   ".csv": "text/csv; charset=utf-8",
   ".geojson": "application/geo+json; charset=utf-8",
   ".parquet": "application/vnd.apache.parquet",
