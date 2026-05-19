@@ -183,13 +183,24 @@ def run(
     )
 
     if sqlite:
-        from yen_gov.emit.sqlite import emit_state_sqlite
-        sqlite_path = emit_state_sqlite(state_dir=output_dir)
+        # In-memory path (PR-O.3a — TODO 1.8b-writers-a): emit directly from
+        # the RunResult instead of round-tripping through the per-AC JSON
+        # shards we just wrote. The wrapper `emit_state_sqlite(state_dir=...)`
+        # still exists for one-shot reruns.
+        from yen_gov.emit.sqlite import emit_state_sqlite_from_data
+        sqlite_path = emit_state_sqlite_from_data(
+            parties_doc=result.parties.body_payload(),
+            constituencies=[cr.body_payload() for cr in result.constituencies],
+            output_path=output_dir / "results.sqlite",
+        )
         typer.echo(f"sqlite: OK — {sqlite_path}")
 
     if csv_bundle:
-        from yen_gov.emit.csv_bundle import emit_state_csv
-        csv_path = emit_state_csv(state_dir=output_dir)
+        from yen_gov.emit.csv_bundle import emit_state_csv_from_data
+        csv_path = emit_state_csv_from_data(
+            constituencies=[cr.body_payload() for cr in result.constituencies],
+            output_path=output_dir / "results.csv",
+        )
         typer.echo(f"csv: OK — {csv_path}")
 
 
@@ -878,6 +889,7 @@ def eci_statreport_emit_local(
         resolved.append(s)
     unresolved = [s for s in section_10_shorts if s not in resolved
                   and not any(d == s for d, _ in collapsed)]
+    snapshot: PartiesSnapshot | None = None
     if resolved:
         # Aggregated artifact per ADR-0002: sources is the union of every
         # registry source-URL that contributed a resolved short. The local-
@@ -937,11 +949,28 @@ def eci_statreport_emit_local(
     # skipping it here would render the historical events but blank the
     # winners-on-map and 404 every Psephlab route. Same rationale for
     # the CSV bundle (researcher-facing).
-    from yen_gov.emit.sqlite import emit_state_sqlite
-    from yen_gov.emit.csv_bundle import emit_state_csv
-    sqlite_path = emit_state_sqlite(state_dir=output_dir)
+    #
+    # In-memory path (PR-O.3a — TODO 1.8b-writers-a): emit directly from
+    # the local objects instead of round-tripping through the JSON shards
+    # we just wrote. If no parties.json was emitted (zero of N party_shorts
+    # resolved against the registry) we pass an empty parties_doc — the
+    # SQLite layout's `parties` table is left empty, matching the prior
+    # behaviour where the disk-read emitter would crash on a missing
+    # parties.json file (regression latent in the live-fetch path too).
+    from yen_gov.emit.sqlite import emit_state_sqlite_from_data
+    from yen_gov.emit.csv_bundle import emit_state_csv_from_data
+    parties_doc = snapshot.body_payload() if snapshot is not None else {"parties": []}
+    constituency_dicts = [cr.body_payload() for cr in results]
+    sqlite_path = emit_state_sqlite_from_data(
+        parties_doc=parties_doc,
+        constituencies=constituency_dicts,
+        output_path=output_dir / "results.sqlite",
+    )
     typer.echo(f"sqlite:      OK \u2014 {sqlite_path}")
-    csv_path = emit_state_csv(state_dir=output_dir)
+    csv_path = emit_state_csv_from_data(
+        constituencies=constituency_dicts,
+        output_path=output_dir / "results.csv",
+    )
     typer.echo(f"csv:         OK \u2014 {csv_path}")
 
     if delete_source_on_success:
