@@ -58,6 +58,9 @@ from yen_gov.canonical.envelope import (
     ReplacementSemantics,
     SourceRow,
 )
+from yen_gov.canonical.facet_axes_seed import (
+    compile_to_parquet as _compile_facet_axes_to_parquet,
+)
 from yen_gov.core.schema_registry import schema_id, schema_version
 
 log = logging.getLogger(__name__)
@@ -154,6 +157,13 @@ def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
         src_written = _emit_sources(con, sources_path)
     finally:
         con.close()
+
+    # Refresh the hand-authored taxonomy parquet (facet-axes seed). This is
+    # cheap (~60 rows, single file) and runs on every write_batch so the
+    # on-disk parquet can never drift from the Python literal source of
+    # truth. Primary trigger is the operator CLI ``emit-taxonomy`` command;
+    # this call is belt-and-suspenders. See TODO row 1.8d-ii §G step 2.
+    _emit_facet_axes(taxonomy_dir)
 
     dim_written = _write_dimensions(envelope, family_dir)
 
@@ -474,6 +484,20 @@ def _emit_sources(con: duckdb.DuckDBPyConnection, out_path: Path) -> int:
         row_schema_file="source.schema.json",
         sort_cols=["source_id"],
     )
+
+
+def _emit_facet_axes(taxonomy_dir: Path) -> int:
+    """Compile the hand-authored ``FACET_AXES`` literal to parquet.
+
+    Delegates to ``facet_axes_seed.compile_to_parquet`` which is the canonical
+    Python-compiles-to-parquet seam (TODO row 1.8d-ii). Does NOT go through
+    ``_emit_table`` because the seed has no DuckDB-resident table to project
+    from and no row-schema file (its schema IS the Pydantic model in the
+    seed module). Returns the number of denormalized ``(axis_id, value_id)``
+    rows written so callers can log it.
+    """
+    out_path = taxonomy_dir / "facet-axes.parquet"
+    return _compile_facet_axes_to_parquet(out_path)
 
 
 # ---------------------------------------------------------------------------
@@ -816,6 +840,14 @@ def _classify_kind(parquet_path: Path, family: str) -> str:
 
 
 def _taxonomy_schema_file(stem: str) -> str | None:
+    # ``facet-axes`` deliberately NOT mapped here: its parquet is produced by
+    # ``facet_axes_seed.compile_to_parquet`` from a Python literal, not from
+    # adapter envelope rows, so it carries no row-schema FK in the manifest
+    # registry. The Pydantic models in ``facet_axes_seed.py`` are the
+    # contract. ``_regenerate_manifest`` already skips parquets where this
+    # mapping returns None, so the entry stays absent until Phase 2 Energy
+    # introduces the first downstream consumer that wants a manifest entry.
+    # See TODO row 1.8d-ii §G step 10.
     mapping = {
         "sources": "source.schema.json",
         "entities": "entity.schema.json",
@@ -823,7 +855,6 @@ def _taxonomy_schema_file(stem: str) -> str | None:
         "operator_state": "operator-state.schema.json",
         "caveats": "caveat.schema.json",
         "methodology_breaks": "methodology-break.schema.json",
-        "facet-axes": "facet-axes.schema.json",
     }
     return mapping.get(stem)
 
