@@ -301,3 +301,47 @@ export function splitRowsForEntity(
   const sorted = [...rows].sort((a, b) => a.time.localeCompare(b.time));
   return splitOnBreaks(sorted, breaksFromMeta(meta), r => r.time);
 }
+
+// ---- 6. axisUnitLabel + legendCaption (PR-T row 1.10 / T-4) ---------------
+
+/** Compact unit string for a chart's Y-axis / legend swatch row.
+ *
+ *  Prefers `indicator.short_unit` (compact glyph form authored for
+ *  legend space, e.g. `"₹cr"` for `unit="INR crore"`, `"kWh/cap"` for
+ *  `unit="kWh per person per year"`). Falls back to `indicator.unit`
+ *  when no short form is authored, then to empty string when the
+ *  indicator declares no unit at all (rare — only counts/indices that
+ *  publishers ship unitless).
+ *
+ *  Accepts a Partial so the helper can be probed defensively from
+ *  test fixtures or chart code that hasn't fully populated meta yet;
+ *  callers in production pass the real `IndicatorMeta` where `unit`
+ *  is required.
+ *
+ *  One generic helper so every chart wrapper picks up the new
+ *  `short_unit` field via a single import. See PR-T / row 1.10. */
+export function axisUnitLabel(
+  meta: Partial<Pick<IndicatorMeta, "unit" | "short_unit">>,
+): string {
+  return meta.short_unit ?? meta.unit ?? "";
+}
+
+/** One-line citizen-readable caption for a chart legend / sub-title.
+ *
+ *  Prefers `indicator.description_short` (Plain-Facts register, ≤280
+ *  chars, hand-authored on top-30 citizen-facing indicators per PR-T).
+ *  Falls back to the publisher-style `indicator.description` for the
+ *  tail of indicators not yet backfilled — preserves the existing
+ *  citizen surface during the per-family migration window. Last-resort
+ *  fallback is `indicator.title` so the caption never disappears
+ *  entirely and never "lies" (CLAUDE.md §10).
+ *
+ *  Per Hans + Max 2026-05-19 Q3 verdict the tail backfills `description_short`
+ *  per-family at next natural touch, NOT via auto-stub. Once the tail
+ *  is fully backfilled the middle fallback becomes dead code and can
+ *  be removed in a later PR. */
+export function legendCaption(
+  meta: Partial<Pick<IndicatorMeta, "title" | "description" | "description_short">>,
+): string {
+  return meta.description_short ?? meta.description ?? meta.title ?? "";
+}

@@ -7,6 +7,8 @@ import {
   indexAxisHint,
   breaksFromMeta,
   splitRowsForEntity,
+  axisUnitLabel,
+  legendCaption,
   type SeriesBreak,
 } from "./indicator-render";
 import type { IndicatorMeta, IndicatorRow } from "./indicators";
@@ -267,5 +269,59 @@ describe("breaksFromMeta + splitRowsForEntity", () => {
     expect(segs.length).toBe(2);
     expect(segs[0].map(r => r.time)).toEqual(["2010-04", "2011-04"]);
     expect(segs[1].map(r => r.time)).toEqual(["2012-04", "2013-04"]);
+  });
+});
+
+// ---- axisUnitLabel + legendCaption (PR-T row 1.10 / T-4) -----------------
+
+describe("axisUnitLabel", () => {
+  it("prefers short_unit over unit when both are present", () => {
+    expect(axisUnitLabel({ unit: "INR (crore)", short_unit: "₹cr" })).toBe("₹cr");
+    expect(axisUnitLabel({ unit: "kWh per person per year", short_unit: "kWh/cap" }))
+      .toBe("kWh/cap");
+    expect(axisUnitLabel({ unit: "per 1,000 live births", short_unit: "/1k LB" }))
+      .toBe("/1k LB");
+  });
+
+  it("falls back to unit when short_unit is undefined", () => {
+    expect(axisUnitLabel({ unit: "INR (crore)" })).toBe("INR (crore)");
+    expect(axisUnitLabel({ unit: "MW" })).toBe("MW");
+  });
+
+  it("returns empty string when both are absent", () => {
+    expect(axisUnitLabel({})).toBe("");
+  });
+
+  it("treats null/undefined short_unit identically (?? semantics)", () => {
+    expect(axisUnitLabel({ unit: "MW", short_unit: undefined })).toBe("MW");
+  });
+});
+
+describe("legendCaption", () => {
+  it("prefers description_short over description over title", () => {
+    expect(legendCaption({
+      title: "Outstanding liabilities",
+      description: "Long publisher-style methodology paragraph mentioning RBI and FRBM Act…",
+      description_short: "State govt debt as a share of GSDP. Solvency-ratio metric.",
+    })).toBe("State govt debt as a share of GSDP. Solvency-ratio metric.");
+  });
+
+  it("falls back to description when description_short is absent (tail indicator)", () => {
+    expect(legendCaption({
+      title: "Renewable capacity",
+      description: "Total renewable energy installed capacity in MW (solar + wind + hydro <25 MW).",
+    })).toBe(
+      "Total renewable energy installed capacity in MW (solar + wind + hydro <25 MW).",
+    );
+  });
+
+  it("falls back to title when both descriptions are absent (defensive)", () => {
+    expect(legendCaption({ title: "Some Indicator" })).toBe("Some Indicator");
+  });
+
+  it("regression: 280-char ceiling holds on hand-authored top-30", () => {
+    // The schema-level guardrail; the helper itself doesn't enforce length.
+    const ds = "x".repeat(280);
+    expect(legendCaption({ title: "T", description_short: ds }).length).toBe(280);
   });
 });
