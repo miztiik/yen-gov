@@ -68,6 +68,15 @@ interface CandidateRow {
   party_eci_code: string | null;
   votes: number | null;
   vote_share_pct: number | null;
+  // v1.2 biographic columns (PR-S.2 / canonical pivot 1.8f). Nullable in
+  // Parquet -> nullable here. Populated only for events where an ECI
+  // Statistical Report adapter has run (currently TN AcGenApr2021).
+  sex: string | null;
+  age: number | null;
+  education: string | null;
+  profession: string | null;
+  constituency_type: string | null;
+  party_type: string | null;
 }
 
 interface AcScopeRow {
@@ -122,7 +131,13 @@ async function runQueries(
       dp.full_name      AS party_full,
       dp.eci_code       AS party_eci_code,
       obs_v.value_numeric AS votes,
-      obs_s.value_numeric AS vote_share_pct
+      obs_s.value_numeric AS vote_share_pct,
+      dc.sex            AS sex,
+      dc.age            AS age,
+      dc.education      AS education,
+      dc.profession     AS profession,
+      dc.constituency_type AS constituency_type,
+      dc.party_type     AS party_type
     FROM dim_candidates dc
     JOIN dim_acs da ON da.ac_id = dc.ac_id
     LEFT JOIN dim_parties dp ON dp.party_id = dc.party_id
@@ -204,15 +219,35 @@ function assembleResult(
     rows.candidates.find((c) => c.candidate_id === winnerCandidateId) ??
     rows.candidates[0];
 
-  const candidates: CandidateResult[] = rows.candidates.map((r) => ({
-    rank: Number(r.rank),
-    name: r.candidate_name ?? "",
-    party_eci_code: r.party_eci_code ?? null,
-    party_short: r.party_short ?? r.party_id,
-    votes: num(r.votes),
-    vote_share_pct: num(r.vote_share_pct),
-    is_winner: r.candidate_id === winnerCandidateId,
-  }));
+  const candidates: CandidateResult[] = rows.candidates.map((r) => {
+    // Bio columns: collapse to a single nullable object so the renderer
+    // can guard with `{#if c.bio}` instead of probing six fields. `null`
+    // when every bio column is NULL (the common case until a Statistical
+    // Report adapter populates them); object when at least one is set.
+    const hasBio =
+      r.sex !== null || r.age !== null || r.education !== null ||
+      r.profession !== null || r.constituency_type !== null ||
+      r.party_type !== null;
+    return {
+      rank: Number(r.rank),
+      name: r.candidate_name ?? "",
+      party_eci_code: r.party_eci_code ?? null,
+      party_short: r.party_short ?? r.party_id,
+      votes: num(r.votes),
+      vote_share_pct: num(r.vote_share_pct),
+      is_winner: r.candidate_id === winnerCandidateId,
+      bio: hasBio
+        ? {
+            sex: r.sex,
+            age: r.age === null ? null : Number(r.age),
+            education: r.education,
+            profession: r.profession,
+            constituency_type: r.constituency_type,
+            party_type: r.party_type,
+          }
+        : null,
+    };
+  });
 
   const top_n_cutoff = candidates.length;
   const totalContested =

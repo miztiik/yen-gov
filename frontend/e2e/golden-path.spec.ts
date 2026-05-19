@@ -200,15 +200,18 @@ test.describe("golden path", () => {
     await expect(page.locator('a[href*="eci.gov.in"]').first())
       .toBeVisible({ timeout: 30_000 });
 
-    // people.entity sidecar: AC 1 winner GOVINDARAJAN T.J has a sidecar
-    // shipped via the TN AE 2021 ingest (datasets/people/AcGenApr2021/1/
-    // govindarajan-t-j.json). The biographic line ("Male · age 60 · 10th
-    // Pass · Business") only surfaces when TN's default election event is
-    // AcGenApr2021. The default is now AcGenMay2026 (no biographics ingest),
-    // so the route legitimately renders "Not declared" via the 404-as-null
-    // contract. Assert the biographics testid renders for at least one
-    // candidate; the populated-fields path is covered by vitest
-    // (frontend/src/lib/data.test.ts — fetchPersonEntity contract).
+    // Biographics: dim_candidates.parquet schema v1.2 (PR-S.1) carries
+    // sex/age/education/profession/constituency_type/party_type as inline
+    // columns. The view-model loader projects them onto
+    // `CandidateResult.bio`; the row renders a chip whenever at least one
+    // field is populated (the citizen sees e.g. "Male · age 60 · 10th
+    // Pass · Business"). The TN default election is now AcGenMay2026
+    // (no Statistical Report adapter run yet), so this route surfaces bio
+    // for the AcGenApr2021 candidates only when that event is chosen.
+    // Assert the biographics testid renders for at least one candidate;
+    // the citizen-facing render path is covered, the SQL projection by
+    // view-models/constituency.test.ts. PR-S.2 (canonical pivot 1.8f)
+    // retired the per-candidate JSON sidecar fetch path entirely.
     const bio = page.getByTestId("candidate-biographics").first();
     await expect(bio).toBeVisible({ timeout: 30_000 });
   });

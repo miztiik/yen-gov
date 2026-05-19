@@ -1328,13 +1328,16 @@ def ingest_people_panel(
         help="Re-ingest even if the inventory already records this triple.",
     ),
 ) -> None:
-    """Ingest a panel CSV into per-person artifacts under datasets/people/.
+    """Ingest a panel CSV into the canonical dim_candidates.parquet.
 
-    Source authority is ECI; the CSV is a frozen input the operator
-    obtains once. Vote totals are compared against existing
-    result.constituency artifacts; discrepancy thresholds in
-    config/elections.json decide halt vs warn. On success, an entry
-    is upserted in datasets/elections/_inventory.json as the
+    PR-S.2 (canonical pivot 1.8f) replaced the per-person JSON sidecar
+    emit (datasets/people/<event>/<ac>/<slug>.json) with an UPSERT of the
+    biographic columns (sex/age/education/profession/constituency_type)
+    onto dim_candidates v1.2. Source authority is ECI; the CSV is a
+    frozen input the operator obtains once. Vote totals are compared
+    against the canonical election_results.parquet; discrepancy
+    thresholds in config/elections.json decide halt vs warn. On success,
+    an entry is upserted in datasets/elections/_inventory.json as the
     'done and tested' marker.
     """
     from yen_gov.pipeline.people_ingest import IngestHalted, run_people_ingest
@@ -1355,7 +1358,7 @@ def ingest_people_panel(
         raise typer.Exit(code=2) from exc
 
     typer.echo(f"ingest-people-panel: OK")
-    typer.echo(f"  people written: {result.people_written}")
+    typer.echo(f"  bios upserted:  {result.bios_upserted}")
     typer.echo(f"  inventory:      {result.inventory_path.relative_to(root).as_posix()}")
     if result.report_path != Path():
         typer.echo(f"  discrepancy:    {result.report_path.relative_to(root).as_posix()}")

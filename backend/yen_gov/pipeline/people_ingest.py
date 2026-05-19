@@ -1,43 +1,52 @@
 """People-ingest orchestrator.
 
 Composes the pure adapter (``yen_gov.sources.eci.people_panel``) with the
-existing ``write_artifact`` chokepoint (dict-equal idempotency for free),
-the elections inventory (declarative "done and tested" gate), and the
-discrepancy report (per-AC vote comparison against existing
-result.constituency artifacts).
+canonical-store writer (UPSERTs biographic columns into
+``datasets/elections/dim_candidates.parquet`` schema v1.2), the elections
+inventory (declarative "done and tested" gate), and the discrepancy
+report (per-AC vote comparison against the canonical observations).
 
 Public entry point: ``run_people_ingest``. The CLI in ``yen_gov.cli`` is a
 thin wrapper around it.
+
+PR-S.2 (canonical pivot 1.8f) replaced the per-candidate JSON sidecar
+emit (3,983 files under ``datasets/people/<event>/<ac>/<slug>.json``) with
+an UPSERT into ``dim_candidates``. The discrepancy gate
+(``compare_winner_votes``) is preserved verbatim — it already reads the
+canonical Parquet (PR-O.3b-main) and remains the named non-negotiable QA
+gate for this adapter.
 """
 
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
-from yen_gov.core.io import Source, write_artifact
+from yen_gov.core.io import write_artifact
 from yen_gov.core.schema_registry import schema_doc, schema_id, schema_version
 from yen_gov.sources.eci.people_panel import (
-    ADAPTER_ID,
     PersonRow,
     group_by_ac,
     parse_panel,
-    to_people_payload,
+    slugify,
 )
 
 
-PEOPLE_SCHEMA_FILE = "people.entity.schema.json"
 INVENTORY_SCHEMA_FILE = "elections-inventory.schema.json"
 CONFIG_SCHEMA_FILE = "elections-config.schema.json"
 
 # Repo-relative paths the orchestrator owns.
-PEOPLE_DIR_REL = ("datasets", "people")
 INVENTORY_PATH_REL = ("datasets", "elections", "_inventory.json")
 CONFIG_PATH_REL = ("config", "elections.json")
 REPORTS_DIR_REL = (".runtime", "reports")
+DIM_CANDIDATES_PATH_REL = ("datasets", "elections", "dim_candidates.parquet")
+
+# ac_id format: "IN-S22-AC-2008-167" -> state="S22", ac_eci_no=167
+_AC_ID_RE = re.compile(r"^IN-([SU]\d{2})-AC-\d+-(\d+)$")
 
 
 class IngestHalted(RuntimeError):
@@ -257,35 +266,115 @@ def compare_winner_votes(
     )
 
 
-def write_people_files(
+def upsert_candidate_bios(
     rows: Iterable[PersonRow],
     *,
     repo_root: Path,
-    sources: list[Source],
-) -> list[Path]:
-    """Emit one people.entity artifact per row via ``write_artifact``.
+) -> int:
+    """Lift biographic fields from the panel into ``dim_candidates.parquet``.
 
-    Returns the list of written (or skipped-because-equal) paths. The
-    dict-equal write-skip gate in ``write_artifact`` handles idempotency;
-    callers do not need to special-case re-runs.
+    For each panel ``PersonRow``, looks up the matching ``dim_candidates``
+    row by ``(state, election_id, ac_eci_no, slugify(name))`` and UPSERTs
+    the row with bio columns populated. Long-tail panel rows that have no
+    matching dim row (rank > top-N cutoff, NOTA, AC not yet ingested via
+    a Section-10 adapter) are silently skipped — by design,
+    ``dim_candidates`` only carries the top-N candidates per AC per
+    ``docs/architecture/data/elections-indicators.md``. The bio enrichment
+    is therefore additive on the existing canonical roster, never the
+    creator of new candidate rows.
+
+    Returns the count of dim rows actually upserted. Idempotent:
+    re-running with identical inputs yields a byte-identical Parquet
+    because ``_upsert_dim`` emits sorted COPY output keyed by
+    ``candidate_id``.
+
+    No-op (returns 0) when the canonical store is absent — the same
+    graceful degradation the writer's ``_load_existing`` provides.
     """
-    sdoc = schema_doc(PEOPLE_SCHEMA_FILE)
-    sid = schema_id(PEOPLE_SCHEMA_FILE)
-    sver = schema_version(PEOPLE_SCHEMA_FILE)
-    base = repo_root.joinpath(*PEOPLE_DIR_REL)
-    out: list[Path] = []
-    for row in rows:
-        path = base / row.election_id / str(row.ac_code) / f"{row.candidate_slug}.json"
-        write_artifact(
-            path=path,
-            schema_id=sid,
-            schema_version=sver,
-            payload=to_people_payload(row),
-            sources=sources,
-            schema_for_validation=sdoc,
+    # Lazy imports: keeps the dependency on the canonical writer scoped
+    # to the one function that needs it, matching the pattern in
+    # tools/backfill_candidate_bios_from_people_json.py (the one-shot
+    # tool this refactor supersedes).
+    import duckdb
+
+    from yen_gov.canonical.envelope import CandidateDimRow
+    from yen_gov.canonical.writer import (
+        _DIM_SPECS,
+        _regenerate_manifest,
+        _upsert_dim,
+    )
+
+    dim_parquet = repo_root.joinpath(*DIM_CANDIDATES_PATH_REL)
+    if not dim_parquet.is_file():
+        # No canonical roster yet; bio has nothing to enrich. Caller may
+        # treat this as a soft no-op (the inventory entry still records
+        # the ingest as done so re-runs short-circuit).
+        return 0
+
+    # Index input bio by join key. Last row wins on collision (within an
+    # AC the panel may carry the same slug for ties; canonical resolves
+    # this via ballot_serial on its end, but bio fields are identical for
+    # the duplicate so last-wins is safe).
+    bio_by_key: dict[tuple[str, str, int, str], PersonRow] = {}
+    for r in rows:
+        bio_by_key[(r.state, r.election_id, r.ac_code, r.candidate_slug)] = r
+
+    # Load existing dim rows; project all v1.2 columns explicitly so a
+    # downstream Pydantic validation surfaces any column drift as a hard
+    # failure rather than a silent KeyError.
+    con = duckdb.connect(":memory:")
+    try:
+        dim_rel = con.execute(
+            f"SELECT * FROM read_parquet('{dim_parquet.as_posix()}') ORDER BY candidate_id"
         )
-        out.append(path)
-    return out
+        cols = [d[0] for d in dim_rel.description]
+        dim_rows_all = [dict(zip(cols, row)) for row in dim_rel.fetchall()]
+    finally:
+        con.close()
+
+    BIO_COLS = (
+        "sex", "age", "education", "profession", "constituency_type",
+    )
+    matched_payloads: list[dict] = []
+    for r in dim_rows_all:
+        m = _AC_ID_RE.match(r["ac_id"])
+        if not m or not r["name"]:
+            continue
+        state, ac_eci_no = m.group(1), int(m.group(2))
+        key = (state, r["period_label"], ac_eci_no, slugify(r["name"]))
+        pr = bio_by_key.get(key)
+        if pr is None:
+            continue
+        payload = {
+            "candidate_id": r["candidate_id"],
+            "ac_id": r["ac_id"],
+            "period_label": r["period_label"],
+            "ballot_serial": r["ballot_serial"],
+            "name": r["name"],
+            "party_id": r["party_id"],
+            "rank": r["rank"],
+            "source_id": r["source_id"],
+            "party_short_raw": r.get("party_short_raw"),
+            **{c: getattr(pr, c) for c in BIO_COLS},
+            # party_type is not derived from the panel CSV; left NULL.
+            "party_type": None,
+        }
+        # Validate (raises if any enum/range constraint trips).
+        CandidateDimRow(**payload)
+        matched_payloads.append(payload)
+
+    if not matched_payloads:
+        return 0
+
+    spec = _DIM_SPECS["candidate"]
+    n = _upsert_dim(
+        out_path=dim_parquet,
+        rows=matched_payloads,
+        spec=spec,
+        table_id="elections.dim_candidates",
+    )
+    _regenerate_manifest(repo_root / "datasets")
+    return n
 
 
 def upsert_inventory_entry(
@@ -363,7 +452,7 @@ def load_thresholds(repo_root: Path) -> dict[str, dict[str, float]]:
 
 @dataclass(frozen=True)
 class IngestResult:
-    people_written: int
+    bios_upserted: int
     inventory_path: Path
     report_path: Path
     report: DiscrepancyReport
@@ -401,7 +490,7 @@ def run_people_ingest(
         if (election_id, state, source_input) in triples:
             # Already ingested; honour declarative gate.
             return IngestResult(
-                people_written=0,
+                bios_upserted=0,
                 inventory_path=inv_path,
                 report_path=Path(),
                 report=DiscrepancyReport(
@@ -449,13 +538,13 @@ def run_people_ingest(
         if ingested_at
         else datetime.now(timezone.utc).replace(microsecond=0)
     )
-    sources = [Source(url=source_url, fetched_at=fetched)]
-    # Source.to_dict only emits {url, fetched_at}; name/authority are
-    # optional per the schema and not part of Source's contract yet, so
-    # they ride on the artifact when needed but this slice doesn't.
-    _ = (source_name, source_authority)  # reserved for a later enrichment
+    # source_name/source_authority are reserved for a later enrichment of
+    # the canonical sources row; this slice writes bio into dim_candidates
+    # without minting a new SourceRow (the candidate row already carries
+    # the source_id from the Section-10 ingest that created the dim row).
+    _ = (source_name, source_authority, source_url, fetched)
 
-    written = write_people_files(rows, repo_root=repo_root, sources=sources)
+    bios = upsert_candidate_bios(rows, repo_root=repo_root)
 
     ingested_date = (ingested_at or fetched.isoformat()).split("T", 1)[0]
     inventory_path = upsert_inventory_entry(
@@ -474,7 +563,7 @@ def run_people_ingest(
     )
 
     return IngestResult(
-        people_written=len(written),
+        bios_upserted=bios,
         inventory_path=inventory_path,
         report_path=report_path,
         report=report,
