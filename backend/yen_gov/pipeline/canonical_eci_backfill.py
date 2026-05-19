@@ -8,6 +8,18 @@ hands the resulting BatchEnvelope to ``canonical.writer.write_batch``.
 This is the Phase 1.1 step-5 driver. It does NOT re-fetch from ECI; it reads
 the on-disk JSON corpus that prior live-emit runs have already produced.
 
+Public API:
+
+- :func:`build_slice_envelope` — **in-memory primary API.** Takes a list of
+  parsed ``ConstituencyResult`` objects and returns the per-slice canonical
+  rows (observations, sources, candidate dims, AC dims). Used by
+  ``pipeline/run.py`` after a live ECI fetch produces constituencies in
+  memory, so the canonical write does not depend on the per-AC JSON
+  artifacts the writers used to emit (TODO row ``1.8b-writers-b``).
+- :func:`backfill_elections` — driver that walks the on-disk corpus,
+  delegates per-slice work to :func:`_process_slice` (thin disk-wrapper
+  around the primary API), and batches per-event into ``write_batch``.
+
 Design notes:
 
 - ``source_id`` is derived deterministically from the source URL — first 12
@@ -308,7 +320,76 @@ def _process_slice(
     list[ObservationRow], dict[str, SourceRow], int, dict[str, int],
     list[CandidateDimRow], list[AcDimRow],
 ]:
-    """Process one (event, state) slice → observations + sources + dims + AC count."""
+    """Process one (event, state) slice → observations + sources + dims + AC count.
+
+    Thin disk-wrapper around :func:`build_slice_envelope` — globs ``*.json``
+    under ``results_dir``, loads each into ``ConstituencyResult`` (logging
+    and skipping unreadable files), then delegates the canonical-envelope
+    construction to the in-memory primary API.
+
+    Pre-O.3b-pre this function did the whole orchestration inline. The split
+    was extracted so ``pipeline/run.py`` can call the same builder against
+    in-memory constituencies it just produced live, without re-reading the
+    per-AC JSONs the writers used to emit. See TODO row ``1.8b-writers-b``.
+    """
+    ac_files = sorted(
+        results_dir.glob("*.json"), key=lambda p: int(p.stem)
+    )
+    constituencies: list[ConstituencyResult] = []
+    for ac_path in ac_files:
+        try:
+            constituencies.append(_load_constituency_result(ac_path))
+        except Exception as exc:
+            log.warning("skipping unreadable %s: %s", ac_path, exc)
+            continue
+
+    rows, sources, unresolved, candidate_dims, ac_dims = build_slice_envelope(
+        constituencies=constituencies,
+        state_code=state_code,
+        period=period,
+        party_lookup=party_lookup,
+    )
+    # NOTE: returned ``ac_count`` mirrors the historical contract — number of
+    # *.json files on disk, NOT successfully-loaded ConstituencyResults. Skip-on-
+    # read keeps the slice resilient, but the count must reflect the operator's
+    # on-disk corpus so progress reporting stays honest.
+    return (
+        rows, sources, len(ac_files), unresolved,
+        candidate_dims, ac_dims,
+    )
+
+
+def build_slice_envelope(
+    *,
+    constituencies: list[ConstituencyResult],
+    state_code: str,
+    period,
+    party_lookup: PartyLookup,
+) -> tuple[
+    list[ObservationRow], dict[str, SourceRow], dict[str, int],
+    list[CandidateDimRow], list[AcDimRow],
+]:
+    """Build the per-slice canonical rows from in-memory ConstituencyResults.
+
+    Primary API for callers that already hold the parsed ConstituencyResult
+    objects in memory (e.g. ``pipeline/run.py`` after a live ECI fetch).
+    For disk-driven callers, see the thin wrapper :func:`_process_slice`.
+
+    Inputs:
+        constituencies: parsed ConstituencyResult per AC; ``cr.sources`` may
+            be empty (hand-imported XLSX path uses a synthetic source URL).
+            Order is preserved into the output where it matters
+            (``observation_rows`` are appended in AC order).
+        state_code: ECI state code (e.g. ``"S22"``).
+        period: parsed period (output of ``parse_period_label(event_id)``).
+        party_lookup: shared resolver from
+            ``yen_gov.canonical.adapters.eci.party_lookup``.
+
+    Returns the 5-tuple ``(observations, sources, unresolved, candidate_dims,
+    ac_dims)`` — matches ``_process_slice``'s shape minus the
+    ``ac_count`` (which is a property of the on-disk corpus, not of the
+    in-memory data; callers compute it themselves).
+    """
     rows: list[ObservationRow] = []
     sources: dict[str, SourceRow] = {}
     summaries: list[ACContestSummary] = []
@@ -316,16 +397,7 @@ def _process_slice(
     candidate_dims: list[CandidateDimRow] = []
     ac_dims_by_id: dict[str, AcDimRow] = {}
 
-    ac_files = sorted(
-        results_dir.glob("*.json"), key=lambda p: int(p.stem)
-    )
-    for ac_path in ac_files:
-        try:
-            cr = _load_constituency_result(ac_path)
-        except Exception as exc:
-            log.warning("skipping unreadable %s: %s", ac_path, exc)
-            continue
-
+    for cr in constituencies:
         source_id, source_row = _source_for_result(cr, period_label=period.period_label)
         sources.setdefault(source_id, source_row)
 
@@ -361,7 +433,7 @@ def _process_slice(
         rows.extend(state_rollup_observations(summaries=summaries))
 
     return (
-        rows, sources, len(ac_files), dict(unresolved),
+        rows, sources, dict(unresolved),
         candidate_dims, list(ac_dims_by_id.values()),
     )
 
