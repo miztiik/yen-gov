@@ -149,6 +149,86 @@ export interface IndicatorMeta {
    * (the common case), behaviour is unchanged from v4.2.
    */
   sub_metrics?: ReadonlyArray<IndicatorSubMetric>;
+
+  // -- v4.4 proto-ontology bootstrap (PR-T, row 1.10 of TODO/20260517-canonical-long-format-pivot.md).
+  // Eight optional fields establishing the OWID-floor grounding metadata
+  // Phase 4 SLM will consume. All optional; existing v4.3 artifacts remain valid.
+
+  /**
+   * v4.4 (Hans + Max, row 1.10): one-line citizen-readable description
+   * (≤280 chars), Plain-Facts style. Used by the chart wrapper as the
+   * legend caption (visible at page load, NOT behind tooltip/expander).
+   * Falls back to `title` when absent. NULL-able at schema layer per OWID
+   * `MetadataValidator` precedent; enforcement lives at the per-family
+   * PR-template gate, not at the schema. NO auto-stub mechanism — a
+   * tautological `{title} ({unit})` stub looks authoritative on a chart
+   * legend but is factually empty (CLAUDE.md §5 + Rosling Single-perspective).
+   */
+  description_short?: string;
+
+  /**
+   * v4.4 (Hans + Max, row 1.10): multi-paragraph markdown methodology —
+   * numerator / denominator / scope / known breaks. Distinct from
+   * `description` (one-paragraph definition) and `methodology.definition`:
+   * this field is the long-form scholarly write-up for indicators that
+   * warrant it. Renderer surfaces it in the methodology drawer when present.
+   */
+  description_long?: string;
+
+  /**
+   * v4.4 (Hans + Max, row 1.10): tight glyph form of `unit` for use as a
+   * chart Y-axis label where horizontal space is tight (e.g. `%` for
+   * unit=`percent`, `₹cr` for unit=`INR crore`, `MW`, `t/yr`). Chart
+   * wrapper falls back to the full `unit` string when absent.
+   */
+  short_unit?: string;
+
+  /**
+   * v4.4 (Hans + Max, row 1.10): one sentence naming the numerator and
+   * denominator (or otherwise the derivation pipeline) when this indicator
+   * is itself derived from one or more raw upstream indicators (e.g.
+   * per-capita rates, growth rates, composites). Surfaced in the chart's
+   * source card.
+   */
+  derivation_note?: string;
+
+  /**
+   * v4.4 (Hans + Max, row 1.10): catalogue-level FK array into
+   * `taxonomy/sources.parquet`. Each item is a `source_id` per CLAUDE.md
+   * §12. Distinct from per-observation `source_id` (which lives on every
+   * observation row): this lists the catalogue-level sources that fed THIS
+   * indicator's curation (methodology PDF, definition note, peer-reviewed
+   * paper). Renderer surfaces these in the source card.
+   */
+  source_ref?: ReadonlyArray<string>;
+
+  /**
+   * v4.4 (Hans + Max, row 1.10): semantic period grain — what the time
+   * stamp on each row MEANS at the publisher-intent layer. Distinct from
+   * `time_grain` (resolution of the stamp) and `cadence` (release rhythm).
+   * Used by the Phase 4 SLM grounding layer to refuse cross-grain
+   * comparisons that look valid syntactically but are nonsensical
+   * semantically (e.g. comparing an FY value to a CY value).
+   */
+  valid_period_grain?: "year" | "fiscal_year" | "election_date";
+
+  /**
+   * v4.4 (Hans + Max, row 1.10): semantic entity grain — the level at
+   * which this indicator's values are methodologically valid. Distinct
+   * from `entity_kind` (schema-shape of `entity_id`) and `min_grain`
+   * (TS-only frontend hint): publisher-intent layer. Used as a hard rail
+   * by the Phase 4 SLM dispatcher.
+   */
+  valid_entity_grain?: "country" | "state" | "district" | "ac" | "pc";
+
+  /**
+   * v4.4 (Hans + Max, row 1.10): governance-pyramid classification —
+   * input (resource spent), output (immediate deliverable), or outcome
+   * (citizen-life change). Critical for honest reading: 'MGNREGA
+   * performance' means very different things depending on which box this
+   * indicator sits in.
+   */
+  is_input_output_outcome?: "input" | "output" | "outcome";
 }
 
 /** v4.3 sub_metric registry entry. See `IndicatorMeta.sub_metrics`. */
