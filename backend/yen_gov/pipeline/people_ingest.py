@@ -95,6 +95,89 @@ class DiscrepancyReport:
         }
 
 
+def _load_canonical_ac_facts(
+    *,
+    repo_root: Path,
+    election_id: str,
+    state: str,
+) -> dict[int, dict[str, int]]:
+    """Read the canonical election_results.parquet for one (state, event)
+    slice and return ``{ac_eci_no: {"winner_votes": int, "votes_polled": int}}``.
+
+    The discrepancy gate (compare_winner_votes) used to read these two
+    numbers per AC from per-state JSON shards under
+    ``datasets/elections/<event>/<state>/results/<n>.json``. Those writers
+    retired in PR-O.3b-main (TODO row ``1.8b-writers-b-main``); the
+    canonical store is now the source of truth.
+
+    Returns an empty dict when the canonical Parquet is missing or has no
+    rows for this (state, event) slice — the discrepancy gate degrades to
+    a silent skip exactly as it did when an on-disk JSON shard was absent.
+    """
+    import duckdb
+
+    parquet_path = repo_root / "datasets" / "elections" / "election_results.parquet"
+    if not parquet_path.is_file():
+        return {}
+
+    # Composite query: per AC, derive ``winner_votes`` (the winner candidate's
+    # ``candidate-votes-polled`` row, joined via the AC's
+    # ``ac-winner-candidate-id`` value_text pointer) and ``votes_polled`` (the
+    # AC's ``ac-votes-polled`` row). Both filter on ``period_label = event_id``
+    # and the entity_id pattern ``IN-<state>-AC-%`` so we don't accidentally
+    # touch other states' rows.
+    state_prefix = f"IN-{state}-AC-"
+    sql = """
+        WITH winners AS (
+            SELECT
+                CAST(regexp_extract(entity_id, '-([0-9]+)$', 1) AS INTEGER) AS ac_eci_no,
+                value_text AS winner_entity_id
+            FROM read_parquet(?)
+            WHERE indicator_id = 'ac-winner-candidate-id'
+              AND period_label = ?
+              AND entity_id LIKE ? || '%'
+        ),
+        winner_votes AS (
+            SELECT entity_id, CAST(value_numeric AS BIGINT) AS votes
+            FROM read_parquet(?)
+            WHERE indicator_id = 'candidate-votes-polled'
+              AND period_label = ?
+        ),
+        ac_totals AS (
+            SELECT
+                CAST(regexp_extract(entity_id, '-([0-9]+)$', 1) AS INTEGER) AS ac_eci_no,
+                CAST(value_numeric AS BIGINT) AS votes_polled
+            FROM read_parquet(?)
+            WHERE indicator_id = 'ac-votes-polled'
+              AND period_label = ?
+              AND entity_id LIKE ? || '%'
+        )
+        SELECT w.ac_eci_no, wv.votes AS winner_votes, tot.votes_polled
+        FROM winners w
+        LEFT JOIN winner_votes wv ON wv.entity_id = w.winner_entity_id
+        LEFT JOIN ac_totals tot ON tot.ac_eci_no = w.ac_eci_no
+        ORDER BY w.ac_eci_no
+    """
+    pp = str(parquet_path)
+    con = duckdb.connect(":memory:")
+    try:
+        rows = con.execute(
+            sql, [pp, election_id, state_prefix, pp, election_id, pp, election_id, state_prefix],
+        ).fetchall()
+    finally:
+        con.close()
+
+    out: dict[int, dict[str, int]] = {}
+    for ac_eci_no, winner_votes, votes_polled in rows:
+        entry: dict[str, int] = {}
+        if winner_votes is not None:
+            entry["winner_votes"] = int(winner_votes)
+        if votes_polled is not None:
+            entry["votes_polled"] = int(votes_polled)
+        out[int(ac_eci_no)] = entry
+    return out
+
+
 def compare_winner_votes(
     rows_by_ac: dict[int, list[PersonRow]],
     *,
@@ -104,23 +187,28 @@ def compare_winner_votes(
     thresholds: dict[str, dict[str, float]],
     source_input: str,
 ) -> DiscrepancyReport:
-    """Compare the panel's winner-vote totals to the ECI result.constituency
-    artifacts already on disk. Decides halt/warn per the thresholds."""
-    results_dir = repo_root / "datasets" / "elections" / election_id / state / "results"
+    """Compare the panel's winner-vote totals to the canonical election
+    results parquet for this (state, event). Decides halt/warn per the
+    thresholds.
+
+    Reads ``datasets/elections/election_results.parquet`` via DuckDB.
+    Pre-PR-O.3b-main this function walked per-AC JSON shards under
+    ``datasets/elections/<event>/<state>/results/<n>.json`` — those
+    writers have retired and the canonical store is the single source of
+    truth for AC winner totals. The graceful "no comparison data" fallback
+    is preserved: when the canonical Parquet has no rows for an AC, we
+    count toward ``acs_total`` and skip the delta math.
+    """
+    canonical_facts = _load_canonical_ac_facts(
+        repo_root=repo_root, election_id=election_id, state=state,
+    )
     discrepancies: list[DiscrepancyEntry] = []
     acs_total = 0
     deltas_pp: list[float] = []
     for ac_code, rows in sorted(rows_by_ac.items()):
-        eci_file = results_dir / f"{ac_code}.json"
-        if not eci_file.is_file():
-            # Nothing to compare against: count toward acs_total but skip
-            # delta math. (Older years may not have ECI artifacts yet.)
-            acs_total += 1
-            continue
         acs_total += 1
-        eci_doc = json.loads(eci_file.read_text(encoding="utf-8"))
-        eci_winner = eci_doc.get("winner") or {}
-        eci_votes = eci_winner.get("votes")
+        facts = canonical_facts.get(ac_code)
+        eci_votes = facts.get("winner_votes") if facts else None
         panel_winner = next((r for r in rows if r.position == 1), None)
         if panel_winner is None or eci_votes is None:
             continue
@@ -136,7 +224,7 @@ def compare_winner_votes(
                 delta_abs=delta_abs,
             )
         )
-        votes_polled = (eci_doc.get("totals") or {}).get("votes_polled")
+        votes_polled = facts.get("votes_polled") if facts else None
         if votes_polled:
             deltas_pp.append(100.0 * delta_abs / int(votes_polled))
 

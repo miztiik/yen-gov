@@ -159,7 +159,7 @@ def run(
     cfg = ProcessingConfig.model_validate(config_doc)
 
     output_dir = output or (root / "datasets" / "elections" / event / state)
-    schema_dir = root / "datasets" / "schemas"
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     with Fetcher(
         source="eci",
@@ -171,7 +171,7 @@ def run(
     ) as fetcher:
         result = run_state_slice(
             event_id=event, state_code=state,
-            output_dir=output_dir, schema_dir=schema_dir, fetcher=fetcher,
+            datasets_root=root / "datasets", fetcher=fetcher,
             top_n=cfg.results.top_n_candidates,
             collapse_others=cfg.results.collapse_others,
         )
@@ -179,7 +179,7 @@ def run(
     typer.echo(
         f"run: OK — {len(result.constituencies)} ACs, "
         f"{len(result.parties.parties)} parties, "
-        f"summary={result.paths.summary}"
+        f"canonical={result.paths.canonical_parquet}"
     )
 
     if sqlite:
