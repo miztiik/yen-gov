@@ -21,7 +21,7 @@ from yen_gov.emit.csv_bundle import (
     emit_state_csv_from_data,
 )
 
-from tests import _emit_fixtures
+import _emit_fixtures  # noqa: I001 -- sibling test helper, not a package
 
 
 def _read_rows(path: Path) -> list[dict]:

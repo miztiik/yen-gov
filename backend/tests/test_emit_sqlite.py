@@ -18,7 +18,7 @@ from yen_gov.emit.sqlite import (
     emit_state_sqlite_from_data,
 )
 
-from tests import _emit_fixtures
+import _emit_fixtures  # noqa: I001 -- sibling test helper, not a package
 
 
 def _write_disk_slice(state_dir: Path) -> None:
