@@ -77,12 +77,15 @@ _site/
 ├── index.html               (from frontend/dist/)
 ├── assets/...               (from frontend/dist/)
 └── data/                    (from datasets/, copied at deploy time)
-    ├── elections/<event>/<state>/result.summary.json
+    ├── elections/election_results.parquet
+    ├── elections/dim_acs.parquet
+    ├── elections/dim_candidates.parquet
+    ├── elections/dim_parties.parquet
     ├── reference/in/states/<state>/...
     └── schemas/...
 ```
 
-`fetch('/data/<rel>')` resolves the same way in dev (Vite middleware) and prod (this static layout) — see [frontend/data-loading](frontend/data-loading.md). The smoke step in `deploy-site.yml` (the `deploy-pages` job) enforces that contract by fetching `data/elections/AcGenMay2026/S22/result.summary.json` from the deployed origin and asserting `state == "S22"`.
+`fetch('/data/<rel>')` resolves the same way in dev (Vite middleware) and prod (this static layout) — see [frontend/data-loading](frontend/data-loading.md). The smoke step in `deploy-site.yml` (the `deploy-pages` job) enforces that contract by fetching `data/elections/election_results.parquet` from the deployed origin and asserting it carries the Parquet magic header (`PAR1` at offsets 0 and -4). The legacy per-state `result.summary.json` smoke target retired in PR-O.4 (TODO row `1.8b-ii`).
 
 ## Pages URL base
 
@@ -107,16 +110,16 @@ DuckDB-WASM in the browser reads Parquet via HTTP `Range:` requests so it never 
 Verified Phase 0.7 (2026-05-18) against the live Pages deploy:
 
 ```
-$ curl -sI https://miztiik.github.io/yen-gov/data/elections/AcGenMay2026/S22/result.summary.json
+$ curl -sI https://miztiik.github.io/yen-gov/data/elections/election_results.parquet
 HTTP/1.1 200 OK
-Content-Length: 15909
-Content-Type: application/json; charset=utf-8
+Content-Length: <varies>
+Content-Type: application/octet-stream
 Accept-Ranges: bytes
 
 $ curl -s -o /dev/null -w "%{http_code} %header{content-range}\n" \
     -H "Range: bytes=100-199" \
-    https://miztiik.github.io/yen-gov/data/elections/AcGenMay2026/S22/result.summary.json
-206 bytes 100-199/15909
+    https://miztiik.github.io/yen-gov/data/elections/election_results.parquet
+206 bytes 100-199/<total>
 
 $ curl -sI https://miztiik.github.io/yen-gov/data/_test/range-mime-probe.parquet
 HTTP/1.1 200 OK

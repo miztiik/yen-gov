@@ -1,12 +1,14 @@
 # Backend `emit/` — SQLite Emitter
 
-**Last Updated**: 2026-05-10
+**Last Updated**: 2026-05-19
 
-`backend/yen_gov/emit/` writes the per-state `results.sqlite` artifact next to each `result.summary.json`. SQLite is a **derived secondary artifact** built from the same validated JSON records, intended for cross-cutting queries on the [`/explore`](../frontend/data-loading.md#the-explore-page-uses-sqljs) page. It is **not a contract surface** — no JSON Schema, no `x-version`/`x-changelog`. The layout is documented in [`docs/reference/sqlite-schema.md`](../../reference/sqlite-schema.md) and versioned via `PRAGMA user_version`. Column names follow [ADR-0019](../decisions/0019-dataset-topology-and-column-discipline.md) (canonical: `ac_eci_no`, `state_eci_code`, `district_lgd_code`, `year`).
+`backend/yen_gov/emit/` writes the per-state `results.sqlite` artifact at `datasets/elections/<event>/<state>/results.sqlite`. SQLite is a **derived secondary artifact** built from the same validated per-AC JSON records (`results/<ac>.json`, row 1.8c / PR-P scope), intended for cross-cutting queries on the [`/explore`](../frontend/data-loading.md#the-explore-page-uses-sqljs) page. It is **not a contract surface** — no JSON Schema, no `x-version`/`x-changelog`. The layout is documented in [`docs/reference/sqlite-schema.md`](../../reference/sqlite-schema.md) and versioned via `PRAGMA user_version`. Column names follow [ADR-0019](../decisions/0019-dataset-topology-and-column-discipline.md) (canonical: `ac_eci_no`, `state_eci_code`, `district_lgd_code`, `year`).
+
+> The per-state `result.summary.json` sibling that historically sat in the same directory retired in PR-O.4 (TODO row `1.8b-ii`, 2026-05-19). The canonical Parquet at `datasets/elections/election_results.parquet` is now the single source of truth for state-level totals; this SQLite emitter is unaffected (it still ships under row 1.8e / PR-R as the Psephlab Compare backend).
 
 ## Decisions in one screen
 
-1. **One `.sqlite` per event/state.** Path: `datasets/elections/<event>/<state>/results.sqlite`. Mirrors the JSON layout exactly.
+1. **One `.sqlite` per event/state.** Path: `datasets/elections/<event>/<state>/results.sqlite`. Co-located with the per-AC `results/<ac>.json` shards (row 1.8c / PR-P).
 2. **Derived, not a contract.** No JSON Schema; layout versioned via `PRAGMA user_version` (integer; bumped on any layout change). The Tier-B validator ignores `.sqlite` files.
 3. **Committed to git.** Reasons:
    - Symmetric to the JSON: both ship together, both are byte-for-byte reproducible from upstream.

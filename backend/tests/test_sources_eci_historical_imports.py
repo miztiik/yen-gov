@@ -94,19 +94,16 @@ def test_layout_a_delhi_2020_ac1_narela() -> None:
     assert d["winner"]["votes"] == 86262
 
 
-def test_historical_events_all_have_summary() -> None:
-    """Every historical event registered in events.py must have a result.summary.json."""
-    expected = [
-        ("AcGenApr2016", "S03"), ("AcGenMay2016", "S11"),
-        ("AcGenFeb2017", "S05"), ("AcGenNov2017", "S08"),
-        ("AcGenMay2018", "S10"),
-        ("AcGenApr2019", "S01"), ("AcGenOct2019", "S07"),
-        ("AcGenDec2019", "S27"),
-        ("AcGenFeb2020", "U05"), ("AcGenNov2020", "S04"),
-        ("AcGenApr2021", "S03"), ("AcGenApr2021", "S11"),
-        ("AcGenFeb2022", "S05"), ("AcGenNov2022", "S08"),
-        ("AcGenMay2023", "S10"),
-    ]
-    for event, state in expected:
-        p = ELECTIONS / event / state / "result.summary.json"
-        assert p.exists(), f"missing {p.relative_to(ROOT).as_posix()}"
+# Retired 2026-05-19 (PR-O.4, TODO row 1.8b-ii): the previous
+# ``test_historical_events_all_have_summary`` walked
+# ``datasets/elections/<event>/<state>/result.summary.json`` for 15 events. Those
+# per-state summary shards have been deleted — canonical Parquet
+# (``datasets/elections/election_results.parquet``) is now the single source of
+# truth for state-level totals. The corpus-walking style violated CLAUDE.md §10
+# (no pytest tests walking the real on-disk corpus); the replacement gates are
+# (a) ``backend/tests/test_no_legacy_json_emit.py`` (static guard, blocks any
+# new ``write_artifact`` call in ``pipeline/run.py``) and (b) the
+# ``deploy-site.yml`` deploy-pages smoke step that round-trips
+# ``election_results.parquet`` from the live Pages origin and asserts the
+# Parquet ``PAR1`` magic header.
+
