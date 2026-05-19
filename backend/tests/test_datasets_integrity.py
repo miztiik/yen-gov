@@ -19,7 +19,6 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 DATASETS = REPO / "datasets"
-EVENTS_IN_ECI = DATASETS / "events" / "in" / "eci"
 ELECTIONS_ROOT = DATASETS / "elections"
 REFERENCE_STATES_ROOT = DATASETS / "reference" / "in" / "states"
 ELECTION_EVENTS_PATH = DATASETS / "reference" / "in" / "election-events.json"
@@ -81,25 +80,24 @@ def _reservation_from_result_name(name: str) -> str:
 
 
 def test_emitted_states_are_declared_in_event_metadata():
-    for event_dir in sorted(ELECTIONS_ROOT.iterdir()):
-        if not event_dir.is_dir():
-            continue
-
-        metadata_path = EVENTS_IN_ECI / event_dir.name / "election.json"
-        assert metadata_path.exists(), (
-            f"missing event metadata for emitted event '{event_dir.name}': "
-            f"expected {metadata_path}"
-        )
-
-        metadata = _load_json(metadata_path)
-        declared_states = set(metadata.get("states", []))
-        emitted_states = {d.name for d in event_dir.iterdir() if d.is_dir()}
-
-        extra = sorted(emitted_states - declared_states)
-        assert not extra, (
-            f"event '{event_dir.name}' emits undeclared states in elections/: "
-            f"{extra}; declared={sorted(declared_states)}"
-        )
+    # Retired 2026-05-19 (PR-Q, TODO row 1.8d). This walked both
+    # ``ELECTIONS_ROOT`` and ``EVENTS_IN_ECI / <event> / election.json`` to
+    # check declared_states (in JSON metadata) matched the on-disk state
+    # directory list. Both directory walks are the CLAUDE.md §10
+    # corpus-walker anti-pattern, and the JSON contract surface itself has
+    # been deleted in this PR — ``datasets/events/in/eci/`` was a parallel
+    # projection of the EVENTS Python registry in
+    # ``backend/yen_gov/sources/eci/events.py`` and added no information
+    # the registry didn't already hold. The replacement gates are:
+    #   * ``test_election_events_catalogue_matches_backend_registry`` below
+    #     compares the EVENTS Python registry against
+    #     ``datasets/reference/in/election-events.json`` (citizen catalogue)
+    #     — this is the load-bearing contract that prevents drift;
+    #   * canonical adapter (``backend/yen_gov/canonical/adapters/``) writes
+    #     ``dim_acs`` rows keyed on ``(event_id, state)`` directly from the
+    #     EVENTS registry, so any mis-declared state is rejected at write
+    #     time, not at test time.
+    pass
 
 
 def test_results_cover_reference_constituency_numbers():
