@@ -36,7 +36,7 @@ datasets/socioecon/S22/healthcare.sqlite     # hospitals, beds, …
 datasets/socioecon/S29/economy.sqlite        # Karnataka, same shape
 ```
 
-The unit of granularity is **the smallest set of tables that (a) regenerates from a single coherent upstream pipeline and (b) shares a single change cadence**. Election results are frozen post-declaration; GDP revises quarterly; hospital counts update yearly. Different cadences never share a deterministic artifact (this is the rule that protects the byte-stable-rebuild property documented in [docs/reference/sqlite-schema.md](../../reference/sqlite-schema.md#L87)).
+The unit of granularity is **the smallest set of tables that (a) regenerates from a single coherent upstream pipeline and (b) shares a single change cadence**. Election results are frozen post-declaration; GDP revises quarterly; hospital counts update yearly. Different cadences never share a deterministic artifact (this is the rule that protects the byte-stable-rebuild property documented in [canonical-store.md](../data/canonical-store.md)).
 
 A topic file may contain several related tables; the test is "do they regenerate together from the same upstream sources?", not "are they conceptually similar?".
 
@@ -84,10 +84,10 @@ Holy Law #4 (CLAUDE.md §1) plus Hohpe's "sell options, don't burn them": shippi
 
 ## See also
 
-- [ADR-0014: SQLite emitter](0014-sqlite-emitter.md) — the per-state, per-event rule this ADR generalises.
-- [ADR-0017: `/explore` page uses sql.js](0017-explore-page-uses-sql-js.md) — the consumer that will perform ATTACH-time joins.
+- [ADR-0014: SQLite emitter](0014-sqlite-emitter.md) — the per-state, per-event rule this ADR generalises. (Superseded 2026-05-19 by ADR-0030; the topology + column discipline below survives unchanged.)
+- [ADR-0017: `/explore` page uses sql.js](0017-explore-page-uses-sql-js.md) — historical consumer. (Superseded 2026-05-19 by ADR-0030; `/explore` now uses DuckDB-WASM.)
 - [docs/reference/identifiers.md](../../reference/identifiers.md) — authoritative table of canonical IDs and (now) column names.
-- [docs/reference/sqlite-schema.md](../../reference/sqlite-schema.md) — current elections layout; future per-domain layouts will be appended as separate sections.
+- [docs/architecture/data/canonical-store.md](../data/canonical-store.md) — current authoritative store layout (Parquet + DuckDB-WASM); replaces the retired `docs/reference/sqlite-schema.md`.
 - [TODO/PLAN.md](../../../TODO/PLAN.md) — phasing that defers socio-econ until elections closes.
 
 ## Amendments

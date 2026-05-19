@@ -1,7 +1,9 @@
 # ADR-0017: /explore page uses sql.js (not @sqlite.org/sqlite-wasm)
 
-**Last Updated**: 2026-05-09
-**Status**: accepted
+**Last Updated**: 2026-05-19
+**Status**: superseded (by [ADR-0030 — canonical store on DuckDB-WASM + Parquet](0030-canonical-store-duckdb-wasm.md), 2026-05-19)
+
+> **Superseded 2026-05-19 (PR-R.3, TODO row `1.8e`).** The `/explore` page migrated off sql.js + per-state `results.sqlite` shards onto DuckDB-WASM + the canonical Parquet store in PR-L (Phase 1.6b). The `sql.js` and `@types/sql.js` packages were removed from `frontend/package.json` in PR-R.3 (Phase 1.8e) alongside the deletion of `frontend/src/lib/sql.ts`, `frontend/src/lib/psephlab/actuals.ts`, `backend/yen_gov/emit/sqlite.py`, and the 41 `datasets/elections/<event>/<state>/results.sqlite` files. See [data-loading.md](../frontend/data-loading.md) (\"What this removes from the bundle\") and the deletion manifest row 1.8e in [canonical-pivot-deletion-manifest.md](../canonical-pivot-deletion-manifest.md). The body below is preserved as the audit trail for the original 2026-05-09 decision.
 
 ## Context
 

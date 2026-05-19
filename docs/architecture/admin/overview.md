@@ -191,7 +191,7 @@ Every patch is a JSON file under `datasets/patches/<election>/<timestamp>_<kind>
     "ac": "167"
   },
   "kind": "rename_party",
-  "rationale": "ECI portal lists the same party under two spellings on different pages; canonicalising to the form used in datasets/reference/in/parties.json",
+  "rationale": "ECI portal lists the same party under two spellings on different pages; canonicalising to the form used in datasets/taxonomy/parties.json",
   "operations": [
     { "op": "replace", "path": "/results/167/candidates/3/party_eci_code", "from": "AIDMK", "to": "AIADMK" }
   ],

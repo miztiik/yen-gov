@@ -97,7 +97,7 @@ Acknowledged costs:
 
 ## See also
 
-- [Backend overview](overview.md), [Core](core.md), [ECI adapter](sources-eci.md), [Wikipedia adapter](sources-wikipedia.md), [SQLite emitter](emit-sqlite.md)
+- [Backend overview](overview.md), [Core](core.md), [ECI adapter](sources-eci.md), [Wikipedia adapter](sources-wikipedia.md)
 - [How to run the pipeline](../../how-to/run-the-pipeline.md)
 - [`docs/concepts/result-aggregation.md`](../../concepts/result-aggregation.md)
 - [ADR-0002 — Provenance as a list of `{url, fetched_at}` entries](../decisions/0002-provenance-as-sources-list.md)

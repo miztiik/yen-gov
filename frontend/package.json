@@ -19,7 +19,6 @@
     "@tsconfig/svelte": "^5.0.4",
     "@types/d3": "^7.4.3",
     "@types/node": "^25.6.2",
-    "@types/sql.js": "^1.4.11",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
     "autoprefixer": "^10.4.20",
@@ -38,7 +37,6 @@
     "@duckdb/duckdb-wasm": "^1.33.1-dev45.0",
     "maplibre-gl": "^4.7.1",
     "pmtiles": "^3.2.1",
-    "sql.js": "^1.14.1",
     "zod": "^4.4.3"
   }
 }

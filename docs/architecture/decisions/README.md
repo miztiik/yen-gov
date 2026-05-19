@@ -49,11 +49,11 @@ The following ADR numbers used to live in this directory and were absorbed into 
 | 0011 | Frontend stack (Svelte 5 + Vite + Tailwind + d3, bun) | [frontend/overview.md](../frontend/overview.md#stack) |
 | 0012 | Dev-time data access — Vite middleware serves `/data` | [frontend/data-loading.md](../frontend/data-loading.md#dev-time-access--vite-middleware) |
 | 0013 | Production data placement — CI-side staging | [frontend/data-loading.md](../frontend/data-loading.md#production-placement) |
-| 0014 | SQLite emitter — derived per-state artifact | [backend/emit-sqlite.md](../backend/emit-sqlite.md) |
+| 0014 | SQLite emitter — derived per-state artifact (superseded 2026-05-19 by ADR-0030) | [canonical-pivot-deletion-manifest.md §6a row 1.8e](../canonical-pivot-deletion-manifest.md) |
 | 0015 | Constituency hierarchy fields + status lifecycle | [data-model.md](../data-model.md#constituency-hierarchy-and-status-lifecycle) |
 | 0016 *(eci-statistical-reports-canonical)* | ECI Statistical Reports as canonical past-election source | [backend/sources-eci.md](../backend/sources-eci.md#authority-hierarchy-for-past-elections) |
 | 0016 *(frontend-hash-routing)* | Frontend hash-based routing (custom, no router lib) — duplicate-numbered alongside the ECI ADR | [frontend/overview.md](../frontend/overview.md#hash-based-routing-custom-no-router-lib) |
-| 0017 | `/explore` page uses `sql.js` | [frontend/data-loading.md](../frontend/data-loading.md#the-explore-page-uses-sqljs) |
+| 0017 | `/explore` page uses `sql.js` (superseded 2026-05-19 by ADR-0030; `/explore` now runs on DuckDB-WASM) | [0017-explore-page-uses-sql-js.md](0017-explore-page-uses-sql-js.md) |
 | 0018 | Wikipedia AC-table district name resolution | [backend/sources-wikipedia.md](../backend/sources-wikipedia.md#district-name-resolution-for-ac-tables) |
 
 The next new ADR will be numbered **0019** (continuing the original sequence; we do **not** reuse the duplicate 0016 slot, the gaps left by the absorbed ADRs, or renumber the survivors). The duplicate-0016 collision is recorded here so future archaeology has the answer.

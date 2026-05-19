@@ -436,7 +436,7 @@ def main() -> int:
     )
 
     print(f"Merged: {merged_into_existing} reference entries -> existing canonical (alias / scope / eci_code backfill)")
-    print(f"Added:  {added_from_ref} new canonical entries promoted from reference/in/parties.json")
+    print(f"Added:  {added_from_ref} new canonical entries promoted from the (now retired) reference/in/parties.json overlay")
     print(f"Hand:   {added_hand} new canonical entries from HAND_CURATED")
     print(f"Alias:  {aliased_to_existing} HAND_CURATED entries folded as aliases into existing entries")
     print(f"Total canonical parties: {len(new_parties)} (was {len([p for p in by_pid.values()])} -- pre-add {len(canonical['parties']) - added_from_ref - added_hand})")

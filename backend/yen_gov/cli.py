@@ -13,7 +13,6 @@ from yen_gov.core.http import Fetcher
 from yen_gov.core.io import write_artifact
 from yen_gov.core.models import PartyEntry, PartiesSnapshot, ProcessingConfig, SourceRef
 from yen_gov.pipeline.compose import (
-    append_to_discovered_overlay,
     compose_result_summary_from_section_10,
     eci_code_by_short_from_partywise,
     load_eci_party_registry,
@@ -175,10 +174,6 @@ def run(
         None, "--output", "-o",
         help="Output dir. Defaults to <root>/datasets/elections/<event>/<state>/.",
     ),
-    sqlite: bool = typer.Option(
-        True, "--sqlite/--no-sqlite",
-        help="Also emit results.sqlite next to the JSON (docs/architecture/backend/emit-sqlite.md).",
-    ),
     csv_bundle: bool = typer.Option(
         True, "--csv/--no-csv",
         help="Also emit results.csv (long format, researcher-facing) next to the JSON "
@@ -215,19 +210,6 @@ def run(
         f"{len(result.parties.parties)} parties, "
         f"canonical={result.paths.canonical_parquet}"
     )
-
-    if sqlite:
-        # In-memory path (PR-O.3a — TODO 1.8b-writers-a): emit directly from
-        # the RunResult instead of round-tripping through the per-AC JSON
-        # shards we just wrote. The wrapper `emit_state_sqlite(state_dir=...)`
-        # still exists for one-shot reruns.
-        from yen_gov.emit.sqlite import emit_state_sqlite_from_data
-        sqlite_path = emit_state_sqlite_from_data(
-            parties_doc=result.parties.body_payload(),
-            constituencies=[cr.body_payload() for cr in result.constituencies],
-            output_path=output_dir / "results.sqlite",
-        )
-        typer.echo(f"sqlite: OK — {sqlite_path}")
 
     if csv_bundle:
         from yen_gov.emit.csv_bundle import emit_state_csv_from_data
@@ -664,33 +646,6 @@ def eci_statreport_emit(
                 + ")"
             )
 
-        # Auto-extend the central discovered overlay with whatever Section 3
-        # surfaced that the registry could not name. This keeps the pipeline
-        # non-blocking on first sighting of new/regional parties (Policy 3 in
-        # TODO/PARTY-COLORS-REWORK.md). Per-event parties.json still requires
-        # eci_code per its schema, so the overlay is the only landing place
-        # until an operator promotes the entry to the master with a verified
-        # ECI code.
-        if unresolved:
-            unresolved_set = set(unresolved)
-            unknown_parties = [
-                p for p in section_3_parties if p.short_name in unresolved_set
-            ]
-            appended = append_to_discovered_overlay(
-                root / "datasets" / "reference" / "in" / "parties-discovered.json",
-                parties=unknown_parties,
-                election_id=event,
-                state_code=state,
-                source_url=section_3_fetched.url,
-                fetched_at=section_3_fetched.fetched_at,
-            )
-            if appended:
-                typer.echo(
-                    f"discovered: appended {appended} new parties to "
-                    "parties-discovered.json (recognition: unknown — triage by "
-                    "promoting verified entries to datasets/reference/in/parties.json)"
-                )
-
     if parties_snapshot is not None:
         write_artifact(
             path=parties_path,
@@ -978,29 +933,12 @@ def eci_statreport_emit_local(
     )
     typer.echo(f"summary:     {summary_path}")
 
-    # SQLite + CSV bundles parity with the live emit path. Psephlab and
-    # the per-AC winner overlay both load results.sqlite directly, so
-    # skipping it here would render the historical events but blank the
-    # winners-on-map and 404 every Psephlab route. Same rationale for
-    # the CSV bundle (researcher-facing).
-    #
-    # In-memory path (PR-O.3a — TODO 1.8b-writers-a): emit directly from
+    # CSV bundle parity with the live emit path (researcher-facing). The
+    # in-memory path (PR-O.3a — TODO 1.8b-writers-a) emits directly from
     # the local objects instead of round-tripping through the JSON shards
-    # we just wrote. If no parties.json was emitted (zero of N party_shorts
-    # resolved against the registry) we pass an empty parties_doc — the
-    # SQLite layout's `parties` table is left empty, matching the prior
-    # behaviour where the disk-read emitter would crash on a missing
-    # parties.json file (regression latent in the live-fetch path too).
-    from yen_gov.emit.sqlite import emit_state_sqlite_from_data
+    # we just wrote.
     from yen_gov.emit.csv_bundle import emit_state_csv_from_data
-    parties_doc = snapshot.body_payload() if snapshot is not None else {"parties": []}
     constituency_dicts = [cr.body_payload() for cr in results]
-    sqlite_path = emit_state_sqlite_from_data(
-        parties_doc=parties_doc,
-        constituencies=constituency_dicts,
-        output_path=output_dir / "results.sqlite",
-    )
-    typer.echo(f"sqlite:      OK \u2014 {sqlite_path}")
     csv_path = emit_state_csv_from_data(
         constituencies=constituency_dicts,
         output_path=output_dir / "results.csv",

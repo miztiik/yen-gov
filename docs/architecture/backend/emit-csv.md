@@ -8,11 +8,11 @@
 
 ## Decisions in one screen
 
-1. **One `.csv` per event/state.** Path: `datasets/elections/<event>/<state>/results.csv`. Co-located with the `results.sqlite` sibling. After PR-P (TODO row `1.8c`, 2026-05-19) the per-AC `results/<ac>.json` shards no longer exist on disk; the CSV is now built directly from the canonical pipeline's in-memory `ConstituencyResult` list.
+1. **One `.csv` per event/state.** Path: `datasets/elections/<event>/<state>/results.csv`. After PR-P (TODO row `1.8c`, 2026-05-19) the per-AC `results/<ac>.json` shards no longer exist on disk; the CSV is now built directly from the canonical pipeline's in-memory `ConstituencyResult` list. After PR-R.3 (TODO row `1.8e`, 2026-05-19) the previously co-located `results.sqlite` sibling is gone too — the CSV is the only on-disk artifact in `datasets/elections/<event>/<state>/`.
 2. **Long format, one row per candidate.** NOTA gets its own row (`is_nota = 1`) at `rank = max_rank + 1` per AC. The collapsed `others` aggregate is intentionally NOT emitted — researchers who need the long tail re-ingest from the canonical JSON. The CSV is the top-N + NOTA view, matching the JSON contract surface exactly.
 3. **Derived, not a contract.** No JSON Schema. Layout changes bump `LAYOUT_VERSION` (currently `1`) and are noted in this doc.
-4. **Committed to git.** Same reasoning as the SQLite emitter ([ADR-0014](../decisions/0014-sqlite-emitter.md)): symmetric with JSON, byte-deterministic, small enough to track (~50–150 KB per state). The deploy step already does `cp -r datasets _site/data`.
-5. **Auto-emit by default; `--csv/--no-csv` to skip.** Consistent with SQLite emission. `yen-gov run …` produces JSON + SQLite + CSV in one shot.
+4. **Committed to git.** Same reasoning as the pre-PR-R.3 SQLite emitter ([ADR-0014](../decisions/0014-sqlite-emitter.md), now superseded): symmetric with JSON, byte-deterministic, small enough to track (~50–150 KB per state). The deploy step already does `cp -r datasets _site/data`.
+5. **Auto-emit by default; `--csv/--no-csv` to skip.** `yen-gov run …` produces JSON + CSV in one shot.
 6. **Lives in `backend/yen_gov/emit/`.** Reads validated JSON, never imports from `pipeline/`. A failure here must not block JSON emission.
 
 ## Columns (v1)
@@ -46,7 +46,7 @@ Same JSON inputs MUST produce a byte-identical CSV output. The emitter:
 - Sorts rows by `(ac_eci_no, rank)`.
 - Uses `\n` line terminators (not platform-native `\r\n`).
 - Writes UTF-8 bytes via a `StringIO` buffer, not OS-default text mode.
-- Atomic temp-file + `os.replace`, matching the SQLite emitter.
+- Atomic temp-file + `os.replace`.
 - Never embeds wall-clock timestamps.
 
 The corresponding test is `tests/test_emit_csv_bundle.py::test_emit_is_byte_deterministic`.
@@ -59,7 +59,6 @@ The corresponding test is `tests/test_emit_csv_bundle.py::test_emit_is_byte_dete
 
 ## See also
 
-- [dataset-shapes.md](../../concepts/dataset-shapes.md) — the three-tier policy this emitter completes.
-- [emit-sqlite.md](emit-sqlite.md) — sibling emitter; same patterns.
-- [ADR-0014](../decisions/0014-sqlite-emitter.md) — derived-artifact philosophy.
+- [dataset-shapes.md](../../concepts/dataset-shapes.md) — the per-state CSV is the only researcher-facing on-disk bundle left after PR-R.3 (SQLite tier retired).
+- [ADR-0014](../decisions/0014-sqlite-emitter.md) — derived-artifact philosophy (now superseded by canonical Parquet + DuckDB-WASM; the CSV emitter still follows the same patterns).
 - [ADR-0019](../decisions/0019-dataset-topology-and-column-discipline.md) — column naming.

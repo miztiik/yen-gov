@@ -16,7 +16,7 @@ One source of truth, three derived deliveries. Each tier is generated determinis
 | --- | --- | --- | --- | --- |
 | **1 — Canonical** | Per-constituency JSON (~1.8 KB each) | `datasets/elections/<E>/<S>/results/<eci_no>.json` | Citizen detail page; PR reviewer; schema validator | Frontend fetch, one file per AC |
 | **2 — State runtime delivery** | Per-state summary JSON (~30–80 KB) | `datasets/elections/<E>/<S>/result.summary.json` | State-hub table, choropleth map, party totals | Frontend fetch, one file per (event, state) |
-| **3 — Researcher delivery** | Per-state SQLite + per-state long-format CSV | `results.sqlite`, `results.csv` next to the JSON | Journalists, academics, ADR/Lokniti/TCPD-style users | Direct download, or `sqlite-wasm` on `/explore` |
+| **3 — Researcher delivery** | Per-state long-format CSV (the per-state SQLite sibling retired in PR-R.3, 2026-05-19; researcher SQL now runs against the canonical Parquet store via DuckDB-WASM on `/explore`) | `results.csv` next to the JSON | Journalists, academics, ADR/Lokniti/TCPD-style users | Direct download, or DuckDB-WASM on `/explore` |
 
 Tier 1 is the contract surface (schema-validated, `x-version`-tracked, see [data-provenance.md](data-provenance.md) and CLAUDE.md §11). Tiers 2 and 3 are derived projections — they regenerate when Tier 1 changes, never the other way around.
 
@@ -49,12 +49,13 @@ The CSV is **long-format**, one row per candidate, because:
 - `df.pivot` is one line in pandas; collapsing long → wide is cheap, the inverse is lossy.
 - It matches Lokniti's convention. Wide-with-top-N-as-columns is friendlier for spreadsheets but pre-decides what "top-N" means at emit time.
 
-The SQLite is the same data in queryable form — see [`docs/architecture/backend/emit-sqlite.md`](../architecture/backend/emit-sqlite.md) and [ADR-0014](../architecture/decisions/0014-sqlite-emitter.md).
+The SQLite tier was retired in PR-R.3 (TODO row `1.8e`, 2026-05-19). Researchers who want SQL get it through DuckDB-WASM in the browser (or any DuckDB client locally) against the canonical Parquet store — strictly better than the per-state SQLite shards because it spans every event and state in one connection. See [`docs/architecture/data/canonical-store.md`](../architecture/data/canonical-store.md) and [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md).
 
 ## Shapes we deliberately reject
 
 - **One CSV per election as canonical.** Breaks random-access for the citizen tier; opaque diffs; loses nested `sources[]` and the candidate array (CSV is flat).
-- **One giant SQLite shipped to the browser as the primary loader.** sql.js + httpvfs is ~1 MB of WASM before any data loads. Only worth it past ~500 MB total or when ad-hoc SQL queries are the primary UX. We're at ~10 MB and the UX is read-mostly. Keep SQLite as a researcher artifact, not a runtime contract.
+- **Per-state SQLite shards as a researcher artifact** (retired 2026-05-19, PR-R.3). The original argument was "queryable, byte-stable, small." The canonical Parquet store + DuckDB-WASM gives the same query surface across every event and state in one connection, while the per-state shards forced researchers to `ATTACH` 41 files just to do the kind of cross-state question SQL was meant to make easy.
+- **One giant SQLite shipped to the browser as the primary loader.** sql.js + httpvfs is ~1 MB of WASM before any data loads. Only worth it past ~500 MB total or when ad-hoc SQL queries are the primary UX. Even at that point, DuckDB-WASM over Parquet (our current path) is the better answer.
 - **Per-AC SQLite.** Defeats SQLite's purpose (cross-row queries) for no gain.
 
 ## Scale envelope
@@ -75,8 +76,7 @@ GitHub Pages serves whatever the repo commits; git handles 25k small files comfo
 ## See also
 
 - [data-provenance.md](data-provenance.md) — `sources[]` policy, applies to every shape.
-- [`docs/architecture/backend/emit-sqlite.md`](../architecture/backend/emit-sqlite.md) — SQLite emitter design.
 - [`docs/architecture/backend/emit-csv.md`](../architecture/backend/emit-csv.md) — CSV emitter design.
-- [ADR-0014](../architecture/decisions/0014-sqlite-emitter.md) — SQLite as derived artifact.
+- [`docs/architecture/data/canonical-store.md`](../architecture/data/canonical-store.md) + [ADR-0030](../architecture/decisions/0030-canonical-store-duckdb-wasm.md) — the Parquet + DuckDB-WASM path that replaced the per-state SQLite shards.
 - [ADR-0019](../architecture/decisions/0019-dataset-topology-and-column-discipline.md) — column naming.
 - CLAUDE.md §11–§12 — schema versioning and provenance.

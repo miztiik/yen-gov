@@ -1,28 +1,37 @@
-"""Parity oracle: per-AC FPTP winner from results.sqlite must match the
+"""Parity oracle: per-AC FPTP winner from a pinned fixture must match the
 canonical election_results.parquet via the same logic the frontend reader
 uses (max(votes) per AC after excluding NOTA).
 
+History: pre-PR-R.3 (1.8e closure) this read live ``results.sqlite`` ground
+truth alongside the Parquet. PR-R.3 deletes those 41 SQLite files; the
+oracle therefore retargets at a checked-in JSON fixture
+(``backend/tests/fixtures/canonical_winners_2026_05_19.json``) snapshotted
+from the SQLites at the PR-R.2 boundary via
+``tools/snapshot_canonical_parity_oracle_fixture.py``. The question the
+oracle answers is unchanged ("does the canonical store still produce the
+same per-AC winners as the trusted ground truth") — only the home of the
+ground truth moves from on-disk SQLite to on-disk JSON.
+
+The fixture is immutable in normal operation. Re-snapshotting requires
+restoring the legacy SQLites first and is explicitly out of scope for any
+ingest / backfill PR.
+
 Why: PR-R.2 swapped Psephlab routes from the legacy SQLite-via-XHR loader
 to ``canonical-loaders.ts`` reading ``dim_candidates × election_results``
-joined in DuckDB-WASM. If the canonical taxonomy/expansion regen ever
-silently scrambles per-AC winners — wrong party_id, wrong vote, ranked
-order off-by-one — the UI's "Top candidate" chip lies to the citizen.
+joined in DuckDB-WASM. If a future canonical-store rebuild ever silently
+scrambles per-AC winners — wrong party_id, wrong vote, ranked order
+off-by-one — the UI's "Top candidate" chip lies to the citizen. This test
+is the back-stop.
 
-This test is the back-stop: for every (event, state) slice that ships a
-SQLite ground-truth file, pick the FPTP winner from SQLite (``is_winner=1``)
-and from the Parquet (max-votes), and assert names + parties match per AC.
+Holy Law #7: uses the REAL on-disk Parquet + a checked-in real-data fixture
+— no mocks. Skipped cleanly when the canonical Parquet is absent.
 
-Holy Law #7: this uses the REAL on-disk Parquet + REAL on-disk SQLite —
-no mocks. It is therefore a sympathetic "if datasets are absent, skip"
-test; CI consumers that don't ship the datasets are unaffected.
-
-Runs in <2s against the full 22-SQLite corpus. Acceptable for the default
-pytest run; not behind a slow marker.
+Runs in <2s against the full 41-slice corpus.
 """
 
 from __future__ import annotations
 
-import sqlite3
+import json
 from pathlib import Path
 
 import duckdb
@@ -33,77 +42,61 @@ ELECTIONS_ROOT = REPO_ROOT / "datasets" / "elections"
 PARQUET = ELECTIONS_ROOT / "election_results.parquet"
 DIM_CANDIDATES = ELECTIONS_ROOT / "dim_candidates.parquet"
 DIM_ACS = ELECTIONS_ROOT / "dim_acs.parquet"
+FIXTURE = REPO_ROOT / "backend" / "tests" / "fixtures" / "canonical_winners_2026_05_19.json"
 
 
-def _slices_with_sqlite() -> list[tuple[str, str, Path]]:
-    """Discover every (event_id, state_code, sqlite_path) shipped on disk.
+def _load_fixture() -> dict[tuple[str, str], dict[int, dict]]:
+    """Return {(event_id, state_code): {ac_eci_no: {name, party_short, votes}}}.
 
-    Returns an empty list if the datasets tree is absent (treated as skip
-    by the test harness — keeps the test cheap in stripped-down checkouts).
+    Empty dict if fixture is absent — treated as skip by the harness.
     """
-    if not ELECTIONS_ROOT.is_dir():
-        return []
-    out: list[tuple[str, str, Path]] = []
-    for event_dir in sorted(ELECTIONS_ROOT.iterdir()):
-        if not event_dir.is_dir() or event_dir.name.startswith("_"):
-            continue
-        for state_dir in sorted(event_dir.iterdir()):
-            if not state_dir.is_dir():
-                continue
-            sqlite_path = state_dir / "results.sqlite"
-            if sqlite_path.is_file():
-                out.append((event_dir.name, state_dir.name, sqlite_path))
+    if not FIXTURE.is_file():
+        return {}
+    payload = json.loads(FIXTURE.read_text(encoding="utf-8"))
+    out: dict[tuple[str, str], dict[int, dict]] = {}
+    for key, winners in payload.get("slices", {}).items():
+        event_id, state_code = key.split("/", 1)
+        out[(event_id, state_code)] = {
+            int(ac): {
+                "name": w["name"],
+                "party_short": w["party_short"],
+                "votes": int(w["votes"]),
+            }
+            for ac, w in winners.items()
+        }
     return out
 
 
-SLICES = _slices_with_sqlite()
+_FIXTURE = _load_fixture()
+SLICES = sorted(_FIXTURE.keys())
 
 
 @pytest.mark.skipif(
     not (PARQUET.is_file() and DIM_CANDIDATES.is_file() and DIM_ACS.is_file()),
     reason="canonical Parquet not on disk in this checkout",
 )
-@pytest.mark.skipif(not SLICES, reason="no results.sqlite slices on disk")
-@pytest.mark.parametrize("event_id,state_code,sqlite_path", SLICES,
-                         ids=lambda v: v if isinstance(v, str) else v.name)
-def test_per_ac_fptp_winner_matches_sqlite(
-    event_id: str, state_code: str, sqlite_path: Path,
-) -> None:
+@pytest.mark.skipif(not SLICES, reason="parity fixture not on disk")
+@pytest.mark.parametrize("event_id,state_code", SLICES,
+                         ids=lambda v: v)
+def test_per_ac_fptp_winner_matches_fixture(event_id: str, state_code: str) -> None:
     """For each AC in the slice, the canonical Parquet's max-votes candidate
-    MUST equal the SQLite winner (is_winner=1, is_nota=0) by name + votes.
+    MUST equal the snapshotted winner by name + votes.
 
     Per-AC tolerance: ZERO. A single mismatch fails the slice — this is
     citizen-visible ranking.
 
-    party_short is compared after applying the same fallback chain the
-    frontend uses: when the canonical party_id is the sentinel
-    parties.IN.UNK, the verbatim party_short_raw is the display string
-    (mirrors ``canonical-loaders.ts:buildCandidateSql`` CASE expression).
-    Tested separately at the parity boundary because the legacy SQLite
-    short was always the verbatim ECI string anyway.
+    party_short is NOT compared between fixture and Parquet here: the
+    legacy SQLite carried the verbatim ECI string, the canonical Parquet
+    carries the curated party_id with the verbatim short on
+    ``party_short_raw``. Name + votes uniquely identify the winner;
+    the party-label fallback chain (CASE WHEN party_id = 'parties.IN.UNK'
+    THEN COALESCE(party_short_raw, ...)) is covered by the pinned vitest
+    in frontend/src/lib/psephlab/canonical-loaders.test.ts.
     """
-    # --- SQLite ground truth -------------------------------------------------
-    with sqlite3.connect(sqlite_path) as scon:
-        scon.row_factory = sqlite3.Row
-        sqlite_winners: dict[int, dict] = {}
-        for row in scon.execute(
-            "SELECT ac_eci_no, name, party_short, votes "
-            "FROM candidates "
-            "WHERE is_winner = 1 AND is_nota = 0 "
-            "ORDER BY ac_eci_no"
-        ):
-            sqlite_winners[int(row["ac_eci_no"])] = {
-                "name": row["name"],
-                "party_short": row["party_short"],
-                "votes": int(row["votes"]),
-            }
+    fixture_winners = _FIXTURE[(event_id, state_code)]
+    if not fixture_winners:
+        pytest.skip(f"{event_id}/{state_code}: fixture has no winners")
 
-    if not sqlite_winners:
-        pytest.skip(f"{event_id}/{state_code}: SQLite has no winners")
-
-    # --- Canonical Parquet via the same SQL pattern the UI uses --------------
-    # max(votes) per (ac_eci_no) excluding NOTA. dim_candidates joined to
-    # dim_acs for ac_eci_no + state_code filter; election_results for votes.
     con = duckdb.connect(":memory:")
     rows = con.execute(f"""
         WITH cand_votes AS (
@@ -119,11 +112,6 @@ def test_per_ac_fptp_winner_matches_sqlite(
             SELECT
                 da.eci_no AS ac_eci_no,
                 dc.name   AS name,
-                CASE
-                  WHEN dc.party_id = 'parties.IN.UNK'
-                    THEN COALESCE(dc.party_short_raw, 'UNK')
-                  ELSE COALESCE(dc.party_short_raw, '')
-                END       AS party_short_raw_display,
                 cv.votes  AS votes
             FROM read_parquet('{DIM_CANDIDATES.as_posix()}') dc
             JOIN read_parquet('{DIM_ACS.as_posix()}') da
@@ -134,46 +122,45 @@ def test_per_ac_fptp_winner_matches_sqlite(
         ),
         ranked AS (
             SELECT
-                ac_eci_no, name, party_short_raw_display AS party_short, votes,
+                ac_eci_no, name, votes,
                 ROW_NUMBER() OVER (PARTITION BY ac_eci_no ORDER BY votes DESC, name ASC) AS rn
             FROM cand_rows
         )
-        SELECT ac_eci_no, name, party_short, votes
+        SELECT ac_eci_no, name, votes
         FROM ranked
         WHERE rn = 1
         ORDER BY ac_eci_no
     """).fetchall()
     parquet_winners = {
-        int(ac_eci): {"name": name, "party_short": ps, "votes": int(votes)}
-        for ac_eci, name, ps, votes in rows
+        int(ac_eci): {"name": name, "votes": int(votes)}
+        for ac_eci, name, votes in rows
     }
 
-    # --- Diff ----------------------------------------------------------------
-    sqlite_acs = set(sqlite_winners.keys())
+    fixture_acs = set(fixture_winners.keys())
     parquet_acs = set(parquet_winners.keys())
-    missing_in_parquet = sqlite_acs - parquet_acs
-    missing_in_sqlite = parquet_acs - sqlite_acs
+    missing_in_parquet = fixture_acs - parquet_acs
+    missing_in_fixture = parquet_acs - fixture_acs
     assert not missing_in_parquet, (
-        f"{event_id}/{state_code}: ACs in SQLite missing from canonical "
+        f"{event_id}/{state_code}: ACs in fixture missing from canonical "
         f"Parquet: {sorted(missing_in_parquet)[:5]}"
     )
-    assert not missing_in_sqlite, (
+    assert not missing_in_fixture, (
         f"{event_id}/{state_code}: ACs in canonical Parquet missing from "
-        f"SQLite (extra ghosts): {sorted(missing_in_sqlite)[:5]}"
+        f"fixture (extra ghosts): {sorted(missing_in_fixture)[:5]}"
     )
 
     mismatches: list[str] = []
-    for ac_eci, sw in sqlite_winners.items():
+    for ac_eci, fw in fixture_winners.items():
         pw = parquet_winners[ac_eci]
-        if sw["name"] != pw["name"]:
+        if fw["name"] != pw["name"]:
             mismatches.append(
-                f"  AC {ac_eci}: SQLite='{sw['name']}' ({sw['party_short']}, {sw['votes']}) "
-                f"!= Parquet='{pw['name']}' ({pw['party_short']}, {pw['votes']})"
+                f"  AC {ac_eci}: fixture='{fw['name']}' ({fw['votes']}) "
+                f"!= Parquet='{pw['name']}' ({pw['votes']})"
             )
-        elif sw["votes"] != pw["votes"]:
+        elif fw["votes"] != pw["votes"]:
             mismatches.append(
-                f"  AC {ac_eci}: name='{sw['name']}' OK but votes "
-                f"SQLite={sw['votes']} != Parquet={pw['votes']}"
+                f"  AC {ac_eci}: name='{fw['name']}' OK but votes "
+                f"fixture={fw['votes']} != Parquet={pw['votes']}"
             )
     assert not mismatches, (
         f"{event_id}/{state_code}: {len(mismatches)} per-AC FPTP winner "
