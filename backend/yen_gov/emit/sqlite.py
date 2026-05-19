@@ -1,11 +1,20 @@
 """SQLite emitter for one (event, state) slice.
 
-Reads the validated JSON under `datasets/elections/<event>/<state>/` and writes
-`results.sqlite` next to it. Per docs/architecture/backend/emit-sqlite.md the layout is documented in
-`docs/reference/sqlite-schema.md` and versioned via `PRAGMA user_version`.
+Builds `results.sqlite` from a `PartiesSnapshot` body payload + a list of
+`ConstituencyResult` body payloads. Per docs/architecture/backend/emit-sqlite.md
+the layout is documented in `docs/reference/sqlite-schema.md` and versioned via
+`PRAGMA user_version`.
 
-Determinism: the same JSON input must produce a byte-identical .sqlite output,
-so PR diffs only appear when JSON changed. We achieve this by:
+Public API (PR-O.3a — TODO 1.8b-writers-a — 2026-05-19):
+  - `emit_state_sqlite_from_data(parties_doc, constituencies, output_path)`
+    is the primary in-memory entry point. The pipeline calls this directly,
+    avoiding a disk write-then-read cycle through per-AC JSON shards.
+  - `emit_state_sqlite(state_dir, output_path=None)` is a thin wrapper that
+    loads `parties.json` + `results/<n>.json` from disk and delegates. Kept
+    for one-shot CLI reruns where the data isn't already in memory.
+
+Determinism: the same input dicts must produce a byte-identical .sqlite output,
+so PR diffs only appear when data changed. We achieve this by:
   - sorting all INSERTs by primary key,
   - rewriting in a temp file then atomically replacing the destination,
   - never embedding wall-clock timestamps.
@@ -66,23 +75,30 @@ CREATE VIEW party_totals AS
 """
 
 
-def emit_state_sqlite(*, state_dir: Path, output_path: Path | None = None) -> Path:
-    """Build `results.sqlite` from the JSON under `state_dir`.
+def emit_state_sqlite_from_data(
+    *,
+    parties_doc: dict,
+    constituencies: list[dict],
+    output_path: Path,
+) -> Path:
+    """Build `results.sqlite` from in-memory data. Primary API.
 
-    `state_dir` must contain `parties.json` and `results/<n>.json` files. The
-    SQLite file is written atomically: a temp file in the same directory, then
-    `os.replace`. Returns the final path.
+    `parties_doc` is the body_payload() of a `PartiesSnapshot` model — a dict
+    with a ``"parties"`` key holding party entries (each with ``eci_code``,
+    ``short_name``, optional ``full_name``).
+
+    `constituencies` is a list of body_payload() dicts from
+    `ConstituencyResult` (each with ``eci_no``, ``constituency_name``,
+    ``totals``, ``candidates``, ``nota``, ...). The list does NOT need to be
+    pre-sorted; the emitter sorts INSERTs by primary key for byte-determinism.
+
+    The SQLite file is written atomically: a temp file in the same directory,
+    then `os.replace`. Returns the final path.
     """
-    parties_doc = _load_json(state_dir / "parties.json")
-    result_files = sorted(
-        (state_dir / "results").glob("*.json"),
-        key=lambda p: int(p.stem),
-    )
-    if not result_files:
-        raise ValueError(f"no per-AC results found under {state_dir}/results/")
-
-    constituencies = [_load_json(p) for p in result_files]
-    output_path = output_path or (state_dir / "results.sqlite")
+    if not constituencies:
+        raise ValueError(
+            "emit_state_sqlite_from_data: constituencies list is empty"
+        )
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     fd, tmp_name = tempfile.mkstemp(
@@ -109,6 +125,34 @@ def emit_state_sqlite(*, state_dir: Path, output_path: Path | None = None) -> Pa
         if tmp_path.exists():
             tmp_path.unlink()
         raise
+
+
+def emit_state_sqlite(*, state_dir: Path, output_path: Path | None = None) -> Path:
+    """Build `results.sqlite` by reading JSON shards from `state_dir`.
+
+    Thin disk-wrapper around `emit_state_sqlite_from_data`. Loads
+    `parties.json` + `results/<n>.json` from disk and delegates. Used by
+    one-shot CLI reruns (e.g. `yen-gov emit-sqlite <state-dir>`); the
+    pipeline's emit step calls `emit_state_sqlite_from_data` directly to
+    skip the disk round-trip.
+
+    `state_dir` must contain `parties.json` and `results/<n>.json` files.
+    Returns the final path (defaults to `state_dir / "results.sqlite"`).
+    """
+    parties_doc = _load_json(state_dir / "parties.json")
+    result_files = sorted(
+        (state_dir / "results").glob("*.json"),
+        key=lambda p: int(p.stem),
+    )
+    if not result_files:
+        raise ValueError(f"no per-AC results found under {state_dir}/results/")
+
+    constituencies = [_load_json(p) for p in result_files]
+    return emit_state_sqlite_from_data(
+        parties_doc=parties_doc,
+        constituencies=constituencies,
+        output_path=output_path or (state_dir / "results.sqlite"),
+    )
 
 
 def _load_json(path: Path) -> dict:
