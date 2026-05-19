@@ -84,6 +84,31 @@ def _fact_table_stem(family: str) -> str:
     return FAMILY_FACT_TABLE_STEM.get(family, "observations")
 
 
+# Append-only ledger of dataset path renames / relocations the writer stamps
+# into ``datasets/manifest.json`` under the ``deprecations`` array introduced
+# in ``manifest.schema.json`` v1.2. Surfaces the legacy URL so archived
+# embeds, cached fetches, and downstream tooling can resolve the canonical
+# successor programmatically (the frontend loader also emits a one-shot
+# ``console.warn`` when it sees the legacy marker).
+#
+# Each entry: ``old_path`` (POSIX relative under ``datasets/``), ``new_path``
+# (MUST match an entry the writer just emitted to ``tables[].files[].path``),
+# ``deprecated_at`` (ISO 8601 date), optional ``removed_at`` (set on the
+# release where the legacy file is deleted from disk).
+#
+# Add a row whenever a citizen-facing artifact moves; never delete a row
+# (citizen URLs that linked to the old path keep working as long as the
+# successor entry stays here). See ``datasets/CHANGELOG.md`` for the
+# human-readable narrative.
+_DEPRECATIONS: list[dict[str, str]] = [
+    {
+        "old_path": "elections/observations.parquet",
+        "new_path": "elections/election_results.parquet",
+        "deprecated_at": "2026-05-18",
+    },
+]
+
+
 class WriterError(Exception):
     """Raised when the writer refuses an envelope. Always pre-emit; never
     after a partial write (atomicity is part of the contract)."""
@@ -725,6 +750,7 @@ def _regenerate_manifest(datasets_root: Path) -> Path:
         "manifest_version": "1.0",
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "tables": tables,
+        "deprecations": _DEPRECATIONS,
     }
 
     manifest_path = datasets_root / "manifest.json"

@@ -20,8 +20,13 @@ describe("DATA_BASE", () => {
   });
 
   test("is safe to concatenate with a leading-slash path", () => {
-    const composed = `${DATA_BASE}/elections/AcGenMay2026/S22/result.summary.json`;
+    // Canonical pivot (TODO row 1.8b): the citizen frontend resolves
+    // ``/data/<family>/<table>.parquet`` URLs (e.g. the elections fact
+    // table at ``elections/election_results.parquet``) via DuckDB-WASM.
+    // The per-event/per-state JSON shards under ``elections/<event>/...``
+    // are deprecated and slated for retirement in PR-O-ii.
+    const composed = `${DATA_BASE}/elections/election_results.parquet`;
     expect(composed).not.toMatch(/\/\//);
-    expect(composed).toMatch(/\/data\/elections\/AcGenMay2026\/S22\/result\.summary\.json$/);
+    expect(composed).toMatch(/\/data\/elections\/election_results\.parquet$/);
   });
 });

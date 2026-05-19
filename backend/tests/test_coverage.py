@@ -25,6 +25,89 @@ def _write(path: Path, content: str | dict) -> None:
         path.write_text(content, encoding="utf-8")
 
 
+def _seed_election_parquet(
+    root: Path,
+    slices: dict[tuple[str, str], dict[str, object]],
+) -> None:
+    """Emit a minimal ``datasets/elections/election_results.parquet`` so
+    ``coverage._election_slices_from_canonical`` can read it.
+
+    Each entry in ``slices`` maps ``(event_id, state_code)`` to a dict with:
+
+    - ``ac_count``    : ``int``  — number of AC entity rows to emit
+      (``IN-<state>-AC-2008-<n>`` for ``n in 1..ac_count``).
+    - ``has_summary`` : ``bool`` — emit a state-rollup row
+      (``IN-<state>-<event_id>``) per ``canonical.adapters.eci.identity``.
+    - ``has_parties`` : ``bool`` — emit a party-rollup row
+      (``IN-<state>-PARTY-<slug>``).
+
+    All rows carry the minimum NOT-NULL columns required by the canonical
+    writer (``observation_id``, ``entity_id``, ``year``, ``period_label``,
+    ``period_seq``, ``indicator_id``, ``source_id``); ``value_num`` /
+    ``value_text`` / ``unit`` are nullable and left NULL.
+    """
+    import duckdb
+
+    parquet_path = root / "datasets" / "elections" / "election_results.parquet"
+    parquet_path.parent.mkdir(parents=True, exist_ok=True)
+
+    rows: list[tuple[str, str, int, str, int, str, float | None, str | None, str | None, str]] = []
+    for (event_id, state_code), spec in slices.items():
+        ac_count = int(spec.get("ac_count", 0))  # type: ignore[arg-type]
+        has_summary = bool(spec.get("has_summary", False))
+        has_parties = bool(spec.get("has_parties", False))
+
+        # AC entity rows -- ac_count distinct entity_ids.
+        for n in range(1, ac_count + 1):
+            entity_id = f"IN-{state_code}-AC-2008-{n}"
+            rows.append((
+                f"obs-ac-{event_id}-{state_code}-{n}",
+                entity_id, 2026, event_id, 1, "ac-total-votes",
+                None, None, None, "src-test",
+            ))
+        if has_summary:
+            entity_id = f"IN-{state_code}-{event_id}"
+            rows.append((
+                f"obs-srollup-{event_id}-{state_code}",
+                entity_id, 2026, event_id, 1, "state-total-votes",
+                None, None, None, "src-test",
+            ))
+        if has_parties:
+            entity_id = f"IN-{state_code}-PARTY-TST"
+            rows.append((
+                f"obs-prollup-{event_id}-{state_code}",
+                entity_id, 2026, event_id, 1, "party-seats-won",
+                None, None, None, "src-test",
+            ))
+
+    conn = duckdb.connect(database=":memory:")
+    try:
+        conn.execute("""
+            CREATE TABLE staging (
+                observation_id VARCHAR NOT NULL,
+                entity_id      VARCHAR NOT NULL,
+                year           INTEGER NOT NULL,
+                period_label   VARCHAR NOT NULL,
+                period_seq     INTEGER NOT NULL,
+                indicator_id   VARCHAR NOT NULL,
+                value_num      DOUBLE,
+                value_text     VARCHAR,
+                unit           VARCHAR,
+                source_id      VARCHAR NOT NULL
+            )
+        """)
+        if rows:
+            conn.executemany(
+                "INSERT INTO staging VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                rows,
+            )
+        conn.execute(
+            f"COPY staging TO '{parquet_path.as_posix()}' (FORMAT PARQUET)"
+        )
+    finally:
+        conn.close()
+
+
 def test_coverage_reconciles_catalogue_and_disk(tmp_path: Path) -> None:
     """Catalogue + on-disk should produce one slice per (event, state)."""
     _write(
@@ -48,11 +131,19 @@ def test_coverage_reconciles_catalogue_and_disk(tmp_path: Path) -> None:
             }
         },
     )
-    state_dir = tmp_path / "datasets/elections/AcGenMay2026/S22"
-    _write(state_dir / "result.summary.json", "{}")
-    _write(state_dir / "parties.json", "{}")
-    _write(state_dir / "results/1.json", "{}")
-    _write(state_dir / "results/2.json", "{}")
+    # Seed canonical Parquet — coverage now reads
+    # ``datasets/elections/election_results.parquet`` directly (PR-O.2-minimal,
+    # row 1.8b). Legacy JSON shards on disk are no longer consulted.
+    _seed_election_parquet(
+        tmp_path,
+        {
+            ("AcGenMay2026", "S22"): {
+                "ac_count": 2,
+                "has_summary": True,
+                "has_parties": True,
+            }
+        },
+    )
 
     report = compute_coverage(tmp_path)
     assert len(report.slices) == 1
@@ -99,8 +190,17 @@ def test_coverage_flags_undeclared_and_pending(tmp_path: Path) -> None:
         },
     )
     # On-disk for an *undeclared* slice (catalogue knows S22/AcGenMay2026 but not S99/AcGenJan1900).
-    _write(
-        tmp_path / "datasets/elections/AcGenJan1900/S99/result.summary.json", "{}"
+    # Seed via the canonical Parquet (PR-O.2-minimal); a state-rollup row
+    # is the canonical analog of ``result.summary.json``.
+    _seed_election_parquet(
+        tmp_path,
+        {
+            ("AcGenJan1900", "S99"): {
+                "ac_count": 0,
+                "has_summary": True,
+                "has_parties": False,
+            }
+        },
     )
 
     report = compute_coverage(tmp_path)
@@ -203,11 +303,22 @@ def test_render_includes_indicators_and_state_first(tmp_path: Path) -> None:
             }
         },
     )
-    for ev in ("AcGenApr2016", "AcGenMay2026"):
-        sd = tmp_path / f"datasets/elections/{ev}/S03"
-        _write(sd / "result.summary.json", "{}")
-        _write(sd / "parties.json", "{}")
-        _write(sd / "results/1.json", "{}")
+    # Seed canonical Parquet for both Assam events (PR-O.2-minimal).
+    _seed_election_parquet(
+        tmp_path,
+        {
+            ("AcGenApr2016", "S03"): {
+                "ac_count": 1,
+                "has_summary": True,
+                "has_parties": True,
+            },
+            ("AcGenMay2026", "S03"): {
+                "ac_count": 1,
+                "has_summary": True,
+                "has_parties": True,
+            },
+        },
+    )
 
     _write(
         tmp_path / "datasets/indicators/in/fiscal/national_x.json",
