@@ -28,6 +28,7 @@
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "INR crore",
+    "short_unit": "₹cr",
     "icon": "globe",
     "attribution_geography": "where_produced",
     "comparability": "not_comparable_across_states",

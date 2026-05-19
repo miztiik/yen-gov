@@ -28,6 +28,7 @@
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "percent",
+    "short_unit": "%",
     "icon": "file-text",
     "attribution_geography": "where_administered",
     "comparability": "comparable_across_states",

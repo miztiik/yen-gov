@@ -36,6 +36,7 @@
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "kWh per person per year",
+    "short_unit": "kWh/cap",
     "icon": "zap",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

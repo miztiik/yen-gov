@@ -28,6 +28,7 @@
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "MW",
+    "short_unit": "MW",
     "icon": "atom",
     "attribution_geography": "where_allocated",
     "comparability": "comparable_with_normalisation",

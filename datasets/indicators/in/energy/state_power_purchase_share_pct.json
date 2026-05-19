@@ -28,6 +28,7 @@
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "percent",
+    "short_unit": "%",
     "icon": "shopping-cart",
     "attribution_geography": "where_consumed",
     "comparability": "comparable_across_states",

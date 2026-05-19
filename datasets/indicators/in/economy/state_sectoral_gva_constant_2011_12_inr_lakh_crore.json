@@ -28,6 +28,7 @@
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "INR (lakh crore)",
+    "short_unit": "₹L cr",
     "icon": "bar-chart",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

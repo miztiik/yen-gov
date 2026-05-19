@@ -32,6 +32,7 @@
     "description": "Wholesale Price Index (All Commodities) — annual average, FY 1974-75 onwards, spliced across MoCI's five base-year revisions (1970-71 / 1981-82 / 1993-94 / 2004-05 / 2011-12). Index level (rebased to most-recent base where overlap exists); convert to year-on-year inflation in the renderer rather than baking it into the artifact. WPI tracks producer-stage prices and excludes most services. It is shown here for the deep historical perspective only — RBI's official inflation anchor since the 2014 monetary-policy framework switch is CPI-Combined (see `prices/national_cpi_combined_index_annual`).",
     "scale_hint": "linear",
     "unit": "index (rebased)",
+    "short_unit": "index",
     "notes": "Source: RBI Handbook of Statistics on Indian Economy 2024-25 edition, Table 36. Each row's `vintage` records the WPI base year that produced the value. The WPI basket and methodology change at every rebase (commodity composition, weights, services treatment), so growth rates spanning a `series_breaks` transition should be read as directional, not exact.",
     "icon": "trending-up",
     "attribution_geography": "where_resident",

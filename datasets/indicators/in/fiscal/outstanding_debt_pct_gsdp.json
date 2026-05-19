@@ -26,8 +26,10 @@
     "id": "fiscal/outstanding_debt_pct_gsdp",
     "title": "Outstanding liabilities (% of GSDP)",
     "description": "Stock of state-government debt outstanding at the end of each fiscal year, expressed as a share of Gross State Domestic Product. Includes loans and public-account liabilities. Higher values mean a larger debt burden relative to the state's economic base. The FRBM Act 2003 imposed the first hard ceilings on state debt; pre-2003 series used different consolidation rules.",
+    "description_short": "State government outstanding liabilities as a share of Gross State Domestic Product. The standard solvency-ratio metric Finance Commissions and rating agencies use. Lower is generally healthier; the FRBM Act targets 20%.",
     "scale_hint": "linear",
     "unit": "%",
+    "short_unit": "%",
     "denominator": {
       "what": "GSDP at current prices",
       "price_basis": "current",

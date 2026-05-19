@@ -29,6 +29,7 @@
     "direction": "lower_is_better",
     "scale_hint": "linear",
     "unit": "Gg CO2e",
+    "short_unit": "Gg CO₂e",
     "icon": "cloud",
     "attribution_geography": "where_produced",
     "comparability": "not_comparable_across_states",

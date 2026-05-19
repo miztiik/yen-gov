@@ -30,6 +30,7 @@
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "INR (lakh crore)",
+    "short_unit": "₹L cr",
     "icon": "trending-up",
     "attribution_geography": "where_resident",
     "comparability": "comparable_across_states",

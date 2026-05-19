@@ -36,6 +36,7 @@
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "index (rebased)",
+    "short_unit": "index",
     "icon": "trending-up",
     "attribution_geography": "where_resident",
     "comparability": "comparable_with_normalisation",

@@ -28,6 +28,7 @@
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "INR",
+    "short_unit": "₹",
     "icon": "shopping-bag",
     "attribution_geography": "where_resident",
     "comparability": "comparable_across_states",

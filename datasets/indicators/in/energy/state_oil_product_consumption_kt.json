@@ -28,6 +28,7 @@
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "kt",
+    "short_unit": "kt",
     "icon": "fuel",
     "attribution_geography": "where_consumed",
     "comparability": "comparable_with_normalisation",

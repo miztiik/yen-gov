@@ -28,6 +28,7 @@
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "MU",
+    "short_unit": "MU",
     "icon": "plug",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

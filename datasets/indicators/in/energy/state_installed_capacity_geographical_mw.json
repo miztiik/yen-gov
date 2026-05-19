@@ -28,6 +28,7 @@
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "MW",
+    "short_unit": "MW",
     "icon": "bolt",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

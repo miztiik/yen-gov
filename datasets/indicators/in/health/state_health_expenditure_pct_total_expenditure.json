@@ -32,6 +32,7 @@
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "% of state total expenditure",
+    "short_unit": "%",
     "icon": "heart-pulse",
     "attribution_geography": "where_administered",
     "comparability": "comparable_across_states_and_time",

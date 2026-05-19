@@ -38,6 +38,7 @@
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "MW",
+    "short_unit": "MW",
     "denominator": null,
     "icon": "zap",
     "attribution_geography": "where_produced",
