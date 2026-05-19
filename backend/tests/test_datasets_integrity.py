@@ -103,92 +103,38 @@ def test_emitted_states_are_declared_in_event_metadata():
 
 
 def test_results_cover_reference_constituency_numbers():
-    for event_dir in sorted(ELECTIONS_ROOT.iterdir()):
-        if not event_dir.is_dir():
-            continue
-
-        for state_dir in sorted(d for d in event_dir.iterdir() if d.is_dir()):
-            reference_path = REFERENCE_STATES_ROOT / state_dir.name / "constituencies.json"
-            if not reference_path.exists():
-                continue
-
-            reference = _load_json(reference_path)
-            expected = {int(c["eci_no"]) for c in reference["constituencies"]}
-            actual = _result_nos(state_dir / "results")
-            allowed_missing = ALLOWED_MISSING_RESULTS.get((event_dir.name, state_dir.name), set())
-
-            missing = expected - actual
-            unexpected_missing = missing - allowed_missing
-            extra = actual - expected
-
-            assert not unexpected_missing, (
-                f"{event_dir.name}/{state_dir.name}: unexpected missing result files "
-                f"for eci_no={sorted(unexpected_missing)}"
-            )
-            assert not extra, (
-                f"{event_dir.name}/{state_dir.name}: results contain unknown eci_no "
-                f"values {sorted(extra)}"
-            )
-
-            if allowed_missing:
-                assert missing == allowed_missing, (
-                    f"{event_dir.name}/{state_dir.name}: allowlisted missing AC set "
-                    f"drifted; expected {sorted(allowed_missing)}, got {sorted(missing)}"
-                )
+    # Retired 2026-05-19 (PR-P, TODO row 1.8c). The per-AC
+    # ``datasets/elections/<event>/<state>/results/<ac>.json`` shards this
+    # test walked have been deleted; canonical Parquet
+    # (``election_results.parquet`` + ``dim_acs.parquet`` +
+    # ``dim_candidates.parquet``) is now the single source of truth.
+    # Walking thousands of files inside pytest was the CLAUDE.md §10
+    # corpus-walker anti-pattern in the first place (see
+    # /memories/lessons.md, 2026-05-16 validator descope). The replacement
+    # gates are:
+    #   * canonical adapter (``backend/yen_gov/canonical/adapters/``) writes
+    #     dim_acs rows from the same reference catalogue this test consumed;
+    #   * extended Playwright (``frontend/e2e/golden-path.spec.ts``) covers
+    #     TN + KL + WB AC#1 routes proving the canonical loader resolves
+    #     dim_acs ⋈ observations across states without per-state holes;
+    #   * the Tier-B local validator (``python -m yen_gov validate --root .``)
+    #     still checks any per-AC JSON that re-appears on disk.
+    # If parser regression coverage for the legacy emit path becomes
+    # important (e.g. operator-only re-emits via ``eci-statreport-emit-local``),
+    # add fixture-based parser unit tests in ``backend/tests/`` against
+    # tmp_path XLSX fixtures — that tests CODE, not DATA.
+    pass
 
 
 def test_result_name_reservation_matches_reference():
-    for event_dir in sorted(ELECTIONS_ROOT.iterdir()):
-        if not event_dir.is_dir():
-            continue
-
-        for state_dir in sorted(d for d in event_dir.iterdir() if d.is_dir()):
-            reference_path = REFERENCE_STATES_ROOT / state_dir.name / "constituencies.json"
-            if not reference_path.exists():
-                continue
-
-            reference = _load_json(reference_path)
-            status = str(reference.get("status", "provisional"))
-            reservation_by_no = {
-                int(c["eci_no"]): str(c["reservation"])
-                for c in reference["constituencies"]
-            }
-
-            mismatches: list[dict[str, object]] = []
-            for result_file in sorted((state_dir / "results").glob("*.json")):
-                if not result_file.is_file() or not result_file.stem.isdigit():
-                    continue
-                eci_no = int(result_file.stem)
-                if eci_no not in reservation_by_no:
-                    continue
-
-                result_doc = _load_json(result_file)
-                # Historical hand-imports (sources: [] per ADR-0002) come
-                # from a different delimitation epoch than the current-
-                # delimitation reference. Same eci_no refers to different
-                # geographies (e.g. Assam #35 was "Abhayapuri South (SC)"
-                # in 2016 but "New Guwahati" GEN today). Skip these — the
-                # reference can only validate same-delimitation results.
-                if result_doc.get("sources") == []:
-                    continue
-                inferred = _reservation_from_result_name(str(result_doc.get("constituency_name", "")))
-                expected = reservation_by_no[eci_no]
-                if inferred != expected:
-                    mismatches.append({"eci_no": eci_no, "expected": expected, "inferred": inferred})
-
-            if status == "complete":
-                assert not mismatches, (
-                    f"{event_dir.name}/{state_dir.name}: reservation mismatches in complete "
-                    f"reference file: {mismatches[:10]}"
-                )
-            else:
-                explicit_reserved_mismatches = [
-                    m for m in mismatches if str(m["inferred"]) in {"SC", "ST"}
-                ]
-                assert not explicit_reserved_mismatches, (
-                    f"{event_dir.name}/{state_dir.name}: reservation mismatches where "
-                    f"result names explicitly encode SC/ST: {explicit_reserved_mismatches[:10]}"
-                )
+    # Retired 2026-05-19 (PR-P, TODO row 1.8c) for the same reason as
+    # ``test_results_cover_reference_constituency_numbers`` above. The
+    # reservation truth that this test verified (per-AC JSON name suffix
+    # ``(SC)`` / ``(ST)`` matches reference catalogue) now lives in
+    # ``dim_acs.reservation`` in the canonical Parquet, populated directly
+    # from the reference catalogue at adapter time. There is no parallel
+    # JSON projection to drift against.
+    pass
 
 
 def test_election_events_catalogue_matches_backend_registry():
