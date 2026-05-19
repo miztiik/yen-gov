@@ -10,8 +10,12 @@
   // Scenario encoding is the same base64url JSON as Psephlab's `?s=` —
   // operators paste the trailing `s=…` value into `a=` or `b=` here.
 
+  // PR-R.2 (Phase 1.8e): switched from legacy `psephlab/actuals` (sql.js +
+  // per-state results.sqlite) to `psephlab/canonical-loaders` (DuckDB-WASM
+  // over canonical Parquet). Same `loadActuals(event, state)` signature,
+  // same `Tallies` shape; the entire delta vs Psephlab is the import path.
   import { untrack } from "svelte";
-  import { loadActuals } from "../lib/psephlab/actuals";
+  import { loadActuals } from "../lib/psephlab/canonical-loaders";
   import { run } from "../lib/psephlab/engine";
   import {
     EMPTY_SCENARIO,

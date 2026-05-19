@@ -1442,6 +1442,17 @@ def canonical_backfill_eci(
         None, "--state",
         help="Restrict to one or more ECI state codes (e.g. S22). Repeat flag.",
     ),
+    corpus_root: Path = typer.Option(
+        None, "--corpus-root",
+        help=(
+            "Override per-AC JSON corpus directory (containing "
+            "<event>/<state>/results/*.json). Defaults to <root>/datasets/elections. "
+            "Used to backfill from a restored snapshot under e.g. "
+            "datasets/ephemeral/legacy-corpus/elections after the per-AC JSONs "
+            "were removed from the canonical tree (commit 016c2352)."
+        ),
+        file_okay=False, dir_okay=True, exists=False,
+    ),
 ) -> None:
     """Backfill datasets/elections/election_results.parquet from per-AC JSON corpus.
 
@@ -1480,6 +1491,7 @@ def canonical_backfill_eci(
         on_slice=_print,
         on_write_start=_print_write_start,
         on_event_written=_print_event_written,
+        corpus_root=corpus_root,
     )
     typer.echo("canonical-backfill-eci: done")
     typer.echo(f"  events processed:     {res.events_processed}")

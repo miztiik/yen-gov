@@ -613,6 +613,102 @@ def test_empty_dim_lists_do_not_touch_existing_dim_files(tmp_path: Path) -> None
     assert dim_path.read_bytes() == bytes_before
 
 
+def test_dim_candidates_party_short_raw_roundtrips(tmp_path: Path) -> None:
+    """v1.1 additive: dim_candidates carries party_short_raw, the verbatim
+    upstream ECI party_short string. Used by the UI as a fallback display
+    when party_id == 'parties.IN.UNK' so the chip never shows the literal
+    sentinel for long-tail fringe parties not yet in taxonomy/parties.json.
+
+    This is the structural fix for PR-R.2 (no-UNK-regression). Even with
+    a richer canonical taxonomy, new shorts will surface forever; the
+    column ensures the citizen-visible chip always carries an honest label.
+    """
+    _seed_taxonomy(tmp_path)
+    unk_cand = CandidateDimRow(
+        candidate_id="IN-S22-AC-2008-167-AcGenApr2021-C02",
+        ac_id="IN-S22-AC-2008-167",
+        period_label="AcGenApr2021",
+        ballot_serial=2,
+        name="X. Unknown",
+        party_id="parties.IN.UNK",
+        rank=2,
+        source_id="src-test0001",
+        party_short_raw="FRINGE",
+    )
+    env = BatchEnvelope(
+        target_family="elections",
+        source_rows=[_src()],
+        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C02",
+                               indicator_id="candidate-votes-polled",
+                               year=2021, period_label="AcGenApr2021")],
+        candidate_dim_rows=[unk_cand],
+    )
+    write_batch(env, tmp_path)
+
+    con = duckdb.connect(":memory:")
+    rows = con.execute(
+        f"SELECT candidate_id, party_id, party_short_raw FROM read_parquet('"
+        f"{(tmp_path / 'elections' / 'dim_candidates.parquet').as_posix()}') "
+        f"ORDER BY candidate_id"
+    ).fetchall()
+    assert rows == [
+        ("IN-S22-AC-2008-167-AcGenApr2021-C02", "parties.IN.UNK", "FRINGE"),
+    ]
+
+
+def test_dim_candidates_upsert_by_name_fills_legacy_rows_with_null(tmp_path: Path) -> None:
+    """Additive-column safety: an existing v1.0 Parquet (no party_short_raw)
+    plus a v1.1 envelope must coexist after UPSERT. The legacy rows carry
+    NULL for the new column; the new rows carry their value. INSERT BY NAME
+    keeps the writer migrate-friendly for additive bumps."""
+    _seed_taxonomy(tmp_path)
+    # First write: v1.1-shaped row but with party_short_raw=None (simulating
+    # a row carried over from v1.0 when the field didn't exist).
+    legacy = _cand_dim(cid="IN-S22-AC-2008-167-AcGenApr2021-C01", rank=1)
+    env1 = BatchEnvelope(
+        target_family="elections",
+        source_rows=[_src()],
+        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
+                               indicator_id="candidate-votes-polled",
+                               year=2021, period_label="AcGenApr2021")],
+        candidate_dim_rows=[legacy],
+    )
+    write_batch(env1, tmp_path)
+
+    # Second write: adds a new row with party_short_raw populated.
+    new = CandidateDimRow(
+        candidate_id="IN-S22-AC-2008-167-AcGenApr2021-C03",
+        ac_id="IN-S22-AC-2008-167",
+        period_label="AcGenApr2021",
+        ballot_serial=3,
+        name="Y. Newcomer",
+        party_id="parties.IN.UNK",
+        rank=3,
+        source_id="src-test0001",
+        party_short_raw="UPNEW",
+    )
+    env2 = BatchEnvelope(
+        target_family="elections",
+        source_rows=[_src()],
+        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C03",
+                               indicator_id="candidate-votes-polled",
+                               year=2021, period_label="AcGenApr2021")],
+        candidate_dim_rows=[new],
+    )
+    write_batch(env2, tmp_path)
+
+    con = duckdb.connect(":memory:")
+    rows = con.execute(
+        f"SELECT candidate_id, party_short_raw FROM read_parquet('"
+        f"{(tmp_path / 'elections' / 'dim_candidates.parquet').as_posix()}') "
+        f"ORDER BY candidate_id"
+    ).fetchall()
+    assert rows == [
+        ("IN-S22-AC-2008-167-AcGenApr2021-C01", None),
+        ("IN-S22-AC-2008-167-AcGenApr2021-C03", "UPNEW"),
+    ]
+
+
 def test_dim_tables_appear_in_manifest(tmp_path: Path) -> None:
     _seed_taxonomy(tmp_path)
     write_batch(_dim_envelope(), tmp_path)
@@ -623,7 +719,7 @@ def test_dim_tables_appear_in_manifest(tmp_path: Path) -> None:
     cand = next(t for t in manifest["tables"]
                 if t["table_id"] == "elections.dim_candidates")
     assert cand["format"] == "parquet"
-    assert cand["schema_version"] == "1.0"
+    assert cand["schema_version"] == "1.1"
     assert cand["table_name"] == "dim_candidates"
     assert cand["kind"] == "dim"
     assert cand["row_count_total"] == 1

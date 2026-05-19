@@ -6,7 +6,12 @@
   // (`?s=...`); changes are flushed back via history.replaceState so the
   // back button doesn't accumulate one entry per slider tick.
 
-  import { loadActuals } from "../lib/psephlab/actuals";
+  // PR-R.2 (Phase 1.8e): switched from legacy `psephlab/actuals` (sql.js +
+  // per-state results.sqlite) to `psephlab/canonical-loaders` (DuckDB-WASM
+  // over canonical Parquet). Same `loadActuals(event, state)` signature,
+  // same `Tallies` shape; engine + mutations untouched. Legacy file +
+  // sql.js runtime delete in PR-R.3.
+  import { loadActuals } from "../lib/psephlab/canonical-loaders";
   import { run } from "../lib/psephlab/engine";
   import { MUTATIONS, mutationById } from "../lib/psephlab/mutations";
   import { RULES } from "../lib/psephlab/rules";

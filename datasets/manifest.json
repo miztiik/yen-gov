@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.2",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-19T05:33:58Z",
+  "generated_at": "2026-05-19T20:30:57Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -15,11 +15,11 @@
       "files": [
         {
           "path": "elections/election_results.parquet",
-          "size_bytes": 14772201,
-          "row_count": 199330
+          "size_bytes": 14919381,
+          "row_count": 201292
         }
       ],
-      "row_count_total": 199330
+      "row_count_total": 201292
     },
     {
       "table_id": "elections.dim_acs",
@@ -44,12 +44,12 @@
       "table_name": "dim_candidates",
       "kind": "dim",
       "format": "parquet",
-      "schema_version": "1.0",
+      "schema_version": "1.1",
       "partition_columns": [],
       "files": [
         {
           "path": "elections/dim_candidates.parquet",
-          "size_bytes": 719654,
+          "size_bytes": 767994,
           "row_count": 34906
         }
       ],
@@ -66,11 +66,11 @@
       "files": [
         {
           "path": "elections/dim_parties.parquet",
-          "size_bytes": 2262,
-          "row_count": 32
+          "size_bytes": 4605,
+          "row_count": 108
         }
       ],
-      "row_count_total": 32
+      "row_count_total": 108
     },
     {
       "table_id": "elections.dim_party_alliances",
