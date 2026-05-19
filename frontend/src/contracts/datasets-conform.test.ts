@@ -70,7 +70,6 @@ function resolveSchema(declared: string): SchemaMeta | undefined {
  * sources[] — provenance moves onto each row via source_id. */
 const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
   "entity.schema.json",
-  "facet-axes.schema.json",
   "indicator-catalogue.schema.json",
   "source.schema.json",
   "observation.schema.json",

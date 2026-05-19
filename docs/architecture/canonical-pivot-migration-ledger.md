@@ -79,7 +79,7 @@ Net effect: ~110 legacy socio-economic indicators collapse to **~50 canonical pa
 
 Tagged in the `notes` column of the CSV; restated here for visibility:
 
-1. **`allocation_basis` facet axis** (geographical vs contractual for installed capacity) — register in `taxonomy/facet-axes.json` (D31) in Phase 0.4?
+1. **`allocation_basis` facet axis** (geographical vs contractual for installed capacity) — **REGISTERED 2026-05-19 (PR-Q.2)**. Now lives as a `FacetAxis` literal inside `FACET_AXES` in `backend/yen_gov/canonical/facet_axes_seed.py` (per canonical-store.md §8.3 — the Python-compiles-to-parquet pattern that replaced the legacy `facet-axes.json` registry). Open downstream choice for Phase 2 Energy: whether CEA installed capacity ships as one parent indicator faceted by `allocation_basis` ∈ {`geographical`, `contractual`}, or as two distinct parent indicators. Decision owned by Max + Hans at Phase 2 kickoff.
 2. **Renewable `fuel_type` sub-split** — solar utility / solar rooftop / wind / biomass / SHP — pre-declare or let MNRE adapter drive?
 3. **National-level entity convention** — confirm `entity_type=country` for `india-*` indicator rows in `entities.json`.
 4. **`national_renewable_potential_vs_installed_mw`** — explode into two parents (potential, installed) or one parent with measure facet?
