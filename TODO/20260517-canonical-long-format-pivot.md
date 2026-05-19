@@ -649,7 +649,7 @@ Every row below was re-checked by reading the cited file / running the cited com
 | 1.9 | ✅ | (2026-05-19) | `datasets/` = 196 MB; `.git/` = 115 MB; under thresholds. |
 | 1.10 | ✅ | PR-T (`3056f14e`) | Proto-ontology bootstrap; indicator-schema v4.4; party-schema v2.0; chart-shell `axisUnitLabel` + `legendCaption`. |
 | 1.8e | ⏳ | **SCHEDULED: PR-R.1 → PR-R.2 → PR-R.3** | 41 `.sqlite` files still present on disk (`Get-ChildItem -Recurse datasets\elections\*.sqlite | Measure-Object` → 41 as of 2026-05-19). See expanded row below. |
-| 1.8f | ⏳ | **SCHEDULED: PR-S.1 → PR-S.2** | 3,983 person JSONs still present (`Get-ChildItem -Recurse datasets\people\*.json | Measure-Object` → 3,983 as of 2026-05-19). See expanded row below. |
+| 1.8f | ⏳ | **IN PROGRESS: PR-S.1 ✅ → PR-S.2 next** | PR-S.1 (2026-05-20) lifted 6 biographic columns (`sex`, `age`, `education`, `profession`, `constituency_type`, `party_type`) onto `dim_candidates.parquet` (schema v1.1 → v1.2 additive); backfill from existing 3,983 person JSONs populated 1,134 of 34,906 rows. JSONs still on disk pending PR-S.2 (frontend switch + sidecar retirement + people_ingest refactor). |
 
 ### §7.1. Phase 1 deletion-sweep audit (verified 2026-05-19 against on-disk counts)
 
@@ -669,7 +669,7 @@ The per-family cleanup that replaces Phase 0.13. A reviewing agent can re-verify
 | 1.8d | delete 27 `events/in/eci/<event>/election.json` | 0 files | 0 files (`Get-ChildItem datasets\events\in\eci\*\election.json`) | ✅ |
 | 1.8d-ii | retire `facet-axes.json` + `delimitation_lineage.json`; ship Python-compiles-to-parquet pattern | 0 of those JSONs | 0 JSONs; `facet-axes.parquet` 8,090 B present | ✅ |
 | **1.8e** | **delete 41 per-state `results.sqlite`** + `frontend/src/lib/sql.ts` + `frontend/src/lib/psephlab/actuals.ts` + `backend/yen_gov/emit/sqlite.py` + tests; **folded in 2026-05-19**: retire `datasets/reference/in/parties.json` + `parties-discovered.json` + their schemas + `compose.append_to_discovered_overlay` + `frontend.fetchPartyRegistry` | **0 files** | **0 files** | **✅ (PR-R.3, 2026-05-19; see canonical-pivot-deletion-manifest.md §6a row 1.8e)** |
-| **1.8f** | **delete 3,983 per-candidate person JSONs** | **0 files** | **3,983 files still on disk** | **⏳** |
+| **1.8f** | **delete 3,983 per-candidate person JSONs** | **0 files** | **3,983 files still on disk (PR-S.1 ✅ — 2026-05-20 — lifted bio fields onto `dim_candidates.parquet` schema v1.2; PR-S.2 next retires the JSONs + sidecar schema + `fetchPersonEntity` + `people_ingest.write_people_files`)** | **⏳** |
 
 ### §7.2. Original Phase 1 spec table (preserved; status normalized in rows 1.8e + 1.8f only)
 

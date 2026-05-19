@@ -137,6 +137,18 @@ class CandidateDimRow(BaseModel):
     # Citizen UI falls back to this when party_id == 'parties.IN.UNK' so the
     # chip never shows the literal sentinel. Nullable for NOTA / missing.
     party_short_raw: str | None = None
+    # v1.2 (additive, PR-S.1): biographic fields lifted from the per-candidate
+    # JSON sidecars formerly under datasets/people/<event>/<ac>/<slug>.json
+    # into inline columns on dim_candidates. Enums mirror dim-candidates schema
+    # v1.2 (copied verbatim from people.entity.schema.json v1.0). Nullable on
+    # every field — biographic data is only populated for the subset of events
+    # where an ECI Statistical Report adapter has run (currently TN AcGenApr2021).
+    sex: str | None = Field(default=None)
+    age: int | None = Field(default=None, ge=18, le=120)
+    education: str | None = Field(default=None)
+    profession: str | None = Field(default=None)
+    constituency_type: str | None = Field(default=None)
+    party_type: str | None = Field(default=None)
 
 
 class AcDimRow(BaseModel):
