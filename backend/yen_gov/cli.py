@@ -81,6 +81,40 @@ def validate(
     raise typer.Exit(1)
 
 
+@app.command("emit-taxonomy")
+def emit_taxonomy(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory). Resolves to <root>/datasets/taxonomy/.",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Compile hand-authored taxonomy parquet files (operator command).
+
+    Today: regenerates ``datasets/taxonomy/facet-axes.parquet`` from the
+    Python literal in ``backend/yen_gov/canonical/facet_axes_seed.py``.
+    Future hand-authored taxonomies (entities, indicators, parties when
+    they migrate) plug in here.
+
+    The same emit also runs automatically inside every canonical
+    ``write_batch`` call as a belt-and-suspenders refresh; this CLI
+    exists so operators can regenerate the parquet between pipeline
+    runs without spinning up a full ingest. Refs: TODO row 1.8d-ii §G
+    step 3.
+    """
+    from yen_gov.canonical.facet_axes_seed import compile_to_parquet
+
+    taxonomy_dir = root / "datasets" / "taxonomy"
+    taxonomy_dir.mkdir(parents=True, exist_ok=True)
+    out_path = taxonomy_dir / "facet-axes.parquet"
+    rows = compile_to_parquet(out_path)
+    typer.echo(f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/facet-axes.parquet")
+
+
 @app.command()
 def coverage(
     root: Path = typer.Option(
