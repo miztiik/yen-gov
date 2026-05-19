@@ -29,6 +29,60 @@ from yen_gov.pipeline.people_ingest import (
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 
+def _seed_canonical_winner(
+    *,
+    root: Path,
+    election_id: str,
+    state_code: str,
+    delim_year: int,
+    eci_no: int,
+    winner_votes: int,
+    votes_polled: int,
+) -> None:
+    """Seed datasets/elections/election_results.parquet with the three rows
+    compare_winner_votes reads via DuckDB (PR-O.3b-main canonical reroute):
+    ac-winner-candidate-id, candidate-votes-polled (winner), ac-votes-polled.
+    Uses duckdb directly so the test doesn't need to import the full writer
+    + party_lookup machinery."""
+    import duckdb
+
+    parquet_path = root / "datasets" / "elections" / "election_results.parquet"
+    parquet_path.parent.mkdir(parents=True, exist_ok=True)
+    ac_id = f"IN-{state_code}-AC-{delim_year}-{eci_no}"
+    winner_id = f"{ac_id}-{election_id}-C01"
+    rows = [
+        # entity_id, year, period_label, period_seq, indicator_id,
+        # value_numeric, value_text, source_id, derivation
+        (ac_id, 2021, election_id, 4, "ac-winner-candidate-id",
+         None, winner_id, "src-fixture", "argmax"),
+        (winner_id, 2021, election_id, 4, "candidate-votes-polled",
+         float(winner_votes), None, "src-fixture", "raw"),
+        (ac_id, 2021, election_id, 4, "ac-votes-polled",
+         float(votes_polled), None, "src-fixture", "sum"),
+    ]
+    con = duckdb.connect(":memory:")
+    try:
+        con.execute(
+            """
+            CREATE TABLE staging (
+                entity_id VARCHAR, year INTEGER, period_label VARCHAR,
+                period_seq INTEGER, indicator_id VARCHAR,
+                value_numeric DOUBLE, value_text VARCHAR,
+                source_id VARCHAR, derivation VARCHAR
+            )
+            """
+        )
+        con.executemany(
+            "INSERT INTO staging VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", rows,
+        )
+        # POSIX path for the COPY (DuckDB on Windows accepts forward slashes).
+        con.execute(
+            f"COPY staging TO '{parquet_path.as_posix()}' (FORMAT PARQUET)"
+        )
+    finally:
+        con.close()
+
+
 def _seed_corpus(tmp_path: Path) -> Path:
     """Copy the schemas, config, and one ECI result.constituency artifact
     into a tmp_path-rooted fake corpus."""
@@ -54,30 +108,13 @@ def _seed_corpus(tmp_path: Path) -> Path:
         root / "config" / "elections.json",
     )
 
-    # One ECI result.constituency.json with winner votes matching the
-    # fixture CSV exactly — no discrepancies, no halt.
-    eci_artifact = {
-        "$schema": "https://yen-gov.github.io/schemas/result.constituency.schema.json",
-        "$schema_version": "3.2",
-        "sources": [],
-        "election": "AcGenApr2021",
-        "state": "S22",
-        "body": "AC",
-        "eci_no": 1,
-        "constituency_name": "Gummidipoondi",
-        "totals": {"electors": 281688, "votes_polled": 222069, "turnout_pct": 78.84},
-        "candidates": [
-            {"rank": 1, "name": "WINNER A", "party_short": "DMK", "votes": 126000, "vote_share_pct": 56.7, "is_winner": True}
-        ],
-        "nota": {"votes": 1700, "vote_share_pct": 0.8},
-        "top_n_cutoff": 5,
-        "winner": {
-            "name": "WINNER A", "party_short": "DMK", "votes": 126000,
-            "margin_votes": 51000, "margin_pct": 22.9,
-        },
-    }
-    (root / "datasets" / "elections" / "AcGenApr2021" / "S22" / "results" / "1.json").write_text(
-        json.dumps(eci_artifact, indent=2) + "\n", encoding="utf-8"
+    # One canonical election_results.parquet row trio (winner-id +
+    # candidate-votes + ac-votes) matching the panel CSV's winner total
+    # exactly — no discrepancies, no halt. PR-O.3b-main: the discrepancy
+    # gate reads the canonical store, not per-AC JSON shards.
+    _seed_canonical_winner(
+        root=root, election_id="AcGenApr2021", state_code="S22",
+        delim_year=2008, eci_no=1, winner_votes=126000, votes_polled=222069,
     )
     return root
 

@@ -229,12 +229,18 @@ def test_election_events_catalogue_matches_backend_registry():
     )
 
 
-def test_election_events_default_uniqueness_and_data_status_alignment():
-    """Per state: at most one event has `default: true`. And every event
-    flagged `data_status: complete` MUST have its result.summary.json on
-    disk (this catches the "I added a row but forgot to ingest" case).
-    Conversely, `data_status: pending_upstream` rows MUST NOT have data
-    files (catches stale rows after a successful ingest).
+def test_election_events_default_uniqueness():
+    """Per state: at most one event has `default: true` so
+    /s/<state>/elections has a deterministic landing event.
+
+    The data_status ↔ result.summary.json alignment assertion that used
+    to live alongside this one retired in PR-O.3b-main (TODO row
+    ``1.8b-writers-b-main``): per-event ``result.summary.json`` shards
+    are no longer written — the canonical store
+    (``datasets/elections/election_results.parquet``) is the single
+    source of truth, and the frontend e2e suite catches any 404 caused
+    by a status-vs-data drift. Walking the real on-disk corpus from a
+    pytest test also violated CLAUDE.md §10.
     """
     catalogue = _load_json(ELECTION_EVENTS_PATH)
 
@@ -245,22 +251,6 @@ def test_election_events_default_uniqueness_and_data_status_alignment():
             f"({[e['event_id'] for e in defaults]}); /s/<state>/elections "
             f"would not have a deterministic landing event."
         )
-
-        for entry in entries:
-            event_id = str(entry["event_id"])
-            status = str(entry.get("data_status", ""))
-            summary_path = ELECTIONS_ROOT / event_id / state_code / "result.summary.json"
-            if status == "complete":
-                assert summary_path.exists(), (
-                    f"{state_code}/{event_id}: data_status=complete but "
-                    f"{summary_path.relative_to(REPO).as_posix()} is missing."
-                )
-            elif status == "pending_upstream":
-                assert not summary_path.exists(), (
-                    f"{state_code}/{event_id}: data_status=pending_upstream "
-                    f"but {summary_path.relative_to(REPO).as_posix()} exists "
-                    f"— flip status to 'complete'."
-                )
 
 
 # ---------------------------------------------------------------------------
