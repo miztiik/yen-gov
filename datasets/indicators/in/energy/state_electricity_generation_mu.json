@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
@@ -22,12 +22,14 @@
     "id": "energy/state_electricity_generation_mu",
     "title": "Annual electricity generation (by state)",
     "description": "Gross electricity generated in the state during the fiscal year, in million units (MU = GWh). Captures actual production regardless of where the power was eventually consumed.",
+    "description_short": "Annual electricity generated within each state, in million units (MU = GWh). Generation, not consumption — surplus states export to the grid; deficit states import. Read alongside electricity sales for the demand side.",
     "entity_kind": "state",
     "time_grain": "fiscal_year",
     "value_kind": "raw",
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "MU",
+    "short_unit": "MU",
     "icon": "zap",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

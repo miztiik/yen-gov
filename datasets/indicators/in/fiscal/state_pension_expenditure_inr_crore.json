@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/171T_1112202558897643693142228AC6C769081FB16B.XLSX",
@@ -30,8 +30,10 @@
     "id": "fiscal/state_pension_expenditure_inr_crore",
     "title": "State pension expenditure (revenue account)",
     "description": "Annual state-government pension expenditure (revenue account, ₹ Crore) from FY 2004-05 onwards. Covers retirement and family pensions paid to state-government employees and pre-NPS hires; does NOT include the centrally-sponsored social-pension schemes (IGNOAPS, IGNWPS) or the National Pension System (NPS) contribution flows. Rapidly-growing line item in most state budgets — relevant to fiscal-sustainability and the Old Pension Scheme (OPS) restoration debate.",
+    "description_short": "State spending on pensions for retired employees, in ₹ crore (revenue account). Largely committed; rising share over time is a structural fiscal pressure for states with older Old Pension Scheme cohorts.",
     "scale_hint": "linear",
     "unit": "INR (crore)",
+    "short_unit": "₹cr",
     "notes": "Source: RBI Handbook of Statistics on Indian States 2024-25 edition, Table 171. Suffix codes in column headers — '(A)' = Actuals, '(RE)' = Revised Estimates, '(BE)' = Budget Estimates — are stripped at parse time but the underlying revision tier should be considered when comparing FY24/FY25 with earlier years.",
     "icon": "trending-up",
     "attribution_geography": "where_resident",

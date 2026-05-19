@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/v1/co-emission-metatable-data",
@@ -22,12 +22,14 @@
     "id": "environment/state_power_sector_co2_emissions_mtco2",
     "title": "State CO₂ emissions from power generation (MtCO₂/yr)",
     "description": "Per-state CO₂ emissions from electricity generation, faceted by fuel source (coal vs oil-gas — only fossil-fired generation is in the upstream dataset). Aggregated from plant-unit-level ICED data (~280 plants × ~18 fiscal years × {coal, oil-gas}) summed to state × year × source. Million tonnes of CO₂ per year. FY09–FY26 coverage; the most recent two FYs are preliminary.",
+    "description_short": "CO₂ emissions from electricity generation in each state, in million tonnes per year. Reflects state-level generation fuel mix (coal-heavy states emit more) and total throughput.",
     "entity_kind": "state",
     "time_grain": "fiscal_year",
     "value_kind": "raw",
     "direction": "lower_is_better",
     "scale_hint": "linear",
     "unit": "Mt CO2",
+    "short_unit": "Mt CO₂",
     "icon": "cloud",
     "attribution_geography": "where_produced",
     "comparability": "comparable_with_normalisation",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/per-capita-income",
@@ -22,8 +22,10 @@
     "id": "economy/state_per_capita_nsdp_constant_2011_12_inr",
     "title": "State per-capita NSDP, inflation-adjusted (₹ per person per year)",
     "description": "Net State Domestic Product per person at constant 2011-12 prices. This is the inflation-adjusted measure of state income — the only honest way to ask 'is my state catching up or falling behind' across years. The current-price companion indicator (state_per_capita_nsdp_current_inr) gives the same data without inflation adjustment, useful only for comparing states within a single year.",
+    "description_short": "Net State Domestic Product per person per year, in ₹ at constant 2011-12 prices. Inflation-adjusted; comparable across years. The headline 'is this state getting richer in real terms' indicator.",
     "scale_hint": "linear",
     "unit": "INR",
+    "short_unit": "₹",
     "denominator": {
       "what": "state mid-year population (MoSPI / RGI)",
       "price_basis": "constant",

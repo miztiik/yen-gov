@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
@@ -24,12 +24,14 @@
     "id": "energy/state_per_capita_electricity_consumption_kwh",
     "title": "State per-capita electricity consumption",
     "description": "Electricity consumption per person per year, in kilowatt-hours. Sourced from NITI Aayog ICED dashboard (state-wise deep-dive). A widely-used proxy for energy access AND industrial intensity — a high value can mean either many electrified homes or a heavy-industry economy, so it must be read alongside per-capita income.",
+    "description_short": "Electricity consumption per person per year, in kilowatt-hours. A proxy for both energy access (electrified homes) AND industrial intensity (heavy-industry load) — read alongside per-capita income to disambiguate.",
     "entity_kind": "state",
     "time_grain": "fiscal_year",
     "value_kind": "rate",
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "kWh per person per year",
+    "short_unit": "kWh/cap",
     "icon": "zap",
     "attribution_geography": "where_consumed",
     "comparability": "comparable_across_states",

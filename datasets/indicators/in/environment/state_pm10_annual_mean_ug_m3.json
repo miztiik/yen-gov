@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/climate-environment/environment/air-quality/aqi-map-markers",
@@ -32,6 +32,7 @@
     "direction": "lower_is_better",
     "scale_hint": "linear",
     "unit": "µg/m³",
+    "short_unit": "µg/m³",
     "icon": "wind",
     "notes": "Method: per (state, year), unweighted arithmetic mean of CPCB station-year annual means; null station-years dropped (not coerced to zero). PM10 includes the PM2.5 fraction by definition; the extra mass between PM2.5 and PM10 in India is dominated by road dust, construction activity, and seasonal crop-residue burning, so PM10 runs much higher than PM2.5 in dry/dusty regions even where combustion sources are modest. The CPCB monitor network is urban-biased and uneven, so cross-state ranking from this number is dishonest; read the chart as 'direction of change within a state', not a leaderboard. ICED is a re-publisher; the underlying station-year file is CPCB's NAMP — both URLs appear in `sources`.",
     "attribution_geography": "where_consumed",

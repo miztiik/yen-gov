@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/138T_111220252D21BC51E5A842E4B25E954391C10A41.XLSX",
@@ -36,6 +36,7 @@
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "kWh per person per year",
+    "short_unit": "kWh/cap",
     "icon": "zap",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

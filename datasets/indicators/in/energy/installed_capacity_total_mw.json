@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://cea.nic.in/installed-capacity-report/?lang=en",
@@ -22,12 +22,14 @@
     "id": "energy/installed_capacity_total_mw",
     "title": "Installed power-generation capacity (all fuels)",
     "description": "Total nameplate generation capacity physically located in (or allocated to) each state, in megawatts, from CEA's monthly Installed Capacity report. Sum of thermal + nuclear + hydro + renewable across all ownership tiers (state, private, central, and allocated shares from joint / central-sector utilities). Read this as 'how much grid-connected generation gets billed to this state', not 'how much electricity citizens here consume' — a state can have large central-sector plants whose output flows to the regional grid.",
+    "description_short": "All-India installed power generation capacity (every fuel: coal, gas, hydro, nuclear, wind, solar, biomass, diesel), in MW. The headline 'how much power can India theoretically produce' number; actuals depend on plant load factor.",
     "entity_kind": "state",
     "time_grain": "month",
     "value_kind": "raw",
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "MW",
+    "short_unit": "MW",
     "icon": "zap",
     "attribution_geography": "where_allocated",
     "comparability": "comparable_with_normalisation",

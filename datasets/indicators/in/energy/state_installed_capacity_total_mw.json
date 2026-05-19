@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/140T_111220254D8DA0B69B444492B6E9BAF30F3395C8.XLSX",
@@ -30,12 +30,14 @@
     "id": "energy/state_installed_capacity_total_mw",
     "title": "State-wise installed capacity of power (MW)",
     "description": "Total installed electricity-generation capacity located in the state (MW), end-of-fiscal-year. Aggregate of all fuel sources (coal, gas, diesel, nuclear, hydro, renewable). For the state × source breakdown RBI's Handbook does not publish — see CEA monthly Executive Summary for that. This RBI series gives the deepest continuous all-source total: 21 fiscal years (FY05 → FY25) versus 10 years from the ICED-derived sibling `energy/state_installed_capacity_geographical_mw`. Prefer this RBI series for long-history charts; ICED for the most recent year's sub-aggregates.",
+    "description_short": "Total installed electricity generation capacity sited in each state, in MW. Allocation of central-sector plants is NOT included here — see the 'with allocation' variant for the share each state can draw from.",
     "entity_kind": "state",
     "time_grain": "fiscal_year",
     "value_kind": "raw",
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "MW",
+    "short_unit": "MW",
     "icon": "zap",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

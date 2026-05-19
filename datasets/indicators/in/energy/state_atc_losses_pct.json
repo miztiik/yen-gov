@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
@@ -22,12 +22,14 @@
     "id": "energy/state_atc_losses_pct",
     "title": "Aggregate Technical & Commercial losses (%, by state)",
     "description": "Combined technical losses (transmission + distribution heat and ageing-equipment losses) and commercial losses (theft + billing/collection inefficiencies) as a percentage of total energy input to the distribution system. The headline measure of distribution-utility operational health: lower is better.",
+    "description_short": "Aggregate Technical & Commercial losses, as a percentage of energy input to a state's distribution network. Combines line losses, theft, and uncollected billing. Lower is better; flagship indicator of discom health.",
     "entity_kind": "state",
     "time_grain": "fiscal_year",
     "value_kind": "share",
     "direction": "lower_is_better",
     "scale_hint": "linear",
     "unit": "%",
+    "short_unit": "%",
     "icon": "trending-down",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

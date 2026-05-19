@@ -23,6 +23,7 @@
     formatValue,
     type IndicatorArtifact,
   } from "./indicators";
+  import { legendCaption } from "./indicator-render";
   import { STATE_NAME_TO_ECI } from "./maplibre/sources";
 
   interface Props {
@@ -139,10 +140,15 @@
   {:else}
     <header class="px-4 pt-4 pb-3 border-b border-slate-100 space-y-2">
       <div class="flex justify-between items-baseline gap-3 flex-wrap">
-        <h3 class="text-base font-semibold">
-          {artifact.indicator.title}
-          <span class="text-xs font-normal text-slate-500">· small multiples</span>
-        </h3>
+        <div class="min-w-0">
+          <h3 class="text-base font-semibold">
+            {artifact.indicator.title}
+            <span class="text-xs font-normal text-slate-500">· small multiples</span>
+          </h3>
+          {#if artifact.indicator.description || artifact.indicator.description_short}
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-testid="indicator-caption">{legendCaption(artifact.indicator)}</p>
+          {/if}
+        </div>
         {#if all_times.length > 1}
           <div class="text-xs text-slate-500 tabular-nums">
             {all_times[0]} → {all_times[all_times.length - 1]}

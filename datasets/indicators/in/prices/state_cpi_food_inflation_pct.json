@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/109T_111220250E067E49350B48659E5A50C3D357BB46.XLSX",
@@ -30,12 +30,14 @@
     "id": "prices/state_cpi_food_inflation_pct",
     "title": "State-wise CPI inflation (Food and Beverages)",
     "description": "State-wise CPI inflation in the Food and Beverages sub-basket — the single biggest household expenditure category (~46% of CPI-Combined). Food inflation is what citizens actually feel; it is also the most monsoon- and global-commodity-shock-driven sub-index, so swings here are largely supply-side, not policy-attributable.",
+    "description_short": "State CPI Food & Beverages year-on-year inflation, in percent. The most volatile component of household inflation; matters disproportionately to lower-income households where food is a large share of spending.",
     "entity_kind": "state",
     "time_grain": "fiscal_year",
     "value_kind": "rate",
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "% YoY",
+    "short_unit": "% YoY",
     "icon": "trending-up",
     "attribution_geography": "where_resident",
     "comparability": "comparable_with_normalisation",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/2T_11122025382C4BD8859E47A2B510B8A332E7A589.XLSX",
@@ -30,12 +30,14 @@
     "id": "health/state_birth_rate_per_1000",
     "title": "Crude Birth Rate (per 1,000 population)",
     "description": "Crude Birth Rate — number of live births per 1,000 mid-year population, calendar-year. Sourced via SRS (Sample Registration System), Office of the Registrar General of India. Trending downward across all states (India's demographic transition); compare with TFR for the policy-relevant fertility lens. NEUTRAL direction — neither high nor low is intrinsically 'good' (high CBR may reflect poverty + low female agency; very low CBR plus long life expectancy = ageing-population fiscal stress).",
+    "description_short": "Live births per 1,000 population per year (crude birth rate). Falls as fertility transitions complete; combines with declining death rate to flatten population growth.",
     "entity_kind": "state",
     "time_grain": "year",
     "value_kind": "rate",
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "per 1,000 population",
+    "short_unit": "/1k",
     "icon": "trending-up",
     "attribution_geography": "where_resident",
     "comparability": "comparable_with_normalisation",

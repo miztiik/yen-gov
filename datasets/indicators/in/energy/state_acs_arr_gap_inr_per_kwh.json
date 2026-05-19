@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
@@ -22,12 +22,14 @@
     "id": "energy/state_acs_arr_gap_inr_per_kwh",
     "title": "ACS-ARR gap on electricity sales (Rs/kWh, by state)",
     "description": "Average Cost of Supply minus Average Revenue Realised, per unit of electricity sold. Positive = the utility loses money on every unit it sells (cost > revenue). Negative = surplus. Zero is the policy goal under UDAY/RDSS — utilities should neither subsidise consumption nor extract rent.",
+    "description_short": "Gap between Average Cost of Supply and Average Revenue Realised on each unit of electricity, in ₹/kWh. The structural loss per unit; positive means the discom loses money on every kWh sold. Lower is better.",
     "entity_kind": "state",
     "time_grain": "fiscal_year",
     "value_kind": "currency",
     "direction": "lower_is_better",
     "scale_hint": "linear",
     "unit": "INR/kWh",
+    "short_unit": "₹/kWh",
     "icon": "dollar-sign",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/climate-environment/environment/air-quality/fgd",
@@ -32,6 +32,7 @@
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "%",
+    "short_unit": "%",
     "icon": "factory",
     "notes": "Snapshot. The MoEF&CC's December 2015 notification mandated FGD installation at coal/lignite thermal plants by 2017; the deadline has been extended repeatedly (currently 2027 for many categories). States not appearing in this map have no major coal thermal capacity in the CEA tracker. ICED is a re-publisher of the CEA tracker; the underlying status list is maintained by CEA against the MoEF&CC notification — both URLs appear in `sources`.",
     "attribution_geography": "where_produced",

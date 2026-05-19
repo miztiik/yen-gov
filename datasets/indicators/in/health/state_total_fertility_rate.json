@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/6T_11122025339F4339AA23421F863E7B21428C8460.XLSX",
@@ -30,12 +30,14 @@
     "id": "health/state_total_fertility_rate",
     "title": "Total Fertility Rate (children per woman)",
     "description": "Total Fertility Rate — average number of children a woman would bear over her lifetime at current age-specific fertility rates. Replacement level is conventionally 2.1; India's national TFR fell below replacement around 2020. Below-replacement TFR has direct downstream consequences for school-age population, working-age share, dependency ratio, and long-run fiscal pension sustainability — relevant context for `fiscal/state_pension_expenditure_inr_crore`.",
+    "description_short": "Average number of children a woman would bear over her lifetime at current age-specific fertility rates. 2.1 is replacement level; most Indian states are now below it, several below 1.7.",
     "entity_kind": "state",
     "time_grain": "year",
     "value_kind": "rate",
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "births per woman (lifetime)",
+    "short_unit": "births/♀",
     "icon": "trending-up",
     "attribution_geography": "where_resident",
     "comparability": "comparable_with_normalisation",

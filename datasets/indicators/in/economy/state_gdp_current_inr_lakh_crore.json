@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
@@ -24,12 +24,14 @@
     "id": "economy/state_gdp_current_inr_lakh_crore",
     "title": "State GDP (current prices)",
     "description": "Gross Domestic Product of the state at current (nominal) prices, in Lakh Crore Rupees. The 'sticker' value of all goods and services produced in the state — useful for tax-base sizing, but inflation-distorted across years.",
+    "description_short": "Gross State Domestic Product at current prices, in ₹ lakh crore. The size of each state's economy in today's rupees. Not inflation-adjusted — for comparability across years, use the constant-price series.",
     "entity_kind": "state",
     "time_grain": "fiscal_year",
     "value_kind": "currency",
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "INR (lakh crore)",
+    "short_unit": "₹L cr",
     "icon": "trending-up",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

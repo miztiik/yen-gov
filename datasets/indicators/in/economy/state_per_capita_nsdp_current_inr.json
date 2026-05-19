@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://iced.niti.gov.in/analytics/state-wise-deep-dive",
@@ -24,8 +24,10 @@
     "id": "economy/state_per_capita_nsdp_current_inr",
     "title": "State per-capita Net State Domestic Product (current prices)",
     "description": "Net State Domestic Product (NSDP) per person, in current prices. Sourced from NITI Aayog ICED dashboard (state-wise deep-dive), originally compiled by MoSPI from State DES estimates. Per-capita NSDP is the standard income comparator across states; constant-price series strips out inflation for real growth comparisons.",
+    "description_short": "Net State Domestic Product per person per year, in ₹ (current prices). A rough income proxy. Not inflation-adjusted — use the constant-price per-capita series to compare across years.",
     "scale_hint": "linear",
     "unit": "INR",
+    "short_unit": "₹",
     "denominator": {
       "what": "state mid-year population (MoSPI / RGI)",
       "price_basis": "current",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://sansad.in/rs/questions/questions-and-answers",
@@ -24,12 +24,14 @@
     "id": "fiscal/state_revenue_expenditure_inr_crore",
     "title": "States' revenue expenditure",
     "description": "Total revenue (current) expenditure by the State Government — salaries, pensions, interest, subsidies, scheme outlays, grants to local bodies. From Rajya Sabha Session 260 Unstarred Q1323 (1 Aug 2023), Col. (8).",
+    "description_short": "State government revenue-account expenditure — salaries, pensions, interest, subsidies, grants — in ₹ crore. Excludes capital spending (assets, construction). Larger states have larger bills; compare as % of GSDP for size-fairness.",
     "entity_kind": "state",
     "time_grain": "fiscal_year",
     "value_kind": "currency",
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "INR (crore)",
+    "short_unit": "₹cr",
     "icon": "landmark",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

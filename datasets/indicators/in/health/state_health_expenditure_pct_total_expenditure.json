@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/27_ST23012026CC86B1004D0246F9A46EE80264885103.XLSX",
@@ -32,6 +32,7 @@
     "direction": "higher_is_better",
     "scale_hint": "linear",
     "unit": "% of state total expenditure",
+    "short_unit": "%",
     "icon": "heart-pulse",
     "attribution_geography": "where_administered",
     "comparability": "comparable_across_states_and_time",

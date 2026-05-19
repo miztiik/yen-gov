@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/indicator.schema.json",
   "title": "Indicator (long-form fact table)",
   "description": "A single socio-economic, demographic, infrastructure, or fiscal indicator stored as long-form rows: (entity_kind, entity_id, time, value, unit, ...). Joined to geometry at view time via the existing identifier conventions (ECI state codes, LGD district codes). Indicators carry semantic hints (`value_kind`, `direction`) so the frontend's generic chart components can render them without per-indicator code.",
-  "x-version": "4.3",
+  "x-version": "4.4",
   "x-changelog": [
     {
       "version": "1.0",
@@ -68,6 +68,11 @@
       "version": "4.3",
       "date": "2026-05-17",
       "description": "Additive (Phase 1 step 4 of TODO/20260517-iced-bulk-ingest-and-parity-oracle.md): two generalisations that unblock composite indicators (`discom_health`, `re_potential`, `coal_consumption`) without per-composite unicorns. (a) Optional top-level `indicator.sub_metrics[]` registry — each item declares one distinct measurable quantity that shares the (entity, time) axis with the others: `{id, label, unit, value_kind?, direction?, description?}`. The existing `rows[].facet` field carries the sub_metric id when faceting represents 'which quantity is this', not 'which slice of one quantity'. (b) Optional `rows[].unit` override of the indicator-level `unit` — when present, takes precedence for THIS row's formatter selection. Without it, a composite carrying loss-percent and tariff-rupees on the same axis would have to pick a single misleading indicator-level unit. Both fields are GENERAL: any indicator may use them; nothing is composite-specific. NO contraction phase planned — `sub_metrics[]` is opt-in metadata, `rows[].unit` is opt-in row-level override; existing 110 indicator artifacts that omit both remain valid. The 110 artifacts are mechanically bumped to `$schema_version: 4.3` via `tools/bump_indicator_schema_to_current.py`; their content is unchanged because both new fields are optional. The paired TypeScript types (`IndicatorMeta.sub_metrics`, `IndicatorRow.unit`) in `frontend/src/lib/indicators.ts` are widened in the same Tier-A commit per /memories/lessons.md 2026-05-17 #1."
+    },
+    {
+      "version": "4.4",
+      "date": "2026-05-19",
+      "description": "Additive (Phase 1 row 1.10, PR-T proto-ontology bootstrap — Hans + Max + Jony 2026-05-18; Q1/Q2/Q3 amendments Hans + Max 2026-05-19): 8 new optional fields on the `indicator` block that establish the OWID-floor grounding metadata Phase 4 SLM will consume. (a) `description_short` (≤280 chars, citizen-readable, Plain-Facts style — used by chart wrapper as legend caption; NULL-able at schema layer per OWID `MetadataValidator` precedent; enforcement lives at the per-family PR-template gate, not at the schema layer). (b) `description_long` (multi-para markdown methodology — numerator / denominator / scope / known breaks; distinct from `description` and `methodology.definition`). (c) `short_unit` (tight glyph form of `unit` for chart Y-axis, e.g. `%` for unit=`percent`, `₹cr` for unit=`INR crore`; fallback to full `unit` when absent). (d) `derivation_note` (one sentence naming numerator + denominator when this indicator is itself derived from raw upstream indicators). (e) `source_ref[]` (catalogue-level FK array into `taxonomy/sources.parquet` per CLAUDE.md §12; distinct from per-observation `source_id` which is unchanged). (f) `valid_period_grain` enum (`year`/`fiscal_year`/`election_date` — semantic publisher-intent grain; distinct from `time_grain` which is stamp resolution and `cadence` which is release rhythm; used by Phase 4 SLM to refuse cross-grain comparisons). (g) `valid_entity_grain` enum (`country`/`state`/`district`/`ac`/`pc` — methodologically-valid level; PLFS state-level indicators declare `state` so SLM refuses roll-up to country / drill-down to district). (h) `is_input_output_outcome` enum (`input`/`output`/`outcome` — governance pyramid classification; disambiguates MGNREGA-disbursed vs rural-wage-real). All 8 fields OPTIONAL — existing 110 v4.3 artifacts remain valid. Backfill in same PR: hand-author `description_short` on top-30 citizen-facing indicators (Hans owns wording); mechanical `short_unit` on numeric indicators; tail of ~80 backstage indicators backfill per-family during Phase 2/3 as adapter author is reading methodology. NO auto-stub mechanism for `description_short` — tautological stubs like `{title} ({unit})` look authoritative on a chart legend but are factually empty and poison downstream LLM grounding (forbidden per CLAUDE.md §5 + Rosling Single-perspective instinct). Per-family PR-template gate: every NEW indicator artifact authored in a per-family PR MUST populate `description_short`. The paired TypeScript widening of `IndicatorMeta` in `frontend/src/lib/indicators.ts` lands in the same Tier-A commit per /memories/lessons.md 2026-05-17 #1. Citizen surface (Jony, same PR): chart wrapper reads `indicator.short_unit` for Y-axis label and `indicator.description_short` for one-line legend caption (both visible at page load, NOT behind tooltip/expander/modal); fallback chain is `short_unit → unit` and `description_short → title`. Explicitly out of scope for v4.4: RDF/JSON-LD, SKOS, embedding vectors, `synonyms[]`, `related_indicators[]` (kept for back-compat on `methodology.related_indicators` only — no NEW occurrences anywhere), separate concepts file, methodology modals/drawers. See `TODO/20260517-canonical-long-format-pivot.md` row 1.10 for full rationale and rejected alternatives (Q1: `lifespan: {from,to}` rejected — OWID uses flat ints and yen-gov already has `entity_valid_from/to`; Q2: party-schema `_of` → `_party_id` rename ships in companion commit; Q3: `description_short` stays optional, not required, per OWID grapher precedent)."
     }
   ],
   "type": "object",
@@ -338,6 +343,43 @@
               }
             }
           }
+        },
+        "description_short": {
+          "type": "string",
+          "maxLength": 280,
+          "description": "Optional v4.4 (Hans + Max, row 1.10): one-line citizen-readable description (≤280 chars), Plain-Facts style. Used by the chart wrapper as the legend caption (visible at page load, NOT behind tooltip/expander/modal). Falls back to `indicator.title` when absent. NULL-able at schema layer per OWID `MetadataValidator` precedent; enforcement lives at the per-family PR-template gate, NOT at the schema layer. Backfill in PR-T covers the top-30 citizen-facing indicators; tail of ~80 backstage indicators fills per-family during Phase 2/3. NO auto-stub mechanism — tautological stubs like `{title} ({unit})` look authoritative on a chart legend but are factually empty (forbidden per CLAUDE.md §5 + Rosling Single-perspective instinct)."
+        },
+        "description_long": {
+          "type": "string",
+          "description": "Optional v4.4 (Hans + Max, row 1.10): multi-paragraph markdown methodology — numerator / denominator / scope / known breaks. Distinct from `description` (one-paragraph definition) and `methodology.definition` (one-paragraph plain-English definition): this field is the long-form scholarly write-up for indicators that warrant it. Renderer surfaces it in the methodology drawer when present; absent for indicators that don't need it. NOT a band-aid for missing `methodology.*` fields — fill those first."
+        },
+        "short_unit": {
+          "type": "string",
+          "description": "Optional v4.4 (Hans + Max, row 1.10): tight glyph form of `unit` for use as a chart Y-axis label where horizontal space is tight (e.g. `%` for unit=`percent`, `₹cr` for unit=`INR crore`, `MW` for unit=`MW`, `t/yr` for unit=`tonnes per year`). When absent, the chart wrapper falls back to the full `unit` string. Mechanical to populate — no editorial judgement required."
+        },
+        "derivation_note": {
+          "type": "string",
+          "description": "Optional v4.4 (Hans + Max, row 1.10): one sentence naming the numerator and denominator (or otherwise the derivation pipeline) when this indicator is itself derived from one or more raw upstream indicators (e.g. per-capita rates, growth rates, composites). Required-by-convention (not by JSON-Schema) for ratio indicators where the denominator drives the citizen-readable story. Example for a per-capita rate: 'Numerator: state electricity consumption (kWh, CEA Monthly Executive Summary). Denominator: state population (linear interpolation of Census 2011 + UIDAI 2024).' Surfaced in the chart's source card."
+        },
+        "source_ref": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Optional v4.4 (Hans + Max, row 1.10): catalogue-level FK array into `taxonomy/sources.parquet`. Each item is a `source_id` per CLAUDE.md §12. Distinct from the per-observation `source_id` (which already lives on every observation row in the canonical store): this field lists the catalogue-level sources that fed THIS indicator's curation (methodology PDF, definition note, peer-reviewed paper that established the measurement). Renderer surfaces these in the source card alongside per-observation provenance. Per-observation provenance is unchanged."
+        },
+        "valid_period_grain": {
+          "enum": ["year", "fiscal_year", "election_date"],
+          "description": "Optional v4.4 (Hans + Max, row 1.10): semantic period grain — what the time stamp on each row MEANS at the publisher-intent layer. Distinct from `time_grain` (resolution of the time stamp string) and `cadence` (publisher's release rhythm): `valid_period_grain` is the policy / fiscal-year / election-cycle anchor that makes a YoY comparison meaningful. Examples: GSDP rows have `time_grain=year, cadence=annual_fy, valid_period_grain=fiscal_year` (FY 2024-25); ECI election results have `time_grain=year, cadence=ad_hoc, valid_period_grain=election_date` (one anchor per election). Used by the Phase 4 SLM grounding layer to refuse cross-grain comparisons that look valid syntactically but are nonsensical semantically (e.g. comparing an FY value to a CY value)."
+        },
+        "valid_entity_grain": {
+          "enum": ["country", "state", "district", "ac", "pc"],
+          "description": "Optional v4.4 (Hans + Max, row 1.10): semantic entity grain — the level at which this indicator's values are methodologically valid. Distinct from `entity_kind` (schema-shape of the entity_id on each row) and `min_grain` (TS-only frontend hint): `valid_entity_grain` is the publisher-intent layer. A PLFS state-level indicator declares `valid_entity_grain=state` so the Phase 4 SLM grounding layer refuses to roll it up to country (Simpson's paradox risk) or drill down to district (sample frame doesn't support it). Used as a hard rail by the SLM dispatcher."
+        },
+        "is_input_output_outcome": {
+          "enum": ["input", "output", "outcome"],
+          "description": "Optional v4.4 (Hans + Max, row 1.10): governance-pyramid classification — does this indicator measure an input (resource spent — e.g. MGNREGA budget disbursed), an output (immediate deliverable — e.g. person-days of work generated), or an outcome (citizen-life change — e.g. rural-wage-real)? Critical for honest reading: a citizen looking at 'MGNREGA performance' needs to know whether the chart shows money spent (input) or wages earned (outcome). Used by the chart wrapper to surface the classification next to the title (Plain-Facts framing) and by the Phase 4 SLM to disambiguate questions like 'is MGNREGA working?'"
         }
       }
     },

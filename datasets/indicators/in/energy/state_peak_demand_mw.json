@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/142T_111220252ABDAB650F53423F990E3EA91A0B5B5A.XLSX",
@@ -36,6 +36,7 @@
     "direction": "neutral",
     "scale_hint": "linear",
     "unit": "MW",
+    "short_unit": "MW",
     "icon": "zap",
     "attribution_geography": "where_administered",
     "comparability": "comparable_with_normalisation",

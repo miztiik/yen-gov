@@ -56,6 +56,7 @@
     buildTemporalCaption,
     type IndicatorArtifact,
   } from "./indicators";
+  import { axisUnitLabel, legendCaption } from "./indicator-render";
 
   interface Props {
     /** Path under DATA_BASE, e.g. "/indicators/in/energy/installed_mw_by_state.json". */
@@ -694,8 +695,8 @@
               </span>
             {/if}
           </h3>
-          {#if artifact.indicator.description}
-            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">{artifact.indicator.description}</p>
+          {#if artifact.indicator.description || artifact.indicator.description_short}
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-testid="indicator-caption">{legendCaption(artifact.indicator)}</p>
           {/if}
         </div>
       </div>
@@ -897,7 +898,7 @@
       <div>
         <div class="text-[10px] text-slate-500 uppercase tracking-wide mb-1 flex items-center gap-2 flex-wrap">
           <span>Legend</span>
-          <span class="text-slate-400 normal-case font-normal">{artifact.indicator.unit}</span>
+          <span class="text-slate-400 normal-case font-normal" data-testid="indicator-legend-unit">{axisUnitLabel(artifact.indicator)}</span>
           {#if methodology_summary}
             <!-- Phase 3 Jony edit §g — methodology context lives in the
                  legend, NOT on every polygon. The full text already renders

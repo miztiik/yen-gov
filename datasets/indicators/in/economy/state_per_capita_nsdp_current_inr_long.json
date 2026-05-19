@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/09T_2908202582956A1D380840F5870B18841EEEF815.XLSX",
@@ -32,6 +32,7 @@
     "description": "Per-capita Net State Domestic Product (current prices), 2000-01 -> 2024-25 (25 fiscal years), spliced across MoSPI's 1999-2000, 2004-05, and 2011-12 base years. Long-history sibling of `economy/state_per_capita_nsdp_current_inr` (which covers 2004-05 -> 2023-24 from ICED at the 2011-12 base only). Use this artifact when you need depth; use the ICED sibling when you need single-base purity.",
     "scale_hint": "linear",
     "unit": "INR",
+    "short_unit": "₹",
     "denominator": {
       "what": "state mid-year population (MoSPI / RGI)",
       "price_basis": "current",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://icedapi.niti.gov.in/climate-environment/environment/air-quality/aqi-map-markers",
@@ -26,12 +26,14 @@
     "id": "environment/state_no2_annual_mean_ug_m3",
     "title": "NO₂ — annual mean (state)",
     "description": "Annual mean concentration of nitrogen dioxide (NO₂) in micrograms per cubic metre, averaged across all CPCB monitoring stations in each state. NO₂ is a respiratory irritant produced by combustion — vehicle exhaust (especially diesel) and thermal-plant flue gas dominate. The WHO 2021 annual guideline is 10 µg/m³; India's national standard (NAAQS) is 40 µg/m³.",
+    "description_short": "Annual mean nitrogen dioxide (NO₂) concentration, in µg/m³, averaged across monitoring stations in each state. WHO guideline is 10 µg/m³ annual mean; the Indian standard is 40 µg/m³.",
     "entity_kind": "state",
     "time_grain": "year",
     "value_kind": "raw",
     "direction": "lower_is_better",
     "scale_hint": "linear",
     "unit": "µg/m³",
+    "short_unit": "µg/m³",
     "icon": "wind",
     "notes": "Method: per (state, year), unweighted arithmetic mean of CPCB station-year annual means; null station-years dropped (not coerced to zero). Sources of NO₂ are concentrated in metros and along highways — vehicle exhaust (especially diesel) and thermal-plant flue gas. The CPCB monitor network is urban-biased and uneven, so cross-state ranking from this number is dishonest; read the chart as 'direction of change within a state', not a leaderboard. The 2020 dip visible in many states reflects COVID lockdown traffic collapse — a real signal, but read with caution because the monitor coverage was also disrupted. ICED is a re-publisher; the underlying station-year file is CPCB's NAMP — both URLs appear in `sources`.",
     "attribution_geography": "where_consumed",

@@ -23,6 +23,7 @@
     formatValue,
     type IndicatorArtifact,
   } from "./indicators";
+  import { axisUnitLabel, legendCaption } from "./indicator-render";
   import { STATE_NAME_TO_ECI } from "./maplibre/sources";
 
   interface Props {
@@ -252,10 +253,15 @@
   {:else}
     <header class="px-4 pt-4 pb-3 border-b border-slate-100 space-y-2">
       <div class="flex justify-between items-baseline gap-3 flex-wrap">
-        <h3 class="text-base font-semibold">
-          {artifact.indicator.title}
-          <span class="text-xs font-normal text-slate-500">· ranked</span>
-        </h3>
+        <div class="min-w-0">
+          <h3 class="text-base font-semibold">
+            {artifact.indicator.title}
+            <span class="text-xs font-normal text-slate-500">· ranked</span>
+          </h3>
+          {#if artifact.indicator.description || artifact.indicator.description_short}
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-testid="indicator-caption">{legendCaption(artifact.indicator)}</p>
+          {/if}
+        </div>
         <div class="flex items-center gap-3 flex-wrap">
           {#if home_state && pinned_states === null}
             <div class="flex items-center gap-2">
@@ -327,7 +333,7 @@
           <tr class="border-b border-slate-100">
             {#if can_rank}<th class="text-right py-2 pl-3 pr-2 w-10">#</th>{/if}
             <th class="text-left py-2 pr-3">State</th>
-            <th class="text-right py-2 pr-3 w-28 tabular-nums">{artifact.indicator.unit ?? "Value"}</th>
+            <th class="text-right py-2 pr-3 w-28 tabular-nums" data-testid="indicator-legend-unit">{axisUnitLabel(artifact.indicator) || "Value"}</th>
             <th class="text-left py-2 pr-3 w-1/3">Distribution</th>
           </tr>
         </thead>

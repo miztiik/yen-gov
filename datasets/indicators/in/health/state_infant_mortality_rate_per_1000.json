@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/indicator.schema.json",
-  "$schema_version": "4.3",
+  "$schema_version": "4.4",
   "sources": [
     {
       "url": "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/4T_11122025025F203A250E46CAB963946C776ADBAF.XLSX",
@@ -30,12 +30,14 @@
     "id": "health/state_infant_mortality_rate_per_1000",
     "title": "Infant Mortality Rate (per 1,000 live births)",
     "description": "Infant Mortality Rate — deaths of children under one year of age per 1,000 live births, calendar-year. The single most cited summary of a state's public-health performance, because it integrates antenatal care, institutional delivery quality, neonatal nutrition, and immunisation coverage. India's IMR has fallen from ~58 in 2004 to under 30 in 2023, but the inter-state spread is still wide (Kerala under 7; MP/UP near 30).",
+    "description_short": "Deaths of infants under one year, per 1,000 live births in each state. The classic public-health outcome indicator: combines maternal health, nutrition, sanitation, and access to care. Lower is better.",
     "entity_kind": "state",
     "time_grain": "year",
     "value_kind": "rate",
     "direction": "lower_is_better",
     "scale_hint": "linear",
     "unit": "per 1,000 live births",
+    "short_unit": "/1k LB",
     "icon": "trending-up",
     "attribution_geography": "where_resident",
     "comparability": "comparable_with_normalisation",
