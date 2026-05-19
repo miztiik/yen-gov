@@ -43,10 +43,13 @@ def parties_doc() -> dict:
     return snapshot.body_payload()
 
 
-def _constituency(eci_no: int, name: str, winner_party_short: str, winner_party_code: str) -> dict:
-    """Build one ConstituencyResult dict with 5 candidates + NOTA + winner.
+def _constituency_model(eci_no: int, name: str, winner_party_short: str, winner_party_code: str) -> ConstituencyResult:
+    """Build one ConstituencyResult model with 5 candidates + NOTA + winner.
 
-    Deterministic: same args produce identical dicts each call.
+    Deterministic: same args produce identical models each call. Internal —
+    callers that want the dict form use :func:`_constituency`; callers that
+    want the model layer (canonical-envelope tests) use
+    :func:`constituency_models`.
     """
     # Vote totals chosen so vote_share_pct values are clean decimals and
     # the winner / runner-up margin is large enough to be unambiguous.
@@ -73,7 +76,7 @@ def _constituency(eci_no: int, name: str, winner_party_short: str, winner_party_
             party_short="IND", votes=1_000, vote_share_pct=1.0, is_winner=False,
         ),
     ]
-    cr = ConstituencyResult(
+    return ConstituencyResult(
         sources=[SourceRef(url=f"https://example.invalid/ac/{eci_no}", fetched_at="2026-05-19T00:00:00Z")],
         election="AcGenMay2026",
         state="S22",
@@ -91,7 +94,14 @@ def _constituency(eci_no: int, name: str, winner_party_short: str, winner_party_
             margin_votes=35_000, margin_pct=35.0,
         ),
     )
-    return cr.body_payload()
+
+
+def _constituency(eci_no: int, name: str, winner_party_short: str, winner_party_code: str) -> dict:
+    """Build one ConstituencyResult dict with 5 candidates + NOTA + winner.
+
+    Deterministic: same args produce identical dicts each call.
+    """
+    return _constituency_model(eci_no, name, winner_party_short, winner_party_code).body_payload()
 
 
 def constituencies() -> list[dict]:
@@ -101,3 +111,19 @@ def constituencies() -> list[dict]:
         _constituency(eci_no=2, name="AC Two", winner_party_short="AIADMK", winner_party_code="0136"),
         _constituency(eci_no=3, name="AC Three", winner_party_short="DMK", winner_party_code="0143"),
     ]
+
+
+def constituency_models() -> list[ConstituencyResult]:
+    """A 3-AC slice of ConstituencyResult MODELS (not dicts).
+
+    Same data as :func:`constituencies` but in the pydantic layer — used by
+    canonical-envelope tests that need to drive
+    ``yen_gov.pipeline.canonical_eci_backfill.build_slice_envelope`` directly
+    without round-tripping through ``body_payload()`` + ``model_validate``.
+    """
+    return [
+        _constituency_model(eci_no=1, name="AC One", winner_party_short="DMK", winner_party_code="0143"),
+        _constituency_model(eci_no=2, name="AC Two", winner_party_short="AIADMK", winner_party_code="0136"),
+        _constituency_model(eci_no=3, name="AC Three", winner_party_short="DMK", winner_party_code="0143"),
+    ]
+
