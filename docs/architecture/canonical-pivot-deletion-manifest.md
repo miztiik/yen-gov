@@ -1,6 +1,6 @@
 # Canonical-pivot deletion manifest
 
-**Last Updated**: 2026-05-18
+**Last Updated**: 2026-05-19
 **Status**: Phase 0 step 0.0 deliverable — doc-only. **No deletions in this PR.** Lists every file / module / concept the canonical long-format pivot retires, the phase in which retirement happens, and the replacement that supersedes it.
 **Owner**: Fowler (engineering craft / deletion discipline).
 **Companion**: [Migration ledger](canonical-pivot-migration-ledger.md) — covers the 137 pre-pivot **data artifacts** (110 indicators + 27 elections); this manifest covers files / modules / concepts.
@@ -135,7 +135,8 @@ The §6c "5-day local observation" deletion gate is therefore moot. The actual c
 
 | THE PLAN row | Target paths | Replacement | Gate before delete | Status |
 | --- | --- | --- | --- | --- |
-| 1.8b (PR-O) | `datasets/elections/<event>/<state>/parties.json`, `result.summary.json`, `_inventory.json` | `dim_parties.parquet` + `dim_party_alliances.parquet` + party-totals observations (PRs G/H/I) | `git grep` shows zero live readers in `frontend/src` and `admin/src`; backend pytest + frontend vitest green | pending |
+| 1.8b (PR-O) | `datasets/elections/<event>/<state>/parties.json`, `result.summary.json`, `_inventory.json` | `dim_parties.parquet` + `dim_party_alliances.parquet` + party-totals observations (PRs G/H/I) | `git grep` shows zero live readers in `frontend/src` and `admin/src`; backend pytest + frontend vitest green | superseded by 1.8b-ii |
+| 1.8b-ii (PR-O.4) | `datasets/elections/<event>/<state>/parties.json` + `result.summary.json` (110 files: 55 events x 2; per-state `_inventory.json` never existed on disk — root `datasets/elections/_inventory.json` preserved, owned by people_ingest) | canonical Parquet (`election_results.parquet`, `dim_parties.parquet`, `dim_party_alliances.parquet`) already shipped (PRs G/H/I/J/L); regression test `backend/tests/test_no_legacy_json_emit.py` blocks reintroduction | zero live readers across `frontend/src` / `admin/src` / `backend/yen_gov/pipeline/`; deploy smoke step rerouted to `election_results.parquet`; backend pytest + frontend vitest green | **completed** 2026-05-19 |
 | 1.8c (PR-P) | `datasets/elections/<event>/<state>/results/<ac>.json` (~7,254 files) | `observations.parquet` + `dim_candidates.parquet` + `dim_acs.parquet` consumed via `loadConstituencyResult` (PR-E) | extended-routes Playwright green after deletion for TN + KL + WB sample ACs | pending |
 | 1.8d (PR-Q) | `datasets/events/in/eci/`, `datasets/taxonomy/delimitation_lineage.json`, `datasets/taxonomy/facet-axes.json` | `taxonomy/entities.parquet` event rows; `taxonomy/*.parquet` siblings | git-grep + frontend/backend test pass | pending |
 | 1.8e (PR-R) | `datasets/elections/<event>/<state>/results.sqlite` (41 files) | DuckDB-WASM views (or retirement of `/psephlab` Compare/Psephlab routes) | psephlab Compare/Psephlab migrated off `frontend/src/lib/sql.ts` / `getDb` OR routes retired | **deferred** (blocker) |

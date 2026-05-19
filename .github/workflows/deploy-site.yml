@@ -85,12 +85,14 @@ jobs:
       - name: stage Pages artifact (ADR-0013)
         # The bundle that ships: frontend/dist/ + datasets/ mounted at
         # /data/. The sanity check enforces the dev-time middleware
-        # contract (frontend/data-loading.md) at deploy time.
+        # contract (frontend/data-loading.md) at deploy time. Target is
+        # the canonical store (election_results.parquet) — the legacy
+        # per-state JSON shards retired in PR-O.4 (TODO row 1.8b-ii).
         run: |
           mkdir -p _site
           cp -r frontend/dist/. _site/
           cp -r datasets _site/data
-          test -f _site/data/elections/AcGenMay2026/S22/result.summary.json
+          test -f _site/data/elections/election_results.parquet
 
       - uses: actions/configure-pages@v5
 
@@ -154,16 +156,20 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: smoke check (deployed result.summary.json)
-        # Round-trips the deployed bundle: fetch a known shard from the
-        # live URL and assert its shape. Defends the Pages MIME/Range
-        # contract that DuckDB-WASM depends on (see deployment.md).
+      - name: smoke check (deployed election_results.parquet)
+        # Round-trips the deployed bundle: fetch the canonical Parquet
+        # from the live URL and assert it is a real Parquet payload
+        # (PAR1 magic header at offset 0 + at offset -4). Defends the
+        # Pages MIME / Range-request contract that DuckDB-WASM depends
+        # on for the frontend reader (see deployment.md). The legacy
+        # per-state result.summary.json smoke target retired in PR-O.4
+        # (TODO row 1.8b-ii).
         run: |
           base="${{ steps.deployment.outputs.page_url }}"
-          url="${base}data/elections/AcGenMay2026/S22/result.summary.json"
+          url="${base}data/elections/election_results.parquet"
           for i in 1 2 3; do
-            if curl -fsSL "$url" -o /tmp/summary.json; then break; fi
+            if curl -fsSL "$url" -o /tmp/election_results.parquet; then break; fi
             sleep 10
           done
-          test -s /tmp/summary.json
-          python3 -c "import json; d=json.load(open('/tmp/summary.json')); assert d['state']=='S22', d"
+          test -s /tmp/election_results.parquet
+          python3 -c "p=open('/tmp/election_results.parquet','rb').read(); assert p[:4]==b'PAR1' and p[-4:]==b'PAR1', 'not a parquet file (missing PAR1 magic)'"

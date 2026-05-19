@@ -1,12 +1,14 @@
 # Backend `emit/` — CSV Bundle Emitter
 
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-19
 
-`backend/yen_gov/emit/csv_bundle.py` writes the per-state `results.csv` artifact next to each `result.summary.json`. CSV is a **derived secondary artifact** built from the same validated per-AC JSON records, intended as a researcher-facing bulk download (Tier 3 in [dataset-shapes.md](../../concepts/dataset-shapes.md)). It is **not a contract surface** — no JSON Schema, no `x-version`/`x-changelog`. Column order is documented inline in the module and versioned via the `LAYOUT_VERSION` integer constant.
+`backend/yen_gov/emit/csv_bundle.py` writes the per-state `results.csv` artifact at `datasets/elections/<event>/<state>/results.csv`. CSV is a **derived secondary artifact** built from the same validated per-AC JSON records (`results/<ac>.json`, row 1.8c / PR-P scope), intended as a researcher-facing bulk download (Tier 3 in [dataset-shapes.md](../../concepts/dataset-shapes.md)). It is **not a contract surface** — no JSON Schema, no `x-version`/`x-changelog`. Column order is documented inline in the module and versioned via the `LAYOUT_VERSION` integer constant.
+
+> The per-state `result.summary.json` sibling that historically sat in the same directory retired in PR-O.4 (TODO row `1.8b-ii`, 2026-05-19). The canonical Parquet at `datasets/elections/election_results.parquet` is now the single source of truth for state-level totals; this CSV emitter is unaffected.
 
 ## Decisions in one screen
 
-1. **One `.csv` per event/state.** Path: `datasets/elections/<event>/<state>/results.csv`. Mirrors the JSON and SQLite layouts exactly.
+1. **One `.csv` per event/state.** Path: `datasets/elections/<event>/<state>/results.csv`. Co-located with the per-AC `results/<ac>.json` shards and `results.sqlite` sibling (row 1.8c / PR-P scope).
 2. **Long format, one row per candidate.** NOTA gets its own row (`is_nota = 1`) at `rank = max_rank + 1` per AC. The collapsed `others` aggregate is intentionally NOT emitted — researchers who need the long tail re-ingest from the canonical JSON. The CSV is the top-N + NOTA view, matching the JSON contract surface exactly.
 3. **Derived, not a contract.** No JSON Schema. Layout changes bump `LAYOUT_VERSION` (currently `1`) and are noted in this doc.
 4. **Committed to git.** Same reasoning as the SQLite emitter ([ADR-0014](../decisions/0014-sqlite-emitter.md)): symmetric with JSON, byte-deterministic, small enough to track (~50–150 KB per state). The deploy step already does `cp -r datasets _site/data`.
