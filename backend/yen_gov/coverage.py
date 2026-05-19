@@ -28,6 +28,7 @@ from urllib.parse import urlparse
 CATALOGUE_REL = "datasets/reference/in/election-events.json"
 STATES_REL = "datasets/reference/in/states.json"
 ELECTIONS_REL = "datasets/elections"
+ELECTION_RESULTS_PARQUET_REL = "datasets/elections/election_results.parquet"
 INDICATORS_REL = "datasets/indicators/in"
 TOPIC_CATALOGUE_REL = "datasets/reference/in/topic-catalogue.json"
 INVENTORY_REL = "docs/reference/data-inventory.md"
@@ -140,8 +141,95 @@ class CoverageReport:
         return tuple(s for s in self.slices if s.on_disk and s.declared_status is None)
 
 
+def _election_slices_from_canonical(
+    root: Path,
+) -> dict[tuple[str, str], tuple[int, bool, bool]]:
+    """Return ``{(event_id, state_code): (ac_count, has_summary, has_parties)}``
+    derived from ``datasets/elections/election_results.parquet``.
+
+    Coverage was historically computed by walking
+    ``datasets/elections/<event>/<state>/`` for ``results/<n>.json`` +
+    ``result.summary.json`` + ``parties.json``. Under the canonical pivot
+    (TODO/20260517-canonical-long-format-pivot.md row 1.8b, PR-O.2-minimal)
+    the citizen-frontend reads only the canonical Parquet, so coverage now
+    reads the same source-of-truth. Mapping:
+
+    - ``ac_count``    : ``COUNT(DISTINCT entity_id)`` matching the AC entity
+      pattern ``^IN-<state>-AC-<delim>-<eci_no>$`` for this ``period_label``.
+    - ``has_summary`` : whether a state-rollup observation row exists at
+      ``entity_id = 'IN-<state>-<event_id>'`` (state-level rollups are the
+      canonical successor to ``result.summary.json``).
+    - ``has_parties`` : whether any party-rollup observation exists with
+      ``entity_id LIKE 'IN-<state>-PARTY-%'`` for this ``period_label``
+      (party rollups are the canonical successor to ``parties.json``).
+
+    Entity-id patterns are defined in
+    ``backend/yen_gov/canonical/adapters/eci/identity.py`` (see
+    ``ac_entity_id``, ``state_rollup_entity_id``, ``party_rollup_entity_id``).
+
+    If the Parquet file is absent (fresh repo, minimal test fixture) the
+    function returns an empty mapping, matching the prior "no files on
+    disk" behaviour.
+    """
+    parquet_path = root / ELECTION_RESULTS_PARQUET_REL
+    if not parquet_path.exists():
+        return {}
+
+    import duckdb
+
+    sql = """
+        WITH classified AS (
+            SELECT
+                period_label AS event_id,
+                regexp_extract(entity_id, '^IN-([SU][0-9]{2})', 1) AS state_code,
+                entity_id,
+                CASE
+                    WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-AC-[0-9]+-[0-9]+$')
+                        THEN 'ac'
+                    WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-PARTY-')
+                        THEN 'party'
+                    WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-[A-Za-z]+[A-Za-z0-9]*$')
+                        THEN 'state_rollup'
+                    ELSE 'other'
+                END AS kind
+            FROM read_parquet(?)
+        )
+        SELECT
+            event_id,
+            state_code,
+            COUNT(DISTINCT CASE WHEN kind = 'ac' THEN entity_id END)        AS ac_count,
+            COUNT(*) FILTER (WHERE kind = 'state_rollup') > 0                AS has_summary,
+            COUNT(*) FILTER (WHERE kind = 'party') > 0                       AS has_parties
+        FROM classified
+        WHERE state_code <> ''
+        GROUP BY event_id, state_code
+    """
+    conn = duckdb.connect(database=":memory:")
+    try:
+        rows = conn.execute(sql, [str(parquet_path)]).fetchall()
+    finally:
+        conn.close()
+
+    return {
+        (str(event_id), str(state_code)): (
+            int(ac_count or 0),
+            bool(has_summary),
+            bool(has_parties),
+        )
+        for event_id, state_code, ac_count, has_summary, has_parties in rows
+    }
+
+
 def compute_coverage(root: Path) -> CoverageReport:
-    """Walk the catalogue + ``datasets/elections/`` tree and return a unified view."""
+    """Reconcile the catalogue with the canonical election Parquet store.
+
+    Reads the declared catalogue at ``datasets/reference/in/election-events.json``
+    and the on-disk inventory from ``datasets/elections/election_results.parquet``
+    (canonical store, sole source of truth per TODO row 1.8b). The legacy
+    per-event/per-state JSON shards (``results/<n>.json``,
+    ``result.summary.json``, ``parties.json``) are no longer consulted here
+    even when present — they are awaiting deletion in PR-O-ii (row 1.8b-ii).
+    """
     catalogue_path = root / CATALOGUE_REL
     catalogue = json.loads(catalogue_path.read_text(encoding="utf-8"))
     declared: dict[tuple[str, str], dict] = {}
@@ -162,24 +250,7 @@ def compute_coverage(root: Path) -> CoverageReport:
             if code and kind:
                 state_kinds[code] = kind
 
-    elections_root = root / ELECTIONS_REL
-    on_disk: dict[tuple[str, str], tuple[int, bool, bool]] = {}
-    if elections_root.exists():
-        for event_dir in sorted(p for p in elections_root.iterdir() if p.is_dir()):
-            for state_dir in sorted(p for p in event_dir.iterdir() if p.is_dir()):
-                results_dir = state_dir / "results"
-                ac_count = (
-                    sum(1 for p in results_dir.iterdir() if p.suffix == ".json")
-                    if results_dir.exists()
-                    else 0
-                )
-                has_summary = (state_dir / "result.summary.json").exists()
-                has_parties = (state_dir / "parties.json").exists()
-                on_disk[(event_dir.name, state_dir.name)] = (
-                    ac_count,
-                    has_summary,
-                    has_parties,
-                )
+    on_disk = _election_slices_from_canonical(root)
 
     keys = sorted(set(declared) | set(on_disk))
     slices: list[SliceCoverage] = []

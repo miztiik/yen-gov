@@ -104,6 +104,33 @@ let dbPromise: Promise<duckdb.AsyncDuckDB> | null = null;
 let connPromise: Promise<duckdb.AsyncDuckDBConnection> | null = null;
 const registeredTables = new Set<string>();
 
+// One-shot warning latch for deprecated legacy paths. Surfaces in the
+// browser console the first time the loader sees a URL pointing at a
+// retired Parquet file (e.g. `elections/observations.parquet`, renamed
+// to `elections/election_results.parquet` in PR-O.1). PR-O.2-minimal
+// adds the surface; PR-O.3 deletes the legacy path entirely. Citizens
+// never see this; it exists to give downstream tooling / archived
+// embeds a single noisy hint instead of a silent 404 cascade.
+const LEGACY_PARQUET_PATTERNS: ReadonlyArray<{ marker: string; successor: string }> = [
+  {
+    marker: "elections/observations.parquet",
+    successor: "elections/election_results.parquet",
+  },
+];
+const warnedLegacyMarkers = new Set<string>();
+
+function warnIfLegacyPath(url: string): void {
+  for (const { marker, successor } of LEGACY_PARQUET_PATTERNS) {
+    if (!url.includes(marker) || warnedLegacyMarkers.has(marker)) continue;
+    warnedLegacyMarkers.add(marker);
+    // eslint-disable-next-line no-console
+    console.warn(
+      `[yen-gov] manifest resolved a deprecated path "${marker}". ` +
+        `Update consumers to "${successor}" — see datasets/CHANGELOG.md.`,
+    );
+  }
+}
+
 async function bootDB(): Promise<duckdb.AsyncDuckDB> {
   const bundle = await duckdb.selectBundle({
     mvp: { mainModule: duckdbMvpWasm, mainWorker: mvpWorker },
@@ -160,6 +187,7 @@ export async function registerTable(
   // reads. We DON'T pre-buffer the bytes — partitioned tables can be large
   // and DuckDB-WASM's read_parquet over HTTP is exactly the right path.
   for (const url of fileUrls(table)) {
+    warnIfLegacyPath(url);
     await db.registerFileURL(url, url, duckdb.DuckDBDataProtocol.HTTP, false);
   }
 
@@ -198,4 +226,5 @@ export function __resetForTests(): void {
   dbPromise = null;
   connPromise = null;
   registeredTables.clear();
+  warnedLegacyMarkers.clear();
 }

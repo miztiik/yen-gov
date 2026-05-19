@@ -21,12 +21,28 @@ export interface CanonicalTable {
   row_count_total?: number | null;
 }
 
+/**
+ * Informational record of a renamed/relocated artifact so external tooling
+ * and archived embeds can find the canonical successor. Hand-curated by
+ * the writer when an emit drops a known prior path; the loader/reader
+ * never consult this field (it is informational only).
+ *
+ * Surfaces in manifest v1.2+; absent on v1.0/v1.1 snapshots.
+ */
+export interface ManifestDeprecation {
+  old_path: string;             // POSIX relative under datasets/
+  new_path: string;             // MUST match an entry in tables[].files[].path
+  deprecated_at: string;        // ISO 8601 date (YYYY-MM-DD)
+  removed_at?: string | null;   // ISO 8601 date or null while the legacy file remains
+}
+
 export interface Manifest {
   $schema: string;
   $schema_version: string;
   manifest_version: string;
   generated_at: string; // RFC 3339 UTC
   tables: CanonicalTable[];
+  deprecations?: ManifestDeprecation[];
 }
 
 // Reader-side compatibility set. The reader fails loud on any
@@ -44,7 +60,7 @@ export const SUPPORTED_SCHEMA_VERSIONS: Record<string, ReadonlyArray<string>> = 
   "caveat.schema.json": ["1.0"],
   "methodology-break.schema.json": ["1.0"],
   "facet-axes.schema.json": ["1.0"],
-  "manifest.schema.json": ["1.0", "1.1"],
+  "manifest.schema.json": ["1.0", "1.1", "1.2"],
   "taxonomy-parties.schema.json": ["1.0"],
   "delimitation-lineage.schema.json": ["1.0"],
 };

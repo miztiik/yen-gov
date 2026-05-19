@@ -360,7 +360,27 @@ def test_manifest_schema_version_is_current(tmp_path: Path) -> None:
     write_batch(_envelope([_obs()]), tmp_path)
     manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["$schema_version"] == schema_version("manifest.schema.json")
-    assert manifest["$schema_version"] == "1.1"
+    assert manifest["$schema_version"] == "1.2"
+
+
+def test_manifest_carries_known_deprecations(tmp_path: Path) -> None:
+    """Writer stamps the ``_DEPRECATIONS`` ledger into ``manifest.json`` under
+    the ``deprecations[]`` array introduced in ``manifest.schema.json`` v1.2
+    (PR-O.2-minimal). The frontend loader (``frontend/src/lib/duckdb.ts``)
+    and ``datasets/CHANGELOG.md`` are the human-readable surfaces; this test
+    guards the machine-readable surface so an accidental drop of the field
+    from the writer fails Tier-A instead of silently shipping.
+    """
+    _seed_taxonomy(tmp_path)
+    write_batch(_envelope([_obs()]), tmp_path)
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    deprecations = manifest.get("deprecations", [])
+    assert any(
+        d.get("old_path") == "elections/observations.parquet"
+        and d.get("new_path") == "elections/election_results.parquet"
+        and d.get("deprecated_at") == "2026-05-18"
+        for d in deprecations
+    ), f"expected elections rename entry in deprecations[], got {deprecations!r}"
 
 
 def test_manifest_kind_for_taxonomy_table(tmp_path: Path) -> None:

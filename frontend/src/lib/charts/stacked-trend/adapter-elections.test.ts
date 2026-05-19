@@ -1,21 +1,77 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
 import {
   electionsToStackedTrend,
   parseElectionEventId,
   type ResultSummaryDoc,
 } from "./adapter-elections";
 
-const repoRoot = resolve(__dirname, "../../../../..");
+// ---------------------------------------------------------------------------
+// Inline ``ResultSummaryDoc`` fixtures.
+//
+// Pre-PR-O.2-minimal (2026-05-18) these tests loaded
+// ``datasets/elections/AcGen.../S03/result.summary.json`` via ``readFileSync``.
+// Under the canonical pivot (TODO row 1.8b) the legacy per-state summary
+// JSON shards are deprecated and will be retired in PR-O-ii; the adapter's
+// contract is the in-memory ``ResultSummaryDoc`` shape (produced going
+// forward by a canonical-Parquet -> adapter helper), so the test pins that
+// shape directly with inline literals. Numbers for Assam Apr 2016 mirror
+// the real ECI totals so the BJP=60 / INC=26 assertion stays semantically
+// faithful; later events use simplified placeholder rows since the tests
+// only assert ordering / shape for them.
+// ---------------------------------------------------------------------------
 
-function loadSummary(event: string, state: string): ResultSummaryDoc {
-  const p = resolve(
-    repoRoot,
-    `datasets/elections/${event}/${state}/result.summary.json`,
-  );
-  return JSON.parse(readFileSync(p, "utf-8")) as ResultSummaryDoc;
-}
+const ASSAM_APR_2016: ResultSummaryDoc = {
+  sources: [],
+  election: "AcGenApr2016",
+  state: "S03",
+  body: "AC",
+  total_seats: 126,
+  totals: { electors: 19990755, votes_polled: 16919364, turnout_pct: 84.64 },
+  party_totals: [
+    { party_short: "BJP",   seats_contested:  89, seats_won: 60, votes: 4992185, vote_share_pct: 29.51 },
+    { party_short: "INC",   seats_contested: 122, seats_won: 26, votes: 5238655, vote_share_pct: 30.96 },
+    { party_short: "AGP",   seats_contested:  30, seats_won: 14, votes: 1377482, vote_share_pct:  8.14 },
+    { party_short: "AIUDF", seats_contested:  74, seats_won: 13, votes: 2207945, vote_share_pct: 13.05 },
+    { party_short: "BOPF",  seats_contested:  13, seats_won: 12, votes:  666057, vote_share_pct:  3.94 },
+    { party_short: "IND",   seats_contested: 121, seats_won:  1, votes: 1867531, vote_share_pct: 11.04 },
+  ],
+};
+
+const ASSAM_APR_2021: ResultSummaryDoc = {
+  sources: [],
+  election: "AcGenApr2021",
+  state: "S03",
+  body: "AC",
+  total_seats: 126,
+  party_totals: [
+    { party_short: "BJP", seats_contested:  92, seats_won: 60, votes: 5000000, vote_share_pct: 33.0 },
+    { party_short: "INC", seats_contested: 100, seats_won: 29, votes: 4500000, vote_share_pct: 29.0 },
+    { party_short: "AGP", seats_contested:  26, seats_won:  9, votes: 1200000, vote_share_pct:  7.0 },
+  ],
+};
+
+const ASSAM_MAY_2026: ResultSummaryDoc = {
+  sources: [],
+  election: "AcGenMay2026",
+  state: "S03",
+  body: "AC",
+  total_seats: 126,
+  party_totals: [
+    { party_short: "BJP", seats_contested:  92, seats_won: 65, votes: 5200000, vote_share_pct: 34.0 },
+    { party_short: "INC", seats_contested: 100, seats_won: 30, votes: 4600000, vote_share_pct: 29.5 },
+  ],
+};
+
+const GOA_MAY_2026: ResultSummaryDoc = {
+  sources: [],
+  election: "AcGenMay2026",
+  state: "S11",
+  body: "AC",
+  total_seats: 40,
+  party_totals: [
+    { party_short: "BJP", seats_contested: 40, seats_won: 20, votes: 200000, vote_share_pct: 35.0 },
+  ],
+};
 
 describe("parseElectionEventId", () => {
   it("parses ECI AcGen event ids into sortable period_id + human label", () => {
@@ -38,10 +94,10 @@ describe("parseElectionEventId", () => {
 });
 
 describe("electionsToStackedTrend — Assam (S03) seats_won timeline", () => {
-  const summaries = [
-    loadSummary("AcGenApr2016", "S03"),
-    loadSummary("AcGenApr2021", "S03"),
-    loadSummary("AcGenMay2026", "S03"),
+  const summaries: ResultSummaryDoc[] = [
+    ASSAM_APR_2016,
+    ASSAM_APR_2021,
+    ASSAM_MAY_2026,
   ];
 
   it("produces three bars in chronological order", () => {
@@ -108,7 +164,7 @@ describe("electionsToStackedTrend — Assam (S03) seats_won timeline", () => {
 
   it("rejects mixed-state input", () => {
     expect(() =>
-      electionsToStackedTrend([loadSummary("AcGenMay2026", "S03"), loadSummary("AcGenMay2026", "S11")], {
+      electionsToStackedTrend([ASSAM_MAY_2026, GOA_MAY_2026], {
         value: "seats_won",
         config: { coverage_ceiling: 0.95, max_named_categories: 8 },
       }),
@@ -127,7 +183,7 @@ describe("electionsToStackedTrend — Assam (S03) seats_won timeline", () => {
 
 describe("electionsToStackedTrend — designated headline override", () => {
   it("honours headline_text when supplied", () => {
-    const summaries = [loadSummary("AcGenMay2026", "S03")];
+    const summaries: ResultSummaryDoc[] = [ASSAM_MAY_2026];
     const model = electionsToStackedTrend(summaries, {
       value: "seats_won",
       config: { coverage_ceiling: 0.95, max_named_categories: 8 },
