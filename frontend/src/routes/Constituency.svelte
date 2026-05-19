@@ -1,9 +1,7 @@
 <script lang="ts">
   import {
-    fetchPersonEntity,
-    slugifyCandidate,
+    type CandidateBio,
     type ConstituencyResult,
-    type PersonEntity,
   } from "../lib/data";
   import { loadConstituencyResult } from "../lib/view-models/constituency";
   import { loadStateAcWinners, type AcWinner } from "../lib/view-models/state-overview";
@@ -49,9 +47,10 @@
     loaderResult.status === "partial" && loaderResult.reason === "not_published",
   );
 
-  // Biographics sidecar: keyed by candidate_slug; null = fetched + 404
-  // (no sidecar for this candidate yet); undefined = not fetched yet.
-  let people = $state<Record<string, PersonEntity | null>>({});
+  // Biographic columns (sex/age/education/profession/constituency_type/
+  // party_type) now ride on `result.candidates[i].bio` directly from
+  // dim_candidates.parquet v1.2 (PR-S.2 / canonical pivot 1.8f). No more
+  // per-candidate JSON fan-out; one DuckDB query already projected them.
 
   // State-map context for the "Location in {state}" panel. Lean loader —
   // pulls only ac_winners[] (no party totals / state scope / sources), so
@@ -61,7 +60,6 @@
 
   $effect(() => {
     loaderResult = { status: "loading" };
-    people = {};
     ac_winners = null;
     const sc = state_code;
     const ev = event;
@@ -80,27 +78,13 @@
     loaderResult = await loadConstituencyResult(ev, sc, params.eci_no);
   }
 
-  // Once the constituency result loads, fan out to the people sidecars in
-  // parallel. Each candidate that has a sidecar populates `people[slug]`;
-  // 404s store `null` (citizen sees "Not declared" for missing fields).
-  $effect(() => {
-    const ev = event;
-    if (!ev || !result) return;
-    for (const c of result.candidates) {
-      const slug = slugifyCandidate(c.name);
-      fetchPersonEntity(ev, result.eci_no, slug)
-        .then(p => (people = { ...people, [slug]: p }))
-        .catch(() => (people = { ...people, [slug]: null }));
-    }
-  });
-
-  function fmtBiographic(p: PersonEntity | null | undefined): string {
-    if (!p) return "";
+  function fmtBiographic(bio: CandidateBio | null | undefined): string {
+    if (!bio) return "";
     const parts: string[] = [];
-    if (p.sex) parts.push(p.sex);
-    if (p.age) parts.push(`age ${p.age}`);
-    if (p.education) parts.push(p.education);
-    if (p.profession) parts.push(p.profession);
+    if (bio.sex) parts.push(bio.sex);
+    if (bio.age) parts.push(`age ${bio.age}`);
+    if (bio.education) parts.push(bio.education);
+    if (bio.profession) parts.push(bio.profession);
     return parts.join(" · ");
   }
 
@@ -193,14 +177,12 @@
         </thead>
         <tbody class="divide-y">
           {#each result.candidates as c}
-            {@const slug = slugifyCandidate(c.name)}
-            {@const p = people[slug]}
-            {@const bio = fmtBiographic(p)}
+            {@const bio = fmtBiographic(c.bio)}
             <tr class={c.is_winner ? "bg-emerald-50" : ""}>
               <td class="py-2 text-slate-400 align-top">{c.rank}</td>
               <td class="font-medium align-top">
                 <div>{c.name}</div>
-                {#if p !== undefined}
+                {#if c.bio}
                   <div class="text-xs text-slate-500 mt-0.5" data-testid="candidate-biographics">
                     {#if bio}{bio}{:else}Not declared{/if}
                   </div>

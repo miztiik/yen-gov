@@ -3,8 +3,6 @@ import {
   fetchStates,
   fetchConstituencies,
   fetchDistricts,
-  fetchPersonEntity,
-  slugifyCandidate,
 } from "./data";
 
 // All loaders go through `${DATA_BASE}<path>` where DATA_BASE = `${BASE_URL}data`.
@@ -98,36 +96,15 @@ describe("fetchPartyRegistry — deleted in PR-R.3 (Phase 1.8e)", () => {
   it.skip("legacy fetcher replaced by canonical taxonomy + view-model loaders", () => {});
 });
 
-describe("slugifyCandidate — mirrors backend people_panel.slugify", () => {
-  it("ASCII-folds, lowercases, collapses non-alphanumerics to hyphens", () => {
-    expect(slugifyCandidate("GOVINDARAJAN T.J")).toBe("govindarajan-t-j");
-    expect(slugifyCandidate("Dr. A. P. J. Abdul Kalam")).toBe("dr-a-p-j-abdul-kalam");
-    expect(slugifyCandidate("José Ñoño")).toBe("jose-nono");
-    expect(slugifyCandidate("USHA")).toBe("usha");
-  });
-});
-
-describe("fetchPersonEntity — the 404-as-null contract", () => {
-  it("composes election + ac_code + slug into the people sidecar path", async () => {
-    fetchSpy.mockResolvedValueOnce(jsonResponse({ candidate_slug: "govindarajan-t-j" }));
-    const out = await fetchPersonEntity("AcGenApr2021", 1, "govindarajan-t-j");
-    expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/people/AcGenApr2021/1/govindarajan-t-j.json`,
-    );
-    expect(out).toMatchObject({ candidate_slug: "govindarajan-t-j" });
-  });
-
-  it("returns null on 404 (candidate has no biographic sidecar yet)", async () => {
-    fetchSpy.mockResolvedValueOnce(new Response("not found", { status: 404 }));
-    const out = await fetchPersonEntity("AcGenApr2021", 1, "nobody");
-    expect(out).toBeNull();
-  });
-
-  it("throws on other non-OK responses", async () => {
-    fetchSpy.mockResolvedValueOnce(new Response("err", { status: 500, statusText: "Internal" }));
-    await expect(
-      fetchPersonEntity("AcGenApr2021", 1, "x"),
-    ).rejects.toThrow(/failed: 500/);
-  });
+describe("fetchPersonEntity / slugifyCandidate — deleted in PR-S.2 (Phase 1.8f)", () => {
+  // Per-candidate JSON sidecars under datasets/people/<event>/<ac>/<slug>.json
+  // (3,983 files) and the people.entity.schema.json contract were retired
+  // in PR-S.2. Biographic fields (sex/age/education/profession/
+  // constituency_type/party_type) are now columns on dim_candidates.parquet
+  // (schema v1.2) and surface via `loadConstituencyResult` ->
+  // `CandidateResult.bio`. The view-model unit suite
+  // (view-models/constituency.test.ts) covers the SQL projection; the
+  // Constituency route exercises the render path.
+  it.skip("legacy fetcher + slug helper replaced by canonical dim_candidates bio columns", () => {});
 });
 

@@ -251,44 +251,12 @@ def parse_panel(
     return rows
 
 
-def to_people_payload(row: PersonRow) -> dict:
-    """Build the people.entity artifact body (excluding the writer-stamped
-    $schema/$schema_version/sources envelope)."""
-    body: dict = {
-        "election_id": row.election_id,
-        "state": row.state,
-        "ac_code": row.ac_code,
-        "candidate_slug": row.candidate_slug,
-        "name": row.name,
-        "party_short": row.party_short,
-    }
-    for key, value in [
-        ("sex", row.sex),
-        ("age", row.age),
-        ("constituency_type", row.constituency_type),
-        ("education", row.education),
-        ("profession", row.profession),
-    ]:
-        if value is not None:
-            body[key] = value
-    # Per-field provenance: every populated field carries its grade.
-    grades: dict[str, dict] = {}
-    if row.sex is not None:
-        grades["sex"] = {"grade": "issuing_authority", "source_id": ADAPTER_ID}
-    if row.age is not None:
-        grades["age"] = {"grade": "sworn_declaration", "source_id": ADAPTER_ID}
-    if row.constituency_type is not None:
-        grades["constituency_type"] = {
-            "grade": "issuing_authority",
-            "source_id": ADAPTER_ID,
-        }
-    if row.education is not None:
-        grades["education"] = {"grade": "sworn_declaration", "source_id": ADAPTER_ID}
-    if row.profession is not None:
-        grades["profession"] = {"grade": "sworn_declaration", "source_id": ADAPTER_ID}
-    if grades:
-        body["field_provenance"] = grades
-    return body
+# to_people_payload was retired in PR-S.2 (canonical pivot 1.8f). The
+# per-candidate JSON sidecar (people.entity v1.0) and its schema were
+# deleted; biographic fields now ride on dim_candidates.parquet v1.2
+# columns and are UPSERTed by
+# ``yen_gov.pipeline.people_ingest.upsert_candidate_bios``. ``ADAPTER_ID``
+# above is retained only as a documentation token for the source authority.
 
 
 def group_by_ac(rows: Iterable[PersonRow]) -> dict[int, list[PersonRow]]:

@@ -8,7 +8,6 @@ from textwrap import dedent
 import pytest
 
 from yen_gov.sources.eci.people_panel import (
-    ADAPTER_ID,
     is_nota,
     normalise_constituency_type,
     normalise_education,
@@ -16,7 +15,6 @@ from yen_gov.sources.eci.people_panel import (
     normalise_sex,
     parse_panel,
     slugify,
-    to_people_payload,
 )
 
 
@@ -125,34 +123,13 @@ def test_parse_panel_unknown_state_raises(tmp_path: Path):
         parse_panel(csv_path, election_id="AcGenApr2021", state_code="S99", year=2021)
 
 
-def test_to_people_payload_omits_null_biographics_and_attaches_grades(tmp_path: Path):
-    csv_path = _write_fixture(tmp_path)
-    rows = parse_panel(csv_path, election_id="AcGenApr2021", state_code="S22", year=2021)
-    nosex = next(r for r in rows if r.name == "NOSEX C")
-    payload = to_people_payload(nosex)
-    # Null biographics are omitted entirely (no "Unknown" sentinel).
-    assert "sex" not in payload
-    assert "education" not in payload
-    assert "profession" not in payload
-    # Constituency_type=GEN survives.
-    assert payload["constituency_type"] == "GEN"
-    # field_provenance only carries entries for populated fields.
-    assert "sex" not in payload["field_provenance"]
-    assert payload["field_provenance"]["constituency_type"] == {
-        "grade": "issuing_authority",
-        "source_id": ADAPTER_ID,
-    }
-    assert payload["field_provenance"]["age"]["grade"] == "sworn_declaration"
-
-
-def test_to_people_payload_includes_identity_fields(tmp_path: Path):
-    csv_path = _write_fixture(tmp_path)
-    rows = parse_panel(csv_path, election_id="AcGenApr2021", state_code="S22", year=2021)
-    winner = next(r for r in rows if r.name == "WINNER A")
-    payload = to_people_payload(winner)
-    assert payload["election_id"] == "AcGenApr2021"
-    assert payload["state"] == "S22"
-    assert payload["ac_code"] == 1
-    assert payload["candidate_slug"] == "winner-a"
-    assert payload["education"] == "10th Pass"
-    assert payload["profession"] == "Business"
+# to_people_payload tests were retired in PR-S.2 (canonical pivot 1.8f).
+# The function emitted the body of the per-candidate people.entity JSON
+# sidecar (datasets/people/<event>/<ac>/<slug>.json); both the function
+# and the JSON contract are gone. Biographic fields are now UPSERTed into
+# dim_candidates.parquet v1.2 by
+# ``yen_gov.pipeline.people_ingest.upsert_candidate_bios`` and are covered
+# by ``backend/tests/test_people_ingest.py``
+# (test_run_people_ingest_upserts_bios_inventory_and_report). The
+# adapter's row-shape contract (PersonRow + normalisers + parse_panel) is
+# still tested above.
