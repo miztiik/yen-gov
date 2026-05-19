@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/taxonomy-parties.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "2.0",
   "sources": [
     {
       "url": "https://www.eci.gov.in/affidavit-information-of-candidate/",
@@ -20,13 +20,18 @@
       "party_id": "parties.IN.IND",
       "short_name": "IND",
       "full_name": "Independent",
-      "aliases": ["INDEPENDENT", "Ind."],
+      "aliases": [
+        "INDEPENDENT",
+        "Ind."
+      ],
       "eci_codes": [],
-      "state_scope": ["IN"],
+      "state_scope": [
+        "IN"
+      ],
       "founded_year": null,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
       "notes": "Sentinel for non-party candidates. All independent candidates collapse to this id; their per-contest distinctiveness is preserved via candidate-level entity_ids."
     },
     {
@@ -35,39 +40,52 @@
       "full_name": "Unresolved Party",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["IN"],
+      "state_scope": [
+        "IN"
+      ],
       "founded_year": null,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
       "notes": "Sentinel for ECI party_shorts not yet mapped in this roster. Collapses many distinct minor/regional parties — party-* rollups for UNK are NOT meaningful and must not be surfaced in citizen UI. Backfill drivers use this as fallback to keep candidate-* + ac-* observations complete. Triage by promoting verified entries (with eci_code) to dedicated party_id rows."
     },
     {
       "party_id": "parties.IN.NOTA",
       "short_name": "NOTA",
       "full_name": "None of the Above",
-      "aliases": ["None of the Above"],
+      "aliases": [
+        "None of the Above"
+      ],
       "eci_codes": [],
-      "state_scope": ["IN"],
+      "state_scope": [
+        "IN"
+      ],
       "founded_year": 2013,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
       "notes": "Introduced by ECI in 2013 (PUCL v. Union of India). Pre-2013 nota_* indicators are null, not zero."
     },
     {
       "party_id": "parties.IN.BJP",
       "short_name": "BJP",
       "full_name": "Bharatiya Janata Party",
-      "aliases": ["Bharatiya Janata Party"],
+      "aliases": [
+        "Bharatiya Janata Party"
+      ],
       "eci_codes": [],
-      "state_scope": ["IN"],
+      "state_scope": [
+        "IN"
+      ],
       "founded_year": 1980,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": "parties.IN.BJS",
+      "successor_party_id": null,
+      "predecessor_party_id": "parties.IN.BJS",
       "alliance_history": [
-        {"period_label": "AcGenMay2026", "alliance": "NDA"}
+        {
+          "period_label": "AcGenMay2026",
+          "alliance": "NDA"
+        }
       ],
       "notes": "National party. Successor to Bharatiya Jana Sangh via the Janata Party interregnum."
     },
@@ -75,15 +93,23 @@
       "party_id": "parties.IN.INC",
       "short_name": "INC",
       "full_name": "Indian National Congress",
-      "aliases": ["Congress", "Indian National Congress"],
+      "aliases": [
+        "Congress",
+        "Indian National Congress"
+      ],
       "eci_codes": [],
-      "state_scope": ["IN"],
+      "state_scope": [
+        "IN"
+      ],
       "founded_year": 1885,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
       "alliance_history": [
-        {"period_label": "AcGenMay2026", "alliance": "SPA"}
+        {
+          "period_label": "AcGenMay2026",
+          "alliance": "SPA"
+        }
       ],
       "notes": "National party. Oldest major political party in India."
     },
@@ -91,30 +117,46 @@
       "party_id": "parties.IN.CPI",
       "short_name": "CPI",
       "full_name": "Communist Party of India",
-      "aliases": ["Communist Party of India"],
+      "aliases": [
+        "Communist Party of India"
+      ],
       "eci_codes": [],
-      "state_scope": ["IN"],
+      "state_scope": [
+        "IN"
+      ],
       "founded_year": 1925,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
       "alliance_history": [
-        {"period_label": "AcGenMay2026", "alliance": "SPA"}
+        {
+          "period_label": "AcGenMay2026",
+          "alliance": "SPA"
+        }
       ]
     },
     {
       "party_id": "parties.IN.CPIM",
       "short_name": "CPI(M)",
       "full_name": "Communist Party of India (Marxist)",
-      "aliases": ["CPM", "CPI(M)", "Communist Party of India (Marxist)"],
+      "aliases": [
+        "CPM",
+        "CPI(M)",
+        "Communist Party of India (Marxist)"
+      ],
       "eci_codes": [],
-      "state_scope": ["IN"],
+      "state_scope": [
+        "IN"
+      ],
       "founded_year": 1964,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": "parties.IN.CPI",
+      "successor_party_id": null,
+      "predecessor_party_id": "parties.IN.CPI",
       "alliance_history": [
-        {"period_label": "AcGenMay2026", "alliance": "SPA"}
+        {
+          "period_label": "AcGenMay2026",
+          "alliance": "SPA"
+        }
       ],
       "notes": "Split from CPI in 1964."
     },
@@ -122,54 +164,78 @@
       "party_id": "parties.IN.AAP",
       "short_name": "AAP",
       "full_name": "Aam Aadmi Party",
-      "aliases": ["Aam Aadmi Party"],
+      "aliases": [
+        "Aam Aadmi Party"
+      ],
       "eci_codes": [],
-      "state_scope": ["IN"],
+      "state_scope": [
+        "IN"
+      ],
       "founded_year": 2012,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.NCP",
       "short_name": "NCP",
       "full_name": "Nationalist Congress Party",
-      "aliases": ["Nationalist Congress Party"],
+      "aliases": [
+        "Nationalist Congress Party"
+      ],
       "eci_codes": [],
-      "state_scope": ["IN"],
+      "state_scope": [
+        "IN"
+      ],
       "founded_year": 1999,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": "parties.IN.INC"
+      "successor_party_id": null,
+      "predecessor_party_id": "parties.IN.INC"
     },
     {
       "party_id": "parties.IN.DMK",
       "short_name": "DMK",
       "full_name": "Dravida Munnetra Kazhagam",
-      "aliases": ["Dravida Munnetra Kazhagam"],
+      "aliases": [
+        "Dravida Munnetra Kazhagam"
+      ],
       "eci_codes": [],
-      "state_scope": ["S22"],
+      "state_scope": [
+        "S22"
+      ],
       "founded_year": 1949,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
       "alliance_history": [
-        {"period_label": "AcGenMay2026", "alliance": "SPA"}
+        {
+          "period_label": "AcGenMay2026",
+          "alliance": "SPA"
+        }
       ]
     },
     {
       "party_id": "parties.IN.AIADMK",
       "short_name": "AIADMK",
       "full_name": "All India Anna Dravida Munnetra Kazhagam",
-      "aliases": ["ADMK", "A.I.A.D.M.K.", "All India Anna Dravida Munnetra Kazhagam"],
+      "aliases": [
+        "ADMK",
+        "A.I.A.D.M.K.",
+        "All India Anna Dravida Munnetra Kazhagam"
+      ],
       "eci_codes": [],
-      "state_scope": ["S22"],
+      "state_scope": [
+        "S22"
+      ],
       "founded_year": 1972,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": "parties.IN.DMK",
+      "successor_party_id": null,
+      "predecessor_party_id": "parties.IN.DMK",
       "alliance_history": [
-        {"period_label": "AcGenMay2026", "alliance": "AIADMK+"}
+        {
+          "period_label": "AcGenMay2026",
+          "alliance": "AIADMK+"
+        }
       ],
       "notes": "Split from DMK in 1972 by M. G. Ramachandran."
     },
@@ -179,13 +245,18 @@
       "full_name": "Pattali Makkal Katchi",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S22"],
+      "state_scope": [
+        "S22"
+      ],
       "founded_year": 1989,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
       "alliance_history": [
-        {"period_label": "AcGenMay2026", "alliance": "NDA"}
+        {
+          "period_label": "AcGenMay2026",
+          "alliance": "NDA"
+        }
       ]
     },
     {
@@ -194,13 +265,18 @@
       "full_name": "Marumalarchi Dravida Munnetra Kazhagam",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S22"],
+      "state_scope": [
+        "S22"
+      ],
       "founded_year": 1994,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": "parties.IN.DMK",
+      "successor_party_id": null,
+      "predecessor_party_id": "parties.IN.DMK",
       "alliance_history": [
-        {"period_label": "AcGenMay2026", "alliance": "SPA"}
+        {
+          "period_label": "AcGenMay2026",
+          "alliance": "SPA"
+        }
       ]
     },
     {
@@ -209,13 +285,18 @@
       "full_name": "Desiya Murpokku Dravida Kazhagam",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S22"],
+      "state_scope": [
+        "S22"
+      ],
       "founded_year": 2005,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
       "alliance_history": [
-        {"period_label": "AcGenMay2026", "alliance": "AIADMK+"}
+        {
+          "period_label": "AcGenMay2026",
+          "alliance": "AIADMK+"
+        }
       ]
     },
     {
@@ -224,13 +305,18 @@
       "full_name": "Naam Tamilar Katchi",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S22"],
+      "state_scope": [
+        "S22"
+      ],
       "founded_year": 1958,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
       "alliance_history": [
-        {"period_label": "AcGenMay2026", "alliance": null}
+        {
+          "period_label": "AcGenMay2026",
+          "alliance": null
+        }
       ]
     },
     {
@@ -239,11 +325,13 @@
       "full_name": "Tamil Maanila Congress (Moopanar)",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S22"],
+      "state_scope": [
+        "S22"
+      ],
       "founded_year": 1996,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": "parties.IN.INC"
+      "successor_party_id": null,
+      "predecessor_party_id": "parties.IN.INC"
     },
     {
       "party_id": "parties.IN.SP",
@@ -251,11 +339,13 @@
       "full_name": "Samajwadi Party",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S24"],
+      "state_scope": [
+        "S24"
+      ],
       "founded_year": 1992,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.BSP",
@@ -263,11 +353,13 @@
       "full_name": "Bahujan Samaj Party",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["IN"],
+      "state_scope": [
+        "IN"
+      ],
       "founded_year": 1984,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.RJD",
@@ -275,59 +367,78 @@
       "full_name": "Rashtriya Janata Dal",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S04"],
+      "state_scope": [
+        "S04"
+      ],
       "founded_year": 1997,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.JDU",
       "short_name": "JD(U)",
       "full_name": "Janata Dal (United)",
-      "aliases": ["JDU"],
+      "aliases": [
+        "JDU"
+      ],
       "eci_codes": [],
-      "state_scope": ["S04"],
+      "state_scope": [
+        "S04"
+      ],
       "founded_year": 2003,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.AITC",
       "short_name": "AITC",
       "full_name": "All India Trinamool Congress",
-      "aliases": ["TMC", "Trinamool"],
+      "aliases": [
+        "TMC",
+        "Trinamool"
+      ],
       "eci_codes": [],
-      "state_scope": ["S25"],
+      "state_scope": [
+        "S25"
+      ],
       "founded_year": 1998,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": "parties.IN.INC"
+      "successor_party_id": null,
+      "predecessor_party_id": "parties.IN.INC"
     },
     {
       "party_id": "parties.IN.SHS",
       "short_name": "SHS",
       "full_name": "Shiv Sena",
-      "aliases": ["Shiv Sena"],
+      "aliases": [
+        "Shiv Sena"
+      ],
       "eci_codes": [],
-      "state_scope": ["S13"],
+      "state_scope": [
+        "S13"
+      ],
       "founded_year": 1966,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.YSRCP",
       "short_name": "YSRCP",
       "full_name": "Yuvajana Sramika Rythu Congress Party",
-      "aliases": ["YSR Congress"],
+      "aliases": [
+        "YSR Congress"
+      ],
       "eci_codes": [],
-      "state_scope": ["S01"],
+      "state_scope": [
+        "S01"
+      ],
       "founded_year": 2011,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": "parties.IN.INC"
+      "successor_party_id": null,
+      "predecessor_party_id": "parties.IN.INC"
     },
     {
       "party_id": "parties.IN.TDP",
@@ -335,23 +446,30 @@
       "full_name": "Telugu Desam Party",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S01"],
+      "state_scope": [
+        "S01"
+      ],
       "founded_year": 1982,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.BRS",
       "short_name": "BRS",
       "full_name": "Bharat Rashtra Samithi",
-      "aliases": ["TRS", "Telangana Rashtra Samithi"],
+      "aliases": [
+        "TRS",
+        "Telangana Rashtra Samithi"
+      ],
       "eci_codes": [],
-      "state_scope": ["S29"],
+      "state_scope": [
+        "S29"
+      ],
       "founded_year": 2001,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
       "notes": "Renamed from TRS to BRS in 2022."
     },
     {
@@ -360,11 +478,13 @@
       "full_name": "Jharkhand Mukti Morcha",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S27"],
+      "state_scope": [
+        "S27"
+      ],
       "founded_year": 1972,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.BJD",
@@ -372,11 +492,13 @@
       "full_name": "Biju Janata Dal",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S18"],
+      "state_scope": [
+        "S18"
+      ],
       "founded_year": 1997,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.SAD",
@@ -384,35 +506,46 @@
       "full_name": "Shiromani Akali Dal",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S19"],
+      "state_scope": [
+        "S19"
+      ],
       "founded_year": 1920,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.JKNC",
       "short_name": "JKNC",
       "full_name": "Jammu & Kashmir National Conference",
-      "aliases": ["NC", "National Conference"],
+      "aliases": [
+        "NC",
+        "National Conference"
+      ],
       "eci_codes": [],
-      "state_scope": ["U08"],
+      "state_scope": [
+        "U08"
+      ],
       "founded_year": 1939,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.JKPDP",
       "short_name": "JKPDP",
       "full_name": "Jammu & Kashmir Peoples Democratic Party",
-      "aliases": ["PDP"],
+      "aliases": [
+        "PDP"
+      ],
       "eci_codes": [],
-      "state_scope": ["U08"],
+      "state_scope": [
+        "U08"
+      ],
       "founded_year": 1999,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": null
+      "successor_party_id": null,
+      "predecessor_party_id": null
     },
     {
       "party_id": "parties.IN.SS_UBT",
@@ -420,11 +553,13 @@
       "full_name": "Shiv Sena (Uddhav Balasaheb Thackeray)",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S13"],
+      "state_scope": [
+        "S13"
+      ],
       "founded_year": 2022,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": "parties.IN.SHS",
+      "successor_party_id": null,
+      "predecessor_party_id": "parties.IN.SHS",
       "notes": "2022 split of Shiv Sena; Election Commission allotted the Shiv Sena name+symbol to the Eknath Shinde faction. The Uddhav-led faction is registered under this name."
     },
     {
@@ -433,11 +568,13 @@
       "full_name": "Nationalist Congress Party (Sharadchandra Pawar)",
       "aliases": [],
       "eci_codes": [],
-      "state_scope": ["S13"],
+      "state_scope": [
+        "S13"
+      ],
       "founded_year": 2023,
       "dissolved_year": null,
-      "predecessor_of": null,
-      "successor_of": "parties.IN.NCP",
+      "successor_party_id": null,
+      "predecessor_party_id": "parties.IN.NCP",
       "notes": "2023 split of NCP; ECI allotted the NCP name+symbol to the Ajit Pawar faction."
     }
   ]

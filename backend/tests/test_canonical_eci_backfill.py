@@ -32,14 +32,14 @@ from yen_gov.canonical.adapters.eci.identity import parse_period_label
 # file is self-contained — no fixtures/ subdir, no conftest.py needed.
 _PARTIES_ROSTER: dict = {
     "$schema": "../schemas/parties.schema.json",
-    "$schema_version": "1.0",
+    "$schema_version": "2.0",
     "parties": [
         {
             "party_id": "parties.IN.AIADMK", "short_name": "AIADMK",
             "full_name": "All India Anna Dravida Munnetra Kazhagam",
             "aliases": [], "eci_codes": ["0136"], "state_scope": ["IN"],
             "founded_year": 1972, "dissolved_year": None,
-            "predecessor_of": None, "successor_of": None,
+            "successor_party_id": None, "predecessor_party_id": None,
             "alliance_history": [], "notes": "",
         },
         {
@@ -47,7 +47,7 @@ _PARTIES_ROSTER: dict = {
             "full_name": "Dravida Munnetra Kazhagam",
             "aliases": [], "eci_codes": ["0143"], "state_scope": ["IN"],
             "founded_year": 1949, "dissolved_year": None,
-            "predecessor_of": None, "successor_of": None,
+            "successor_party_id": None, "predecessor_party_id": None,
             "alliance_history": [], "notes": "",
         },
         {
@@ -55,7 +55,7 @@ _PARTIES_ROSTER: dict = {
             "full_name": "Indian National Congress",
             "aliases": [], "eci_codes": ["0742"], "state_scope": ["IN"],
             "founded_year": 1885, "dissolved_year": None,
-            "predecessor_of": None, "successor_of": None,
+            "successor_party_id": None, "predecessor_party_id": None,
             "alliance_history": [], "notes": "",
         },
         {
@@ -63,7 +63,7 @@ _PARTIES_ROSTER: dict = {
             "full_name": "Independent",
             "aliases": ["Independent"], "eci_codes": [], "state_scope": ["IN"],
             "founded_year": None, "dissolved_year": None,
-            "predecessor_of": None, "successor_of": None,
+            "successor_party_id": None, "predecessor_party_id": None,
             "alliance_history": [], "notes": "Sentinel for independent candidates.",
         },
         {
@@ -71,7 +71,7 @@ _PARTIES_ROSTER: dict = {
             "full_name": "None of the Above",
             "aliases": [], "eci_codes": [], "state_scope": ["IN"],
             "founded_year": None, "dissolved_year": None,
-            "predecessor_of": None, "successor_of": None,
+            "successor_party_id": None, "predecessor_party_id": None,
             "alliance_history": [], "notes": "Sentinel for NOTA rows.",
         },
         {
@@ -79,7 +79,7 @@ _PARTIES_ROSTER: dict = {
             "full_name": "Unknown party",
             "aliases": [], "eci_codes": [], "state_scope": ["IN"],
             "founded_year": None, "dissolved_year": None,
-            "predecessor_of": None, "successor_of": None,
+            "successor_party_id": None, "predecessor_party_id": None,
             "alliance_history": [], "notes": "Lenient-resolution fallback.",
         },
     ],
