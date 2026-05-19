@@ -719,7 +719,112 @@ def test_dim_tables_appear_in_manifest(tmp_path: Path) -> None:
     cand = next(t for t in manifest["tables"]
                 if t["table_id"] == "elections.dim_candidates")
     assert cand["format"] == "parquet"
-    assert cand["schema_version"] == "1.1"
+    # schema_version is derived from dim-candidates.schema.json's x-version
+    # via writer._regenerate_manifest -> schema_version(); bumps here when
+    # the schema bumps. v1.2 (PR-S.1) added 6 bio columns.
+    assert cand["schema_version"] == "1.2"
     assert cand["table_name"] == "dim_candidates"
     assert cand["kind"] == "dim"
     assert cand["row_count_total"] == 1
+
+
+def test_dim_candidates_bio_fields_roundtrip(tmp_path: Path) -> None:
+    """v1.2 additive (PR-S.1): dim_candidates carries six biographic fields
+    (sex, age, education, profession, constituency_type, party_type) lifted
+    from the per-candidate JSON sidecars formerly under
+    ``datasets/people/<event>/<ac>/<slug>.json``. Each field is nullable;
+    enums copied verbatim from people.entity.schema.json v1.0.
+
+    This test pins the round-trip so any future enum drift between the two
+    schemas (or a forgotten Pydantic widening) surfaces as a hard failure.
+    """
+    _seed_taxonomy(tmp_path)
+    with_bio = CandidateDimRow(
+        candidate_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
+        ac_id="IN-S22-AC-2008-167",
+        period_label="AcGenApr2021",
+        ballot_serial=1,
+        name="A. Alpha",
+        party_id="parties.IN.DMK",
+        rank=1,
+        source_id="src-test0001",
+        sex="Female",
+        age=42,
+        education="Graduate Professional",
+        profession="Liberal Profession or Professional",
+        constituency_type="GEN",
+        party_type="STATE",
+    )
+    env = BatchEnvelope(
+        target_family="elections",
+        source_rows=[_src()],
+        observation_rows=[_obs(entity_id="IN-S22-AC-2008-167-AcGenApr2021-C01",
+                               indicator_id="candidate-votes-polled",
+                               year=2021, period_label="AcGenApr2021")],
+        candidate_dim_rows=[with_bio],
+    )
+    write_batch(env, tmp_path)
+
+    con = duckdb.connect(":memory:")
+    rows = con.execute(
+        f"SELECT candidate_id, sex, age, education, profession, constituency_type, party_type "
+        f"FROM read_parquet('"
+        f"{(tmp_path / 'elections' / 'dim_candidates.parquet').as_posix()}') "
+        f"ORDER BY candidate_id"
+    ).fetchall()
+    assert rows == [
+        (
+            "IN-S22-AC-2008-167-AcGenApr2021-C01",
+            "Female",
+            42,
+            "Graduate Professional",
+            "Liberal Profession or Professional",
+            "GEN",
+            "STATE",
+        ),
+    ]
+
+
+def test_dim_candidates_bio_fields_nullable_and_age_bounds(tmp_path: Path) -> None:
+    """All six v1.2 bio columns are nullable; age has explicit 18-120 bounds
+    (Art. 173(b) constitutional minimum). A row that omits every bio field
+    round-trips with NULLs in every bio column; an out-of-range age raises
+    at Pydantic validation time."""
+    _seed_taxonomy(tmp_path)
+    write_batch(_dim_envelope(), tmp_path)
+    con = duckdb.connect(":memory:")
+    rows = con.execute(
+        f"SELECT sex, age, education, profession, constituency_type, party_type "
+        f"FROM read_parquet('"
+        f"{(tmp_path / 'elections' / 'dim_candidates.parquet').as_posix()}') "
+        f"ORDER BY candidate_id"
+    ).fetchall()
+    # _cand_dim() does not set any bio field -> all NULL.
+    assert rows == [(None, None, None, None, None, None)]
+
+    # Age bounds: 17 rejected (below constitutional minimum), 121 rejected.
+    import pytest as _pytest
+    with _pytest.raises(Exception):
+        CandidateDimRow(
+            candidate_id="IN-S22-AC-2008-167-AcGenApr2021-C09",
+            ac_id="IN-S22-AC-2008-167",
+            period_label="AcGenApr2021",
+            ballot_serial=9,
+            name="Q. Underage",
+            party_id="parties.IN.DMK",
+            rank=9,
+            source_id="src-test0001",
+            age=17,
+        )
+    with _pytest.raises(Exception):
+        CandidateDimRow(
+            candidate_id="IN-S22-AC-2008-167-AcGenApr2021-C10",
+            ac_id="IN-S22-AC-2008-167",
+            period_label="AcGenApr2021",
+            ballot_serial=10,
+            name="R. Overage",
+            party_id="parties.IN.DMK",
+            rank=10,
+            source_id="src-test0001",
+            age=121,
+        )

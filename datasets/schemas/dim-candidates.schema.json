@@ -3,7 +3,7 @@
   "$id": "./dim-candidates.schema.json",
   "title": "Candidate dimension row (canonical, per-contest)",
   "description": "Logical contract for one row of datasets/elections/dim_candidates.parquet. One row per (ac_id, period_label, ballot_serial). Holds the denormalised strings (candidate name, party_id) that elections/election_results.parquet does not carry. PK = candidate_id, which matches the per-contest entity_id constructed by canonical/adapters/eci/identity.candidate_entity_id. Read by frontend view-model loaders that JOIN election_results + dim_candidates to reconstruct citizen-facing shapes (per TODO/20260517-canonical-long-format-pivot.md sub-phase 1.2b). NOT modelled as observations because name/party are per-entity attributes, not time-varying numeric facts (OWID fact/dim separation).",
-  "x-version": "1.1",
+  "x-version": "1.2",
   "x-changelog": [
     {
       "version": "1.0",
@@ -14,6 +14,11 @@
       "version": "1.1",
       "date": "2026-05-19",
       "description": "Additive (PR-R.2 / no-UNK-regression). Added optional nullable column `party_short_raw` carrying the verbatim party_short string from the upstream ECI candidate row. Lets the citizen UI fall back to the actual upstream abbreviation (e.g. 'BSP', 'NTK', 'TVK', 'SDPI') when party_lookup couldn't resolve the row and party_id collapsed to 'parties.IN.UNK'. Prevents the regression where the canonical view-model surfaces a literal 'UNK' chip for ~1.5k long-tail candidates spread across ~380 fringe parties. Nullable for NOTA (which carries no upstream party label) and for any future row that lacks an upstream short_name string. Backwards-compatible: existing readers that only project the v1.0 columns are unaffected."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-05-20",
+      "description": "Additive (PR-S.1 / biographic lift onto dim_candidates — canonical pivot row 1.8f). Added six optional nullable columns lifting the citizen-readable biographic fields ECI publishes in Statistical Report PDFs: `sex` (Male/Female/Other/null), `age` (integer 18-120/null), `education` (11-value enum verbatim from ECI codebook + null), `profession` (17-value enum verbatim from ECI codebook + null), `constituency_type` (GEN/SC/ST/null seat reservation), `party_type` (ECI 5-bucket party classification NATIONAL/STATE/OTHER_STATE/REGISTERED_UNRECOGNISED/INDEPENDENT/null). Enums copied verbatim from people.entity.schema.json v1.0 — single source of truth migrates from per-candidate JSON sidecars under datasets/people/<event>/<ac>/<slug>.json to inline columns on dim_candidates.parquet. PR-S.2 retires the JSON sidecars and the paired schema. Backwards-compatible: existing readers that only project the v1.1 columns are unaffected; pre-existing rows get NULL for the six new columns via DuckDB's INSERT BY NAME merge in writer._upsert_dim. Provenance grade per field (issuing_authority vs sworn_declaration) is NOT carried inline — sworn_declaration is the publisher-level grade for the ECI Statistical Report adapter and is recorded on the source_id row in taxonomy/sources.parquet."
     }
   ],
   "type": "object",
@@ -65,6 +70,76 @@
       "type": ["string", "null"],
       "minLength": 1,
       "description": "v1.1 (additive). Verbatim ECI party_short string from the upstream candidate row (e.g. 'BSP', 'NTK', 'SDPI'). Citizen-facing UI uses this as the display fallback when party_id == 'parties.IN.UNK' so the chip never shows the literal sentinel. Nullable for NOTA rows and for any row where the upstream omits the short string. NOT a substitute for party_id -- party_id remains the join key into dim_parties."
+    },
+    "sex": {
+      "type": ["string", "null"],
+      "enum": ["Male", "Female", "Other", null],
+      "description": "v1.2 (additive, PR-S.1). Normalised from ECI codebook values. Optional; null when not declared. Enum copied verbatim from people.entity.schema.json v1.0."
+    },
+    "age": {
+      "type": ["integer", "null"],
+      "minimum": 18,
+      "maximum": 120,
+      "description": "v1.2 (additive, PR-S.1). Candidate age at nomination. Lower bound 18 = constitutional minimum (Art. 173(b)). Null when not declared."
+    },
+    "education": {
+      "type": ["string", "null"],
+      "enum": [
+        "Illiterate",
+        "Literate",
+        "5th Pass",
+        "8th Pass",
+        "10th Pass",
+        "12th Pass",
+        "Graduate",
+        "Graduate Professional",
+        "Post Graduate",
+        "Doctorate",
+        "Others",
+        null
+      ],
+      "description": "v1.2 (additive, PR-S.1). Indian credential ladder. Self-declared on Form-26 affidavit; no authority verifies. Optional; null when blank. Enum copied verbatim from people.entity.schema.json v1.0."
+    },
+    "profession": {
+      "type": ["string", "null"],
+      "enum": [
+        "Agriculture",
+        "Agricultural Labour",
+        "Business",
+        "Education",
+        "Former Government",
+        "Labourer or Daily Wage",
+        "Liberal Profession or Professional",
+        "Other",
+        "Politics",
+        "Religious Occupation",
+        "Retired or Pension",
+        "Salaried Work or Employed",
+        "Small Business or Self-employed",
+        "Social Work",
+        "Student",
+        "Traditional Occupation",
+        "Unemployed",
+        null
+      ],
+      "description": "v1.2 (additive, PR-S.1). Self-declared profession category. 17 verbatim values + null when blank. Class distinctions (Agriculture vs Agricultural Labour) preserved deliberately. Enum copied verbatim from people.entity.schema.json v1.0."
+    },
+    "constituency_type": {
+      "type": ["string", "null"],
+      "enum": ["GEN", "SC", "ST", null],
+      "description": "v1.2 (additive, PR-S.1). Seat reservation category. Null when not declared."
+    },
+    "party_type": {
+      "type": ["string", "null"],
+      "enum": [
+        "NATIONAL",
+        "STATE",
+        "OTHER_STATE",
+        "REGISTERED_UNRECOGNISED",
+        "INDEPENDENT",
+        null
+      ],
+      "description": "v1.2 (additive, PR-S.1). ECI's 5-bucket party classification (ECI codebook). Null when not declared."
     }
   }
 }

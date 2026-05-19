@@ -701,7 +701,7 @@ The materialisation rule above covers **numeric facts**. Citizen pages also need
 
 | Table | Grain (PK) | Purpose |
 | --- | --- | --- |
-| `elections.dim_candidates` | `candidate_id` = per-contest `entity_id` | name, party_id, rank, ballot serial |
+| `elections.dim_candidates` | `candidate_id` = per-contest `entity_id` | name, party_id, rank, ballot serial, party_short_raw (UI fallback), biographic fields (sex, age, education, profession, constituency_type, party_type) |
 | `elections.dim_acs` | `ac_id` = `IN-S{NN}-AC-{delim_year}-{eci_no}` | constituency name, state, eci_no |
 | `elections.dim_parties` | `party_id` = `parties.IN.{SHORT}` | short_name, full_name, recognition, eci_code |
 | `elections.dim_party_alliances` | composite `(party_id, period_label)` | per-event `alliance` label (nullable — explicit "non-aligned this event") |
@@ -717,6 +717,8 @@ The materialisation rule above covers **numeric facts**. Citizen pages also need
 **UPSERT on PK.** The writer's `_write_dimensions` path mirrors observations: load existing Parquet into in-memory DuckDB, DELETE matching PKs, INSERT envelope rows, COPY out sorted by PK. Empty dim list = no-op (existing file untouched). Re-emitting with byte-identical input produces byte-identical Parquet (Holy Law #10).
 
 **Unresolved parties.** `dim_candidates.party_id` falls back to `parties.IN.UNK` for party strings not in `datasets/taxonomy/parties.json`. The backfill driver records counts in `BackfillResult.unresolved_parties` for operator triage; the fix is to extend `parties.json`, not to silently coerce to IND. Until the unresolved tail is closed, citizen UI shows `UNK` rather than a wrong party.
+
+**Biographic columns (v1.2, PR-S.1, 2026-05-20).** `dim_candidates` carries six nullable columns lifting the citizen-readable biographic fields ECI publishes in Statistical Report PDFs into the canonical store: `sex` (Male/Female/Other), `age` (integer 18-120, lower bound = constitutional minimum Art. 173(b)), `education` (11-value enum), `profession` (17-value enum), `constituency_type` (GEN/SC/ST seat reservation), `party_type` (5-bucket ECI party classification). Enums are copied verbatim from the retiring `people.entity.schema.json` v1.0. Coverage is sparse by design — only events where an ECI Statistical Report adapter has run carry populated rows (as of PR-S.1: 1,134 of 34,906 rows, covering Tamil Nadu AcGenApr2021). All six fields are nullable; the citizen UI shows "Not declared" when null. PR-S.2 will retire the per-candidate JSON sidecars under `datasets/people/<event>/<ac>/<slug>.json` once the frontend `Constituency.svelte` route reads from these canonical columns instead of `fetchPersonEntity()`.
 
 ---
 

@@ -523,6 +523,15 @@ _DIM_SPECS: dict[str, dict] = {
             # v1.1 (additive, nullable): verbatim ECI party_short from the
             # upstream candidate row. UI fallback when party_id == parties.IN.UNK.
             ("party_short_raw", "VARCHAR"),
+            # v1.2 (additive, nullable, PR-S.1): biographic fields lifted from
+            # per-candidate JSON sidecars under datasets/people/. INSERT BY NAME
+            # in _upsert_dim fills NULL for pre-existing rows automatically.
+            ("sex", "VARCHAR"),
+            ("age", "INTEGER"),
+            ("education", "VARCHAR"),
+            ("profession", "VARCHAR"),
+            ("constituency_type", "VARCHAR"),
+            ("party_type", "VARCHAR"),
         ],
     },
     "ac": {
