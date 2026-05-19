@@ -520,6 +520,9 @@ _DIM_SPECS: dict[str, dict] = {
             ("party_id", "VARCHAR NOT NULL"),
             ("rank", "INTEGER NOT NULL"),
             ("source_id", "VARCHAR NOT NULL"),
+            # v1.1 (additive, nullable): verbatim ECI party_short from the
+            # upstream candidate row. UI fallback when party_id == parties.IN.UNK.
+            ("party_short_raw", "VARCHAR"),
         ],
     },
     "ac": {
@@ -602,8 +605,13 @@ def _upsert_dim(*, out_path: Path, rows: list[dict], spec: dict, table_id: str) 
         col_defs = ", ".join(f"{name} {typ}" for name, typ in spec["columns"])
         con.execute(f"CREATE TABLE dim ({col_defs})")
         if out_path.is_file():
+            # BY NAME: match by column name, filling missing source cols with
+            # NULL. Lets us additively extend a dim schema (e.g. dim_candidates
+            # v1.0 -> v1.1 added party_short_raw) without rebuilding from
+            # scratch — old rows keep their values; new column is NULL until
+            # the next UPSERT carries a payload that includes it.
             con.execute(
-                f"INSERT INTO dim SELECT * FROM read_parquet('{out_path.as_posix()}')"
+                f"INSERT INTO dim BY NAME SELECT * FROM read_parquet('{out_path.as_posix()}')"
             )
         # PK is either a string (scalar) or a list (composite). Normalise to
         # a tuple of column names; the dedupe key is a tuple of values.

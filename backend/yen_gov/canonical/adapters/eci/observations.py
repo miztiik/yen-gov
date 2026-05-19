@@ -293,6 +293,10 @@ def dim_rows_from_constituency(
             eci_code=str(cand.party_eci_code) if cand.party_eci_code else None,
             is_independent=is_ind,
         )
+        # v1.1 dim_candidates: keep the verbatim upstream short string so the
+        # citizen UI can fall back to it when party_id collapses to
+        # parties.IN.UNK (long-tail fringe parties not yet in taxonomy).
+        raw_short = cand.party_short.strip() if cand.party_short else None
         candidate_rows.append({
             "candidate_id": cand_id,
             "ac_id": ac_id,
@@ -302,6 +306,7 @@ def dim_rows_from_constituency(
             "party_id": party_id,
             "rank": cand.rank,
             "source_id": source_id,
+            "party_short_raw": raw_short or None,
         })
 
     ac_rows: list[dict] = [{

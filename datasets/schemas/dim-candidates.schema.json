@@ -3,12 +3,17 @@
   "$id": "./dim-candidates.schema.json",
   "title": "Candidate dimension row (canonical, per-contest)",
   "description": "Logical contract for one row of datasets/elections/dim_candidates.parquet. One row per (ac_id, period_label, ballot_serial). Holds the denormalised strings (candidate name, party_id) that elections/election_results.parquet does not carry. PK = candidate_id, which matches the per-contest entity_id constructed by canonical/adapters/eci/identity.candidate_entity_id. Read by frontend view-model loaders that JOIN election_results + dim_candidates to reconstruct citizen-facing shapes (per TODO/20260517-canonical-long-format-pivot.md sub-phase 1.2b). NOT modelled as observations because name/party are per-entity attributes, not time-varying numeric facts (OWID fact/dim separation).",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-18",
       "description": "Initial dim_candidates schema (Phase 1.2b). Columns: candidate_id PK, ac_id, period_label, ballot_serial, name, party_id, rank, source_id."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-19",
+      "description": "Additive (PR-R.2 / no-UNK-regression). Added optional nullable column `party_short_raw` carrying the verbatim party_short string from the upstream ECI candidate row. Lets the citizen UI fall back to the actual upstream abbreviation (e.g. 'BSP', 'NTK', 'TVK', 'SDPI') when party_lookup couldn't resolve the row and party_id collapsed to 'parties.IN.UNK'. Prevents the regression where the canonical view-model surfaces a literal 'UNK' chip for ~1.5k long-tail candidates spread across ~380 fringe parties. Nullable for NOTA (which carries no upstream party label) and for any future row that lacks an upstream short_name string. Backwards-compatible: existing readers that only project the v1.0 columns are unaffected."
     }
   ],
   "type": "object",
@@ -55,6 +60,11 @@
       "type": "string",
       "minLength": 1,
       "description": "FK -> taxonomy/sources.parquet. Same provenance row as the candidate's observations."
+    },
+    "party_short_raw": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "description": "v1.1 (additive). Verbatim ECI party_short string from the upstream candidate row (e.g. 'BSP', 'NTK', 'SDPI'). Citizen-facing UI uses this as the display fallback when party_id == 'parties.IN.UNK' so the chip never shows the literal sentinel. Nullable for NOTA rows and for any row where the upstream omits the short string. NOT a substitute for party_id -- party_id remains the join key into dim_parties."
     }
   }
 }

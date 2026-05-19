@@ -120,7 +120,20 @@ function buildCandidateSql(event: string, state_code: string): string {
       dc.rank                                         AS rank,
       dc.name                                         AS name,
       dp.eci_code                                     AS party_eci_code,
-      dp.short_name                                   AS party_short,
+      -- party_short fallback chain (no-UNK-regression, PR-R.2):
+      --   1. dim_parties.short_name when party_id is resolved to a real party
+      --   2. dim_candidates.party_short_raw — verbatim ECI short — when
+      --      party_id is the sentinel parties.IN.UNK (long-tail party not yet
+      --      in canonical taxonomy). Citizens see "JNSRJP" not "UNK".
+      --   3. literal 'UNK' as a last resort (should be unreachable —
+      --      every UNK row is built with party_short_raw populated by the
+      --      adapter at v1.1; this branch defends against pre-v1.1 rows
+      --      that might survive a partial-corpus backfill).
+      CASE
+        WHEN dc.party_id = 'parties.IN.UNK'
+          THEN COALESCE(dc.party_short_raw, dp.short_name, 'UNK')
+        ELSE dp.short_name
+      END                                             AS party_short,
       CAST(cv.votes AS BIGINT)                        AS votes,
       0                                               AS is_nota
     FROM dim_candidates dc

@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/taxonomy-parties.schema.json",
-  "$schema_version": "2.0",
+  "$schema_version": "2.1",
   "sources": [
     {
       "url": "https://www.eci.gov.in/affidavit-information-of-candidate/",
@@ -13,6 +13,12 @@
       "fetched_at": "2026-05-18T00:00:00Z",
       "name": "Tamil Nadu Assembly Election 2026 — alliance coverage",
       "authority": "The Hindu"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_political_parties_in_India",
+      "fetched_at": "2026-05-19T00:00:00Z",
+      "name": "Reference parties merge + top-unresolved curation (PR-R.2)",
+      "authority": "yen-gov editorial"
     }
   ],
   "parties": [
@@ -73,7 +79,9 @@
       "aliases": [
         "Bharatiya Janata Party"
       ],
-      "eci_codes": [],
+      "eci_codes": [
+        "369"
+      ],
       "state_scope": [
         "IN"
       ],
@@ -97,7 +105,9 @@
         "Congress",
         "Indian National Congress"
       ],
-      "eci_codes": [],
+      "eci_codes": [
+        "742"
+      ],
       "state_scope": [
         "IN"
       ],
@@ -120,9 +130,13 @@
       "aliases": [
         "Communist Party of India"
       ],
-      "eci_codes": [],
+      "eci_codes": [
+        "544"
+      ],
       "state_scope": [
-        "IN"
+        "S11",
+        "S14",
+        "S22"
       ],
       "founded_year": 1925,
       "dissolved_year": null,
@@ -142,9 +156,12 @@
       "aliases": [
         "CPM",
         "CPI(M)",
-        "Communist Party of India (Marxist)"
+        "Communist Party of India (Marxist)",
+        "CPIM"
       ],
-      "eci_codes": [],
+      "eci_codes": [
+        "547"
+      ],
       "state_scope": [
         "IN"
       ],
@@ -165,7 +182,8 @@
       "short_name": "AAP",
       "full_name": "Aam Aadmi Party",
       "aliases": [
-        "Aam Aadmi Party"
+        "Aam Aadmi Party",
+        "AAAP"
       ],
       "eci_codes": [],
       "state_scope": [
@@ -185,7 +203,8 @@
       ],
       "eci_codes": [],
       "state_scope": [
-        "IN"
+        "S13",
+        "S17"
       ],
       "founded_year": 1999,
       "dissolved_year": null,
@@ -199,9 +218,12 @@
       "aliases": [
         "Dravida Munnetra Kazhagam"
       ],
-      "eci_codes": [],
+      "eci_codes": [
+        "582"
+      ],
       "state_scope": [
-        "S22"
+        "S22",
+        "U07"
       ],
       "founded_year": 1949,
       "dissolved_year": null,
@@ -223,9 +245,12 @@
         "A.I.A.D.M.K.",
         "All India Anna Dravida Munnetra Kazhagam"
       ],
-      "eci_codes": [],
+      "eci_codes": [
+        "75"
+      ],
       "state_scope": [
-        "S22"
+        "S22",
+        "U07"
       ],
       "founded_year": 1972,
       "dissolved_year": null,
@@ -244,9 +269,12 @@
       "short_name": "PMK",
       "full_name": "Pattali Makkal Katchi",
       "aliases": [],
-      "eci_codes": [],
+      "eci_codes": [
+        "1272"
+      ],
       "state_scope": [
-        "S22"
+        "S22",
+        "U07"
       ],
       "founded_year": 1989,
       "dissolved_year": null,
@@ -284,7 +312,9 @@
       "short_name": "DMDK",
       "full_name": "Desiya Murpokku Dravida Kazhagam",
       "aliases": [],
-      "eci_codes": [],
+      "eci_codes": [
+        "581"
+      ],
       "state_scope": [
         "S22"
       ],
@@ -366,9 +396,12 @@
       "short_name": "RJD",
       "full_name": "Rashtriya Janata Dal",
       "aliases": [],
-      "eci_codes": [],
+      "eci_codes": [
+        "1420"
+      ],
       "state_scope": [
-        "S04"
+        "S04",
+        "S27"
       ],
       "founded_year": 1997,
       "dissolved_year": null,
@@ -384,7 +417,9 @@
       ],
       "eci_codes": [],
       "state_scope": [
-        "S04"
+        "S02",
+        "S04",
+        "S14"
       ],
       "founded_year": 2003,
       "dissolved_year": null,
@@ -397,10 +432,15 @@
       "full_name": "All India Trinamool Congress",
       "aliases": [
         "TMC",
-        "Trinamool"
+        "Trinamool",
+        "AITMC"
       ],
-      "eci_codes": [],
+      "eci_codes": [
+        "140"
+      ],
       "state_scope": [
+        "S15",
+        "S23",
         "S25"
       ],
       "founded_year": 1998,
@@ -413,7 +453,8 @@
       "short_name": "SHS",
       "full_name": "Shiv Sena",
       "aliases": [
-        "Shiv Sena"
+        "Shiv Sena",
+        "SS"
       ],
       "eci_codes": [],
       "state_scope": [
@@ -429,11 +470,13 @@
       "short_name": "YSRCP",
       "full_name": "Yuvajana Sramika Rythu Congress Party",
       "aliases": [
-        "YSR Congress"
+        "YSR Congress",
+        "YSRCongress"
       ],
       "eci_codes": [],
       "state_scope": [
-        "S01"
+        "S01",
+        "S29"
       ],
       "founded_year": 2011,
       "dissolved_year": null,
@@ -447,7 +490,8 @@
       "aliases": [],
       "eci_codes": [],
       "state_scope": [
-        "S01"
+        "S01",
+        "S29"
       ],
       "founded_year": 1982,
       "dissolved_year": null,
@@ -520,7 +564,8 @@
       "full_name": "Jammu & Kashmir National Conference",
       "aliases": [
         "NC",
-        "National Conference"
+        "National Conference",
+        "JKN"
       ],
       "eci_codes": [],
       "state_scope": [
@@ -551,7 +596,10 @@
       "party_id": "parties.IN.SS_UBT",
       "short_name": "SHSUBT",
       "full_name": "Shiv Sena (Uddhav Balasaheb Thackeray)",
-      "aliases": [],
+      "aliases": [
+        "SHS(UBT)",
+        "SS(UBT)"
+      ],
       "eci_codes": [],
       "state_scope": [
         "S13"
@@ -566,16 +614,1265 @@
       "party_id": "parties.IN.NCP_SP",
       "short_name": "NCPSP",
       "full_name": "Nationalist Congress Party (Sharadchandra Pawar)",
-      "aliases": [],
+      "aliases": [
+        "NCP(SP)"
+      ],
       "eci_codes": [],
       "state_scope": [
-        "S13"
+        "S13",
+        "S17"
       ],
       "founded_year": 2023,
       "dissolved_year": null,
       "successor_party_id": null,
       "predecessor_party_id": "parties.IN.NCP",
       "notes": "2023 split of NCP; ECI allotted the NCP name+symbol to the Ajit Pawar faction."
+    },
+    {
+      "party_id": "parties.IN.NPP",
+      "short_name": "NPP",
+      "full_name": "National People's Party",
+      "aliases": [
+        "NPEP"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=national)."
+    },
+    {
+      "party_id": "parties.IN.AGP",
+      "short_name": "AGP",
+      "full_name": "Asom Gana Parishad",
+      "aliases": [],
+      "eci_codes": [
+        "83"
+      ],
+      "state_scope": [
+        "S03"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.AIFB",
+      "short_name": "AIFB",
+      "full_name": "All India Forward Bloc",
+      "aliases": [
+        "FBL"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S25"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.AIMIM",
+      "short_name": "AIMIM",
+      "full_name": "All India Majlis-e-Ittehadul Muslimeen",
+      "aliases": [
+        "MIM"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S29"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.AINRC",
+      "short_name": "AINRC",
+      "full_name": "All India N.R. Congress",
+      "aliases": [
+        "NRC"
+      ],
+      "eci_codes": [
+        "126"
+      ],
+      "state_scope": [
+        "U07"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.AIUDF",
+      "short_name": "AIUDF",
+      "full_name": "All India United Democratic Front",
+      "aliases": [],
+      "eci_codes": [
+        "145"
+      ],
+      "state_scope": [
+        "S03"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.AJSU",
+      "short_name": "AJSU",
+      "full_name": "All Jharkhand Students Union",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S27"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.ADS",
+      "short_name": "AD(S)",
+      "full_name": "Apna Dal (Soneylal)",
+      "aliases": [
+        "ADS",
+        "AD",
+        "ADAL"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S24"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.BOPF",
+      "short_name": "BOPF",
+      "full_name": "Bodoland People's Front",
+      "aliases": [
+        "BPF"
+      ],
+      "eci_codes": [
+        "436"
+      ],
+      "state_scope": [
+        "S03"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.CPIMLL",
+      "short_name": "CPI(ML)L",
+      "full_name": "Communist Party of India (Marxist–Leninist) Liberation",
+      "aliases": [
+        "CPIML",
+        "CPI(ML)",
+        "CPI(ML)(L)"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S04"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.GFP",
+      "short_name": "GFP",
+      "full_name": "Goa Forward Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S05"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.HSPDP",
+      "short_name": "HSPDP",
+      "full_name": "Hill State People's Democratic Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S15"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.INLD",
+      "short_name": "INLD",
+      "full_name": "Indian National Lok Dal",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S07"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.IUML",
+      "short_name": "IUML",
+      "full_name": "Indian Union Muslim League",
+      "aliases": [
+        "MUL"
+      ],
+      "eci_codes": [
+        "772"
+      ],
+      "state_scope": [
+        "S11"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.IPFT",
+      "short_name": "IPFT",
+      "full_name": "Indigenous People's Front of Tripura",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S23"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.JSP",
+      "short_name": "JSP",
+      "full_name": "Janasena Party",
+      "aliases": [
+        "JnP"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S01"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.JJP",
+      "short_name": "JJP",
+      "full_name": "Jannayak Janta Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S07"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.JCC",
+      "short_name": "JCC",
+      "full_name": "Janta Congress Chhattisgarh",
+      "aliases": [
+        "JCC(J)"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S26"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.JDS",
+      "short_name": "JD(S)",
+      "full_name": "Janata Dal (Secular)",
+      "aliases": [
+        "JDS"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S02",
+        "S10",
+        "S11"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.KEC",
+      "short_name": "KEC",
+      "full_name": "Kerala Congress",
+      "aliases": [],
+      "eci_codes": [
+        "911"
+      ],
+      "state_scope": [
+        "S11"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.KECM",
+      "short_name": "KEC(M)",
+      "full_name": "Kerala Congress (M)",
+      "aliases": [
+        "KCM"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S11"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.LJPRV",
+      "short_name": "LJP(RV)",
+      "full_name": "Lok Janshakti Party (Ram Vilas)",
+      "aliases": [
+        "LJPRV"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S17"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.MGP",
+      "short_name": "MGP",
+      "full_name": "Maharashtrawadi Gomantak Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S05"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.MNS",
+      "short_name": "MNS",
+      "full_name": "Maharashtra Navnirman Sena",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.MNF",
+      "short_name": "MNF",
+      "full_name": "Mizo National Front",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S16"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.NPF",
+      "short_name": "NPF",
+      "full_name": "Naga People's Front",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S14",
+        "S17"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.PPA",
+      "short_name": "PPA",
+      "full_name": "People's Party of Arunachal",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S02"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.RGP",
+      "short_name": "RGP",
+      "full_name": "Revolutionary Goans Party",
+      "aliases": [
+        "RVLTGONP"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S05"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.RLP",
+      "short_name": "RLP",
+      "full_name": "Rashtriya Loktantrik Party",
+      "aliases": [
+        "RLTP"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S20"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.RSP",
+      "short_name": "RSP",
+      "full_name": "Revolutionary Socialist Party",
+      "aliases": [],
+      "eci_codes": [
+        "1534"
+      ],
+      "state_scope": [
+        "S11"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.SDF",
+      "short_name": "SDF",
+      "full_name": "Sikkim Democratic Front",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S21"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.SKM",
+      "short_name": "SKM",
+      "full_name": "Sikkim Krantikari Morcha",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S21"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.TMP",
+      "short_name": "TMP",
+      "full_name": "Tipra Motha Party",
+      "aliases": [
+        "Tipra"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S23"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.UDP",
+      "short_name": "UDP",
+      "full_name": "United Democratic Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S15"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.UPPL",
+      "short_name": "UPPL",
+      "full_name": "United People's Party Liberal",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S03"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.VCK",
+      "short_name": "VCK",
+      "full_name": "Viduthalai Chiruthaigal Katchi",
+      "aliases": [],
+      "eci_codes": [
+        "1847"
+      ],
+      "state_scope": [
+        "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.VPP",
+      "short_name": "VPP",
+      "full_name": "Voice of the People Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S15"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.ZNP",
+      "short_name": "ZNP",
+      "full_name": "Zoram Nationalist Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S16"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.ZPM",
+      "short_name": "ZPM",
+      "full_name": "Zoram People's Movement",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S16"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=state)."
+    },
+    {
+      "party_id": "parties.IN.CMPKSC",
+      "short_name": "CMPKSC",
+      "full_name": "Communist Marxist Party Kerala State Committee",
+      "aliases": [],
+      "eci_codes": [
+        "540"
+      ],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.KECJ",
+      "short_name": "KEC(J)",
+      "full_name": "Kerala Congress (Jacob)",
+      "aliases": [
+        "KCJ"
+      ],
+      "eci_codes": [
+        "913"
+      ],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.RMPOI",
+      "short_name": "RMPOI",
+      "full_name": "Revolutionary Marxist Party of India",
+      "aliases": [
+        "RMPI"
+      ],
+      "eci_codes": [
+        "2162"
+      ],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.LJK",
+      "short_name": "LJK",
+      "full_name": "Latchiya Jananayaka Katchi",
+      "aliases": [],
+      "eci_codes": [
+        "2672"
+      ],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.AMMK",
+      "short_name": "AMMK",
+      "full_name": "Amma Makkal Munnetra Kazhagam",
+      "aliases": [
+        "AMMKMNKZ"
+      ],
+      "eci_codes": [
+        "2866"
+      ],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.AISF",
+      "short_name": "AISF",
+      "full_name": "All India Secular Front",
+      "aliases": [],
+      "eci_codes": [
+        "3075"
+      ],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.RJRD",
+      "short_name": "RJRD",
+      "full_name": "Raijor Dal",
+      "aliases": [],
+      "eci_codes": [
+        "3289"
+      ],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.TVK",
+      "short_name": "TVK",
+      "full_name": "Tamilaga Vettri Kazhagam",
+      "aliases": [
+        "tavk"
+      ],
+      "eci_codes": [
+        "3679"
+      ],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.AJUP",
+      "short_name": "AJUP",
+      "full_name": "Aam Janata Unnayan Party",
+      "aliases": [],
+      "eci_codes": [
+        "3735"
+      ],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.NYMK",
+      "short_name": "NYMK",
+      "full_name": "Neyam Makkal Kazhagam",
+      "aliases": [],
+      "eci_codes": [
+        "3737"
+      ],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Promoted from datasets/reference/in/parties.json on 2026-05-19 (recognition=registered_unrecognised)."
+    },
+    {
+      "party_id": "parties.IN.SDPI",
+      "short_name": "SDPI",
+      "full_name": "Social Democratic Party of India",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Registered unrecognised; active across Karnataka, Kerala, Tamil Nadu."
+    },
+    {
+      "party_id": "parties.IN.RLD",
+      "short_name": "RLD",
+      "full_name": "Rashtriya Lok Dal",
+      "aliases": [
+        "RLDA"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S24"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Recognised state party in UP; founded by Ajit Singh."
+    },
+    {
+      "party_id": "parties.IN.MNM",
+      "short_name": "MNM",
+      "full_name": "Makkal Needhi Maiam",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Tamil Nadu party founded by Kamal Haasan in 2018."
+    },
+    {
+      "party_id": "parties.IN.LJP",
+      "short_name": "LJP",
+      "full_name": "Lok Janshakti Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S04"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": "parties.IN.LJPRV",
+      "predecessor_party_id": null,
+      "notes": "Founded by Ram Vilas Paswan in 2000. Split into LJP(RV) and RLJP in 2021; pre-split rows use LJP."
+    },
+    {
+      "party_id": "parties.IN.SUCI",
+      "short_name": "SUCI",
+      "full_name": "Socialist Unity Centre of India (Communist)",
+      "aliases": [
+        "SUCI(C)",
+        "SUCIC"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Marxist-Leninist communist party; long-tail contestants across many states."
+    },
+    {
+      "party_id": "parties.IN.SADM",
+      "short_name": "SAD(M)",
+      "full_name": "Shiromani Akali Dal (Amritsar)",
+      "aliases": [
+        "SADM",
+        "SAD(A)"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S19"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Simranjit Singh Mann's faction of SAD."
+    },
+    {
+      "party_id": "parties.IN.JNJP",
+      "short_name": "JNJP",
+      "full_name": "Jannayak Janta Party",
+      "aliases": [
+        "JJP"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S07"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Recognised state party in Haryana; founded by Dushyant Chautala in 2018."
+    },
+    {
+      "party_id": "parties.IN.BDJS",
+      "short_name": "BDJS",
+      "full_name": "Bharath Dharma Jana Sena",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S11"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Kerala-based; NDA ally."
+    },
+    {
+      "party_id": "parties.IN.NDPP",
+      "short_name": "NDPP",
+      "full_name": "Nationalist Democratic Progressive Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S14"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Recognised state party in Nagaland."
+    },
+    {
+      "party_id": "parties.IN.RLSP",
+      "short_name": "RLSP",
+      "full_name": "Rashtriya Lok Samta Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S04"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Bihar party founded by Upendra Kushwaha in 2013; later merged into JD(U)."
+    },
+    {
+      "party_id": "parties.IN.ASPKR",
+      "short_name": "ASPKR",
+      "full_name": "Azad Samaj Party (Kanshi Ram)",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S24"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "UP-based; founded by Chandrashekhar Azad in 2020."
+    },
+    {
+      "party_id": "parties.IN.NINSHAD",
+      "short_name": "NINSHAD",
+      "full_name": "Nirbal Indian Shoshit Hamara Aam Dal",
+      "aliases": [
+        "NISHAD",
+        "Nishad Party"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S24"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "UP-based party representing Nishad (Mallah) community."
+    },
+    {
+      "party_id": "parties.IN.JVM",
+      "short_name": "JVM",
+      "full_name": "Jharkhand Vikas Morcha (Prajatantrik)",
+      "aliases": [
+        "JVMP",
+        "JVM(P)"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S27"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Jharkhand party; merged into BJP in 2020."
+    },
+    {
+      "party_id": "parties.IN.WPOI",
+      "short_name": "WPOI",
+      "full_name": "Welfare Party of India",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Multi-state party; active in Kerala, Karnataka, UP, etc."
+    },
+    {
+      "party_id": "parties.IN.AIMEP",
+      "short_name": "AIMEP",
+      "full_name": "All India Mahila Empowerment Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Founded by Nowhera Shaik in 2017."
+    },
+    {
+      "party_id": "parties.IN.UKKD",
+      "short_name": "UKKD",
+      "full_name": "Uttarakhand Kranti Dal",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S05"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Uttarakhand-specific regional party."
+    },
+    {
+      "party_id": "parties.IN.JAPL",
+      "short_name": "JAPL",
+      "full_name": "Jan Adhikar Party (Loktantrik)",
+      "aliases": [
+        "JAP(L)",
+        "JAPL"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S04"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Bihar party founded by Pappu Yadav."
+    },
+    {
+      "party_id": "parties.IN.RPPRINAT",
+      "short_name": "RPPRINAT",
+      "full_name": "Rashtriya Praja Party (Secular)",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "IN"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Long-tail multi-state contestant; tentative full-name resolution."
+    },
+    {
+      "party_id": "parties.IN.BTP",
+      "short_name": "BTP",
+      "full_name": "Bharatiya Tribal Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S06"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Tribal rights party in Gujarat and Rajasthan."
+    },
+    {
+      "party_id": "parties.IN.AJSUP",
+      "short_name": "AJSUP",
+      "full_name": "All Jharkhand Students Union",
+      "aliases": [
+        "AJSU"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S27"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Variant short for AJSU (state party in Jharkhand)."
+    },
+    {
+      "party_id": "parties.IN.KMDK",
+      "short_name": "KMDK",
+      "full_name": "Kongunadu Makkal Desia Katchi",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Tamil Nadu regional party representing Kongu Vellala Gounder community."
+    },
+    {
+      "party_id": "parties.IN.AIPTMMK",
+      "short_name": "AIPTMMK",
+      "full_name": "All India Puratchi Thalaivar Makkal Munnettra Kazhagam",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Tamil Nadu regional party."
+    },
+    {
+      "party_id": "parties.IN.SBSP",
+      "short_name": "SBSP",
+      "full_name": "Suheldev Bharatiya Samaj Party",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S24"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "UP party founded by Om Prakash Rajbhar in 2002."
+    },
+    {
+      "party_id": "parties.IN.PT",
+      "short_name": "PT",
+      "full_name": "Puthiya Tamilagam",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S22"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Tamil Nadu party founded by K. Krishnasamy."
+    },
+    {
+      "party_id": "parties.IN.KRS",
+      "short_name": "KRS",
+      "full_name": "Karnataka Rashtra Samithi",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S10"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Karnataka regional party founded by Ravi Krishna Reddy."
+    },
+    {
+      "party_id": "parties.IN.INPT",
+      "short_name": "INPT",
+      "full_name": "Indigenous Nationalist Party of Twipra",
+      "aliases": [],
+      "eci_codes": [],
+      "state_scope": [
+        "S23"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Tripura-based indigenous rights party."
+    },
+    {
+      "party_id": "parties.IN.RPIA",
+      "short_name": "RPI(A)",
+      "full_name": "Republican Party of India (A)",
+      "aliases": [
+        "RPIA"
+      ],
+      "eci_codes": [],
+      "state_scope": [
+        "S13"
+      ],
+      "founded_year": null,
+      "dissolved_year": null,
+      "successor_party_id": null,
+      "predecessor_party_id": null,
+      "notes": "Athawale faction of RPI."
     }
   ]
 }

@@ -125,6 +125,7 @@ def backfill_elections(
     on_slice: ProgressFn = None,
     on_write_start: "callable[[int, int], None] | None" = None,
     on_event_written: "callable[[str, int, int, float], None] | None" = None,
+    corpus_root: Path | None = None,
 ) -> BackfillResult:
     """Walk the per-AC JSON corpus and emit one event per write_batch call.
 
@@ -141,12 +142,21 @@ def backfill_elections(
       duration_s) for live progress visibility.
 
     Args:
-        datasets_root: repo's ``datasets/`` directory.
+        datasets_root: repo's ``datasets/`` directory. Used for the taxonomy
+            (``party_lookup``) AND as the default JSON-corpus root + write
+            target.
         events: optional allow-list of event_ids (e.g. ["AcGenMay2026"]).
         states: optional allow-list of state codes (e.g. ["S22"]).
         on_slice: callback invoked after each (event, state) slice is parsed.
         on_write_start: callback invoked before each event's write_batch.
         on_event_written: callback invoked after each event's write_batch.
+        corpus_root: optional override for the per-AC JSON corpus directory
+            (containing ``<event>/<state>/results/*.json``). Defaults to
+            ``datasets_root / "elections"``. Lets the operator point the
+            backfill at a restored snapshot under e.g.
+            ``datasets/ephemeral/legacy-corpus/elections`` without polluting
+            the canonical write target. Write target is unchanged
+            (``datasets_root / "elections" / "election_results.parquet"``).
 
     Returns:
         BackfillResult summarising parsed-row counts, slice errors, and
@@ -156,7 +166,7 @@ def backfill_elections(
     import time
 
     party_lookup = load_party_lookup(datasets_root)
-    elections_root = datasets_root / "elections"
+    elections_root = corpus_root if corpus_root is not None else (datasets_root / "elections")
 
     event_dirs = sorted(
         p for p in elections_root.iterdir()

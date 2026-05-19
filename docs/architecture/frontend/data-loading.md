@@ -105,6 +105,8 @@ Two presets used SQLite's scalar `MIN(a, b)` / `MAX(a, b)` overloads (head-to-he
 
 `/explore` no longer fetches `results.sqlite`. The `sql.js` runtime still ships because `lib/psephlab/actuals.ts` (consumed by Compare and Psephlab routes) imports `getDb`. That migration is a separate concern — psephlab needs per-candidate observations rolled into a different shape — and is tracked under Phase 1.8 alongside the `_old/` deletion.
 
+**Status (2026-05-19, PR-R.2)**: closed. `Psephlab.svelte` and `Compare.svelte` now import `loadActuals` from `lib/psephlab/canonical-loaders.ts` (DuckDB-WASM over Parquet, same `Tallies` shape) instead of `lib/psephlab/actuals.ts` (sql.js over `results.sqlite`). The legacy module is dead code on disk pending PR-R.3, which also deletes `lib/sql.ts`, `backend/yen_gov/emit/sqlite.py`, and the 41 `datasets/elections/<event>/<state>/results.sqlite` files. After PR-R.3 the citizen bundle no longer ships the `sql.js` runtime.
+
 ## The `/explore` page (legacy notes — pre-PR-L)
 
 [Historical context retained below for the migration ledger.]

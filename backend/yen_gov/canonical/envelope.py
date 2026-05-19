@@ -133,6 +133,10 @@ class CandidateDimRow(BaseModel):
     party_id: str = Field(pattern=r"^parties\.IN\.[A-Z][A-Z0-9_]*$")
     rank: int = Field(ge=1)
     source_id: str = Field(min_length=1)
+    # v1.1 (additive): verbatim ECI party_short from the upstream candidate row.
+    # Citizen UI falls back to this when party_id == 'parties.IN.UNK' so the
+    # chip never shows the literal sentinel. Nullable for NOTA / missing.
+    party_short_raw: str | None = None
 
 
 class AcDimRow(BaseModel):

@@ -243,6 +243,26 @@ describe("loadActuals — SQL composition", () => {
     // string.
     expect(acSql).toContain("'AcGen''OR''1=1'");
   });
+
+  it("emits the no-UNK-regression CASE fallback in the candidate SELECT", async () => {
+    // PR-R.2 structural fix: when dim_candidates.party_id resolves to the
+    // sentinel parties.IN.UNK (long-tail party not yet in canonical
+    // taxonomy), the loader must surface the verbatim ECI short from
+    // dim_candidates.party_short_raw — never the literal "UNK" — so
+    // citizen-visible chips stay honest. Pin the CASE expression so a
+    // future refactor that re-introduces a bare `dp.short_name` would
+    // fail this test.
+    mockedQuery
+      .mockResolvedValueOnce([])
+      .mockResolvedValueOnce([]);
+
+    await loadActuals("AcGenMay2026", "S22");
+
+    const [, [candSql]] = mockedQuery.mock.calls;
+    expect(candSql).toContain("parties.IN.UNK");
+    expect(candSql).toContain("dc.party_short_raw");
+    expect(candSql).toContain("COALESCE(dc.party_short_raw");
+  });
 });
 
 describe("loadActuals — empty result", () => {
