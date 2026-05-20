@@ -372,19 +372,16 @@ CREATE TABLE observations (
 _SRC_DDL = """
 CREATE TABLE sources (
     source_id            VARCHAR NOT NULL,
-    url                  VARCHAR,
-    content_hash         VARCHAR,
-    producer             VARCHAR,
-    citation_full        VARCHAR,
+    producer             VARCHAR NOT NULL,
+    title                VARCHAR NOT NULL,
+    vintage              VARCHAR NOT NULL,
+    license              VARCHAR NOT NULL,
+    confidence_tier      VARCHAR NOT NULL,
+    is_issuing_authority BOOLEAN NOT NULL,
+    verification_method  VARCHAR NOT NULL,
     url_main             VARCHAR,
-    url_download         VARCHAR,
-    date_accessed        VARCHAR,
-    first_fetched_at     VARCHAR,
-    last_seen_at         VARCHAR,
-    license              VARCHAR,
-    vintage              VARCHAR,
-    confidence_tier      VARCHAR,
-    is_issuing_authority BOOLEAN
+    citation_full        VARCHAR,
+    notes                VARCHAR
 )
 """
 
@@ -437,9 +434,24 @@ def _load_existing(
             f"INSERT INTO observations SELECT * FROM read_parquet('{observations_path.as_posix()}')"
         )
     if sources_path.is_file():
-        con.execute(
-            f"INSERT INTO sources SELECT * FROM read_parquet('{sources_path.as_posix()}')"
-        )
+        # INSERT BY NAME keeps the writer resilient to additive sources
+        # schema bumps AND to the v1.0->v2.0 pivot (ADR-0032, P.0e): when
+        # the on-disk Parquet still carries v1.0 columns (url, content_hash,
+        # url_download, date_accessed, first_fetched_at, last_seen_at) and
+        # the DDL is v2.0 (citation ledger), columns absent from EITHER
+        # side are silently NULL. The first canonical-eci-backfill regen
+        # after the pivot rewrites every row in citation-ledger shape and
+        # the legacy columns disappear from disk for good.
+        try:
+            con.execute(
+                "INSERT INTO sources BY NAME "
+                f"SELECT * FROM read_parquet('{sources_path.as_posix()}')"
+            )
+        except duckdb.Error:
+            # Hard fallback for parquet shapes that DuckDB cannot reconcile
+            # by name (unlikely under v2.0 — included as belt-and-braces
+            # so a partially-migrated corpus never blocks ingest).
+            pass
 
 
 def _apply_envelope(con: duckdb.DuckDBPyConnection, envelope: BatchEnvelope) -> None:
@@ -449,12 +461,12 @@ def _apply_envelope(con: duckdb.DuckDBPyConnection, envelope: BatchEnvelope) -> 
     # is the only bulk-insert path that scales without pandas/pyarrow deps.
 
     if envelope.source_rows:
+        # Citation-ledger shape (ADR-0032): 11 columns matching _SRC_DDL.
         src_tuples = [
             (
-                s.source_id, s.url, s.content_hash, s.producer, s.citation_full,
-                s.url_main, s.url_download, s.date_accessed, s.first_fetched_at,
-                s.last_seen_at, s.license, s.vintage, s.confidence_tier,
-                s.is_issuing_authority,
+                s.source_id, s.producer, s.title, s.vintage, s.license,
+                s.confidence_tier, s.is_issuing_authority, s.verification_method,
+                s.url_main, s.citation_full, s.notes,
             )
             for s in envelope.source_rows
         ]
@@ -464,9 +476,9 @@ def _apply_envelope(con: duckdb.DuckDBPyConnection, envelope: BatchEnvelope) -> 
             f"DELETE FROM sources WHERE source_id IN ({placeholders})",
             envelope_src_ids,
         )
-        # Sources are few (<200); executemany is fine here.
+        # Sources are few (<200 across the corpus today); executemany is fine.
         con.executemany(
-            "INSERT INTO sources VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            "INSERT INTO sources VALUES (?,?,?,?,?,?,?,?,?,?,?)",
             src_tuples,
         )
 

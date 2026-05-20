@@ -44,17 +44,16 @@ def _seed_taxonomy(datasets_root: Path) -> None:
     shutil.copy(ENTITIES_FIXTURE, datasets_root / "taxonomy" / "entities.json")
 
 
-def _src(source_id: str = "src-test0001") -> SourceRow:
+def _src(source_id: str = "src-test00000001") -> SourceRow:
     return SourceRow(
         source_id=source_id,
-        url="https://example.gov.in/test",
-        content_hash="",
         producer="yen-gov",
-        first_fetched_at="2026-05-18T00:00:00Z",
-        last_seen_at="2026-05-18T00:00:00Z",
+        title="Test Source",
+        vintage="2026",
         license="internal",
         confidence_tier="gold",
         is_issuing_authority=False,
+        verification_method="editorial",
     )
 
 
@@ -66,7 +65,7 @@ def _obs(
     indicator_id: str = "state-test-dummy-int",
     value_numeric: float | None = 42.0,
     value_text: str | None = None,
-    source_id: str = "src-test0001",
+    source_id: str = "src-test00000001",
 ) -> ObservationRow:
     return ObservationRow(
         entity_id=entity_id,
@@ -176,8 +175,8 @@ def test_dangling_source_id_aborts_write(tmp_path: Path) -> None:
     _seed_taxonomy(tmp_path)
     env = BatchEnvelope(
         target_family="test",
-        source_rows=[_src("src-aaaaaaaa")],
-        observation_rows=[_obs(source_id="src-zzzzzzzz")],  # not in envelope or store
+        source_rows=[_src("src-aaaaaaaaaaaa")],
+        observation_rows=[_obs(source_id="src-zzzzzzzzzzzz")],  # not in envelope or store
     )
     with pytest.raises(WriterError, match="dangling source_id"):
         write_batch(env, tmp_path)
@@ -242,19 +241,19 @@ def test_corrected_value_with_new_source_id_keeps_logical_row(tmp_path: Path) ->
     """R16: source_id is row-attribute, not identity. Two envelopes with
     same logical key but different source_id -> one row, latest source_id."""
     _seed_taxonomy(tmp_path)
-    env1 = _envelope([_obs(value_numeric=10.0, source_id="src-aaaaaaaa")],
-                     sources=[_src("src-aaaaaaaa")])
+    env1 = _envelope([_obs(value_numeric=10.0, source_id="src-aaaaaaaaaaaa")],
+                     sources=[_src("src-aaaaaaaaaaaa")])
     write_batch(env1, tmp_path)
 
-    env2 = _envelope([_obs(value_numeric=11.0, source_id="src-bbbbbbbb")],
-                     sources=[_src("src-bbbbbbbb")])
+    env2 = _envelope([_obs(value_numeric=11.0, source_id="src-bbbbbbbbbbbb")],
+                     sources=[_src("src-bbbbbbbbbbbb")])
     r2 = write_batch(env2, tmp_path)
 
     con = duckdb.connect(":memory:")
     rows = con.execute(
         f"SELECT value_numeric, source_id FROM read_parquet('{r2.observations_path.as_posix()}')"
     ).fetchall()
-    assert rows == [(11.0, "src-bbbbbbbb")]
+    assert rows == [(11.0, "src-bbbbbbbbbbbb")]
 
 
 def test_replace_partition_clears_existing_rows_for_indicator(tmp_path: Path) -> None:
@@ -320,7 +319,7 @@ def test_sources_parquet_kv_metadata(tmp_path: Path) -> None:
           (v.decode() if isinstance(v, bytes) else v)
           for k, v in kv_raw}
     assert kv.get("table_id") == "taxonomy.sources"
-    assert kv.get("schema_version") == "1.0"
+    assert kv.get("schema_version") == "2.0"
 
 
 # ---------------------------------------------------------------------------
@@ -468,7 +467,7 @@ def _cand_dim(cid: str = "IN-S22-AC-2008-167-AcGenApr2021-C01",
         name="A. Alpha",
         party_id=party_id,
         rank=rank,
-        source_id="src-test0001",
+        source_id="src-test00000001",
     )
 
 
@@ -479,7 +478,7 @@ def _ac_dim() -> AcDimRow:
         delim_year=2008,
         eci_no=167,
         name="Mylapore",
-        source_id="src-test0001",
+        source_id="src-test00000001",
     )
 
 
@@ -490,7 +489,7 @@ def _party_dim() -> PartyDimRow:
         short_name="DMK",
         full_name="Dravida Munnetra Kazhagam",
         recognition="state",
-        source_id="src-test0001",
+        source_id="src-test00000001",
     )
 
 
@@ -500,7 +499,7 @@ def _party_alliance_dim(period: str = "AcGenApr2021", alliance: str | None = "UP
         short_name="DMK",
         period_label=period,
         alliance=alliance,
-        source_id="src-test0001",
+        source_id="src-test00000001",
     )
 
 
@@ -651,7 +650,7 @@ def test_dim_candidates_party_short_raw_roundtrips(tmp_path: Path) -> None:
         name="X. Unknown",
         party_id="parties.IN.UNK",
         rank=2,
-        source_id="src-test0001",
+        source_id="src-test00000001",
         party_short_raw="FRINGE",
     )
     env = BatchEnvelope(
@@ -703,7 +702,7 @@ def test_dim_candidates_upsert_by_name_fills_legacy_rows_with_null(tmp_path: Pat
         name="Y. Newcomer",
         party_id="parties.IN.UNK",
         rank=3,
-        source_id="src-test0001",
+        source_id="src-test00000001",
         party_short_raw="UPNEW",
     )
     env2 = BatchEnvelope(
@@ -766,7 +765,7 @@ def test_dim_candidates_bio_fields_roundtrip(tmp_path: Path) -> None:
         name="A. Alpha",
         party_id="parties.IN.DMK",
         rank=1,
-        source_id="src-test0001",
+        source_id="src-test00000001",
         sex="Female",
         age=42,
         education="Graduate Professional",
@@ -832,7 +831,7 @@ def test_dim_candidates_bio_fields_nullable_and_age_bounds(tmp_path: Path) -> No
             name="Q. Underage",
             party_id="parties.IN.DMK",
             rank=9,
-            source_id="src-test0001",
+            source_id="src-test00000001",
             age=17,
         )
     with _pytest.raises(Exception):
@@ -844,6 +843,6 @@ def test_dim_candidates_bio_fields_nullable_and_age_bounds(tmp_path: Path) -> No
             name="R. Overage",
             party_id="parties.IN.DMK",
             rank=10,
-            source_id="src-test0001",
+            source_id="src-test00000001",
             age=121,
         )

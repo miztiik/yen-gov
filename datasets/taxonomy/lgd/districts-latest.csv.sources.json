@@ -1,0 +1,14 @@
+{
+  "$schema": "https://yen-gov.github.io/schemas/csv.sources.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "CLAUDE.md §12 provenance sidecar for the sibling CSV. CSV has no native top-level metadata slot; this file carries the required `sources` array on its behalf.",
+  "for": "districts-latest.csv",
+  "sources": [
+    {
+      "url": "https://github.com/ramSeraph/opendata/releases/download/lgd-latest-extra1/Districts.13May2026.csv.7z",
+      "fetched_at": "2026-05-13T21:47:49Z",
+      "name": "Local Government Directory (LGD) — opendata mirror",
+      "authority": "Ministry of Panchayati Raj, Government of India (mirror by ramSeraph)"
+    }
+  ]
+}

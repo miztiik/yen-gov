@@ -30,10 +30,20 @@ SCHEMAS_SUBDIR = Path("datasets/schemas")
 DATA_ROOTS = (Path("datasets"), Path("config"))
 
 # Path segments under DATA_ROOTS whose entire subtree is exempt from
-# Tier-B conformance. Today only `_test/` (shared cross-language test
-# fixtures). Adding to this set is a doctrine decision -- see
+# Tier-B conformance. Adding to this set is a doctrine decision -- see
 # `_iter_data_files` and docs/architecture/backend/validator.md.
-_EXCLUDED_PATH_SEGMENTS: frozenset[str] = frozenset({"_test"})
+#
+# Exemptions:
+#   * `_test`     -- shared cross-language test fixtures (datasets/_test/...).
+#                    Consumed by both pytest and vitest via plain JSON loads;
+#                    intentionally carry no `$schema`.
+#   * `ephemeral` -- operator scratch directory (datasets/ephemeral/...).
+#                    Whole subtree is gitignored (.gitignore = `*`); same
+#                    rationale as `.runtime/` under CLAUDE.md §2. Holds
+#                    raw XLSX/PDF dumps, restored legacy-corpus snapshots,
+#                    and operator inventory sidecars (e.g. `_ingest_inventory.json`)
+#                    that are NOT contract surfaces.
+_EXCLUDED_PATH_SEGMENTS: frozenset[str] = frozenset({"_test", "ephemeral"})
 VERSION_RE = re.compile(r"\d+\.\d+")
 
 

@@ -42,17 +42,16 @@ def _seed_taxonomy(datasets_root: Path) -> None:
     shutil.copy(ENTITIES_FIXTURE, datasets_root / "taxonomy" / "entities.json")
 
 
-def _src(source_id: str = "src-test0001") -> SourceRow:
+def _src(source_id: str = "src-test00000001") -> SourceRow:
     return SourceRow(
         source_id=source_id,
-        url="https://example.gov.in/test",
-        content_hash="",
         producer="yen-gov",
-        first_fetched_at="2026-05-18T00:00:00Z",
-        last_seen_at="2026-05-18T00:00:00Z",
+        title="Test Source",
+        vintage="2026",
         license="internal",
         confidence_tier="gold",
         is_issuing_authority=False,
+        verification_method="editorial",
     )
 
 
@@ -64,7 +63,7 @@ def _obs(
     period_seq: int = 1,
     indicator_id: str = "election-test-votes-total-int",
     value_numeric: float = 1.0,
-    source_id: str = "src-test0001",
+    source_id: str = "src-test00000001",
 ) -> ObservationRow:
     return ObservationRow(
         entity_id=entity_id,

@@ -73,8 +73,7 @@ const partyRows = [
 
 const sourceRows = [
   {
-    url: "https://eci.gov.in/results/tn-2021.xlsx",
-    first_fetched_at: "2026-05-01T00:00:00Z",
+    url_main: "https://eci.gov.in/results/tn-2021.xlsx",
   },
 ];
 
@@ -105,7 +104,7 @@ describe("loadElectionSeatsTrend — happy path", () => {
     expect(res.data.sources).toEqual([
       {
         url: "https://eci.gov.in/results/tn-2021.xlsx",
-        fetched_at: "2026-05-01T00:00:00Z",
+        fetched_at: "",
       },
     ]);
   });

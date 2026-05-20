@@ -1,6 +1,6 @@
 # Validator (`yen_gov.validate`)
 
-**Last Updated**: 2026-05-16
+**Last Updated**: 2026-05-20
 
 The two-tier validator that enforces CLAUDE.md §11 (schema versioning)
 and §12 (provenance) shape across schemas and data files. This doc
@@ -163,3 +163,37 @@ without new evidence:
    `--no-verify`; doctrine that says "run `yen_gov validate` before
    committing data" is a clearer cultural rule than a slow hook devs
    route around.
+
+## Subtree exemptions (`_EXCLUDED_PATH_SEGMENTS`)
+
+Some subtrees under `DATA_ROOTS` are exempt from Tier-B conformance
+because they are not contract surfaces. Exemption is a doctrine
+decision; the exempt set is small, hand-curated, and a literal
+basename match (not a glob / prefix / leading-underscore heuristic).
+Stray underscore-prefixed dirs (e.g. an accidental `_scratch/`) MUST
+still fail Tier B loudly — per Fowler review 2026-05-17.
+
+Currently exempt:
+
+| Segment | Why exempt |
+| --- | --- |
+| `_test` | Shared cross-language test fixtures (`datasets/_test/...`). Consumed by both pytest and vitest via plain JSON loads (e.g. `derive_temporal_range` parity cases). Intentionally carry no `$schema`. |
+| `ephemeral` | Operator scratch directory (`datasets/ephemeral/...`). Whole subtree is gitignored (`.gitignore = *`); same rationale as `.runtime/` per CLAUDE.md §2. Holds raw XLSX/PDF dumps, restored legacy-corpus snapshots, and operator inventory sidecars (e.g. `_ingest_inventory.json`) that are NOT contract surfaces. Added 2026-05-20 — `python -m yen_gov validate` was reporting `datasets/ephemeral/_ingest_inventory.json: missing or empty '$schema' field` for a gitignored operator sidecar, which is the validator-tests-DATA-not-CODE smell from the 2026-05-16 descope lesson one layer up: pytest-tier-A doesn't walk it, but Tier-B was. |
+
+To add a new exemption:
+
+1. Open a Plan-tier discussion: why is this subtree not a contract
+   surface? What gitignore / lifecycle / consumer story justifies
+   skipping it?
+2. Add the literal basename to `_EXCLUDED_PATH_SEGMENTS` in
+   `backend/yen_gov/validate.py` (NOT a glob, NOT a prefix — literal
+   `parts` match).
+3. Add a fixture test in `backend/tests/test_validate.py` mirroring
+   `test_tier_b_skips_ephemeral_subtree` that constructs a fake
+   subtree under `tmp_path` and asserts no failures reference it.
+4. Update this table in the same commit.
+
+Do NOT exempt subtrees that contain published artifacts the frontend
+consumes at runtime. That's the consumer-side contract; skipping it
+here is silently breaking the bet from "Frontend repo split: where the
+consumer-side test goes" above.

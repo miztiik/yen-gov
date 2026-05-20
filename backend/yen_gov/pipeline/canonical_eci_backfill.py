@@ -20,12 +20,24 @@ Public API:
   delegates per-slice work to :func:`_process_slice` (thin disk-wrapper
   around the primary API), and batches per-event into ``write_batch``.
 
-Design notes:
+Design notes (post ADR-0032 / P.0e citation-ledger pivot):
 
-- ``source_id`` is derived deterministically from the source URL — first 12
-  hex chars of sha256(url), prefixed ``src-``. Stable across re-runs.
-- ``content_hash`` is empty string (we don't have the original upstream bytes
-  on this backfill path; the OWID-shape ``sources.parquet`` schema allows it).
+- ``source_id`` is derived deterministically from the citation triple
+  ``(producer, title, vintage)`` via ``canonical.citation.derive_source_id``.
+  Stable across re-runs AND across LIVE-vs-HAND-IMPORTED paths — both paths
+  collapse to ONE citation per (state, ECI event) report.
+- ``title`` includes the state and event so distinct slices yield distinct
+  source_ids (otherwise all 41 state Section-10 reports for one event
+  would collide on a single citation row).
+- ``vintage = period.period_label`` (e.g. ``"AcGenApr2021"``). The ECI event
+  identifier IS the Statistical Report's publication vintage label.
+- ``verification_method = "archived-snapshot"`` for BOTH paths. The backfill
+  reads on-disk artifacts (not a live HTTP fetch); even the originally-live
+  path's URLs frequently 404 today. ``archived-snapshot`` is the honest
+  label for "yen-gov holds the bytes locally".
+- ``url_main`` = the live ECI URL if known (from ``cr.sources[0].url``),
+  else ``None`` for hand-imported ACs (no synthetic ``local://`` URL —
+  v1.0's fetch-ledger workaround is gone; citation is complete without one).
 - ``delim_year`` defaults to 2008 for all post-delimitation AC contests. The
   pre-delimitation backfill (delim_year=1976) will land in a follow-up.
 - Unresolved party shorts fall back to ``parties.IN.UNK`` and are recorded
@@ -38,12 +50,10 @@ Design notes:
 
 from __future__ import annotations
 
-import hashlib
 import json
 import logging
 from collections import defaultdict
 from dataclasses import dataclass, field
-from datetime import datetime
 from pathlib import Path
 
 from yen_gov.canonical.adapters.eci import (
@@ -58,6 +68,7 @@ from yen_gov.canonical.adapters.eci import (
 )
 from yen_gov.canonical.adapters.eci.party_lookup import UnknownPartyError
 from yen_gov.canonical.adapters.eci.rollups import ACContestSummary
+from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.envelope import (
     AcDimRow,
     BatchEnvelope,
@@ -472,61 +483,51 @@ class _LenientPartyLookup:
 
 
 def _source_for_result(cr: ConstituencyResult, *, period_label: str) -> tuple[str, SourceRow]:
-    """Pick the first source on the per-AC JSON as the contest-scoping source.
+    """Build the citation-ledger SourceRow for one AC's contest-scoping source.
 
-    Per canonical-store.md §11.4: each AC contest is scoped by one source.
-    The legacy emit path put Section 10 first, partywise second — keeping
-    that order means the contest-scoping source is always the Section-10
-    XLSX URL, which is what we want for AC-level provenance.
+    Under the v2.0 citation-ledger contract (ADR-0032) one citation =
+    one (producer, title, vintage) triple. For ECI Statistical Reports
+    the citation is "ECI Section 10 (Detailed Results) for state X,
+    event Y" — so the title includes ``cr.state`` and the vintage is the
+    event id (e.g. ``"AcGenApr2021"``).
+
+    Both LIVE-FETCH and HAND-IMPORTED ACs from the same state×event
+    collapse to ONE citation row (same triple → same ``source_id``).
+    That is the citation-ledger invariant: provenance is what the
+    citizen cites, not what the pipeline polled. ``url_main`` differs
+    between the two paths (None for hand-imported, the live URL for the
+    fetched path); whichever AC is parsed first sets the url_main on
+    the row, and subsequent ACs ``setdefault`` over it.
+
+    ``verification_method`` is ``"archived-snapshot"`` for both paths:
+    the backfill reads on-disk artifacts, not live ECI bytes; even the
+    nominally-live URLs frequently 404 today.
+
+    NOTE on ``license``: kept at ``"OGL-IN-1.0"`` for ECI, which matches
+    India's National Data Sharing & Accessibility Policy. Brief allowed
+    defaulting to ``"unknown-public"`` when unclear — ECI's policy is
+    clear enough that the specific OGL code is the more honest choice.
     """
-    if not cr.sources:
-        # Hand-imported XLSX path (cli.py eci-statreport-emit-local) writes
-        # sources=[] per ADR-0002. Synthesise a stable source_id from the
-        # event+state so re-runs are deterministic and rows still FK-link.
-        synthetic_url = f"local://{cr.election}/{cr.state}/eci-section-10"
-        source_id = _source_id_for_url(synthetic_url)
-        ts = "2026-05-13T00:00:00Z"
-        return source_id, SourceRow(
-            source_id=source_id,
-            url=synthetic_url,
-            content_hash="",
-            producer="Election Commission of India",
-            citation_full=f"ECI Section 10 (Detailed Results), {cr.election} {cr.state} — hand-imported",
-            url_main=synthetic_url,
-            url_download=synthetic_url,
-            date_accessed=ts[:10],
-            first_fetched_at=ts,
-            last_seen_at=ts,
-            license="OGL-IN-1.0",
-            vintage=cr.election,
-            confidence_tier="silver",
-            is_issuing_authority=True,
-        )
-
-    first = cr.sources[0]
-    url = first.url
-    fetched_at = first.fetched_at.strftime("%Y-%m-%dT%H:%M:%SZ")
-    source_id = _source_id_for_url(url)
+    producer = "Election Commission of India"
+    title = f"Statistical Report Section 10 (Detailed Results) — {cr.state} {period_label}"
+    vintage = period_label
+    source_id = derive_source_id(producer, title, vintage)
+    # Hand-imported ACs have cr.sources=[] (synthetic local:// URLs are
+    # no longer minted under v2.0). LIVE ACs carry the upstream URL.
+    url_main = cr.sources[0].url if cr.sources else None
     return source_id, SourceRow(
         source_id=source_id,
-        url=url,
-        content_hash="",
-        producer="Election Commission of India",
-        citation_full=f"ECI Section 10 (Detailed Results), {cr.election} {cr.state}",
-        url_main=url,
-        url_download=url,
-        date_accessed=first.fetched_at.strftime("%Y-%m-%d"),
-        first_fetched_at=fetched_at,
-        last_seen_at=fetched_at,
+        producer=producer,
+        title=title,
+        vintage=vintage,
         license="OGL-IN-1.0",
-        vintage=cr.election,
         confidence_tier="gold",
         is_issuing_authority=True,
+        verification_method="archived-snapshot",
+        url_main=url_main,
+        citation_full=None,  # renderer composes default from (producer, title, vintage)
+        notes=None,
     )
-
-
-def _source_id_for_url(url: str) -> str:
-    return "src-" + hashlib.sha256(url.encode("utf-8")).hexdigest()[:12]
 
 
 def _summary_for_result(
