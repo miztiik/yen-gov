@@ -15,11 +15,12 @@ Output (PR-O.3b-main / TODO row ``1.8b-writers-b-main``):
 The legacy per-state JSON shards that used to live here are retired —
 ``results/<n>.json``, ``result.summary.json``, and ``parties.json`` are
 no longer written by the live pipeline. The in-memory ``RunResult`` still
-exposes ``constituencies`` / ``summary`` / ``parties`` so the sqlite + CSV
-emitters (PR-O.3a) can consume them directly. The one-shot historical
-backfill driver ``canonical_eci_backfill.backfill_elections`` still reads
-the existing on-disk JSON corpus until row 1.8b-ii (PR-O.4) deletes those
-files.
+exposes ``constituencies`` / ``summary`` / ``parties`` so the CSV emitter
+(``yen_gov.emit.csv_bundle``, PR-O.3a) can consume them directly. The
+sibling SQLite emitter retired in PR-R.3 (TODO row 1.8e). The one-shot
+historical backfill driver ``canonical_eci_backfill.backfill_elections``
+still reads the existing on-disk JSON corpus until row 1.8b-ii (PR-O.4)
+deletes those files.
 
 Per CLAUDE.md §6 fail-loud: a single AC failure aborts the run. We don't ship
 a partial canonical write that silently elides constituencies.
