@@ -115,7 +115,7 @@ def test_coverage_reconciles_catalogue_and_disk(tmp_path: Path) -> None:
         {"states": [{"eci_code": "S22", "name": "Tamil Nadu"}]},
     )
     _write(
-        tmp_path / "datasets/reference/in/election-events.json",
+        tmp_path / "datasets/taxonomy/election_events.json",
         {
             "states": {
                 "S22": [
@@ -163,7 +163,7 @@ def test_coverage_flags_undeclared_and_pending(tmp_path: Path) -> None:
     state and must NOT be reported as an inconsistency)."""
     _write(tmp_path / "datasets/reference/in/states.json", {"states": []})
     _write(
-        tmp_path / "datasets/reference/in/election-events.json",
+        tmp_path / "datasets/taxonomy/election_events.json",
         {
             "states": {
                 "S04": [
@@ -289,7 +289,7 @@ def test_render_includes_indicators_and_state_first(tmp_path: Path) -> None:
         {"states": [{"eci_code": "S03", "name": "Assam"}]},
     )
     _write(
-        tmp_path / "datasets/reference/in/election-events.json",
+        tmp_path / "datasets/taxonomy/election_events.json",
         {
             "states": {
                 "S03": [
@@ -358,8 +358,8 @@ def test_render_includes_indicators_and_state_first(tmp_path: Path) -> None:
 
 
 def test_render_markdown_includes_frontend_wiring_section(tmp_path: Path) -> None:
-    """When ``topic-catalogue.json`` is present, the inventory must report
-    which indicators are wired vs unwired \u2014 the catalogue is hand-maintained
+    """When ``topics.json`` is present, the inventory must report
+    which indicators are wired vs unwired — the catalogue is hand-maintained
     (Holy Law #6 risk) and ~half the inventory was silently absent from the
     IA before this section existed."""
     _write(
@@ -367,11 +367,11 @@ def test_render_markdown_includes_frontend_wiring_section(tmp_path: Path) -> Non
         {"states": [{"eci_code": "S22", "name": "Tamil Nadu"}]},
     )
     _write(
-        tmp_path / "datasets/reference/in/election-events.json",
+        tmp_path / "datasets/taxonomy/election_events.json",
         {"states": {}},
     )
     _write(
-        tmp_path / "datasets/reference/in/topic-catalogue.json",
+        tmp_path / "datasets/taxonomy/topics.json",
         {
             "$schema": "x", "$schema_version": "1.0", "sources": [],
             "topics": [
