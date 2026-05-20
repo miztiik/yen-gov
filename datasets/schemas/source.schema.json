@@ -1,14 +1,19 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "./source.schema.json",
-  "title": "Sources table (canonical provenance)",
-  "description": "Hand-authored / adapter-generated provenance catalogue. One row per (url, content_hash). Replaces per-file sources[] smearing (R6/R7) — observations reference rows here via source_id FK (D5/D6). Field set = OWID origin.* verbatim + yen-gov extensions explicitly tagged. Authored shape is JSON (PR-reviewable, D18); pipeline compiles to taxonomy/sources.parquet for DuckDB consumption.",
-  "x-version": "1.0",
+  "title": "Sources table (citation ledger)",
+  "description": "Citation ledger for the canonical store. One row per CITATION — i.e. one row per distinct piece of upstream reportage that observations reference. Natural identity = (producer, title, vintage); source_id is a deterministic hash of that triple. Pivoted from v1.0's fetch-ledger shape (keyed on url + content_hash, smeared by fetch timestamps) per ADR-0032: provenance is what the citizen cites, not what the pipeline polled. Fetch telemetry (last-polled, content_hash) moves out of the canonical contract entirely — adapters that care for cache-invalidation purposes write sidecars under .runtime/<adapter>/<source_id>.json. The table is OWID-aligned (producer, title, vintage, license, url_main, citation_full verbatim from OWID origin.*) plus yen-gov extensions (source_id PK, confidence_tier, is_issuing_authority, verification_method, notes). Authored shape is JSON (PR-reviewable, D18); pipeline compiles to taxonomy/sources.parquet for DuckDB consumption.",
+  "x-version": "2.0",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-18",
       "description": "Initial canonical sources table schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). OWID origin.* fields verbatim (producer, citation_full, url_main, url_download, date_accessed, license, vintage). yen-gov extensions tagged in property descriptions: source_id (PK), content_hash, first_fetched_at, last_seen_at, confidence_tier, is_issuing_authority. Per D5/D6."
+    },
+    {
+      "version": "2.0",
+      "date": "2026-05-20",
+      "description": "ADR-0032 P.0e: pivot from fetch-ledger to citation-ledger. Natural identity moves from (url, content_hash) to (producer, title, vintage). Removed (breaking): url, content_hash, url_download, date_accessed, first_fetched_at, last_seen_at — all fetch telemetry leaves the canonical contract; fetch-cache adapters write sidecars under .runtime/<adapter>/<source_id>.json. Added (breaking required): title, vintage, verification_method (live-fetch / archived-snapshot / transcribed / editorial). vintage was nullable optional in v1.0; now required (citation identity depends on it; empty string permitted when the source publishes no vintage). source_id pattern tightened from ^src-[a-z0-9]{8,}$ to ^src-[a-z0-9]{12}$ (12 hex chars from sha256 of the citation triple, deterministic per backend/yen_gov/canonical/citation.derive_source_id). url_main + citation_full + notes are optional; license is enum-locked. See ADR-0032 + docs/concepts/data-provenance.md."
     }
   ],
   "type": "object",
@@ -24,78 +29,61 @@
         "additionalProperties": false,
         "required": [
           "source_id",
-          "url",
-          "content_hash",
           "producer",
+          "title",
+          "vintage",
           "license",
-          "first_fetched_at",
-          "last_seen_at",
           "confidence_tier",
-          "is_issuing_authority"
+          "is_issuing_authority",
+          "verification_method"
         ],
         "properties": {
           "source_id": {
             "type": "string",
-            "pattern": "^src-[a-z0-9]{8,}$",
-            "description": "yen-gov extension (not OWID). PK; stable across re-fetches. Convention: 'src-<8+ hex chars of stable hash>'. Adapters generate; never renumbered."
-          },
-          "url": {
-            "type": "string",
-            "description": "yen-gov extension. The exact http(s)://... URL the pipeline fetched. Empty string for hand-authored content (producer='yen-gov'). Together with content_hash forms the natural dedup key before source_id is assigned."
-          },
-          "content_hash": {
-            "type": "string",
-            "pattern": "^(sha256:[0-9a-f]{64}|)$",
-            "description": "yen-gov extension. sha256 of the fetched bytes, hex, prefixed 'sha256:'. Empty string for hand-authored. Idempotency anchor: a re-fetch yielding the same hash updates last_seen_at and nothing else."
+            "pattern": "^src-[a-z0-9]{12}$",
+            "description": "yen-gov extension (not OWID). PK; deterministic 12-char prefix of sha256(f'{producer}|{title}|{vintage}'). NOT random and NOT minted by an autoincrement — the same citation triple anywhere in the codebase yields the same source_id. Built by backend/yen_gov/canonical/citation.derive_source_id()."
           },
           "producer": {
             "type": "string",
             "minLength": 1,
-            "description": "OWID origin.producer verbatim. Publisher org (e.g. 'Election Commission of India', 'Ministry of Statistics and Programme Implementation', 'Reserve Bank of India'). For hand-authored: 'yen-gov'."
+            "description": "OWID origin.producer verbatim. Publisher organisation (e.g. 'Election Commission of India', 'Ministry of Statistics and Programme Implementation', 'Reserve Bank of India'). For hand-authored: 'yen-gov'. Part of the citation identity triple."
           },
-          "citation_full": {
-            "type": "string",
-            "description": "OWID origin.citation_full verbatim. Full bibliographic citation string."
-          },
-          "url_main": {
-            "type": "string",
-            "description": "OWID origin.url_main verbatim. Landing / about page (often distinct from the bytes URL)."
-          },
-          "url_download": {
-            "type": "string",
-            "description": "OWID origin.url_download verbatim. Direct download URL; equals `url` for HTML scrapes."
-          },
-          "date_accessed": {
-            "type": "string",
-            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-            "description": "OWID origin.date_accessed verbatim. UTC date (YYYY-MM-DD) the pipeline first read this URL. Distinct from first_fetched_at by intent: date_accessed is OWID-conformant for citation; first_fetched_at is RFC 3339 with time."
-          },
-          "first_fetched_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "yen-gov extension. RFC 3339 UTC; immutable; citizen-facing. Set once on first observation of (url, content_hash); never updated. Per D6."
-          },
-          "last_seen_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "yen-gov extension. RFC 3339 UTC; updated on every re-fetch that confirms the same content_hash. Operational telemetry; NOT citizen-facing. Per D6 — dissolves the fetched_at smear."
-          },
-          "license": {
+          "title": {
             "type": "string",
             "minLength": 1,
-            "description": "OWID origin.license verbatim. Short code: 'OGL-IN-1.0', 'CC-BY-4.0', 'CC0-1.0', 'public-domain', 'unknown-public', 'internal' (hand-authored)."
+            "description": "OWID origin.title verbatim. The thing being cited (e.g. 'Statistical Report Section 10 (Detailed Results) — TN', 'National Family Health Survey, India Report'). Part of the citation identity triple. Citizen-facing; include enough discriminator (state / report family / volume) that two distinct citations don't collide on title alone."
           },
           "vintage": {
-            "type": ["string", "null"],
-            "description": "OWID origin.vintage verbatim. Source's own period / revision label (e.g. 'FY 2024-25', 'Provisional Estimates', '2025 release'). Preserved as-published; never normalised."
+            "type": "string",
+            "description": "OWID origin.vintage verbatim — source's OWN period / revision / edition label (e.g. 'AcGenApr2021', 'FY 2024-25', '2025 release', 'Provisional Estimates', 'NFHS-5'). Preserved as-published; never normalised. Required string; permitted to be empty when the source genuinely publishes no vintage (rare). Part of the citation identity triple — distinct vintages of the same producer+title get distinct source_ids."
+          },
+          "license": {
+            "enum": ["OGL-IN-1.0", "CC-BY-4.0", "CC0-1.0", "public-domain", "unknown-public", "internal"],
+            "description": "OWID origin.license verbatim — locked enum. 'OGL-IN-1.0' = National Data Sharing & Accessibility Policy (most Indian government open data). 'CC-BY-4.0' / 'CC0-1.0' = explicit CC license declared by publisher. 'public-domain' = explicit public-domain dedication. 'unknown-public' = published publicly but no explicit license — cite under fair-use defaults. 'internal' = yen-gov hand-authored content."
           },
           "confidence_tier": {
             "enum": ["gold", "silver", "bronze"],
-            "description": "yen-gov extension (not OWID). gold = issuing authority publishing its own primary data (ECI, MoSPI, RBI). silver = reputable secondary republisher / research aggregator (PRS, CMIE, OWID-imported). bronze = single-paper / unverified mirror — surface with caveat. Curation discipline for Indian mixed-quality data shelves; OWID's editorial gate happens upstream of the table so they don't need this."
+            "description": "yen-gov extension (not OWID). gold = issuing authority publishing its own primary data (ECI, MoSPI, RBI). silver = reputable secondary republisher / research aggregator (PRS, CMIE, OWID-imported). bronze = single-paper / unverified mirror — surface with citizen-visible caveat. Curation discipline for Indian mixed-quality data shelves; OWID's editorial gate happens upstream of the table so they don't carry an equivalent."
           },
           "is_issuing_authority": {
             "type": "boolean",
-            "description": "yen-gov extension (not OWID). True iff producer is the official issuing authority for this data (e.g. ECI for election results, NCRB for crime). False for republishers. Often implied by confidence_tier=gold but explicit for the rare gold-republisher case."
+            "description": "yen-gov extension (not OWID). True iff producer is the official issuing authority for this data (e.g. ECI for election results, NCRB for crime). False for republishers. Often implied by confidence_tier=gold but explicit because the rare gold-republisher case (a research aggregator we trust for accuracy without being the issuer) needs to read True for confidence and False for citation-authority."
+          },
+          "verification_method": {
+            "enum": ["live-fetch", "archived-snapshot", "transcribed", "editorial"],
+            "description": "yen-gov extension (not OWID). How yen-gov knows the citation reflects what the producer actually published. 'live-fetch' = adapter calls upstream HTTP each ingest run and operates on the response bytes directly. 'archived-snapshot' = adapter operates on a local copy of bytes that were fetched in a prior session (most ECI Statistical Reports — XLSX held locally; source URL no longer always live). 'transcribed' = human read the source and typed values in (rare; used only when no machine-readable form exists). 'editorial' = yen-gov hand-authored content (license='internal'). Trust ordering live-fetch > archived-snapshot > transcribed > editorial — see backend/yen_gov/canonical/citation.verification_method_rank()."
+          },
+          "url_main": {
+            "type": ["string", "null"],
+            "description": "OWID origin.url_main verbatim. Landing / about / download page URL the citizen can click through to. Optional + nullable — many archived snapshots no longer have a live URL. When null the citation is still complete; the citizen sees (producer, title, vintage) plus a 'no live URL' indicator."
+          },
+          "citation_full": {
+            "type": ["string", "null"],
+            "description": "OWID origin.citation_full verbatim. Full bibliographic citation string for academic-style attribution. Optional — when null, backend/yen_gov/canonical/citation.render_citation() composes a default from (producer, title, vintage)."
+          },
+          "notes": {
+            "type": ["string", "null"],
+            "description": "yen-gov extension. Operator-visible free-text note (e.g. 'XLSX layout changed between AcGenMay2021 and AcGenApr2024 — see adapter README'). Optional; NOT citizen-facing."
           }
         }
       }

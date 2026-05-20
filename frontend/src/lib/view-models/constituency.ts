@@ -10,7 +10,7 @@
 //   elections.dim_candidates    — per-contest candidate rows (PK = entity_id)
 //   elections.dim_parties       — party labels (short / full / eci_code)
 //   elections.election_results  — numeric facts (votes, share, AC totals)
-//   taxonomy.sources            — provenance URLs + first_fetched_at
+//   taxonomy.sources            — provenance URLs (citation-ledger v2.0)
 //
 // LoaderResult arms:
 //   ok       — JOIN produced 1+ candidate rows; full ConstituencyResult built.
@@ -86,8 +86,7 @@ interface AcScopeRow {
 }
 
 interface SourceJoinRow {
-  url: string | null;
-  first_fetched_at: string | null;
+  url_main: string | null;
 }
 
 // Numeric coercion: DuckDB-WASM returns BIGINT as BigInt and DOUBLE as
@@ -172,15 +171,18 @@ async function runQueries(
       AND indicator_id LIKE 'ac-%'
   `);
 
-  // Provenance: DISTINCT URLs across every row that contributed to this
-  // contest (AC-scope + candidate-scope). taxonomy.sources is the canonical
-  // sources table; we project (url, first_fetched_at) into the legacy
-  // SourceRef shape the SourceList renderer already understands.
+  // Provenance: DISTINCT citations across every row that contributed to
+  // this contest (AC-scope + candidate-scope). taxonomy.sources is the
+  // canonical sources table under v2.0 (ADR-0032) — keyed on the citation
+  // triple (producer, title, vintage). We project (url_main) and map it
+  // into the legacy SourceRef shape the SourceList renderer already
+  // understands; ``fetched_at`` is left empty because fetch telemetry is
+  // operator state, not provenance, under the citation-ledger contract.
   const candidateIds = candidates
     .map((c) => sqlString(c.candidate_id))
     .join(", ");
   const sources = await query<SourceJoinRow>(`
-    SELECT DISTINCT s.url, s.first_fetched_at
+    SELECT DISTINCT s.url_main
     FROM election_results o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label = ${evt}
@@ -188,8 +190,9 @@ async function runQueries(
         o.entity_id = ${ac}
         OR o.entity_id IN (${candidateIds})
       )
-      AND s.url <> ''
-    ORDER BY s.first_fetched_at
+      AND s.url_main IS NOT NULL
+      AND s.url_main <> ''
+    ORDER BY s.url_main
   `);
 
   return { candidates, acScope, sources };
@@ -260,10 +263,14 @@ function assembleResult(
   );
 
   const sources: SourceRef[] = rows.sources
-    .filter((s) => !!s.url)
+    .filter((s) => !!s.url_main)
     .map((s) => ({
-      url: s.url ?? "",
-      fetched_at: s.first_fetched_at ?? "",
+      url: s.url_main ?? "",
+      // Citation ledger (v2.0) does not carry fetch telemetry —
+      // ``fetched_at`` is intentionally empty; SourceList degrades to a
+      // URL-only chip rather than misrepresenting an operator timestamp
+      // as provenance. See ADR-0032.
+      fetched_at: "",
     }));
 
   return {

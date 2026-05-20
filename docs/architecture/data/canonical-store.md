@@ -450,32 +450,63 @@ Display vs query (citizen renderer rule, §1 of THE PLAN):
 
 ## 5. Sources schema (D5)
 
-`taxonomy/sources.parquet` adopts OWID `origin.*` fields **verbatim**, plus yen-gov extensions explicitly tagged below.
+`taxonomy/sources.parquet` is a **citation ledger** keyed on `(producer, title, vintage)`. One row per distinct piece of upstream reportage that observations reference. The schema adopts OWID `origin.*` fields **verbatim** (CLAUDE.md §0a, "The One Rule") plus four yen-gov extensions for confidence + verifiability. Schema authority: [ADR-0032](../decisions/0032-sources-citation-ledger.md). Schema version: `x-version: "2.0"` in [`datasets/schemas/source.schema.json`](../../../datasets/schemas/source.schema.json).
 
-### 5.1 OWID `origin.*` (verbatim)
+**Identity model.** Natural key is the citation triple `(producer, title, vintage)`. `source_id` is a deterministic 12-char hash of that triple:
 
-| Column | OWID meaning |
+```python
+source_id = "src-" + sha256(f"{producer}|{title}|{vintage}".encode("utf-8")).hexdigest()[:12]
+```
+
+Anywhere in the codebase the same triple yields the same `source_id` — across cold starts, across ingest paths (live HTTP fetch vs hand-imported transcription), across machines. Use [`backend/yen_gov/canonical/citation.py`](../../../backend/yen_gov/canonical/citation.py)'s `derive_source_id(producer, title, vintage)` helper — never hand-author the hash.
+
+**Total field count**: 11 (8 required + 3 optional).
+
+### 5.1 OWID `origin.*` (verbatim) — 5 columns
+
+| Column | Required | OWID meaning |
+| --- | :---: | --- |
+| `producer` | ✓ | Publisher organisation. Verbatim from the source — "Election Commission of India", "Reserve Bank of India", "Ministry of Statistics and Programme Implementation", "yen-gov" for editorial rows. |
+| `title` | ✓ | Citizen-readable report name. Verbatim — "Statistical Report Section 10 (Detailed Results) — Tamil Nadu AcGenMay2026", "Handbook of Statistics on the Indian Economy 2024-25", etc. |
+| `vintage` | ✓ | Source's own period label. Verbatim — "FY 2024-25", "Census 2011", "Aug 2025 issue". Empty string `""` permitted when the publisher genuinely has no vintage label (rare). |
+| `license` | ✓ | Enum-locked: `OGL-IN-1.0` / `CC-BY-4.0` / `CC0-1.0` / `public-domain` / `unknown-public` / `internal`. |
+| `url_main` | — | Landing / about page URL the citizen can open. May 404 (publishers rename paths); not a citation requirement. `null` for hand-imported / transcribed / editorial rows. |
+| `citation_full` | — | Full citation string. When `null`, the renderer composes: `f"{producer}, {title}" + (f" ({vintage})" if vintage else "")`. Adapters set this only when they need to override the default composition. |
+
+### 5.2 yen-gov extensions (NOT OWID) — 5 columns
+
+| Column | Required | Why we deviate |
+| --- | :---: | --- |
+| `source_id` (PK) | ✓ | Deterministic 12-char hash of `(producer, title, vintage)`. OWID has no PK because OWID's table is editorially curated; yen-gov's is pipeline-emitted and needs a stable FK target for every observation row in every Parquet family. |
+| `confidence_tier` enum-3 | ✓ | `gold` / `silver` / `bronze`. Indian data shelves mix issuing authority (ECI on votes), reputable republisher (PRS Legislative Research republishing govt data), and single-paper / activist sources. Citizens need the trust signal; OWID's editorial gate happens upstream of its table so OWID doesn't carry one. |
+| `is_issuing_authority` (bool) | ✓ | True iff the producer is the issuing authority for this data (ECI on votes = true; a research aggregator republishing the same numbers = false). Independent from `confidence_tier` — a silver republisher of an issuing-authority report has `confidence_tier="silver"` AND `is_issuing_authority=false`. |
+| `verification_method` enum-4 | ✓ | `live-fetch` / `archived-snapshot` / `transcribed` / `editorial`. Array order is canonical rank (4 strongest → 1 weakest). Distinguishes "we polled this URL each run" from "we hold a byte-faithful copy" from "operator typed the numbers from a screenshot" from "yen-gov is the source of this framing". |
+| `notes` | — | Operator scratchpad. Citizen-facing only when explicitly surfaced; not a contract. |
+
+Hand-imported / transcribed content uses the same producer/title/vintage as the live-fetched path would; only `url_main = null` and `verification_method = "transcribed"` differ. **Both paths get the same `source_id`** (because the citation triple is identical), so the citizen never sees split provenance for one report.
+
+Editorial content (yen-gov-derived analytical framing, not a transcription of an external source): `producer = "yen-gov"`, `license = "internal"`, `is_issuing_authority = false`, `confidence_tier = "gold"` (we know our own provenance), `verification_method = "editorial"`, `url_main = null`.
+
+### 5.3 What is NOT in v2.0 (removed from v1.0)
+
+Six fields from v1.0 are **gone** from the contract (breaking change at v2.0):
+
+| Removed field | Why |
 | --- | --- |
-| `url_main` | landing / about page URL |
-| `url_download` | direct download URL (== `url` for HTML scrapes) |
-| `producer` | publisher organisation (e.g. "Election Commission of India") |
-| `citation_full` | full citation string |
-| `date_accessed` | UTC date pipeline first read this URL |
-| `license` | OWID-style license code (e.g. `OGL-IN-1.0`, `CC-BY-4.0`, `unknown-public`) |
-| `vintage` | source's own period label (e.g. "FY 2024-25"); preserved verbatim |
+| `url`, `url_download` | Identity moved from URL to citation. Click-through lives on `url_main` (optional). |
+| `content_hash` | Citizen-facing rows do not depend on byte-identity. Adapters that need cache-invalidation state write `.runtime/<adapter>/<source_id>.json` sidecars (CLAUDE.md §2 — ephemeral, never contract). |
+| `first_fetched_at`, `last_seen_at`, `date_accessed` | Fetch timestamps on the citation row caused the fetched_at smear (/memories/lessons.md 2026-05-16). They are operator state, not citation facts. Same sidecar mitigation as `content_hash`. |
 
-### 5.2 yen-gov extensions (NOT OWID)
+Migration tool: [`tools/migrate_sources_v1_to_v2.py`](../../../tools/migrate_sources_v1_to_v2.py) — one-shot that read the existing v1.0 sources.parquet + existing canonical Parquet rows, derived v2.0 citation triples, wrote a new sources.parquet (84 → 55 rows), rewrote the `source_id` column on 31 state-shard `election_results.parquet` files via CTAS, and verified FK closure end-to-end.
 
-| Column | Why we deviate |
-| --- | --- |
-| `source_id` (PK) | We key by `(url, content_hash)`; OWID's URN-shaped strings don't compose with our FK strategy. |
-| `content_hash` (sha256 of fetched bytes) | Idempotency anchor; lets writer detect "same URL, new content" vs "same URL, same content". |
-| `first_fetched_at` (RFC 3339 UTC, **immutable**) | Citizen-facing "when we first saw this". Replaces the smeared `fetched_at` of pre-pivot artifacts (CLAUDE.md §10). |
-| `last_seen_at` (RFC 3339 UTC, **mutable**) | Telemetry — when re-fetch last confirmed the URL still resolves. Never citizen-facing. |
-| `confidence_tier` enum: `gold` / `silver` / `bronze` | Indian data shelves mix issuing authority, research re-publisher, and single-paper sources. Citizens need the trust signal; OWID's editorial gate happens upstream of its table so it doesn't carry one. |
-| `is_issuing_authority` (bool) | Distinguishes ECI on votes (true) from a research aggregator republishing the same numbers (false). |
+### 5.4 Rationale — why a citation ledger, not a fetch ledger
 
-Hand-authored content (e.g. yen-gov-derived rollups): `url_*` empty string; `producer = "yen-gov"`; `license = "internal"`; `is_issuing_authority = false`; `confidence_tier = "gold"` (we know our own provenance).
+Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../decisions/0032-sources-citation-ledger.md). Summary of the four rejected designs:
+
+1. **Domain-as-identity** (`source_id = sha256(domain)`) — loses citation precision; ECI publishes 200+ distinct reports per domain.
+2. **Drop sources.parquet; use git commits** — re-creates per-shard smear; violates Holy Law #9.
+3. **`content_hash` back as nullable** — re-introduces fetched_at-smear one layer up.
+4. **`citation_full` REQUIRED with mandatory templating** — locks the schema to one display convention.
 
 ---
 

@@ -112,13 +112,15 @@ def test_build_slice_envelope_happy_path(party_lookup_in) -> None:
     # 3 ACs × N candidate rows + per-AC roll-up rows + per-state roll-up rows.
     # The exact row count depends on the adapter's indicator catalogue, which
     # this test doesn't pin (a change there is a different test's concern).
-    # What we DO pin: rows is non-empty, sources has 3 entries (one per AC
-    # since each fixture AC has a distinct URL), 3 AC dim rows, 5 unique
-    # candidates × 3 ACs = 15 candidate dim rows, no unresolved.
+    # What we DO pin: rows is non-empty, sources has 1 entry (all 3 fixture
+    # ACs share the same producer/title/vintage triple under v2.0 citation
+    # ledger — ADR-0032), 3 AC dim rows, 5 unique candidates × 3 ACs = 15
+    # candidate dim rows, no unresolved.
     assert len(rows) > 0
-    assert len(sources) == 3, (
-        f"expected one source per AC (3 distinct URLs in fixture), got "
-        f"{len(sources)}: {sorted(sources.keys())}"
+    assert len(sources) == 1, (
+        f"expected ONE citation row for the slice (v2.0 citation ledger — "
+        f"same producer/title/vintage triple across all 3 ACs of the same "
+        f"state×event), got {len(sources)}: {sorted(sources.keys())}"
     )
     assert len(ac_dims) == 3, f"expected 3 AC dim rows, got {len(ac_dims)}"
     assert len(candidate_dims) == 15, (
