@@ -21,7 +21,7 @@ REPO = Path(__file__).resolve().parents[2]
 DATASETS = REPO / "datasets"
 ELECTIONS_ROOT = DATASETS / "elections"
 REFERENCE_STATES_ROOT = DATASETS / "reference" / "in" / "states"
-ELECTION_EVENTS_PATH = DATASETS / "reference" / "in" / "election-events.json"
+ELECTION_EVENTS_PATH = DATASETS / "taxonomy" / "election_events.json"
 
 # Known missing per-AC files where Section 10 intentionally has no publishable
 # winner record (countermanded/postponed constituency).
@@ -91,7 +91,7 @@ def test_emitted_states_are_declared_in_event_metadata():
     # the registry didn't already hold. The replacement gates are:
     #   * ``test_election_events_catalogue_matches_backend_registry`` below
     #     compares the EVENTS Python registry against
-    #     ``datasets/reference/in/election-events.json`` (citizen catalogue)
+    #     ``datasets/taxonomy/election_events.json`` (citizen catalogue)
     #     — this is the load-bearing contract that prevents drift;
     #   * canonical adapter (``backend/yen_gov/canonical/adapters/``) writes
     #     ``dim_acs`` rows keyed on ``(event_id, state)`` directly from the
@@ -136,8 +136,8 @@ def test_result_name_reservation_matches_reference():
 
 
 def test_election_events_catalogue_matches_backend_registry():
-    """The hand-authored citizen-facing catalogue (datasets/reference/in/
-    election-events.json, ADR-0023) must agree with the backend's
+    """The hand-authored citizen-facing catalogue (datasets/taxonomy/
+    election_events.json, ADR-0023) must agree with the backend's
     authoritative `events.py` registry on every (state, event_id) pair.
 
     This is the load-bearing contract that lets the frontend resolve
@@ -163,11 +163,11 @@ def test_election_events_catalogue_matches_backend_registry():
 
     assert not only_in_backend, (
         "events.py declares (state, event_id) pairs missing from "
-        "datasets/reference/in/election-events.json — citizens will see "
+        "datasets/taxonomy/election_events.json — citizens will see "
         f"states with no election link in the UI: {only_in_backend}"
     )
     assert not only_in_catalogue, (
-        "election-events.json declares (state, event_id) pairs not in "
+        "election_events.json declares (state, event_id) pairs not in "
         "events.py — frontend will 404 trying to fetch nonexistent "
         f"artifacts: {only_in_catalogue}"
     )
@@ -201,9 +201,9 @@ def test_election_events_default_uniqueness():
 # state-tiers.json contract tests (P3.1 IA reset)
 # ---------------------------------------------------------------------------
 
-STATE_TIERS_PATH = DATASETS / "reference" / "in" / "state-tiers.json"
+STATE_TIERS_PATH = DATASETS / "taxonomy" / "state_tiers.json"
 STATES_REGISTRY_PATH = DATASETS / "reference" / "in" / "states.json"
-TOPIC_CATALOGUE_PATH = DATASETS / "reference" / "in" / "topic-catalogue.json"
+TOPIC_CATALOGUE_PATH = DATASETS / "taxonomy" / "topics.json"
 
 
 def _known_state_codes() -> set[str]:

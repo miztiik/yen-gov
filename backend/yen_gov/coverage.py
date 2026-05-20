@@ -3,7 +3,7 @@
 Derives a single-source-of-truth inventory of which (event, state) slices have
 been ingested by reconciling two surfaces:
 
-1. The declared catalogue at ``datasets/reference/in/election-events.json``
+1. The declared catalogue at ``datasets/taxonomy/election_events.json``
    (every (state, event) the project intends to cover, with a ``data_status``
    of ``complete`` / ``partial`` / ``pending_upstream``).
 2. The on-disk artifacts under ``datasets/elections/<event>/<state>/`` that
@@ -14,6 +14,10 @@ to ``docs/reference/data-inventory.md`` so it can be linked from the README
 without becoming a hand-maintained list. Run ``python -m yen_gov coverage``
 after every ingest; the file is the contract, the catalogue is the spec, and
 any divergence between them surfaces in the "Inconsistencies" section.
+
+Path moved in T.0c (Phase 0 closeout) from ``reference/in/election-events.json``
+to ``taxonomy/election_events.json`` and from ``reference/in/topic-catalogue.json``
+to ``taxonomy/topics.json``. See TODO/20260517-canonical-long-format-pivot.md §0e.
 """
 
 from __future__ import annotations
@@ -25,12 +29,12 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
-CATALOGUE_REL = "datasets/reference/in/election-events.json"
+CATALOGUE_REL = "datasets/taxonomy/election_events.json"
 STATES_REL = "datasets/reference/in/states.json"
 ELECTIONS_REL = "datasets/elections"
 ELECTION_RESULTS_PARQUET_REL = "datasets/elections/election_results.parquet"
 INDICATORS_REL = "datasets/indicators/in"
-TOPIC_CATALOGUE_REL = "datasets/reference/in/topic-catalogue.json"
+TOPIC_CATALOGUE_REL = "datasets/taxonomy/topics.json"
 INVENTORY_REL = "docs/reference/data-inventory.md"
 
 # Temporal Richness meter: 7 cells x 3 fiscal years, FY06 -> FY26.
@@ -106,7 +110,7 @@ class IndicatorCoverage:
     meter_cells: tuple[bool, ...]
     is_snapshot: bool
     # True iff the indicator id is referenced by any topic in
-    # ``datasets/reference/in/topic-catalogue.json``. None when no catalogue
+    # ``datasets/taxonomy/topics.json``. None when no catalogue
     # is present (e.g. minimal test fixtures) — the wiring section is then
     # silently omitted from the rendered Markdown.
     wired_in_catalogue: bool | None = None
@@ -223,7 +227,7 @@ def _election_slices_from_canonical(
 def compute_coverage(root: Path) -> CoverageReport:
     """Reconcile the catalogue with the canonical election Parquet store.
 
-    Reads the declared catalogue at ``datasets/reference/in/election-events.json``
+    Reads the declared catalogue at ``datasets/taxonomy/election_events.json``
     and the on-disk inventory from ``datasets/elections/election_results.parquet``
     (canonical store, sole source of truth per TODO row 1.8b). The legacy
     per-event/per-state JSON shards (``results/<n>.json``,
@@ -355,7 +359,7 @@ def _max_input_mtime_date(root: Path) -> str:
 def _load_wired_indicator_ids(root: Path) -> set[str] | None:
     """Return the set of indicator ids referenced by the topic catalogue.
 
-    Returns ``None`` when ``datasets/reference/in/topic-catalogue.json`` is
+    Returns ``None`` when ``datasets/taxonomy/topics.json`` is
     absent (test fixtures, partial checkouts) so the wiring section can be
     omitted gracefully rather than asserting a hard dependency. When the
     catalogue file is present but malformed, returns an empty set so every
@@ -591,7 +595,7 @@ def render_markdown(report: CoverageReport) -> str:
         out.append("")
         out.append(
             "These states/UTs have a legislative assembly but no `event_id` "
-            "registered in [election-events.json]"
+            "registered in [election_events.json]"
             f"({_repo_link(CATALOGUE_REL)}). Adding one means: (a) appending "
             "a `(state, year) -> EventInfo` row to "
             "[backend/yen_gov/sources/eci/events.py](../../backend/yen_gov/sources/eci/events.py), "

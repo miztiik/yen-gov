@@ -1,5 +1,7 @@
 """Register 19 newly-ingested ECI Section-10 state-assembly events into
-`datasets/reference/in/election-events.json`.
+`datasets/taxonomy/election_events.json` (path moved from
+`datasets/reference/in/election-events.json` in T.0c, Phase 0 closeout
+of TODO/20260517-canonical-long-format-pivot.md).
 
 Idempotent: skips any (state_code, event_id) already present. Preserves
 existing entries' field order and `default: true` markers. Sorts events
@@ -22,7 +24,7 @@ from pathlib import Path
 
 CAT = (
     Path(__file__).resolve().parents[1]
-    / "datasets" / "reference" / "in" / "election-events.json"
+    / "datasets" / "taxonomy" / "election_events.json"
 )
 
 # (state_code, event_id, polled_on_iso, display, notes)

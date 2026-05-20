@@ -232,7 +232,7 @@ def coverage(
     """Print + write the election data inventory (CLAUDE.md Holy Law #4).
 
     Reconciles the declared coverage in
-    ``datasets/reference/in/election-events.json`` against the on-disk
+    ``datasets/taxonomy/election_events.json`` against the on-disk
     artifacts under ``datasets/elections/`` and renders a citizen-readable
     inventory. Re-run after every ingest; the file is not hand-maintained.
     """
