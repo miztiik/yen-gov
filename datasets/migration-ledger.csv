@@ -196,3 +196,15 @@ datasets/indicators/in/transport/state_ev_share_total_vehicle_registrations_pct.
 #   4. national_renewable_potential_vs_installed_mw — explode into two parents (potential, installed) or single parent with measure facet?
 #   5. india-macro-aggregates explosion — Max to enumerate constituent series before Phase 3 ingest.
 #   6. CPI combined_yoy as cpi_category facet value (D33.7) vs first-class indicator — confirm at Phase 3.5 kickoff.
+
+# ===========================================================================
+# Phase-0 closeout amendment (2026-05-20) — four-way concurrence (Hans+Max+Jony+Fowler)
+# See TODO/20260517-canonical-long-format-pivot.md §0e.10.
+# Locks the disposition for the four legacy/orphan trees still on disk at end of
+# Phase 1. Rows below appended at T.0a commit; ledger FROZEN at T.0c commit
+# (see EOF sentinel that lands with T.0c).
+# ===========================================================================
+datasets/people/AcGenApr2021/,elections,drop,Phase0-closeout-T.0c,,,Bios lifted to dim_candidates.parquet v1.2 by PR-S.1 + PR-S.2 (commit dc06dd77 + follow-ups). The 3983 JSONs are now orphan output; no reader consumes them. Frontend already off them. Retired by T.0c per §0e.10.3. Commit history (git log) is the backup per user direction "commit IS the backup".
+datasets/elections/*/*/results.csv,elections,drop,Phase0-closeout-T.0c,,,CSV is OUTPUT projection emitted by backend/yen_gov/emit/csv_bundle.py from canonical election_results.parquet — NOT INPUT to the canonical writer. Holy Law #10 (no JSON projections of canonical data) covers CSV by the same spirit. Researchers regenerate on demand via COPY (SELECT * FROM read_parquet('elections/state=in_s22/election_results.parquet') WHERE event_id='...') TO STDOUT (FORMAT csv). 41 files retired by T.0c.
+datasets/governments/in/states/<S>/cm_terms.json,governments,migrate,Phase0-closeout-T.0a,office_holdings,,G.1 closeout: compiled to datasets/governments/governments_office_holdings.parquet + datasets/governments/dim_offices.parquet by new backend/yen_gov/canonical/cm_terms_seed.py at T.0a. The 31 JSON files STAY on disk as editorial source-of-truth (hand-edited, regime/notes/references); seed re-runs on every emit. Office IDs follow §0e.10.2-A shape: IN-PM / IN-PRES / IN-S22-CM / IN-S22-GOV etc.
+datasets/reference/in/,taxonomy,migrate,Phase0-closeout-T.0a+T.0b+T.0c,,,Per-file dispositions locked in TODO/20260517-canonical-long-format-pivot.md §0e.10.4. End state once T.0c lands: datasets/reference/ retires entirely except indicators-completeness.json + indicators-operator-state.json (retired at T.3 per §0e.7). Lifted destinations: taxonomy/ (state_tiers / topics / election_events / lgd/<role>-YYYY-MM-DD.csv + latest pointer / entities.parquet entity_type='district') + frontend/src/lib/unmapped-regions.ts (inline TS literal for render-time chrome).
