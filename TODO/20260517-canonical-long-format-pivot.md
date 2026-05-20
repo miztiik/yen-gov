@@ -1,6 +1,6 @@
 # Canonical long-format pivot — handover plan
 
-**Last Updated**: 2026-05-20 (Phase 1 deletion sweep ✅ closed — last two rows 1.8e + 1.8f shipped 2026-05-19 / 2026-05-20; Phase 2 Energy now unblocked)
+**Last Updated**: 2026-05-20 (§0e.10 amendment LOCKED — Phase-0 closeout four-way concurrence (Hans+Max+Jony+Fowler): office_id shape, partition-by-state for `election_results.parquet`, 3-stage sub-sequencing T.0a/T.0b/T.0c, ledger AMEND-then-FREEZE. Phase 1 deletion sweep ✅ closed (1.8e + 1.8f shipped); Phase 2 Energy unblocked once T.0 series lands.)
 **Status**: Phase 0 complete (14/15 ✅ DONE; 0.13 ⊘ DROPPED with documented replacement pattern). Phase 1 — elections-results pivot + dim tables + view-model loaders + deletion sweep 1.8a–1.8f ✅ ALL DONE (on-disk audit 2026-05-20). 1.8e shipped 2026-05-19 (PR-R.1 → PR-R.2 → PR-R.3 retired the 41 `results.sqlite` shards + `frontend/src/lib/sql.ts` + `frontend/src/lib/psephlab/actuals.ts` + `backend/yen_gov/emit/sqlite.py`; Psephlab + Compare now read canonical Parquet via DuckDB-WASM through `lib/psephlab/canonical-loaders.ts`); 1.8f shipped 2026-05-20 (PR-S.1 lifted bio onto `dim_candidates.parquet` v1.2; PR-S.2 retired the 3,983 person JSONs + `people.entity.schema.json` + `fetchPersonEntity` + `slugifyCandidate` + one-shot backfill tool + refactored `people_ingest` to UPSERT onto canonical store). Closeout PR (this branch) adds the missing `backend/tests/test_no_sqlite_emit.py` regression guard the §7 row 1.8e sub-plan promised + reconciles status across the plan doc. **Phase 2 (Energy) is now unblocked** per user direction 2026-05-19 (Option A: finish Phase 1 honestly).
 **ADR**: [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) (canonical store) + [ADR-0031](../docs/architecture/decisions/0031-boundary-geometry-strategy.md) (boundaries).
 **Supersedes**: ADR-0026 (folded-indicator), ADR-0027 (cadence-as-separate-field), and all per-shard JSON doctrine in `docs/concepts/folded-indicator.md` + `docs/concepts/collection-inventory.md` (now marked obsolete).
@@ -219,6 +219,137 @@ Each PR independently mergeable, each reversible. **Two-hat discipline**: purely
 - **Debate transcript** (3-agent synthesis, OWID screenshot taxonomy verbatim, all rejected designs archived): [TODO/20260519-indicator-topic-taxonomy-and-dir-structure-plan.md](20260519-indicator-topic-taxonomy-and-dir-structure-plan.md).
 - **Naming-rule origin**: [`canonical-store.md` §2a](../docs/architecture/data/canonical-store.md) — §0e.3 extends it.
 - **Phase 2 sequencing**: §0e.7 P.\* row drives §7 row 1.8 sub-rows for each new family.
+
+### §0e.10 — Phase-0 closeout amendment (LOCKED 2026-05-20; four-way concurrence)
+
+**What this is.** A coordinated four-way debate (Hans Governance + Max Indicator-Scout + Jony UI/UX + Fowler Engineering) ran 2026-05-20 to settle Phase-0 cleanup of the four legacy/orphan trees (`datasets/people/`, `datasets/elections/<event>/<state>/results.csv`, `datasets/governments/in/states/<S>/cm_terms.json`, `datasets/reference/in/`) plus the `migration-ledger.csv` lifecycle, **plus** an emergent sizing question raised by the user: `election_results.parquet` is already 14.2 MB at TN-only scale and needs a split strategy before Phase 2 multiplies it.
+
+Concurrence reached on every point. This §0e.10 **amends** the §0e.7 strangler-fig (it does not replace it) with three locks plus a 3-stage sub-sequencing of the T.1+T.2+G.1+S.1-data-tail cleanup. The §0e.7 PR identities (T.1/T.2/T.3/S.1/G.1/P.\*) remain the contract for the rest of this arc.
+
+**User direction that anchors this amendment** (verbatim): *"Commit becomes the backup location for us"* — once new canonical artifacts land in a commit, the matching legacy files get `git rm`-ed in the next PR. Git history is the backup; no `_old/` placeholder, no "keep just in case" hedging.
+
+#### §0e.10.1 — Four-way concurrence (one-line each)
+
+| Voice | Verdict |
+| --- | --- |
+| Hans (Governance) | Concur DELETE × 2 (people/, results.csv), TRANSFORM cm_terms via G.1, per-file dispositions on `reference/in/`, AMEND-then-FREEZE the ledger. |
+| Max (Indicator Scout) | CONCUR on every Hans verdict, with six amendments (locked below). |
+| Jony + Fowler (joint) | CONCUR on data shape; ADD partition-by-state for `election_results.parquet` (sizing); REFINE sequencing into 3 sub-stages; zero citizen-pixel change. |
+
+#### §0e.10.2 — Locked amendments (binding on T.0/T.1/T.2/G.1 work)
+
+**A. Office-id shape for `dim_offices.parquet` and `entities.parquet` (`entity_type='office_bearer'`)** — hyphen-only, country-prefixed, role-suffixed:
+
+```
+IN-PM             # Prime Minister
+IN-PRES           # President
+IN-VPRES          # Vice President
+IN-S22-CM         # Tamil Nadu Chief Minister
+IN-S22-GOV        # Tamil Nadu Governor
+IN-S22-DCM        # Tamil Nadu Deputy CM (if applicable)
+IN-MUM-MAYOR      # Mumbai Mayor (uses LGD-style city code, not state)
+IN-PAN-<lgd>-SARP # Panchayat sarpanch (post-local-govt landing)
+```
+
+Reasoning: matches the existing `IN-S22-AC-2008-167` shape from [`canonical-store.md` §3a](../docs/architecture/data/canonical-store.md). Period (`.`) separator + composite-key options rejected (drift from the locked entity-id grammar). Approved role-abbreviation list (extends D30): `CM`, `DCM`, `GOV`, `PM`, `PRES`, `VPRES`, `MAYOR`, `SARP`. Adding a new role requires Max sign-off.
+
+`regime='presidents_rule'` rows on `governments_office_holdings.parquet` carry `person_id IS NULL` — that is the *correct* honest model (Hans + Max concurrence), not a hole to backfill.
+
+**B. Partition `elections/election_results.parquet` by state (Hive-style, write-time)** — supersedes the §0a.9 "defer until threshold" stance for the elections family specifically:
+
+- On-disk layout: `datasets/elections/state=in_s22/election_results.parquet` (one file per state-equivalent unit, including UTs).
+- Hive segment grammar: `state=in_<two-char-lower>` — country-prefixed (mirrors `IN-S22-...` entity-id identity), lowercase (Hive value safety), underscore (Hive value safety; hyphen forbidden in path segments by some downstream tools). The country prefix lives in the partition value so future multi-country expansion works without a schema change.
+- Writer change: new `FAMILY_FACT_PARTITION_BY: dict[str, list[str]]` analog to existing `FAMILY_FACT_TABLE_STEM`. `elections` entry = `["state"]`. Other families default to empty (no partitioning).
+- Manifest impact: `tables[].files[]` (which already exists, plural) emits N entries per partitioned family. `kind` stays `"observations"`; new `partition_columns: ["state"]` on the table entry.
+- Reader impact: **zero** — [`frontend/src/lib/duckdb.ts`](../frontend/src/lib/duckdb.ts) `registerTable` already iterates `files[]` and passes a list to `read_parquet([...])` (Jony+Fowler verified pre-amendment).
+- Citizen cost (Jony): cold-cache state-page load on 4G drops from O(full national parquet) to O(one state ≈ 20 MB at full national scale). State-equivalent pages are 95%+ of citizen routes.
+- Engineering cost (Fowler): one COPY clause change + a derived `state_part = lower(replace(<state_code>, '-', '_'))` projection. On-disk Hive segment is NOT in any citizen URL (1.8a-bis decoupled view name from filename via `table_name`), so the split is reversible.
+- **Dims stay flat** (`dim_acs.parquet`, `dim_candidates.parquet`, `dim_parties.parquet`, `dim_party_alliances.parquet`). At full national scale `dim_candidates` ≈ 15 MB — small enough that partitioning costs more in cross-state JOIN globbing than zonemap pruning saves.
+- **Parity oracle pattern** (per PR-R.2 lesson): T.0 ships a `test_partitioned_parity_oracle` that asserts for each (state, event) slice the partitioned read returns identical row counts + identical FPTP winners as the monolithic baseline kept on-disk during T.0 review. Skips cleanly once T.2 deletes the baseline.
+
+**C. LGD CSV snapshots — dated canonical + writer-maintained latest pointer:**
+
+- Canonical: `datasets/taxonomy/lgd/states-YYYY-MM-DD.csv` (immutable, snapshot per LGD publication; `source_id` row in `taxonomy/sources.parquet` per §12).
+- Convenience: `datasets/taxonomy/lgd/states-latest.csv` (writer-maintained pointer; never `git log`-relevant on its own).
+- Same shape for `districts-YYYY-MM-DD.csv` + `districts-latest.csv`.
+- Reasoning: rolling-overwrite is the same disease as the `fetched_at` smear — destroys the `git log` audit trail for "when did this district appear in LGD?". OWID snapshot pattern adopted verbatim.
+
+**D. `taxonomy/topics.parquet` is FLAT — `parent_topic_id` REJECTED:**
+
+- OWID is flat-with-multi-tag for a non-arbitrary reason: hierarchical taxonomies become contested politics ("Is GST devolution under *Money* or *Centre–state relations*?").
+- Hierarchy of citizen interest belongs to **indicator parents** (D26 `parent_indicator_id`), not topic parents.
+- M:N via `taxonomy/indicator_topic_tags.parquet` (already in §0e.7 T.3 row).
+
+**E. `taxonomy/election_events.parquet` is PURE REFERENCE (one carve-out):**
+
+- Columns: `event_id` (PK), `body` (AC/PC/Loksabha), `poll_dates[]`, `states[]`, `term_end_estimated`, `total_seats`, `notes_md`, `source_id`.
+- `total_seats` is legitimate (structural fact of the event itself, ECI publishes it on the event page).
+- `winning_party_id` / `winning_alliance` REJECTED on the registry (aggregates → must JOIN against `election_results.parquet`; pre-rolling re-introduces stale-cache class of bugs).
+
+**F. `unmapped_regions.json` → `frontend/src/lib/unmapped-regions.ts` (inline TS literal):**
+
+- It is render-time legend chrome (2 entries: U04, U01), not data-shape reference.
+- Drops one HTTP round-trip on every choropleth mount.
+- Eliminates a tiny file from `datasets/`. Zero citizen-pixel change.
+
+#### §0e.10.3 — Sub-sequencing of the T.1/T.2/G.1/S.1-data-tail cleanup (3 PRs)
+
+Named **T.0a / T.0b / T.0c** (read: "the T.0 closeout series" — they collectively close the slack between §0e.7 PR identities and the on-disk reality). After this series, the §0e.7 P.\* per-family Phase-2 work has a clean canonical store to land into.
+
+| # | PR | Hat | Touches | Frontend? | Tests | Reversibility |
+| --- | --- | --- | --- | --- | --- | --- |
+| **T.0a** | **Additive — new canonical artifacts.** Writer change (partition by state per §0e.10.2-B). New `taxonomy/{state_tiers,topics,election_events}.{json,parquet}` (via §8.3 Python-compiles-to-Parquet seeds). New `governments/{governments_office_holdings,dim_offices}.parquet` (via new `cm_terms_seed.py`). Move LGD CSVs to `taxonomy/lgd/<role>-<date>.csv` + `<role>-latest.csv`. Manifest regen. ALL legacy files **untouched**. | structural + behavioural (fused per /memories lesson) | backend writer + new seed tools + taxonomy + governments + manifest. ~30–50 files. | NO change — legacy `/data/reference/...` URLs still serve the legacy bytes. Site continues to render identically. | Writer-partition tests against `tmp_path` (Holy Law #7, real DuckDB COPY, no mocks). Compile-tool round-trip tests per tool. Parity-oracle straddling partition switch. | Fully reversible — pure git revert of additive changes. |
+| **T.0b** | **Frontend port + §13 browser smoke.** Switch every consumer of `/data/reference/in/*` to the new canonical path (or DuckDB-WASM for the Parquet ones). Inline `unmapped_regions.json` into `frontend/src/lib/unmapped-regions.ts`. | structural (no schema change; pure import swap) | `frontend/src/lib/` only. ~10–15 files. | YES — every reader switched. Mandatory §13 browser smoke: `/`, `/in/s22`, `/in/s22/elections/ac/167`, `/data-completeness`, one compare route. | Vitest + Playwright tier. Snapshot the network panel before/after — no new 404s. | Reversible via revert; both paths exist in `datasets/` until T.0c. |
+| **T.0c** | **Deletion sweep.** `git rm -r datasets/people/AcGenApr2021/` (3,983 files). `git rm datasets/elections/*/*/results.csv` (41 files). `git rm` per-file in `datasets/reference/in/` per the disposition table below. Ledger frozen (per §0e.10.5 below). Final manifest cleanup. | structural (pure subtractive) | dataset tree only. ~4,000+ file deletions. | None — `T.0b` already ported readers. | Tier-B forbidden-path checks in `python -m yen_gov validate --root .` (per §10: NOT in pytest). One Playwright assertion that the legacy URLs return 404 from dev server. | Reversible via `git revert` — commit history holds the bytes. **This is the user's "commit IS the backup" rule in action.** |
+
+Why three not one (Jony+Fowler verdict): A single fat PR loses bisectability for ~4,000 file deletions where each deletion has a different blast radius; T.0b's `§13` browser smoke MUST run with both old and new paths present in `datasets/` so the network panel can prove the swap before the bytes vanish. Single-PR variants rejected during debate.
+
+#### §0e.10.4 — `reference/in/` per-file disposition (binds T.0a + T.0b + T.0c)
+
+| Legacy path | Disposition | Destination | Retiring PR |
+| --- | --- | --- | --- |
+| `reference/in/states.json` | DELETE | subsumed by `entity_type='state'` rows in `taxonomy/entities.parquet` | T.0c |
+| `reference/in/state-tiers.json` | KEEP-AND-MOVE | `taxonomy/state_tiers.{json,parquet}` | T.0a writes, T.0c deletes |
+| `reference/in/topic-catalogue.json` | TRANSFORM | `taxonomy/topics.{json,parquet}` (flat, M:N tags) | T.0a writes, T.0c deletes (T.3 in §0e.7 absorbs the indicator-side tagging) |
+| `reference/in/election-events.json` | TRANSFORM | `taxonomy/election_events.{json,parquet}` (pure reference + `total_seats`) | T.0a writes, T.0c deletes |
+| `reference/in/lgd/states-latest.csv` | KEEP-AND-MOVE | `taxonomy/lgd/states-YYYY-MM-DD.csv` (dated) + `taxonomy/lgd/states-latest.csv` (pointer) | T.0a writes, T.0c deletes legacy path |
+| `reference/in/lgd/districts-latest.csv` | KEEP-AND-MOVE | `taxonomy/lgd/districts-YYYY-MM-DD.csv` + `taxonomy/lgd/districts-latest.csv` | T.0a writes, T.0c deletes legacy path |
+| `reference/in/states/<S>/districts.json` | DELETE | lift to `entity_type='district'` in `taxonomy/entities.parquet` (`lgd_code` is PK; legacy slug → `legacy_id` column) | T.0a writes entities, T.0c deletes |
+| `reference/in/states/<S>/constituencies.json` | DELETE | superseded by `elections/dim_acs.parquet` — **T.0a parity check required** (district_id FK + reservation match) before T.0c green-lights deletion | T.0c (after T.0a parity test) |
+| `reference/in/iced-chart-titles.json` | DELETE (conditional) | if ICED ingest still alive: fold into `display_title` on `taxonomy/indicators.parquet`. Else: drop. Decide in T.0a. | T.0c |
+| `reference/in/upstream-sources.json` | DELETE | subsumed by adapter-generated `taxonomy/sources.parquet` per §12 | T.0c |
+| `reference/in/unmapped_regions.json` | MIGRATE TO FRONTEND | `frontend/src/lib/unmapped-regions.ts` (inline TS literal) | T.0b writes inline, T.0c deletes legacy path |
+| `reference/in/indicators-completeness.json` | KEEP (interim) | already the citizen `/data-completeness` surface; revisit when T.3 ships the indicator-catalogue rewrite | (not retired in T.0 series) |
+| `reference/in/indicators-operator-state.json` | KEEP (interim) | hand-authored operator overlay; revisit at T.3 | (not retired in T.0 series) |
+
+End state once T.0c lands: `datasets/reference/in/` retires entirely **except** for the two `indicators-*.json` survivors above (which exit in T.3 per §0e.7). At that point `datasets/reference/` itself is empty and can be `git rm -rf`-ed in the same PR.
+
+#### §0e.10.5 — `migration-ledger.csv` lifecycle: AMEND-then-FREEZE
+
+- T.0a commit: **AMEND** the ledger with closeout rows for each of the four trees in scope:
+  - `datasets/people/AcGenApr2021/` → `drop` (PR-S.2 lifted bios to `dim_candidates`; data tail deletes in T.0c).
+  - `datasets/elections/<event>/<state>/results.csv` → `drop` (CSV is OUTPUT projection of canonical Parquet, not INPUT; Holy Law #10 covers CSV; researchers regenerate via `COPY (...) TO STDOUT (FORMAT csv)`).
+  - `datasets/governments/in/states/<S>/cm_terms.json` → `migrate` into `governments_office_holdings` (G.1).
+  - `datasets/reference/in/` → per-file table in §0e.10.4.
+- T.0c commit: **FREEZE** the ledger. Add a sentinel comment block at EOF: `# FROZEN 2026-05-20 — Phase-0 closeout complete. No further rows. Phase 2+ uses §0d row-status discipline + per-family deletion manifest.`
+- Reasoning (Max + Hans convergent): the ledger's job was Phase-0.5 ("prove canonical absorbed everything before legacy deletion"); that role is done after T.0c. A perpetual cross-phase ledger adds a third drift surface (§0d row-status + deletion-manifest already exist) for zero reader. Reopen only if a future phase has >20 legacy files to absorb — revisit at Phase 2 (Energy) scope-lock.
+
+#### §0e.10.6 — Indicator gaps Max flagged for Phase 2+ (NOT this work)
+
+Three indicators already paid-for by the T.0 work; surface as first-class once G.1 ships. Owner: Hans (framing) + Max (catalogue entry).
+
+1. **`state_incumbent_returned_pct`** + **`state_alliance_continuity_index`** — `governments_office_holdings` + `dim_party_alliances` + `election_results` together unlock incumbency-return analytics. OWID has nothing on coalitional politics; distinctly Indian; high citizen-question density ("how often does the incumbent in [state] actually return?").
+2. **`state_years_under_presidents_rule_pct`** — the `regime` enum on `governments_office_holdings` already publishes this; nobody reads it as an indicator. Cleanest federalism / state-capacity proxy in the corpus.
+3. **`state_mid_term_dissolution_count`** — when `governments_office_holdings.tenure_end < election_events.term_end_estimated - 365`, the government fell early. Surfaces government stability as a first-class number instead of a footnote.
+
+All three are pure derivations on data G.1 + T.0a together land. Hand to Hans for framing after G.1 ships; NOT a blocker for T.0/T.1/T.2 sequence.
+
+#### §0e.10.7 — Cross-refs
+
+- §0e.7 strangler-fig (T.1/T.2/T.3/S.1/G.1/P.\*) — still the contract. §0e.10 is the closeout-sub-sequencing amendment for the subset (T.1+T.2+G.1+S.1-data-tail) that hasn't shipped yet, **plus** the new partition-by-state lock for `election_results.parquet`.
+- [`docs/architecture/canonical-pivot-deletion-manifest.md`](../docs/architecture/canonical-pivot-deletion-manifest.md) §6a — adds three new rows for T.0a / T.0b / T.0c at commit time of this amendment.
+- [`datasets/migration-ledger.csv`](../datasets/migration-ledger.csv) — amended in T.0a per §0e.10.5; frozen in T.0c.
+- TCPD license confirmation (Hans flag, S.1 carry-over) — still pending Hans sign-off before any `governments_office_holdings.person_id` FK reaches a TCPD-seeded cluster row. Track in `docs/research/`.
 
 ---
 
