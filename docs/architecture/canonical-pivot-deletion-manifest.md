@@ -93,7 +93,7 @@ These either back boundary geometry (preserved per D25 / §0c) or back contracts
 | --- | --- | --- | --- |
 | `backend/yen_gov/inventory/` (`__init__.py`, `derive.py`) | delete | Phase 0.12 (after manifest contract lands in 0.6) | `datasets/manifest.json` (D21) + period-token logic is dead under §10 normalisation withdrawal |
 | `backend/yen_gov/coverage.py` | re-check; delete if subsumed | Phase 0.12 | Denormalised `coverage_*` columns on indicator catalogue (§5) — emitter regenerates them |
-| `backend/yen_gov/emit/sqlite.py` | delete | Phase 1.8 (after `_old/` dies) | Parquet writer (`backend/yen_gov/canonical/writer.py`, Phase 0.9) |
+| `backend/yen_gov/emit/sqlite.py` | ✅ DELETED 2026-05-19 (PR-R.3, commit `a4505501`) — see §6a row 1.8e | — | Parquet writer (`backend/yen_gov/canonical/writer.py`, Phase 0.9). Regression guard: `backend/tests/test_no_sqlite_emit.py` (3 source-scan tests, added 2026-05-20 closeout). |
 | `backend/yen_gov/emit/csv_bundle.py` | delete | Phase 1.8 | same |
 | `backend/yen_gov/composers/energy_capacity_by_source.py` | delete | Phase 2 (energy migration) | Facet-explode pattern per D26; no backend aggregator |
 | `backend/yen_gov/composers/__init__.py` | delete with the last composer | Phase 2 | — |
