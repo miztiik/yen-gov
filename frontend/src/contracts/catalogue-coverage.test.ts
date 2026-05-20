@@ -4,14 +4,14 @@
  *
  * Job: enforce that every indicator artifact on disk under
  * `datasets/indicators/in/**` is EITHER referenced from
- * `datasets/reference/in/topic-catalogue.json` OR justified in
+ * `datasets/taxonomy/topics.json` OR justified in
  * `catalogue-coverage.allowlist.json`. Anything else fails the build.
  *
  * Why: as of the 2026-05-15 audit, 41 of 80 indicator artifacts were on
  * disk but unreachable from the IA — silently invisible to citizens.
  * Without a ratchet, every new ingest widens the gap. With this test,
  * the count can only go down: the way to land a new artifact is
- * (a) wire it in topic-catalogue.json, OR (b) add it to the allowlist
+ * (a) wire it in topics.json, OR (b) add it to the allowlist
  * with a written reason. Either way the choice becomes visible in code
  * review instead of getting buried in `notes/`.
  *
@@ -24,6 +24,9 @@
  * `datasets-conform.test.ts`. That test enforces that data IS valid;
  * this test enforces that valid data is also REACHABLE.
  *
+ * Path moved in T.0b from `datasets/reference/in/topic-catalogue.json`
+ * (TODO/20260517-canonical-long-format-pivot.md §0e Phase 0 closeout).
+ *
  * See: docs/architecture/frontend/catalogue-drift-detector.md
  */
 import { describe, it, expect } from "vitest";
@@ -34,7 +37,7 @@ import { globSync } from "glob";
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const indicatorsDir = resolve(repoRoot, "datasets", "indicators", "in");
-const cataloguePath = resolve(repoRoot, "datasets", "reference", "in", "topic-catalogue.json");
+const cataloguePath = resolve(repoRoot, "datasets", "taxonomy", "topics.json");
 const allowlistPath = resolve(__dirname, "catalogue-coverage.allowlist.json");
 
 interface CatalogueArtifact {
@@ -102,7 +105,7 @@ const ALLOWED_IDS = new Set(ALLOWLIST.map(e => e.id));
 
 describe("contract — catalogue drift detector", () => {
   it("workspace contains the catalogue and at least one indicator artifact", () => {
-    expect(WIRED.size, "topic-catalogue.json wired set is empty — wrong path?").toBeGreaterThan(0);
+    expect(WIRED.size, "topics.json wired set is empty — wrong path?").toBeGreaterThan(0);
     expect(ON_DISK.size, "no indicator artifacts found on disk — wrong path?").toBeGreaterThan(0);
   });
 
@@ -110,11 +113,11 @@ describe("contract — catalogue drift detector", () => {
     const orphans = [...ON_DISK].filter(id => !WIRED.has(id) && !ALLOWED_IDS.has(id)).sort();
     if (orphans.length > 0) {
       const msg = [
-        `${orphans.length} indicator artifact(s) are on disk but neither wired in topic-catalogue.json nor allowlisted:`,
+        `${orphans.length} indicator artifact(s) are on disk but neither wired in topics.json nor allowlisted:`,
         ...orphans.map(id => `  - ${id}`),
         "",
         "Fix one of:",
-        "  (a) Wire the artifact: add it to datasets/reference/in/topic-catalogue.json under the right topic.",
+        "  (a) Wire the artifact: add it to datasets/taxonomy/topics.json under the right topic.",
         "  (b) Justify it: add it to frontend/src/contracts/catalogue-coverage.allowlist.json with a one-line reason.",
         "",
         "Either choice is recorded; silently shipping unreachable data is not (Phase 0 ratchet, see TODO/VIZ-LAYER-GAPS-PLAN.md).",
@@ -140,7 +143,7 @@ describe("contract — catalogue drift detector", () => {
     const both = ALLOWLIST.filter(e => WIRED.has(e.id)).map(e => e.id).sort();
     if (both.length > 0) {
       const msg = [
-        `${both.length} indicator(s) are both wired in topic-catalogue.json AND listed in the allowlist:`,
+        `${both.length} indicator(s) are both wired in topics.json AND listed in the allowlist:`,
         ...both.map(id => `  - ${id}`),
         "",
         "Once an indicator is wired the allowlist entry is redundant — remove it from the allowlist.",

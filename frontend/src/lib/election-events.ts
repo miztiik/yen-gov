@@ -5,9 +5,13 @@
 // The frontend NEVER picks a global "current election"; instead, every
 // state-scoped route resolves the default event from this catalogue.
 //
-// The schema is hand-authored at datasets/reference/in/election-events.json
+// The schema is hand-authored at datasets/taxonomy/election_events.json
 // and held in lockstep with backend/yen_gov/sources/eci/events.py by
 // backend/tests/test_datasets_integrity.py::test_election_events_catalogue_matches_backend_registry.
+//
+// Path moved from `datasets/reference/in/election-events.json` in T.0b
+// (TODO/20260517-canonical-long-format-pivot.md §0e Phase 0 closeout). Shape
+// unchanged; the reference/in/ original is deleted in T.0c.
 //
 // This file is the only place in the frontend that knows the catalogue's
 // shape; routes ask `defaultEventForState(state)` and `listEventsForState(state)`.
@@ -44,10 +48,10 @@ let _cache: Promise<ElectionEventsCatalogue> | null = null;
  */
 export function fetchElectionEvents(): Promise<ElectionEventsCatalogue> {
   if (_cache !== null) return _cache;
-  _cache = fetch(`${DATA_BASE}/reference/in/election-events.json`).then(async res => {
+  _cache = fetch(`${DATA_BASE}/taxonomy/election_events.json`).then(async res => {
     if (!res.ok) {
       throw new Error(
-        `fetch /reference/in/election-events.json failed: ${res.status} ${res.statusText}`,
+        `fetch /taxonomy/election_events.json failed: ${res.status} ${res.statusText}`,
       );
     }
     return (await res.json()) as ElectionEventsCatalogue;

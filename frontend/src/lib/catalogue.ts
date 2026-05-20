@@ -7,7 +7,7 @@
 //
 // Doctrine reminder (ADR-0022 §Doctrine, user-mandated 2026-05-11): elections
 // are NOT the spine. Social-welfare topics are first-class. The catalogue
-// order in `datasets/reference/in/topic-catalogue.json` reflects this; this
+// order in `datasets/taxonomy/topics.json` reflects this; this
 // module preserves that order.
 
 import { DATA_BASE } from "./paths";
@@ -93,12 +93,15 @@ export interface TopicCatalogue {
   topics: CatalogueTopic[];
 }
 
-/** Fetch the topic catalogue. Validated against topic-catalogue.schema.json v1.0. */
+/** Fetch the topic catalogue. Validated against topic-catalogue.schema.json v1.0.
+ *  Path moved from `reference/in/topic-catalogue.json` to `taxonomy/topics.json`
+ *  in T.0b (TODO/20260517-canonical-long-format-pivot.md §0e Phase 0 closeout).
+ *  Shape unchanged; the reference/in/ original is deleted in T.0c. */
 export async function fetchTopicCatalogue(): Promise<TopicCatalogue> {
-  const res = await fetch(`${DATA_BASE}/reference/in/topic-catalogue.json`);
+  const res = await fetch(`${DATA_BASE}/taxonomy/topics.json`);
   if (!res.ok) {
     throw new Error(
-      `fetch /reference/in/topic-catalogue.json failed: ${res.status} ${res.statusText}`,
+      `fetch /taxonomy/topics.json failed: ${res.status} ${res.statusText}`,
     );
   }
   return (await res.json()) as TopicCatalogue;

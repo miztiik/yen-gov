@@ -22,7 +22,7 @@ import { buildRailGroups, type RailGroup } from "./rail-groups";
 const REPO = "https://example.com/repo";
 
 /**
- * Title map mirroring `datasets/reference/in/topic-catalogue.json` for
+ * Title map mirroring `datasets/taxonomy/topics.json` for
  * the ids the rail surfaces. Kept in this test file (not imported from
  * the JSON) so tests stay fast and pure; the schema/contract suite
  * separately guards that every id here is present in the real catalogue

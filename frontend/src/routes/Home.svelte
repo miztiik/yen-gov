@@ -20,7 +20,7 @@
 
   // The IndiaMap colours each state by its leading party in that state's
   // *own* default election event (resolved from
-  // datasets/reference/in/election-events.json), so states from different
+  // datasets/taxonomy/election_events.json), so states from different
   // cohorts (May-2026, Nov-2024, Nov-2023, ...) all show up together.
   // No global "current election" — per ADR-0023 / ADR-0022.
   //

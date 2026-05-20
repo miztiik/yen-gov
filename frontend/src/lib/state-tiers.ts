@@ -1,9 +1,13 @@
 // State-tier (peer-set) loader and helpers.
 //
-// The taxonomy is in `datasets/reference/in/state-tiers.json`, validated
+// The taxonomy is in `datasets/taxonomy/state_tiers.json`, validated
 // against state-tiers.schema.json v1.0. Tiers may overlap (Sikkim is both
 // `general_category` and `neh`); UTs partition cleanly into
 // `ut_legislature` / `ut_no_legislature` / `nct_delhi`.
+//
+// Path moved from `datasets/reference/in/state-tiers.json` in T.0b
+// (TODO/20260517-canonical-long-format-pivot.md §0e Phase 0 closeout). Shape
+// unchanged; the reference/in/ original is deleted in T.0c.
 //
 // Doctrine: tier identity is defined by what cites it, not by set
 // equality. Don't fold near-duplicate tiers (e.g. `neh` vs `himalayan`)
@@ -42,10 +46,10 @@ export interface StateTiersFile {
 
 /** Fetch the state-tier reference. Validated against state-tiers.schema.json v1.0. */
 export async function fetchStateTiers(): Promise<StateTiersFile> {
-  const res = await fetch(`${DATA_BASE}/reference/in/state-tiers.json`);
+  const res = await fetch(`${DATA_BASE}/taxonomy/state_tiers.json`);
   if (!res.ok) {
     throw new Error(
-      `fetch /reference/in/state-tiers.json failed: ${res.status} ${res.statusText}`,
+      `fetch /taxonomy/state_tiers.json failed: ${res.status} ${res.statusText}`,
     );
   }
   return (await res.json()) as StateTiersFile;
