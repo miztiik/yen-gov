@@ -67,7 +67,7 @@ export interface BuildRailGroupsArgs {
   repoUrl: string;
   /**
    * `topic_id → topic.title` map, sourced from
-   * `datasets/reference/in/topic-catalogue.json`. The rail's THIS STATE
+   * `datasets/taxonomy/topics.json`. The rail's THIS STATE
    * topic items render `topicTitles.get(id) ?? id` so the rail label
    * AND the page H1 on `/s/<state>/t/<id>` are SINGLE-SOURCED off the
    * catalogue. Two surfaces showing the same thing show the same string
@@ -81,7 +81,7 @@ export interface BuildRailGroupsArgs {
 
 /**
  * The fixed topic id list under THIS STATE (in display order). Each id
- * MUST exist in `datasets/reference/in/topic-catalogue.json` — labels are
+ * MUST exist in `datasets/taxonomy/topics.json` — labels are
  * derived from `topic.title` via the `topicTitles` map (Jony 2026-05-16:
  * the rail does not carry its own label dictionary; the catalogue IS the
  * dictionary). Order is deliberate: money + power first (highest citizen

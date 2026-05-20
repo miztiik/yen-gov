@@ -1,6 +1,6 @@
 // Contract: every catalogue topic title must fit the LeftRail width
 // budget. The rail derives its label for THIS STATE → topic items from
-// `topic-catalogue.json` `topic.title` (Jony 2026-05-16 review — rail
+// `topics.json` `topic.title` (Jony 2026-05-16 review — rail
 // title and page H1 are the SAME string, sourced once). The rail column
 // renders at ~13rem wide with ~0.875rem text; titles longer than ~24
 // characters wrap onto a second line and break visual rhythm.
@@ -9,6 +9,9 @@
 // cap at 24 characters and document the rationale here rather than in
 // `topic-catalogue.schema.json` — keeping the schema free of UI-specific
 // constraints (a future surface might want longer titles).
+//
+// Path moved in T.0b from `datasets/reference/in/topic-catalogue.json`
+// (TODO/20260517-canonical-long-format-pivot.md §0e Phase 0 closeout).
 
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
@@ -18,9 +21,8 @@ const repoRoot = resolve(__dirname, "..", "..", "..");
 const cataloguePath = resolve(
   repoRoot,
   "datasets",
-  "reference",
-  "in",
-  "topic-catalogue.json",
+  "taxonomy",
+  "topics.json",
 );
 
 interface Topic {
@@ -33,7 +35,7 @@ interface Catalogue {
 
 const RAIL_BUDGET = 24;
 
-describe("topic-catalogue.json rail-fit budget", () => {
+describe("topics.json rail-fit budget", () => {
   const catalogue = JSON.parse(readFileSync(cataloguePath, "utf-8")) as Catalogue;
 
   it(`every topic.title fits the rail width budget (<= ${RAIL_BUDGET} chars)`, () => {
@@ -44,7 +46,7 @@ describe("topic-catalogue.json rail-fit budget", () => {
       offenders,
       [
         `${offenders.length} topic title(s) exceed the rail width budget of ${RAIL_BUDGET} chars.`,
-        "Rail labels are sourced from topic-catalogue.json `topic.title`",
+        "Rail labels are sourced from topics.json `topic.title`",
         "(rail-groups.ts derives label from the catalogue, not from a",
         "local synonym table). Either shorten the title in the catalogue",
         "or widen the rail. See TODO/20260515-state-page-ia-rework-plan.md §11 #5.",

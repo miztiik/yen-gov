@@ -1,7 +1,7 @@
 <script lang="ts">
   // India choropleth: each state colored by its leading party (most seats
   // won) in that state's *default* election event from
-  // datasets/reference/in/election-events.json. Hover shows seat-and-vote
+  // datasets/taxonomy/election_events.json. Hover shows seat-and-vote
   // summary; click navigates to the state overview.
   //
   // Migrated off ~36 per-state fetchResultSummary calls onto one bulk

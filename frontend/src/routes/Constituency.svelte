@@ -24,7 +24,7 @@
   let { params }: Props = $props();
 
   // Per-state event resolution (ADR-0023): no global "current election".
-  // The state's default event from datasets/reference/in/election-events.json
+  // The state's default event from datasets/taxonomy/election_events.json
   // names the artifact directory we read from.
   let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
   fetchElectionEvents()
