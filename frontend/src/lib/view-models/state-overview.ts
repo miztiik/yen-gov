@@ -20,7 +20,7 @@
 //   elections.election_results     — numeric facts (party-* + state-* indicators)
 //   elections.dim_parties          — party identity (short_name, full_name, eci_code, recognition)
 //   elections.dim_party_alliances  — per-event alliance (LEFT JOIN on (party_id, period_label))
-//   taxonomy.sources               — provenance URLs + first_fetched_at
+//   taxonomy.sources               — provenance URLs (citation-ledger v2.0)
 //
 // Party JOIN key: entity_id is `IN-<state>-<event>-PARTY-<short_name>`, so
 // `regexp_extract(entity_id, '-PARTY-(.+)$', 1) = dim_parties.short_name`.
@@ -95,8 +95,7 @@ interface StateScopeRow {
 }
 
 interface SourceJoinRow {
-  url: string | null;
-  first_fetched_at: string | null;
+  url_main: string | null;
 }
 
 interface AcWinnerRow {
@@ -184,13 +183,14 @@ async function runQueries(
   `);
 
   const sources = await query<SourceJoinRow>(`
-    SELECT DISTINCT s.url, s.first_fetched_at
+    SELECT DISTINCT s.url_main
     FROM election_results o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label = ${evt}
       AND o.entity_id LIKE ${statePrefix} || '%'
-      AND s.url <> ''
-    ORDER BY s.first_fetched_at
+      AND s.url_main IS NOT NULL
+      AND s.url_main <> ''
+    ORDER BY s.url_main
   `);
 
   const acWinners = await queryAcWinners(evt, sc);
@@ -285,10 +285,12 @@ function assembleResult(
   const total_seats = party_totals.reduce((s, p) => s + p.seats_won, 0);
 
   const sources: SourceRef[] = rows.sources
-    .filter((s) => !!s.url)
+    .filter((s) => !!s.url_main)
     .map((s) => ({
-      url: s.url ?? "",
-      fetched_at: s.first_fetched_at ?? "",
+      url: s.url_main ?? "",
+      // Citation ledger (v2.0) does not carry fetch telemetry —
+      // ``fetched_at`` is intentionally empty. See ADR-0032.
+      fetched_at: "",
     }));
 
   const ac_winners = toAcWinners(rows.acWinners);

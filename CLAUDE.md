@@ -1,6 +1,6 @@
 # CLAUDE.md — yen-gov Engineering Contract
 
-**Last Updated**: 2026-05-18
+**Last Updated**: 2026-05-20
 
 This file is the non-negotiable contract for any human or AI agent working in this repository. The full standard it derives from lives in [docs/reference/documentation-structure.md](docs/reference/documentation-structure.md). When the two disagree, **this file wins for yen-gov**; the standard is generic.
 
@@ -155,8 +155,12 @@ A change is not done until ALL hold:
 - Build custom HTTP / retry / parsing / validation when an OSS library exists.
 - Swallow exceptions or silently coerce invalid input — fail fast at the boundary.
 - Mock in tests by default.
-- Use `datetime.now()` as input to **data-row CONTENT** (observation provenance, indicator vintage, citizen-facing doc footers). Wall-clock at write time is operational telemetry, NOT provenance. Under the canonical pivot, `sources` is a TABLE keyed by `(url, content_hash)`; per-row provenance is `source_id` (FK); `first_fetched_at` (immutable, citizen-facing) + `last_seen_at` (mutable telemetry) replace the smeared `fetched_at` field. Re-running ingest with byte-identical upstream MUST leave observation/dimension Parquet bytes unchanged. **Carve-out**: control-plane artifacts (`datasets/manifest.json`, run logs under `.runtime/logs/`) MAY stamp `generated_at` with wall-clock — they describe operator state, not citizen-facing data, and the writer that consumes them tolerates churn. See [data provenance](docs/concepts/data-provenance.md).
+- Use `datetime.now()` as input to **data-row CONTENT** (observation provenance, indicator vintage, citizen-facing doc footers). Wall-clock at write time is operational telemetry, NOT provenance. Under the v2.0 citation-ledger contract (ADR-0032), `sources` is a TABLE keyed by `(producer, title, vintage)` with `source_id = sha256(triple)[:12]`; fetch timestamps (`first_fetched_at`, `last_seen_at`, `date_accessed`, `content_hash`) are OUT of the contract entirely — adapters that need byte-change detection write `.runtime/<adapter>/<source_id>.json` sidecars (ephemeral, never citizen-facing). Re-running ingest with byte-identical upstream MUST leave observation/dimension Parquet bytes unchanged. **Carve-out**: control-plane artifacts (`datasets/manifest.json`, run logs under `.runtime/logs/`) MAY stamp `generated_at` with wall-clock — they describe operator state, not citizen-facing data, and the writer that consumes them tolerates churn. See [data provenance](docs/concepts/data-provenance.md).
 - Propose `write_text_if_changed`-style byte-compare helpers at write seams. Bytes ≠ data; if a re-run produces different bytes from identical upstream, fix the non-determinism upstream of the write seam. Canonical writer uses UPSERT-into-DuckDB + sorted Parquet emit (ADR-0030).
+- Propose **domain-as-identity** for the sources table (`source_id = sha256(domain)`). Loses citation precision: `eci.gov.in` publishes 200+ distinct Statistical Reports, RBI publishes a new Handbook annually — collapsing them on the domain bricks per-report distinguishability. Citation identity is `(producer, title, vintage)`. See [ADR-0032](docs/architecture/decisions/0032-sources-citation-ledger.md) Rejected A.
+- Propose **dropping `sources.parquet` and letting git-commit messages serve as citations**. Re-creates the per-shard smear; same RBI Handbook cited by 50 indicators = 50 commit messages with no shared FK target; violates Holy Law #9 (provenance is data, not commentary on data). See [ADR-0032](docs/architecture/decisions/0032-sources-citation-ledger.md) Rejected B.
+- Propose **adding `content_hash` back as an optional column on the citizen-facing sources row** to "earn" byte-change detection. Re-introduces the fetched_at-smear class one layer up: the moment the column exists on the citizen row, some adapter starts updating it every poll. Fetch telemetry belongs in `.runtime/` sidecars. See [ADR-0032](docs/architecture/decisions/0032-sources-citation-ledger.md) Rejected C.
+- Propose **making `citation_full` REQUIRED with adapter-mandatory templating**. Locks the schema to one display convention; dies the moment citation style evolves (APA vs Chicago vs in-line). Renderer composes `f"{producer}, {title}" + (f" ({vintage})" if vintage else "")` from the structured triple at read time; adapters set `citation_full` only when they need to override. See [ADR-0032](docs/architecture/decisions/0032-sources-citation-ledger.md) Rejected D.
 - Walk the real on-disk corpus (`datasets/**`, `config/**`) from a `pytest` test, or from an HTTP smoke test that hits a live FastAPI route which itself walks the corpus. That is Tier-B conformance (§11), which is local-only via `python -m yen_gov validate --root .`. Pytest tests assert CODE correctness against `tmp_path` fixtures; they MUST NOT assert DATA quality against the real repo. Symptoms: a single test takes >5s; the fix is "add the missing file" not "change the code"; the test fails on a teammate's machine after they pull a corpus-only change. Doctrine fix pattern: inject the root via a `_repo_root()` helper reading an env var (e.g. `YEN_GOV_REPO_ROOT`), default to the real repo at runtime, in tests `monkeypatch.setenv(...)` to point at a `tmp_path` fixture corpus. Reference fix: commit `7d407d0`. Doctrine: [`docs/architecture/backend/validator.md`](docs/architecture/backend/validator.md).
 - Emit JSON projections of canonical data for the citizen frontend. Under the canonical pivot, frontend reads Parquet via DuckDB-WASM only. No precomputed per-shard JSON, no parallel projection tree, no JSON shadow of the Parquet rows. Pre-pivot per-shard JSON (per-event `datasets/elections/<event>/<state>/{results/<ac>.json,parties.json,result.summary.json,_inventory.json}`) is superseded by the canonical store but still sits on disk pending per-family cleanup (TODO `20260517-canonical-long-format-pivot.md` rows 1.8b–1.8f); no new readers are allowed against that shape.
 - Run CI that processes `datasets/**`. The publish pipeline is plain static-file copy via GitHub Pages from `main`. The only CI gates are lint, type-check, pytest, frontend build, Playwright — none of which touch `datasets/` contents.
@@ -193,27 +197,29 @@ Validation has two tiers with different homes:
 
 ## 12. Data Provenance (Mandatory)
 
-Every observation row in every Parquet family under `datasets/` carries a `source_id` foreign key pointing at one row in `datasets/taxonomy/sources.parquet`. Provenance is a **table**, not a per-shard array. The sources table adopts OWID's `origin.*` field schema verbatim (per §0a "The One Rule") plus a small set of yen-gov extensions:
+Every observation row in every Parquet family under `datasets/` carries a `source_id` foreign key pointing at one row in `datasets/taxonomy/sources.parquet`. Provenance is a **table**, not a per-shard array. The table is a **citation ledger** (one row per `(producer, title, vintage)` triple, not per fetch event) — v2.0 shape per [ADR-0032](docs/architecture/decisions/0032-sources-citation-ledger.md). Adopts OWID `origin.*` fields verbatim (per §0a "The One Rule") plus four yen-gov extensions for confidence + verifiability. Total: **11 columns (8 required + 3 optional)**.
 
-| Field | Source | Meaning |
-| --- | --- | --- |
-| `source_id` (PK) | yen-gov | stable identifier; FK target on every observation row |
-| `url_main` | OWID | landing / about page URL |
-| `url_download` | OWID | direct download URL (same as `url_main` for HTML scrapes) |
-| `producer` | OWID | publisher org (e.g. "Election Commission of India") |
-| `citation_full` | OWID | full citation string |
-| `date_accessed` | OWID | UTC date pipeline first read this URL |
-| `license` | OWID | license code (e.g. "OGL-IN-1.0", "CC-BY-4.0", "unknown-public", "internal") |
-| `vintage` | OWID | source's own period label (e.g. "FY 2024-25"); preserved verbatim |
-| `content_hash` | yen-gov | sha256 of fetched bytes (idempotency anchor) |
-| `first_fetched_at` | yen-gov | RFC 3339 UTC, immutable, citizen-facing |
-| `last_seen_at` | yen-gov | RFC 3339 UTC, mutable telemetry; never citizen-facing |
-| `confidence_tier` | yen-gov | `gold` / `silver` / `bronze` — issuing authority vs re-publisher vs single-paper source |
-| `is_issuing_authority` | yen-gov | bool — distinguishes ECI on votes (true) from a research aggregator republishing the same numbers (false) |
+| Field | Required | Source | Meaning |
+| --- | :---: | --- | --- |
+| `source_id` (PK) | ✓ | yen-gov | Deterministic 12-char hash: `"src-" + sha256(f"{producer}|{title}|{vintage}").hexdigest()[:12]`. FK target on every observation row. Build via `backend.yen_gov.canonical.citation.derive_source_id` — never hand-author. |
+| `producer` | ✓ | OWID | publisher organisation ("Election Commission of India", "Reserve Bank of India", "yen-gov" for editorial rows) |
+| `title` | ✓ | OWID | citizen-readable report name, verbatim |
+| `vintage` | ✓ | OWID | source's own period label ("FY 2024-25", "Census 2011"); empty string permitted when publisher has no vintage |
+| `license` | ✓ | OWID | enum-locked: `OGL-IN-1.0` / `CC-BY-4.0` / `CC0-1.0` / `public-domain` / `unknown-public` / `internal` |
+| `confidence_tier` | ✓ | yen-gov | `gold` / `silver` / `bronze` — issuing authority vs reputable republisher vs single-paper / activist source |
+| `is_issuing_authority` | ✓ | yen-gov | bool — ECI on votes (true), aggregator republishing same numbers (false). Independent of `confidence_tier`. |
+| `verification_method` | ✓ | yen-gov | enum-4: `live-fetch` / `archived-snapshot` / `transcribed` / `editorial`. Array order is canonical rank (4 strongest → 1 weakest). |
+| `url_main` | — | OWID | landing / about page URL; `null` for hand-imported / transcribed / editorial rows |
+| `citation_full` | — | OWID | adapter override; when null, renderer composes from `(producer, title, vintage)` |
+| `notes` | — | yen-gov | operator scratchpad |
 
-Hand-authored content: `url_main` and `url_download` are empty strings; `producer` = "yen-gov"; `license` = "internal"; `is_issuing_authority` = false; `confidence_tier` = "gold" (we know our own provenance).
+**Hand-imported / transcribed content** uses the same `producer + title + vintage` as the live-fetched path would. Same triple = same `source_id`. Only `url_main = null` and `verification_method = "transcribed"` differ. The citizen never sees split provenance for one report just because two ingest paths populated different rows.
 
-Canonical concept: [`docs/concepts/data-provenance.md`](docs/concepts/data-provenance.md). Full schema with column-by-column rationale: [`docs/architecture/data/canonical-store.md` §5](docs/architecture/data/canonical-store.md). Design rationale: [ADR-0030](docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md).
+**Editorial content** (yen-gov-derived analytical framing): `producer = "yen-gov"`, `license = "internal"`, `is_issuing_authority = false`, `confidence_tier = "gold"`, `verification_method = "editorial"`, `url_main = null`.
+
+**Removed from v1.0** (breaking, v2.0 contract): `url`, `url_download`, `content_hash`, `first_fetched_at`, `last_seen_at`, `date_accessed` are all gone. Live-fetch adapters that need byte-change detection write `.runtime/<adapter>/<source_id>.json` sidecars — ephemeral by §2, never citizen-facing, never a contract surface.
+
+Canonical concept: [`docs/concepts/data-provenance.md`](docs/concepts/data-provenance.md). Full schema with column-by-column rationale: [`docs/architecture/data/canonical-store.md` §5](docs/architecture/data/canonical-store.md). Design rationale + four rejected designs: [ADR-0032](docs/architecture/decisions/0032-sources-citation-ledger.md).
 
 ## 13. UI Verification (Mandatory for Frontend / Admin Changes)
 

@@ -78,7 +78,7 @@ const acScopeRows = [
 ];
 
 const sourceRows = [
-  { url: "https://eci.gov.in/example.xlsx", first_fetched_at: "2026-05-01T00:00:00Z" },
+  { url_main: "https://eci.gov.in/example.xlsx" },
 ];
 
 beforeEach(() => {
@@ -123,7 +123,7 @@ describe("loadConstituencyResult — happy path", () => {
       margin_pct: 22.94,
     });
     expect(res.data.sources).toEqual([
-      { url: "https://eci.gov.in/example.xlsx", fetched_at: "2026-05-01T00:00:00Z" },
+      { url: "https://eci.gov.in/example.xlsx", fetched_at: "" },
     ]);
     expect(res.data.candidates_total).toBe(9);
     expect(res.data.others).toEqual({

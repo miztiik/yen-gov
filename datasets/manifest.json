@@ -2,7 +2,7 @@
   "$schema": "./schemas/manifest.schema.json",
   "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-20T08:33:58Z",
+  "generated_at": "2026-05-20T20:57:09Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -17,7 +17,7 @@
       "files": [
         {
           "path": "elections/state=in_s01/election_results.parquet",
-          "size_bytes": 739877,
+          "size_bytes": 431073,
           "row_count": 9984,
           "partition_values": {
             "state": "in_s01"
@@ -25,7 +25,7 @@
         },
         {
           "path": "elections/state=in_s02/election_results.parquet",
-          "size_bytes": 73433,
+          "size_bytes": 44434,
           "row_count": 1005,
           "partition_values": {
             "state": "in_s02"
@@ -33,7 +33,7 @@
         },
         {
           "path": "elections/state=in_s03/election_results.parquet",
-          "size_bytes": 747635,
+          "size_bytes": 440201,
           "row_count": 10245,
           "partition_values": {
             "state": "in_s03"
@@ -41,7 +41,7 @@
         },
         {
           "path": "elections/state=in_s04/election_results.parquet",
-          "size_bytes": 1004363,
+          "size_bytes": 593943,
           "row_count": 13813,
           "partition_values": {
             "state": "in_s04"
@@ -49,7 +49,7 @@
         },
         {
           "path": "elections/state=in_s05/election_results.parquet",
-          "size_bytes": 168071,
+          "size_bytes": 106465,
           "row_count": 2293,
           "partition_values": {
             "state": "in_s05"
@@ -57,7 +57,7 @@
         },
         {
           "path": "elections/state=in_s06/election_results.parquet",
-          "size_bytes": 743462,
+          "size_bytes": 431434,
           "row_count": 10180,
           "partition_values": {
             "state": "in_s06"
@@ -65,7 +65,7 @@
         },
         {
           "path": "elections/state=in_s07/election_results.parquet",
-          "size_bytes": 375514,
+          "size_bytes": 225341,
           "row_count": 5196,
           "partition_values": {
             "state": "in_s07"
@@ -73,7 +73,7 @@
         },
         {
           "path": "elections/state=in_s08/election_results.parquet",
-          "size_bytes": 267227,
+          "size_bytes": 166287,
           "row_count": 3616,
           "partition_values": {
             "state": "in_s08"
@@ -81,7 +81,7 @@
         },
         {
           "path": "elections/state=in_s10/election_results.parquet",
-          "size_bytes": 930082,
+          "size_bytes": 547118,
           "row_count": 12716,
           "partition_values": {
             "state": "in_s10"
@@ -89,7 +89,7 @@
         },
         {
           "path": "elections/state=in_s11/election_results.parquet",
-          "size_bytes": 850972,
+          "size_bytes": 508781,
           "row_count": 11860,
           "partition_values": {
             "state": "in_s11"
@@ -97,7 +97,7 @@
         },
         {
           "path": "elections/state=in_s12/election_results.parquet",
-          "size_bytes": 486006,
+          "size_bytes": 277855,
           "row_count": 6483,
           "partition_values": {
             "state": "in_s12"
@@ -105,7 +105,7 @@
         },
         {
           "path": "elections/state=in_s13/election_results.parquet",
-          "size_bytes": 595914,
+          "size_bytes": 351006,
           "row_count": 8156,
           "partition_values": {
             "state": "in_s13"
@@ -113,7 +113,7 @@
         },
         {
           "path": "elections/state=in_s14/election_results.parquet",
-          "size_bytes": 221597,
+          "size_bytes": 137029,
           "row_count": 2964,
           "partition_values": {
             "state": "in_s14"
@@ -121,7 +121,7 @@
         },
         {
           "path": "elections/state=in_s15/election_results.parquet",
-          "size_bytes": 245856,
+          "size_bytes": 152759,
           "row_count": 3311,
           "partition_values": {
             "state": "in_s15"
@@ -129,7 +129,7 @@
         },
         {
           "path": "elections/state=in_s16/election_results.parquet",
-          "size_bytes": 74066,
+          "size_bytes": 45352,
           "row_count": 1008,
           "partition_values": {
             "state": "in_s16"
@@ -137,7 +137,7 @@
         },
         {
           "path": "elections/state=in_s17/election_results.parquet",
-          "size_bytes": 193956,
+          "size_bytes": 119589,
           "row_count": 2584,
           "partition_values": {
             "state": "in_s17"
@@ -145,7 +145,7 @@
         },
         {
           "path": "elections/state=in_s18/election_results.parquet",
-          "size_bytes": 308222,
+          "size_bytes": 178275,
           "row_count": 4134,
           "partition_values": {
             "state": "in_s18"
@@ -153,7 +153,7 @@
         },
         {
           "path": "elections/state=in_s19/election_results.parquet",
-          "size_bytes": 494054,
+          "size_bytes": 285992,
           "row_count": 6718,
           "partition_values": {
             "state": "in_s19"
@@ -161,7 +161,7 @@
         },
         {
           "path": "elections/state=in_s20/election_results.parquet",
-          "size_bytes": 428078,
+          "size_bytes": 244299,
           "row_count": 5689,
           "partition_values": {
             "state": "in_s20"
@@ -169,7 +169,7 @@
         },
         {
           "path": "elections/state=in_s21/election_results.parquet",
-          "size_bytes": 63569,
+          "size_bytes": 37825,
           "row_count": 827,
           "partition_values": {
             "state": "in_s21"
@@ -177,7 +177,7 @@
         },
         {
           "path": "elections/state=in_s22/election_results.parquet",
-          "size_bytes": 1456964,
+          "size_bytes": 861255,
           "row_count": 20040,
           "partition_values": {
             "state": "in_s22"
@@ -185,7 +185,7 @@
         },
         {
           "path": "elections/state=in_s23/election_results.parquet",
-          "size_bytes": 230054,
+          "size_bytes": 144538,
           "row_count": 3129,
           "partition_values": {
             "state": "in_s23"
@@ -193,7 +193,7 @@
         },
         {
           "path": "elections/state=in_s24/election_results.parquet",
-          "size_bytes": 1669210,
+          "size_bytes": 967020,
           "row_count": 22788,
           "partition_values": {
             "state": "in_s24"
@@ -201,7 +201,7 @@
         },
         {
           "path": "elections/state=in_s25/election_results.parquet",
-          "size_bytes": 620389,
+          "size_bytes": 357766,
           "row_count": 8304,
           "partition_values": {
             "state": "in_s25"
@@ -209,7 +209,7 @@
         },
         {
           "path": "elections/state=in_s26/election_results.parquet",
-          "size_bytes": 188552,
+          "size_bytes": 120143,
           "row_count": 2583,
           "partition_values": {
             "state": "in_s26"
@@ -217,7 +217,7 @@
         },
         {
           "path": "elections/state=in_s27/election_results.parquet",
-          "size_bytes": 354988,
+          "size_bytes": 208738,
           "row_count": 4780,
           "partition_values": {
             "state": "in_s27"
@@ -225,7 +225,7 @@
         },
         {
           "path": "elections/state=in_s28/election_results.parquet",
-          "size_bytes": 296830,
+          "size_bytes": 172549,
           "row_count": 4054,
           "partition_values": {
             "state": "in_s28"
@@ -233,7 +233,7 @@
         },
         {
           "path": "elections/state=in_s29/election_results.parquet",
-          "size_bytes": 258510,
+          "size_bytes": 158087,
           "row_count": 3400,
           "partition_values": {
             "state": "in_s29"
@@ -241,7 +241,7 @@
         },
         {
           "path": "elections/state=in_u05/election_results.parquet",
-          "size_bytes": 302876,
+          "size_bytes": 177202,
           "row_count": 4101,
           "partition_values": {
             "state": "in_u05"
@@ -249,7 +249,7 @@
         },
         {
           "path": "elections/state=in_u07/election_results.parquet",
-          "size_bytes": 204797,
+          "size_bytes": 129027,
           "row_count": 2756,
           "partition_values": {
             "state": "in_u07"
@@ -257,7 +257,7 @@
         },
         {
           "path": "elections/state=in_u08/election_results.parquet",
-          "size_bytes": 192515,
+          "size_bytes": 119646,
           "row_count": 2575,
           "partition_values": {
             "state": "in_u08"
@@ -340,16 +340,16 @@
       "table_name": "sources",
       "kind": "taxonomy",
       "format": "parquet",
-      "schema_version": "1.0",
+      "schema_version": "2.0",
       "partition_columns": [],
       "files": [
         {
           "path": "taxonomy/sources.parquet",
-          "size_bytes": 10730,
-          "row_count": 84
+          "size_bytes": 4185,
+          "row_count": 55
         }
       ],
-      "row_count_total": 84
+      "row_count_total": 55
     }
   ],
   "deprecations": [

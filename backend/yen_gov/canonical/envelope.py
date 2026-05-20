@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import hashlib
 from enum import Enum
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -42,28 +43,40 @@ class ReplacementSemantics(str, Enum):
 
 
 class SourceRow(BaseModel):
-    """A row destined for taxonomy/sources.parquet.
+    """A row destined for taxonomy/sources.parquet (citation ledger).
 
-    OWID origin.* verbatim + yen-gov extensions. Mirrors
-    datasets/schemas/source.schema.json item shape.
+    v2.0 (ADR-0032): one row per CITATION, not per fetch event. Natural
+    identity = ``(producer, title, vintage)``; ``source_id`` is the
+    deterministic 12-char hash of that triple — use
+    ``backend.yen_gov.canonical.citation.derive_source_id`` to build it,
+    never hand-author.
+
+    Mirrors ``datasets/schemas/source.schema.json`` item shape exactly.
+    Fetch telemetry (url-it-was-polled-from, content_hash, first/last_seen)
+    is OUT of the contract — adapters that need cache-invalidation state
+    write it to a sidecar under ``.runtime/<adapter>/<source_id>.json``.
+
+    ``frozen=True`` because rows are dedup'd by source_id in the writer's
+    envelope-apply step; mutating a row after construction would defeat
+    that dedup. Adapters that need to vary a field should build a new
+    SourceRow via ``model_copy(update=...)``.
     """
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="forbid", frozen=True)
 
-    source_id: str = Field(pattern=r"^src-[a-z0-9]{8,}$")
-    url: str
-    content_hash: str = Field(pattern=r"^(sha256:[0-9a-f]{64}|)$")
+    source_id: str = Field(pattern=r"^src-[a-z0-9]{12}$")
     producer: str = Field(min_length=1)
-    citation_full: str | None = None
-    url_main: str | None = None
-    url_download: str | None = None
-    date_accessed: str | None = Field(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$")
-    first_fetched_at: str
-    last_seen_at: str
-    license: str = Field(min_length=1)
-    vintage: str | None = None
-    confidence_tier: str = Field(pattern=r"^(gold|silver|bronze)$")
+    title: str = Field(min_length=1)
+    vintage: str  # required string; permitted empty when source publishes no vintage
+    license: Literal[
+        "OGL-IN-1.0", "CC-BY-4.0", "CC0-1.0", "public-domain", "unknown-public", "internal"
+    ]
+    confidence_tier: Literal["gold", "silver", "bronze"]
     is_issuing_authority: bool
+    verification_method: Literal["live-fetch", "archived-snapshot", "transcribed", "editorial"]
+    url_main: str | None = None
+    citation_full: str | None = None
+    notes: str | None = None
 
 
 class ObservationRow(BaseModel):

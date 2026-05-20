@@ -49,8 +49,7 @@ interface PartyRow {
 }
 
 interface SourceJoinRow {
-  url: string | null;
-  first_fetched_at: string | null;
+  url_main: string | null;
 }
 
 const num = (v: unknown): number => (v == null ? 0 : Number(v));
@@ -95,13 +94,14 @@ async function runQueries(
   const parties = await query<PartyRow>(partySql);
 
   const sources = await query<SourceJoinRow>(`
-    SELECT DISTINCT s.url, s.first_fetched_at
+    SELECT DISTINCT s.url_main
     FROM election_results o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label IN (${eventList})
       AND o.entity_id LIKE ${partyPrefix} || '%'
-      AND s.url <> ''
-    ORDER BY s.first_fetched_at
+      AND s.url_main IS NOT NULL
+      AND s.url_main <> ''
+    ORDER BY s.url_main
   `);
 
   return { parties, sources };
@@ -136,10 +136,12 @@ function assembleResult(
   }
 
   const sources: SourceRef[] = rows.sources
-    .filter((s) => !!s.url)
+    .filter((s) => !!s.url_main)
     .map((s) => ({
-      url: s.url ?? "",
-      fetched_at: s.first_fetched_at ?? "",
+      url: s.url_main ?? "",
+      // Citation ledger (v2.0) does not carry fetch telemetry —
+      // ``fetched_at`` is intentionally empty. See ADR-0032.
+      fetched_at: "",
     }));
 
   return { state: state_code, events, sources };
