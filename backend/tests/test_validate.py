@@ -121,3 +121,33 @@ def test_tier_b_skips_test_fixture_subtree_only(tmp_path: Path):
     assert any("_scratch" in p for p in paths), \
         f"datasets/_scratch/ must NOT be silently skipped, got: {paths}"
 
+
+def test_tier_b_skips_ephemeral_subtree(tmp_path: Path):
+    """`datasets/ephemeral/...` is exempt — the whole subtree is
+    gitignored (`.gitignore = *`), same rationale as `.runtime/` per
+    CLAUDE.md §2. Holds raw XLSX/PDF dumps, restored legacy-corpus
+    snapshots, and operator inventory sidecars (e.g.
+    `_ingest_inventory.json`) that are NOT contract surfaces. Other
+    non-exempt operator-prefixed dirs (e.g. `notes/`) are not under
+    DATA_ROOTS so are skipped anyway; this test pins the explicit
+    exclusion.
+    """
+    schemas_dir = _seed_repo(tmp_path)
+    ephemeral_dir = tmp_path / "datasets/ephemeral"
+    ephemeral_dir.mkdir(parents=True)
+    # Operator inventory sidecar without `$schema` — the real-world bug.
+    (ephemeral_dir / "_ingest_inventory.json").write_text(
+        json.dumps({"ingested_at": "2026-05-20", "files": []}),
+        encoding="utf-8",
+    )
+    # Nested operator scratchpad — recursion must skip too.
+    nested = ephemeral_dir / "legacy-corpus" / "tn"
+    nested.mkdir(parents=True)
+    (nested / "raw.json").write_text(json.dumps({"dump": True}), encoding="utf-8")
+    schemas, _ = load_schemas(schemas_dir)
+    fails = tier_b(schemas, tmp_path)
+    paths = [f.file for f in fails]
+    assert not any("ephemeral" in p for p in paths), \
+        f"datasets/ephemeral/ subtree must be skipped, got: {paths}"
+
+
