@@ -1,8 +1,8 @@
 {
   "$schema": "./schemas/manifest.schema.json",
-  "$schema_version": "1.2",
+  "$schema_version": "1.3",
   "manifest_version": "1.0",
-  "generated_at": "2026-05-19T22:14:47Z",
+  "generated_at": "2026-05-20T08:33:58Z",
   "tables": [
     {
       "table_id": "elections.election_results",
@@ -11,12 +11,257 @@
       "kind": "observations",
       "format": "parquet",
       "schema_version": "1.1",
-      "partition_columns": [],
+      "partition_columns": [
+        "state"
+      ],
       "files": [
         {
-          "path": "elections/election_results.parquet",
-          "size_bytes": 14919381,
-          "row_count": 201292
+          "path": "elections/state=in_s01/election_results.parquet",
+          "size_bytes": 739877,
+          "row_count": 9984,
+          "partition_values": {
+            "state": "in_s01"
+          }
+        },
+        {
+          "path": "elections/state=in_s02/election_results.parquet",
+          "size_bytes": 73433,
+          "row_count": 1005,
+          "partition_values": {
+            "state": "in_s02"
+          }
+        },
+        {
+          "path": "elections/state=in_s03/election_results.parquet",
+          "size_bytes": 747635,
+          "row_count": 10245,
+          "partition_values": {
+            "state": "in_s03"
+          }
+        },
+        {
+          "path": "elections/state=in_s04/election_results.parquet",
+          "size_bytes": 1004363,
+          "row_count": 13813,
+          "partition_values": {
+            "state": "in_s04"
+          }
+        },
+        {
+          "path": "elections/state=in_s05/election_results.parquet",
+          "size_bytes": 168071,
+          "row_count": 2293,
+          "partition_values": {
+            "state": "in_s05"
+          }
+        },
+        {
+          "path": "elections/state=in_s06/election_results.parquet",
+          "size_bytes": 743462,
+          "row_count": 10180,
+          "partition_values": {
+            "state": "in_s06"
+          }
+        },
+        {
+          "path": "elections/state=in_s07/election_results.parquet",
+          "size_bytes": 375514,
+          "row_count": 5196,
+          "partition_values": {
+            "state": "in_s07"
+          }
+        },
+        {
+          "path": "elections/state=in_s08/election_results.parquet",
+          "size_bytes": 267227,
+          "row_count": 3616,
+          "partition_values": {
+            "state": "in_s08"
+          }
+        },
+        {
+          "path": "elections/state=in_s10/election_results.parquet",
+          "size_bytes": 930082,
+          "row_count": 12716,
+          "partition_values": {
+            "state": "in_s10"
+          }
+        },
+        {
+          "path": "elections/state=in_s11/election_results.parquet",
+          "size_bytes": 850972,
+          "row_count": 11860,
+          "partition_values": {
+            "state": "in_s11"
+          }
+        },
+        {
+          "path": "elections/state=in_s12/election_results.parquet",
+          "size_bytes": 486006,
+          "row_count": 6483,
+          "partition_values": {
+            "state": "in_s12"
+          }
+        },
+        {
+          "path": "elections/state=in_s13/election_results.parquet",
+          "size_bytes": 595914,
+          "row_count": 8156,
+          "partition_values": {
+            "state": "in_s13"
+          }
+        },
+        {
+          "path": "elections/state=in_s14/election_results.parquet",
+          "size_bytes": 221597,
+          "row_count": 2964,
+          "partition_values": {
+            "state": "in_s14"
+          }
+        },
+        {
+          "path": "elections/state=in_s15/election_results.parquet",
+          "size_bytes": 245856,
+          "row_count": 3311,
+          "partition_values": {
+            "state": "in_s15"
+          }
+        },
+        {
+          "path": "elections/state=in_s16/election_results.parquet",
+          "size_bytes": 74066,
+          "row_count": 1008,
+          "partition_values": {
+            "state": "in_s16"
+          }
+        },
+        {
+          "path": "elections/state=in_s17/election_results.parquet",
+          "size_bytes": 193956,
+          "row_count": 2584,
+          "partition_values": {
+            "state": "in_s17"
+          }
+        },
+        {
+          "path": "elections/state=in_s18/election_results.parquet",
+          "size_bytes": 308222,
+          "row_count": 4134,
+          "partition_values": {
+            "state": "in_s18"
+          }
+        },
+        {
+          "path": "elections/state=in_s19/election_results.parquet",
+          "size_bytes": 494054,
+          "row_count": 6718,
+          "partition_values": {
+            "state": "in_s19"
+          }
+        },
+        {
+          "path": "elections/state=in_s20/election_results.parquet",
+          "size_bytes": 428078,
+          "row_count": 5689,
+          "partition_values": {
+            "state": "in_s20"
+          }
+        },
+        {
+          "path": "elections/state=in_s21/election_results.parquet",
+          "size_bytes": 63569,
+          "row_count": 827,
+          "partition_values": {
+            "state": "in_s21"
+          }
+        },
+        {
+          "path": "elections/state=in_s22/election_results.parquet",
+          "size_bytes": 1456964,
+          "row_count": 20040,
+          "partition_values": {
+            "state": "in_s22"
+          }
+        },
+        {
+          "path": "elections/state=in_s23/election_results.parquet",
+          "size_bytes": 230054,
+          "row_count": 3129,
+          "partition_values": {
+            "state": "in_s23"
+          }
+        },
+        {
+          "path": "elections/state=in_s24/election_results.parquet",
+          "size_bytes": 1669210,
+          "row_count": 22788,
+          "partition_values": {
+            "state": "in_s24"
+          }
+        },
+        {
+          "path": "elections/state=in_s25/election_results.parquet",
+          "size_bytes": 620389,
+          "row_count": 8304,
+          "partition_values": {
+            "state": "in_s25"
+          }
+        },
+        {
+          "path": "elections/state=in_s26/election_results.parquet",
+          "size_bytes": 188552,
+          "row_count": 2583,
+          "partition_values": {
+            "state": "in_s26"
+          }
+        },
+        {
+          "path": "elections/state=in_s27/election_results.parquet",
+          "size_bytes": 354988,
+          "row_count": 4780,
+          "partition_values": {
+            "state": "in_s27"
+          }
+        },
+        {
+          "path": "elections/state=in_s28/election_results.parquet",
+          "size_bytes": 296830,
+          "row_count": 4054,
+          "partition_values": {
+            "state": "in_s28"
+          }
+        },
+        {
+          "path": "elections/state=in_s29/election_results.parquet",
+          "size_bytes": 258510,
+          "row_count": 3400,
+          "partition_values": {
+            "state": "in_s29"
+          }
+        },
+        {
+          "path": "elections/state=in_u05/election_results.parquet",
+          "size_bytes": 302876,
+          "row_count": 4101,
+          "partition_values": {
+            "state": "in_u05"
+          }
+        },
+        {
+          "path": "elections/state=in_u07/election_results.parquet",
+          "size_bytes": 204797,
+          "row_count": 2756,
+          "partition_values": {
+            "state": "in_u07"
+          }
+        },
+        {
+          "path": "elections/state=in_u08/election_results.parquet",
+          "size_bytes": 192515,
+          "row_count": 2575,
+          "partition_values": {
+            "state": "in_u08"
+          }
         }
       ],
       "row_count_total": 201292

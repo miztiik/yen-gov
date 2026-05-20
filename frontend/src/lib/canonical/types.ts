@@ -63,7 +63,7 @@ export const SUPPORTED_SCHEMA_VERSIONS: Record<string, ReadonlyArray<string>> = 
   // PR-Q.2 (TODO row 1.8d-ii). facet-axes now ships as a parquet emitted
   // from the Python literal in backend/yen_gov/canonical/facet_axes_seed.py;
   // delimitation-lineage placeholder removed pending real authoring.
-  "manifest.schema.json": ["1.0", "1.1", "1.2"],
+  "manifest.schema.json": ["1.0", "1.1", "1.2", "1.3"],
   "taxonomy-parties.schema.json": ["1.0"],
 };
 

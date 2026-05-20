@@ -87,6 +87,52 @@ def _fact_table_stem(family: str) -> str:
     return FAMILY_FACT_TABLE_STEM.get(family, "observations")
 
 
+# Per-family Hive partitioning of the fact-table parquet. When a family
+# appears here, ``_emit_observations`` writes one parquet per distinct
+# partition-column value at ``datasets/<family>/<col>=<val>/<stem>.parquet``
+# instead of a single monolith ``datasets/<family>/<stem>.parquet``. The
+# manifest entry then carries ``partition_columns: [<col>, ...]`` and one
+# ``files[]`` entry per partition with ``partition_values: {col: val}`` —
+# per manifest schema v1.2.
+#
+# Phase 0 closeout (TODO row 1.8-§0e.10 lock B) registers ``elections`` with
+# ``state`` partition derived from the first two hyphen-separated segments
+# of ``entity_id`` (e.g. ``IN-S22-AC-2008-167`` -> partition value
+# ``in_s22``). Citizen-facing rationale: the all-states monolith reaches
+# ~14 MB at the TN-only Phase-1 slice and would scale to ~400 MB at full
+# national coverage; per-state shards keep DuckDB-WASM range queries
+# selective and the GitHub repo browsable.
+#
+# Adding a family means appending one row here (single partition column) or
+# generalising the per-column derivation logic. Today only ``state`` is
+# implemented; adding ``year`` or other axes is additive.
+FAMILY_FACT_PARTITION_BY: dict[str, list[str]] = {
+    "elections": ["state"],
+}
+
+
+def _partition_cols(family: str) -> list[str]:
+    return list(FAMILY_FACT_PARTITION_BY.get(family, []))
+
+
+# SQL expression deriving the ``state`` Hive partition value from
+# ``entity_id``. Pattern: take the first two ``-``-separated segments
+# (e.g. ``IN-S22-AC-2008-167`` -> ``IN-S22``), lower-case, swap ``-`` for
+# ``_`` (Hive partition values forbid ``-``). Country-level entity_ids
+# without a state segment (``IN``) collapse to ``in``; cross-state rollups
+# without ``IN-`` prefix (none today, but defensive) collapse to the
+# entity_id verbatim lower-cased. Locked grammar from TODO §0e.10 lock A.
+_STATE_PARTITION_SQL = (
+    "replace("
+    "lower("
+    "CASE WHEN entity_id LIKE '%-%' "
+    "THEN regexp_extract(entity_id, '^([A-Z]+-[A-Z0-9]+)', 1) "
+    "ELSE entity_id "
+    "END"
+    "), '-', '_')"
+)
+
+
 # Append-only ledger of dataset path renames / relocations the writer stamps
 # into ``datasets/manifest.json`` under the ``deprecations`` array introduced
 # in ``manifest.schema.json`` v1.2. Surfaces the legacy URL so archived
@@ -128,6 +174,18 @@ class WriteResult:
     dim_rows_written: dict[str, int] = field(default_factory=dict)
     warnings: list[str] = field(default_factory=list)
 
+    # NOTE on observations_path semantics for partitioned families
+    # (TODO §0e.10 lock B). For non-partitioned families this Path
+    # points at the single fact-table parquet on disk. For families
+    # registered in ``FAMILY_FACT_PARTITION_BY`` (today: elections)
+    # this Path is the LOGICAL fact-table identifier — the location
+    # the monolith would occupy if it were not partitioned — and the
+    # file at this path does NOT exist on disk; the actual parquets
+    # live at ``family_dir/state=<val>/<stem>.parquet``. Consumers
+    # that need to read the data should either (a) consult
+    # ``manifest.json`` and iterate ``tables[].files[]`` or (b)
+    # ``read_parquet`` the Hive glob ``family_dir/state=*/<stem>.parquet``.
+
 
 def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
     """One-shot envelope -> emitted Parquet + regenerated manifest.
@@ -149,7 +207,7 @@ def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
 
     con = duckdb.connect(":memory:")
     try:
-        _load_existing(con, observations_path, sources_path)
+        _load_existing(con, observations_path, sources_path, envelope.target_family)
         _apply_envelope(con, envelope)
         obs_written = _emit_observations(
             con, observations_path, envelope.target_family
@@ -335,10 +393,46 @@ def _load_existing(
     con: duckdb.DuckDBPyConnection,
     observations_path: Path,
     sources_path: Path,
+    family: str | None = None,
 ) -> None:
+    """Load existing observations + sources into in-memory DuckDB tables.
+
+    ``observations_path`` is the legacy monolith location
+    (``datasets/<family>/<stem>.parquet``). For families registered in
+    ``FAMILY_FACT_PARTITION_BY`` we additionally glob the partitioned
+    layout (``datasets/<family>/state=*/<stem>.parquet``) so that an
+    UPSERT-style write_batch on partitioned corpora reads back every
+    existing row before re-emitting. Both shapes can coexist transiently
+    during a one-shot repartition migration; the monolith is removed by
+    ``_emit_observations`` once the partitioned write succeeds.
+    """
     con.execute(_OBS_DDL)
     con.execute(_SRC_DDL)
-    if observations_path.is_file():
+
+    partition_cols = _partition_cols(family or "")
+    family_dir = observations_path.parent
+    stem = observations_path.stem
+    loaded_from_partitioned = False
+    if partition_cols and family_dir.is_dir():
+        # Hive-partitioned glob. DuckDB's read_parquet accepts the glob
+        # directly; the partition column lives in the path, not the file
+        # contents, so we project explicit columns (NOT ``SELECT *``) to
+        # avoid pulling the synthesized ``state`` column back into the
+        # in-memory observations table — that column is re-derived on
+        # emit, not stored as a row field.
+        partition_files = sorted(
+            family_dir.glob(f"{partition_cols[0]}=*/{stem}.parquet")
+        )
+        if partition_files:
+            glob_path = (family_dir / f"{partition_cols[0]}=*" / f"{stem}.parquet").as_posix()
+            con.execute(
+                "INSERT INTO observations SELECT "
+                "observation_id, entity_id, year, period_label, period_seq, "
+                "indicator_id, value_numeric, value_text, source_id, derivation "
+                f"FROM read_parquet('{glob_path}')"
+            )
+            loaded_from_partitioned = True
+    if not loaded_from_partitioned and observations_path.is_file():
         con.execute(
             f"INSERT INTO observations SELECT * FROM read_parquet('{observations_path.as_posix()}')"
         )
@@ -461,18 +555,81 @@ def _emit_observations(
     out_path: Path,
     family: str,
 ) -> int:
+    """Emit the in-memory ``observations`` table to parquet.
+
+    Non-partitioned families: single file at ``out_path``.
+
+    Partitioned families (``FAMILY_FACT_PARTITION_BY``): one file per
+    distinct partition-column value at
+    ``out_path.parent/<col>=<val>/<stem>.parquet``. Any pre-existing
+    monolith at ``out_path`` is removed atomically after the partitioned
+    write succeeds. Each partition file is emitted via the same
+    ``_emit_table`` codepath as the monolith so KV_METADATA stamping and
+    sort-by-pk ordering stay identical.
+    """
     table_id = f"{family}.observations"
-    return _emit_table(
-        con=con,
-        select_sql=(
-            "SELECT * FROM observations "
-            "ORDER BY indicator_id, entity_id, year, period_seq"
-        ),
-        out_path=out_path,
-        table_id=table_id,
-        row_schema_file="observation.schema.json",
-        sort_cols=SORT_COLUMNS,
-    )
+    partition_cols = _partition_cols(family)
+    if not partition_cols:
+        return _emit_table(
+            con=con,
+            select_sql=(
+                "SELECT * FROM observations "
+                "ORDER BY indicator_id, entity_id, year, period_seq"
+            ),
+            out_path=out_path,
+            table_id=table_id,
+            row_schema_file="observation.schema.json",
+            sort_cols=SORT_COLUMNS,
+        )
+
+    # Partitioned emit. Today only ``state`` is supported.
+    if partition_cols != ["state"]:
+        raise WriterError(
+            f"FAMILY_FACT_PARTITION_BY[{family!r}] = {partition_cols!r}; only "
+            "['state'] is implemented in _emit_observations today"
+        )
+
+    family_dir = out_path.parent
+    stem = out_path.stem
+    [(distinct_count,)] = con.execute(
+        f"SELECT count(DISTINCT {_STATE_PARTITION_SQL}) FROM observations"
+    ).fetchall()
+    partition_values = [
+        r[0] for r in con.execute(
+            f"SELECT DISTINCT {_STATE_PARTITION_SQL} AS pv FROM observations "
+            "ORDER BY pv"
+        ).fetchall()
+    ]
+
+    total_rows = 0
+    for pv in partition_values:
+        partition_dir = family_dir / f"state={pv}"
+        partition_dir.mkdir(parents=True, exist_ok=True)
+        partition_out = partition_dir / f"{stem}.parquet"
+        n = _emit_table(
+            con=con,
+            select_sql=(
+                "SELECT observation_id, entity_id, year, period_label, "
+                "period_seq, indicator_id, value_numeric, value_text, "
+                "source_id, derivation FROM observations "
+                f"WHERE {_STATE_PARTITION_SQL} = '{_escape_sql(pv)}' "
+                "ORDER BY indicator_id, entity_id, year, period_seq"
+            ),
+            out_path=partition_out,
+            table_id=f"{table_id}#state={pv}",
+            row_schema_file="observation.schema.json",
+            sort_cols=SORT_COLUMNS,
+        )
+        total_rows += n
+    _ = distinct_count  # asserted only for symmetry; total_rows is the truth
+
+    # Sweep stale monolith if a pre-partition corpus left one behind. The
+    # partitioned files are the new source of truth; leaving the monolith
+    # in place would double-count rows on the next ``_load_existing``.
+    if out_path.is_file():
+        out_path.unlink()
+
+    return total_rows
 
 
 def _emit_sources(con: duckdb.DuckDBPyConnection, out_path: Path) -> int:
@@ -738,11 +895,36 @@ def _regenerate_manifest(datasets_root: Path) -> Path:
     # stem from FAMILY_FACT_TABLE_STEM). PR-O.1 (1.8b-i) generalised the
     # earlier hardcoded "observations.parquet" glob — the stem is now
     # citizen-honest per family (elections → election_results, etc.).
+    #
+    # Phase 0 closeout (TODO §0e.10 lock B) added Hive-partitioned families
+    # via ``FAMILY_FACT_PARTITION_BY``. When a family is partitioned the
+    # fact-table lives at ``<family>/<col>=<val>/<stem>.parquet`` (one file
+    # per partition) and the manifest entry carries ``partition_columns``
+    # plus per-file ``partition_values`` per manifest schema v1.2.
     for family_dir in sorted(p for p in datasets_root.iterdir() if p.is_dir()):
         family = family_dir.name
         if family in {"taxonomy", "boundaries", "_old", "_test", "ephemeral", "schemas"}:
             continue
         stem = _fact_table_stem(family)
+        partition_cols = _partition_cols(family)
+        if partition_cols:
+            # Partitioned: glob <col>=*/<stem>.parquet. Today only single-
+            # column ``state`` partitioning is supported; the glob will be
+            # generalised when a second axis (e.g. year) earns its way in.
+            partition_files = sorted(
+                family_dir.glob(f"{partition_cols[0]}=*/{stem}.parquet")
+            )
+            if not partition_files:
+                continue
+            tables.append(_describe_partitioned_table(
+                datasets_root=datasets_root,
+                family=family,
+                stem=stem,
+                files=partition_files,
+                partition_cols=partition_cols,
+                row_schema_file="observation.schema.json",
+            ))
+            continue
         fact_path = family_dir / f"{stem}.parquet"
         if not fact_path.is_file():
             continue
@@ -833,6 +1015,65 @@ def _describe_parquet_table(
             {"path": rel, "size_bytes": size, "row_count": int(row_count)}
         ],
         "row_count_total": int(row_count),
+    }
+
+
+def _describe_partitioned_table(
+    datasets_root: Path,
+    family: str,
+    stem: str,
+    files: list[Path],
+    partition_cols: list[str],
+    row_schema_file: str,
+) -> dict:
+    """Describe a Hive-partitioned fact table as one manifest entry.
+
+    Emits ``partition_columns: [<cols>]`` at the table level and one
+    ``files[]`` entry per partition with ``partition_values: {col: val}``
+    decoded from the path segments. Row counts are summed across all
+    partition files. Per manifest schema v1.2 (Phase 0 closeout).
+    """
+    file_entries: list[dict] = []
+    total_rows = 0
+    con = duckdb.connect(":memory:")
+    try:
+        for f in files:
+            rel = f.relative_to(datasets_root).as_posix()
+            size = f.stat().st_size
+            [(rc,)] = con.execute(
+                f"SELECT count(*) FROM read_parquet('{f.as_posix()}')"
+            ).fetchall()
+            partition_values: dict[str, str] = {}
+            for col in partition_cols:
+                seg = next(
+                    (p.split("=", 1)[1] for p in f.parts if p.startswith(f"{col}=")),
+                    None,
+                )
+                if seg is None:
+                    raise WriterError(
+                        f"partitioned parquet at {rel!r} is missing the "
+                        f"{col!r} path segment expected by partition_columns"
+                    )
+                partition_values[col] = seg
+            file_entries.append({
+                "path": rel,
+                "size_bytes": size,
+                "row_count": int(rc),
+                "partition_values": partition_values,
+            })
+            total_rows += int(rc)
+    finally:
+        con.close()
+    return {
+        "table_id": f"{family}.{stem}",
+        "family": family,
+        "table_name": stem,
+        "kind": "observations",
+        "format": "parquet",
+        "schema_version": schema_version(row_schema_file),
+        "partition_columns": list(partition_cols),
+        "files": file_entries,
+        "row_count_total": int(total_rows),
     }
 
 
