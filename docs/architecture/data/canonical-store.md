@@ -1,6 +1,6 @@
 # Canonical store — target architecture
 
-**Last Updated**: 2026-05-18
+**Last Updated**: 2026-05-20
 **Owner**: data layer (Hans + Max own shape; Gregor owns contracts; Fowler owns write seam)
 **ADR**: [ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md) (full rationale + rejected alternatives)
 **Plan**: [`TODO/20260517-canonical-long-format-pivot.md`](../../../TODO/20260517-canonical-long-format-pivot.md) (THE PLAN, R11)
@@ -63,9 +63,15 @@ datasets/
     methodology_breaks.parquet
     sources.parquet
   elections/
-    observations.parquet              # if family ≤ 15 MB; else partition (§9)
+    state=in_s01/election_results.parquet  # partitioned by `state` (§10); 31 shards live
+    state=in_s22/election_results.parquet  #   largest ≈ 1.4 MiB (Tamil Nadu)
+    …
+    dim_acs.parquet                        # dim tables stay flat (D-elections lock B)
+    dim_candidates.parquet
+    dim_parties.parquet
+    dim_party_alliances.parquet
   energy/
-    observations.parquet
+    observations.parquet                   # if family ≤ 15 MB; else partition (§10)
   demography/
   fiscal/
   education/
@@ -631,19 +637,125 @@ Worked examples (D33):
 
 ## 10. Partition rules (D8)
 
-Default: one `observations.parquet` per family.
+Default: one `<family>_<role>.parquet` per family (e.g. `elections/election_results.parquet`).
 
-Trigger to partition: family file size > 15 MB.
+Trigger to partition: family file size > 15 MB **OR** a citizen-page lazy-load story demands per-shard access (e.g. state hubs only ever read their own state's slice). Either condition is sufficient — the second one is the **lazy-load** axis, separate from the **size** axis.
 
-**Partition column**: `indicator_id` (or `topic_id` if too narrow). **Never `year`** (rejected as R18 — destroys time-series query performance; every series scan fans out to N partitions).
+**Partition columns are registered in code, not inferred.** The writer ships a single dict:
+
+```python
+# backend/yen_gov/canonical/writer.py
+FAMILY_FACT_PARTITION_BY: dict[str, list[str]] = {
+    "elections": ["state"],
+    # other families: not partitioned (default = single-file)
+}
+```
+
+Adding a new partitioned family is a one-line edit plus the SQL-derivation expression for any computed partition column. Families absent from the dict emit a single file (back-compat).
+
+**Partition column choice is family-specific** — there is no universal rule. The two axes in use today:
+
+| Family | Partition cols | Why | Granularity |
+| --- | --- | --- | --- |
+| `elections` | `state` | Citizen state-hub `/in/s22` reads only that state's rows; per-state shard makes lazy-load via HTTP Range one shard fetch instead of a 14 MB monolith | 31 shards (one per state/UT in corpus); largest ~1.4 MiB (Tamil Nadu, S22), smallest ~9 KiB (S21) |
+| `energy` *(future)* | `indicator_id` | Each indicator scans the full time-series; co-locate by indicator avoids fanning queries across shards | Shard per indicator id, target ≤ 4 MiB, aim ~1.5 MiB |
+
+**Never partition by `year`** (rejected as R18 — destroys time-series query performance; every series scan fans out to N partitions).
+
+### 10.1 Locked partition grammar for `elections.state` (§0e.10 lock B, 2026-05-20)
+
+Hive-style directory segment: `state=in_<two-char-lower>`.
+
+- `in_` prefix: country-scoped, mirrors the `IN-S22-…` entity-id identity (R29 / D29).
+- Two-char-lower body: the LGD-issued state/UT short code lowercased (`s01`, `s22`, `u05`, `u07`, `u08`, …). Underscore-only separator — no hyphens in partition segments because Hive convention treats `=` as the only delimiter and downstream globbers tokenise on `/`.
+- The mapping `entity_id → state_partition` is a deterministic SQL expression in the writer (single source of truth, no Python-side helper to drift against):
+
+  ```sql
+  replace(lower(
+    CASE WHEN entity_id LIKE '%-%'
+      THEN regexp_extract(entity_id, '^([A-Z]+-[A-Z0-9]+)', 1)
+      ELSE entity_id
+    END
+  ), '-', '_')
+  ```
+
+  Examples: `IN-S22` → `in_s22`. `IN-S22-AC-2024-001` → `in_s22`. `IN-U05` → `in_u05`. `IN-U05-AC-2024-001` → `in_u05`.
+
+The grammar is closed for the lifetime of the canonical store. Re-debating requires both Hans+Max (data identity) and Gregor (contract impact on frontend Hive globbers).
+
+### 10.2 On-disk layout (post T.0a, 2026-05-20)
 
 ```
-datasets/<family>/
-  indicator_id=<id>/observations.parquet     # when partitioned
-  observations.parquet                       # when not
+datasets/elections/
+  state=in_s01/election_results.parquet      # 9,984 rows, 722 KiB
+  state=in_s02/election_results.parquet      # 1,005 rows,  72 KiB
+  state=in_s22/election_results.parquet      # 20,040 rows, 1.4 MiB  (Tamil Nadu)
+  state=in_s24/election_results.parquet      # 22,788 rows, 1.6 MiB  (Uttar Pradesh)
+  …                                          # 31 total shards
+  dim_acs.parquet                            # flat, not partitioned
+  dim_candidates.parquet                     # flat, not partitioned
+  dim_parties.parquet                        # flat, not partitioned
+  dim_party_alliances.parquet                # flat, not partitioned
 ```
 
-Target shard size: ≤ 4 MB; aim for ~1.5 MB. Re-evaluate at each phase exit; if a shard exceeds 4 MB, sub-partition by topic_tag or split the indicator into facet-explode children.
+Dimension tables are **NOT** partitioned — they are small (one row per AC / candidate / party), citizen pages JOIN across them, and per-state sharding would push complexity onto the reader for no payoff (D-elections, lock B). Only the fact table partitions.
+
+### 10.3 Writer mechanics
+
+`_emit_observations` in [`backend/yen_gov/canonical/writer.py`](../../../backend/yen_gov/canonical/writer.py) branches on `_partition_cols(family)`:
+
+- **Non-partitioned families** (default): single-file emit via `_emit_table(con, "obs", out_path, table_id="<family>.observations")`, unchanged from pre-T.0a behaviour.
+- **Partitioned families**: writer SELECTs `DISTINCT <partition_sql> AS pv FROM obs`, iterates partition values in sorted order, and for each `pv` emits `<family>/<col>=<pv>/<stem>.parquet` via the same `_emit_table` helper (so KV_METADATA + sort order are preserved per shard). Each shard's `table_id` is stamped `<family>.<stem>#<col>=<pv>` (e.g. `elections.election_results#state=in_s22`).
+- After a partitioned emit, the writer sweeps any pre-existing monolith at `<family>/<stem>.parquet` so the directory is in one valid shape (partitioned, no leftover). This is the migration seam for families that flip from non-partitioned to partitioned post-launch.
+- `_load_existing` mirrors the same branch: if the family is partitioned AND the partition directory exists, the read globs `<family>/<col>=*/<stem>.parquet` and projects explicit canonical columns (NOT `SELECT *`, to drop the synthesised Hive partition column). Falls back to the monolith path if the partition directory is absent (cold-start case).
+
+`WriteResult.observations_path` semantics change for partitioned families: it is the **logical** fact-table identifier (the monolith path that does NOT exist on disk). Consumers MUST consult `manifest.json` (or Hive-glob the partition root) to enumerate the actual files. The field is documented inline in the dataclass.
+
+### 10.4 Manifest shape (partitioned table)
+
+The control-plane `datasets/manifest.json` already supports partition reporting (schema v1.2). Post-T.0a, the `elections.election_results` entry looks like:
+
+```json
+{
+  "table_id": "elections.election_results",
+  "family": "elections",
+  "format": "parquet",
+  "schema_version": "1.0",
+  "partition_columns": ["state"],
+  "files": [
+    {
+      "path": "elections/state=in_s01/election_results.parquet",
+      "row_count": 9984,
+      "size_bytes": 739877,
+      "partition_values": { "state": "in_s01" }
+    },
+    {
+      "path": "elections/state=in_s22/election_results.parquet",
+      "row_count": 20040,
+      "size_bytes": 1456891,
+      "partition_values": { "state": "in_s22" }
+    }
+  ],
+  "row_count_total": 201292
+}
+```
+
+`row_count_total` sums every file's `row_count`. The reader is free to fetch a single partition file (HTTP Range against the listed `path`) or glob the partition root — both are supported because the writer guarantees per-file Parquet KV metadata + sort order match the family-wide contract.
+
+### 10.5 Frontend reading (forward pointer)
+
+Updating the DuckDB-WASM loader to consume the partition layout ships in **PR T.0b** (separate branch, §0e.10.3 row 2). The reader options:
+
+- **Path-glob** (preferred): `read_parquet('datasets/elections/state=*/election_results.parquet', hive_partitioning=true)` — DuckDB synthesises the `state` column from the path segment, queries can `WHERE state = 'in_s22'` to pushdown-fetch one shard.
+- **Manifest-directed**: read `manifest.json` first, then issue one `read_parquet(<path>)` per listed file — slightly more bandwidth-deterministic but more roundtrips. Used when the citizen page knows up-front which states it needs.
+
+The choice is per view-model; both are valid and the writer's contract supports both.
+
+### 10.6 Sizing rationale (Tamil Nadu canary)
+
+Pre-T.0a: monolith `elections/election_results.parquet` = 14 MB (201,292 rows, ~70 bytes/row compressed). Citizen on a state hub for any single state downloads the full national fact table to render one slice.
+
+Post-T.0a: per-state shards. Largest (Tamil Nadu, 20,040 rows) = 1.4 MiB. Smallest (S21 = Sikkim, 827 rows) = 62 KiB. State-hub lazy-load now fetches ~1 MiB worst-case via Range, vs 14 MiB before. At the projected full-national scale (~400 MB across all elections+events), the same partition strategy keeps the per-state shard in the low-MiB range without intermediate intervention.
 
 ---
 
@@ -742,11 +854,16 @@ Canonical shape (see [`datasets/schemas/manifest.schema.json`](../../../datasets
       "family": "elections",
       "format": "parquet",
       "schema_version": "1.0",
-      "partition_columns": [],
+      "partition_columns": ["state"],
       "files": [
-        { "path": "elections/election_results.parquet", "row_count": 12345, "size_bytes": 2483712 }
+        {
+          "path": "elections/state=in_s22/election_results.parquet",
+          "row_count": 20040,
+          "size_bytes": 1456891,
+          "partition_values": { "state": "in_s22" }
+        }
       ],
-      "row_count_total": 12345
+      "row_count_total": 201292
     },
     {
       "table_id": "taxonomy.indicators",
@@ -861,7 +978,9 @@ git commit  →  GitHub Pages publish
 
 **Bulk-load tactic (Phase 1.1 step 5)**: the writer's `_apply_envelope` does NOT use `INSERT (OR REPLACE)` row-by-row, nor DuckDB `executemany`. Both are O(N) Python↔C round-trips that took >10 minutes on the 180k-row ECI backfill (PK index updates on each row). Instead the envelope is serialised to a **temp CSV** (1s for 180k rows in Python's stdlib `csv`), then DuckDB `read_csv(...)` populates a staging table in a single call, then a single `DELETE … WHERE observation_id IN (SELECT … FROM staging)` + `INSERT … SELECT * FROM staging` does the UPSERT. The in-memory DuckDB tables intentionally have **no `PRIMARY KEY`**; uniqueness is enforced by the dedupe-then-DELETE-then-INSERT pattern, not by a per-row index check. Parquet itself has no PK, so this changes nothing on the durable side. Why not pandas/pyarrow `register()`? Neither is a runtime dep (yen-gov's writer depends only on duckdb + stdlib). Adding either to avoid a temp file is not paying its way.
 
-**Per-event batching (Phase 1.1 step 5)**: the ECI backfill driver (`backend/yen_gov/pipeline/canonical_eci_backfill.py`) calls `write_batch` once **per event** rather than once at the end. Each event's rows persist to `datasets/elections/election_results.parquet` before the next event starts. This gives the operator continuous progress visibility (each write logs `[WRITE] <event_id>: persisted N obs, S sources in T.TTs`), bounds the blast radius of any single failure to one event, and makes re-runs cheap (UPSERT is a no-op when upstream bytes are unchanged). Cost: the writer re-reads + re-emits the growing election_results.parquet on every call, so total wall-clock scales O(N²) in event count — but with the CSV-bulk path each per-event write is 0.7–3 s and the full 27-event corpus runs in ~1–2 min. Partitioning by event (`elections/event=<id>/election_results.parquet`) is the next-level fix; deferred until any family crosses the 15 MB partition threshold (D8) or a corpus grows past a single-file rewrite budget.
+**Per-event batching (Phase 1.1 step 5)**: the ECI backfill driver (`backend/yen_gov/pipeline/canonical_eci_backfill.py`) calls `write_batch` once **per event** rather than once at the end. Each event's rows persist to the canonical store before the next event starts. This gives the operator continuous progress visibility (each write logs `[WRITE] <event_id>: persisted N obs, S sources in T.TTs`), bounds the blast radius of any single failure to one event, and makes re-runs cheap (UPSERT is a no-op when upstream bytes are unchanged).
+
+Pre-T.0a (2026-05-20) the writer re-read + re-emitted a single growing `election_results.parquet` on every call, so total wall-clock scaled O(N²) in event count — manageable at ~14 MB and 27 events (~1–2 min full run), but a clear forward risk. **T.0a partitioned the elections fact table by `state`** (§10) which closes the size-based concern (largest shard ~1.4 MiB) but does NOT change the O(N²) cost shape because each per-event write still touches every shard whose rows the event spans. A future per-event sub-partition (`state=in_s22/event=<id>/…`) is the next-level fix if write wall-clock becomes a bottleneck; deferred — partition-by-state alone is sufficient for the current corpus + the projected national scale.
 
 ---
 

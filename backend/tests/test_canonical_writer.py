@@ -360,7 +360,7 @@ def test_manifest_schema_version_is_current(tmp_path: Path) -> None:
     write_batch(_envelope([_obs()]), tmp_path)
     manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["$schema_version"] == schema_version("manifest.schema.json")
-    assert manifest["$schema_version"] == "1.2"
+    assert manifest["$schema_version"] == "1.3"
 
 
 def test_manifest_carries_known_deprecations(tmp_path: Path) -> None:
@@ -403,23 +403,38 @@ def test_elections_family_uses_election_results_stem(tmp_path: Path) -> None:
     ``kind="observations"``. The default ``observations`` stem is the
     correct fallback for families NOT listed in ``FAMILY_FACT_TABLE_STEM``
     (asserted by the ``test.observations`` table elsewhere in this file).
+
+    Phase 0 closeout (TODO §0e.10 lock B): ``elections`` is also registered
+    in ``FAMILY_FACT_PARTITION_BY = {"elections": ["state"]}``, so the
+    fact-table is emitted as one parquet per Hive partition
+    (``state=<val>/election_results.parquet``), not a single monolith.
+    The per-family stem still applies, just inside each partition dir.
     """
     _seed_taxonomy(tmp_path)
     env = _envelope([_obs()])
     env = env.model_copy(update={"target_family": "elections"})
     result = write_batch(env, tmp_path)
-    # File on disk uses the per-family stem.
+    # File-on-disk uses the per-family stem, but lives inside a Hive
+    # partition directory now. The default _obs() entity_id is "IN-S22",
+    # so the partition value is "in_s22".
     assert result.observations_path.name == "election_results.parquet"
-    assert (tmp_path / "elections" / "election_results.parquet").is_file()
+    partition_file = tmp_path / "elections" / "state=in_s22" / "election_results.parquet"
+    assert partition_file.is_file()
+    # Monolith and legacy names both absent.
+    assert not (tmp_path / "elections" / "election_results.parquet").exists()
     assert not (tmp_path / "elections" / "observations.parquet").exists()
-    # Manifest entry uses the per-family stem.
+    # Manifest entry uses the per-family stem and declares partition_columns.
     manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
     elections_table = next(t for t in manifest["tables"]
                            if t["table_id"] == "elections.election_results")
     assert elections_table["family"] == "elections"
     assert elections_table["table_name"] == "election_results"
     assert elections_table["kind"] == "observations"
-    assert elections_table["files"][0]["path"] == "elections/election_results.parquet"
+    assert elections_table["partition_columns"] == ["state"]
+    files = elections_table["files"]
+    assert len(files) == 1
+    assert files[0]["path"] == "elections/state=in_s22/election_results.parquet"
+    assert files[0]["partition_values"] == {"state": "in_s22"}
 
 
 def test_manifest_path_is_posix_no_backslashes(tmp_path: Path) -> None:
@@ -556,14 +571,18 @@ def test_dim_party_alliances_composite_pk_upserts(tmp_path: Path) -> None:
 
 
 def test_dim_candidates_pk_join_reconstructs_observation_entity(tmp_path: Path) -> None:
-    """The JOIN that unblocks the route swap (PR-E) must hold byte-equal PKs."""
+    """The JOIN that unblocks the route swap (PR-E) must hold byte-equal PKs.
+
+    With Phase 0 closeout partitioning, the elections fact-table now lives
+    at ``state=<val>/election_results.parquet``; the JOIN reads it via a
+    Hive glob (DuckDB stitches partitions transparently)."""
     _seed_taxonomy(tmp_path)
     write_batch(_dim_envelope(), tmp_path)
     con = duckdb.connect(":memory:")
     rows = con.execute(
         f"""
         SELECT c.name, o.value_numeric
-        FROM read_parquet('{(tmp_path / "elections" / "election_results.parquet").as_posix()}') o
+        FROM read_parquet('{(tmp_path / "elections" / "state=*" / "election_results.parquet").as_posix()}') o
         JOIN read_parquet('{(tmp_path / "elections" / "dim_candidates.parquet").as_posix()}') c
           ON c.candidate_id = o.entity_id
         WHERE o.indicator_id = 'candidate-votes-polled'
