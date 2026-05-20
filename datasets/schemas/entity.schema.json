@@ -3,12 +3,17 @@
   "$id": "./entity.schema.json",
   "title": "Entities table (canonical taxonomy)",
   "description": "Hand-authored entity catalogue. Every observation row's entity_id is an FK into this table. Carries entity_type enum per D27 (single entity_id discriminated by type, OWID-precedent), validity windows per D23 (Telangana 2014, J&K/Ladakh 2019 etc.), and parent_entity_id for hierarchy traversal. Authoring shape JSON (D18); pipeline compiles to taxonomy/entities.parquet.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-18",
       "description": "Initial canonical entities table schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). entity_type enum per D27. entity_valid_from/to per D23 — choropleth greys (not hides) entities outside their window. parent_entity_id for hierarchy. entity_level enum drives boundary-file resolution per ADR-0031 §resolution path."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-20",
+      "description": "Additive: 'legacy_id' (nullable string). Carries the upstream id the entity historically was published under — e.g. Wikipedia slugs for districts (ARI/CHN/COI for Tamil Nadu) — when the canonical entity_id is derived from a different authority (LGD numeric code for districts). Lets the citizen-facing search/lookup path resolve old URLs and externally cited identifiers without contaminating entity_code (which is and remains the issuing authority's own code). Bump driven by T.0a-ii district lift (TODO/20260517-canonical-long-format-pivot.md §0e Phase 0 closeout)."
     }
   ],
   "type": "object",
@@ -103,6 +108,10 @@
             "type": ["string", "null"],
             "pattern": "^IN-[A-Z]{2}$",
             "description": "Optional ISO 3166-2 code for states/UTs (e.g. 'IN-TN'). Cross-reference only; entity_code (ECI) is canonical."
+          },
+          "legacy_id": {
+            "type": ["string", "null"],
+            "description": "Optional historic identifier the entity was published under before canonical entity_id existed (e.g. Wikipedia slug 'ARI' for Ariyalur district when entity_id moved to LGD-numeric 'IN-S22-D610'). Lets old URLs and citations resolve forward. Never used as a join key by adapters; entity_id is canonical. Nullable for entities that never had a prior public identifier."
           },
           "lgd_code": {
             "type": ["string", "null"],
