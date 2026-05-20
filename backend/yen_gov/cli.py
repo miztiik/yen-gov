@@ -94,24 +94,122 @@ def emit_taxonomy(
 ) -> None:
     """Compile hand-authored taxonomy parquet files (operator command).
 
-    Today: regenerates ``datasets/taxonomy/facet-axes.parquet`` from the
-    Python literal in ``backend/yen_gov/canonical/facet_axes_seed.py``.
-    Future hand-authored taxonomies (entities, indicators, parties when
-    they migrate) plug in here.
+    Regenerates the canonical hand-authored taxonomy parquets read by
+    the static frontend via DuckDB-WASM:
 
-    The same emit also runs automatically inside every canonical
-    ``write_batch`` call as a belt-and-suspenders refresh; this CLI
-    exists so operators can regenerate the parquet between pipeline
-    runs without spinning up a full ingest. Refs: TODO row 1.8d-ii §G
-    step 3.
+    - ``datasets/taxonomy/facet-axes.parquet`` — facet axes (§8.3 seed)
+    - ``datasets/taxonomy/state_tiers.parquet`` — state-tier groupings
+      from ``datasets/taxonomy/state_tiers.json`` (T.0a-ii)
+    - ``datasets/taxonomy/topics.parquet`` +
+      ``datasets/taxonomy/indicator_topic_tags.parquet`` — topic
+      catalogue + M:N artifact tags from ``topics.json`` (T.0a-ii)
+    - ``datasets/taxonomy/election_events.parquet`` — pure-reference
+      election events (kind, polled_on, default flag) from
+      ``election_events.json`` (T.0a-ii)
+    - ``datasets/taxonomy/entities.parquet`` — country/state/UT rows
+      from ``entities.json`` plus hand-authored district rows lifted
+      from ``datasets/reference/in/states/<S>/districts.json`` (T.0a-ii)
+    - ``datasets/governments/dim_offices.parquet`` +
+      ``datasets/governments/governments_office_holdings.parquet`` —
+      CM offices + 359 CM term holdings from per-state
+      ``datasets/governments/in/states/<S>/cm_terms.json`` files
+      (T.0a-ii). Also UPSERTs the 31 Wikipedia "List of CMs" citation
+      rows into ``datasets/taxonomy/sources.parquet``.
+
+    The facet-axes emit also runs automatically inside every canonical
+    ``write_batch`` call as a belt-and-suspenders refresh; the other
+    seeds run only here. Refs: TODO row 1.8d-ii §G step 3 + Phase 0
+    closeout plan §0e.10.
     """
-    from yen_gov.canonical.facet_axes_seed import compile_to_parquet
+    from yen_gov.canonical.facet_axes_seed import (
+        compile_to_parquet as _compile_facet_axes,
+    )
+    from yen_gov.canonical.state_tiers_seed import (
+        compile_to_parquet as _compile_state_tiers,
+    )
+    from yen_gov.canonical.topics_seed import (
+        compile_to_parquet as _compile_topics,
+    )
+    from yen_gov.canonical.election_events_seed import (
+        compile_to_parquet as _compile_election_events,
+    )
+    from yen_gov.canonical.entities_seed import (
+        compile_to_parquet as _compile_entities,
+    )
+    from yen_gov.canonical.cm_terms_seed import (
+        compile_to_parquet as _compile_cm_terms,
+    )
 
     taxonomy_dir = root / "datasets" / "taxonomy"
+    governments_dir = root / "datasets" / "governments"
     taxonomy_dir.mkdir(parents=True, exist_ok=True)
-    out_path = taxonomy_dir / "facet-axes.parquet"
-    rows = compile_to_parquet(out_path)
+    governments_dir.mkdir(parents=True, exist_ok=True)
+
+    # 1) facet-axes (pre-existing)
+    rows = _compile_facet_axes(taxonomy_dir / "facet-axes.parquet")
     typer.echo(f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/facet-axes.parquet")
+
+    # 2) state_tiers
+    rows = _compile_state_tiers(
+        taxonomy_dir / "state_tiers.json",
+        taxonomy_dir / "state_tiers.parquet",
+    )
+    typer.echo(f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/state_tiers.parquet")
+
+    # 3) topics + indicator_topic_tags
+    topics_rows, tags_rows = _compile_topics(
+        taxonomy_dir / "topics.json",
+        taxonomy_dir / "topics.parquet",
+        taxonomy_dir / "indicator_topic_tags.parquet",
+    )
+    typer.echo(
+        f"emit-taxonomy: wrote {topics_rows} rows to datasets/taxonomy/topics.parquet"
+    )
+    typer.echo(
+        f"emit-taxonomy: wrote {tags_rows} rows to "
+        f"datasets/taxonomy/indicator_topic_tags.parquet"
+    )
+
+    # 4) election_events
+    rows = _compile_election_events(
+        taxonomy_dir / "election_events.json",
+        taxonomy_dir / "election_events.parquet",
+    )
+    typer.echo(
+        f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/election_events.parquet"
+    )
+
+    # 5) entities (base + lifted districts)
+    districts_root = root / "datasets" / "reference" / "in" / "states"
+    district_files = sorted(districts_root.glob("*/districts.json"))
+    rows = _compile_entities(
+        taxonomy_dir / "entities.json",
+        district_files,
+        taxonomy_dir / "entities.parquet",
+    )
+    typer.echo(
+        f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/entities.parquet "
+        f"({len(district_files)} districts.json lifted)"
+    )
+
+    # 6) cm_terms -> dim_offices + holdings; upserts wiki sources
+    cm_terms_root = root / "datasets" / "governments" / "in" / "states"
+    cm_files = sorted(cm_terms_root.glob("*/cm_terms.json"))
+    office_count, holdings_count = _compile_cm_terms(
+        cm_files,
+        taxonomy_dir / "entities.json",
+        taxonomy_dir / "sources.parquet",
+        governments_dir / "dim_offices.parquet",
+        governments_dir / "governments_office_holdings.parquet",
+    )
+    typer.echo(
+        f"emit-taxonomy: wrote {office_count} rows to "
+        f"datasets/governments/dim_offices.parquet"
+    )
+    typer.echo(
+        f"emit-taxonomy: wrote {holdings_count} rows to "
+        f"datasets/governments/governments_office_holdings.parquet"
+    )
 
 
 @app.command()
