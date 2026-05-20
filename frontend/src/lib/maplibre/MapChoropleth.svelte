@@ -442,11 +442,28 @@
           offset: 8,
         });
 
+        // styleimagemissing: maplibre raises this for any layer whose
+        // fill-pattern / sprite icon is not yet registered. Without this
+        // handler the initial style parse logs `Image 'yen-hatch' could
+        // not be loaded` even though the FILL_HATCH_LAYER_ID layer's
+        // filter is always-false until `hatch_unmapped` is on. Handler
+        // wins the race with `map.on("load", ...)` because maplibre
+        // dispatches the event on the same tick it tries to resolve the
+        // image, which is during the initial style validation -- before
+        // `load` fires. Filter on `e.id` so we only handle our own image;
+        // a future sprite/icon would route through here too.
+        map.on("styleimagemissing", (e: { id: string }) => {
+          if (e.id !== HATCH_IMAGE_ID) return;
+          if (map.hasImage(HATCH_IMAGE_ID)) return;
+          const h = diagonalHatch();
+          map.addImage(HATCH_IMAGE_ID, { width: h.width, height: h.height, data: h.data });
+        });
+
         map.on("load", () => {
-          // Register the hatch pattern as a maplibre image. Done inside the
-          // load handler so the style is ready; the FILL_HATCH_LAYER_ID
-          // layer references this image via fill-pattern. Idempotent
-          // (hasImage guards re-registration if a parent re-mounts).
+          // Belt-and-suspenders: re-add the hatch image on load in case the
+          // `styleimagemissing` handler did not fire (e.g. layer's filter
+          // kept maplibre from ever requesting the pattern). Idempotent via
+          // `hasImage`.
           if (!map.hasImage(HATCH_IMAGE_ID)) {
             const h = diagonalHatch();
             map.addImage(HATCH_IMAGE_ID, { width: h.width, height: h.height, data: h.data });
