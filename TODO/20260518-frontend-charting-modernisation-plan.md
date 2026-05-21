@@ -4,7 +4,12 @@
 **Status**: Planned handoff for next coding agent
 **Trigger**: User asked whether Svelte remains the right frontend library, whether Plotly or another charting library should replace the current graphing approach, and noted that some charts lack life and colour.
 **Scope**: Public frontend chart/rendering layer, chart summary chrome, and iconography only. No code changes were made during the analysis session that produced this plan.
-**Load-bearing docs**: [`docs/architecture/frontend/overview.md`](../docs/architecture/frontend/overview.md), [`docs/architecture/frontend/indicators.md`](../docs/architecture/frontend/indicators.md), [`docs/architecture/frontend/colours.md`](../docs/architecture/frontend/colours.md), [`docs/architecture/frontend/charts/stacked-trend.md`](../docs/architecture/frontend/charts/stacked-trend.md), [`docs/concepts/schema-is-the-design-system.md`](../docs/concepts/schema-is-the-design-system.md), [`docs/concepts/citizen-first.md`](../docs/concepts/citizen-first.md), [`CLAUDE.md`](../CLAUDE.md) Holy Laws #1, #3, #4, #6, #8, #10.
+**Load-bearing docs** (updated 2026-05-21 per R-31 to reflect the canonical-pivot interlock):
+
+- **Frontend craft**: [`docs/architecture/frontend/overview.md`](../docs/architecture/frontend/overview.md), [`docs/architecture/frontend/indicators.md`](../docs/architecture/frontend/indicators.md), [`docs/architecture/frontend/colours.md`](../docs/architecture/frontend/colours.md), [`docs/architecture/frontend/charts/stacked-trend.md`](../docs/architecture/frontend/charts/stacked-trend.md).
+- **Doctrine**: [`docs/concepts/schema-is-the-design-system.md`](../docs/concepts/schema-is-the-design-system.md), [`docs/concepts/citizen-first.md`](../docs/concepts/citizen-first.md), [`docs/concepts/data-provenance.md`](../docs/concepts/data-provenance.md).
+- **Canonical-pivot interlock** (added 2026-05-21 per R-31): [`TODO/20260517-canonical-long-format-pivot.md`](20260517-canonical-long-format-pivot.md), [`docs/architecture/decisions/0030-canonical-long-format-pivot.md`](../docs/architecture/decisions/0030-canonical-long-format-pivot.md), [`docs/architecture/decisions/0032-sources-citation-ledger.md`](../docs/architecture/decisions/0032-sources-citation-ledger.md), [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md), [`docs/architecture/canonical-pivot-deletion-manifest.md`](../docs/architecture/canonical-pivot-deletion-manifest.md), [`docs/architecture/canonical-pivot-migration-ledger.md`](../docs/architecture/canonical-pivot-migration-ledger.md), [`datasets/manifest.json`](../datasets/manifest.json).
+- **Project constitution**: [`CLAUDE.md`](../CLAUDE.md) Holy Laws #1 (static-first), #3 (contracts before logic), #4 (docs = agent memory), #6 (no hardcoding); §8 (git safety), §9 (Definition of Done), §10 (anti-patterns — esp. the "no JSON projections of canonical Parquet" entry), §11 (schema versioning), §12 (data provenance v2.0), §13 (UI verification), §15 (test coverage).
 
 ## Executive decision
 
@@ -21,6 +26,29 @@ The revised product direction is: **borrow Plotly-like capabilities where citize
 The matching iconography direction is: **use icons as schema-driven wayfinding, not decoration or interpretation.** `topic.icon` and `indicator.icon` already exist as contract fields, and [`frontend/src/lib/IndicatorIcon.svelte`](../frontend/src/lib/IndicatorIcon.svelte) already provides a small Lucide-style inline SVG registry. The missing work is to complete the registry, wire icons into more surfaces, and document licensing/provenance for any non-Lucide/custom SVG.
 
 The matching projection direction is: **let data shape decide eligibility, and metadata decide the default story.** Do not hardcode chart selection by indicator id. Do not infer the final chart solely from column names. Use closed yen-gov projection enums, sort policies, facet-axis metadata, and view-model adapters so Max/Hans/Jony can author the intended chart behaviour without creating a free-form chart-spec language.
+
+## Read this first — fresh-agent onboarding
+
+If you are reading this plan with no prior conversation context, read in this order before you touch any code:
+
+1. **This file in full.** Especially the two "Review resolutions — 2026-05-21" tables (the original R-01..R-17 immediately below, plus the canonical-pivot interlock batch R-18..R-31 that follows it) — these OVERRIDE every phase that appears later in this document.
+2. **[CLAUDE.md](../CLAUDE.md)** — Holy Laws #1 (static-first), #3 (contracts before logic), #4 (docs = agent memory), #6 (no hardcoding); §8 (git safety), §9 (Definition of Done), §10 (anti-patterns — especially the "no JSON projections of canonical Parquet for chart rendering" entry), §11 (schema versioning), §12 (data provenance v2.0 citation ledger), §13 (UI verification), §15 (test coverage).
+3. **[TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md)** — the canonical long-form pivot plan. This is the chart plan's sibling, not its parent. The two are designed to be executed in parallel; the bridge ledger, taxonomy authoring contract, and parallel-lane split below define what is safe to execute when.
+4. **[docs/architecture/data/canonical-store.md](../docs/architecture/data/canonical-store.md)** — the canonical store contract, especially §5 (sources v2.0 provenance) and §8.3 (Python-compiles-to-parquet pattern for hand-authored taxonomy).
+5. **[ADR-0030 canonical pivot](../docs/architecture/decisions/0030-canonical-long-format-pivot.md)** + **[ADR-0032 sources v2.0 citation ledger](../docs/architecture/decisions/0032-sources-citation-ledger.md)** — the two ADRs that constrain everything below.
+6. **[datasets/manifest.json](../datasets/manifest.json)** — the runtime contract for which Parquets exist as queryable tables. Read this BEFORE writing any view-model loader; you must resolve a `table_id`, never a raw `/data/...` path.
+7. **The Bridge ledger + Taxonomy authoring contract tables in the "Canonical-pivot interlock & coordination gate" section below.** These tell you, for any taxonomy file the chart plan touches: what's the authoring source today, what's the compiled artifact (or "none yet"), what's the manifest `table_id` (or "unregistered"), what pivot row retires the current form, and what the deletion condition is.
+
+**Operating rules a fresh agent must internalise before opening any source file**:
+
+- This plan executes in PARALLEL with the canonical pivot. Some chart-plan phases are safe to run while the pivot is mid-flight; others must hold until the pivot seam stabilises. The Parallel-lane split table below is authoritative.
+- Every chart-plan PR that touches a taxonomy surface MUST run through the four-item coordination gate (below) and record the four facts in the PR description, OR the implementation will silently diverge from the pivot's evolving truth.
+- View-model loaders MUST resolve their Parquet target via `datasets/manifest.json` `tables[].files[].path` matching on `table_id`. Hardcoded paths are forbidden. Pattern reference: `frontend/src/lib/view-models/state-overview.ts` (PR-F). Copy the pattern; don't reinvent it.
+- Citizen-facing footer chrome reads the sources v2.0 citation ledger triple — `producer, title, vintage` + `license, confidence_tier, is_issuing_authority, verification_method, url_main` (optional `citation_full`, `notes`). NEVER `first_fetched_at` / `last_seen_at` / `content_hash` / `date_accessed`. Those are `.runtime/<adapter>/<source_id>.json` sidecar fields and are NOT a chart-footer surface (ADR-0032 + R-24).
+- Forbidden output: do NOT emit any new JSON projection of canonical Parquet "for chart rendering convenience". CLAUDE.md §10 anti-pattern; the canonical store is the contract (R-27).
+- Forbidden git: do NOT run `git stash`, `git reset --hard`, `git clean -fd`, `git add .`, `git add -A`, or `git push --force` (CLAUDE.md §8).
+
+If any of the above is unclear after reading the linked files, STOP and ask the user — do not guess. Most stalls in this plan have come from agents guessing about a pivot-row gating condition.
 
 ## Review resolutions — 2026-05-21
 
@@ -42,9 +70,160 @@ The matching projection direction is: **let data shape decide eligibility, and m
 | R-12 | 2.3 (readout) | One gesture: tap/click bar = select; tap-again or tap-outside = deselect. **No hover-as-state.** Cursor change is the only hover affordance. Same rule for legend chips in Phase 3.5 work. | Jony |
 | R-13 | 4 (small multiples) | Default to 9 panels: top 8 by latest absolute value + 1 aggregated "others" panel, sorted desc. Explicit "Show all 30" affordance below. Deterministic, derived from data, no per-indicator config. | Jony |
 | R-14 | 1.4 / 1.25 (summary policy) | Ban causal verbs (`delivered`, `presided over`, `swept`, `dominated`, `crushed`) and incumbent-attribution phrasing in summary templates. Restrict to descriptive (`won`, `lost`, `polled`, `rose`, `fell`). List every template ID in new `docs/research/summary-templates.md` with the Rosling instinct it was vetted against. | Hans |
-| R-15 | 0.85 (facet-axes) | Forbid the temporary fixture/bridge. The canonical `datasets/taxonomy/facet-axes.parquet` already exists (compiled from `backend/yen_gov/canonical/facet_axes_seed.py`). Phase 0.85 reads from the canonical registry only; otherwise the phase is blocked, not "bridged." | Fowler + Gregor |
+| R-15 | 0.85 (facet-axes) | Forbid the temporary fixture/bridge. The canonical `datasets/taxonomy/facet-axes.parquet` already exists (compiled from `backend/yen_gov/canonical/facet_axes_seed.py`). Phase 0.85 reads from the canonical registry only; otherwise the phase is blocked, not "bridged." (Refined by **R-22** with the precise mechanics: the JSON schema `datasets/schemas/facet-axes.schema.json` and the JSON file `datasets/taxonomy/facet-axes.json` were RETIRED in PR-Q.2; the chart plan must NOT reintroduce them.) | Fowler + Gregor |
 | R-16 | 3.6 (commit boundaries) | Three PRs: **(a)** `CompositionBar.svelte` + view-model contract + vitest (structural, no mount); **(b)** `adapter-elections-seats.ts` + adapter tests + experiment definition JSON (`frontend/src/experiments/state-elections-composition-v1.json`); **(c)** mount on chosen state-hub route under GrowthBook experiment + Playwright assertion. Revert of (c) alone = mount gone, primitives stay. | Fowler |
 | R-17 | A/B framework infra | New committed artifacts: `frontend/src/experiments/` directory; `datasets/schemas/experiment.schema.json` (v1.0); new doc `docs/architecture/frontend/experiments.md` describing the contract (definitions as committed JSON, bucket assignment in localStorage, post-mortems in `docs/research/experiments/<exp_id>.md`). GrowthBook client SDK added to `frontend/package.json`; bun lockfile staged in same commit (CLAUDE.md §9 / §10). | Gregor + Fowler |
+
+---
+
+## Review resolutions — 2026-05-21 (canonical-pivot interlock batch)
+
+**Status**: Authoritative amendments driven by a 2026-05-21 user review of this plan against the live state of the canonical long-form pivot ([TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md)). Companion to the R-01..R-17 table above (which captured chart-grammar / experiment / summary-policy / mount decisions). This second batch captures the **pivot-interlock** decisions: where the chart plan must align with the canonical store's authoring sources, manifest contract, and v2.0 sources ledger so the two plans can be executed in parallel without one quietly invalidating the other.
+
+When a phase below disagrees with this section, this section wins; the phase prose will be reconciled in the same commit that implements that phase. Detail tables for the rows below live in the "Canonical-pivot interlock & coordination gate" section immediately after this one.
+
+| ID | Phase touched | Resolution | Owner |
+|----|---------------|------------|-------|
+| R-18 | 0.75 (projection contract — home wording) | "Indicator artifact carries canonical `presentation`" is misleading on the current repo: the folded `datasets/indicators/in/**/*.json` tree is slated to die under T.3 of the canonical pivot. The canonical home is the **indicator catalogue** — today [`datasets/taxonomy/indicators.json`](../datasets/taxonomy/indicators.json) (authoring source, validated by `datasets/schemas/indicator-catalogue.schema.json`), tomorrow the compiled `datasets/taxonomy/indicators.parquet` (compiled per the `facet_axes_seed.py` Python-compiles-to-parquet pattern when T.3 lands). The folded indicator JSON only carries `presentation` as a BRIDGE if the catalogue cannot ship it first, AND only with a named deletion condition logged in the bridge ledger. | Hans + Max + Fowler |
+| R-19 | (cross-cutting) | Add a **Bridge ledger** as a first-class section of this plan. Every temporary JSON bridge a chart-plan phase introduces or relies on MUST record: bridge name, current authoring source, canonical target, frontend reader module, owning canonical-pivot row, deletion condition. Seed rows in the Canonical-pivot interlock section below. A PR that introduces a bridge without a ledger row is rejected at code-review. | Gregor + Fowler |
+| R-20 | (cross-cutting) | Add a **Taxonomy authoring contract** reference table that, for each taxonomy entity, lists `(authoring source, compiled Parquet or "none", manifest table_id or "unregistered", frontend reader, pivot row that retires the current form)`. Different shape from R-19 (R-19 is per-bridge; this is per-taxonomy-entity-current-state). The table lives in the Canonical-pivot interlock section below and MUST be updated in the same commit as any taxonomy-touching pivot row. | Max + Fowler |
+| R-21 | (cross-cutting) | "All taxonomy Parquet is queryable" is a FALSE assumption. As of 2026-05-21, `datasets/manifest.json` registers only `taxonomy.entities` and `taxonomy.sources`. The on-disk Parquets `topics.parquet`, `facet-axes.parquet`, `state_tiers.parquet`, `election_events.parquet`, `indicator_topic_tags.parquet` exist but are NOT manifest-registered `table_id`s; `taxonomy/parties` is still hand-authored JSON with no compiled Parquet at all. Any chart-plan view-model loader MUST resolve its Parquet target by reading `datasets/manifest.json` `tables[].files[].path` matching on `table_id` — never hardcode `/data/taxonomy/<name>.parquet`. Pattern reference: `frontend/src/lib/view-models/state-overview.ts` (PR-F). | Fowler + Gregor |
+| R-22 | 0.85 (facet-axes) | Replaces and supersedes R-15 with the precise mechanics. The canonical facet-axes registry is `backend/yen_gov/canonical/facet_axes_seed.py` (Pydantic v2 `FacetAxis` literal; SOURCE OF TRUTH) compiled to [`datasets/taxonomy/facet-axes.parquet`](../datasets/taxonomy/facet-axes.parquet) per [canonical-store.md §8.3](../docs/architecture/data/canonical-store.md). `datasets/schemas/facet-axes.schema.json` AND `datasets/taxonomy/facet-axes.json` were both RETIRED in PR-Q.2 (2026-05-19, commit `8fbabad6`); any chart-plan task that names `taxonomy/facet-axes.json` is referencing a file that DOES NOT EXIST. Replace every such reference with: "(a) append a `FacetAxis(...)` literal to `FACET_AXES` in `backend/yen_gov/canonical/facet_axes_seed.py`; (b) run `python -m yen_gov emit-taxonomy`; (c) confirm `datasets/taxonomy/facet-axes.parquet` regenerated; (d) consume on the frontend via `table_id = 'taxonomy.facet_axes'` once registered in `datasets/manifest.json` (currently UNREGISTERED — see Taxonomy authoring contract table)." | Fowler + Gregor |
+| R-23 | 1.3a + 1.25 (icon catalogue contract test, icon audit) | Test paths in the existing prose are stale: `datasets/reference/in/topic-catalogue.json` moved to `datasets/taxonomy/topics.json` per T.0a-ii → T.0b → T.0c; `datasets/indicators/` is the dying folded indicator tree per T.3. Fix the catalogue contract test to read AUTHORING sources — [`datasets/taxonomy/topics.json`](../datasets/taxonomy/topics.json) for `topic.icon`, [`datasets/taxonomy/indicators.json`](../datasets/taxonomy/indicators.json) for `indicator.icon`. Pinning the test to the authoring source — not the compiled artifact — means the test survives the canonical pivot's compile step without modification. Phase 1.25 audit enumeration uses the same two paths. | Jony + Fowler |
+| R-24 | 1.4 + Source-and-action-footer-policy (chart shell / footer vocabulary) | The current expanded-footer-disclosure prose lists "first fetched / last seen where available" — exact language ADR-0032 + CLAUDE.md §12 REMOVED from the v2.0 sources ledger. Rewrite the expanded footer disclosure to use ONLY the 11-column citation ledger: `producer`, `title`, `vintage`, `license`, `confidence_tier`, `is_issuing_authority`, `verification_method`, `url_main` (optional `citation_full` override, optional `notes`). Fetch telemetry (`first_fetched_at`, `last_seen_at`, `date_accessed`, `content_hash`) lives in `.runtime/<adapter>/<source_id>.json` sidecars and is **NOT a chart-footer surface**. Add a guardrail line: "If a future agent proposes 'freshening' a citizen-visible footer field from sidecar fetch telemetry, that is the fetched_at-smear lesson (CLAUDE.md §10 anti-pattern + /memories/lessons.md 2026-05-16, 2026-05-20)." | Hans + Gregor |
+| R-25 | (cross-cutting — coordination gate) | Before any Phase 0.75 / 0.85 / 1.3a / 1.4 / 3.6 work — or any future phase that introduces or relies on a manifest-registered table or a taxonomy authoring source — begins coding, the implementing agent MUST perform a four-item coordination gate and record the four facts in the PR description: **(a)** current status of [TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md) (which rows are DONE / IN-FLIGHT / PENDING that touch the surface this PR touches); **(b)** the active authoring source for the taxonomy entity being touched (look it up in the Taxonomy authoring contract table); **(c)** the compiled Parquet + manifest `table_id` if the runtime will query it (or, if "unregistered", a named bridge-ledger row plus deletion condition); **(d)** for any bridge introduced or relied on, the explicit deletion condition. A PR that does not record these four facts in its description CANNOT MERGE. | Gregor + Fowler |
+| R-26 | (cross-cutting — parallel-lane split) | Codify which chart-plan work can run in parallel with the canonical pivot, and which must hold until the pivot seam stabilises. **Safe in parallel**: renderer polish with typed fixtures (Phase 2.x); chart shell / footer components fed by view-models (Phase 1.4, with R-24 vocabulary fix); icon foundation if tests pin authoring sources (Phase 1.3a per R-23); election composition work using canonical election Parquet (Phase 3.6 — `elections.election_results` + `elections.dim_parties` are manifest-registered and GA); view-model interface DEFINITIONS targeting canonical Parquet (interface ≠ implementation). **Hold until pivot seam stable**: durable `presentation` schema/storage on the catalogue (Phase 0.75 Step 1 — waits for T.3 to compile `taxonomy/indicators.parquet`); facet-axis registry MUTATION (Phase 0.85 — would conflict with `facet_axes_seed.py` ownership mid-pivot); broad `chart_type → presentation.default_projection` migration on 108 artifacts (mass artifact rewrite mid-pivot is the disaster shape); any dispatch rewrite that changes source-of-truth precedence. Authoritative table in the Canonical-pivot interlock section below. | Fowler |
+| R-27 | (cross-cutting — hard guardrail) + Out-of-scope | Add an explicit out-of-scope line: **No new JSON projections of canonical Parquet for chart rendering**. Frontend chart renderers consume typed view-models from DuckDB-WASM loaders over canonical Parquet via manifest-registered `table_id`. Inventing `taxonomy/topics-with-icons.json` or `elections/composition-prefetched.json` "as a rendering convenience" is forbidden. This re-states CLAUDE.md §10's existing anti-pattern at the plan altitude so a chart-plan PR cannot ship the smell with a "but it's just for the frontend" justification. | Gregor |
+| R-28 | 3.6 + every future view-model loader | Make the **manifest-`table_id` contract** explicit on Phase 3.6: the `<CompositionBar>` adapter MUST read `elections.election_results` + `elections.dim_parties` + (when R-03 alliance data lands) `elections.dim_alliances` via a canonical loader that looks up table paths through `datasets/manifest.json`. Hardcoded `/data/elections/election_results.parquet` is rejected at code-review. Add a contract test in `frontend/src/contracts/no-hardcoded-parquet-paths.test.ts` that fails if any file under `frontend/src/lib/view-models/` or `frontend/src/lib/charts/*/adapter-*.ts` contains a literal `/data/.*\.parquet` string. | Fowler |
+| R-29 | (tooling) | Encode the R-25 coordination gate as a one-shot local helper at `tools/check_pivot_gate.py`. Input: a taxonomy entity name (one of `entities`, `sources`, `topics`, `facet_axes`, `indicators`, `indicator_topic_tags`, `parties`, `state_tiers`, `election_events`). Output: the four facts (authoring source path, compiled Parquet path or "none", manifest `table_id` or "unregistered", deletion condition or "n/a"). Reads `datasets/manifest.json`, scans `datasets/taxonomy/`, scans `datasets/schemas/`, and the Taxonomy authoring contract table in THIS plan file. The script's purpose is to save the next chart-plan PR five greps; it is NOT a CI gate. Local-only invocation by the implementing agent. Must NOT mutate any file. | Fowler |
+| R-30 | Decision log + Personas Consulted | Append a 2026-05-21 row to the Decision log for each of R-18..R-29 above, pointing into the Canonical-pivot interlock section. Add to Personas Consulted: **Gregor Hohpe (Architecture)** — new for this batch; chart plan up to R-17 was Jony+Hans+Max+Fowler only. Engaged because the interlock surfaces are contracts (manifest `table_id`s, schema versioning, bridge deletion conditions) rather than chart-craft or visual decisions. | n/a — housekeeping |
+| R-31 | "Load-bearing docs" line at top | Update the file metadata's "Load-bearing docs" line to include `TODO/20260517-canonical-long-format-pivot.md`, `docs/architecture/decisions/0030-canonical-long-format-pivot.md`, `docs/architecture/decisions/0032-sources-citation-ledger.md`, `docs/architecture/data/canonical-store.md`, `docs/architecture/canonical-pivot-deletion-manifest.md`, `docs/architecture/canonical-pivot-migration-ledger.md`, `datasets/manifest.json`, plus CLAUDE.md §10 / §11 / §12 / §13 / §15. The current line predates the pivot interlock and is incomplete for a fresh agent. | n/a — housekeeping |
+
+---
+
+## Canonical-pivot interlock & coordination gate
+
+This section is the operational detail for resolutions R-18 through R-29 above. It contains six artefacts every chart-plan PR may need to read:
+
+1. **Bridge ledger** — every temporary JSON bridge tracked, with a named deletion condition (R-19).
+2. **Taxonomy authoring contract** — per-entity lookup of authoring source, compiled Parquet, manifest registration, frontend reader, and retiring pivot row (R-20).
+3. **Coordination gate checklist** — the four facts a chart-plan PR records before merge (R-25).
+4. **Parallel-lane split** — what's safe to run in parallel with the canonical pivot; what must hold (R-26).
+5. **Pre-flight script `tools/check_pivot_gate.py`** — local-only helper that prints the four coordination-gate facts (R-29).
+6. **Hard out-of-scope guardrail** — no new JSON projections of canonical Parquet for chart rendering (R-27).
+
+### Bridge ledger (R-19)
+
+A "bridge" here is a temporary on-disk file that exists ONLY because the canonical pivot has not yet retired its predecessor. Each row commits to a deletion condition; if the deletion condition cannot be named, the bridge is REJECTED (do not introduce a bridge with "we'll figure it out later" — that's how the dying `datasets/indicators/in/**/*.json` tree grew to 108 files).
+
+| Bridge | Current authoring source | Canonical target (when pivot lands) | Runtime reader | Owning pivot row | Deletion condition |
+|---|---|---|---|---|---|
+| `topics.json` ↔ `topics.parquet` | [datasets/taxonomy/topics.json](../datasets/taxonomy/topics.json) (hand-authored) | [datasets/taxonomy/topics.parquet](../datasets/taxonomy/topics.parquet) — exists on disk, NOT manifest-registered | [frontend/src/lib/catalogue.ts](../frontend/src/lib/catalogue.ts) (fetches `/taxonomy/topics.json`) | Pivot row TBD (topics moves to seed-module pattern à la `facet_axes_seed.py`) | When `taxonomy.topics` is registered in `datasets/manifest.json` AND `catalogue.ts` switches to manifest-`table_id` DuckDB load (same commit); `topics.json` is then the seed input (stays as the human-edited source of truth) and `topics.parquet` becomes the runtime read target. |
+| `indicators.json` ↔ `indicators.parquet` | [datasets/taxonomy/indicators.json](../datasets/taxonomy/indicators.json) (hand-authored, validated by `indicator-catalogue.schema.json`) | `datasets/taxonomy/indicators.parquet` — **DOES NOT EXIST** as of 2026-05-21; T.3 of the pivot compiles it | None today (loaders read the folded `datasets/indicators/in/**/*.json` tree, which is itself dying per T.3) | **T.3** (`indicator.schema.json` minor bump → `topic_tags[]`, `id_aliases[]`, FK to `taxonomy/topics.parquet`; compile to `taxonomy/indicators.parquet`) | When `taxonomy.indicators` is registered in `manifest.json` AND all 108 folded indicator artifacts have been deleted (T.3 final commit); `indicators.json` becomes the seed input for the compile step (analogue to `facet_axes_seed.py`'s relationship to `facet-axes.parquet`) and stays. |
+| `parties.json` ↔ `parties.parquet` | [datasets/taxonomy/parties.json](../datasets/taxonomy/parties.json) (hand-authored) | `datasets/taxonomy/parties.parquet` — **DOES NOT EXIST** as of 2026-05-21 | Backend `pipeline/compose.py` (writes `parties-discovered.json` from this); frontend reads the election-scoped `dim_parties.parquet` (NOT this) | TBD — taxonomy `parties` is on the seed-module migration path but no pivot row owns it yet | When taxonomy `parties` moves to the seed-module pattern AND `dim_parties.parquet` (election-scoped) joins to it by `party_id` AND `taxonomy.parties` is manifest-registered. |
+| Phase 0.75 `presentation` block on folded indicator JSON (**HYPOTHETICAL — do not introduce yet**) | If a Phase 0.75 PR shipped before T.3, it would have to write `presentation` blocks into the folded `datasets/indicators/in/**/*.json` tree as a 108-file bridge. | `presentation` lives on `datasets/taxonomy/indicators.json` (authoring) → `taxonomy/indicators.parquet` (compiled) per R-18 | `frontend/src/lib/topic-dispatch.ts` (eventually; not yet) | T.3 of the canonical pivot | **This bridge is REJECTED.** R-26 holds Phase 0.75 Step 1 until T.3 lands so that `presentation` is authored on the catalogue (`indicators.json`) directly. If a future PR insists on shipping `presentation` before T.3, the bridge row above must be filled in with explicit deletion-in-same-commit-as-T.3 wording, signed off by Hans + Fowler. |
+
+If a phase below introduces a bridge not listed here, add the row in the SAME commit as the implementation. A PR that ships a bridge without a ledger row is rejected at code-review.
+
+### Taxonomy authoring contract (R-20)
+
+For each taxonomy entity touched by this plan, this table is the one-place lookup of "what is the truth right now?" Update it in the SAME commit as any pivot row that changes one of the rows below. If you read it and a row contradicts what you find on disk, the disk wins and you fix the table in your PR.
+
+| Taxonomy entity | Authoring source | Compiled Parquet | Manifest `table_id` | Frontend reader | Pivot row that retires current form |
+|---|---|---|---|---|---|
+| `entities` | [datasets/taxonomy/entities.json](../datasets/taxonomy/entities.json) (hand-authored) | [datasets/taxonomy/entities.parquet](../datasets/taxonomy/entities.parquet) | ✅ `taxonomy.entities` (registered) | Various view-models via DuckDB (e.g. `lib/view-models/state-overview.ts`) | n/a — current shape is the canonical shape |
+| `sources` | (compiled from adapter writes; no separate JSON authoring source — adapters emit rows via `backend/yen_gov/canonical/citation.py`) | [datasets/taxonomy/sources.parquet](../datasets/taxonomy/sources.parquet) | ✅ `taxonomy.sources` (registered) | Footer / SourceList v2 view-models | n/a — v2.0 ledger shape per ADR-0032 is canonical |
+| `topics` | [datasets/taxonomy/topics.json](../datasets/taxonomy/topics.json) (hand-authored) | [datasets/taxonomy/topics.parquet](../datasets/taxonomy/topics.parquet) (compiled, **not** manifest-registered) | ⛔ UNREGISTERED | [frontend/src/lib/catalogue.ts](../frontend/src/lib/catalogue.ts) fetches `/taxonomy/topics.json` directly | When topics moves to seed-module pattern (pivot row TBD) → manifest registration in same commit → `catalogue.ts` switches to manifest `table_id` |
+| `facet_axes` | [backend/yen_gov/canonical/facet_axes_seed.py](../backend/yen_gov/canonical/facet_axes_seed.py) (Pydantic v2 `FacetAxis` literal; SOURCE OF TRUTH) | [datasets/taxonomy/facet-axes.parquet](../datasets/taxonomy/facet-axes.parquet) | ⛔ UNREGISTERED | None today (Phase 0.85 will add) | n/a — seed-to-Parquet pattern (PR-Q.2) IS the canonical shape. Manifest registration is the only remaining step. |
+| `indicators` (catalogue) | [datasets/taxonomy/indicators.json](../datasets/taxonomy/indicators.json) (hand-authored, validated by `datasets/schemas/indicator-catalogue.schema.json`) | ⛔ **NOT YET COMPILED** — `taxonomy/indicators.parquet` does not exist | ⛔ UNREGISTERED | None today (the folded `datasets/indicators/in/**/*.json` tree is the de-facto reader, dying per T.3) | **T.3** of the canonical pivot. After T.3: `indicators.json` is the seed, `indicators.parquet` is the compiled artifact, `taxonomy.indicators` is the manifest `table_id`. |
+| `indicator_topic_tags` | (M:N join, materialised; no separate JSON authoring source) | [datasets/taxonomy/indicator_topic_tags.parquet](../datasets/taxonomy/indicator_topic_tags.parquet) | ⛔ UNREGISTERED | None today | T.3 (registered when `indicators.parquet` registers) |
+| `parties` (taxonomy) | [datasets/taxonomy/parties.json](../datasets/taxonomy/parties.json) (hand-authored) | ⛔ NOT YET COMPILED | ⛔ UNREGISTERED | Backend `pipeline/compose.py`; frontend reads `dim_parties.parquet` (election-scoped — NOT this) | TBD — on the seed-module migration path but no pivot row owns it yet |
+| `state_tiers` | [datasets/taxonomy/state_tiers.json](../datasets/taxonomy/state_tiers.json) (hand-authored) | [datasets/taxonomy/state_tiers.parquet](../datasets/taxonomy/state_tiers.parquet) | ⛔ UNREGISTERED | None today | TBD |
+| `election_events` | [datasets/taxonomy/election_events.json](../datasets/taxonomy/election_events.json) (hand-authored) | [datasets/taxonomy/election_events.parquet](../datasets/taxonomy/election_events.parquet) | ⛔ UNREGISTERED | None today (load-bearing source is the `EVENTS` Python registry in `backend/yen_gov/sources/eci/events.py`) | TBD |
+
+### Coordination gate checklist (R-25)
+
+Before any of these chart-plan phases starts coding, the implementing agent records four facts in the PR description:
+
+- Phase 0.75 (presentation contract)
+- Phase 0.85 (facet-axes alignment)
+- Phase 1.3a (icon catalogue contract test)
+- Phase 1.4 (chart shell / footer)
+- Phase 3.6 (CompositionBar mount)
+- Any future phase that introduces or relies on a manifest-registered table or a taxonomy authoring source
+
+The four facts:
+
+1. **Pivot status** — which rows of [TODO/20260517-canonical-long-format-pivot.md](20260517-canonical-long-format-pivot.md) touch the surface this PR touches; their current state (DONE / IN-FLIGHT / PENDING). Cite row numbers.
+2. **Authoring source** — for each taxonomy entity touched: the active authoring source path from the Taxonomy authoring contract table above.
+3. **Manifest `table_id`** — for each runtime-queried table: the manifest `table_id` if registered, or a named bridge-ledger row if not (and the bridge's deletion condition).
+4. **Deletion condition** — for each bridge introduced or relied on, the exact commit / pivot-row condition that triggers the bridge's removal.
+
+A PR that does not record these four facts in its description CANNOT MERGE. The intent is to make pivot drift impossible-to-overlook, not to add ceremony — if all four facts are "n/a — current shape is canonical", say so explicitly.
+
+The `tools/check_pivot_gate.py` script (below) prints these four facts for any taxonomy entity name; copy its output into the PR description as the starting point.
+
+### Parallel-lane split (R-26)
+
+| Lane | Safe in parallel with canonical pivot? | Reason |
+|---|---|---|
+| Renderer polish with typed fixtures (Phase 2.x) | ✅ Yes | Data layer is mocked via typed fixtures; zero canonical-store contract surface; the renderer's correctness is independent of the pivot. |
+| Chart shell / footer components (Phase 1.4) | ✅ Yes (with R-24 vocabulary fix) | Reads `taxonomy.sources` which is manifest-registered and GA. The R-24 vocabulary update is plan-only — no schema bumps. |
+| Icon foundation 1.3a (allowlist parser, plugin, virtual registry, tests) | ✅ Yes (with R-23 path fix) | Tests pin authoring sources (`taxonomy/topics.json`, `taxonomy/indicators.json`) which survive the pivot's compile step. No schema bump. |
+| Icon rollout 1.3b–1.3f (mount on routes) | ✅ Yes | Pure consumer of `topic.icon` / `indicator.icon` fields already on authoring sources. No taxonomy mutation. |
+| Election composition Phase 3.6 (renderer + adapter + experiment + mount) | ✅ Yes | `elections.election_results` + `elections.dim_parties` are manifest-registered and GA (PR-S.1/S.2). The R-03 alliance schema-promote happens IN the pivot lane, NOT here — Phase 3.6 v1 ships party-only. |
+| View-model loader INTERFACE definitions targeting canonical Parquet | ✅ Yes | Interface ≠ implementation; an interface that says "this loader takes a `table_id` string and returns a typed view-model" is a contract surface, not a data-shape mutation. |
+| Phase 0.75 Step 1 (durable `presentation` schema on the catalogue) | ⛔ HOLD | Waits for T.3 to compile `taxonomy/indicators.parquet`. Authoring `presentation` on the dying folded indicator tree is rejected by R-18 + R-19 (would require a 108-artifact bridge with no clean deletion). |
+| Phase 0.85 facet-axis registry MUTATION (adding NEW axes for chart use) | ⛔ HOLD | `facet_axes_seed.py` is the source of truth; adding axes mid-pivot risks contention with pivot rows that may evolve the facet-axes contract. Phase 0.85 may CONSUME the existing axes; new axes wait. |
+| Broad `chart_type → presentation.default_projection` migration on 108 artifacts | ⛔ HOLD | Mass artifact rewrite mid-pivot is the disaster shape — the artifacts are scheduled for deletion under T.3. Migrate fields, not artifacts. |
+| Any dispatch rewrite changing source-of-truth precedence (`topic.chart_type` vs `indicator.chart_type` vs `presentation`) | ⛔ HOLD | Dispatch precedence is the contract between WHAT-IS-AUTHORED and WHAT-IS-RENDERED; changing it mid-pivot risks shipping a precedence rule that contradicts the post-pivot data shape. Defer to T.3-aligned commit. |
+
+If a lane not listed here is proposed, the implementer adds it to this table in the same PR, signed off by Fowler + Gregor.
+
+### Pre-flight script `tools/check_pivot_gate.py` (R-29)
+
+Local-only helper that prints the four coordination-gate facts for a given taxonomy entity. Input: an entity name (one of `entities`, `sources`, `topics`, `facet_axes`, `indicators`, `indicator_topic_tags`, `parties`, `state_tiers`, `election_events`, or any future entity).
+
+Sample invocation and expected output shape:
+
+```
+$ python tools/check_pivot_gate.py topics
+Taxonomy entity:   topics
+Authoring source:  datasets/taxonomy/topics.json (hand-authored)
+Compiled Parquet:  datasets/taxonomy/topics.parquet (present on disk)
+Manifest table_id: UNREGISTERED  (would be 'taxonomy.topics')
+Frontend reader:   frontend/src/lib/catalogue.ts (fetches /taxonomy/topics.json)
+Pivot row owning current form: TBD (see TODO/20260517-canonical-long-format-pivot.md)
+Deletion condition for current authoring shape:
+  When topics moves to seed-module pattern à la facet_axes_seed.py
+  AND manifest registration AND catalogue.ts switches to manifest table_id
+  (same commit).
+
+PR description block (copy into PR):
+  - Pivot status: TBD row, currently UNSCHEDULED
+  - Authoring source: datasets/taxonomy/topics.json
+  - Manifest table_id: UNREGISTERED — using direct fetch via catalogue.ts
+    (bridge ledger row: topics.json ↔ topics.parquet)
+  - Deletion condition: per bridge ledger row 'topics.json ↔ topics.parquet'
+```
+
+Implementation sketch: ~80 lines of Python; reads `datasets/manifest.json`, scans `datasets/taxonomy/`, parses the Taxonomy authoring contract table from THIS plan file (use a regex or a small markdown parser) to pull the bridge / pivot-row / deletion-condition fields. NOT a CI gate; NOT a test; just a local-only cognitive aid. The script MUST NOT mutate any file.
+
+Implementation tasks for the next agent who builds this:
+
+- [ ] Create `tools/check_pivot_gate.py` (stdlib only — no third-party imports, per the `backend/yen_gov/canonical/citation.py` precedent).
+- [ ] Parse `datasets/manifest.json` to enumerate registered `table_id`s.
+- [ ] Walk `datasets/taxonomy/` to enumerate on-disk Parquet + JSON files.
+- [ ] Parse the "Taxonomy authoring contract" markdown table from this plan file by anchoring on the header line (`| Taxonomy entity | Authoring source |`) and reading subsequent table rows until the first non-pipe line.
+- [ ] Print the seven-line block + the PR-description-ready block as shown above.
+- [ ] Add a short usage line at the top of `tools/check_pivot_gate.py` referencing this section by anchor.
+- [ ] Tier-A test (`backend/tests/test_check_pivot_gate.py`) on a `tmp_path` fixture corpus to assert the parsing logic is robust to minor markdown formatting drift.
+
+### Hard out-of-scope guardrail (R-27)
+
+> **No new JSON projections of canonical Parquet for chart rendering.** Frontend chart renderers consume typed view-models from DuckDB-WASM loaders over canonical Parquet via manifest-registered `table_id`. Inventing `taxonomy/topics-with-icons.json`, `elections/composition-prefetched.json`, or any "rendering convenience" JSON tree is rejected at code-review. CLAUDE.md §10 anti-pattern at the plan altitude.
+>
+> If a citizen-facing surface needs a shape the canonical Parquet doesn't expose ergonomically, the fix is one of: **(a)** a view-model adapter in `frontend/src/lib/view-models/` that does the shaping in DuckDB; **(b)** a materialised dimension table on the canonical side (via the Python-compiles-to-Parquet pattern, with a new pivot row); **(c)** extending an existing manifest-registered table additively. NEVER a sidecar JSON tree.
 
 ---
 
@@ -290,7 +469,7 @@ Rules:
 - temporal summaries must use only the visible window,
 - **multi-entity composition guard** (Hans, 2026-05-19): a `composition_bar` (or any future composition projection) MUST NOT span multiple entities in the same chart unless ALL of (a) the citizen question is explicitly comparative and named in the page/section title (`How did BJP perform across Hindi-belt assemblies 2017–2022?` — not `2017 had two state elections`), (b) the encoding compares like-with-like ratios only (`*-pct`, `*-rate-pct`, `*-share-pct`) — raw seat counts, raw vote totals, and raw elector counts are forbidden as visual sizing across entity boundaries because the denominators differ, and (c) the peer set is principled and named (geographic region, party-system shape, election cycle, governance topology) — calendar coincidence is not a peer set. When the guard fails, render single-entity `composition_bar`s inside `FacetPanelGrid` with entity identity in the panel title, never in the segment fill (segment fill is reserved for the dimension being composed: party, power source, age band). Multi-entity composition is OUT OF SCOPE for v1 of `composition_bar`; see "Deferred work — re-enter when data is acquired" below.
 
-Facet-axis metadata should live in the canonical facet-axis registry (`taxonomy/facet-axes.json` under the canonical pivot) or a documented legacy bridge until that registry is available. It should carry value ids, labels, order, relationship (`ordered_scale`, `composition`, `endpoint_pair`, `nominal`, etc.), colour anchors, and default facet strategy.
+Facet-axis metadata lives in the canonical facet-axis registry per [canonical-store.md §8.3](../docs/architecture/data/canonical-store.md): the source of truth is `backend/yen_gov/canonical/facet_axes_seed.py` (Pydantic v2 `FacetAxis` literal), compiled to [`datasets/taxonomy/facet-axes.parquet`](../datasets/taxonomy/facet-axes.parquet). The JSON file `taxonomy/facet-axes.json` and the JSON schema `datasets/schemas/facet-axes.schema.json` were RETIRED in PR-Q.2 (2026-05-19, commit `8fbabad6`) per R-22 — do NOT reintroduce them. Each axis carries value ids, labels, order, relationship (`ordered_scale`, `composition`, `endpoint_pair`, `nominal`, etc.), colour anchors, and default facet strategy.
 
 ## Chart grammar inventory
 
@@ -323,14 +502,18 @@ Collapsed footer line:
 - show schema/provenance status only if it helps trust and does not crowd the chart,
 - keep exact file/download URLs out of the default view.
 
-Expanded footer disclosure:
+Expanded footer disclosure (sources v2.0 ledger fields per [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) + CLAUDE.md §12; do NOT add fetch-telemetry fields here — R-24):
 
-- exact source URL/download URL,
-- producer/issuing authority,
-- citation, licence, vintage,
-- first fetched / last seen where available,
-- schema version and provenance details,
-- hand-authored/internal note where `sources` is intentionally empty.
+- `producer` + `title` + `vintage` (the citation triple — identity of the cited piece of upstream reportage),
+- `license` (enum-locked: `OGL-IN-1.0` / `CC-BY-4.0` / `CC0-1.0` / `public-domain` / `unknown-public` / `internal`),
+- `confidence_tier` (`gold` / `silver` / `bronze` — issuing-authority vs reputable republisher vs single-paper / activist source),
+- `is_issuing_authority` (bool — distinguishes ECI on votes from a republisher of ECI numbers; independent of `confidence_tier`),
+- `verification_method` (`live-fetch` / `archived-snapshot` / `transcribed` / `editorial` — acquisition method, orthogonal to confidence tier),
+- `url_main` (landing/about URL; null for transcribed / editorial),
+- `citation_full` when the adapter has overridden the default render; otherwise the renderer composes `f"{producer}, {title}" + (f" ({vintage})" if vintage else "")` from the triple at read time,
+- hand-authored/internal note (`notes` column) where applicable.
+
+**Forbidden in citizen-facing footer chrome**: `first_fetched_at`, `last_seen_at`, `date_accessed`, `content_hash`. These are `.runtime/<adapter>/<source_id>.json` sidecar fields under [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) — they describe **fetch telemetry**, not citation identity. Surfacing them in citizen-facing footer chrome re-introduces the fetched_at-smear class (CLAUDE.md §10 anti-pattern + /memories/lessons.md 2026-05-16 + 2026-05-20). If a future agent proposes "freshening" a citizen-visible footer field from sidecar fetch telemetry, REJECT.
 
 Action controls:
 
@@ -374,7 +557,52 @@ This plan was authored on 2026-05-18 and amended in two persona-led review cycle
 | 2026-05-20 | URL grammar: canonical state hub is `/india/<state>` per ADR-0028; legacy `/s/<state>` rewrites via `RedirectLegacyUrl.svelte` strangler-fig until iced-bulk-ingest Phase 3 lands. All new plans / docs / smoke targets use the canonical grammar. | Closed | Phase 1 \u2022 Phase 3.6 \u2022 ADR-0028 |
 | 2026-05-20 | Phase 0.5 chart-library spike resolved: **build native Svelte + d3** for every renderer in Phases 1.4\u20133.6. Single named escape hatch: ECharts `dataZoom` for Phase 1.5 timeline brush, requires its own ADR + Hans sign-off + bundle measurement. | Closed | Phase 0.5 |
 | 2026-05-20 | Phase 0.75 projection-metadata home resolved: **Option C \u2014 hybrid**. Indicator artifact carries canonical `presentation` block; topic-catalogue per-artifact entry carries optional `presentation_override`. Field-level merge. Resolution order: override \u2192 indicator \u2192 inferred default. Three-step Beck sequencing (structural-first). | Closed | Phase 0.75 |
-| 2026-05-20 | Phase 1.3 icon system: **folder-based** at `frontend/src/lib/icons/`, **build-time inventory plugin** with **strict allowlist parser** that REJECTS disallowed elements/attributes, **structured rendering** (no `{@html}`), **no Noun Project** (CC-BY attribution complexity), all icons stored as **local copies**. Allowlist is one source of truth in `allowlist.ts`. Six rollout sub-phases 1.3a\u20131.3f in citizen-impact order. | Closed | Phase 1.3 |\n\n### Outstanding open questions\n\nNone for the planned phases. Specific in-flight gates the next agent should watch:\n\n- **Phase 1.5 escape-hatch trigger**: only after a real native d3 attempt at the dense Gantt / fiscal stock-style brush proves disproportionately heavy. Open a single-renderer ADR; do NOT amend Phase 0.5.\n- **DEFERRED-A re-entry trigger**: when alliance observation rows land in the canonical store. Re-open Phase 3.6 to add an alliance-binding adapter.\n- **DEFERRED-D re-entry trigger**: immediately after Phase 3.6 v1 visual A/B passes. Add a second `<CompositionBar>` bound to `party-vote-share-pct` on the same card.\n\n### Personas consulted (for traceability)\n\n- **Jony (UI/UX)** \u2014 sunburst rejection (2026-05-19), URL grammar (2026-05-20), icon storage + rollout order (2026-05-19, 2026-05-20), library visual-craft (2026-05-19).\n- **Hans (Governance)** \u2014 sunburst rejection (2026-05-19), citizen-honest library defaults (2026-05-19), projection-home semantics (2026-05-19), summary copy rules (2026-05-19).\n- **Max (Indicator Scout)** \u2014 sunburst rejection (2026-05-19), projection-home catalogue scale (2026-05-19).\n- **Fowler (Engineering)** \u2014 library bundle/contract/test surface (2026-05-19), projection-home storage mechanics (2026-05-19), icon plugin security shape (2026-05-20).\n\n### Where these decisions eventually live in `docs/`\n\nThis plan is a TODO. When each phase ships, lift its decision section into the appropriate subsystem doc per Holy Law #4 (one home per concept):\n\n- Phase 0 \u2192 `docs/architecture/frontend/overview.md` (already partially populated).\n- Phase 0.5 \u2192 `docs/architecture/frontend/charts/README.md` (build-not-buy doctrine).\n- Phase 0.75 \u2192 `docs/architecture/frontend/charts/projection-contract.md` (new doc; this is the canonical Hans+Max+Fowler design surface).\n- Phase 1.3 \u2192 `docs/architecture/frontend/icons.md` (new doc; full Jony+Fowler design including allowlist, plugin sketch, sub-phase order).\n- Phase 3.6 \u2192 `docs/architecture/frontend/charts/composition-bar.md` (new doc; renderer contract + adapter pattern + summary copy rules).\n- ADR-0028 already canonicalises the URL decision; reference it from all routing-touching plans.\n\nDelete each section from this TODO when its target doc lands. The TODO is debate-output; the docs are agent memory.
+| 2026-05-20 | Phase 1.3 icon system: **folder-based** at `frontend/src/lib/icons/`, **build-time inventory plugin** with **strict allowlist parser** that REJECTS disallowed elements/attributes, **structured rendering** (no `{@html}`), **no Noun Project** (CC-BY attribution complexity), all icons stored as **local copies**. Allowlist is one source of truth in `allowlist.ts`. Six rollout sub-phases 1.3a–1.3f in citizen-impact order. | Closed | Phase 1.3 |
+| 2026-05-21 | **R-18** — `presentation` block home is the indicator CATALOGUE (`datasets/taxonomy/indicators.json` → `datasets/taxonomy/indicators.parquet`), NOT the folded `datasets/indicators/in/**/*.json` tree (which is dying per T.3 of the canonical pivot). | Closed | Canonical-pivot interlock — Bridge ledger row IND-CAT; Phase 0.75 Step 1 amended |
+| 2026-05-21 | **R-19** — Bridge ledger is a first-class section in this plan. Every pre-canonical taxonomy bridge file has an explicit lifecycle entry (Source-of-truth / Bridge artifact / Compiled artifact / Frontend reader / Status / Deletion condition). No silent doppelgangers. | Closed | Canonical-pivot interlock — Bridge ledger table |
+| 2026-05-21 | **R-20** — Taxonomy authoring contract is documented for every chart-plan-consumed surface: hand-edited JSON authoring source + schema validator + Pydantic seed module (where applicable) + compiled Parquet + manifest `table_id` + frontend loader path. | Closed | Canonical-pivot interlock — Taxonomy authoring contract table |
+| 2026-05-21 | **R-21** — Frontend taxonomy reads route through `datasets/manifest.json` and the manifest-registered `table_id` (e.g. `taxonomy.sources`, `taxonomy.entities`). Direct `fetch('/data/taxonomy/<file>.json')` calls are FORBIDDEN in new chart code. Existing `frontend/src/lib/catalogue.ts` line 101 is a known violation to be migrated. | Closed | Canonical-pivot interlock — Taxonomy authoring contract + R-28 |
+| 2026-05-21 | **R-22** — Facet-axes registry mechanics: seed module `backend/yen_gov/canonical/facet_axes_seed.py` (Pydantic v2 `FacetAxis`) is the source of truth; compiled to `datasets/taxonomy/facet-axes.parquet`. The retired files `taxonomy/facet-axes.json` and `datasets/schemas/facet-axes.schema.json` (deleted in PR-Q.2, commit `8fbabad6`) MUST NOT be reintroduced. R-22 refines R-15. | Closed | Phase 0.85 • chart-grammar facet-axes paragraph |
+| 2026-05-21 | **R-23** — Catalogue contract test pins to AUTHORING sources (`datasets/taxonomy/topics.json` + `datasets/taxonomy/indicators.json`), not to compiled Parquet, so the test survives the T.3 compile step without modification. The old `datasets/reference/in/topic-catalogue.json` and `datasets/indicators/in/**` are NOT valid contract-test targets. | Closed | Phase 1.25 • Phase 1.3a catalogue contract test |
+| 2026-05-21 | **R-24** — SourceList v2 expanded footer disclosure uses ONLY the sources v2.0 ledger fields per ADR-0032. The retired fetch-telemetry fields `first_fetched_at` / `last_seen_at` / `date_accessed` / `content_hash` MUST NOT appear in citizen-facing chrome — they live in `.runtime/<adapter>/<source_id>.json` sidecars. | Closed | Source-and-action-footer-policy • Phase 1.4 SourceList v2 task |
+| 2026-05-21 | **R-25** — Coordination gate: before any chart-plan PR ships a runtime change that consumes taxonomy.indicators, taxonomy.topics, taxonomy.facet_axes, or taxonomy.sources, four facts MUST hold (T.3 status; bridge ledger row; manifest registration; coordination-gate checklist signed in PR body by Fowler + Gregor). | Closed | Canonical-pivot interlock — Coordination gate checklist |
+| 2026-05-21 | **R-26** — Parallel-lane split: phases that consume only manifest-GA surfaces (sources, entities) can proceed immediately; phases that consume taxonomy.indicators / taxonomy.facet_axes are HELD until T.3 (or until the coordination gate is satisfied per surface). Tracks A–F lanes are labelled with their gate status. | Closed | Canonical-pivot interlock — Parallel-lane split table |
+| 2026-05-21 | **R-27** — Hard out-of-scope guardrail: this plan MUST NOT execute steps that mutate the canonical pivot's contract surfaces (taxonomy compiler, manifest schema, ADR-0030 sequencing). Such changes go to the canonical-pivot TODO and require Hans + Max + Gregor sign-off there. | Closed | Canonical-pivot interlock — Hard out-of-scope guardrail • Out of scope for this plan |
+| 2026-05-21 | **R-28** — Manifest contract on view-model loaders: any frontend loader that reads a taxonomy Parquet MUST resolve the path through `manifest.tables[<table_id>].relative_path`, never a hardcoded literal. Frontend has a contract test (`frontend/src/contracts/manifest-shape.test.ts`) that asserts the `table_id`s a chart-plan loader claims exist in the manifest. | Closed | Canonical-pivot interlock — Manifest contract on view-model loaders • Phase 1.4 SourceList v2 task |
+| 2026-05-21 | **R-29** — `tools/check_pivot_gate.py` is a pre-PR script that asserts the four coordination-gate facts for a given `table_id`. Emits exit 0 with a green checklist or exit 1 with a per-fact failure summary. Pasted into PR body as the gate evidence. | Closed | Canonical-pivot interlock — `tools/check_pivot_gate.py` spec |
+| 2026-05-21 | **R-30** — Decision log + Personas Consulted housekeeping: this row + the 13 above record R-18…R-29; Personas Consulted gains Gregor Hohpe (Architecture) as a first-time entry for this batch — the interlock surfaces are contracts, not chart-craft. | Closed | Decision log • Personas consulted |
+| 2026-05-21 | **R-31** — Plan self-sufficiency: top of the plan now carries a "Load-bearing docs" block + "Read this first — fresh-agent onboarding" section so a future agent with zero prior context can read the plan and the linked load-bearing docs and execute without backchannel. | Closed | Top-of-plan onboarding section |
+
+### Outstanding open questions
+
+None for the planned phases. Specific in-flight gates the next agent should watch:
+
+- **Phase 1.5 escape-hatch trigger**: only after a real native d3 attempt at the dense Gantt / fiscal stock-style brush proves disproportionately heavy. Open a single-renderer ADR; do NOT amend Phase 0.5.
+- **DEFERRED-A re-entry trigger**: when alliance observation rows land in the canonical store. Re-open Phase 3.6 to add an alliance-binding adapter.
+- **DEFERRED-D re-entry trigger**: immediately after Phase 3.6 v1 visual A/B passes. Add a second `<CompositionBar>` bound to `party-vote-share-pct` on the same card.
+- **R-26 HOLD release trigger**: when canonical-pivot T.3 lands `datasets/taxonomy/indicators.parquet` AND `datasets/taxonomy/facet-axes.parquet` is registered in `datasets/manifest.json`, the coordination gate self-clears for the affected surfaces. `tools/check_pivot_gate.py` is the assertion script.
+
+### Personas consulted (for traceability)
+
+- **Jony (UI/UX)** — sunburst rejection (2026-05-19), URL grammar (2026-05-20), icon storage + rollout order (2026-05-19, 2026-05-20), library visual-craft (2026-05-19).
+- **Hans (Governance)** — sunburst rejection (2026-05-19), citizen-honest library defaults (2026-05-19), projection-home semantics (2026-05-19), summary copy rules (2026-05-19).
+- **Max (Indicator Scout)** — sunburst rejection (2026-05-19), projection-home catalogue scale (2026-05-19).
+- **Fowler (Engineering)** — library bundle/contract/test surface (2026-05-19), projection-home storage mechanics (2026-05-19), icon plugin security shape (2026-05-20).
+- **Gregor Hohpe (Architecture)** — NEW for the 2026-05-21 batch (R-18…R-31). Engaged because the interlock surfaces with the canonical pivot are CONTRACTS (manifest `table_id`s, schema-version mechanics, bridge-deletion conditions, coordination gate) rather than chart-craft or visual decisions. Earlier batches (up to R-17) were Jony+Hans+Max+Fowler and stayed within chart concerns; the cross-pivot interlock pulled in a fifth voice.
+
+### Where these decisions eventually live in `docs/`
+
+This plan is a TODO. When each phase ships, lift its decision section into the appropriate subsystem doc per Holy Law #4 (one home per concept):
+
+- Phase 0 → `docs/architecture/frontend/overview.md` (already partially populated).
+- Phase 0.5 → `docs/architecture/frontend/charts/README.md` (build-not-buy doctrine).
+- Phase 0.75 → `docs/architecture/frontend/charts/projection-contract.md` (new doc; this is the canonical Hans+Max+Fowler design surface).
+- Phase 1.3 → `docs/architecture/frontend/icons.md` (new doc; full Jony+Fowler design including allowlist, plugin sketch, sub-phase order).
+- Phase 3.6 → `docs/architecture/frontend/charts/composition-bar.md` (new doc; renderer contract + adapter pattern + summary copy rules).
+- Canonical-pivot interlock (R-18…R-31) → `docs/architecture/data/canonical-store.md` (Bridge ledger + Taxonomy authoring contract sections) + `docs/architecture/frontend/data-loading.md` (manifest-`table_id` rule). Delete from this TODO once both subsystem docs have absorbed the rows.
+- ADR-0028 already canonicalises the URL decision; reference it from all routing-touching plans.
+
+Delete each section from this TODO when its target doc lands. The TODO is debate-output; the docs are agent memory.
 
 ---
 
@@ -468,7 +696,7 @@ Nothing. The decision is recorded. Phase 0.5 is closed. The phase exists in the 
 
 ### Decision — projection metadata home
 
-**Option C: hybrid. Indicator artifact carries the canonical default in a `presentation` block. Topic-catalogue artifact entries carry an optional `presentation_override` for context-specific framing. Field-level merge (override `sort_policy` without re-specifying `default_projection`).**
+**Option C: hybrid. The canonical indicator catalogue carries the canonical default in a `presentation` block.** Today's authoring source is [`datasets/taxonomy/indicators.json`](../datasets/taxonomy/indicators.json) (validated by `datasets/schemas/indicator-catalogue.schema.json`); the compiled target is `datasets/taxonomy/indicators.parquet` — which **DOES NOT EXIST yet** and is compiled by T.3 of the canonical pivot, per the `facet_axes_seed.py` Python-compiles-to-Parquet pattern. Topic-catalogue artifact entries carry an optional `presentation_override` for context-specific framing. Field-level merge (override `sort_policy` without re-specifying `default_projection`). The folded `datasets/indicators/in/**/*.json` tree is NOT a valid home for `presentation` (R-18) — that tree is slated for deletion under T.3.
 
 **Resolution rule at render time** (consumed by `frontend/src/lib/topic-dispatch.ts`):
 
@@ -510,10 +738,12 @@ Commissioned three independent persona reviews on 2026-05-19 — Hans (governanc
 
 ### Implementation tasks (Beck two-hat — structural commits BEFORE behaviour, no fusion)
 
-**Step 1 — structural (schemas only, additive, optional field; no artifact rewrites; no renderer behaviour change):**
+> **⚠ 2026-05-21 amendment (R-26 HOLD)**: Step 1 below is **HELD** until T.3 of the canonical pivot has shipped `datasets/taxonomy/indicators.parquet`. Authoring `presentation` on the dying folded indicator tree (`datasets/indicators/in/**/*.json`) is rejected by R-18 + R-19 (would require a 108-artifact bridge with no clean deletion). When T.3 lands, Step 1 applies to the CATALOGUE: authoring source `datasets/taxonomy/indicators.json`, compiled artifact `datasets/taxonomy/indicators.parquet`. The Beck-sequence structure (Step 1 → 2 → 3 → 4) is preserved; only the contract surface changes. Steps 2 and 3 can begin once Step 1 has shipped.
+
+**Step 1 — structural (catalogue schema only, additive, optional field; no artifact rewrites; no renderer behaviour change):**
 
 - [ ] Define a shared `presentation` `$defs` block: `default_projection`, `eligible_projections`, `sort_policy`, `facet_strategy`, `temporal_viewport`, `footer_actions`. Closed enums per Phase 0.75 enum list (already extended on 2026-05-19 to include `composition_bar`).
-- [ ] Add `presentation` (optional) to `datasets/schemas/indicator.schema.json` via `$ref`. Schema minor bump (e.g. v4.3 → v4.4); use the existing `tools/bump_indicator_schema_to_current.py` for the mechanical $schema_version sweep across 108 artifacts.
+- [ ] Add `presentation` (optional) to `datasets/schemas/indicator-catalogue.schema.json` via `$ref`. Schema minor bump (e.g. v1.0 → v1.1). Authoring lives on [`datasets/taxonomy/indicators.json`](../datasets/taxonomy/indicators.json); the compiled `datasets/taxonomy/indicators.parquet` inherits the field on next `python -m yen_gov emit-taxonomy` (when T.3 has landed). The folded `datasets/schemas/indicator.schema.json` is NOT bumped here — that tree is dying per T.3 (R-18).
 - [ ] Add `presentation_override` (optional) to `datasets/schemas/topic-catalogue.schema.json` per-artifact entry via `$ref` to the same `$defs`. Schema minor bump.
 - [ ] Tier-A discipline (per `/memories/lessons.md` 2026-05-16 #1): pair both schema bumps with the corresponding TS union widening in `frontend/src/lib/indicators.ts` AND the Zod enum in `frontend/src/lib/charts/stacked-trend/types.ts` AND any other Zod enum that mirrors a projection enum. ALL in the same commit.
 - [ ] Document data-shape inference produces eligible projections only; authored metadata chooses the default.
@@ -532,9 +762,9 @@ Commissioned three independent persona reviews on 2026-05-19 — Hans (governanc
 - [ ] Playwright smoke (per CLAUDE.md §13): both routes still render; the dispatch picked the authored projection.
 - [ ] If smoke is green, deprecate `chart_type` (mark optional + `deprecated: true` in description); do NOT delete yet. Removal is a separate later commit after all 21 indicators currently using `chart_type` have migrated to `presentation.default_projection`.
 
-**Step 4 — canonical-pivot Move Field (out of scope for this plan; inherit when ADR-0030 lands):**
+**Step 4 — canonical-pivot consolidation (handled automatically by T.3; no separate action needed):**
 
-- The `presentation` block on each indicator artifact moves with the rest of the indicator metadata into `taxonomy/indicators.parquet`. Pure *Move Field* refactor; no semantic change. Topic-catalogue's `presentation_override` stays put (catalogue is hand-authored JSON).
+- Under R-18 + R-26, Step 1 already authors `presentation` on the catalogue (`datasets/taxonomy/indicators.json` → `taxonomy/indicators.parquet`). There is therefore no separate "Move Field" step to execute after T.3 — the field already lives in its canonical home from inception. Topic-catalogue's `presentation_override` stays put (the catalogue is hand-authored JSON; same pattern as `facet_axes_seed.py`'s relationship to its compiled Parquet).
 
 ### Tests
 
@@ -555,17 +785,19 @@ Start at Step 1. Do NOT re-debate the contract home. The decision is recorded, t
 
 **Goal**: Give ordered/grouped categories a governed home so charts do not hardcode residence, economic-class, source-category, or sector order.
 
+> **⚠ 2026-05-21 amendment (R-22 + R-26 HOLD)**: The canonical facet-axes registry already exists and is the SOURCE OF TRUTH: `backend/yen_gov/canonical/facet_axes_seed.py` (Pydantic v2 `FacetAxis` literal) compiled to [`datasets/taxonomy/facet-axes.parquet`](../datasets/taxonomy/facet-axes.parquet). The JSON file `taxonomy/facet-axes.json` and the JSON schema `datasets/schemas/facet-axes.schema.json` were RETIRED in PR-Q.2 (2026-05-19, commit `8fbabad6`) and MUST NOT be reintroduced. Reading the 13 existing axes for chart consumption is safe in parallel with the canonical pivot; **adding NEW axes is HELD** until the pivot seam stabilises (R-26 — mid-pivot mutation risks contention with pivot rows that may evolve the facet-axes contract).
+
 Tasks:
 
-- [ ] Align with the canonical `taxonomy/facet-axes.json` direction in [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md); use a temporary frontend fixture/bridge only if the canonical registry is not ready.
-- [ ] Define facet-axis fields: `id`, `label`, `relationship`, `values[].id`, `values[].label`, `values[].order`, optional group, default colour anchor, and default facet strategy.
-- [ ] Seed axes only when backed by committed or explicitly planned yen-gov metadata; likely early candidates are `residence`, `economic_class` / wealth quintile, `power_source`, and `sector`.
-- [ ] Document which axes may be value-sorted and which must preserve axis order.
+- [ ] (R-22) READ the existing canonical facet-axes registry by importing `FACET_AXES` from `backend/yen_gov/canonical/facet_axes_seed.py` on the backend, or by querying `datasets/taxonomy/facet-axes.parquet` on the frontend via manifest `table_id = 'taxonomy.facet_axes'` once registered (currently UNREGISTERED — see Taxonomy authoring contract table; a chart-plan PR that needs to consume facet-axes from the frontend may add the registration in the same commit if Fowler + Gregor approve via the coordination gate).
+- [ ] (R-22) Confirm the fields the chart plan needs are already present on the seed-module `FacetAxis` model: `id`, `label`, `relationship`, `values[].id`, `values[].label`, `values[].order`, optional group, default colour anchor, default facet strategy. If any NEW field is required, append it to the `FacetAxis` Pydantic class per [canonical-store.md §8.3](../docs/architecture/data/canonical-store.md) (additive field; minor schema bump on the seed-module's emitted Parquet shape).
+- [ ] (R-26 HOLD) Seeding NEW axes (`residence`, `economic_class` / wealth quintile, `power_source`, `sector`, etc. — anything not already in `FACET_AXES`) is HELD until the canonical pivot seam stabilises. The 13 existing axes are READ-ONLY for Phase 0.85 consumers.
+- [ ] Document which axes may be value-sorted and which must preserve axis order (this is plan-level documentation; goes into [`docs/architecture/frontend/charts/`](../docs/architecture/frontend/charts/) when Phase 0.85 ships).
 
 Tests:
 
-- [ ] Axis-order helper tests for committed ordered-axis fixtures such as poorest-to-richest or rural/urban.
-- [ ] Contract test: any `sort_policy: axis_order` projection references a registered axis whose values have order.
+- [ ] Axis-order helper tests for committed ordered-axis fixtures from the seed module (whichever of poorest-to-richest, rural/urban, age-band, education-level are already in `FACET_AXES`).
+- [ ] Contract test: any `sort_policy: axis_order` projection references an axis whose `id` is present in `FACET_AXES`.
 
 ---
 
@@ -605,8 +837,8 @@ Verification:
 Tasks:
 
 - [ ] Audit existing chart summary/readout/headline surfaces and note where they can make unsupported claims across time windows, denominators, `comparability`, or `series_breaks`.
-- [ ] Enumerate all `topic.icon` values in [`datasets/reference/in/topic-catalogue.json`](../datasets/reference/in/topic-catalogue.json).
-- [ ] Enumerate all `indicator.icon` values in [`datasets/indicators/`](../datasets/indicators/).
+- [ ] (R-23) Enumerate all `topic.icon` values in [`datasets/taxonomy/topics.json`](../datasets/taxonomy/topics.json) (authoring source; the old `datasets/reference/in/topic-catalogue.json` was moved by T.0a-ii → T.0b → T.0c).
+- [ ] (R-23) Enumerate all `indicator.icon` values in [`datasets/taxonomy/indicators.json`](../datasets/taxonomy/indicators.json) (authoring source; the folded `datasets/indicators/in/**/*.json` tree is dying per T.3 — do NOT enumerate against it).
 - [ ] Compare both sets against `REGISTRY` in [`frontend/src/lib/IndicatorIcon.svelte`](../frontend/src/lib/IndicatorIcon.svelte).
 - [ ] List missing registry entries and misleading semantic choices, especially generic `trending-up` / `trending-down` used for GDP, prices, fertility, mortality, pensions, deficits, or expenditure.
 - [ ] Decide the first icon surface slice: topic index/header, indicator cards, or chart headers.
@@ -769,7 +1001,7 @@ One mechanical commit, no behaviour change visible to the citizen:
 - [ ] Tier-A test: `parse.test.ts` asserts every `evil-*.svg` throws with a specific error class; `good-zap.svg` parses to expected `{paths: [{d: "…"}]}`. Real fixtures, no mocks (Holy Law #7).
 - [ ] Corpus contract test: read every `*.svg` in `frontend/src/lib/icons/` (excluding `__fixtures__/`) and assert each parses successfully via `parseIconStrict`. Catches future drop-ins before they reach the bundle.
 - [ ] Component test: render `<IndicatorIcon name="zap" />`, assert one `<path>` with the expected `d` attribute.
-- [ ] Catalogue contract test (resurrects Phase 1.3 original intent): for every `topic.icon` in `datasets/reference/in/topic-catalogue.json` AND every `indicator.icon` in `datasets/indicators/`, assert the id exists in the icons folder. Fails loudly when a new artifact references an unknown icon.
+- [ ] Catalogue contract test (R-23 — resurrects Phase 1.3 original intent with corrected paths): for every `topic.icon` in [`datasets/taxonomy/topics.json`](../datasets/taxonomy/topics.json) (authoring source; the old `datasets/reference/in/topic-catalogue.json` was moved by T.0a-ii → T.0b → T.0c) AND every `indicator.icon` in [`datasets/taxonomy/indicators.json`](../datasets/taxonomy/indicators.json) (authoring source; the folded `datasets/indicators/in/**/*.json` tree is dying per T.3 — do NOT pin the test to it), assert the id exists in the icons folder. Pinning the test to the AUTHORING source — not the compiled artifact — means the test survives the canonical pivot's compile step without modification. Fails loudly when a new artifact references an unknown icon.
 - [ ] No citizen-visible page renders an icon yet — that's 1.3b onward.
 
 **Definition of Done for 1.3a**: `bun run check` + `bun run test` green; `bun run dev` cold-start succeeds; `bun run build` succeeds with zero warnings; `<IndicatorIcon name="zap" />` renders the same SVG it did before the rewrite (visual equivalence).
@@ -842,7 +1074,7 @@ Start at 1.3a. Do NOT re-debate the storage model, the allowlist, the source pri
 Tasks:
 
 - [ ] Introduce a shared chart shell/footer primitive that can host title, subtitle, honesty banners, source disclosure, and allowed actions.
-- [ ] Evolve [`frontend/src/lib/SourceList.svelte`](../frontend/src/lib/SourceList.svelte) into SourceList v2: collapsed authority/vintage line, expanded exact URLs/citation/licence/provenance details.
+- [ ] (R-24 + R-28) Evolve [`frontend/src/lib/SourceList.svelte`](../frontend/src/lib/SourceList.svelte) into SourceList v2: collapsed authority/vintage line, expanded disclosure showing ONLY the sources v2.0 ledger fields (`producer`, `title`, `vintage`, `license`, `confidence_tier`, `is_issuing_authority`, `verification_method`, `url_main`, optional `citation_full`, optional `notes`). Do NOT add fetch-telemetry fields (`first_fetched_at`, `last_seen_at`, `date_accessed`, `content_hash`) — see Source-and-action-footer-policy section above and R-24. SourceList v2 reads `taxonomy.sources` via the manifest-registered `table_id` (already GA — see Taxonomy authoring contract table); do NOT hardcode `/data/taxonomy/sources.parquet`. Pattern reference: `frontend/src/lib/view-models/state-overview.ts` (PR-F).
 - [ ] Keep the triangle disclosure pattern for sources; default collapsed on dense chart pages.
 - [ ] Add footer action slots for `view_data`, `download`, `copy_link/share`, `reset_view`, and `full_range`; actions appear only when the view-model says they are useful.
 - [ ] `View data` should show the currently visible chart/window first, not the whole indicator corpus.
@@ -1106,6 +1338,7 @@ Verification:
 - [ ] Top-N + tail aggregation: client-side in the adapter using the Phase 1.6 helper. Doctrine: "cutoff is a UX concern, not a fact."
 - [ ] Seat-share percentage: derived client-side (`seats / sum(seats) * 100`); not materialised because it's trivially recomputable and would only add storage churn.
 - [ ] NO alliance binding in v1 — see "Deferred work — re-enter when data is acquired" below.
+- [ ] (R-28) The Phase 3.6 adapter MUST resolve the elections Parquet path through `datasets/manifest.json` and the manifest-registered `table_id` (likely `elections.results` or `elections.ac_results` — confirm against the latest manifest at PR time). Hardcoding `/data/elections/<event>/<state>/results.parquet` is FORBIDDEN. Pattern reference: `frontend/src/lib/view-models/state-overview.ts` (PR-F). If the required `table_id` is not yet registered in the manifest, the adapter MAY add the registration in the same commit if Fowler + Gregor approve via the coordination-gate checklist (Canonical-pivot interlock section).
 
 **Tests**:
 
@@ -1115,6 +1348,7 @@ Verification:
 - [ ] Contract (vitest): chart-summary suite asserts no dominance verb appears when top-two vote-share gap is <8pp (fixture: Gujarat 2017 BJP 49% vs INC 41% — 8pp on the borderline; assert summary uses neutral verbs).
 - [ ] Playwright (e2e): on the chosen state hub route (likely `/s/<state>` for a state with both a `SeatDonut`-eligible and `CompositionBar`-eligible payload — TN works), assert BOTH `<SeatDonut>` AND `<CompositionBar>` render in the same elections card.
 - [ ] §13 UI verification: agent opens the route in the integrated browser, confirms both charts render without console errors, screenshots for visual comparison.
+- [ ] (R-28) Contract test: the Phase 3.6 elections adapter resolves its Parquet path through `manifest.tables[<table_id>].relative_path` and not via a hardcoded literal. Assert by importing the adapter module and checking that the resolved URL has the form `/data/<manifest.tables[<table_id>].relative_path>`. Pattern reference: any existing view-model contract test in `frontend/src/contracts/`.
 
 **Definition of Done**:
 
@@ -1232,6 +1466,9 @@ Tasks:
 - Accessibility compliance work. Project-level a11y remains descoped per `CLAUDE.md`.
 - Decorative landing-page redesign.
 - Nested sunburst / multi-ring radial / composite-circle composition charts (see "Rejected alternatives" for the full reasoning; do not re-propose).
+- (R-27) Any mutation of the canonical pivot's contract surfaces: the taxonomy compiler (`backend/yen_gov/canonical/*_seed.py` modules), `datasets/manifest.json` schema shape, the `tables[<id>]` registration mechanism, or the ADR-0030 sequencing of T.0…T.7. Those changes go to the canonical-pivot TODO ([`TODO/20260517-canonical-long-format-pivot.md`](20260517-canonical-long-format-pivot.md)) and require Hans + Max + Gregor sign-off there. This plan may READ from those surfaces and may add NEW manifest registrations for surfaces it consumes (with coordination-gate approval), but MUST NOT redesign them.
+- (R-24) Surfacing fetch-telemetry fields (`first_fetched_at`, `last_seen_at`, `date_accessed`, `content_hash`) in any citizen-facing chart chrome, footer, tooltip, or `view_data` panel. Those fields live in `.runtime/<adapter>/<source_id>.json` sidecars per ADR-0032 — surfacing them re-introduces the fetched_at-smear class (/memories/lessons.md 2026-05-16 + 2026-05-20). The citizen-facing footer is governed by R-24 and may show only the v2.0 ledger fields.
+- (R-22) Reintroducing the retired files `taxonomy/facet-axes.json` and `datasets/schemas/facet-axes.schema.json` (deleted in PR-Q.2, commit `8fbabad6`). The canonical facet-axes registry is the Python seed module `backend/yen_gov/canonical/facet_axes_seed.py` compiled to `datasets/taxonomy/facet-axes.parquet`. Any new chart code that needs facet-axes reads the compiled Parquet via manifest `table_id`.
 
 ## ⚠️ DEFERRED WORK — re-enter when data is acquired or a named comparative question lands
 
