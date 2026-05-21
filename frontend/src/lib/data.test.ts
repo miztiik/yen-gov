@@ -2,7 +2,6 @@ import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import {
   fetchStates,
   fetchConstituencies,
-  fetchDistricts,
 } from "./data";
 
 // All loaders go through `${DATA_BASE}<path>` where DATA_BASE = `${BASE_URL}data`.
@@ -68,13 +67,13 @@ describe("fetchConstituencies / fetchDistricts", () => {
     );
   });
 
-  it("uses the per-state reference path for districts", async () => {
-    fetchSpy.mockResolvedValueOnce(jsonResponse({}));
-    await fetchDistricts("S22");
-    expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/reference/in/states/S22/districts.json`,
-    );
-  });
+  // fetchDistricts retired in Phase-0 closeout T.0c-ii-B.2 — the district
+  // list now flows through `view-models/districts.ts` against the
+  // canonical `taxonomy.entities` table via DuckDB-WASM. Coverage lives
+  // in `view-models/districts.test.ts`. The hand-authored
+  // `datasets/reference/in/states/<S>/districts.json` files remain on
+  // disk as curator input feeding `entities.parquet`.
+  it.skip("legacy fetcher replaced by view-model loader", () => {});
 });
 
 describe("fetchConstituencyResult — moved to view-model loader", () => {
