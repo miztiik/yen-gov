@@ -8,12 +8,12 @@ This is a presentation concept, not a data concept. The region's polygon is stil
 
 ## v0 set
 
-The hand-curated v0 set lives at `datasets/reference/in/unmapped_regions.json`:
+The hand-curated v0 set lives as an inline TypeScript literal in `frontend/src/lib/unmapped-region-chips.ts` (constant `UNMAPPED_REGIONS`):
 
 - `U04` — Lakshadweep (36 islands, ~300 km W of Kerala, ~32 km² total).
 - `U01` — Andaman & Nicobar (Bay of Bengal island chain, ~8,250 km² but elongated and offshore).
 
-Both are sub-pixel on the India choropleth at default zoom for **any** indicator. The list is editorial — extend it (via the same schema) when a new indicator surfaces another problem UT.
+Both are sub-pixel on the India choropleth at default zoom for **any** indicator. The list is editorial — extend it (by editing the TS constant) when a new indicator surfaces another problem UT.
 
 ## What a chip carries
 
@@ -36,10 +36,10 @@ Tried and rejected (see [ADR-0029](../architecture/decisions/0029-unmapped-regio
 ## Implementation pointers
 
 - Component: `frontend/src/lib/UnmappedRegionChips.svelte` (presentation-only).
-- Pure helpers: `frontend/src/lib/unmapped-region-chips.ts` (chip model, population loader, fetch).
-- Schema: `datasets/schemas/unmapped-regions.schema.json` (x-version 1.0).
-- Config: `datasets/reference/in/unmapped_regions.json`.
+- Pure helpers + canonical list: `frontend/src/lib/unmapped-region-chips.ts` (chip model, population loader, `UNMAPPED_REGIONS` constant, async `fetchUnmappedRegions()` wrapper kept for call-site compatibility).
 - Feature flag: `VITE_UNMAPPED_REGION_CHIPS` (default `on`; set to `off` to restore the legacy polygon inset).
+
+The list was inlined from `datasets/reference/in/unmapped_regions.json` (+ schema `datasets/schemas/unmapped-regions.schema.json`) at T.0c-ii-B.1 (2026-05-21) — a 2-entry editorial constant did not earn its fetch+JSON+schema round-trip.
 
 ## See also
 

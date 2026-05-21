@@ -25,7 +25,7 @@ Replace the polygon inset with a **horizontal value-chip strip** anchored to the
 4. Population anchor (e.g. "64k people"), loaded at runtime from `datasets/indicators/in/demography/state_population_lakhs.json`.
 5. Null-data variant: dashed hollow swatch + em-dash value, chip still rendered (silence is data).
 
-v0 scope: Lakshadweep (`U04`) + Andaman & Nicobar (`U01`). The list is hand-curated, declared in `datasets/reference/in/unmapped_regions.json` and validated by `datasets/schemas/unmapped-regions.schema.json`.
+v0 scope: Lakshadweep (`U04`) + Andaman & Nicobar (`U01`). The list is hand-curated as an inline TypeScript literal (`UNMAPPED_REGIONS`) inside `frontend/src/lib/unmapped-region-chips.ts`. The original JSON artifact + schema (`datasets/reference/in/unmapped_regions.json` + `datasets/schemas/unmapped-regions.schema.json`) were inlined and deleted at T.0c-ii-B.1 (2026-05-21) — a 2-entry editorial constant did not earn its fetch+JSON+schema round-trip.
 
 The chip strip is gated behind `VITE_UNMAPPED_REGION_CHIPS` (default `on`). The legacy polygon-inset code path is retained behind `{:else}` so flipping the env var to `off` restores prior behaviour byte-identically.
 
@@ -62,13 +62,12 @@ This matches the eye's read on a chip 110–140 px wide; tabular-nums keeps the 
 ## Consequences
 
 - New surface (chip strip) on every India-level choropleth route.
-- New schema, new config artifact, both under §11 versioning + §12 provenance.
-- One new runtime fetch per India choropleth page mount (small, ~3 KB JSON, browser-cached).
+- The canonical list is an inline TS constant (`UNMAPPED_REGIONS` in `frontend/src/lib/unmapped-region-chips.ts`) after the T.0c-ii-B.1 inline-port; no schema, no fetch.
+- One new runtime fetch per India choropleth page mount (small, the population indicator artifact only, browser-cached).
 - The Phase 3 §c polygon-inset documentation in `docs/architecture/frontend/map.md` now ends with a pointer to this ADR.
 
 ## See also
 
 - [docs/concepts/unmapped-regions.md](../../concepts/unmapped-regions.md) — concept definition + chip-vs-inset rationale.
 - [docs/architecture/frontend/map.md §Lakshadweep callout inset](../frontend/map.md#lakshadweep-callout-inset-phase-3-c-of-tn-granular-geo-plan) — the predecessor decision.
-- `datasets/schemas/unmapped-regions.schema.json` — the contract.
-- `frontend/src/lib/unmapped-region-chips.ts` + `frontend/src/lib/UnmappedRegionChips.svelte` — implementation.
+- `frontend/src/lib/unmapped-region-chips.ts` + `frontend/src/lib/UnmappedRegionChips.svelte` — implementation + canonical `UNMAPPED_REGIONS` constant.

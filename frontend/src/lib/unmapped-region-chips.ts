@@ -13,7 +13,6 @@
 // See docs/concepts/unmapped-regions.md.
 
 import { formatPopulationShort } from "./format";
-import { DATA_BASE } from "./paths";
 
 export interface UnmappedRegion {
   entity_id: string;
@@ -21,30 +20,25 @@ export interface UnmappedRegion {
 }
 
 /**
- * Fetch the curated list of UTs surfaced as legend-strip chips. Lives at
- * datasets/reference/in/unmapped_regions.json (schema-validated under
- * datasets/schemas/unmapped-regions.schema.json); served via the standard
- * /data/ prefix per docs/architecture/frontend/data-loading.md.
- *
- * Throws when the fetch fails (caller decides whether to surface or
- * suppress — see the IndicatorChoropleth wiring, which suppresses so the
- * chip strip just renders empty rather than breaking the map).
+ * Curated list of UT codes whose polygon at the default IndicatorChoropleth
+ * zoom is too small to communicate a legend bucket, surfaced as legend-strip
+ * value chips per ADR-0029. Inlined here per T.0c-ii-B.1 (2026-05-21) — the
+ * list is 2 entries, hand-curated, editorial, never operator-rotated; the
+ * fetch+JSON+schema round-trip was load for no benefit. See docs/concepts/
+ * unmapped-regions.md for the addition criteria.
+ */
+export const UNMAPPED_REGIONS: ReadonlyArray<UnmappedRegion> = [
+  { entity_id: "U04", display_name: "Lakshadweep" },
+  { entity_id: "U01", display_name: "Andaman & Nicobar" },
+];
+
+/**
+ * Async wrapper retained so existing call sites (`await fetchUnmappedRegions()`)
+ * stay unchanged after the inline-port. Returns a fresh copy each call so
+ * callers can't mutate the canonical constant.
  */
 export async function fetchUnmappedRegions(): Promise<UnmappedRegion[]> {
-  const res = await fetch(`${DATA_BASE}/reference/in/unmapped_regions.json`);
-  if (!res.ok) {
-    throw new Error(
-      `fetch unmapped_regions.json failed: ${res.status} ${res.statusText}`,
-    );
-  }
-  const body = (await res.json()) as { regions?: UnmappedRegion[] };
-  if (!Array.isArray(body.regions)) {
-    throw new Error("unmapped_regions.json: missing or non-array `regions`");
-  }
-  return body.regions.map((r) => ({
-    entity_id: r.entity_id,
-    display_name: r.display_name,
-  }));
+  return UNMAPPED_REGIONS.map((r) => ({ ...r }));
 }
 
 export interface ChipModel {
