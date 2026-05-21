@@ -63,7 +63,7 @@ THE PLAN §4 names only 0026 and 0027 as superseded. Other ADRs (0014 sqlite-emi
 | `parity-observation.schema.json` | Phase 0.12 | same | same |
 | `indicators-completeness.schema.json` | Phase 0.12 | Completeness emitter retires; coverage moves to denormalised columns on `taxonomy/indicators.json` (D15 / §5) | indicator catalogue `coverage_*` fields |
 | `indicators-operator-state.schema.json` | Phase 0.12 | Operator-state-as-JSON-overlay-on-per-shard-files dies; new shape is hand-authored `taxonomy/operator_state.json` (D18) | new `operator-state.schema.json` written in Phase 0.3 |
-| `iced-chart-titles.schema.json` | Phase 2 (after energy migrates) | ICED chart titles are a per-shard JSON helper; replaced by indicator-catalogue `label_short` / `label_long` | catalogue rows |
+| `iced-chart-titles.schema.json` | **RETIRED T.0c-ii closeout (PR 2026-05-21)** | Schema covered an orphan chart-title cache that no adapter ever read; deleted ahead of original Phase-2 schedule with the file + emitter | none — ICED adapters quote attribution directly into the indicator artifact's `notes` / `sources[].name` |
 | `eci_pins.schema.json` | Phase 1.8 | ECI URL pinning lives on `sources.parquet` rows (`url`, `content_hash`) under canonical | sources table |
 
 ### 3b. Replaced-in-place schemas (same filename, new contract — written Phase 0.3)
@@ -189,7 +189,7 @@ When every sub-row above is either DONE or explicitly closed-deferred, run:
 | `tools/backfill_v15_governance.py` | governance backfill |
 | `tools/rewrite_retired_indicator_links.py` | indicator-link rewriter |
 | `tools/emit_indicators_completeness_index.py` | **completeness emitter — superseded by catalogue `coverage_*` columns (D15 / §5)** |
-| `tools/emit_iced_chart_titles.py` | replaced by catalogue labels |
+| `tools/emit_iced_chart_titles.py` | replaced by catalogue labels — **RETIRED T.0c-ii closeout (PR 2026-05-21)**; orphan emitter, never had a reader |
 
 ### 7b. iced_parity tool (Phase 0.12 — earlier than `_old/`)
 
