@@ -298,20 +298,23 @@ unchanged: each indicator that ships from one of these endpoints is a
 separate per-indicator commit with its own schema-conformant artifact
 and §12 provenance, not a bulk emit.
 
-### `chart_title` snapshot as canonical attribution source
+### Quoting ICED attribution in indicator artifacts
 
 The 296 KB `/chart-title` endpoint catalogues every chart on the ICED
 dashboard with its publisher-printed `chart_title`, `footnote`, and
-`source` strings. Rather than each adapter re-paraphrasing ICED's
-attribution, yen-gov snapshots that catalogue to
-`datasets/reference/in/iced-chart-titles.json` via
-`tools/emit_iced_chart_titles.py` (schema
-`iced-chart-titles.schema.json` v1.0). New ICED-backed indicators
-SHOULD look up their backing chart by `id` (or `(page, section)`) and
-quote ICED's own `footnote`/`source` strings verbatim in their
-`indicator.notes` — per CLAUDE.md §10, the adapter owns the
-publisher's vocabulary, no normalisation. The snapshot is
-re-emittable; rerun the tool when ICED ships new charts.
+`source` strings. ICED-backed adapters quote those strings verbatim
+into each indicator artifact's `notes` / `sources[].name` fields per
+CLAUDE.md §10 (adapter owns publisher vocabulary, no normalisation).
+
+**Historical note:** an earlier iteration snapshotted the whole
+catalogue to `datasets/reference/in/iced-chart-titles.json` (schema
+`iced-chart-titles.schema.json` v1.0, emitter
+`tools/emit_iced_chart_titles.py`). The snapshot was never read by any
+adapter — every shipped ICED indicator hand-quotes its chart
+attribution directly into the artifact — so the file, schema and
+emitter were retired in T.0c-ii (Phase 0 closeout). New ICED adapters
+fetch `chart_title` ad-hoc during development if they need to look up
+a specific chart's attribution and then bake it into the artifact.
 
 ## Conventions for new ICED adapters
 
