@@ -91,23 +91,12 @@ export interface ConstituencyEntry {
   notes?: string;
 }
 
-export interface DistrictEntry {
-  id: string;
-  id_source: "lgd" | "wikipedia";
-  name: string;
-  headquarters?: string;
-  created_on?: string;
-  split_from?: string[];
-  notes?: string;
-}
-
-export interface DistrictsCollection {
-  $schema: string;
-  $schema_version: string;
-  sources: SourceRef[];
-  state: string;
-  districts: DistrictEntry[];
-}
+// DistrictEntry / DistrictsCollection / fetchDistricts were retired in
+// Phase-0 closeout T.0c-ii-B.2. The district list now flows through
+// `view-models/districts.ts` against `taxonomy.entities` via DuckDB-WASM.
+// The hand-authored `datasets/reference/in/states/<S>/districts.json`
+// files remain on disk as curator input feeding `entities.parquet`; the
+// frontend just no longer fetches them directly.
 
 export interface ConstituenciesCollection {
   $schema: string;
@@ -154,9 +143,8 @@ export function fetchConstituencies(state: string): Promise<ConstituenciesCollec
   return fetchJson<ConstituenciesCollection>(`/reference/in/states/${state}/constituencies.json`);
 }
 
-export function fetchDistricts(state: string): Promise<DistrictsCollection> {
-  return fetchJson<DistrictsCollection>(`/reference/in/states/${state}/districts.json`);
-}
+// fetchDistricts retired in Phase-0 closeout T.0c-ii-B.2 — see the
+// view-model loader at `view-models/districts.ts`.
 
 // people.entity sidecar (PersonEntity, fetchPersonEntity, slugifyCandidate,
 // ProvenanceGrade, FieldProvenance) was retired in PR-S.2 (canonical pivot

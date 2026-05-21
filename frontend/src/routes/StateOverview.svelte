@@ -1,8 +1,9 @@
 <script lang="ts">
   import {
-    fetchConstituencies, fetchDistricts,
-    type ConstituencyEntry, type DistrictEntry,
+    fetchConstituencies,
+    type ConstituencyEntry,
   } from "../lib/data";
+  import { loadDistricts, type District } from "../lib/view-models/districts";
   // PR-F (Phase 1.3b): StateOverview reads state-hub data through the
   // canonical Parquet store via DuckDB-WASM (view-models/state-overview.ts),
   // replacing the per-shard result.summary.json fetch. PR-G (Phase 1.3c)
@@ -12,7 +13,11 @@
   // 1.4) extends the view-model with `ac_winners[]` so the per-AC badges +
   // MarginHistogram both consume canonical data — the page no longer fetches
   // `results.sqlite` for its own winners chunk (StateAcMap + RacesBoard
-  // still do, migrating in Phase 1.5).
+  // still do, migrating in Phase 1.5). Phase-0 closeout T.0c-ii-B.2 ports
+  // the district list off `fetchDistricts` (legacy JSON) onto
+  // `loadDistricts` (taxonomy.entities via DuckDB-WASM); the JSONs under
+  // `datasets/reference/in/states/<S>/districts.json` remain on disk as
+  // hand-authored curator input feeding `entities.parquet`.
   import {
     loadStateOverview,
     type StateOverviewViewModel,
@@ -122,7 +127,7 @@
   let summaryResult = $state<LoaderResult<StateOverviewViewModel>>({ status: "loading" });
   const summary = $derived(summaryResult.status === "ok" ? summaryResult.data : null);
   let acs = $state<ConstituencyEntry[] | null>(null);
-  let districts = $state<DistrictEntry[] | null>(null);
+  let districts = $state<District[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
 
   // Indicator sections on the state hub are now data-driven (P2.4 of the
@@ -190,7 +195,7 @@
       };
     }
     const acs_p = fetchConstituencies(sc).then(c => c.constituencies).catch(() => null);
-    const districts_p = fetchDistricts(sc).then(d => d.districts).catch(() => null);
+    const districts_p = loadDistricts(sc).catch(() => null);
     Promise.all([acs_p, districts_p])
       .then(([c, d]) => { acs = c; districts = d; });
   });
