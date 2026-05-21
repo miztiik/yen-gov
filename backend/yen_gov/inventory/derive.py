@@ -224,7 +224,8 @@ def _max_fetched_at(sources: list[dict[str, Any]]) -> str | None:
 # Consumers: completeness index emitter (operator surface) and the      #
 # citizen indicator card caption (via a TS mirror in lib/indicators.ts  #
 # whose rule is policed by a shared fixture under                       #
-# datasets/_test/temporal-range-fixtures/).                             #
+# backend/tests/fixtures/temporal-range-cases.json — relocated by T.1   #
+# (TODO/20260517 §0e.7); was datasets/_test/temporal-range-fixtures/).  #
 #                                                                       #
 # Design notes:                                                         #
 #   - Publisher-vocabulary preservation: rows[].time tokens are the     #

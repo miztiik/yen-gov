@@ -17,7 +17,6 @@ to test without the full model layer in place.
 
 from __future__ import annotations
 
-import copy
 import json
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -26,56 +25,19 @@ from typing import Any
 
 from jsonschema import Draft202012Validator
 
-
-# Operational / non-deterministic fields stripped before the dict-equal
-# write-skip compare below. These vary run-to-run for reasons unrelated to
-# the artifact's data content (operator-clock telemetry, not citizen content)
-# so byte-identical re-runs MUST still hit the skip path. Each entry is a
-# JSON path read by `_strip_operational`. Keep this list short and append
-# only with a rationale comment — every entry is a place where the contract
-# is silently leaky and we are accepting that. See CLAUDE.md §10 amendment
-# (commit 19 of TODO/20260517 §16).
-_OPERATIONAL_STRIP_PATHS: tuple[tuple[str, ...], ...] = (
-    # `sources[].fetched_at` — operator-clock at fetch time. Until each
-    # adapter migrates to publisher-`Last-Modified` / release-vintage
-    # derivation (§16 commit 13), wall-clock leaks into this field.
-    ("sources", "*", "fetched_at"),
-    # `collection_inventory.last_collected_at` — derived `max(sources[].fetched_at)`.
-    # Removed entirely when the block is lifted out of the artifact in
-    # §16 commits 4-7; harmless strip until then.
-    ("collection_inventory", "last_collected_at"),
+# Legacy folded-indicator artifact maintenance lives under
+# `backend/yen_gov/legacy/folded_indicator_writer.py` and retires with
+# the per-indicator JSON shards in the final Phase 2 P.* PR of
+# TODO/20260517 §0e.7. While that legacy contract persists, this
+# chokepoint integrates with it for any path matching
+# `is_indicator_schema(schema_id)`. Net-new indicator families MUST
+# pivot directly onto the canonical Parquet store and never enter
+# the folded-block carry-forward branch below.
+from yen_gov.legacy.folded_indicator_writer import (
+    is_indicator_schema as _is_indicator_schema,
+    maintain_folded_blocks as _maintain_folded_blocks,
+    strip_operational as _strip_operational,
 )
-
-
-def _strip_operational(doc: dict[str, Any]) -> dict[str, Any]:
-    """Return a deep copy of ``doc`` with operational-only fields removed.
-
-    Used by `write_artifact` to compare a candidate artifact against the
-    on-disk file's parsed dict, ignoring fields whose value alone changes
-    on every run for reasons unrelated to data content.
-    """
-    out = copy.deepcopy(doc)
-    for path in _OPERATIONAL_STRIP_PATHS:
-        _strip_path(out, path)
-    return out
-
-
-def _strip_path(doc: Any, path: tuple[str, ...]) -> None:
-    if not path:
-        return
-    head, *rest = path
-    if head == "*":
-        if isinstance(doc, list):
-            for item in doc:
-                _strip_path(item, tuple(rest))
-        return
-    if not isinstance(doc, dict):
-        return
-    if not rest:
-        doc.pop(head, None)
-        return
-    if head in doc:
-        _strip_path(doc[head], tuple(rest))
 
 
 @dataclass(frozen=True)
@@ -175,64 +137,3 @@ def write_artifact(
 
     path.write_text(text, encoding="utf-8")
     return path
-
-
-def _is_indicator_schema(schema_id: str) -> bool:
-    return schema_id.endswith("/indicator.schema.json")
-
-
-def _maintain_folded_blocks(document: dict[str, Any], path: Path) -> dict[str, Any]:
-    """Carry forward / derive the three v4.0 folded blocks on an indicator.
-
-    Strategy (v4.0 — `collection_inventory` lifted OUT of the artifact;
-    see ADR-0026 and TODO/20260517 §16):
-      - `methodology`, `series_spec`, `divergence`: if the caller
-        provided them in `payload`, keep them verbatim. Else, if a
-        prior artifact exists on disk, lift them from there. Else,
-        build a stub. `series_spec` in v4.0 is `{description}` only;
-        observed/expected periods + geographies now live in the
-        external completeness index `datasets/reference/in/indicators-completeness.json`.
-    """
-    prior: dict[str, Any] = {}
-    if path.exists():
-        try:
-            loaded = json.loads(path.read_text(encoding="utf-8"))
-            if isinstance(loaded, dict):
-                prior = loaded
-        except (OSError, json.JSONDecodeError):
-            prior = {}
-
-    # methodology / series_spec / divergence: caller wins, then prior, then stub.
-    if "methodology" not in document:
-        document["methodology"] = prior.get("methodology") or _stub_methodology(document)
-    if "series_spec" not in document:
-        document["series_spec"] = prior.get("series_spec") or _stub_series_spec(document)
-    if "divergence" not in document:
-        document["divergence"] = prior.get("divergence", None)
-
-    return document
-
-
-def _stub_methodology(document: dict[str, Any]) -> dict[str, Any]:
-    ind = document.get("indicator") or {}
-    definition = ind.get("description") or ind.get("title") or "Definition stub — please edit."
-    if len(definition) < 10:
-        definition = f"{definition} (stub)"
-    return {
-        "definition": definition,
-        "publisher": "Unknown publisher (stub — please edit)",
-        "publisher_methodology_url": None,
-        "documentation_status": "stub",
-        "methodology_breaks": [],
-        "known_caveats": [],
-        "notes": [],
-    }
-
-
-def _stub_series_spec(document: dict[str, Any]) -> dict[str, Any]:
-    """v4.0 stub: description only. Observed/expected periods + geographies
-    moved to the external completeness index."""
-    ind = document.get("indicator") or {}
-    description_src = ind.get("description") or ind.get("title") or "Series description (stub)."
-    description = description_src if len(description_src) >= 10 else f"{description_src} (stub)"
-    return {"description": description}

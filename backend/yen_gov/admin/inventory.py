@@ -85,7 +85,12 @@ def _mtime_iso(p: Path) -> str:
 # Directory prefixes under ``datasets/`` that the inventory ignores. These
 # are sentinel / transitional spaces and the operator shouldn't see them
 # alongside the real canonical stores.
-_SKIP_DIR_PREFIXES: tuple[str, ...] = ("_test", "_old", "schemas", "patches")
+# Top-level segments under `datasets/` whose contents are NOT inventoried
+# stores (operator scratch / legacy graveyards / schema definitions /
+# patch sidecars). `_ops/` is the new home for operator state per T.1
+# (TODO/20260517 §0e.7) — holds e.g. `range-mime-probe.parquet` which is
+# an operational asset, not a citizen-facing fact table.
+_SKIP_DIR_PREFIXES: tuple[str, ...] = ("_ops", "_old", "schemas", "patches")
 
 
 def _classify(

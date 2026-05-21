@@ -93,9 +93,9 @@ def fixture_corpus(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
     )
     _write_dim(datasets / "elections" / "dim_parties.parquet", n_rows=5)
     _write_dim(datasets / "taxonomy" / "sources.parquet", n_rows=2)
-    # Sentinel dirs that MUST be skipped.
+    # Sentinel dirs that MUST be skipped (operator scratch / legacy / ops).
     _write_dim(datasets / "_old" / "ignored.parquet", n_rows=99)
-    _write_dim(datasets / "_test" / "ignored.parquet", n_rows=99)
+    _write_dim(datasets / "_ops" / "ignored.parquet", n_rows=99)
 
     # Minimal manifest so the manifest-driven classifier (admin/inventory.py
     # _classify) recognises the fact-table by table_id + kind. Only fields
@@ -179,7 +179,7 @@ def test_inventory_skips_sentinel_dirs(fixture_corpus: Path) -> None:
     body = client.get("/api/inventory").json()
     paths = [s["path"] for s in body["stores"]]
     assert not any(p.startswith("datasets/_old/") for p in paths)
-    assert not any(p.startswith("datasets/_test/") for p in paths)
+    assert not any(p.startswith("datasets/_ops/") for p in paths)
 
 
 def test_observations_carries_stats(fixture_corpus: Path) -> None:

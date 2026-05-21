@@ -264,9 +264,12 @@ interface FixtureFile { cases: FixtureCase[]; }
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+// Shared fixture lives under `backend/tests/fixtures/` (Python-owned
+// single source of truth). Relocated by T.1 (TODO/20260517 §0e.7) —
+// was previously `datasets/_test/temporal-range-fixtures/cases.json`.
 const FIXTURES_PATH = resolve(
   __dirname,
-  "../../../datasets/_test/temporal-range-fixtures/cases.json",
+  "../../../backend/tests/fixtures/temporal-range-cases.json",
 );
 const FIXTURES: FixtureFile = JSON.parse(readFileSync(FIXTURES_PATH, "utf-8"));
 

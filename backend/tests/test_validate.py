@@ -98,26 +98,24 @@ def test_tier_b_rejects_unknown_schema(tmp_path: Path):
     assert any("unknown schema" in f.message for f in fails), fails
 
 
-def test_tier_b_skips_test_fixture_subtree_only(tmp_path: Path):
-    """`datasets/_test/...` is exempt (shared cross-language fixtures);
-    other leading-underscore paths (e.g. `_scratch/`) are NOT exempt and
-    MUST still raise. Per Fowler review 2026-05-17 — guards the
-    validator from a quiet-drift escape hatch.
+def test_tier_b_does_not_silently_skip_unknown_underscore_dirs(tmp_path: Path):
+    """Underscore-prefix is NOT an auto-exemption escape hatch. The only
+    permanent exempt segment is `ephemeral` (gitignored operator scratch);
+    any other underscore-prefixed dir under `datasets/` MUST raise Tier-B
+    loudly so accidental contract drift is caught at validation time. Per
+    Fowler review 2026-05-17. Previously paired with a `_test/` exemption;
+    that subtree was deleted by T.1 (TODO/20260517 §0e.7) — cross-language
+    fixtures now live under `backend/tests/fixtures/`.
     """
     schemas_dir = _seed_repo(tmp_path)
-    fixtures_dir = tmp_path / "datasets/_test/temporal-range-fixtures"
-    fixtures_dir.mkdir(parents=True)
-    # Fixture: no $schema, deliberately not a contract surface.
-    (fixtures_dir / "cases.json").write_text(json.dumps({"cases": []}), encoding="utf-8")
-    # Scratch sibling under an underscore-prefixed dir that is NOT _test.
+    # Scratch sibling under an underscore-prefixed dir that is NOT in the
+    # exclusion set. Must raise Tier-B failure (no $schema declared).
     scratch_dir = tmp_path / "datasets/_scratch"
     scratch_dir.mkdir(parents=True)
     (scratch_dir / "stray.json").write_text(json.dumps({"hello": "world"}), encoding="utf-8")
     schemas, _ = load_schemas(schemas_dir)
     fails = tier_b(schemas, tmp_path)
     paths = [f.file for f in fails]
-    assert not any("_test" in p for p in paths), \
-        f"datasets/_test/ subtree must be skipped, got: {paths}"
     assert any("_scratch" in p for p in paths), \
         f"datasets/_scratch/ must NOT be silently skipped, got: {paths}"
 

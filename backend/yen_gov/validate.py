@@ -34,16 +34,21 @@ DATA_ROOTS = (Path("datasets"), Path("config"))
 # `_iter_data_files` and docs/architecture/backend/validator.md.
 #
 # Exemptions:
-#   * `_test`     -- shared cross-language test fixtures (datasets/_test/...).
-#                    Consumed by both pytest and vitest via plain JSON loads;
-#                    intentionally carry no `$schema`.
 #   * `ephemeral` -- operator scratch directory (datasets/ephemeral/...).
 #                    Whole subtree is gitignored (.gitignore = `*`); same
 #                    rationale as `.runtime/` under CLAUDE.md §2. Holds
 #                    raw XLSX/PDF dumps, restored legacy-corpus snapshots,
 #                    and operator inventory sidecars (e.g. `_ingest_inventory.json`)
 #                    that are NOT contract surfaces.
-_EXCLUDED_PATH_SEGMENTS: frozenset[str] = frozenset({"_test", "ephemeral"})
+#
+# Historical note: `_test` was previously exempt as a cross-language
+# test-fixture subtree. T.1 (TODO/20260517 §0e.7) deleted that subtree;
+# shared cross-language fixtures now live under `backend/tests/fixtures/`
+# (Python-owned, single source of truth) and are pointed at by both
+# pytest and vitest. Any future underscore-prefixed subtree under
+# `datasets/` is NOT auto-exempt and MUST raise Tier-B loudly. The
+# regression guard is `test_tier_b_does_not_silently_skip_unknown_underscore_dirs`.
+_EXCLUDED_PATH_SEGMENTS: frozenset[str] = frozenset({"ephemeral"})
 VERSION_RE = re.compile(r"\d+\.\d+")
 
 
@@ -139,16 +144,11 @@ def _iter_data_files(root: Path) -> Iterable[Path]:
         for p in sorted(d.rglob("*.json")):
             if p.name.endswith(".schema.json"):
                 continue
-            # Skip the shared cross-language test-fixture subtree
-            # (datasets/_test/...). These files back unit tests that
-            # consume them via plain JSON loads (e.g. the
-            # `derive_temporal_range` parity fixtures consumed by both
-            # pytest and vitest); they are NOT citizen-facing artifacts
-            # and intentionally carry no `$schema`. Match the literal
-            # `_test` segment -- not any leading-underscore segment --
-            # so future stray underscore-prefixed dirs (e.g. accidental
-            # `_scratch/`) keep failing Tier B loudly. Per Fowler
-            # review 2026-05-17.
+            # Skip exempt subtrees (see `_EXCLUDED_PATH_SEGMENTS`
+            # docstring for rationale per entry). Match by literal segment --
+            # not by underscore-prefix -- so any future stray dirs
+            # (e.g. accidental `_scratch/`) keep failing Tier B loudly.
+            # Per Fowler review 2026-05-17.
             if any(part in _EXCLUDED_PATH_SEGMENTS for part in p.relative_to(d).parts[:-1]):
                 continue
             yield p
