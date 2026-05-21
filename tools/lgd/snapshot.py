@@ -5,11 +5,14 @@ The release tag `lgd-latest-extra1` is updated rolling every ~3 months; assets
 are named `<component>.<DDMmmYYYY>.csv.7z`. We don't know the exact date, so
 we walk backward from today until both `states` and `districts` are found.
 
-Outputs:
-  datasets/reference/in/lgd/states-latest.csv
-  datasets/reference/in/lgd/states-latest.csv.sources.json
-  datasets/reference/in/lgd/districts-latest.csv
-  datasets/reference/in/lgd/districts-latest.csv.sources.json
+Outputs (under datasets/taxonomy/lgd/ — per plan TODO/20260517-canonical-long-format-pivot.md §0e.10.2-C; legacy datasets/reference/in/lgd/ retired in T.0c-ii closeout, 2026-05-21):
+  datasets/taxonomy/lgd/states-<DD>-<DD>.csv             (dated immutable snapshot, YYYY-MM-DD form)
+  datasets/taxonomy/lgd/states-latest.csv               (convenience pointer; mirrors dated)
+  datasets/taxonomy/lgd/states-latest.csv.sources.json  (CLAUDE.md §12 provenance sidecar)
+  datasets/taxonomy/lgd/districts-<DD>-<DD>.csv
+  datasets/taxonomy/lgd/districts-latest.csv
+  datasets/taxonomy/lgd/districts-latest.csv.sources.json
+  (subdistricts + villages emitted with the same `<role>-<DD>-<DD>.csv` + `<role>-latest.csv` pair when published.)
 
 Per CLAUDE.md §4 (tools self-contained) — stdlib + py7zr only. UTF-8 stdout
 wrap so non-ASCII state names can be printed on PowerShell (cp1252).
@@ -30,7 +33,11 @@ import py7zr  # noqa: E402
 
 REPO = Path(__file__).resolve().parents[2]
 RAW_ROOT = REPO / ".runtime" / "raw" / "lgd"
-OUT_ROOT = REPO / "datasets" / "reference" / "in" / "lgd"
+# Output dir moved from datasets/reference/in/lgd/ to datasets/taxonomy/lgd/
+# in T.0c-ii (2026-05-21) per TODO/20260517-canonical-long-format-pivot.md
+# §0e.10.2-C. The CSVs are part of the citizen-trusted taxonomy family
+# (states + districts registry), not generic operator reference data.
+OUT_ROOT = REPO / "datasets" / "taxonomy" / "lgd"
 
 RELEASE_TAG = "lgd-latest-extra1"
 # Components fetched from the release. Subdistricts + Villages added 2026-05-15
@@ -48,6 +55,16 @@ WALK_LIMIT = 200  # safety bound, never sweeps more than this many dates
 
 def _date_token(d: datetime) -> str:
     return d.strftime("%d%b%Y")  # e.g. 11May2026
+
+
+def _iso_date_from_token(token: str) -> str:
+    """Convert an LGD release token like '11May2026' to ISO '2026-05-11'.
+
+    Used to derive the dated-snapshot filename (`<role>-YYYY-MM-DD.csv`) which
+    sits alongside the `<role>-latest.csv` convenience pointer per plan
+    TODO/20260517-canonical-long-format-pivot.md §0e.10.2-C.
+    """
+    return datetime.strptime(token, "%d%b%Y").strftime("%Y-%m-%d")
 
 
 def _asset_url(component: str, token: str) -> str:
@@ -136,7 +153,8 @@ def _write_sidecar(out_csv: Path, url: str, fetched_at: str) -> None:
 def main() -> None:
     print(f"Resolving most recent {RELEASE_TAG} release token...")
     token = _resolve_token()
-    print(f"  -> using token {token}\n")
+    iso_date = _iso_date_from_token(token)
+    print(f"  -> using token {token}  (ISO: {iso_date})\n")
 
     fetched_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     OUT_ROOT.mkdir(parents=True, exist_ok=True)
@@ -154,10 +172,18 @@ def main() -> None:
         _download(url, archive)
         print(f"  downloaded {archive.stat().st_size:,} bytes")
         csv_inside = _extract_csv(archive, RAW_ROOT)
-        out_csv = OUT_ROOT / f"{component.lower()}-latest.csv"
-        shutil.copy2(csv_inside, out_csv)
-        _write_sidecar(out_csv, url, fetched_at)
-        print(f"  wrote {out_csv.relative_to(REPO).as_posix()} ({out_csv.stat().st_size:,} bytes)")
+        role = component.lower()
+        # Write the dated immutable snapshot first; the -latest pointer is a copy.
+        out_csv_dated = OUT_ROOT / f"{role}-{iso_date}.csv"
+        out_csv_latest = OUT_ROOT / f"{role}-latest.csv"
+        shutil.copy2(csv_inside, out_csv_dated)
+        shutil.copy2(out_csv_dated, out_csv_latest)
+        _write_sidecar(out_csv_latest, url, fetched_at)
+        print(
+            f"  wrote {out_csv_dated.relative_to(REPO).as_posix()} "
+            f"+ {out_csv_latest.relative_to(REPO).as_posix()} "
+            f"({out_csv_latest.stat().st_size:,} bytes each)"
+        )
 
     print("\nDone.")
 

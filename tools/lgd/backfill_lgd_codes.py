@@ -2,8 +2,8 @@
 
 Reads:
   datasets/reference/in/states.json                    (eci_code -> English name)
-  datasets/reference/in/lgd/states-latest.csv          (LGD State Code -> English name)
-  datasets/reference/in/lgd/districts-latest.csv       (LGD District Code, State Code, name)
+  datasets/taxonomy/lgd/states-latest.csv              (LGD State Code -> English name)
+  datasets/taxonomy/lgd/districts-latest.csv           (LGD District Code, State Code, name)
   datasets/reference/in/states/<S>/districts.json      (per-state collections)
 
 For each districts.json:
@@ -32,8 +32,8 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 STATES_JSON = REPO / "datasets" / "reference" / "in" / "states.json"
-LGD_STATES_CSV = REPO / "datasets" / "reference" / "in" / "lgd" / "states-latest.csv"
-LGD_DISTRICTS_CSV = REPO / "datasets" / "reference" / "in" / "lgd" / "districts-latest.csv"
+LGD_STATES_CSV = REPO / "datasets" / "taxonomy" / "lgd" / "states-latest.csv"
+LGD_DISTRICTS_CSV = REPO / "datasets" / "taxonomy" / "lgd" / "districts-latest.csv"
 DISTRICTS_ROOT = REPO / "datasets" / "reference" / "in" / "states"
 
 

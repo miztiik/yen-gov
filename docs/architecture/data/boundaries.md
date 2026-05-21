@@ -50,7 +50,7 @@ Pincodes are **postal delivery zones**, not administrative units. They cross blo
 
 Two distinct things:
 
-- **LGD = registry**: the Local Government Directory CSVs (`datasets/reference/in/lgd/{states,districts,subdistricts,villages}-latest.csv`). These are *codes + hierarchy + names*, no geometry. Maintained by `tools/lgd/snapshot.py` from `ramSeraph/opendata` release `lgd-latest-extra1`.
+- **LGD = registry**: the Local Government Directory CSVs (`datasets/taxonomy/lgd/{states,districts,subdistricts,villages}-latest.csv` plus dated immutable snapshots `<role>-YYYY-MM-DD.csv` per plan TODO/20260517-canonical-long-format-pivot.md §0e.10.2-C; moved from `datasets/reference/in/lgd/` in T.0c-ii closeout, 2026-05-21). These are *codes + hierarchy + names*, no geometry. Maintained by `tools/lgd/snapshot.py` from `ramSeraph/opendata` release `lgd-latest-extra1`.
 - **LGD-keyed geometry**: the boundary GeoJSONs above. Each feature carries the **same LGD code** as the registry, so the join is one column (`state_lgd` / `dist_lgd` / `subdist_lgd` / `village_lgd`).
 
 This split lets us (a) refresh the registry independently of geometry, (b) detect drift (any feature whose LGD code is not in the current registry → goes into the `<file>.geojson.unkeyed.json` sidecar), and (c) carry name changes without re-emitting geometry (the registry has the new name; the polygon is unchanged).

@@ -92,7 +92,7 @@ Today: nothing yet. The `lgd_code` field on `district.schema.json` (v3.1) is pre
 Planned (next implementation pass, tracked under `tools/lgd/`):
 
 1. **Snapshot.** Download the latest `states.<DDMmmYYYY>.csv.7z` and `districts.<DDMmmYYYY>.csv.7z` from `lgd-latest-extra1` to `.runtime/raw/lgd/`. Date-discover by walking back day-by-day from `Get-Date -Format "ddMMMyyyy"` until a 200 OK lands.
-2. **State-code bridge.** Build `datasets/reference/in/lgd/lgd-to-eci-states.json` by joining LGD `State Name (In English)` to the canonical state names already in `datasets/reference/in/states.json` (which carry `eci_code`). LGD numeric state code → ECI `S22`/`U05` code.
+2. **State-code bridge.** Build `datasets/taxonomy/lgd/lgd-to-eci-states.json` by joining LGD `State Name (In English)` to the canonical state names already in `datasets/reference/in/states.json` (which carry `eci_code`). LGD numeric state code → ECI `S22`/`U05` code.
 3. **District backfill.** For each `datasets/reference/in/states/<S>/districts.json`, normalise district names (lowercase, strip whitespace, drop trailing " District"), match against LGD `districts.csv` filtered to that state's LGD code, write the resolved `lgd_code` and flip `id_source` from `wikipedia` to `lgd`. Report unmatched names for manual review.
 4. **Provenance.** Each generated artifact carries a `sources` array per CLAUDE.md §12 with the exact ramSeraph release URL and `fetched_at`. Reference materials (the data.gov.in mirror, the LGD portal itself) belong in commit messages, not `sources` (which only lists URLs the pipeline actually fetched).
 
