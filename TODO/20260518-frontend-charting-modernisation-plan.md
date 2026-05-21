@@ -22,6 +22,32 @@ The matching iconography direction is: **use icons as schema-driven wayfinding, 
 
 The matching projection direction is: **let data shape decide eligibility, and metadata decide the default story.** Do not hardcode chart selection by indicator id. Do not infer the final chart solely from column names. Use closed yen-gov projection enums, sort policies, facet-axis metadata, and view-model adapters so Max/Hans/Jony can author the intended chart behaviour without creating a free-form chart-spec language.
 
+## Review resolutions — 2026-05-21
+
+**Status**: Authoritative amendments to every phase below. Driven by a Jony + Hans + Fowler + Gregor + Max review on 2026-05-21 (user-approved row-by-row). When a phase below disagrees with this section, this section wins; the phase prose will be reconciled in the same commit that implements that phase. Each resolution carries the persona who owns it so the implementing agent knows whom to consult on edge cases.
+
+| ID | Phase touched | Resolution | Owner |
+|----|---------------|------------|-------|
+| R-01 | 3.6 mount | Do NOT side-by-side mount `SeatDonut` + `CompositionBar`. Ship `CompositionBar` behind a client-only A/B experiment using **GrowthBook OSS** (`~15 KB gz`, sticky first-party cookie bucket from `hash(visitor_id + experiment_key)`). URL stays canonical (no `/v1`, no `/v2`, no `?variant=`). Experiment id: `state-elections-composition-v1`, 50/50 split, kill-switch in committed JSON. | Jony + Fowler |
+| R-02 | 3.6 (DEFERRED-D promoted) | Vote-share twin promoted INTO Phase 3.6 scope. Ship paired seats+votes from day one. Caption: *"Seats won (left) vs vote share (right); the gap is the FPTP distortion."* DEFERRED-D entry below becomes "completed by Phase 3.6". | Hans |
+| R-03 | 3.6 mount route + new alliance workstream | Phase 3.6 ships **party-level CompositionBar only** on a single-party-dominant state mount (GJ 2022 / HP 2022 / UK 2022 / KA 2023 — NOT TN, because TN's verdict is dominated by pre-poll alliances and a party-only chart misframes it). Alliance binding is a separate workstream: (a) promote `dim_party_alliances` schema to v2.0 — add new `dim_alliances.parquet` (`alliance_id`, `alliance_name`, `alliance_short`, `formed_year`, `dissolved_year`, `lead_party_id`, `parent_alliance_id`, `colour_token`), and on `dim_party_alliances` add `alliance_id` FK + `alliance_status` enum (`in_alliance` / `solo` / `unknown`, NOT NULL) + `binding_type` enum (`pre-poll-seat-share` / `pre-poll-supported` / `post-poll-coalition` / `none`); (b) backpopulate alliance rows for ALL election events progressively (not just one); (c) per-event mount of alliance variant is gated by 95% vote-coverage rule (R-05). Document schema in new `docs/research/alliance-modelling.md`; rendering rule in `docs/architecture/data/elections-indicators.md`. Sequencing per Fowler: expand–migrate–contract (add `alliance_id` alongside string column, backfill, drop string in follow-up commit). | Hans + Max + Gregor |
+| R-04 | 1.4 / chart-summary contract | Add `entity_comparability` annotation (NOT `delimitation_break` — broader, future-proofs state reorganisations). Shape: `{ break_event, break_year, note, comparable_with_prior: false }`. Seed events: Delimitation Act 1976; Delimitation Order 2008 (operative all states except J&K/Assam/Arunachal/Manipur/Nagaland); state reorganisations MP→CG (2000), BR→JH (2000), UP→UK (2000), AP→TG (2014); J&K reorganisation 2019. Canonical annotation copy: *"Constituency boundaries were redrawn in 2008; pre-2008 and post-2008 seat counts are not directly comparable."* Backend column lives on `dim_entity_period` annotations (final location to be confirmed by Hans+Max at implementation time). Summary engine MUST suppress trend verbs ("continues", "gained", "lost ground") when a break event lies between compared periods. | Hans |
+| R-05 | 1.4 / 3.6 / config | Indicator-specific dominance-verb bands live in **`config/processing.json`** under a new `dominance_bands` key (NOT taxonomy parquet — these are render-time policy knobs, not observations; NOT per-indicator override — that smears policy across 50 files). Schema'd in `datasets/schemas/processing.schema.json` (minor bump + changelog entry). Seed values: vote-share 2/5/10 pp, seat-share 5/15/30 pp, turnout 1/3/5 pp. Coverage threshold for alliance mount (R-03) lives in same file under `alliance.coverage_pct_min = 0.95`. Rationale doc: new `docs/research/dominance-verb-bands.md` (Hans-authored, cites Rathin Roy on FPTP distortion). The default 8pp threshold in the current plan prose is superseded by per-indicator bands. | Hans + Gregor |
+| R-06 | 3.4 / 3.6 / 1.6 | NOTA default: always its own slice when present in data; adapter does not fold by default. Override mechanism: chart-call-site prop `foldOthers: { topN, includeNota }` (chart-call site is the honest home — same indicator may render both ways across psephlab vs state hub). Mandatory footnote when folded: *"Top N shown; remaining candidates including NOTA folded into Others (X.X% combined, NOTA Y.Y%)."* Renderer MUST fail to mount when `includeNota: false` and no footnote string is supplied (fail-loud, not silent). | Hans |
+| R-07 | 1.5 / URL grammar | Temporal viewport is a **brush directly on the time axis** of the chart (not a separate strip below). One surface, one gesture. Presets `All` / `Recent` / `10y` / `25y` remain as buttons. URL grammar: NO query strings (`?from=YYYY&to=YYYY`), NO matrix URIs (`/map;from=1977`), NO new URL grammar. Hive-style URLs do not exist for user-facing web (filesystem partition idiom, not navigation). Where shareable view state is needed, it rides **ADR-0028 place-first cascade as a path segment** when the route's editorial copy names the window (`/elections/lok-sabha/since-1977`); otherwise the window stays ephemeral component state with no URL serialisation. | Jony + Gregor |
+| R-08 | 2 (overall) | Phase 2 is **Correction Level 4** (7 sub-phases × multiple commits = 15–20 commits, structural+behavioural across many files). Migration via Branch by Abstraction: `StackedTrendV2` ships alongside v1; one PR per caller migration (≤3 callers per PR, each with its own Playwright assertion); final PR deletes v1. New "Migration & Rollback" subsection inside Phase 2. | Fowler |
+| R-09 | 2.1 | Split: **2.1a** = types + zod model + fixture (structural only, zero render); **2.1b** = component shell consuming types, returns `<g/>` with type-check green (structural). Behaviour starts at 2.3. | Fowler |
+| R-10 | 2.x Playwright targets | All new Playwright assertions in Phase 2.x use **ADR-0028 place-first routes** (e.g. `/energy` not `/t/energy`). Where the legacy `/s/`/`/t/` route is the only one currently mounted, the assertion uses the legacy path with an inline TODO referencing `frontend/src/lib/RedirectLegacyUrl.svelte` and ADR-0028. | Fowler + Gregor |
+| R-11 | 2.2 (helpers) | Add one contract-tier test under `frontend/src/contracts/` per Phase 2.2: loads a real fixture Parquet shard via DuckDB-WASM, runs the helper, asserts output validates against the v2 props zod schema. §15 contract tier. | Fowler |
+| R-12 | 2.3 (readout) | One gesture: tap/click bar = select; tap-again or tap-outside = deselect. **No hover-as-state.** Cursor change is the only hover affordance. Same rule for legend chips in Phase 3.5 work. | Jony |
+| R-13 | 4 (small multiples) | Default to 9 panels: top 8 by latest absolute value + 1 aggregated "others" panel, sorted desc. Explicit "Show all 30" affordance below. Deterministic, derived from data, no per-indicator config. | Jony |
+| R-14 | 1.4 / 1.25 (summary policy) | Ban causal verbs (`delivered`, `presided over`, `swept`, `dominated`, `crushed`) and incumbent-attribution phrasing in summary templates. Restrict to descriptive (`won`, `lost`, `polled`, `rose`, `fell`). List every template ID in new `docs/research/summary-templates.md` with the Rosling instinct it was vetted against. | Hans |
+| R-15 | 0.85 (facet-axes) | Forbid the temporary fixture/bridge. The canonical `datasets/taxonomy/facet-axes.parquet` already exists (compiled from `backend/yen_gov/canonical/facet_axes_seed.py`). Phase 0.85 reads from the canonical registry only; otherwise the phase is blocked, not "bridged." | Fowler + Gregor |
+| R-16 | 3.6 (commit boundaries) | Three PRs: **(a)** `CompositionBar.svelte` + view-model contract + vitest (structural, no mount); **(b)** `adapter-elections-seats.ts` + adapter tests + experiment definition JSON (`frontend/src/experiments/state-elections-composition-v1.json`); **(c)** mount on chosen state-hub route under GrowthBook experiment + Playwright assertion. Revert of (c) alone = mount gone, primitives stay. | Fowler |
+| R-17 | A/B framework infra | New committed artifacts: `frontend/src/experiments/` directory; `datasets/schemas/experiment.schema.json` (v1.0); new doc `docs/architecture/frontend/experiments.md` describing the contract (definitions as committed JSON, bucket assignment in localStorage, post-mortems in `docs/research/experiments/<exp_id>.md`). GrowthBook client SDK added to `frontend/package.json`; bun lockfile staged in same commit (CLAUDE.md §9 / §10). | Gregor + Fowler |
+
+---
+
 ## Findings from the read-only audit
 
 1. **Svelte is not the bottleneck.** The app is static, component-oriented, schema-driven, and needs custom civic disclosure around every chart. Svelte is well matched to that shape.
@@ -1030,7 +1056,9 @@ Verification:
 
 ---
 
-## Phase 3.6 - Single-entity composition bar (side-by-side smoke)
+## Phase 3.6 - Single-entity composition bar (A/B experiment ship)
+
+> **⚠ 2026-05-21 amendment**: this entire phase is **superseded by resolutions R-01, R-02, R-03, R-05, R-06, R-16, R-17** in the "Review resolutions — 2026-05-21" section near the top of this document. Read those FIRST. In short: (i) NOT side-by-side with `SeatDonut` — instead `CompositionBar` ships behind a GrowthBook OSS A/B experiment, URL stays canonical, sticky cookie bucket; (ii) NOT mounted on TN — instead a single-party-dominant state (GJ 2022 / HP 2022 / UK 2022 / KA 2023) because TN's verdict is alliance-led and a party-only chart misframes it; (iii) vote-share twin (DEFERRED-D) promoted into this phase scope, ship seats+votes from day one; (iv) the 8pp dominance-verb threshold below is superseded by indicator-specific bands in `config/processing.json`; (v) NOTA rule strengthened — fail-loud-on-missing-footnote when folded; (vi) three commits per R-16 (renderer / adapter+experiment-definition / mount). The prose below is preserved for context; resolutions override on every conflict.
 
 **Correction level**: 3.
 
@@ -1211,6 +1239,8 @@ The items below are NOT "won't do." They are "cannot do honestly with what's in 
 
 ### DEFERRED-A: Alliance rollups for election composition
 
+> **⚠ 2026-05-21 amendment — repromoted to in-scope workstream**: R-03 promotes this from "blocked on data acquisition" to "active workstream". Schema-promote `dim_party_alliances` to v2.0 (add `dim_alliances.parquet` + `alliance_id` FK + `alliance_status` enum + `binding_type` enum); backpopulate ALL events progressively (not gated on TN-only); per-event alliance variant mount is gated by **95% vote-coverage** (R-05, configured in `config/processing.json:alliance.coverage_pct_min`). Three-state placeholder semantics: `in_alliance` (FK set), `solo` (knowingly contesting alone, `alliance_id` NULL), `unknown` (uncurated, `alliance_id` NULL). Today's NULL collapses all three — the schema bump separates them. Documentation: `docs/research/alliance-modelling.md` (new) for the schema design; `docs/architecture/data/elections-indicators.md` (new subsection) for the rendering rule. Sequencing per Fowler: expand–migrate–contract. Below prose preserved for historical context.
+
 **Status**: blocked on data acquisition.
 
 **Why it matters**: Indian state politics is alliance-led in most coalition-heavy states (TN, MH, BR, KA, KL, JH, partially MP/UP/WB). Showing only party-level composition for DMK+INC+VCK+CPI+CPM as five separate segments instead of one DMK-led-alliance segment misframes the verdict; the citizen reads "no party won a majority" when the political reality is "the DMK-led alliance won 159 of 234." Party-only composition (Phase 3.6 v1) is correct for two-party-dominant states (GJ, HP, UK, KA, MP) and is the honest first slice given current data, but it is structurally incomplete for the coalition states.
@@ -1274,6 +1304,8 @@ The items below are NOT "won't do." They are "cannot do honestly with what's in 
 
 ### DEFERRED-D: Vote-share twin alongside seat-share on the composition card
 
+> **⚠ 2026-05-21 amendment — promoted into Phase 3.6 v1 scope (R-02)**: vote-share twin ships from day one of Phase 3.6, not as a follow-up. Hans's rule is non-negotiable: never show seat-share without vote-share when discussing FPTP outcomes. Caption: *"Seats won (left) vs vote share (right); the gap is the FPTP distortion."* This DEFERRED-D entry is now closed; remove or strike-through in the next planning pass.
+
 **Status**: data exists; held out of v1 to keep the side-by-side smoke (Phase 3.6) small.
 
 **Why it matters**: Hans's hard requirement (2026-05-19): never show seat-share without vote-share when discussing FPTP outcomes, because the gap between them is the FPTP distortion story (49% vote share → 54% seat share in Gujarat 2017; the citizen needs both numbers to read the result honestly). The FPTP caption in v1 partially addresses this in copy, but the visual twin is the stronger fix.
@@ -1293,6 +1325,99 @@ The items below are NOT "won't do." They are "cannot do honestly with what's in 
 **Why deferred (not in v1)**: Phase 1.5 (temporal viewport interaction primitive) ships before this is buildable. Also, the trajectory shape is `stacked_trend` (already exists, already adapter-fed for elections) — not `composition_bar`. So this entry is really "after Phase 1.5 ships, re-evaluate whether the state hub elections card should default to a `stacked_trend` longitudinal view with the `composition_bar` snapshot as a secondary read."
 
 **Re-entry trigger**: after Phase 1.5 ships. Tag this with a TODO check in the Phase 1.5 Definition of Done.
+
+---
+
+## Commit & PR plan (added 2026-05-21)
+
+Authoritative commit/PR breakdown for the next coding agent. Every PR below is independently revertable; every PR has its own CI gate (lint + type-check + vitest + Playwright as applicable + bun lockfile check per CLAUDE.md §9). One PR per row unless noted. Order is the recommended execution order; phases without R-references in this plan keep their original ordering.
+
+### Track A — Foundations (must land before any other track)
+
+| PR# | Title | Phase | Files | Tests | Notes |
+|-----|-------|-------|-------|-------|-------|
+| A1 | docs(canonical): document missing-dimension placeholder convention | 0 / R-03 prereq | `docs/architecture/data/canonical-store.md` (new §"Missing-dimension placeholders"); `docs/architecture/data/elections-indicators.md` (cross-link); `datasets/schemas/dim_party_alliances.schema.json` description tweak | none (docs only) | Level 1 |
+| A2 | feat(processing): add `dominance_bands` + `alliance.coverage_pct_min` knobs | 1.4 / R-05 | `config/processing.json` (new keys); `datasets/schemas/processing.schema.json` (minor bump, changelog entry); seed `docs/research/dominance-verb-bands.md` | pytest schema sanity (Tier A) + `python -m yen_gov validate --root .` locally (Tier B) | Level 2 |
+| A3 | docs(frontend): experiments contract | R-17 | `docs/architecture/frontend/experiments.md` (new); `datasets/schemas/experiment.schema.json` (v1.0); `frontend/src/experiments/.gitkeep` | schema sanity test | Level 2 |
+| A4 | chore(frontend): add GrowthBook OSS client SDK | R-17 | `frontend/package.json`; `frontend/bun.lock` (staged same commit per §9); `frontend/src/lib/experiments/growthbook-client.ts` (thin wrapper); one unit test for `bucketFor(uuid, expId)` determinism | vitest | Level 2. Bundle-impact note in PR body. |
+| A5 | feat(taxonomy): promote dim_party_alliances to v2.0 (expand) | R-03 | `backend/yen_gov/canonical/dim_alliances_seed.py` (new); add new `dim_alliances.parquet`; on `dim_party_alliances` add `alliance_id` FK + `alliance_status` + `binding_type` columns alongside the legacy `alliance` string column; bump schema v2.0 with changelog | pytest fixture corpus | Level 3. Expand phase — string column stays for backwards compatibility. |
+| A6 | docs(research): alliance-modelling.md | R-03 | `docs/research/alliance-modelling.md` (new — captures schema design + Hans's `alliance_status` enum + Max's `binding_type` enum + 95% coverage rule rationale + member-party-over-time table open question) | none (docs only) | Level 1 |
+
+### Track B — Cross-renderer chrome (Phases 0.75, 0.85, 1.4, 1.25, 1.3)
+
+| PR# | Title | Phase | Notes |
+|-----|-------|-------|-------|
+| B1 | feat(projection): closed projection enums + dispatch guardrail | 0.75 | Per Phase 0.75. Forbids indicator-id conditionals in `topic-dispatch.ts`. |
+| B2 | feat(facet-axes): wire frontend to canonical facet-axes.parquet | 0.85 / R-15 | NO bridge fixture. Reads `datasets/taxonomy/facet-axes.parquet` directly. |
+| B3 | audit(icons + summaries) | 1.25 | Audit-only PR; output is a markdown report in TODO/. |
+| B4 | feat(icons): registry coverage + topic/indicator wiring | 1.3 | Per Phase 1.3. |
+| B5 | feat(chart-shell): shared shell + SourceList v2 + footer actions | 1.4 | Per Phase 1.4. |
+| B6 | feat(summary-contract): ban causal verbs + entity_comparability annotation | 1.4 / R-04, R-14 | New `docs/research/summary-templates.md`; backend column for `entity_comparability` on `dim_entity_period` (Hans+Max to confirm exact location during implementation); summary engine refuses trend verbs when break crosses compared periods. |
+
+### Track C — Phase 1.5 temporal viewport (after A4 + B5)
+
+| PR# | Title | Notes |
+|-----|-------|-------|
+| C1 | feat(viewport): axis-brush primitive + presets | Brush on time axis directly (R-07). No separate strip. No query strings. No matrix URIs. |
+| C2 | feat(viewport): URL serialisation for path-segment named windows only | Only when route editorial copy names the window (e.g. `/elections/lok-sabha/since-1977`). Per ADR-0028 place-first cascade. |
+
+### Track D — Phase 1.6 + 2 + 3 (StackedTrend v2 + Ranked polish) — biggest track
+
+Phase 2 is Level 4 per R-08. Branch by Abstraction: `StackedTrendV2` ships alongside v1.
+
+| PR# | Title | Sub-phase | Notes |
+|-----|-------|-----------|-------|
+| D0 | feat(helpers): sort_policy + grouping helpers | 1.6 | Pure helpers, vitest only. |
+| D1 | feat(stacked-trend-v2): types + zod model + fixture (structural) | 2.1a / R-09 | Zero render. |
+| D2 | feat(stacked-trend-v2): component shell consuming types | 2.1b / R-09 | Returns `<g/>`. Type-check green. |
+| D3 | feat(stacked-trend-v2): per-bar helpers + contract test | 2.2 / R-11 | Contract test loads real fixture Parquet via DuckDB-WASM. |
+| D4 | feat(stacked-trend-v2): segmented mode control | 2.3 | Vitest + Playwright on ADR-0028 route (e.g. `/energy`). |
+| D5 | feat(stacked-trend-v2): pinned readout panel (tap-only) | 2.3 / R-12 | NO hover-as-state. |
+| D6 | feat(stacked-trend-v2): inline + leader labels | 2.4 | |
+| D7 | feat(stacked-trend-v2): missing + not-applicable hatch | 2.5 | |
+| D8 | feat(stacked-trend-v2): subtle motion (200ms tween) | 2.6 | |
+| D9 | feat(stacked-trend-v2): export control | 2.7 | |
+| D10..D12 | refactor(callers): migrate StackedTrend callers to V2 (≤3 callers/PR) | R-08 | Each PR adds Playwright assertion on its migrated route. |
+| D13 | refactor(stacked-trend): delete v1 | R-08 | Single-commit deletion after final caller migration. |
+| D14 | feat(ranked): median/peer marker + gap line | 3 | Per Phase 3. |
+
+### Track E — Phase 3.5 + 3.6 (Generic renderers + CompositionBar A/B ship)
+
+Phase 3.6 splits into three PRs per R-16.
+
+| PR# | Title | Notes |
+|-----|-------|-------|
+| E1 | feat(renderers): scaffold generic renderer set (no mounts) | Phase 3.5. One PR per renderer skeleton; mark as "not topic-dispatch-eligible until topic-dispatch PR." |
+| E2 | feat(composition-bar): renderer + view-model contract + vitest | R-16 (a). Structural. No mount. |
+| E3 | feat(composition-bar): election-seats adapter + vote-share adapter + experiment definition | R-16 (b). Adapter consumes existing canonical-store fields (`party-seats-won`, `party-vote-share-pct`, `state-nota-pct`). Experiment definition JSON committed to `frontend/src/experiments/state-elections-composition-v1.json`. NOTA per R-06: fail-loud if `includeNota: false` and no footnote string. |
+| E4 | feat(composition-bar): mount under A/B experiment on single-party-dominant state hub | R-16 (c) + R-01 + R-03. Mount on `/india/gujarat` (or `/india/himachal-pradesh` / `/india/uttarakhand` / `/india/karnataka` — pick at implementation time based on which state has the cleanest fixture). NOT TN. Playwright asserts: with cookie forced to variant A, `<SeatDonut>` renders; with cookie forced to variant B, `<CompositionBar>` (seats) + `<CompositionBar>` (votes) render. URL identical across variants. |
+
+### Track F — Phase 4 + 5
+
+| PR# | Title | Notes |
+|-----|-------|-------|
+| F1 | feat(small-multiples): 9-panel default + signed scale + last-value chip | Phase 4 / R-13. |
+| F2 | feat(choropleth): ramp tuning + legend-value chip | Phase 5. |
+
+### Track G — Alliance binding (parallel to D + E once A5 + A6 land)
+
+| PR# | Title | Notes |
+|-----|-------|-------|
+| G1 | feat(ingest): backpopulate alliance rows for first event | R-03. Pick by data availability — likely TN 2021 per Max. Schema v2.0 fields populated; `alliance_status` set per party. |
+| G2 | feat(composition-bar): alliance-binding adapter (`adapter-elections-alliance-seats.ts`) | Reuses `CompositionBar` renderer unchanged. Coverage gate from `config/processing.json:alliance.coverage_pct_min`. |
+| G3 | feat(composition-bar): mount alliance variant on TN state hub once coverage ≥95% | Same A/B framework as E4. |
+| Gn… | feat(ingest): backpopulate alliance rows for `<event>` | One PR per event until all events crossed. |
+| G-final | refactor(taxonomy): contract `dim_party_alliances` — drop legacy `alliance` string column | Schema v2.1 (contract phase of expand–migrate–contract). All readers migrated to FK by this point. |
+
+### Conventions for every PR
+
+- Commit subject ≤72 chars, conventional-commits style (`feat:`, `refactor:`, `fix:`, `docs:`, `chore:`).
+- Body explains the **why**, not the **what** (the diff is the what).
+- PR body checklist mirrors CLAUDE.md §9 Definition of Done.
+- §13 UI verification: every PR that changes runtime UI includes the agent's `read_page` snapshot + screenshot in the PR body.
+- No PR merges with a red CI suite (§15).
+- No PR amends a pushed commit (§8).
+- No PR uses `git add -A` (§8) — files staged by explicit name.
 
 ---
 
