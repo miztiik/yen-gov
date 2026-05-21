@@ -182,11 +182,19 @@
               <td class="py-2 text-slate-400 align-top">{c.rank}</td>
               <td class="font-medium align-top">
                 <div>{c.name}</div>
-                {#if c.bio}
-                  <div class="text-xs text-slate-500 mt-0.5" data-testid="candidate-biographics">
-                    {#if bio}{bio}{:else}Not declared{/if}
-                  </div>
-                {/if}
+                <!--
+                  Biographics row: the testid is ALWAYS rendered, even when
+                  no Statistical-Report adapter has populated bio columns
+                  for this contest yet. Contract (frontend/e2e/golden-path.spec.ts):
+                  "the testid must still be in the DOM for at least the first
+                  row" so the citizen sees an honest "Not declared" rather
+                  than the entire field disappearing. Conditional rendering
+                  also defeats the e2e visibility assertion that protects the
+                  dim_candidates v1.2 -> CandidateResult.bio projection path.
+                -->
+                <div class="text-xs text-slate-500 mt-0.5" data-testid="candidate-biographics">
+                  {#if bio}{bio}{:else}Not declared{/if}
+                </div>
               </td>
               <td class="align-top">
                 {#if c.party_eci_code && state_code}
