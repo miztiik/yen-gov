@@ -205,3 +205,82 @@ Do NOT exempt subtrees that contain published artifacts the frontend
 consumes at runtime. That's the consumer-side contract; skipping it
 here is silently breaking the bet from "Frontend repo split: where the
 consumer-side test goes" above.
+
+## Forbidden-path checks
+
+Beyond per-file schema conformance, Tier-B carries a small registry of
+**forbidden-path** checks that enforce CLAUDE.md §10 anti-patterns
+computationally rather than purely textually. Each check is a stand-alone
+function in `backend/yen_gov/validate.py` chained into `run()`; tests live
+in `backend/tests/test_validate.py` and use `tmp_path` fixtures (no real
+corpus walks per CLAUDE.md §10 anti-pattern).
+
+| Function | What it forbids | Allowlist input | Tests |
+| --- | --- | --- | --- |
+| `tier_b_legacy_folded_indicator_shards` | New `*.json` files under `datasets/indicators/in/`. The 110 legacy folded-indicator shards (pre-canonical-pivot artifacts) retire family-by-family per TODO/20260517 §0e.7 P.*. New content must land on the canonical Parquet store. | `datasets/_ops/legacy-folded-indicator-shards.txt` (one POSIX path per line; `#`-comments + blank lines ignored). | 6 cases — passes when allowlisted, rejects new shard, rejects orphan allowlist entry, no-op when indicators dir absent, requires allowlist when indicators dir present, regression guard that `run()` chains the check. |
+
+### Shape of a forbidden-path check
+
+Each check is a `def tier_b_<name>(root: Path) -> list[Failure]:` function
+that takes a repo root and returns a list of `Failure` records. The check
+is responsible for:
+
+1. **No-op gating** — if the forbidden subtree is gone (final retirement
+   PR has shipped), the check returns `[]` without requiring the allowlist.
+   This is the retirement contract: the directory, the allowlist, and the
+   check all disappear together; the check must not fail mid-retirement.
+2. **Allowlist-present sanity** — if the forbidden subtree exists but the
+   allowlist file is missing, fail loudly. Prevents silent passes from
+   accidental allowlist deletion.
+3. **Two symmetric failure modes** — files on disk not in allowlist
+   ("forbidden new …"), and allowlist entries with no on-disk file
+   ("orphan allowlist entry …"). Both surface so the allowlist stays in
+   sync with reality.
+4. **Plain-text allowlist** — `.txt` format under `datasets/_ops/` (per
+   the operator-state directory's purpose per CLAUDE.md §3). JSON
+   allowlists would themselves require `$schema` under §11, adding
+   ceremony with no upside. `#`-comments and blank lines supported.
+
+### Why allowlists live under `datasets/_ops/`
+
+`datasets/_ops/` is the operator-state directory per CLAUDE.md §3 — it
+holds operational assets that are committed (vs `.runtime/`'s ephemeral
+gitignored state) but are NOT citizen-facing fact tables. A forbidden-path
+allowlist is exactly this shape: it documents WHICH files are permitted
+to exist under a forbidden subtree pending family-by-family retirement.
+Operators editing a P.* family retirement PR amend the allowlist as part
+of the same change. When the allowlist becomes empty AND the forbidden
+subtree is empty, the allowlist file deletes alongside the legacy code.
+
+Alternative homes considered and rejected:
+
+1. **Constants in `validate.py`** — violates CLAUDE.md §6 (hardcoding
+   taxonomy). The allowlist is reference data, not validator logic.
+2. **`datasets/indicators/in/.allowlist`** — co-located but hidden-file
+   pattern is discoverable only via `ls -la`; doesn't fit the established
+   `_ops/` pattern; would need a per-forbidden-subtree dot-file rather
+   than one canonical home.
+3. **JSON allowlist with `$schema`** — heavier than the use case warrants.
+   Plain text is grep-able, diff-friendly, and one-`Set.add`-per-line to
+   parse. Schema overhead has no downstream consumer.
+
+### Adding a new forbidden-path check
+
+1. Add a sorted plain-text allowlist under `datasets/_ops/` (e.g.
+   `datasets/_ops/<name>-allowlist.txt`).
+2. Add the path constants near the top of `backend/yen_gov/validate.py`
+   alongside `LEGACY_INDICATOR_SHARDS_*` (one DIR constant, one ALLOWLIST
+   constant).
+3. Add a `tier_b_<name>(root: Path) -> list[Failure]` function modelled
+   on `tier_b_legacy_folded_indicator_shards` (see "Shape of a
+   forbidden-path check" above).
+4. Chain the function into `run()`.
+5. Mirror the six Tier-A test cases in `backend/tests/test_validate.py`,
+   reusing the `_seed_indicator_tree` helper as a template (parameterise
+   on dir + allowlist constants).
+6. Add a row to the table at the top of this section.
+7. Add an entry to `datasets/_ops/README.md`.
+8. Add an "Enforced by Tier-B" sentence to the matching CLAUDE.md §10
+   anti-pattern entry.
+9. Add a row to the table in
+   [docs/architecture/canonical-pivot-deletion-manifest.md §6d](../canonical-pivot-deletion-manifest.md).

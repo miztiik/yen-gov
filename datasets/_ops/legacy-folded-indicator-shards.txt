@@ -1,0 +1,143 @@
+# Legacy folded-indicator shard allowlist
+#
+# This file enumerates the 110 per-indicator JSON shards under
+# `datasets/indicators/in/` that pre-date the canonical-long-format
+# pivot (TODO/20260517-canonical-long-format-pivot.md §0e.7 P.*).
+#
+# Per CLAUDE.md §10 ("Create new indicator artifact files under
+# `datasets/indicators/in/<topic>/<id>.json`" anti-pattern), no new shards
+# may be added under this tree. New indicator content lands directly on
+# the canonical Parquet store (`datasets/<family>/<family>_<role>.parquet`
+# + `datasets/taxonomy/indicators.parquet`).
+#
+# This list is the input to the Tier-B validator check
+# `tier_b_legacy_folded_indicator_shards` in `backend/yen_gov/validate.py`.
+# The check fails the validator with two symmetric rules:
+#
+#   1. Any `*.json` on disk under `datasets/indicators/in/` that is NOT
+#      listed below is reported as "forbidden new indicator shard."
+#   2. Any path listed below that is NOT on disk is reported as
+#      "orphan allowlist entry."
+#
+# When a P.* family pivots to the canonical store (e.g. P.energy ships
+# `datasets/energy/energy_state.parquet`), the same PR MUST `git rm` the
+# family's shards AND delete the matching lines below in one Tier-A commit.
+# When the final P.* family ships, this file deletes alongside
+# `backend/yen_gov/legacy/folded_indicator_writer.py` and the Tier-B check.
+#
+# Format: one POSIX path per line, sorted. Blank lines and lines
+# starting with `#` are ignored. Paths are repo-relative.
+#
+# Established: 2026-05-22 (Gregor PR1 — Phase 2 pre-flight; see
+# TODO/20260521-phase-2-preflight-audit-gregor.md finding #1).
+
+datasets/indicators/in/demography/state_population_by_residence_count.json
+datasets/indicators/in/demography/state_population_by_sex_count.json
+datasets/indicators/in/demography/state_population_lakhs.json
+datasets/indicators/in/economy/india_external_balance_inr_crore.json
+datasets/indicators/in/economy/india_gdp_inr_crore.json
+datasets/indicators/in/economy/india_gva_by_industry_constant_inr_crore.json
+datasets/indicators/in/economy/india_iip_index_2011_12.json
+datasets/indicators/in/economy/national_gdp_current_inr_lakh_crore.json
+datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json
+datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json
+datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json
+datasets/indicators/in/economy/state_gdp_constant_2011_12_inr_lakh_crore.json
+datasets/indicators/in/economy/state_gdp_current_inr_lakh_crore.json
+datasets/indicators/in/economy/state_gdp_inr_crore.json
+datasets/indicators/in/economy/state_nsdp_constant_inr_crore.json
+datasets/indicators/in/economy/state_nsdp_current_inr_crore.json
+datasets/indicators/in/economy/state_per_capita_consumption_inr.json
+datasets/indicators/in/economy/state_per_capita_nsdp_constant_2011_12_inr.json
+datasets/indicators/in/economy/state_per_capita_nsdp_constant_inr_long.json
+datasets/indicators/in/economy/state_per_capita_nsdp_current_inr.json
+datasets/indicators/in/economy/state_per_capita_nsdp_current_inr_long.json
+datasets/indicators/in/economy/state_sectoral_gva_constant_2011_12_inr_lakh_crore.json
+datasets/indicators/in/economy/state_sectoral_gva_current_inr_lakh_crore.json
+datasets/indicators/in/energy/india_capacity_pipeline_gw.json
+datasets/indicators/in/energy/india_thermal_capacity_retired_mw.json
+datasets/indicators/in/energy/installed_capacity_by_source_mw.json
+datasets/indicators/in/energy/installed_capacity_coal_mw.json
+datasets/indicators/in/energy/installed_capacity_gas_mw.json
+datasets/indicators/in/energy/installed_capacity_hydro_mw.json
+datasets/indicators/in/energy/installed_capacity_nuclear_mw.json
+datasets/indicators/in/energy/installed_capacity_renewable_mw.json
+datasets/indicators/in/energy/installed_capacity_thermal_mw.json
+datasets/indicators/in/energy/installed_capacity_total_mw.json
+datasets/indicators/in/energy/installed_mw_by_state.json
+datasets/indicators/in/energy/national_final_energy_consumption_by_sector_mtoe.json
+datasets/indicators/in/energy/national_primary_energy_supply_mtoe.json
+datasets/indicators/in/energy/national_renewable_potential_vs_installed_mw.json
+datasets/indicators/in/energy/state_acs_arr_gap_inr_per_kwh.json
+datasets/indicators/in/energy/state_atc_losses_pct.json
+datasets/indicators/in/energy/state_coal_consumption_mt.json
+datasets/indicators/in/energy/state_distribution_billing_efficiency_pct.json
+datasets/indicators/in/energy/state_distribution_collection_efficiency_pct.json
+datasets/indicators/in/energy/state_distribution_td_loss_pct.json
+datasets/indicators/in/energy/state_electricity_generation_by_source_gwh.json
+datasets/indicators/in/energy/state_electricity_generation_mu.json
+datasets/indicators/in/energy/state_electricity_peak_demand_mw.json
+datasets/indicators/in/energy/state_electricity_sales_mu.json
+datasets/indicators/in/energy/state_installed_capacity_by_source_mw.json
+datasets/indicators/in/energy/state_installed_capacity_geographical_mw.json
+datasets/indicators/in/energy/state_installed_capacity_total_mw.json
+datasets/indicators/in/energy/state_installed_capacity_with_alloc_mw.json
+datasets/indicators/in/energy/state_oil_product_consumption_kt.json
+datasets/indicators/in/energy/state_peak_demand_mw.json
+datasets/indicators/in/energy/state_peak_electricity_demand_mw.json
+datasets/indicators/in/energy/state_peak_met_mw.json
+datasets/indicators/in/energy/state_per_capita_availability_kwh.json
+datasets/indicators/in/energy/state_per_capita_electricity_consumption_kwh.json
+datasets/indicators/in/energy/state_plant_load_factor_pct.json
+datasets/indicators/in/energy/state_power_availability_mu.json
+datasets/indicators/in/energy/state_power_purchase_share_pct.json
+datasets/indicators/in/energy/state_power_requirement_mu.json
+datasets/indicators/in/energy/state_renewable_grid_capacity_mw.json
+datasets/indicators/in/energy/state_rooftop_solar_capacity_mw.json
+datasets/indicators/in/energy/state_rpo_compliance_pct.json
+datasets/indicators/in/environment/india_ghg_emissions_by_subsector_ggco2e.json
+datasets/indicators/in/environment/india_ghg_emissions_mtco2e_by_sector.json
+datasets/indicators/in/environment/state_no2_annual_mean_ug_m3.json
+datasets/indicators/in/environment/state_pm10_annual_mean_ug_m3.json
+datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json
+datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json
+datasets/indicators/in/environment/state_so2_annual_mean_ug_m3.json
+datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json
+datasets/indicators/in/fiscal/centre_transfers_gross.json
+datasets/indicators/in/fiscal/centre_transfers_to_states_grants.json
+datasets/indicators/in/fiscal/centre_transfers_to_states_gross.json
+datasets/indicators/in/fiscal/centre_transfers_to_states_net.json
+datasets/indicators/in/fiscal/centre_transfers_to_states_tax_devolution.json
+datasets/indicators/in/fiscal/net_transfers_from_centre.json
+datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json
+datasets/indicators/in/fiscal/state_external_debt_inr_crore.json
+datasets/indicators/in/fiscal/state_grants_in_aid_inr_crore.json
+datasets/indicators/in/fiscal/state_non_tax_revenue_inr_crore.json
+datasets/indicators/in/fiscal/state_own_tax_revenue_inr_crore.json
+datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json
+datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json
+datasets/indicators/in/fiscal/state_share_central_taxes_inr_crore.json
+datasets/indicators/in/fiscal/states_combined_gross_fiscal_deficit.json
+datasets/indicators/in/fiscal/states_combined_primary_deficit.json
+datasets/indicators/in/fiscal/states_combined_primary_revenue_deficit.json
+datasets/indicators/in/fiscal/states_combined_revenue_deficit.json
+datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json
+datasets/indicators/in/fiscal/union_primary_deficit.json
+datasets/indicators/in/fiscal/union_primary_revenue_deficit.json
+datasets/indicators/in/fiscal/union_revenue_deficit.json
+datasets/indicators/in/health/state_birth_rate_per_1000.json
+datasets/indicators/in/health/state_death_rate_per_1000.json
+datasets/indicators/in/health/state_health_expenditure_pct_total_expenditure.json
+datasets/indicators/in/health/state_infant_mortality_rate_per_1000.json
+datasets/indicators/in/health/state_public_health_expenditure_inr_crore.json
+datasets/indicators/in/health/state_total_fertility_rate.json
+datasets/indicators/in/human_development/state_hdi.json
+datasets/indicators/in/prices/national_cpi_combined_index_annual.json
+datasets/indicators/in/prices/national_cpi_iw_index_annual.json
+datasets/indicators/in/prices/national_wpi_all_commodities_index_annual.json
+datasets/indicators/in/prices/state_cpi_food_inflation_pct.json
+datasets/indicators/in/prices/state_cpi_fuel_inflation_pct.json
+datasets/indicators/in/prices/state_cpi_general_inflation_pct.json
+datasets/indicators/in/prices/state_cpi_housing_urban_inflation_pct.json
+datasets/indicators/in/transport/state_ev_registrations_count.json
+datasets/indicators/in/transport/state_ev_share_total_registrations_pct.json

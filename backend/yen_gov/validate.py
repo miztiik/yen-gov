@@ -13,6 +13,10 @@ Tier B — data conformance:
   * "$schema" resolves to a known schema by basename or by $id.
   * "$schema_version" equals the schema's current x-version.
   * The file validates against that schema.
+  * Legacy folded-indicator shards under datasets/indicators/in/ are
+    pinned to the allowlist datasets/_ops/legacy-folded-indicator-shards.txt
+    (CLAUDE.md §10 anti-pattern computationally enforced). New shards are
+    rejected; allowlist entries with no on-disk file are reported as orphans.
 """
 
 from __future__ import annotations
@@ -28,6 +32,17 @@ from jsonschema.exceptions import SchemaError
 
 SCHEMAS_SUBDIR = Path("datasets/schemas")
 DATA_ROOTS = (Path("datasets"), Path("config"))
+
+# Legacy per-indicator JSON shard tree (CLAUDE.md §10 anti-pattern).
+# The 110 shards under `datasets/indicators/in/<topic>/<id>.json` pre-date
+# the canonical-long-format pivot (TODO/20260517 §0e.7 P.*). New shards
+# are forbidden; existing shards retire family-by-family. The allowlist
+# enumerates the legacy set; the Tier-B check
+# `tier_b_legacy_folded_indicator_shards` enforces the doctrine. See
+# docs/architecture/backend/validator.md and
+# docs/architecture/canonical-pivot-deletion-manifest.md §6a.
+LEGACY_INDICATOR_SHARDS_DIR = Path("datasets/indicators/in")
+LEGACY_INDICATOR_SHARDS_ALLOWLIST = Path("datasets/_ops/legacy-folded-indicator-shards.txt")
 
 # Path segments under DATA_ROOTS whose entire subtree is exempt from
 # Tier-B conformance. Adding to this set is a doctrine decision -- see
@@ -197,7 +212,104 @@ def tier_b(schemas: dict[str, dict], root: Path) -> list[Failure]:
     return failures
 
 
+def _load_allowlist(path: Path) -> set[str]:
+    """Parse a one-path-per-line allowlist text file. Ignores blank lines and `#` comments."""
+    allowed: set[str] = set()
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        allowed.add(line)
+    return allowed
+
+
+def tier_b_legacy_folded_indicator_shards(root: Path) -> list[Failure]:
+    """Forbid new per-indicator JSON shards under datasets/indicators/in/.
+
+    Per CLAUDE.md §10 anti-pattern and Gregor's Phase-2 pre-flight audit
+    (TODO/20260521-phase-2-preflight-audit-gregor.md finding #1), the 110
+    legacy folded-indicator shards retire family-by-family per
+    TODO/20260517 §0e.7 P.*. New content must land directly on the
+    canonical Parquet store -- `datasets/<family>/<family>_<role>.parquet`
+    + `datasets/taxonomy/indicators.parquet`. This Tier-B check makes the
+    doctrine computationally enforced rather than purely textual.
+
+    The allowlist `datasets/_ops/legacy-folded-indicator-shards.txt`
+    enumerates the legacy set. When a P.* PR retires a family, that PR
+    `git rm`s the family's shards AND removes the matching lines from the
+    allowlist in the same Tier-A commit. When the final P.* family ships,
+    the directory disappears, the allowlist file disappears, and this
+    check disappears alongside `backend/yen_gov/legacy/folded_indicator_writer.py`.
+
+    Two symmetric failure modes:
+      1. Forbidden new shard: file on disk under `datasets/indicators/in/`
+         but not listed in the allowlist.
+      2. Orphan allowlist entry: path listed in the allowlist but not
+         present on disk (allowlist out-of-sync with the legacy set).
+
+    If `datasets/indicators/in/` does not exist (final P.* PR has shipped),
+    the check is a no-op and the allowlist may be deleted.
+    """
+    failures: list[Failure] = []
+    indicators_dir = root / LEGACY_INDICATOR_SHARDS_DIR
+    allowlist_path = root / LEGACY_INDICATOR_SHARDS_ALLOWLIST
+    allowlist_rel = LEGACY_INDICATOR_SHARDS_ALLOWLIST.as_posix()
+
+    if not indicators_dir.exists():
+        # Final P.* family has shipped; the legacy tree is gone. No-op.
+        return failures
+
+    if not allowlist_path.exists():
+        failures.append(
+            Failure(
+                allowlist_rel,
+                "B",
+                "missing allowlist file while datasets/indicators/in/ still exists "
+                "(required by tier_b_legacy_folded_indicator_shards; see "
+                "docs/architecture/backend/validator.md)",
+            )
+        )
+        return failures
+
+    allowed = _load_allowlist(allowlist_path)
+    on_disk: set[str] = {
+        _posix(p, root)
+        for p in indicators_dir.rglob("*.json")
+        if not p.name.endswith(".schema.json")
+    }
+
+    for new_shard in sorted(on_disk - allowed):
+        failures.append(
+            Failure(
+                new_shard,
+                "B",
+                "forbidden new indicator shard: per CLAUDE.md §10, new content must land "
+                "on the canonical Parquet store (datasets/<family>/<family>_<role>.parquet "
+                "+ datasets/taxonomy/indicators.parquet). To retire an existing family, "
+                "remove its lines from datasets/_ops/legacy-folded-indicator-shards.txt "
+                "in the same PR as the per-family P.* pivot.",
+            )
+        )
+
+    for orphan in sorted(allowed - on_disk):
+        failures.append(
+            Failure(
+                allowlist_rel,
+                "B",
+                f"orphan allowlist entry {orphan!r}: file no longer exists on disk. "
+                f"Remove the line from {allowlist_rel}.",
+            )
+        )
+
+    return failures
+
+
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
     schemas, parse_failures = load_schemas(root / SCHEMAS_SUBDIR)
-    return parse_failures + tier_a(schemas) + tier_b(schemas, root)
+    return (
+        parse_failures
+        + tier_a(schemas)
+        + tier_b(schemas, root)
+        + tier_b_legacy_folded_indicator_shards(root)
+    )
