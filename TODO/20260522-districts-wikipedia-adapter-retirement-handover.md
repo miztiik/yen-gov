@@ -1,5 +1,24 @@
 # 2026-05-22 — handover: T.0c-iii districts arc — Phase C paused, Phase D arc scoped
 
+## D.2 outcome (2026-05-22)
+
+**Retired the LGD backfill tool.** Hans + Gregor sibling-of-D.1.c recommendation, pre-named in ADR-0033 §Future-work. `tools/lgd/backfill_lgd_codes.py` walked the per-state `districts.json` files writing `lgd_code` back into each; with D.1 having moved district identity to `entities.json` (already carrying `lgd_code`) and D.3 about to `git rm` the per-state files, the tool has no remaining target.
+
+**Branch**: `feat/lgd-backfill-tool-retire` (this commit). **Files touched** (4 files):
+
+- DELETED: `tools/lgd/backfill_lgd_codes.py`
+- DELETED: `backend/tests/test_lgd_backfill.py`
+- Modified: `docs/architecture/data/boundaries.md` (Further-reading bullet for backfill tool removed)
+- Modified: `backend/yen_gov/core/models.py` (retirement comment: dropped `lgd/backfill_lgd_codes.py` from active-consumers list; appended retirement note)
+- Amended: this handover doc (D.2 outcome section above)
+- Amended: `TODO/20260517-canonical-long-format-pivot.md` row 318 (D.2 marked DONE)
+
+**Verification**:
+- `git grep backfill_lgd_codes` returns zero live (non-historical-record) hits in production code; references survive only in `datasets/migration-ledger.csv` row 218 + `datasets/schemas/district.schema.json` v3.2 changelog text (both historical artefacts — schema deleted in D.3, ledger entries are append-only history per CLAUDE.md §4).
+- pytest backend, Tier-B validator, vitest frontend: all green.
+
+**§13 browser smoke**: not applicable — backend-only deletion.
+
 ## D.1 outcome (2026-05-22)
 
 **Chosen path: D.1.c — retire the wikipedia districts adapter entirely.** Hans + Max + Gregor consulted in parallel as custom-agent subagents (per CLAUDE.md §0a authority assignment for data-shape questions); recommendation was unanimous. See [ADR-0033](../docs/architecture/decisions/0033-retire-wikipedia-districts-adapter.md) for full rationale, Bootstrap-Filter framing (Gregor), OWID precedent (Max), and the four rejected alternatives.
