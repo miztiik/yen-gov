@@ -38,7 +38,7 @@
     type StateTiersFile,
   } from "../lib/state-tiers";
   import { states } from "../lib/states.svelte";
-  import { STATE_NAME_TO_ECI } from "../lib/maplibre/sources";
+  import { loadStates, type StateRow } from "../lib/view-models/states";
   import IndicatorRanked from "../lib/IndicatorRanked.svelte";
   import {
     parseCompareQuery,
@@ -80,6 +80,14 @@
   fetchStateTiers()
     .then(t => (state_tiers = t))
     .catch(() => (state_tiers = null));
+
+  // Currently-valid Indian states+UTs from taxonomy.entities. Iterated to
+  // build the state-chip toggle row at the top of the page. Replaces
+  // STATE_NAME_TO_ECI per T.0e.
+  let states_taxonomy = $state<StateRow[] | null>(null);
+  loadStates()
+    .then(s => (states_taxonomy = s))
+    .catch(() => (states_taxonomy = []));
 
   // Build a flat (topic, indicator-artifact) list for the chooser. We
   // include only `kind: "indicator"` artifacts; election artifacts have
@@ -135,9 +143,9 @@
 
   // All states for the chip toggle row, alphabetised.
   const all_state_chips = $derived(
-    Object.entries(STATE_NAME_TO_ECI)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([name, code]) => ({ name, code })),
+    (states_taxonomy ?? [])
+      .map(s => ({ name: s.boundary_join_name, code: s.eci_code }))
+      .sort((a, b) => a.name.localeCompare(b.name)),
   );
 
   function chip_pinned(code: string): boolean {

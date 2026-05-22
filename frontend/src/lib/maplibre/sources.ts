@@ -132,56 +132,14 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   },
 };
 
-// datameet ST_NM → ECI state code. Covers all 36 states/UTs so the India
-// choropleth can highlight any state that has a /s/<state> route, even if
-// per-AC boundary tiles for that state aren't yet shipped. Two name
-// adjustments vs datasets/reference/in/states.json (which uses the legal
-// names): "Andaman and Nicobar Islands" → "Andaman & Nicobar" and
-// "NCT of Delhi" → "Delhi", to match the datameet india-states.geojson.
-export const STATE_NAME_TO_ECI: Record<string, string> = {
-  "Andhra Pradesh": "S01",
-  "Arunachal Pradesh": "S02",
-  "Assam": "S03",
-  "Bihar": "S04",
-  "Goa": "S05",
-  "Gujarat": "S06",
-  "Haryana": "S07",
-  "Himachal Pradesh": "S08",
-  "Karnataka": "S10",
-  "Kerala": "S11",
-  "Madhya Pradesh": "S12",
-  "Maharashtra": "S13",
-  "Manipur": "S14",
-  "Meghalaya": "S15",
-  "Mizoram": "S16",
-  "Nagaland": "S17",
-  "Odisha": "S18",
-  "Punjab": "S19",
-  "Rajasthan": "S20",
-  "Sikkim": "S21",
-  "Tamil Nadu": "S22",
-  "Tripura": "S23",
-  "Uttar Pradesh": "S24",
-  "West Bengal": "S25",
-  "Chhattisgarh": "S26",
-  "Jharkhand": "S27",
-  "Uttarakhand": "S28",
-  "Telangana": "S29",
-  "Andaman & Nicobar": "U01",
-  "Chandigarh": "U02",
-  "Dadra and Nagar Haveli and Daman and Diu": "U03",
-  "Lakshadweep": "U04",
-  "Delhi": "U05",
-  "Puducherry": "U07",
-  "Jammu & Kashmir": "U08",
-  "Ladakh": "U09",
-};
-
-// Reverse, for India-map tooltips that want the ECI code from feature props.
-export function eciFromStateName(name: string | undefined | null): string | null {
-  if (!name) return null;
-  return STATE_NAME_TO_ECI[name] ?? null;
-}
+// Note: the legacy `STATE_NAME_TO_ECI` constant + `eciFromStateName` helper
+// that previously lived here were retired in T.0e (TODO/20260517-canonical-
+// long-format-pivot.md §0e.7). Both are now served by the view-model under
+// `frontend/src/lib/view-models/states.ts`, which reads the canonical
+// `taxonomy.entities` Parquet via DuckDB-WASM and exposes all three code
+// systems (ECI / LGD / ISO 3166-2) alongside the citizen-readable name and
+// the DataMeet `ST_NM`-compatible boundary join name.
+export { eciFromStateName } from "../view-models/states";
 
 export interface ResolvedSource {
   /** Either 'pmtiles' (production) or 'geojson' (fallback). */

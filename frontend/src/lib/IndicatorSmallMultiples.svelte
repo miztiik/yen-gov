@@ -24,7 +24,7 @@
     type IndicatorArtifact,
   } from "./indicators";
   import { legendCaption } from "./indicator-render";
-  import { STATE_NAME_TO_ECI } from "./maplibre/sources";
+  import { loadStates, type StateRow } from "./view-models/states";
 
   interface Props {
     /** Path under DATA_BASE, e.g. "/indicators/in/energy/installed_mw_by_state.json". */
@@ -39,6 +39,14 @@
 
   let artifact = $state<IndicatorArtifact | null>(null);
   let load_error = $state<string | null>(null);
+  // Currently-valid Indian states+UTs from taxonomy.entities. Iterated by
+  // the `cards` derived to build one mini-sparkline per state. Replaces
+  // STATE_NAME_TO_ECI per T.0e.
+  let states_taxonomy = $state<StateRow[] | null>(null);
+
+  loadStates()
+    .then(s => (states_taxonomy = s))
+    .catch(e => (load_error = String(e)));
 
   $effect(() => {
     artifact = null;
@@ -70,7 +78,10 @@
 
   // Stable display order: home first, compare second, alphabetical thereafter.
   const cards = $derived.by(() => {
-    const list = Object.entries(STATE_NAME_TO_ECI).map(([name, code]) => ({ name, code }));
+    const list = (states_taxonomy ?? []).map(s => ({
+      name: s.boundary_join_name,
+      code: s.eci_code,
+    }));
     list.sort((a, b) => {
       if (a.code === home_state) return -1;
       if (b.code === home_state) return 1;

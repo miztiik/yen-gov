@@ -129,8 +129,9 @@ export interface DrillClick {
    *  breadcrumb glyph falls back to a generic dot). */
   feature?: BoundaryFeature | null;
   /** When the current level is `state`, this is the LGD code for the
-   *  clicked state (looked up from STATE_NAME_TO_ECI / its LGD inverse).
-   *  Required when advancing into district level for a specific state. */
+   *  clicked state (resolved via `view-models/states.ts` from the boundary
+   *  join name → ECI → LGD lookup). Required when advancing into district
+   *  level for a specific state. */
   stateLgd?: string;
 }
 

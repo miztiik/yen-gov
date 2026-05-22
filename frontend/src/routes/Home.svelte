@@ -6,7 +6,7 @@
   import { fetchIndicator } from "../lib/indicators";
   import IndiaMap from "../lib/maplibre/IndiaMap.svelte";
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
-  import { STATE_NAME_TO_ECI } from "../lib/maplibre/sources";
+  import { loadStates, type StateRow } from "../lib/view-models/states";
   import { url } from "../lib/url";
   import {
     defaultHomeTheme,
@@ -32,6 +32,10 @@
 
   let states = $state<StateEntry[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
+  // Currently-valid Indian states+UTs from taxonomy.entities. Loaded once
+  // for the fallback-codes Set the availability split uses when the
+  // catalogue hasn't loaded yet. Replaces STATE_NAME_TO_ECI per T.0e.
+  let states_taxonomy = $state<StateRow[] | null>(null);
   let error = $state<string | null>(null);
   // Map of indicator-artifact id → humanised title (from each indicator
   // JSON's own `indicator.title`). Populated lazily after the catalogue
@@ -48,6 +52,10 @@
 
   fetchStates()
     .then(s => (states = s.states))
+    .catch(e => (error = String(e)));
+
+  loadStates()
+    .then(s => (states_taxonomy = s))
     .catch(e => (error = String(e)));
 
   fetchTopicCatalogue()
@@ -121,14 +129,16 @@
   // Availability is decoupled from election-data presence (ADR-0022, P2.3 of
   // IA reset). When the catalogue has any national-scope indicator artifact,
   // every state in states.json has data — indicator artifacts cover all 35+
-  // entities. The election-only proxy (STATE_NAME_TO_ECI) remains a fallback
-  // for the bootstrap case where the catalogue hasn't loaded yet.
+  // entities. The taxonomy.entities-derived proxy remains a fallback for
+  // the bootstrap case where the catalogue hasn't loaded yet.
   const has_national_indicator = $derived(
     (catalogue?.topics ?? []).some(t =>
       t.artifacts.some(a => a.kind === "indicator" && (a.scope ?? "national") === "national"),
     ),
   );
-  const fallback_codes = new Set(Object.values(STATE_NAME_TO_ECI));
+  const fallback_codes = $derived(
+    new Set((states_taxonomy ?? []).map(s => s.eci_code)),
+  );
   const available = $derived(
     has_national_indicator
       ? (states ?? [])

@@ -24,7 +24,7 @@
     type IndicatorArtifact,
   } from "./indicators";
   import { axisUnitLabel, legendCaption } from "./indicator-render";
-  import { STATE_NAME_TO_ECI } from "./maplibre/sources";
+  import { loadStates, type StateRow } from "./view-models/states";
 
   interface Props {
     /** Path under DATA_BASE, e.g. "/indicators/in/energy/installed_mw_by_state.json". */
@@ -68,6 +68,13 @@
   let load_error = $state<string | null>(null);
   let selected_time = $state<string | null>(null);
   let show_all = $state(false);
+  // Currently-valid Indian states+UTs from taxonomy.entities. Iterated by
+  // the `rows` derived to build the per-state ranked table. Replaces
+  // STATE_NAME_TO_ECI per T.0e.
+  let states_taxonomy = $state<StateRow[] | null>(null);
+  loadStates()
+    .then(s => (states_taxonomy = s))
+    .catch(e => (load_error = String(e)));
   // Optional second state pinned for direct comparison. Null = no compare.
   // When set, it gets its own row pin (emerald) under the home-state row
   // and an inline gap-vs-home strip in the header.
@@ -91,8 +98,8 @@
       .catch(e => (load_error = String(e)));
   });
 
-  // ECI code -> state name lookup is implicit in STATE_NAME_TO_ECI; we
-  // iterate that map directly when building rows.
+  // ECI code -> state name lookup is read off `states_taxonomy`; we
+  // iterate it directly when building rows.
 
   const times = $derived(artifact ? uniqueTimes(artifact.rows) : []);
 
@@ -146,7 +153,9 @@
         ])
       : null;
     const all: Row[] = [];
-    for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
+    for (const s of states_taxonomy ?? []) {
+      const code = s.eci_code;
+      const name = s.boundary_join_name;
       if (member_set && !member_set.has(code)) continue;
       const v = values.get(code);
       const pin_idx = pin_index_by_code.has(code)
@@ -237,8 +246,9 @@
 
   // States offered in the picker: every state EXCEPT home, sorted by name.
   const compare_options = $derived(
-    Object.entries(STATE_NAME_TO_ECI)
-      .filter(([, code]) => code !== home_state)
+    (states_taxonomy ?? [])
+      .filter(s => s.eci_code !== home_state)
+      .map(s => [s.boundary_join_name, s.eci_code] as [string, string])
       .sort(([a], [b]) => a.localeCompare(b)),
   );
 </script>
