@@ -113,9 +113,10 @@ def emit_taxonomy(
       that originally seeded those rows were retired in T.0c-iii Phase D.3)
     - ``datasets/governments/dim_offices.parquet`` +
       ``datasets/governments/governments_office_holdings.parquet`` —
-      CM offices + 359 CM term holdings from per-state
-      ``datasets/governments/in/states/<S>/cm_terms.json`` files
-      (T.0a-ii). Also UPSERTs the 31 Wikipedia "List of CMs" citation
+      CM offices (read from entities.parquet office_bearer rows post
+      G.1.b reader-switch, 2026-05-22) + 359 CM term holdings from
+      per-state ``datasets/governments/in/states/<S>/cm_terms.json``
+      files. Also UPSERTs the 31 Wikipedia "List of CMs" citation
       rows into ``datasets/taxonomy/sources.parquet``.
 
     The facet-axes emit also runs automatically inside every canonical
@@ -190,12 +191,16 @@ def emit_taxonomy(
         f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/entities.parquet"
     )
 
-    # 6) cm_terms -> dim_offices + holdings; upserts wiki sources
+    # 6) cm_terms -> dim_offices + holdings; upserts wiki sources.
+    #    Post-G.1.b reader-switch (2026-05-22): office IDENTITY now reads
+    #    from entities.parquet office_bearer rows (lifted in G.1.a);
+    #    cm_terms.json continues to supply TENURE rows + citation. Step
+    #    5 must run before step 6 so entities.parquet is fresh.
     cm_terms_root = root / "datasets" / "governments" / "in" / "states"
     cm_files = sorted(cm_terms_root.glob("*/cm_terms.json"))
     office_count, holdings_count = _compile_cm_terms(
         cm_files,
-        taxonomy_dir / "entities.json",
+        taxonomy_dir / "entities.parquet",
         taxonomy_dir / "sources.parquet",
         governments_dir / "dim_offices.parquet",
         governments_dir / "governments_office_holdings.parquet",

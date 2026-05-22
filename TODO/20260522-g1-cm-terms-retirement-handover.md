@@ -1,6 +1,6 @@
 # 2026-05-22 — G.1 cm_terms.json retirement: 3-PR strangler-fig handover
 
-> **Status**: G.1.a SHIPPED (commit TBD on `feat/phase-2-preflight-g1a-office-bearer-entities`, PR #TBD). G.1.b + G.1.c open. PR2 (`feat/phase-2-preflight-t1-status-features-audit-g1-deferred`, merged as `8fb3e935` / PR #88) descoped G.1 retirement after discovering the original Gregor audit estimate ("Pure structural, sub-day, data already in Parquet") underestimated the work; this 3-PR strangler-fig executes the honest retirement.
+> **Status**: G.1.a SHIPPED (`ee441193` merge of `99952afd` on `feat/phase-2-preflight-g1a-office-bearer-entities`, PR #89). G.1.b SHIPPED (commit TBD on `feat/phase-2-preflight-g1b-cm-terms-reader-switch`, PR #TBD). G.1.c open. PR2 (`feat/phase-2-preflight-t1-status-features-audit-g1-deferred`, merged as `8fb3e935` / PR #88) descoped G.1 retirement after discovering the original Gregor audit estimate ("Pure structural, sub-day, data already in Parquet") underestimated the work; this 3-PR strangler-fig executes the honest retirement.
 
 ## TL;DR
 
@@ -8,8 +8,8 @@ Gregor's audit recommended G.1 (`datasets/governments/in/states/<S>/cm_terms.jso
 
 Honest retirement needs a 3-PR strangler-fig modelled on T.0c-iii (districts.json → entities.parquet):
 
-- **G.1.a — entity-lift** (THIS PR, in progress): append 31 `entity_type='office_bearer'` rows — ONE per state CM seat — to `datasets/taxonomy/entities.json`; regen `entities.parquet`. Each row's `entity_id` equals the existing `dim_offices.parquet.office_id` (e.g. `IN-S22-CM` for Tamil Nadu's CM seat). Both old (`cm_terms.json`) and new (`entities.parquet` office_bearer rows) coexist.
-- **G.1.b — reader-switch**: rewrite `cm_terms_seed.py` to resolve office identity from `entities.parquet` (filter `entity_type='office_bearer'`) instead of the `cm_terms.json` state field. The 359-row holdings fact table stays canonical and is unaffected by this PR. Old JSON stays on disk as fallback / cross-check for one PR cycle.
+- **G.1.a — entity-lift** (SHIPPED 2026-05-22, `ee441193` / PR #89): appended 31 `entity_type='office_bearer'` rows — ONE per state CM seat — to `datasets/taxonomy/entities.json`; regenerated `entities.parquet`. Each row's `entity_id` equals the existing `dim_offices.parquet.office_id` (e.g. `IN-S22-CM` for Tamil Nadu's CM seat). Both old (`cm_terms.json`) and new (`entities.parquet` office_bearer rows) coexist.
+- **G.1.b — reader-switch** (THIS PR, SHIPPED 2026-05-22): rewrote `cm_terms_seed.py::compile_to_parquet` to resolve office identity from `entities.parquet WHERE entity_type='office_bearer' AND entity_code='CM'` instead of computing it from `cm_terms.json` state codes inline. Tenure rows still come from `cm_terms.json`. Verified byte-identical Parquet outputs (`dim_offices.parquet`, `governments_office_holdings.parquet`, `sources.parquet`) pre- vs post-rewrite. Old JSON stays on disk as fallback / cross-check for one PR cycle.
 - **G.1.c — delete**: `git rm` the 31 JSON files + seed module + test + cli wiring + (if exists) `cm_terms.schema.json` + retire `datasets/governments/in/` empty dir.
 
 Each step is a separate Tier-A commit so any bisect point keeps the citizen surface working.
@@ -95,15 +95,23 @@ The T.0c-iii arc (district.json retirement) used exactly this shape: Phase A add
 - [ ] `python -m yen_gov validate --root .` clean (Tier-B).
 - [ ] Full `cd backend; python -m pytest -q` green.
 
-### G.1.b — reader-switch
+### G.1.b — reader-switch (THIS PR, SHIPPED 2026-05-22)
 
-- [ ] `cm_terms_seed.py::compile_to_parquet`: office identity (the 31 office_id values + display_name + parent state) is read from `entities.parquet` filter `entity_type='office_bearer'` instead of from `cm_terms.json` state field. Tenures continue to come from `cm_terms.json` (this PR doesn't change the source of tenure facts).
-- [ ] Parity oracle in `backend/tests/test_cm_terms_seed.py`: regenerate Parquet under both code paths (pre- and post-switch); assert byte-identical (or row-identical if column ordering differs).
-- [ ] `cli.py` `emit-taxonomy` docstring updated: office identity now comes from entities.parquet, tenures still from cm_terms.json glob.
-- [ ] `python -m yen_gov emit-taxonomy` runs clean; Parquet outputs byte-identical to pre-PR state.
-- [ ] `python -m yen_gov validate --root .` clean.
-- [ ] §13 browser smoke: `/s/tamil-nadu` shows "Your government" card correctly.
+- [x] `cm_terms_seed.py::compile_to_parquet`: office identity (the 31 office_id values + display_name + parent state) is read from `entities.parquet` filter `entity_type='office_bearer' AND entity_code='CM'` instead of from `cm_terms.json` state field. Tenures continue to come from `cm_terms.json` (this PR doesn't change the source of tenure facts).
+- [x] Helper `_load_office_bearer_identities()` keyed on `state_code` derived from `parent_entity_id` (`IN-S22` -> `S22`); generalises to DCM/GOV via the `role` parameter when those office_bearer rows land.
+- [x] Helper `_state_display_from_label()` recovers state display name from `"Chief Minister of <state>"` label — single source of truth for the inverse of G.1.a's label format.
+- [x] Function signature: `entities_json: Path` → `entities_parquet: Path`; CLI wiring (`backend/yen_gov/cli.py`) updated to pass `taxonomy_dir / "entities.parquet"`.
+- [x] Existing 4 tests in `test_cm_terms_seed.py` migrated to compile entities.json -> parquet via `entities_seed.compile_to_parquet` in the fixture (mirrors real production data flow). NEW test `test_missing_office_bearer_for_state_raises` asserts a cm_terms.json with no matching office_bearer entity fails loudly.
+- [x] Parity oracle in NEW `backend/tests/test_g1b_cm_terms_reader_switch_parity.py` (3 tests, Holy Law #7):
+      (a) every `dim_offices` row's identity columns (office_id, entity_id, role, label) equal the matching office_bearer entity;
+      (b) every holdings.office_id resolves to an office_bearer entity (no orphan tenures);
+      (c) row counts stable at 31 offices / 359 holdings.
+- [x] `python -m yen_gov emit-taxonomy --root .` runs clean; **Parquet outputs byte-identical** to pre-PR baseline (verified via SHA256 of all three outputs: `dim_offices.parquet`, `governments_office_holdings.parquet`, `sources.parquet`).
+- [x] `cli.py` `emit-taxonomy` docstring updated: office identity now comes from entities.parquet, tenures still from cm_terms.json glob; sequencing comment notes step 5 must run before step 6.
+- [ ] `python -m yen_gov validate --root .` clean (Tier-B).
+- [ ] Full `cd backend; python -m pytest -q` green.
 - [ ] JSON files stay on disk (next PR deletes them).
+- [ ] §13 browser smoke deferred to G.1.c (no citizen-surface behaviour changed in G.1.b; outputs byte-identical).
 
 ### G.1.c — delete
 
