@@ -1,6 +1,6 @@
 # CLAUDE.md — yen-gov Engineering Contract
 
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-22
 
 This file is the non-negotiable contract for any human or AI agent working in this repository. The full standard it derives from lives in [docs/reference/documentation-structure.md](docs/reference/documentation-structure.md). When the two disagree, **this file wins for yen-gov**; the standard is generic.
 
@@ -90,6 +90,11 @@ Create each "not yet" folder only when real code is about to land in it. Empty s
 - Maximum depth: `docs/<tier>/<topic>/<file>.md`. No deeper.
 - Every doc has: H1 title, `Last Updated: YYYY-MM-DD`, "See also" cross-links.
 - One concept defined once; everywhere else links to it.
+- **Doc-class routing contract** (per [ADR-0034](docs/architecture/decisions/0034-documentation-routing-contract.md)) — every architectural statement has exactly one valid home:
+  - **ADR** (`docs/architecture/decisions/NNNN-*.md`) — one decision + rejected alternatives + reversal cost. Immutable once Accepted (only the Status field changes).
+  - **Subsystem doc** (`docs/architecture/<area>/*.md`) — current shape / disk layout / contracts / invariants. **Cites ADRs for rationale; never restates them.** Living snapshot, edit in place.
+  - **Concept doc** (`docs/concepts/*.md`) — one vocabulary term, defined once. Linked from everywhere else, never duplicated.
+  - **Plan-doc** (`TODO/<date>-<slug>.md`) — phase status + active PRs + TBD. **Cites both ADR and subsystem doc; carries no rationale.** **Single-snapshot header rule**: the header block is rewritten in place at every phase boundary; stacked "previous header" layers are a band-aid for missing snapshot semantics and forbidden by Holy Law #5 (no band-aids). History lives in `git blame` and merge-commit titles, not in the doc body.
 - Agent memory is derived, not authoritative. Per-module `AGENTS.md` files and `/memories/repo/` are fast-entry indexes that point back to canonical docs; if they disagree with `docs/`, the docs win and the derived memory gets updated or deleted.
 - Personas (Citizen, Hans, Max, Gregor, Fowler, Jony) live as canonical docs under `docs/agents/` with thin wrappers in `.claude/skills/bootstrap/` and `.github/agents/`. Every persona loads [`docs/agents/bootstrap.md`](docs/agents/bootstrap.md) before answering. New citizen-facing features **follow** the seven-step procedure in [`docs/how-to/distill.md`](docs/how-to/distill.md) — it is a runbook, not an automated skill; the seven persona handoffs are driven manually (or by a future orchestrator under `tools/`), not by the harness. Doctrine: [`docs/concepts/citizen-first.md`](docs/concepts/citizen-first.md).
 - Docs-only PRs are a code smell — they mean a previous PR shipped without its docs.

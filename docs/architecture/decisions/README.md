@@ -1,14 +1,14 @@
 # Architecture Decision Records (ADRs)
 
-**Last Updated**: 2026-05-18
+**Last Updated**: 2026-05-22
 
 This directory holds the **few** decisions that earn an immutable, append-only record of their own:
 
 > An ADR is appropriate **only** when a decision (a) has a credible rejected alternative with non-trivial reversal cost, AND (b) is genuinely cross-cutting — no single subsystem doc is its natural home.
 
-Everything else lives next to the thing it describes. Per CLAUDE.md Holy Law #4, design rationale is documented in the same commit as the code change — but the *home* for that rationale is the relevant subsystem doc under `docs/architecture/<area>/`, not a separate decisions register. This keeps the system map and the rationale that justifies it on the same page, instead of forcing readers to chase numbered cross-references through a parallel filing cabinet.
+The **doc-class routing contract** governing which architectural statements go into ADRs vs subsystem docs vs concept docs vs plan-docs is itself an ADR: see [ADR-0034](0034-documentation-routing-contract.md). That routing rule is also restated in CLAUDE.md §5 (the engineering contract) and `docs/reference/documentation-structure.md §7.6` (the generic standard).
 
-By that bar, today only two decisions live here. Both are repository-wide policy that no single subsystem owns.
+Everything else lives next to the thing it describes. Per CLAUDE.md Holy Law #4, design rationale is documented in the same commit as the code change — but the *home* for that rationale is the relevant subsystem doc under `docs/architecture/<area>/`, not a separate decisions register. This keeps the system map and the rationale that justifies it on the same page, instead of forcing readers to chase numbered cross-references through a parallel filing cabinet.
 
 ## Format
 
@@ -31,6 +31,11 @@ Keep ADRs short. They are immutable once accepted; a later ADR supersedes (and t
 | [0002](0002-provenance-as-sources-list.md) | Provenance as a list of `{url, fetched_at}` entries | **superseded by [0030](0030-canonical-store-duckdb-wasm.md)** |
 | [0003](0003-no-fetch-cache.md) | No HTTP cache layer; intermediates live in `.runtime/raw/` | accepted |
 | [0021](0021-no-implementation-disclosure-on-public-pages.md) | No implementation or security-boundary disclosure on public pages | accepted |
+| [0030](0030-canonical-store-duckdb-wasm.md) | Canonical Parquet store read by DuckDB-WASM | accepted |
+| [0031](0031-boundaries-as-sibling-family.md) | Boundary geometry as sibling family outside canonical store | accepted |
+| [0032](0032-sources-citation-ledger.md) | Sources as citation ledger keyed on `(producer, title, vintage)` | accepted |
+| [0033](0033-retire-wikipedia-districts-adapter.md) | Retire the Wikipedia districts adapter entirely | accepted |
+| [0034](0034-documentation-routing-contract.md) | Documentation routing contract (four doc classes) | accepted |
 
 ## Absorbed ADRs (2026-05-09)
 
