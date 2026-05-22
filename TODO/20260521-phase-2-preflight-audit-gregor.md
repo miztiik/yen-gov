@@ -112,25 +112,55 @@ Plan already says this. Disk doesn't yet reflect it. **That gap is the audit.**
 - a11y — descoped per CLAUDE.md §0 non-goals.
 - What the JSON tree should look like *after* P.\* ships — Hans + Max territory (§0a authority), not Gregor.
 
-## Recommended sequencing (Gregor's call)
+## Recommended sequencing (Gregor's call) — Phase-2 pre-flight ✅ CLOSED 2026-05-22
 
-Path B (Phase 2 pre-flight cleanup) BEFORE Path C (Phase 2 P.\* NFHS-5 family). Specifically the sub-pieces in this order:
+Path B (Phase 2 pre-flight cleanup) BEFORE Path C (Phase 2 P.\* NFHS-5 family). All seven steps done; Phase 2 ground is clean.
 
 1. **Forbid new shards under `datasets/indicators/in/` (#1 partial)** — ✅ shipped commit `8de71a4a`, PR #87.
-2. **T.1 status reconciliation + features-KEEP + G.1 handover (#5 descope)** — ⏳ PR2 in-flight. T.1 ✅ shipped commit `76bc5fde`; features ✅ KEEP; G.1 deferred to G.1.a/b/c.
-3. **G.1.a — entity-lift** — append office_bearer entities to `taxonomy/entities.json`. ~80 LOC + parity test.
-4. **G.1.b — reader-switch** — switch `cm_terms_seed.py` reader to entities.parquet. ~100 LOC + parity oracle.
-5. **G.1.c — delete** — `git rm` 31 cm_terms.json + seed module + tests + cli wiring. ~50 LOC + ~500 lines deletion.
-6. **`core/io.py` legacy namespace move (#6)** — refactor only, no functional change. One Tier-A pair.
-7. **Then Phase 2 NFHS-5 P.* sub-PR** — first family pivot. Multi-day arc; crosses backend + frontend + Pydantic + schema + browser smoke.
+2. **T.1 status reconciliation + features-KEEP + G.1 handover (#5 descope)** — ✅ shipped commit `8fb3e935`, PR #88. T.1 ✅ shipped commit `76bc5fde`; features ✅ KEEP; G.1 deferred to G.1.a/b/c.
+3. **G.1.a — entity-lift** — ✅ shipped commit `ee441193`, PR #89. 31 `entity_type='office_bearer'` rows appended to `taxonomy/entities.json`; `entity.schema.json` v1.1 → v1.2; Tier-A parity oracle pins `dim_offices.office_id == entities.entity_id[entity_type='office_bearer']`.
+4. **G.1.b — reader-switch** — ✅ shipped commit `cc9ad5b7`, PR #90. `cm_terms_seed.py` reads office identity from `entities.parquet` instead of computing from JSON state codes inline; Parquet outputs verified byte-identical pre-vs-post; new Tier-A parity oracle `test_g1b_cm_terms_reader_switch_parity.py`.
+5. **G.1.c — consolidate + retire** — ✅ shipped commit `36e64c87`, PR #91. 31 per-state `cm_terms.json` → 1 `datasets/taxonomy/office_holdings.json` (359 holdings + 31 office_citations); `office-holdings.schema.json` v1.0; `office_holdings_seed.py` replaces `cm_terms_seed.py`; frontend `governments.ts` rewritten with in-loader adapter back to legacy `GovernmentTerm` shape; `git rm` of 31 JSON + `cm_terms_seed.py` + `test_cm_terms_seed.py` + `state_government.schema.json` + `tools/author_cm_terms.py` + `tools/lift_cm_offices_to_entities.py`; byte-identical Parquet verified 3rd time.
+6. **`core/io.py` legacy namespace move (#6)** — ✅ shipped inline with T.1 in commit `76bc5fde` (`refactor(T.1+legacy): rename _test/ -> _ops/, lift fixtures cross-language, extract folded-indicator writer to yen_gov.legacy`). `backend/yen_gov/legacy/folded_indicator_writer.py` exists with module docstring naming the final P.* PR that deletes it; `core/io.py:34-40` imports `is_indicator_schema`, `maintain_folded_blocks`, `strip_operational` from the legacy namespace. The audit's separate PR3 spec was rolled into T.1 since both were structural pre-Phase-2 hygiene.
+7. **Then Phase 2 NFHS-5 P.* sub-PR** — ⏳ NEXT. First family pivot. Multi-day arc; crosses backend + frontend + Pydantic + schema + browser smoke. Planning doc: [`TODO/20260522-phase-2-p1-nfhs-5-planning.md`](20260522-phase-2-p1-nfhs-5-planning.md).
 
-Boundaries consolidation (#4) is orthogonal — fits anywhere in Phase 2, treat as a fifth P.* family.
+Boundaries consolidation (#4) is orthogonal — fits anywhere in Phase 2, treat as a fifth P.* family. Defer until first 1–2 indicator P.* sub-PRs ship and the pattern is locked.
 
-## Open questions for user (architect can't decide unilaterally)
+## Deferrals & open decisions (consolidated 2026-05-22, post pre-flight)
 
-1. **Operator-state file shape post-Phase-2:** when `datasets/indicators/in/` retires, where do `frozen` / `refetch_requested` / `unavailable_periods` live? Options: (a) `taxonomy/operator_state.parquet` table keyed on `indicator_id`, (b) columns on `taxonomy/indicators.parquet`, (c) hand-edited sidecar at `datasets/_ops/indicators-operator-state.json` (per T.1). Hans + Max call.
-2. **Completeness index post-Phase-2:** `indicators-completeness.json` becomes a SQL query against observations + sources at read time, or stays as a pre-rolled JSON? Performance vs operator-feedback-loop tradeoff.
-3. **`id_aliases` window length:** Gregor recommends ONE release. User direction needed on what "release" means in yen-gov's tag scheme.
+The pre-flight sequence is closed, but five categories of work / decisions were intentionally deferred. They are listed here so future agents/operators don't re-discover them.
+
+### A. Open questions for user (need a human decision before they unblock work)
+
+1. **Operator-state file shape post-Phase-2:** when `datasets/indicators/in/` retires, where do `frozen` / `refetch_requested` / `unavailable_periods` live? Options: (a) `taxonomy/operator_state.parquet` table keyed on `indicator_id`, (b) columns on `taxonomy/indicators.parquet`, (c) hand-edited sidecar at `datasets/_ops/indicators-operator-state.json` (per T.1). **Authority**: Hans + Max (per CLAUDE.md §0a — data shape). **Blocks**: not blocking P.1 (NFHS-5 can land observation rows without operator-state on day one); blocks the FINAL P.\* PR that deletes `datasets/indicators/in/` entirely (at that point the operator state must already live elsewhere).
+2. **Completeness index post-Phase-2:** `indicators-completeness.json` becomes a SQL query against observations + sources at read time, or stays as a pre-rolled JSON? Performance vs operator-feedback-loop tradeoff. **Authority**: Jony + Citizen (UX of `/data-completeness` page). **Blocks**: same as #1 — final P.\* PR.
+3. **`id_aliases` window length:** Gregor recommends ONE release. User direction needed on what "release" means in yen-gov's tag scheme. **Authority**: Fowler (refactor safety) + user. **Blocks**: T.3 (indicator catalogue widen). Not blocking P.1 because P.1 IS the first family pivot — no aliases to honour yet.
+4. **TCPD license confirmation (CC-BY-NC-SA 4.0):** Hans must confirm before S.1 ships. **Authority**: Hans + user. **Blocks**: S.1 (persons fork). Not blocking P.1.
+
+### B. Scheduled-but-deferred work (no decision needed; runs after gating step)
+
+5. **Boundaries-as-fifth-P.\*-family (#4 in this audit)** — consolidate 33 per-village `S22-villages-NNN.geojson` + 99 sidecars into PMTiles + citation ledger rows. Treat as a P.\* family alongside the 10 indicator families. **Schedule**: defer until first 1–2 indicator P.\* sub-PRs ship and the pattern is locked. **Authority**: Gregor (codec choice) + Max (citation rows). Owner: TBD when scheduled.
+6. **Schema-version literal freeze on `indicator.schema.json`** (#7 in this audit) — no minor bumps between now and P.\* completion; new optional fields land on `taxonomy/indicators.parquet` row schema instead, where `schema_registry` guarantees propagation. **Lift freeze**: when the last P.\* PR retires the JSON tree. **Owner**: enforced by convention (no Tier-B check); every P.\* PR review must reject `indicator.schema.json` bumps.
+7. **Final retirement of `backend/yen_gov/legacy/folded_indicator_writer.py`** — delete in the same Tier-A commit as the last P.\* PR (when the last `datasets/indicators/in/<topic>/<id>.json` shard is `git rm`'d). The module docstring already names this gate. **Owner**: whoever owns the last P.\* PR.
+8. **`_OPERATIONAL_STRIP_PATHS` retirement** (#2 in this audit) — retires with the first family pivot (NFHS-5 P.1) per ADR-0032 §6 note. Add the §6 ADR amendment text in P.1's Tier-A pair. **Owner**: P.1 PR.
+
+### C. Documentation cleanup (low-priority, post-merge tidy)
+
+9. **`TODO/20260522-g1-cm-terms-retirement-handover.md`** — handover doc is now history (G.1.a/b/c all shipped). Parallel to T.0c handover cleanup pattern from 2026-05-21 lesson. **Action**: `git rm` in a docs-tidy PR alongside a future cleanup batch (NOT urgent). **Note**: leave in place for one release cycle as a citizen-reference for the strangler-fig pattern.
+10. **`backend/tests/test_g1b_cm_terms_reader_switch_parity.py`** — Tier-A parity oracle from G.1.b stays as a back-stop for any future change to office identity resolution. **Action**: keep until the next reader-contract change to `office_holdings_seed.py`; retire then.
+
+### D. Items SANITY-CHECKED as already correct (do not re-litigate)
+
+- `taxonomy/sources.parquet` v2.0 citation-ledger shape is correct for indicator observations; no migration needed.
+- 4-arm `LoaderResult` contract correctly applied in elections view-models.
+- Frontend manifest-driven Hive globbing for elections is correct.
+- §0c boundaries preservation carve-out from §6 / §7 sweeps is correct as a prevent-accidental-deletion rule (boundaries has its own *codec*, PMTiles vs Parquet, not its own forever contract).
+- Phase 1 elections work (1.8a–f) is honestly DONE per on-disk audit.
+
+### E. NOT in scope for this audit (escalate separately if surfaced)
+
+- `datasets/ephemeral/` raw `.pdf` / `.xls` / `.csv` files — per CLAUDE.md §2 + §10 arguably should live in `.runtime/`, but moving committed bytes out of repo is a separate decision ("commit IS the backup" semantics elsewhere). Not architecture.
+- What the JSON tree should look like *after* P.\* ships — Hans + Max territory; design happens INSIDE each P.\* PR, not in this audit doc.
 
 ## What was sanity-checked as already correct
 
@@ -154,7 +184,7 @@ Each pair includes the doctrine / doc updates that close the §0d "deferred read
 - Allowlist `datasets/_ops/legacy-folded-indicator-shards.txt` seeded with the current 110 legacy shards (sorted, POSIX paths, `#`-comment header).
 - Final shape: ~70 LOC validator + ~140 LOC tests + 110-line allowlist + ~30 LOC docs.
 
-### PR2 — `feat/phase-2-preflight-t1-status-features-audit-g1-deferred` — ⏳ in-flight
+### PR2 — `feat/phase-2-preflight-t1-status-features-audit-g1-deferred` — ✅ done (commit `8fb3e935`, PR #88, merged 2026-05-22)
 - Reconcile audit body T.1 status (was "not shipped" → now "✅ done commit `76bc5fde`").
 - Features audit: KEEP decision documented in new [`datasets/features/README.md`](../datasets/features/README.md) (sole writer = india-geodata adapter; sole reader = energy-hub map; geometry has no Parquet analytical path).
 - Update [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md) §2b.3 features row to "KEEP".
@@ -162,35 +192,38 @@ Each pair includes the doctrine / doc updates that close the §0d "deferred read
 - Insert G.1.a/b/c rows in §"Recommended sequencing" between PR3 and Phase 2.
 - Final shape: ~30 LOC features README + ~150 LOC G.1 handover + ~50 LOC audit-doc edits = ~230 lines.
 
-### PR2.5 (was G.1) — `feat/phase-2-preflight-g1a-office-bearer-entities` — queued
-- Append 359 `entity_type='office_bearer'` rows to `datasets/taxonomy/entities.json` (one per CM term).
-- Regen `taxonomy/entities.parquet`.
+### PR2.5 (G.1.a) — `feat/phase-2-preflight-g1a-office-bearer-entities` — ✅ done (commit `ee441193`, PR #89, merged 2026-05-22)
+- Appended 31 `entity_type='office_bearer'` rows (one per state CM seat — NOT 359; reality-correction in handover doc) to `datasets/taxonomy/entities.json`.
+- Regenerated `taxonomy/entities.parquet` (185 → 216 rows).
+- `entity.schema.json` v1.1 → v1.2 (extended `entity_type` enum to include `office_bearer`).
 - Both old (cm_terms.json) and new (entities.parquet office_bearer rows) coexist.
-- Parity test: every (state, term_start, cm_name) tuple in JSON appears as office_bearer in entities.
+- Tier-A parity oracle pins `dim_offices.office_id == entities.entity_id[entity_type='office_bearer']`.
 
-### PR2.6 — `feat/phase-2-preflight-g1b-cm-terms-reader-switch` — queued
-- Rewrite `backend/yen_gov/canonical/cm_terms_seed.py` to read office_bearer rows from `entities.parquet` instead of glob `cm_terms.json`.
-- Keep JSON on disk for one PR cycle as fallback / cross-check.
+### PR2.6 (G.1.b) — `feat/phase-2-preflight-g1b-cm-terms-reader-switch` — ✅ done (commit `cc9ad5b7`, PR #90, merged 2026-05-22)
+- Rewrote `backend/yen_gov/canonical/cm_terms_seed.py` to resolve office identity from `entities.parquet WHERE entity_type='office_bearer' AND entity_code='CM'` instead of computing it from `cm_terms.json` state codes inline.
+- Verified byte-identical Parquet outputs (`dim_offices.parquet`, `governments_office_holdings.parquet`, `sources.parquet`) pre- vs post-rewrite.
+- New Tier-A parity oracle `backend/tests/test_g1b_cm_terms_reader_switch_parity.py`.
+- JSON files stayed on disk as fallback / cross-check for one PR cycle (deleted in G.1.c).
 
-### PR2.7 — `feat/phase-2-preflight-g1c-delete-cm-terms-json` — queued
-- `git rm datasets/governments/in/states/**/cm_terms.json`.
-- `git rm datasets/governments/in/` (empty dir).
-- `git rm backend/yen_gov/canonical/cm_terms_seed.py` (no longer needed once entities is the source).
-- `git rm backend/tests/test_cm_terms_seed.py`.
-- `git rm datasets/schemas/cm-terms.schema.json` (if exists).
-- Update `cli.py` to drop `cm_files` glob block.
-- Update §2b.3 to past-tense.
+### PR2.7 (G.1.c) — `feat/phase-2-preflight-g1c-office-holdings-consolidation` — ✅ done (commit `36e64c87`, PR #91, merged 2026-05-22)
+- **Option B chosen** after Hans + Fowler + Max 3-persona review (not the originally-spec'd JSON-tree delete). Consolidated 31 per-state `cm_terms.json` into ONE long-form `datasets/taxonomy/office_holdings.json` (359 holdings + 31 office_citations).
+- NEW `datasets/schemas/office-holdings.schema.json` v1.0.
+- NEW `backend/yen_gov/canonical/office_holdings_seed.py` (~430 LOC, replaces `cm_terms_seed.py`).
+- NEW `backend/tests/test_office_holdings_seed.py` (6 Tier-A tests).
+- Frontend `frontend/src/lib/governments.ts` rewritten with in-loader field-name adapter back to the legacy `GovernmentTerm` shape (Svelte components unchanged).
+- `git rm` of 31 JSON + `cm_terms_seed.py` + `test_cm_terms_seed.py` + `state_government.schema.json` + `tools/author_cm_terms.py` + `tools/lift_cm_offices_to_entities.py` + `datasets/governments/in/states/` + `datasets/governments/in/`.
+- 8 docs past-tense'd; `cli.py` step 6 wiring swapped.
+- Byte-identical Parquet verified 3rd time.
 
-### PR3 — `refactor/phase-2-preflight-io-legacy-namespace`
-- Create `backend/yen_gov/legacy/__init__.py`
-- Move `_maintain_folded_blocks` + `_is_indicator_schema` + `_OPERATIONAL_STRIP_PATHS` to `backend/yen_gov/legacy/folded_indicator_writer.py`
-- Module docstring names the P.* PR that will delete it
-- Update all import sites
-- Add §16 row to plan
-- Refactor-only, no functional change
-- ~200 LOC of import-site moves
+### PR3 — `refactor/phase-2-preflight-io-legacy-namespace` — ✅ done (rolled into T.1 commit `76bc5fde`, merged earlier)
+- The audit specified PR3 as a separate step, but `backend/yen_gov/legacy/folded_indicator_writer.py` was already extracted in commit `76bc5fde` (T.1 commit message: `refactor(T.1+legacy): rename _test/ -> _ops/, lift fixtures cross-language, extract folded-indicator writer to yen_gov.legacy`). T.1 absorbed PR3 because both were structural pre-Phase-2 hygiene with overlapping import-site moves.
+- On-disk verification (2026-05-22):
+  - `backend/yen_gov/legacy/__init__.py` exists with namespace docstring naming the gating P.\* retirement.
+  - `backend/yen_gov/legacy/folded_indicator_writer.py` exists with `OPERATIONAL_STRIP_PATHS`, `is_indicator_schema`, `maintain_folded_blocks`, `strip_operational`, `_stub_methodology`, `_stub_series_spec` all moved.
+  - `backend/yen_gov/core/io.py:34-40` imports from `yen_gov.legacy.folded_indicator_writer` (aliased with leading underscore to match prior internal naming).
+- §16 plan row updated in T.1 commit.
 
-After these three, Phase 2 P.* NFHS-5 starts on clean ground.
+After all three, Phase 2 P.\* NFHS-5 starts on clean ground. **All steps DONE as of 2026-05-22.**
 
 ## Cross-references
 
