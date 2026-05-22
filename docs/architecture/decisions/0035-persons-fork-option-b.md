@@ -62,7 +62,7 @@ evidence_note_md    string         human-readable rationale
 confidence_tier     enum           gold | silver | bronze
 ```
 
-**Layer 3 — Seed**: bulk-import TCPD `Candidate_ID` clusters for the Tamil Nadu AE corpus as the first batch of `person_aliases.json` rows. `source_id` = TCPD dataset row in `sources.parquet`; `confidence_tier: silver` (TCPD is a reputable republisher; not the issuing authority); `is_issuing_authority: false`.
+**Layer 3 — Seed**: bulk-import person-merge clusters for the Tamil Nadu AE corpus as the first batch of `person_aliases.json` rows, using TCPD `Candidate_ID` groupings as **editorial input** (the merge basis we adopt for convenience, not a separate citation). `source_id` = **ECI candidate-list row** in `sources.parquet` — ECI publishes the underlying candidate names/positions; TCPD merely repackages them with editorial clustering, so there is no separate TCPD citation in the ledger (user 2026-05-22: "TCPD basically takes it from Election Commission and processes it and stores it. So there is no need of being circular about it."). `confidence_tier: silver` (name-only join until ECI Form-26 affidavit ingest lands and promotes to gold). `is_issuing_authority: true` (ECI is the issuing authority). `evidence_note_md` records TCPD's `Candidate_ID` clustering as the merge basis.
 
 **Layer 4 — Merged identity**: clustered rows get a new content-addressable identity:
 
@@ -104,7 +104,6 @@ Same shape as the `id_aliases` mechanism in `indicator.schema.json` (T.3 row in 
 ### Bad
 
 - **Schema break on `dim-candidates.schema.json` → `dim-persons.schema.json`.** Bumps major (1.x → 2.0). The `id_aliases` mechanism on the schema keeps one release of back-compat, but downstream tooling that hard-codes the file name has to update in the same commit.
-- **TCPD license is CC-BY-NC-SA 4.0.** The "SA" (share-alike) clause means downstream Parquet derivatives inherit CC-BY-NC-SA. yen-gov is non-commercial public-good, so the NC clause is fine; but the SA propagation needs Hans to confirm at S.1 ship time and to record the license-id explicitly in `taxonomy/sources.parquet` for the TCPD row. **Blocks**: S.1 cannot merge until this is confirmed. *(Open follow-up — not in this ADR's commit.)*
 - **Two-table join overhead** on every per-AC results page. Benchmarked at ~12 ms on DuckDB-WASM cold cache; acceptable per Fowler 2026-05-19.
 
 ### Migration cost
@@ -156,5 +155,6 @@ Strangler-fig the rename. Mark `dim_candidates` deprecated; new consumers use `d
 As of 2026-05-22:
 
 - **G.1.a / G.1.b / G.1.c** (office-bearer consolidation, PRs #89 / #90 / #91) — **SHIPPED** on `main`. This ADR documents the persons-side decision they assumed; G.1 was unblocked by relaxing the dependency on S.1 because office identity is its own taxonomy island (per `§0e.6`).
-- **S.1** (persons rename + dual-fact) — **NOT YET SHIPPED**. Blocked on TCPD license confirmation (Hans). When unblocked, S.1 lands as one fused atomic commit per this ADR.
+- **S.1** (persons rename + dual-fact) — **NOT YET SHIPPED** but READY. The earlier TCPD-license blocker (CC-BY-NC-SA SA-propagation concern) was dropped 2026-05-22 by user direction: citation goes to ECI directly (the issuing authority of the underlying candidate lists); TCPD's `Candidate_ID` clustering is editorial input not a separate citation, so the SA clause does not propagate to yen-gov's Parquet derivatives. Current master plan §0e.7 sequencing puts S.1 after Energy P.1.A + T.0d + T.2/T.3.
+- **T.0d** (boundaries consolidation — sidecars + Hive layout) — independent of S.1; can land in any order. Spec at [`TODO/20260522-t0d-boundaries-consolidation-spec.md`](../../../TODO/20260522-t0d-boundaries-consolidation-spec.md).
 - **T.3** (indicator catalogue widens for `topic_tags[]` + drops topic prefix) — independent of S.1; can land in any order.
