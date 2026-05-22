@@ -265,10 +265,23 @@ def compile_to_parquet(
     follow-up once their codes are looked up. Deterministic sort
     ``(entity_type, entity_id)`` so re-runs produce byte-identical
     output.
+
+    Dedup contract (T.0c-iii Phase A, 2026-05-22): once a district's
+    ``entity_id`` (``IN-<state>-D<lgd_code>``) is present in
+    ``entities.json`` (the citizen-canonical hand-authored row source),
+    the districts.json projection for the same id is SKIPPED. The
+    entities.json row wins. This makes ``districts.json`` a
+    deprecated-but-tolerated input while T.0c-iii Phase B (frontend
+    consumer audit) and Phase C (file deletion) land. Once the per-state
+    districts.json files are ``git rm``-ed, this loop becomes a no-op
+    and the function reduces to a pass-through of ``_load_base_entities``.
+    Refs: TODO/20260517-canonical-long-format-pivot.md §0e.10.4 row 318;
+    TODO/20260521-phase-2-preflight-audit-gregor.md #5.
     """
     parquet_out = Path(parquet_out)
     base = _load_base_entities(Path(entities_json))
     by_id: dict[str, int] = {e.entity_id: e.entity_valid_from for e in base}
+    existing_ids: set[str] = set(by_id.keys())
 
     rows: list[_BaseEntity] = list(base)
     for state_code, district in _load_districts_files(district_files):
@@ -285,7 +298,12 @@ def compile_to_parquet(
                 f"districts.json for {state_code} references unknown parent "
                 f"entity {parent_id!r}; add the state to entities.json first"
             )
-        rows.append(_district_to_entity(state_code, district, parent_from))
+        entity = _district_to_entity(state_code, district, parent_from)
+        if entity.entity_id in existing_ids:
+            # entities.json wins; districts.json is the deprecated
+            # mirror during the T.0c-iii Phase B/C rollout window.
+            continue
+        rows.append(entity)
 
     # Cross-row uniqueness: entity_id is PK
     seen: set[str] = set()
