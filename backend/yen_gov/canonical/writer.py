@@ -83,8 +83,70 @@ FAMILY_FACT_TABLE_STEM: dict[str, str] = {
 }
 
 
-def _fact_table_stem(family: str) -> str:
+# Multi-stem-per-family registry. A family that needs MORE than one
+# fact-table parquet (one per topical slice) registers all permitted
+# stems here, and adapters pass the chosen stem via
+# ``BatchEnvelope.target_table_stem`` (which the writer validates against
+# this list). Single-stem families need not appear here; the writer
+# falls back to the default stem from ``FAMILY_FACT_TABLE_STEM``.
+#
+# Plan-doc TODO row 0e.7 P.1.A introduces the energy family with 4
+# topical slices, keeping each table in the ~150 KB-3 MB range so
+# DuckDB-WASM range queries stay selective on the static Pages host and
+# the parquet files browse cleanly in the GitHub repo. A 5th planned
+# stem (``energy_fuel_consumption``) is reserved for P.1.C; it appears
+# here pre-emptively so the contract is stable when P.1.C lifts.
+#
+# Adding a family is purely additive — append one row of permitted
+# stems. Removing a stem from this list is a Holy-Law-#5 structural
+# change (any adapter or test referencing it must rename in the same
+# commit).
+FAMILY_FACT_TABLE_STEMS: dict[str, list[str]] = {
+    "energy": [
+        "energy_installed_capacity",
+        "energy_generation",
+        "energy_demand_supply",
+        "energy_distribution_performance",
+        "energy_fuel_consumption",
+    ],
+}
+
+
+def _fact_table_stem(family: str, override: str | None = None) -> str:
+    """Pick the fact-table parquet stem for ``family``.
+
+    When ``override`` is provided (from ``BatchEnvelope.target_table_stem``)
+    the writer routes to that stem after verifying it appears in
+    ``FAMILY_FACT_TABLE_STEMS[family]``; an unregistered override raises
+    ``WriterError`` so a typo cannot silently spawn a rogue parquet.
+
+    When ``override`` is None, the writer returns the family's registered
+    default from ``FAMILY_FACT_TABLE_STEM`` (or the literal
+    ``"observations"`` for families with no entry there yet).
+    """
+    if override is not None:
+        permitted = FAMILY_FACT_TABLE_STEMS.get(family, [])
+        if override not in permitted:
+            raise WriterError(
+                f"target_table_stem={override!r} is not registered for "
+                f"family={family!r}; permitted stems = {permitted!r}. "
+                f"Add the stem to FAMILY_FACT_TABLE_STEMS or correct the adapter."
+            )
+        return override
     return FAMILY_FACT_TABLE_STEM.get(family, "observations")
+
+
+def _fact_table_stems_all(family: str) -> list[str]:
+    """Enumerate every fact-table stem the family may have on disk.
+
+    Multi-stem families return their full registered list; single-stem
+    families return a singleton of the default. Used by
+    ``_regenerate_manifest`` so a non-partitioned family with N stems
+    emits N manifest entries instead of just one.
+    """
+    if family in FAMILY_FACT_TABLE_STEMS:
+        return list(FAMILY_FACT_TABLE_STEMS[family])
+    return [_fact_table_stem(family)]
 
 
 # Per-family Hive partitioning of the fact-table parquet. When a family
@@ -202,7 +264,7 @@ def write_batch(envelope: BatchEnvelope, datasets_root: Path) -> WriteResult:
     family_dir.mkdir(parents=True, exist_ok=True)
     taxonomy_dir.mkdir(parents=True, exist_ok=True)
 
-    observations_path = family_dir / f"{_fact_table_stem(envelope.target_family)}.parquet"
+    observations_path = family_dir / f"{_fact_table_stem(envelope.target_family, envelope.target_table_stem)}.parquet"
     sources_path = taxonomy_dir / "sources.parquet"
 
     con = duckdb.connect(":memory:")
@@ -937,16 +999,21 @@ def _regenerate_manifest(datasets_root: Path) -> Path:
                 row_schema_file="observation.schema.json",
             ))
             continue
-        fact_path = family_dir / f"{stem}.parquet"
-        if not fact_path.is_file():
-            continue
-        tables.append(_describe_parquet_table(
-            datasets_root=datasets_root,
-            parquet_path=fact_path,
-            table_id=f"{family}.{stem}",
-            family=family,
-            row_schema_file="observation.schema.json",
-        ))
+        # Non-partitioned: a family may have ONE or MANY fact-table
+        # parquets (per ``FAMILY_FACT_TABLE_STEMS``). Emit one manifest
+        # entry per stem-on-disk; absent stems (e.g. ``energy_fuel_consumption``
+        # before P.1.C lifts) are silently skipped.
+        for one_stem in _fact_table_stems_all(family):
+            fact_path = family_dir / f"{one_stem}.parquet"
+            if not fact_path.is_file():
+                continue
+            tables.append(_describe_parquet_table(
+                datasets_root=datasets_root,
+                parquet_path=fact_path,
+                table_id=f"{family}.{one_stem}",
+                family=family,
+                row_schema_file="observation.schema.json",
+            ))
 
     # Dimension siblings: datasets/<family>/dim_*.parquet
     for parquet_path in sorted(datasets_root.glob("*/dim_*.parquet")):
@@ -1098,11 +1165,13 @@ def _classify_kind(parquet_path: Path, family: str) -> str:
     parquet whose stem matches the registered fact-table stem for its
     family is classified ``observations`` regardless of the literal filename
     (e.g. ``elections/election_results.parquet`` → ``observations``).
+    Multi-stem families (``FAMILY_FACT_TABLE_STEMS``, e.g. ``energy``)
+    classify every registered stem as ``observations``.
     """
     if family == "taxonomy":
         return "taxonomy"
     stem = parquet_path.stem
-    if stem == _fact_table_stem(family):
+    if stem in _fact_table_stems_all(family):
         return "observations"
     if stem.startswith("dim_"):
         return "dim"

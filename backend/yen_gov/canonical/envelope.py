@@ -234,6 +234,21 @@ class BatchEnvelope(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     target_family: str = Field(pattern=r"^[a-z][a-z0-9_]*$")
+    # Optional fact-table-stem override. When omitted, the writer picks the
+    # default stem registered for the family in
+    # ``writer.FAMILY_FACT_TABLE_STEM`` (e.g. ``elections`` → ``election_results``,
+    # other families default to ``observations``). When provided, the writer
+    # routes the envelope to
+    # ``datasets/<target_family>/<target_table_stem>.parquet`` instead, and
+    # validates that the value is registered for the family in
+    # ``writer.FAMILY_FACT_TABLE_STEMS``. Per plan-doc TODO row 0e.7 P.1.A
+    # the energy family carries 4 stems
+    # (energy_installed_capacity / energy_generation / energy_demand_supply /
+    # energy_distribution_performance) so adapters MUST set this field;
+    # leaving it null on a multi-stem family raises ``WriterError``.
+    target_table_stem: str | None = Field(
+        default=None, pattern=r"^[a-z][a-z0-9_]*$"
+    )
     schema_version: str = Field(pattern=r"^\d+\.\d+$", default="1.0")
     replacement_semantics: ReplacementSemantics = ReplacementSemantics.upsert
     source_rows: list[SourceRow] = Field(default_factory=list)

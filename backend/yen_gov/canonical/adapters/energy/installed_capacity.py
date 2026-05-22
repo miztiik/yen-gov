@@ -1,0 +1,142 @@
+"""Installed capacity envelope — ``energy_installed_capacity.parquet``.
+
+Lifts 7 legacy shards into a single BatchEnvelope:
+
+* 5 CEA per-fuel per-state shards
+  (``installed_capacity_{coal,gas,hydro,nuclear,renewable}_mw.json``)
+  → ``national-installed-capacity-mw-{fuel}`` (5 IN rows, derivation=sum).
+* ``state_installed_capacity_geographical_mw.json`` (407 rows)
+  → ``state-installed-capacity-geographical-mw`` (parent, publisher total).
+* ``state_installed_capacity_by_source_mw.json`` (~1815 rows)
+  → ``state-installed-capacity-geographical-mw-{fuel}`` (after sub-fuel
+  collapse to canonical 5).
+* ``state_installed_capacity_with_alloc_mw.json`` (396 rows)
+  → ``state-installed-capacity-allocated-mw`` (parent, publisher total).
+
+DELIBERATELY NOT LIFTED:
+* ``installed_capacity_{thermal,total}_mw.json`` — D33.8 hard drop, the
+  catalogue does NOT define a ``-total-mw`` / ``-thermal-mw`` indicator.
+  Totals compute on-read from per-fuel children.
+* ``installed_capacity_by_source_mw.json``, ``installed_mw_by_state.json``
+  — superseded by per-fuel CEA shards; both are HARD DROPs per plan-doc
+  TODO row 0e.7 P.1.A scope list.
+* ``state-installed-capacity-allocated-mw-{fuel}`` children — the per-fuel
+  ALLOCATED data does not exist in the lifted shards (CEA Monthly is
+  per-fuel ``where_allocated`` but only one snapshot; ICED Deep Dive is
+  per-FY publisher total only, no per-fuel breakdown). The 5 catalogue
+  rows for allocated-mw children stay orphan in C4; a future PR earns
+  them when a multi-FY per-fuel allocated source lands. Documented in
+  plan-doc TODO row 0e.7 P.1 §0e.7.5 "Known scope gap".
+"""
+
+from __future__ import annotations
+
+from collections import defaultdict
+from pathlib import Path
+
+from yen_gov.canonical.envelope import BatchEnvelope, ObservationRow
+
+from ._shared import (
+    CANONICAL_FUELS,
+    SOURCE_IDS,
+    SUB_FUEL_TO_CANONICAL,
+    load_shard,
+    parse_iso_period,
+    to_entity_id,
+)
+
+
+def build_envelope(repo_root: Path) -> BatchEnvelope:
+    rows: list[ObservationRow] = []
+
+    # 1. CEA per-fuel shards → national-installed-capacity-mw-{fuel}
+    #    (single snapshot, IN rollup only). Per-state-per-fuel allocated
+    #    NOT lifted to state-installed-capacity-allocated-mw-{fuel} in
+    #    C4 (see module docstring "Known scope gap").
+    for fuel in CANONICAL_FUELS:
+        shard = load_shard(repo_root, f"installed_capacity_{fuel}_mw.json")
+        shard_rows = shard["rows"]
+        if not shard_rows:
+            continue
+        # Single-snapshot shards — all rows share the same ``time``.
+        snapshot_time = shard_rows[0]["time"]
+        period_label, year, period_seq = parse_iso_period(snapshot_time)
+        per_state_sum = sum(float(r["value"]) for r in shard_rows)
+        rows.append(ObservationRow(
+            entity_id="IN",
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id=f"national-installed-capacity-mw-{fuel}",
+            value_numeric=per_state_sum,
+            source_id=SOURCE_IDS["cea_monthly_ic"],
+            derivation="sum",
+        ))
+
+    # 2. state_installed_capacity_geographical_mw.json
+    #    → state-installed-capacity-geographical-mw (parent, publisher total)
+    shard = load_shard(repo_root, "state_installed_capacity_geographical_mw.json")
+    for r in shard["rows"]:
+        period_label, year, period_seq = parse_iso_period(r["time"])
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id="state-installed-capacity-geographical-mw",
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["iced_capacity_metatable"],
+            derivation="raw",
+        ))
+
+    # 3. state_installed_capacity_by_source_mw.json
+    #    → state-installed-capacity-geographical-mw-{fuel}
+    #    Sub-fuel collapse: aggregate per (entity_id, time, canonical_fuel).
+    shard = load_shard(repo_root, "state_installed_capacity_by_source_mw.json")
+    agg: dict[tuple[str, str, str], list[float]] = defaultdict(list)
+    for r in shard["rows"]:
+        sub_fuel = r["facet"]
+        canonical = SUB_FUEL_TO_CANONICAL.get(sub_fuel)
+        if canonical is None:
+            # Unmapped sub-fuel (e.g. ICED "Others") — drop, per shard
+            # notes ("cannot be mapped to a state choropleth honestly").
+            continue
+        agg[(r["entity_id"], r["time"], canonical)].append(float(r["value"]))
+    for (entity_id, time_s, fuel), values in sorted(agg.items()):
+        period_label, year, period_seq = parse_iso_period(time_s)
+        # derivation = "sum" iff more than one sub-fuel landed in the cell
+        # (always true for "renewable"; rarely true for others — defensive
+        # in case ICED later subdivides a bucket that today is 1:1).
+        derivation = "sum" if len(values) > 1 else "raw"
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(entity_id),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id=f"state-installed-capacity-geographical-mw-{fuel}",
+            value_numeric=sum(values),
+            source_id=SOURCE_IDS["iced_capacity_metatable"],
+            derivation=derivation,
+        ))
+
+    # 4. state_installed_capacity_with_alloc_mw.json
+    #    → state-installed-capacity-allocated-mw (parent, publisher total)
+    shard = load_shard(repo_root, "state_installed_capacity_with_alloc_mw.json")
+    for r in shard["rows"]:
+        period_label, year, period_seq = parse_iso_period(r["time"])
+        rows.append(ObservationRow(
+            entity_id=to_entity_id(r["entity_id"]),
+            year=year,
+            period_label=period_label,
+            period_seq=period_seq,
+            indicator_id="state-installed-capacity-allocated-mw",
+            value_numeric=float(r["value"]),
+            source_id=SOURCE_IDS["iced_deep_dive"],
+            derivation="raw",
+        ))
+
+    return BatchEnvelope(
+        target_family="energy",
+        target_table_stem="energy_installed_capacity",
+        observation_rows=rows,
+    )
