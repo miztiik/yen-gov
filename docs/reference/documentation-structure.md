@@ -10,7 +10,7 @@
 > - [Backend AGENTS](../../backend/yen_gov/AGENTS.md) - Module architecture-map example
 > - [Frontend AGENTS](../../frontend/src/AGENTS.md) - Frontend architecture-map example
 
-**Last Updated**: 2026-05-15
+**Last Updated**: 2026-05-22
 
 This file is a portable, single-source standard for bootstrapping a new project with the same structural discipline used in Yen-Go. It is not a cookie-cutter implementation. It defines the architectural contracts, documentation model, schema governance, telemetry contract, and agent documentation shape that should exist before feature work scales.
 
@@ -215,6 +215,33 @@ A documentation update is REQUIRED whenever:
 - An architectural decision is made.
 
 Docs-only PRs are a code smell — they signal a previous PR shipped without its docs.
+
+### 7.6 Doc-Class Routing Contract
+
+Within the Diataxis tiers, **architectural** documentation splits further into four typed classes. Each class has one audience, one mutability rule, one allowed content type, and one forbidden content type. The routing rule is enforced at PR review time, not by tooling. Full rationale and rejected alternatives: [ADR-0034 — Documentation routing contract](../architecture/decisions/0034-documentation-routing-contract.md).
+
+| Class | Path pattern | Audience | Mutability | Contains | Forbidden |
+| --- | --- | --- | --- | --- | --- |
+| **ADR** | `docs/architecture/decisions/NNNN-*.md` | Future agent debugging *why* | Immutable once Accepted (Status field flips only) | One decision + rejected alternatives + reversal cost + consequences | Implementation detail; current-state snapshot |
+| **Subsystem doc** | `docs/architecture/<area>/*.md` | Engineer extending the subsystem | Living snapshot (edit in place) | Shape, disk layout, contracts, invariants, write/read paths | Rationale prose; rejected alternatives |
+| **Concept doc** | `docs/concepts/*.md` | Anyone learning project vocabulary | Living, terse | One term, defined once, with cross-links | Duplication of any term defined elsewhere |
+| **Plan-doc** | `TODO/<YYYY-MM-DD>-<slug>.md` | Next person picking up work | Single-snapshot (no stacked headers) | Phase status, active PR breakdown, TBD list, pointers | Rationale prose; decisions; rejected alternatives |
+
+**Routing rules (decide a new statement's home):**
+
+1. Has a credible rejected alternative with non-trivial reversal cost AND cross-cuts multiple subsystems? → **New ADR.**
+2. Current shape / layout / contract of one subsystem? → **Subsystem doc.** Cite the ADR for rationale; do not restate it.
+3. Vocabulary term used across multiple subsystems? → **Concept doc.** Defined once.
+4. "Which PRs land when"? → **Plan-doc.** Cite both ADR and subsystem doc; carry no rationale.
+
+**Cross-doc consistency mechanism:**
+
+- ADRs are source-of-truth events. Once Accepted, the decision text is immutable; only the Status field changes.
+- Subsystem docs link UP to the ADR(s) that birthed each invariant (inline `(per ADR-NNNN)`).
+- Plan-docs link ACROSS to both (`**Spec**:` + `**Decision rationale**:`).
+- Concept docs link laterally and DOWN to operationalising subsystem docs.
+
+**Single-snapshot header rule (plan-docs):** the top of a plan-doc is exactly one block — title, Last Updated, and one-paragraph Status. Previous status text is **deleted** at every phase boundary. Stacked "previous header" layers are a band-aid for missing snapshot semantics and forbidden by CLAUDE.md Holy Law #5. History lives in `git blame` and merge-commit titles.
 
 ## 8. Correction Levels (Change Severity)
 

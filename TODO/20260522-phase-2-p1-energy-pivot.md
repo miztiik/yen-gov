@@ -1,0 +1,161 @@
+# Phase 2 P.1 — Energy family pivot
+
+**Last Updated**: 2026-05-22
+**Status**: ◻ DESIGN-LOCKED. Hans + Max design pass closed 2026-05-22; Gregor + Hans verdict pass closed 2026-05-22 (this branch, `refactor/plan-doc-decompose-and-energy-prep`). All five open questions resolved (§3). Next: open `feat/p1-energy-pivot` branch from `main` post-merge of the doc-refactor arc; P.1.A pre-flight checklist in §4.
+**Doc class**: plan-doc per [ADR-0034](../docs/architecture/decisions/0034-documentation-routing-contract.md) — status + active PRs + TBD only; no rationale, no rejected alternatives, no executed-work narrative.
+**Cites**: [canonical-store.md §2a–§2b](../docs/architecture/data/canonical-store.md) (disk layout + naming rule) + [ADR-0030](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) (D5/D11/D23/D26/D29/D33.8 entity-validity + facet-explode + atomic-fuel + compute-on-read rules) + [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) (sources keyed on `(producer, title, vintage)`) + [topic-taxonomy.md](../docs/concepts/topic-taxonomy.md) + [indicator-naming.md](../docs/concepts/indicator-naming.md) (slug regex + entity-prefix + scope-as-identity rules) + [methodology-break.schema.json](../datasets/schemas/methodology-break.schema.json) (`kind=definition_change|frame_change|rebase`).
+**Lifted into ledger**: this is the `P.1` row of [`§0e.7` in the slim plan-doc](20260517-canonical-long-format-pivot.md).
+
+---
+
+## §1. Scope summary
+
+41 legacy indicator JSON shards under `datasets/indicators/in/energy/` consolidate to **~22 canonical indicators** across **5 fact-tables** under `datasets/energy/` (extends the §2b 3-table lock by 2; APPROVE per Gregor Q-b verdict). Net catalogue reduction 46%, mostly from (a) atomic-fuel-only rule retiring TOTAL/THERMAL/composer aggregates per D33.8 compute-on-read, (b) per-distribution-metric fold via `efficiency_dimension` facet, (c) three-way peak-demand near-duplicate collapse to RBI-Handbook long-arc canonical.
+
+## §2. Family decomposition (§2b APPROVE — Gregor 2026-05-22)
+
+The §2b canonical-store.md lock declares 3 energy fact-tables. P.1.A extends to 5 in the SAME commit (Holy Law #4 + Gregor Q-b5):
+
+| Fact table | Citizen question | Indicators in P.1 | §2b status |
+| --- | --- | --- | :-: |
+| `energy/energy_installed_capacity.parquet` | "What kind of plants are in / available to my state?" | `national_installed_capacity_mw` (fuel-faceted), `state_installed_capacity_geographical_mw` (fuel-faceted), `state_installed_capacity_allocated_mw` (fuel-faceted, NULL `fuel_type` for pre-FY15 rows — see Q-c), `national_capacity_pipeline_gw`, `national_thermal_capacity_retired_mw`, `state_renewable_grid_capacity_mw` (source-faceted, P.1.C), `state_rooftop_solar_capacity_mw` (folds into above) | LOCKED |
+| `energy/energy_generation.parquet` | "What fuel actually produced our electricity, and how much?" | `state_electricity_generation_gwh` (fuel-faceted), `state_electricity_sales_mu`, `state_plant_load_factor_pct` (fuel-faceted, P.1.C) | LOCKED |
+| `energy/energy_distribution_performance.parquet` | "How well does my DISCOM run?" | `state_atc_losses_pct`, `state_distribution_efficiency_pct` (`efficiency_dimension`-faceted), `state_acs_arr_gap_inr_per_kwh`, `state_power_purchase_mix_pct` (`purchase_source`-faceted, P.1.C), `state_rpo_compliance_pct` | LOCKED |
+| `energy/energy_demand_supply.parquet` | "Did we get the power we needed?" | `state_peak_electricity_demand_mw`, `state_peak_electricity_supplied_mw`, `state_electricity_requirement_gwh`, `state_electricity_availability_gwh`, `state_per_capita_electricity_availability_kwh`, `state_per_capita_electricity_consumption_kwh` | **EXTENSION → §2b amend SAME-COMMIT as P.1.A** |
+| `energy/energy_fuel_consumption.parquet` | "How much coal / oil / primary energy does the country / state consume?" | `state_coal_consumption_mt` (B7 promoted; see Q-e), `state_oil_product_consumption_kt` (product-faceted, P.1.C), `national_primary_energy_supply_mtoe` (source-faceted, P.1.C), `national_final_energy_consumption_mtoe` (sector-faceted, P.1.C), `national_renewable_potential_vs_installed_mw` (P.1.C) | **EXTENSION → §2b amend SAME-COMMIT as P.1.A** |
+
+**Dims out of P.1**: `dim_plants.parquet` + `dim_discoms.parquet` are in the §2b lock but neither source is acquired today (NPP for plants; Forum of Regulators for DISCOMs). Defer to Phase 3 per CLAUDE.md §10 "no empty stubs for later."
+
+**§2b also gains a new Rule #4** (Gregor follow-up 1) in the same amend: *"A new fact-table within a family is justified when (a) the citizen question is distinct AND (b) co-locating would force every chart on the smaller-question to scan unrelated indicator rows, OR (c) the FK-graph diverges (different `dim_*` joins). Same row-shape across files is expected, not a smell — `indicator_id` is the within-file discriminator (D5)."*
+
+## §3. Design verdicts (Gregor + Hans, 2026-05-22)
+
+All five open questions resolved. Verdicts below are binding on P.1.A code; deviations require explicit re-consultation per CLAUDE.md §0a authority routing.
+
+**Q-a — Entity scope as indicator identity → TWO indicators, SAME-FILE-DISCRIMINATOR (Gregor + indicator-naming.md §2.4).** `national_installed_capacity_mw` and `state_installed_capacity_geographical_mw` are two distinct indicators; `state_installed_capacity_allocated_mw` is a THIRD (different methodology — regional-grid pool vs geographical siting vs allocated share). All three sit in `energy_installed_capacity.parquet` discriminated by `indicator_id`; `_geographical_` infix is load-bearing per §2.4. Same pattern applies to every `national_*` / `state_*` pair in the family.
+
+**Q-b — §2b lock extension → APPROVE 5 fact-tables, SAME-COMMIT amend (Gregor).** Folding `energy_demand_supply` into `energy_generation` rejected on citizen-question-separability grounds ("did we get power" ≠ "what fuel produced it"); folding `energy_fuel_consumption` rejected because fuel-inputs ≠ electricity-outputs (would re-create the §2a banned-filename pattern at the directory level). Per Holy Law #4, §2b amendment ships in the SAME commit as P.1.A — atomic revert semantics preserved. §2b also gains Rule #4 (see §2 above).
+
+**Q-c — FY04–FY14 RBI long-arc splice → Option 1 SPLICE, with NULL `fuel_type` for pre-FY15 rows (Hans + Gregor).** The `fuel_type='total_unknown_mix'` sentinel proposal REJECTED — would pollute the typed enum and let any `SUM(value) GROUP BY state, year` silently double-count if a renderer forgets the WHERE clause. Instead: long-format rows with `fuel_type IS NULL` for pre-FY15 RBI-only rows (publisher published an aggregate; row is honest in total but cannot be coloured by fuel). Renderer treats NULL-fuel rows as a single grey "unresolved aggregate" band and refuses to compute a fuel-mix share for those years. OWID precedent: `electricity-by-source.csv` keeps source-types as closed atomic enum and computes totals at read-time; no sentinel insertions. Methodology_breaks row at FY15 carries citizen text: *"Allocated installed capacity for fiscal years up to FY14 comes from the RBI Handbook as a single state-level total — the publisher did not break it down by fuel source. From FY15 onwards the Central Electricity Authority publishes the same figure split into coal, gas, hydro, nuclear, and renewable; rows before FY15 are honest in total but cannot be coloured by fuel."* Option 2 (id-encoded `_pre2015` / `_post2015` indicators) rejected as vintage-in-id anti-pattern + breaks `stacked-trend` renderer. Option 3 (drop) rejected — bricks the 14-year pre-renewable-boom baseline.
+
+**Q-d — RBI Handbook → `confidence_tier=silver` + `is_issuing_authority=false` (Hans).** Max's `gold` recommendation REJECTED. ADR-0032 is unambiguous: `gold = issuing authority for the fact`. RBI is the issuing authority for *its own analytical Handbook* but NOT for the underlying electricity capacity numbers — every affected file under `datasets/indicators/in/energy/` carries the disclosure *"Originating data: Central Electricity Authority, Ministry of Power"* verbatim. Promoting longitudinal republishers to gold would silently inflate every aggregator in the future corpus (CMIE, Statista, IEA on Indian data) and the tier loses signal. Citizen-readable footnote on RBI-anchored indicators: *"Compiled by the Reserve Bank of India from data originally published by the Central Electricity Authority, Ministry of Power."* Confidence-tier table for the 8 Energy-family sources P.1 acquires:
+
+| producer | title | tier | issuing_auth | verification_method |
+| --- | --- | :---: | :---: | --- |
+| Central Electricity Authority | Monthly Executive Summary on Power Sector | gold | true | live-fetch |
+| Central Electricity Authority | Annual General Review | gold | true | archived-snapshot |
+| Central Electricity Authority | Load Generation Balance Report | gold | true | archived-snapshot |
+| Ministry of New and Renewable Energy | Monthly Physical Progress Report | gold | true | live-fetch |
+| Power Finance Corporation | Report on Performance of State Power Utilities (PSPU) | gold | true | archived-snapshot |
+| Petroleum Planning & Analysis Cell | Monthly Snapshot of India's Oil & Gas Data | gold | true | live-fetch |
+| Office of the Coal Controller | Provisional Coal Statistics (Monthly) | gold | true | live-fetch |
+| Reserve Bank of India | Handbook of Statistics on Indian States | silver | false | archived-snapshot |
+| International Energy Agency | India Energy Outlook | silver | false | archived-snapshot |
+
+PFC is gold because its computed PSPU metrics (ATC/ACS-ARR) are not published in that form by anyone else — PFC is the issuing authority for the *computed metric*, not the raw inputs.
+
+**Q-e — methodology_breaks promotion → REVISED to {B3, B7} only (Hans).** Plan-doc proposal of B1-B4 REJECTED. `methodology_breaks` is for *series ruptures*, not entity events or policy regimes; inflating the table dilutes the renderer's "this is a real comparability cliff" warning.
+
+| break | verdict | alternate home if NOT-PROMOTED |
+| --- | --- | --- |
+| B1 Telangana 2014 | NOT-PROMOTE | Entity model (D23 `entity_valid_from/to`): pre-2014 `IN-S01` (combined AP) ≠ post-2014 `IN-S01` (residual AP) + `IN-S28` (Telangana) are distinct entity records; renderer naturally draws two strands. |
+| B2 Ladakh 2019 | NOT-PROMOTE | Same — entity model handles `IN-U05` (combined J&K) → `IN-U06` (residual J&K UT) + `IN-U07` (Ladakh UT). |
+| **B3 MNRE off-grid Aug-2021** | **PROMOTE** (`kind=definition_change`) | — affects `national_installed_capacity_mw` (renewable facet), both `state_installed_capacity_*` (renewable facet), `state_renewable_grid_capacity_mw`, `state_rooftop_solar_capacity_mw` |
+| B4 UDAY FY15-16 | NOT-PROMOTE | Policy regime change, NOT data definition (formulas unchanged); belongs in (i) catalogue `notes` with Roy framing on ATC/ACS-ARR/distribution indicators, (ii) future `policy_events.json` overlay (Phase 3). Hans's Rosling-check flags this as the highest blame-instinct risk in the corpus — see §3.1 follow-up. |
+| B5 RBI cosmetic label change FY19-20 | NOT-PROMOTE | Catalogue `notes` only (header text changed, numbers unchanged). |
+| B6 Census denominator drift | NOT-PROMOTE today | `comparability="conditionally_comparable"` (v1.5 ladder) + catalogue `notes` on per-capita indicators; Census 2021/27 rebase will be a hard `kind=rebase` promotion when it lands. |
+| **B7 coal aggregate proxy FY22+** | **PROMOTE** (`kind=frame_change`) | — affects `state_coal_consumption_mt`. yen-gov-internal break (Coal Controller stopped per-state; canonical falls back to national total × state-share-of-thermal-capacity). MUST be visible per citation honesty. |
+| B8 MNRE-vs-OWID large-hydro | NOT-PROMOTE | Cross-publisher definitional tension, not a single-series rupture; lives in `indicator.excludes[]` (v1.5) on affected indicators. |
+
+**B3 citizen text**: *"From August 2021, the Ministry of New and Renewable Energy moved off-grid renewable capacity (rooftop solar, mini-grids, off-grid wind) out of 'installed' and into a separate 'deployed' category. Renewable-capacity totals before and after August 2021 are not directly comparable; the post-2021 figure is narrower."*
+
+**B7 citizen text**: *"From FY22 onwards, the Coal Controller's Organisation stopped publishing per-state coal consumption. Rows for FY22 and later are estimated by yen-gov as the national total scaled by each state's share of thermal generation capacity — not a publisher-direct measurement."*
+
+**Q-schema (Gregor) — schema work in P.1.A is NEW authoring, not v4.4 bump.** `datasets/schemas/indicator.schema.json` v4.4 is the per-shard JSON contract being retired; D29's `parent_indicator_id` self-FK + `dimension_values: STRUCT` belong on the canonical catalogue Parquet, which has no JSON authoring schema today. P.1.A authors (i) new `datasets/schemas/indicators-catalogue.schema.json` v1.0 for the `taxonomy/indicators.json` authoring shape, (ii) paired Pydantic in `backend/yen_gov/canonical/models.py`, (iii) paired TS catalogue type for the frontend view-model. Legacy `indicator.schema.json` v4.4 stays untouched and retires with the last legacy shard per the Tier-B forbidden-path fence.
+
+**Q-contract (Gregor) — three small contract calls**: (c1) `fuel_type` registers as a TYPED enum via `taxonomy/facet-axes.parquet` per D31 + §8.3 — closed set so D22 write-time FK-check refuses a typo'd `coall`; (c2) `methodology_breaks` lives as SIBLING Parquet `taxonomy/methodology_breaks.parquet` per the existing [methodology-break.schema.json](../datasets/schemas/methodology-break.schema.json), NOT a column-array on the catalogue (would re-create the per-shard prose smear ADR-0032 just fixed for sources); (c3) the 9 `attribution_geography` corrections ship in the SAME COMMIT as the lift (not a pre-commit `chore`) — the citizen seeing the wrong banner for the duration between commits is exactly what v4.2's `where_allocated` enum existed to prevent.
+
+## §3.1 Remaining follow-ups (out of P.1.A scope; do not block code start)
+
+Gregor + Hans surfaced 9 items that need attention but do NOT block P.1.A:
+
+1. **`is_aggregate: bool` vs NULL `fuel_type`** (Hans Q-c c2 detail) — recommended NULL `fuel_type` as cleanest; explicit-flag alternative defensible if renderer team prefers. Pick + document the rejected option in the P.1.A schema commit.
+2. **B1/B2 entity-bifurcation rendering spec** (Jony, Hans follow-up 1) — `docs/research/entity-bifurcation-rendering.md`. Must specify how the chart strand legend + URL grammar communicate "Andhra Pradesh, 1956–2014" vs "Andhra Pradesh, 2014–present". Required BEFORE P.1.A ships any indicator that crosses the 2014/2019 splits.
+3. **B4 UDAY policy-events overlay table** (Hans Rosling-check, follow-up 2) — Phase 3 design; needs producer decision (yen-gov editorial vs MoP), schema (start_date/end_date/scope_entities/scope_indicators), and rendering spec. Without it, ATC/ACS-ARR indicators ship with a known blame-instinct trap that catalogue `notes` only partially defuses.
+4. **Census 2021 break-row authoring** (Hans follow-up 3) — queue for whenever the recovered Census data lands; per-capita indicators get a hard `kind=rebase` row + `_long` variant per the existing GSDP precedent.
+5. **v2.0 sources migration verification on Energy sources** (Hans follow-up 5) — run `tools/migrate_sources_v1_to_v2.py` on any pre-existing energy shards before P.1.A's writer emits the 8 new (producer, title, vintage) triples.
+6. **D33.8 parity-oracle negative assertion** (Gregor follow-up 3) — §7 parity oracle must include `assert count(*) where indicator_id LIKE '%_total_mw' = 0` against `energy_installed_capacity.parquet`. The writer needs an explicit step that emits per-fuel children + REFUSES to emit the parent total row.
+7. **`description_short` PR-template gate** (Gregor follow-up 4) — P.1.A authors ~22 catalogue rows; v4.4 per-family PR gate requires `description_short` on every new artifact. Hans owns the wording; if bandwidth-constrained, this could chain-block P.1.A. Surface to Hans the moment P.1.A branch opens.
+8. **Canonical catalogue authoring-schema scoping** (Gregor follow-up 2) — Q-schema's NEW `indicators-catalogue.schema.json` v1.0 authoring is non-trivial. If draft exists elsewhere in the repo this PR uses it; if not, P.1.A inherits the authoring burden (~1 day Gregor + Fowler).
+9. **§2b Rule #4 wording** (Gregor follow-up 1) — wording in §2 above is Gregor-drafted; ratified at P.1.A commit time.
+
+## §4. PR breakdown
+
+Each PR is fused-atomic per CLAUDE.md §15 paired-test discipline (schema bump + Pydantic model + DDL + parquet emit + frontend reader switch + legacy-shard deletion + Tier-B allowlist removal, all in one commit).
+
+| # | PR | Scope | Indicators consumed | Shards retired |
+| - | --- | --- | --- | --- |
+| **P.1.A** | Foundation — 5-table layout + fuel-mix + reliability + ATC + per-capita-consumption | `national_installed_capacity_mw`, `state_installed_capacity_geographical_mw`, `state_installed_capacity_allocated_mw`, `state_electricity_generation_gwh`, `state_peak_electricity_demand_mw`, `state_peak_electricity_supplied_mw`, `state_atc_losses_pct`, `state_per_capita_electricity_consumption_kwh` | 9 central capacity + 1 state generation + 1 state capacity-by-fuel + 3 peak-demand (drops 2) + 1 ATC + 1 per-capita consumption = ~16 shards |
+| **P.1.B** | DISCOM finance + demand/supply extension | `state_distribution_efficiency_pct` (3-facet), `state_electricity_requirement_gwh`, `state_electricity_availability_gwh`, `state_acs_arr_gap_inr_per_kwh`, `state_per_capita_electricity_availability_kwh`, `state_installed_capacity_total_mw` retire-or-splice (Q-c) | ~9 shards |
+| **P.1.C** | Fuel + macro + renewable detail | `state_coal_consumption_mt` (re-anchor to Coal Controller), `state_oil_product_consumption_kt` (product-faceted, PPAC), `national_primary_energy_supply_mtoe` (source-faceted), `national_final_energy_consumption_mtoe` (sector-faceted), `national_capacity_pipeline_gw`, `national_thermal_capacity_retired_mw`, `state_renewable_grid_capacity_mw` (source-faceted, includes rooftop), `state_plant_load_factor_pct` (fuel-faceted), `national_renewable_potential_vs_installed_mw` | ~10 shards |
+| **P.1.D** | Sweep, retire, validate | `state_electricity_sales_mu` (acquire from CEA), `state_power_purchase_mix_pct` (acquire from PFC + FoR), `state_rpo_compliance_pct` (acquire); confirm 11 retire-list shards deleted; Tier-B allowlist scrubbed for the whole family | ~3 acquires + retirement audit |
+
+**P.1.A pre-flight checklist** (verdict-locked 2026-05-22; check before opening `feat/p1-energy-pivot`):
+- [x] Q-a / Q-b / Q-c / Q-d / Q-e resolved (§3)
+- [ ] §3.1 follow-up 2 (B1/B2 entity-bifurcation rendering spec) drafted by Jony — required for any P.1.A indicator that crosses 2014/2019 entity splits
+- [ ] §3.1 follow-up 7 (Hans drafts `description_short` wording for ~22 catalogue rows) staged
+- [ ] §3.1 follow-up 8 (canonical `indicators-catalogue.schema.json` v1.0 authoring scope decision)
+- [ ] New facet-axes registered in `backend/yen_gov/canonical/facet_axes_seed.py` per §8.3 — `fuel_type` enum (`coal, gas, hydro, nuclear, renewable, lignite, diesel`) + extras for P.1.B/C as that PR opens
+- [ ] 9 new `(producer, title, vintage)` triples authored for `taxonomy/sources.parquet` via `backend.yen_gov.canonical.citation.derive_source_id` (8 gold + 1 silver RBI + IEA) — never hand-author the id (CLAUDE.md §10 + ADR-0032)
+- [ ] Pre-stage grep for the 41 legacy filenames across `backend/`, `frontend/`, `tools/`, `admin/`, `docs/` — quoted file references in frontend loaders ARE production consumers (lesson 2026-05-21 G.1.c)
+- [ ] `canonical-store.md §2b` amended (extension to 5 + new Rule #4) in the SAME commit as P.1.A (Holy Law #4 + Gregor Q-b5)
+- [ ] `methodology_breaks.parquet` seeded with B3 + B7 rows (Hans Q-e citizen text verbatim) in the SAME commit
+
+## §5. Corrections-to-on-disk (not new design)
+
+Hans's audit surfaced two categories of defect that lifting bytes to Parquet without fixing would cement into the canonical store. Per Gregor Q-contract c3, corrections ship in the SAME COMMIT as the lift — not a pre-commit `chore`:
+
+- **9 of 41 shards have WRONG `attribution_geography`** today. `where_administered` is overused as a catch-all. High-risk citizen-misreading: `state_installed_capacity_geographical_mw` is tagged `where_administered` (citizen sees Chhattisgarh-as-administrator); should be `where_produced`. `state_installed_capacity_with_alloc_mw` is tagged `where_administered`; should be `where_allocated`. `state_electricity_generation_mu` is tagged `where_administered`; should be `where_produced`. Re-tag during P.1; defend each value in catalogue `notes` (one sentence: "this counts plants by physical site, not by allocation").
+
+- **~⅔ of indicators get `implementing_authority` re-labelled.** Distribution-side metrics move from `state` to `concurrent` (UDAY transferred discom-debt burden to centre; ATC/billing/collection improvements cannot be attributed cleanly to state utility management). Per-capita availability moves from `state` to `concurrent`. RPO compliance moves from `state` to `concurrent`. Capacity (capacity-by-fuel) moves from mixed labels to uniform `joint`.
+
+These are factual corrections; lifting them to Parquet under the old labels would cement Hans's blame-instinct + single-perspective Rosling failures into the citizen surface. The B4 UDAY framing in catalogue `notes` (§3 Q-e + §3.1 follow-up 3) is the linguistic counterpart to the `implementing_authority` re-labels.
+
+## §6. Hard drops
+
+| Shard | Reason |
+| --- | --- |
+| `installed_mw_by_state.json` | Community-curated GeoJSON, 4 of 35 states (TN, KL, AS, WB). Holy Law #9 issuing-authority fail. Already covered by `state_installed_capacity_geographical_mw`. |
+| `state_peak_electricity_demand_mw.json` (ICED 1-year snapshot) | Strictly a subset of the RBI Handbook 12-year canonical (`state_peak_electricity_demand_mw`). |
+| `state_electricity_peak_demand_mw.json` (ICED 9-year tail) | Same noun as RBI Handbook canonical; tail-end years (FY24 onward) reconcile into the canonical RBI indicator as additional observation rows, not a separate indicator. |
+| `state_electricity_generation_mu.json` | MU = GWh equivalence; alias of `state_electricity_generation_gwh` (kept as `id_aliases[]` entry for one release). |
+| `installed_capacity_total_mw.json` | Aggregate; compute-on-read per D33.8. |
+| `installed_capacity_thermal_mw.json` | Aggregate; compute-on-read per D33.8. |
+| `installed_capacity_by_source_mw.json` | Composer (pipeline UNION of 7 per-fuel shards); writer rebuilds at emit. |
+| `state_installed_capacity_total_mw.json` | Aggregate; compute-on-read per D33.8. Long-arc FY04–FY14 history is PRESERVED into `state_installed_capacity_allocated_mw` per Q-c verdict (Option 1 splice with NULL `fuel_type` for pre-FY15 rows). |
+| `state_installed_capacity_with_alloc_mw.json` | Total-row of `state_installed_capacity_allocated_mw` (fuel-faceted version); retire after fuel-faceted version is validated. |
+
+## §7. Tests + verification gates (Tier-A + Tier-B per CLAUDE.md §15)
+
+- **Tier-A (mandatory at P.1.A commit)**: `pytest -q` in `backend/` green; `npm test` in `frontend/` green; `npm run test:e2e` in `frontend/` green; schema-bump compliance check (`indicator.schema.json` `x-version` matches `$schema_version` on all 41 → ~22 catalogue rows).
+- **Tier-B (mandatory before commit)**: `python -m yen_gov validate --root .` clean — no schema violations, no Tier-B forbidden-path matches on the legacy-folded-indicator-shards allowlist after P.1.A's retire-list is scrubbed.
+- **§13 browser smoke**: minimum 3 routes — `/topic/energy` landing + 2 state pages (Tamil Nadu = energy-heavy producer with capacity-vs-consumption story; Bihar = high-AT&C-loss DISCOM story). Snapshot read-page + screenshot. New console errors / 404s = blocker.
+- **Parity oracle** (custom for P.1.A — pattern from /memories/lessons.md 2026-05-19): for each surviving canonical indicator, assert one observation row from canonical Parquet equals the corresponding pre-pivot JSON shard row for ≥3 state-year cells per indicator. ~50 cells total; ~5s wall-clock. Catches any silent scramble during the lift.
+- **D33.8 negative assertion** (Gregor follow-up 3): `assert duckdb_query("SELECT count(*) FROM read_parquet('datasets/energy/energy_installed_capacity.parquet') WHERE indicator_id LIKE '%\_total\_mw' OR indicator_id LIKE '%\_thermal\_mw'") == 0`. Writer must emit per-fuel children + REFUSE to emit any parent total row — totals are compute-on-read forever.
+- **Manifest regen + byte-stable check** (lesson 2026-05-20 P.0e): after P.1.A's writer run, `python -c "from yen_gov.canonical.writer import _regenerate_manifest; _regenerate_manifest(Path('datasets'))"` then `git diff datasets/manifest.json` to confirm on-disk size matches manifest claims.
+
+## §8. Strangler-fig handoff
+
+P.1.A lands additive (new Parquet emitted; legacy JSON shards still on disk). P.1.A reader switch (`/topic/energy` route flips to canonical Parquet via DuckDB-WASM). P.1.A retire (`git rm` the 16 shards consumed by P.1.A + scrub Tier-B allowlist). Done in **one commit** per the elections-pivot precedent — all consumers in this repo are yen-gov-owned, no external readers, no strangler ceremony beyond the additive-first-then-rm pattern.
+
+## §9. Cross-refs
+
+- [Slim plan-doc §0e.7 P.1 row](20260517-canonical-long-format-pivot.md)
+- [canonical-store.md §2a + §2b](../docs/architecture/data/canonical-store.md)
+- [ADR-0030 D26 / D29 / D33.8](../docs/architecture/decisions/0030-canonical-store-duckdb-wasm.md) (facet-explode + atomic-fuel + compute-on-read)
+- [ADR-0032](../docs/architecture/decisions/0032-sources-citation-ledger.md) (sources v2.0)
+- [topic-taxonomy.md](../docs/concepts/topic-taxonomy.md)
+- [indicator-naming.md](../docs/concepts/indicator-naming.md) (slug rules, esp. §2.4 entity-scope-as-identity)
+- [G.1 closeout lesson](/memories/lessons.md 2026-05-22) — strangler-fig 3-PR discipline + pre-stage repo-wide grep
+- [P.0e closeout lesson](/memories/lessons.md 2026-05-20) — manifest regen byte-stable check
+- [PR-R.2 lesson](/memories/lessons.md 2026-05-19) — parity-oracle pattern for consumer-data-layer swaps
