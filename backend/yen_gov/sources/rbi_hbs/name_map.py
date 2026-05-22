@@ -8,8 +8,10 @@ are listed explicitly rather than normalised away, because the originating
 spelling is itself useful provenance when triaging unmatched rows.
 
 Codes follow the ECI scheme (S01..S29 for states, U01..U09 for UTs); kept here
-rather than reading ``datasets/reference/in/states.json`` to keep the ingest
+rather than reading ``datasets/taxonomy/entities.json`` to keep the ingest
 tools dependency-free at run time and traceable in code review.
+(Pre-Phase-C the comparable file was the retired ``datasets/reference/in/
+states.json`` shim; the rationale is unchanged.)
 
 ``ALL_INDIA_NAMES`` carries the column header(s) RBI uses for the all-India
 aggregate column that appears in some HBS-IE per-capita tables; resolves to

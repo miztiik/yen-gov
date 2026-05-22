@@ -309,7 +309,7 @@ Why three (now four with T.0a-ii) not one (Jony+Fowler verdict): A single fat PR
 
 | Legacy path | Disposition | Destination | Retiring PR |
 | --- | --- | --- | --- |
-| `reference/in/states.json` | DELETE | subsumed by `entity_type='state'` rows in `taxonomy/entities.parquet` | T.0c |
+| `reference/in/states.json` | DELETE | subsumed by `entity_type='state'` rows in `taxonomy/entities.parquet` | T.0c — ✅ done via T.0c-ii Phase C (2026-05-22, branch `feat/states-json-port-phase-c-frontend-delete`; backend Phase B + frontend Phase C ported in PR #79 + this PR; `state.schema.json` deleted in the same Tier-A commit; see `TODO/20260521-states-json-port-blocker-entities-ut-gap.md`) |
 | `reference/in/state-tiers.json` | KEEP-AND-MOVE | `taxonomy/state_tiers.{json,parquet}` | T.0a writes, T.0c deletes |
 | `reference/in/topic-catalogue.json` | TRANSFORM | `taxonomy/topics.{json,parquet}` (flat, M:N tags) | T.0a writes, T.0c deletes (T.3 in §0e.7 absorbs the indicator-side tagging) |
 | `reference/in/election-events.json` | TRANSFORM | `taxonomy/election_events.{json,parquet}` (pure reference + `total_seats`) | T.0a writes, T.0c deletes |

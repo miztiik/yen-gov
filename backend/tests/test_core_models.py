@@ -35,8 +35,6 @@ from yen_gov.core.models import (
     ResultsKnobs,
     ResultTotals,
     SourceRef,
-    StateEntry,
-    StatesCollection,
     SummaryTotals,
     WinnerInfo,
 )
@@ -100,21 +98,15 @@ def test_election_rejects_bad_state_code():
         )
 
 
-# --- StatesCollection -------------------------------------------------------
-
-def test_states_collection_round_trip(tmp_path: Path):
-    m = StatesCollection(
-        sources=[SourceRef(
-            url="https://en.wikipedia.org/wiki/States_and_union_territories_of_India",
-            fetched_at=datetime(2026, 5, 8, 14, 0, tzinfo=timezone.utc),
-        )],
-        country="IN",
-        states=[StateEntry(eci_code="S22", iso_3166_2="IN-TN", name="Tamil Nadu", kind="state")],
-    )
-    out = _round_trip(tmp_path, m, "state.schema.json")
-    assert out["country"] == "IN"
-    assert out["states"][0]["eci_code"] == "S22"
-    assert out["sources"][0]["fetched_at"].endswith("Z")
+# --- StatesCollection (retired) --------------------------------------------
+#
+# Round-trip test for `StatesCollection` / `StateEntry` deleted in Phase C
+# of the strangler-fig closeout for `datasets/reference/in/states.json` —
+# see `TODO/20260521-states-json-port-blocker-entities-ut-gap.md`. The
+# state + UT roster now lives on `datasets/taxonomy/entities.json`; entity
+# rows are validated via `entity.schema.json` (no Pydantic mirror yet —
+# backend consumers read the JSON directly via the Phase B
+# `_load_states_from_entities` helper pattern).
 
 
 # --- DistrictsCollection ---------------------------------------------------

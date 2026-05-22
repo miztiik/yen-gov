@@ -35,7 +35,7 @@ The indicator is always the **last segment**. Position disambiguates — no `/i/
 
 | Kind | Shape | Source of truth |
 |---|---|---|
-| State | lowercase hyphenated (`tamil-nadu`, `uttar-pradesh`) | `datasets/reference/in/states.json` |
+| State | lowercase hyphenated (`tamil-nadu`, `uttar-pradesh`) | `datasets/taxonomy/entities.json` (filter `entity_type IN ('state','ut') AND entity_valid_to IS NULL`) |
 | District | lowercase hyphenated (`chennai`) | `datasets/reference/in/states/<state>/districts.json` |
 | AC | lowercase hyphenated name, **no number prefix** (`mylapore`, not `167-mylapore`) | ECI per-state constituency list. Collision fallback `<name>-2` enforced at emit. |
 | Indicator | lowercase hyphenated flat slug (`installed-capacity`, `per-capita-income`) | Derived `url_slug` on `datasets/reference/in/indicators-completeness.json`. |
@@ -65,7 +65,7 @@ A real 404 is allowed — it means the path is malformed or refers to a place/in
 ONE Tier-A test (CLAUDE.md §15) — `frontend/src/lib/paths.test.ts`:
 
 ```ts
-const stateSlugs    = await loadStateSlugs();         // from states.json
+const stateSlugs    = await loadStateSlugs();         // from taxonomy/entities.json
 const districtSlugs = await loadAllDistrictSlugs();   // from per-state districts.json
 const acSlugs       = await loadAllAcSlugs();         // from completeness or per-state ECI lists
 const indicatorSlugs = await loadIndicatorSlugs();    // from indicators-completeness.json url_slug field

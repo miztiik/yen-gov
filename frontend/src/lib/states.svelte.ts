@@ -1,13 +1,16 @@
 // State name resolver: ECI state code (e.g. "S22") ↔ display name
-// (e.g. "Tamil Nadu") ↔ slug (e.g. "tamil-nadu"). Loads
-// `datasets/reference/in/states.json` once at module init; until the fetch
-// resolves, lookups return the input itself (graceful degradation — the UI
-// never shows blank).
+// (e.g. "Tamil Nadu") ↔ slug (e.g. "tamil-nadu"). Loads the current
+// state+UT projection of `datasets/taxonomy/entities.json` once at module
+// init (via `fetchStates()` in lib/data.ts, which now reads the canonical
+// entity catalogue rather than the retired `reference/in/states.json`
+// shim — see Phase C closeout in TODO/20260521-states-json-port-blocker-
+// entities-ut-gap.md). Until the fetch resolves, lookups return the input
+// itself (graceful degradation — the UI never shows blank).
 //
-// Slugs are derived deterministically from `name` via lib/slug.ts. We do
-// not cache them in `states.json` — the slug *is* the public URL identity
-// of a state, so deriving it from `name` keeps the source of truth in one
-// place and avoids slug/name drift across data and UI.
+// Slugs are derived deterministically from `display_name` via lib/slug.ts.
+// We do not cache them in the entity row — the slug *is* the public URL
+// identity of a state, so deriving it from `name` keeps the source of
+// truth in one place and avoids slug/name drift across data and UI.
 
 import { fetchStates, type StateEntry } from "./data";
 import { slugify } from "./slug";

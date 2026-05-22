@@ -172,7 +172,7 @@ After these three, Phase 2 P.* NFHS-5 starts on clean ground.
 - Original plan: `TODO/20260517-canonical-long-format-pivot.md`
 - v2.0 citation ledger: `docs/architecture/decisions/0032-sources-citation-ledger.md`
 - T.0c-ii Phase A handover (now superseded): `TODO/20260521-states-json-port-blocker-entities-ut-gap.md`
-- States.json Phase B (small open work, T.0c-ii arc closer): pending
+- States.json Phase B + Phase C (T.0c-ii arc closer): ✅ COMPLETE — Phase B `feat/states-json-port-phase-b-backend-consumers` merged 2026-05-22 (backend consumers ported); Phase C `feat/states-json-port-phase-c-frontend-delete` (frontend `fetchStates()` wrapper + `datasets/reference/in/states.json` + `datasets/schemas/state.schema.json` + `backend/tests/test_states_parity.py` deletions + §13 browser smoke).
 - ADR-0026 (folded v4.0 artifact): documents the interim shape being retired
 - ADR-0031 (boundaries codec split): needs amendment per finding #4
 

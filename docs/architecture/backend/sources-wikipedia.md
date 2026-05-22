@@ -24,7 +24,7 @@ _ECI_TO_WIKI_STATE = {"S22": "Tamil Nadu", ...}
 
 Adding state support means adding the entry. We chose explicit lookup over generic name normalisation because (a) the set is finite (36 states/UTs), (b) Wikipedia article names occasionally differ from official English names ("Odisha" vs older "Orissa" redirects), and (c) a missing entry must fail loudly with a `ValueError`, not silently 404.
 
-This dict is *adapter-local routing data*, not user-facing taxonomy (CLAUDE.md §6). The user-facing names live in `state.schema.json`-validated content.
+This dict is *adapter-local routing data*, not user-facing taxonomy (CLAUDE.md §6). The user-facing names live in `entity.schema.json`-validated content (`datasets/taxonomy/entities.json`; pre-Phase-C the comparable file was the retired `state.schema.json`-validated `reference/in/states.json`).
 
 ## User-Agent
 
