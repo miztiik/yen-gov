@@ -399,7 +399,8 @@
     <!-- "Your government" card (ADR-0023 §3). Anchors the page on the
          continuing condition (who governs right now) rather than the
          discrete event that produced it. Degrades to a one-line caption
-         when no cm_terms.json file exists for this state yet. -->
+         when no CM holdings for this state exist in
+         datasets/taxonomy/office_holdings.json (G.1.c 2026-05-22). -->
     {#if cur_term}
       <section class="bg-white rounded-lg shadow-sm ring-1 ring-slate-200/70 p-4 space-y-2">
         <h2 class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Your government</h2>

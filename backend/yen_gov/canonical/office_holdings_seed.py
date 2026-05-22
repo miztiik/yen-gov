@@ -1,66 +1,75 @@
-"""Compile per-state cm_terms.json files to dim_offices + office_holdings.
+"""Compile consolidated office_holdings.json to dim_offices + office_holdings.
 
-§8.3 Python-compiles-to-Parquet seam. Produces:
+§8.3 Python-compiles-to-Parquet seam. Replaces ``cm_terms_seed.py`` as
+the writer of:
 
-- ``datasets/governments/dim_offices.parquet`` — one row per
+- ``datasets/governments/dim_offices.parquet`` -- one row per
   (state, office) pair. Today only office=CM is materialised; the
   grammar (LOCKED §0e.10.2-A) generalises to DCM / GOV / PM / etc.
-- ``datasets/governments/governments_office_holdings.parquet`` — one row
-  per CM term (or President's Rule interval) across every state.
-- Side effect: UPSERT 31 Wikipedia "List of Chief Ministers of …"
+- ``datasets/governments/governments_office_holdings.parquet`` -- one
+  row per CM tenure (or President's Rule interval) across every state.
+- Side effect: UPSERT 31 Wikipedia "List of Chief Ministers of ..."
   citation rows into ``datasets/taxonomy/sources.parquet`` so every
   holdings row's ``source_id`` resolves to a real ledger entry.
 
-G.1.b role (2026-05-22, reader-switch): office IDENTITY now reads from
+G.1.c role (2026-05-22, consolidation): the 31 per-state cm_terms.json
+files were retired in favour of one consolidated
+``datasets/taxonomy/office_holdings.json`` per Hans + Max + Fowler
+review. Office IDENTITY still reads from
 ``datasets/taxonomy/entities.parquet WHERE entity_type='office_bearer'``
-(the 31 office_bearer rows G.1.a lifted in). Per state cm_terms.json
-continues to provide the TENURE facts (term start/end/person/party/
-regime) and the Wikipedia citation. Strangler-fig PR 2 of 3 for
-retiring the per-state ``cm_terms.json`` files — see
-``TODO/20260522-g1-cm-terms-retirement-handover.md``. G.1.c will delete
-the JSON files + this module once the persons sidecar replaces the
-tenure source. This rewrite keeps Parquet output byte-identical to the
-pre-G.1.b shape (verified by parity oracle + on-disk regen diff).
+(unchanged from G.1.b). Tenure facts now come from one file's
+``holdings[]`` array; per-office url_main values come from the same
+file's ``office_citations`` map. Parquet output is byte-identical to
+the pre-G.1.c shape (verified by SHA256 dance in the G.1.c PR body).
 
-Person identity model: this MVP carries ``person_slug`` (deterministic
-lowercase hyphenated derivation from ``cm_name``) plus a verbatim
-``person_name`` text column. No ``dim_persons.parquet`` is created here
-— full person identity (with TCPD-style disambiguation across CM /
-candidate / MP / MLA appearances) is the §0e.5 follow-up. For now,
-``person_slug`` is a forward-compatible JOIN key that downstream
-``dim_persons`` work can adopt without re-keying this table. President's
-Rule intervals carry ``person_slug IS NULL`` AND ``person_name IS NULL``
-— the office is held by no person during such intervals, the schema
-must say so honestly.
+Strangler-fig: PR 3 of 3 retiring the per-state cm_terms.json files.
+G.1.a (PR #89) lifted office_bearer rows into entities.parquet;
+G.1.b (PR #90) switched this seed's office-identity reader to those
+rows; G.1.c (this PR) consolidates tenure JSON + deletes cm_terms_seed.py
++ retires datasets/schemas/state_government.schema.json. See
+``TODO/20260522-g1-cm-terms-retirement-handover.md``.
 
-Rejected designs (do NOT re-propose):
-    1. Mint ``person_id`` from a UUID or autoincrement integer. Loses
-       referential transparency — re-running the seed would change
-       every holding row's person_id. ``slugify(cm_name)`` is the
-       cheapest deterministic identity per Plan §0e.5 MVP rules.
-    2. Emit ``person_name = "President's Rule"`` instead of NULL for
-       presidents_rule intervals. Conflates "no person holds the
-       office" with "this person holds the office". NULL is the
-       honest signal; the renderer composes the "President's Rule"
-       caption from ``regime``, not from a synthetic person_name.
-    3. Embed the source citation columns inline on each holdings row
-       (producer/title/vintage). Re-creates the per-shard provenance
-       smear CLAUDE.md §12 explicitly forbids — sources is a TABLE,
-       not a per-row array. Holdings carry ``source_id`` only.
-    4. Have this seed OVERWRITE ``sources.parquet`` rather than upsert.
+Person identity model: unchanged from cm_terms_seed.py. Carries
+``person_slug`` (deterministic lowercase hyphenated derivation from
+``person_name``) plus a verbatim ``person_name`` text column. No
+``dim_persons.parquet`` is created here -- full person identity (with
+TCPD-style disambiguation across CM / candidate / MP / MLA appearances)
+is the §0e.5 follow-up. President's Rule intervals carry
+``person_slug IS NULL`` AND ``person_name IS NULL`` -- the office is
+held by no person during such intervals, the schema must say so honestly.
+
+Rejected designs (do NOT re-propose; full archive in
+TODO/20260522-g1-cm-terms-retirement-handover.md §G.1.c):
+    1. Keep per-state cm_terms.json + add a thin index layer. Doubles
+       the operator's edit surface (32 files instead of 1). Loses
+       Hans's "single git history for all CM provenance" win.
+    2. Deterministic Wikipedia URL template
+       ``f"https://en.wikipedia.org/wiki/List_of_chief_ministers_of_{state.replace(' ', '_')}"``.
+       S19 Punjab requires a ``Punjab,_India`` disambiguation suffix;
+       any template would mis-handle this and any future irregularly
+       named office (e.g. UT-only offices with disambiguation). The
+       ``office_citations`` map in office_holdings.json is the typed
+       fix.
+    3. Add a ``role`` column to office_holdings.json holdings[] rows.
+       Role is encoded in office_id grammar (IN-S22-CM, IN-PM, ...);
+       a separate column would let the two drift. Premature
+       generalisation per Fowler review -- earned when 2nd concrete
+       role lands.
+    4. Emit one office_citations row per (office_id, citation_role)
+       to anticipate per-role citation overrides. YAGNI -- today
+       every office has exactly one citation (the Wikipedia list).
+       When DCM / Gov / PM land, the per-role template + this map
+       handles them. Schema-evolve later if needed.
+    5. Have this seed OVERWRITE ``sources.parquet`` rather than upsert.
        Would wipe the 55+ existing ECI envelope-derived source rows
        on every re-run. The canonical singleton-ledger contract
-       requires accumulation, not replacement.
-    5. Materialise one office row per regime (separate office_id for
+       requires accumulation, not replacement. Unchanged from
+       cm_terms_seed.py rejected #4.
+    6. Materialise one office row per regime (separate office_id for
        "elected-CM" vs "presidents_rule-Governor"). The OFFICE is the
        CM seat in both cases; the regime difference is captured on the
-       holding row, not by inventing parallel offices.
-    6. (G.1.b) Continue deriving office_id / role / label from the
-       cm_terms.json state code inline (the pre-G.1.b shape). Couples
-       this seed to the office-id grammar in two places (here AND
-       entities_seed.py via the office_bearer rows G.1.a added).
-       After G.1.a the office_bearer rows are canonical — read from
-       them, do not re-derive. See ADR-0033-style strangler-fig.
+       holding row, not by inventing parallel offices. Unchanged from
+       cm_terms_seed.py rejected #5.
 """
 
 from __future__ import annotations
@@ -68,7 +77,7 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from typing import Iterable, Literal
+from typing import Literal
 
 import duckdb
 from pydantic import BaseModel, ConfigDict, Field
@@ -86,41 +95,38 @@ Regime = Literal["elected", "presidents_rule", "governors_rule", "interim"]
 # ----------------------------------------------------------------------
 
 
-class _SourceCitation(BaseModel):
+class _OfficeCitation(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
-    url: str
-    fetched_at: str
-    name: str | None = None
-    authority: str | None = None
+    url_main: str
 
 
-class _TermReference(BaseModel):
+class _HoldingReference(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
     url: str
     note: str | None = None
 
 
-class _Term(BaseModel):
+class _OfficeHolding(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
-    start: str  # ISO date
-    end: str | None = None
+    office_id: str = Field(pattern=r"^IN(-[A-Z0-9]+)+$")
+    start_date: str  # ISO date
+    end_date: str | None = None
     regime: Regime
-    party_code: str | None = None
+    person_name: str | None = None
+    party_eci_code: str | None = None
     alliance: str | None = None
-    cm_name: str | None = None
     notes: str | None = None
-    references: list[_TermReference] | None = None
+    references: list[_HoldingReference] | None = None
 
 
-class _CmTermsFile(BaseModel):
+class _OfficeHoldingsFile(BaseModel):
     model_config = ConfigDict(extra="allow", frozen=True)
 
-    state: str = Field(pattern=r"^[SU]\d{2}$")
-    sources: list[_SourceCitation]
-    terms: list[_Term]
+    office_citations: dict[str, _OfficeCitation]
+    holdings: list[_OfficeHolding]
 
 
 # ----------------------------------------------------------------------
@@ -129,7 +135,6 @@ class _CmTermsFile(BaseModel):
 
 
 _SLUG_RE = re.compile(r"[^a-z0-9]+")
-_WIKI_LIST_RE = re.compile(r"wikipedia\.org/wiki/List_of_(chief_ministers|.*ministers)", re.IGNORECASE)
 
 
 def _slugify_person(name: str) -> str:
@@ -142,28 +147,16 @@ def _slugify_person(name: str) -> str:
     return _SLUG_RE.sub("-", name.lower()).strip("-")
 
 
-def _pick_wiki_source(file: _CmTermsFile) -> _SourceCitation:
-    """Return the Wikipedia 'List of Chief Ministers of <state>' source.
-
-    Scans file-level ``sources[]`` for a Wikipedia list-of-CMs URL.
-    Falls back to the first source if no match is found (defensive —
-    every shipping cm_terms.json today does have a wiki list URL).
-    """
-    for s in file.sources:
-        if _WIKI_LIST_RE.search(s.url):
-            return s
-    return file.sources[0]
-
-
 class _OfficeBearerIdentity(BaseModel):
     """Office-identity row read from ``entities.parquet``.
 
     Mirrors the four columns dim_offices needs from each office_bearer
     entity: office_id (= entity_id), entity_id of the parent state
     (= parent_entity_id), role (= entity_code, e.g. ``CM``), and label
-    (= display_name). The source_id citation comes from cm_terms.json
-    — not from this row — because that citation describes the
-    historical-tenures upstream, not the existence of the office.
+    (= display_name). The source_id citation comes from
+    ``office_citations`` -- not from this row -- because that citation
+    describes the historical-tenures upstream, not the existence of the
+    office.
     """
 
     model_config = ConfigDict(extra="forbid", frozen=True)
@@ -178,12 +171,14 @@ def _load_office_bearer_identities(
     entities_parquet: Path,
     role: str = "CM",
 ) -> dict[str, _OfficeBearerIdentity]:
-    """Return ``{state_code: _OfficeBearerIdentity}`` for one role.
+    """Return ``{office_id: _OfficeBearerIdentity}`` for one role.
 
     Reads ``entity_type='office_bearer'`` rows from entities.parquet
-    and keys them by the state code embedded in ``parent_entity_id``
-    (``IN-S22`` -> ``S22``). Filters by ``entity_code = role`` so this
-    helper generalises to DCM / GOV when those office_bearer rows land.
+    and keys them by ``entity_id`` (= office_id, e.g. ``IN-S22-CM``).
+    Filters by ``entity_code = role`` so this helper generalises to
+    DCM / GOV when those office_bearer rows land. Returns office_id as
+    key (not state_code) because the new long-form holdings carry
+    office_id directly -- no state-code derivation needed.
     """
     con = duckdb.connect(":memory:")
     try:
@@ -203,20 +198,11 @@ def _load_office_bearer_identities(
             raise ValueError(
                 f"office_bearer {entity_id!r} has NULL parent_entity_id; expected IN-<state_code>"
             )
-        # parent_entity_id "IN-S22" -> state_code "S22"
-        parts = parent_entity_id.split("-")
-        if len(parts) != 2 or parts[0] != "IN":
+        if entity_id in out:
             raise ValueError(
-                f"office_bearer {entity_id!r} parent_entity_id {parent_entity_id!r} "
-                f"does not match IN-<state_code> shape"
+                f"two office_bearer rows with entity_id={entity_id!r}"
             )
-        state_code = parts[1]
-        if state_code in out:
-            raise ValueError(
-                f"two office_bearer rows with entity_code={role!r} for state {state_code!r}: "
-                f"{out[state_code].office_id!r} and {entity_id!r}"
-            )
-        out[state_code] = _OfficeBearerIdentity(
+        out[entity_id] = _OfficeBearerIdentity(
             office_id=entity_id,
             state_entity_id=parent_entity_id,
             role=entity_code,
@@ -249,25 +235,25 @@ def _state_display_from_label(label: str, role: str = "CM") -> str:
 
 
 def compile_to_parquet(
-    cm_terms_files: Iterable[Path],
+    office_holdings_json: Path,
     entities_parquet: Path,
     sources_parquet: Path,
     dim_offices_out: Path,
     holdings_out: Path,
 ) -> tuple[int, int]:
-    """Read all inputs, emit dim_offices + holdings, UPSERT sources.
+    """Read the consolidated holdings file, emit dim_offices + holdings,
+    UPSERT sources.
 
     Args:
-        cm_terms_files: paths to ``cm_terms.json`` files (one per state).
-            Provides TENURE rows + Wikipedia citation per state.
+        office_holdings_json: path to ``datasets/taxonomy/office_holdings.json``.
+            Provides tenure rows in ``holdings[]`` + per-office url_main
+            in ``office_citations[]``.
         entities_parquet: path to ``datasets/taxonomy/entities.parquet``;
-            office IDENTITY (the 31 dim_offices rows) is read from
-            ``WHERE entity_type='office_bearer' AND entity_code='CM'``.
-            G.1.b reader-switch (2026-05-22): pre-rewrite this argument
-            was ``entities_json`` and identity was derived inline from
-            state codes.
+            office IDENTITY (the 31 dim_offices rows for CM today) is
+            read from ``WHERE entity_type='office_bearer' AND
+            entity_code='CM'``. Unchanged from G.1.b.
         sources_parquet: path to ``datasets/taxonomy/sources.parquet``;
-            opened, augmented with 1 Wikipedia citation per state file,
+            opened, augmented with 1 Wikipedia citation per office,
             written back. Idempotent across re-runs.
         dim_offices_out: output path for ``dim_offices.parquet``.
         holdings_out: output path for
@@ -280,31 +266,38 @@ def compile_to_parquet(
         Path(entities_parquet), role="CM"
     )
 
-    office_rows: list[tuple] = []
-    holding_rows: list[tuple] = []
-    new_sources: dict[str, tuple] = {}  # source_id -> source row tuple
+    raw = json.loads(Path(office_holdings_json).read_text(encoding="utf-8"))
+    for k in ("$schema", "$schema_version", "$comment"):
+        raw.pop(k, None)
+    file = _OfficeHoldingsFile.model_validate(raw)
 
-    for cm_path in cm_terms_files:
-        cm_path = Path(cm_path)
-        if not cm_path.is_file():
-            continue
-        raw = json.loads(cm_path.read_text(encoding="utf-8"))
-        for k in ("$schema", "$schema_version", "$comment"):
-            raw.pop(k, None)
-        cm = _CmTermsFile.model_validate(raw)
-        state_code = cm.state
-        identity = office_identities.get(state_code)
+    # Per-office citation rows -- one row per office_id present in
+    # office_citations. Today CM only; DCM / GOV / PM extend the same
+    # path. Index by office_id so each holding row picks up its source_id.
+    new_sources: dict[str, tuple] = {}  # source_id -> source row tuple
+    office_source_ids: dict[str, str] = {}  # office_id -> source_id
+    office_rows: list[tuple] = []
+
+    for office_id, citation in file.office_citations.items():
+        identity = office_identities.get(office_id)
         if identity is None:
             raise ValueError(
-                f"{cm_path.as_posix()}: no office_bearer entity for state "
-                f"{state_code!r} (expected entity_id IN-{state_code}-CM in "
-                f"entities.parquet). Did G.1.a lift this state's office?"
+                f"office_citations has {office_id!r} but entities.parquet has "
+                f"no office_bearer entity with entity_id={office_id!r}. Did "
+                f"G.1.a lift this state's office?"
             )
-        state_display = _state_display_from_label(identity.label, role="CM")
-
-        wiki = _pick_wiki_source(cm)
+        state_display = _state_display_from_label(identity.label, role=identity.role)
         producer = "Wikipedia"
-        title = f"List of Chief Ministers of {state_display}"
+        # Per-role citation template -- CM today; DCM / GOV / PM extend
+        # by branching on identity.role when they land.
+        if identity.role == "CM":
+            title = f"List of Chief Ministers of {state_display}"
+        else:
+            raise ValueError(
+                f"office {office_id!r} role={identity.role!r}: no citation "
+                f"template yet (CM is the only role supported in v1.0). "
+                f"Extend office_holdings_seed.py when adding DCM/GOV/PM."
+            )
         vintage = ""
         source_id = derive_source_id(producer, title, vintage)
         new_sources[source_id] = (
@@ -316,10 +309,11 @@ def compile_to_parquet(
             "silver",
             False,  # is_issuing_authority
             "transcribed",
-            wiki.url,
+            citation.url_main,
             None,  # citation_full
             None,  # notes
         )
+        office_source_ids[office_id] = source_id
 
         office_rows.append(
             (
@@ -331,22 +325,31 @@ def compile_to_parquet(
             )
         )
 
-        for term in cm.terms:
-            person_slug = _slugify_person(term.cm_name) if term.cm_name else None
-            holding_rows.append(
-                (
-                    identity.office_id,
-                    term.start,
-                    term.end,
-                    term.regime,
-                    person_slug,
-                    term.cm_name,
-                    term.party_code,
-                    term.alliance,
-                    term.notes,
-                    source_id,
-                )
+    # Holdings rows -- look up source_id by office_id.
+    holding_rows: list[tuple] = []
+    for holding in file.holdings:
+        source_id = office_source_ids.get(holding.office_id)
+        if source_id is None:
+            raise ValueError(
+                f"holdings row office_id={holding.office_id!r} has no entry in "
+                f"office_citations; every office_id in holdings[] must have a "
+                f"citation row."
             )
+        person_slug = _slugify_person(holding.person_name) if holding.person_name else None
+        holding_rows.append(
+            (
+                holding.office_id,
+                holding.start_date,
+                holding.end_date,
+                holding.regime,
+                person_slug,
+                holding.person_name,
+                holding.party_eci_code,
+                holding.alliance,
+                holding.notes,
+                source_id,
+            )
+        )
 
     # Dedupe office_ids and assert per-state uniqueness
     seen_offices: set[str] = set()
@@ -417,7 +420,7 @@ def compile_to_parquet(
 
         # ----- sources upsert ------------------------------------------
         # Read existing rows, drop any whose source_id we're about to
-        # write (idempotency — re-running yields byte-identical output),
+        # write (idempotency -- re-running yields byte-identical output),
         # union with new rows, sort, write back.
         existing_path = Path(sources_parquet)
         existing_path.parent.mkdir(parents=True, exist_ok=True)
@@ -442,7 +445,7 @@ def compile_to_parquet(
             con.execute(
                 f"INSERT INTO sources SELECT * FROM read_parquet('{existing_path.as_posix()}')"
             )
-        # UPSERT — delete any rows with source_ids we're about to write,
+        # UPSERT -- delete any rows with source_ids we're about to write,
         # then insert the new versions. Keeps re-runs byte-identical.
         if new_sources:
             sid_list = ",".join(f"'{sid}'" for sid in new_sources)

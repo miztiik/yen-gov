@@ -77,6 +77,12 @@ const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
   "methodology-break.schema.json",
   "operator-state.schema.json",
   "manifest.schema.json",
+  // office_holdings.json (G.1.c 2026-05-22) carries per-row references[]
+  // (hand-authored Wikipedia/upstream citations) instead of a top-level
+  // sources[] array. office_citations is a per-office map of canonical
+  // url_main. Compiled Parquet rows (dim_offices, governments_office_holdings)
+  // carry source_id FK; the authoring JSON is taxonomy-shaped.
+  "office-holdings.schema.json",
 ]);
 
 const SCHEMAS = loadSchemas();

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./office-holdings.schema.json",
+  "title": "Government office holdings (CM / DCM / Governor / PM / ...)",
+  "description": "Long-form consolidation of every government-office tenure across India, sub-national + national. One row per (office, person, period) triple. Today carries CM seats only (31 states/UTs, 359 holdings since 1947); DCM / Governor / Prime Minister / Finance Minister / Cabinet Secretary tenures land in the same file when curated. Compiled by backend/yen_gov/canonical/office_holdings_seed.py to datasets/governments/governments_office_holdings.parquet. Designed against Archigos (Goemans/Gleditsch/Chiozza 2009) -- the canonical political-science head-of-government event-grain table -- per Max review 2026-05-22.\n\nDesign decisions (Hans + Max + Fowler review 2026-05-22, see TODO/20260522-g1-cm-terms-retirement-handover.md):\n  - office_id is the FK into entities.parquet[entity_type='office_bearer']. Role is encoded in office_id (IN-S22-CM, IN-PM, IN-FM, ...) -- no separate role column. President's Rule rows carry the CM office_id with regime='presidents_rule' and person_name=NULL.\n  - source_id is COMPUTED in the seed via per-role citation template -- this file carries NO source_id column. Wikipedia 'List of Chief Ministers of <state>' is the canonical CM citation; the seed derives source_id deterministically from (producer, title, vintage) per CLAUDE.md §12 v2.0.\n  - Per-term `references` is OPTIONAL inert payload that the current compile does NOT consume; preserved for a future office_holding_annotations.parquet uplift. Drops the publisher URLs the previous per-state cm_terms.json carried at file level.\n  - person_slug is DERIVED in the seed from person_name; not stored here. dim_persons.parquet is the §0e.5 follow-up.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-05-22",
+      "description": "Initial schema. Replaces datasets/schemas/state_government.schema.json (retired in G.1.c PR alongside this file's introduction). 31 per-state cm_terms.json files were consolidated into datasets/taxonomy/office_holdings.json (359 CM holdings, 1947-2026) by tools/lift_cm_terms_to_office_holdings.py. Compiled Parquet (datasets/governments/governments_office_holdings.parquet) is byte-identical to the pre-G.1.c output per the SHA256 baseline in the G.1.c PR body."
+    }
+  ],
+  "type": "object",
+  "required": ["$schema", "$schema_version", "office_citations", "holdings"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "$comment": { "type": "string", "description": "Operator-facing edit-workflow note. Optional." },
+    "office_citations": {
+      "type": "object",
+      "description": "Per-office citation metadata (today: the Wikipedia 'List of <role>s of <state>' URL used to populate sources.parquet.url_main). Keyed by office_id. The producer/title/vintage triple that derives source_id is recomposed in the seed from a per-role template -- this map only carries url_main because state-name -> URL templating is fragile (e.g. S19 Punjab requires a ',_India' disambiguation suffix). One entry per office_id present in holdings[]; the seed enforces 1:1.",
+      "patternProperties": {
+        "^IN(-[A-Z0-9]+)+$": {
+          "type": "object",
+          "required": ["url_main"],
+          "additionalProperties": false,
+          "properties": {
+            "url_main": { "type": "string", "format": "uri", "pattern": "^https?://" }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "holdings": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Chronological list of all government-office holdings across all roles. Sorted by (office_id, start_date) on every compile.",
+      "items": {
+        "type": "object",
+        "required": ["office_id", "start_date", "regime"],
+        "additionalProperties": false,
+        "properties": {
+          "office_id": {
+            "type": "string",
+            "pattern": "^IN(-[A-Z0-9]+)+$",
+            "description": "FK into datasets/taxonomy/entities.parquet[entity_type='office_bearer'].entity_id. Grammar: IN-<state_code>-<role> (e.g. IN-S22-CM, IN-S22-DCM, IN-S22-GOV) for sub-national; IN-<role> (e.g. IN-PM, IN-FM, IN-CS) for national. Locked in Plan §0e.10.2-A."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "First date of this holding (YYYY-MM-DD). Inclusive."
+          },
+          "end_date": {
+            "type": ["string", "null"],
+            "format": "date",
+            "description": "Last date of this holding (YYYY-MM-DD). Inclusive. Null for the current ongoing holding."
+          },
+          "regime": {
+            "enum": ["elected", "presidents_rule", "governors_rule", "interim"],
+            "description": "Kind of government in power during this holding. `elected` is the normal case; `presidents_rule` / `governors_rule` capture central interventions where the seat is held by no person; `interim` covers caretaker / acting arrangements between elections."
+          },
+          "person_name": {
+            "type": ["string", "null"],
+            "description": "Verbatim publisher rendering of the person's name (e.g. 'M. Karunanidhi'). NULL for presidents_rule and governors_rule rows -- 'no person holds the office' is the honest signal; the renderer composes the 'President's Rule' caption from `regime`. Plan §0e.5 mandates verbatim text here; person_slug is derived in the seed."
+          },
+          "party_eci_code": {
+            "type": ["string", "null"],
+            "pattern": "^\\d+$",
+            "description": "FK into datasets/taxonomy/parties.parquet.eci_code. NULL for non-elected regimes (presidents_rule, governors_rule, interim-without-affiliation)."
+          },
+          "alliance": {
+            "type": ["string", "null"],
+            "description": "Pre-poll or post-poll alliance the holding party belonged to during this term (e.g. 'AIADMK+INC', 'NDA', 'INDIA bloc', 'Secular Progressive Alliance'). Free-text per Hans Q7 -- enums flatten coalition nuance. NULL if non-aligned or not applicable."
+          },
+          "notes": {
+            "type": ["string", "null"],
+            "description": "Optional context (succession crises, dismissal reasons, party-switch annotations, coalition collapses). The editorial-value column per Hans Q7 (non-negotiable to preserve on retirement)."
+          },
+          "references": {
+            "type": "array",
+            "description": "Optional per-term citations the operator consulted to verify this row. NOT consumed by the seed today -- inert payload preserved for a future office_holding_annotations.parquet uplift (Hans Q2 + Max follow-up). Replaces per-term `references` from the retired state_government.schema.json.",
+            "items": {
+              "type": "object",
+              "required": ["url"],
+              "additionalProperties": false,
+              "properties": {
+                "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+                "note": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

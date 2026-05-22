@@ -1,0 +1,4148 @@
+{
+  "$schema": "../schemas/office-holdings.schema.json",
+  "$schema_version": "1.0",
+  "$comment": "Long-form consolidation of all government-office tenures, compiled to datasets/governments/governments_office_holdings.parquet by backend/yen_gov/canonical/office_holdings_seed.py. Carries CM holdings today (G.1.c, 2026-05-22); DCM / Governor / PM / Finance Minister tenures land here when curated. To add a row: append to holdings[] and re-sort by (office_id, start_date) on next `python -m yen_gov emit-taxonomy --root .` run. Citation source_id is computed deterministically per-role inside the seed from office_id + entities.parquet state display name -- this file carries no source_id column. Per-term `references` is optional and not consumed by the compile today (preserved for a future office_holding_annotations.parquet uplift). regime enum: elected | presidents_rule | governors_rule | interim. Person identity model: person_name is the verbatim publisher string; person_slug is derived in the seed; full dim_persons table is the §0e.5 follow-up.",
+  "office_citations": {
+    "IN-S01-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Andhra_Pradesh"
+    },
+    "IN-S02-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Arunachal_Pradesh"
+    },
+    "IN-S03-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Assam"
+    },
+    "IN-S04-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Bihar"
+    },
+    "IN-S05-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Goa"
+    },
+    "IN-S06-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Gujarat"
+    },
+    "IN-S07-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Haryana"
+    },
+    "IN-S08-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Himachal_Pradesh"
+    },
+    "IN-S10-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Karnataka"
+    },
+    "IN-S11-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Kerala"
+    },
+    "IN-S12-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Madhya_Pradesh"
+    },
+    "IN-S13-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Maharashtra"
+    },
+    "IN-S14-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Manipur"
+    },
+    "IN-S15-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Meghalaya"
+    },
+    "IN-S16-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Mizoram"
+    },
+    "IN-S17-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Nagaland"
+    },
+    "IN-S18-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Odisha"
+    },
+    "IN-S19-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Punjab,_India"
+    },
+    "IN-S20-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Rajasthan"
+    },
+    "IN-S21-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Sikkim"
+    },
+    "IN-S22-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Tamil_Nadu"
+    },
+    "IN-S23-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Tripura"
+    },
+    "IN-S24-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Uttar_Pradesh"
+    },
+    "IN-S25-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_West_Bengal"
+    },
+    "IN-S26-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Chhattisgarh"
+    },
+    "IN-S27-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Jharkhand"
+    },
+    "IN-S28-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Uttarakhand"
+    },
+    "IN-S29-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Telangana"
+    },
+    "IN-U05-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Delhi"
+    },
+    "IN-U07-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Puducherry"
+    },
+    "IN-U08-CM": {
+      "url_main": "https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Jammu_and_Kashmir"
+    }
+  },
+  "holdings": [
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "1989-12-03",
+      "end_date": "1990-12-17",
+      "regime": "elected",
+      "person_name": "Marri Chenna Reddy",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Replaced by N. Janardhan Reddy after intra-party leadership change."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "1990-12-17",
+      "end_date": "1992-10-09",
+      "regime": "elected",
+      "person_name": "N. Janardhan Reddy",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "1992-10-09",
+      "end_date": "1994-12-12",
+      "regime": "elected",
+      "person_name": "Kotla Vijaya Bhaskara Reddy",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Lost the 1994 Assembly election."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "1994-12-12",
+      "end_date": "1995-09-01",
+      "regime": "elected",
+      "person_name": "N. T. Rama Rao",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Unified Andhra Pradesh pre-bifurcation. TDP (Telugu Desam Party). NTR's third term; deposed by son-in-law N. Chandrababu Naidu in an intra-party coup."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "1995-09-01",
+      "end_date": "2004-05-14",
+      "regime": "elected",
+      "person_name": "N. Chandrababu Naidu",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Unified Andhra Pradesh pre-bifurcation. TDP (Telugu Desam Party). Two terms (1995-1999, 1999-2004). NDA partner from 1998."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "2004-05-14",
+      "end_date": "2009-09-02",
+      "regime": "elected",
+      "person_name": "Y. S. Rajasekhara Reddy",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Died in office (helicopter crash, 2 Sep 2009)."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "2009-09-03",
+      "end_date": "2010-11-25",
+      "regime": "elected",
+      "person_name": "K. Rosaiah",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Caretaker after YSR's death; resigned amid Telangana agitation."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "2010-11-25",
+      "end_date": "2014-03-01",
+      "regime": "elected",
+      "person_name": "N. Kiran Kumar Reddy",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Resigned in protest against the Andhra Pradesh Reorganisation Act 2014."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "2014-03-01",
+      "end_date": "2014-06-08",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule imposed during the bifurcation transition (1 March 2014 – 8 June 2014). State formally bifurcated on 2 June 2014; new Andhra Pradesh and Telangana governments sworn in 8 June 2014."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "2014-06-08",
+      "end_date": "2019-05-29",
+      "regime": "elected",
+      "person_name": "N. Chandrababu Naidu",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "Post-bifurcation Andhra Pradesh, first term. TDP (Telugu Desam Party) in alliance with BJP until split in March 2018."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "2019-05-30",
+      "end_date": "2024-06-11",
+      "regime": "elected",
+      "person_name": "Y. S. Jagan Mohan Reddy",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "YSRCP (YSR Congress Party). Single five-year term."
+    },
+    {
+      "office_id": "IN-S01-CM",
+      "start_date": "2024-06-12",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "N. Chandrababu Naidu",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "TDP (Telugu Desam Party) in NDA alliance with Jana Sena and BJP. Fourth term as CM. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenJune2024/partywiseresult-S01.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "1980-01-18",
+      "end_date": "1995-01-22",
+      "regime": "elected",
+      "person_name": "Gegong Apang",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Long-running term spanning the 1980s and early 1990s; re-elected 1990. (Pre-1990 portion retained for context.)"
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "1995-01-22",
+      "end_date": "1999-01-19",
+      "regime": "elected",
+      "person_name": "Gegong Apang",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Switched from INC to Arunachal Congress (Mithi). Coalition governments through this period."
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "1999-01-19",
+      "end_date": "2003-08-03",
+      "regime": "elected",
+      "person_name": "Mukut Mithi",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "Arunachal Congress (Mithi); merged with INC. Replaced by Apang."
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "2003-08-03",
+      "end_date": "2007-04-09",
+      "regime": "elected",
+      "person_name": "Gegong Apang",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Re-took office; switched to BJP and then to INC. Replaced by Dorjee Khandu after corruption allegations."
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "2007-04-09",
+      "end_date": "2011-04-30",
+      "regime": "elected",
+      "person_name": "Dorjee Khandu",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Died in office on 30 April 2011 in a helicopter crash."
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "2011-05-05",
+      "end_date": "2011-11-01",
+      "regime": "elected",
+      "person_name": "Jarbom Gamlin",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Caretaker after Khandu's death; replaced by Nabam Tuki within months."
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "2011-11-01",
+      "end_date": "2016-01-26",
+      "regime": "elected",
+      "person_name": "Nabam Tuki",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Continued through the 2014 election. Removed during the 2016 constitutional crisis."
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "2016-01-26",
+      "end_date": "2016-02-19",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule imposed amid the Arunachal Pradesh constitutional crisis after defections in the INC legislature party. Lifted by Supreme Court intervention."
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "2016-02-19",
+      "end_date": "2016-07-13",
+      "regime": "elected",
+      "person_name": "Kalikho Pul",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "People's Party of Arunachal (PPA) faction. Removed after the Supreme Court restored Nabam Tuki on 13 July 2016."
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "2016-07-13",
+      "end_date": "2016-07-17",
+      "regime": "elected",
+      "person_name": "Nabam Tuki",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Restored by Supreme Court but lost majority within days."
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "2016-07-17",
+      "end_date": "2016-12-31",
+      "regime": "elected",
+      "person_name": "Pema Khandu",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "People's Party of Arunachal (PPA), then defected to BJP in December 2016."
+    },
+    {
+      "office_id": "IN-S02-CM",
+      "start_date": "2016-12-31",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Pema Khandu",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Re-elected 2019 and 2024. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenJune2024/partywiseresult-S02.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "1985-12-24",
+      "end_date": "1990-11-28",
+      "regime": "elected",
+      "person_name": "Prafulla Kumar Mahanta",
+      "party_eci_code": "83",
+      "alliance": null,
+      "notes": "First term. Asom Gana Parishad's debut government, formed after the Assam Accord (1985) and the AGP sweep of the December 1985 election. State government dismissed on 28 November 1990 after the Centre invoked Article 356 citing the law-and-order situation amid the ULFA insurgency.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Prafulla_Kumar_Mahanta",
+          "note": "Two-term CM (1985-90, 1996-2001)."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "1990-11-28",
+      "end_date": "1991-06-30",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Imposed during Operation Bajrang against ULFA. Lifted on swearing-in of the Saikia ministry after the June 1991 assembly election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/President%27s_rule#Assam",
+          "note": "President's Rule episodes in Assam."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "1991-06-30",
+      "end_date": "1996-04-22",
+      "regime": "elected",
+      "person_name": "Hiteswar Saikia",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "Second term as CM (first was 1983-85, an unrecognised period during the Assam Movement). INC won the 1991 election on its own. Died in office on 22 April 1996 of cardiac arrest.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hiteswar_Saikia",
+          "note": "Died in office."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "1996-04-22",
+      "end_date": "1996-05-14",
+      "regime": "elected",
+      "person_name": "Bhumidhar Barman",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "Caretaker stint after Saikia's death; took office until the new ministry was sworn in following the May 1996 assembly election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Bhumidhar_Barman",
+          "note": "Two short caretaker stints (1996, 2010-11)."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "1996-05-15",
+      "end_date": "2001-05-17",
+      "regime": "elected",
+      "person_name": "Prafulla Kumar Mahanta",
+      "party_eci_code": "83",
+      "alliance": null,
+      "notes": "Second term. AGP-led front won the 1996 election. AGP briefly aligned with the BJP at the central level (NDA, 1998-99) but the Assam state government was not a formal alliance government.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Prafulla_Kumar_Mahanta",
+          "note": "Second term ended in 2001 defeat."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "2001-05-17",
+      "end_date": "2006-05-13",
+      "regime": "elected",
+      "person_name": "Tarun Gogoi",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "First term. INC won the 2001 election on its own. Full five-year term.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Tarun_Gogoi",
+          "note": "Three-term CM (2001-06, 2006-11, 2011-16)."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "2006-05-14",
+      "end_date": "2011-05-17",
+      "regime": "elected",
+      "person_name": "Tarun Gogoi",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "Second term. INC won the 2006 election; aligned with UPA at the centre under UPA-I/UPA-II.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3196-assam-2006/",
+          "note": "2006 Assam Statistical Report (URL pattern; legacy host may not be reachable from all build hosts)."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "2011-05-18",
+      "end_date": "2016-05-23",
+      "regime": "elected",
+      "person_name": "Tarun Gogoi",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "Third and final term. INC won the 2011 election with 78/126 seats. Full five-year term; INC lost the 2016 election to a BJP-led coalition.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/2011_Assam_Legislative_Assembly_election",
+          "note": "INC majority government."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "2016-05-24",
+      "end_date": "2021-05-09",
+      "regime": "elected",
+      "person_name": "Sarbananda Sonowal",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "First BJP-led government in Assam's history. BJP won the 2016 election in pre-poll alliance with AGP and Bodoland People's Front (state-level brand: NDA). BJP secured 60/126 seats, AGP 14, BPF 12.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/2016_Assam_Legislative_Assembly_election",
+          "note": "First BJP government."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "2021-05-10",
+      "end_date": "2026-05-12",
+      "regime": "elected",
+      "person_name": "Himanta Biswa Sarma",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "First term. BJP-led NDA won the 2021 election; BJP secured 60/126 seats, AGP 9, UPPL 6. Himanta Biswa Sarma (who had crossed over from INC to BJP in 2015) replaced Sonowal as CM-designate at the post-election leadership selection.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/2021_Assam_Legislative_Assembly_election",
+          "note": "Seat shares and CM selection."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Himanta_Biswa_Sarma",
+          "note": "Career and 2021 elevation."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S03-CM",
+      "start_date": "2026-05-13",
+      "end_date": null,
+      "regime": "interim",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Placeholder for the post-May-2026 government. Results ingested in datasets/elections/AcGenMay2026/S03/. Backfill once the new ministry is sworn in.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S03.htm",
+          "note": "2026 Assam partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "1990-03-10",
+      "end_date": "1995-03-28",
+      "regime": "elected",
+      "person_name": "Lalu Prasad Yadav",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal. First term."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "1995-04-04",
+      "end_date": "1997-07-25",
+      "regime": "elected",
+      "person_name": "Lalu Prasad Yadav",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal (later RJD from July 1997). Resigned over the fodder scam case."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "1997-07-25",
+      "end_date": "1999-02-11",
+      "regime": "elected",
+      "person_name": "Rabri Devi",
+      "party_eci_code": "1420",
+      "alliance": null,
+      "notes": "RJD (Rashtriya Janata Dal). Lalu's wife; took over after his resignation."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "1999-02-12",
+      "end_date": "1999-03-09",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule imposed amid the Senari massacre and law-and-order collapse. Revoked when Rabri was reinstated."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "1999-03-09",
+      "end_date": "2000-03-02",
+      "regime": "elected",
+      "person_name": "Rabri Devi",
+      "party_eci_code": "1420",
+      "alliance": null,
+      "notes": "RJD."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "2000-03-03",
+      "end_date": "2000-03-10",
+      "regime": "elected",
+      "person_name": "Nitish Kumar",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "JD(U) / Samata Party. First, very brief NDA-backed term; resigned within a week unable to prove majority."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "2000-03-11",
+      "end_date": "2005-03-06",
+      "regime": "elected",
+      "person_name": "Rabri Devi",
+      "party_eci_code": "1420",
+      "alliance": "UPA",
+      "notes": "RJD. Resumed office after Nitish's brief tenure."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "2005-03-07",
+      "end_date": "2005-11-24",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. February 2005 election produced a hung assembly; centre dismissed the assembly. Re-election held in October-November 2005."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "2005-11-24",
+      "end_date": "2014-05-17",
+      "regime": "elected",
+      "person_name": "Nitish Kumar",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "JD(U) in NDA. Two terms (2005-2010, 2010-2014). Resigned after the BJP-JDU split in June 2013 and BJP's poor 2014 LS show."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "2014-05-20",
+      "end_date": "2015-02-22",
+      "regime": "elected",
+      "person_name": "Jitan Ram Manjhi",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JD(U). Hand-picked by Nitish; later expelled. Briefly resigned amid intra-party turmoil."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "2015-02-22",
+      "end_date": "2017-07-26",
+      "regime": "elected",
+      "person_name": "Nitish Kumar",
+      "party_eci_code": null,
+      "alliance": "Mahagathbandhan",
+      "notes": "JD(U) in Mahagathbandhan with RJD + INC. Resigned 26 July 2017 over CBI cases against Tejashwi Yadav."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "2017-07-27",
+      "end_date": "2022-08-09",
+      "regime": "elected",
+      "person_name": "Nitish Kumar",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "JD(U) back in NDA with BJP. Continued through the 2020 election. Resigned 9 August 2022 to break with BJP."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "2022-08-10",
+      "end_date": "2024-01-28",
+      "regime": "elected",
+      "person_name": "Nitish Kumar",
+      "party_eci_code": null,
+      "alliance": "Mahagathbandhan",
+      "notes": "JD(U) again with RJD + INC + Left in Mahagathbandhan. Resigned 28 January 2024 to switch back to NDA."
+    },
+    {
+      "office_id": "IN-S04-CM",
+      "start_date": "2024-01-28",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Nitish Kumar",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "JD(U) in NDA. Ninth term as CM. Continued after Bihar Assembly Election November 2025. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenNov2025/partywiseresult-S04.htm",
+          "note": "2025 partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1990-01-25",
+      "end_date": "1990-04-14",
+      "regime": "elected",
+      "person_name": "Churchill Alemao",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Progressive Democratic Front. Brief term."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1990-04-14",
+      "end_date": "1990-12-14",
+      "regime": "elected",
+      "person_name": "Luis Proto Barbosa",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Goan People's Party."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1990-12-14",
+      "end_date": "1991-01-25",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Coalition collapse."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1991-01-25",
+      "end_date": "1993-05-18",
+      "regime": "elected",
+      "person_name": "Ravi S. Naik",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Replaced by Wilfred de Souza."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1993-05-18",
+      "end_date": "1994-04-02",
+      "regime": "elected",
+      "person_name": "Wilfred de Souza",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1994-04-02",
+      "end_date": "1994-12-16",
+      "regime": "elected",
+      "person_name": "Ravi S. Naik",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Brief return."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1994-12-16",
+      "end_date": "1998-07-29",
+      "regime": "elected",
+      "person_name": "Pratapsingh Rane",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Won 1994 election."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1998-07-29",
+      "end_date": "1998-11-26",
+      "regime": "elected",
+      "person_name": "Wilfred de Souza",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1998-11-26",
+      "end_date": "1999-02-09",
+      "regime": "elected",
+      "person_name": "Luizinho Faleiro",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "INC (Goa Rajiv Congress)."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1999-02-09",
+      "end_date": "1999-06-09",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Hung assembly."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1999-06-09",
+      "end_date": "1999-11-24",
+      "regime": "elected",
+      "person_name": "Luizinho Faleiro",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "1999-11-24",
+      "end_date": "2000-10-23",
+      "regime": "elected",
+      "person_name": "Francisco Sardinha",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "Goa People's Congress / INC."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "2000-10-24",
+      "end_date": "2005-02-02",
+      "regime": "elected",
+      "person_name": "Manohar Parrikar",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First term. Replaced after defections in 2005."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "2005-02-02",
+      "end_date": "2007-06-07",
+      "regime": "elected",
+      "person_name": "Pratapsingh Rane",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "2007-06-08",
+      "end_date": "2012-03-09",
+      "regime": "elected",
+      "person_name": "Digambar Kamat",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "2012-03-09",
+      "end_date": "2014-11-08",
+      "regime": "elected",
+      "person_name": "Manohar Parrikar",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Resigned to become Union Defence Minister."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "2014-11-08",
+      "end_date": "2017-03-13",
+      "regime": "elected",
+      "person_name": "Laxmikant Parsekar",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "2017-03-14",
+      "end_date": "2019-03-17",
+      "regime": "elected",
+      "person_name": "Manohar Parrikar",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Returned from Union cabinet. Died in office (pancreatic cancer)."
+    },
+    {
+      "office_id": "IN-S05-CM",
+      "start_date": "2019-03-19",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Pramod Sawant",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Sworn in after Parrikar's death; re-elected 2022. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S05.htm",
+          "note": "2022 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "1990-03-04",
+      "end_date": "1990-10-25",
+      "regime": "elected",
+      "person_name": "Chimanbhai Patel",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal (Gujarat) initially in coalition with BJP; switched to INC support October 1990."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "1990-10-25",
+      "end_date": "1994-02-17",
+      "regime": "elected",
+      "person_name": "Chimanbhai Patel",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC (Patel merged his Janata Dal Gujarat into INC). Died in office."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "1994-02-17",
+      "end_date": "1995-03-14",
+      "regime": "elected",
+      "person_name": "Chhabildas Mehta",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Caretaker after Chimanbhai Patel's death."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "1995-03-14",
+      "end_date": "1995-10-21",
+      "regime": "elected",
+      "person_name": "Keshubhai Patel",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP first term. Forced to resign after Shankersinh Vaghela's rebellion."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "1995-10-21",
+      "end_date": "1996-09-19",
+      "regime": "elected",
+      "person_name": "Suresh Mehta",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. Replaced by Vaghela's RJP-INC government."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "1996-09-19",
+      "end_date": "1996-10-23",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Brief; followed Vaghela's revolt against the BJP government."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "1996-10-23",
+      "end_date": "1997-10-27",
+      "regime": "elected",
+      "person_name": "Shankersinh Vaghela",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Rashtriya Janata Party (RJP) with INC support."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "1997-10-28",
+      "end_date": "1998-03-04",
+      "regime": "elected",
+      "person_name": "Dilip Parikh",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "RJP with INC support."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "1998-03-04",
+      "end_date": "2001-10-06",
+      "regime": "elected",
+      "person_name": "Keshubhai Patel",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Replaced by Narendra Modi after Bhuj earthquake handling and intra-party pressure."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "2001-10-07",
+      "end_date": "2014-05-22",
+      "regime": "elected",
+      "person_name": "Narendra Modi",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Three full terms (2002, 2007, 2012). Resigned to become Prime Minister."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "2014-05-22",
+      "end_date": "2016-08-03",
+      "regime": "elected",
+      "person_name": "Anandiben Patel",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First woman CM of Gujarat."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "2016-08-07",
+      "end_date": "2021-09-12",
+      "regime": "elected",
+      "person_name": "Vijay Rupani",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Re-elected 2017. Resigned in 2021 leadership change."
+    },
+    {
+      "office_id": "IN-S06-CM",
+      "start_date": "2021-09-13",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Bhupendra Patel",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Re-elected with record majority in 2022. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S06.htm",
+          "note": "2022 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "1987-06-20",
+      "end_date": "1990-04-02",
+      "regime": "elected",
+      "person_name": "Devi Lal",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Lok Dal (B). Resigned to become Deputy PM in V. P. Singh government."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "1990-04-02",
+      "end_date": "1990-07-06",
+      "regime": "elected",
+      "person_name": "Om Prakash Chautala",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal. First brief term."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "1990-07-06",
+      "end_date": "1990-07-17",
+      "regime": "elected",
+      "person_name": "Banarsi Das Gupta",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal. Brief."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "1990-07-17",
+      "end_date": "1991-03-22",
+      "regime": "elected",
+      "person_name": "Om Prakash Chautala",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "1991-03-22",
+      "end_date": "1991-04-06",
+      "regime": "elected",
+      "person_name": "Hukam Singh",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "1991-04-06",
+      "end_date": "1991-07-23",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule before the May 1991 elections."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "1991-07-23",
+      "end_date": "1996-05-09",
+      "regime": "elected",
+      "person_name": "Bhajan Lal",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "1996-05-11",
+      "end_date": "1999-07-23",
+      "regime": "elected",
+      "person_name": "Bansi Lal",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "Haryana Vikas Party (HVP) with BJP support."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "1999-07-24",
+      "end_date": "2005-03-05",
+      "regime": "elected",
+      "person_name": "Om Prakash Chautala",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "Indian National Lok Dal (INLD) in alliance with BJP."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "2005-03-05",
+      "end_date": "2014-10-26",
+      "regime": "elected",
+      "person_name": "Bhupinder Singh Hooda",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Two terms (2005, 2009)."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "2014-10-26",
+      "end_date": "2024-03-12",
+      "regime": "elected",
+      "person_name": "Manohar Lal Khattar",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Two terms (2014, 2019). Resigned in March 2024 leadership change ahead of LS election."
+    },
+    {
+      "office_id": "IN-S07-CM",
+      "start_date": "2024-03-12",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Nayab Singh Saini",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Continued after the October 2024 election win. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenOct2024/partywiseresult-S07.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S08-CM",
+      "start_date": "1990-03-05",
+      "end_date": "1992-12-15",
+      "regime": "elected",
+      "person_name": "Shanta Kumar",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. Dismissed when Article 356 was invoked post-Babri."
+    },
+    {
+      "office_id": "IN-S08-CM",
+      "start_date": "1992-12-15",
+      "end_date": "1993-12-03",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule following the demolition of the Babri Masjid; all four BJP-ruled states dismissed."
+    },
+    {
+      "office_id": "IN-S08-CM",
+      "start_date": "1993-12-03",
+      "end_date": "1998-03-23",
+      "regime": "elected",
+      "person_name": "Virbhadra Singh",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S08-CM",
+      "start_date": "1998-03-24",
+      "end_date": "2003-03-05",
+      "regime": "elected",
+      "person_name": "Prem Kumar Dhumal",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S08-CM",
+      "start_date": "2003-03-06",
+      "end_date": "2007-12-30",
+      "regime": "elected",
+      "person_name": "Virbhadra Singh",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S08-CM",
+      "start_date": "2007-12-30",
+      "end_date": "2012-12-25",
+      "regime": "elected",
+      "person_name": "Prem Kumar Dhumal",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S08-CM",
+      "start_date": "2012-12-25",
+      "end_date": "2017-12-27",
+      "regime": "elected",
+      "person_name": "Virbhadra Singh",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Final term."
+    },
+    {
+      "office_id": "IN-S08-CM",
+      "start_date": "2017-12-27",
+      "end_date": "2022-12-11",
+      "regime": "elected",
+      "person_name": "Jai Ram Thakur",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S08-CM",
+      "start_date": "2022-12-11",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Sukhvinder Singh Sukhu",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S08.htm",
+          "note": "2022 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "1989-11-30",
+      "end_date": "1990-10-10",
+      "regime": "elected",
+      "person_name": "Veerendra Patil",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Removed by Rajiv Gandhi after communal riots."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "1990-10-17",
+      "end_date": "1992-11-19",
+      "regime": "elected",
+      "person_name": "S. Bangarappa",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Replaced after corruption charges."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "1992-11-19",
+      "end_date": "1994-12-11",
+      "regime": "elected",
+      "person_name": "M. Veerappa Moily",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "1994-12-11",
+      "end_date": "1996-05-31",
+      "regime": "elected",
+      "person_name": "H. D. Deve Gowda",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal. Resigned to become Prime Minister."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "1996-05-31",
+      "end_date": "1999-10-07",
+      "regime": "elected",
+      "person_name": "J. H. Patel",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal (later JD-U). Coalition with BJP from 1998."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "1999-10-11",
+      "end_date": "2004-05-28",
+      "regime": "elected",
+      "person_name": "S. M. Krishna",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2004-05-28",
+      "end_date": "2006-01-28",
+      "regime": "elected",
+      "person_name": "Dharam Singh",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC + JD(S) coalition. Collapsed when JD(S) switched to BJP."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2006-02-03",
+      "end_date": "2007-10-08",
+      "regime": "elected",
+      "person_name": "H. D. Kumaraswamy",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JD(S) in coalition with BJP. Refused to honour rotation; coalition collapsed."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2007-10-09",
+      "end_date": "2007-11-12",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Coalition collapse."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2007-11-12",
+      "end_date": "2007-11-19",
+      "regime": "elected",
+      "person_name": "B. S. Yediyurappa",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. Seven-day term; resigned without seeking confidence vote."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2007-11-19",
+      "end_date": "2008-05-30",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule before May 2008 election."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2008-05-30",
+      "end_date": "2011-08-04",
+      "regime": "elected",
+      "person_name": "B. S. Yediyurappa",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First full BJP government in any south Indian state. Resigned over Lokayukta indictment."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2011-08-04",
+      "end_date": "2012-07-12",
+      "regime": "elected",
+      "person_name": "D. V. Sadananda Gowda",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2012-07-12",
+      "end_date": "2013-05-12",
+      "regime": "elected",
+      "person_name": "Jagadish Shettar",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2013-05-13",
+      "end_date": "2018-05-17",
+      "regime": "elected",
+      "person_name": "Siddaramaiah",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. First full term."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2018-05-17",
+      "end_date": "2018-05-19",
+      "regime": "elected",
+      "person_name": "B. S. Yediyurappa",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Two-day term; resigned before floor test."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2018-05-23",
+      "end_date": "2019-07-23",
+      "regime": "elected",
+      "person_name": "H. D. Kumaraswamy",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JD(S)-INC coalition. Collapsed after defections (Operation Kamala)."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2019-07-26",
+      "end_date": "2021-07-28",
+      "regime": "elected",
+      "person_name": "B. S. Yediyurappa",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Fourth term. Resigned over central party pressure."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2021-07-28",
+      "end_date": "2023-05-13",
+      "regime": "elected",
+      "person_name": "Basavaraj Bommai",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S10-CM",
+      "start_date": "2023-05-20",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Siddaramaiah",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Second term. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S10.htm",
+          "note": "2023 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "1987-03-26",
+      "end_date": "1991-06-17",
+      "regime": "elected",
+      "person_name": "E. K. Nayanar",
+      "party_eci_code": "547",
+      "alliance": "LDF",
+      "notes": "Third stint as CM. Left Democratic Front (CPI(M)-led) won the 1987 election. Term ended with the LDF defeat in the May 1991 assembly election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/E._K._Nayanar",
+          "note": "Three-term CM (1980-81, 1987-91, 1996-2001)."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "1991-06-24",
+      "end_date": "1995-03-22",
+      "regime": "elected",
+      "person_name": "K. Karunakaran",
+      "party_eci_code": "742",
+      "alliance": "UDF",
+      "notes": "Fourth and final term as CM. United Democratic Front (INC-led) won the 1991 election. Resigned on 22 March 1995 amid factional pressure within INC over the ISRO espionage allegations and was succeeded by A. K. Antony without a fresh election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/K._Karunakaran",
+          "note": "Four-term CM; resignation context."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "1995-03-22",
+      "end_date": "1996-05-09",
+      "regime": "elected",
+      "person_name": "A. K. Antony",
+      "party_eci_code": "742",
+      "alliance": "UDF",
+      "notes": "First term. Took over mid-term after Karunakaran's resignation. Term ended with the UDF defeat in the 1996 election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/A._K._Antony",
+          "note": "Three-term CM (1977-78, 1995-96, 2001-04)."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "1996-05-20",
+      "end_date": "2001-05-13",
+      "regime": "elected",
+      "person_name": "E. K. Nayanar",
+      "party_eci_code": "547",
+      "alliance": "LDF",
+      "notes": "Fourth and final term. LDF won the 1996 election. Full five-year term.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3759-kerala-1996/",
+          "note": "1996 Kerala Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "2001-05-17",
+      "end_date": "2004-08-29",
+      "regime": "elected",
+      "person_name": "A. K. Antony",
+      "party_eci_code": "742",
+      "alliance": "UDF",
+      "notes": "Second consecutive term in this stint, third overall. UDF won the 2001 election. Resigned on 29 August 2004 taking moral responsibility for UDF's near-wipeout in the 2004 Lok Sabha election (Kerala UDF won only 1/20 LS seats).",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3760-kerala-2001/",
+          "note": "2001 Kerala Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "2004-08-31",
+      "end_date": "2006-05-12",
+      "regime": "elected",
+      "person_name": "Oommen Chandy",
+      "party_eci_code": "742",
+      "alliance": "UDF",
+      "notes": "First term. Took over mid-term from Antony without fresh election. Term ended with UDF defeat in the 2006 election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Oommen_Chandy",
+          "note": "Two-term CM (2004-06, 2011-16)."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "2006-05-18",
+      "end_date": "2011-05-14",
+      "regime": "elected",
+      "person_name": "V. S. Achuthanandan",
+      "party_eci_code": "547",
+      "alliance": "LDF",
+      "notes": "Only term as CM (at age 82 at swearing-in). LDF won the 2006 election with 98/140 seats. Full five-year term.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3762-kerala-2006/",
+          "note": "2006 Kerala Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "2011-05-18",
+      "end_date": "2016-05-20",
+      "regime": "elected",
+      "person_name": "Oommen Chandy",
+      "party_eci_code": "742",
+      "alliance": "UDF",
+      "notes": "Second term. UDF won the 2011 election by a razor-thin 72/140 seats. Full five-year term despite serial defections threatening the majority.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3763-kerala-2011/",
+          "note": "2011 Kerala Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "2016-05-25",
+      "end_date": "2021-05-19",
+      "regime": "elected",
+      "person_name": "Pinarayi Vijayan",
+      "party_eci_code": "547",
+      "alliance": "LDF",
+      "notes": "First term. LDF won the 2016 election with 91/140 seats. Full five-year term.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3767-kerala-general-legislative-election-2016/",
+          "note": "2016 Kerala Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "2021-05-20",
+      "end_date": "2026-05-12",
+      "regime": "elected",
+      "person_name": "Pinarayi Vijayan",
+      "party_eci_code": "547",
+      "alliance": "LDF",
+      "notes": "Second consecutive term -- the first incumbent return in Kerala's history (the LDF/UDF alternation had held since 1980). LDF won 2021 with 99/140 seats. At the national level the CPI(M) and CPI are part of the INDIA bloc from July 2023, but at the state level the LDF and the INC-led UDF are direct opponents -- this is recorded as LDF (state alliance) rather than INDIA bloc.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/13827-kerala-general-legislative-election-2021/",
+          "note": "2021 Kerala Statistical Report."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/2021_Kerala_Legislative_Assembly_election",
+          "note": "Seat shares; first incumbent return."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S11-CM",
+      "start_date": "2026-05-13",
+      "end_date": null,
+      "regime": "interim",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "The new ministry has not yet been sworn in. This page will update once the cabinet is announced.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S11.htm",
+          "note": "2026 Kerala partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S12-CM",
+      "start_date": "1990-03-05",
+      "end_date": "1992-12-15",
+      "regime": "elected",
+      "person_name": "Sunderlal Patwa",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. Dismissed when Article 356 was invoked post-Babri."
+    },
+    {
+      "office_id": "IN-S12-CM",
+      "start_date": "1992-12-15",
+      "end_date": "1993-12-07",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule following the demolition of the Babri Masjid."
+    },
+    {
+      "office_id": "IN-S12-CM",
+      "start_date": "1993-12-07",
+      "end_date": "2003-12-08",
+      "regime": "elected",
+      "person_name": "Digvijaya Singh",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Two consecutive terms. Includes Chhattisgarh until 1 November 2000 bifurcation; pre-bifurcation tenure also appears in S26."
+    },
+    {
+      "office_id": "IN-S12-CM",
+      "start_date": "2003-12-08",
+      "end_date": "2003-12-08",
+      "regime": "elected",
+      "person_name": "Uma Bharti",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Resigned over the Hubli arrest warrant."
+    },
+    {
+      "office_id": "IN-S12-CM",
+      "start_date": "2004-08-23",
+      "end_date": "2005-11-29",
+      "regime": "elected",
+      "person_name": "Babulal Gaur",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S12-CM",
+      "start_date": "2005-11-29",
+      "end_date": "2018-12-17",
+      "regime": "elected",
+      "person_name": "Shivraj Singh Chouhan",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Three consecutive terms (2005, 2008, 2013)."
+    },
+    {
+      "office_id": "IN-S12-CM",
+      "start_date": "2018-12-17",
+      "end_date": "2020-03-23",
+      "regime": "elected",
+      "person_name": "Kamal Nath",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Lost majority to Jyotiraditya Scindia's defection."
+    },
+    {
+      "office_id": "IN-S12-CM",
+      "start_date": "2020-03-23",
+      "end_date": "2023-12-13",
+      "regime": "elected",
+      "person_name": "Shivraj Singh Chouhan",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Fourth term."
+    },
+    {
+      "office_id": "IN-S12-CM",
+      "start_date": "2023-12-13",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Mohan Yadav",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S12.htm",
+          "note": "2023 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "1988-06-26",
+      "end_date": "1991-06-25",
+      "regime": "elected",
+      "person_name": "Sharad Pawar",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "1991-06-25",
+      "end_date": "1993-02-22",
+      "regime": "elected",
+      "person_name": "Sudhakarrao Naik",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Resigned after Bombay riots."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "1993-03-06",
+      "end_date": "1995-03-14",
+      "regime": "elected",
+      "person_name": "Sharad Pawar",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Tenure included the Bombay serial blasts (March 1993)."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "1995-03-14",
+      "end_date": "1999-01-31",
+      "regime": "elected",
+      "person_name": "Manohar Joshi",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Shiv Sena (undivided) in alliance with BJP."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "1999-02-01",
+      "end_date": "1999-10-17",
+      "regime": "elected",
+      "person_name": "Narayan Rane",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Shiv Sena (undivided) in alliance with BJP."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "1999-10-18",
+      "end_date": "2003-01-18",
+      "regime": "elected",
+      "person_name": "Vilasrao Deshmukh",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC + NCP coalition (Democratic Front)."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "2003-01-18",
+      "end_date": "2004-10-30",
+      "regime": "elected",
+      "person_name": "Sushil Kumar Shinde",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "2004-11-01",
+      "end_date": "2008-12-04",
+      "regime": "elected",
+      "person_name": "Vilasrao Deshmukh",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Resigned after 26/11 Mumbai attacks."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "2008-12-08",
+      "end_date": "2010-11-09",
+      "regime": "elected",
+      "person_name": "Ashok Chavan",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Resigned over Adarsh housing scam."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "2010-11-11",
+      "end_date": "2014-09-28",
+      "regime": "elected",
+      "person_name": "Prithviraj Chavan",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "2014-09-28",
+      "end_date": "2014-10-31",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule before October 2014 election."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "2014-10-31",
+      "end_date": "2019-11-08",
+      "regime": "elected",
+      "person_name": "Devendra Fadnavis",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First Brahmin CM in 4 decades; first BJP CM. NDA with Shiv Sena (undivided)."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "2019-11-23",
+      "end_date": "2019-11-26",
+      "regime": "elected",
+      "person_name": "Devendra Fadnavis",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. 80-hour term with NCP's Ajit Pawar; collapsed when Ajit returned to NCP."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "2019-11-28",
+      "end_date": "2022-06-29",
+      "regime": "elected",
+      "person_name": "Uddhav Thackeray",
+      "party_eci_code": null,
+      "alliance": "Maha Vikas Aghadi",
+      "notes": "Shiv Sena (undivided) in MVA with NCP + INC. Resigned after Eknath Shinde's rebellion."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "2022-06-30",
+      "end_date": "2024-12-05",
+      "regime": "elected",
+      "person_name": "Eknath Shinde",
+      "party_eci_code": null,
+      "alliance": "Mahayuti",
+      "notes": "Shiv Sena (Shinde faction; later allotted bow-and-arrow symbol). Mahayuti with BJP and Ajit Pawar's NCP."
+    },
+    {
+      "office_id": "IN-S13-CM",
+      "start_date": "2024-12-05",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Devendra Fadnavis",
+      "party_eci_code": "369",
+      "alliance": "Mahayuti",
+      "notes": "BJP. Mahayuti. Sworn in after the November 2024 election. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenNov2024/partywiseresult-S13.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "1990-02-23",
+      "end_date": "1992-04-07",
+      "regime": "elected",
+      "person_name": "R. K. Ranbir Singh",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Manipur People's Party. Coalition collapsed."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "1992-01-07",
+      "end_date": "1992-04-08",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Coalition collapse and law-and-order issues."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "1992-04-08",
+      "end_date": "1993-12-10",
+      "regime": "elected",
+      "person_name": "R. K. Dorendro Singh",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "1993-12-31",
+      "end_date": "1994-12-13",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Insurgency and political instability."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "1994-12-14",
+      "end_date": "1997-12-15",
+      "regime": "elected",
+      "person_name": "Rishang Keishing",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "1997-12-15",
+      "end_date": "2001-02-15",
+      "regime": "elected",
+      "person_name": "W. Nipamacha Singh",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Manipur State Congress Party."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "2001-02-15",
+      "end_date": "2001-06-02",
+      "regime": "elected",
+      "person_name": "Radhabinod Koijam",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Samata Party. Coalition collapsed."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "2001-06-02",
+      "end_date": "2002-03-06",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Coalition instability."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "2002-03-07",
+      "end_date": "2017-03-15",
+      "regime": "elected",
+      "person_name": "Okram Ibobi Singh",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Three consecutive terms (2002, 2007, 2012)."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "2017-03-15",
+      "end_date": "2022-03-21",
+      "regime": "elected",
+      "person_name": "N. Biren Singh",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "2022-03-21",
+      "end_date": "2025-02-13",
+      "regime": "elected",
+      "person_name": "N. Biren Singh",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Second term. Resigned amid the ongoing Meitei-Kuki ethnic conflict."
+    },
+    {
+      "office_id": "IN-S14-CM",
+      "start_date": "2025-02-13",
+      "end_date": null,
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule following N. Biren Singh's resignation; BJP unable to find a consensus replacement amid the ongoing ethnic conflict. Ongoing."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "1990-02-08",
+      "end_date": "1991-10-08",
+      "regime": "elected",
+      "person_name": "B. B. Lyngdoh",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Hill People's Union (HPU)."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "1991-10-11",
+      "end_date": "1992-02-05",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Coalition instability."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "1992-02-05",
+      "end_date": "1993-02-19",
+      "regime": "elected",
+      "person_name": "D. D. Lapang",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Brief."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "1993-02-19",
+      "end_date": "1998-02-27",
+      "regime": "elected",
+      "person_name": "S. C. Marak",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "1998-02-27",
+      "end_date": "2000-03-08",
+      "regime": "elected",
+      "person_name": "B. B. Lyngdoh",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "United Democratic Party (UDP) in Meghalaya Democratic Alliance."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2000-03-08",
+      "end_date": "2001-12-08",
+      "regime": "elected",
+      "person_name": "E. K. Mawlong",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "UDP-led alliance."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2001-12-08",
+      "end_date": "2003-03-04",
+      "regime": "elected",
+      "person_name": "Flinder Anderson Khonglam",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Independent backed by various parties."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2003-03-04",
+      "end_date": "2006-06-10",
+      "regime": "elected",
+      "person_name": "D. D. Lapang",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2006-06-15",
+      "end_date": "2007-03-10",
+      "regime": "elected",
+      "person_name": "J. D. Rymbai",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "INC. Caretaker arrangements."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2007-03-10",
+      "end_date": "2008-03-04",
+      "regime": "elected",
+      "person_name": "D. D. Lapang",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2008-03-04",
+      "end_date": "2008-03-19",
+      "regime": "elected",
+      "person_name": "Donkupar Roy",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "UDP-led Meghalaya Progressive Alliance. Brief; lost confidence vote."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2009-03-18",
+      "end_date": "2009-05-13",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Coalition collapse."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2009-05-13",
+      "end_date": "2010-04-19",
+      "regime": "elected",
+      "person_name": "D. D. Lapang",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2010-04-19",
+      "end_date": "2013-03-05",
+      "regime": "elected",
+      "person_name": "Mukul Sangma",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2013-03-05",
+      "end_date": "2018-03-06",
+      "regime": "elected",
+      "person_name": "Mukul Sangma",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Second term."
+    },
+    {
+      "office_id": "IN-S15-CM",
+      "start_date": "2018-03-06",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Conrad Sangma",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "National People's Party (NPP) in NDA-allied Meghalaya Democratic Alliance with BJP, UDP and others. Re-elected 2023. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S15.htm",
+          "note": "2023 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S16-CM",
+      "start_date": "1989-01-24",
+      "end_date": "1998-12-03",
+      "regime": "elected",
+      "person_name": "Lal Thanhawla",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Two consecutive terms (1989, 1993)."
+    },
+    {
+      "office_id": "IN-S16-CM",
+      "start_date": "1998-12-03",
+      "end_date": "2008-12-11",
+      "regime": "elected",
+      "person_name": "Zoramthanga",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "Mizo National Front (MNF) in NDA. Two consecutive terms."
+    },
+    {
+      "office_id": "IN-S16-CM",
+      "start_date": "2008-12-11",
+      "end_date": "2018-12-15",
+      "regime": "elected",
+      "person_name": "Lal Thanhawla",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Two consecutive terms (2008, 2013)."
+    },
+    {
+      "office_id": "IN-S16-CM",
+      "start_date": "2018-12-15",
+      "end_date": "2023-12-08",
+      "regime": "elected",
+      "person_name": "Zoramthanga",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "MNF in NDA."
+    },
+    {
+      "office_id": "IN-S16-CM",
+      "start_date": "2023-12-08",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Lalduhoma",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Zoram People's Movement (ZPM). Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S16.htm",
+          "note": "2023 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "1988-01-25",
+      "end_date": "1990-05-10",
+      "regime": "elected",
+      "person_name": "S. C. Jamir",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "1990-05-16",
+      "end_date": "1990-06-19",
+      "regime": "elected",
+      "person_name": "K. L. Chishi",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "INC. Brief."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "1990-06-19",
+      "end_date": "1992-04-02",
+      "regime": "elected",
+      "person_name": "Vamuzo Phesao",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Nagaland People's Council (NPC)."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "1992-04-02",
+      "end_date": "1993-02-22",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Coalition collapse and insurgency."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "1993-02-22",
+      "end_date": "2003-03-06",
+      "regime": "elected",
+      "person_name": "S. C. Jamir",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Two consecutive terms (1993, 1998)."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "2003-03-06",
+      "end_date": "2008-01-03",
+      "regime": "elected",
+      "person_name": "Neiphiu Rio",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "Nagaland People's Front (NPF) in Democratic Alliance of Nagaland with BJP."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "2008-01-03",
+      "end_date": "2008-03-12",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Brief, before March 2008 election."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "2008-03-12",
+      "end_date": "2014-05-24",
+      "regime": "elected",
+      "person_name": "Neiphiu Rio",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "NPF. Resigned to contest Lok Sabha."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "2014-05-24",
+      "end_date": "2017-02-22",
+      "regime": "elected",
+      "person_name": "T. R. Zeliang",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "NPF."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "2017-02-22",
+      "end_date": "2017-07-19",
+      "regime": "elected",
+      "person_name": "Shurhozelie Liezietsu",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "NPF."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "2017-07-19",
+      "end_date": "2018-03-08",
+      "regime": "elected",
+      "person_name": "T. R. Zeliang",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "NPF."
+    },
+    {
+      "office_id": "IN-S17-CM",
+      "start_date": "2018-03-08",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Neiphiu Rio",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "Nationalist Democratic Progressive Party (NDPP) in alliance with BJP. Re-elected 2023. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S17.htm",
+          "note": "2023 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S18-CM",
+      "start_date": "1990-03-05",
+      "end_date": "1995-03-15",
+      "regime": "elected",
+      "person_name": "Biju Patnaik",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal."
+    },
+    {
+      "office_id": "IN-S18-CM",
+      "start_date": "1995-03-15",
+      "end_date": "1999-02-17",
+      "regime": "elected",
+      "person_name": "J. B. Patnaik",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Resigned after the supercyclone response and party-internal pressure."
+    },
+    {
+      "office_id": "IN-S18-CM",
+      "start_date": "1999-02-17",
+      "end_date": "1999-12-06",
+      "regime": "elected",
+      "person_name": "Giridhar Gamang",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. His vote brought down the Vajpayee government in 1999."
+    },
+    {
+      "office_id": "IN-S18-CM",
+      "start_date": "1999-12-06",
+      "end_date": "2000-03-05",
+      "regime": "elected",
+      "person_name": "Hemananda Biswal",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S18-CM",
+      "start_date": "2000-03-05",
+      "end_date": "2024-06-12",
+      "regime": "elected",
+      "person_name": "Naveen Patnaik",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Biju Janata Dal (BJD). Five consecutive terms. NDA partner 2000-2009; non-aligned thereafter. Lost 2024 election."
+    },
+    {
+      "office_id": "IN-S18-CM",
+      "start_date": "2024-06-12",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Mohan Charan Majhi",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First BJP CM of Odisha. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenJune2024/partywiseresult-S18.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S19-CM",
+      "start_date": "1987-06-11",
+      "end_date": "1992-02-25",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule throughout the Punjab insurgency. Repeatedly extended; lifted only for the February 1992 election."
+    },
+    {
+      "office_id": "IN-S19-CM",
+      "start_date": "1992-02-25",
+      "end_date": "1995-08-31",
+      "regime": "elected",
+      "person_name": "Beant Singh",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Assassinated by Babbar Khalsa suicide bomb on 31 August 1995."
+    },
+    {
+      "office_id": "IN-S19-CM",
+      "start_date": "1995-08-31",
+      "end_date": "1996-11-21",
+      "regime": "elected",
+      "person_name": "Harcharan Singh Brar",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S19-CM",
+      "start_date": "1996-11-21",
+      "end_date": "1997-02-12",
+      "regime": "elected",
+      "person_name": "Rajinder Kaur Bhattal",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. First woman CM of Punjab."
+    },
+    {
+      "office_id": "IN-S19-CM",
+      "start_date": "1997-02-12",
+      "end_date": "2002-02-26",
+      "regime": "elected",
+      "person_name": "Parkash Singh Badal",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "Shiromani Akali Dal (SAD) in NDA with BJP."
+    },
+    {
+      "office_id": "IN-S19-CM",
+      "start_date": "2002-02-26",
+      "end_date": "2007-03-01",
+      "regime": "elected",
+      "person_name": "Amarinder Singh",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S19-CM",
+      "start_date": "2007-03-01",
+      "end_date": "2017-03-16",
+      "regime": "elected",
+      "person_name": "Parkash Singh Badal",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "SAD in NDA with BJP. Two consecutive terms (2007, 2012)."
+    },
+    {
+      "office_id": "IN-S19-CM",
+      "start_date": "2017-03-16",
+      "end_date": "2021-09-18",
+      "regime": "elected",
+      "person_name": "Amarinder Singh",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Resigned amid intra-party feud."
+    },
+    {
+      "office_id": "IN-S19-CM",
+      "start_date": "2021-09-20",
+      "end_date": "2022-03-16",
+      "regime": "elected",
+      "person_name": "Charanjit Singh Channi",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. First Dalit CM of Punjab."
+    },
+    {
+      "office_id": "IN-S19-CM",
+      "start_date": "2022-03-16",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Bhagwant Mann",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Aam Aadmi Party (AAP). First non-Congress non-Akali government in decades. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S19.htm",
+          "note": "2022 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S20-CM",
+      "start_date": "1990-03-04",
+      "end_date": "1992-12-15",
+      "regime": "elected",
+      "person_name": "Bhairon Singh Shekhawat",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. Dismissed when Article 356 was invoked post-Babri."
+    },
+    {
+      "office_id": "IN-S20-CM",
+      "start_date": "1992-12-15",
+      "end_date": "1993-12-04",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule following the demolition of the Babri Masjid."
+    },
+    {
+      "office_id": "IN-S20-CM",
+      "start_date": "1993-12-04",
+      "end_date": "1998-11-29",
+      "regime": "elected",
+      "person_name": "Bhairon Singh Shekhawat",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S20-CM",
+      "start_date": "1998-12-01",
+      "end_date": "2003-12-08",
+      "regime": "elected",
+      "person_name": "Ashok Gehlot",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. First term."
+    },
+    {
+      "office_id": "IN-S20-CM",
+      "start_date": "2003-12-08",
+      "end_date": "2008-12-12",
+      "regime": "elected",
+      "person_name": "Vasundhara Raje",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First woman CM of Rajasthan."
+    },
+    {
+      "office_id": "IN-S20-CM",
+      "start_date": "2008-12-12",
+      "end_date": "2013-12-13",
+      "regime": "elected",
+      "person_name": "Ashok Gehlot",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Second term."
+    },
+    {
+      "office_id": "IN-S20-CM",
+      "start_date": "2013-12-13",
+      "end_date": "2018-12-17",
+      "regime": "elected",
+      "person_name": "Vasundhara Raje",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Second term."
+    },
+    {
+      "office_id": "IN-S20-CM",
+      "start_date": "2018-12-17",
+      "end_date": "2023-12-15",
+      "regime": "elected",
+      "person_name": "Ashok Gehlot",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Third term. Survived the 2020 Sachin Pilot revolt."
+    },
+    {
+      "office_id": "IN-S20-CM",
+      "start_date": "2023-12-15",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Bhajan Lal Sharma",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Surprise pick. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S20.htm",
+          "note": "2023 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S21-CM",
+      "start_date": "1989-03-11",
+      "end_date": "1994-05-17",
+      "regime": "elected",
+      "person_name": "Nar Bahadur Bhandari",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Sikkim Sangram Parishad. Multiple terms; lost majority in 1994."
+    },
+    {
+      "office_id": "IN-S21-CM",
+      "start_date": "1994-05-18",
+      "end_date": "1994-12-12",
+      "regime": "elected",
+      "person_name": "Sanchaman Limboo",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Sikkim Sangram Parishad."
+    },
+    {
+      "office_id": "IN-S21-CM",
+      "start_date": "1994-12-12",
+      "end_date": "2019-05-27",
+      "regime": "elected",
+      "person_name": "Pawan Kumar Chamling",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "Sikkim Democratic Front (SDF). Five consecutive terms; longest-serving CM in Indian history at time of exit. NDA partner from late 1990s."
+    },
+    {
+      "office_id": "IN-S21-CM",
+      "start_date": "2019-05-27",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Prem Singh Tamang",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "Sikkim Krantikari Morcha (SKM) in NDA. Re-elected 2024. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenJune2024/partywiseresult-S21.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "1989-01-27",
+      "end_date": "1991-01-30",
+      "regime": "elected",
+      "person_name": "M. Karunanidhi",
+      "party_eci_code": "582",
+      "alliance": null,
+      "notes": "Second non-consecutive term. State government dismissed on 30 January 1991 by the Union government invoking Article 356 (largely on law-and-order grounds following LTTE-related concerns); replaced by President's Rule until the June 1991 election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/M._Karunanidhi",
+          "note": "Term dates and dismissal background."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "1991-01-30",
+      "end_date": "1991-06-24",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Imposed by the Chandra Shekhar government; lifted on swearing-in of the Jayalalithaa ministry after the June 1991 assembly election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/President%27s_rule#Tamil_Nadu",
+          "note": "List of President's Rule impositions in Tamil Nadu."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "1991-06-24",
+      "end_date": "1996-05-12",
+      "regime": "elected",
+      "person_name": "J. Jayalalithaa",
+      "party_eci_code": "75",
+      "alliance": "AIADMK+INC",
+      "notes": "First term. Won the 1991 assembly election in pre-poll alliance with the Indian National Congress; AIADMK secured 164/234 seats, INC 60.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3335-tamil-nadu-1991/",
+          "note": "1991 Tamil Nadu Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "1996-05-13",
+      "end_date": "2001-05-12",
+      "regime": "elected",
+      "person_name": "M. Karunanidhi",
+      "party_eci_code": "582",
+      "alliance": "DMK+TMC",
+      "notes": "Third term. Won the 1996 assembly election in pre-poll alliance with Tamil Maanila Congress (TMC). DMK formally joined the NDA at the national level in 1999 and remained until 2003; the state-level alliance with TMC continued through most of the term.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3336-tamil-nadu-1996/",
+          "note": "1996 Tamil Nadu Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2001-05-14",
+      "end_date": "2001-09-21",
+      "regime": "elected",
+      "person_name": "J. Jayalalithaa",
+      "party_eci_code": "75",
+      "alliance": "AIADMK+INC",
+      "notes": "Second term. Won the 2001 election with INC as junior alliance partner. Disqualified by the Supreme Court on 21 September 2001 for conviction in the TANSI case; succeeded by O. Panneerselvam pending acquittal.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3338-tamil-nadu-2001/",
+          "note": "2001 Tamil Nadu Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2001-09-21",
+      "end_date": "2002-03-01",
+      "regime": "elected",
+      "person_name": "O. Panneerselvam",
+      "party_eci_code": "75",
+      "alliance": "AIADMK+INC",
+      "notes": "First stint as CM. Acting head of government keeping the seat for Jayalalithaa; no fresh election. Vacated when Jayalalithaa was acquitted and re-sworn-in.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/O._Panneerselvam",
+          "note": "Three stints as caretaker CM under AIADMK."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2002-03-02",
+      "end_date": "2006-05-12",
+      "regime": "elected",
+      "person_name": "J. Jayalalithaa",
+      "party_eci_code": "75",
+      "alliance": null,
+      "notes": "Third term (resumed). AIADMK-INC alliance fragmented over the term; AIADMK formally aligned with NDA at the centre in 2004 (lost all 39 Lok Sabha seats in TN that year).",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/J._Jayalalithaa",
+          "note": "Term continuation."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2006-05-13",
+      "end_date": "2011-05-15",
+      "regime": "elected",
+      "person_name": "M. Karunanidhi",
+      "party_eci_code": "582",
+      "alliance": "UPA",
+      "notes": "Fourth term. DMK won the 2006 assembly election in pre-poll alliance with INC; the same DMK+INC bloc formed part of UPA-II at the centre after the 2009 LS election.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3339-tamil-nadu-2006/",
+          "note": "2006 Tamil Nadu Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2011-05-16",
+      "end_date": "2014-09-27",
+      "regime": "elected",
+      "person_name": "J. Jayalalithaa",
+      "party_eci_code": "75",
+      "alliance": null,
+      "notes": "Fourth term. AIADMK-led front swept 2011 (203/234 seats). No formal pre-poll alliance with INC or BJP. Convicted in disproportionate-assets case on 27 September 2014; disqualified.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3340-tamil-nadu-2011/",
+          "note": "2011 Tamil Nadu Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2014-09-29",
+      "end_date": "2015-05-22",
+      "regime": "elected",
+      "person_name": "O. Panneerselvam",
+      "party_eci_code": "75",
+      "alliance": null,
+      "notes": "Second stint as CM, again as Jayalalithaa's caretaker. Vacated when she was acquitted by the Karnataka High Court and sworn in for a fifth term.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/O._Panneerselvam",
+          "note": "Caretaker stints."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2015-05-23",
+      "end_date": "2016-05-22",
+      "regime": "elected",
+      "person_name": "J. Jayalalithaa",
+      "party_eci_code": "75",
+      "alliance": null,
+      "notes": "Fifth term (continuation of the 2011 mandate after acquittal). Term ended with the swearing-in of the new ministry post the May 2016 election; Jayalalithaa returned to power.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/J._Jayalalithaa",
+          "note": "Acquittal and return."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2016-05-23",
+      "end_date": "2016-12-05",
+      "regime": "elected",
+      "person_name": "J. Jayalalithaa",
+      "party_eci_code": "75",
+      "alliance": null,
+      "notes": "Sixth and final term. AIADMK won the 2016 election with 134/234 seats, the first incumbent return since 1989. Died in office on 5 December 2016 after extended hospitalisation.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3473-tamil-nadu-general-legislative-election-2016/",
+          "note": "2016 Tamil Nadu Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2016-12-06",
+      "end_date": "2017-02-15",
+      "regime": "elected",
+      "person_name": "O. Panneerselvam",
+      "party_eci_code": "75",
+      "alliance": null,
+      "notes": "Third stint as CM, following Jayalalithaa's death. Resigned amid the AIADMK leadership succession crisis pitting him against V. K. Sasikala and the Palaniswami faction.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/O._Panneerselvam",
+          "note": "Post-Jayalalithaa AIADMK split."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2017-02-16",
+      "end_date": "2021-05-06",
+      "regime": "elected",
+      "person_name": "Edappadi K. Palaniswami",
+      "party_eci_code": "75",
+      "alliance": "NDA",
+      "notes": "Single term. AIADMK formally entered the National Democratic Alliance with BJP for the 2019 Lok Sabha election (TN allotted 39 LS seats; AIADMK contested 20). Continued in the state-level NDA bloc through the 2021 assembly poll.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Edappadi_K._Palaniswami",
+          "note": "Tenure and NDA alignment."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2021-05-07",
+      "end_date": "2026-05-12",
+      "regime": "elected",
+      "person_name": "M. K. Stalin",
+      "party_eci_code": "582",
+      "alliance": "Secular Progressive Alliance (later INDIA bloc)",
+      "notes": "First term. DMK won 133/234 seats in the 2021 election in pre-poll alliance with INC, VCK, CPI, CPI(M), MDMK and IUML (state-level brand: Secular Progressive Alliance). At the national level the DMK joined the INDIA bloc when it formed in July 2023. Term ended with the swearing-in of the post-May-2026 ministry.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/13680-tamil-nadu-general-legislative-election-2021/",
+          "note": "2021 Tamil Nadu Statistical Report."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/2021_Tamil_Nadu_Legislative_Assembly_election",
+          "note": "Alliance composition and seat shares."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S22-CM",
+      "start_date": "2026-05-13",
+      "end_date": null,
+      "regime": "interim",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "The new ministry has not yet been sworn in. This page will update once the cabinet is announced.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm",
+          "note": "2026 partywise result; ministry not yet sworn in at file creation time."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S23-CM",
+      "start_date": "1988-02-05",
+      "end_date": "1993-04-10",
+      "regime": "elected",
+      "person_name": "Sudhir Ranjan Majumdar",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC + TUJS coalition until 1992; Samir Ranjan Barman took over February 1992. Aggregated to single INC-led term for brevity."
+    },
+    {
+      "office_id": "IN-S23-CM",
+      "start_date": "1993-04-10",
+      "end_date": "2018-03-09",
+      "regime": "elected",
+      "person_name": "Manik Sarkar",
+      "party_eci_code": "547",
+      "alliance": null,
+      "notes": "CPI(M)-led Left Front. Five consecutive terms; one of India's longest serving CMs. Successor to Dasarath Deb (1993-1998); Sarkar from 1998."
+    },
+    {
+      "office_id": "IN-S23-CM",
+      "start_date": "2018-03-09",
+      "end_date": "2022-05-15",
+      "regime": "elected",
+      "person_name": "Biplab Kumar Deb",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S23-CM",
+      "start_date": "2022-05-15",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Manik Saha",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Re-elected 2023. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S23.htm",
+          "note": "2023 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1989-12-05",
+      "end_date": "1991-06-24",
+      "regime": "elected",
+      "person_name": "Mulayam Singh Yadav",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Janata Dal. Includes Uttarakhand until 9 November 2000 bifurcation."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1991-06-24",
+      "end_date": "1992-12-06",
+      "regime": "elected",
+      "person_name": "Kalyan Singh",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. Resigned after the demolition of the Babri Masjid on 6 December 1992."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1992-12-06",
+      "end_date": "1993-12-04",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule following the demolition of the Babri Masjid."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1993-12-04",
+      "end_date": "1995-06-03",
+      "regime": "elected",
+      "person_name": "Mulayam Singh Yadav",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Samajwadi Party (SP) + BSP coalition. Coalition collapsed in the Guest House Episode of 2 June 1995."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1995-06-03",
+      "end_date": "1995-10-18",
+      "regime": "elected",
+      "person_name": "Mayawati",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "BSP (Bahujan Samaj Party). First Dalit woman CM of UP. BJP withdrew support."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1995-10-18",
+      "end_date": "1996-10-21",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Hung assembly."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1996-10-21",
+      "end_date": "1997-03-21",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule continued during attempts to form a government after the 1996 election."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1997-03-21",
+      "end_date": "1997-09-21",
+      "regime": "elected",
+      "person_name": "Mayawati",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "BSP-BJP rotation arrangement. Stepped aside per agreement."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1997-09-21",
+      "end_date": "1998-02-21",
+      "regime": "elected",
+      "person_name": "Kalyan Singh",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. Coalition unstable."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1998-02-21",
+      "end_date": "1998-02-23",
+      "regime": "elected",
+      "person_name": "Jagdambika Pal",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "INC. 48-hour 'midnight CM' episode; Supreme Court restored Kalyan Singh."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1998-02-23",
+      "end_date": "1999-11-12",
+      "regime": "elected",
+      "person_name": "Kalyan Singh",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "1999-11-12",
+      "end_date": "2000-10-28",
+      "regime": "elected",
+      "person_name": "Ram Prakash Gupta",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "2000-10-28",
+      "end_date": "2002-03-08",
+      "regime": "elected",
+      "person_name": "Rajnath Singh",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "2002-03-08",
+      "end_date": "2002-05-03",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Hung assembly after February 2002 election."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "2002-05-03",
+      "end_date": "2003-08-29",
+      "regime": "elected",
+      "person_name": "Mayawati",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "BSP-BJP coalition. Withdrawn by BSP."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "2003-08-29",
+      "end_date": "2007-05-13",
+      "regime": "elected",
+      "person_name": "Mulayam Singh Yadav",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "SP."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "2007-05-13",
+      "end_date": "2012-03-15",
+      "regime": "elected",
+      "person_name": "Mayawati",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "BSP. First single-party majority government in UP since the 1980s."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "2012-03-15",
+      "end_date": "2017-03-19",
+      "regime": "elected",
+      "person_name": "Akhilesh Yadav",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "SP."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "2017-03-19",
+      "end_date": "2022-03-25",
+      "regime": "elected",
+      "person_name": "Yogi Adityanath",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S24-CM",
+      "start_date": "2022-03-25",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Yogi Adityanath",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Second consecutive term — first UP CM in 37 years to be re-elected. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S24.htm",
+          "note": "2022 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S25-CM",
+      "start_date": "1987-03-30",
+      "end_date": "1991-04-17",
+      "regime": "elected",
+      "person_name": "Jyoti Basu",
+      "party_eci_code": "547",
+      "alliance": "Left Front",
+      "notes": "Third term as CM in the continuous Left Front rule that began in 1977. Left Front (CPI(M)-led, with CPI, RSP, AIFB and others) won the 1987 election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jyoti_Basu",
+          "note": "Five-term CM (1977-2000)."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S25-CM",
+      "start_date": "1991-04-19",
+      "end_date": "1996-05-15",
+      "regime": "elected",
+      "person_name": "Jyoti Basu",
+      "party_eci_code": "547",
+      "alliance": "Left Front",
+      "notes": "Fourth term. Left Front won the 1991 election.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3191-west-bengal-1991/",
+          "note": "1991 West Bengal Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S25-CM",
+      "start_date": "1996-05-16",
+      "end_date": "2000-11-05",
+      "regime": "elected",
+      "person_name": "Jyoti Basu",
+      "party_eci_code": "547",
+      "alliance": "Left Front",
+      "notes": "Fifth and final term. Left Front won the 1996 election. Basu stepped down on 5 November 2000 citing age and health, handing over to Buddhadeb Bhattacharjee mid-term without a fresh election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Jyoti_Basu",
+          "note": "Voluntary retirement, handed over to Bhattacharjee."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S25-CM",
+      "start_date": "2000-11-06",
+      "end_date": "2001-05-15",
+      "regime": "elected",
+      "person_name": "Buddhadeb Bhattacharjee",
+      "party_eci_code": "547",
+      "alliance": "Left Front",
+      "notes": "First stint, completing Basu's fifth term. Continued into a fresh term after the 2001 election.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Buddhadeb_Bhattacharjee",
+          "note": "Two-term CM in his own right (2001-06, 2006-11) plus the partial 2000-01 hand-over."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S25-CM",
+      "start_date": "2001-05-16",
+      "end_date": "2006-05-17",
+      "regime": "elected",
+      "person_name": "Buddhadeb Bhattacharjee",
+      "party_eci_code": "547",
+      "alliance": "Left Front",
+      "notes": "Full first elected term. Left Front won the 2001 election.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3193-west-bengal-2001/",
+          "note": "2001 West Bengal Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S25-CM",
+      "start_date": "2006-05-18",
+      "end_date": "2011-05-13",
+      "regime": "elected",
+      "person_name": "Buddhadeb Bhattacharjee",
+      "party_eci_code": "547",
+      "alliance": "Left Front",
+      "notes": "Second elected term. Left Front won the 2006 election by a large margin (235/294 seats) but the term saw the Singur and Nandigram crises that ultimately cost the LF its three-decade hold on power.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3194-west-bengal-2006/",
+          "note": "2006 West Bengal Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S25-CM",
+      "start_date": "2011-05-20",
+      "end_date": "2016-05-26",
+      "regime": "elected",
+      "person_name": "Mamata Banerjee",
+      "party_eci_code": "140",
+      "alliance": "AITC+INC",
+      "notes": "First term and end of 34 years of continuous Left Front rule. All India Trinamool Congress (AITC) won the 2011 election in pre-poll alliance with INC, securing 184/294 seats (INC 42).",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3195-west-bengal-2011/",
+          "note": "2011 West Bengal Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S25-CM",
+      "start_date": "2016-05-27",
+      "end_date": "2021-05-04",
+      "regime": "elected",
+      "person_name": "Mamata Banerjee",
+      "party_eci_code": "140",
+      "alliance": null,
+      "notes": "Second term. AITC contested 2016 solo and won 211/294 seats. No formal pre-poll alliance.",
+      "references": [
+        {
+          "url": "https://old.eci.gov.in/files/file/3469-west-bengal-general-legislative-election-2016/",
+          "note": "2016 West Bengal Statistical Report."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S25-CM",
+      "start_date": "2021-05-05",
+      "end_date": "2026-05-12",
+      "regime": "elected",
+      "person_name": "Mamata Banerjee",
+      "party_eci_code": "140",
+      "alliance": "INDIA bloc (from July 2023)",
+      "notes": "Third term. AITC won the 2021 election with 213/294 seats against a high-spend BJP challenge (BJP secured 77). AITC joined the INDIA bloc at its formation in July 2023 but remained an independent regional pole at the state level.",
+      "references": [
+        {
+          "url": "https://en.wikipedia.org/wiki/2021_West_Bengal_Legislative_Assembly_election",
+          "note": "Seat shares; AITC vs BJP."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S25-CM",
+      "start_date": "2026-05-13",
+      "end_date": null,
+      "regime": "interim",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Placeholder for the post-May-2026 government. Results ingested in datasets/elections/AcGenMay2026/S25/. Backfill once the new ministry is sworn in.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S25.htm",
+          "note": "2026 West Bengal partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S26-CM",
+      "start_date": "2000-11-01",
+      "end_date": "2003-12-07",
+      "regime": "elected",
+      "person_name": "Ajit Jogi",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. First CM of Chhattisgarh; appointed at state formation."
+    },
+    {
+      "office_id": "IN-S26-CM",
+      "start_date": "2003-12-07",
+      "end_date": "2018-12-17",
+      "regime": "elected",
+      "person_name": "Raman Singh",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Three consecutive terms (2003, 2008, 2013)."
+    },
+    {
+      "office_id": "IN-S26-CM",
+      "start_date": "2018-12-17",
+      "end_date": "2023-12-13",
+      "regime": "elected",
+      "person_name": "Bhupesh Baghel",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-S26-CM",
+      "start_date": "2023-12-13",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Vishnu Deo Sai",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First Adivasi CM of Chhattisgarh. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S26.htm",
+          "note": "2023 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2000-11-15",
+      "end_date": "2003-03-18",
+      "regime": "elected",
+      "person_name": "Babulal Marandi",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First CM of Jharkhand; appointed at state formation."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2003-03-18",
+      "end_date": "2005-03-02",
+      "regime": "elected",
+      "person_name": "Arjun Munda",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2005-03-02",
+      "end_date": "2005-03-12",
+      "regime": "elected",
+      "person_name": "Shibu Soren",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JMM (Jharkhand Mukti Morcha). Brief; failed to prove majority."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2005-03-12",
+      "end_date": "2006-09-18",
+      "regime": "elected",
+      "person_name": "Arjun Munda",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2006-09-18",
+      "end_date": "2008-08-27",
+      "regime": "elected",
+      "person_name": "Madhu Koda",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Independent + UPA-supported. Later jailed for corruption."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2008-08-27",
+      "end_date": "2009-01-18",
+      "regime": "elected",
+      "person_name": "Shibu Soren",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JMM."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2009-01-19",
+      "end_date": "2009-12-29",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Government collapse."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2009-12-30",
+      "end_date": "2010-05-31",
+      "regime": "elected",
+      "person_name": "Shibu Soren",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JMM in coalition with BJP. Coalition collapsed."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2010-06-01",
+      "end_date": "2010-09-11",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Coalition collapse."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2010-09-11",
+      "end_date": "2013-01-18",
+      "regime": "elected",
+      "person_name": "Arjun Munda",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. JMM withdrew support."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2013-01-18",
+      "end_date": "2013-07-13",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Coalition collapse."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2013-07-13",
+      "end_date": "2014-12-28",
+      "regime": "elected",
+      "person_name": "Hemant Soren",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JMM."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2014-12-28",
+      "end_date": "2019-12-29",
+      "regime": "elected",
+      "person_name": "Raghubar Das",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First non-tribal CM of Jharkhand."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2019-12-29",
+      "end_date": "2024-01-31",
+      "regime": "elected",
+      "person_name": "Hemant Soren",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JMM-INC-RJD alliance. Resigned 31 January 2024 ahead of arrest by Enforcement Directorate."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2024-02-02",
+      "end_date": "2024-07-04",
+      "regime": "elected",
+      "person_name": "Champai Soren",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JMM. Caretaker after Hemant Soren's resignation."
+    },
+    {
+      "office_id": "IN-S27-CM",
+      "start_date": "2024-07-04",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Hemant Soren",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JMM-INC alliance. Returned after bail. Continued after November 2024 election win. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenNov2024/partywiseresult-S27.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2000-11-09",
+      "end_date": "2001-10-29",
+      "regime": "elected",
+      "person_name": "Nityanand Swami",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First CM of Uttarakhand."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2001-10-30",
+      "end_date": "2002-03-01",
+      "regime": "elected",
+      "person_name": "Bhagat Singh Koshyari",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2002-03-02",
+      "end_date": "2007-03-07",
+      "regime": "elected",
+      "person_name": "Narayan Datt Tiwari",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Only CM in state's history to complete a full five-year term until that point."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2007-03-08",
+      "end_date": "2009-06-23",
+      "regime": "elected",
+      "person_name": "Bhuvan Chandra Khanduri",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2009-06-23",
+      "end_date": "2011-09-10",
+      "regime": "elected",
+      "person_name": "Ramesh Pokhriyal",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2011-09-11",
+      "end_date": "2012-03-13",
+      "regime": "elected",
+      "person_name": "Bhuvan Chandra Khanduri",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Brief return."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2012-03-13",
+      "end_date": "2014-01-31",
+      "regime": "elected",
+      "person_name": "Vijay Bahuguna",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Resigned over response to 2013 Uttarakhand floods."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2014-02-01",
+      "end_date": "2017-03-18",
+      "regime": "elected",
+      "person_name": "Harish Rawat",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Brief 2016 PR spell during Article 356 dispute."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2016-03-27",
+      "end_date": "2016-05-11",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Imposed amid Congress defections; Supreme Court later restored Harish Rawat."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2017-03-18",
+      "end_date": "2021-03-10",
+      "regime": "elected",
+      "person_name": "Trivendra Singh Rawat",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2021-03-10",
+      "end_date": "2021-07-04",
+      "regime": "elected",
+      "person_name": "Tirath Singh Rawat",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Resigned over not being a sitting MLA within 6 months."
+    },
+    {
+      "office_id": "IN-S28-CM",
+      "start_date": "2021-07-04",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Pushkar Singh Dhami",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. Re-elected 2022. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2022/statewise-S28.htm",
+          "note": "2022 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "1989-12-03",
+      "end_date": "1990-12-17",
+      "regime": "elected",
+      "person_name": "Marri Chenna Reddy",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Replaced by N. Janardhan Reddy after intra-party leadership change."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "1990-12-17",
+      "end_date": "1992-10-09",
+      "regime": "elected",
+      "person_name": "N. Janardhan Reddy",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "1992-10-09",
+      "end_date": "1994-12-12",
+      "regime": "elected",
+      "person_name": "Kotla Vijaya Bhaskara Reddy",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Lost the 1994 Assembly election."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "1994-12-12",
+      "end_date": "1995-09-01",
+      "regime": "elected",
+      "person_name": "N. T. Rama Rao",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Unified Andhra Pradesh pre-bifurcation. TDP (Telugu Desam Party). NTR's third term; deposed by son-in-law N. Chandrababu Naidu in an intra-party coup."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "1995-09-01",
+      "end_date": "2004-05-14",
+      "regime": "elected",
+      "person_name": "N. Chandrababu Naidu",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Unified Andhra Pradesh pre-bifurcation. TDP (Telugu Desam Party). Two terms (1995-1999, 1999-2004). NDA partner from 1998."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "2004-05-14",
+      "end_date": "2009-09-02",
+      "regime": "elected",
+      "person_name": "Y. S. Rajasekhara Reddy",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Died in office (helicopter crash, 2 Sep 2009)."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "2009-09-03",
+      "end_date": "2010-11-25",
+      "regime": "elected",
+      "person_name": "K. Rosaiah",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Caretaker after YSR's death; resigned amid Telangana agitation."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "2010-11-25",
+      "end_date": "2014-03-01",
+      "regime": "elected",
+      "person_name": "N. Kiran Kumar Reddy",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "Unified Andhra Pradesh pre-bifurcation. INC. Resigned in protest against the Andhra Pradesh Reorganisation Act 2014."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "2014-03-01",
+      "end_date": "2014-06-08",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule imposed during the bifurcation transition (1 March 2014 – 8 June 2014). State formally bifurcated on 2 June 2014; new Andhra Pradesh and Telangana governments sworn in 8 June 2014."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "2014-06-02",
+      "end_date": "2018-12-13",
+      "regime": "elected",
+      "person_name": "K. Chandrashekar Rao",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Telangana Rashtra Samithi (TRS); renamed Bharat Rashtra Samithi (BRS) in 2022. First CM of Telangana state."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "2018-12-13",
+      "end_date": "2023-12-07",
+      "regime": "elected",
+      "person_name": "K. Chandrashekar Rao",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "TRS / BRS. Second term."
+    },
+    {
+      "office_id": "IN-S29-CM",
+      "start_date": "2023-12-07",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "A. Revanth Reddy",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/Result2023/statewise-S29.htm",
+          "note": "2023 result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-U05-CM",
+      "start_date": "1993-12-02",
+      "end_date": "1996-02-26",
+      "regime": "elected",
+      "person_name": "Madan Lal Khurana",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. First CM of NCT of Delhi under the 1991 constitutional arrangement. Resigned over Jain hawala case."
+    },
+    {
+      "office_id": "IN-U05-CM",
+      "start_date": "1996-02-26",
+      "end_date": "1998-10-12",
+      "regime": "elected",
+      "person_name": "Sahib Singh Verma",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. Resigned ahead of November 1998 election after onion-price crisis."
+    },
+    {
+      "office_id": "IN-U05-CM",
+      "start_date": "1998-10-12",
+      "end_date": "1998-12-03",
+      "regime": "elected",
+      "person_name": "Sushma Swaraj",
+      "party_eci_code": "369",
+      "alliance": null,
+      "notes": "BJP. Brief term ahead of election; lost it."
+    },
+    {
+      "office_id": "IN-U05-CM",
+      "start_date": "1998-12-03",
+      "end_date": "2013-12-28",
+      "regime": "elected",
+      "person_name": "Sheila Dikshit",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Three consecutive terms (1998, 2003, 2008)."
+    },
+    {
+      "office_id": "IN-U05-CM",
+      "start_date": "2013-12-28",
+      "end_date": "2014-02-14",
+      "regime": "elected",
+      "person_name": "Arvind Kejriwal",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "AAP (Aam Aadmi Party). 49-day first term; resigned over Jan Lokpal Bill."
+    },
+    {
+      "office_id": "IN-U05-CM",
+      "start_date": "2014-02-14",
+      "end_date": "2015-02-14",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. After Kejriwal's resignation, no party formed government; lasted until February 2015 election."
+    },
+    {
+      "office_id": "IN-U05-CM",
+      "start_date": "2015-02-14",
+      "end_date": "2024-09-21",
+      "regime": "elected",
+      "person_name": "Arvind Kejriwal",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "AAP. Two consecutive terms (2015, 2020). Resigned 21 September 2024 after release on bail in liquor-policy case."
+    },
+    {
+      "office_id": "IN-U05-CM",
+      "start_date": "2024-09-21",
+      "end_date": "2025-02-20",
+      "regime": "elected",
+      "person_name": "Atishi",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "AAP. Caretaker until February 2025 election."
+    },
+    {
+      "office_id": "IN-U05-CM",
+      "start_date": "2025-02-20",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Rekha Gupta",
+      "party_eci_code": "369",
+      "alliance": "NDA",
+      "notes": "BJP. First BJP CM of Delhi in 27 years. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenFeb2025/partywiseresult-U05.htm",
+          "note": "2025 partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "1990-03-04",
+      "end_date": "1991-03-03",
+      "regime": "elected",
+      "person_name": "D. Ramachandran",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "DMK + INC coalition."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "1991-03-04",
+      "end_date": "1991-07-04",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule before June 1991 election."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "1991-07-04",
+      "end_date": "1996-05-13",
+      "regime": "elected",
+      "person_name": "V. Vaithilingam",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "1996-05-26",
+      "end_date": "2000-03-22",
+      "regime": "elected",
+      "person_name": "R. V. Janakiraman",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "DMK in alliance with INC and TMC(M)."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "2000-03-22",
+      "end_date": "2001-05-14",
+      "regime": "elected",
+      "person_name": "P. Shanmugam",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "DMK."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "2001-05-14",
+      "end_date": "2008-09-04",
+      "regime": "elected",
+      "person_name": "N. Rangaswamy",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "INC, then All India N.R. Congress (AINRC) from 2011. Won 2006 as INC."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "2008-09-04",
+      "end_date": "2011-05-16",
+      "regime": "elected",
+      "person_name": "V. Vaithilingam",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "2011-05-16",
+      "end_date": "2016-06-06",
+      "regime": "elected",
+      "person_name": "N. Rangaswamy",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "AINRC (All India N.R. Congress) in alliance with AIADMK and BJP."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "2016-06-06",
+      "end_date": "2021-02-22",
+      "regime": "elected",
+      "person_name": "V. Narayanasamy",
+      "party_eci_code": "742",
+      "alliance": null,
+      "notes": "INC. Lost majority after defections; resigned before floor test."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "2021-02-25",
+      "end_date": "2021-05-07",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "President's Rule. Hung assembly after Narayanasamy's resignation; held until April 2021 election."
+    },
+    {
+      "office_id": "IN-U07-CM",
+      "start_date": "2021-05-07",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "N. Rangaswamy",
+      "party_eci_code": null,
+      "alliance": "NDA",
+      "notes": "AINRC in alliance with BJP. Continuing through May 2026 election cycle. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-U07.htm",
+          "note": "2026 partywise result."
+        }
+      ]
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "1990-01-19",
+      "end_date": "1996-10-09",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Governor's Rule (later President's Rule from 18 July 1990) at the height of the Kashmir insurgency. Lasted nearly seven years until restoration of elected government after September 1996 elections."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "1996-10-09",
+      "end_date": "2002-10-18",
+      "regime": "elected",
+      "person_name": "Farooq Abdullah",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JKN (Jammu & Kashmir National Conference). Aligned with NDA from 1999."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2002-10-18",
+      "end_date": "2002-11-02",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Governor's Rule between elections."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2002-11-02",
+      "end_date": "2005-11-02",
+      "regime": "elected",
+      "person_name": "Mufti Mohammad Sayeed",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JKPDP (Jammu & Kashmir People's Democratic Party) - INC coalition. Rotation arrangement."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2005-11-02",
+      "end_date": "2008-07-11",
+      "regime": "elected",
+      "person_name": "Ghulam Nabi Azad",
+      "party_eci_code": "742",
+      "alliance": "UPA",
+      "notes": "INC. Coalition collapsed over Amarnath land transfer protests."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2008-07-11",
+      "end_date": "2009-01-05",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Governor's Rule following Azad's resignation."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2009-01-05",
+      "end_date": "2014-12-23",
+      "regime": "elected",
+      "person_name": "Omar Abdullah",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JKN-INC coalition."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2014-12-23",
+      "end_date": "2015-03-01",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Governor's Rule before government formation."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2015-03-01",
+      "end_date": "2016-01-07",
+      "regime": "elected",
+      "person_name": "Mufti Mohammad Sayeed",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JKPDP-BJP coalition. Died in office."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2016-01-08",
+      "end_date": "2016-04-04",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Governor's Rule following Mufti's death."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2016-04-04",
+      "end_date": "2018-06-19",
+      "regime": "elected",
+      "person_name": "Mehbooba Mufti",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JKPDP-BJP coalition. BJP withdrew support; coalition collapsed."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2018-06-19",
+      "end_date": "2024-10-16",
+      "regime": "presidents_rule",
+      "person_name": null,
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "Governor's Rule (then President's Rule from 19 December 2018). Special status (Article 370) abrogated 5 August 2019; J&K reorganised as a Union Territory effective 31 October 2019. No elected legislative assembly until October 2024."
+    },
+    {
+      "office_id": "IN-U08-CM",
+      "start_date": "2024-10-16",
+      "end_date": null,
+      "regime": "elected",
+      "person_name": "Omar Abdullah",
+      "party_eci_code": null,
+      "alliance": null,
+      "notes": "JKN-INC alliance. First elected CM of J&K UT under post-2019 arrangement; UT-CM has reduced powers vs the prior state arrangement. Ongoing.",
+      "references": [
+        {
+          "url": "https://results.eci.gov.in/AcResultGenOct2024/partywiseresult-U08.htm",
+          "note": "2024 partywise result."
+        }
+      ]
+    }
+  ]
+}

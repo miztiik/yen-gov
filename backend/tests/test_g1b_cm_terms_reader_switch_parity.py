@@ -1,9 +1,10 @@
 """G.1.b reader-switch parity oracle (Holy Law #7 — real on-disk data).
 
-After the G.1.b reader-switch (2026-05-22), `cm_terms_seed.compile_to_parquet`
-sources office IDENTITY from `entities.parquet WHERE entity_type='office_bearer'`
-(the 31 office_bearer rows G.1.a lifted in). Tenure facts still come from the
-per-state `cm_terms.json` files.
+After the G.1.b reader-switch (2026-05-22), the tenure seed sources office
+IDENTITY from `entities.parquet WHERE entity_type='office_bearer'` (the 31
+office_bearer rows G.1.a lifted in). Since G.1.c (2026-05-22) tenure facts
+come from the consolidated long-form `datasets/taxonomy/office_holdings.json`
+emitted by `office_holdings_seed.compile_to_parquet`.
 
 This oracle binds the canonical Parquet outputs on disk to the contract:
 1. Every dim_offices row's identity columns (office_id/entity_id/role/label)
@@ -129,8 +130,9 @@ def test_every_holding_office_id_resolves_to_office_bearer_entity() -> None:
 )
 def test_row_counts_stable_at_31_offices_359_holdings() -> None:
     """Belt-and-suspenders: row counts at the G.1.b boundary must equal
-    the pre-G.1.b counts. Any drift means a state's cm_terms.json was
-    added/removed or the reader-switch lost rows silently.
+    the pre-G.1.b counts. Any drift means a state's CM holdings were
+    added/removed in `office_holdings.json` or the reader-switch lost
+    rows silently.
     """
     con = _con()
     try:

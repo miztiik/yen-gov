@@ -48,7 +48,7 @@ Every site that previously had `const event = "AcGenMay2026"` now resolves the e
 
 ### 3. Government-timeline is a first-class peer
 
-The `state_government.schema.json` (already at v1.0, already populated for S03/S11/S22/S25) is promoted from "overlay for socio-economic charts" to a primary citizen surface. `frontend/src/lib/governments.ts` exposes:
+The government-office-holdings contract (`office-holdings.schema.json` v1.0, populated for all 31 states in `datasets/taxonomy/office_holdings.json` since G.1.c on 2026-05-22; was previously `state_government.schema.json` + 31 per-state `cm_terms.json` files) is promoted from "overlay for socio-economic charts" to a primary citizen surface. `frontend/src/lib/governments.ts` exposes:
 
 ```ts
 fetchGovernmentTerms(state: string): Promise<GovernmentTimeline | null>
@@ -90,7 +90,7 @@ This doctrine is recorded in [docs/concepts/government-vs-election.md](../../con
 ### Costs accepted
 
 - The catalogue (`election-events.json`) and the backend registry (`events.py`) are two sources of partially-overlapping truth. We accept this because (a) `events.py` has fields the frontend doesn't need (`has_partywise`) and (b) the frontend can't import Python. The CI test makes the duplication safe.
-- Hand-authored `cm_terms.json` files for all 15 states is a meaningful authoring effort. We ship 4 (S03, S11, S22, S25) at this commit; the remaining 10+ are tracked as a follow-up task. The UI degrades gracefully where files are absent — explicit gap rather than wrong data.
+- Hand-authored CM-tenure data for 31 states is a meaningful authoring effort. We ship 4 states (S03, S11, S22, S25) at this commit; the remaining states were progressively backfilled and the consolidated long-form `datasets/taxonomy/office_holdings.json` (G.1.c 2026-05-22) now carries all 31. The UI degrades gracefully where holdings are absent for a state — explicit gap rather than wrong data.
 - Citizens who arrive expecting a "current election" picker will not find one. We accept that this is a small cost for a much larger correctness gain (and the welfare-first home doctrine of ADR-0022 means most citizens never expected one anyway).
 
 ### Rejected alternatives
