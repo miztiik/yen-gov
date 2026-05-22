@@ -307,6 +307,60 @@ def coverage(
         typer.echo(f"\ncoverage: wrote {INVENTORY_REL}")
 
 
+@app.command("lift-energy")
+def lift_energy(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Lift legacy energy JSON shards to canonical fact-table Parquets.
+
+    P.1.A C4 (plan-doc TODO row 0e.7 P.1). Reads
+    ``datasets/indicators/in/energy/*.json`` and writes 4 canonical
+    fact-table Parquets under ``datasets/energy/``:
+
+    * ``energy_installed_capacity.parquet``      — 5 CEA per-fuel national
+      rows + ICED state geographical (parent + 5 fuel children) + ICED
+      state allocated (parent only; per-fuel orphans deferred to a
+      future PR per scope-gap §0e.7.5).
+    * ``energy_generation.parquet``              — ICED publisher total +
+      per-fuel breakdown (sub-fuel collapsed to canonical 5).
+    * ``energy_demand_supply.parquet``           — RBI Table 142 peak
+      demand + peak met + ICED per-capita consumption.
+    * ``energy_distribution_performance.parquet`` — ICED ATC losses +
+      sales-MU.
+
+    The 6 energy citation rows on ``datasets/taxonomy/sources.parquet``
+    are UPSERTed by ``emit-taxonomy`` (P.1.A C3); this command requires
+    that step has already run. C6 will retire the legacy shards once
+    parity is verified.
+    """
+    from yen_gov.canonical.adapters.energy import build_envelopes
+    from yen_gov.canonical.writer import write_batch
+
+    datasets_root = root / "datasets"
+    if not datasets_root.is_dir():
+        raise typer.BadParameter(
+            f"datasets/ not found under {root.as_posix()!r}"
+        )
+    total_obs = 0
+    for env in build_envelopes(root):
+        result = write_batch(env, datasets_root)
+        typer.echo(
+            f"lift-energy: {env.target_table_stem}: "
+            f"{result.observation_rows_written} obs rows -> "
+            f"{result.observations_path.relative_to(root).as_posix()}"
+        )
+        total_obs += result.observation_rows_written
+    typer.echo(f"lift-energy: {total_obs} total observation rows written")
+
+
 @app.command()
 def run(
     event: str = typer.Argument(..., help="ECI event id, e.g. AcGenMay2026."),
