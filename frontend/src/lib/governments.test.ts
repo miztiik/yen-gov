@@ -2,9 +2,9 @@ import { describe, it, expect } from "vitest";
 import { currentTerm, termAt, type GovernmentTimeline } from "./governments";
 
 const TIMELINE: GovernmentTimeline = {
-  $schema: "https://example.invalid/schemas/state_government.schema.json",
+  $schema: "https://example.invalid/schemas/office-holdings.schema.json",
   $schema_version: "1.0",
-  sources: [{ url: "https://example.invalid/source", fetched_at: "2026-05-01T00:00:00Z" }],
+  sources: [{ url: "https://example.invalid/source" }],
   state: "S22",
   terms: [
     {

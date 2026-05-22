@@ -30,7 +30,7 @@ For the colour-by-government overlay, we need `(state, term_start, term_end, par
 
 ## Decision
 
-**v1**: hand-author per state from Wikipedia + ECI cross-check. One file per state at `datasets/governments/in/states/<S>/cm_terms.json`. Each term has `sources[]` listing the Wikipedia URL and the relevant ECI election URL.
+**v1**: hand-author per state from Wikipedia + ECI cross-check. Originally one file per state at `datasets/governments/in/states/<S>/cm_terms.json`; consolidated into one long-form `datasets/taxonomy/office_holdings.json` in G.1.c (2026-05-22) per the Hans + Max + Fowler review. Each holding row has optional `references[]` listing the Wikipedia URL and the relevant ECI election URL; per-office `url_main` lives in the file's top-level `office_citations` map.
 
 License of the artifact: **note that hand-author from Wikipedia inherits CC BY-SA 3.0 obligations on the table data**. Mitigation: only the *facts* (start, end, party) are taken — facts are not copyrightable. Names and citation links are stored as references to upstream, not transcribed prose. Document this in `docs/research/license-handling.md`.
 

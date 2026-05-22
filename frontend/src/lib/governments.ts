@@ -1,12 +1,16 @@
 // Government timeline loader. See ADR-0023 + docs/concepts/government-vs-election.md.
 //
-// One file per state at datasets/governments/in/states/<state>/cm_terms.json.
-// 4 of 15 ingested states have files at this commit (S03 Assam, S11 Kerala,
-// S22 Tamil Nadu, S25 West Bengal). The remaining 10+ are tracked as a
-// follow-up authoring task; the UI degrades gracefully (returns null) when
-// a file is absent rather than treating it as an error.
+// Reads the consolidated long-form `datasets/taxonomy/office_holdings.json`
+// (G.1.c 2026-05-22; replaced the 31 per-state cm_terms.json files).
+// Filters by `office_id == "IN-<state>-CM"` per state and adapts the
+// long-form row shape (start_date / end_date / person_name /
+// party_eci_code) to the existing `GovernmentTerm` field names
+// (start / end / cm_name / party_code) so downstream Svelte components
+// don't have to change. Whole file fetched once and cached globally;
+// subsequent state lookups are pure filter ops over the cached holdings.
 //
-// Schema: datasets/schemas/state_government.schema.json v1.0.
+// Schema: datasets/schemas/office-holdings.schema.json v1.0 (replaced
+// the retired state_government.schema.json).
 
 import { DATA_BASE } from "./paths";
 
@@ -26,32 +30,89 @@ export interface GovernmentTerm {
 export interface GovernmentTimeline {
   $schema: string;
   $schema_version: string;
-  sources: { url: string; fetched_at: string; name?: string; authority?: string }[];
+  sources: { url: string; fetched_at?: string; name?: string; authority?: string }[];
   state: string;
   terms: GovernmentTerm[];
 }
 
-const _cache = new Map<string, Promise<GovernmentTimeline | null>>();
+interface _OfficeHolding {
+  office_id: string;
+  start_date: string;
+  end_date: string | null;
+  regime: Regime;
+  person_name: string | null;
+  party_eci_code: string | null;
+  alliance: string | null;
+  notes?: string | null;
+  references?: { url: string; note?: string }[];
+}
 
-/**
- * Fetch a state's government timeline. Returns null on 404 (file not yet
- * authored — graceful degradation per ADR-0023). Other failures throw.
- * Per-state Promise cache prevents duplicate fetches across components.
- */
-export function fetchGovernmentTimeline(stateCode: string): Promise<GovernmentTimeline | null> {
-  const cached = _cache.get(stateCode);
-  if (cached) return cached;
-  const p = fetch(`${DATA_BASE}/governments/in/states/${stateCode}/cm_terms.json`)
+interface _OfficeHoldingsFile {
+  $schema: string;
+  $schema_version: string;
+  office_citations: Record<string, { url_main: string }>;
+  holdings: _OfficeHolding[];
+}
+
+let _allHoldings: Promise<_OfficeHoldingsFile | null> | null = null;
+const _byState = new Map<string, Promise<GovernmentTimeline | null>>();
+
+function _loadAll(): Promise<_OfficeHoldingsFile | null> {
+  if (_allHoldings) return _allHoldings;
+  _allHoldings = fetch(`${DATA_BASE}/taxonomy/office_holdings.json`)
     .then(async res => {
       if (res.status === 404) return null;
       if (!res.ok) {
         throw new Error(
-          `fetch /governments/in/states/${stateCode}/cm_terms.json failed: ${res.status} ${res.statusText}`,
+          `fetch /taxonomy/office_holdings.json failed: ${res.status} ${res.statusText}`,
         );
       }
-      return (await res.json()) as GovernmentTimeline;
+      return (await res.json()) as _OfficeHoldingsFile;
     });
-  _cache.set(stateCode, p);
+  return _allHoldings;
+}
+
+function _adapt(holding: _OfficeHolding): GovernmentTerm {
+  return {
+    start: holding.start_date,
+    end: holding.end_date,
+    regime: holding.regime,
+    party_code: holding.party_eci_code,
+    alliance: holding.alliance,
+    cm_name: holding.person_name,
+    notes: holding.notes ?? undefined,
+    references: holding.references,
+  };
+}
+
+/**
+ * Fetch a state's government timeline. Returns null when no CM
+ * holdings exist for the state in `office_holdings.json` (graceful
+ * degradation per ADR-0023). Other failures throw. Cached per state.
+ */
+export function fetchGovernmentTimeline(stateCode: string): Promise<GovernmentTimeline | null> {
+  const cached = _byState.get(stateCode);
+  if (cached) return cached;
+  const office_id = `IN-${stateCode}-CM`;
+  const p = _loadAll().then(file => {
+    if (!file) return null;
+    const terms = file.holdings
+      .filter(h => h.office_id === office_id)
+      .map(_adapt);
+    if (terms.length === 0) return null;
+    const url_main = file.office_citations[office_id]?.url_main;
+    const sources = url_main
+      ? [{ url: url_main, name: `List of Chief Ministers of ${stateCode}`, authority: "Wikipedia" }]
+      : [];
+    return {
+      $schema: file.$schema,
+      $schema_version: file.$schema_version,
+      sources,
+      state: stateCode,
+      terms,
+    } satisfies GovernmentTimeline;
+  });
+  _byState.set(stateCode, p);
   return p;
 }
 
@@ -77,3 +138,4 @@ export function termAt(timeline: GovernmentTimeline | null, date: string): Gover
     return t.end >= date;
   }) ?? null;
 }
+

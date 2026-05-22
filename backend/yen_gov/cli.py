@@ -112,12 +112,13 @@ def emit_taxonomy(
       hand-authored districts in; the per-state ``districts.json`` files
       that originally seeded those rows were retired in T.0c-iii Phase D.3)
     - ``datasets/governments/dim_offices.parquet`` +
-      ``datasets/governments/governments_office_holdings.parquet`` —
+      ``datasets/governments/governments_office_holdings.parquet`` --
       CM offices (read from entities.parquet office_bearer rows post
-      G.1.b reader-switch, 2026-05-22) + 359 CM term holdings from
-      per-state ``datasets/governments/in/states/<S>/cm_terms.json``
-      files. Also UPSERTs the 31 Wikipedia "List of CMs" citation
-      rows into ``datasets/taxonomy/sources.parquet``.
+      G.1.b reader-switch, 2026-05-22) + 359 CM term holdings from the
+      consolidated ``datasets/taxonomy/office_holdings.json`` (post
+      G.1.c consolidation, 2026-05-22). Also UPSERTs the 31 Wikipedia
+      "List of CMs" citation rows into
+      ``datasets/taxonomy/sources.parquet``.
 
     The facet-axes emit also runs automatically inside every canonical
     ``write_batch`` call as a belt-and-suspenders refresh; the other
@@ -139,8 +140,8 @@ def emit_taxonomy(
     from yen_gov.canonical.entities_seed import (
         compile_to_parquet as _compile_entities,
     )
-    from yen_gov.canonical.cm_terms_seed import (
-        compile_to_parquet as _compile_cm_terms,
+    from yen_gov.canonical.office_holdings_seed import (
+        compile_to_parquet as _compile_office_holdings,
     )
 
     taxonomy_dir = root / "datasets" / "taxonomy"
@@ -191,15 +192,16 @@ def emit_taxonomy(
         f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/entities.parquet"
     )
 
-    # 6) cm_terms -> dim_offices + holdings; upserts wiki sources.
-    #    Post-G.1.b reader-switch (2026-05-22): office IDENTITY now reads
-    #    from entities.parquet office_bearer rows (lifted in G.1.a);
-    #    cm_terms.json continues to supply TENURE rows + citation. Step
-    #    5 must run before step 6 so entities.parquet is fresh.
-    cm_terms_root = root / "datasets" / "governments" / "in" / "states"
-    cm_files = sorted(cm_terms_root.glob("*/cm_terms.json"))
-    office_count, holdings_count = _compile_cm_terms(
-        cm_files,
+    # 6) office_holdings -> dim_offices + holdings; upserts wiki sources.
+    #    Post-G.1.c consolidation (2026-05-22): tenure facts now come
+    #    from the single ``datasets/taxonomy/office_holdings.json``
+    #    (replaced 31 per-state cm_terms.json files); office IDENTITY
+    #    still reads from entities.parquet office_bearer rows
+    #    (G.1.a + G.1.b). Step 5 must run before step 6 so
+    #    entities.parquet is fresh.
+    office_holdings_json = taxonomy_dir / "office_holdings.json"
+    office_count, holdings_count = _compile_office_holdings(
+        office_holdings_json,
         taxonomy_dir / "entities.parquet",
         taxonomy_dir / "sources.parquet",
         governments_dir / "dim_offices.parquet",

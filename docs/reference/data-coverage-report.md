@@ -59,7 +59,7 @@ The May 2026 wave (the project's primary "live" target — TN, WB, Kerala, Assam
 
 - **Boundaries** — `datasets/boundaries/in/geojson/`: 31 per-state AC polygon files (`S__-ac.geojson`) + `india-states.geojson` + `india-districts.geojson`. Each carries a sibling `.sources.json` recording the upstream geojson author + commit.
 - **Features** — `datasets/features/in/energy/power-plants.geojson`: point layer of generating stations from `india-geodata`. Used by the energy hub map.
-- **Governments** — `datasets/governments/in/states/<S__>/cm_terms.json`: Chief Minister term-of-office timelines for 31 states. Used to label the "who governed when" overlay.
+- **Governments** — `datasets/taxonomy/office_holdings.json`: consolidated long-form Chief Minister tenure timelines for all 31 states (G.1.c 2026-05-22; replaced the per-state `datasets/governments/in/states/<S>/cm_terms.json` files). Compiles to `datasets/governments/governments_office_holdings.parquet` via `python -m yen_gov emit-taxonomy`. Used to label the "who governed when" overlay.
 
 ## 5. What's NOT loaded yet (the gaps)
 
