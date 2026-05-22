@@ -66,7 +66,7 @@ class IndicatorRow(BaseModel):
     """One row of taxonomy/indicators.parquet.
 
     PK = ``indicator_id``. Mirrors ``indicator-catalogue.schema.json``
-    item shape v1.0. ``dimension_values`` and ``funding_split`` are kept
+    item shape v1.1. ``dimension_values`` and ``funding_split`` are kept
     as native types here for Pydantic validation; the parquet
     serialiser converts them to JSON strings.
     """
@@ -136,13 +136,19 @@ class IndicatorRow(BaseModel):
     coverage_year_max: int | None = None
     coverage_density: float | None = Field(default=None, ge=0, le=1)
     renderer_rules: list[str] = Field(default_factory=list)
-    # v1.1 (T.3 2026-05-22) -- one-release back-compat for renamed ids.
-    # id_aliases accepts EITHER D30 kebab (rename history) OR legacy
-    # '<topic>/<snake_case_id>' (pre-pivot folded-shard form).
+    # v1.1 (T.3 2026-05-22) -- one-release back-compat dereferencer.
+    # Each alias is EITHER D30 kebab (rename history) OR legacy
+    # ``<topic>/<snake_case_id>`` (pre-canonical-pivot folded-shard form).
+    # Pattern validation is delegated to the JSON Schema layer (single
+    # source of truth -- no DRY violation with the schema regex). When
+    # non-empty, ``deprecated_in`` MUST be set; enforced by the paired
+    # check inside ``compile_to_parquet`` and again at the validator gate
+    # (``yen_gov.validate.tier_b_indicator_alias_window``).
     id_aliases: list[str] = Field(default_factory=list)
-    deprecated_in: str | None = Field(
-        default=None, pattern=r"^\d{4}-\d{2}-\d{2}$"
-    )
+    # ISO ``YYYY-MM-DD`` date the alias chain was introduced. Anchors
+    # the 60-day expiry window enforced by Tier-B. Optional in isolation
+    # (declaring an anchor date without any aliases is harmless).
+    deprecated_in: str | None = Field(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$")
 
 
 # 33 columns, flat. Lists kept as VARCHAR[]; dicts/structs serialised to
@@ -270,17 +276,16 @@ def compile_to_parquet(json_in: Path, parquet_out: Path) -> int:
                     "(per D29 -- siblings can have different upstreams)."
                 )
 
-        # v1.1 paired-semantic check (T.3 2026-05-22). id_aliases without a
-        # deprecated_in date orphans the alias from its expiry anchor and
-        # bricks the Tier-B 60-day window check. Reverse pairing
-        # (deprecated_in without id_aliases) is legal -- declaring a date
-        # without yet listing legacy slugs is harmless.
+        # v1.1 (T.3) paired-semantic rule. ``id_aliases`` non-empty
+        # requires ``deprecated_in`` set so Tier-B can anchor the 60-day
+        # expiry window. Reverse pairing (deprecated_in set, no aliases)
+        # is legal -- harmless on its own.
         if r.id_aliases and r.deprecated_in is None:
             raise ValueError(
-                f"indicator {r.indicator_id!r}: id_aliases set but deprecated_in "
-                "is null. Per indicator-catalogue.schema.json v1.1 the two fields "
-                "are paired; set deprecated_in to the ISO date the alias chain "
-                "was introduced so Tier-B can apply the 60-day expiry window."
+                f"indicator {r.indicator_id!r}: id_aliases non-empty requires "
+                "deprecated_in to be set (per indicator-catalogue.schema.json "
+                "v1.1 paired-semantic rule). Set deprecated_in to today's ISO "
+                "date or remove the id_aliases entries."
             )
 
     # Deterministic order: by indicator_id (PK).
