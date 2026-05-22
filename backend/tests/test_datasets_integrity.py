@@ -202,13 +202,24 @@ def test_election_events_default_uniqueness():
 # ---------------------------------------------------------------------------
 
 STATE_TIERS_PATH = DATASETS / "taxonomy" / "state_tiers.json"
-STATES_REGISTRY_PATH = DATASETS / "reference" / "in" / "states.json"
+STATES_REGISTRY_PATH = DATASETS / "taxonomy" / "entities.json"
 TOPIC_CATALOGUE_PATH = DATASETS / "taxonomy" / "topics.json"
 
 
 def _known_state_codes() -> set[str]:
+    """Current state+UT ECI codes from ``taxonomy/entities.json``.
+
+    Repointed from legacy ``reference/in/states.json`` in Phase B of the
+    states.json port (TODO/20260521-states-json-port-blocker-entities-ut-gap.md).
+    Filter: ``entity_type IN ('state', 'ut') AND entity_valid_to IS NULL``.
+    """
     states_doc = _load_json(STATES_REGISTRY_PATH)
-    return {s["eci_code"] for s in states_doc["states"]}
+    return {
+        e["entity_code"]
+        for e in states_doc["entities"]
+        if e.get("entity_type") in ("state", "ut")
+        and e.get("entity_valid_to") is None
+    }
 
 
 def _known_tier_ids() -> set[str]:

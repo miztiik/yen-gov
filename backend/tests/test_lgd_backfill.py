@@ -98,12 +98,15 @@ def test_state_bridge_handles_canonical_names(tmp_path: Path, monkeypatch) -> No
         w.writerow(["1", "33", "1", "Tamil Nadu", "TAMIL NADU", "33", "33", "S"])
         w.writerow(["2", "32", "1", "Kerala", "KERALA", "32", "32", "S"])
 
-    states_json = tmp_path / "states.json"
+    states_json = tmp_path / "entities.json"
     states_json.write_text(
-        json.dumps({"states": [
-            {"eci_code": "S22", "name": "Tamil Nadu"},
-            {"eci_code": "S11", "name": "Kerala"},
-            {"eci_code": "S99", "name": "Phantomstan"},
+        json.dumps({"entities": [
+            {"entity_code": "S22", "entity_type": "state",
+             "display_name": "Tamil Nadu", "entity_valid_to": None},
+            {"entity_code": "S11", "entity_type": "state",
+             "display_name": "Kerala", "entity_valid_to": None},
+            {"entity_code": "S99", "entity_type": "state",
+             "display_name": "Phantomstan", "entity_valid_to": None},
         ]}),
         encoding="utf-8",
     )

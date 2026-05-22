@@ -10,7 +10,7 @@ yashveeeeeeer/india-geodata and emits two yen-gov artifacts:
 
   2. datasets/indicators/in/energy/installed_mw_by_state.json  (long-form
      rows per indicator.schema.json — only for states whose ECI code is in
-     datasets/reference/in/states.json; others are documented in `notes`).
+     datasets/taxonomy/entities.json; others are documented in `notes`).
 
 Per docs/research/energy-power-plants.md (v1 plan):
     upstream  = india-geodata raw GeoJSON (CC BY 4.0, attribution surfaced)
@@ -21,9 +21,16 @@ Per docs/research/energy-power-plants.md (v1 plan):
 The state-name normaliser maps the raw GeoJSON `state` field (which is a
 mess: 64 distinct strings ranging from "AP" to "ANDHRA PRADESH" to
 "Arunachal Pradesh") to canonical English names; the canonical names are
-joined to states.json by exact match. State strings we don't recognise
-become rows in the indicator output's `notes` so a reader can see what
-got dropped.
+joined to taxonomy/entities.json by exact match. State strings we don't
+recognise become rows in the indicator output's `notes` so a reader can
+see what got dropped.
+
+The name->ECI bridge was repointed from ``reference/in/states.json`` to
+``taxonomy/entities.json`` in Phase B of the states.json port
+(TODO/20260521-states-json-port-blocker-entities-ut-gap.md); the
+``_state_eci_lookup`` helper below projects the current state+UT slice of
+``entities.json`` (``entity_type IN ('state','ut') AND entity_valid_to IS NULL``)
+into the same ``name -> eci_code`` mapping the prior reader produced.
 """
 
 from __future__ import annotations
@@ -49,11 +56,12 @@ UPSTREAM_AUTHORITY_URL = "https://cea.nic.in/"
 
 
 # Canonical English-name lookup for the upstream's messy `state` field.
-# Keys lowercased, whitespace collapsed. Values match the `name` field in
-# datasets/reference/in/states.json so the join is by exact equality.
+# Keys lowercased, whitespace collapsed. Values match the `display_name`
+# field on current state+UT rows in datasets/taxonomy/entities.json so the
+# join is by exact equality.
 #
 # This is presentation/normalisation, not a contract surface — it stays here
-# rather than going under datasets/. When states.json grows, this map grows
+# rather than going under datasets/. When entities.json grows, this map grows
 # alongside it (additive only).
 _STATE_NAME_NORMALISER: dict[str, str] = {
     # Tamil Nadu — the only state we have an ECI code for at v1.
@@ -75,9 +83,9 @@ _STATE_NAME_NORMALISER: dict[str, str] = {
     "gujarat": "Gujarat",
     "haryana": "Haryana",
     "himachal pradesh": "Himachal Pradesh",
-    "j&k": "Jammu and Kashmir",
-    "jammu & kashmir": "Jammu and Kashmir",
-    "jammu and kashmir": "Jammu and Kashmir",
+    "j&k": "Jammu and Kashmir (UT)",
+    "jammu & kashmir": "Jammu and Kashmir (UT)",
+    "jammu and kashmir": "Jammu and Kashmir (UT)",
     "jharkhand": "Jharkhand",
     "karnataka": "Karnataka",
     "kerala": "Kerala",
@@ -137,9 +145,25 @@ def _to_mw(raw: Any) -> float | None:
 
 
 def _state_eci_lookup(states_json_path: Path) -> dict[str, str]:
-    """Return name → ECI code map from datasets/reference/in/states.json."""
+    """Return name → ECI code map from datasets/taxonomy/entities.json.
+
+    Filter: ``entity_type IN ('state', 'ut') AND entity_valid_to IS NULL``
+    (current state+UT slice). Keys are the canonical ``display_name`` values
+    that the upstream normaliser map targets; values are ``entity_code``.
+    """
     doc = json.loads(states_json_path.read_text(encoding="utf-8"))
-    return {s["name"]: s["eci_code"] for s in doc.get("states", [])}
+    out: dict[str, str] = {}
+    for e in doc.get("entities", []):
+        if e.get("entity_type") not in ("state", "ut"):
+            continue
+        if e.get("entity_valid_to") is not None:
+            continue
+        code = e.get("entity_code")
+        name = e.get("display_name")
+        if not code or not name:
+            continue
+        out[name] = code
+    return out
 
 
 @dataclass(frozen=True)
@@ -258,19 +282,20 @@ def ingest(
     )
 
     # 5. Roll up to state-level installed MW by fuel and emit indicator.
-    states_json = repo_root / "datasets" / "reference" / "in" / "states.json"
+    states_json = repo_root / "datasets" / "taxonomy" / "entities.json"
     state_to_eci = _state_eci_lookup(states_json)
     rollup, unresolved = _rollup_by_state_fuel(geojson, state_to_eci)
 
     indicator_schema_path = schema_dir / "indicator.schema.json"
     indicator_schema = json.loads(indicator_schema_path.read_text(encoding="utf-8"))
     notes = (
-        "v1: rollup is restricted to states present in datasets/reference/in/"
-        "states.json (currently TN, KL, AS, WB). Upstream covers all India; "
+        "v1: rollup is restricted to current state+UT rows in "
+        "datasets/taxonomy/entities.json (currently TN, KL, AS, WB). "
+        "Upstream covers all India; "
         f"{len(unresolved)} distinct upstream state labels were not mapped to "
         "ECI codes in this run and their plants are excluded from this indicator. "
         "See docs/research/energy-power-plants.md for v2 plans (CEA direct + "
-        "expanded states.json)."
+        "expanded entities coverage)."
     )
     indicator_payload: dict[str, Any] = {
         "license": {

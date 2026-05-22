@@ -6,7 +6,11 @@
 >
 > **Phase A.5 (deferred)** — schema bump `entity.schema.json` v1.1 → v1.2 to add per-row `source_id` referencing `sources.parquet` (the citation ledger). The 8 UT rows authored in Phase A do not currently carry §12 envelope (entity rows have been genuinely exempt from §12 to date; CLAUDE.md §12 references "observation rows", and dim/taxonomy rows have ridden file-level conventions). Decision to ship this as Phase A was **Path B** (data-fill only, no schema change) per orchestrator guidance, because Path A would have required schema bump + Pydantic model widening + 8 MoHA-notification source rows with URL verification on `indiacode.nic.in`, ballooning the PR. Phase A.5 lifts the deferred work into its own PR with full schema-bump discipline. See Phase A.5 entry below.
 >
-> **Phase B (backend consumer port)** and **Phase C (frontend port + states.json deletion + §13 browser smoke)** remain NOT started.
+> **Phase B: ✅ COMPLETE** — branch `feat/states-json-port-phase-b-backend-consumers`, 2026-05-22.
+>
+> All 4 backend consumers repointed from `datasets/reference/in/states.json` to `datasets/taxonomy/entities.json` with filter `entity_type IN ('state', 'ut') AND entity_valid_to IS NULL`. Mapping: `entity_code → eci_code`, `display_name → name`, `entity_type → kind` (translated `ut → union_territory` to preserve downstream UT-without-assembly filter in `coverage.py:287` and `core/models.py StateEntry.kind` Literal). Files touched: `backend/yen_gov/coverage.py` (wrapper helper `_load_states_from_entities`), `tools/lgd/backfill_lgd_codes.py` (inline projection via new `_iter_states_from_entities`), `backend/yen_gov/sources/india_geodata/power_plants.py` (`_state_eci_lookup` rewritten; J&K normaliser values updated to `"Jammu and Kashmir (UT)"` to match the post-Phase-A canonical `display_name` so J&K plants keep resolving to U08), `backend/tests/test_datasets_integrity.py` (`_known_state_codes` re-projection). Two test-fixture updates also shipped in this PR because their writers fed the changed code paths: `backend/tests/test_coverage.py` (4 `_write` fixtures: 3 `Tamil Nadu`/`Assam` rows + 1 empty case re-shaped to entities.json envelope) and `backend/tests/test_lgd_backfill.py` (1 fixture renaming `S99 Phantomstan` to the entities.json shape). Holy Law #4 coverage CLI smoke-tested with `--root . --no-write` (exit 0, 88KB inventory markdown). Backend pytest: **775 passed / 41 skipped (93.65s)**. Tier-B validator: **0 issues**. The legacy `datasets/reference/in/states.json` file is **NOT** deleted in Phase B — that lands in Phase C alongside the frontend port + §13 browser smoke. Both files coexist on disk and stay byte-identical for the duration of Phase B (parity oracle `test_states_parity.py` re-confirms on every PR).
+>
+> **Phase C (frontend port + states.json deletion + §13 browser smoke)** remains NOT started.
 
 ---
 
@@ -84,7 +88,9 @@ Each row below collapses what `states.json` already carries (current-only metada
 
 The deferral is justified because: (a) Path A would have stalled the Phase B + Phase C unblock waiting on source authoring (Phase A's mandate was "unblock the port"); (b) Phase A.5 is a focused-scope schema-bump PR that can be reviewed with full Hans-Governance attention on sourcing rigour; (c) the existing v1.1 schema already permits `additionalProperties: true` for forward compatibility, so the Phase A rows are not invalid against v1.1 today — adding `source_id` later is genuinely additive.
 
-**Phase B — port the 4 backend consumers (mechanical repoint).**
+**Phase B — port the 4 backend consumers (mechanical repoint). ✅ COMPLETE.** See top-of-doc status block. The handover's original filter pseudo-code (`entity_type IN ('state','union_territory')`) was a typo discovered during Phase B execution: `entities.json` actually uses `"ut"` (not `"union_territory"`) for the `entity_type` enum. The implemented wrapper applies `entity_type IN ('state','ut') AND entity_valid_to IS NULL` and translates `ut → union_territory` only where the downstream consumer (e.g. `coverage.py`'s UT-without-assembly filter, `core/models.py StateEntry.kind` Literal) requires the legacy string for behavioural parity.
+
+Original step list, preserved for reference:
 
 1. `backend/yen_gov/coverage.py::STATES_REL` switch to `datasets/taxonomy/entities.json` + add filter `entity_type IN ('state','union_territory') AND entity_valid_to IS NULL`.
 2. `tools/lgd/backfill_lgd_codes.py::STATES_JSON` same switch.
