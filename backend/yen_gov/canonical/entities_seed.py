@@ -47,7 +47,7 @@ from typing import Literal
 import duckdb
 from pydantic import BaseModel, ConfigDict, Field
 
-ENTITIES_ROW_SCHEMA_VERSION = "1.1"
+ENTITIES_ROW_SCHEMA_VERSION = "1.2"
 
 EntityType = Literal[
     "country",
@@ -64,6 +64,7 @@ EntityType = Literal[
     "discom",
     "psu",
     "ministry",
+    "office_bearer",
 ]
 EntityLevel = Literal[
     "country",

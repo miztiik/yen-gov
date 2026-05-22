@@ -225,4 +225,8 @@ def test_compile_is_deterministic(tmp_path):
 
 
 def test_schema_version_constant():
-    assert ENTITIES_ROW_SCHEMA_VERSION == "1.1"
+    # Bumped 1.1 -> 1.2 in G.1.a (2026-05-22) when the
+    # entity.schema.json enum was extended with "office_bearer" to
+    # carry the 31 state CM office identities folded in from
+    # dim_offices.parquet. Refs: Plan §0e.6 (G.1).
+    assert ENTITIES_ROW_SCHEMA_VERSION == "1.2"
