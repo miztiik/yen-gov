@@ -1,6 +1,13 @@
 """Tier-A tests for ``yen_gov.canonical.cm_terms_seed``.
 
 Per CLAUDE.md §15, ``tmp_path`` fixtures only.
+
+Post-G.1.b reader-switch (2026-05-22): the compile function now takes
+``entities_parquet`` (not ``entities_json``). Office IDENTITY comes from
+``entity_type='office_bearer'`` rows in the parquet; tenure rows still
+come from cm_terms.json. Fixtures below compile a small entities.json
+to parquet via ``yen_gov.canonical.entities_seed.compile_to_parquet`` so
+the test inputs mirror the real production data flow.
 """
 
 from __future__ import annotations
@@ -15,12 +22,19 @@ from yen_gov.canonical.cm_terms_seed import (
     GOVERNMENTS_OFFICE_HOLDINGS_ROW_SCHEMA_VERSION,
     compile_to_parquet,
 )
+from yen_gov.canonical.entities_seed import (
+    compile_to_parquet as _compile_entities,
+)
 
 
-def _write_entities(tmp_path: Path) -> Path:
+def _write_entities_parquet(tmp_path: Path) -> Path:
+    """Write a minimal entities.json containing IN-S22 + IN-S22-CM and
+    compile it to entities.parquet via the real seed. Returns the parquet
+    path so callers can pass it directly to ``compile_to_parquet``.
+    """
     payload = {
         "$schema": "./entity.schema.json",
-        "$schema_version": "1.1",
+        "$schema_version": "1.2",
         "entities": [
             {
                 "entity_id": "IN-S22",
@@ -30,11 +44,22 @@ def _write_entities(tmp_path: Path) -> Path:
                 "display_name": "Tamil Nadu",
                 "entity_valid_from": 1969,
             },
+            {
+                "entity_id": "IN-S22-CM",
+                "entity_type": "office_bearer",
+                "entity_level": "fiscal_actor",
+                "entity_code": "CM",
+                "display_name": "Chief Minister of Tamil Nadu",
+                "parent_entity_id": "IN-S22",
+                "entity_valid_from": 1969,
+            },
         ],
     }
-    p = tmp_path / "entities.json"
-    p.write_text(json.dumps(payload), encoding="utf-8")
-    return p
+    json_path = tmp_path / "entities.json"
+    json_path.write_text(json.dumps(payload), encoding="utf-8")
+    parquet_path = tmp_path / "entities.parquet"
+    _compile_entities(json_path, parquet_path)
+    return parquet_path
 
 
 def _write_cm_terms(tmp_path: Path, state: str, terms: list[dict]) -> Path:
@@ -70,7 +95,7 @@ def _rows(parquet: Path) -> list[tuple]:
 
 
 def test_emits_offices_and_holdings_with_presidents_rule_null(tmp_path):
-    entities_json = _write_entities(tmp_path)
+    entities_parquet = _write_entities_parquet(tmp_path)
     cm_file = _write_cm_terms(
         tmp_path,
         "Tamil_Nadu",
@@ -98,7 +123,7 @@ def test_emits_offices_and_holdings_with_presidents_rule_null(tmp_path):
     holdings = tmp_path / "holdings.parquet"
     office_count, holdings_count = compile_to_parquet(
         [cm_file],
-        entities_json,
+        entities_parquet,
         sources_parquet,
         dim_offices,
         holdings,
@@ -139,7 +164,7 @@ def test_upsert_preserves_existing_sources(tmp_path):
     """If sources.parquet already has unrelated rows, they're preserved
     on UPSERT — the seed only adds/replaces its own Wikipedia rows.
     """
-    entities_json = _write_entities(tmp_path)
+    entities_parquet = _write_entities_parquet(tmp_path)
     cm_file = _write_cm_terms(
         tmp_path,
         "Tamil_Nadu",
@@ -177,7 +202,7 @@ def test_upsert_preserves_existing_sources(tmp_path):
         con.close()
     compile_to_parquet(
         [cm_file],
-        entities_json,
+        entities_parquet,
         sources_parquet,
         tmp_path / "dim_offices.parquet",
         tmp_path / "holdings.parquet",
@@ -189,7 +214,7 @@ def test_upsert_preserves_existing_sources(tmp_path):
 
 
 def test_compile_is_deterministic(tmp_path):
-    entities_json = _write_entities(tmp_path)
+    entities_parquet = _write_entities_parquet(tmp_path)
     cm_file = _write_cm_terms(
         tmp_path,
         "Tamil_Nadu",
@@ -203,8 +228,8 @@ def test_compile_is_deterministic(tmp_path):
     o2 = tmp_path / "o2.parquet"
     h1 = tmp_path / "h1.parquet"
     h2 = tmp_path / "h2.parquet"
-    compile_to_parquet([cm_file], entities_json, s1, o1, h1)
-    compile_to_parquet([cm_file], entities_json, s2, o2, h2)
+    compile_to_parquet([cm_file], entities_parquet, s1, o1, h1)
+    compile_to_parquet([cm_file], entities_parquet, s2, o2, h2)
     assert o1.read_bytes() == o2.read_bytes()
     assert h1.read_bytes() == h2.read_bytes()
     assert s1.read_bytes() == s2.read_bytes()
@@ -213,3 +238,48 @@ def test_compile_is_deterministic(tmp_path):
 def test_schema_version_constants():
     assert DIM_OFFICES_ROW_SCHEMA_VERSION == "1.0"
     assert GOVERNMENTS_OFFICE_HOLDINGS_ROW_SCHEMA_VERSION == "1.0"
+
+
+def test_missing_office_bearer_for_state_raises(tmp_path):
+    """If a cm_terms.json names a state with no office_bearer entity in
+    entities.parquet, the seed must fail loudly. This is the G.1.b
+    contract: office identity MUST exist canonically before tenures
+    reference it.
+    """
+    # Entities.parquet with the state but WITHOUT the office_bearer row
+    payload = {
+        "$schema": "./entity.schema.json",
+        "$schema_version": "1.2",
+        "entities": [
+            {
+                "entity_id": "IN-S22",
+                "entity_type": "state",
+                "entity_level": "state",
+                "entity_code": "S22",
+                "display_name": "Tamil Nadu",
+                "entity_valid_from": 1969,
+            },
+        ],
+    }
+    json_path = tmp_path / "entities.json"
+    json_path.write_text(json.dumps(payload), encoding="utf-8")
+    entities_parquet = tmp_path / "entities.parquet"
+    _compile_entities(json_path, entities_parquet)
+
+    cm_file = _write_cm_terms(
+        tmp_path,
+        "Tamil_Nadu",
+        [
+            {"start": "2021-05-07", "regime": "elected", "cm_name": "M. K. Stalin", "party_code": "582"},
+        ],
+    )
+    import pytest
+
+    with pytest.raises(ValueError, match="no office_bearer entity for state"):
+        compile_to_parquet(
+            [cm_file],
+            entities_parquet,
+            tmp_path / "sources.parquet",
+            tmp_path / "dim_offices.parquet",
+            tmp_path / "holdings.parquet",
+        )

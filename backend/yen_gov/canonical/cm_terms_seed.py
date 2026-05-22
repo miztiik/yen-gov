@@ -11,11 +11,16 @@
   citation rows into ``datasets/taxonomy/sources.parquet`` so every
   holdings row's ``source_id`` resolves to a real ledger entry.
 
-T.0a-ii role: lift the 359 CM terms currently in 31 per-state
-``datasets/governments/in/states/<S>/cm_terms.json`` files into the
-canonical store. Citizen-visible UI (the "colour by government" overlay
-on socio-economic indicator timelines) reads these two parquets via
-DuckDB-WASM; the JSON sources stay on disk until T.0c removes them.
+G.1.b role (2026-05-22, reader-switch): office IDENTITY now reads from
+``datasets/taxonomy/entities.parquet WHERE entity_type='office_bearer'``
+(the 31 office_bearer rows G.1.a lifted in). Per state cm_terms.json
+continues to provide the TENURE facts (term start/end/person/party/
+regime) and the Wikipedia citation. Strangler-fig PR 2 of 3 for
+retiring the per-state ``cm_terms.json`` files — see
+``TODO/20260522-g1-cm-terms-retirement-handover.md``. G.1.c will delete
+the JSON files + this module once the persons sidecar replaces the
+tenure source. This rewrite keeps Parquet output byte-identical to the
+pre-G.1.b shape (verified by parity oracle + on-disk regen diff).
 
 Person identity model: this MVP carries ``person_slug`` (deterministic
 lowercase hyphenated derivation from ``cm_name``) plus a verbatim
@@ -50,6 +55,12 @@ Rejected designs (do NOT re-propose):
        "elected-CM" vs "presidents_rule-Governor"). The OFFICE is the
        CM seat in both cases; the regime difference is captured on the
        holding row, not by inventing parallel offices.
+    6. (G.1.b) Continue deriving office_id / role / label from the
+       cm_terms.json state code inline (the pre-G.1.b shape). Couples
+       this seed to the office-id grammar in two places (here AND
+       entities_seed.py via the office_bearer rows G.1.a added).
+       After G.1.a the office_bearer rows are canonical — read from
+       them, do not re-derive. See ADR-0033-style strangler-fig.
 """
 
 from __future__ import annotations
@@ -144,20 +155,92 @@ def _pick_wiki_source(file: _CmTermsFile) -> _SourceCitation:
     return file.sources[0]
 
 
-def _load_state_display_names(entities_json: Path) -> dict[str, str]:
-    """Return ``{state_code: display_name}`` from entities.json.
+class _OfficeBearerIdentity(BaseModel):
+    """Office-identity row read from ``entities.parquet``.
 
-    Used to compose ``office.label`` and the Wikipedia source ``title``
-    without hardcoding state names inside this module.
+    Mirrors the four columns dim_offices needs from each office_bearer
+    entity: office_id (= entity_id), entity_id of the parent state
+    (= parent_entity_id), role (= entity_code, e.g. ``CM``), and label
+    (= display_name). The source_id citation comes from cm_terms.json
+    — not from this row — because that citation describes the
+    historical-tenures upstream, not the existence of the office.
     """
-    payload = json.loads(entities_json.read_text(encoding="utf-8"))
-    out: dict[str, str] = {}
-    for row in payload["entities"]:
-        if row["entity_type"] in {"state", "ut"}:
-            # entity_id "IN-S22" -> state_code "S22"
-            state_code = row["entity_id"].split("-")[1]
-            out[state_code] = row["display_name"]
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    office_id: str
+    state_entity_id: str
+    role: str
+    label: str
+
+
+def _load_office_bearer_identities(
+    entities_parquet: Path,
+    role: str = "CM",
+) -> dict[str, _OfficeBearerIdentity]:
+    """Return ``{state_code: _OfficeBearerIdentity}`` for one role.
+
+    Reads ``entity_type='office_bearer'`` rows from entities.parquet
+    and keys them by the state code embedded in ``parent_entity_id``
+    (``IN-S22`` -> ``S22``). Filters by ``entity_code = role`` so this
+    helper generalises to DCM / GOV when those office_bearer rows land.
+    """
+    con = duckdb.connect(":memory:")
+    try:
+        rows = con.execute(
+            f"""
+            SELECT entity_id, parent_entity_id, entity_code, display_name
+            FROM read_parquet('{Path(entities_parquet).as_posix()}')
+            WHERE entity_type = 'office_bearer'
+              AND entity_code = '{role}'
+            """
+        ).fetchall()
+    finally:
+        con.close()
+    out: dict[str, _OfficeBearerIdentity] = {}
+    for entity_id, parent_entity_id, entity_code, display_name in rows:
+        if parent_entity_id is None:
+            raise ValueError(
+                f"office_bearer {entity_id!r} has NULL parent_entity_id; expected IN-<state_code>"
+            )
+        # parent_entity_id "IN-S22" -> state_code "S22"
+        parts = parent_entity_id.split("-")
+        if len(parts) != 2 or parts[0] != "IN":
+            raise ValueError(
+                f"office_bearer {entity_id!r} parent_entity_id {parent_entity_id!r} "
+                f"does not match IN-<state_code> shape"
+            )
+        state_code = parts[1]
+        if state_code in out:
+            raise ValueError(
+                f"two office_bearer rows with entity_code={role!r} for state {state_code!r}: "
+                f"{out[state_code].office_id!r} and {entity_id!r}"
+            )
+        out[state_code] = _OfficeBearerIdentity(
+            office_id=entity_id,
+            state_entity_id=parent_entity_id,
+            role=entity_code,
+            label=display_name,
+        )
     return out
+
+
+def _state_display_from_label(label: str, role: str = "CM") -> str:
+    """Recover the state display name from a CM office label.
+
+    ``"Chief Minister of Tamil Nadu"`` -> ``"Tamil Nadu"``. Used to
+    compose the Wikipedia source ``title`` ("List of Chief Ministers of
+    <state>") without hardcoding state names inside this module. Mirrors
+    the inverse of the entity_label format set in entities.json by
+    G.1.a; if the label format ever changes, this helper changes with
+    it (single source of truth).
+    """
+    prefix = "Chief Minister of " if role == "CM" else f"{role} of "
+    if not label.startswith(prefix):
+        raise ValueError(
+            f"office label {label!r} does not start with expected prefix {prefix!r}"
+        )
+    return label[len(prefix):]
 
 
 # ----------------------------------------------------------------------
@@ -167,7 +250,7 @@ def _load_state_display_names(entities_json: Path) -> dict[str, str]:
 
 def compile_to_parquet(
     cm_terms_files: Iterable[Path],
-    entities_json: Path,
+    entities_parquet: Path,
     sources_parquet: Path,
     dim_offices_out: Path,
     holdings_out: Path,
@@ -176,8 +259,13 @@ def compile_to_parquet(
 
     Args:
         cm_terms_files: paths to ``cm_terms.json`` files (one per state).
-        entities_json: path to ``datasets/taxonomy/entities.json`` for
-            state display-name lookup.
+            Provides TENURE rows + Wikipedia citation per state.
+        entities_parquet: path to ``datasets/taxonomy/entities.parquet``;
+            office IDENTITY (the 31 dim_offices rows) is read from
+            ``WHERE entity_type='office_bearer' AND entity_code='CM'``.
+            G.1.b reader-switch (2026-05-22): pre-rewrite this argument
+            was ``entities_json`` and identity was derived inline from
+            state codes.
         sources_parquet: path to ``datasets/taxonomy/sources.parquet``;
             opened, augmented with 1 Wikipedia citation per state file,
             written back. Idempotent across re-runs.
@@ -188,7 +276,9 @@ def compile_to_parquet(
     Returns:
         ``(office_count, holdings_count)`` for orchestrator logging.
     """
-    state_names = _load_state_display_names(Path(entities_json))
+    office_identities = _load_office_bearer_identities(
+        Path(entities_parquet), role="CM"
+    )
 
     office_rows: list[tuple] = []
     holding_rows: list[tuple] = []
@@ -203,11 +293,14 @@ def compile_to_parquet(
             raw.pop(k, None)
         cm = _CmTermsFile.model_validate(raw)
         state_code = cm.state
-        if state_code not in state_names:
+        identity = office_identities.get(state_code)
+        if identity is None:
             raise ValueError(
-                f"{cm_path.as_posix()}: state {state_code!r} not in entities.json"
+                f"{cm_path.as_posix()}: no office_bearer entity for state "
+                f"{state_code!r} (expected entity_id IN-{state_code}-CM in "
+                f"entities.parquet). Did G.1.a lift this state's office?"
             )
-        state_display = state_names[state_code]
+        state_display = _state_display_from_label(identity.label, role="CM")
 
         wiki = _pick_wiki_source(cm)
         producer = "Wikipedia"
@@ -228,14 +321,12 @@ def compile_to_parquet(
             None,  # notes
         )
 
-        office_id = f"IN-{state_code}-CM"
-        entity_id = f"IN-{state_code}"
         office_rows.append(
             (
-                office_id,
-                entity_id,
-                "CM",
-                f"Chief Minister of {state_display}",
+                identity.office_id,
+                identity.state_entity_id,
+                identity.role,
+                identity.label,
                 source_id,
             )
         )
@@ -244,7 +335,7 @@ def compile_to_parquet(
             person_slug = _slugify_person(term.cm_name) if term.cm_name else None
             holding_rows.append(
                 (
-                    office_id,
+                    identity.office_id,
                     term.start,
                     term.end,
                     term.regime,
