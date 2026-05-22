@@ -113,7 +113,6 @@ export interface StateEntry {
   iso_3166_2: string;
   name: string;
   kind: "state" | "union_territory";
-  capital?: string;
   notes?: string;
 }
 
@@ -123,6 +122,28 @@ export interface StatesCollection {
   sources: SourceRef[];
   country: string;
   states: StateEntry[];
+}
+
+// Internal projection target for fetchStates() — reads the canonical entity
+// catalogue, NOT the retired states.json shim. See "Strangler-fig closeout
+// 2026-05-21" in TODO/20260521-states-json-port-blocker-entities-ut-gap.md
+// (Phase A built canonical entities.json; Phase B ported backend consumers;
+// Phase C swaps this loader + deletes datasets/reference/in/states.json).
+interface EntityRow {
+  entity_id: string;
+  entity_type: string;
+  entity_code: string;
+  display_name: string;
+  iso_3166_2: string | null;
+  entity_valid_to: number | null;
+  notes?: string | null;
+}
+
+interface EntitiesEnvelope {
+  $schema: string;
+  $schema_version: string;
+  sources?: SourceRef[];
+  entities: EntityRow[];
 }
 
 import { DATA_BASE } from "./paths";
@@ -135,8 +156,43 @@ async function fetchJson<T>(path: string): Promise<T> {
   return (await res.json()) as T;
 }
 
+/**
+ * Load the current set of Indian states and UTs as `StatesCollection`.
+ *
+ * Backed by `datasets/taxonomy/entities.json` (canonical entity catalogue
+ * with temporal validity windows). We filter to current rows
+ * (`entity_valid_to === null`) and entity_type in {state, ut}, then project
+ * the upstream {entity_code, display_name, entity_type, iso_3166_2, notes}
+ * onto the historical `StateEntry` shape so call sites (Home.svelte,
+ * ScopePicker.svelte, states.svelte.ts) keep their existing field names.
+ * The `entity_type === "ut"` value is translated to `kind: "union_territory"`
+ * to preserve the legacy enum that downstream filters key off of.
+ *
+ * The legacy `datasets/reference/in/states.json` shim was deleted in Phase C
+ * of the strangler-fig closeout (see top-of-file comment on `EntityRow`).
+ * The `capital` field that lived on the shim had ZERO downstream consumers
+ * per the Phase A audit and is intentionally not projected.
+ */
 export function fetchStates(): Promise<StatesCollection> {
-  return fetchJson<StatesCollection>("/reference/in/states.json");
+  return fetchJson<EntitiesEnvelope>("/taxonomy/entities.json").then(env => ({
+    $schema: env.$schema,
+    $schema_version: env.$schema_version,
+    sources: env.sources ?? [],
+    country: "IN",
+    states: env.entities
+      .filter(
+        e =>
+          (e.entity_type === "state" || e.entity_type === "ut") &&
+          e.entity_valid_to === null
+      )
+      .map<StateEntry>(e => ({
+        eci_code: e.entity_code,
+        iso_3166_2: e.iso_3166_2 ?? "",
+        name: e.display_name,
+        kind: e.entity_type === "ut" ? "union_territory" : "state",
+        ...(e.notes ? { notes: e.notes } : {}),
+      })),
+  }));
 }
 
 export function fetchConstituencies(state: string): Promise<ConstituenciesCollection> {

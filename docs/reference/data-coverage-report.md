@@ -46,7 +46,7 @@ The May 2026 wave (the project's primary "live" target — TN, WB, Kerala, Assam
 
 | Group | What ships | Notes |
 | ----- | ---------- | ----- |
-| `reference/in/states.json` | 28 states + 8 UTs registry | ECI codes (S01..S29, U01..U08) |
+| `taxonomy/entities.json` | 28 states + 8 UTs (and historical predecessors + districts) | ECI codes (S01..S29, U01..U09) for the state+UT slice; filter `entity_type IN ('state','ut') AND entity_valid_to IS NULL`. Replaced `reference/in/states.json` in Phase C of the strangler-fig closeout (`TODO/20260521-states-json-port-blocker-entities-ut-gap.md`). |
 | `reference/in/state-tiers.json` | State grouping for the IA | Tiered by Lok Sabha seat count |
 | `taxonomy/parties.json` | Canonical party roster (was `reference/in/parties.json` + `parties-discovered.json`, both retired in PR-R.3 / row 1.8e) | 108 parties; primary + aliases; `eci_codes[]` per party |
 | `reference/in/election-events.json` | Master event index | Event id, name, dates |

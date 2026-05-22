@@ -27,7 +27,7 @@ Three builders for the results portal, returning fully-qualified `https://result
 - `partywise_state_url(event_id, state_code)` → `/Result<event_id>/partywiseresult-<state>.htm`
 - `constituencywise_url(event_id, state_code, eci_no)` → `/Result<event_id>/Constituencywise<state><n>.htm`
 
-`event_id` is the opaque slug ECI assigns each event (e.g. `AcGenMay2026`). It is supplied by `processing.json` / pipeline config — never inferred. State codes are validated against `^[SU]\d{2}$` (matches `state.schema.json`'s ECI code constraint).
+`event_id` is the opaque slug ECI assigns each event (e.g. `AcGenMay2026`). It is supplied by `processing.json` / pipeline config — never inferred. State codes are validated against `^[SU]\d{2}$` (matches the ECI code constraint shared across the canonical taxonomy — `entity.schema.json` `entity_code` for `entity_type IN ('state','ut')` — and the legacy `state.schema.json` retired in Phase C).
 
 Verified on 2026-05-08 against the live AcGenMay2026 event. ECI does not version these URLs; if the next election renames them, exactly one file changes.
 

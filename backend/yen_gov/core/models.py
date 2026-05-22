@@ -114,36 +114,18 @@ class Election(_Artifact):
     result_date: str | None = None
 
 
-# --- states collection ------------------------------------------------------
-
-class StateEntry(_Strict):
-    eci_code: ECIStateCode
-    iso_3166_2: Annotated[str, Field(pattern=r"^[A-Z]{2}-[A-Z0-9]{2,3}$")]
-    name: str = Field(min_length=1)
-    kind: Literal["state", "union_territory"]
-    capital: str | None = None
-    verification_status: Literal[
-        "live_url_probe_ok", "published_authority_only", "unverified"
-    ] | None = None
-    tier: Literal[
-        "general_category",
-        "special_category_neh",
-        "special_category_hill",
-        "ut_with_legislature",
-        "ut_without_legislature",
-        "nct_delhi",
-    ] | None = None
-    notes: str | None = None
-
-
-class StatesCollection(_Artifact):
-    """Mirrors datasets/schemas/state.schema.json. Version sourced via core.schema_registry."""
-
-    _schema_id = schema_id("state.schema.json")
-    _schema_version = schema_version("state.schema.json")
-
-    country: Annotated[str, Field(pattern=r"^[A-Z]{2}$")]
-    states: list[StateEntry] = Field(min_length=1)
+# --- states collection (retired) --------------------------------------------
+#
+# `StateEntry` + `StatesCollection` (Pydantic v2 mirror of
+# `datasets/schemas/state.schema.json`) were deleted in Phase C of the
+# strangler-fig closeout for `datasets/reference/in/states.json` — see
+# `TODO/20260521-states-json-port-blocker-entities-ut-gap.md`. The state +
+# UT roster now lives as `entity_type IN ('state','ut')` rows on
+# `datasets/taxonomy/entities.json` / `entities.parquet` (Pydantic mirror
+# pending; current backend consumers — `coverage.py`,
+# `india_geodata/power_plants.py`, `lgd/backfill_lgd_codes.py`,
+# `test_datasets_integrity.py` — read the JSON directly via the Phase B
+# `_load_states_from_entities` helper pattern).
 
 
 # --- districts collection ---------------------------------------------------

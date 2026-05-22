@@ -35,7 +35,7 @@ The user also explicitly directed: codify "align with OWID standards" as a fallb
 
 The router walks the path from `/india` left-to-right, consulting the geography registry at each segment. When the next segment is NOT a known sub-geography of the current node, it consults the indicator-slug registry. If the segment is in neither, the result is a real 404.
 
-- Geography registries: `datasets/reference/in/states.json`, `datasets/reference/in/states/<state>/districts.json`, ECI per-state constituency lists.
+- Geography registries: `datasets/taxonomy/entities.json` (filter `entity_type IN ('state','ut') AND entity_valid_to IS NULL` for the state list; `entity_type='district'` for the district list), ECI per-state constituency lists.
 - Indicator-slug registry: derived field on the existing `datasets/reference/in/indicators-completeness.json`. Maps `url_slug` → canonical indicator id (`installed-capacity` → `power/installed-capacity`).
 - One Tier-A contract test (CLAUDE.md §15) enforces: `indicator_slugs ⊥ {state_slugs ∪ district_slugs ∪ ac_slugs ∪ RESERVED_SEGMENTS}` where `RESERVED_SEGMENTS = ["india", "indicator", "compare", "explore", "about", "disclaimer", "data-completeness"]`. The test reads the registries and asserts the set intersection is empty.
 

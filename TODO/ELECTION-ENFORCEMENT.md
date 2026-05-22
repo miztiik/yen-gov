@@ -142,7 +142,7 @@ These are non-negotiable for the panel to ship:
 1. New schema: `datasets/schemas/election-enforcement.schema.json`
    - `$id`, `x-version: "1.0"`, `x-changelog` initial entry, JSON Schema 2020-12.
    - Required: `eci_event_id`, `press_note_id`, `press_note_date`, `revision`, `currency`, `per_state[]`, `sources[]`.
-   - `per_state[].state_code` MUST match `datasets/reference/in/states.json`.
+   - `per_state[].state_code` MUST match the canonical state+UT roster on `datasets/taxonomy/entities.json` (filter `entity_type IN ('state','ut') AND entity_valid_to IS NULL`; pre-Phase-C the equivalent file was `datasets/reference/in/states.json`).
    - `comparison.caveats` enum: `pre_esms_baseline | covid_restricted_2021_campaign | nominal_currency_not_inflation_adjusted | category_definition_changed`.
 2. Producer-side validator: extend `backend/yen_gov/validate.py` to enforce the new schema. Reject any file whose `$schema_version` ≠ schema `x-version`.
 3. Contract test: `backend/tests/test_validate.py` adds an enforcement.json fixture; `frontend/src/contracts/datasets-conform.test.ts` validates the same file from the consumer side.

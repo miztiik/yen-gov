@@ -24,8 +24,10 @@ WIKIPEDIA_BASE = "https://en.wikipedia.org/wiki"
 # ECI state code → Wikipedia article name (canonical English title).
 # Filled out as we add support for each state. Holy Law #6 (no hardcoded
 # taxonomy) is satisfied by treating this as adapter-local routing data,
-# not as user-facing taxonomy — the user-facing names live in state.schema.json
-# data files.
+# not as user-facing taxonomy — the user-facing names live in
+# datasets/taxonomy/entities.json (validated by entity.schema.json).
+# (Pre-Phase-C the comparable file was state.schema.json-validated
+# reference/in/states.json; the rationale is unchanged.)
 _ECI_TO_WIKI_STATE: dict[str, str] = {
     "S01": "Andhra Pradesh",
     "S02": "Arunachal Pradesh",

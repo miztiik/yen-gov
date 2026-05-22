@@ -73,10 +73,11 @@ itself decrypts and renders for any visitor. The license is GoI-Open.
 
 ICED's `states` list contains 36 entities — 28 states + 8 UTs — plus
 "All India" as the aggregate. All entity names match the canonical
-`datasets/reference/in/states.json` *name* field exactly, with one
-exception: ICED writes `"Delhi"` whereas ECI's reference data uses
-`"NCT of Delhi"` (entity id `U05`). The mapping table lives in
-`parsers.py::ENTITY_MAP`.
+`datasets/taxonomy/entities.json` *display_name* field exactly (filter
+`entity_type IN ('state','ut') AND entity_valid_to IS NULL` for the
+current 36-entry roster), with one exception: ICED writes `"Delhi"`
+whereas the canonical taxonomy uses `"NCT of Delhi"` (entity id `U05`).
+The mapping table lives in `parsers.py::ENTITY_MAP`.
 
 Unknown sentinel labels (`"Multiple States"`, `"Location TBD"`, etc.)
 that sometimes appear in other ICED endpoints are silently skipped —

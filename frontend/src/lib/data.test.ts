@@ -27,17 +27,41 @@ afterEach(() => {
 });
 
 describe("fetchStates", () => {
-  it("requests the canonical states reference path and returns parsed JSON", async () => {
-    const payload = { country: "IN", states: [] };
-    fetchSpy.mockResolvedValueOnce(jsonResponse(payload));
+  it("requests the canonical entities path and projects current state+UT rows", async () => {
+    const envelope = {
+      $schema: "../schemas/entity.schema.json",
+      $schema_version: "1.1",
+      entities: [
+        // country row — filtered out (not state/ut)
+        { entity_id: "IN", entity_type: "country", entity_code: "IN", display_name: "India",
+          iso_3166_2: null, entity_valid_to: null },
+        // current state — kept
+        { entity_id: "IN-S22", entity_type: "state", entity_code: "S22", display_name: "Tamil Nadu",
+          iso_3166_2: "IN-TN", entity_valid_to: null, notes: "First-slice state." },
+        // current UT — kept, kind translates ut → union_territory
+        { entity_id: "IN-U07", entity_type: "ut", entity_code: "U07", display_name: "Puducherry",
+          iso_3166_2: "IN-PY", entity_valid_to: null },
+        // historical state — filtered out (entity_valid_to set)
+        { entity_id: "IN-S09", entity_type: "state", entity_code: "S09",
+          display_name: "Jammu and Kashmir (state)",
+          iso_3166_2: null, entity_valid_to: 2019 },
+      ],
+    };
+    fetchSpy.mockResolvedValueOnce(jsonResponse(envelope));
     const out = await fetchStates();
-    expect(fetchSpy).toHaveBeenCalledWith(`${BASE}/reference/in/states.json`);
-    expect(out).toEqual(payload);
+    expect(fetchSpy).toHaveBeenCalledWith(`${BASE}/taxonomy/entities.json`);
+    expect(out.country).toBe("IN");
+    expect(out.states).toEqual([
+      { eci_code: "S22", iso_3166_2: "IN-TN", name: "Tamil Nadu",
+        kind: "state", notes: "First-slice state." },
+      { eci_code: "U07", iso_3166_2: "IN-PY", name: "Puducherry",
+        kind: "union_territory" },
+    ]);
   });
 
   it("throws on non-OK response", async () => {
     fetchSpy.mockResolvedValueOnce(new Response("nope", { status: 500, statusText: "Internal" }));
-    await expect(fetchStates()).rejects.toThrow(/states\.json failed: 500/);
+    await expect(fetchStates()).rejects.toThrow(/entities\.json failed: 500/);
   });
 });
 

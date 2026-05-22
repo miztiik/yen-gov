@@ -8,23 +8,30 @@ from yen_gov.validate import load_schemas, run, tier_a, tier_b
 REPO = Path(__file__).resolve().parents[2]
 
 
+# Note: these Tier-A validator tests use `entity.schema.json` as a
+# representative fixture (any well-formed schema with x-version /
+# x-changelog would do). The original fixture was `state.schema.json`;
+# repointed in Phase C of the strangler-fig closeout for
+# `datasets/reference/in/states.json` when state.schema.json was deleted.
+
+
 def test_tier_a_rejects_three_part_version(tmp_path: Path):
-    src = json.loads((REPO / "datasets/schemas/state.schema.json").read_text(encoding="utf-8"))
+    src = json.loads((REPO / "datasets/schemas/entity.schema.json").read_text(encoding="utf-8"))
     src["x-version"] = "1.0.0"
     schemas_dir = tmp_path / "datasets/schemas"
     schemas_dir.mkdir(parents=True)
-    (schemas_dir / "state.schema.json").write_text(json.dumps(src), encoding="utf-8")
+    (schemas_dir / "entity.schema.json").write_text(json.dumps(src), encoding="utf-8")
     schemas, parse_fails = load_schemas(schemas_dir)
     fails = parse_fails + tier_a(schemas)
     assert any("major.minor" in f.message for f in fails), fails
 
 
 def test_tier_a_rejects_changelog_tail_mismatch(tmp_path: Path):
-    src = json.loads((REPO / "datasets/schemas/state.schema.json").read_text(encoding="utf-8"))
+    src = json.loads((REPO / "datasets/schemas/entity.schema.json").read_text(encoding="utf-8"))
     src["x-changelog"][-1]["version"] = "9.9"
     schemas_dir = tmp_path / "datasets/schemas"
     schemas_dir.mkdir(parents=True)
-    (schemas_dir / "state.schema.json").write_text(json.dumps(src), encoding="utf-8")
+    (schemas_dir / "entity.schema.json").write_text(json.dumps(src), encoding="utf-8")
     schemas, parse_fails = load_schemas(schemas_dir)
     fails = parse_fails + tier_a(schemas)
     assert any("tail version" in f.message for f in fails), fails

@@ -25,6 +25,6 @@ This module owns the **build** of boundary artifacts. It does NOT:
 
 - Render maps (that's `frontend/src/lib/MapChoropleth.svelte`, Phase 1d).
 - Validate political accuracy of AC numbering (manual verification gate; the build script trusts the upstream property names declared in `pipeline.json`).
-- Maintain the canonical state-name → ECI-code map (lives in `datasets/reference/in/states.json`).
+- Maintain the canonical state-name → ECI-code map (lives in `datasets/taxonomy/entities.json` post-Phase-C closeout; filter `entity_type IN ('state','ut') AND entity_valid_to IS NULL`).
 
 If you find yourself patching feature properties or renaming layers inside the simplification step, stop — that smell means the upstream is wrong and we should switch sources, not paper over it.
