@@ -24,6 +24,7 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass
+from datetime import date, datetime
 from pathlib import Path, PurePosixPath
 from typing import Iterable
 
@@ -56,6 +57,17 @@ LEGACY_INDICATOR_SHARDS_ALLOWLIST = Path("datasets/_ops/legacy-folded-indicator-
 # `tier_b_legacy_boundary_sidecars` enforces the doctrine.
 LEGACY_BOUNDARY_SIDECARS_DIR = Path("datasets/boundaries")
 LEGACY_BOUNDARY_SIDECARS_ALLOWLIST = Path("datasets/_ops/legacy-boundary-sidecars.txt")
+
+# Indicator catalogue alias-window enforcement (T.3 2026-05-22, locked
+# by user direction Q3). The catalogue at `datasets/taxonomy/indicators.json`
+# v1.1+ supports `id_aliases[]` + `deprecated_in` (ISO date) for one-release
+# back-compat dereferencing of legacy `<topic>/<id>` slugs. `tier_b_indicator_alias_window`
+# enforces a 60-day expiry: rows whose `deprecated_in` is older than 60 days
+# at validator runtime are rejected (operator must delete the alias entries).
+# Also catches the paired-semantic violation: `id_aliases` non-empty with
+# `deprecated_in` null (mirrors the compile-time check in indicators_seed.py).
+INDICATOR_CATALOGUE_JSON = Path("datasets/taxonomy/indicators.json")
+INDICATOR_ALIAS_WINDOW_DAYS = 60
 
 # Path segments under DATA_ROOTS whose entire subtree is exempt from
 # Tier-B conformance. Adding to this set is a doctrine decision -- see
@@ -418,6 +430,112 @@ def tier_b_legacy_boundary_sidecars(root: Path) -> list[Failure]:
     return failures
 
 
+def tier_b_indicator_alias_window(
+    root: Path, today: date | None = None
+) -> list[Failure]:
+    """Enforce the 60-day expiry window on indicator catalogue id_aliases.
+
+    Per indicator-catalogue.schema.json v1.1 (T.3 2026-05-22) each row in
+    ``datasets/taxonomy/indicators.json`` may carry:
+      * ``id_aliases``: list of legacy indicator_id slugs (D30 kebab OR
+        legacy ``<topic>/<snake_case_id>``) that resolve to this row for
+        one-release back-compat URL / query dereferencing.
+      * ``deprecated_in``: ISO ``YYYY-MM-DD`` date the alias chain was
+        introduced.
+
+    The two fields are paired:
+      1. ``id_aliases`` non-empty with ``deprecated_in`` null is a
+         paired-semantic violation (the validator cannot apply the expiry
+         window without an anchor date). Same check exists at compile time
+         in ``indicators_seed.py``; replicated here so operators see the
+         failure BEFORE running ``emit-taxonomy`` (i.e. at the same
+         validator gate they run before staging).
+      2. ``(today - deprecated_in).days > INDICATOR_ALIAS_WINDOW_DAYS``
+         (60 days, locked 2026-05-22 user direction Q3) is the expiry
+         signal -- the alias entries MUST be deleted in the next operator
+         cycle. Lexicographic ISO ``YYYY-MM-DD`` parsing; no semver math.
+
+    The ``today`` injection point lets tests pin time-of-day without
+    monkeypatching ``datetime``. Production callers pass ``None`` and get
+    ``date.today()``.
+
+    No-ops when ``datasets/taxonomy/indicators.json`` is absent or fails
+    to parse / lacks an ``indicators`` array -- those failures surface
+    via the schema-driven Tier-B check, not this one.
+    """
+    failures: list[Failure] = []
+    catalogue_path = root / INDICATOR_CATALOGUE_JSON
+    catalogue_rel = INDICATOR_CATALOGUE_JSON.as_posix()
+    cutoff_day = today if today is not None else date.today()
+
+    if not catalogue_path.exists():
+        return failures
+
+    try:
+        payload = _load_json(catalogue_path)
+    except json.JSONDecodeError:
+        return failures
+    if not isinstance(payload, dict):
+        return failures
+    rows = payload.get("indicators")
+    if not isinstance(rows, list):
+        return failures
+
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        aliases = row.get("id_aliases")
+        if not isinstance(aliases, list) or not aliases:
+            continue
+        indicator_id = row.get("indicator_id", "<unknown>")
+        deprecated_in = row.get("deprecated_in")
+
+        if not isinstance(deprecated_in, str) or not deprecated_in:
+            failures.append(
+                Failure(
+                    catalogue_rel,
+                    "B",
+                    f"indicators[indicator_id={indicator_id!r}]: id_aliases set but "
+                    f"deprecated_in is null. Per indicator-catalogue.schema.json v1.1 "
+                    f"the two fields are paired; set deprecated_in to the ISO "
+                    f"'YYYY-MM-DD' date the alias chain was introduced so Tier-B can "
+                    f"apply the {INDICATOR_ALIAS_WINDOW_DAYS}-day expiry window.",
+                )
+            )
+            continue
+
+        try:
+            anchor = datetime.strptime(deprecated_in, "%Y-%m-%d").date()
+        except ValueError:
+            failures.append(
+                Failure(
+                    catalogue_rel,
+                    "B",
+                    f"indicators[indicator_id={indicator_id!r}]: deprecated_in "
+                    f"{deprecated_in!r} is not a valid ISO 'YYYY-MM-DD' date.",
+                )
+            )
+            continue
+
+        age_days = (cutoff_day - anchor).days
+        if age_days > INDICATOR_ALIAS_WINDOW_DAYS:
+            failures.append(
+                Failure(
+                    catalogue_rel,
+                    "B",
+                    f"indicators[indicator_id={indicator_id!r}]: id_aliases expired -- "
+                    f"deprecated_in={deprecated_in} is {age_days} days old "
+                    f"(window={INDICATOR_ALIAS_WINDOW_DAYS} days, locked 2026-05-22 "
+                    f"user direction Q3). Delete the id_aliases entries (and the "
+                    f"deprecated_in field) in the next operator cycle; downstream "
+                    f"consumers have had at least one release to migrate to the "
+                    f"canonical indicator_id.",
+                )
+            )
+
+    return failures
+
+
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
     schemas, parse_failures = load_schemas(root / SCHEMAS_SUBDIR)
@@ -427,4 +545,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b(schemas, root)
         + tier_b_legacy_folded_indicator_shards(root)
         + tier_b_legacy_boundary_sidecars(root)
+        + tier_b_indicator_alias_window(root)
     )

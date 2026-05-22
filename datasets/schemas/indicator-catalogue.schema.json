@@ -3,12 +3,17 @@
   "$id": "./indicator-catalogue.schema.json",
   "title": "Indicator catalogue (canonical)",
   "description": "Hand-authored canonical indicator catalogue (taxonomy/indicators.json). One row per indicator_id. Carries the full Hans honesty surface (D15) plus D29 catalogue additions (parent_indicator_id self-FK, dimension_values:STRUCT for facet-explode children, per-child source_id, methodology_version FK). id field enforces the D30 naming convention. Pipeline compiles to taxonomy/indicators.parquet. NOTE: this is the canonical replacement for the pre-pivot datasets/schemas/indicator.schema.json (which validates per-shard JSON under datasets/indicators/in/). The legacy file stays in place through Phase 0.13; rename of this file to indicator.schema.json happens when the pre-pivot artifacts move to _old/.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-18",
       "description": "Initial canonical indicator catalogue schema (Phase 0.3 of TODO/20260517-canonical-long-format-pivot.md). Carries D15 honesty surface + D29 additions: parent_indicator_id self-FK for facet-explode parents/children (D26), dimension_values:STRUCT populated iff parent_indicator_id IS NOT NULL, per-child source_id (D29 — siblings can have different upstreams), methodology_version FK to methodology-breaks.json (D28). id pattern enforces D30 kebab-case, single-segment, <=60 chars. dimension_values keys MUST appear in taxonomy/facet-axes.json registry (D31 — enforced by validator, not by JSON Schema). coverage_* columns are denormalised at every emit so the catalogue stays browseable from DuckDB-WASM without scanning observation Parquet."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-22",
+      "description": "T.3 indicator catalogue widening (TODO/20260517-canonical-long-format-pivot.md §0e.7). ADDITIVE: two new optional fields on indicator rows. (a) id_aliases: list[string] of legacy indicator_id slugs (typically the pre-pivot '<topic>/<id>' form, e.g. 'fiscal/outstanding_debt_pct_gsdp') that resolve to this row for back-compat URL / query dereferencing. Each alias must match the kebab pattern OR carry a single slash for the legacy '<topic>/<snake_case_id>' shape. (b) deprecated_in: ISO date string 'YYYY-MM-DD' naming the day the alias chain was introduced; Tier-B check tier_b_indicator_alias_window REJECTS rows whose deprecated_in is older than 60 days (one-release back-compat window per Gregor strict default — locked 2026-05-22 user direction Q3). Both fields purely additive (not in required[]); v1.0 rows validate unchanged under v1.1."
     }
   ],
   "type": "object",
@@ -210,6 +215,20 @@
             "type": "array",
             "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
             "description": "Controlled-vocab slugs binding renderer behaviour (e.g. 'no_rank_table', 'no_growth_across_break', 'mask_be_in_long_view'). Vocabulary lives in docs/concepts/indicator-naming.md."
+          },
+          "id_aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^([a-z][a-z0-9]*(-[a-z0-9]+)*|[a-z][a-z0-9_]*/[a-z][a-z0-9_]*)$",
+              "maxLength": 80
+            },
+            "description": "v1.1 (T.3 2026-05-22). Legacy indicator_id slugs that resolve to this row for one-release back-compat URL / query dereferencing. Two accepted shapes: (a) D30 kebab-case (rename history); (b) legacy '<topic>/<snake_case_id>' (pre-pivot '<topic>/<id>' folded-shard form, e.g. 'fiscal/outstanding_debt_pct_gsdp'). REQUIRES deprecated_in to be set in the same row (validator-enforced semantic pairing). Tier-B check tier_b_indicator_alias_window rejects entries whose deprecated_in is older than 60 days; expired entries MUST be deleted in the next operator cycle. Empty / omitted == no aliases."
+          },
+          "deprecated_in": {
+            "type": ["string", "null"],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "v1.1 (T.3 2026-05-22). ISO calendar date 'YYYY-MM-DD' naming the day the id_aliases chain was introduced. Per CLAUDE.md doc convention + Q1 lock 2026-05-22 (date-based tags vs semver). MUST be set when id_aliases is non-empty (validator-enforced). Used by Tier-B tier_b_indicator_alias_window as the cutoff anchor: (today - deprecated_in).days > 60 -> reject. Lexicographic sort, no semver math."
           }
         }
       }

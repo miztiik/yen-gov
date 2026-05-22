@@ -161,3 +161,109 @@ def test_compile_rejects_unknown_comparability(tmp_path):
     bad = {**_PARENT_BASE, "comparability": "totally-comparable"}
     with pytest.raises(Exception):
         compile_to_parquet(_write_fixture(tmp_path, [bad]), tmp_path / "x.parquet")
+
+
+# -- v1.1 (T.3 2026-05-22) id_aliases + deprecated_in tests -------------------
+
+
+def test_v11_id_aliases_and_deprecated_in_roundtrip(tmp_path):
+    """v1.1: id_aliases + deprecated_in survive the JSON -> parquet round-trip."""
+    row = {
+        **_PARENT_BASE,
+        "id_aliases": ["elections/candidate_votes", "old-candidate-votes"],
+        "deprecated_in": "2026-05-22",
+    }
+    out = tmp_path / "ind.parquet"
+    compile_to_parquet(_write_fixture(tmp_path, [row]), out)
+    con = duckdb.connect()
+    try:
+        result = con.execute(
+            f"SELECT indicator_id, id_aliases, deprecated_in FROM "
+            f"read_parquet('{out.as_posix()}')"
+        ).fetchone()
+    finally:
+        con.close()
+    assert result[0] == "state-installed-capacity-mw"
+    assert list(result[1]) == ["elections/candidate_votes", "old-candidate-votes"]
+    assert result[2] == "2026-05-22"
+
+
+def test_v11_empty_id_aliases_default(tmp_path):
+    """v1.1: id_aliases defaults to [] when omitted; deprecated_in to None."""
+    out = tmp_path / "ind.parquet"
+    compile_to_parquet(_write_fixture(tmp_path, [_PARENT_BASE]), out)
+    con = duckdb.connect()
+    try:
+        result = con.execute(
+            f"SELECT id_aliases, deprecated_in FROM "
+            f"read_parquet('{out.as_posix()}')"
+        ).fetchone()
+    finally:
+        con.close()
+    assert list(result[0]) == []
+    assert result[1] is None
+
+
+def test_v11_deterministic_with_aliases(tmp_path):
+    """v1.1: alias-bearing rows are still byte-deterministic across re-runs."""
+    row = {
+        **_PARENT_BASE,
+        "id_aliases": ["elections/candidate_votes", "old-candidate-votes"],
+        "deprecated_in": "2026-05-22",
+    }
+    p_in = _write_fixture(tmp_path, [row])
+    out1 = tmp_path / "1.parquet"
+    out2 = tmp_path / "2.parquet"
+    compile_to_parquet(p_in, out1)
+    compile_to_parquet(p_in, out2)
+    assert out1.read_bytes() == out2.read_bytes()
+
+
+def test_v11_id_aliases_without_deprecated_in_fails(tmp_path):
+    """v1.1: paired-semantic rule -- id_aliases non-empty REQUIRES deprecated_in.
+
+    Same check exists in tier_b_indicator_alias_window so operators see the
+    failure BEFORE running emit-taxonomy; this is the compile-time guard.
+    """
+    bad = {**_PARENT_BASE, "id_aliases": ["elections/candidate_votes"]}
+    with pytest.raises(ValueError, match="deprecated_in"):
+        compile_to_parquet(_write_fixture(tmp_path, [bad]), tmp_path / "x.parquet")
+
+
+def test_v11_deprecated_in_without_id_aliases_is_legal(tmp_path):
+    """v1.1: reverse pairing (deprecated_in set, id_aliases empty) is legal.
+
+    Declaring an anchor date without yet listing legacy slugs is harmless
+    -- only the orphan-aliases direction breaks the Tier-B expiry check.
+    """
+    row = {**_PARENT_BASE, "deprecated_in": "2026-05-22"}
+    out = tmp_path / "ind.parquet"
+    # Must succeed (no ValueError raised).
+    n = compile_to_parquet(_write_fixture(tmp_path, [row]), out)
+    assert n == 1
+
+
+def test_v11_deprecated_in_bad_format_rejected_by_pydantic(tmp_path):
+    """v1.1: deprecated_in must match ISO YYYY-MM-DD via the Pydantic pattern."""
+    bad = {
+        **_PARENT_BASE,
+        "id_aliases": ["elections/candidate_votes"],
+        "deprecated_in": "22-05-2026",  # day-first; rejected
+    }
+    with pytest.raises(Exception):
+        compile_to_parquet(_write_fixture(tmp_path, [bad]), tmp_path / "x.parquet")
+
+
+def test_v11_parquet_schema_has_33_columns(tmp_path):
+    """v1.1: DDL widened from 31 to 33 columns (id_aliases + deprecated_in)."""
+    out = tmp_path / "ind.parquet"
+    compile_to_parquet(_write_fixture(tmp_path, [_PARENT_BASE]), out)
+    con = duckdb.connect()
+    try:
+        col_count = con.execute(
+            f"SELECT count(*) FROM (DESCRIBE SELECT * FROM read_parquet('{out.as_posix()}'))"
+        ).fetchone()[0]
+    finally:
+        con.close()
+    assert col_count == 33
+
