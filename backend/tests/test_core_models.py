@@ -21,8 +21,6 @@ from yen_gov.core.models import (
     ConstituenciesCollection,
     ConstituencyEntry,
     ConstituencyResult,
-    DistrictEntry,
-    DistrictsCollection,
     Election,
     FetchKnobs,
     NotaResult,
@@ -109,17 +107,14 @@ def test_election_rejects_bad_state_code():
 # `_load_states_from_entities` helper pattern).
 
 
-# --- DistrictsCollection ---------------------------------------------------
-
-def test_districts_collection_round_trip(tmp_path: Path):
-    m = DistrictsCollection(
-        sources=[],
-        state="S22",
-        districts=[DistrictEntry(id="603", id_source="lgd", name="Chennai")],
-    )
-    out = _round_trip(tmp_path, m, "district.schema.json")
-    assert out["state"] == "S22"
-    assert "headquarters" not in out["districts"][0]  # exclude_none works
+# --- DistrictsCollection (retired) -----------------------------------------
+#
+# Round-trip test for `DistrictsCollection` / `DistrictEntry` deleted in
+# T.0c-iii Phase D.1 of the wikipedia-districts-adapter retirement — see
+# ADR-0033 and TODO/20260522-districts-wikipedia-adapter-retirement-handover.md.
+# District identity now lives as `entity_type='district'` rows on
+# `datasets/taxonomy/entities.json` (no Pydantic mirror; consumers project
+# the JSON directly).
 
 
 # --- ConstituenciesCollection ----------------------------------------------

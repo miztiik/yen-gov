@@ -42,7 +42,7 @@ Every entity uses an identifier published by an upstream authority. yen-gov neve
 | ------------- | ------------------------------------ | ---------------------------------------------- |
 | Country       | ISO 3166-1 alpha-2 (`IN`)            | implicit; appears in `state.schema.json`       |
 | State         | ECI state code (`S22`)               | `state.schema.json`                            |
-| District      | LGD numeric code, else Wikipedia slug| `district.schema.json`                         |
+| District      | LGD numeric code (`lgd_code`); cross-references use `legacy_id` | `entities.json` (`entity_type='district'`) |
 | Constituency  | `(state, body, eci_no)`              | `constituency.schema.json`                     |
 | Party         | ECI numeric code (string), per event | `party.schema.json`                            |
 | Election      | ECI URL slug (`AcGenMay2026`)        | `election.schema.json`                         |
@@ -63,10 +63,13 @@ When a future event reuses a party, it gets a new snapshot. ECI's numeric code t
 
 ## Why districts and constituencies are state-scoped
 
-Districts belong to a state by definition. Constituencies (for a given body — Assembly or Lok Sabha) are also numbered within a state. The `(state, body)` partition keeps file sizes manageable and makes the path itself self-describing:
+Districts belong to a state by definition. Constituencies (for a given body — Assembly or Lok Sabha) are also numbered within a state.
+
+Districts now live as `entity_type='district'` rows on `datasets/taxonomy/entities.json` (LGD-sourced; see [ADR-0033](decisions/0033-retire-wikipedia-districts-adapter.md) for the wikipedia districts adapter retirement). The 6 per-state `datasets/reference/in/states/<S>/districts.json` files remain on disk pending Phase D.3 deletion but have zero readers.
+
+Constituencies stay state-scoped on disk; the `(state, body)` partition keeps file sizes manageable and makes the path itself self-describing:
 
 ```
-datasets/reference/in/states/S22/districts.json
 datasets/reference/in/states/S22/constituencies.json
 ```
 

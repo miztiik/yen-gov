@@ -16,11 +16,9 @@ import pytest
 from yen_gov.core.io import write_artifact
 from yen_gov.core.models import SourceRef
 from yen_gov.sources.wikipedia.constituencies import parse_ac_constituencies
-from yen_gov.sources.wikipedia.districts import parse_districts
 from yen_gov.sources.wikipedia.urls import (
     WIKIPEDIA_BASE,
     ac_constituencies_url,
-    districts_url,
 )
 import json
 from pathlib import Path
@@ -64,51 +62,22 @@ def _load_schema(name: str) -> dict:
 
 # --- urls -------------------------------------------------------------------
 
-def test_url_builders_for_tn():
-    assert districts_url(_TN).startswith(WIKIPEDIA_BASE)
-    assert "List_of_districts_of_Tamil_Nadu" in districts_url(_TN)
+def test_url_builder_for_tn():
+    assert ac_constituencies_url(_TN).startswith(WIKIPEDIA_BASE)
     assert "List_of_constituencies_of_the_Tamil_Nadu_Legislative_Assembly" in ac_constituencies_url(_TN)
 
 
 def test_url_builder_rejects_unknown_state():
     with pytest.raises(ValueError, match="no Wikipedia state-name mapping"):
-        districts_url("S99")
+        ac_constituencies_url("S99")
 
 
-# --- districts --------------------------------------------------------------
-
-def test_live_districts_tn(http: httpx.Client, tmp_path: Path):
-    url = districts_url(_TN)
-    r = http.get(url)
-    assert r.status_code == 200
-    sources = [SourceRef(url=url, fetched_at=datetime(2026, 5, 8, 14, 0, tzinfo=timezone.utc))]
-    coll = parse_districts(r.content, state_code=_TN, sources=sources)
-
-    assert coll.state == "S22"
-    # TN had 38 districts at the time of this test. If TN gains/loses districts
-    # the assertion should be updated; that's the kind of change we want to notice.
-    assert 30 <= len(coll.districts) <= 50
-    by_code = {d.id: d for d in coll.districts}
-    # Spot-check well-known districts. Wikipedia parenthesises a few names
-    # ("Chennai (formerly Madras)") so test by substring.
-    names = [d.name for d in coll.districts]
-    assert any("Chennai" in n for n in names)
-    assert any("Coimbatore" in n for n in names)
-    # Codes should be unique.
-    assert len(by_code) == len(coll.districts)
-    # All ids must be non-empty strings.
-    for d in coll.districts:
-        assert d.id and d.id_source == "wikipedia"
-
-    # Round-trip through write_artifact validates against district.schema.json.
-    schema = _load_schema("district.schema.json")
-    out = tmp_path / "districts.json"
-    write_artifact(
-        path=out, schema_id=coll._schema_id, schema_version=coll._schema_version,
-        payload=coll.body_payload(), sources=coll.sources_payload(),
-        schema_for_validation=schema,
-    )
-    assert out.exists()
+# --- districts (retired) ----------------------------------------------------
+#
+# Live test for `parse_districts` deleted in T.0c-iii Phase D.1 of the
+# wikipedia-districts-adapter retirement — see ADR-0033. The adapter no
+# longer exists; district identity now comes from
+# `datasets/taxonomy/entities.json` (LGD-sourced).
 
 
 # --- constituencies ---------------------------------------------------------

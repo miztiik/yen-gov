@@ -336,7 +336,14 @@ def reference(
         help="HTTP User-Agent. Wikipedia requires a descriptive UA (docs/architecture/backend/sources-wikipedia.md).",
     ),
 ) -> None:
-    """One-shot Wikipedia scrape: districts.json + constituencies.json for one state."""
+    """One-shot Wikipedia scrape: constituencies.json for one state.
+
+    Districts are NOT scraped — they come from
+    ``datasets/taxonomy/entities.json`` (LGD-sourced) after T.0c-iii Phase D.1
+    (ADR-0033). The constituencies parser resolves the District column
+    against entities.json; unresolved names (e.g. Mahe / Yanam, which LGD
+    does not enumerate) land as ``district_id=null``.
+    """
     config_path = config or (root / "config" / "processing.json")
     config_doc = json.loads(config_path.read_text(encoding="utf-8"))
     for key in ("$schema", "$schema_version"):
@@ -345,6 +352,7 @@ def reference(
 
     output_dir = output or (root / "datasets" / "reference" / "in" / "states" / state)
     schema_dir = root / "datasets" / "schemas"
+    entities_path = root / "datasets" / "taxonomy" / "entities.json"
 
     with Fetcher(
         source="wikipedia",
@@ -357,12 +365,12 @@ def reference(
         result = scrape_state_reference(
             state_code=state, output_dir=output_dir,
             schema_dir=schema_dir, fetcher=fetcher,
+            entities_path=entities_path,
         )
 
     typer.echo(
-        f"reference: OK — {len(result.districts.districts)} districts, "
-        f"{len(result.constituencies.constituencies)} constituencies\n"
-        f"  {result.paths.districts}\n  {result.paths.constituencies}"
+        f"reference: OK — {len(result.constituencies.constituencies)} constituencies\n"
+        f"  {result.paths.constituencies}"
     )
 
 

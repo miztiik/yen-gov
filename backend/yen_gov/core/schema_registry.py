@@ -5,9 +5,9 @@ Why this module exists
 Before this module, every _Artifact subclass and every composer hand-typed
 its schema's `_schema_version` / `_schema_id` as a Python literal:
 
-    class DistrictsCollection(_Artifact):
-        _schema_id = "https://yen-gov.github.io/schemas/district.schema.json"
-        _schema_version = "3.2"
+    class ConstituenciesCollection(_Artifact):
+        _schema_id = "https://yen-gov.github.io/schemas/constituency.schema.json"
+        _schema_version = "4.1"
 
 That is a shadow copy of metadata that already exists in
 `datasets/schemas/<name>.schema.json` (`x-version`, `$id`). When a schema
@@ -25,9 +25,9 @@ Usage
 -----
     from yen_gov.core.schema_registry import schema_id, schema_version
 
-    class DistrictsCollection(_Artifact):
-        _schema_id = schema_id("district.schema.json")
-        _schema_version = schema_version("district.schema.json")
+    class ConstituenciesCollection(_Artifact):
+        _schema_id = schema_id("constituency.schema.json")
+        _schema_version = schema_version("constituency.schema.json")
 
 Test isolation
 --------------

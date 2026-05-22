@@ -1,8 +1,10 @@
 # Backend `sources/wikipedia/` — Wikipedia Source Adapter
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-05-22
 
-`backend/yen_gov/sources/wikipedia/` is the adapter for the English Wikipedia. It supplies *reference* data ECI does not publish in machine-readable form: districts per state, and per-state assembly constituencies with reservation status. It also implements a heuristic district-name resolver to bridge spelling drift between Wikipedia's two relevant page families.
+> **District adapter retired in T.0c-iii Phase D.1** (2026-05-22; see [ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md)). The `districts.py` parser, `districts_url()` builder, and `DistrictsCollection` / `DistrictEntry` models are gone. District identity now lives as `entity_type='district'` rows on `datasets/taxonomy/entities.json`, sourced from the LGD (Local Government Directory, MoPR) per CLAUDE.md §3. The constituencies parser keeps its two-pass district-name resolver; the only change is that the input lookup dict is now built from entities.json (see [District-name resolution for AC tables](#district-name-resolution-for-ac-tables)).
+
+`backend/yen_gov/sources/wikipedia/` is the adapter for the English Wikipedia. It supplies *reference* data ECI does not publish in machine-readable form: per-state assembly constituencies with reservation status. It also implements a heuristic district-name resolver to bridge spelling drift between Wikipedia's AC table and the entities.json display names.
 
 Wikipedia is a **bootstrap source**, never the only source for a `status: complete` reference file (see also: [authority hierarchy](sources-eci.md#authority-hierarchy-for-past-elections)).
 
@@ -11,7 +13,6 @@ Wikipedia is a **bootstrap source**, never the only source for a `status: comple
 | File | Responsibility |
 | ---- | -------------- |
 | [`urls.py`](../../../backend/yen_gov/sources/wikipedia/urls.py) | URL builders + ECI-state-code → Wikipedia-article-name map. |
-| [`districts.py`](../../../backend/yen_gov/sources/wikipedia/districts.py) | Parses `List of districts of <State>` → `DistrictsCollection`. |
 | [`constituencies.py`](../../../backend/yen_gov/sources/wikipedia/constituencies.py) | Parses `List of constituencies of the <State> Legislative Assembly` → `ConstituenciesCollection`. Includes `build_district_lookup()` two-pass resolver. |
 
 ## URL building
@@ -36,13 +37,9 @@ yen-gov/<version> (https://github.com/miztiik/yen-gov; election data pipeline) h
 
 Test code carries the same string; bot-mitigation is per-UA, not per-IP.
 
-## District parser — two-pass with predecessor resolution
+## District parser — retired
 
-1. Parse rows into adapter-local `_Row` dataclasses with raw `predecessors: list[str]`.
-2. Build `name → code` map across all current rows.
-3. Resolve each row's predecessor names against the map. Names that resolve become the `split_from` id list; names that don't (older districts no longer existing as standalones) are dropped and recorded in `notes`.
-
-This keeps the schema's `split_from: array of strings` invariant intact — every entry references a current district id — without losing the unresolved information.
+The two-pass `parse_districts()` with predecessor resolution was deleted in T.0c-iii Phase D.1 (ADR-0033). District identity is now hand-curated on `datasets/taxonomy/entities.json` with `entity_type='district'` rows carrying `legacy_id` (the 3-letter wikipedia-derived code preserved for constituencies.json cross-references) and `lgd_code` (the LGD source of truth per CLAUDE.md §3). New district inserts / splits are pull requests against entities.json, not re-scrapes.
 
 ## Constituency parser — minimal per-row data
 
@@ -69,26 +66,28 @@ All Wikipedia-bootstrapped constituency files are emitted with `status: "provisi
 
 ## District-name resolution for AC tables
 
-Wikipedia's "List of constituencies of the X Legislative Assembly" tables already carry a District column, but the strings in that column do not match the names emitted by `parse_districts` 1:1. Real cases observed in TN + KL:
+Wikipedia's "List of constituencies of the X Legislative Assembly" tables carry a District column whose strings do not match the canonical district display names 1:1. Real cases observed in TN + KL:
 
-| AC table writes  | Districts page writes      |
-| ---------------- | -------------------------- |
-| `Thiruvallur`    | `Tiruvallur`               |
-| `Tirupattur`     | `Tirupathur`               |
-| `Kanniyakumari`  | `Kanyakumari`              |
-| `Chennai`        | `Chennai (formerly Madras)`|
-| `Kasargod`       | `Kasaragod`                |
+| AC table writes  | entities.json `display_name`|
+| ---------------- | --------------------------- |
+| `Thiruvallur`    | `Tiruvallur`                |
+| `Tirupattur`     | `Tirupathur`                |
+| `Kanniyakumari`  | `Kanyakumari`               |
+| `Chennai`        | `Chennai (formerly Madras)` |
+| `Kasargod`       | `Kasaragod`                 |
 
 These are not data errors — Indian district names have multiple defensible romanisations; different Wikipedia editors picked different ones. A naive casefolded equality check resolved 192 of 234 TN ACs and 135 of 140 KL ACs, leaving 47 unresolved across two states.
 
 A two-pass resolver in `sources.wikipedia.constituencies`:
 
 1. **Exact key**: `_strip_parens(name).casefold().strip()` — handles the parenthesised-suffix case (`Chennai (formerly Madras)` → `chennai`).
-2. **Skeleton key**: a deterministic `_norm()` that lowercases, drops non-alpha, removes every `h`, removes vowels after the first character, and collapses repeated letters. Designed to make `Thiruvallur` / `Tiruvallur` / `Tirupathur` / `Tirupattur` / `Kanniyakumari` / `Kanyakumari` / `Kasargod` / `Kasaragod` all collide with their counterpart on the districts side.
+2. **Skeleton key**: a deterministic `_norm()` that lowercases, drops non-alpha, removes every `h`, removes vowels after the first character, and collapses repeated letters. Designed to make `Thiruvallur` / `Tiruvallur` / `Tirupathur` / `Tirupattur` / `Kanniyakumari` / `Kanyakumari` / `Kasargod` / `Kasaragod` all collide with their counterpart on the entities-side display name.
 
 `build_district_lookup()` indexes each district under **both** keys so callers see a single dict-of-strings interface.
 
-If both passes miss, `district_id` is left absent — the entry stays valid under the provisional schema, and the unresolved cell is silently tolerated. We do not promote `status` to `complete` on Wikipedia data alone (that requires `pc_id` too, which Wikipedia AC tables don't carry).
+The input pair-list `[(display_name, legacy_id), ...]` is built by `pipeline/reference.py:_district_lookup_from_entities()` from `datasets/taxonomy/entities.json`, filtering to `entity_type='district' AND parent_entity_id=f'IN-{state}' AND legacy_id IS NOT NULL AND entity_valid_to IS NULL`. Pre-Phase-D.1 the same lookup was built from a freshly-scraped districts.json (`build_district_lookup([(d.name, d.id) for d in districts.districts])`); the resolver itself is unchanged.
+
+If both passes miss, `district_id` is left absent — the entry stays valid under the provisional schema, and the unresolved cell is silently tolerated. We do not promote `status` to `complete` on Wikipedia data alone (that requires `pc_id` too, which Wikipedia AC tables don't carry). Known structural gaps: Puducherry (U07) Mahe and Yanam districts are not enumerated by LGD as standalone districts, so they are absent from entities.json and ACs in those regions land with `district_id=null` until a manual override or a non-LGD source fills the gap. Acknowledged in CLAUDE.md §3's never-invent-ids rule.
 
 ### Resolver rationale
 
@@ -115,9 +114,9 @@ Acknowledged costs:
 ### Adapter scope
 
 - **Wikipedia REST/Action API instead of HTML scraping**. Rejected: the data we need lives in human-edited wikitables, not in structured infoboxes or Wikidata claims for these specific articles. Wikidata occasionally lacks reservation status entirely.
-- **Wikidata SPARQL for districts and ACs**. Rejected for now: Wikidata coverage of Indian electoral geography is uneven (some districts have items, some don't; reservation status is rarely modelled). Worth revisiting if/when coverage improves.
+- **Wikidata SPARQL for ACs**. Rejected for now: Wikidata coverage of Indian electoral geography is uneven (some districts have items, some don't; reservation status is rarely modelled). Worth revisiting if/when coverage improves.
 - **Generic `parse_wikitable(headers, content)` reused across pages**. Rejected: each page has page-specific concerns. A shared helper would be a thin wrapper over lxml that hides nothing.
-- **Use Wikipedia's "Code" field as the canonical district id permanently**. Accepted as a temporary measure (`id_source="wikipedia"`); the schema's two-valued `id_source` lets us migrate to LGD codes by re-emitting the file with `id_source="lgd"` when we add an LGD adapter.
+- **Keep the wikipedia districts adapter as a fallback for states LGD hasn't seeded yet**. Rejected in T.0c-iii Phase D.1 ([ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md)): districts.json is no longer a contract surface (it has zero readers post-fold-in to entities.json), so the adapter has no consumer. New districts land via a PR against entities.json with an LGD-issued `lgd_code` or, where LGD has a structural gap (Mahe / Yanam in U07), an explicit operator-curated entry.
 
 ### District-name resolver
 
