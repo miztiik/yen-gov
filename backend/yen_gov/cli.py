@@ -179,17 +179,13 @@ def emit_taxonomy(
         f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/election_events.parquet"
     )
 
-    # 5) entities (base + lifted districts)
-    districts_root = root / "datasets" / "reference" / "in" / "states"
-    district_files = sorted(districts_root.glob("*/districts.json"))
+    # 5) entities (entities.json is the sole input post-Phase B)
     rows = _compile_entities(
         taxonomy_dir / "entities.json",
-        district_files,
         taxonomy_dir / "entities.parquet",
     )
     typer.echo(
-        f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/entities.parquet "
-        f"({len(district_files)} districts.json lifted)"
+        f"emit-taxonomy: wrote {rows} rows to datasets/taxonomy/entities.parquet"
     )
 
     # 6) cm_terms -> dim_offices + holdings; upserts wiki sources
