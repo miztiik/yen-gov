@@ -38,3 +38,13 @@ coverage/
 htmlcov/
 *.tmp_commit_msg*
 
+# Operator scratchpads / sibling checkouts (NOT part of yen-gov).
+# These are local-only inspection scripts and unrelated project checkouts
+# that sit alongside yen-gov but never get committed. If you want one of
+# the inspect_*.py scripts to become a real tool, move it under
+# tools/<purpose>/ with a proper docstring and remove its line below.
+ai-engineering-coach/
+backend/inspect_topn.py
+tools/inspect_elections_corpus.py
+tools/inspect_state_event_matrix.py
+
