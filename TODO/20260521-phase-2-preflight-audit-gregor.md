@@ -68,15 +68,15 @@ Plan §0e.7 mandates:
 - T.1: **Delete `_test/`. Create `_ops/`. Move operator state → `_ops/`. Audit `features/` (delete or document).**
 - G.1: **Migrate `governments/in/states/<state>/cm_terms.json` → fact rows. Delete `governments/in/states/`.**
 
-Disk today:
-- `datasets/_test/` exists (range-mime-probe + temporal-range fixtures) — T.1 not shipped.
-- `datasets/features/in/` exists — audit not shipped.
-- `datasets/governments/in/` exists alongside the new `governments_office_holdings.parquet` + `dim_offices.parquet` — G.1 partially shipped (Parquet written, JSON not retired).
-- No `datasets/_ops/` directory anywhere.
+Disk today (2026-05-22 update):
 
-**Pattern:** §0d "deferred reads like progress but is functionally not done" trap. Half-shipped G.1 specifically is dangerous: both shapes on disk = any tool ingesting `governments/in/` keeps populating the retired side. Strangler-fig without a deadline; plan rejected R9 ("coexistence of JSON + Parquet readers") for exactly this reason.
+- `datasets/_ops/` exists; `datasets/_test/` retired — **T.1 ✅ done** in commit `76bc5fde` (`refactor(T.1+legacy): rename _test/ -> _ops/, lift fixtures cross-language, extract folded-indicator writer to yen_gov.legacy`).
+- `datasets/features/in/` contains 2 files (`energy/power-plants.geojson` + `.metadata.json`) actively written by `backend/yen_gov/sources/india_geodata/power_plants.py`, consumed by the frontend energy-hub map. **Features audit ✅ done** in PR2 — decision: KEEP (see [`datasets/features/README.md`](../datasets/features/README.md)).
+- `datasets/governments/in/states/` still holds 31 hand-edited `cm_terms.json` files that `backend/yen_gov/canonical/cm_terms_seed.py` recompiles to `governments_office_holdings.parquet` + `dim_offices.parquet` on every `emit-taxonomy` run. **G.1 ⏳ deferred** to its own 3-PR strangler-fig (G.1.a/b/c) — see [`TODO/20260522-g1-cm-terms-retirement-handover.md`](20260522-g1-cm-terms-retirement-handover.md).
 
-**Recommendation:** Ship T.1 + JSON-retirement half of G.1 in one Tier-A pair *before* Phase 2 NFHS-5. Pure structural (no schema bumps; G.1 data already in Parquet). Sub-day work. Cost of NOT doing it: NFHS-5 lands in a tree with three half-retired siblings; next reviewer can't tell which trees are live. Update §0e.10.5 to add T.0c-iii row, freeze `migration-ledger.csv` at end of T.0c-iii not T.0c.
+**Pattern (revised):** The "data already in Parquet" framing in the original recommendation was technically true but operationally misleading — JSON is the LIVE source-of-truth, Parquet is DERIVED. Single-PR delete would brick the compile step and break the citizen-facing "Your government" card. Same disease as T.0c-iii (districts.json → entities.parquet): retirement requires entity-lift, reader-switch, then deletion as separate Tier-A pairs to stay bisect-safe.
+
+**Recommendation (revised):** Ship T.1 status update + features-KEEP doc + G.1 handover in PR2 (this descope). Run G.1.a/b/c strangler-fig before Phase 2 NFHS-5.
 
 ### #6 — `core/io.py::write_artifact` = two contracts in one function (MEDIUM)
 
@@ -116,10 +116,13 @@ Plan already says this. Disk doesn't yet reflect it. **That gap is the audit.**
 
 Path B (Phase 2 pre-flight cleanup) BEFORE Path C (Phase 2 P.\* NFHS-5 family). Specifically the sub-pieces in this order:
 
-1. **Forbid new shards under `datasets/indicators/in/` (#1 partial)** — Tier-B check + doc line. ~30 LOC. Stops debt accumulating immediately.
-2. **T.1 + G.1 cleanup (#5)** — `_test/`→`_ops/`, audit `features/`, retire `governments/in/` JSON. Pure structural, sub-day. One Tier-A pair.
-3. **`core/io.py` legacy namespace move (#6)** — refactor only, no functional change. One Tier-A pair.
-4. **Then Phase 2 NFHS-5 P.* sub-PR** — first family pivot. Multi-day arc; crosses backend + frontend + Pydantic + schema + browser smoke.
+1. **Forbid new shards under `datasets/indicators/in/` (#1 partial)** — ✅ shipped commit `8de71a4a`, PR #87.
+2. **T.1 status reconciliation + features-KEEP + G.1 handover (#5 descope)** — ⏳ PR2 in-flight. T.1 ✅ shipped commit `76bc5fde`; features ✅ KEEP; G.1 deferred to G.1.a/b/c.
+3. **G.1.a — entity-lift** — append office_bearer entities to `taxonomy/entities.json`. ~80 LOC + parity test.
+4. **G.1.b — reader-switch** — switch `cm_terms_seed.py` reader to entities.parquet. ~100 LOC + parity oracle.
+5. **G.1.c — delete** — `git rm` 31 cm_terms.json + seed module + tests + cli wiring. ~50 LOC + ~500 lines deletion.
+6. **`core/io.py` legacy namespace move (#6)** — refactor only, no functional change. One Tier-A pair.
+7. **Then Phase 2 NFHS-5 P.* sub-PR** — first family pivot. Multi-day arc; crosses backend + frontend + Pydantic + schema + browser smoke.
 
 Boundaries consolidation (#4) is orthogonal — fits anywhere in Phase 2, treat as a fifth P.* family.
 
@@ -141,7 +144,7 @@ Boundaries consolidation (#4) is orthogonal — fits anywhere in Phase 2, treat 
 
 Each pair includes the doctrine / doc updates that close the §0d "deferred reads like progress" gap.
 
-### PR1 — `feat/phase-2-preflight-forbid-new-folded-indicator-shards` — ⏳ in-flight (commit `<TBD>`)
+### PR1 — `feat/phase-2-preflight-forbid-new-folded-indicator-shards` — ✅ done (commit `8de71a4a`, PR #87, merged 2026-05-22)
 - Tier-B validator check: `tier_b_legacy_folded_indicator_shards` in `backend/yen_gov/validate.py` reads the allowlist `datasets/_ops/legacy-folded-indicator-shards.txt` and fails the validator on any `*.json` under `datasets/indicators/in/` not listed. Also fails on orphan allowlist entries (in allowlist but not on disk). No-op when the directory is absent (final-retirement contract).
 - **Design refinement from spec**: original spec said `git diff origin/main..HEAD --name-only` — replaced with an on-disk allowlist because (a) validator deliberately doesn't shell out to git (it runs against any checkout, including detached HEAD or zip-extracted), (b) the allowlist file IS the doctrinal artifact: P.* retirement PRs amend it in the same Tier-A commit as the `git rm` of the shards, so the allowlist file's diff is the audit trail; (c) the same plain-text `_ops/` allowlist pattern is reusable for the planned `tier_b_no_legacy_people_acgen` / `tier_b_no_legacy_results_csv` / `tier_b_no_legacy_states_subdir` checks (see [docs/architecture/canonical-pivot-deletion-manifest.md §6d](../docs/architecture/canonical-pivot-deletion-manifest.md)).
 - Add to `docs/architecture/canonical-pivot-deletion-manifest.md` (new §6d "Tier-B forbidden-path checks" subsection) — ✅ done in this PR.
@@ -151,14 +154,32 @@ Each pair includes the doctrine / doc updates that close the §0d "deferred read
 - Allowlist `datasets/_ops/legacy-folded-indicator-shards.txt` seeded with the current 110 legacy shards (sorted, POSIX paths, `#`-comment header).
 - Final shape: ~70 LOC validator + ~140 LOC tests + 110-line allowlist + ~30 LOC docs.
 
-### PR2 — `feat/phase-2-preflight-t1-g1-cleanup-and-ops-namespace`
-- Create `datasets/_ops/`
-- Delete `datasets/_test/` (or move fixtures to `backend/tests/fixtures/`)
-- Audit + delete-or-document `datasets/features/`
-- Retire `datasets/governments/in/` JSON (data already in `governments_office_holdings.parquet` + `dim_offices.parquet`)
-- Update `docs/architecture/data/` per-tree READMEs
-- Update §0e.10.5 to add T.0c-iii row
-- Probably ~500 LOC of deletions + ~100 LOC of migration tooling + doc updates
+### PR2 — `feat/phase-2-preflight-t1-status-features-audit-g1-deferred` — ⏳ in-flight
+- Reconcile audit body T.1 status (was "not shipped" → now "✅ done commit `76bc5fde`").
+- Features audit: KEEP decision documented in new [`datasets/features/README.md`](../datasets/features/README.md) (sole writer = india-geodata adapter; sole reader = energy-hub map; geometry has no Parquet analytical path).
+- Update [`docs/architecture/data/canonical-store.md`](../docs/architecture/data/canonical-store.md) §2b.3 features row to "KEEP".
+- G.1 explicit defer: new [`TODO/20260522-g1-cm-terms-retirement-handover.md`](20260522-g1-cm-terms-retirement-handover.md) (~150 lines) with 3-PR strangler-fig design (G.1.a entity-lift / G.1.b reader-switch / G.1.c JSON+seed-delete), rejected alternatives, acceptance criteria.
+- Insert G.1.a/b/c rows in §"Recommended sequencing" between PR3 and Phase 2.
+- Final shape: ~30 LOC features README + ~150 LOC G.1 handover + ~50 LOC audit-doc edits = ~230 lines.
+
+### PR2.5 (was G.1) — `feat/phase-2-preflight-g1a-office-bearer-entities` — queued
+- Append 359 `entity_type='office_bearer'` rows to `datasets/taxonomy/entities.json` (one per CM term).
+- Regen `taxonomy/entities.parquet`.
+- Both old (cm_terms.json) and new (entities.parquet office_bearer rows) coexist.
+- Parity test: every (state, term_start, cm_name) tuple in JSON appears as office_bearer in entities.
+
+### PR2.6 — `feat/phase-2-preflight-g1b-cm-terms-reader-switch` — queued
+- Rewrite `backend/yen_gov/canonical/cm_terms_seed.py` to read office_bearer rows from `entities.parquet` instead of glob `cm_terms.json`.
+- Keep JSON on disk for one PR cycle as fallback / cross-check.
+
+### PR2.7 — `feat/phase-2-preflight-g1c-delete-cm-terms-json` — queued
+- `git rm datasets/governments/in/states/**/cm_terms.json`.
+- `git rm datasets/governments/in/` (empty dir).
+- `git rm backend/yen_gov/canonical/cm_terms_seed.py` (no longer needed once entities is the source).
+- `git rm backend/tests/test_cm_terms_seed.py`.
+- `git rm datasets/schemas/cm-terms.schema.json` (if exists).
+- Update `cli.py` to drop `cm_files` glob block.
+- Update §2b.3 to past-tense.
 
 ### PR3 — `refactor/phase-2-preflight-io-legacy-namespace`
 - Create `backend/yen_gov/legacy/__init__.py`

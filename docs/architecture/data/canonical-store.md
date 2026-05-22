@@ -351,8 +351,8 @@ datasets/
 | `datasets/reference/in/` | `datasets/taxonomy/` (editorial) or `datasets/_ops/` (telemetry) | T.2 |
 | `datasets/indicators/in/<topic>/` | per-family Parquet at `datasets/<family>/<family>_<role>.parquet` | P.\* (per family) |
 | `datasets/people/AcGenApr2021/` | bio columns lifted onto `datasets/elections/dim_candidates.parquet` v1.2 (six nullable cols: `sex`, `age`, `education`, `profession`, `constituency_type`, `party_type`) | S.1 (lift), S.2 (frontend switch + JSON retirement) — DONE 2026-05-20 |
-| `datasets/governments/in/states/` | `datasets/governments/governments_office_holdings.parquet` + `taxonomy/entities.parquet` (`entity_type='office_bearer'`) | G.1 |
-| `datasets/features/` | audit pending — delete or relocate | T.1 |
+| `datasets/governments/in/states/` | `datasets/governments/governments_office_holdings.parquet` + `taxonomy/entities.parquet` (`entity_type='office_bearer'`) | G.1 (3-PR strangler-fig G.1.a/b/c per [`TODO/20260522-g1-cm-terms-retirement-handover.md`](../../../TODO/20260522-g1-cm-terms-retirement-handover.md)) |
+| `datasets/features/` | KEEP (citizen geometry layer; see [`datasets/features/README.md`](../../../datasets/features/README.md)); retires when boundaries become a P.\* family | T.1 (audited 2026-05-22, decision: KEEP) |
 
 ### §2b.4 — Three rules to evaluate yourself against
 
