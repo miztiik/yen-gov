@@ -75,10 +75,10 @@ Phase C audit flagged the module-scope `_schema_id = schema_id("district.schema.
 - The Mahe and Yanam UT-sub regions of Puducherry (U07) are not enumerated by LGD as standalone districts, so they are absent from entities.json. ACs in those regions land with `district_id=null` on a fresh `yen-gov reference U07` run. This was already the post-fold-in behaviour (Phase A skipped 2 Mahe/Yanam rows per the missing-`lgd_code` preflight); D.1 surfaces it explicitly in the `_district_lookup_from_entities()` docstring and in [sources-wikipedia.md](../backend/sources-wikipedia.md). Acknowledged structural gap; the eventual fix is either (a) an LGD revision that enumerates UT-sub regions, or (b) a manual override row in entities.json with an issuing-authority-defined identifier. Phase D.3 commit body will document this acknowledgement in full.
 - One live test (`test_live_districts_tn`) and one round-trip test (`test_districts_collection_round_trip`) are deleted. Both were exercising adapter code that no longer exists; their parity-of-thought successor is the (existing) `test_live_ac_constituencies_tn` test which round-trips through `constituency.schema.json` and which retains coverage of the entities.json-sourced `district_id` lookup path via the constituencies parser.
 
-### Future work (separate PRs)
+### Subsequent phases (now landed)
 
-- **Phase D.2** — delete `tools/lgd/backfill_lgd_codes.py`. It walked `datasets/reference/in/states/*/districts.json` to add `lgd_code` back; with districts.json being deleted in D.3 and the canonical districts on entities.json already carrying `lgd_code`, the tool has no purpose.
-- **Phase D.3** — `git rm` the 6 districts.json files + `district.schema.json` + update 10 doc/plan references + amend `datasets/migration-ledger.csv` row 218 + add the Mahe/Yanam gap acknowledgement to the commit body.
+- **Phase D.2** ([PR #85](https://github.com/miztiik/yen-gov/pull/85), commit `95ba5d13`) — deleted `tools/lgd/backfill_lgd_codes.py`. It walked `datasets/reference/in/states/*/districts.json` to add `lgd_code` back; with districts.json scheduled for deletion in D.3 and the canonical districts on entities.json already carrying `lgd_code`, the tool had no remaining purpose.
+- **Phase D.3** — `git rm` the 6 districts.json files + `district.schema.json` + scrubbed the live doc/plan references + amended `datasets/migration-ledger.csv` + recorded the Mahe/Yanam structural-gap acknowledgement in the commit body. Closes the T.0c-iii strangler-fig arc.
 
 ## Links
 

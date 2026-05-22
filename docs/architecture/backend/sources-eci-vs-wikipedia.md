@@ -76,9 +76,11 @@ two failure modes:
 3. **Wikipedia path** (`python -m yen_gov reference <state>`) is kept
    alive only for the existing TN/KL files we authored before the ECI
    ingest path matured. Do not extend `_ECI_TO_WIKI_STATE` for new
-   states — bootstrap from results instead. The Wikipedia pipeline will
-   be retired or repurposed in a future cleanup once districts.json has
-   a non-Wikipedia path (LGD codes, see ADR-0015).
+   states — bootstrap from results instead. The Wikipedia districts
+   adapter was retired in T.0c-iii Phase D.1 ([ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md));
+   district identity now lives on `datasets/taxonomy/entities.json`
+   (LGD-sourced). The constituencies adapter remains for the AC table
+   only.
 
 ## What `provisional` means
 
@@ -95,8 +97,9 @@ two failure modes:
 
 The five originally hand-authored / Wikipedia-scraped files (S03, S11,
 S22, S25, U07) are `provisional` too — district mappings exist for them
-in `districts.json` but the AC `district_id` is a Wikipedia slug, not an
-LGD code. Promoting them to `complete` is gated on the LGD migration
+on `datasets/taxonomy/entities.json` (post-Phase-A) but the AC
+`district_id` is a Wikipedia slug (`legacy_id`), not an LGD code.
+Promoting them to `complete` is gated on the LGD migration
 ([ADR-0015](architecture/decisions/0015-data-model-rules.md) districts);
 no immediate work needed.
 

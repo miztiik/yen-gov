@@ -80,7 +80,7 @@ For TN villages this means simplification at write time. The simplification meta
 
 Indian administrative geography is not stable. Post-2011 districts (Mayiladuthurai 2020, Tenkasi/Tirupathur/Chengalpattu/Kallakurichi/Ranipet 2019) did not exist in Census 2011, so any indicator computed from Census 2011 inputs has no value at the new district's geometry — and any time-series visualisation that draws a polyline through that boundary is lying.
 
-`district.schema.json` v3.3 surfaces three break markers:
+`entity.schema.json` district rows on `datasets/taxonomy/entities.json` surface three break markers (originally on `district.schema.json` v3.3, retired in T.0c-iii Phase D.3 — see [ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md)):
 
 - `census_2011_code` — the 2011 code, or `null` for post-2011 districts. Lets a renderer say "this district did not exist in 2011".
 - `lgd_code_history` — for the rare case where an LGD code itself was retired and reissued.
@@ -113,8 +113,7 @@ Disk layout sits OUTSIDE the LGD `geojson/` tree to make the orthogonality visib
 - [canonical-store.md §17](canonical-store.md) — resolution path from observation row to boundary file.
 - [ADR-0019: dataset topology + canonical column names](../decisions/0019-dataset-topology-and-column-discipline.md) — `subdistrict_lgd_code` and `village_lgd_code` first-class promotion.
 - [ADR-0015: constituency hierarchy fields](../decisions/0015-constituency-hierarchy-fields.md) — `district_id` lifecycle.
-- [ADR-0003: ephemeral raw under `.runtime/`](../decisions/0003-ephemeral-raw-under-runtime.md) — why fetch caches are not committed.
-- [`datasets/schemas/district.schema.json`](../../../datasets/schemas/district.schema.json) — v3.3.
+- [`ADR-0003: ephemeral raw under `.runtime/`](../decisions/0003-ephemeral-raw-under-runtime.md) — why fetch caches are not committed.
 - [`datasets/schemas/subdistrict.schema.json`](../../../datasets/schemas/subdistrict.schema.json) — v1.0.
 - [`datasets/schemas/feature_collection.metadata.schema.json`](../../../datasets/schemas/feature_collection.metadata.schema.json) — v1.1.
 - [`datasets/schemas/boundary.unkeyed.schema.json`](../../../datasets/schemas/boundary.unkeyed.schema.json) — v1.0.

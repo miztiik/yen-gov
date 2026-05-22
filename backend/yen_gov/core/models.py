@@ -139,7 +139,8 @@ class Election(_Artifact):
 # `datasets/taxonomy/entities.json` / `entities.parquet`, sourced from the
 # Local Government Directory (Ministry of Panchayati Raj) per CLAUDE.md §3.
 # The 6 per-state `districts.json` files and `district.schema.json` itself
-# remain on disk pending Phase D.3 deletion.
+# were deleted in T.0c-iii Phase D.3 (the final step of the strangler-fig
+# closeout) once D.1 + D.2 had removed every code-path that referenced them.
 
 
 # --- constituencies collection ----------------------------------------------

@@ -66,7 +66,7 @@ def schema_doc(filename: str) -> dict[str, Any]:
     """Return the parsed JSON Schema dict for ``filename``.
 
     ``filename`` is the basename under ``datasets/schemas/`` (e.g.
-    ``"district.schema.json"``), not a path.
+    ``"constituency.schema.json"``), not a path.
     """
     path = _SCHEMA_DIR / filename
     if not path.is_file():

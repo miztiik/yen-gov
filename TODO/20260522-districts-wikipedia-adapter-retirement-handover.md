@@ -1,5 +1,31 @@
 # 2026-05-22 — handover: T.0c-iii districts arc — Phase C paused, Phase D arc scoped
 
+## D.3 outcome (2026-05-22) — strangler-fig arc CLOSED
+
+**Deleted the 6 per-state `districts.json` files + `district.schema.json`.** Original Phase C scope, finally safe to execute after D.1 (adapter retire) + D.2 (LGD backfill tool retire) removed every code-path that referenced them.
+
+**Branch**: `feat/districts-final-delete` (this commit). **Files touched** (~25 files):
+
+- DELETED (7): `datasets/reference/in/states/{S03,S06,S11,S22,S25,U07}/districts.json` + `datasets/schemas/district.schema.json`
+- Modified (code): `backend/yen_gov/cli.py` (`emit-taxonomy` docstring stale-since-Phase-B fixed); `backend/yen_gov/canonical/entities_seed.py` (Phase B notes flipped past-tense — "deleted in Phase D.3"); `backend/tests/test_entities_seed.py` (docstring matched); `backend/yen_gov/sources/wikipedia/constituencies.py` (resolution docstring repointed to entities.json); `backend/yen_gov/core/models.py` (retirement comment past-tensed); `backend/yen_gov/core/schema_registry.py` (docstring example switched to `constituency.schema.json`); `datasets/schemas/subdistrict.schema.json` (dropped "Analogous to district.schema.json" cross-reference).
+- Modified (docs): `docs/architecture/data-model.md`, `docs/architecture/data/boundaries.md` (methodology-break-markers paragraph + Further-reading bullet), `docs/architecture/backend/core.md` (DistrictsCollection mirror retirement), `docs/architecture/canonical-pivot-deletion-manifest.md`, `docs/architecture/frontend/routing.md`, `docs/architecture/backend/sources-eci-vs-wikipedia.md`, `docs/architecture/decisions/0033-retire-wikipedia-districts-adapter.md` (Future-work → "Subsequent phases (now landed)"), `docs/reference/schemas.md`, `docs/reference/data-coverage-report.md`, `docs/reference/boundary-data-sources.md`, `docs/reference/lgd-opendata.md`, `docs/how-to/run-the-pipeline.md`, `docs/research/energy-power-plants.md`.
+- Modified (datasets ledger + changelog): `datasets/migration-ledger.csv` (7 new D.3 rows appended); `datasets/CHANGELOG.md` (2026-05-22 entry).
+- Amended: this handover doc (D.3 outcome above); `TODO/20260517-canonical-long-format-pivot.md` row 318 (D.3 marked DONE; arc closed).
+
+**Known structural gap (acknowledged)**: Mahe and Yanam (U07 sub-regions) are not enumerated by LGD as standalone districts; they have no `lgd_code` and did not lift into `entities.json`. This deletion removes the only on-disk record of those two regions. Eventual fix: (a) LGD revision enumerating UT sub-regions, or (b) manual override entity rows with issuing-authority identifiers. Deferred follow-up.
+
+**Verification**:
+- `entities.parquet` SHA-256 still `771ECEC3…62243ED` — byte-stable through the entire D arc, including this final commit. Proof that file deletion has zero data effect.
+- pytest backend: green (no test deletions in D.3; code edits were docstring-only).
+- Tier-B `python -m yen_gov validate --root .`: 0 issues (the deleted `district.schema.json` had zero `$ref` consumers in other schemas).
+- vitest frontend: green (frontend never read these files — it queries `taxonomy.entities` via DuckDB-WASM since T.0c-ii-B.2).
+
+**§13 browser smoke**: not applicable — no frontend-runtime change.
+
+**Arc closure**: T.0c-iii strangler-fig (Phase A → B → C → D.1 → D.2 → D.3) is **DONE**. District identity is now exclusively `entity_type='district'` rows on `datasets/taxonomy/entities.json`; wikipedia districts adapter is gone; LGD backfill tool is gone; the 6 hand-authored seed files + the collection schema are gone. Only the (still-needed) constituencies adapter remains in `sources/wikipedia/` — that AC list has no alternate source yet.
+
+---
+
 ## D.2 outcome (2026-05-22)
 
 **Retired the LGD backfill tool.** Hans + Gregor sibling-of-D.1.c recommendation, pre-named in ADR-0033 §Future-work. `tools/lgd/backfill_lgd_codes.py` walked the per-state `districts.json` files writing `lgd_code` back into each; with D.1 having moved district identity to `entities.json` (already carrying `lgd_code`) and D.3 about to `git rm` the per-state files, the tool has no remaining target.

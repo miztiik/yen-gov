@@ -9,12 +9,14 @@ T.0c-iii Phase B (2026-05-22): the per-state ``districts.json`` loader
 is GONE. ``datasets/taxonomy/entities.json`` is now the sole input —
 it carries all 185 rows (1 country + 29 states + 10 UTs + 145
 districts) that Phase A folded in. The 6
-``datasets/reference/in/states/<S>/districts.json`` files still sit on
-disk (deletion is Phase C scope) but no code path reads them. The
-remaining ~600 LGD-only districts (states with no hand-authored
-districts.json) come in via a follow-up that reads
-``datasets/taxonomy/lgd/districts-latest.csv``; calling that out here
-so the next agent does not re-derive the gap from on-disk evidence.
+``datasets/reference/in/states/<S>/districts.json`` files and
+``datasets/schemas/district.schema.json`` were deleted in T.0c-iii
+Phase D.3 (the final step of the wikipedia-districts-adapter
+strangler-fig closeout — see ADR-0033). The remaining ~600 LGD-only
+districts (states with no hand-authored entry yet) come in via a
+follow-up that reads ``datasets/taxonomy/lgd/districts-latest.csv``;
+calling that out here so the next agent does not re-derive the gap
+from on-disk evidence.
 
 The entity.schema.json v1.1 ``legacy_id`` column — districts in the
 old per-state JSONs were keyed by Wikipedia slug (``ARI`` for
@@ -132,11 +134,10 @@ def compile_to_parquet(
     loader and its dedup loop are gone. ``entities.json`` is the sole
     input — all 185 rows (1 country + 29 states + 10 UTs + 145
     districts) live there after Phase A folded the per-state JSONs in.
-    The 6 ``datasets/reference/in/states/<S>/districts.json`` files
-    still sit on disk (deletion is Phase C scope) but no code path
-    reads them. Refs: TODO/20260517-canonical-long-format-pivot.md
-    §0e.10.4 row 318; TODO/20260521-phase-2-preflight-audit-gregor.md
-    #5.
+    The 6 ``datasets/reference/in/states/<S>/districts.json`` files and
+    ``district.schema.json`` were deleted in Phase D.3 (see ADR-0033).
+    Refs: TODO/20260517-canonical-long-format-pivot.md §0e.10.4 row
+    318; TODO/20260521-phase-2-preflight-audit-gregor.md #5.
     """
     parquet_out = Path(parquet_out)
     rows = _load_base_entities(Path(entities_json))
