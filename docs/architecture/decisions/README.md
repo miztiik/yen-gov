@@ -36,6 +36,7 @@ Keep ADRs short. They are immutable once accepted; a later ADR supersedes (and t
 | [0032](0032-sources-citation-ledger.md) | Sources as citation ledger keyed on `(producer, title, vintage)` | accepted |
 | [0033](0033-retire-wikipedia-districts-adapter.md) | Retire the Wikipedia districts adapter entirely | accepted |
 | [0034](0034-documentation-routing-contract.md) | Documentation routing contract (four doc classes) | accepted |
+| [0035](0035-persons-fork-option-b.md) | Persons fork: rename `dim_candidates` to `dim_persons` in one shot (Option B) | accepted |
 
 ## Absorbed ADRs (2026-05-09)
 
