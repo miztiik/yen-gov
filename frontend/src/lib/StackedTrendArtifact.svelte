@@ -10,7 +10,7 @@
     type IndicatorDoc,
   } from "./charts/stacked-trend/adapter-indicator";
   import type { StackedTrendModel } from "./charts/stacked-trend/types";
-  import { STATE_NAME_TO_ECI } from "./maplibre/sources";
+  import { loadStates, type StateRow } from "./view-models/states";
   import { humanise } from "./humanise";
 
   interface Props {
@@ -43,6 +43,14 @@
 
   let doc = $state<IndicatorDoc | null>(null);
   let load_error = $state<string | null>(null);
+  // Currently-valid Indian states+UTs from taxonomy.entities. Used by the
+  // eci_to_state_name lookup the stacked-trend adapter consumes for both
+  // spatial entity labels and temporal entity-label resolution. Replaces
+  // STATE_NAME_TO_ECI per T.0e.
+  let states_taxonomy = $state<StateRow[] | null>(null);
+  loadStates()
+    .then(s => (states_taxonomy = s))
+    .catch(() => (states_taxonomy = []));
 
   $effect(() => {
     doc = null;
@@ -54,7 +62,7 @@
 
   const eci_to_state_name = $derived.by(() => {
     const m: Record<string, string> = {};
-    for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) m[code] = name;
+    for (const s of states_taxonomy ?? []) m[s.eci_code] = s.boundary_join_name;
     return m;
   });
 

@@ -13,14 +13,21 @@
   import { fetchStates, type StateEntry } from "../lib/data";
   import { fetchTopicCatalogue, type TopicCatalogue } from "../lib/catalogue";
   import { scope, COUNTRIES } from "./scope.svelte";
-  import { STATE_NAME_TO_ECI } from "./maplibre/sources";
+  import { loadStates, type StateRow } from "./view-models/states";
   import { navigate, url } from "./url";
 
   // P2.3 of IA reset (ADR-0022): state availability is decoupled from
   // election-data presence. When the catalogue exposes any national-scope
   // indicator artifact, every state has data and the picker shows a single
-  // sorted list. The STATE_NAME_TO_ECI proxy stays as a bootstrap fallback.
-  const fallback_codes = new Set(Object.values(STATE_NAME_TO_ECI));
+  // sorted list. The taxonomy.entities-derived proxy stays as a bootstrap
+  // fallback. Replaces STATE_NAME_TO_ECI per T.0e.
+  let states_taxonomy = $state<StateRow[] | null>(null);
+  loadStates()
+    .then(s => (states_taxonomy = s))
+    .catch(() => (states_taxonomy = []));
+  const fallback_codes = $derived(
+    new Set((states_taxonomy ?? []).map(s => s.eci_code)),
+  );
 
   let states_list = $state<StateEntry[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);

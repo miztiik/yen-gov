@@ -18,8 +18,8 @@
   import MapChoropleth from "./MapChoropleth.svelte";
   import {
     INDIA_STATES,
-    STATE_NAME_TO_ECI,
   } from "./sources";
+  import { loadStates } from "../view-models/states";
   import {
     loadIndiaLeadingParties,
     type IndiaLeadingPartiesViewModel,
@@ -45,14 +45,34 @@
     status: "loading",
   });
 
+  // Currently-valid Indian states+UTs from taxonomy.entities. Iterated by
+  // fills / tooltips to build the per-state colour and hover content.
+  // Replaces STATE_NAME_TO_ECI per T.0e.
+  let states_taxonomy = $state<import("../view-models/states").StateRow[] | null>(null);
+  loadStates()
+    .then(s => (states_taxonomy = s))
+    .catch(() => (states_taxonomy = []));
+
+  // Reverse lookup boundary-join-name -> ECI used by on_select. Derived so
+  // that it picks up the loaded list automatically.
+  const NAME_TO_ECI = $derived.by(() => {
+    const out: Record<string, string> = {};
+    for (const s of states_taxonomy ?? []) out[s.boundary_join_name] = s.eci_code;
+    return out;
+  });
+
   function retryLoad(): void {
     const force_event = event;
     result = { status: "loading" };
     (async () => {
       try {
-        const catalogue = await fetchElectionEvents();
+        const [catalogue, states_taxonomy] = await Promise.all([
+          fetchElectionEvents(),
+          loadStates(),
+        ]);
         const state_event_map: Record<string, string> = {};
-        for (const code of Object.values(STATE_NAME_TO_ECI)) {
+        for (const s of states_taxonomy) {
+          const code = s.eci_code;
           const ev = force_event ?? defaultEventForState(catalogue, code)?.event_id;
           if (ev) state_event_map[code] = ev;
         }
@@ -80,7 +100,9 @@
     if (result.status !== "ok") return out;
     const per_state = result.data.per_state;
     const tops: { name: string; key: string; eci: string | null; short: string }[] = [];
-    for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
+    for (const s of states_taxonomy ?? []) {
+      const code = s.eci_code;
+      const name = s.boundary_join_name;
       const loaded = per_state[code];
       if (!loaded) continue;
       const top = loaded.party_totals.find((p) => p.seats_won > 0);
@@ -103,7 +125,9 @@
   const tooltips = $derived.by(() => {
     const out: Record<string, string> = {};
     const per_state = result.status === "ok" ? result.data.per_state : {};
-    for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
+    for (const s of states_taxonomy ?? []) {
+      const code = s.eci_code;
+      const name = s.boundary_join_name;
       const loaded = per_state[code];
       if (!loaded) {
         out[name] = `<div class="font-semibold">${escape_html(name)}</div><div class="text-slate-500">no data loaded</div>`;
@@ -133,7 +157,7 @@
   }
 
   function on_select(sel: { key: string | number }): void {
-    const code = STATE_NAME_TO_ECI[String(sel.key)];
+    const code = NAME_TO_ECI[String(sel.key)];
     if (code) navigate(url.state(code));
   }
 </script>

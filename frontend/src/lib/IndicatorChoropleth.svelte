@@ -11,7 +11,8 @@
   // appropriate BoundaryEntry and use a corresponding lookup table.
 
   import MapChoropleth from "./maplibre/MapChoropleth.svelte";
-  import { INDIA_STATES, STATE_NAME_TO_ECI } from "./maplibre/sources";
+  import { INDIA_STATES } from "./maplibre/sources";
+  import { loadStates, type StateRow } from "./view-models/states";
   import {
     joinKeyFor,
     boundaryBasename,
@@ -101,11 +102,28 @@
   let artifact = $state<IndicatorArtifact | null>(null);
   let load_error = $state<string | null>(null);
   let selected_time = $state<string | null>(null);
+  // Currently-valid Indian states+UTs from taxonomy.entities. Iterated to
+  // build the reverse name lookup, fill table, tooltip table, coverage
+  // summary, and to resolve the boundary join-key in handleSelect. Replaces
+  // STATE_NAME_TO_ECI per T.0e.
+  let states_taxonomy = $state<StateRow[] | null>(null);
+  loadStates()
+    .then(s => (states_taxonomy = s))
+    .catch(e => (load_error = String(e)));
 
-  // Reverse map: ECI code -> state name (for the join layer's join-property).
+  // Reverse map: ECI code -> boundary join name (for the join layer's join-property).
   const ECI_TO_NAME = $derived.by(() => {
     const out: Record<string, string> = {};
-    for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) out[code] = name;
+    for (const s of states_taxonomy ?? []) out[s.eci_code] = s.boundary_join_name;
+    return out;
+  });
+
+  // Reverse map: boundary join name -> ECI code (replacement for the old
+  // STATE_NAME_TO_ECI constant; used by handleSelect to resolve the state
+  // clicked on the choropleth into an ECI code).
+  const NAME_TO_ECI = $derived.by(() => {
+    const out: Record<string, string> = {};
+    for (const s of states_taxonomy ?? []) out[s.boundary_join_name] = s.eci_code;
     return out;
   });
 
@@ -151,20 +169,22 @@
     return { min, max };
   });
 
-  // join-property (state-name) -> fill hex. Only states in STATE_NAME_TO_ECI
-  // get a colour; the rest fall through to MapChoropleth's default grey.
-  // When peer_set_members is set, non-members also fall through (greyed).
+  // join-property (state-name) -> fill hex. Only states currently valid in
+  // taxonomy.entities get a colour; the rest fall through to MapChoropleth's
+  // default grey. When peer_set_members is set, non-members also fall
+  // through (greyed).
   const fills = $derived.by(() => {
     const out: Record<string, string> = {};
     if (!artifact) return out;
     const dir = artifact.indicator.direction;
     const scale = artifact.indicator.scale_hint ?? "linear";
     const member_set = peer_set_members ? new Set(peer_set_members) : null;
-    for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
+    for (const s of states_taxonomy ?? []) {
+      const code = s.eci_code;
       if (member_set && !member_set.has(code)) continue;
       const v = values.get(code);
       if (v === undefined) continue;
-      out[name] = fillForValue(v, domain.min, domain.max, dir, scale);
+      out[s.boundary_join_name] = fillForValue(v, domain.min, domain.max, dir, scale);
     }
     return out;
   });
@@ -173,7 +193,9 @@
     const out: Record<string, string> = {};
     if (!artifact) return out;
     const meta = artifact.indicator;
-    for (const [name, code] of Object.entries(STATE_NAME_TO_ECI)) {
+    for (const s of states_taxonomy ?? []) {
+      const code = s.eci_code;
+      const name = s.boundary_join_name;
       const v = values.get(code);
       if (v === undefined) {
         out[name] = `<div class="font-semibold">${escape_html(name)}</div>` +
@@ -452,7 +474,7 @@
     let label = String(sel.key);
     let stateLgd: string | undefined;
     if (drill_state.level === "state") {
-      const eci = STATE_NAME_TO_ECI[String(sel.key)];
+      const eci = NAME_TO_ECI[String(sel.key)];
       if (eci !== TN_ECI) {
         // Only TN has deeper boundaries on disk at v0.
         deeper_fetch_error = "deeper boundaries available for Tamil Nadu only";
@@ -564,7 +586,7 @@
   const coverage_summary = $derived.by(() => {
     if (!artifact) return null;
     const member_set = peer_set_members ? new Set(peer_set_members) : null;
-    const all_codes = Object.values(STATE_NAME_TO_ECI);
+    const all_codes = (states_taxonomy ?? []).map(s => s.eci_code);
     const peer_codes = member_set
       ? all_codes.filter(c => member_set.has(c))
       : all_codes;
