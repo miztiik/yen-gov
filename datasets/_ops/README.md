@@ -19,9 +19,10 @@ Rules:
 
 Current residents:
 
-| File                       | Purpose                                                                                                                                                                                                                                  |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| File | Purpose |
+| --- | --- |
 | `range-mime-probe.parquet` | 363-byte Parquet operational asset used by the deploy workflow to verify GitHub Pages serves the correct MIME type and honours the HTTP `Range` header for byte-range Parquet fetches. See `docs/architecture/deployment.md` for context. |
+| `legacy-folded-indicator-shards.txt` | Sorted allowlist of the 110 legacy per-indicator JSON shards under `datasets/indicators/in/` (pre-canonical-pivot artifacts). Input to the Tier-B validator check `tier_b_legacy_folded_indicator_shards` in `backend/yen_gov/validate.py` — see `docs/architecture/backend/validator.md`. Per CLAUDE.md §10, no new shards may be added; this file enforces the doctrine. Retires alongside `backend/yen_gov/legacy/folded_indicator_writer.py` when the final §0e.7 P.* family ships. |
 
 History: relocated here by T.1 (TODO/20260517 §0e.7) from the previous
 `datasets/_test/` subtree, which was renamed and re-scoped — see the

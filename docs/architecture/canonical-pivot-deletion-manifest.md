@@ -169,6 +169,22 @@ When every sub-row above is either DONE or explicitly closed-deferred, run:
 5. `python -m yen_gov validate --root .` Tier-B clean.
 6. Cross-reference: every legacy path enumerated in this §6a table is either gone OR has an explicit deferral row in THE PLAN naming a future phase.
 
+### 6d. Tier-B forbidden-path checks (CLAUDE.md §10 enforcement)
+
+Tier-B carries a registry of forbidden-path checks that make CLAUDE.md §10 anti-patterns computationally enforced rather than purely textual. Each check is a `tier_b_*` function in [`backend/yen_gov/validate.py`](../../backend/yen_gov/validate.py) chained into `run()`; allowlists live as plain-text files under `datasets/_ops/` (operator-state directory per CLAUDE.md §3). Full mechanism reference: [`docs/architecture/backend/validator.md` "Forbidden-path checks"](backend/validator.md).
+
+| Check function | Forbidden subtree | Allowlist file | Anti-pattern in CLAUDE.md §10 | Retires when |
+| --- | --- | --- | --- | --- |
+| `tier_b_legacy_folded_indicator_shards` | `datasets/indicators/in/` (110 legacy per-indicator JSON shards) | `datasets/_ops/legacy-folded-indicator-shards.txt` | "Create new indicator artifact files under `datasets/indicators/in/<topic>/<id>.json`" — established 2026-05-22 (Gregor PR1, Phase-2 pre-flight) | Final P.* family ships and the forbidden subtree is empty; the allowlist file deletes alongside [`backend/yen_gov/legacy/folded_indicator_writer.py`](../../backend/yen_gov/legacy/folded_indicator_writer.py). |
+
+Planned future entries (T.0c carried Tier-B forbidden-path checks forward as a deletion gate; those checks are scoped under separate PRs):
+
+| Planned check | Forbidden subtree | Status |
+| --- | --- | --- |
+| `tier_b_no_legacy_people_acgen` | `datasets/people/AcGen*/` (3,983 files deleted by T.0c-iii 2026-05-22; check would prevent reintroduction) | not yet implemented; bio columns now live on `datasets/elections/dim_candidates.parquet` v1.2 per row 1.8f |
+| `tier_b_no_legacy_results_csv` | `datasets/elections/*/*/results.csv` (41 files deleted by T.0c-iii 2026-05-22) | not yet implemented; canonical replacement is `datasets/elections/state=*/election_results.parquet` |
+| `tier_b_no_legacy_states_subdir` | `datasets/reference/in/states/` (per-state breakdowns deleted by T.0c-iii 2026-05-22) | not yet implemented |
+
 ---
 
 ## §7. `tools/` — one-shot migration scripts

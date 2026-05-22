@@ -141,11 +141,15 @@ Boundaries consolidation (#4) is orthogonal — fits anywhere in Phase 2, treat 
 
 Each pair includes the doctrine / doc updates that close the §0d "deferred reads like progress" gap.
 
-### PR1 — `feat/phase-2-preflight-forbid-new-folded-indicator-shards`
-- Tier-B validator rule: fail if `git diff origin/main..HEAD --name-only datasets/indicators/in/` shows additions
-- Add to `docs/architecture/canonical-pivot-deletion-manifest.md §6a`
-- Add to CLAUDE.md §10 anti-pattern list
-- ~30 LOC + ~50 lines docs
+### PR1 — `feat/phase-2-preflight-forbid-new-folded-indicator-shards` — ⏳ in-flight (commit `<TBD>`)
+- Tier-B validator check: `tier_b_legacy_folded_indicator_shards` in `backend/yen_gov/validate.py` reads the allowlist `datasets/_ops/legacy-folded-indicator-shards.txt` and fails the validator on any `*.json` under `datasets/indicators/in/` not listed. Also fails on orphan allowlist entries (in allowlist but not on disk). No-op when the directory is absent (final-retirement contract).
+- **Design refinement from spec**: original spec said `git diff origin/main..HEAD --name-only` — replaced with an on-disk allowlist because (a) validator deliberately doesn't shell out to git (it runs against any checkout, including detached HEAD or zip-extracted), (b) the allowlist file IS the doctrinal artifact: P.* retirement PRs amend it in the same Tier-A commit as the `git rm` of the shards, so the allowlist file's diff is the audit trail; (c) the same plain-text `_ops/` allowlist pattern is reusable for the planned `tier_b_no_legacy_people_acgen` / `tier_b_no_legacy_results_csv` / `tier_b_no_legacy_states_subdir` checks (see [docs/architecture/canonical-pivot-deletion-manifest.md §6d](../docs/architecture/canonical-pivot-deletion-manifest.md)).
+- Add to `docs/architecture/canonical-pivot-deletion-manifest.md` (new §6d "Tier-B forbidden-path checks" subsection) — ✅ done in this PR.
+- Add to CLAUDE.md §10 anti-pattern list (appended "Enforced by Tier-B" sentence to existing entry) — ✅ done in this PR.
+- New mechanism doc section: `docs/architecture/backend/validator.md` "Forbidden-path checks" — ✅ done in this PR.
+- 6 Tier-A tests in `backend/tests/test_validate.py` (`_seed_indicator_tree` helper + passes-allowed + rejects-new + rejects-orphan + no-op-when-absent + requires-allowlist + chained-into-`run()` regression guard).
+- Allowlist `datasets/_ops/legacy-folded-indicator-shards.txt` seeded with the current 110 legacy shards (sorted, POSIX paths, `#`-comment header).
+- Final shape: ~70 LOC validator + ~140 LOC tests + 110-line allowlist + ~30 LOC docs.
 
 ### PR2 — `feat/phase-2-preflight-t1-g1-cleanup-and-ops-namespace`
 - Create `datasets/_ops/`
