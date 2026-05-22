@@ -500,7 +500,8 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-092a5dc7af3f"
+      "source_id": "src-092a5dc7af3f",
+      "methodology_break_ids": ["cea-coal-aggregate-proxy-fy22"]
     },
     {
       "indicator_id": "national-installed-capacity-mw-gas",
@@ -580,7 +581,8 @@
       "dimension_values": {
         "fuel_type": "renewable"
       },
-      "source_id": "src-092a5dc7af3f"
+      "source_id": "src-092a5dc7af3f",
+      "methodology_break_ids": ["mnre-offgrid-inclusion-2021-08"]
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw",
@@ -620,7 +622,8 @@
       "dimension_values": {
         "fuel_type": "coal"
       },
-      "source_id": "src-ba5c6fa6acfe"
+      "source_id": "src-ba5c6fa6acfe",
+      "methodology_break_ids": ["cea-coal-aggregate-proxy-fy22"]
     },
     {
       "indicator_id": "state-installed-capacity-geographical-mw-gas",
@@ -700,7 +703,8 @@
       "dimension_values": {
         "fuel_type": "renewable"
       },
-      "source_id": "src-ba5c6fa6acfe"
+      "source_id": "src-ba5c6fa6acfe",
+      "methodology_break_ids": ["mnre-offgrid-inclusion-2021-08"]
     },
     {
       "indicator_id": "state-installed-capacity-allocated-mw",
