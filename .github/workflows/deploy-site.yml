@@ -86,13 +86,16 @@ jobs:
         # The bundle that ships: frontend/dist/ + datasets/ mounted at
         # /data/. The sanity check enforces the dev-time middleware
         # contract (frontend/data-loading.md) at deploy time. Target is
-        # the canonical store (election_results.parquet) — the legacy
-        # per-state JSON shards retired in PR-O.4 (TODO row 1.8b-ii).
+        # the canonical store, now state-partitioned (post PR #63 /
+        # T.0a row 1.8b-iii): elections/state=<key>/election_results.parquet.
+        # TN (S22) is the canonical first-slice state per CLAUDE.md and is
+        # always present; asserting on it doubles as a smoke check that the
+        # partitioned layout shipped, not the pre-pivot monolith.
         run: |
           mkdir -p _site
           cp -r frontend/dist/. _site/
           cp -r datasets _site/data
-          test -f _site/data/elections/election_results.parquet
+          test -f _site/data/elections/state=in_s22/election_results.parquet
 
       - uses: actions/configure-pages@v5
 
@@ -157,16 +160,17 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: smoke check (deployed election_results.parquet)
-        # Round-trips the deployed bundle: fetch the canonical Parquet
-        # from the live URL and assert it is a real Parquet payload
-        # (PAR1 magic header at offset 0 + at offset -4). Defends the
-        # Pages MIME / Range-request contract that DuckDB-WASM depends
-        # on for the frontend reader (see deployment.md). The legacy
-        # per-state result.summary.json smoke target retired in PR-O.4
-        # (TODO row 1.8b-ii).
+        # Round-trips the deployed bundle: fetch one canonical Parquet
+        # partition from the live URL and assert it is a real Parquet
+        # payload (PAR1 magic header at offset 0 + at offset -4).
+        # Defends the Pages MIME / Range-request contract that
+        # DuckDB-WASM depends on for the frontend reader (see
+        # deployment.md). Post PR #63 (T.0a), elections is state-
+        # partitioned at elections/state=<key>/election_results.parquet;
+        # TN (S22) is the canonical first-slice state per CLAUDE.md.
         run: |
           base="${{ steps.deployment.outputs.page_url }}"
-          url="${base}data/elections/election_results.parquet"
+          url="${base}data/elections/state=in_s22/election_results.parquet"
           for i in 1 2 3; do
             if curl -fsSL "$url" -o /tmp/election_results.parquet; then break; fi
             sleep 10

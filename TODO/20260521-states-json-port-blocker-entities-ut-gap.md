@@ -1,12 +1,16 @@
 # 2026-05-21 — handover: states.json port blocked by entities.json UT coverage gap
 
-> **Status (originally 2026-05-21):** AUTONOMOUS-UNSAFE BLOCKER. Surfaced 2026-05-21 during T.0c-ii consumer-port arc (PR #73 closeout). Branch `feat/canonical-pivot-T0c-ii-states-json-port` was opened, the parity audit ran, the blocker was identified, the branch was abandoned. **No code shipped from the port itself; this handover doc is the only artifact.**
+> **Phase A: ✅ COMPLETE** — PR `feat/canonical-pivot-t0c-ii-phase-a-entities-ut-gap` (branch off `66ca264b`), 2026-05-21.
 >
-> **UPDATE 2026-05-21 (next session, Path B per orchestrator):** Phase A landed via PR #75 (merge `5d82a276`). Audit-then-act: the 7 UT entries flagged "missing" turned out to be **ALREADY HAND-AUTHORED** in `taxonomy/entities.json` (U01 A&N, U02 Chandigarh, U03 DNH+DD merger, U04 Lakshadweep, U05 NCT Delhi, U07 Puducherry, U08 J&K UT, U09 Ladakh + U03-OLD and U06 as historical predecessors). `emit-taxonomy` ran clean (`entities.parquet` byte-stable at 185 rows). New parity oracle `backend/tests/test_states_parity.py` (4 tests, 192 LOC) asserts current-shape parity between `states.json` and `entities.json` with one whitelisted name deviation (`U08: "Jammu and Kashmir" vs "Jammu and Kashmir (UT)"` — temporal-aware disambiguation from historical `S09` row). §12 envelope per-row source_id deferred to Phase A.5 (schema v1.1→v1.2 + Pydantic + 8 MoHA-notification sources too much scope for the unblock PR).
+> The 7-UT gap in `datasets/taxonomy/entities.json` was filled (U01, U02, U03, U04, U05, U07, U08, U09 + U03-OLD + U06 historical predecessors). `entities.parquet` regenerated (185 rows, byte-stable post-emit because the JSON rows were already authored prior to this PR). New parity oracle `backend/tests/test_states_parity.py` (4 tests, 0.16s) wired in as the back-stop for Phase B + Phase C. One legitimate name deviation documented via `ALLOWED_NAME_DEVIATIONS` frozenset: `U08` carries the `"(UT)"` suffix in `entities.json` (`"Jammu and Kashmir (UT)"`) to disambiguate from the pre-2019 historical state `IN-S09`. Backend pytest: 775 passed / 41 skipped. Tier-B validator: 0 issues. Frontend vitest: 16,059 passed / 6 skipped (unchanged).
 >
-> **CI-bug archaeology (incidental but unblocked the live citizen site for first time in ~6 merges):** the workflow `.github/workflows/deploy-site.yml` had stale `test -f _site/data/elections/election_results.parquet` paths from before PR #63's state-partition pivot — every PR since had merged in UNSTABLE state with the build-citizen-site job failing first, MASKING a separate Playwright regression in `Constituency.svelte` where `data-testid="candidate-biographics"` was wrapped in `{#if c.bio}` and never rendered when bio data was null. Fixed in PR #76 (workflow paths → `state=in_s22/election_results.parquet`, merge `166ffab4`) + PR #77 (drop `{#if c.bio}` guard, always render testid with "Not declared" fallback, merge `957735b7`). All three PRs (#75 → #76 → #77 reverse-chronological merge order: #77, #76, #75) shipped same day.
+> **Phase A.5 (deferred)** — schema bump `entity.schema.json` v1.1 → v1.2 to add per-row `source_id` referencing `sources.parquet` (the citation ledger). The 8 UT rows authored in Phase A do not currently carry §12 envelope (entity rows have been genuinely exempt from §12 to date; CLAUDE.md §12 references "observation rows", and dim/taxonomy rows have ridden file-level conventions). Decision to ship this as Phase A was **Path B** (data-fill only, no schema change) per orchestrator guidance, because Path A would have required schema bump + Pydantic model widening + 8 MoHA-notification source rows with URL verification on `indiacode.nic.in`, ballooning the PR. Phase A.5 lifts the deferred work into its own PR with full schema-bump discipline. See Phase A.5 entry below.
 >
-> **Phase B (backend consumer port) is NEXT and SAFE** — `coverage.py STATES_REL` + `tools/lgd/backfill_lgd_codes.py STATES_JSON` + `backend/yen_gov/sources/india_geodata/power_plants.py` + `backend/tests/test_datasets_integrity.py STATES_REGISTRY_PATH` all repoint to `datasets/taxonomy/entities.json` with `entity_type IN ('state','ut') AND entity_valid_to IS NULL` filter. No browser smoke needed. Phase C (frontend port + states.json delete + §13 browser smoke) is the autonomous-unsafe one that follows.
+> **Phase B (backend consumer port)** and **Phase C (frontend port + states.json deletion + §13 browser smoke)** remain NOT started.
+
+---
+
+> **Status:** AUTONOMOUS-UNSAFE BLOCKER. Surfaced 2026-05-21 during T.0c-ii consumer-port arc (PR #73 closeout). Branch `feat/canonical-pivot-T0c-ii-states-json-port` was opened, the parity audit ran, the blocker was identified, the branch was abandoned. **No code shipped from the port itself; this handover doc is the only artifact.**
 
 ## TL;DR
 
@@ -65,16 +69,20 @@ Each row below collapses what `states.json` already carries (current-only metada
 
 ## Plan for the next session
 
-**Phase A — fill the UT gap in taxonomy/entities.json (data-authorship PR).**
+**Phase A — fill the UT gap in taxonomy/entities.json (data-authorship PR). ✅ COMPLETE.** See top-of-doc status block; Phase A shipped via the `feat/canonical-pivot-t0c-ii-phase-a-entities-ut-gap` branch. The §12 envelope addition (per-row `source_id` referencing the citation ledger) was descoped from this PR and lifted into Phase A.5 (see below).
 
-1. Hand-author 7 new UT rows (8 if U09 needs the J&K-historical split) per the table above. Use `tools/inspect_states_parity.py` (re-create from this doc's audit-script section) to verify post-edit parity.
-2. Add 8 MoHA-notification sources to `taxonomy/entities.json.sources[]` with URLs to indiacode.nic.in.
-3. Bump `taxonomy/entities` schema if needed (probably not — current schema supports all the fields).
-4. Regenerate `datasets/taxonomy/entities.parquet` via `emit-taxonomy`.
-5. Update `datasets/manifest.json` row count.
-6. Re-run parity audit; assert zero missing UTs.
-7. Pytest + vitest + validate.
-8. PR, request review (Hans-Governance for sourcing rigour), merge.
+**Phase A.5 — provenance-additive entity.schema.json bump v1.1 → v1.2 (deferred from Phase A).**
+
+1. Schema additive bump v1.1 → v1.2 adding optional `source_id` per-row, matching the `^src-[0-9a-f]{12}$` pattern used by §12 v2.0 citation ledger (ADR-0032).
+2. Pydantic model in `backend/yen_gov/core/models.py` (`EntityRow` or equivalent) widens to accept the new field.
+3. Emit 8 `sources.parquet` rows for the MoHA notifications cited in the Phase A authoring (States Reorganisation Act 1956, Punjab Reorganisation Act 1966, DNH-DD Merger Act 2019, Constitution 69th Amendment 1991, Constitution 14th Amendment 1962, J&K Reorganisation Act 2019, etc.) — each row built via `backend/yen_gov/canonical/citation.derive_source_id` with `(producer="Government of India / Ministry of Home Affairs", title=<Act long title>, vintage=<year>)`. URL verification on `https://www.indiacode.nic.in/` before adding (do NOT cite Wikipedia — same discipline as §12 v2.0).
+4. Stamp the new optional `source_id` field on each of the 8 UT rows + 2 historic predecessor rows authored in Phase A.
+5. Regenerate `entities.parquet` + `sources.parquet`, regen `manifest.json` row counts.
+6. ADR-0033 (or next free) recording the schema bump rationale + the OWID-source-row precedent.
+7. Tier-A pytest + Tier-B validator + frontend vitest gates.
+8. Update lessons.md if anything new is learned in the source-row authoring loop.
+
+The deferral is justified because: (a) Path A would have stalled the Phase B + Phase C unblock waiting on source authoring (Phase A's mandate was "unblock the port"); (b) Phase A.5 is a focused-scope schema-bump PR that can be reviewed with full Hans-Governance attention on sourcing rigour; (c) the existing v1.1 schema already permits `additionalProperties: true` for forward compatibility, so the Phase A rows are not invalid against v1.1 today — adding `source_id` later is genuinely additive.
 
 **Phase B — port the 4 backend consumers (mechanical repoint).**
 
