@@ -1,6 +1,6 @@
 # The schema is the design system
 
-**Last Updated**: 2026-05-11
+**Last Updated**: 2026-05-22 (chart-package policy added; original 2026-05-11)
 
 This is a permanent guardrail for yen-gov. It captures the UI/UX standing position formalised during the [IA reset](../../TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) (2026-05-11) and made structural by [ADR-0022](../architecture/decisions/0022-place-first-ia-with-topic-catalogue.md).
 
@@ -62,6 +62,19 @@ When the closed set is genuinely insufficient — and only then — the path is:
 3. Add the new renderer to this doc's closed set.
 
 The order matters: schema first (so the contract describes the affordance), then renderer. Renderer-first additions are how the schema-as-design-system rule erodes.
+
+## External chart packages
+
+**Reaffirmed 2026-05-22** (Phase 0 of [TODO/20260518-frontend-charting-modernisation-plan.md](../../TODO/20260518-frontend-charting-modernisation-plan.md), resolution **R-01**). External chart libraries (ECharts, Plotly, Highcharts, Recharts, Visx, Chart.js) are **not** a parallel route into yen-gov's chart surface. The rule that protects the schema-as-design-system contract:
+
+- **Citizen-facing code consumes a yen-gov view-model, never a library's spec-object.** A page that hand-authors an ECharts `option = { xAxis, yAxis, series }` or a Recharts JSX tree has stepped outside the closed renderer set. The library's chart-spec grammar must not appear in route components, indicator pages, or topic landings.
+- **Library-backed renderers are permitted only behind a yen-gov adapter.** The adapter's input is a view-model derived from the indicator schema; the library is implementation detail. The adapter hides the library's default toolbar, theme switcher, "save as image" button, and any other chrome that would diverge from yen-gov's design language.
+- **Each library-backed renderer earns an ADR before joining the closed set**, exactly like a from-scratch renderer, and counts against the "≥ 2 indicators need this" bar in the extension procedure above.
+- **One escape-hatch is a measured cost; two is a tax.** ECharts is reserved as the escape-hatch for temporal `dataZoom` on long time-series (gated by a Phase 0.5 bundle-size measurement). Adding a second library to the same bundle requires its own ADR explaining why an existing renderer cannot serve the need.
+
+The deeper reason: chart libraries optimise for a world where the chart-spec is the canonical artifact a designer authors per chart. yen-gov optimises for a world where the *indicator schema* is the canonical artifact, and charts are derived from it. Every library carries its own optimisation; when two optimisations point in opposite directions, mixing them produces neither — citizens see inconsistent chrome, the maintainer pays the cost of context-switching between vocabularies, and the honesty fields stop propagating structurally.
+
+For the operational corollary (which library calls live where, when ECharts is permitted as an escape-hatch, what gets rejected at PR), see [`docs/architecture/frontend/overview.md`](../architecture/frontend/overview.md) §"Chart framework and library policy".
 
 ## Honesty fields are renderer guards, not opt-ins
 

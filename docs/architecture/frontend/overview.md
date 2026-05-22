@@ -1,6 +1,6 @@
 # Frontend Overview
 
-**Last Updated**: 2026-05-13 (revision 3: P3.3c — grouped IA in LeftRail, StatePill replaces always-open ScopePicker, killed verbs documented)
+**Last Updated**: 2026-05-22 (revision 4: chart framework + library policy reaffirmed; revision 3 2026-05-13 P3.3c grouped IA in LeftRail, StatePill replaces always-open ScopePicker, killed verbs documented)
 
 The frontend is a static Svelte 5 + Vite + Tailwind + d3 bundle that renders election artifacts from [`datasets/`](../../../datasets/). It has no production backend (CLAUDE.md Holy Law #1) and never commits data files (§4). Built with `bun`. Routed with a tiny custom hash router.
 
@@ -238,6 +238,28 @@ Specifics worth knowing:
 - **React + Vite.** Viable, but Svelte's reactivity model maps more directly to "render this JSON" without state-management ceremony, and the compiled output is smaller for chart-heavy pages.
 - **Echarts / Chart.js.** Rejected for the first slice. They bundle their own SVG/canvas renderer and theme system; d3 lets us compose minimal SVG that matches Tailwind classes directly.
 - **npm or pnpm.** Viable. bun chosen for install speed and a single-binary toolchain; switching is a lockfile regen if it ever becomes a constraint.
+
+## Chart framework and library policy
+
+**Last reaffirmed 2026-05-22** (Phase 0 of [TODO/20260518-frontend-charting-modernisation-plan.md](../../../TODO/20260518-frontend-charting-modernisation-plan.md), resolution **R-01**). The chart-framework question was re-opened in May 2026 — would yen-gov gain anything by adopting ECharts, Plotly, Highcharts, Recharts, or Visx as a default chart engine? The answer is **no**, and the policy below is the canonical reference any future "let's add a chart library" PR is measured against.
+
+**What ships**: the closed Svelte-5 + d3 renderer set defined in [`docs/concepts/schema-is-the-design-system.md`](../../concepts/schema-is-the-design-system.md). Every citizen-facing chart on a public route is one of those renderers, authored in this repository, consuming a yen-gov view-model (per Holy Law #3 — contracts before logic).
+
+**What is permitted, conditionally**:
+
+- An external chart library MAY be used as the rendering engine *inside* a yen-gov renderer when it removes >50 lines of custom SVG/canvas plumbing AND the renderer is added to the closed set via an ADR per the schema-as-design-system extension procedure. The renderer's public API is still a yen-gov view-model — the library is implementation detail, not API.
+- ECharts specifically is permitted as an **escape-hatch** for the one citizen interaction custom-built d3 cannot deliver economically — temporal `dataZoom` on long time-series. This is gated by a Phase 0.5 measurement (Holy Law #1: static-only output, must measure the bundle-size cost before adopting) and ships behind a wrapper that hides ECharts' generic toolbar chrome.
+
+**What is rejected at PR**:
+
+- **Library-as-default for new charts.** Choosing ECharts / Plotly / Highcharts / Recharts / Visx as the default chart engine for a new indicator family. Each library has its own chart-spec grammar; adopting one creates a parallel design system that bypasses the schema-as-design-system rule. Citizens get inconsistent chrome (one chart's tooltip looks like ECharts, another's looks like d3); the maintainer doubles the surface area; the honesty banners stop propagating structurally.
+- **Library-specific spec-objects in citizen-facing code.** A page that hand-authors `option = { xAxis: {...}, yAxis: {...}, series: [...] }` (ECharts), `data = [{...}]; layout = {...}` (Plotly), or `<LineChart><XAxis/><YAxis/><Line/></LineChart>` (Recharts) leaks the library's grammar into the surface. The page must consume a yen-gov view-model; library calls live inside the renderer or its adapter.
+- **Multiple chart libraries in one bundle.** One escape-hatch library is a measured cost; two becomes a tax on every build and a vocabulary the maintainer must context-switch between.
+- **Framework change away from Svelte 5 + Vite.** Re-opening the framework choice is out of scope for the chart modernisation work. It would require its own ADR and is not justified by chart needs alone.
+
+**Decision rationale**: chart libraries optimise for "this team has 50 indicators and 5 designers, and the chart spec is the canonical artifact". yen-gov optimises for "this team has 1 maintainer + AI assistance and 30+ indicators, and the *indicator schema* is the canonical artifact, with charts derived from it". Those two optimisations point in opposite directions — when the schema is the design system, every chart library becomes a competing source of truth.
+
+See also: [`docs/concepts/schema-is-the-design-system.md`](../../concepts/schema-is-the-design-system.md) §"External chart packages", [TODO/20260518-frontend-charting-modernisation-plan.md](../../../TODO/20260518-frontend-charting-modernisation-plan.md) resolutions R-01..R-09 and R-26.
 
 ## History routing with slug URLs (custom, no router lib)
 

@@ -1,6 +1,8 @@
 # StackedTrend chart
 
 > **Status**: design draft 2026-05-14 (Level-4 cross-cutting), revised after Gregor / UI-UX / Citizen review same day. Confidence target ≥ 90% before code. Component target path: [`frontend/src/lib/charts/StackedTrend.svelte`](../../../../frontend/src/lib/charts/).
+>
+> **Status update 2026-05-22**: the v1 design captured below is the *baseline*. A larger frontend chart-modernisation plan ([TODO/20260518-frontend-charting-modernisation-plan.md](../../../../TODO/20260518-frontend-charting-modernisation-plan.md)) supersedes the v1 scope with a v2 contract — see §"v2 contract and implementation gaps" below before starting any new work on this chart. The schema bump described here (`indicator.chart_type`, v1.1 → v1.2) and the closed-renderer policy still apply; the data-shape inputs change under the canonical-pivot interlock (resolutions R-18..R-31 in the plan).
 
 ## What it is
 
@@ -512,6 +514,43 @@ Each `ConstituencyResult` becomes a bar (`period_id = result.election`, `kind = 
 - Mobile horizontal-bar mode for spatial-many-entities case (energy-by-state on phone). v1 ships best-effort responsive vertical bars; the full mobile UX is a separate piece of work tracked under §14 of CLAUDE.md.
 - Print/PDF export.
 - Touch-tap detail bottom sheet (separate from segment-tap readout).
+
+## v2 contract and implementation gaps
+
+**Added 2026-05-22** as the bridge between this v1 design and the v2 work tracked in [TODO/20260518-frontend-charting-modernisation-plan.md](../../../../TODO/20260518-frontend-charting-modernisation-plan.md). The intent of this section is to give the next agent a single place to see "what's in this doc that is still authoritative" vs "what is superseded".
+
+Authoritative from this v1 doc (do not re-litigate):
+
+- The component is a **single** primitive serving multiple domains — elections, energy, fiscal, scheme outlays, demography. Per-domain forks rejected; closed-renderer rule (`docs/concepts/schema-is-the-design-system.md`) applies.
+- View-model contract validated by **zod at runtime**, not by JSON Schema (the view-model is in-memory only; CLAUDE.md §11 schemas are for files at rest).
+- **Headline rule is enum-typed** even though v1 implements one rule. Future rule additions become config, not refactor.
+- **`__OTHER__` always at the top of the stack**, neutral grey (`#9ca3af`). Citizen learns the convention once.
+- **Dimensions registry mandatory**; silent fallthrough to grey is forbidden. A missing dimension is a contract violation, not a render fallback.
+- **Plain-language source attribution** ("Election Commission of India (results.eci.gov.in)", not "ECI"); plain-English everywhere citizen-facing.
+
+Gaps the v2 plan closes (not yet shipped — DO NOT assume they exist when reading this doc):
+
+| Gap | v1 status | v2 target | Plan reference |
+| --- | --- | --- | --- |
+| **Data source** | reads bespoke composed indicator JSON (e.g. `installed_capacity_by_source_mw.json`) | reads canonical Parquet via DuckDB-WASM + view-model from manifest-`table_id` | R-18..R-21, R-27, R-28 |
+| **Mode toggle (percent / absolute)** | designed, not implemented | implemented; default per-indicator from schema; URL bound | Phase 2.1, R-08 |
+| **Segmented mode chrome** | not specified beyond "toggle" | segmented control (percent · absolute · zoom for time series), single shared component | Phase 2.1, Phase 0.5 |
+| **Pinned readout panel** | designed (above-chart, snap-to-band) | implemented; replaces hover tooltip on stacked surfaces | Phase 2.3, R-13 |
+| **3-tier label rule** (inline / leader-line / legend-only) | designed | implemented; 3–6% range uses leader-line tier | Phase 2.3 |
+| **`availability` 3-state** (`present` / `not_applicable` / `missing`) | designed at view-model level | implemented; `not_applicable` renders hatch fill, `missing` renders empty band with caption | Phase 2.4, R-12 |
+| **Subtle motion policy** | "initial render no animation; mode-switch 200ms heights only; hover snap-to-band" | implemented per spec; honours `prefers-reduced-motion` | Phase 2.5, R-14 |
+| **Export control** | not specified | yen-gov export menu (PNG download + cite-this-chart copy-to-clipboard); no library-provided "save as image" toolbar | Phase 2.6, R-15 |
+| **Honesty layer** | mirrors `IndicatorChoropleth` | bumped: series-break dashed marker between bars; comparability banner from indicator; methodology vintage caption | Phase 2.7, R-16 |
+| **Adapters** | `adapter-indicator.ts` + `adapter-elections.ts` reading bespoke JSON | regenerated from canonical Parquet view-models; tested against fixtures pinned by manifest-`table_id` | Phase 2.2, R-18..R-21 |
+| **Backend Aggregator (ADR-0024)** | proposed for energy proof-of-value | superseded by canonical-pivot adapters (per P.1 energy pivot, `backend/yen_gov/canonical/adapters/energy/`); ADR-0024 archived once P.1 lands | Plan §"Canonical-pivot interlock" |
+| **`indicator.chart_type` enum** | proposed (v1.1 → v1.2 schema bump) | absorbed into v2 indicator catalogue (`renderer` field on `taxonomy.indicators`); old schema bump no longer applied | T.3 catalogue widening (PR #98) |
+
+Operational guardrails any v2 implementer must honour:
+
+- **No new JSON projections of the canonical Parquet.** Reading must go through DuckDB-WASM + a manifest-resolved `table_id`. Pre-pivot per-shard JSON files are out of contract (CLAUDE.md §10).
+- **No hardcoded `/data/<...>.parquet` paths.** Resolve via `datasets/manifest.json` `tables[].files[].path` per R-21/R-28.
+- **No fetch-telemetry fields in citizen-facing chrome.** The `SourceList` footer must consume only v2.0 ledger fields (`producer`, `title`, `vintage`, `license`, `confidence_tier`, `is_issuing_authority`, `verification_method`, `url_main`, optional `citation_full`) per ADR-0032 and R-24. Never `first_fetched_at` / `last_seen_at` / `content_hash` / `date_accessed`.
+- **Coordination-gate four facts** must be recorded in any PR body that mutates `taxonomy.indicators`, `taxonomy.topics`, `taxonomy.facet_axes`, or `taxonomy.sources` (R-25).
 
 ## Tests
 
