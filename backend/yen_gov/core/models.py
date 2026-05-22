@@ -123,9 +123,10 @@ class Election(_Artifact):
 # UT roster now lives as `entity_type IN ('state','ut')` rows on
 # `datasets/taxonomy/entities.json` / `entities.parquet` (Pydantic mirror
 # pending; current backend consumers — `coverage.py`,
-# `india_geodata/power_plants.py`, `lgd/backfill_lgd_codes.py`,
-# `test_datasets_integrity.py` — read the JSON directly via the Phase B
-# `_load_states_from_entities` helper pattern).
+# `india_geodata/power_plants.py`, `test_datasets_integrity.py` — read the
+# JSON directly via the Phase B `_load_states_from_entities` helper pattern).
+# The `lgd/backfill_lgd_codes.py` consumer named in earlier revisions of
+# this comment was retired in T.0c-iii Phase D.2 as a sibling to ADR-0033.
 
 
 # --- districts collection (retired) ----------------------------------------

@@ -121,4 +121,3 @@ Disk layout sits OUTSIDE the LGD `geojson/` tree to make the orthogonality visib
 - [`datasets/schemas/boundary.villages_index.schema.json`](../../../datasets/schemas/boundary.villages_index.schema.json) — v1.0.
 - [`datasets/schemas/postal.schema.json`](../../../datasets/schemas/postal.schema.json) — v1.0 (Phase 4 §160 — pincode registry; structural-only landing).
 - [`tools/lgd/snapshot.py`](../../../tools/lgd/snapshot.py) — LGD CSV fetcher.
-- [`tools/lgd/backfill_lgd_codes.py`](../../../tools/lgd/backfill_lgd_codes.py) — district name → LGD code bridge.
