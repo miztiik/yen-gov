@@ -1,8 +1,7 @@
 """URL conventions for en.wikipedia.org pages we scrape.
 
-Two page families today:
+One page family today:
 
-  - "List of districts of <State>"                       → districts page
   - "List of constituencies of the <State> Legislative Assembly"
                                                          → AC constituencies
 
@@ -13,6 +12,12 @@ Per docs/architecture/backend/sources-wikipedia.md we map ECI state code → Wik
 adapter-local table, NOT via a generic name-lookup. The mapping is finite
 (36 states/UTs), changes never, and an explicit table fails loudly when
 asked about a missing state.
+
+Note: the "List of districts of <State>" page family is no longer scraped.
+The wikipedia districts adapter retired in T.0c-iii Phase D.1 (ADR-0033);
+district identity now comes from the LGD-sourced canonical taxonomy in
+`datasets/taxonomy/entities.json`. `districts_url()` was removed in the
+same change.
 """
 
 from __future__ import annotations
@@ -82,16 +87,10 @@ def _slug(article_title: str) -> str:
     return quote(article_title.replace(" ", "_"), safe="_(),")
 
 
-def districts_url(state_code: str) -> str:
-    """Wikipedia 'List of districts of <State>' article."""
-    state = _wiki_state_name(state_code)
-    return f"{WIKIPEDIA_BASE}/{_slug(f'List of districts of {state}')}"
-
-
 def ac_constituencies_url(state_code: str) -> str:
     """Wikipedia 'List of constituencies of the <State> Legislative Assembly' article."""
     state = _wiki_state_name(state_code)
     return f"{WIKIPEDIA_BASE}/{_slug(f'List of constituencies of the {state} Legislative Assembly')}"
 
 
-__all__ = ["WIKIPEDIA_BASE", "ac_constituencies_url", "districts_url"]
+__all__ = ["WIKIPEDIA_BASE", "ac_constituencies_url"]

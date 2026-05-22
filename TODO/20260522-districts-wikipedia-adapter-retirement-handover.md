@@ -1,6 +1,39 @@
 # 2026-05-22 — handover: T.0c-iii districts arc — Phase C paused, Phase D arc scoped
 
-> **Status:** Phase A (PR #81, `a3d45611`) and Phase B (PR #82, `2c9d9712`) are MERGED. Phase C as originally scoped in `TODO/20260517-canonical-long-format-pivot.md §0e.10.4` row 318 is **PAUSED** pending a multi-PR Phase D arc. **No destructive changes shipped in this doc-only PR.** The 6 per-state `districts.json` files + `district.schema.json` remain on disk untouched.
+## D.1 outcome (2026-05-22)
+
+**Chosen path: D.1.c — retire the wikipedia districts adapter entirely.** Hans + Max + Gregor consulted in parallel as custom-agent subagents (per CLAUDE.md §0a authority assignment for data-shape questions); recommendation was unanimous. See [ADR-0033](../docs/architecture/decisions/0033-retire-wikipedia-districts-adapter.md) for full rationale, Bootstrap-Filter framing (Gregor), OWID precedent (Max), and the four rejected alternatives.
+
+**Branch**: `feat/wikipedia-districts-adapter-retire` (this commit). **Files touched** (13 files):
+
+- DELETED: `backend/yen_gov/sources/wikipedia/districts.py`
+- Modified: `backend/yen_gov/sources/wikipedia/urls.py` (removed `districts_url()`)
+- Modified: `backend/yen_gov/core/models.py` (removed `DistrictEntry` + `DistrictsCollection`; retirement comment in place)
+- Modified: `backend/yen_gov/core/schema_registry.py` (docstring example switched to `ConstituenciesCollection`)
+- Modified: `backend/yen_gov/pipeline/reference.py` (added `_district_lookup_from_entities()`; dropped districts fetch+parse+write; added `entities_path` param to `scrape_state_reference()`)
+- Modified: `backend/yen_gov/cli.py` (`reference` command docstring + `entities_path` wiring + echo strip)
+- Modified: `backend/tests/test_core_models.py` (deleted `test_districts_collection_round_trip`; retirement comment)
+- Modified: `backend/tests/test_sources_wikipedia_live.py` (deleted `test_live_districts_tn`; trimmed `test_url_builders_for_tn` → `test_url_builder_for_tn`; rewrote `test_url_builder_rejects_unknown_state` against `ac_constituencies_url`)
+- Modified: `docs/architecture/backend/sources-wikipedia.md` (retirement banner + modules-row delete + district parser section retirement + district-name resolution section sourced from entities.json)
+- Modified: `docs/architecture/data-model.md` (District key entry switched to LGD; districts.json sentence updated)
+- NEW: `docs/architecture/decisions/0033-retire-wikipedia-districts-adapter.md`
+- Amended: this handover doc (D.1 outcome section above)
+- Amended: `TODO/20260517-canonical-long-format-pivot.md` row 318 (D.1 marked DONE)
+
+**Non-deletion**: `tools/lgd/backfill_lgd_codes.py` + `backend/tests/test_lgd_backfill.py` + the 6 per-state `districts.json` files + `district.schema.json` remain on disk. They go in Phase D.2 + Phase D.3 respectively. The schema file is no longer referenced from any Python code path (the only caller — the deleted `DistrictsCollection._schema_id = schema_id("district.schema.json")` — is gone).
+
+**Verification**:
+- `backend/yen_gov/` repo-wide grep for `DistrictsCollection|parse_districts|districts_url|DistrictEntry` returns zero live (non-comment) hits.
+- Tier-A: every `*.schema.json` still validates against the meta-schema.
+- Tier-B: `python -m yen_gov validate --root .` — to be re-run before commit.
+- pytest backend: to be re-run before commit.
+- vitest frontend: to be re-run before commit.
+
+**§13 browser smoke**: not applicable — backend-only change with zero frontend runtime surface.
+
+---
+
+> **Status (pre-D.1):** Phase A (PR #81, `a3d45611`) and Phase B (PR #82, `2c9d9712`) are MERGED. Phase C as originally scoped in `TODO/20260517-canonical-long-format-pivot.md §0e.10.4` row 318 is **PAUSED** pending a multi-PR Phase D arc. **No destructive changes shipped in this doc-only PR.** The 6 per-state `districts.json` files + `district.schema.json` remain on disk untouched.
 >
 > **Why paused:** Phase C was scoped as `git rm` of 6 data files + 1 schema, on the premise that Phase B made them orphans. A pre-deletion grep audit (per the 2026-05-21 lesson "audit ALL of backend/, tools/, docs/, admin/ before `git rm` of any file under `datasets/`") surfaced 9 live consumers including an **import-time crash risk** that would have broken every `pytest` collection. The audit worked exactly as the lesson predicted: it stopped a destructive operation that would have been caught only after CI ran.
 >

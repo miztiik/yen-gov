@@ -128,32 +128,17 @@ class Election(_Artifact):
 # `_load_states_from_entities` helper pattern).
 
 
-# --- districts collection ---------------------------------------------------
-
-class DistrictEntry(_Strict):
-    id: str = Field(min_length=1)
-    id_source: Literal["lgd", "wikipedia"]
-    name: str = Field(min_length=1)
-    headquarters: str | None = None
-    created_on: str | None = None  # date
-    split_from: list[str] | None = None
-    notes: str | None = None
-
-
-class DistrictsCollection(_Artifact):
-    """Mirrors datasets/schemas/district.schema.json. Version sourced via core.schema_registry.
-
-    Note: schema 3.2 added an optional `lgd_code` field on each district item
-    (populated by the LGD backfill tool). The field is not declared on
-    DistrictEntry yet — pydantic ignores absent optional fields, so 3.2
-    artifacts round-trip safely; declaring it on the model is a follow-up.
-    """
-
-    _schema_id = schema_id("district.schema.json")
-    _schema_version = schema_version("district.schema.json")
-
-    state: ECIStateCode
-    districts: list[DistrictEntry] = Field(min_length=1)
+# --- districts collection (retired) ----------------------------------------
+#
+# `DistrictEntry` / `DistrictsCollection` and the import-time bindings to
+# `datasets/schemas/district.schema.json` were deleted in T.0c-iii Phase D.1
+# of the wikipedia-districts-adapter retirement — see ADR-0033 and
+# `TODO/20260522-districts-wikipedia-adapter-retirement-handover.md`. District
+# identity now lives as `entity_type='district'` rows on
+# `datasets/taxonomy/entities.json` / `entities.parquet`, sourced from the
+# Local Government Directory (Ministry of Panchayati Raj) per CLAUDE.md §3.
+# The 6 per-state `districts.json` files and `district.schema.json` itself
+# remain on disk pending Phase D.3 deletion.
 
 
 # --- constituencies collection ----------------------------------------------
